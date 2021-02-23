@@ -1,5 +1,0 @@
-[run]
-branch = 1
-
-[report]
-omit = .tox*,*tests*,*migrations*

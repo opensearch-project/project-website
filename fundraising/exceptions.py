@@ -1,2 +1,0 @@
-class DonationError(Exception):
-    pass
