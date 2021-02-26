@@ -1,0 +1,40 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ROBOTS" content="ALL" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta name="Copyright" content="Django Software Foundation" />
+    <meta name="keywords" content="Python, Django, framework, open-source" />
+    <meta name="description" content="{{ page.description}}" />
+
+    {{ page.link_rel_tags }}
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="{{'assets/img/icon-touch.png' | relative_url }}">
+    <link rel="icon" sizes="192x192" href="{{'assets/img/icon-touch.png' | relative_url }}">
+    <link rel="shortcut icon" href="{{'assets/img/favicon.ico' | relative_url }}">
+    <meta name="msapplication-TileColor" content="#113228">
+    <meta name="msapplication-TileImage" content="{{'img/icon-tile.png' | relative_url }}">
+    
+    {% assign pagetitle = page.title | | strip_newlines %}
+    <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
+
+    <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
+    <script src="{{ 'assets/js/lib/webfontloader/webfontloader.js' | relative_url }}"></script>
+    <script>
+    WebFont.load({
+      custom: {
+        families: ['FontAwesome', 'Fira+Mono'],
+      },
+      google: {
+        families: ['Roboto:400italic,700italic,300,700,400:latin'
+        ]
+      },
+      classes: false,
+      events: false,
+      timeout: 1000
+    });
+    </script>
+    <script src="{{ 'assets/js/lib/modernizr.js' | relative_url }}"></script>
+    {{ page.head_extra }}
+  </head>

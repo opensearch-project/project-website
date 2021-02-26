@@ -460,7 +460,7 @@ blockquote {
     .logo {
         @include font-size(40);
         @include sans-serif;
-        background: url(../img/logo-django.png) 0 0 no-repeat;
+        background: url(../img/logo-search.png) 0 0 no-repeat;
         color: #FFF;
         display: block;
         float: left;
@@ -469,11 +469,11 @@ blockquote {
         overflow: hidden;
         text-decoration: none;
         text-indent: 100%;
-        width: 104px;
+        width: 170px;
         height: 36px;
 
         .mdzr-svg & { // deliver svg logo if applicable
-            background: url(../img/logo-django.svg) center center no-repeat;
+            background: url(../img/logo-search.svg) center center no-repeat;
         }
 
         @include respond-min(768px) {
@@ -941,7 +941,7 @@ blockquote {
     .logo {
         @include font-size(40);
         @include sans-serif;
-        background: url(../img/logo-django.png) 0 0 no-repeat;
+        background: url(../img/logo-search.png) 0 0 no-repeat;
         color: $green-dark;
         display: block;
         font-weight: 700;
@@ -957,9 +957,9 @@ blockquote {
         }
 
         .mdzr-svg & {
-            background: url(../img/logo-django.svg) center center no-repeat;
+            background: url(../img/logo-search.svg) center center no-repeat;
             height: 39px;
-            width: 109px;
+            width: $logo_width;
         }
     }
 
@@ -1576,7 +1576,6 @@ h2 + .list-link-soup {
 
 
 .list-features {
-    // Animated Feature List from the Why Django Page. Require looks for the 'list-features' class to load the appropriate scripts to animate the icons. Degrades gracefully into mobile.
 
     margin: 50px 0 40px;
 
@@ -1586,30 +1585,12 @@ h2 + .list-link-soup {
         padding-top: 25px;
     }
 
-    i {
-        color: $white;
-        margin-right: 10px;
-        width: 40px;
-        height: 40px;
-        border-radius: 25px;
-        background: $green;
-        line-height: 1.68em;
-        display: inline-block;
-        text-align: center;
-        &.icon-briefcase {
-            line-height: 1.7em;
-        }
-        &.icon-dashboard {
-            line-height: 1.5em;
-        }
-    }
-
     @include respond-min(768px) {
         padding-bottom: 40px;
 
         dt {
             margin-top: 60px;
-            padding: 60px 0 0 245px;
+            padding: 20px 0 0 0;
             position: relative;
 
             &:first-child {
@@ -1618,7 +1599,7 @@ h2 + .list-link-soup {
 
             &.even {
                 padding-left: 0;
-                padding-right: 245px;
+                padding-right: 0;
 
                 i {
                     left: auto !important;
@@ -1628,12 +1609,11 @@ h2 + .list-link-soup {
         }
 
         dd {
-            padding-left: 245px;
-            min-height: 140px;
+            padding-left: 0;
 
             &.even {
                 padding-left: 0;
-                padding-right: 245px;
+                padding-right: 0;
             }
         }
 
@@ -2492,6 +2472,7 @@ table.docutils td, table.docutils th {
         padding-top: 2px;
     }
 
+
     // Add document icon before list item link
     &.docs-list {
         list-style: none;
@@ -3058,8 +3039,8 @@ form .footnote {
             }
         }
         .hero-logo {
-            height: 170px;
-            line-height: 170px;
+            height: $logo_width;
+            line-height: $logo_width;
             img {
                 vertical-align: middle;
             }
@@ -3221,4 +3202,18 @@ ul.corporate-members li {
             margin-right: 10px;
         }
     }
+}
+
+.sidebar {
+    .feature-box {
+        .feature-content {
+            padding-right: 70px;
+        }
+        img {
+            height: 55px;
+            width: 55px;
+            float: right;
+        }
+    }
+
 }
