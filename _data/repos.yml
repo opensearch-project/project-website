@@ -1,0 +1,50 @@
+-
+    shortname: os
+    title: OpenSearch
+    description: The full-text search daemon forked from Elasticsearch 7.10.2
+    url: https://github.com/opensearch/opensearch
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
+      - 
+        title: Developer Guide
+        url: https://github.com/opendistro-for-elasticsearch/search/blob/Updating-CONTRIBUTING.md/DEVELOPER_GUIDE.md
+
+-
+    shortname: os-d
+    title: OpenSearch Dashboards
+    description: The user interface and visualization tool forked from Kibana 7.10.2
+    url: https://github.com/opensearch/opensearch-dashboards
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
+      - 
+        title: Developer Guide
+        url: https://github.com/opendistro-for-elasticsearch/search/blob/Updating-CONTRIBUTING.md/DEVELOPER_GUIDE.md
+
+-
+    shortname: docs
+    title: OpenSearch Documentation
+    description: The documentation for OpenSearch and OpenSearch Dashboards. Forked from the documentation for Elasticsearch and Kibana.
+    url: https://github.com/opensearch/documentation
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
+      - 
+        title: Build Guide
+        url: https://github.com/opendistro-for-elasticsearch/search/blob/Updating-CONTRIBUTING.md/DEVELOPER_GUIDE.md
+
+
+-
+    shortname: website
+    title: OpenSearch Website
+    description: The source to this website.
+    url: https://github.com/opensearch/opensearch.org
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
+      

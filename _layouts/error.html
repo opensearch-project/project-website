@@ -1,0 +1,10 @@
+---
+layout: default
+---
+{% capture header %} <h1>{{ page.errormessage }}</h1> {% endcapture %}
+
+{% include copy_banner.html %}
+<div class="container">
+    <h2> {{ page.errorhuman }} </h2>
+    {{content}}
+</div>

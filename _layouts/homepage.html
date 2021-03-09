@@ -1,78 +1,53 @@
 ---
 layout: default
 ---
-{% comment %} {% load weblog fundraising_extras %} {% endcomment %}
-
-{% capture sectionid %}homepage{% endcapture %}
-{% capture body_class %}homepage{% endcapture %}
-{% capture layout_class %}sidebar-right{% endcapture %}
 
 {% capture header %}
-  <h1 class="visuallyhidden">Django</h1>
-    <p>
-        <em>Django makes it easier to build better Web apps more quickly and with less code.</em>
-    </p>
-    <p>
-        <a href="" class="cta">Get started with Django</a>
-    </p>
-{% endcapture %}
+  {% comment%}<h1 class="visuallyhidden">OpenSearch</h1>
+  <p>
+      <em>{{ page.headline }}</em>
+  </p>
+  {% endcomment %} 
+  {% comment%}
+  <p>
+      <a href="" class="cta">get started</a>
+  </p>
+  {% endcomment %}
+{% endcapture %} 
+{% comment%}
+{% include copy_banner.html %}
+{% endcomment %}
+
 
 {% capture content %}
     <div class="section">
         <h1>{{ page.greeting }}</h1>
         <p>
-          {{ page.long_description }}
+          {{ page.long_description | markdownify }}
         </p>
-        <dl class="list-features">
-          {% for callout in page.callouts %}
-            <dt>{{callout.title}}</dt>
-            <dd><p>{{callout.description}}</p></dd>
-            </dd>
-          {% endfor %}
-
-          <a href="" class="cta outline">I want to know more about OpenSearch</a>
     </div>
-
-    {% comment %}
-
+    <div class="section headline">
+      <h1>{{ page.headline }} </h1>
+    </div> 
     <div class="section">
-        <h1>Who is Django for?</h1>
+    <dl class="{{ page.callouts_class }}">
+      <h2>{{ page.callouts_head }}</h2>
+      {% for callout in page.callouts %}
+        <dt>{{callout.title}}</dt>
+        <dd><p>{{callout.description}}</p></dd>
+        </dd>
+      {% endfor %}
 
-        <p>
-          You’ve probably used a site that uses Django. Find out why Django was the right solution for these organizations, and why you should start building your project with Django today.
-        </p>
-
-        <ul class="list-case-study">
-          <li>
-            <h3 class="logo" title="Mozilla">Mozilla</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
-            <a href="{% url 'case_study' %}">Read Case Study</a>
-          </li>
-          <li>
-            <h3 class="logo" title="Disqus">Disqus</h3>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a href="{% url 'case_study' %}">Read Case Study</a>
-          </li>
-          <li>
-            <h3 class="logo" title="Knight Foundation">Knight Foundation</h3>
-            <p>When the Knight Foundation began redesigning their <a href="https://www.knightfoundation.org">site</a>, they were on multiple content management systems they’d outgrown, with a site that couldn’t handle traffic spikes. Knight needed a future-proof solution.</p>
-            <a href="{% url 'case_study' %}">Read Case Study</a>
-          </li>
-        </ul>
-
-        <a href="{% url 'case_study_index' %}" class="cta outline">See all case studies</a>
-
+      <a href="{{ page.callout_button.url }}" class="cta outline">{{ page.callout_button.title }}</a>
     </div>
-
-    {% endcomment %}
 
 
 {% endcapture %}
 
 {% capture content_secondary %}
   <div class="section">
-  <h1>Stay in the loop</h1>
-  <p>Lorem ipsum look at the forums</p>
+    <h1>{{ page.secondary.heading }}</h1>
+    {{ page.secondary.content | markdownify }}
   </div>
 
   <!-- END #content-secondary -->
@@ -80,30 +55,38 @@ layout: default
 
 {% capture content_related %}
   <div role="complementary">
-      <a href="" class="cta">
-          Download OpenSearch {{ site.latest_version }}
-      </a>
-      <a href="#" class="link-readmore">OpenSearch documentation</a>
+      {% for cta in page.download_ctas %}
+      {% assign repo = site.data.repos | find: "shortname", cta %}
+        <a href="{{ repo.url }}" class="cta">
+          Get {{ repo.title }} {{ site.data.version.latest_version[cta] }}
+        </a>
+      {% endfor %}
+      {% comment %} this will switch to the docs site when build is done {% endcomment %}
+      {% assign docs = site.data.repos | find: "shortname", "docs" %}
+      <a href="{{ docs.url }}" class="link-readmore">{{ docs.title }}</a>
       
       <div class="feature-box">
         
-        <h3>Looking for Open Distro?</h3>
-        <img src="/assets/img/logo-opendistro.svg" alt="Open Distro Logo" />
+        <h3>{{ page.opendistro.head }}</h3>
+        <img src="{{ page.opendistro.img.url }}" alt="{{ page.opendistro.img.alt }}" />
         <div class="feature-content">
-          <p>Open Distro has been folded into the OpenSearch project.</p>
-          <a href="http://www.example.com/" class="link-readmore">Learn More</a>
+          <p>{{ page.opendistro.description }}</p>
+          <a href="{{ page.opendistro.link.url }}" class="link-readmore">{{ page.opendistro.link.title }}</a>
         </div>
         
       </div>
       
-      <h3>What's new?</h3>
-      {% for post in site.posts limit:5 %}
-        <div>
-          <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
-          <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-        </div>
-      {% endfor %}
-      <a href="#" class="link-readmore">More news</a>
+      <div class="whats-new">
+        <h3>What's new?</h3>
+        {% for post in site.posts limit:5 %}
+          <div class="whats-new-post">
+            <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+            <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          </div>
+        {% endfor %}
+        <a href="{{ '/blog' | relative_url }}" class="link-readmore">More news</a>
+      </div>
+      
       {% for sidebar_category in page.sidebar %}
         <h3>{{sidebar_category.title}}</h3>
         <ul class="list-links-small">
@@ -111,7 +94,7 @@ layout: default
           <li><a href="{{ link.url }}">{{ link.title}}</a></li>
           {% endfor %}
         </ul>
-        <a href="sidebar_category.more.url" class="link-readmore">{{sidebar_category.more.title}}</a>
+        {% if sidebar_category.more %} <a href="sidebar_category.more.url" class="link-readmore">{{sidebar_category.more.title}}</a> {%endif%}
       {% endfor %}
       
   </div>
@@ -119,22 +102,7 @@ layout: default
 {% endcapture %}
 
 {% capture alert %}
-  {% comment %}
-  <div role="alert">
-    <div class="container">
-      <dl>
-        <dt>
-          <i class="icon icon-bullhorn"></i>
-          <a href="#">Django Fundraising Drive 2014</a>
-        </dt>
-        <dd>
-          The quickest &amp; most fun way to support Django.
-          <a href="#" class="link-readmore">Learn more</a>
-        </dd>
-      </dl>
-    </div>
-  </div>
-  {% endcomment %}
+asdf
 {% endcapture %}
 
 {% include base_3col.html %}

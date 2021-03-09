@@ -65,7 +65,7 @@ dl {
     }
 
     dd {
-        margin: 0.2em 0 1.2em;
+        margin: 0;
         padding: 0;
         &:last-of-type {
             margin-bottom: 0;
@@ -584,10 +584,6 @@ blockquote {
             &:active, &:hover {
                 color: $green-very-light;
             }
-
-            @include respond-min(768px) {
-                padding: 20px 10px;
-            }
         }
 
         .nav-primary {
@@ -629,7 +625,7 @@ blockquote {
 }
 .copy-banner {
     // Large green callout at the top of the page
-    background: $green-medium;
+    background: #fff;
     padding: 1px 10px;
 
     @include respond-min(768px) {
@@ -1575,14 +1571,21 @@ h2 + .list-link-soup {
 }
 
 
-.list-features {
 
-    margin: 50px 0 40px;
+dl.list-features {
+    h2 {
+        margin: 0;
+    }
 
     dt {
         @include font-size(24);
         border-top: 1px solid $gray-line;
         padding-top: 25px;
+    }
+
+    dd p {
+        margin-bottom: 0;
+        padding: 0;
     }
 
     @include respond-min(768px) {
@@ -1753,14 +1756,14 @@ h2 + .list-link-soup {
         @include respond-min(768px) {
 
             dt {
-                padding: 20px 0 0px 110px;
+                padding: 20px 0 0px 0;
                 @include font-size(18);
                 border-top: 0;
                 margin-top: 0;
             }
 
             dd {
-                padding: 0 60px 20px 110px;
+                padding: 0;
                 min-height: 0;
                 p {
                     margin-top: 0;
@@ -3204,16 +3207,28 @@ ul.corporate-members li {
     }
 }
 
-.sidebar {
-    .feature-box {
-        .feature-content {
-            padding-right: 70px;
-        }
-        img {
-            height: 55px;
-            width: 55px;
-            float: right;
+.homepage {
+    .section.headline {
+        padding-bottom: 0;
+        h1 {
+            margin: 2em 1em;
+            text-align: center;
+            font-weight: 100;
         }
     }
+}
 
+@media screen and (max-width: 768px) {
+
+    [role="banner"] .nav-menu-on .small-nav {
+    
+        li {
+            line-height: 1.5em;
+            font-size: 1em;
+        }
+        li + li:before {
+            display: none;
+        }
+    
+    }
 }

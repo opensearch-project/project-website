@@ -1,0 +1,8 @@
+<div class="copy-banner">
+    <div class="container {{ page.header-classes }}">
+        {{ header }}
+        {% assign primary_title = page.primary_title | default: primary_title | default: '' %}
+        {% if primary_title.size > 0 %}<h1><a href="#">{{primary_title}}</a></h1>{% endif %}
+    </div>
+</div>
+<div id="billboard">{{ page.billboard }}</div>

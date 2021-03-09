@@ -1,0 +1,23 @@
+---
+layout: default
+primary_title: 'Source Code'
+---
+{% assign primary_title = site.headings.source %}
+
+{% include copy_banner.html %}
+
+
+<div class="container">
+    {{ content }}
+    <dl class="repos">
+    {% for repo in site.data.repos %}
+        <dt><a href="{{repo.url}}"><span class="icon icon-github"></span> {{repo.title}}</a></dt>
+        <dd>
+            <p>{{repo.description}}</p>
+            {% for special_file in repo.special_files %}
+                <a class="link-readmore" href="{{ special_file.url }}">{{ special_file.title }}</a>
+            {% endfor %}
+        </dd>
+    {% endfor %}
+    </dl>
+</div>
