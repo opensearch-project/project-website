@@ -12,5 +12,5 @@ OpenSearch has a long history at Amazon. At the 2005 O’Reilly Emerging Technol
 
 ## Open Search Foundation
 
-The Open Search Foundation is a European organization that is committed to laying “the ground for an open and free Internet search in Europe and beyond.” You can find the Open Search Foundation at [opensearchfoundation.org.](https://opensearchfoundation.org/)
+The Open Search Foundation is a European organization that is committed to laying “the ground for an open and free Internet search in Europe and beyond.” You can find the Open Search Foundation at [opensearchfoundation.org](https://opensearchfoundation.org/).
 
