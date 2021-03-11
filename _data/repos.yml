@@ -2,7 +2,7 @@
     shortname: os
     title: OpenSearch
     description: The full-text search daemon forked from Elasticsearch 7.10.2
-    url: https://github.com/opensearch/opensearch
+    url: https://github.com/opensearch-project/opensearch
     special_files:
       -
         title: Contributing
@@ -15,7 +15,7 @@
     shortname: os-d
     title: OpenSearch Dashboards
     description: The user interface and visualization tool forked from Kibana 7.10.2
-    url: https://github.com/opensearch/opensearch-dashboards
+    url: https://github.com/opensearch-project/opensearch-dashboards
     special_files:
       -
         title: Contributing
@@ -28,7 +28,7 @@
     shortname: docs
     title: OpenSearch Documentation
     description: The documentation for OpenSearch and OpenSearch Dashboards. Forked from the documentation for Elasticsearch and Kibana.
-    url: https://github.com/opensearch/documentation
+    url: https://github.com/opensearch-project/documentation
     special_files:
       -
         title: Contributing
@@ -42,7 +42,7 @@
     shortname: website
     title: OpenSearch Website
     description: The source to this website.
-    url: https://github.com/opensearch/opensearch.org
+    url: https://github.com/opensearch-project/project-website
     special_files:
       -
         title: Contributing
