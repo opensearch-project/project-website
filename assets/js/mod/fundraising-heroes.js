@@ -2,7 +2,7 @@ define([
     'jquery', //requires jquery
     'jquery.unveil' // requires unveil.js
     ], function($) {
-        // This will makes the Django hero images only be loaded
+        // This will makes the hero images only be loaded
         // when scrolled to.
 
         // Load images 200 pixels before they become visible,

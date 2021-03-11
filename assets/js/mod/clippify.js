@@ -8,7 +8,6 @@ define(['jquery', 'clipboard'], function($, Clipboard) {
         btn.data('clipboard-text', $.trim(code.text()));
         header.append(btn);
     });
-    // For Django 2.0 docs and older.
     $('.snippet').each(function() {
         var code = $('.highlight', this);
         var btn = $('<span class="btn-clipboard" title="Copy this code">');
