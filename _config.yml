@@ -60,3 +60,6 @@ paginate_path: "/blog/page:num/"
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+exclude:
+  - bower.json
+  - package.json
