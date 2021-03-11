@@ -78,13 +78,6 @@ define(function() {
         mods.push('mod/search-key');
     }
 
-    if (hasClass('stripe-donation')) {
-        mods.push('mod/stripe-donation');
-    }
-
-    if (hasClass('django-hero-form')) {
-        mods.push('mod/stripe-change-card');
-    }
 
     if (hasClass('corporate-membership-join-form')) {
         mods.push('mod/corporate-member-join');

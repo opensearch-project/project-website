@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>logo-django</dc:title>
+        <dc:title>logo-opensearch</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -48,7 +48,7 @@
      inkscape:current-layer="svg889"
      inkscape:document-rotation="0" />
   <title
-     id="title882">logo-django</title>
+     id="title882">logo-opensearch</title>
   <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
   <defs
      id="defs884" />
