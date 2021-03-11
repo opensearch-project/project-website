@@ -106,3 +106,12 @@ dl.list-features {
         margin-right: 1.5em;
     }
 }
+
+
+.homepage .list-features p {
+    margin-bottom: 0;
+}
+
+.homepage .list-features p + dt {
+    padding-top: 0.5em;
+}

@@ -20,6 +20,9 @@ columns:
       -
         title: 'Trademark Usage Policy'
         url: '/trademark-usage.html'
+      - 
+        title: OpenSearch Disambiguation
+        url: '/disambiguation.html'
   -
     title: 'Connect'
     links:

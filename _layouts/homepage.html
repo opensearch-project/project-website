@@ -32,6 +32,7 @@ layout: default
     <div class="section">
     <dl class="{{ page.callouts_class }}">
       <h2>{{ page.callouts_head }}</h2>
+      {% if page.callouts_leader %}<p>{{page.callouts_leader}}</p>{% endif %}
       {% for callout in page.callouts %}
         <dt>{{callout.title}}</dt>
         <dd><p>{{callout.description}}</p></dd>
@@ -58,7 +59,8 @@ layout: default
       {% for cta in page.download_ctas %}
       {% assign repo = site.data.repos | find: "shortname", cta %}
         <a href="{{ repo.url }}" class="cta">
-          Get {{ repo.title }} {{ site.data.version.latest_version[cta] }}
+          {{page.ctas.pre}} {{ repo.title }} {{page.ctas.post}}
+          {% comment %} {{ site.data.version.latest_version[cta] }} {%endcomment%}
         </a>
       {% endfor %}
       {% comment %} this will switch to the docs site when build is done {% endcomment %}
