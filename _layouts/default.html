@@ -1,0 +1,51 @@
+---
+
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {%- include head.html -%}
+
+  <body id="{{ page.sectionid }}" class="{{ page.body_class }}">
+    {%- include header.html -%}
+    
+    {{ content }}
+
+    {% comment %} Used to display urgent news, events, and alerts {% endcomment %}
+    {{ page.alert }}
+
+    {%- include footer.html -%}
+
+    {% comment %} Require JS {% endcomment %}
+    <script>
+    function extless(input) {
+        return input.replace(/(.*)\.[^.]+$/, '$1');
+    }
+    var require = {
+        shim: {
+            'jquery': [],
+            'jquery.inview': ["jquery"],
+            'jquery.flot': ["jquery"],
+            'jquery.unveil': ["jquery"]
+        },
+        paths: {
+            "jquery": extless("{{'assets/js/lib/jquery/dist/jquery.min.js' | relative_url }}"),
+            "jquery.inview": extless("{{'assets/js/lib/jquery.inview/jquery.inview.min.js'| relative_url }}"),
+            "jquery.unveil": extless("{{'assets/js/lib/unveil/jquery.unveil.min.js' | relative_url }}"),
+            "jquery.flot": extless("{{'assets/js/lib/jquery-flot/jquery.flot.min.js' | relative_url }}"),
+            "clipboard": extless("{{'assets/js/lib/clipboard/dist/clipboard.min.js' | relative_url }}"),
+            "mod/floating-warning": extless("{{'assets/js/mod/floating-warning.js' | relative_url }}"),
+            "mod/list-collapsing": extless("{{'assets/js/mod/list-collapsing.js' | relative_url }}"),
+            "mod/list-feature": extless("{{'assets/js/mod/list-feature.js' | relative_url }}"),
+            "mod/mobile-menu": extless("{{'assets/js/mod/mobile-menu.js' | relative_url }}"),
+            "mod/version-switcher": extless("{{'assets/js/mod/version-switcher.js' | relative_url }}"),
+            "mod/search-key": extless("{{'assets/js/mod/search-key.js' | relative_url }}"),
+            "mod/console-tabs": extless("{{'assets/js/mod/console-tabs.js' | relative_url }}"),
+
+        }
+    };
+    </script>
+    <script data-main="{{ 'assets/js/main.js' | relative_url }}" src="{{'assets/js/lib/require.js' | relative_url }}"></script>
+    {{ page.body_extra }}
+
+  </body>
+</html>

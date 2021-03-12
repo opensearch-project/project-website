@@ -1,0 +1,16 @@
+{% assign url_parts = page.url | split: "/" %}
+<div role="banner" id="top">
+  <div class="container">
+    <a class="logo" href="{{ '/' | relative_url }}">OpenSearch</a>
+    <div role="navigation">
+      <ul class="small-nav">
+        <li>
+          {% if url_parts[1] == 'blog' %}News{% else %} <a href="/blog">News</a> {% endif %}
+        </li>
+        <li>
+          {% if url_parts[1] == 'source.html' %}Source{% else %} <a href="/source.html">Source</a> {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

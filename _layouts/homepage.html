@@ -1,0 +1,110 @@
+---
+layout: default
+---
+
+{% capture header %}
+  {% comment%}<h1 class="visuallyhidden">OpenSearch</h1>
+  <p>
+      <em>{{ page.headline }}</em>
+  </p>
+  {% endcomment %} 
+  {% comment%}
+  <p>
+      <a href="" class="cta">get started</a>
+  </p>
+  {% endcomment %}
+{% endcapture %} 
+{% comment%}
+{% include copy_banner.html %}
+{% endcomment %}
+
+
+{% capture content %}
+    <div class="section">
+        <h1>{{ page.greeting }}</h1>
+        <p>
+          {{ page.long_description | markdownify }}
+        </p>
+    </div>
+    <div class="section headline">
+      <h1>{{ page.headline }} </h1>
+    </div> 
+    <div class="section">
+    <dl class="{{ page.callouts_class }}">
+      <h2>{{ page.callouts_head }}</h2>
+      {% if page.callouts_leader %}<p>{{page.callouts_leader}}</p>{% endif %}
+      {% for callout in page.callouts %}
+        <dt>{{callout.title}}</dt>
+        <dd><p>{{callout.description}}</p></dd>
+        </dd>
+      {% endfor %}
+
+      <a href="{{ page.callout_button.url }}" class="cta outline">{{ page.callout_button.title }}</a>
+    </div>
+
+
+{% endcapture %}
+
+{% capture content_secondary %}
+  <div class="section">
+    <h1>{{ page.secondary.heading }}</h1>
+    {{ page.secondary.content | markdownify }}
+  </div>
+
+  <!-- END #content-secondary -->
+{% endcapture %}
+
+{% capture content_related %}
+  <div role="complementary">
+      {% for cta in page.download_ctas %}
+      {% assign repo = site.data.repos | find: "shortname", cta %}
+        <a href="{{ repo.url }}" class="cta">
+          {{page.ctas.pre}} {{ repo.title }} {{page.ctas.post}}
+          {% comment %} {{ site.data.version.latest_version[cta] }} {%endcomment%}
+        </a>
+      {% endfor %}
+      {% comment %} this will switch to the docs site when build is done {% endcomment %}
+      {% assign docs = site.data.repos | find: "shortname", "docs" %}
+      <a href="{{ docs.url }}" class="link-readmore">{{ docs.title }}</a>
+      
+      <div class="feature-box">
+        
+        <h3>{{ page.opendistro.head }}</h3>
+        <img src="{{ page.opendistro.img.url }}" alt="{{ page.opendistro.img.alt }}" />
+        <div class="feature-content">
+          <p>{{ page.opendistro.description }}</p>
+          <a href="{{ page.opendistro.link.url }}" class="link-readmore">{{ page.opendistro.link.title }}</a>
+        </div>
+        
+      </div>
+      
+      <div class="whats-new">
+        <h3>What's new?</h3>
+        {% for post in site.posts limit:5 %}
+          <div class="whats-new-post">
+            <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+            <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          </div>
+        {% endfor %}
+        <a href="{{ '/blog' | relative_url }}" class="link-readmore">More news</a>
+      </div>
+      
+      {% for sidebar_category in page.sidebar %}
+        <h3>{{sidebar_category.title}}</h3>
+        <ul class="list-links-small">
+          {% for link in sidebar_category.links %}
+          <li><a href="{{ link.url }}">{{ link.title}}</a></li>
+          {% endfor %}
+        </ul>
+        {% if sidebar_category.more %} <a href="sidebar_category.more.url" class="link-readmore">{{sidebar_category.more.title}}</a> {%endif%}
+      {% endfor %}
+      
+  </div>
+
+{% endcapture %}
+
+{% capture alert %}
+asdf
+{% endcapture %}
+
+{% include base_3col.html %}
