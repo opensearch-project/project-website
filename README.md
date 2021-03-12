@@ -1,11 +1,6 @@
-## My Project
+## opensearch.org website
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+This repo contains the source for the opensearch.org website
 
 ## Security
 
@@ -13,5 +8,4 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 ## License
 
-This project is licensed under the Apache-2.0 License.
-
+This project is licensed under the BSD-3-Clause License.
