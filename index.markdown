@@ -56,7 +56,7 @@ callouts:
 
 callout_button:
     title: I want to know more about OpenSearch
-    url: /blog
+    url: /blog/index.html
 
 opendistro:
     head:  Looking for Open Distro?
