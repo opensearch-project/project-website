@@ -7,7 +7,6 @@ This repo contains the source for the opensearch.org website
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
-d
 This project is licensed under the BSD-3-Clause License.
 
 ## Build
