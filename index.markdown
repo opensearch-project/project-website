@@ -71,7 +71,7 @@ opendistro:
 
 secondary:
     heading: 'Stay in the loop'
-    content: "Follow us on Twitter [@opensearch](http://www.twitter.com/opensearch), like the project on [Facebook](http://example.com) and check out the [forums](https://discuss.opendistrocommunity.dev/) to stay informed."
+    content: "Check out the [forums](https://discuss.opendistrocommunity.dev/) to stay informed."
 
 sidebar:
     -
