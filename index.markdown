@@ -19,12 +19,13 @@ greeting: "👋 Glad you found us."
 
 headline: "OpenSearch makes it easy to find whatever you need in all of your data."
 
-long_description: "OpenSearch is a community-driven, open source search and analytics suite derived from Elasticsearch & Kibana 7.10.2. It consists of a search engine daemon, *OpenSearch*, and a visualization and user interface, *OpenSearch Dashboards*. "
+long_description: "OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, *OpenSearch*, and a visualization and user interface, *OpenSearch Dashboards*."
 
 # Both OpenSearch and OpenSearch Dashboards are super pluggable -- you can provide your own or use the [OpenDistro Plugins](#) for extra functionality." 
 
 callouts_head: "The OpenSearch project's principles for development"
 callouts_class: list-features
+callouts_id: principles
 callouts_leader: 'When we are successful, OpenSearch will be:'
 callouts:
     -
@@ -70,7 +71,7 @@ opendistro:
 
 secondary:
     heading: 'Stay in the loop'
-    content: "Follow us on Twitter [@opensearch](http://www.twitter.com/opensearch), like the project on [Facebook](http://example.com) and check out the [forums](https://discuss.opendistrocommunity.dev/) to stay informed."
+    content: "Check out the [forums](https://discuss.opendistrocommunity.dev/) to stay informed."
 
 sidebar:
     -

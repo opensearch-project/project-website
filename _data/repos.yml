@@ -6,10 +6,10 @@
     special_files:
       -
         title: Contributing
-        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
+        url: https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md
       - 
         title: Developer Guide
-        url: https://github.com/opendistro-for-elasticsearch/search/blob/Updating-CONTRIBUTING.md/DEVELOPER_GUIDE.md
+        url: https://github.com/opensearch-project/OpenSearch/blob/main/DEVELOPER_GUIDE.md
 
 -
     shortname: os-d
@@ -19,23 +19,19 @@
     special_files:
       -
         title: Contributing
-        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
-      - 
-        title: Developer Guide
-        url: https://github.com/opendistro-for-elasticsearch/search/blob/Updating-CONTRIBUTING.md/DEVELOPER_GUIDE.md
-
--
-    shortname: docs
-    title: OpenSearch Documentation
-    description: The documentation for OpenSearch and OpenSearch Dashboards. Forked from the documentation for Elasticsearch and Kibana.
-    url: https://github.com/opensearch-project/documentation
-    special_files:
-      -
-        title: Contributing
-        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
-      - 
-        title: Build Guide
-        url: https://github.com/opendistro-for-elasticsearch/search/blob/Updating-CONTRIBUTING.md/DEVELOPER_GUIDE.md
+        url: https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/CONTRIBUTING.md
+#-
+#    shortname: docs
+#    title: OpenSearch Documentation
+#    description: The documentation for OpenSearch and OpenSearch Dashboards. Forked from the documentation for Elasticsearch and Kibana.
+#    url: https://github.com/opensearch-project/documentation
+#    special_files:
+#      -
+#        title: Contributing
+#        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
+#      - 
+#        title: Build Guide
+#        url: https://github.com/opendistro-for-elasticsearch/search/blob/Updating-CONTRIBUTING.md/DEVELOPER_GUIDE.md
 
 
 -
@@ -46,5 +42,5 @@
     special_files:
       -
         title: Contributing
-        url: https://github.com/opendistro-for-elasticsearch/index-management/blob/main/CONTRIBUTING.md
+        url: https://github.com/opensearch-project/project-website/blob/main/CONTRIBUTING.md
       
