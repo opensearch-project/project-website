@@ -29,7 +29,7 @@ layout: default
     <div class="section headline">
       <h1>{{ page.headline }} </h1>
     </div> 
-    <div class="section">
+    <div class="section" id="{{page.callouts_id}}">
     <dl class="{{ page.callouts_class }}">
       <h2>{{ page.callouts_head }}</h2>
       {% if page.callouts_leader %}<p>{{page.callouts_leader}}</p>{% endif %}

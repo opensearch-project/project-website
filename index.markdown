@@ -25,6 +25,7 @@ long_description: "OpenSearch is a community-driven, open source search and anal
 
 callouts_head: "The OpenSearch project's principles for development"
 callouts_class: list-features
+callouts_id: principles
 callouts_leader: 'When we are successful, OpenSearch will be:'
 callouts:
     -
