@@ -8,6 +8,6 @@ date:   2021-02-23 08:38:21 -0700
 categories: update
 ---
 
-Welcome to the OpenSearch Blog. In this blog we plan to update the community on new developments and call attention great things happening around OpenSearch.
+Welcome to OpenSearch news. In this section we plan to update the community on new developments and call attention to great things happening around OpenSearch.
 
-Want to write on this blog? Contact [kyledvs@amazon.com](mailto:kyledvs@amazon.com)
+Want to write an article? Contact [kyledvs@amazon.com](mailto:kyledvs@amazon.com)
