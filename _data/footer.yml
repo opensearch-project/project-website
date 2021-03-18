@@ -26,12 +26,12 @@ columns:
   -
     title: 'Connect'
     links:
-      -
-        title: 'Twitter'
-        url: 'https://twitter.com/opensearch'
-      -
-        title: 'Facebook'
-        url: 'http://www.facebook.com/opensearch'
+      # -
+      #  title: 'Twitter'
+      #  url: 'https://twitter.com/opensearch_project'
+      #-
+      #  title: 'Facebook'
+      #  url: 'http://www.facebook.com/opensearch'
       -
         title: 'E-mail'
         url: 'mailto:opensearch@amazon.com'
