@@ -65,8 +65,9 @@ layout: default
       {% endfor %}
       {% comment %} this will switch to the docs site when build is done {% endcomment %}
       {% assign docs = site.data.repos | find: "shortname", "docs" %}
+      {% if docs.url %}
       <a href="{{ docs.url }}" class="link-readmore">{{ docs.title }}</a>
-      
+      {% endif %}
       <div class="feature-box">
         
         <h3>{{ page.opendistro.head }}</h3>
