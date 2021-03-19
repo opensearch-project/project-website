@@ -20,4 +20,4 @@ This project is licensed under the BSD-3-Clause License.
 
 ## Credit
 
-This website was forked from the BSD-licensed [djangoproject.com](https://github.com/opensearch-project/project-website)
+This website was forked from the BSD-licensed [djangoproject.com](https://github.com/django/djangoproject.com)
