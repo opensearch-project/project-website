@@ -12,9 +12,9 @@ title: Trademark Policy
 
 ---
 
-This Policy provides guidelines for use of the “OpenSearch” name and logo (the “OpenSearch Trademarks”) to identify the OpenSearch software. Amazon.com, Inc. or its affiliates (“Amazon”) strives to be a steward of the OpenSearch brand for the entire OpenSearch Community and is the owner of the OpenSearch Trademarks. As such, the law obligates us to police and protect the trademarks. Therefore, we require use of the OpenSearch Trademarks to be in accordance with this policy. Indeed, our own use is designed to be consistent with this Policy.
+This Policy provides guidelines for use of the “OpenSearch” name and logo (the “OpenSearch Trademarks”) to identify the OpenSearch software. Amazon.com, Inc. or its affiliates (“Amazon”) strives to be a steward of the OpenSearch brand for the entire OpenSearch Community and is the owner of the OpenSearch Trademarks. As such, the law obligates us to police and protect the trademarks. Therefore, we require use of the OpenSearch Trademarks to be in accordance with this policy. Indeed, Amazon's own use is designed to be consistent with this Policy.
 
-Our goal is to ensure on behalf of the OpenSearch Community that the OpenSearch Trademark remain reliable indicators of quality and security while also permitting community members, software distributors and others to discuss OpenSearch and to accurately describe their products’ affiliation with OpenSearch or the OpenSearch
+Our goal is to ensure, on behalf of the OpenSearch Community, that the OpenSearch Trademark remain reliable indicators of quality and security while also permitting community members, software distributors and others to discuss OpenSearch and to accurately describe their products’ affiliation with OpenSearch or the OpenSearch
 Community, as well as exercise their rights given OpenSearch’s open source nature. Note that this policy only applies to use of the OpenSearch Trademarks.
 
 ## Overall Guidelines
