@@ -33,7 +33,7 @@ layout: default
     <dl class="{{ page.callouts_class }}">
       <h2>{{ page.callouts_head }}</h2>
       {% if page.callouts_leader %}<p>{{page.callouts_leader}}</p>{% endif %}
-      {% for callout in page.callouts %}
+      {% for callout in site.data.principles %}
         <dt>{{callout.title}}</dt>
         <dd><p>{{callout.description}}</p></dd>
         </dd>
