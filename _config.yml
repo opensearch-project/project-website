@@ -12,7 +12,7 @@ github_username:
 headings:
   news: 'News'
   source: 'Source Code'
-
+  authors: 'Authors'
 
 
 # Build settings
@@ -31,10 +31,16 @@ defaults:
       type: "posts"
     values:
       permalink: blog/:categories/:year/:month/:title/
+- 
+  scope:
+    path: ""
+    type: "authors"
+  values:
+    layout: "author"
 
 collections:
   authors:
-
+    output: true
 
 paginate: 5
 paginate_path: "/blog/page:num/"

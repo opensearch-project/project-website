@@ -37,7 +37,7 @@ layout: default
 <div role="complementary">
     {% for author_short_name in page.authors %}
         {% assign author = site.authors | where: 'short_name', author_short_name | first %}
-        <h2>{{ author.name }}</h2>
+        <h2><a href="{{ author.url }}">{{ author.name }}</a></h2>
         {% if author.photo  %} <img src="{{ author.photo }}" alt="photo of {{author.name}}" /> {% endif %}
         
         <p>{{ author.content | markdownify }}</p>
