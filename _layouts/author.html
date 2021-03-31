@@ -1,6 +1,5 @@
 ---
 layout: default
-
 ---
 {% assign primary_title = site.headings.authors %}
 {% assign xlayout_class = 'sidebar-right' %}
@@ -18,7 +17,7 @@ layout: default
 {% capture content_related %}
 <div role="complementary">
   <h2>{{ page.name }}</h2>
-  {% if page.photo  %} <img src="{{ page.photo }}" alt="photo of {{page.name}}" /> {% endif %}
+  {% if page.photo  %} <img class="author-photo" src="{{ page.photo }}" alt="photo of {{page.name}}" /> {% endif %}
   
   <p>{{ page.content | markdownify }}</p>
 </div>

@@ -32,11 +32,12 @@ defaults:
     values:
       permalink: blog/:categories/:year/:month/:title/
 - 
-  scope:
-    path: ""
-    type: "authors"
-  values:
-    layout: "author"
+    scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+      permalink: /:collection/:name
 
 collections:
   authors:

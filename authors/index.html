@@ -1,11 +1,11 @@
 ---
-layout: default
+layout: fullwidth
 title: Authors
+primary_title: Authors
 ---
-<h1>Authors</h1>
 
 <ul>
   {% for author in site.authors %}
-    <li>{{ author.name }}</li>
+    <li><a href="{{ author.url }}">{{ author.name }}</a></li>
   {% endfor %}
 </ul>
