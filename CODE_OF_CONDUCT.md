@@ -1,7 +1,6 @@
 ## Code of Conduct
 
-This code of conduct applies to all spaces provided by the OpenSource project including in code, documentation, issue trackers, mailing lists, chat channels, wikis, blogs, social media and any other communication channels used by the project.
-
+This code of conduct applies to all spaces provided by the OpenSearch project including in code, documentation, issue trackers, mailing lists, chat channels, wikis, blogs, social media and any other communication channels used by the project.
 
 **Our open source communities endeavor to:**
 
