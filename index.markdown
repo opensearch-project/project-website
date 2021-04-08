@@ -57,7 +57,7 @@ sidebar:
         links:
             -
                 title: Introducing OpenSearch
-                url: http://opendistro.github.io/for-elasticsearch/
+                url: https://aws.amazon.com/blogs/opensource/introducing-opensearch
             -
                 title: 'Stepping up for a truly open source Elasticsearch'
                 url: https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/
