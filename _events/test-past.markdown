@@ -1,7 +1,7 @@
 ---
-eventdate: 2021-04-05T12:12
+eventdate: 2020-04-20T
 tz: UTC -7
-title: This is my test event2!
+title: Test event in the past
 location:
     city: "Palo Alto, CA"
     country: "USA"
@@ -12,6 +12,4 @@ image: https://via.placeholder.com/300
 cost: Free
 ---
 
-foo bar baz
-
-one two three
+This is a test event from the past.

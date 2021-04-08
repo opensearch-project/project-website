@@ -1,0 +1,11 @@
+<li>
+    <a href="{{ event.url }}">{{event.title}}</a>
+    <p> {{ event.content | truncatewords: 20 }} </p>
+    <div class="meta">
+      {{event.eventdate | date_to_string: "ordinal", "US"  }} 
+      &middot;
+      {% if event.online %} Online {% endif %}
+      {% if event.location.city %} {{event.location.city}} {% endif %}
+    </div>
+    <i class="icon icon-calendar"></i>
+</li>

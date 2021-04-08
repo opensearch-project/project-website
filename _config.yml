@@ -42,10 +42,10 @@ defaults:
 -
     scope:
       path: ''
-      type: 'events'
+      type: events
     values:
-      layout: 'event'
-      permalink:  events/:year/:month/:title/
+      layout: event
+      permalink:  events/:title/
 
 collections:
   authors:

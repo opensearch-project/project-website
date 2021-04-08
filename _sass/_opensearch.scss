@@ -106,7 +106,22 @@ dl.list-features {
         margin-right: 1.5em;
     }
 }
-
+.events-page {
+    h2 {
+        margin-top: 0;
+    }
+    .list-events {
+        .icon {
+            color: $green;
+        }
+        li {
+            border-top-color: $green-very-light;
+        }
+        p {
+            font-size: 0.9em;
+        }
+    }
+}
 
 .homepage .list-features p {
     margin-bottom: 0;
