@@ -1,7 +1,7 @@
 ---
 short_name: pallp
 name: Pallavi Priyadarshini
-photo: 'https://internal-cdn.amazon.com/badgephotos.amazon.com/?uid=pallp'
+photo: '?uid=pallp'
 
 ---
 

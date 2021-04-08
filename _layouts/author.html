@@ -1,0 +1,25 @@
+---
+layout: default
+---
+{% assign primary_title = site.headings.authors %}
+{% assign xlayout_class = 'sidebar-right' %}
+{% include copy_banner.html %}
+
+{% capture content %}
+<h2>Posts by {{page.name}}</h2>
+<ul>
+  {% assign filtered_posts = site.posts | where: 'authors', page.short_name %}
+  {% for post in filtered_posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endcapture %}
+{% capture content_related %}
+<div role="complementary">
+  <h2>{{ page.name }}</h2>
+  {% if page.photo  %} <img class="author-photo" src="{{ page.photo }}" alt="photo of {{page.name}}" /> {% endif %}
+  
+  <p>{{ page.content | markdownify }}</p>
+</div>
+{% endcapture %}
+{% include base_3col.html %}

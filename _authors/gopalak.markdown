@@ -1,7 +1,7 @@
 ---
 name: Gopala Krishna
 short_name: gopalak
-photo: 'https://internal-cdn.amazon.com/badgephotos.amazon.com/?uid=gopalak'
+photo: '?uid=gopalak'
 
 ---
 
