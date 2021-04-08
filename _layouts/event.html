@@ -1,0 +1,33 @@
+---
+layout: default
+body_class: events-page
+---
+{% assign primary_title = site.headings.events %}
+{% assign layout_class = 'sidebar-right' %}
+{% capture content %}
+    <h1>{{page.title}}</h1>
+    <h4> 
+        {% if page.online %} Online {% endif %} 
+        {% if page.location %} {{page.location.city}} ({{page.location.country}}) {% endif %}
+        {% if page.cost %} &middot; {{page.cost}} {%endif%}
+    </h4>
+    {% if page.image %}
+    <img src="{{page.image}}" class="img-fluid">
+    {%endif%}
+    {{ content }}
+      
+{% endcapture %}
+
+{% capture content_related %}
+<div role="complementary">
+    <p>
+       
+        <strong>Date:</strong>  {{page.date | date: "%a, %b %d, %Y "}} <br />
+        <strong>Time:</strong> {{page.date | date: "%H:%M"}} ({{page.tz}})
+    </p>
+    <a href="{{page.signup.url}}" class="cta">{{page.signup.title}}</a>
+</div>
+{% endcapture %}
+
+{% include copy_banner.html %}
+{% include base_3col.html %}

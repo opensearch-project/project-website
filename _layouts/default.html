@@ -5,9 +5,9 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
 
-  <body id="{{ page.sectionid }}" class="{{ page.body_class }}">
+  <body id="{{ page.sectionid }}" class="{{ layout.body_class | default: page.body_class }}">
     {%- include header.html -%}
-    
+
     {{ content }}
 
     {% comment %} Used to display urgent news, events, and alerts {% endcomment %}

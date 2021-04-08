@@ -1,0 +1,15 @@
+---
+layout: fullwidth
+title: Events
+primary_title: Events
+---
+<ul>
+    {% assign now =  site.time |  date_to_xmlschema %}
+    {% assign future_events = site.events | where_exp: "event","event.eventdate  > now" %}
+
+    
+    {% for event in  future_events  %}
+      <li><a href="{{ event.url }}">{{event.title}}</a> {{event.eventdate }} </li>
+    {% endfor %}
+  </ul>
+  

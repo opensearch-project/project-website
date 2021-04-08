@@ -13,6 +13,7 @@ headings:
   news: 'News'
   source: 'Source Code'
   authors: 'Authors'
+  events: 'Events'
 
 
 # Build settings
@@ -38,11 +39,19 @@ defaults:
     values:
       layout: "author"
       permalink: /:collection/:name
+-
+    scope:
+      path: ''
+      type: 'events'
+    values:
+      layout: 'event'
+      permalink:  events/:year/:month/:title/
 
 collections:
   authors:
     output: true
-
+  events:
+    output: true
 paginate: 5
 paginate_path: "/blog/page:num/"
 
