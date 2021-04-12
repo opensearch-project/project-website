@@ -39,10 +39,10 @@ opendistro:
     img:
         url: /assets/img/logo-opendistro.svg
         alt: Open Distro Logo
-    description: New versions Open Distro for Elasticsearch are still being developed while OpenSearch is in pre-release 
+    description: Open Distro for Elasticsearch is still available.
     link: 
         url: http://opendistro.github.io/for-elasticsearch/
-        title: Check it out
+        title: Find it here
 
 secondary:
     heading: 'Stay in the loop'
