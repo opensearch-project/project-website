@@ -1,10 +1,14 @@
-## opensearch.org website
+# opensearch.org website
 
-This repo contains the source for the opensearch.org website
+This repo contains the source for the opensearch.org website. 
+
+## Contributing
+
+We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to learn more about how to contribute to the website.
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+If you discover potential security issues, see the reporting instructions on our [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) page for more information.
 
 ## License
 This project is licensed under the BSD-3-Clause License.
