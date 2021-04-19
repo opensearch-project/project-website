@@ -20,8 +20,14 @@ This project is licensed under the BSD-3-Clause License.
 3. Install [Jekyll](https://jekyllrb.com/)
 4. Install dependencies: `bundle install`
 5. Build: `bundle exec jekyll serve` for the local server, `bundle exec jekyll build` for one off builds. Either way, the HTML of the site is generated to `/_site`
-6. Point your browser at `http://127.0.0.1:4000/`
+6. Point your browser at [`http://127.0.0.1:4000/`](http://127.0.0.1:4000/)
 
+## Docker
+Start a local server via: 
+```
+docker-compose up -d
+```
+and then browse the site at [`http://127.0.0.1:4000/`](http://127.0.0.1:4000/).
 ## Credit
 
 This website was forked from the BSD-licensed [djangoproject.com](https://github.com/django/djangoproject.com)
