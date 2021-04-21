@@ -6,6 +6,10 @@ This repo contains the source for the opensearch.org website.
 
 We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to learn more about how to contribute to the website.
 
+### Adding to the partners page
+
+If you are a partner, you are welcome to add your logo/link to our partners page. See the [sample file](/project-website/blob/main/_partners/_sample.md) and submit a pull request.
+
 ## Security
 
 If you discover potential security issues, see the reporting instructions on our [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) page for more information.
