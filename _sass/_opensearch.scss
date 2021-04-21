@@ -120,3 +120,16 @@ dl.list-features {
     width: 180px;
     height: auto;
 }
+
+#partners {
+    .partner {
+        text-align: center;
+        float: left;
+
+        width: 100px;
+        img {
+            height: 60px;
+            width: 60px;
+        }
+    }
+}
