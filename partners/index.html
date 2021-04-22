@@ -8,8 +8,8 @@ OpenSearch is a team effort, we are grateful to all our partners.
 
 <div id="partners">
   {% for partner in site.partners %}
-  <div id="partner">
-      <a href="{{ partner.link }}"><img src="{{ partner.logo }}" alt="{{ partner.name }} Logo" width=60 height=60/><br /> {{ partner.name }}</a>
+  <div class="partner">
+      <a href="{{ partner.link }}"><img src="{{ partner.logo }}" alt="{{ partner.name }} Logo" /><br /> {{ partner.name }}</a>
   </div>
   {% endfor %}
 </div>

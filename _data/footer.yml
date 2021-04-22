@@ -17,6 +17,9 @@ columns:
       #- 
       #  title: 'Documentation'
       #  url: 'https://github.com/opensearch/documentation'
+      - 
+        title: FAQ
+        url: '/faq/'
       -
         title: 'Trademark Usage Policy'
         url: '/trademark-usage.html'
