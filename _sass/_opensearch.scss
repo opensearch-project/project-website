@@ -121,6 +121,20 @@ dl.list-features {
     height: auto;
 }
 
+
+#faq {
+    li{
+        list-style-type: none;
+    }
+    li h3 a i {
+        float: right;
+        display: block;
+    }
+    li h3 span {
+        opacity: 0.9;
+    }
+}
+
 #partners {
     .partner {
         text-align: center;
@@ -133,3 +147,4 @@ dl.list-features {
         }
     }
 }
+

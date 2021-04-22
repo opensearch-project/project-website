@@ -43,6 +43,7 @@ collections:
   authors:
     output: true
   partners:
+  faqs:
 
 paginate: 5
 paginate_path: "/blog/page:num/"
