@@ -9,7 +9,7 @@ layout: fullwidth
     {%if fname == 'index.html' %}
       {% assign url = line %}
       <li><a href="/javadocs/{{ page.slug }}/{{ url }}">{{line | remove: "OpenSearch/" | remove: 
-        "/docs/javadoc/index.html" }}</a></li>
+        "build/docs/javadoc/index.html" }}</a></li>
     {%endif%}
     </li>
   {% endfor %}
