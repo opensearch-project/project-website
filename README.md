@@ -8,7 +8,7 @@ We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to
 
 ### Adding to the partners page
 
-If you are a partner, you are welcome to add your logo/link to our partners page. See the [sample file](/project-website/blob/main/_partners/_sample.md) and submit a pull request.
+If you are a partner, you are welcome to add your logo/link to our partners page. See the [sample file](https://github.com/opensearch-project/project-website/blob/staging/_partners/_sample.md) and submit a pull request.
 
 ## Security
 
