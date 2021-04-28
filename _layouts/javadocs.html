@@ -1,0 +1,16 @@
+---
+layout: fullwidth
+---
+<h2>{{page.title}}</h2>
+<ul>
+  {% for line in page.javadocs %}
+    {% assign parts = line | split: "/" %}
+    {% assign fname = parts  | last %}
+    {%if fname == 'index.html' %}
+      {% assign url = line %}
+      <li><a href="/javadocs/{{ page.slug }}/{{ url }}">{{line | remove: "OpenSearch/" | remove: 
+        "build/docs/javadoc/index.html" }}</a></li>
+    {%endif%}
+    </li>
+  {% endfor %}
+</ul>
