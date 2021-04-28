@@ -49,11 +49,8 @@ collections:
     output: true
   partners:
   faqs:
-<<<<<<< HEAD
   javadocs:
     output: true
-=======
->>>>>>> de5366c... added FAQ functionality
 
 paginate: 5
 paginate_path: "/blog/page:num/"
