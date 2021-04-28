@@ -81,6 +81,23 @@ dl.list-features {
     }
 }
 
+.events-page {
+    h2 {
+        margin-top: 0;
+    }
+    .list-events {
+        .icon {
+            color: $green;
+        }
+        li {
+            border-top-color: $green-very-light;
+        }
+        p {
+            font-size: 0.9em;
+        }
+    }
+}
+
 .source-page {
     dt {
         a {

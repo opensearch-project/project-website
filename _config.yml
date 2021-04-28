@@ -43,6 +43,11 @@ defaults:
     values:
       layout: javadocs
       permalink: /docs/:collection/:name
+      path: ''
+      type: events
+    values:
+      layout: event
+      permalink:  events/:title/
 
 collections:
   authors:
@@ -51,7 +56,9 @@ collections:
   faqs:
   javadocs:
     output: true
-
+  events:
+    output: true
+    
 paginate: 5
 paginate_path: "/blog/page:num/"
 
