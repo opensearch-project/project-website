@@ -2,6 +2,16 @@
 layout: default
 title: Downloads
 primary_title: Downloads
+
+opendistro:
+    head:  Need Open Distro?
+    img:
+        url: /assets/img/logo-opendistro.svg
+        alt: Open Distro Logo
+    description: Open Distro for Elasticsearch can still be downloaded.
+    link: 
+        url: http://opendistro.github.io/for-elasticsearch/downloads.html
+        title: Get it here
 ---
 {% assign primary_title = site.headings.authors %}
 {% assign layout_class = 'sidebar-right' %}
@@ -39,7 +49,11 @@ primary_title: Downloads
 
 {% capture content_related %}
 <div role="complementary">
-  q
+  <h3>{{ page.opendistro.head }}</h3>
+  <div class="feature-content">
+    <p>{{ page.opendistro.description }}</p>
+    <a href="{{ page.opendistro.link.url }}" class="link-readmore">{{ page.opendistro.link.title }}</a>
+  </div>
 </div>
 {%endcapture%}
 
