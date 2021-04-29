@@ -1,0 +1,47 @@
+---
+layout: default
+title: Downloads
+primary_title: Downloads
+---
+{% assign primary_title = site.headings.authors %}
+{% assign layout_class = 'sidebar-right' %}
+
+
+{% capture content %}
+<div class="downloads-page">
+  <h2>How to get started with OpenSearch</h2>
+
+  <p>OpenSearch is open source software that uses the Apache License version 2 (ALv2). ALv2 grants you well-understood usage rights; you can use, modify, extend, embed, monetize, resell, and offer OpenSearch as part of your products and services. The source for the entire project is available on <a href="https://github.com/opensearch-project/">GitHub</a> and you're welcome to build from source for customized deployments. Downloadable artifacts for OpenSearch and OpenSearch Dashboards include plugins and tools, ready for you to use with minimal configuration.</p>
+  
+
+  <div class="layout-2col">
+    <div class="col">
+      <h2>OpenSearch</h2>
+      <div class="meta">Linux, x86, .tgz<br />Current version: {{ site.data.version.latest_version.os }}</div>
+      <a href="#" class="cta">Download OpenSearch</a>
+      <hr />
+      <a href="#" class="cta outline">OpenSearch on Docker</a>
+    </div>
+    <div class="col">
+      <h2>OpenSearch Dashboards</h2>
+      <div class="meta">Linux, x86, .tgz<br />Current version: {{ site.data.version.latest_version.os-d }}</div>
+      <a href="#" class="cta">Download OpenSearch Dashboards</a>
+      <hr />
+      <a href="#" class="cta outline">OpenSearch Dashboards on Docker</a>
+    </div>
+  </div>
+
+  <p>More artifacts and architectures will be available at the Release Candidate stage.</p>
+</div>
+
+
+{%endcapture%}
+
+{% capture content_related %}
+<div role="complementary">
+  q
+</div>
+{%endcapture%}
+
+{% include copy_banner.html %}
+{% include base_3col.html %}
