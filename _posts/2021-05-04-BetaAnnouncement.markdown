@@ -10,6 +10,9 @@ For beta, the downloadable artifacts will include Docker images and Linux tars. 
 - OpenSeach Dashboards Docker images (Release Notes)
 - OpenSearch Linux tars (Release Notes)
 - OpenSearch Linux tars (Release Notes)
+
+**TODO** Add link to distribution release notes
+
 #### Plugins
 - Infra/DevOps (Release Notes)
 - AD ([Release Notes](https://github.com/opensearch-project/anomaly-detection/blob/main/release-notes/opensearch-anomaly-detection.release-notes-1.0.0.0-beta1.md))
@@ -47,22 +50,22 @@ For beta, the downloadable artifacts will include Docker images and Linux tars. 
 - Common-Utils ([Release Notes](https://github.com/opensearch-project/common-utils/blob/main/release-notes/opensearch-common-utils.release-notes-1.0.0.0-beta1.md))
 - Data Prepper (Release Notes)
 
-### Other?
-
-- **TODO** Add a list of who have contributed as a special thanks.  
-- **TODO** Add link to distribution release notes
-- **TODO** 
-- **TODO**
-
-
 ### Branding Callout?
 
 
 ## What's Next?
+For next steps... 
 
+## Special Thanks
+
+**TODO** Add a list of who have contributed as a special thanks.  
 
 ## How can you help?
 The goal of this project is to build the best open-source distributed search engine on the planet with the help of a passionate and diverse community — so please join us. Submit pull requests, write documentation, open issues (either on [OpenSearch](https://github.com/opensearch-project/OpenSearch/issues) or [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards)), or simply read the [news](https://opensearch.org/blog/).
+
+**Reporting bugs**
+
+**TODO** Add additional bug report guidance
 
 **Look for the tag "help wanted"**
 
