@@ -2,9 +2,11 @@
 
 We are excited to release the OpenSearch Beta 1.0 (derived from Elasticsearch 7.10.2) and OpenSearch Dashboards Beta 1.0 (derived from Kibana 7.10.2). With this beta release, we will have refactored all Open Distro for Elasticsearch plugins to work with OpenSearch and provide the community with downloadable artifacts to run OpenSearch and OpenSearch Dashboards with these plugins installed. As always, all of the software in the OpenSearch project is released under the Apache License, Version 2.0 (ALv2).
 
+The goal of this project is to build the best open-source distributed search engine on the planet with the help of a passionate and diverse community — so please join us. Submit pull requests, write documentation, open issues (either on [OpenSearch](https://github.com/opensearch-project/OpenSearch/issues) or [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/issues)), or simply read the [news](https://opensearch.org/blog/). If you would like to install or run this project please see the Developer Guide ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/DEVELOPER_GUIDE.md) and [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md)).
 
 ### Artifacts
 For beta, the downloadable artifacts will include Docker images and Linux tars. We chose to focus on Docker and Linux tars for beta as they make up over 90% of downloads on Open Distro for Elasticsearch. It is also worth noting that we have left the original plugin repos in GitHub so that customers using Open Distro for Elasticsearch can access older versions.
+
 #### Core
 - OpenSeach Docker images (Release Notes)
 - OpenSeach Dashboards Docker images (Release Notes)
@@ -61,11 +63,11 @@ For next steps...
 **TODO** Add a list of who have contributed as a special thanks.  
 
 ## How can you help?
-The goal of this project is to build the best open-source distributed search engine on the planet with the help of a passionate and diverse community — so please join us. Submit pull requests, write documentation, open issues (either on [OpenSearch](https://github.com/opensearch-project/OpenSearch/issues) or [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards)), or simply read the [news](https://opensearch.org/blog/).
+The biggest thing you can do to help is join us! Feel free to take a look around at what we've been up to, and then head over to look at the open issues. Or you could jump right in and start opening issues or contributing. For more details see [here](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md).
 
-**Reporting bugs**
+**When in doubt, open an issue**
 
-**TODO** Add additional bug report guidance
+For almost any type of contribution, the first step is opening an issue. Even if you think you already know what the solution is, writing down a description of the problem you're trying to solve will help everyone get context when they review your pull request. If it's truly a trivial change (e.g. spelling error), you can skip this step -- but as the subject says, when it doubt, open an issue. 
 
 **Look for the tag "help wanted"**
 
