@@ -1,3 +1,4 @@
+# this extracts all javadoc filenames from OpenSearch. Generates both the pseudo csv (to extract the files from the other script) and the markdown files (directly for jekyll)
 
 cd $1
 cd ..
