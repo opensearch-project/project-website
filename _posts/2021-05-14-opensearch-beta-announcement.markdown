@@ -1,5 +1,12 @@
-
-# Beta Announcement
+---
+layout: post
+title:  "OpenSearch Beta 1"
+authors: 
+  - ahopp
+  - kyledvs
+date:   2021-05-14 01:01:01 -0700
+categories: update
+---
 
 We are excited to release the OpenSearch Beta 1.0 (derived from Elasticsearch 7.10.2) and OpenSearch Dashboards Beta 1.0 (derived from Kibana 7.10.2). With this beta release, we will have refactored all Open Distro for Elasticsearch plugins to work with OpenSearch and provide the community with downloadable artifacts to run OpenSearch and OpenSearch Dashboards with these plugins installed. As always, all of the software in the OpenSearch project is released under the Apache License, Version 2.0 (ALv2).
 
