@@ -170,3 +170,14 @@ dl.list-features {
     height: auto;
     border: 1px solid #eee;
 }
+.downloads-page {
+    .layout-2col {
+        .col {
+            width: 48%;
+            margin: 0 4% 0 0 ;
+        }
+        .col + .col {
+            margin: 0;
+        }
+    }
+}
