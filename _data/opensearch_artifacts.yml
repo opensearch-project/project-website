@@ -1,0 +1,7 @@
+opensearch:
+  linux_x64: '#x64-opensearch-download'
+  docker: '#opensearch-docker-link'
+
+opensearch_dashboards:
+  linux_x64: '#x64-opensearch-dashboards-downloads'
+  docker: '#opensearch-dashboards-links'

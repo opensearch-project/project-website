@@ -12,6 +12,22 @@ opendistro:
     link: 
         url: http://opendistro.github.io/for-elasticsearch/downloads.html
         title: Get it here
+
+intro:
+  heading: How to get started with OpenSearch
+  paragraph: OpenSearch is open source software that uses the Apache License version 2 (ALv2). ALv2 grants you well-understood usage rights; you can use, modify, extend, embed, monetize, resell, and offer OpenSearch as part of your products and services. The source for the entire project is available on [GitHub](https://github.com/opensearch-project/) and you're welcome to build from source for customized deployments. Downloadable artifacts for OpenSearch and OpenSearch Dashboards include plugins and tools, ready for you to use with minimal configuration.
+
+opensearch:
+  heading: OpenSearch
+  description: Linux, x64, .tgz
+  download_cta: Download OpenSearch
+  docker_cta: OpenSearch on Docker
+
+opensearch_dashboards:
+  heading: OpenSearch Dashboards
+  description: Linux, x64, .tgz
+  download_cta: Download OpenSearch Dashboards
+  docker_cta: OpenSearch Dashboards on Docker
 ---
 {% assign primary_title = site.headings.authors %}
 {% assign layout_class = 'sidebar-right' %}
@@ -19,25 +35,23 @@ opendistro:
 
 {% capture content %}
 <div class="downloads-page">
-  <h2>How to get started with OpenSearch</h2>
-
-  <p>OpenSearch is open source software that uses the Apache License version 2 (ALv2). ALv2 grants you well-understood usage rights; you can use, modify, extend, embed, monetize, resell, and offer OpenSearch as part of your products and services. The source for the entire project is available on <a href="https://github.com/opensearch-project/">GitHub</a> and you're welcome to build from source for customized deployments. Downloadable artifacts for OpenSearch and OpenSearch Dashboards include plugins and tools, ready for you to use with minimal configuration.</p>
+  <h2>{{ page.intro.heading }}</h2>
+  {{ page.intro.paragraph | markdownify }}
   
-
   <div class="layout-2col">
     <div class="col">
-      <h2>OpenSearch</h2>
-      <div class="meta">Linux, x86, .tgz<br />Current version: {{ site.data.version.latest_version.os }}</div>
-      <a href="#" class="cta">Download OpenSearch</a>
+      <h2>{{page.opensearch.heading}}</h2>
+      <div class="meta">{{ page.opensearch.description }} <br />Current version: {{ site.data.version.latest_version.os }}</div>
+      <a href="{{site.data.opensearch_artifacts.opensearch.linux_x64}}" class="cta">{{ page.opensearch.download_cta }}</a>
       <hr />
-      <a href="#" class="cta outline">OpenSearch on Docker</a>
+      <a href="{{site.data.opensearch_artifacts.opensearch.docker}}" class="cta outline">{{ page.opensearch.docker_cta }}</a>
     </div>
     <div class="col">
-      <h2>OpenSearch Dashboards</h2>
-      <div class="meta">Linux, x86, .tgz<br />Current version: {{ site.data.version.latest_version.os-d }}</div>
-      <a href="#" class="cta">Download OpenSearch Dashboards</a>
+      <h2>{{page.opensearch_dashboards.heading}}</h2>
+      <div class="meta">{{ page.opensearch_dashboards.description }}<br />Current version: {{ site.data.version.latest_version.os-d }}</div>
+      <a href="{{site.data.opensearch_artifacts.opensearch.linux_x64}}" class="cta">{{page.opensearch_dashboards.download_cta}}</a>
       <hr />
-      <a href="#" class="cta outline">OpenSearch Dashboards on Docker</a>
+      <a href="{{site.data.opensearch_artifacts.opensearch.docker}}" class="cta outline">{{ page.opensearch_dashboards.docker_cta }}</a>
     </div>
   </div>
 
