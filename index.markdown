@@ -13,13 +13,15 @@ download_ctas:
 
 ctas:
     post: ' source on GitHub'
+    primary: 
+        text: 'Get Started'
+        url: '/downloads.html'
 
+greeting: "More about OpenSearch"
 
-greeting: "👋 Glad you found us."
+headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze your data."
 
-headline: "OpenSearch makes it easy to find whatever you need in all of your data."
-
-long_description: "OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, *OpenSearch*, and a visualization and user interface, *OpenSearch Dashboards*."
+long_description: " OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, OpenSearch, and a visualization and user interface, OpenSearch Dashboards. With OpenSearch we aim to make it easy for as many people and organizations as possible to use OpenSearch while continuing to provide a secure, high-quality, fully open source search and analytics suite with a rich roadmap of new and innovative functionality. Some popular use cases for OpenSearch include application search, log analytics, and more."
 
 # Both OpenSearch and OpenSearch Dashboards are super pluggable -- you can provide your own or use the [OpenDistro Plugins](#) for extra functionality." 
 
@@ -31,8 +33,8 @@ callouts_leader: 'When we (the contributors) are successful, OpenSearch will be:
 
 
 callout_button:
-    title: I want to know more about OpenSearch
-    url: /blog
+    title: Get Started
+    url: /downloads.html
 
 opendistro:
     head:  Looking for Open Distro?
