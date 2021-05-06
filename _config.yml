@@ -43,7 +43,8 @@ defaults:
     values:
       layout: javadocs
       permalink: /docs/:collection/:name
-      path: ''
+-
+    scope:
       type: events
     values:
       layout: event
