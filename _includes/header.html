@@ -1,4 +1,18 @@
 {% assign url_parts = page.url | split: "/" %}
+{%if page.alert %}
+<div role="banner" class="banner-alert">
+  <div class="container">
+    {{page.alert | markdownify}}
+  </div>
+</div>
+{%endif%}
+{%if site.data.alert.message %}
+<div role="banner" class="banner-alert">
+  <div class="container">
+  {{site.data.alert.message | markdownify}}
+  </div>
+</div>
+{%endif%}
 <div role="banner" id="top">
   <div class="container">
     <a class="logo" href="{{ '/' | relative_url }}">OpenSearch</a>
