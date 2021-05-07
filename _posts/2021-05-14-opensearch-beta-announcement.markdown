@@ -2,7 +2,7 @@
 layout: post
 title:  "OpenSearch Beta 1"
 authors: 
-  - ahopp
+  - andhopp
   - kyledvs
 date:   2021-05-14 01:01:01 -0700
 categories: update
@@ -12,7 +12,7 @@ We are excited to release the OpenSearch Beta 1.0 (derived from Elasticsearch 7.
 
 The goal of this project is to build the best open-source distributed search engine on the planet with the help of a passionate and diverse community — so please join us. Submit pull requests, write documentation, open issues (either on [OpenSearch](https://github.com/opensearch-project/OpenSearch/issues) or [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/issues)), or simply read the [news](https://opensearch.org/blog/). If you would like to install or run this project please see the Developer Guide ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/DEVELOPER_GUIDE.md) and [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md)).
 
-### Artifacts
+### Artifac
 For beta, the downloadable artifacts will include Docker images and Linux tars. We chose to focus on Docker and Linux tars for beta as they make up over 90% of downloads on Open Distro for Elasticsearch. It is also worth noting that we have left the original plugin repos in GitHub so that customers using Open Distro for Elasticsearch can access older versions.
 
 #### Core
