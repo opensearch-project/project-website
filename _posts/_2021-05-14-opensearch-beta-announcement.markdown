@@ -13,8 +13,8 @@ We are excited to release the OpenSearch Beta 1.0 (derived from Elasticsearch 7.
 - Advanced Security
 - SQL Query Syntax
 - Anomaly Detection
-- Asynchronous Search
 - Alerting
+- Piped Processing Language
 
 ...and more ([OpenSearch](https://github.com/opensearch-project/OpenSearch) and [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards)). 
 
