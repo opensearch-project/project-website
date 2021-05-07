@@ -22,34 +22,34 @@ We would like to get your feedback from this beta release - please let us know i
 
 #### Plugins Included in Beta are:
 
-- Infra/DevOps [Repository]
-- AD [Repository]
-- AD Dashboards [Repository]
-- Security Dashboards (FE) [Repository]
-- Security (BE) [Repository]
-- Performance Analyzer [Repository]
-- PerfTop [Repository]
-- K-NN [Repository]
-- Job Scheduler [Repository]
-- Index Management [Repository]
-- Index Management Dashboards [Repository]
-- Alerting [Repository]
-- Alerting Dashboard [Repository]
-- SQL/PPL OpenSearch Plugin [Repository]
-- Query Workbench Dashboards Plugin [Repository]
-- SQL JDBC Driver [Repository]
-- SQL CLI Client [Repository]
-- SQL ODBC Driver [Repository]
-- Notebooks OpenSearch Plugin [Repository]
-- Notebooks Dashboards Plugin [Repository]
-- Reporting Dashboards Plugin [Repository]
-- Reporting Opensearch Plugin [Repository]
-- Trace Analytics Dashboards Plugin [Repository]
-- Gantt Chards - Dashboards Visualization plugin [Repository]
-- Async-Search [Repository]
-- OpenSearch CLI [Repository]
-- Common-Utils [Repository]
-- Data Prepper [Repository]
+- Infra/DevOps **PENDING REPO**
+- [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection)
+- [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin)
+- [Security Dashboards (FE)](https://github.com/opensearch-project/security-dashboards-plugin)
+- [Security (BE)](https://github.com/opensearch-project/security)
+- [Performance Analyzer](https://github.com/opensearch-project/performance-analyzer)
+- [PerfTop](https://github.com/opensearch-project/perftop)
+- [K-NN](https://github.com/opensearch-project/k-NN)
+- [Job Scheduler](https://github.com/opensearch-project/job-scheduler)
+- [Index Management](https://github.com/opensearch-project/index-management)
+- [Index Management Dashboards](https://github.com/opensearch-project/index-management-dashboards-plugin)
+- [Alerting](https://github.com/opensearch-project/alerting)
+- [Alerting Dashboard](https://github.com/opensearch-project/alerting-dashboards-plugin)
+- [SQL/PPL OpenSearch Plugin](https://github.com/opensearch-project/sql)
+- [Query Workbench Dashboards Plugin](https://github.com/opensearch-project/sql)
+- [SQL JDBC Driver](https://github.com/opensearch-project/sql)
+- [SQL CLI Client](https://github.com/opensearch-project/sql)
+- [SQL ODBC Driver](https://github.com/opensearch-project/sql)
+- [Notebooks OpenSearch Plugin](https://github.com/opensearch-project/dashboards-notebooks)
+- [Notebooks Dashboards Plugin](https://github.com/opensearch-project/dashboards-notebooks)
+- [Reporting Dashboards Plugin](https://github.com/opensearch-project/dashboards-reports)
+- [Reporting Opensearch Plugin](https://github.com/opensearch-project/dashboards-reports)
+- [Trace Analytics Dashboards Plugin](https://github.com/opensearch-project/trace-analytics)
+- [Gantt Charts - Dashboards Visualization plugin](https://github.com/opensearch-project/dashboards-visualizations)
+- [Asynchronous Search](https://github.com/opensearch-project/asynchronous-search)
+- [OpenSearch CLI](https://github.com/opensearch-project/opensearch-cli)
+- [Common Utils](https://github.com/opensearch-project/common-utils)
+- Data Prepper **PENDING REPO**
 
 ## Special Thanks
 We would like to extend a special thanks to the community of partners already contributing to the project! 
@@ -57,11 +57,11 @@ We would like to extend a special thanks to the community of partners already co
 **TODO** Add a list of who have contributed as a special thanks.  
 
 ## How can you help?
-The biggest thing you can do to help is join us! You can install ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/DEVELOPER_GUIDE.md) and [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md) and start diving in! Feel free to take a look around at what we've been up to, and then head over to look at the open issues. Or you could jump right in and start opening issues or contributing. For more details see [here](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md).
+The biggest thing you can do to help is join us! You can install ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/DEVELOPER_GUIDE.md) and [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md)) and start diving in! Feel free to take a look around at what we've been up to, and then head over to look at the open issues. Or you could jump right in and start opening issues or contributing. For more details see [here](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md).
 
 **When in doubt, open an issue**
 
-For almost any type of contribution, the first step is opening an issue. Even if you think you already know what the solution is, writing down a description of the problem you're trying to solve will help everyone get context when they review your pull request. If it's truly a trivial change (e.g. spelling error), you can skip this step -- but as the subject says, when it doubt, open an issue. 
+For almost any type of contribution, the first step is opening an issue ([OpenSearch](https://github.com/opensearch-project/OpenSearch/issues), [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/issues)). Even if you think you already know what the solution is, writing down a description of the problem you're trying to solve will help everyone get context when they review your pull request. If it's truly a trivial change (e.g. spelling error), you can skip this step -- but as the subject says, when it doubt, open an issue. 
 
 **Look for the tag "help wanted"**
 
@@ -69,5 +69,5 @@ If you're excited to jump in, we've marked a few issues that would be really hel
 
 **Questions? Feedback?**
 
-Let us know in the [forums](https://discuss.opendistrocommunity.dev/). We are also having biweekly [Community Meetings](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/). The community meetings will include progress updates at every session as well as leaving time for Q&A. The next community meeting is on May 18, 2021 at
+Let us know in by opening an [issue](https://github.com/opensearch-project/OpenSearch/issues) or posting in the [forums](https://discuss.opendistrocommunity.dev/). We are also having biweekly [Community Meetings](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/). The community meetings will include progress updates at every session as well as leaving time for Q&A. The next community meeting is on May 18, 2021 at
 9:00 AM PDT.
