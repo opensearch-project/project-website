@@ -20,15 +20,17 @@ layout: default
 
 
 {% capture content %}
+    <div class="section headline">
+      <h1>{{ page.headline }} </h1>
+      <a href="{{page.ctas.primary.url}}" class="cta">{{page.ctas.primary.text}}</a>
+    </div> 
     <div class="section">
-        <h1>{{ page.greeting }}</h1>
+        <!-- <h2>{{ page.greeting }}</h2> -->
         <p>
           {{ page.long_description | markdownify }}
         </p>
     </div>
-    <div class="section headline">
-      <h1>{{ page.headline }} </h1>
-    </div> 
+
     <div class="section" id="{{page.callouts_id}}">
     <dl class="{{ page.callouts_class }}">
       <h2>{{ page.callouts_head }}</h2>
@@ -46,10 +48,10 @@ layout: default
 {% endcapture %}
 
 {% capture content_secondary %}
-  <div class="section">
+  <!--<div class="section">
     <h1>{{ page.secondary.heading }}</h1>
     {{ page.secondary.content | markdownify }}
-  </div>
+  </div>-->
 
   <!-- END #content-secondary -->
 {% endcapture %}
@@ -58,7 +60,7 @@ layout: default
   <div role="complementary">
       {% for cta in page.download_ctas %}
       {% assign repo = site.data.repos | find: "shortname", cta %}
-        <a href="{{ repo.url }}" class="cta">
+        <a href="{{ repo.url }}" class="cta outline">
           {{page.ctas.pre}} {{ repo.title }} {{page.ctas.post}}
           {% comment %} {{ site.data.version.latest_version[cta] }} {%endcomment%}
         </a>

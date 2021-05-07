@@ -1,0 +1,13 @@
+---
+layout: fullwidth
+---
+<h2>JavaDocs</h2>
+<p>Arranged by version:</p>
+<p>There is an ongoing <a href="https://github.com/opensearch-project/OpenSearch/issues/221">effort to improve OpenSearch JavaDocs</a>.</p>
+<ul>
+  {% for javadoc in site.javadocs %}
+  <li>
+    <a href="{{ javadoc.url }}">{{javadoc.title}}</a>
+  </li>
+  {% endfor %}
+</ul>

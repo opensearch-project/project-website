@@ -1,0 +1,7 @@
+opensearch:
+  linux_x64: '#x64-opensearch-download'
+  docker: 'https://hub.docker.com/r/opensearchstaging/opensearch'
+
+opensearch_dashboards:
+  linux_x64: '#x64-opensearch-dashboards-downloads'
+  docker: 'https://hub.docker.com/r/opensearchstaging/opensearch-dashboards'

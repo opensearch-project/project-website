@@ -10,21 +10,20 @@ javadocs:
   - OpenSearch/benchmarks/build/docs/javadoc/help-doc.html
   - OpenSearch/benchmarks/build/docs/javadoc/index-all.html
   - OpenSearch/benchmarks/build/docs/javadoc/index.html
+  - OpenSearch/benchmarks/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/benchmarks/build/docs/javadoc/member-search-index.js
-  - OpenSearch/benchmarks/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/benchmarks/build/docs/javadoc/module-search-index.js
   - OpenSearch/benchmarks/build/docs/javadoc/org
   - OpenSearch/benchmarks/build/docs/javadoc/overview-summary.html
   - OpenSearch/benchmarks/build/docs/javadoc/overview-tree.html
   - OpenSearch/benchmarks/build/docs/javadoc/package-search-index.js
-  - OpenSearch/benchmarks/build/docs/javadoc/package-search-index.zip
   - OpenSearch/benchmarks/build/docs/javadoc/resources
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir
   - OpenSearch/benchmarks/build/docs/javadoc/script.js
   - OpenSearch/benchmarks/build/docs/javadoc/search.js
   - OpenSearch/benchmarks/build/docs/javadoc/stylesheet.css
-  - OpenSearch/benchmarks/build/docs/javadoc/system-properties.html
+  - OpenSearch/benchmarks/build/docs/javadoc/tag-search-index.js
   - OpenSearch/benchmarks/build/docs/javadoc/type-search-index.js
-  - OpenSearch/benchmarks/build/docs/javadoc/type-search-index.zip
   - OpenSearch/benchmarks/build/docs/javadoc/org/opensearch
   - OpenSearch/benchmarks/build/docs/javadoc/org/opensearch/benchmark
   - OpenSearch/benchmarks/build/docs/javadoc/org/opensearch/common
@@ -66,19 +65,11 @@ javadocs:
   - OpenSearch/benchmarks/build/docs/javadoc/org/opensearch/common/package-tree.html
   - OpenSearch/benchmarks/build/docs/javadoc/resources/glass.png
   - OpenSearch/benchmarks/build/docs/javadoc/resources/x.png
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/external
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/images
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -90,14 +81,6 @@ javadocs:
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/benchmarks/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/benchmarks/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/benchmarks/build/tmp/javadoc/javadoc.options
   - OpenSearch/buildSrc/build/docs/javadoc/allclasses-index.html
   - OpenSearch/buildSrc/build/docs/javadoc/allpackages-index.html
@@ -107,22 +90,21 @@ javadocs:
   - OpenSearch/buildSrc/build/docs/javadoc/help-doc.html
   - OpenSearch/buildSrc/build/docs/javadoc/index-all.html
   - OpenSearch/buildSrc/build/docs/javadoc/index.html
+  - OpenSearch/buildSrc/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/buildSrc/build/docs/javadoc/member-search-index.js
-  - OpenSearch/buildSrc/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/buildSrc/build/docs/javadoc/module-search-index.js
   - OpenSearch/buildSrc/build/docs/javadoc/org
   - OpenSearch/buildSrc/build/docs/javadoc/overview-summary.html
   - OpenSearch/buildSrc/build/docs/javadoc/overview-tree.html
   - OpenSearch/buildSrc/build/docs/javadoc/package-search-index.js
-  - OpenSearch/buildSrc/build/docs/javadoc/package-search-index.zip
   - OpenSearch/buildSrc/build/docs/javadoc/resources
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir
   - OpenSearch/buildSrc/build/docs/javadoc/script.js
   - OpenSearch/buildSrc/build/docs/javadoc/search.js
   - OpenSearch/buildSrc/build/docs/javadoc/serialized-form.html
   - OpenSearch/buildSrc/build/docs/javadoc/stylesheet.css
-  - OpenSearch/buildSrc/build/docs/javadoc/system-properties.html
+  - OpenSearch/buildSrc/build/docs/javadoc/tag-search-index.js
   - OpenSearch/buildSrc/build/docs/javadoc/type-search-index.js
-  - OpenSearch/buildSrc/build/docs/javadoc/type-search-index.zip
   - OpenSearch/buildSrc/build/docs/javadoc/org/opensearch
   - OpenSearch/buildSrc/build/docs/javadoc/org/opensearch/gradle
   - OpenSearch/buildSrc/build/docs/javadoc/org/opensearch/gradle/AbstractLazyPropertyCollection.html
@@ -315,19 +297,11 @@ javadocs:
   - OpenSearch/buildSrc/build/docs/javadoc/org/opensearch/gradle/vagrant/package-tree.html
   - OpenSearch/buildSrc/build/docs/javadoc/resources/glass.png
   - OpenSearch/buildSrc/build/docs/javadoc/resources/x.png
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/external
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/images
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -339,14 +313,6 @@ javadocs:
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/buildSrc/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/buildSrc/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/buildSrc/build/tmp/javadoc/javadoc.options
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/allclasses-index.html
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/allpackages-index.html
@@ -356,20 +322,19 @@ javadocs:
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/help-doc.html
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/index-all.html
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/index.html
+  - OpenSearch/buildSrc/reaper/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/member-search-index.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/buildSrc/reaper/build/docs/javadoc/module-search-index.js
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/org
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/overview-tree.html
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/package-search-index.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/package-search-index.zip
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/resources
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script.js
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/search.js
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/stylesheet.css
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/system-properties.html
+  - OpenSearch/buildSrc/reaper/build/docs/javadoc/tag-search-index.js
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/type-search-index.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/type-search-index.zip
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/org/opensearch
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/org/opensearch/gradle
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/org/opensearch/gradle/reaper
@@ -378,19 +343,11 @@ javadocs:
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/org/opensearch/gradle/reaper/package-tree.html
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/resources/glass.png
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/resources/x.png
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/external
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/images
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -402,14 +359,6 @@ javadocs:
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/buildSrc/reaper/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/buildSrc/reaper/build/tmp/javadoc/javadoc.options
   - OpenSearch/client/benchmark/build/docs/javadoc/allclasses-index.html
   - OpenSearch/client/benchmark/build/docs/javadoc/allpackages-index.html
@@ -419,21 +368,20 @@ javadocs:
   - OpenSearch/client/benchmark/build/docs/javadoc/help-doc.html
   - OpenSearch/client/benchmark/build/docs/javadoc/index-all.html
   - OpenSearch/client/benchmark/build/docs/javadoc/index.html
+  - OpenSearch/client/benchmark/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/client/benchmark/build/docs/javadoc/member-search-index.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/client/benchmark/build/docs/javadoc/module-search-index.js
   - OpenSearch/client/benchmark/build/docs/javadoc/org
   - OpenSearch/client/benchmark/build/docs/javadoc/overview-summary.html
   - OpenSearch/client/benchmark/build/docs/javadoc/overview-tree.html
   - OpenSearch/client/benchmark/build/docs/javadoc/package-search-index.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/package-search-index.zip
   - OpenSearch/client/benchmark/build/docs/javadoc/resources
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir
   - OpenSearch/client/benchmark/build/docs/javadoc/script.js
   - OpenSearch/client/benchmark/build/docs/javadoc/search.js
   - OpenSearch/client/benchmark/build/docs/javadoc/stylesheet.css
-  - OpenSearch/client/benchmark/build/docs/javadoc/system-properties.html
+  - OpenSearch/client/benchmark/build/docs/javadoc/tag-search-index.js
   - OpenSearch/client/benchmark/build/docs/javadoc/type-search-index.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/type-search-index.zip
   - OpenSearch/client/benchmark/build/docs/javadoc/org/opensearch
   - OpenSearch/client/benchmark/build/docs/javadoc/org/opensearch/client
   - OpenSearch/client/benchmark/build/docs/javadoc/org/opensearch/client/benchmark
@@ -471,19 +419,11 @@ javadocs:
   - OpenSearch/client/benchmark/build/docs/javadoc/org/opensearch/client/benchmark/transport/package-tree.html
   - OpenSearch/client/benchmark/build/docs/javadoc/resources/glass.png
   - OpenSearch/client/benchmark/build/docs/javadoc/resources/x.png
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/external
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/images
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -495,14 +435,6 @@ javadocs:
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/client/benchmark/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/client/benchmark/build/tmp/javadoc/javadoc.options
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/allclasses-index.html
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/allpackages-index.html
@@ -512,21 +444,20 @@ javadocs:
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/help-doc.html
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/index-all.html
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/index.html
+  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/member-search-index.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/module-search-index.js
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/org
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/overview-summary.html
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/overview-tree.html
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/package-search-index.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/package-search-index.zip
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/resources
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script.js
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/search.js
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/stylesheet.css
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/system-properties.html
+  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/tag-search-index.js
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/type-search-index.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/type-search-index.zip
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/org/opensearch
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/org/opensearch/plugin
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/org/opensearch/plugin/noop
@@ -548,19 +479,11 @@ javadocs:
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/org/opensearch/plugin/noop/action/search/package-tree.html
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/resources/glass.png
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/resources/x.png
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/external
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/images
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -572,14 +495,6 @@ javadocs:
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/client/client-benchmark-noop-api-plugin/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/client/client-benchmark-noop-api-plugin/build/tmp/javadoc/javadoc.options
   - OpenSearch/client/rest/build/docs/javadoc/allclasses-index.html
   - OpenSearch/client/rest/build/docs/javadoc/allpackages-index.html
@@ -589,21 +504,20 @@ javadocs:
   - OpenSearch/client/rest/build/docs/javadoc/help-doc.html
   - OpenSearch/client/rest/build/docs/javadoc/index-all.html
   - OpenSearch/client/rest/build/docs/javadoc/index.html
+  - OpenSearch/client/rest/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/client/rest/build/docs/javadoc/member-search-index.js
-  - OpenSearch/client/rest/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/client/rest/build/docs/javadoc/module-search-index.js
   - OpenSearch/client/rest/build/docs/javadoc/org
   - OpenSearch/client/rest/build/docs/javadoc/overview-tree.html
   - OpenSearch/client/rest/build/docs/javadoc/package-search-index.js
-  - OpenSearch/client/rest/build/docs/javadoc/package-search-index.zip
   - OpenSearch/client/rest/build/docs/javadoc/resources
   - OpenSearch/client/rest/build/docs/javadoc/script-dir
   - OpenSearch/client/rest/build/docs/javadoc/script.js
   - OpenSearch/client/rest/build/docs/javadoc/search.js
   - OpenSearch/client/rest/build/docs/javadoc/serialized-form.html
   - OpenSearch/client/rest/build/docs/javadoc/stylesheet.css
-  - OpenSearch/client/rest/build/docs/javadoc/system-properties.html
+  - OpenSearch/client/rest/build/docs/javadoc/tag-search-index.js
   - OpenSearch/client/rest/build/docs/javadoc/type-search-index.js
-  - OpenSearch/client/rest/build/docs/javadoc/type-search-index.zip
   - OpenSearch/client/rest/build/docs/javadoc/org/opensearch
   - OpenSearch/client/rest/build/docs/javadoc/org/opensearch/client
   - OpenSearch/client/rest/build/docs/javadoc/org/opensearch/client/Cancellable.html
@@ -633,19 +547,11 @@ javadocs:
   - OpenSearch/client/rest/build/docs/javadoc/org/opensearch/client/package-tree.html
   - OpenSearch/client/rest/build/docs/javadoc/resources/glass.png
   - OpenSearch/client/rest/build/docs/javadoc/resources/x.png
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/external
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/images
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -657,14 +563,6 @@ javadocs:
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/client/rest/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/client/rest/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/client/rest/build/tmp/javadoc/javadoc.options
   - OpenSearch/client/rest-high-level/build/docs/javadoc/allclasses-index.html
   - OpenSearch/client/rest-high-level/build/docs/javadoc/allpackages-index.html
@@ -674,22 +572,21 @@ javadocs:
   - OpenSearch/client/rest-high-level/build/docs/javadoc/help-doc.html
   - OpenSearch/client/rest-high-level/build/docs/javadoc/index-all.html
   - OpenSearch/client/rest-high-level/build/docs/javadoc/index.html
+  - OpenSearch/client/rest-high-level/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/client/rest-high-level/build/docs/javadoc/member-search-index.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/client/rest-high-level/build/docs/javadoc/module-search-index.js
   - OpenSearch/client/rest-high-level/build/docs/javadoc/org
   - OpenSearch/client/rest-high-level/build/docs/javadoc/overview-summary.html
   - OpenSearch/client/rest-high-level/build/docs/javadoc/overview-tree.html
   - OpenSearch/client/rest-high-level/build/docs/javadoc/package-search-index.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/package-search-index.zip
   - OpenSearch/client/rest-high-level/build/docs/javadoc/resources
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script.js
   - OpenSearch/client/rest-high-level/build/docs/javadoc/search.js
   - OpenSearch/client/rest-high-level/build/docs/javadoc/serialized-form.html
   - OpenSearch/client/rest-high-level/build/docs/javadoc/stylesheet.css
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/system-properties.html
+  - OpenSearch/client/rest-high-level/build/docs/javadoc/tag-search-index.js
   - OpenSearch/client/rest-high-level/build/docs/javadoc/type-search-index.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/type-search-index.zip
   - OpenSearch/client/rest-high-level/build/docs/javadoc/org/opensearch
   - OpenSearch/client/rest-high-level/build/docs/javadoc/org/opensearch/client
   - OpenSearch/client/rest-high-level/build/docs/javadoc/org/opensearch/client/ClusterClient.html
@@ -846,19 +743,11 @@ javadocs:
   - OpenSearch/client/rest-high-level/build/docs/javadoc/org/opensearch/client/tasks/package-tree.html
   - OpenSearch/client/rest-high-level/build/docs/javadoc/resources/glass.png
   - OpenSearch/client/rest-high-level/build/docs/javadoc/resources/x.png
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/external
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/images
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -870,14 +759,6 @@ javadocs:
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/client/rest-high-level/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/client/rest-high-level/build/tmp/javadoc/javadoc.options
   - OpenSearch/client/sniffer/build/docs/javadoc/allclasses-index.html
   - OpenSearch/client/sniffer/build/docs/javadoc/allpackages-index.html
@@ -887,20 +768,19 @@ javadocs:
   - OpenSearch/client/sniffer/build/docs/javadoc/help-doc.html
   - OpenSearch/client/sniffer/build/docs/javadoc/index-all.html
   - OpenSearch/client/sniffer/build/docs/javadoc/index.html
+  - OpenSearch/client/sniffer/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/client/sniffer/build/docs/javadoc/member-search-index.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/client/sniffer/build/docs/javadoc/module-search-index.js
   - OpenSearch/client/sniffer/build/docs/javadoc/org
   - OpenSearch/client/sniffer/build/docs/javadoc/overview-tree.html
   - OpenSearch/client/sniffer/build/docs/javadoc/package-search-index.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/package-search-index.zip
   - OpenSearch/client/sniffer/build/docs/javadoc/resources
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir
   - OpenSearch/client/sniffer/build/docs/javadoc/script.js
   - OpenSearch/client/sniffer/build/docs/javadoc/search.js
   - OpenSearch/client/sniffer/build/docs/javadoc/stylesheet.css
-  - OpenSearch/client/sniffer/build/docs/javadoc/system-properties.html
+  - OpenSearch/client/sniffer/build/docs/javadoc/tag-search-index.js
   - OpenSearch/client/sniffer/build/docs/javadoc/type-search-index.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/type-search-index.zip
   - OpenSearch/client/sniffer/build/docs/javadoc/org/opensearch
   - OpenSearch/client/sniffer/build/docs/javadoc/org/opensearch/client
   - OpenSearch/client/sniffer/build/docs/javadoc/org/opensearch/client/sniff
@@ -914,19 +794,11 @@ javadocs:
   - OpenSearch/client/sniffer/build/docs/javadoc/org/opensearch/client/sniff/package-tree.html
   - OpenSearch/client/sniffer/build/docs/javadoc/resources/glass.png
   - OpenSearch/client/sniffer/build/docs/javadoc/resources/x.png
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/external
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/images
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -938,14 +810,6 @@ javadocs:
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/client/sniffer/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/client/sniffer/build/tmp/javadoc/javadoc.options
   - OpenSearch/client/test/build/docs/javadoc/allclasses-index.html
   - OpenSearch/client/test/build/docs/javadoc/allpackages-index.html
@@ -955,20 +819,19 @@ javadocs:
   - OpenSearch/client/test/build/docs/javadoc/help-doc.html
   - OpenSearch/client/test/build/docs/javadoc/index-all.html
   - OpenSearch/client/test/build/docs/javadoc/index.html
+  - OpenSearch/client/test/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/client/test/build/docs/javadoc/member-search-index.js
-  - OpenSearch/client/test/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/client/test/build/docs/javadoc/module-search-index.js
   - OpenSearch/client/test/build/docs/javadoc/org
   - OpenSearch/client/test/build/docs/javadoc/overview-tree.html
   - OpenSearch/client/test/build/docs/javadoc/package-search-index.js
-  - OpenSearch/client/test/build/docs/javadoc/package-search-index.zip
   - OpenSearch/client/test/build/docs/javadoc/resources
   - OpenSearch/client/test/build/docs/javadoc/script-dir
   - OpenSearch/client/test/build/docs/javadoc/script.js
   - OpenSearch/client/test/build/docs/javadoc/search.js
   - OpenSearch/client/test/build/docs/javadoc/stylesheet.css
-  - OpenSearch/client/test/build/docs/javadoc/system-properties.html
+  - OpenSearch/client/test/build/docs/javadoc/tag-search-index.js
   - OpenSearch/client/test/build/docs/javadoc/type-search-index.js
-  - OpenSearch/client/test/build/docs/javadoc/type-search-index.zip
   - OpenSearch/client/test/build/docs/javadoc/org/opensearch
   - OpenSearch/client/test/build/docs/javadoc/org/opensearch/client
   - OpenSearch/client/test/build/docs/javadoc/org/opensearch/client/RestClientTestCase.html
@@ -976,19 +839,11 @@ javadocs:
   - OpenSearch/client/test/build/docs/javadoc/org/opensearch/client/package-tree.html
   - OpenSearch/client/test/build/docs/javadoc/resources/glass.png
   - OpenSearch/client/test/build/docs/javadoc/resources/x.png
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/external
   - OpenSearch/client/test/build/docs/javadoc/script-dir/images
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/client/test/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/client/test/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/client/test/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/client/test/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/client/test/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/client/test/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/client/test/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1000,14 +855,6 @@ javadocs:
   - OpenSearch/client/test/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/client/test/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/client/test/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/client/test/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/client/test/build/tmp/javadoc/javadoc.options
   - OpenSearch/client/transport/build/docs/javadoc/allclasses-index.html
   - OpenSearch/client/transport/build/docs/javadoc/allpackages-index.html
@@ -1017,20 +864,19 @@ javadocs:
   - OpenSearch/client/transport/build/docs/javadoc/help-doc.html
   - OpenSearch/client/transport/build/docs/javadoc/index-all.html
   - OpenSearch/client/transport/build/docs/javadoc/index.html
+  - OpenSearch/client/transport/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/client/transport/build/docs/javadoc/member-search-index.js
-  - OpenSearch/client/transport/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/client/transport/build/docs/javadoc/module-search-index.js
   - OpenSearch/client/transport/build/docs/javadoc/org
   - OpenSearch/client/transport/build/docs/javadoc/overview-tree.html
   - OpenSearch/client/transport/build/docs/javadoc/package-search-index.js
-  - OpenSearch/client/transport/build/docs/javadoc/package-search-index.zip
   - OpenSearch/client/transport/build/docs/javadoc/resources
   - OpenSearch/client/transport/build/docs/javadoc/script-dir
   - OpenSearch/client/transport/build/docs/javadoc/script.js
   - OpenSearch/client/transport/build/docs/javadoc/search.js
   - OpenSearch/client/transport/build/docs/javadoc/stylesheet.css
-  - OpenSearch/client/transport/build/docs/javadoc/system-properties.html
+  - OpenSearch/client/transport/build/docs/javadoc/tag-search-index.js
   - OpenSearch/client/transport/build/docs/javadoc/type-search-index.js
-  - OpenSearch/client/transport/build/docs/javadoc/type-search-index.zip
   - OpenSearch/client/transport/build/docs/javadoc/org/opensearch
   - OpenSearch/client/transport/build/docs/javadoc/org/opensearch/transport
   - OpenSearch/client/transport/build/docs/javadoc/org/opensearch/transport/client
@@ -1039,19 +885,11 @@ javadocs:
   - OpenSearch/client/transport/build/docs/javadoc/org/opensearch/transport/client/package-tree.html
   - OpenSearch/client/transport/build/docs/javadoc/resources/glass.png
   - OpenSearch/client/transport/build/docs/javadoc/resources/x.png
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/external
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/images
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1063,14 +901,6 @@ javadocs:
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/client/transport/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/client/transport/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/client/transport/build/tmp/javadoc/javadoc.options
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/allclasses-index.html
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/allpackages-index.html
@@ -1080,20 +910,19 @@ javadocs:
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/help-doc.html
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/index-all.html
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/index.html
+  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/member-search-index.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/module-search-index.js
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/org
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/overview-tree.html
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/package-search-index.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/package-search-index.zip
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/resources
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script.js
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/search.js
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/stylesheet.css
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/system-properties.html
+  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/tag-search-index.js
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/type-search-index.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/type-search-index.zip
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/org/opensearch
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/org/opensearch/common
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/org/opensearch/common/settings
@@ -1102,19 +931,11 @@ javadocs:
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/org/opensearch/common/settings/package-tree.html
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/resources/glass.png
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/resources/x.png
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/external
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/images
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1126,14 +947,6 @@ javadocs:
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/distribution/tools/keystore-cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/distribution/tools/keystore-cli/build/tmp/javadoc/javadoc.options
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/allclasses-index.html
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/allpackages-index.html
@@ -1143,20 +956,19 @@ javadocs:
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/help-doc.html
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/index-all.html
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/index.html
+  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/member-search-index.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/module-search-index.js
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/org
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/overview-tree.html
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/package-search-index.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/package-search-index.zip
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/resources
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script.js
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/search.js
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/stylesheet.css
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/system-properties.html
+  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/tag-search-index.js
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/type-search-index.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/type-search-index.zip
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/org/opensearch
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/org/opensearch/plugins
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/org/opensearch/plugins/PluginCli.html
@@ -1164,19 +976,11 @@ javadocs:
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/org/opensearch/plugins/package-tree.html
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/resources/glass.png
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/resources/x.png
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/external
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/images
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1188,14 +992,6 @@ javadocs:
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/distribution/tools/plugin-cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/distribution/tools/plugin-cli/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/cli/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/cli/build/docs/javadoc/allpackages-index.html
@@ -1205,21 +1001,20 @@ javadocs:
   - OpenSearch/libs/cli/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/cli/build/docs/javadoc/index-all.html
   - OpenSearch/libs/cli/build/docs/javadoc/index.html
+  - OpenSearch/libs/cli/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/cli/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/cli/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/cli/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/cli/build/docs/javadoc/org
   - OpenSearch/libs/cli/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/cli/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/cli/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/cli/build/docs/javadoc/resources
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir
   - OpenSearch/libs/cli/build/docs/javadoc/script.js
   - OpenSearch/libs/cli/build/docs/javadoc/search.js
   - OpenSearch/libs/cli/build/docs/javadoc/serialized-form.html
   - OpenSearch/libs/cli/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/cli/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/cli/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/cli/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/cli/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/cli/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/cli/build/docs/javadoc/org/opensearch/cli
   - OpenSearch/libs/cli/build/docs/javadoc/org/opensearch/cli/Command.html
@@ -1233,19 +1028,11 @@ javadocs:
   - OpenSearch/libs/cli/build/docs/javadoc/org/opensearch/cli/package-tree.html
   - OpenSearch/libs/cli/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/cli/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1257,14 +1044,6 @@ javadocs:
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/cli/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/cli/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/cli/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/core/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/core/build/docs/javadoc/allpackages-index.html
@@ -1274,21 +1053,20 @@ javadocs:
   - OpenSearch/libs/core/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/core/build/docs/javadoc/index-all.html
   - OpenSearch/libs/core/build/docs/javadoc/index.html
+  - OpenSearch/libs/core/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/core/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/core/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/core/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/core/build/docs/javadoc/org
   - OpenSearch/libs/core/build/docs/javadoc/overview-summary.html
   - OpenSearch/libs/core/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/core/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/core/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/core/build/docs/javadoc/resources
   - OpenSearch/libs/core/build/docs/javadoc/script-dir
   - OpenSearch/libs/core/build/docs/javadoc/script.js
   - OpenSearch/libs/core/build/docs/javadoc/search.js
   - OpenSearch/libs/core/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/core/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/core/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/core/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/core/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/core/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/core/build/docs/javadoc/org/opensearch/bootstrap
   - OpenSearch/libs/core/build/docs/javadoc/org/opensearch/common
@@ -1349,19 +1127,11 @@ javadocs:
   - OpenSearch/libs/core/build/docs/javadoc/org/opensearch/core/internal/net/package-tree.html
   - OpenSearch/libs/core/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/core/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1373,14 +1143,6 @@ javadocs:
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/core/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/core/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/core/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/dissect/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/dissect/build/docs/javadoc/allpackages-index.html
@@ -1390,21 +1152,20 @@ javadocs:
   - OpenSearch/libs/dissect/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/dissect/build/docs/javadoc/index-all.html
   - OpenSearch/libs/dissect/build/docs/javadoc/index.html
+  - OpenSearch/libs/dissect/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/dissect/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/dissect/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/dissect/build/docs/javadoc/org
   - OpenSearch/libs/dissect/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/dissect/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/dissect/build/docs/javadoc/resources
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir
   - OpenSearch/libs/dissect/build/docs/javadoc/script.js
   - OpenSearch/libs/dissect/build/docs/javadoc/search.js
   - OpenSearch/libs/dissect/build/docs/javadoc/serialized-form.html
   - OpenSearch/libs/dissect/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/dissect/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/dissect/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/dissect/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/dissect/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/dissect/build/docs/javadoc/org/opensearch/dissect
   - OpenSearch/libs/dissect/build/docs/javadoc/org/opensearch/dissect/DissectException.html
@@ -1415,19 +1176,11 @@ javadocs:
   - OpenSearch/libs/dissect/build/docs/javadoc/org/opensearch/dissect/package-tree.html
   - OpenSearch/libs/dissect/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/dissect/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1439,14 +1192,6 @@ javadocs:
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/dissect/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/dissect/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/geo/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/geo/build/docs/javadoc/allpackages-index.html
@@ -1456,21 +1201,20 @@ javadocs:
   - OpenSearch/libs/geo/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/geo/build/docs/javadoc/index-all.html
   - OpenSearch/libs/geo/build/docs/javadoc/index.html
+  - OpenSearch/libs/geo/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/geo/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/geo/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/geo/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/geo/build/docs/javadoc/org
   - OpenSearch/libs/geo/build/docs/javadoc/overview-summary.html
   - OpenSearch/libs/geo/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/geo/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/geo/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/geo/build/docs/javadoc/resources
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir
   - OpenSearch/libs/geo/build/docs/javadoc/script.js
   - OpenSearch/libs/geo/build/docs/javadoc/search.js
   - OpenSearch/libs/geo/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/geo/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/geo/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/geo/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/geo/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/geo/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/geo/build/docs/javadoc/org/opensearch/geometry
   - OpenSearch/libs/geo/build/docs/javadoc/org/opensearch/geometry/Circle.html
@@ -1499,19 +1243,11 @@ javadocs:
   - OpenSearch/libs/geo/build/docs/javadoc/org/opensearch/geometry/utils/package-tree.html
   - OpenSearch/libs/geo/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/geo/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1523,14 +1259,6 @@ javadocs:
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/geo/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/geo/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/geo/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/grok/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/grok/build/docs/javadoc/allpackages-index.html
@@ -1540,20 +1268,19 @@ javadocs:
   - OpenSearch/libs/grok/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/grok/build/docs/javadoc/index-all.html
   - OpenSearch/libs/grok/build/docs/javadoc/index.html
+  - OpenSearch/libs/grok/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/grok/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/grok/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/grok/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/grok/build/docs/javadoc/org
   - OpenSearch/libs/grok/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/grok/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/grok/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/grok/build/docs/javadoc/resources
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir
   - OpenSearch/libs/grok/build/docs/javadoc/script.js
   - OpenSearch/libs/grok/build/docs/javadoc/search.js
   - OpenSearch/libs/grok/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/grok/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/grok/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/grok/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/grok/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/grok/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/grok/build/docs/javadoc/org/opensearch/grok
   - OpenSearch/libs/grok/build/docs/javadoc/org/opensearch/grok/FloatConsumer.html
@@ -1568,19 +1295,11 @@ javadocs:
   - OpenSearch/libs/grok/build/docs/javadoc/org/opensearch/grok/package-tree.html
   - OpenSearch/libs/grok/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/grok/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1592,14 +1311,6 @@ javadocs:
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/grok/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/grok/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/grok/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/nio/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/nio/build/docs/javadoc/allpackages-index.html
@@ -1609,21 +1320,20 @@ javadocs:
   - OpenSearch/libs/nio/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/nio/build/docs/javadoc/index-all.html
   - OpenSearch/libs/nio/build/docs/javadoc/index.html
+  - OpenSearch/libs/nio/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/nio/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/nio/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/nio/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/nio/build/docs/javadoc/org
   - OpenSearch/libs/nio/build/docs/javadoc/overview-summary.html
   - OpenSearch/libs/nio/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/nio/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/nio/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/nio/build/docs/javadoc/resources
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir
   - OpenSearch/libs/nio/build/docs/javadoc/script.js
   - OpenSearch/libs/nio/build/docs/javadoc/search.js
   - OpenSearch/libs/nio/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/nio/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/nio/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/nio/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/nio/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/nio/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/nio/build/docs/javadoc/org/opensearch/nio
   - OpenSearch/libs/nio/build/docs/javadoc/org/opensearch/nio/BytesChannelContext.html
@@ -1661,19 +1371,11 @@ javadocs:
   - OpenSearch/libs/nio/build/docs/javadoc/org/opensearch/nio/utils/package-tree.html
   - OpenSearch/libs/nio/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/nio/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1685,14 +1387,6 @@ javadocs:
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/nio/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/nio/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/nio/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/allpackages-index.html
@@ -1702,20 +1396,19 @@ javadocs:
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/index-all.html
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/index.html
+  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/org
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/resources
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script.js
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/search.js
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/org/opensearch/plugins
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/org/opensearch/plugins/ExtendedPluginsClassLoader.html
@@ -1723,19 +1416,11 @@ javadocs:
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/org/opensearch/plugins/package-tree.html
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1747,14 +1432,6 @@ javadocs:
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/plugin-classloader/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/plugin-classloader/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/secure-sm/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/secure-sm/build/docs/javadoc/allpackages-index.html
@@ -1764,21 +1441,20 @@ javadocs:
   - OpenSearch/libs/secure-sm/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/secure-sm/build/docs/javadoc/index-all.html
   - OpenSearch/libs/secure-sm/build/docs/javadoc/index.html
+  - OpenSearch/libs/secure-sm/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/secure-sm/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/secure-sm/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/secure-sm/build/docs/javadoc/org
   - OpenSearch/libs/secure-sm/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/secure-sm/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/secure-sm/build/docs/javadoc/resources
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script.js
   - OpenSearch/libs/secure-sm/build/docs/javadoc/search.js
   - OpenSearch/libs/secure-sm/build/docs/javadoc/serialized-form.html
   - OpenSearch/libs/secure-sm/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/secure-sm/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/secure-sm/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/secure-sm/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/secure-sm/build/docs/javadoc/org/opensearch/secure_sm
   - OpenSearch/libs/secure-sm/build/docs/javadoc/org/opensearch/secure_sm/SecureSM.html
@@ -1787,19 +1463,11 @@ javadocs:
   - OpenSearch/libs/secure-sm/build/docs/javadoc/org/opensearch/secure_sm/package-tree.html
   - OpenSearch/libs/secure-sm/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/secure-sm/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1811,14 +1479,6 @@ javadocs:
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/secure-sm/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/secure-sm/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/ssl-config/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/ssl-config/build/docs/javadoc/allpackages-index.html
@@ -1828,21 +1488,20 @@ javadocs:
   - OpenSearch/libs/ssl-config/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/ssl-config/build/docs/javadoc/index-all.html
   - OpenSearch/libs/ssl-config/build/docs/javadoc/index.html
+  - OpenSearch/libs/ssl-config/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/ssl-config/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/ssl-config/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/ssl-config/build/docs/javadoc/org
   - OpenSearch/libs/ssl-config/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/ssl-config/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/ssl-config/build/docs/javadoc/resources
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script.js
   - OpenSearch/libs/ssl-config/build/docs/javadoc/search.js
   - OpenSearch/libs/ssl-config/build/docs/javadoc/serialized-form.html
   - OpenSearch/libs/ssl-config/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/ssl-config/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/ssl-config/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/ssl-config/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/ssl-config/build/docs/javadoc/org/opensearch/common
   - OpenSearch/libs/ssl-config/build/docs/javadoc/org/opensearch/common/ssl
@@ -1866,19 +1525,11 @@ javadocs:
   - OpenSearch/libs/ssl-config/build/docs/javadoc/org/opensearch/common/ssl/package-tree.html
   - OpenSearch/libs/ssl-config/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/ssl-config/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -1890,14 +1541,6 @@ javadocs:
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/ssl-config/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/ssl-config/build/tmp/javadoc/javadoc.options
   - OpenSearch/libs/x-content/build/docs/javadoc/allclasses-index.html
   - OpenSearch/libs/x-content/build/docs/javadoc/allpackages-index.html
@@ -1907,22 +1550,21 @@ javadocs:
   - OpenSearch/libs/x-content/build/docs/javadoc/help-doc.html
   - OpenSearch/libs/x-content/build/docs/javadoc/index-all.html
   - OpenSearch/libs/x-content/build/docs/javadoc/index.html
+  - OpenSearch/libs/x-content/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/libs/x-content/build/docs/javadoc/member-search-index.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/libs/x-content/build/docs/javadoc/module-search-index.js
   - OpenSearch/libs/x-content/build/docs/javadoc/org
   - OpenSearch/libs/x-content/build/docs/javadoc/overview-summary.html
   - OpenSearch/libs/x-content/build/docs/javadoc/overview-tree.html
   - OpenSearch/libs/x-content/build/docs/javadoc/package-search-index.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/package-search-index.zip
   - OpenSearch/libs/x-content/build/docs/javadoc/resources
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir
   - OpenSearch/libs/x-content/build/docs/javadoc/script.js
   - OpenSearch/libs/x-content/build/docs/javadoc/search.js
   - OpenSearch/libs/x-content/build/docs/javadoc/serialized-form.html
   - OpenSearch/libs/x-content/build/docs/javadoc/stylesheet.css
-  - OpenSearch/libs/x-content/build/docs/javadoc/system-properties.html
+  - OpenSearch/libs/x-content/build/docs/javadoc/tag-search-index.js
   - OpenSearch/libs/x-content/build/docs/javadoc/type-search-index.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/type-search-index.zip
   - OpenSearch/libs/x-content/build/docs/javadoc/org/opensearch
   - OpenSearch/libs/x-content/build/docs/javadoc/org/opensearch/common
   - OpenSearch/libs/x-content/build/docs/javadoc/org/opensearch/common/ParseField.CommonFields.html
@@ -2006,19 +1648,11 @@ javadocs:
   - OpenSearch/libs/x-content/build/docs/javadoc/org/opensearch/common/xcontent/yaml/package-tree.html
   - OpenSearch/libs/x-content/build/docs/javadoc/resources/glass.png
   - OpenSearch/libs/x-content/build/docs/javadoc/resources/x.png
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/external
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/images
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2030,14 +1664,6 @@ javadocs:
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/libs/x-content/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/libs/x-content/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/allpackages-index.html
@@ -2047,21 +1673,20 @@ javadocs:
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/index-all.html
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/index.html
+  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/org
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/overview-summary.html
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/resources
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script.js
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/search.js
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/org/opensearch/search
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/org/opensearch/search/aggregations
@@ -2102,19 +1727,11 @@ javadocs:
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/org/opensearch/search/aggregations/support/package-tree.html
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2126,14 +1743,6 @@ javadocs:
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/aggs-matrix-stats/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/aggs-matrix-stats/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/analysis-common/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/analysis-common/build/docs/javadoc/allpackages-index.html
@@ -2143,20 +1752,19 @@ javadocs:
   - OpenSearch/modules/analysis-common/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/analysis-common/build/docs/javadoc/index-all.html
   - OpenSearch/modules/analysis-common/build/docs/javadoc/index.html
+  - OpenSearch/modules/analysis-common/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/analysis-common/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/analysis-common/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/analysis-common/build/docs/javadoc/org
   - OpenSearch/modules/analysis-common/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/analysis-common/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/analysis-common/build/docs/javadoc/resources
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script.js
   - OpenSearch/modules/analysis-common/build/docs/javadoc/search.js
   - OpenSearch/modules/analysis-common/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/analysis-common/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/analysis-common/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/analysis-common/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/analysis-common/build/docs/javadoc/org/opensearch/analysis
   - OpenSearch/modules/analysis-common/build/docs/javadoc/org/opensearch/analysis/common
@@ -2296,19 +1904,11 @@ javadocs:
   - OpenSearch/modules/analysis-common/build/docs/javadoc/org/opensearch/analysis/common/package-tree.html
   - OpenSearch/modules/analysis-common/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/analysis-common/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2320,14 +1920,6 @@ javadocs:
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/analysis-common/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/analysis-common/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/geo/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/geo/build/docs/javadoc/allpackages-index.html
@@ -2337,20 +1929,19 @@ javadocs:
   - OpenSearch/modules/geo/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/geo/build/docs/javadoc/index-all.html
   - OpenSearch/modules/geo/build/docs/javadoc/index.html
+  - OpenSearch/modules/geo/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/geo/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/geo/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/geo/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/geo/build/docs/javadoc/org
   - OpenSearch/modules/geo/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/geo/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/geo/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/geo/build/docs/javadoc/resources
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir
   - OpenSearch/modules/geo/build/docs/javadoc/script.js
   - OpenSearch/modules/geo/build/docs/javadoc/search.js
   - OpenSearch/modules/geo/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/geo/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/geo/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/geo/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/geo/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/geo/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/geo/build/docs/javadoc/org/opensearch/geo
   - OpenSearch/modules/geo/build/docs/javadoc/org/opensearch/geo/GeoPlugin.html
@@ -2358,19 +1949,11 @@ javadocs:
   - OpenSearch/modules/geo/build/docs/javadoc/org/opensearch/geo/package-tree.html
   - OpenSearch/modules/geo/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/geo/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2382,14 +1965,6 @@ javadocs:
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/geo/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/geo/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/geo/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/ingest-common/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/ingest-common/build/docs/javadoc/allpackages-index.html
@@ -2399,21 +1974,20 @@ javadocs:
   - OpenSearch/modules/ingest-common/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/ingest-common/build/docs/javadoc/index-all.html
   - OpenSearch/modules/ingest-common/build/docs/javadoc/index.html
+  - OpenSearch/modules/ingest-common/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/ingest-common/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/ingest-common/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/ingest-common/build/docs/javadoc/org
   - OpenSearch/modules/ingest-common/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/ingest-common/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/ingest-common/build/docs/javadoc/resources
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script.js
   - OpenSearch/modules/ingest-common/build/docs/javadoc/search.js
   - OpenSearch/modules/ingest-common/build/docs/javadoc/serialized-form.html
   - OpenSearch/modules/ingest-common/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/ingest-common/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/ingest-common/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/ingest-common/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/ingest-common/build/docs/javadoc/org/opensearch/ingest
   - OpenSearch/modules/ingest-common/build/docs/javadoc/org/opensearch/ingest/common
@@ -2483,19 +2057,11 @@ javadocs:
   - OpenSearch/modules/ingest-common/build/docs/javadoc/org/opensearch/ingest/common/package-tree.html
   - OpenSearch/modules/ingest-common/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/ingest-common/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2507,14 +2073,6 @@ javadocs:
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/ingest-common/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/ingest-common/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/allpackages-index.html
@@ -2524,20 +2082,19 @@ javadocs:
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/index-all.html
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/index.html
+  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/org
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/resources
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script.js
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/search.js
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/org/opensearch/ingest
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/org/opensearch/ingest/geoip
@@ -2548,19 +2105,11 @@ javadocs:
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/org/opensearch/ingest/geoip/package-tree.html
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2572,14 +2121,6 @@ javadocs:
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/ingest-geoip/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/ingest-geoip/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/allpackages-index.html
@@ -2589,20 +2130,19 @@ javadocs:
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/index-all.html
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/index.html
+  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/org
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/resources
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script.js
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/search.js
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/org/opensearch/ingest
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/org/opensearch/ingest/useragent
@@ -2613,19 +2153,11 @@ javadocs:
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/org/opensearch/ingest/useragent/package-tree.html
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2637,14 +2169,6 @@ javadocs:
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/ingest-user-agent/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/ingest-user-agent/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/lang-expression/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/lang-expression/build/docs/javadoc/allpackages-index.html
@@ -2654,20 +2178,19 @@ javadocs:
   - OpenSearch/modules/lang-expression/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/lang-expression/build/docs/javadoc/index-all.html
   - OpenSearch/modules/lang-expression/build/docs/javadoc/index.html
+  - OpenSearch/modules/lang-expression/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/lang-expression/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/lang-expression/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/lang-expression/build/docs/javadoc/org
   - OpenSearch/modules/lang-expression/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/lang-expression/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/lang-expression/build/docs/javadoc/resources
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script.js
   - OpenSearch/modules/lang-expression/build/docs/javadoc/search.js
   - OpenSearch/modules/lang-expression/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/lang-expression/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/lang-expression/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/lang-expression/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/lang-expression/build/docs/javadoc/org/opensearch/script
   - OpenSearch/modules/lang-expression/build/docs/javadoc/org/opensearch/script/expression
@@ -2678,19 +2201,11 @@ javadocs:
   - OpenSearch/modules/lang-expression/build/docs/javadoc/org/opensearch/script/expression/package-tree.html
   - OpenSearch/modules/lang-expression/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/lang-expression/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2702,14 +2217,6 @@ javadocs:
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/lang-expression/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/lang-expression/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/allpackages-index.html
@@ -2719,20 +2226,19 @@ javadocs:
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/index-all.html
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/index.html
+  - OpenSearch/modules/lang-mustache/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/lang-mustache/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/org
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/resources
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script.js
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/search.js
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/lang-mustache/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/org/opensearch/script
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/org/opensearch/script/mustache
@@ -2756,19 +2262,11 @@ javadocs:
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/org/opensearch/script/mustache/package-tree.html
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -2780,14 +2278,6 @@ javadocs:
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/lang-mustache/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/lang-mustache/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/lang-painless/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/lang-painless/build/docs/javadoc/allpackages-index.html
@@ -2797,22 +2287,21 @@ javadocs:
   - OpenSearch/modules/lang-painless/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/lang-painless/build/docs/javadoc/index-all.html
   - OpenSearch/modules/lang-painless/build/docs/javadoc/index.html
+  - OpenSearch/modules/lang-painless/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/lang-painless/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/lang-painless/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/lang-painless/build/docs/javadoc/org
   - OpenSearch/modules/lang-painless/build/docs/javadoc/overview-summary.html
   - OpenSearch/modules/lang-painless/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/lang-painless/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/lang-painless/build/docs/javadoc/resources
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script.js
   - OpenSearch/modules/lang-painless/build/docs/javadoc/search.js
   - OpenSearch/modules/lang-painless/build/docs/javadoc/serialized-form.html
   - OpenSearch/modules/lang-painless/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/lang-painless/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/lang-painless/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/lang-painless/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/lang-painless/build/docs/javadoc/org/opensearch/painless
   - OpenSearch/modules/lang-painless/build/docs/javadoc/org/opensearch/painless/AnalyzerCaster.html
@@ -3110,19 +2599,11 @@ javadocs:
   - OpenSearch/modules/lang-painless/build/docs/javadoc/org/opensearch/painless/symbol/package-tree.html
   - OpenSearch/modules/lang-painless/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/lang-painless/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3134,14 +2615,6 @@ javadocs:
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/lang-painless/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/lang-painless/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/allpackages-index.html
@@ -3151,21 +2624,20 @@ javadocs:
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/index-all.html
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/index.html
+  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/org
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/overview-summary.html
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/resources
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script.js
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/search.js
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/org/opensearch/painless
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/org/opensearch/painless/spi
@@ -3194,19 +2666,11 @@ javadocs:
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/org/opensearch/painless/spi/annotation/package-tree.html
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3218,14 +2682,6 @@ javadocs:
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/lang-painless/spi/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/lang-painless/spi/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/allpackages-index.html
@@ -3235,21 +2691,20 @@ javadocs:
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/index-all.html
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/index.html
+  - OpenSearch/modules/mapper-extras/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/mapper-extras/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/org
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/overview-summary.html
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/resources
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script.js
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/search.js
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/mapper-extras/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/org/opensearch/index
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/org/opensearch/index/mapper
@@ -3284,19 +2739,11 @@ javadocs:
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/org/opensearch/index/query/package-tree.html
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3308,14 +2755,6 @@ javadocs:
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/mapper-extras/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/mapper-extras/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/allpackages-index.html
@@ -3325,20 +2764,19 @@ javadocs:
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/index-all.html
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/index.html
+  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/org
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/resources
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script.js
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/search.js
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/org/opensearch/dashboards
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/org/opensearch/dashboards/OpenSearchDashboardsPlugin.html
@@ -3346,19 +2784,11 @@ javadocs:
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/org/opensearch/dashboards/package-tree.html
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3370,14 +2800,6 @@ javadocs:
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/opensearch-dashboards/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/opensearch-dashboards/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/parent-join/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/parent-join/build/docs/javadoc/allpackages-index.html
@@ -3387,21 +2809,20 @@ javadocs:
   - OpenSearch/modules/parent-join/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/parent-join/build/docs/javadoc/index-all.html
   - OpenSearch/modules/parent-join/build/docs/javadoc/index.html
+  - OpenSearch/modules/parent-join/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/parent-join/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/parent-join/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/parent-join/build/docs/javadoc/org
   - OpenSearch/modules/parent-join/build/docs/javadoc/overview-summary.html
   - OpenSearch/modules/parent-join/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/parent-join/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/parent-join/build/docs/javadoc/resources
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir
   - OpenSearch/modules/parent-join/build/docs/javadoc/script.js
   - OpenSearch/modules/parent-join/build/docs/javadoc/search.js
   - OpenSearch/modules/parent-join/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/parent-join/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/parent-join/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/parent-join/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/parent-join/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/parent-join/build/docs/javadoc/org/opensearch/join
   - OpenSearch/modules/parent-join/build/docs/javadoc/org/opensearch/join/ParentJoinPlugin.html
@@ -3454,19 +2875,11 @@ javadocs:
   - OpenSearch/modules/parent-join/build/docs/javadoc/org/opensearch/join/spi/package-tree.html
   - OpenSearch/modules/parent-join/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/parent-join/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3478,14 +2891,6 @@ javadocs:
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/parent-join/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/parent-join/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/percolator/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/percolator/build/docs/javadoc/allpackages-index.html
@@ -3495,20 +2900,19 @@ javadocs:
   - OpenSearch/modules/percolator/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/percolator/build/docs/javadoc/index-all.html
   - OpenSearch/modules/percolator/build/docs/javadoc/index.html
+  - OpenSearch/modules/percolator/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/percolator/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/percolator/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/percolator/build/docs/javadoc/org
   - OpenSearch/modules/percolator/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/percolator/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/percolator/build/docs/javadoc/resources
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir
   - OpenSearch/modules/percolator/build/docs/javadoc/script.js
   - OpenSearch/modules/percolator/build/docs/javadoc/search.js
   - OpenSearch/modules/percolator/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/percolator/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/percolator/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/percolator/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/percolator/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/percolator/build/docs/javadoc/org/opensearch/percolator
   - OpenSearch/modules/percolator/build/docs/javadoc/org/opensearch/percolator/PercolateQueryBuilder.html
@@ -3518,19 +2922,11 @@ javadocs:
   - OpenSearch/modules/percolator/build/docs/javadoc/org/opensearch/percolator/package-tree.html
   - OpenSearch/modules/percolator/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/percolator/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3542,14 +2938,6 @@ javadocs:
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/percolator/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/percolator/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/rank-eval/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/rank-eval/build/docs/javadoc/allpackages-index.html
@@ -3559,20 +2947,19 @@ javadocs:
   - OpenSearch/modules/rank-eval/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/rank-eval/build/docs/javadoc/index-all.html
   - OpenSearch/modules/rank-eval/build/docs/javadoc/index.html
+  - OpenSearch/modules/rank-eval/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/rank-eval/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/rank-eval/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/rank-eval/build/docs/javadoc/org
   - OpenSearch/modules/rank-eval/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/rank-eval/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/rank-eval/build/docs/javadoc/resources
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script.js
   - OpenSearch/modules/rank-eval/build/docs/javadoc/search.js
   - OpenSearch/modules/rank-eval/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/rank-eval/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/rank-eval/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/rank-eval/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/rank-eval/build/docs/javadoc/org/opensearch/index
   - OpenSearch/modules/rank-eval/build/docs/javadoc/org/opensearch/index/rankeval
@@ -3605,19 +2992,11 @@ javadocs:
   - OpenSearch/modules/rank-eval/build/docs/javadoc/org/opensearch/index/rankeval/package-tree.html
   - OpenSearch/modules/rank-eval/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/rank-eval/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3629,14 +3008,6 @@ javadocs:
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/rank-eval/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/rank-eval/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/reindex/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/reindex/build/docs/javadoc/allpackages-index.html
@@ -3646,21 +3017,20 @@ javadocs:
   - OpenSearch/modules/reindex/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/reindex/build/docs/javadoc/index-all.html
   - OpenSearch/modules/reindex/build/docs/javadoc/index.html
+  - OpenSearch/modules/reindex/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/reindex/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/reindex/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/reindex/build/docs/javadoc/org
   - OpenSearch/modules/reindex/build/docs/javadoc/overview-summary.html
   - OpenSearch/modules/reindex/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/reindex/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/reindex/build/docs/javadoc/resources
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir
   - OpenSearch/modules/reindex/build/docs/javadoc/script.js
   - OpenSearch/modules/reindex/build/docs/javadoc/search.js
   - OpenSearch/modules/reindex/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/reindex/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/reindex/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/reindex/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex
@@ -3690,24 +3060,21 @@ javadocs:
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/package-summary.html
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/package-tree.html
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/remote
+  - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/spi
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/remote/RemoteScrollableHitSource.html
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/remote/package-summary.html
   - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/remote/package-tree.html
+  - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/spi/ReindexRestInterceptorProvider.html
+  - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/spi/RemoteReindexExtension.html
+  - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/spi/package-summary.html
+  - OpenSearch/modules/reindex/build/docs/javadoc/org/opensearch/index/reindex/spi/package-tree.html
   - OpenSearch/modules/reindex/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/reindex/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3719,14 +3086,6 @@ javadocs:
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/reindex/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/reindex/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/repository-url/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/repository-url/build/docs/javadoc/allpackages-index.html
@@ -3736,21 +3095,20 @@ javadocs:
   - OpenSearch/modules/repository-url/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/repository-url/build/docs/javadoc/index-all.html
   - OpenSearch/modules/repository-url/build/docs/javadoc/index.html
+  - OpenSearch/modules/repository-url/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/repository-url/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/repository-url/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/repository-url/build/docs/javadoc/org
   - OpenSearch/modules/repository-url/build/docs/javadoc/overview-summary.html
   - OpenSearch/modules/repository-url/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/repository-url/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/repository-url/build/docs/javadoc/resources
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir
   - OpenSearch/modules/repository-url/build/docs/javadoc/script.js
   - OpenSearch/modules/repository-url/build/docs/javadoc/search.js
   - OpenSearch/modules/repository-url/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/repository-url/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/repository-url/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/repository-url/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/repository-url/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/repository-url/build/docs/javadoc/org/opensearch/common
   - OpenSearch/modules/repository-url/build/docs/javadoc/org/opensearch/plugin
@@ -3772,19 +3130,11 @@ javadocs:
   - OpenSearch/modules/repository-url/build/docs/javadoc/org/opensearch/repositories/url/package-tree.html
   - OpenSearch/modules/repository-url/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/repository-url/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3796,14 +3146,6 @@ javadocs:
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/repository-url/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/repository-url/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/systemd/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/systemd/build/docs/javadoc/allpackages-index.html
@@ -3813,20 +3155,19 @@ javadocs:
   - OpenSearch/modules/systemd/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/systemd/build/docs/javadoc/index-all.html
   - OpenSearch/modules/systemd/build/docs/javadoc/index.html
+  - OpenSearch/modules/systemd/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/systemd/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/systemd/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/systemd/build/docs/javadoc/org
   - OpenSearch/modules/systemd/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/systemd/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/systemd/build/docs/javadoc/resources
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir
   - OpenSearch/modules/systemd/build/docs/javadoc/script.js
   - OpenSearch/modules/systemd/build/docs/javadoc/search.js
   - OpenSearch/modules/systemd/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/systemd/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/systemd/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/systemd/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/systemd/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/systemd/build/docs/javadoc/org/opensearch/systemd
   - OpenSearch/modules/systemd/build/docs/javadoc/org/opensearch/systemd/SystemdPlugin.html
@@ -3834,19 +3175,11 @@ javadocs:
   - OpenSearch/modules/systemd/build/docs/javadoc/org/opensearch/systemd/package-tree.html
   - OpenSearch/modules/systemd/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/systemd/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3858,14 +3191,6 @@ javadocs:
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/systemd/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/systemd/build/tmp/javadoc/javadoc.options
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/allclasses-index.html
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/allpackages-index.html
@@ -3875,21 +3200,20 @@ javadocs:
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/help-doc.html
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/index-all.html
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/index.html
+  - OpenSearch/modules/transport-netty4/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/member-search-index.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/modules/transport-netty4/build/docs/javadoc/module-search-index.js
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/org
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/overview-summary.html
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/overview-tree.html
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/package-search-index.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/package-search-index.zip
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/resources
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script.js
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/search.js
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/stylesheet.css
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/system-properties.html
+  - OpenSearch/modules/transport-netty4/build/docs/javadoc/tag-search-index.js
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/type-search-index.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/type-search-index.zip
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/org/opensearch
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/org/opensearch/http
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/org/opensearch/transport
@@ -3925,19 +3249,11 @@ javadocs:
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/org/opensearch/transport/netty4/package-tree.html
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/resources/glass.png
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/resources/x.png
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/external
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/images
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -3949,14 +3265,6 @@ javadocs:
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/modules/transport-netty4/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/modules/transport-netty4/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/allpackages-index.html
@@ -3966,21 +3274,20 @@ javadocs:
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/index.html
+  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/org
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/resources
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script.js
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/search.js
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/org/opensearch/plugin
@@ -4011,19 +3318,11 @@ javadocs:
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/org/opensearch/plugin/analysis/icu/package-tree.html
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4035,14 +3334,6 @@ javadocs:
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/analysis-icu/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/analysis-icu/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/allpackages-index.html
@@ -4052,21 +3343,20 @@ javadocs:
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/index.html
+  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/org
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/resources
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script.js
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/search.js
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/org/opensearch/plugin
@@ -4089,19 +3379,11 @@ javadocs:
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/org/opensearch/plugin/analysis/kuromoji/package-tree.html
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4113,14 +3395,6 @@ javadocs:
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/analysis-kuromoji/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/analysis-kuromoji/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/allpackages-index.html
@@ -4130,21 +3404,20 @@ javadocs:
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/index.html
+  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/org
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/resources
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script.js
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/search.js
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/org/opensearch/plugin
@@ -4163,19 +3436,11 @@ javadocs:
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/org/opensearch/plugin/analysis/nori/package-tree.html
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4187,14 +3452,6 @@ javadocs:
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/analysis-nori/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/analysis-nori/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/allpackages-index.html
@@ -4204,21 +3461,20 @@ javadocs:
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/index.html
+  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/org
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/resources
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script.js
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/search.js
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/org/opensearch/plugin
@@ -4238,19 +3494,11 @@ javadocs:
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/org/opensearch/plugin/analysis/package-tree.html
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4262,14 +3510,6 @@ javadocs:
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/analysis-phonetic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/analysis-phonetic/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/allpackages-index.html
@@ -4279,21 +3519,20 @@ javadocs:
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/index.html
+  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/org
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/resources
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script.js
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/search.js
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/org/opensearch/plugin
@@ -4311,19 +3550,11 @@ javadocs:
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/org/opensearch/plugin/analysis/smartcn/package-tree.html
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4335,14 +3566,6 @@ javadocs:
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/analysis-smartcn/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/analysis-smartcn/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/allpackages-index.html
@@ -4352,21 +3575,20 @@ javadocs:
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/index.html
+  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/org
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/resources
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script.js
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/search.js
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/org/opensearch/plugin
@@ -4384,19 +3606,11 @@ javadocs:
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/org/opensearch/plugin/analysis/stempel/package-tree.html
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4408,14 +3622,6 @@ javadocs:
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/analysis-stempel/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/analysis-stempel/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/allpackages-index.html
@@ -4425,21 +3631,20 @@ javadocs:
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/index.html
+  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/org
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/resources
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script.js
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/search.js
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/org/opensearch/plugin
@@ -4454,19 +3659,11 @@ javadocs:
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/org/opensearch/plugin/analysis/ukrainian/package-tree.html
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4478,14 +3675,6 @@ javadocs:
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/analysis-ukrainian/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/analysis-ukrainian/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/allpackages-index.html
@@ -4495,22 +3684,21 @@ javadocs:
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/index.html
+  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/org
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/resources
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script.js
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/search.js
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/serialized-form.html
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/org/opensearch/cloud
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/org/opensearch/discovery
@@ -4543,19 +3731,11 @@ javadocs:
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/org/opensearch/plugin/discovery/azure/classic/package-tree.html
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4567,14 +3747,6 @@ javadocs:
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/discovery-azure-classic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/discovery-azure-classic/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/allpackages-index.html
@@ -4584,20 +3756,19 @@ javadocs:
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/index.html
+  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/org
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/resources
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script.js
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/search.js
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/org/opensearch/discovery
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/org/opensearch/discovery/ec2
@@ -4607,19 +3778,11 @@ javadocs:
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/org/opensearch/discovery/ec2/package-tree.html
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4631,14 +3794,6 @@ javadocs:
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/discovery-ec2/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/discovery-ec2/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/allpackages-index.html
@@ -4648,21 +3803,20 @@ javadocs:
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/index.html
+  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/org
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/resources
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script.js
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/search.js
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/org/opensearch/cloud
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/org/opensearch/discovery
@@ -4694,19 +3848,11 @@ javadocs:
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/org/opensearch/plugin/discovery/gce/package-tree.html
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4718,14 +3864,6 @@ javadocs:
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/discovery-gce/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/discovery-gce/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/allpackages-index.html
@@ -4735,20 +3873,19 @@ javadocs:
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/index.html
+  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/org
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/resources
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script.js
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/search.js
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/org/opensearch/example
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/org/opensearch/example/customsettings
@@ -4758,19 +3895,11 @@ javadocs:
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/org/opensearch/example/customsettings/package-tree.html
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4782,14 +3911,6 @@ javadocs:
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/examples/custom-settings/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/examples/custom-settings/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/allpackages-index.html
@@ -4799,20 +3920,19 @@ javadocs:
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/index.html
+  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/org
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/resources
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script.js
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/search.js
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/org/opensearch/example
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/org/opensearch/example/customsigheuristic
@@ -4822,19 +3942,11 @@ javadocs:
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/org/opensearch/example/customsigheuristic/package-tree.html
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4846,14 +3958,6 @@ javadocs:
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/examples/custom-significance-heuristic/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/examples/custom-significance-heuristic/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/allpackages-index.html
@@ -4863,20 +3967,19 @@ javadocs:
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/index.html
+  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/org
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/resources
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script.js
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/search.js
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/org/opensearch/example
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/org/opensearch/example/customsuggester
@@ -4891,19 +3994,11 @@ javadocs:
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/org/opensearch/example/customsuggester/package-tree.html
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4915,14 +4010,6 @@ javadocs:
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/examples/custom-suggester/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/examples/custom-suggester/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/allpackages-index.html
@@ -4932,20 +4019,19 @@ javadocs:
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/index.html
+  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/org
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/resources
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script.js
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/search.js
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/org/opensearch/example
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/org/opensearch/example/painlesswhitelist
@@ -4960,19 +4046,11 @@ javadocs:
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/org/opensearch/example/painlesswhitelist/package-tree.html
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -4984,14 +4062,6 @@ javadocs:
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/examples/painless-whitelist/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/examples/painless-whitelist/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/allpackages-index.html
@@ -5001,20 +4071,19 @@ javadocs:
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/index.html
+  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/org
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/resources
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script.js
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/search.js
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/org/opensearch/example
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/org/opensearch/example/rescore
@@ -5024,19 +4093,11 @@ javadocs:
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/org/opensearch/example/rescore/package-tree.html
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5048,14 +4109,6 @@ javadocs:
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/examples/rescore/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/examples/rescore/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/allpackages-index.html
@@ -5065,20 +4118,19 @@ javadocs:
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/index.html
+  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/org
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/resources
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script.js
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/search.js
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/org/opensearch/example
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/org/opensearch/example/resthandler
@@ -5088,19 +4140,11 @@ javadocs:
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/org/opensearch/example/resthandler/package-tree.html
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5112,14 +4156,6 @@ javadocs:
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/examples/rest-handler/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/examples/rest-handler/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/allpackages-index.html
@@ -5129,20 +4165,19 @@ javadocs:
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/index.html
+  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/org
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/resources
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script.js
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/search.js
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/org/opensearch/example
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/org/opensearch/example/expertscript
@@ -5151,19 +4186,11 @@ javadocs:
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/org/opensearch/example/expertscript/package-tree.html
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5175,14 +4202,6 @@ javadocs:
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/examples/script-expert-scoring/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/examples/script-expert-scoring/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/allpackages-index.html
@@ -5192,20 +4211,19 @@ javadocs:
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/index.html
+  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/org
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/resources
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script.js
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/search.js
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/org/opensearch/ingest
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/org/opensearch/ingest/attachment
@@ -5216,19 +4234,11 @@ javadocs:
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/org/opensearch/ingest/attachment/package-tree.html
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5240,14 +4250,6 @@ javadocs:
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/ingest-attachment/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/ingest-attachment/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/allpackages-index.html
@@ -5257,21 +4259,20 @@ javadocs:
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/index.html
+  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/org
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/resources
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script.js
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/search.js
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/org/opensearch/plugin
@@ -5301,19 +4302,11 @@ javadocs:
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/org/opensearch/search/fetch/subphase/highlight/package-tree.html
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5325,14 +4318,6 @@ javadocs:
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/mapper-annotated-text/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/mapper-annotated-text/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/allpackages-index.html
@@ -5342,21 +4327,20 @@ javadocs:
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/index.html
+  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/org
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/resources
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script.js
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/search.js
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/org/opensearch/plugin
@@ -5374,19 +4358,11 @@ javadocs:
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/org/opensearch/plugin/mapper/package-tree.html
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5398,14 +4374,6 @@ javadocs:
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/mapper-murmur3/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/mapper-murmur3/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/allpackages-index.html
@@ -5415,21 +4383,20 @@ javadocs:
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/index.html
+  - OpenSearch/plugins/mapper-size/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/mapper-size/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/org
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/resources
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script.js
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/search.js
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/mapper-size/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/org/opensearch/plugin
@@ -5445,19 +4412,11 @@ javadocs:
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/org/opensearch/plugin/mapper/package-tree.html
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5469,14 +4428,6 @@ javadocs:
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/mapper-size/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/mapper-size/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/allpackages-index.html
@@ -5486,20 +4437,19 @@ javadocs:
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/index.html
+  - OpenSearch/plugins/repository-azure/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/repository-azure/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/org
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/resources
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script.js
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/search.js
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/repository-azure/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/org/opensearch/repositories
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/org/opensearch/repositories/azure
@@ -5515,19 +4465,11 @@ javadocs:
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/org/opensearch/repositories/azure/package-tree.html
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5539,14 +4481,6 @@ javadocs:
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/repository-azure/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/repository-azure/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/allpackages-index.html
@@ -5556,20 +4490,19 @@ javadocs:
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/index.html
+  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/org
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/resources
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script.js
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/search.js
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/org/opensearch/repositories
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/org/opensearch/repositories/gcs
@@ -5580,19 +4513,11 @@ javadocs:
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/org/opensearch/repositories/gcs/package-tree.html
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5604,14 +4529,6 @@ javadocs:
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/repository-gcs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/repository-gcs/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/allpackages-index.html
@@ -5621,20 +4538,19 @@ javadocs:
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/index.html
+  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/org
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/resources
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script.js
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/search.js
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/org/opensearch/repositories
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/org/opensearch/repositories/hdfs
@@ -5644,19 +4560,11 @@ javadocs:
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/org/opensearch/repositories/hdfs/package-tree.html
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5668,14 +4576,6 @@ javadocs:
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/repository-hdfs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/repository-hdfs/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/allpackages-index.html
@@ -5685,20 +4585,19 @@ javadocs:
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/index.html
+  - OpenSearch/plugins/repository-s3/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/repository-s3/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/org
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/resources
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script.js
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/search.js
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/repository-s3/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/org/opensearch/repositories
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/org/opensearch/repositories/s3
@@ -5708,19 +4607,11 @@ javadocs:
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/org/opensearch/repositories/s3/package-tree.html
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5732,14 +4623,6 @@ javadocs:
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/repository-s3/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/repository-s3/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/store-smb/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/store-smb/build/docs/javadoc/allpackages-index.html
@@ -5749,21 +4632,20 @@ javadocs:
   - OpenSearch/plugins/store-smb/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/store-smb/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/store-smb/build/docs/javadoc/index.html
+  - OpenSearch/plugins/store-smb/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/store-smb/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/store-smb/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/store-smb/build/docs/javadoc/org
   - OpenSearch/plugins/store-smb/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/store-smb/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/store-smb/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/store-smb/build/docs/javadoc/resources
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script.js
   - OpenSearch/plugins/store-smb/build/docs/javadoc/search.js
   - OpenSearch/plugins/store-smb/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/store-smb/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/store-smb/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/store-smb/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/store-smb/build/docs/javadoc/org/opensearch/index
   - OpenSearch/plugins/store-smb/build/docs/javadoc/org/opensearch/plugin
@@ -5786,19 +4668,11 @@ javadocs:
   - OpenSearch/plugins/store-smb/build/docs/javadoc/org/opensearch/plugin/store/smb/package-tree.html
   - OpenSearch/plugins/store-smb/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/store-smb/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5810,14 +4684,6 @@ javadocs:
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/store-smb/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/store-smb/build/tmp/javadoc/javadoc.options
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/allclasses-index.html
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/allpackages-index.html
@@ -5827,21 +4693,20 @@ javadocs:
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/help-doc.html
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/index-all.html
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/index.html
+  - OpenSearch/plugins/transport-nio/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/member-search-index.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/plugins/transport-nio/build/docs/javadoc/module-search-index.js
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/org
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/overview-summary.html
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/overview-tree.html
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/package-search-index.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/package-search-index.zip
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/resources
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script.js
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/search.js
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/stylesheet.css
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/system-properties.html
+  - OpenSearch/plugins/transport-nio/build/docs/javadoc/tag-search-index.js
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/type-search-index.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/type-search-index.zip
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/org/opensearch
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/org/opensearch/http
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/org/opensearch/transport
@@ -5872,19 +4737,11 @@ javadocs:
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/org/opensearch/transport/nio/package-tree.html
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/resources/glass.png
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/resources/x.png
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/external
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/images
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5896,14 +4753,6 @@ javadocs:
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/plugins/transport-nio/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/plugins/transport-nio/build/tmp/javadoc/javadoc.options
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/allclasses-index.html
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/allpackages-index.html
@@ -5913,20 +4762,19 @@ javadocs:
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/help-doc.html
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/index-all.html
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/index.html
+  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/member-search-index.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/module-search-index.js
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/org
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/overview-tree.html
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/package-search-index.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/package-search-index.zip
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/resources
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script.js
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/search.js
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/stylesheet.css
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/system-properties.html
+  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/tag-search-index.js
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/type-search-index.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/type-search-index.zip
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/org/opensearch
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/org/opensearch/DieWithDignityPlugin.html
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/org/opensearch/RestDieWithDignityAction.html
@@ -5934,19 +4782,11 @@ javadocs:
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/org/opensearch/package-tree.html
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/resources/glass.png
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/resources/x.png
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/external
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/images
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -5958,14 +4798,6 @@ javadocs:
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/qa/die-with-dignity/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/qa/die-with-dignity/build/tmp/javadoc/javadoc.options
   - OpenSearch/qa/wildfly/build/docs/javadoc/allclasses-index.html
   - OpenSearch/qa/wildfly/build/docs/javadoc/allpackages-index.html
@@ -5975,21 +4807,20 @@ javadocs:
   - OpenSearch/qa/wildfly/build/docs/javadoc/help-doc.html
   - OpenSearch/qa/wildfly/build/docs/javadoc/index-all.html
   - OpenSearch/qa/wildfly/build/docs/javadoc/index.html
+  - OpenSearch/qa/wildfly/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/qa/wildfly/build/docs/javadoc/member-search-index.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/qa/wildfly/build/docs/javadoc/module-search-index.js
   - OpenSearch/qa/wildfly/build/docs/javadoc/org
   - OpenSearch/qa/wildfly/build/docs/javadoc/overview-summary.html
   - OpenSearch/qa/wildfly/build/docs/javadoc/overview-tree.html
   - OpenSearch/qa/wildfly/build/docs/javadoc/package-search-index.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/package-search-index.zip
   - OpenSearch/qa/wildfly/build/docs/javadoc/resources
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir
   - OpenSearch/qa/wildfly/build/docs/javadoc/script.js
   - OpenSearch/qa/wildfly/build/docs/javadoc/search.js
   - OpenSearch/qa/wildfly/build/docs/javadoc/stylesheet.css
-  - OpenSearch/qa/wildfly/build/docs/javadoc/system-properties.html
+  - OpenSearch/qa/wildfly/build/docs/javadoc/tag-search-index.js
   - OpenSearch/qa/wildfly/build/docs/javadoc/type-search-index.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/type-search-index.zip
   - OpenSearch/qa/wildfly/build/docs/javadoc/org/opensearch
   - OpenSearch/qa/wildfly/build/docs/javadoc/org/opensearch/wildfly
   - OpenSearch/qa/wildfly/build/docs/javadoc/org/opensearch/wildfly/model
@@ -6005,19 +4836,11 @@ javadocs:
   - OpenSearch/qa/wildfly/build/docs/javadoc/org/opensearch/wildfly/transport/package-tree.html
   - OpenSearch/qa/wildfly/build/docs/javadoc/resources/glass.png
   - OpenSearch/qa/wildfly/build/docs/javadoc/resources/x.png
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/external
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/images
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -6029,14 +4852,6 @@ javadocs:
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/qa/wildfly/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/qa/wildfly/build/tmp/javadoc/javadoc.options
   - OpenSearch/server/build/docs/javadoc/allclasses-index.html
   - OpenSearch/server/build/docs/javadoc/allpackages-index.html
@@ -6046,22 +4861,21 @@ javadocs:
   - OpenSearch/server/build/docs/javadoc/help-doc.html
   - OpenSearch/server/build/docs/javadoc/index-all.html
   - OpenSearch/server/build/docs/javadoc/index.html
+  - OpenSearch/server/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/server/build/docs/javadoc/member-search-index.js
-  - OpenSearch/server/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/server/build/docs/javadoc/module-search-index.js
   - OpenSearch/server/build/docs/javadoc/org
   - OpenSearch/server/build/docs/javadoc/overview-summary.html
   - OpenSearch/server/build/docs/javadoc/overview-tree.html
   - OpenSearch/server/build/docs/javadoc/package-search-index.js
-  - OpenSearch/server/build/docs/javadoc/package-search-index.zip
   - OpenSearch/server/build/docs/javadoc/resources
   - OpenSearch/server/build/docs/javadoc/script-dir
   - OpenSearch/server/build/docs/javadoc/script.js
   - OpenSearch/server/build/docs/javadoc/search.js
   - OpenSearch/server/build/docs/javadoc/serialized-form.html
   - OpenSearch/server/build/docs/javadoc/stylesheet.css
-  - OpenSearch/server/build/docs/javadoc/system-properties.html
+  - OpenSearch/server/build/docs/javadoc/tag-search-index.js
   - OpenSearch/server/build/docs/javadoc/type-search-index.js
-  - OpenSearch/server/build/docs/javadoc/type-search-index.zip
   - OpenSearch/server/build/docs/javadoc/org/apache
   - OpenSearch/server/build/docs/javadoc/org/joda
   - OpenSearch/server/build/docs/javadoc/org/opensearch
@@ -11076,19 +9890,11 @@ javadocs:
   - OpenSearch/server/build/docs/javadoc/org/opensearch/watcher/package-tree.html
   - OpenSearch/server/build/docs/javadoc/resources/glass.png
   - OpenSearch/server/build/docs/javadoc/resources/x.png
-  - OpenSearch/server/build/docs/javadoc/script-dir/external
   - OpenSearch/server/build/docs/javadoc/script-dir/images
-  - OpenSearch/server/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/server/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/server/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/server/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/server/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/server/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/server/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/server/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/server/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/server/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/server/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/server/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/server/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -11100,14 +9906,6 @@ javadocs:
   - OpenSearch/server/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/server/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/server/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/server/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/server/build/tmp/javadoc/javadoc.options
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/allclasses-index.html
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/allpackages-index.html
@@ -11117,20 +9915,19 @@ javadocs:
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/help-doc.html
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/index-all.html
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/index.html
+  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/member-search-index.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/module-search-index.js
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/org
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/overview-tree.html
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/package-search-index.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/package-search-index.zip
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/resources
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script.js
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/search.js
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/stylesheet.css
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/system-properties.html
+  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/tag-search-index.js
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/type-search-index.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/type-search-index.zip
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/org/opensearch
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/org/opensearch/search
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/org/opensearch/search/aggregations
@@ -11140,19 +9937,11 @@ javadocs:
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/org/opensearch/search/aggregations/package-tree.html
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/resources/glass.png
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/resources/x.png
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/external
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/images
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -11164,14 +9953,6 @@ javadocs:
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/test/external-modules/delayed-aggs/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/test/external-modules/delayed-aggs/build/tmp/javadoc/javadoc.options
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/allclasses-index.html
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/allpackages-index.html
@@ -11182,19 +9963,18 @@ javadocs:
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/help-doc.html
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/index-all.html
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/index.html
+  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/member-search-index.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/module-search-index.js
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/overview-tree.html
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/package-search-index.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/package-search-index.zip
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/resources
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script.js
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/search.js
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/stylesheet.css
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/system-properties.html
+  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/tag-search-index.js
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/type-search-index.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/type-search-index.zip
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/fixture/azure
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/fixture/azure/AzureHttpFixture.html
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/fixture/azure/AzureHttpHandler.html
@@ -11202,19 +9982,11 @@ javadocs:
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/fixture/azure/package-tree.html
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/resources/glass.png
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/resources/x.png
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/external
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/images
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -11226,14 +9998,6 @@ javadocs:
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/test/fixtures/azure-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/test/fixtures/azure-fixture/build/tmp/javadoc/javadoc.options
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/allclasses-index.html
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/allpackages-index.html
@@ -11244,19 +10008,18 @@ javadocs:
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/help-doc.html
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/index-all.html
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/index.html
+  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/member-search-index.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/module-search-index.js
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/overview-tree.html
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/package-search-index.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/package-search-index.zip
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/resources
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script.js
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/search.js
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/stylesheet.css
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/system-properties.html
+  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/tag-search-index.js
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/type-search-index.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/type-search-index.zip
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/fixture/gcs
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/fixture/gcs/FakeOAuth2HttpHandler.html
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/fixture/gcs/GoogleCloudStorageHttpFixture.html
@@ -11265,19 +10028,11 @@ javadocs:
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/fixture/gcs/package-tree.html
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/resources/glass.png
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/resources/x.png
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/external
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/images
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -11289,14 +10044,6 @@ javadocs:
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/test/fixtures/gcs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/test/fixtures/gcs-fixture/build/tmp/javadoc/javadoc.options
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/allclasses-index.html
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/allpackages-index.html
@@ -11307,37 +10054,28 @@ javadocs:
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/help-doc.html
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/index-all.html
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/index.html
+  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/member-search-index.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/module-search-index.js
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/overview-tree.html
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/package-search-index.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/package-search-index.zip
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/resources
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script.js
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/search.js
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/stylesheet.css
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/system-properties.html
+  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/tag-search-index.js
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/type-search-index.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/type-search-index.zip
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/hdfs/MiniHDFS.html
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/hdfs/package-summary.html
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/hdfs/package-tree.html
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/resources/glass.png
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/resources/x.png
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/external
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/images
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -11349,14 +10087,6 @@ javadocs:
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/test/fixtures/hdfs-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/test/fixtures/hdfs-fixture/build/tmp/javadoc/javadoc.options
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/allclasses-index.html
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/allpackages-index.html
@@ -11366,38 +10096,29 @@ javadocs:
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/help-doc.html
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/index-all.html
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/index.html
+  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/member-search-index.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/module-search-index.js
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/oldes
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/overview-tree.html
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/package-search-index.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/package-search-index.zip
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/resources
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script.js
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/search.js
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/stylesheet.css
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/system-properties.html
+  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/tag-search-index.js
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/type-search-index.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/type-search-index.zip
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/oldes/OldElasticsearch.html
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/oldes/package-summary.html
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/oldes/package-tree.html
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/resources/glass.png
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/resources/x.png
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/external
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/images
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -11409,14 +10130,6 @@ javadocs:
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/test/fixtures/old-elasticsearch/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/test/fixtures/old-elasticsearch/build/tmp/javadoc/javadoc.options
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/allclasses-index.html
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/allpackages-index.html
@@ -11427,19 +10140,18 @@ javadocs:
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/help-doc.html
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/index-all.html
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/index.html
+  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/member-search-index.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/module-search-index.js
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/overview-tree.html
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/package-search-index.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/package-search-index.zip
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/resources
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script.js
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/search.js
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/stylesheet.css
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/system-properties.html
+  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/tag-search-index.js
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/type-search-index.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/type-search-index.zip
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/fixture/s3
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/fixture/s3/S3HttpFixture.html
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/fixture/s3/S3HttpFixtureWithEC2.html
@@ -11450,19 +10162,11 @@ javadocs:
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/fixture/s3/package-tree.html
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/resources/glass.png
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/resources/x.png
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/external
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/images
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -11474,14 +10178,6 @@ javadocs:
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/test/fixtures/s3-fixture/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/test/fixtures/s3-fixture/build/tmp/javadoc/javadoc.options
   - OpenSearch/test/framework/build/docs/javadoc/allclasses-index.html
   - OpenSearch/test/framework/build/docs/javadoc/allpackages-index.html
@@ -11491,22 +10187,21 @@ javadocs:
   - OpenSearch/test/framework/build/docs/javadoc/help-doc.html
   - OpenSearch/test/framework/build/docs/javadoc/index-all.html
   - OpenSearch/test/framework/build/docs/javadoc/index.html
+  - OpenSearch/test/framework/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/test/framework/build/docs/javadoc/member-search-index.js
-  - OpenSearch/test/framework/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/test/framework/build/docs/javadoc/module-search-index.js
   - OpenSearch/test/framework/build/docs/javadoc/org
   - OpenSearch/test/framework/build/docs/javadoc/overview-summary.html
   - OpenSearch/test/framework/build/docs/javadoc/overview-tree.html
   - OpenSearch/test/framework/build/docs/javadoc/package-search-index.js
-  - OpenSearch/test/framework/build/docs/javadoc/package-search-index.zip
   - OpenSearch/test/framework/build/docs/javadoc/resources
   - OpenSearch/test/framework/build/docs/javadoc/script-dir
   - OpenSearch/test/framework/build/docs/javadoc/script.js
   - OpenSearch/test/framework/build/docs/javadoc/search.js
   - OpenSearch/test/framework/build/docs/javadoc/serialized-form.html
   - OpenSearch/test/framework/build/docs/javadoc/stylesheet.css
-  - OpenSearch/test/framework/build/docs/javadoc/system-properties.html
+  - OpenSearch/test/framework/build/docs/javadoc/tag-search-index.js
   - OpenSearch/test/framework/build/docs/javadoc/type-search-index.js
-  - OpenSearch/test/framework/build/docs/javadoc/type-search-index.zip
   - OpenSearch/test/framework/build/docs/javadoc/org/opensearch
   - OpenSearch/test/framework/build/docs/javadoc/org/opensearch/action
   - OpenSearch/test/framework/build/docs/javadoc/org/opensearch/bootstrap
@@ -12051,19 +10746,11 @@ javadocs:
   - OpenSearch/test/framework/build/docs/javadoc/org/opensearch/upgrades/package-tree.html
   - OpenSearch/test/framework/build/docs/javadoc/resources/glass.png
   - OpenSearch/test/framework/build/docs/javadoc/resources/x.png
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/external
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/images
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -12075,14 +10762,6 @@ javadocs:
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/test/framework/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/test/framework/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/test/framework/build/tmp/javadoc/javadoc.options
   - OpenSearch/test/logger-usage/build/docs/javadoc/allclasses-index.html
   - OpenSearch/test/logger-usage/build/docs/javadoc/allpackages-index.html
@@ -12092,20 +10771,19 @@ javadocs:
   - OpenSearch/test/logger-usage/build/docs/javadoc/help-doc.html
   - OpenSearch/test/logger-usage/build/docs/javadoc/index-all.html
   - OpenSearch/test/logger-usage/build/docs/javadoc/index.html
+  - OpenSearch/test/logger-usage/build/docs/javadoc/jquery-ui.overrides.css
   - OpenSearch/test/logger-usage/build/docs/javadoc/member-search-index.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/member-search-index.zip
+  - OpenSearch/test/logger-usage/build/docs/javadoc/module-search-index.js
   - OpenSearch/test/logger-usage/build/docs/javadoc/org
   - OpenSearch/test/logger-usage/build/docs/javadoc/overview-tree.html
   - OpenSearch/test/logger-usage/build/docs/javadoc/package-search-index.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/package-search-index.zip
   - OpenSearch/test/logger-usage/build/docs/javadoc/resources
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir
   - OpenSearch/test/logger-usage/build/docs/javadoc/script.js
   - OpenSearch/test/logger-usage/build/docs/javadoc/search.js
   - OpenSearch/test/logger-usage/build/docs/javadoc/stylesheet.css
-  - OpenSearch/test/logger-usage/build/docs/javadoc/system-properties.html
+  - OpenSearch/test/logger-usage/build/docs/javadoc/tag-search-index.js
   - OpenSearch/test/logger-usage/build/docs/javadoc/type-search-index.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/type-search-index.zip
   - OpenSearch/test/logger-usage/build/docs/javadoc/org/opensearch
   - OpenSearch/test/logger-usage/build/docs/javadoc/org/opensearch/test
   - OpenSearch/test/logger-usage/build/docs/javadoc/org/opensearch/test/loggerusage
@@ -12116,19 +10794,11 @@ javadocs:
   - OpenSearch/test/logger-usage/build/docs/javadoc/org/opensearch/test/loggerusage/package-tree.html
   - OpenSearch/test/logger-usage/build/docs/javadoc/resources/glass.png
   - OpenSearch/test/logger-usage/build/docs/javadoc/resources/x.png
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/external
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/images
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jquery-3.4.1.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jquery-ui.css
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jquery-ui.js
+  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jquery-3.5.1.min.js
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jquery-ui.min.css
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jquery-ui.min.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jquery-ui.structure.css
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jquery-ui.structure.min.css
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip-utils
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/external/jquery
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/external/jquery/jquery.js
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png
@@ -12140,14 +10810,6 @@ javadocs:
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/images/ui-icons_454545_256x240.png
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/images/ui-icons_888888_256x240.png
   - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip/dist
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip/dist/jszip.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip/dist/jszip.min.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip-utils/dist
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.js
-  - OpenSearch/test/logger-usage/build/docs/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js
   - OpenSearch/test/logger-usage/build/tmp/javadoc/javadoc.options
 ---
 
