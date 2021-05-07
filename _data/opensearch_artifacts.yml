@@ -1,7 +1,7 @@
 opensearch:
   linux_x64: '#x64-opensearch-download'
-  docker: '#opensearch-docker-link'
+  docker: 'https://hub.docker.com/r/opensearchstaging/opensearch'
 
 opensearch_dashboards:
   linux_x64: '#x64-opensearch-dashboards-downloads'
-  docker: '#opensearch-dashboards-links'
+  docker: 'https://hub.docker.com/r/opensearchstaging/opensearch-dashboards'
