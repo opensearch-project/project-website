@@ -22,7 +22,6 @@ We would like to get your feedback from this beta release - please let us know i
 
 #### Plugins Included in Beta are:
 
-- Infra/DevOps **PENDING REPO**
 - [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection)
 - [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin)
 - [Security Dashboards (FE)](https://github.com/opensearch-project/security-dashboards-plugin)
@@ -49,12 +48,23 @@ We would like to get your feedback from this beta release - please let us know i
 - [Asynchronous Search](https://github.com/opensearch-project/asynchronous-search)
 - [OpenSearch CLI](https://github.com/opensearch-project/opensearch-cli)
 - [Common Utils](https://github.com/opensearch-project/common-utils)
-- Data Prepper **PENDING REPO**
+- [Data Prepper](https://github.com/opensearch-project/data-prepper)
 
 ## Special Thanks
-We would like to extend a special thanks to the community of partners already contributing to the project! 
+We would also like to extend a special thanks to the people already contributing to the project. We appreciate the additional support for this project from;
 
-**TODO** Add a list of who have contributed as a special thanks.  
+- [AmiStrn](https://github.com/AmiStrn)
+- [Conan-Kudo](https://github.com/Conan-Kudo)
+- [rmuir](https://github.com/rmuir)
+- [sharp-pixel](https://github.com/sharp-pixel)
+- [Hakky54](https://github.com/Hakky54)
+- [kyleconroy](https://github.com/kyleconroy)
+- [geekygirldawn](https://github.com/geekygirldawn)
+- [jkowall](https://github.com/jkowall)
+- [ace03uec](https://github.com/ace03uec)
+- [denysvitali](https://github.com/denysvitali)
+- [jkowall](https://github.com/jkowall)
+- [galangel](https://github.com/galangel)
 
 ## How can you help?
 The biggest thing you can do to help is join us! You can install ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/DEVELOPER_GUIDE.md) and [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md)) and start diving in! Feel free to take a look around at what we've been up to, and then head over to look at the open issues. Or you could jump right in and start opening issues or contributing. For more details see [here](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md).
