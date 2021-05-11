@@ -1,13 +1,10 @@
 ---
 layout: default
-
 ---
 {% assign primary_title = site.headings.source %}
+{% assign layout_class = 'sidebar-right' %}
 
-{% include copy_banner.html %}
-
-
-<div class="container">
+{% capture content %}
     {{ content }}
     <dl class="repos">
     {% for repo in site.data.repos %}
@@ -20,4 +17,13 @@ layout: default
         </dd>
     {% endfor %}
     </dl>
+{% endcapture %}
+
+{% capture content_related %}
+<div role="complementary">
+  {% include beta_feedback.html %}
 </div>
+{% endcapture %}
+
+{% include copy_banner.html %}
+{% include base_3col.html %}

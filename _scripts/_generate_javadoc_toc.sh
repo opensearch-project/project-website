@@ -1,5 +1,8 @@
 # this extracts all javadoc filenames from OpenSearch. Generates both the pseudo csv (to extract the files from the other script) and the markdown files (directly for jekyll)
-
+# To run:
+# 1. clone OpenSearch
+# 2. run `./gradlew javadoc` in the openseach repo directory
+# ./_scripts/_generate_javadoc_toc.sh /path-to-opensearch-repo/OpenSearch version-id /path-to-temp-directory-outside-of-project-website/ /path-to/project-website/_javadocs/
 cd $1
 cd ..
 ls -R OpenSearch | awk '
