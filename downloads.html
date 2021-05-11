@@ -80,13 +80,13 @@ try:
       <li>{{ step | markdownify}}</li>
     {% endfor %}
   </ol>
-  {{}}
 </div>
 
 {%endcapture%}
 
 {% capture content_related %}
 <div role="complementary">
+  {% include beta_feedback.html %}
   <h3>{{ page.opendistro.head }}</h3>
   <div class="feature-content">
     <p>{{ page.opendistro.description }}</p>
