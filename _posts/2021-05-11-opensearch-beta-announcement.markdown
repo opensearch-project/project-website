@@ -8,7 +8,7 @@ date:   2021-05-11 01:01:01 -0700
 categories: update
 ---
 
-We are excited to release the OpenSearch Beta 1.0 (derived from Elasticsearch 7.10.2) and OpenSearch Dashboards Beta 1.0 (derived from Kibana 7.10.2). With this beta release, we  have refactored all the Open Distro for Elasticsearch plugins to work with OpenSearch and provide the community with downloadable artifacts (Linux tars and Docker images) to run OpenSearch and OpenSearch Dashboards with these plugins installed. Features released with this beta inlcude;
+We are excited to release the OpenSearch Beta 1.0 (derived from Elasticsearch 7.10.2) and OpenSearch Dashboards Beta 1.0 (derived from Kibana 7.10.2). With this beta release, we  have refactored all the Open Distro for Elasticsearch plugins to work with OpenSearch and provide the community with downloadable artifacts (Linux tars and Docker images) to run OpenSearch and OpenSearch Dashboards with these plugins installed. Features released with this beta include;
 
 - Advanced Security
 - SQL Query Syntax
@@ -129,5 +129,5 @@ If you're excited to jump in, we've marked a few issues that would be really hel
 
 **Questions? Feedback?**
 
-Let us know in by opening an [issue](https://github.com/opensearch-project/OpenSearch/issues) or posting in the [forums](https://discuss.opendistrocommunity.dev/). We are also having biweekly [Community Meetings](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/). The community meetings will include progress updates at every session as well as leaving time for Q&A. The next community meeting is on May 18, 2021 at
-9:00 AM PDT.
+Let us know in by opening an [issue](https://github.com/opensearch-project/OpenSearch/issues) or posting in the [forums](https://discuss.opendistrocommunity.dev/). We are also having biweekly [Community Meetings](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/). The community meetings will include progress updates at every session as well as leaving time for Q&A. The next community meeting is on [May 18, 2021 at
+9:00 AM PDT](/events/2021-may-late/).
