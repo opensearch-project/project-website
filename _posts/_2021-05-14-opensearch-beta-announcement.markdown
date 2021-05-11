@@ -20,7 +20,7 @@ We are excited to release the OpenSearch Beta 1.0 (derived from Elasticsearch 7.
 
 We would like to get your feedback from this beta release - please let us know if there are any features you would like or bugs you identify. You can submit pull requests, write documentation, open issues (either on [OpenSearch](https://github.com/opensearch-project/OpenSearch/issues) or [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/issues)), or simply read the [news](https://opensearch.org/blog/). If you would like to install or run this project please see the Developer Guide ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/DEVELOPER_GUIDE.md) and [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md)) to get started.
 
-#### Plugins and Components Avalable in Beta are:
+#### Plugins and Components Available in Beta are:
 
 - [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection)
 - [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin)
