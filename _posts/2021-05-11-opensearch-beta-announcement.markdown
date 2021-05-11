@@ -4,7 +4,7 @@ title:  "OpenSearch Beta 1"
 authors: 
   - andhopp
   - kyledvs
-date:   2021-05-14 01:01:01 -0700
+date:   2021-05-11 01:01:01 -0700
 categories: update
 ---
 
