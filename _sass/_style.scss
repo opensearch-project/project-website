@@ -2047,8 +2047,8 @@ dl.list-features {
             }
         }
         &.warning {
-            background-color: $warning-yellow;
-            border-color: $warning-dark-yellow;
+            background-color: $warning;
+            border-color: $warning-dark;
             .admonition-title::before {
                 color: #E9BD46;
                 content: $fa-var-exclamation-triangle;
@@ -3124,10 +3124,10 @@ ul.corporate-members li {
         }
 
         &.warning {
-            background-color: $warning-yellow;
-            border-color: darken($warning-dark-yellow, 50);
+            background-color: $warning;
+            border-color: darken($warning-dark, 50);
             &::before {
-                color: darken($warning-dark-yellow, 50);
+                color: darken($warning-dark, 50);
                 content: $fa-var-exclamation-triangle;
             }
         }
