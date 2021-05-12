@@ -15,7 +15,7 @@ CSS rendered with Libsass 0.7.0
 body {
     @include serif;
     @include font-size(18);
-    background: #f8f8f8;
+    background: $background-darker;
     color: $text;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -1258,7 +1258,7 @@ blockquote {
 }
 
 .codedump {
-    background: #f8f8f8;
+    background: $background-darker;
     border: 1px solid $gray-line;
     padding: 10px;
     border-radius: 4px;
