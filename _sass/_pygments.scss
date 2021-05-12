@@ -5,7 +5,7 @@ pre.literal-block,
     @include font-size(14);
     border: 1px solid #EAEAEA;
     background: #F4F4F4;
-    background: #f8f8f8; overflow: auto;
+    background: $background-darker; overflow: auto;
     border-radius: 4px;
     margin: 25px 0;
     padding: 10px 20px;
@@ -46,7 +46,7 @@ pre.literal-block,
     @include font-size(14);
     border: 1px solid #EAEAEA;
     background: #F4F4F4;
-    background: #f8f8f8; overflow: auto;
+    background: $background-darker; overflow: auto;
     border-radius: 4px;
     margin: 25px 0;
 
