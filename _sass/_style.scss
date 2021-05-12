@@ -96,7 +96,7 @@ h6 {
 }
 h1 {
     @include font-size(28);
-    color: #fff;
+    color: $background-lightest;
     letter-spacing: -1px;
     line-height: 1.1;
     @include respond-min(768px) {
@@ -246,7 +246,7 @@ blockquote {
 
 [role="main"] {
     //Main column. Left aligned by default. See /styleguide for explanation.
-    background: #fff;
+    background: $background-lightest;
     padding: 1px 10px 40px;
     @include respond-min(768px) {
         min-height: 800px;
@@ -259,7 +259,7 @@ blockquote {
         width: 60%;
         .mdzr-boxshadow & {
             border: none;
-            box-shadow: 0px 0px 0 0 #fff, 0px 0px 0 0 #fff, 460px 0 0 0 #fff, 1000px 0 0 0 #fff, 0px 600px 0 0px #fff, 460px 600px 0 0px #fff;
+            box-shadow: 0px 0px 0 0 $background-lightest, 0px 0px 0 0 $background-lightest, 460px 0 0 0 $background-lightest, 1000px 0 0 0 $background-lightest, 0px 600px 0 0px $background-lightest, 460px 600px 0 0px $background-lightest;
             padding-left: 4%;
             padding-right: 0;
             width: 63%;
@@ -269,7 +269,7 @@ blockquote {
             float: left;
             .mdzr-boxshadow & {
                 border: none;
-                box-shadow: 0px 0px 0 0 #fff, 0px 0px 0 0 #fff, -460px 0 0 0 #fff, -1000px 0 0 0 #fff, 0px 600px 0 0px #fff, -460px 600px 0 0px #fff;
+                box-shadow: 0px 0px 0 0 $background-lightest, 0px 0px 0 0 $background-lightest, -460px 0 0 0 $background-lightest, -1000px 0 0 0 $background-lightest, 0px 600px 0 0px $background-lightest, -460px 600px 0 0px $background-lightest;
                 padding-left: 0;
                 width: 62%;
                 padding-right: 4%;
@@ -314,7 +314,7 @@ blockquote {
         padding: 0;
         max-width: none;
         border-bottom: 1px solid #ddd;
-        background: #fff;
+        background: $background-lightest;
     }
     // High-level class denoting full-width layout
     @include clearfix;
@@ -386,7 +386,7 @@ blockquote {
 }
 .layout-tertiary {
     // Tertiary (white) content area on full-width pages
-    background: #fff;
+    background: $background-lightest;
     border-top: 1px solid #ddd;
     padding: 20px 10px 50px;
     .mdzr-boxshadow & {
@@ -403,7 +403,7 @@ blockquote {
 
     &.sidebar-right {
         .mdzr-boxshadow & {
-            box-shadow: -1200px 0 0 0px #fff;
+            box-shadow: -1200px 0 0 0px $background-lightest;
         }
     }
 }
@@ -461,7 +461,7 @@ blockquote {
         @include font-size(40);
         @include sans-serif;
         background: url(../img/logo-search.png) 0 0 no-repeat;
-        color: #FFF;
+        color: $background-lightest;
         display: block;
         float: left;
         font-weight: 700;
@@ -485,7 +485,7 @@ blockquote {
         @include font-size(20);
         background: $green-dark;
         border-radius: 23px;
-        color: #fff;
+        color: $background-lightest;
         cursor: pointer;
         display: block;
         float: right;
@@ -576,7 +576,7 @@ blockquote {
         }
 
         a {
-            color: #fff;
+            color: $background-lightest;
             display: block;
             padding: 20px 0px;
             text-decoration: none;
@@ -610,7 +610,7 @@ blockquote {
     p {
         @include serif;
         @include font-size(18);
-        color: #fff;
+        color: $background-lightest;
         left: -9999px;
         line-height: 1.5;
         padding: 0 0 10px;
@@ -625,7 +625,7 @@ blockquote {
 }
 .copy-banner {
     // Large green callout at the top of the page
-    background: #fff;
+    background: $background-lightest;
     padding: 1px 10px;
 
     @include respond-min(768px) {
@@ -697,7 +697,7 @@ blockquote {
             font-weight: 700;
             border: 0;
             &:hover {
-                background: #fff;
+                background: $background-lightest;
             }
         }
     }
@@ -840,7 +840,7 @@ blockquote {
     h2 {
         @include font-size(16);
         border-top: 1px solid $gray-line;
-        color: #fff;
+        color: $background-lightest;
         font-weight: 700;
         margin-top: 20px;
         padding: 30px 0 10px;
@@ -1051,7 +1051,7 @@ blockquote {
     background: $green-medium;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: $background-lightest;
     display: block;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
@@ -1345,7 +1345,7 @@ blockquote {
         &:active,
         &:focus {
             background-color: $green-medium;
-            color: #fff;
+            color: $background-lightest;
         }
     }
 }
@@ -1596,7 +1596,7 @@ dl.list-features {
             .mdzr-borderradius & {
                 background: $green-medium;
                 border-radius: 100px;
-                color: #fff;
+                color: $background-lightest;
             }
 
             // SVG Enabled
@@ -2520,7 +2520,7 @@ form {
         @include font-size(16);
         -webkit-appearance: none;
         -moz-appearance: none;
-        background: #fff;
+        background: $background-lightest;
         border: 1px solid $gray-line;
         border-radius: 4px;
         cursor: auto;
@@ -2754,7 +2754,7 @@ div[role=main] {
         text-decoration: none;
         @include device-min(320px) {
             background: $text-light;
-            color: #fff;
+            color: $background-lightest;
             height: 30px;
             margin: 0 2px;
             width: 30px;
