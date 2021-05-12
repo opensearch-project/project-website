@@ -46,6 +46,15 @@ opendistro:
         url: http://opendistro.github.io/for-elasticsearch/
         title: Find it here
 
+signatures:
+  head: "How to verify signatures"
+  description: "Download our PGP key using the link below and import it. If you're using gpg, you just need to run `gpg --import /path/to/key`. You can then verify the signature by downloading it into the same directory where you downloaded the tarball, and running `gpg --verify /path/to/signature /path/to/tarball`. It should show a good signature signed by opensearch@amazon.com.
+
+  Our current PGP key fingerprint is C2EE 2AF6 542C 03B4"
+  link:
+    url: https://artifacts.opensearch.org/publickeys/opensearch.pgp
+    title: Our PGP key
+
 secondary:
     heading: 'Stay in the loop'
     content: "Check out the [forums](https://discuss.opendistrocommunity.dev/) to stay informed."
