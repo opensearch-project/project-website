@@ -13,7 +13,7 @@ pre.literal-block,
 }
 
 .code-block-caption {
-    background: $green-very-light;
+    background: $highlight;
     color: $green-dark;
     @include monospace;
     font-size: 1em;
@@ -28,7 +28,7 @@ pre.literal-block,
 }
 
 .snippet-filename {
-    background: $green-very-light;
+    background: $highlight;
     color: $green-dark;
     @include monospace;
     font-size: 1em;

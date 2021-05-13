@@ -48,10 +48,10 @@ a {
 }
 
 ::selection { // Text Selection Colors
-    background: $green-very-light;
+    background: $highlight;
 }
 ::-moz-selection {
-    background: $green-very-light;
+    background: $highlight;
 }
 ol li, ul li { //list style
     margin-top: 10px;
@@ -220,7 +220,7 @@ ul {
 blockquote {
     background: $white;
     padding: 15px 20px 15px 70px;
-    border: 1px solid $green-very-light;
+    border: 1px solid $highlight;
     border-radius: 4px;
     margin: 25px 0;
     position: relative;
@@ -582,7 +582,7 @@ blockquote {
             text-decoration: none;
 
             &:active, &:hover {
-                color: $green-very-light;
+                color: $highlight;
             }
         }
 
@@ -636,7 +636,7 @@ blockquote {
     h1 {
         @include sans-serif;
         @include font-size(24);
-        color: $green-very-light;
+        color: $highlight;
         font-weight: 300;
         line-height: 1.3;
         padding: 1px 0 6px;
@@ -651,14 +651,14 @@ blockquote {
             @include font-size(32);
 
             margin: .35em 0 .35em;
-            color: $green-very-light;
+            color: $highlight;
             padding: 1px 0 6px;
 
         }
 
         a {
             font-weight: 300;
-            color: $green-very-light;
+            color: $highlight;
         }
 
         a.cta, .cta {
@@ -676,8 +676,8 @@ blockquote {
         }
 
         background: none;
-        border: 1px solid $green-very-light;
-        color: $green-very-light;
+        border: 1px solid $highlight;
+        color: $highlight;
         font-weight: 400;
         em {
             color: white;
@@ -1065,7 +1065,7 @@ blockquote {
     }
 
     em {
-        color: $green-very-light;
+        color: $highlight;
         font-style: normal;
     }
 
@@ -2017,7 +2017,7 @@ dl.list-features {
 .help-block {
         background: $white;
         padding: 15px 20px 15px 70px;
-        border: 1px solid $green-very-light;
+        border: 1px solid $highlight;
         border-radius: 4px;
         margin: 25px 0;
         position: relative;
@@ -2257,7 +2257,7 @@ dl.list-features {
     margin-bottom: 20px;
 
     padding: 10px 13px;
-    border: 1px solid $green-very-light;
+    border: 1px solid $highlight;
     border-radius: 4px;
 
     p {
@@ -3062,7 +3062,7 @@ table.opensearch-supported-versions {
     border: 1px solid black;
     text-align: center;
     tr {
-        background-color: $green-very-light;
+        background-color: $highlight;
         th, td {
             padding: 5px;
         }
@@ -3094,7 +3094,7 @@ ul.corporate-members li {
 
     li {
         padding: 15px;
-        background-color: lighten($green-very-light, 10);
+        background-color: lighten($highlight, 10);
         color: $green-dark;
         border: 1px solid $green-dark;
         border-radius: 4px;
@@ -3116,7 +3116,7 @@ ul.corporate-members li {
         }
 
         &.success {
-            background-color: lighten($green-very-light, 5);
+            background-color: lighten($highlight, 5);
             content: $fa-var-check-circle;
             &::before {
                 content: $fa-var-check-circle;
