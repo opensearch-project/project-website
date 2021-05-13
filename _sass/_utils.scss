@@ -4,7 +4,7 @@ $logo_width: 170px;
 $text: #002a3a; //midnight sky
 $text-link-alternate: #0053b8; //pacific blue
 $text-light: #b9d9eb; //pacific sky
-$gray-line: #CFE3DC;
+$line: #b8cacc;
 $green-very-light: #c1cfdf;
 $green-light: #93D7B7;
 $green-medium: #6e8eb3;
@@ -148,6 +148,6 @@ html {
 
 @mixin framed-image {
     padding: 20px;
-    border: 1px solid $gray-line;
+    border: 1px solid $line;
     border-radius: 4px;
 }
