@@ -23,7 +23,7 @@ We would like to get your feedback from this beta release - please let us know i
 #### Plugins and Components Available in Beta are:
 
 - [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection)
-- [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin)
+- [Anomaly Detection Dashboards](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin)
 - [Security Dashboards (FE)](https://github.com/opensearch-project/security-dashboards-plugin)
 - [Security (BE)](https://github.com/opensearch-project/security)
 - [Performance Analyzer](https://github.com/opensearch-project/performance-analyzer)
