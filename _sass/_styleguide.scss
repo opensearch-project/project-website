@@ -82,7 +82,7 @@
                 border: 1px solid $gray-line;
             }
             &.red-dark {
-                background: $red-dark;
+                background: $alert-dark;
             }
 
             // Secondary
@@ -107,7 +107,7 @@
             }
 
             &.red {
-                background: $red;
+                background: $alert;
             }
 
         }
