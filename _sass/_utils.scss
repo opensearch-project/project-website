@@ -2,7 +2,8 @@ $logo_width: 170px;
 // Colors
 
 $gray-medium: #859D94;
-$text: #2F435A;
+$text: #002a3a; //midnight sky
+$text-link-alternate: #0053b8; //pacific blue
 $text-light: #798780;
 $gray-line: #CFE3DC;
 $green-very-light: #c1cfdf;
@@ -118,16 +119,16 @@ html {
 }
 
 // Green Link Mixin
-@mixin link-green {
-    color: $green;
+@mixin link-green { //todo make non-colour oriented
+    color: $text-link-alternate;
     text-decoration: none;
     &:visited {
-        color: $green;
+        color: $text-link-alternate;
     }
     &:hover,
     &:active,
     &:focus {
-        color: lighten($green, 6%);
+        color: lighten($text-link-alternate, 6%); //todo make tint
         text-decoration: none;
     }
 
