@@ -1286,7 +1286,7 @@ blockquote {
 
         i {
             @include font-size(16);
-            color: $green-light;
+            color: $accent;
             display: block;
             left: 0;
             line-height: 20px;
@@ -1333,7 +1333,7 @@ blockquote {
     }
 
     a {
-        background: $green-light;
+        background: $accent;
         color: $white;
         display: inline-block;
         line-height: 1.2;
@@ -2162,7 +2162,7 @@ dl.list-features {
             border-radius: 4px;
             &:hover {
                 color: $green;
-                border: 1px solid $green-light;
+                border: 1px solid $accent;
             }
         }
     }
