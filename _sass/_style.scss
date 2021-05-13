@@ -187,7 +187,7 @@ kbd,
 pre,
 samp {
     @include monospace;
-    color: $green-dark;
+    color: $accent-dark;
     font-size: 1em;
 }
 
@@ -425,7 +425,7 @@ blockquote {
 [role="banner"] {
     // Includes global navigation, logo, and tagline at top of document
     @include clearfix;
-    background: $green-dark;
+    background: $accent-dark;
     overflow: hidden;
     margin: 0;
     padding: 10px 0 6px;
@@ -483,7 +483,7 @@ blockquote {
 
     .menu-button {
         @include font-size(20);
-        background: $green-dark;
+        background: $accent-dark;
         border-radius: 23px;
         color: $background-lightest;
         cursor: pointer;
@@ -534,7 +534,7 @@ blockquote {
     }
 
     [role="navigation"] {
-        background: $green-dark;
+        background: $accent-dark;
 
         width: 100%;
 
@@ -561,7 +561,7 @@ blockquote {
             text-align: left;
             text-transform: uppercase;
             margin: 0 10px;
-            border-top: 1px solid lighten($green-dark, 5%);
+            border-top: 1px solid lighten($accent-dark, 5%);
 
             @include respond-min(768px) {
                 margin: 0;
@@ -598,7 +598,7 @@ blockquote {
 .header {
     // dark green bar containing the page title
     @include sans-serif;
-    background: $green-dark;
+    background: $accent-dark;
     margin: 0;
     padding: 11px 0px 8px;
     position: relative;
@@ -875,7 +875,7 @@ blockquote {
     }
 
     .footer {
-        background: $green-dark;
+        background: $accent-dark;
         margin-top: 20px;
         padding: 10px 0 30px;
         color: $green-medium-dark;
@@ -900,7 +900,7 @@ blockquote {
         @include font-size(40);
         @include sans-serif;
         background: url(../img/logo-search.png) 0 0 no-repeat;
-        color: $green-dark;
+        color: $accent-dark;
         display: block;
         font-weight: 700;
         height: 50px;
@@ -1103,7 +1103,7 @@ blockquote {
         }
 
         em {
-            color: $green-dark;
+            color: $accent-dark;
         }
 
         &:hover {
@@ -2643,7 +2643,7 @@ form {
         &:focus,
         &:active {
             background: none;
-            color: $green-dark;
+            color: $accent-dark;
             outline: none;
         }
     }
@@ -3095,8 +3095,8 @@ ul.corporate-members li {
     li {
         padding: 15px;
         background-color: lighten($highlight, 10);
-        color: $green-dark;
-        border: 1px solid $green-dark;
+        color: $accent-dark;
+        border: 1px solid $accent-dark;
         border-radius: 4px;
 
         &::before {
@@ -3159,7 +3159,7 @@ ul.corporate-members li {
         margin-right: -10px;
 
         i:hover {
-            color: lighten($green-dark, 20);
+            color: lighten($accent-dark, 20);
         }
         .clipboard-success {
             font-size: 80%;

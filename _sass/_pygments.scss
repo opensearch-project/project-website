@@ -9,12 +9,12 @@ pre.literal-block,
     border-radius: 4px;
     margin: 25px 0;
     padding: 10px 20px;
-    color: $green-dark;
+    color: $accent-dark;
 }
 
 .code-block-caption {
     background: $highlight;
-    color: $green-dark;
+    color: $accent-dark;
     @include monospace;
     font-size: 1em;
     padding: 5px 20px;
@@ -29,7 +29,7 @@ pre.literal-block,
 
 .snippet-filename {
     background: $highlight;
-    color: $green-dark;
+    color: $accent-dark;
     @include monospace;
     font-size: 1em;
     padding: 5px 20px;
