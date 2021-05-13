@@ -2199,8 +2199,8 @@ dl.list-features {
 }
 
 #outdated-warning {
-    background-color: $red-light;
-    color: $red-dark;
+    background-color: $alert-light;
+    color: $alert-dark;
 }
 
 #docs-content {
@@ -2227,19 +2227,19 @@ dl.list-features {
 
     a.reference {
         // for docs links. if we keep text-decoration, then underscores in function names become invisible.
-        color: $red-dark;
+        color: $alert-dark;
         text-decoration: none;
         border-bottom: 1px dotted $text-light;
 
         &:visited {
-            border-color: lighten($red-dark, 10%);
+            border-color: lighten($alert-dark, 10%);
         }
 
         &:active,
         &:focus,
         &:hover {
             background: $white;
-            color: $red;
+            color: $alert;
         }
 
         em {
@@ -3068,7 +3068,7 @@ table.opensearch-supported-versions {
         }
     }
     tr.unsupported {
-        background-color: $red-light;
+        background-color: $alert-light;
     }
 }
 
@@ -3133,9 +3133,9 @@ ul.corporate-members li {
         }
 
         &.error {
-            background-color: lighten($red-light, 10);
-            color: $red-dark;
-            border-color: $red-dark;
+            background-color: lighten($alert-light, 10);
+            color: $alert-dark;
+            border-color: $alert-dark;
             &::before {
                 content: $fa-var-times-circle;
             }
