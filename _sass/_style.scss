@@ -358,7 +358,7 @@ blockquote {
                 padding: 10px 40px 10px 0;
                 font-size: 18px;
                 border-bottom: 0;
-                color: $green-medium;
+                color: $attention;
 
                 .collapsing-icon {
                     font-size: 10px;
@@ -440,7 +440,7 @@ blockquote {
 
     .meta {
         @include font-size(13);
-        color: $green-medium;
+        color: $attention;
         font-weight: 700;
         width: auto;
         float: left;
@@ -501,7 +501,7 @@ blockquote {
         }
 
         &:active {
-            color: $green-medium;
+            color: $attention;
         }
 
         span {
@@ -571,7 +571,7 @@ blockquote {
             }
 
             &.active a {
-                color: $green-medium;
+                color: $attention;
             }
         }
 
@@ -670,9 +670,9 @@ blockquote {
     a.cta, .cta {
         margin: 15px 0;
         padding: 0.4em 1.5em 0.5em;
-        background: $green-medium-dark;
+        background: $attention-dark;
         &:hover {
-            background: lighten($green-medium-dark, 4%);
+            background: lighten($attention-dark, 4%);
         }
 
         background: none;
@@ -727,15 +727,15 @@ blockquote {
             display: inline-block;
             padding: 1em 50px 1.1em;
             margin-bottom: 40px;
-            background: $green-medium;
+            background: $attention;
             color: white;
             border: 0;
             font-weight: 700;
             &:hover {
-                background: lighten($green-medium, 4%);
+                background: lighten($attention, 4%);
             }
             &:active {
-                background: darken($green-medium, 2%);
+                background: darken($attention, 2%);
             }
         }
 
@@ -796,7 +796,7 @@ blockquote {
     @include clearfix;
     @include sans-serif;
     position: relative;
-    background: $green-medium;
+    background: $attention;
     clear: both;
     margin-top: 0px;
 
@@ -878,7 +878,7 @@ blockquote {
         background: $accent-dark;
         margin-top: 20px;
         padding: 10px 0 30px;
-        color: $green-medium-dark;
+        color: $attention-dark;
 
         .footer-logo {
             float: left;
@@ -923,7 +923,7 @@ blockquote {
 
     .thanks {
         @include font-size(12);
-        color: $green-medium-dark;
+        color: $attention-dark;
         margin: 0;
         padding: 0;
         @include respond-min(768px) {
@@ -1020,7 +1020,7 @@ blockquote {
         }
 
         a {
-            color: $green-medium-dark;
+            color: $attention-dark;
         }
     }
 }
@@ -1048,7 +1048,7 @@ blockquote {
     font-weight: 700;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: $green-medium;
+    background: $attention;
     border: none;
     border-radius: 5px;
     color: $background-lightest;
@@ -1070,11 +1070,11 @@ blockquote {
     }
 
     &:hover, &:focus {
-        background: lighten($green-medium, 4%);
+        background: lighten($attention, 4%);
     }
 
     &:active {
-        background: darken($green-medium, 2%);
+        background: darken($attention, 2%);
     }
 
     [role="complementary"] & {
@@ -1114,10 +1114,10 @@ blockquote {
             }
         }
         &:active {
-            border-color: $green-medium;
-            color: $green-medium;
+            border-color: $attention;
+            color: $attention;
             em {
-                color: $green-medium;
+                color: $attention;
             }
         }
     }
@@ -1344,7 +1344,7 @@ blockquote {
         &:hover,
         &:active,
         &:focus {
-            background-color: $green-medium;
+            background-color: $attention;
             color: $background-lightest;
         }
     }
@@ -1594,7 +1594,7 @@ dl.list-features {
 
             // Border Radius Enabled
             .mdzr-borderradius & {
-                background: $green-medium;
+                background: $attention;
                 border-radius: 100px;
                 color: $background-lightest;
             }
@@ -1669,7 +1669,7 @@ dl.list-features {
             // http://stackoverflow.com/questions/11114636/opera-border-radius-svg-background-bug
             :-o-prefocus,
             & {
-                background: $green-medium !important;
+                background: $attention !important;
 
                 -webkit-transition: none !important;
                 transition: none !important;
@@ -2154,7 +2154,7 @@ dl.list-features {
         a {
             display: inline-block;
             background: $white;
-            color: $green-medium;
+            color: $attention;
             text-decoration: none;
             font-weight: 700;
             padding: 8px 15px;
@@ -2586,7 +2586,7 @@ form {
         @include sans-serif;
         @include font-size(16);
         &:hover {
-            background: $green-medium;
+            background: $attention;
         }
     }
 }
@@ -2622,7 +2622,7 @@ form {
     button {
         background: none;
         border: none;
-        color: $green-medium;
+        color: $attention;
         height: 40px;
         padding: 0;
         position: absolute;
@@ -2689,7 +2689,7 @@ form.donate {
     label {
         position: absolute;
         left: 0px;
-        color: $green-medium-dark;
+        color: $attention-dark;
         padding-top: 0.3em;
         padding-left: 0.5em;
     }
