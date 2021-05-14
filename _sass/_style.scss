@@ -37,13 +37,13 @@ a {
     -webkit-tap-highlight-color: transparent;
 
     &:visited {
-        color: lighten($text, 10%);
+        color: $text-visited;
     }
 
     &:active,
     &:focus,
     &:hover {
-        color: lighten($text, 20%);
+        color: $text-hover;
     }
 }
 
@@ -201,7 +201,7 @@ span.pre {
 
 a:hover, a:active, a:focus {
     tt {
-        color: lighten($text, 20%);
+        color: $text-hover;
     }
 }
 
@@ -1801,7 +1801,7 @@ dl.list-features {
             &:hover,
             &:focus,
             &:active {
-                color: lighten($text, 20%);
+                color: $text-hover;
                 outline: none;
             }
 
