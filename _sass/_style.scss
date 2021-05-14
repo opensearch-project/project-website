@@ -684,16 +684,16 @@ blockquote {
         }
         &:hover {
             background: $white;
-            color: $green;
+            color: $core;
             border-color: $white;
             em {
-                color: $green;
+                color: $core;
             }
         }
 
         &.white {
             background: $white;
-            color: $green;
+            color: $core;
             font-weight: 700;
             border: 0;
             &:hover {
@@ -763,7 +763,7 @@ blockquote {
         @include clearfix;
         dt {
             i.icon {
-                color: $green;
+                color: $core;
                 margin-right: 8px;
             }
         }
@@ -1107,10 +1107,10 @@ blockquote {
         }
 
         &:hover {
-            border-color: $green;
-            color: $green;
+            border-color: $core;
+            color: $core;
             em {
-                color: $green;
+                color: $core;
             }
         }
         &:active {
@@ -1193,7 +1193,7 @@ blockquote {
 }
 .blue {
     // overide blue color class
-    color: $green;
+    color: $core;
 }
 .label {
     // Label style associated with forms and other global elements.
@@ -1695,7 +1695,7 @@ dl.list-features {
                 height: 40px;
                 top: 10px;
                 border-radius: 20px;
-                background: $green;
+                background: $core;
                 display: inline-block;
                 text-align: center;
                 @include font-size(24);
@@ -2161,7 +2161,7 @@ dl.list-features {
             border: 1px solid $line;
             border-radius: 4px;
             &:hover {
-                color: $green;
+                color: $core;
                 border: 1px solid $accent;
             }
         }
@@ -2545,7 +2545,7 @@ form {
         &:active,
         &:focus {
             outline: none;
-            border-color: $green;
+            border-color: $core;
         }
     }
 
@@ -2577,7 +2577,7 @@ form {
         -webkit-appearance: none;
         appearance: none;
 
-        background: $green;
+        background: $core;
         border-radius: 4px;
         color: white;
         border: 0;
@@ -2789,9 +2789,9 @@ div[role=main] {
         &:active,
         &.active {
             background: none;
-            color: $green;
+            color: $core;
             @include device-min(320px) {
-                background: $green;
+                background: $core;
                 color: white;
             }
         }
@@ -2809,7 +2809,7 @@ div[role=main] {
             &:focus,
             &.active {
                 background: none;
-                color: $green;
+                color: $core;
             }
         }
     }
@@ -2834,7 +2834,7 @@ hr {
     position: relative;
     bottom: 0.3em;
     color: $white;
-    background-color: $green;
+    background-color: $core;
 }
 
 .user-info {
