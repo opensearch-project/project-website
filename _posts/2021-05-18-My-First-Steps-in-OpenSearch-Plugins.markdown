@@ -450,7 +450,9 @@ We can now edit the `hello-world.json` to describe the new REST endpoint's behav
 ```
 
 And now the YAML tests themselves:
+
 - `10_basic.yml`
+
 ```
 "Test that the plugin is loaded in OpenSearch":
   - do:
@@ -462,7 +464,9 @@ And now the YAML tests themselves:
       $body: /^my-rest-plugin\n$/
 
 ```
+
 - `20_hello_world.yml`
+
 ```
 ---
 "Default with no name":
