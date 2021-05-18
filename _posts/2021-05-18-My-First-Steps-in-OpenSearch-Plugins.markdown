@@ -487,7 +487,9 @@ And now the YAML tests themselves:
 ```
 
 The only thing we are missing is to edit the `HelloWorldClientYamlTestSuiteIT.java` file. When this file is run it runs the YAML cases we defined using a client against a running OpenSearch cluster.  
+
 - `HelloWorldClientYamlTestSuiteIT.java`
+
 ```
 /*...*/
 package org.opensearch.rest.action;
