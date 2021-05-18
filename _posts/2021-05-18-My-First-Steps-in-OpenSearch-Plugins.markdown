@@ -1,7 +1,7 @@
 ---
 layout: post
 authors:
-  - amitai
+  - amistrn
 comments: true
 title: "My First Steps in OpenSearch Plugins"
 categories:
