@@ -48,7 +48,7 @@ In the following blog post, I will take you on a journey through my thought proc
 
 Software plugins are, in essence, stand alone components __add features and capabilities__ to an existing core program. 
 
-![Figure 1: Plugins architectural diagram]({{ site.baseurl }}/assets/media/blog-images/2021-05-18-My-First-Steps-in-OpenSearch-Plugins/plugins-architectural-diagram.jpg){: .img-fluid }
+![Figure 1: Plugins architectural diagram]({{ site.baseurl }}/assets/media/blog-images/2021-05-18-my-first-steps-in-opensearch-plugins/plugins-architectural-diagram.jpg){: .img-fluid }
 
 Normally, when viewing a plugin's code you wouldn't see *any* point of entry (no `main()`). That's because the plugin's points of entry are the interface functions that it implements. 
 
