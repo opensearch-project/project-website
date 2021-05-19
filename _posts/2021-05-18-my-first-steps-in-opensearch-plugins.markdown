@@ -98,20 +98,22 @@ OpenSearch plugins vary greatly in complexity and functionality, yet they all ha
 >(don't forget to add them to `$JAVA_HOME` and `$PATH`)
 
 ### Defining Our Plugin Requirements for OpenSearch
-Let's say we would like to add a new endpoint to OpenSearch called `/hello-world` with the following behavior:
+Let's say we would like to add a new endpoint to OpenSearch called `_plugins/hello_world` with the following behavior:
 ```
-➜  ~ curl -XGET 'localhost:9200/hello-world'
+➜  ~ curl -XGET 'localhost:9200/_plugins/hello_world'
 
         Hi! Your plugin is installed and working:)
 
-➜  ~ curl -XPOST 'localhost:9200/hello-world' -H 'Content-Type: application/json' -d '{"name":"Amitai"}'
+➜  ~ curl -XPOST 'localhost:9200/_plugins/hello_world' -H 'Content-Type: application/json' -d '{"name":"Amitai"}'
 
         Hi Amitai! Your plugin is installed and working:)
 ```
 That is all we should start with. Anything more ambitious would keep us from focusing on the basics of plugins.
 
+I am going to be writing the plugin using the [plugin writing conventions](https://github.com/opensearch-project/opensearch-plugins/blob/main/CONVENTIONS.md) suggested in the OpenSearch project's `opensearch-plugins` repo.
+
 To get started, create a new gradle project. Then, add the following directories and files, which we will edit along the way.
-(Alternatively you can clone the complete source code for this plugin [here](https://github.com/AmiStrn/OpenSearch-Plugin-example-REST))
+(Alternatively you can clone the complete source code for this plugin [here](https://github.com/AmiStrn/example-rest))
 ```
 .
 |-- LICENSE.txt
@@ -144,11 +146,11 @@ To get started, create a new gradle project. Then, add the following directories
         `-- resources
             `-- rest-api-spec
                 |-- api
-                |   `-- hello-world.json
+                |   `-- _plugins.hello_world.json
                 `-- test
-                    `-- hello-world
+                    `-- _plugins.hello_world
                         |-- 10_basic.yml
-                        `-- 20_hellow_world.yml
+                        `-- 20_hello_world.yml
 ```
 
 ---
@@ -184,8 +186,8 @@ apply plugin: 'opensearch.opensearchplugin'
 apply plugin: 'opensearch.yaml-rest-test'
 
 opensearchplugin {
-    name 'my-rest-plugin'
-    description 'Custom REST plugin'
+    name 'opensearch-rest-plugin'
+    description 'Custom OpenSearch REST plugin for educational purposes'
     classname 'org.opensearch.rest.action.HelloWorldPlugin'
     licenseFile rootProject.file('LICENSE.txt')
     noticeFile rootProject.file('NOTICE.txt')
@@ -220,7 +222,7 @@ dependencies {
 
 A few things to note on the `build.gradle`:
 1. `opensearchplugin` section:
-   -  Every plugin must contain a file called `plugin-descriptor.properties` which contains some optional fields and some mandatory. In my example I included the mandatory ones only. You must provide: the full class path to the plugin file in your project (`classname`), the plugin name (`my-rest-plugin`) and description, and the locations of your plugin's license and notice files.
+   -  Every plugin must contain a file called `plugin-descriptor.properties` which contains some optional fields and some mandatory. In my example I included the mandatory ones only. You must provide: the full class path to the plugin file in your project (`classname`), the plugin name (`opensearch-rest-plugin`) and description, and the locations of your plugin's license and notice files.
    -  This section ensures that this file will be created in the plugin's build process using the properties provided in the curly braces.
 2. `org.opensearch.gradle:build-tools:1.0.0-beta1`
    - The version at the end in this example is `1.0.0-beta1`, the version **must match** the version of the OpenSearch project we are going to install our plugin into. We are getting this artifact from our local maven repo.
@@ -237,8 +239,8 @@ Foundation (http://www.apache.org/).
 And a copy of the Apache 2.0 license can be found [here](https://www.apache.org/licenses/LICENSE-2.0). 
 Add your plugin's license and notice `.txt` files to your project and edit them later:
 ```
-➜  my-rest-plugin touch "./LICENSE.txt"
-➜  my-rest-plugin touch "./NOTICE.txt"
+➜  opensearch-rest-plugin touch "./LICENSE.txt"
+➜  opensearch-rest-plugin touch "./NOTICE.txt"
 ```
 >**I am *not* a lawyer**. If you're not sure what to put in the `LICENSE.txt` and `NOTICE.txt` files, please consult one.
 
@@ -353,8 +355,8 @@ public class RestHelloWorldAction extends BaseRestHandler {
     @Override
     public List<Route> routes() {
         return unmodifiableList(asList(
-                new Route(GET, "/hello-world"),
-                new Route(POST, "/hello-world")));
+                new Route(GET, "/_plugins/hello_world"),
+                new Route(POST, "/_plugins/hello_world")));
     }
 
     @Override
@@ -417,23 +419,23 @@ As previously described, the YAML REST test file structure should be like this:
         `-- resources
             `-- rest-api-spec
                 |-- api
-                |   `-- hello-world.json
+                |   `-- _plugins.hello_world.json
                 `-- test
-                    `-- hello-world
+                    `-- _plugins.hello_world
                         |-- 10_basic.yml
                         `-- 20_hello_world.yml
 ```
 
 The `10_basic.yml` will test that the plugin has been added, the other tests check if the rest endpoint is working as expected.
-We can now edit the `hello-world.json` to describe the new REST endpoint's behaviour:
+We can now edit the `_plugins.hello_world.json` to describe the new REST endpoint's behaviour:
 ```
 {
-  "hello-world": {
+  "_plugins.hello_world": {
     "stability" : "stable",
     "url": {
       "paths": [
         {
-          "path": "/hello-world",
+          "path": "/_plugins/hello_world",
           "methods": [
             "GET",
             "POST"
@@ -460,7 +462,7 @@ And now the YAML tests themselves:
         h: component
 
   - match:
-      $body: /^my-rest-plugin\n$/
+      $body: /^opensearch-rest-plugin\n$/
 
 ```
 
@@ -470,14 +472,14 @@ And now the YAML tests themselves:
 ---
 "Default with no name":
   - do:
-      hello-world: {}
+      _plugins.hello_world: {}
 
   - match: {$body: "Hi! Your plugin is installed and working:)" }
 
 ---
 "With name":
   - do:
-      hello-world:
+      _plugins.hello_world:
         body:
           name: Amitai
 
@@ -528,7 +530,7 @@ public class HelloWorldPluginTests extends OpenSearchTestCase {
 
 Running the tests is as easy as:
 ```
-➜  my-rest-plugin gradle check
+➜  opensearch-rest-plugin gradle check
 ```
 ---
 # Trying out our new plugin
@@ -536,18 +538,18 @@ Running the tests is as easy as:
 ## Building the plugin project
 Now that everything is prepared building the plugin is as easy as:
 ```
-➜  my-rest-plugin gradle build 
+➜  opensearch-rest-plugin gradle build 
 ```
 
 
 We can find our built plugin zip in the `distributions` folder, let's take a look inside it:
 ```
-➜  my-rest-plugin vim build/distributions/my-rest-plugin-0.0.1-SNAPSHOT.zip
+➜  opensearch-rest-plugin vim build/distributions/opensearch-rest-plugin-0.0.1-SNAPSHOT.zip
 ```
 You should see something like this:
 ```
 plugin-descriptor.properties
-my-rest-plugin-0.0.1-SNAPSHOT.jar
+opensearch-rest-plugin-0.0.1-SNAPSHOT.jar
 NOTICE.txt
 LICENSE.txt
 ```
@@ -560,7 +562,7 @@ Installing the plugin into OpenSearch will require getting a distribution of the
 And installing our plugin to OpenSearch:
 ```
 ➜  OpenSearch git:(beta1-release) cd build/distribution/local/opensearch-1.0.0-SNAPSHOT
-➜  opensearch-1.0.0-SNAPSHOT git:(beta1-release) bin/opensearch-plugin install  file:///full/path/to/my-rest-plugin/build/distributions/my-rest-plugin-0.0.1-SNAPSHOT.zip
+➜  opensearch-1.0.0-SNAPSHOT git:(beta1-release) bin/opensearch-plugin install  file:///full/path/to/opensearch-rest-plugin/build/distributions/opensearch-rest-plugin-0.0.1-SNAPSHOT.zip
 ```
 ---
 ## Running OpenSearch with our new plugin
@@ -570,14 +572,14 @@ Now we can finally fire up OpenSearch and try out our new plugin!
 ```
 After it starts running open a new terminal tab and run the following:
 ```
-➜  ~ curl -XGET 'http://localhost:9200/hello-world'
+➜  ~ curl -XGET 'http://localhost:9200/_plugins/hello_world'
 ```
 ```
     Hi! Your plugin is installed and working:)
 ```
 Or you can add your name by running this:
 ```
-➜  ~ curl -XPOST 'localhost:9200/hello-world' -H 'Content-Type: application/json' -d '{"name":"Amitai"}'
+➜  ~ curl -XPOST 'localhost:9200/_plugins/hello_world' -H 'Content-Type: application/json' -d '{"name":"Amitai"}'
 ```
 ```
     Hi Amitai! Your plugin is installed and working:)
@@ -589,11 +591,11 @@ AMAZING!!!
 ## Uninstalling the plugin
 This is required if you want to make changes to the plugin and install it again. Installing a plugin with the same name twice results in an error.
 ```
-➜  opensearch-1.0.0-SNAPSHOT git:(beta1-release) bin/OpenSearch-plugin remove my-rest-plugin
+➜  opensearch-1.0.0-SNAPSHOT git:(beta1-release) bin/OpenSearch-plugin remove opensearch-rest-plugin
 ```
  
 ```
-    -> removing [my-rest-plugin]...
+    -> removing [opensearch-rest-plugin]...
 ```
 
 ---
