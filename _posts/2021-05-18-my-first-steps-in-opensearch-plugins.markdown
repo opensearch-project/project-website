@@ -9,14 +9,14 @@ categories:
 ---
 
 ### Taking the leap, not the _plunge_
-Personally, I've always wanted to contribute to an open source project, but never found a way to incorporate it with my day-to-day work. Occasionally, I'd muster up the courage to clone a project I liked, seeking a good entry point to add some new feature or handle some issue. I thought that all I needed was to make a small contribution and everything else would just flow into place. 
+Personally, I've always wanted to contribute to an open-source project, but never found a way to incorporate it with my day-to-day work. Occasionally, I'd muster up the courage to clone a project I liked, seeking a good entry point to add some new feature or handle some issue. I thought that all I needed was to make a small contribution and everything else would just flow into place. 
 
 Turns out, this may be true for *small-scale* projects, but for complex ones like OpenSearch this isn't the case. While you may fix a minor bug, you're not likely to know where to begin in order to fix a moderate bug or design a new feature. Searching for that entry point via the `main()` entrance mostly feels like wandering around an [M.C. Escher](https://en.wikipedia.org/wiki/Relativity_(M._C._Escher)) print.
 
 However, some projects have an entrance unlike any other - a **Pluggable Architecture**. 
 
 
-The Pluggable-Architecture enables us to have a hands on experience with a logical sub section of a large-scale project. This effect makes such an immense project more approachable despite its overall size.
+A pluggable architecture enables us to have a hands on experience with a logical sub section of a large-scale project. This effect makes such an immense project more approachable despite its overall size.
 
 
 In the following blog post, I will take you on a journey through my thought process and conclusions from building *my* first OpenSearch plugin. We will build a simple REST plugin together, install it into OpenSearch, and run it. By the end, I hope to convince you that it is a great starting point for you gaining hands-on experience required for joining the OpenSearch community of contributors, and a great starting point for the project itself.
@@ -78,7 +78,7 @@ However, when we create the binaries of the OpenSearch project (`~ gradle build`
 
 
 
-As mentioned previously, an important characteristic of the pluggable architecture is the plugin interface. This interface needs 1) to be as stable as possible and 2) to strive to be backwards-compatible throughout the different project versions. Otherwise, existing plugins will be very hard to maintain. This is similar to maintaining a public API. 
+As mentioned previously, an important characteristic of a pluggable architecture is the plugin interface. This interface needs 1) to be as stable as possible and 2) to strive to be backwards-compatible throughout the different project versions. Otherwise, existing plugins will be very hard to maintain. This is similar to maintaining a public API. 
 
 ### 2. Community Contributed Plugins
 This brings us to the second type of plugin: built by the community and completely independent of the main project. These are called __Community Contributed Plugins__.
@@ -109,7 +109,7 @@ Let's say we would like to add a new endpoint to OpenSearch called `/hello-world
 
         Hi Amitai! Your plugin is installed and working:)
 ```
-That is all we should start with. Anything more ambitious would keep us from focusing on the basics of the plugin architecture.
+That is all we should start with. Anything more ambitious would keep us from focusing on the basics of plugins.
 
 To get started, create a new gradle project. Then, add the following directories and files, which we will edit along the way.
 (Alternatively you can clone the complete source code for this plugin [here](https://github.com/AmiStrn/OpenSearch-Plugin-example-REST))
