@@ -68,14 +68,13 @@ The beauty of this architecture is that it enables you to customize the core pro
 Let's elaborate on the two different kinds of OpenSearch plugins:
 
 ### 1. Core Plugins
-Some plugins are included and maintained in the core project, called __Core Plugins__. 
+Some plugins, for historic reasons, reside in the core project, called __Core Plugins__. 
 
 An example of one of these is the [`repository-s3 plugin`](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/repository-s3/src) that implements snapshot and restore capabilities using AWS's S3 buckets as the repository. 
 
-The importance of the Core Plugins is that they are considered essential *features* for the community and therefore maintained as part of the project.  Which means they are *in the open source project repository*.
+They are *in the open-source project repository*. However, when we create the binaries of the OpenSearch project (`~ gradle build`) these plugins are **not installed**. This is by design -- ensuring the release artifact is not huge by default.
 
-However, when we create the binaries of the OpenSearch project (`~ gradle build`) these plugins are **not installed**. This is by design -- ensuring the release artifact is not huge by default.
-
+Ideally, the OpenSearch project would be *pluggable* but contain no plugins in the project itself, not even these Core Plugins.
 
 
 As mentioned previously, an important characteristic of a pluggable architecture is the plugin interface. This interface needs 1) to be as stable as possible and 2) to strive to be backwards-compatible throughout the different project versions. Otherwise, existing plugins will be very hard to maintain. This is similar to maintaining a public API. 
@@ -87,7 +86,7 @@ The ability to add these types of plugins offers some key benefits to the open s
 2. Writing a plugin for OpenSearch requires going through the core project's source code. By creating plugins, __you are gaining the skills to be part of the OpenSearch community__.
 
 
-OpenSearch plugins vary greatly in complexity and functionality, yet they all have common characteristics. Let's get to know them by creating a simple REST plugin.
+OpenSearch plugins vary greatly in complexity and functionality, yet they all have common characteristics. Let's get to know them by creating a simple REST plugin -- a plugin that implements a new REST endpoint in the OpenSearch project, reachable via an HTTP call to the running cluster.
 
 
 
