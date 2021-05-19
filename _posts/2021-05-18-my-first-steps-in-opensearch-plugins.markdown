@@ -19,7 +19,7 @@ However, some projects have an entrance unlike any other - a **Pluggable Archite
 A pluggable architecture enables us to have a hands on experience with a logical sub section of a large-scale project. This effect makes such an immense project more approachable despite its overall size.
 
 
-In the following blog post, I will take you on a journey through my thought process and conclusions from building *my* first OpenSearch plugin. We will build a simple REST plugin together, install it into OpenSearch, and run it. By the end, I hope to convince you that it is a great starting point for you gaining hands-on experience required for joining the OpenSearch community of contributors, and a great starting point for the project itself.
+In this blog post, I will take you on a journey through my thought process and conclusions from building *my* first OpenSearch plugin. We will build a simple REST plugin together, install it into OpenSearch, and run it. By the end, I hope to convince you that it is a great starting point for you gaining hands-on experience required for joining the OpenSearch community of contributors, and a great starting point for the project itself.
 
 
 ---
@@ -46,7 +46,7 @@ In the following blog post, I will take you on a journey through my thought proc
 
 ## What are OpenSearch Plugins? 
 
-Software plugins are, in essence, stand alone components __add features and capabilities__ to an existing core program. 
+Software plugins are, in essence, stand alone components that __add features and capabilities__ to an existing core program. 
 
 ![Figure 1: Plugins architectural diagram]({{ site.baseurl }}/assets/media/blog-images/2021-05-18-my-first-steps-in-opensearch-plugins/plugins-architectural-diagram.jpg){: .img-fluid }
 
@@ -226,7 +226,7 @@ A few things to note on the `build.gradle`:
 2. `org.opensearch.gradle:build-tools:1.0.0-beta1`
    - The version at the end in this example is `1.0.0-beta1`, the version **must match** the version of the OpenSearch project we are going to install our plugin into. We are getting this artifact from our local maven repo.
 3. `LICENSE.txt` and `NOTICE.txt` files: 
-   - These pertain to YOUR plugin, and Not to the core project.
+   - These pertain to **your** plugin, and **not** to the core project.
    - An example for the License and Notice files if you're interested in the Apache 2.0 license:
 
 
