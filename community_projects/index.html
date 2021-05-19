@@ -1,0 +1,69 @@
+---
+layout: fullwidth
+title: Community Projects
+primary_title: Community Projects
+---
+
+<div id=intro>
+  <p>This page was made to highlight projects built by the community for the community.</p>
+  <p> Want your project on this page? To add your project to this page, please create a fork the <a href="https://github.com/opensearch-project/project-website" target="_blank" rel="noopener noreferrer">project website</a>, add your project to the <b>_community_projects</b> folder, and submit a pull request.</p>  
+</div>
+
+<table id="projects" >
+  <tr>
+    <th>Project Name</th>
+    <th>Project Owner</th>
+    <th>Description</th>
+    <th>License</th>
+    <th>Stars</th>
+    <th>Forks</th>
+  </tr>
+  {% for project in site.community_projects %}
+    <script type="text/javascript">
+      //fetch github stats
+      let gitUrl = "{{project.github}}";
+      let apiUrl = gitUrl.replace('github.com', 'api.github.com/repos');
+      fetch(apiUrl).then(response => {
+        return response.json();
+      }).then(data => {
+        console.log(data);
+        //create project div
+        let proj = document.createElement('tr');
+        // add name
+        let nameField = document.createElement('td');
+        let name = document.createElement('a');
+        name.href = gitUrl;
+        name.appendChild(document.createTextNode(data.name));
+        nameField.appendChild(name);
+        proj.appendChild(nameField);
+        // add owner
+        let owner = document.createElement('td');
+        owner.appendChild(document.createTextNode(data.owner.login));
+        proj.appendChild(owner);
+        // add description
+        let desc = document.createElement('td');
+        desc.appendChild(document.createTextNode(data.description));
+        proj.appendChild(desc);
+        //add license
+        let license = document.createElement('td');
+        license.appendChild(document.createTextNode(data.license.name));
+        proj.appendChild(license);
+        // add stars
+        let stars = document.createElement('td');
+        stars.appendChild(document.createTextNode( data.stargazers_count));
+        proj.appendChild(stars);
+        // add forks
+        let forks = document.createElement('td');
+        forks.appendChild(document.createTextNode(data.forks));
+        proj.appendChild(forks);
+        document.getElementById("projects").appendChild(proj);
+      }).catch(err => {
+        console.error(err);
+      });
+  </script>
+      <!-- 
+        <a href="{{ project.github }}">/><br /> {{ project.github }}</a> 
+      -->
+  {% endfor %}
+</table>
+<br/>
