@@ -2324,13 +2324,13 @@ table.docutils td, table.docutils th {
             color: $text-light;
 
             &:visited {
-                color: darken($text-light, 10%);
+                color: $text-light-darker;
             }
 
             &:active,
             &:focus,
             &:hover {
-                color: darken($text-light, 20%);
+                color: $text-light-darkest;
             }
         }
     }
@@ -2795,118 +2795,6 @@ hr {
     @include clearfix;
 }
 
-/// Fundraising page
-@keyframes pixel-pulse {
-    0%, 100% { opacity: 0.10; }
-    50% { opacity: 0.25; }
-}
-.fundraising-index {
-    margin-top: 50px;
-
-    .fundraising-heart {
-        width: 100%;
-        float: none;
-        img, svg {
-            width: 100%;
-            height: auto;
-        }
-        rect {
-            -webkit-transition: opacity 250ms ease-out;
-            transition: opacity 250ms ease-out;
-            &.faded {
-                opacity: 0.05;
-                animation: pixel-pulse 3s infinite;
-            }
-        }
-        text {
-            @include font-size(120);
-            fill: rgba(50, 50, 50, 0.3);
-            stroke: #aaaaaa;
-            stroke-width: 2px;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -webkit-user-select: none;
-            user-select: none;
-            cursor: default;
-        }
-        @include respond-min(768px) {
-            width: 55%;
-            float: left;
-        }
-    }
-    .description {
-        margin-left: 5%;
-        width: 100%;
-        float: none;
-        margin-top: 30px;
-
-        @include respond-min(768px) {
-            width: 40%;
-            float: left;
-            margin-top: 0px;
-        }
-
-        h2 {
-            margin-top: 0;
-            @include font-size(28);
-        }
-    }
-}
-
-.fundraising-index {
-    .donate {
-        select {
-            width: 80%;
-
-            @include respond-min(768px) {
-                width: 100%;
-            }
-        }
-        .cta {
-            margin: 10px 0;
-            & .disabled {
-                opacity: 0.5;
-            }
-        }
-        .custom-donation {
-            display: none;
-        }
-        .prefix {
-            float: left;
-            @include font-size(19);
-            margin: 8px 9px 0 3px;
-        }
-        input[type="text"]{
-            width: 70%;
-        }
-    }
-    .cls {
-        clear: both;
-    }
-}
-
-.fundraising-sidebar {
-    .small-heart {
-        margin-top: 20px;
-        width: 20%;
-        float: left;
-        margin-bottom: 20px;
-
-        img {
-            width: 100%;
-            max-width: 64px;
-        }
-    }
-    .small-cta {
-        width: 70%;
-        float: left;
-        vertical-align: top;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-bottom: 20px;
-    }
-    clear: both;
-}
 
 .footnote {
     color: $text-light;
