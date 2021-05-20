@@ -1039,7 +1039,7 @@ blockquote {
     @include sans-serif;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: $attention;
+    background: $text-link-alternate;
     border: none;
     border-radius: 5px;
     color: $background-lightest;
@@ -1061,11 +1061,11 @@ blockquote {
     }
 
     &:hover, &:focus {
-        background-color: $attention-light;
+        background-color: $text-link-alternate-lighter;
     }
 
     &:active {
-        background:  $attention-dark;
+        background:  $text-link-alternate-darker;
     }
 
     [role="complementary"] & {
