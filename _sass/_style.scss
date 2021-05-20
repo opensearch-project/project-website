@@ -84,12 +84,12 @@ h3,
 h4,
 h5,
 h6 {
-    @include sans-serif;
-    font-weight: 400;
+    @include heading-sans-serif;
+    font-weight: 700;
 
     a {
         text-decoration: none;
-        @include link-green;
+        @include link-alternate;
     }
 
 
@@ -123,7 +123,6 @@ h2 {
     .layout-secondary & {
         @include font-size(20);
         border-bottom: 1px solid $line;
-        font-weight: 400;
         padding-bottom: 15px;
         margin-top: 30px;
 
@@ -157,7 +156,6 @@ h3 {
     [role="complementary"] &,
     .layout-secondary & {
         @include font-size(18);
-        font-weight: 400;
         padding-bottom: 15px;
 
         &:first-child {
@@ -561,7 +559,6 @@ blockquote {
             text-align: left;
             text-transform: uppercase;
             margin: 0 10px;
-            border-top: 1px solid lighten($accent-dark, 5%);
 
             @include respond-min(768px) {
                 margin: 0;
@@ -670,10 +667,8 @@ blockquote {
     a.cta, .cta {
         margin: 15px 0;
         padding: 0.4em 1.5em 0.5em;
-        background: $attention-dark;
-        &:hover {
-            background: lighten($attention-dark, 4%);
-        }
+        background: $attention-light;
+
 
         background: none;
         border: 1px solid $highlight;
@@ -731,12 +726,6 @@ blockquote {
             color: white;
             border: 0;
             font-weight: 700;
-            &:hover {
-                background: lighten($attention, 4%);
-            }
-            &:active {
-                background: darken($attention, 2%);
-            }
         }
 
 
@@ -751,7 +740,7 @@ blockquote {
     box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.05);
 
     a {
-        @include link-green;
+        @include link-alternate;
         &.link-readmore {
             margin: 0;
         }
@@ -1029,7 +1018,7 @@ blockquote {
 //------------------- Recycleable Style Classes
 .backtotop {
     // Back to top link (in base.html after block body)
-    @include link-green;
+    @include link-alternate;
     @include sans-serif;
     @include font-size(14);
     display: block;
@@ -1070,11 +1059,11 @@ blockquote {
     }
 
     &:hover, &:focus {
-        background: lighten($attention, 4%);
+        background-color: $attention-light;
     }
 
     &:active {
-        background: darken($attention, 2%);
+        background:  $attention-dark;
     }
 
     [role="complementary"] & {
@@ -1122,13 +1111,13 @@ blockquote {
         }
     }
 }
-.link-green {
-    // class render of the link-green mixin
-    @include link-green;
+.link-alternate {
+    // class render of the link-alternate mixin
+    @include link-alternate;
 }
 .link-readmore {
     // Read More links. Should exist outside of <p> tag, and include the '&rsaquo;' arrow after the text.
-    @include link-green;
+    @include link-alternate;
     @include sans-serif;
     @include font-size(14);
     display: inline-block;
@@ -1162,7 +1151,7 @@ blockquote {
     margin: 25px 0 20px;
 
     a {
-        @include link-green;
+        @include link-alternate;
     }
 }
 .layout-2col {
@@ -1199,7 +1188,7 @@ blockquote {
     // Label style associated with forms and other global elements.
     @include sans-serif;
     @include font-size(16);
-    color: lighten($text-light, 30%);
+    color: $text;
     display: block;
     font-weight: 700;
     margin: 20px 0 10px;
@@ -1219,7 +1208,7 @@ blockquote {
             &:hover,
             &:active,
             &:focus {
-                color: lighten($text-light, 20%);
+                color: $text-light;
             }
         }
     }
@@ -1315,7 +1304,7 @@ blockquote {
     }
 
     a {
-        @include link-green;
+        @include link-alternate;
     }
 }
 .list-tags {
@@ -1421,7 +1410,7 @@ blockquote {
 
     li > a {
         @include sans-serif;
-        @include link-green;
+        @include link-alternate;
         @include font-size(12);
         font-weight: 700;
         margin-top: 10px;
@@ -1516,7 +1505,7 @@ blockquote {
     }
 
     a {
-        @include link-green;
+        @include link-alternate;
     }
 
     [role="complementary"] & {
@@ -1954,7 +1943,7 @@ dl.list-features {
     > li > a { //top level
         text-transform: uppercase;
         font-weight: 700;
-        @include link-green;
+        @include link-alternate;
     }
 
     > li > ul { //second level
@@ -1964,7 +1953,7 @@ dl.list-features {
         > li > a {
             font-weight: 700;
             text-transform: uppercase;
-            @include link-green;
+            @include link-alternate;
         }
     }
 
@@ -2203,53 +2192,7 @@ dl.list-features {
     color: $alert-dark;
 }
 
-#docs-content {
 
-    // Decrease vertical spacing in docs for less scrolling
-
-    h1, h2, h3, h4, h5, h6 {
-        margin: 0.6em 0;
-        line-height: 1.1em;
-    }
-
-    .section {
-        padding: 10px 0 20px;
-    }
-
-    img {
-        display: block;
-        max-width: 100%;
-    }
-
-    @include sans-serif;
-    @include font-size(14);
-    line-height: 1.5em;
-
-    a.reference {
-        // for docs links. if we keep text-decoration, then underscores in function names become invisible.
-        color: $alert-dark;
-        text-decoration: none;
-        border-bottom: 1px dotted $text-light;
-
-        &:visited {
-            border-color: lighten($alert-dark, 10%);
-        }
-
-        &:active,
-        &:focus,
-        &:hover {
-            background: $white;
-            color: $alert;
-        }
-
-        em {
-            font-style: normal;
-        }
-    }
-    code.literal {
-        font-weight: 700;
-    }
-}
 
 .versionadded, .versionchanged, .versionmodified {
     @include sans-serif;
@@ -2312,7 +2255,7 @@ table.docutils td, table.docutils th {
     padding: 10px 0 0;
 
     a {
-        @include link-green;
+        @include link-alternate;
     }
 
     dt,
@@ -2411,7 +2354,7 @@ table.docutils td, table.docutils th {
     padding-left: 0;
     list-style: none;
     a {
-        @include link-green;
+        @include link-alternate;
         text-decoration: none;
     }
 
@@ -3094,7 +3037,7 @@ ul.corporate-members li {
 
     li {
         padding: 15px;
-        background-color: lighten($highlight, 10);
+        background-color: $highlight-lighter;
         color: $accent-dark;
         border: 1px solid $accent-dark;
         border-radius: 4px;
@@ -3116,7 +3059,7 @@ ul.corporate-members li {
         }
 
         &.success {
-            background-color: lighten($highlight, 5);
+            background-color: $highlight-lightest;
             content: $fa-var-check-circle;
             &::before {
                 content: $fa-var-check-circle;
@@ -3133,7 +3076,7 @@ ul.corporate-members li {
         }
 
         &.error {
-            background-color: lighten($alert-light, 10);
+            background-color: $alert-lightest;
             color: $alert-dark;
             border-color: $alert-dark;
             &::before {
@@ -3159,7 +3102,7 @@ ul.corporate-members li {
         margin-right: -10px;
 
         i:hover {
-            color: lighten($accent-dark, 20);
+            color: $accent;
         }
         .clipboard-success {
             font-size: 80%;
@@ -3174,7 +3117,6 @@ ul.corporate-members li {
         h1 {
             margin: 2em 1em;
             text-align: center;
-            font-weight: 100;
         }
     }
 }
