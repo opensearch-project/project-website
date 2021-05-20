@@ -58,11 +58,15 @@ dl.list-features {
 .whats-new {
     .whats-new-post {
         h4 {
+            margin-top: 20px;
             margin-bottom: 0;
         }
         p {
             margin-top: 0.5em;
         }
+    }
+    .whats-new-post + .whats-new-post h4{
+        margin-top: 30px;
     }
 }
 

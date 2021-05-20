@@ -156,7 +156,8 @@ h3 {
     [role="complementary"] &,
     .layout-secondary & {
         @include font-size(18);
-        padding-bottom: 15px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
 
         &:first-child {
             @include respond-min(768px) {
