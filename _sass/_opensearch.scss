@@ -47,10 +47,10 @@ dl.list-features {
     }
 
     li + li:before {
-        content: "/";
+        content: "·";
         color: $text-light;
         display: inline-block;
-        margin-right: 0.5em;
+        margin-right: 0.25em;
     }
 }
 
