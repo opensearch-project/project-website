@@ -1,3 +1,4 @@
+@use "sass:color";
 $logo_width: 170px;
 // Colors
 
@@ -11,7 +12,8 @@ $text-light-darkest: #1d3c4b; //midnight sky, tint 1
 $text-link-alternate: #0053b8; //pacific blue
 $text-link-alternate-lighter: #137cc1; //pacific blue tint 1
 
-$line: #b8cacc; //sf fog, shade 1
+$line: #ccd3d6; //sf fog, shade 1
+$line-lighter: #f6f8f8; // sf fog, tint 1
 $highlight: #b9d9eb; //pacific sky, formerly $green-very-light
 $highlight-lighter: #c7dfee;
 $highlight-lightest: #f4f8fb;
@@ -23,6 +25,7 @@ $attention-dark: #0082b3; //formerly $green-medium-dark, open sky, tent 1
 $core:  #0053b8; //pacific blue
 $accent-dark: #003b5c; //formerly $green-dark, $green-dark-text unused
 $white: #fff;
+$warning-light: #ffc460; //golden poppy, tint 2
 $warning: #ffb81c; //golden poppy
 $warning-dark: #cc9316; //golden poppy, shade 1
 $background-darker: #f5f7f7; //SF Fog, tint 1
@@ -93,7 +96,15 @@ $font-path: "../fonts/fira-mono";
 @mixin heading-sans-serif {
     font-family: "Open Sans Condensed", Impact, "Franklin Gothic Bold", sans-serif;
 }
-
+@mixin stripes {
+    background-image: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
+}
+@mixin warning-stripes {
+    background-color: $warning;
+    background-image: linear-gradient(135deg, $warning-light 25%, transparent 25%, transparent 50%, $warning-light 50%, $warning-light 75%, transparent 75%, transparent);
+}
 
 // Font Sizing Mixin (http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/)
 html {
@@ -151,15 +162,15 @@ html {
 
 // Secondary content box-shadow:
 @mixin secondary-shadow-top {
-    -moz-box-shadow: 0 4px 8px rgba(12,60,38,0.07);
-    -webkit-box-shadow: 0 4px 8px rgba(12,60,38,0.07);
-    box-shadow: 0 4px 8px rgba(12,60,38,0.07);
+    -moz-box-shadow: 0 4px 8px adjust-color($accent-dark, $alpha: 0.07);
+    -webkit-box-shadow: 0 4px 8px adjust-color($accent-dark, $alpha: 0.07);
+    box-shadow: 0 4px 8px adjust-color($accent-dark, $alpha: 0.07);
 }
 
 @mixin secondary-shadow-bottom {
-    -moz-box-shadow: 0 -4px 8px rgba(12,60,38,0.07);
-    -webkit-box-shadow: 0 -4px 8px rgba(12,60,38,0.07);
-    box-shadow: 0 -4px 8px rgba(12,60,38,0.07);
+    -moz-box-shadow: 0 -4px 8px  adjust-color($accent-dark, $alpha: 0.07);
+    -webkit-box-shadow: 0 -4px 8px adjust-color($accent-dark, $alpha: 0.07);
+    box-shadow: 0 -4px 8px  adjust-color($accent-dark, $alpha: 0.07);
 }
 
 @mixin framed-image {
