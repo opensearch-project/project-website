@@ -457,7 +457,7 @@ blockquote {
     .logo {
         @include font-size(40);
         @include sans-serif;
-        background: url(../img/logo-search.png) 0 0 no-repeat;
+        /*background: url(../img/logo-search.png) 0 0 no-repeat;*/
         color: $background-lightest;
         display: block;
         float: left;
@@ -468,9 +468,14 @@ blockquote {
         text-indent: 100%;
         width: 170px;
         height: 36px;
-
+        position: relative;
+        svg {
+            position: absolute;
+            top: 1px;
+            left: 1px
+        }
         .mdzr-svg & { // deliver svg logo if applicable
-            background: url(../img/logo-search.svg) center center no-repeat;
+            /*background: url(../img/opensearch-logo-monochrome.svg) center center no-repeat;*/
         }
 
         @include respond-min(768px) {
