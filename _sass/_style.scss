@@ -869,13 +869,27 @@ blockquote {
         background: $accent-dark;
         margin-top: 20px;
         padding: 10px 0 30px;
-        color: $attention-dark;
-
-        .footer-logo {
-            float: left;
-            width: 33%;
+        color: $white;
+        a, svg {
+            color: $accent-light;
         }
-
+        svg {
+            float: left;
+            height: 50px;
+            padding-top: 40px;
+            padding-right: 30px;
+            
+        }
+        .copyright {
+            float: left;
+            @include font-size(12);
+            margin: 20px 0 0 10px;
+            @include respond-min(768px) {
+                max-width: 80%;
+                padding-top: 30px;
+                margin: 0;
+            }
+        }
         .logo {
             margin-right: 0;
             margin-top: 28px;
@@ -999,21 +1013,7 @@ blockquote {
         }
     }
 
-    .copyright {
 
-        @include font-size(12);
-        clear: both;
-        margin: 20px 0 0 10px;
-        @include respond-min(768px) {
-            max-width: 80%;
-            padding-top: 30px;
-            margin: 0;
-        }
-
-        a {
-            color: $attention-dark;
-        }
-    }
 }
 
 
