@@ -1,4 +1,9 @@
 -
+    shortname: org
+    title: OpenSearch Project
+    description: The GitHub organization for the entire OpenSearch Project
+    url: https://github.com/opensearch-project
+-
     shortname: os
     title: OpenSearch
     description: The full-text search daemon forked from Elasticsearch 7.10.2
@@ -33,4 +38,8 @@
       -
         title: Contributing
         url: https://github.com/opensearch-project/project-website/blob/main/CONTRIBUTING.md
+-
+    shortname: docs
+    url: '#'
+    title: Read the docs
       

@@ -9,6 +9,8 @@ Ported to Libsass by Michael Trythall
 https://lincolnloop.com/team/michael-trythall/
 ---
 CSS rendered with Libsass 0.7.0
+
+Altered for OpenSearch by AWS
 */
 
 //------------------- Globals
@@ -142,7 +144,7 @@ h2 {
     }
 
     [role="main"] & {
-        margin-top: 40px;
+        margin-top: 20px;
         margin-bottom: 15px;
     }
 }
@@ -329,7 +331,7 @@ blockquote {
     @include font-size(14);
     @include respond-min(768px) {
         float: right;
-        margin: 20px 0;
+        margin: 10px 0 20px 0;
         margin-right: 3%;
         padding: 0 0 40px 0;
         width: 30%;
@@ -1084,8 +1086,8 @@ blockquote {
     &.outline {
         // Outline button for less-dominant CTA
         background: none;
-        border: 1px solid $line;
-        color: $text-light;
+        border: 1px solid $core;
+        color: $core;
         font-weight: 400;
 
         &.inline {
@@ -1098,10 +1100,10 @@ blockquote {
         }
 
         &:hover {
-            border-color: $core;
-            color: $core;
+            border-color: $text-link-alternate-lighter;
+            color: $text-link-alternate-lighter;
             em {
-                color: $core;
+                color: $text-link-alternate-lighter;
             }
         }
         &:active {
@@ -1123,7 +1125,7 @@ blockquote {
     @include sans-serif;
     @include font-size(14);
     display: inline-block;
-    margin: 10px 0;
+    margin: 5px 0 10px 0;
     &:after {
         content: " ›";
         font-size: 1.2em;
