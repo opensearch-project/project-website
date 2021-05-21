@@ -106,16 +106,20 @@ dl.list-features {
         a {
             text-decoration: none;
             display: inline-block;
-            background-color: white;
+            color: $core;
+            background-color: $background-darker;
             padding: 0.25em 1em 0 1em;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
         }
     }
     dd {
         padding: 0.5em 1em;
         
-        background-color: white;
+        background-color: $background-darker;
         margin-bottom: 1em;
-
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
     }
     dd p {
         margin-top: 0;
