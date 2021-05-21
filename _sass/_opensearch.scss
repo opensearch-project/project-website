@@ -32,10 +32,10 @@ dl.list-features {
 }
 
 [role="banner"] [role="navigation"] {
-    margin: 8px 0 0 10px;
+    margin-top: 17px;
 
     li {
-        color: $green-medium;
+        color: $attention;
         text-transform: none;
         margin-right: 0.5em;
         
@@ -47,10 +47,10 @@ dl.list-features {
     }
 
     li + li:before {
-        content: "/";
+        content: "·";
         color: $text-light;
         display: inline-block;
-        margin-right: 0.5em;
+        margin-right: 0.25em;
     }
 }
 
@@ -58,11 +58,15 @@ dl.list-features {
 .whats-new {
     .whats-new-post {
         h4 {
+            margin-top: 20px;
             margin-bottom: 0;
         }
         p {
             margin-top: 0.5em;
         }
+    }
+    .whats-new-post + .whats-new-post h4{
+        margin-top: 30px;
     }
 }
 
@@ -78,19 +82,18 @@ dl.list-features {
             width: 55px;
             float: right;
         }
+        margin-bottom: 2em;
     }
 }
 
 .events-page {
-    h2 {
-        margin-top: 0;
-    }
+
     .list-events {
         .icon {
-            color: $green;
+            color: $core;
         }
         li {
-            border-top-color: $green-very-light;
+            border-top-color: $highlight;
         }
         p {
             font-size: 0.9em;
@@ -103,16 +106,20 @@ dl.list-features {
         a {
             text-decoration: none;
             display: inline-block;
-            background-color: white;
+            color: $core;
+            background-color: $background-darker;
             padding: 0.25em 1em 0 1em;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
         }
     }
     dd {
         padding: 0.5em 1em;
         
-        background-color: white;
+        background-color: $background-darker;
         margin-bottom: 1em;
-
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
     }
     dd p {
         margin-top: 0;
@@ -168,7 +175,7 @@ dl.list-features {
 .img-fluid {
     max-width: 100%;
     height: auto;
-    border: 1px solid #eee;
+    border: 1px solid $line-lighter;
 }
 .downloads-page {
     .layout-2col {
@@ -183,9 +190,8 @@ dl.list-features {
 }
 
 .banner-alert {
-    background-color: #ffe761;
     @include sans-serif;
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
+    @include warning-stripes;
 }
   
 .imported-post {
@@ -194,5 +200,5 @@ dl.list-features {
     background-color: #ffe761;
     padding: 1em;
     @include sans-serif;
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
+    @include warning-stripes;
 }

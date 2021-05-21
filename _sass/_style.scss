@@ -9,13 +9,15 @@ Ported to Libsass by Michael Trythall
 https://lincolnloop.com/team/michael-trythall/
 ---
 CSS rendered with Libsass 0.7.0
+
+Altered for OpenSearch by AWS
 */
 
 //------------------- Globals
 body {
     @include serif;
     @include font-size(18);
-    background: #f8f8f8;
+    background: $background-darker;
     color: $text;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -37,21 +39,21 @@ a {
     -webkit-tap-highlight-color: transparent;
 
     &:visited {
-        color: lighten($text, 10%);
+        color: $text-visited;
     }
 
     &:active,
     &:focus,
     &:hover {
-        color: lighten($text, 20%);
+        color: $text-hover;
     }
 }
 
 ::selection { // Text Selection Colors
-    background: $green-very-light;
+    background: $highlight;
 }
 ::-moz-selection {
-    background: $green-very-light;
+    background: $highlight;
 }
 ol li, ul li { //list style
     margin-top: 10px;
@@ -84,19 +86,19 @@ h3,
 h4,
 h5,
 h6 {
-    @include sans-serif;
-    font-weight: 400;
+    @include heading-sans-serif;
+    font-weight: 700;
 
     a {
         text-decoration: none;
-        @include link-green;
+        @include link-alternate;
     }
 
 
 }
 h1 {
     @include font-size(28);
-    color: #fff;
+    color: $background-lightest;
     letter-spacing: -1px;
     line-height: 1.1;
     @include respond-min(768px) {
@@ -122,8 +124,7 @@ h2 {
     [role="complementary"] &,
     .layout-secondary & {
         @include font-size(20);
-        border-bottom: 1px solid $gray-line;
-        font-weight: 400;
+        border-bottom: 1px solid $line;
         padding-bottom: 15px;
         margin-top: 30px;
 
@@ -143,7 +144,7 @@ h2 {
     }
 
     [role="main"] & {
-        margin-top: 40px;
+        margin-top: 20px;
         margin-bottom: 15px;
     }
 }
@@ -157,8 +158,8 @@ h3 {
     [role="complementary"] &,
     .layout-secondary & {
         @include font-size(18);
-        font-weight: 400;
-        padding-bottom: 15px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
 
         &:first-child {
             @include respond-min(768px) {
@@ -169,7 +170,7 @@ h3 {
 
     [role="complementary"] & {
         @include font-size(18);
-        border-bottom: 1px solid $gray-line;
+        border-bottom: 1px solid $line;
     }
 }
 
@@ -187,7 +188,7 @@ kbd,
 pre,
 samp {
     @include monospace;
-    color: $green-dark;
+    color: $accent-dark;
     font-size: 1em;
 }
 
@@ -201,7 +202,7 @@ span.pre {
 
 a:hover, a:active, a:focus {
     tt {
-        color: lighten($text, 20%);
+        color: $text-hover;
     }
 }
 
@@ -220,7 +221,7 @@ ul {
 blockquote {
     background: $white;
     padding: 15px 20px 15px 70px;
-    border: 1px solid $green-very-light;
+    border: 1px solid $highlight;
     border-radius: 4px;
     margin: 25px 0;
     position: relative;
@@ -246,7 +247,7 @@ blockquote {
 
 [role="main"] {
     //Main column. Left aligned by default. See /styleguide for explanation.
-    background: #fff;
+    background: $background-lightest;
     padding: 1px 10px 40px;
     @include respond-min(768px) {
         min-height: 800px;
@@ -259,7 +260,7 @@ blockquote {
         width: 60%;
         .mdzr-boxshadow & {
             border: none;
-            box-shadow: 0px 0px 0 0 #fff, 0px 0px 0 0 #fff, 460px 0 0 0 #fff, 1000px 0 0 0 #fff, 0px 600px 0 0px #fff, 460px 600px 0 0px #fff;
+            box-shadow: 0px 0px 0 0 $background-lightest, 0px 0px 0 0 $background-lightest, 460px 0 0 0 $background-lightest, 1000px 0 0 0 $background-lightest, 0px 600px 0 0px $background-lightest, 460px 600px 0 0px $background-lightest;
             padding-left: 4%;
             padding-right: 0;
             width: 63%;
@@ -269,7 +270,7 @@ blockquote {
             float: left;
             .mdzr-boxshadow & {
                 border: none;
-                box-shadow: 0px 0px 0 0 #fff, 0px 0px 0 0 #fff, -460px 0 0 0 #fff, -1000px 0 0 0 #fff, 0px 600px 0 0px #fff, -460px 600px 0 0px #fff;
+                box-shadow: 0px 0px 0 0 $background-lightest, 0px 0px 0 0 $background-lightest, -460px 0 0 0 $background-lightest, -1000px 0 0 0 $background-lightest, 0px 600px 0 0px $background-lightest, -460px 600px 0 0px $background-lightest;
                 padding-left: 0;
                 width: 62%;
                 padding-right: 4%;
@@ -294,7 +295,7 @@ blockquote {
 
     .section {
         padding-bottom: 40px;
-        border-bottom: 1px solid $gray-line;
+        border-bottom: 1px solid $line;
         &:last-of-type {
             padding-bottom: 0;
             border-bottom: 0;
@@ -314,24 +315,23 @@ blockquote {
         padding: 0;
         max-width: none;
         border-bottom: 1px solid #ddd;
-        background: #fff;
+        background: $background-lightest;
     }
     // High-level class denoting full-width layout
     @include clearfix;
 
     .mdzr-boxshadow & {
         border: none;
-        @include secondary-shadow-top;
     }
 }
 
 [role="complementary"] {
     //Sidebar in column layouts, gray section in fullwidth layout
     padding: 0 10px 20px;
-    @include font-size(14);
+    @include font-size(15);
     @include respond-min(768px) {
         float: right;
-        margin: 20px 0;
+        margin: 10px 0 20px 0;
         margin-right: 3%;
         padding: 0 0 40px 0;
         width: 30%;
@@ -358,7 +358,7 @@ blockquote {
                 padding: 10px 40px 10px 0;
                 font-size: 18px;
                 border-bottom: 0;
-                color: $green-medium;
+                color: $attention;
 
                 .collapsing-icon {
                     font-size: 10px;
@@ -386,7 +386,7 @@ blockquote {
 }
 .layout-tertiary {
     // Tertiary (white) content area on full-width pages
-    background: #fff;
+    background: $background-lightest;
     border-top: 1px solid #ddd;
     padding: 20px 10px 50px;
     .mdzr-boxshadow & {
@@ -403,7 +403,7 @@ blockquote {
 
     &.sidebar-right {
         .mdzr-boxshadow & {
-            box-shadow: -1200px 0 0 0px #fff;
+            box-shadow: -1200px 0 0 0px $background-lightest;
         }
     }
 }
@@ -425,7 +425,7 @@ blockquote {
 [role="banner"] {
     // Includes global navigation, logo, and tagline at top of document
     @include clearfix;
-    background: $green-dark;
+    background: $accent-dark;
     overflow: hidden;
     margin: 0;
     padding: 10px 0 6px;
@@ -440,7 +440,7 @@ blockquote {
 
     .meta {
         @include font-size(13);
-        color: $green-medium;
+        color: $attention;
         font-weight: 700;
         width: auto;
         float: left;
@@ -460,8 +460,8 @@ blockquote {
     .logo {
         @include font-size(40);
         @include sans-serif;
-        background: url(../img/logo-search.png) 0 0 no-repeat;
-        color: #FFF;
+        /*background: url(../img/logo-search.png) 0 0 no-repeat;*/
+        color: $background-lightest;
         display: block;
         float: left;
         font-weight: 700;
@@ -471,9 +471,14 @@ blockquote {
         text-indent: 100%;
         width: 170px;
         height: 36px;
-
+        position: relative;
+        svg {
+            position: absolute;
+            top: 1px;
+            left: 1px
+        }
         .mdzr-svg & { // deliver svg logo if applicable
-            background: url(../img/logo-search.svg) center center no-repeat;
+            /*background: url(../img/opensearch-logo-monochrome.svg) center center no-repeat;*/
         }
 
         @include respond-min(768px) {
@@ -483,9 +488,9 @@ blockquote {
 
     .menu-button {
         @include font-size(20);
-        background: $green-dark;
+        background: $accent-dark;
         border-radius: 23px;
-        color: #fff;
+        color: $background-lightest;
         cursor: pointer;
         display: block;
         float: right;
@@ -501,7 +506,7 @@ blockquote {
         }
 
         &:active {
-            color: $green-medium;
+            color: $attention;
         }
 
         span {
@@ -534,7 +539,7 @@ blockquote {
     }
 
     [role="navigation"] {
-        background: $green-dark;
+        background: $accent-dark;
 
         width: 100%;
 
@@ -561,7 +566,6 @@ blockquote {
             text-align: left;
             text-transform: uppercase;
             margin: 0 10px;
-            border-top: 1px solid lighten($green-dark, 5%);
 
             @include respond-min(768px) {
                 margin: 0;
@@ -571,18 +575,18 @@ blockquote {
             }
 
             &.active a {
-                color: $green-medium;
+                color: $attention;
             }
         }
 
         a {
-            color: #fff;
+            color: $background-lightest;
             display: block;
             padding: 20px 0px;
             text-decoration: none;
 
             &:active, &:hover {
-                color: $green-very-light;
+                color: $highlight;
             }
         }
 
@@ -598,7 +602,7 @@ blockquote {
 .header {
     // dark green bar containing the page title
     @include sans-serif;
-    background: $green-dark;
+    background: $accent-dark;
     margin: 0;
     padding: 11px 0px 8px;
     position: relative;
@@ -610,7 +614,7 @@ blockquote {
     p {
         @include serif;
         @include font-size(18);
-        color: #fff;
+        color: $background-lightest;
         left: -9999px;
         line-height: 1.5;
         padding: 0 0 10px;
@@ -625,7 +629,7 @@ blockquote {
 }
 .copy-banner {
     // Large green callout at the top of the page
-    background: #fff;
+    background: $background-darkest;
     padding: 1px 10px;
 
     @include respond-min(768px) {
@@ -636,7 +640,7 @@ blockquote {
     h1 {
         @include sans-serif;
         @include font-size(24);
-        color: $green-very-light;
+        color: $core;
         font-weight: 300;
         line-height: 1.3;
         padding: 1px 0 6px;
@@ -651,14 +655,13 @@ blockquote {
             @include font-size(32);
 
             margin: .35em 0 .35em;
-            color: $green-very-light;
+            color: $highlight;
             padding: 1px 0 6px;
 
         }
 
         a {
             font-weight: 300;
-            color: $green-very-light;
         }
 
         a.cta, .cta {
@@ -670,34 +673,32 @@ blockquote {
     a.cta, .cta {
         margin: 15px 0;
         padding: 0.4em 1.5em 0.5em;
-        background: $green-medium-dark;
-        &:hover {
-            background: lighten($green-medium-dark, 4%);
-        }
+        background: $attention-light;
+
 
         background: none;
-        border: 1px solid $green-very-light;
-        color: $green-very-light;
+        border: 1px solid $highlight;
+        color: $highlight;
         font-weight: 400;
         em {
             color: white;
         }
         &:hover {
             background: $white;
-            color: $green;
+            color: $core;
             border-color: $white;
             em {
-                color: $green;
+                color: $core;
             }
         }
 
         &.white {
             background: $white;
-            color: $green;
+            color: $core;
             font-weight: 700;
             border: 0;
             &:hover {
-                background: #fff;
+                background: $background-lightest;
             }
         }
     }
@@ -706,7 +707,7 @@ blockquote {
         padding: 50px 0;
         background: white;
         text-align: center;
-        border-bottom: 1px solid $gray-line;
+        border-bottom: 1px solid $line;
         p {
             max-width: 700px;
             margin-left: auto;
@@ -727,16 +728,9 @@ blockquote {
             display: inline-block;
             padding: 1em 50px 1.1em;
             margin-bottom: 40px;
-            background: $green-medium;
+            background: $attention;
             color: white;
             border: 0;
-            font-weight: 700;
-            &:hover {
-                background: lighten($green-medium, 4%);
-            }
-            &:active {
-                background: darken($green-medium, 2%);
-            }
         }
 
 
@@ -751,7 +745,7 @@ blockquote {
     box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.05);
 
     a {
-        @include link-green;
+        @include link-alternate;
         &.link-readmore {
             margin: 0;
         }
@@ -763,7 +757,7 @@ blockquote {
         @include clearfix;
         dt {
             i.icon {
-                color: $green;
+                color: $core;
                 margin-right: 8px;
             }
         }
@@ -796,7 +790,7 @@ blockquote {
     @include clearfix;
     @include sans-serif;
     position: relative;
-    background: $green-medium;
+    background: $attention;
     clear: both;
     margin-top: 0px;
 
@@ -839,8 +833,8 @@ blockquote {
 
     h2 {
         @include font-size(16);
-        border-top: 1px solid $gray-line;
-        color: #fff;
+        border-top: 1px solid $line;
+        color: $background-lightest;
         font-weight: 700;
         margin-top: 20px;
         padding: 30px 0 10px;
@@ -875,16 +869,30 @@ blockquote {
     }
 
     .footer {
-        background: $green-dark;
+        background: $accent-dark;
         margin-top: 20px;
         padding: 10px 0 30px;
-        color: $green-medium-dark;
-
-        .footer-logo {
-            float: left;
-            width: 33%;
+        color: $white;
+        a, svg {
+            color: $accent-light;
         }
-
+        svg {
+            float: left;
+            height: 50px;
+            padding-top: 40px;
+            padding-right: 30px;
+            
+        }
+        .copyright {
+            float: left;
+            @include font-size(12);
+            margin: 20px 0 0 10px;
+            @include respond-min(768px) {
+                max-width: 80%;
+                padding-top: 30px;
+                margin: 0;
+            }
+        }
         .logo {
             margin-right: 0;
             margin-top: 28px;
@@ -900,7 +908,7 @@ blockquote {
         @include font-size(40);
         @include sans-serif;
         background: url(../img/logo-search.png) 0 0 no-repeat;
-        color: $green-dark;
+        color: $accent-dark;
         display: block;
         font-weight: 700;
         height: 50px;
@@ -923,7 +931,7 @@ blockquote {
 
     .thanks {
         @include font-size(12);
-        color: $green-medium-dark;
+        color: $attention-dark;
         margin: 0;
         padding: 0;
         @include respond-min(768px) {
@@ -1008,28 +1016,14 @@ blockquote {
         }
     }
 
-    .copyright {
 
-        @include font-size(12);
-        clear: both;
-        margin: 20px 0 0 10px;
-        @include respond-min(768px) {
-            max-width: 80%;
-            padding-top: 30px;
-            margin: 0;
-        }
-
-        a {
-            color: $green-medium-dark;
-        }
-    }
 }
 
 
 //------------------- Recycleable Style Classes
 .backtotop {
     // Back to top link (in base.html after block body)
-    @include link-green;
+    @include link-alternate;
     @include sans-serif;
     @include font-size(14);
     display: block;
@@ -1045,13 +1039,12 @@ blockquote {
 .cta, a.cta {
     // Call To Action buttons
     @include sans-serif;
-    font-weight: 700;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: $green-medium;
+    background: $text-link-alternate;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: $background-lightest;
     display: block;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
@@ -1065,16 +1058,16 @@ blockquote {
     }
 
     em {
-        color: $green-very-light;
+        color: $highlight;
         font-style: normal;
     }
 
     &:hover, &:focus {
-        background: lighten($green-medium, 4%);
+        background-color: $text-link-alternate-lighter;
     }
 
     &:active {
-        background: darken($green-medium, 2%);
+        background:  $text-link-alternate-darker;
     }
 
     [role="complementary"] & {
@@ -1093,8 +1086,8 @@ blockquote {
     &.outline {
         // Outline button for less-dominant CTA
         background: none;
-        border: 1px solid $gray-line;
-        color: $gray-medium;
+        border: 1px solid $core;
+        color: $core;
         font-weight: 400;
 
         &.inline {
@@ -1103,36 +1096,36 @@ blockquote {
         }
 
         em {
-            color: $green-dark;
+            color: $accent-dark;
         }
 
         &:hover {
-            border-color: $green;
-            color: $green;
+            border-color: $text-link-alternate-lighter;
+            color: $text-link-alternate-lighter;
             em {
-                color: $green;
+                color: $text-link-alternate-lighter;
             }
         }
         &:active {
-            border-color: $green-medium;
-            color: $green-medium;
+            border-color: $attention;
+            color: $attention;
             em {
-                color: $green-medium;
+                color: $attention;
             }
         }
     }
 }
-.link-green {
-    // class render of the link-green mixin
-    @include link-green;
+.link-alternate {
+    // class render of the link-alternate mixin
+    @include link-alternate;
 }
 .link-readmore {
     // Read More links. Should exist outside of <p> tag, and include the '&rsaquo;' arrow after the text.
-    @include link-green;
+    @include link-alternate;
     @include sans-serif;
     @include font-size(14);
     display: inline-block;
-    margin: 10px 0;
+    margin: 5px 0 10px 0;
     &:after {
         content: " ›";
         font-size: 1.2em;
@@ -1162,7 +1155,7 @@ blockquote {
     margin: 25px 0 20px;
 
     a {
-        @include link-green;
+        @include link-alternate;
     }
 }
 .layout-2col {
@@ -1193,13 +1186,13 @@ blockquote {
 }
 .blue {
     // overide blue color class
-    color: $green;
+    color: $core;
 }
 .label {
     // Label style associated with forms and other global elements.
     @include sans-serif;
     @include font-size(16);
-    color: lighten($text-light, 30%);
+    color: $text;
     display: block;
     font-weight: 700;
     margin: 20px 0 10px;
@@ -1219,7 +1212,7 @@ blockquote {
             &:hover,
             &:active,
             &:focus {
-                color: lighten($text-light, 20%);
+                color: $text-light;
             }
         }
     }
@@ -1258,8 +1251,8 @@ blockquote {
 }
 
 .codedump {
-    background: #f8f8f8;
-    border: 1px solid $gray-line;
+    background: $background-darker;
+    border: 1px solid $line;
     padding: 10px;
     border-radius: 4px;
     @include sans-serif;
@@ -1277,7 +1270,7 @@ blockquote {
 
     li {
         @include font-size(18);
-        border-top: 1px solid $gray-line;
+        border-top: 1px solid $line;
         display: block;
         line-height: 1.3;
         margin: 0;
@@ -1286,7 +1279,7 @@ blockquote {
 
         i {
             @include font-size(16);
-            color: $green-light;
+            color: $accent;
             display: block;
             left: 0;
             line-height: 20px;
@@ -1315,7 +1308,7 @@ blockquote {
     }
 
     a {
-        @include link-green;
+        @include link-alternate;
     }
 }
 .list-tags {
@@ -1333,7 +1326,7 @@ blockquote {
     }
 
     a {
-        background: $green-light;
+        background: $accent;
         color: $white;
         display: inline-block;
         line-height: 1.2;
@@ -1344,8 +1337,8 @@ blockquote {
         &:hover,
         &:active,
         &:focus {
-            background-color: $green-medium;
-            color: #fff;
+            background-color: $attention;
+            color: $background-lightest;
         }
     }
 }
@@ -1361,7 +1354,7 @@ blockquote {
     }
 
     li {
-        border-top: 1px solid $gray-line;
+        border-top: 1px solid $line;
         margin-top: 35px;
         padding-top: 10px;
 
@@ -1373,13 +1366,13 @@ blockquote {
 
         &.unpublished,
         &.unpublished * {
-            color: $gray-medium;
+            color: $text-light;
         }
     }
 
     .meta {
         margin-top: 10px;
-        color: $gray-medium;
+        color: $text-light;
         a:link {
             color: $text-light;
             text-decoration: underline;
@@ -1399,7 +1392,7 @@ blockquote {
     }
 
     li {
-        border-top: 1px solid $gray-line;
+        border-top: 1px solid $line;
         margin-top: 20px;
         padding-top: 20px;
         @include respond-min(1024px) {
@@ -1421,7 +1414,7 @@ blockquote {
 
     li > a {
         @include sans-serif;
-        @include link-green;
+        @include link-alternate;
         @include font-size(12);
         font-weight: 700;
         margin-top: 10px;
@@ -1500,7 +1493,7 @@ blockquote {
     @include sans-serif;
     @include clearfix;
     @include font-size(16);
-    border-top: 1px solid $gray-line;
+    border-top: 1px solid $line;
     list-style: none;
     margin: 20px 0 0;
     padding: 20px 0 10px;
@@ -1516,7 +1509,7 @@ blockquote {
     }
 
     a {
-        @include link-green;
+        @include link-alternate;
     }
 
     [role="complementary"] & {
@@ -1540,7 +1533,7 @@ dl.list-features {
 
     dt {
         @include font-size(24);
-        border-top: 1px solid $gray-line;
+        border-top: 1px solid $line;
         padding-top: 25px;
     }
 
@@ -1594,9 +1587,9 @@ dl.list-features {
 
             // Border Radius Enabled
             .mdzr-borderradius & {
-                background: $green-medium;
+                background: $attention;
                 border-radius: 100px;
-                color: #fff;
+                color: $background-lightest;
             }
 
             // SVG Enabled
@@ -1669,7 +1662,7 @@ dl.list-features {
             // http://stackoverflow.com/questions/11114636/opera-border-radius-svg-background-bug
             :-o-prefocus,
             & {
-                background: $green-medium !important;
+                background: $attention !important;
 
                 -webkit-transition: none !important;
                 transition: none !important;
@@ -1695,7 +1688,7 @@ dl.list-features {
                 height: 40px;
                 top: 10px;
                 border-radius: 20px;
-                background: $green;
+                background: $core;
                 display: inline-block;
                 text-align: center;
                 @include font-size(24);
@@ -1767,7 +1760,7 @@ dl.list-features {
 
 .list-collapsing {
     // reusable accordion style collapsing list, as seen on the Get Started Page. 'Expand/Collapse All' toggle is generated by the javascript. H2 is used for label, and 'collapsing-content' class is used to identify all content that should expand and collapse onclick.
-    border-bottom: 1px solid $gray-line;
+    border-bottom: 1px solid $line;
     list-style: none;
     margin: 30px 0;
     padding: 0;
@@ -1776,7 +1769,7 @@ dl.list-features {
     &.active {
 
         > li {
-            border-top: 1px solid $gray-line;
+            border-top: 1px solid $line;
             margin: 0;
             padding: 0;
 
@@ -1801,7 +1794,7 @@ dl.list-features {
             &:hover,
             &:focus,
             &:active {
-                color: lighten($text, 20%);
+                color: $text-hover;
                 outline: none;
             }
 
@@ -1847,7 +1840,7 @@ dl.list-features {
     padding: 0;
 
     li {
-        border-top: 1px solid $gray-line;
+        border-top: 1px solid $line;
         margin-top: 20px;
         padding-top: 40px;
         @include respond-min(768px) {
@@ -1954,7 +1947,7 @@ dl.list-features {
     > li > a { //top level
         text-transform: uppercase;
         font-weight: 700;
-        @include link-green;
+        @include link-alternate;
     }
 
     > li > ul { //second level
@@ -1964,7 +1957,7 @@ dl.list-features {
         > li > a {
             font-weight: 700;
             text-transform: uppercase;
-            @include link-green;
+            @include link-alternate;
         }
     }
 
@@ -2017,7 +2010,7 @@ dl.list-features {
 .help-block {
         background: $white;
         padding: 15px 20px 15px 70px;
-        border: 1px solid $green-very-light;
+        border: 1px solid $highlight;
         border-radius: 4px;
         margin: 25px 0;
         position: relative;
@@ -2047,8 +2040,8 @@ dl.list-features {
             }
         }
         &.warning {
-            background-color: $warning-yellow;
-            border-color: $warning-dark-yellow;
+            background-color: $warning;
+            border-color: $warning-dark;
             .admonition-title::before {
                 color: #E9BD46;
                 content: $fa-var-exclamation-triangle;
@@ -2078,8 +2071,8 @@ dl.list-features {
     @include clearfix;
     font-weight: 700;
 
-    border-top: 1px solid $gray-line;
-    border-bottom: 1px solid $gray-line;
+    border-top: 1px solid $line;
+    border-bottom: 1px solid $line;
     padding: 20px 0;
     margin-top: 2em;
 
@@ -2144,7 +2137,7 @@ dl.list-features {
             display: inline-block;
             background: $white;
             padding: 8px 15px;
-            border: 1px solid $gray-line;
+            border: 1px solid $line;
             border-radius: 4px;
         }
         &.current-link {
@@ -2154,15 +2147,15 @@ dl.list-features {
         a {
             display: inline-block;
             background: $white;
-            color: $green-medium;
+            color: $attention;
             text-decoration: none;
             font-weight: 700;
             padding: 8px 15px;
-            border: 1px solid $gray-line;
+            border: 1px solid $line;
             border-radius: 4px;
             &:hover {
-                color: $green;
-                border: 1px solid $green-light;
+                color: $core;
+                border: 1px solid $accent;
             }
         }
     }
@@ -2184,9 +2177,8 @@ dl.list-features {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background-image: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
-    background-image: -moz-linear-gradient(-45deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
+    @include stripes;
+
     @include sans-serif;
     font-size: 14px;
     text-align: center;
@@ -2199,57 +2191,11 @@ dl.list-features {
 }
 
 #outdated-warning {
-    background-color: $red-light;
-    color: $red-dark;
+    background-color: $alert-light;
+    color: $alert-dark;
 }
 
-#docs-content {
 
-    // Decrease vertical spacing in docs for less scrolling
-
-    h1, h2, h3, h4, h5, h6 {
-        margin: 0.6em 0;
-        line-height: 1.1em;
-    }
-
-    .section {
-        padding: 10px 0 20px;
-    }
-
-    img {
-        display: block;
-        max-width: 100%;
-    }
-
-    @include sans-serif;
-    @include font-size(14);
-    line-height: 1.5em;
-
-    a.reference {
-        // for docs links. if we keep text-decoration, then underscores in function names become invisible.
-        color: $red-dark;
-        text-decoration: none;
-        border-bottom: 1px dotted $text-light;
-
-        &:visited {
-            border-color: lighten($red-dark, 10%);
-        }
-
-        &:active,
-        &:focus,
-        &:hover {
-            background: $white;
-            color: $red;
-        }
-
-        em {
-            font-style: normal;
-        }
-    }
-    code.literal {
-        font-weight: 700;
-    }
-}
 
 .versionadded, .versionchanged, .versionmodified {
     @include sans-serif;
@@ -2257,7 +2203,7 @@ dl.list-features {
     margin-bottom: 20px;
 
     padding: 10px 13px;
-    border: 1px solid $green-very-light;
+    border: 1px solid $highlight;
     border-radius: 4px;
 
     p {
@@ -2301,7 +2247,7 @@ dl.function, dl.class, dl.method, dl.classmethod, dl.staticmethod, dl.attribute,
 
 
 table.docutils td, table.docutils th {
-    border-bottom: 1px solid $gray-line;
+    border-bottom: 1px solid $line;
 }
 
 .list-links {
@@ -2312,7 +2258,7 @@ table.docutils td, table.docutils th {
     padding: 10px 0 0;
 
     a {
-        @include link-green;
+        @include link-alternate;
     }
 
     dt,
@@ -2339,7 +2285,7 @@ table.docutils td, table.docutils th {
         dt,
         li {
             @include font-size(16);
-            border-top: 1px solid $gray-line;
+            border-top: 1px solid $line;
             margin-top: 0;
             padding-top: 20px;
 
@@ -2375,19 +2321,19 @@ table.docutils td, table.docutils th {
     span.meta {
         margin-top: 0;
         margin-bottom: 10px;
-        color: $gray-medium;
+        color: $text-light;
 
         a {
             color: $text-light;
 
             &:visited {
-                color: darken($text-light, 10%);
+                color: $text-light-darker;
             }
 
             &:active,
             &:focus,
             &:hover {
-                color: darken($text-light, 20%);
+                color: $text-light-darkest;
             }
         }
     }
@@ -2411,7 +2357,7 @@ table.docutils td, table.docutils th {
     padding-left: 0;
     list-style: none;
     a {
-        @include link-green;
+        @include link-alternate;
         text-decoration: none;
     }
 
@@ -2520,8 +2466,8 @@ form {
         @include font-size(16);
         -webkit-appearance: none;
         -moz-appearance: none;
-        background: #fff;
-        border: 1px solid $gray-line;
+        background: $background-lightest;
+        border: 1px solid $line;
         border-radius: 4px;
         cursor: auto;
         display: block;
@@ -2545,7 +2491,7 @@ form {
         &:active,
         &:focus {
             outline: none;
-            border-color: $green;
+            border-color: $core;
         }
     }
 
@@ -2559,7 +2505,7 @@ form {
     }
 
     select {
-        border: 1px solid $gray-line;
+        border: 1px solid $line;
         background: white;
         height: 46px;
         padding: 0 10px;
@@ -2577,7 +2523,7 @@ form {
         -webkit-appearance: none;
         appearance: none;
 
-        background: $green;
+        background: $core;
         border-radius: 4px;
         color: white;
         border: 0;
@@ -2586,7 +2532,7 @@ form {
         @include sans-serif;
         @include font-size(16);
         &:hover {
-            background: $green-medium;
+            background: $attention;
         }
     }
 }
@@ -2622,7 +2568,7 @@ form {
     button {
         background: none;
         border: none;
-        color: $green-medium;
+        color: $attention;
         height: 40px;
         padding: 0;
         position: absolute;
@@ -2643,7 +2589,7 @@ form {
         &:focus,
         &:active {
             background: none;
-            color: $green-dark;
+            color: $accent-dark;
             outline: none;
         }
     }
@@ -2689,7 +2635,7 @@ form.donate {
     label {
         position: absolute;
         left: 0px;
-        color: $green-medium-dark;
+        color: $attention-dark;
         padding-top: 0.3em;
         padding-left: 0.5em;
     }
@@ -2710,7 +2656,7 @@ div[role=main] {
 :-moz-placeholder,
 ::-moz-placeholder,
 :-ms-input-placeholder {
-    color: $gray-medium;
+    color: $text-light;
 }
 
 .form-email {
@@ -2732,7 +2678,7 @@ div[role=main] {
     // Pagination style for use with the News & Events pages.
     @include sans-serif;
     @include font-size(14);
-    border-top: 1px solid $gray-line;
+    border-top: 1px solid $line;
     font-weight: 700;
     line-height: 31px;
     list-style: none;
@@ -2754,7 +2700,7 @@ div[role=main] {
         text-decoration: none;
         @include device-min(320px) {
             background: $text-light;
-            color: #fff;
+            color: $background-lightest;
             height: 30px;
             margin: 0 2px;
             width: 30px;
@@ -2789,9 +2735,9 @@ div[role=main] {
         &:active,
         &.active {
             background: none;
-            color: $green;
+            color: $core;
             @include device-min(320px) {
-                background: $green;
+                background: $core;
                 color: white;
             }
         }
@@ -2809,7 +2755,7 @@ div[role=main] {
             &:focus,
             &.active {
                 background: none;
-                color: $green;
+                color: $core;
             }
         }
     }
@@ -2817,7 +2763,7 @@ div[role=main] {
 
 hr {
     border: 0;
-    border-top: 1px solid $gray-line;
+    border-top: 1px solid $line;
 }
 
 // em {
@@ -2834,7 +2780,7 @@ hr {
     position: relative;
     bottom: 0.3em;
     color: $white;
-    background-color: $green;
+    background-color: $core;
 }
 
 .user-info {
@@ -2852,121 +2798,9 @@ hr {
     @include clearfix;
 }
 
-/// Fundraising page
-@keyframes pixel-pulse {
-    0%, 100% { opacity: 0.10; }
-    50% { opacity: 0.25; }
-}
-.fundraising-index {
-    margin-top: 50px;
-
-    .fundraising-heart {
-        width: 100%;
-        float: none;
-        img, svg {
-            width: 100%;
-            height: auto;
-        }
-        rect {
-            -webkit-transition: opacity 250ms ease-out;
-            transition: opacity 250ms ease-out;
-            &.faded {
-                opacity: 0.05;
-                animation: pixel-pulse 3s infinite;
-            }
-        }
-        text {
-            @include font-size(120);
-            fill: rgba(50, 50, 50, 0.3);
-            stroke: #aaaaaa;
-            stroke-width: 2px;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -webkit-user-select: none;
-            user-select: none;
-            cursor: default;
-        }
-        @include respond-min(768px) {
-            width: 55%;
-            float: left;
-        }
-    }
-    .description {
-        margin-left: 5%;
-        width: 100%;
-        float: none;
-        margin-top: 30px;
-
-        @include respond-min(768px) {
-            width: 40%;
-            float: left;
-            margin-top: 0px;
-        }
-
-        h2 {
-            margin-top: 0;
-            @include font-size(28);
-        }
-    }
-}
-
-.fundraising-index {
-    .donate {
-        select {
-            width: 80%;
-
-            @include respond-min(768px) {
-                width: 100%;
-            }
-        }
-        .cta {
-            margin: 10px 0;
-            & .disabled {
-                opacity: 0.5;
-            }
-        }
-        .custom-donation {
-            display: none;
-        }
-        .prefix {
-            float: left;
-            @include font-size(19);
-            margin: 8px 9px 0 3px;
-        }
-        input[type="text"]{
-            width: 70%;
-        }
-    }
-    .cls {
-        clear: both;
-    }
-}
-
-.fundraising-sidebar {
-    .small-heart {
-        margin-top: 20px;
-        width: 20%;
-        float: left;
-        margin-bottom: 20px;
-
-        img {
-            width: 100%;
-            max-width: 64px;
-        }
-    }
-    .small-cta {
-        width: 70%;
-        float: left;
-        vertical-align: top;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-bottom: 20px;
-    }
-    clear: both;
-}
 
 .footnote {
-    color: $gray-medium;
+    color: $text-light;
     @include font-size(14);
     margin-top: 20px;
     text-align: center;
@@ -3062,13 +2896,13 @@ table.opensearch-supported-versions {
     border: 1px solid black;
     text-align: center;
     tr {
-        background-color: $green-very-light;
+        background-color: $highlight;
         th, td {
             padding: 5px;
         }
     }
     tr.unsupported {
-        background-color: $red-light;
+        background-color: $alert-light;
     }
 }
 
@@ -3094,9 +2928,9 @@ ul.corporate-members li {
 
     li {
         padding: 15px;
-        background-color: lighten($green-very-light, 10);
-        color: $green-dark;
-        border: 1px solid $green-dark;
+        background-color: $highlight-lighter;
+        color: $accent-dark;
+        border: 1px solid $accent-dark;
         border-radius: 4px;
 
         &::before {
@@ -3116,7 +2950,7 @@ ul.corporate-members li {
         }
 
         &.success {
-            background-color: lighten($green-very-light, 5);
+            background-color: $highlight-lightest;
             content: $fa-var-check-circle;
             &::before {
                 content: $fa-var-check-circle;
@@ -3124,18 +2958,18 @@ ul.corporate-members li {
         }
 
         &.warning {
-            background-color: $warning-yellow;
-            border-color: darken($warning-dark-yellow, 50);
+            background-color: $warning;
+            border-color: darken($warning-dark, 50);
             &::before {
-                color: darken($warning-dark-yellow, 50);
+                color: darken($warning-dark, 50);
                 content: $fa-var-exclamation-triangle;
             }
         }
 
         &.error {
-            background-color: lighten($red-light, 10);
-            color: $red-dark;
-            border-color: $red-dark;
+            background-color: $alert-lightest;
+            color: $alert-dark;
+            border-color: $alert-dark;
             &::before {
                 content: $fa-var-times-circle;
             }
@@ -3159,7 +2993,7 @@ ul.corporate-members li {
         margin-right: -10px;
 
         i:hover {
-            color: lighten($green-dark, 20);
+            color: $accent;
         }
         .clipboard-success {
             font-size: 80%;
@@ -3174,7 +3008,6 @@ ul.corporate-members li {
         h1 {
             margin: 2em 1em;
             text-align: center;
-            font-weight: 100;
         }
     }
 }

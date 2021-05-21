@@ -12,7 +12,7 @@ download_ctas:
   - os-d
 
 ctas:
-    post: ' source on GitHub'
+    post: ' on GitHub'
     primary: 
         text: 'Get Started'
         url: '/downloads.html'
