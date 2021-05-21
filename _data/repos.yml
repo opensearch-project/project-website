@@ -1,10 +1,12 @@
 -
     shortname: org
+    category: core
     title: OpenSearch Project
     description: The GitHub organization for the entire OpenSearch Project
     url: https://github.com/opensearch-project
 -
     shortname: os
+    category: core
     title: OpenSearch
     description: The full-text search daemon forked from Elasticsearch 7.10.2
     url: https://github.com/opensearch-project/opensearch
@@ -18,6 +20,7 @@
 
 -
     shortname: os-d
+    category: core
     title: OpenSearch Dashboards
     description: The user interface and visualization tool forked from Kibana 7.10.2
     url: https://github.com/opensearch-project/opensearch-dashboards
@@ -29,8 +32,10 @@
         title: Developer Guide
         url: https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md
 
+
 -
     shortname: website
+    category: support
     title: OpenSearch Website
     description: The source to this website.
     url: https://github.com/opensearch-project/project-website
@@ -38,8 +43,3 @@
       -
         title: Contributing
         url: https://github.com/opensearch-project/project-website/blob/main/CONTRIBUTING.md
--
-    shortname: docs
-    url: '#'
-    title: Read the docs
-      

@@ -328,7 +328,7 @@ blockquote {
 [role="complementary"] {
     //Sidebar in column layouts, gray section in fullwidth layout
     padding: 0 10px 20px;
-    @include font-size(14);
+    @include font-size(15);
     @include respond-min(768px) {
         float: right;
         margin: 10px 0 20px 0;

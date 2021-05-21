@@ -87,10 +87,10 @@ $font-path: "../fonts/fira-mono";
 // Font Family Mixins
 @mixin serif {
     font-family: "Noto Serif", 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', serif;
-    /*font-family: 'Source Serif Pro', Georgia, serif;*/
 }
 @mixin sans-serif {
     font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+    
 }
 @mixin monospace {
     font-family: "Fira Mono", Consolas, Menlo, Monaco, "Courier New", Courier, monospace;
