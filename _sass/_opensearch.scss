@@ -82,13 +82,12 @@ dl.list-features {
             width: 55px;
             float: right;
         }
+        margin-bottom: 2em;
     }
 }
 
 .events-page {
-    h2 {
-        margin-top: 0;
-    }
+
     .list-events {
         .icon {
             color: $core;
