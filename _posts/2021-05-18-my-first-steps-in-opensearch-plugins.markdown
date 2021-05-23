@@ -26,8 +26,6 @@ In this blog post, I will take you on a journey through my thought process and c
 - [My First Steps in OpenSearch Plugins](#my-first-steps-in-opensearch-plugins)
     - [Taking the leap, not the _plunge_](#taking-the-leap-not-the-plunge)
   - [What are OpenSearch Plugins?](#what-are-opensearch-plugins)
-    - [1. Core Plugins](#1-core-plugins)
-    - [2. Community Contributed Plugins](#2-community-contributed-plugins)
 - [Building a Simple OpenSearch REST Plugin](#building-a-simple-opensearch-rest-plugin)
     - [Before we start - make sure you have these environment dependencies](#before-we-start---make-sure-you-have-these-environment-dependencies)
     - [Defining Our Plugin Requirements for OpenSearch](#defining-our-plugin-requirements-for-opensearch)
@@ -65,24 +63,21 @@ In other words, the plugin interface is not necessarily the same for every plugi
 
 The beauty of this architecture is that it enables you to customize the core program to your needs, without having to contribute to the core project directly (Imagine having to buy a new camera for every different lens instead of switching the lenses!).
 
-Let's elaborate on the two different kinds of OpenSearch plugins:
+Let's get back to OpenSearch plugins:
 
-### 1. Core Plugins
-Some plugins, for historic reasons, reside in the core project, called __Core Plugins__. 
-
+Some plugins, for historic reasons, reside in the core project. 
 An example of one of these is the [`repository-s3 plugin`](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/repository-s3/src) that implements snapshot and restore capabilities using AWS's S3 buckets as the repository. 
 
 They are *in the open-source project repository*. However, when we create the binaries of the OpenSearch project (`~ gradle build`) these plugins are **not installed**. This is by design -- ensuring the release artifact is not huge by default.
 
-Ideally, the OpenSearch project would be *pluggable* but contain no plugins in the project itself, not even these Core Plugins.
+Ideally, the OpenSearch project would be *pluggable* but contain no plugins in the project itself.
 
 
-As mentioned previously, an important characteristic of a pluggable architecture is the plugin interface. This interface needs 1) to be as stable as possible and 2) to strive to be backwards-compatible throughout the different project versions. Otherwise, existing plugins will be very hard to maintain. This is similar to maintaining a public API. 
+As mentioned previously, an important characteristic of a pluggable architecture is the plugin interface. This interface needs 1) to be as stable as possible and 2) to strive to be backwards-compatible throughout the different project versions. Otherwise, existing plugins will be very hard to maintain. This is similar to maintaining a public API.
 
-### 2. Community Contributed Plugins
-This brings us to the second type of plugin: built by the community and completely independent of the main project. These are called __Community Contributed Plugins__.
-The ability to add these types of plugins offers some key benefits to the open source community:
-1. Adding new features to OpenSearch can be done independently from the core project -- it allows for a wide range of features to be developed with few (if any) conflicts in the code.
+This brings us to the plugins built by the community and completely independent of the main project.
+The ability to add plugins offers some key benefits to the open source community:
+1. Adding new features to OpenSearch can be done independently of the core project -- it allows for a wide range of features to be developed with few (if any) conflicts in the code.
 2. Writing a plugin for OpenSearch requires going through the core project's source code. By creating plugins, __you are gaining the skills to be part of the OpenSearch community__.
 
 
