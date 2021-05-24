@@ -6,6 +6,7 @@ comments: true
 title: "My First Steps in OpenSearch Plugins"
 categories:
 - technical-posts
+feature_image: "/assets/media/blog-images/2021-05-18-my-first-steps-in-opensearch-plugins/my-first-steps-in-plugins-feature-image.jpg"
 ---
 
 ### Taking the leap, not the _plunge_
@@ -44,7 +45,7 @@ In this blog post, I will take you on a journey through my thought process and c
 
 ## What are OpenSearch Plugins? 
 
-Software plugins are, in essence, stand alone components that __add features and capabilities__ to an existing core program. 
+Software plugins are, in essence, standalone components that __add features and capabilities__ to an existing core program. 
 
 ![Figure 1: Plugins architectural diagram]({{ site.baseurl }}/assets/media/blog-images/2021-05-18-my-first-steps-in-opensearch-plugins/plugins-architectural-diagram.jpg){: .img-fluid }
 
