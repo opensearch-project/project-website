@@ -28,7 +28,8 @@ or by installing all the dependencies on your local environment:
 2. Install [Ruby](https://www.ruby-lang.org/en/) and [RVM](https://rvm.io/)
 3. Install [Jekyll](https://jekyllrb.com/)
 4. Install dependencies: `bundle install`
-5. Build: `bundle exec jekyll serve` for the local server, `bundle exec jekyll build` for one off builds. Either way, the HTML of the site is generated to `/_site`
+5. Generate data for website by running `/bin/bash generate.sh`
+6. Build: `bundle exec jekyll serve` for the local server, `bundle exec jekyll build` for one off builds. Either way, the HTML of the site is generated to `/_site`
 
 and then browse the site at [`http://127.0.0.1:4000/`](http://127.0.0.1:4000/).
 ## Credit
