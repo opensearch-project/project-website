@@ -80,3 +80,6 @@ This policy is based in part on the [open source trademark policy defined by the
 3. **This Policy requires modifications and their source to be identified for Derivative Works of OpenSearch, where should I put this information?**  You may put this information in any location that is commonly used to convey differences from an upstream open source project, such as a NOTICE text or end-user documentation.
 
 4. **What’s new in this update to the Trademark Policy?** We’ve got logos! Our talented creative team designed logos the OpenSearch project. We also worked hard on [Brand Guidelines](/assets/brand/OpenSearch-Brand-Guide.pdf) to help ensure use of the OpenSearch Trademarks is unified, cohesive, and, simply put, looks good. Please use them!
+
+<br />
+
