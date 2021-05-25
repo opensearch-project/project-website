@@ -2,7 +2,7 @@
 layout: post
 title:  "The OpenSearch backlog is now available on GitHub"
 authors: 
-  - elfisher
+  - elifish
 date:   2021-05-25 01:01:01 -0700
 categories: update
 ---
