@@ -8,7 +8,7 @@ title: Brand Guidelines
 
 ---
 
-We developed these guidelines to help keep the OpenSearch brand unified and cohesive. Please reference this guide for all communication and brand design across all formats.
+These guidelines were developed to help keep the OpenSearch brand unified and cohesive. Please reference this guide for all communication and brand design across all formats.
 
 Download: <a href="/assets/brand/OpenSearch-Brand-Guide.pdf" target="_blank">Brand Guidelines PDF</a>
 
@@ -27,7 +27,7 @@ Dark Mode: <a href="assets/brand/PNG/Mark/opensearch_mark_darkmode.png" target="
 Monochrome: <a href="assets/brand/PNG/Mark/opensearch_mark_monochrome.png" target="_blank">PNG</a> &middot; <a href="assets/brand/SVG/Mark/opensearch_mark_monochrome.svg" target="_blank">SVG</a>
 
 ### More file formats
-These contain the full set of PNG, SVG and EPS Logos, Marks & Logotypes as downloadable .zip files.
+The full set of PNG, SVG and EPS Logos, Marks, & Logotypes are available as downloadable .zip files below. 
 
 Download: <a href="assets/brand/opensearch-assets_SVG.zip" target="_blank">SVG</a> &middot; <a href="assets/brand/opensearch-assets_PNG.zip" target="_blank">PNG</a> &middot; <a href="assets/brand/opensearch-assets_EPS.zip" target="_blank">EPS</a>
 
