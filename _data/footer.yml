@@ -24,6 +24,9 @@ columns:
         title: FAQ
         url: '/faq/'
       -
+        title: 'Brand Guidelines'
+        url: '/brand.html'
+      -
         title: 'Trademark Usage Policy'
         url: '/trademark-usage.html'
       - 
