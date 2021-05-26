@@ -89,6 +89,9 @@ layout: default
       
       {% for sidebar_category in page.sidebar %}
         <h3>{{sidebar_category.title}}</h3>
+        {% if sidebar_category.description %}
+        {{ sidebar_category.description | markdownify }}
+        {% endif %}
         <ul class="list-links-small">
           {% for link in sidebar_category.links %}
           <li><a href="{{ link.url }}">{{ link.title}}</a></li>
