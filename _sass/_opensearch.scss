@@ -209,3 +209,56 @@ dl.list-features {
     @include sans-serif;
     @include warning-stripes;
 }
+
+.share-container {
+    @include sans-serif;
+    color: $text-light;
+
+    padding-bottom: 2em;    
+}
+
+#share-buttons {
+    display: inline-block; 
+    vertical-align: middle;
+    :after {
+        content: ""; 
+        display: block; 
+        clear: both;
+    }
+    > div {
+        position: relative;
+        text-align: left; 
+        height: 36px; 
+        width: 32px; 
+        float: left; 
+        text-align: center;
+        > svg {
+            height: 16px; 
+            fill: $background-darkest; 
+            margin-top: 10px;
+        }
+    }
+    > div:hover {
+        cursor: pointer;
+    }
+    > div.facebook:hover > svg {fill: #3B5998;}
+    > div.twitter:hover > svg {fill: #55ACEE;}
+    > div.linkedin:hover > svg {fill: #0077b5;}
+    > div.mail:hover > svg {fill: #7D7D7D;}
+    > div.facebook > svg {
+        height: 18px; 
+        margin-top: 9px;
+    }
+    > div.twitter > svg {
+        height: 20px; 
+        margin-top: 8px;
+    }
+    > div.linkedin > svg {
+        height: 19px; 
+        margin-top: 7px;
+    }
+    > div.mail > svg {
+        height: 14px; 
+        margin-top: 11px;
+    }
+}

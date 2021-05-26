@@ -4,7 +4,6 @@ layout: default
 {% assign primary_title = site.headings.news %}
 {% assign layout_class = 'sidebar-right' %}
 {% capture content %}
-{% include share-buttons.html %}
     <h1>{{page.title}}</h1>
     
     <div class="meta">
@@ -21,6 +20,7 @@ layout: default
     {% include post_import.html %}
     {{ content }}
     <hr />
+    {% include share-buttons.html %}
     <div class="blog-nav">
 
         {% if page.next.url %}
