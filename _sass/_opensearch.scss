@@ -98,6 +98,13 @@ dl.list-features {
         p {
             font-size: 0.9em;
         }
+        ul {
+            list-style-type: disc;
+            li { 
+                border-top: none; 
+
+            }
+        }
     }
 }
 
