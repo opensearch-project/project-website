@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The OpenSearch backlog is now available on GitHub"
+title:  "The OpenSearch roadmap is now available on GitHub"
 authors: 
   - elifish
 date:   2021-05-25 01:01:01 -0700

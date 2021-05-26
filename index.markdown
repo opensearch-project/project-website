@@ -53,16 +53,16 @@ secondary:
 sidebar:
     -
         title: Have a question?
-        description: Do you have a question regarding OpenSearch? Maybe you aren’t the first to ask it. Checkout our frequently asked questions (FAQ) to see if your question is already answered. If not, don’t hesitate to ask in our community forums.
+        description: Do you have a question regarding OpenSearch? Maybe you aren’t the first to ask it. Checkout our frequently asked questions (FAQ) to see if your question is already answered. If not, don’t hesitate to ask in the community forums.
         links:
             -
-                title: Check out our FAQ
+                title: Check out the FAQ
                 url: /faq
             -
                 title: Ask in the forums
                 url: https://discuss.opendistrocommunity.dev/
     -
-        title: Founding Documents
+        title: Founding documents
 #        more: 
 #            title: 'Read all the founding documents'
 #            url: http://www.example.com/
