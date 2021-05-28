@@ -49,10 +49,11 @@ Here’s a quick rundown of some of the most exciting stuff that is part of this
 * **Clients** - We are aware of the issues associated with client with license checks and are working on a solution for the community. [Need to clarify and update]
 * **Minumum artifacts** - Based on community feedback, we will be releasing a standalone, minimal downloadable artifacts without the OpenSearch plugins (alerting, AD, security, etc…). We're expecting to deliver this by GA. 
 * **Additional artifacts** - In additon to the current artificts (Linux tars and Docker images) we are hoping to deliver RPM (X64), Windows (X64), and DEB (X64).
+* **OTHER?** - 
 
 **How can you help?** 
 
-Since the intent of a release candidate is to share the current release with the community to test and validate expected functionality, the best thing you can do is run the release Candidate through it's paces. Every bit of testing or feedback the community can provide helps ensure that the changes are doing what they should and we're building to the best end product. Couple specific places to start;
+The best thing you can do is run the release Candidate through it's paces. Every bit of testing or feedback the community can provide helps ensure that the changes are doing what they should and we're building to the best end product. Couple specific places to start;
 
 - Install the Release Candidate by following the instructions given here [TBD].
 - Participate in testing by following the testing and reporting instructions here [Do we have this?]. 
@@ -63,6 +64,6 @@ Before installing or upgrading to OpenSearch 1.0.0 or OpenSearch Dashboards 1.0.
 
 **What’s next?**
 
-We will be working with the community to test for bugs or feature gaps and working towards a GA release. Our plan is to release of final version 1.0.0 is scheduled for July 12, 2021. Stay tuned to the [forums](https://discuss.opendistrocommunity.dev/), GitHub ([OpenSearch Project](https://github.com/opensearch-project)), the community [meeting](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group), and our [blog](https://opensearch.org/blog/) for the latest updates and announcements. 
+We will be working with the community to test for bugs and identify feature gaps while working towards a GA release. Our plan is to release of final version 1.0.0 is scheduled for July 12, 2021. Stay tuned to the [forums](https://discuss.opendistrocommunity.dev/), GitHub ([OpenSearch Project](https://github.com/opensearch-project)), the community [meeting](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group), and our [blog](https://opensearch.org/blog/) for the latest updates and announcements. 
 
 In the meantime join us (if you haven't already)! Feel free to take a look around at what we’ve been up to, check out the public roadmap, and then head over to look at the open issues. Or you could jump right in and start opening issues or contributing. For more details see [here](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md).
