@@ -43,7 +43,9 @@ dl.list-features {
     li a {
         display: inline;
         color: white;
-        
+    }
+    li a.in-category {
+        color: $attention;
     }
 
     li + li:before {
