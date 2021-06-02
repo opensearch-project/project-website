@@ -1,5 +1,5 @@
 ---
-question: Can I upgrade older versions of ElasticSearch OSS and Kibana OSS to OpenSearch and OpenSearch Dashboards?
+question: Can I upgrade older versions of Elasticsearch OSS and Kibana OSS to OpenSearch and OpenSearch Dashboards?
 category: Upgrading
 ref: q3.4
 ---
