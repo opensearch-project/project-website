@@ -1,7 +1,6 @@
 ---
 question: How do I contribute functionality and get it on the public roadmap?
 category: General
-ref: q1.19
 ---
 
 If you want to add something to OpenSearch that is not in the [public roadmap](https://github.com/orgs/opensearch-project/projects/1), that’s a perfect opportunity to contribute! There are a couple of things you can do. 
