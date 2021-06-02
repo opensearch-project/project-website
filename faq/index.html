@@ -7,22 +7,19 @@ primary_title: Resources
 {% assign faqs = site.faqs | group_by: 'category' | sort: 'name' %}
 Categories: {% for faq_group in faqs  %}
   {% assign category_index = forloop.index %}
-  {% assign category_slug = faq_group.name | slugify %}
-  <a href="#{{category_slug}}">{{ faq_group.name }}</a>  {% if forloop.last != true %} &middot; {% endif %}
+  <a href="#c{{category_index}}">{{ faq_group.name }}</a>  {% if forloop.last != true %} &middot; {% endif %}
 {% endfor %}
 
 <ol id="faq">
   
   {% for faq_group in faqs  %}
     {% assign category_index = forloop.index %}
-    {% assign category_slug = faq_group.name | slugify %}
-    <li id="{{category_slug}}"><h2>{{category_index}}. {{ faq_group.name }}</h2>
+    <li id="c{{category_index}}"><h2>{{category_index}}. {{ faq_group.name }}</h2>
       
       <ol>
         {% for faq in faq_group.items  %}
-        {% capture fullindex %}{{category_index }}.{{forloop.index}}{%endcapture%}
-        <li id="q{{fullindex}}">
-            <h3><span>{{fullindex}}</span> {{faq.question}} <a href="#q{{fullindex}}"><i class="icon icon-link"></i></a></h3>
+        <li id="{{faq.ref}}">
+            <h3><span>{{fullindex}}</span> {{faq.question}} <a href="#{{faq.ref}}"><i class="icon icon-link"></i></a></h3>
             {{faq.content | markdownify}}
         </li>
         {% endfor %}

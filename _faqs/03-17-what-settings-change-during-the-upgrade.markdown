@@ -1,6 +1,7 @@
 ---
 question: What settings change during the upgrade?
 category: Upgrading
+ref: q3.17
 ---
 Environment variables that contain branded words such as `ES` or `OPENDISTRO` have been renamed. 
 
