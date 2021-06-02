@@ -16,6 +16,10 @@ ctas:
     primary: 
         text: 'Get Started'
         url: '/downloads.html'
+    roadmap:
+        text: 'View the project roadmap'
+        url: https://github.com/orgs/opensearch-project/projects/1
+
 
 greeting: "More about OpenSearch"
 
