@@ -20,7 +20,7 @@ Today we would like to provide mode detail, and clarify what the above statement
 * **OpenSearch Dashboards supports restart upgrades from Kibana OSS 6.8.0 through Kibana OSS 7.10.2 to OpenSearch Dashboards 1.0.**
 * **All 1.x versions of ODFE similarly support upgrades to OpenSearch and OpenSearch Dashboards 1.0.**
 
-We've also added an [Upgrading section to OpenSearch FAQs](/faq/#upgrading), and welcome additional questions [on the forums](https://discuss.opendistrocommunity.dev/). Please do open backwards compatibility bugs in [GitHub issues](https://github.com/opensearch-project/OpenSearch/issues).
+We've also added an [Upgrading section to OpenSearch FAQs](/faq/#upgrading), and are [updating the OpenSearch docs](https://github.com/opensearch-project/documentation-website/issues/39). Additional questions are welcome [on the forums](https://discuss.opendistrocommunity.dev/). Please also do open backwards compatibility bugs in [GitHub issues](https://github.com/opensearch-project/OpenSearch/issues).
 
 Finally, we would like to note that both spellings of _backward**s** compatibility_ and _backward compatibility_ are allowed, but we prefer _backwards_ because we created GitHub labels as _backwards-compatibility_ and don’t want to go change everything.
 
