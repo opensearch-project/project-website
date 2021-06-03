@@ -6,7 +6,7 @@ comments: true
 title: "My First Steps in OpenSearch Plugins"
 categories:
 - technical-posts
-feature_image: "/assets/media/blog-images/2021-05-18-my-first-steps-in-opensearch-plugins/my-first-steps-in-plugins-feature-image.jpg"
+feature_image: "/assets/media/blog-images/2021-06-03-my-first-steps-in-opensearch-plugins/my-first-steps-in-plugins-feature-image.jpg"
 ---
 
 ### Taking the leap, not the _plunge_
@@ -47,7 +47,7 @@ In this blog post, I will take you on a journey through my thought process and c
 
 Software plugins are, in essence, standalone components that __add features and capabilities__ to an existing core program. 
 
-![Figure 1: Plugins architectural diagram]({{ site.baseurl }}/assets/media/blog-images/2021-05-18-my-first-steps-in-opensearch-plugins/plugins-architectural-diagram.jpg){: .img-fluid }
+![Figure 1: Plugins architectural diagram]({{ site.baseurl }}/assets/media/blog-images/2021-06-03-my-first-steps-in-opensearch-plugins/plugins-architectural-diagram.jpg){: .img-fluid }
 
 Normally, when viewing a plugin's code you wouldn't see *any* point of entry (no `main()`). That's because the plugin's points of entry are the interface functions that it implements. 
 
