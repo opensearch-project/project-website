@@ -7,6 +7,7 @@ title: "My First Steps in OpenSearch Plugins"
 categories:
 - technical-posts
 feature_image: "/assets/media/blog-images/2021-06-03-my-first-steps-in-opensearch-plugins/my-first-steps-in-plugins-feature-image.jpg"
+canonical: http://logz.io/blog/opensearch-plugins
 ---
 
 ### Taking the leap, not the _plunge_
@@ -613,3 +614,6 @@ In this simple plugin use case we got to see the REST layer implementation, add 
 
 
 I would like to thank [Sarat Vemulapalli](https://github.com/saratvemulapalli) from AWS for his feedback and assistance on this post.
+
+---
+This post is contributed by Amitai Stern from Logz.io and is co-published on [Logz.io blog](http://logz.io/blog/opensearch-plugins)
