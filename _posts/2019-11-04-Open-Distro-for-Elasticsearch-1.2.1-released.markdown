@@ -37,7 +37,7 @@ Docker images for this release of[ Open Distro for Elasticsearch](https://hub.do
 
 ### **PERFORMANCE ANALYZER**
 
-* Update PerformanceAnalyzer to support ElasticSearch v7.2.1[*](https://github.com/opendistro-for-elasticsearch/performance-analyzer/commit/0f513119f2a61293b2429eca3d162196d1833963)
+* Update PerformanceAnalyzer to support Elasticsearch v7.2.1[*](https://github.com/opendistro-for-elasticsearch/performance-analyzer/commit/0f513119f2a61293b2429eca3d162196d1833963)
 * Merge pull request [(#76)](https://github.com/opendistro-for-elasticsearch/performance-analyzer/pull/76)
 
 ### **SECURITY**

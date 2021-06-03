@@ -41,3 +41,4 @@ I want to give a special thanks to all of the people who helped me get this put 
 - [sandeshkr419](https://github.com/sandeshkr419)
 - [getsaurabh02](https://github.com/getsaurabh02)
 - [psychbot](https://github.com/psychbot)
+- [Pallavi-AWS](https://github.com/Pallavi-AWS)
