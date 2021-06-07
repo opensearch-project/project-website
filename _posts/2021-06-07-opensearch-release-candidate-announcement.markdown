@@ -58,7 +58,7 @@ You can find all the changes across the project in the [consolidate release note
 The best thing you can do is run the Release Candidate through its paces. Every bit of testing and/or feedback the community can provide helps ensure that this Release Candidate is performing as expected and the GA release includes the best possible product. Couple specific places to start;
 
 - Install the Release Candidate and open an [issue](https://github.com/opensearch-project/OpenSearch/issues) to report any bugs you discover. 
-- Run rolling upgrades from existing version to OpenSearch RC1 in a sandbox cluster. 
+- Test rolling upgrades from existing Elasticsearch and ODFE versions to OpenSearch RC1 in a sandbox cluster.
 - Test clients! This will help identify what is working (and not working) so issues can be opened and prioritized. 
 - Use our [docs](https://docs-beta.opensearch.org/) and highlight any additional content you'd like to see! Submit a [PR](https://github.com/opensearch-project/documentation-website/pulls) or open an [issue](https://github.com/opensearch-project/documentation-website/issues) for any content you think would be valuable.
 
