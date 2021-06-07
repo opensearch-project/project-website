@@ -45,7 +45,7 @@ There is a long list of enhancements and fixes that are part of this release inc
 - [Async-Search](https://github.com/opensearch-project/asynchronous-search/blob/main/release-notes/opensearch-asynchronous-search.release-notes-1.0.0.0-rc1.md)
 - [Common-Utils](https://github.com/opensearch-project/common-utils/blob/main/release-notes/opensearch-common-utils.release-notes-1.0.0.0-rc1.md)
 
-You can find all the changes across the project in the [consolidate release notes](https://github.com/opensearch-project/OpenSearch/tree/main/release-notes). 
+You can find all the changes across the project in the [consolidate release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.0.0-rc1.md). 
 
 **What does this Release Candidate not include?** 
 
