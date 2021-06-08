@@ -1,0 +1,21 @@
+
+<h2>
+  {% if include.linked %} 
+    <a href="{{ include.author.url }}.html">
+  {% endif %}
+  {{ include.author.name }} 
+  {% if include.linked %} 
+  </a>
+  {% endif %}
+</h2>
+
+
+{% if include.author.photo  %} <img class="author-photo" src="{{ include.author.photo }}" alt="photo of {{include.author.name}}" /> {% endif %}
+
+<p>{{ include.author.content | markdownify }}</p>
+
+<div class="author-social-media">
+{% if include.author.twitter %}
+  <a href="https://twitter.com/{{include.author.auttwitter}}"><i class="icon icon-twitter-square"></i> {{include.author.twitter}}</a>
+{% endif %}
+</div>
