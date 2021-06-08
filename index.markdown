@@ -12,14 +12,20 @@ download_ctas:
   - os-d
 
 ctas:
-    post: ' source on GitHub'
+    post: ' on GitHub'
+    primary: 
+        text: 'Get Started'
+        url: '/downloads.html'
+    roadmap:
+        text: 'View the project roadmap'
+        url: https://github.com/orgs/opensearch-project/projects/1
 
 
-greeting: "👋 Glad you found us."
+greeting: "More about OpenSearch"
 
-headline: "OpenSearch makes it easy to find whatever you need in all of your data."
+headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze your data."
 
-long_description: "OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, *OpenSearch*, and a visualization and user interface, *OpenSearch Dashboards*."
+long_description: "OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, OpenSearch, and a visualization and user interface, OpenSearch Dashboards. OpenSearch enables people to easily ingest, secure, search, aggregate, view, and analyze data. These capabilities are popular for use cases such as application search, log analytics, and more. With OpenSearch people benefit from having an open source product they can use, modify, extend, monetize, and resell how they want. At the same time, OpenSearch will continue to provide a secure, high-quality search and analytics suite with a rich roadmap of new and innovative functionality."
 
 # Both OpenSearch and OpenSearch Dashboards are super pluggable -- you can provide your own or use the [OpenDistro Plugins](#) for extra functionality." 
 
@@ -31,8 +37,8 @@ callouts_leader: 'When we (the contributors) are successful, OpenSearch will be:
 
 
 callout_button:
-    title: I want to know more about OpenSearch
-    url: /blog
+    title: Get Started
+    url: /downloads.html
 
 opendistro:
     head:  Looking for Open Distro?
@@ -50,7 +56,17 @@ secondary:
 
 sidebar:
     -
-        title: Founding Documents
+        title: Have a question?
+        description: Do you have a question regarding OpenSearch? Maybe you aren’t the first to ask it. Checkout our frequently asked questions (FAQ) to see if your question is already answered. If not, don’t hesitate to ask in the community forums.
+        links:
+            -
+                title: Check out the FAQ
+                url: /faq
+            -
+                title: Ask in the forums
+                url: https://discuss.opendistrocommunity.dev/
+    -
+        title: Founding documents
 #        more: 
 #            title: 'Read all the founding documents'
 #            url: http://www.example.com/

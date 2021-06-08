@@ -1,0 +1,38 @@
+---
+layout: default
+title: Upcoming Events
+primary_title: Events
+body_class: events-page
+---
+
+{% assign now =  site.time |  date_to_xmlschema %}
+{% assign future_events = site.events | where_exp: "event","event.eventdate  > now" %}
+{% assign primary_title = site.headings.events %}
+{% assign layout_class = 'sidebar-right events-page' %}
+
+{% capture content %}
+<h2>Upcoming</h2>
+
+<ul class="list-events">
+  {% for event in  future_events  %}
+    {% include event.html %}
+  {% endfor %}  
+</ul>
+{%endcapture%}
+
+{% capture content_related %}
+<div role="complementary">
+  <div class="add-your-own-event">
+  <p>Are you hosting your own OpenSearch event? Write <a href="https://github.com/opensearch-project/project-website/tree/main/_samples/event.sample.markdown">some yaml / markdown</a>, do <a href="https://github.com/opensearch-project/project-website/tree/main/_events">pull-request on the events directory</a> and we'll merge qualifying events.</p>
+  </div>
+  <div class="past-events">
+    <h3>Look for a past event?</h3>
+    <p>Take a look at the <a href="past.html">past events page</a>.</p>
+  </div>
+
+</div>
+{% endcapture %}
+
+
+{% include copy_banner.html %}
+{% include base_3col.html %}

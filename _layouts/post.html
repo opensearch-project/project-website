@@ -17,9 +17,10 @@ layout: default
         {% endif %}
     </div>
 
-
+    {% include post_import.html %}
     {{ content }}
     <hr />
+    {% include share-buttons.html %}
     <div class="blog-nav">
 
         {% if page.next.url %}

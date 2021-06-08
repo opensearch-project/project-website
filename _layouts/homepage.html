@@ -20,15 +20,16 @@ layout: default
 
 
 {% capture content %}
+    <div class="section headline">
+      <h1>{{ page.headline }} </h1>
+    </div> 
     <div class="section">
-        <h1>{{ page.greeting }}</h1>
+        <!-- <h2>{{ page.greeting }}</h2> -->
         <p>
           {{ page.long_description | markdownify }}
         </p>
     </div>
-    <div class="section headline">
-      <h1>{{ page.headline }} </h1>
-    </div> 
+
     <div class="section" id="{{page.callouts_id}}">
     <dl class="{{ page.callouts_class }}">
       <h2>{{ page.callouts_head }}</h2>
@@ -46,35 +47,32 @@ layout: default
 {% endcapture %}
 
 {% capture content_secondary %}
-  <div class="section">
+  <!--<div class="section">
     <h1>{{ page.secondary.heading }}</h1>
     {{ page.secondary.content | markdownify }}
-  </div>
+  </div>-->
 
   <!-- END #content-secondary -->
 {% endcapture %}
 
 {% capture content_related %}
   <div role="complementary">
-      {% for cta in page.download_ctas %}
-      {% assign repo = site.data.repos | find: "shortname", cta %}
-        <a href="{{ repo.url }}" class="cta">
-          {{page.ctas.pre}} {{ repo.title }} {{page.ctas.post}}
-          {% comment %} {{ site.data.version.latest_version[cta] }} {%endcomment%}
-        </a>
-      {% endfor %}
-      {% comment %} this will switch to the docs site when build is done {% endcomment %}
-      {% assign docs = site.data.repos | find: "shortname", "docs" %}
-      {% if docs.url %}
-      <a href="{{ docs.url }}" class="link-readmore">{{ docs.title }}</a>
+      <a href="{{page.ctas.primary.url}}" class="cta">{{page.ctas.primary.text}}</a>
+
+      {% assign org = site.data.repos | find: "shortname", "org" %}
+      {% if org.url %}
+      <a href="{{ org.url }}" class="cta outline">
+        {{page.ctas.pre}} {{ org.title }} {{page.ctas.post}}
+      </a>
       {% endif %}
+      <a href="{{ page.ctas.roadmap.url }}" class="link-readmore" target="_blank">{{ page.ctas.roadmap.text }}</a>
+
       <div class="feature-box">
         
         <h3>{{ page.opendistro.head }}</h3>
         <img src="{{ page.opendistro.img.url }}" alt="{{ page.opendistro.img.alt }}" />
         <div class="feature-content">
-          <p>{{ page.opendistro.description }}</p>
-          <a href="{{ page.opendistro.link.url }}" class="link-readmore">{{ page.opendistro.link.title }}</a>
+          <p>{{ page.opendistro.description }} <a href="{{ page.opendistro.link.url }}">{{ page.opendistro.link.title }}</a></p>
         </div>
         
       </div>
@@ -92,6 +90,9 @@ layout: default
       
       {% for sidebar_category in page.sidebar %}
         <h3>{{sidebar_category.title}}</h3>
+        {% if sidebar_category.description %}
+        {{ sidebar_category.description | markdownify }}
+        {% endif %}
         <ul class="list-links-small">
           {% for link in sidebar_category.links %}
           <li><a href="{{ link.url }}">{{ link.title}}</a></li>
@@ -104,8 +105,5 @@ layout: default
 
 {% endcapture %}
 
-{% capture alert %}
-asdf
-{% endcapture %}
 
 {% include base_3col.html %}

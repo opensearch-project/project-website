@@ -11,6 +11,9 @@ columns:
       -
         title: 'Github'
         url: 'https://github.com/opensearch-project'
+      -
+        title: 'Partners'
+        url: '/partners/'
   -
     title: 'Resources'
     links:
@@ -20,6 +23,9 @@ columns:
       - 
         title: FAQ
         url: '/faq/'
+      -
+        title: 'Brand Guidelines'
+        url: '/brand.html'
       -
         title: 'Trademark Usage Policy'
         url: '/trademark-usage.html'

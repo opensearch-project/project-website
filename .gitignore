@@ -4,6 +4,6 @@ _site
 .jekyll-metadata
 vendor
 .DS_Store
-javadocs
+/javadocs
 *.tar
 *.csv

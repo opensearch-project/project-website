@@ -32,10 +32,10 @@ dl.list-features {
 }
 
 [role="banner"] [role="navigation"] {
-    margin: 8px 0 0 10px;
+    margin-top: 17px;
 
     li {
-        color: $green-medium;
+        color: $attention;
         text-transform: none;
         margin-right: 0.5em;
         
@@ -43,14 +43,16 @@ dl.list-features {
     li a {
         display: inline;
         color: white;
-        
+    }
+    li a.in-category {
+        color: $attention;
     }
 
     li + li:before {
-        content: "/";
+        content: "·";
         color: $text-light;
         display: inline-block;
-        margin-right: 0.5em;
+        margin-right: 0.25em;
     }
 }
 
@@ -58,11 +60,15 @@ dl.list-features {
 .whats-new {
     .whats-new-post {
         h4 {
+            margin-top: 20px;
             margin-bottom: 0;
         }
         p {
             margin-top: 0.5em;
         }
+    }
+    .whats-new-post + .whats-new-post h4{
+        margin-top: 30px;
     }
 }
 
@@ -78,6 +84,29 @@ dl.list-features {
             width: 55px;
             float: right;
         }
+        margin-bottom: 2em;
+    }
+}
+
+.events-page {
+
+    .list-events {
+        .icon {
+            color: $core;
+        }
+        li {
+            border-top-color: $highlight;
+        }
+        p {
+            font-size: 0.9em;
+        }
+        ul {
+            list-style-type: disc;
+            li { 
+                border-top: none; 
+
+            }
+        }
     }
 }
 
@@ -86,16 +115,20 @@ dl.list-features {
         a {
             text-decoration: none;
             display: inline-block;
-            background-color: white;
+            color: $core;
+            background-color: $background-darker;
             padding: 0.25em 1em 0 1em;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
         }
     }
     dd {
         padding: 0.5em 1em;
         
-        background-color: white;
+        background-color: $background-darker;
         margin-bottom: 1em;
-
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
     }
     dd p {
         margin-top: 0;
@@ -148,3 +181,86 @@ dl.list-features {
     }
 }
 
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid $line-lighter;
+}
+.downloads-page {
+    .layout-2col {
+        .col {
+            width: 48%;
+            margin: 0 4% 0 0 ;
+        }
+        .col + .col {
+            margin: 0;
+        }
+    }
+}
+
+.banner-alert {
+    @include sans-serif;
+    @include warning-stripes;
+}
+  
+.imported-post {
+    margin-left: -1em;
+    margin-right: -1em;
+    background-color: #ffe761;
+    padding: 1em;
+    @include sans-serif;
+    @include warning-stripes;
+}
+
+.share-container {
+    @include sans-serif;
+    color: $text-light;
+
+    padding-bottom: 2em;    
+}
+
+#share-buttons {
+    display: inline-block; 
+    vertical-align: middle;
+    :after {
+        content: ""; 
+        display: block; 
+        clear: both;
+    }
+    > div {
+        position: relative;
+        text-align: left; 
+        height: 36px; 
+        width: 32px; 
+        float: left; 
+        text-align: center;
+        > svg {
+            height: 16px; 
+            fill: $background-darkest; 
+            margin-top: 10px;
+        }
+    }
+    > div:hover {
+        cursor: pointer;
+    }
+    > div.facebook:hover > svg {fill: #3B5998;}
+    > div.twitter:hover > svg {fill: #55ACEE;}
+    > div.linkedin:hover > svg {fill: #0077b5;}
+    > div.mail:hover > svg {fill: #7D7D7D;}
+    > div.facebook > svg {
+        height: 18px; 
+        margin-top: 9px;
+    }
+    > div.twitter > svg {
+        height: 20px; 
+        margin-top: 8px;
+    }
+    > div.linkedin > svg {
+        height: 19px; 
+        margin-top: 7px;
+    }
+    > div.mail > svg {
+        height: 14px; 
+        margin-top: 11px;
+    }
+}

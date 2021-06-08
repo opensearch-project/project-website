@@ -13,6 +13,9 @@
     <link rel="apple-touch-icon" href="{{'assets/img/icon-touch.png' | relative_url }}">
     <link rel="icon" sizes="192x192" href="{{'assets/img/icon-touch.png' | relative_url }}">
     <link rel="shortcut icon" href="{{'assets/img/favicon.ico' | relative_url }}">
+
+    <link rel="canonical" href="{%if page.canonical %}{{page.canonical}}{%else%}{{site.url | append: page.url}}{%endif%}" />
+
     <meta name="msapplication-TileColor" content="#113228">
     <meta name="msapplication-TileImage" content="{{'img/icon-tile.png' | relative_url }}">
     
@@ -24,10 +27,14 @@
     <script>
     WebFont.load({
       custom: {
-        families: ['FontAwesome', 'Fira+Mono'],
+        families: ['FontAwesome'],
       },
       google: {
-        families: ['Roboto:400italic,700italic,300,700,400:latin'
+        families: [
+          'Open Sans Condensed:700',
+          'Open Sans:300italic,400italic,700italic,300,400,700',
+          'Noto Serif:400italic,700italic,400,700',
+          'Fira Mono:400'
         ]
       },
       classes: false,
