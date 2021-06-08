@@ -3,7 +3,7 @@ layout: post
 title:  OpenSearch 1.0 Backwards Compatibility FAQ
 authors: 
   - dblock
-date: 2021-06-04
+date: 2021-06-08
 categories:
   - technical-posts
 ---
