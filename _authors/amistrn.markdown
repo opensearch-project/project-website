@@ -1,7 +1,7 @@
 ---
 name: Amitai Stern
 short_name: amistrn
-twitter: '@amitaistern'
+twitter: 'amitaistern'
 photo: '/assets/media/authors/amistrn.jpg'
 ---
 

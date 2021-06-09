@@ -1,7 +1,7 @@
 ---
 name: Alolita Sharma
 short_name: alolitas
-twitter: '@alolita'
+twitter: 'alolita'
 photo: '/assets/media/authors/alolitas.png'
 ---
 
