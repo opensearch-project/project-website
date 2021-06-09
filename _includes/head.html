@@ -6,7 +6,7 @@
     <meta name="MSSmartTagsPreventParsing" content="true" />
     <meta name="Copyright" content="" />
     <meta name="keywords" content="open-source, search, opensearch" />
-    <meta name="description" content="{{ page.description}}" />
+    {% if page.meta_description %}<meta name="description" content="{{ page.meta_description }}" />{%endif%}
 
     {{ page.link_rel_tags }}
     <!-- Favicons -->
