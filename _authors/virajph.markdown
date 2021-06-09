@@ -1,7 +1,7 @@
 ---
 short_name: virajph
 name: Viraj Phanse
-twitter: '@vrphanse'
+twitter: 'vrphanse'
 github: vrphanse
 ---
 
