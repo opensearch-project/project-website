@@ -6,6 +6,7 @@
     <meta name="MSSmartTagsPreventParsing" content="true" />
     <meta name="Copyright" content="" />
     <meta name="keywords" content="open-source, search, opensearch" />
+    {% feed_meta %}
     {% if page.meta_description %}<meta name="description" content="{{ page.meta_description }}" />{%endif%}
     
     {% assign pagetitle = page.title | strip_newlines %}
@@ -32,7 +33,7 @@
     {% if page.twittercard.image %}
     <meta name="twitter:image" content="{{ page.twittercard.image }}" /> 
     {% else %}
-    <meta name="twitter:image" content="https://opensearch.org/assets/brand/PNG/Mark/opensearch_mark_default.png" />
+    <meta name="twitter:image" content="https://opensearch.org/assets/opensearch-twitter-card.png" />
     {% endif %}
 
 
