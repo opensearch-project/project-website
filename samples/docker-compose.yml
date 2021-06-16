@@ -61,10 +61,7 @@ services:
 
 volumes:
   opensearch-data1:
-    driver: local
   opensearch-data2:
-    driver: local
 
 networks:
   opensearch-net:
-    driver: bridge
