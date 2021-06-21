@@ -8,6 +8,11 @@ signup:
     title: Join on Meetup
 ---
 
-Join us for our our biweekly online community meeting. Agenda TBD.
+Join us for our our biweekly online community meeting. 
+
+Agenda:
+- Exploring & Visualizing Logs Using OpenSearch and Apache Superset
+
+(more items TBA)
 
 We have a [collaborative agenda](https://hackmd.io/gJB35kl-QOCxWDsRGqwlmg) on HackMD. Feel free to comment on the agenda before the meeting if you want to add an item or have a question. During the meeting the agenda will be unlocked for collaborative editing / note taking. After the meeting the agenda will be set to read-only mode. 
