@@ -47,16 +47,25 @@ defaults:
     values:
       layout: event
       permalink:  events/:title/
+-
+    scope:
+      type: versions
+    values: 
+      layout: versions
+      permalink:  versions/:categories/:slug
 
 collections:
   authors:
     output: true
-  partners:
-  faqs:
   javadocs:
     output: true
   events:
     output: true
+  artifacts:
+  versions:
+    output: true
+  partners:
+  faqs:
     
 paginate: 5
 paginate_path: "/blog/page:num/"

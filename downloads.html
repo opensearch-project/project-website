@@ -61,6 +61,13 @@ try:
 
 {% capture content %}
 <div class="downloads-page">
+  {% for artifact in site.artifacts %}
+    <pre>{{ artifact | inspect }}</pre>
+    <hr />
+  {% endfor %}
+  
+
+  <hr />
   <h2>{{ page.intro.heading }}</h2>
   {{ page.intro.paragraph | markdownify }}
   

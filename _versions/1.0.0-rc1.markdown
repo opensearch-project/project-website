@@ -1,0 +1,23 @@
+---
+components:
+  -
+    role: daemon
+    artifact: opensearch
+    version: 1.0.0-rc1
+  -
+    role: dashboards
+    artifact: opensearch-dashboards
+    version: 1.0.0-rc1
+  -
+    role: dashboards-plugin
+    artifact: dashboards-reports
+    version: 1.1.1
+  -
+    role: plugin
+    artifact: reports
+    version: 1.1.2
+  -
+    role: plugin
+    artifacts: sql
+    version: 1.0.0-rc1
+---

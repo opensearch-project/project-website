@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+{% assign primary_title = site.headings.source %}
+{% assign layout_class = 'sidebar-right' %}
+
+{% capture content %}
+{% for component in page.components %}
+  <pre>{{ component | inspect }}</pre>
+  {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact %}
+  <pre>{{ component.artifact }} {{ component_details.architecture }}</pre>
+  !{{component_details[0] | inspect}}!
+  {% assign number_of_artifacts = component_details | size %}
+  {% if number_of_artifacts == 0  %} Yikes! Missing {% endif %}
+  <hr />
+{% endfor %}
+{%endcapture%}
+
+{% include copy_banner.html %}
+{% include base_3col.html %}
