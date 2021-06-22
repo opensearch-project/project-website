@@ -16,10 +16,8 @@ layout: default
 {% endcapture %}
 {% capture content_related %}
 <div role="complementary">
-  <h2>{{ page.name }}</h2>
-  {% if page.photo  %} <img class="author-photo" src="{{ page.photo }}" alt="photo of {{page.name}}" /> {% endif %}
-  
-  <p>{{ page.content | markdownify }}</p>
+  {% assign author = page %}
+  {%- include author_panel.html author=author -%}
 </div>
 {% endcapture %}
 {% include base_3col.html %}

@@ -14,7 +14,8 @@ body_class: events-page
 <h2>Upcoming</h2>
 
 <ul class="list-events">
-  {% for event in  future_events  %}
+  {% assign sorted_events = future_events  | sort: "eventdate" %}
+  {% for event in sorted_events %}
     {% include event.html %}
   {% endfor %}  
 </ul>

@@ -15,7 +15,8 @@ body_class: events-page
     <img src="{{page.image}}" class="img-fluid">
     {%endif%}
     {{ content }}
-      
+    {% include share-buttons.html %}
+
 {% endcapture %}
 
 {% capture content_related %}

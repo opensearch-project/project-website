@@ -20,7 +20,7 @@ We are excited to release the real-time Root Cause Analysis engine for Elasticse
 [Open Distro for Elasticsearch version 1.9.0](https://opendistro.github.io/for-elasticsearch/blog/odfe-updates/2020/07/Open-Distro-for-Elasticsearch-1.9.0-is-released/). 
 The RCA engine enables operators to diagnose and identify bottlenecks in their Elasticsearch clusters. 
 This is a value-add feature on top of the current array of low-level metrics they have access to with Performance Analyzer. 
-Operators can leverage the RCA to tune the relevant ElasticSearch settings and adjust the workloads to ensure cluster 
+Operators can leverage the RCA to tune the relevant Elasticsearch settings and adjust the workloads to ensure cluster 
 stability and performance. In this blog, we dive into some aspects of the RCA engine and how it can be leveraged for 
 Elasticsearch cluster diagnosis.
 

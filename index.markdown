@@ -7,15 +7,21 @@ layout_class: sidebar-right
 body_class: homepage
 sectionid: homepage
 
+meta_description: OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, OpenSearch, and a visualization and user interface, OpenSearch Dashboards. OpenSearch enables people to easily ingest, secure, search, aggregate, view, and analyze data.
+
 download_ctas:
   - os
   - os-d
 
 ctas:
-    post: ' source on GitHub'
+    post: ' on GitHub'
     primary: 
         text: 'Get Started'
         url: '/downloads.html'
+    roadmap:
+        text: 'View the project roadmap'
+        url: https://github.com/orgs/opensearch-project/projects/1
+
 
 greeting: "More about OpenSearch"
 
@@ -52,7 +58,17 @@ secondary:
 
 sidebar:
     -
-        title: Founding Documents
+        title: Have a question?
+        description: Do you have a question regarding OpenSearch? Maybe you aren’t the first to ask it. Checkout our frequently asked questions (FAQ) to see if your question is already answered. If not, don’t hesitate to ask in the community forums.
+        links:
+            -
+                title: Check out the FAQ
+                url: /faq
+            -
+                title: Ask in the forums
+                url: https://discuss.opendistrocommunity.dev/
+    -
+        title: Founding documents
 #        more: 
 #            title: 'Read all the founding documents'
 #            url: http://www.example.com/

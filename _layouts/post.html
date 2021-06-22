@@ -20,6 +20,7 @@ layout: default
     {% include post_import.html %}
     {{ content }}
     <hr />
+    {% include share-buttons.html %}
     <div class="blog-nav">
 
         {% if page.next.url %}
@@ -33,14 +34,12 @@ layout: default
       
 {% endcapture %}
 
-{% capture content_related %}
+{% capture content_related %} 
 <div role="complementary">
     {% for author_short_name in page.authors %}
         {% assign author = site.authors | where: 'short_name', author_short_name | first %}
-        <h2><a href="{{ author.url }}.html">{{ author.name }}</a></h2>
-        {% if author.photo  %} <img class="author-photo" src="{{ author.photo }}" alt="photo of {{author.name}}" /> {% endif %}
         
-        <p>{{ author.content | markdownify }}</p>
+        {%- include author_panel.html author=author linked="true" -%}
     {% endfor %}
 </div>
 {% endcapture %}
