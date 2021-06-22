@@ -1,2 +1,1 @@
-https://github.com/opensearch-project/k-NN
-https://github.com/opensearch-project/opensearch-cli
+https://github.com/AmiStrn/opensearch-plugin-template-java
