@@ -164,6 +164,12 @@ html {
 
 }
 
+
+// Generic box shadow generator TODO: Revise this with better math
+@mixin box-shadow ( $height: 10 ) {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px ($height * 2+px) ($height * 2.5+px) (-$height / 2+px), rgba(0, 0, 0, 0.04) 0px ($height * 1+px) ($height * 1+px) (-$height / 2+px);
+}
+
 // Secondary content box-shadow:
 @mixin secondary-shadow-top {
     -moz-box-shadow: 0 4px 8px adjust-color($accent-dark, $alpha: 0.07);
