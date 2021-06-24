@@ -14,14 +14,12 @@
 
     @include respond-min(580px) {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(Min(15em, 100%), 1fr)); // Min is spelled with capital M to avoid sass' complaining about incompatible units due it's own internal min function
-        column-gap: 2em;
-        row-gap: 2em;
+        grid-template-columns: repeat(auto-fill, minmax(Min(260px, 100%), 1fr)); // Min is spelled with capital M to avoid sass' complaining about incompatible units due it's own internal min function
+        column-gap: 1em;
+        row-gap: 1em;
     }
     
     .partner {
-        text-align: center;
-        padding: 1em;
         text-align: center;
 
         a {
@@ -30,54 +28,32 @@
             flex-direction: row;
             flex-wrap: nowrap;
             align-items: center;
+            padding: 1em;
+
+            &:hover, &:active, &:focus {
+                text-decoration: underline;
+                color: $core;
+            }
         }
 
         & + .partner {
-        border-top: 1px solid $line;
+            // adds a border between partners on small screens
+            @include respond-max(579px) {
+                border-top: 1px solid $line;
+            }
         }
         
-
         img {
             width: 80px;
             height: auto;
             margin-right: 1em;
         }
 
-        .partner-name {
-            display: inline-block;
-
-            &::after {
-                content: "";
-                display: block;
-                position: relative;
-                height: 1px;
-                background-color: $attention;
-                width: 0%;
-                bottom: 0;
-                left: 0;
-                transition: all .125s ease-out;
-
-                @include respond-min(580px) {
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-            }
-        }
-
-        a:hover .partner-name::after, a:active .partner-name::after, a:focus .partner-name::after {
-            transition: all .125s ease-out;
-            width: 100%;
-
-            @include respond-min(580px) {
-                transform: translateX(-50%);
-            }
-        }
-
         @include respond-min(580px) {
-            @include box-shadow(5);
             border-radius: 8px;
-            border: 1px solid $line;
+            border: 2px solid $line;
             transition: all .125s ease-out;
+            border-top-width: 2px;
 
             a {
                 flex-direction: column;
@@ -89,7 +65,7 @@
             }
 
             &:hover, &:active, &:focus, &:focus-within {
-                @include box-shadow(15);
+                border-color: $core;
                 transition: all .125s ease-in;
             }
         }
