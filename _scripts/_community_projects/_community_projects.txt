@@ -1,1 +1,2 @@
 https://github.com/AmiStrn/opensearch-plugin-template-java
+https://github.com/aparo/opensearch-flattened-mapper-plugin
