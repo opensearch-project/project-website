@@ -1,0 +1,22 @@
+---
+layout: fullwidth
+title: Community Projects
+primary_title: Community Projects
+---
+
+<div id=intro>
+  <p>This page was made to highlight projects built by the community for the community.</p>
+  <p> Want your project on this page? To add your project to this page, please create a fork the <a href="https://github.com/opensearch-project/project-website" target="_blank" rel="noopener noreferrer">project website</a>, add a markdown file for your project under <b>/_community_projects/your-project.md</b> , and submit a pull request to our <b>`staging`</b> branch.</p>  
+</div>
+
+<div id="community_projects">
+  {% for community_project in site.community_projects %}
+  <div class="community_project">
+    <a href="{{ community_project.link }}"><img src="{{ community_project.icon }}" /></a>
+    <div class="communiy_project_name"> <a href="{{community_project.link}}">{{community_project.name}}</a>
+    </div>
+    <p class=community_project_description>{{community_project.description}}</p> 
+    <a href=" {{community_project.license_link}}">{{community_project.license}}</a> 
+  </div>
+  {% endfor %}
+</div>
