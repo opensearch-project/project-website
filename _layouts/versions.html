@@ -1,16 +1,98 @@
 ---
 layout: default
+
+pretty:
+  guide: "Install Guide"
+  sha: "SHA"
+
+architecture_order: 
+  - docker
+  - x64
+  - arm64
+
+platform_order:
+  - windows
+  - linux
 ---
 
 {% assign primary_title = site.headings.source %}
 {% assign layout_class = 'sidebar-right' %}
 
-{% capture content %}
+
+{% assign daemon = page.components | where: "role", "daemon" %}
+{% assign ui = page.components | where: "role", "ui" %}
+{% assign daemon_plugins = page.components | where: "role", "plugin" %}
+{% assign ui_plugins = page.components | where: "role", "plugin-ui" %}
+
+
+
 {% for component in page.components %}
-  <pre>{{ component | inspect }}</pre>
   {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact %}
-  <pre>{{ component.artifact }} {{ component_details.architecture }}</pre>
-  !{{component_details[0] | inspect}}!
+  {% assign number_of_artifacts = component_details | size %}
+  {% if number_of_artifacts == 0  %} 
+    {% capture artifact_error %}ERROR: "{{component.artifact}}" defined in version but artifact definition missing in collection.
+{%endcapture%}
+    {% assign error_block = error_block | append: artifact_error %}
+  {% endif %}
+{% endfor %}
+
+
+{% capture content %}
+  {% if error_block %}
+  <h2>Errors:</h2>
+  <pre>{{error_block}}</pre>
+  {% endif %}
+
+
+Daemon: {{ daemon | inspect}}<br/>
+Plugins: {{ daemon_plugins | inspect }} <br/>
+UI: {{ ui | inspect }}<br/>
+UI Plugins: {{ ui_plugins | inspect }}<br/>
+
+
+
+{% for component in page.components %}
+  component inspect: <pre>{{ component }}</pre>
+  {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact | sort: "architecture" %}
+  <pre>{{ component.artifact }}</pre>
+  
+  {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
+  {% if component.architecture_order %}
+    
+    {% assign specified_architecture_order = component.architecture_order %}
+  {% else %}
+    {% assign specified_architecture_order = layout.architecture_order %}
+  {% endif %}
+  {% if component.platform_order %}
+    {% assign specified_platform_order = component.platform_order %}
+  {% else %}
+    {% assign specified_platform_order = layout.platform_order %}
+  {% endif %}
+
+  <pre> {{ specified_platform_order | inspect}} </pre>
+  <pre> {{ specified_architecture_order | inspect}} </pre>
+
+  {% for platform in specified_platform_order %}
+    {% assign platform_components = component_details | where: "platform", platform %} 
+    {% for architecture in specified_architecture_order %}
+      {% assign architecture_components = platform_components | where: "architecture", architecture %}
+      {% for details in architecture_components %}
+        {% if component.pretty %}
+          {%assign link_text = component.pretty %}
+        {% else %}
+          {%assign link_text = details.artifact_id %}
+        {% endif %}
+        <a href="{{ details.artifact_url }}">{{ link_text }} ({{ details.type }} / {{ details.platform }} / {{ details.architecture }})</a>
+        {% if details.guide %}
+          <a href="{{details.guide}}"> {{layout.pretty.guide}} </a>
+        {% endif %}
+        {% if details.sha %}
+          <a href="{{details.sha}}"> {{layout.pretty.sha}} </a>
+        {% endif %}
+        <hr />
+      {%endfor%}
+    {% endfor %}
+  {% endfor %}
   {% assign number_of_artifacts = component_details | size %}
   {% if number_of_artifacts == 0  %} Yikes! Missing {% endif %}
   <hr />

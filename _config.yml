@@ -16,7 +16,6 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
-
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -53,6 +52,12 @@ defaults:
     values: 
       layout: versions
       permalink:  versions/:categories/:slug
+-
+    scope:
+      type: artifacts
+    values:
+      layout: default
+      permalink: :collection/:categories/:slug
 
 collections:
   authors:
@@ -62,6 +67,7 @@ collections:
   events:
     output: true
   artifacts:
+    output: true
   versions:
     output: true
   partners:

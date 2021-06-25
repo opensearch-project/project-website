@@ -1,0 +1,21 @@
+---
+---
+{% assign artifacts_by_id = site.artifacts | group_by: "artifact_id" %}
+{% for id_group in artifacts_by_id %}
+  <div>
+    {{ id_group.name }} <br />
+    {% assign artifacts_by_platform = id_group.items | group_by: "platform" %}
+    {% for platform_group in artifacts_by_platform %}    
+      {% assign architecture_group = platform_group.items | group_by: "architecture" %}
+      {% for artifacts in architecture_group %}
+      
+        <div>
+        {{ platform_group.name }}-{{ artifacts.name }} <br />
+          {% for artifact in artifacts.items %}
+            A: {{ artifact.slug }} <br />
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+{% endfor %} 

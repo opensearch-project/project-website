@@ -29,6 +29,9 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 2.0)
+    jekyll-category-pages (1.1.1)
+      jekyll (~> 4.0)
+      jekyll-paginate (~> 1.1, >= 1.0.0)
     jekyll-feed (0.15.1)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
@@ -71,10 +74,11 @@ GEM
 PLATFORMS
   ruby
   x86_64-darwin-19
-  x86_64-linux-musl
+  x86_64-linux
 
 DEPENDENCIES
   jekyll (~> 4.2.0)
+  jekyll-category-pages
   jekyll-feed (~> 0.12)
   jekyll-paginate
   jekyll-sitemap
@@ -84,4 +88,4 @@ DEPENDENCIES
   wdm (~> 0.1.1)
 
 BUNDLED WITH
-   2.2.11
+   2.2.17
