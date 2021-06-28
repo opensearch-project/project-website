@@ -1,0 +1,67 @@
+ 
+.community_projects {
+    margin-bottom: 2em;
+    transition: all .25s ease-out;
+
+    @include respond-min(580px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(Min(260px, 100%), 1fr)); // Min is spelled with capital M to avoid sass' complaining about incompatible units due it's own internal min function
+        column-gap: 1em;
+        row-gap: 1em;
+    }
+    
+    .community_project {
+        text-align: center;
+
+
+        & + .community_project {
+            // adds a border between partners on small screens
+            @include respond-max(579px) {
+                border-top: 1px solid $line;
+            }
+        }
+        .header-group {
+            justify-content: space-evenly;
+            display: block;
+            margin: 4px;
+        }
+        .name {
+            font-size:smaller;
+        }
+        .description {
+            font-size:x-small;
+        }
+        .extras-group {
+            display: flex;
+            font-size: xx-small;
+            border-top: 1px solid $line;
+            justify-content: space-evenly;
+        }
+        img {
+            width: 80px;
+            height: auto;
+            margin-right: 1em;
+        }
+
+        @include respond-min(580px) {
+            border-radius: 8px;
+            border: 2px solid $line;
+            transition: all .125s ease-out;
+            border-top-width: 2px;
+
+            a {
+                flex-direction: column;
+            }
+
+            img {
+                margin-right: 0;
+                margin-bottom: .25em;
+            }
+
+            &:hover, &:active, &:focus, &:focus-within {
+                border-color: $core;
+                transition: all .125s ease-in;
+            }
+        }
+    }
+}
