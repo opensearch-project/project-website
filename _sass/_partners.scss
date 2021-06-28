@@ -21,7 +21,7 @@
     
     .partner {
         text-align: center;
-
+        @include sans-serif;
         a {
             display:flex;
             text-decoration: none;
