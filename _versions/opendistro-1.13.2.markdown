@@ -1,20 +1,23 @@
 ---
+# you can override pretty values like this
+#pretty:
+#  artifacts:
+#    elasticsearch: FantasticSearch
 components:
   -
     role: daemon
     artifact: elasticsearch
-    pretty: Elasticsearch
     version: odfe-1.13.2
     architecture_order: 
-      - docker
       - arm64
       - x64
+      - jvm
     platform_order:
+      - java
       - linux
       - windows
   -
     role: ui
-    pretty: Kibana
     artifact: kibana
     version: odfe-1.13.2
   -
@@ -28,7 +31,7 @@ components:
   -
     role: cli
     artifact: odfe-cli
-    version: odfe-1.1.0
+    version: cli-1.1.0
   -
     role: performance-monitor
     artifact: perftop
@@ -36,5 +39,5 @@ components:
   -
     role: ingest
     artifact: data-prepper
-    version: "1.0.0"
+    version: data-prepper-1.1.0
 ---

@@ -4,15 +4,41 @@ layout: default
 pretty:
   guide: "Install Guide"
   sha: "SHA"
+  artifacts:
+    perftop: PerfTop
+    elasticsearch: Elasticsearch
+    kibana: Kibana
+    odfe-jdbc: JDBC Driver
+    odfe-odbc: ODBC Driver
+    data-prepper: Data Prepper
+  platforms:
+    windows: "Windows"
+    linux: "Linux"
+    macos: macOS
+    java: "Java"
+  extensions:
+    targz: ".tar.gz"
+    exe: ".exe"
+    zip: ".zip"
+    pkg: "Installer"
+    msi: "Installer"
+    jar: ".jar"
+  architectures:
+    arm64: "ARM64"
+    x64: "x64"
 
 architecture_order: 
   - docker
   - x64
   - arm64
+  - x86
+  - jvm
 
 platform_order:
+  - java
   - windows
   - linux
+  - macos
 ---
 
 {% assign primary_title = site.headings.source %}
@@ -49,16 +75,17 @@ Plugins: {{ daemon_plugins | inspect }} <br/>
 UI: {{ ui | inspect }}<br/>
 UI Plugins: {{ ui_plugins | inspect }}<br/>
 
+!{{ page.pretty.artifacts | inspect}}!
 
-
+<hr />
 {% for component in page.components %}
-  component inspect: <pre>{{ component }}</pre>
+  {%comment%}component inspect: <pre>{{ component }}</pre>{%endcomment%}
   {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact | sort: "architecture" %}
-  <pre>{{ component.artifact }}</pre>
+  {% capture name_pretty %} {% include downloads/pretty.html group="artifacts" key=component.artifact%}{%endcapture%}
+  <h2>{{ name_pretty }}</h2>
   
   {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
   {% if component.architecture_order %}
-    
     {% assign specified_architecture_order = component.architecture_order %}
   {% else %}
     {% assign specified_architecture_order = layout.architecture_order %}
@@ -69,20 +96,28 @@ UI Plugins: {{ ui_plugins | inspect }}<br/>
     {% assign specified_platform_order = layout.platform_order %}
   {% endif %}
 
-  <pre> {{ specified_platform_order | inspect}} </pre>
-  <pre> {{ specified_architecture_order | inspect}} </pre>
+  {%comment%}<pre> {{ specified_platform_order | inspect}} </pre>
+  <pre> {{ specified_architecture_order | inspect}} </pre>{%endcomment%}
 
   {% for platform in specified_platform_order %}
     {% assign platform_components = component_details | where: "platform", platform %} 
+    {% assign platform_count = platform_components | size %}
+    {% if platform_count > 0 %}
+      <h3>{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}</h3>
+    {%endif%}
+    
+
     {% for architecture in specified_architecture_order %}
       {% assign architecture_components = platform_components | where: "architecture", architecture %}
       {% for details in architecture_components %}
-        {% if component.pretty %}
-          {%assign link_text = component.pretty %}
-        {% else %}
-          {%assign link_text = details.artifact_id %}
-        {% endif %}
-        <a href="{{ details.artifact_url }}">{{ link_text }} ({{ details.type }} / {{ details.platform }} / {{ details.architecture }})</a>
+
+
+        {% capture extension_pretty %}{% include downloads/pretty.html group="extensions" key=details.type %}{% endcapture %}
+        {% capture architecture_pretty %}{% include downloads/pretty.html group="architectures" key=details.architecture %} {% endcapture %}
+        
+
+
+        <a href="{{ details.artifact_url }}">{{ name_pretty }} ({{ extension_pretty }} / {{ architecture_pretty }})</a>
         {% if details.guide %}
           <a href="{{details.guide}}"> {{layout.pretty.guide}} </a>
         {% endif %}
