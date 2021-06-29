@@ -52,6 +52,7 @@ collections:
   authors:
     output: true
   partners:
+  'community_projects':
   faqs:
   javadocs:
     output: true

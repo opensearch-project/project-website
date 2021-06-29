@@ -14,6 +14,9 @@ columns:
       -
         title: 'Partners'
         url: '/partners/'
+      -
+        title: 'Community Projects'
+        url: '/community_projects'
   -
     title: 'Resources'
     links:
