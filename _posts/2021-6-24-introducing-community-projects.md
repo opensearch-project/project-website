@@ -3,7 +3,7 @@ layout: post
 title: Introducing the community projects page
 authors: 
   - elifish
-date: 2021-06-24
+date: 2021-06-30
 categories:
   - community
 twittercard:
