@@ -1,0 +1,142 @@
+ 
+.community_projects-page main.container {
+    padding: 0 1em;
+
+    // Restore padding on large screens
+    @include respond-min(768px) {
+        margin: 0 auto;
+        max-width: 1400px;
+        padding: 0 (32/768) * 100%;
+    }
+}
+
+.community_projects {
+    margin-bottom: 2em;
+
+    // Grid view on larger screens
+    @include respond-min(860px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(Min(385px, 100%), 1fr)); // Min is spelled with capital M to avoid sass' complaining about incompatible units due it's own internal min function
+        column-gap: 1em;
+        row-gap: 1em;
+    }
+    
+    .community_project {
+        text-align: left;
+        margin: 0 -1.8rem;
+
+        // Card view on larger screens
+        @include respond-min(860px) {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            border: 2px solid $line;
+            transition: border-color .125s ease-out;
+            border-top-width: 2px;
+            padding: 1em 0;
+
+            &:hover, &:active, &:focus, &:focus-within {
+                border-color: $core;
+                transition: border-color .125s ease-in;
+            }
+        }
+
+        // adds a border between partners on small screens
+        & + .community_project {
+            @include respond-max(859px) {
+                padding-top: 1em;
+                margin-top: 1em;
+                border-top: 1px solid $line;
+            }
+        }
+
+        .project-info {
+            padding: 0 1.8rem;
+            margin-bottom: auto;
+        }
+
+        .image {
+            float: right;
+            text-decoration: none;
+            width: 100%;
+            height: auto;
+            max-width: 80px;
+            margin-left: .5em;
+            margin-bottom: .5em;
+
+            img {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                display: block;
+            }
+        }
+        .name {
+            margin: 0;
+
+            &:hover, &:active, &:focus {
+                text-decoration: underline;
+            }
+        }
+        .description {
+            font-size: 1.6rem; //reset to 16px;
+            margin-top: .5em;
+            margin-bottom: .5em;
+        }
+
+        .extras-group {
+            font-size: 1.4rem;
+            padding: 0 1.8rem;
+
+            @include respond-min(860px) {
+                border-top: 1px solid $line;
+                margin-top: 1em;
+                padding: 1.8rem 1.8rem 0;
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-items: flex-start;
+            }
+
+            .extra {
+                margin-bottom: 0;
+                margin-top: auto;
+
+                a {
+                    text-decoration: none;
+                    font-weight: 600;
+
+                    &:hover, &:active, &:focus {
+                        text-decoration: underline;
+                    }
+                }
+
+                // Adds a bit of margin between items
+                & + .extra {
+                    margin-top: .8rem;
+                }
+            }
+
+            .download {
+                display: inline-block;
+                font-size: 1.6rem;
+                border-radius: .8rem;
+                margin-top: 1em;
+                background-color: $core;
+                color: $highlight-lightest;
+                text-decoration: none;
+                padding: 1.2rem 2.4rem;
+                transition: all .125s ease-out;
+            
+                @include sans-serif;
+
+                &:hover, &:active, &:focus {
+                    background-color: lighten($color: $core, $amount: 10%);
+                    transition: all .125s ease-in;
+                }
+            }
+        }
+    }
+}
