@@ -6,4 +6,5 @@ owner_link: https://www.elastiflow.com
 link: https://github.com/elastiflow/elastiflow_for_opensearch
 license: ElastiFlow EULA
 license_link: https://raw.githubusercontent.com/elastiflow/elastiflow_for_opensearch/main/LICENSE
+icon: /assets/media/community_projects/elastiflow.png
 ---
