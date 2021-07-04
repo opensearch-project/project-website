@@ -6,5 +6,5 @@ owner_link: https://www.gsitechnology.com/APU
 link: https://github.com/yoavwe/opensearch-plugin
 license: Apache License 2.0
 license_link: https://github.com/yoavwe/opensearch-plugin/blob/main/LICENSE
-icon: /assets/media/community_projects/GSI-short-logo.png
+icon: /assets/media/community_projects/just-gsi-logo.png
 ---
