@@ -323,3 +323,39 @@ dl.list-features {
     top:1em;
     bottom:0
   }
+
+.artifact-download-tree {
+    margin: 1em;
+    padding: 1em;
+    background-color: #fff;
+    @include sans-serif;
+}
+.artifact-name {
+    margin-bottom:0;
+}
+.artifact-container {
+    display: flex;
+
+    .artifact-explain { 
+        width : 66%;
+
+    }
+    .download-panel {
+        margin-left: 1em;
+        flex-grow: 1;
+        @include sans-serif;
+
+        select {
+            width: 100%;
+        }
+        label, 
+        .extra_links a {
+            font-size: 1.2rem;
+            display: block;
+        }
+        .extra_links .cta {
+            font-size: 1.5rem;
+            max-width: none;
+        }
+    }
+}

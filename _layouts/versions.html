@@ -1,57 +1,80 @@
 ---
 layout: default
 
+
 pretty:
   guide: "Install Guide"
   sha: "SHA"
+  signature: "File Signature"
   artifacts:
+    opensearch: OpenSearch
+    odfe-cli: ODFE-CLI
     perftop: PerfTop
     elasticsearch: Elasticsearch
     kibana: Kibana
     odfe-jdbc: JDBC Driver
     odfe-odbc: ODBC Driver
     data-prepper: Data Prepper
+    logstash-oss-with-opensearch-output-plugin: Logstash OSS with OpenSearch Output Plugin
   platforms:
     windows: "Windows"
     linux: "Linux"
     macos: macOS
     java: "Java"
+    docker: Docker
   extensions:
     targz: ".tar.gz"
-    exe: ".exe"
+    exe: "Installer (exe)"
     zip: ".zip"
-    pkg: "Installer"
-    msi: "Installer"
+    pkg: "Installer (pkg)"
+    msi: "Installer (msi)"
     jar: ".jar"
+    docker_hub: 'Dockerfile'
   architectures:
     arm64: "ARM64"
     x64: "x64"
+    jvm: Java Virtual Machine
+  sections:
+    opensearch: OpenSearch
+    opensearch-dashboards: OpenSearch Dashboards
+    command-line-tools: 'Command Line Tools'
+    data-ingest: 'Ingest Tools'
+    docker-compose: 'Try OpenSearch with Docker Compose'
 
 architecture_order: 
-  - docker
   - x64
   - arm64
   - x86
   - jvm
 
 platform_order:
-  - java
-  - windows
   - linux
+  - docker
   - macos
+  - windows
+  - java
 ---
 
-{% assign primary_title = site.headings.source %}
+{%comment%} 
+template layout setup 
+{% endcomment %}
+{% assign primary_title = site.headings.downloads %}
 {% assign layout_class = 'sidebar-right' %}
 
+{%comment%} 
+human readable setup - pretty.html will get the most specific override in the frontmatters
+  1. page frontmatter
+  2. layout frontmatter
+  3. fall back to the key
+{%endcomment%}
+{% capture guide_pretty %}{% include downloads/pretty.html key="guide" %}{% endcapture %}
+{% capture sha_pretty%}{% include downloads/pretty.html key="sha" %}{% endcapture %}
+{% capture signature_pretty%}{% include downloads/pretty.html key="signature" %}{% endcapture %}
 
-{% assign daemon = page.components | where: "role", "daemon" %}
-{% assign ui = page.components | where: "role", "ui" %}
-{% assign daemon_plugins = page.components | where: "role", "plugin" %}
-{% assign ui_plugins = page.components | where: "role", "plugin-ui" %}
 
-
-
+{% comment %} 
+this is the built-in error checking for the version definition having missing artifacts
+{% endcomment %}
 {% for component in page.components %}
   {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact %}
   {% assign number_of_artifacts = component_details | size %}
@@ -64,75 +87,174 @@ platform_order:
 
 
 {% capture content %}
-  {% if error_block %}
+
+{% if error_block %}
   <h2>Errors:</h2>
   <pre>{{error_block}}</pre>
-  {% endif %}
+{% endif %}
 
+{{ page.content }}
 
-Daemon: {{ daemon | inspect}}<br/>
-Plugins: {{ daemon_plugins | inspect }} <br/>
-UI: {{ ui | inspect }}<br/>
-UI Plugins: {{ ui_plugins | inspect }}<br/>
-
-!{{ page.pretty.artifacts | inspect}}!
-
-<hr />
-{% for component in page.components %}
-  {%comment%}component inspect: <pre>{{ component }}</pre>{%endcomment%}
-  {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact | sort: "architecture" %}
-  {% capture name_pretty %} {% include downloads/pretty.html group="artifacts" key=component.artifact%}{%endcapture%}
-  <h2>{{ name_pretty }}</h2>
+{% for section in page.sections %}
+  {% capture role %}{{section[1].role}}{%endcapture%}
+  {% capture section_id%}{{section[0]}}{%endcapture%}
+  {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id%}{%endcapture%}
   
-  {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
-  {% if component.architecture_order %}
-    {% assign specified_architecture_order = component.architecture_order %}
-  {% else %}
-    {% assign specified_architecture_order = layout.architecture_order %}
-  {% endif %}
-  {% if component.platform_order %}
-    {% assign specified_platform_order = component.platform_order %}
-  {% else %}
-    {% assign specified_platform_order = layout.platform_order %}
-  {% endif %}
+  {% assign include_url = section[1].explanation %}
+  <div id="{{section_id}}">   
+  <h2>{{ section_heading_pretty }}</h2>
+  {% if include_url %}{%capture explanation %}{% include {{include_url}} %}{% endcapture %}{{ explanation | markdownify }}{% endif %}
+  {% if role %}
+    {% assign components = page.components | where: "role", role %}
+    {% assign artifact_selects = "" %}
 
-  {%comment%}<pre> {{ specified_platform_order | inspect}} </pre>
-  <pre> {{ specified_architecture_order | inspect}} </pre>{%endcomment%}
+    {% for component in components %}
+      
+      {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact | sort: "architecture" %}
+      
+     
+      {% capture name_pretty %}{% include downloads/pretty-group.html group="artifacts" key=component.artifact%}{%endcapture%}
+      {% assign number_of_artifacts = component_details | size %}
+      {% if number_of_artifacts == 0  %} [Artifacts Missing] {% endif %}
+      {% assign number_of_components = components | size %}
+      
+      {% if number_of_components > 1 %}<h3 class="artifact-name" id="{{component.artifact}}">{{ name_pretty }}</h3>{% endif %}
 
-  {% for platform in specified_platform_order %}
-    {% assign platform_components = component_details | where: "platform", platform %} 
-    {% assign platform_count = platform_components | size %}
-    {% if platform_count > 0 %}
-      <h3>{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}</h3>
-    {%endif%}
+      <div class="artifact-container">
+        <div class="artifact-explain">
+        {% if section[1].artifacts[component.artifact].explanation %} 
+          {% assign artifact_explain_path = section[1].artifacts[component.artifact].explanation%}
+          {% capture explanation %}{% include {{artifact_explain_path}} %}{% endcapture %}
+          {{ explanation | markdownify }}
+        {% endif %}
+        </div>
+
+      {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
+      {% if component.architecture_order %}
+        {% assign specified_architecture_order = component.architecture_order %}
+      {% else %}
+        {% assign specified_architecture_order = layout.architecture_order %}
+      {% endif %}
+      {% if component.platform_order %}
+        {% assign specified_platform_order = component.platform_order %}
+      {% else %}
+        {% assign specified_platform_order = layout.platform_order %}
+      {% endif %}
+      {% assign platform_list = ""%}
+      {% assign artifact_list = ""%}
+      {% for platform in specified_platform_order %}
+        {% assign count =  component_details | where: "platform", platform | size  %}
+        {% if count > 0 %}
+          {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}{%endcapture%}
+          {% capture platform_option %}<option value="{{platform}}">{{platform_pretty}}</option>{% endcapture %}
+          {% capture platform_list %}{{ platform_list | append: platform_option}}{% endcapture %}
+        {%endif%}
+      {% endfor %}
+
     
+      {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
+      {% if component.architecture_order %}
+        {% assign specified_architecture_order = component.architecture_order %}
+      {% else %}
+        {% assign specified_architecture_order = layout.architecture_order %}
+      {% endif %}
+      {% if component.platform_order %}
+        {% assign specified_platform_order = component.platform_order %}
+      {% else %}
+        {% assign specified_platform_order = layout.platform_order %}
+      {% endif %}
 
-    {% for architecture in specified_architecture_order %}
-      {% assign architecture_components = platform_components | where: "architecture", architecture %}
-      {% for details in architecture_components %}
 
 
-        {% capture extension_pretty %}{% include downloads/pretty.html group="extensions" key=details.type %}{% endcapture %}
-        {% capture architecture_pretty %}{% include downloads/pretty.html group="architectures" key=details.architecture %} {% endcapture %}
+      {% for platform in specified_platform_order %}
+        {% assign platform_components = component_details | where: "platform", platform %} 
         
+        {% for architecture in specified_architecture_order %}
+          {% assign architecture_components = platform_components | where: "architecture", architecture %}
+          {% for details in architecture_components %}
 
+            {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}{%endcapture%}
 
-        <a href="{{ details.artifact_url }}">{{ name_pretty }} ({{ extension_pretty }} / {{ architecture_pretty }})</a>
-        {% if details.guide %}
-          <a href="{{details.guide}}"> {{layout.pretty.guide}} </a>
+            {% capture extension_pretty %}{% include downloads/pretty-group.html group="extensions" key=details.type %}{% endcapture %}
+            {% capture architecture_pretty %}{% include downloads/pretty-group.html group="architectures" key=details.architecture %}{% endcapture %}
+            
+            {% capture artifact_id %}{{details.platform}}-{{details.architecture}}-{{details.type}}{% endcapture %}
+            {% capture artifact_option %}<option class="platform_{{platform}}" value="{{artifact_id}}">{{ architecture_pretty }} / {{ extension_pretty }}</option>{%endcapture%}
+            {% assign artifact_options = artifact_options | append: artifact_option %}
+            {% if details.artifact_url %}
+              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.artifact_url}}" class="cta">Download</a> </div>{% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.link %}
+              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
+                <a href="{{details.link}}" target="_blank" class="cta">Get it</a>
+              </div>{% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.guide %}
+              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.guide}}"> {{guide_pretty}} </a> </div>{% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.sha %}
+              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.sha}}"> {{sha_pretty}} </a> </div>{% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.signature %}
+              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.signature}}"> {{signature_pretty}} </a> </div>{% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+          {% endfor %}
+        {%endfor%}
+      {% endfor %}
+      
+        <div class="download-panel">
+        {% if platform_list %}
+            <label for="platform_select_{{artifact_id}}">Platform:</label>
+            <select id="platform_select_{{artifact_id}}" class="dl-platform-select">{{ platform_list }}</select>
         {% endif %}
-        {% if details.sha %}
-          <a href="{{details.sha}}"> {{layout.pretty.sha}} </a>
+        {% if artifact_option %}
+            <label for="package_select_{{artifact_id}}">Package:</label>
+            <select for="package_select_{{artifact_id}}" class="dl-artifact-select">{{ artifact_options }}</select>
+          {% assign artifact_options = "" %}
         {% endif %}
-        <hr />
-      {%endfor%}
+        <div class="extra-links-group">{{artifact_extras}}</div>
+        {% assign artifact_extras = "" %}
+        </div>
+
+      </div>
+      <hr />
     {% endfor %}
-  {% endfor %}
-  {% assign number_of_artifacts = component_details | size %}
-  {% if number_of_artifacts == 0  %} Yikes! Missing {% endif %}
-  <hr />
+
+  {% endif %}
+  </div>
 {% endfor %}
+{% include downloads/final-section.html %}
+<hr />
+{% if page.previous.url %}
+  <a href="{{page.previous.url }}">Previous Version</a>
+{% endif %}
+{% if page.next.url %}
+  <a href="{{page.next.url }}">Next Version</a>
+{% endif %}
 {%endcapture%}
+
+{% capture content_related %}
+<div role="complementary">
+  <strong>Version:</strong> {{page.version}}<br />
+  <strong>Release Date:</strong> {{ page.date | date: "%b %d, %Y" }}<br />
+  <a href="{{page.release_notes}}">Release Notes</a><br />
+  <a href="{{page.url}}.html">Version Permalink</a>
+  <hr />
+  <ul>
+  {% for section in page.sections %}
+    {% capture section_id%}{{section[0]}}{%endcapture%}
+    {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id%}{%endcapture%}
+    <li><a href="#{{section_id}}">{{section_heading_pretty}}</a></li>
+  {% endfor %}
+  </ul>
+
+</div>
+{% endcapture %}
 
 {% include copy_banner.html %}
 {% include base_3col.html %}
