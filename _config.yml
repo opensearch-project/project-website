@@ -63,6 +63,9 @@ defaults:
 collections:
   authors:
     output: true
+  partners:
+  'community_projects':
+
   javadocs:
     output: true
   events:

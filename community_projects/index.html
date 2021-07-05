@@ -1,0 +1,31 @@
+---
+layout: fullwidth
+title: Community Projects
+primary_title: Community Projects
+body_class: community_projects-page
+---
+
+<p>This page was made to highlight projects built by the community for the community.</p>
+<p> Want your project on this page? To add your project to this page, please create a fork the <a href="https://github.com/opensearch-project/project-website" target="_blank" rel="noopener noreferrer">project website</a>, add a markdown file for your project under <b>/_community_projects/your-project.md</b> , and submit a pull request to our <b>`staging`</b> branch.</p>
+
+<h2>Projects</h2>
+<section class="community_projects">
+  {% for community_project in site.community_projects %}
+  <div class="community_project">
+    <div class="project-info">
+      {% if community_project.icon != nil %}
+      <a class="image" href="{{ community_project.link }}"><img src="{{ community_project.icon }}" /></a>
+      {% endif %}  
+      <h3 class="name"><a href="{{community_project.link}}">{{community_project.name}}</a></h3>
+      <p class="description">{{community_project.description}}</p>
+    </div>
+    <div class="extras-group">
+      <p class="extra">License: <a href="{{community_project.license_link}}">{{community_project.license}}</a></p>
+      <p class="extra">Owner: <a href="{{community_project.owner_link}}">{{community_project.owner}}</a></p>
+      {% if community_project.download_link != nil %}
+      <a class="download" href="{{community_project.download_link}}">Download</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</section>

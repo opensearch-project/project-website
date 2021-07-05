@@ -1,0 +1,73 @@
+.partners-page main.container {
+    padding: 0 1em;
+
+    @include respond-min(768px) {
+        margin: 0 auto;
+        max-width: 1400px;
+        padding: 0 (32/768) * 100%;
+    }
+}
+
+.partners {
+    margin-bottom: 2em;
+    transition: all .25s ease-out;
+
+    @include respond-min(580px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(Min(260px, 100%), 1fr)); // Min is spelled with capital M to avoid sass' complaining about incompatible units due it's own internal min function
+        column-gap: 1em;
+        row-gap: 1em;
+    }
+    
+    .partner {
+        text-align: center;
+        @include sans-serif;
+        a {
+            display:flex;
+            text-decoration: none;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 1em;
+
+            &:hover, &:active, &:focus {
+                text-decoration: underline;
+                color: $core;
+            }
+        }
+
+        & + .partner {
+            // adds a border between partners on small screens
+            @include respond-max(579px) {
+                border-top: 1px solid $line;
+            }
+        }
+        
+        img {
+            width: 80px;
+            height: auto;
+            margin-right: 1em;
+        }
+
+        @include respond-min(580px) {
+            border-radius: 8px;
+            border: 2px solid $line;
+            transition: all .125s ease-out;
+            border-top-width: 2px;
+
+            a {
+                flex-direction: column;
+            }
+
+            img {
+                margin-right: 0;
+                margin-bottom: .25em;
+            }
+
+            &:hover, &:active, &:focus, &:focus-within {
+                border-color: $core;
+                transition: all .125s ease-in;
+            }
+        }
+    }
+}
