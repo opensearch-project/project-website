@@ -1,6 +1,6 @@
 ---
 name: GSI Technology
-description: Dramatically improve your OpenSearch performance by running it on GSI Technology proprietary Gemini Associative Processing Unit (APU). Gemini APU will be available in the cloud end of 2021.
+description: Dramatically accelerate your OpenSearch performance by running it on GSI Technology proprietary Gemini Associative Processing Unit (APU) in the cloud or on premises. Gemini APU will be available in the cloud end of 2021.
 owner: GSI Technology, Inc.
 owner_link: https://www.gsitechnology.com/APU
 link: https://github.com/yoavwe/opensearch-plugin
