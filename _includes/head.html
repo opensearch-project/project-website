@@ -8,6 +8,14 @@
     <meta name="keywords" content="open-source, search, opensearch" />
     <meta name="description" content="{{ page.description}}" />
 
+    <meta content="{{ site.title }}" property="og:site_name">
+    <meta content="{{ page.url | absolute_url }}" property="og:url">
+    {% if page.title %}<meta content="{{ page.title }}" property="og:title">
+    {% else %}<meta content="{{ site.title }}" property="og:title"> {% endif %}
+
+    {% if page.image %}<meta content="{{ site.url }}/assets/img/posts/{{ page.image }}" property="og:image">
+    {% else %}<meta content="{{ site.url }}/assets/img/logo-high-resolution.png" property="og:image">{% endif %}
+
     {{ page.link_rel_tags }}
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="{{'assets/img/icon-touch.png' | relative_url }}">
