@@ -16,7 +16,11 @@ primary_title: Artifacts
             <li>{{ platform_group.name }}-{{ artifacts.name }}
               <ul class="tree">
                 {% for artifact in artifacts.items %}
-                  <li><a href="{{ artifact.artifact_url}}">{{ artifact.artifact_url | split: "/" | last }}</a></li>
+                  {% if artifact.link %}
+                    <li><a href="{{ artifact.link }}">{{ artifact.link }}</a> [External]</li>
+                  {% else %}
+                    <li><a href="{{ artifact.artifact_url}}">{{ artifact.artifact_url | split: "/" | last }}</a></li>
+                  {% endif %}
                 {% endfor %}
               </ul> 
             </li>

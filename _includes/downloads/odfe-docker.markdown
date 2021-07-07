@@ -11,5 +11,3 @@ For further details about using Open Distro on Docker, see the [Open Distro docu
 You can also find the standalone docker images on Docker Hub:
 * [Open Distro for Elasticsearch - Elasticsearch Docker v1.13.2](https://hub.docker.com/r/amazon/opendistro-for-elasticsearch)
 * [Open Distro for Elasticsearch - Kibana Docker v1.13.2](https://hub.docker.com/r/amazon/opendistro-for-elasticsearch-kibana)
-
----

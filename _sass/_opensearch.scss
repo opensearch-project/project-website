@@ -333,6 +333,24 @@ dl.list-features {
 .artifact-name {
     margin-bottom:0;
 }
+.artifact-and-heading {
+    margin-left: 1em;
+    padding-bottom: 1em;
+   
+}
+.artifact-and-heading + .artifact-and-heading {
+    border-top: 1px solid $line;
+}
+
+.artifact-group {
+    h2 {
+        padding-top: 0.75em;
+        border-top: 1px solid $line;
+    }
+}
+#content-main .artifact-group:first-child h2 {
+    border-top: none;
+}
 .artifact-container {
     display: flex;
 

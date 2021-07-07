@@ -40,6 +40,7 @@ pretty:
     command-line-tools: 'Command Line Tools'
     data-ingest: 'Ingest Tools'
     docker-compose: 'Try OpenSearch with Docker Compose'
+    minimal: 'Minimal Distributions'
 
 architecture_order: 
   - x64
@@ -93,7 +94,6 @@ this is the built-in error checking for the version definition having missing ar
   <pre>{{error_block}}</pre>
 {% endif %}
 
-{{ page.content }}
 
 {% for section in page.sections %}
   {% capture role %}{{section[1].role}}{%endcapture%}
@@ -101,8 +101,8 @@ this is the built-in error checking for the version definition having missing ar
   {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id%}{%endcapture%}
   
   {% assign include_url = section[1].explanation %}
-  <div id="{{section_id}}">   
-  <h2>{{ section_heading_pretty }}</h2>
+  <div class="artifact-group" id="{{section_id}}">   
+  <h2 >{{ section_heading_pretty }}</h2>
   {% if include_url %}{%capture explanation %}{% include {{include_url}} %}{% endcapture %}{{ explanation | markdownify }}{% endif %}
   {% if role %}
     {% assign components = page.components | where: "role", role %}
@@ -117,8 +117,13 @@ this is the built-in error checking for the version definition having missing ar
       {% assign number_of_artifacts = component_details | size %}
       {% if number_of_artifacts == 0  %} [Artifacts Missing] {% endif %}
       {% assign number_of_components = components | size %}
-      
-      {% if number_of_components > 1 %}<h3 class="artifact-name" id="{{component.artifact}}">{{ name_pretty }}</h3>{% endif %}
+      <div class="artifact-and-heading">
+      {% if number_of_components > 1 %} 
+        {% assign name_pretty = name_pretty | strip %}
+        {% if name_pretty.size > 0  %}
+          <h3 class="artifact-name" id="{{component.artifact}}">{{ name_pretty }}</h3>
+        {% endif %}
+      {% endif %}
 
       <div class="artifact-container">
         <div class="artifact-explain">
@@ -200,7 +205,10 @@ this is the built-in error checking for the version definition having missing ar
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
             {% if details.signature %}
-              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.signature}}"> {{signature_pretty}} </a> </div>{% endcapture %}
+              {% capture artifact_extra %}
+                <div class="extra_links extra_{{artifact_id}}"> <a href="{{details.signature}}"> {{signature_pretty}} </a>
+                <a href="/verify-signatures.html">Signature verification how to</a></div>
+              {% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
           {% endfor %}
@@ -222,7 +230,8 @@ this is the built-in error checking for the version definition having missing ar
         </div>
 
       </div>
-      <hr />
+    </div>
+   
     {% endfor %}
 
   {% endif %}
@@ -230,17 +239,19 @@ this is the built-in error checking for the version definition having missing ar
 {% endfor %}
 {% include downloads/final-section.html %}
 <hr />
-{% if page.previous.url %}
-  <a href="{{page.previous.url }}">Previous Version</a>
-{% endif %}
 {% if page.next.url %}
   <a href="{{page.next.url }}">Next Version</a>
 {% endif %}
+{% if page.previous.url %}
+  <a href="{{page.previous.url }}">Previous Version</a>
+{% endif %}
+
 {%endcapture%}
 
 {% capture content_related %}
 <div role="complementary">
-  <strong>Version:</strong> {{page.version}}<br />
+  {{ page.content }}
+  <strong>Version:</strong> {{page.version}} {% if page.product == 'odfe' %}(Open Distro for Elasticsearch){% endif %}<br />
   <strong>Release Date:</strong> {{ page.date | date: "%b %d, %Y" }}<br />
   <a href="{{page.release_notes}}">Release Notes</a><br />
   <a href="{{page.url}}.html">Version Permalink</a>

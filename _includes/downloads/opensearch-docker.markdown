@@ -5,5 +5,3 @@ The best way to try out OpenSearch is to use [Docker Compose](https://docs.docke
 3. Have a nice coffee while everything is downloading and startup up
 4. Navigate to [http://localhost:5601/](http://localhost:5601) for OpenSearch Dashboards
 5. Login with the default username (`admin`) and password (`admin`)
-
----

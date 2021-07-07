@@ -39,7 +39,7 @@ components:
   -
     role: ingest
     artifact: logstash-oss-with-opensearch-output-plugin
-    version: logstash-oss-with-opensearch-output-plugin-1.0.0
+    version: 1.0.0
 
 # you can override pretty values like this
 #pretty:
@@ -53,7 +53,8 @@ pretty:
     kibana: 'Kibana & Plugins'
     drivers: 'Drivers for Open Distro'
 
-version: '1.13.2 (Open Distro for Elasticsearch)'
+product: odfe
+version: '1.13.2'
 date: 2021-04-07
 release_notes: https://github.com/opendistro-for-elasticsearch/opendistro-build/blob/master/release-notes/opendistro-for-elasticsearch-release-notes-1.13.2.md
 

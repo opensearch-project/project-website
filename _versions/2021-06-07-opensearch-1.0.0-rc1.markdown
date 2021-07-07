@@ -1,8 +1,10 @@
 ---
 date: 2021-06-07
 
-version: '1.0.0 Release Candidate 1 (RC1)'
+product: opensearch
+version: '1.0.0 (Release Candidate 1)'
 release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.0.0-rc1.md
+
 components:
   -
     role: daemon
