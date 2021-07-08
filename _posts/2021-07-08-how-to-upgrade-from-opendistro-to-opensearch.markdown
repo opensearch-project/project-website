@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  How To: Upgrade from Open Distro to OpenSearch
+title: "How To: Upgrade from Open Distro to OpenSearch"
 authors: 
   - vemsarat
   - andhopp
@@ -26,7 +26,7 @@ PUT /_snapshot/my_backup/opendistro_backup?wait_for_completion=true
 curl -XPUT "localhost:9200/_snapshot/my_backup/opendistro_backup?wait_for_completion=true"
 
 #via curl, assuming the cluster is on 9200 and security is enabled
-`curl ``-``XGET ``-``k ``-``u ``'admin:admin'`` ``'https://localhost:9200/_snapshot/my_backup/opendistro_backup?wait_for_completion=true"`
+curl -XPUT -k -u 'admin:admin' 'https://localhost:9200/_snapshot/my_backup/opendistro_backup?wait_for_completion=true"
 ```
 
 **Note**: For rest of the blog post we will have commands represented for Dev Tools on Kibana/OpenSearch Dashboards for simplicity but all the above formats will work for all the commands.
@@ -37,7 +37,7 @@ Second, you should verify the version your existing cluster is on and follow the
 
 |Open Distro	|ES	|Recommended Upgrade Path	|
 |---	|---	|---	|
-|1	    |7.0.1	|Restart/Rolling Upgrade to Open Distro 1.13 	|
+|1.0	    |7.0.1	|Restart/Rolling Upgrade to Open Distro 1.13 	|
 |1.1	|7.1.1	|Restart/Rolling Upgrade to Open Distro 1.13	|
 |1.2	|7.2.1	|Restart/Rolling Upgrade to Open Distro 1.13	|
 |1.3	|7.3.2	|Restart/Rolling Upgrade to Open Distro 1.13	|
@@ -48,8 +48,8 @@ Second, you should verify the version your existing cluster is on and follow the
 |1.8	|7.7.1	|Restart/Rolling Upgrade to Open Distro 1.13	|
 |1.9	|7.8.0	|Restart/Rolling Upgrade to Open Distro 1.13	|
 |1.10.0	|7.9.1	|Restart/Rolling Upgrade to Open Distro 1.13	|
-|1.11	|7.9.1	|Restart/Rolling Upgrade to Open Distro 1.13	|
-|1.12	|7.10.0	|Restart/Rolling Upgrade to Open Distro 1.13	|
+|1.11.0	|7.9.1	|Restart/Rolling Upgrade to Open Distro 1.13	|
+|1.12.0	|7.10.0	|Restart/Rolling Upgrade to Open Distro 1.13	|
 |1.13.2	|7.10.2	|Restart/Rolling Upgrade to OpenSearch 1.0	|
 
 And finally, now that you are ready for the upgrade you should download the latest version of OpenSearch from the [OpenSearch downloads page](https://opensearch.org/downloads.html) and if you need help with installation instructions you can follow the install and [configure guide](https://docs-beta.opensearch.org/opensearch/install/index/) on the documentation site.
@@ -125,8 +125,13 @@ Another approach is restarting your whole cluster while upgrading them to OpenSe
     3. Set `path.logs` in `config/opensearch.yml` pointing to a directory where you want to store logs.
 
 6. Verify existing cluster is still green and healthy.
-7. Re-enable shard allocation: Start each upgraded node: If the cluster has dedicated master nodes please start them first and make sure the master is elected before data nodes are started. You can monitor the health of the cluster via
+7. Start each upgraded node: If the cluster has dedicated master nodes please start them first and make sure the master is elected before data nodes are started. You can monitor the health of the cluster via
 
+    ```
+    GET _cluster/health
+    ```
+   
+8. Re-enable shard allocation: 
     ```
     PUT _cluster/settings
     {
@@ -136,7 +141,7 @@ Another approach is restarting your whole cluster while upgrading them to OpenSe
     }
     ```
 
-8. Verify the indexed data in Open Distro is now searchable and indexable in OpenSearch.
+9. Verify the indexed data in Open Distro is now searchable and indexable in OpenSearch.
 
 You did it! Your cluster is now upgraded via a Restart Upgrade. 
 
@@ -220,7 +225,7 @@ GET _cat/health?v=true
 ```
 
 
-As with all software, upgrade is a critical path for the community and customers. If you need help as always open an issue and label them `backward-compatibility`, `1.0.0`:
+As with all software, upgrade is a critical path for the community and customers. If you need help as always open an issue and label them `backwards-compatibility`, `1.0.0`:
 
 1. For OpenSearch: [OpenSearch Issues](https://github.com/opensearch-project/OpenSearch/issues).
 2. For a plugin: Use the individual plugin repository.
@@ -231,7 +236,7 @@ In any case you’d like to rollback your upgrade for any reason, the simplest p
 
 ### Recommendation
 
-Now that you read through most of the good stuff, we would recommend these in terms of ease of upgrade:
+Now that you read through most of the good stuff, We would recommend these in terms of ease of upgrade:
 
 1. Snapshot Upgrade: This is the safest approach if you can spin up multiple clusters and move your customers to the new endpoint after the upgrade. we would recommend this for beginners. 
 2. Restart Upgrade: This is a moderate approach, as this would take down the whole cluster and you will only know after the whole cluster upgrade to verify everything is happy. we would recommend this for intermediate users or for people who know what they are doing.
@@ -241,10 +246,8 @@ Now that you read through most of the good stuff, we would recommend these in te
 
 OpenSearch can be upgraded using a Rolling upgrade process for most minor and major versions so upgrading going forward will not usually interrupt service. Like Kibana OSS, OpenSearch Dashboards does not support rolling upgrades, but it supports restart upgrades. You are able to stop all Open Distro instances, deploy a new OpenSearch Dashboards instance and direct traffic to it.
 
-For more information on upgrading please see our [Upgrading FAQs](https://opensearch.org/faq/#c3).and if you have questions about backward compatibility you can check dB’s post on [Backwards Compatibility FAQ](https://opensearch.org/blog/technical-posts/2021/06/opensearch-backwards-compatibility-faq/).. If you’re looking for a great “getting started” guide I’d recommend Gedalyah’s [Install and Configure OpenSearch guide](https://logz.io/blog/opensearch-tutorial-installation-configuration/).
+For more information on upgrading please see our [Upgrading FAQs](https://opensearch.org/faq/#c3) and if you have questions about backward compatibility you can check dB’s post on [Backwards Compatibility FAQ](https://opensearch.org/blog/technical-posts/2021/06/opensearch-backwards-compatibility-faq/). If you’re looking for a great “getting started” guide I’d recommend Gedalyah’s [Install and Configure OpenSearch guide](https://logz.io/blog/opensearch-tutorial-installation-configuration/).
 
-Closing on a high note, hope this blog post helps and feel free to reach out if you have more questions. Thanks to OpenSearch team for making this happen.
-
-If you have any feedback/suggestions on new topics please reach out to us. we plan to have a follow up post to upgrade from Elasticsearch to OpenSearch for community who do not use Open Distro. 
-
+Hope this blog post helps! We plan to have a follow up post on upgrading from Elasticsearch to OpenSearch next! If you have any feedback/suggestions on new topics please reach out.
+Thanks to OpenSearch team for making this happen.
 
