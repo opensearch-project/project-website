@@ -94,6 +94,7 @@ define(function() {
     if (hasClass('console-block')) {
         mods.push('mod/console-tabs');
     }
+    mods.push('/assets/js/mod/select_logic.js');
 
     require(mods);
 });
