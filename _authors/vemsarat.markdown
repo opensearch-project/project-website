@@ -1,6 +1,6 @@
 ---
 name: Sarat Vemulapalli
-short_name: dblock
+short_name: vemsarat
 photo: '/assets/media/authors/vemsarat.jpg'
 twitter: 'vemsarat'
 github: saratvemulapalli
