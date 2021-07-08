@@ -1,5 +1,5 @@
 ---
 name: Opster
-logo: 'https://opster.com/wp-content/uploads/2021/07/Opster-logo-for-opensearch.png'
+logo: '/assets/media/partners/opster.png'
 link: 'https://opster.com/'
 ---
