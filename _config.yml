@@ -9,6 +9,7 @@ headings:
   news: 'News'
   source: 'Source Code'
   authors: 'Authors'
+  downloads: 'Download & Get Started'
 
 
 # Build settings
@@ -16,7 +17,6 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
-
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -47,17 +47,34 @@ defaults:
     values:
       layout: event
       permalink:  events/:title/
+-
+    scope:
+      type: versions
+    values: 
+      layout: versions
+      permalink:  versions/:categories/:slug
+-
+    scope:
+      type: artifacts
+    values:
+      layout: default
+      permalink: :collection/:categories/:slug
 
 collections:
   authors:
     output: true
   partners:
   'community_projects':
-  faqs:
   javadocs:
     output: true
   events:
     output: true
+  artifacts:
+    output: true
+  versions:
+    output: true
+  partners:
+  faqs:
     
 paginate: 5
 paginate_path: "/blog/page:num/"
