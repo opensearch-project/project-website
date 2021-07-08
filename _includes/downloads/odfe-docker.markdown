@@ -1,6 +1,6 @@
 These steps will setup a two node cluster of Elasticsearch plus Kibana:
 
-1. Download [docker-compose.yml](#) into your desired directory
+1. Download [docker-compose.yml](/samples/opendistro/docker-compose.yml) into your desired directory
 2. Run `docker compose up`
 3. Have a nice coffee while everything is downloading and starting up
 4. Navigate to [https://localhost:5601/](https://localhost:5601/) for Kibana
