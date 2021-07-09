@@ -57,7 +57,7 @@ defaults:
     scope:
       type: artifacts
     values:
-      layout: default
+      layout: artifact
       permalink: :collection/:categories/:slug
 
 collections:
