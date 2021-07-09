@@ -187,7 +187,10 @@ this is the built-in error checking for the version definition having missing ar
             {% capture artifact_option %}<option class="platform_{{platform}}" value="{{artifact_id}}">{{ architecture_pretty }} / {{ extension_pretty }}</option>{%endcapture%}
             {% assign artifact_options = artifact_options | append: artifact_option %}
             {% if details.artifact_url %}
-              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.artifact_url}}" class="cta">Download</a> </div>{% endcapture %}
+
+              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> 
+                <a href="{% if details.indirect %}{{details.url | append: '.html' }}{% else %}{{details.artifact_url}}{% endif %}" 
+                class="cta">Download</a> </div>{% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
             {% if details.link %}

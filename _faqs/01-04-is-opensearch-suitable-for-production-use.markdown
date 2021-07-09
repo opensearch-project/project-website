@@ -3,4 +3,4 @@ question: Is OpenSearch suitable for production use?
 category: General
 ---
 
-OpenSearch is currently in beta. We are working towards a release candidate and expect it to stabilize and be ready for production by early summer (mid-2021).
+OpenSearch became ready for production use in July of 2021 with the generally available release of OpenSearch 1.0.
