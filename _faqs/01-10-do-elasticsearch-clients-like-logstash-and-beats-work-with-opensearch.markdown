@@ -5,7 +5,7 @@ category: General
 
 Since OpenSearch is wire-compatible with Elasticsearch 7.10, any clients that currently work
 with Elasticsearch 7.10 should also work with OpenSearch. For details specific about open 
-source Logstash and Beats compatibility please see the [documentation](https://docs-beta.opensearch.org/docs/agents-and-ingestion-tools/#compatibility-matrices). 
+source Logstash and Beats compatibility please see the [documentation](https://docs-beta.opensearch.org/clients/agents-and-ingestion-tools/index/#compatibility-matrices). 
 
 Please report any issues you experience with these clients
 or other clients in our project [GitHub issues](https://github.com/opensearch-project/OpenSearch/issues).

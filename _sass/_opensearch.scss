@@ -261,3 +261,106 @@ dl.list-features {
         padding-left: 0;
     }
 }
+
+.tree, .tree ul {
+    margin:0;
+    padding:0;
+    list-style:none
+  }
+  .tree ul {
+    margin-left:1em;
+    position:relative
+  }
+  .tree ul ul {
+    margin-left:.5em
+  }
+  
+  .tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid
+  }
+  .tree li {
+    margin:0;
+    line-height:2em;
+    position:relative
+  }
+  .tree li li {
+  padding:0 1em;
+  }
+  .tree ul li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left:0
+  }
+  .tree ul li:last-child:before {
+    background:#fff;
+    height:auto;
+    top:1em;
+    bottom:0
+  }
+
+.artifact-download-tree {
+    margin: 1em;
+    padding: 1em;
+    background-color: #fff;
+    @include sans-serif;
+}
+.artifact-name {
+    margin-bottom:0;
+}
+.artifact-and-heading {
+    margin-left: 1em;
+    padding-bottom: 1em;
+   
+}
+.artifact-and-heading + .artifact-and-heading {
+    border-top: 1px solid $line;
+}
+
+.artifact-group {
+    h2 {
+        padding-top: 0.75em;
+        border-top: 1px solid $line;
+    }
+}
+#content-main .artifact-group:first-child h2 {
+    border-top: none;
+}
+.artifact-container {
+    display: flex;
+
+    .artifact-explain { 
+        width : 66%;
+
+    }
+    .download-panel {
+        margin-left: 1em;
+        flex-grow: 1;
+        @include sans-serif;
+
+        select {
+            width: 100%;
+        }
+        label, 
+        .extra_links a {
+            font-size: 1.2rem;
+            display: block;
+        }
+        .extra_links .cta {
+            font-size: 1.5rem;
+            max-width: none;
+        }
+    }
+}
