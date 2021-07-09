@@ -1,6 +1,6 @@
 ---
 role: daemon
-artifact_id: opensearch
+artifact_id: opensearch-min
 version: 1.0.0
 platform: linux
 architecture: arm64
