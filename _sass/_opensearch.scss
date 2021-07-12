@@ -364,3 +364,10 @@ dl.list-features {
         }
     }
 }
+
+.artifact-standalone {
+    @include sans-serif;
+    .cta {
+        display: inline-block;
+    }
+}

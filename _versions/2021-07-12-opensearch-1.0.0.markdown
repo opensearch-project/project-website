@@ -14,14 +14,14 @@ components:
     role: ui
     artifact: opensearch-dashboards
     version: 1.0.0
-  -
-    role: ingest
-    artifact: logstash-oss-with-opensearch-output-plugin
-    version: 1.0.0
+#  -
+#    role: ingest
+#    artifact: logstash-oss-with-opensearch-output-plugin
+#    version: 1.0.0
   -
     role: ingest
     artifact: data-prepper
-    version: data-prepper-1.1.0
+    version: data-prepper-1.0.0
   -
     role: minimal-artifacts
     artifact: opensearch-min
@@ -50,12 +50,14 @@ sections:
         explanation: "downloads/opensearch-ui.markdown"
      
   data-ingest:
+    explanation: "downloads/opensearch-data-ingest.markdown"
     role: ingest
+    
     artifacts:
       data-prepper:
         explanation: "downloads/data-prepper.html"
-      logstash-oss-with-opensearch-output-plugin:
-        explanation: "downloads/logstash-oss-with-opensearch-output-plugin.html"
+#      logstash-oss-with-opensearch-output-plugin:
+#        explanation: "downloads/logstash-oss-with-opensearch-output-plugin.html"
   minimal:
     explanation: "downloads/minimal-distributions.markdown"
     role: minimal-artifacts

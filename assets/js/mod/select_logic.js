@@ -1,7 +1,6 @@
 define([
     'jquery' //requires jquery
 ], function( $ ) {
-  console.log('here')
   function selectExtras($extras,id) {
     $extras.children().show();
     $extras.children(':not(.extra_'+id+')').hide(); //$artifactSelect.val()
@@ -29,7 +28,7 @@ define([
   $(".dl-artifact-select").change(function() {
     var
       $artifactSelect = $(this),
-      $extraLinks = $artifactSelect.parent().children('.extra-links');
+      $extraLinks = $artifactSelect.parent().find('.extra-links-group');
     selectExtras($extraLinks,$artifactSelect.val());
   });
 
