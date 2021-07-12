@@ -13,11 +13,11 @@ twittercard:
   description: "Today is a really good day. Since January, we’ve been working together to build OpenSearch 1.0, and today we’re ecstatic to make our first general availability (GA) release. General availability is a huge milestone for the OpenSearch community because it means that OpenSearch is officially production-ready. We’re so proud to share what our passionate and diverse community has built with the world."
 ---
 
-Today is a really good day. Since the OpenSearch project started, the goal has been to make OpenSearch ready for production traffic. After a ton of work by the OpenSearch community, we’re thrilled to announce the first general availability (GA) release of OpenSearch 1.0.0. Everyone involved in this passionate and diverse community should be proud of the accomplishment in reaching the GA milestone.
+Today is a really good day. Since the OpenSearch project started, the goal has been to make OpenSearch ready for production use. After a ton of work by the OpenSearch community, we’re thrilled to announce the first general availability (GA) release of OpenSearch, 1.0.0. Everyone involved in this passionate and diverse community should be proud of the accomplishment in reaching the GA milestone.
 
 This GA release is the culmination of several stages of development. When the Alpha was released, the [forking team recapped the entire process to that point](https://discuss.opendistrocommunity.dev/t/preparing-opensearch-and-opensearch-dashboards-for-release/5567).  Since then the pace of change on OpenSearch has continued, with the addition of the plugins sourced from Open Distro for Elasticsearch as well as key updates provided by the community.  These updates include:
 
-1. **Continual removal of proprietary code and marks.** While the initial pre-Alpha effort removed the vast majority of the now redundant proprietary bits, additional pieces were removed throughout the rest of development. You should now feel confident that OpenSearch has shed its proprietary cruft.
+1. **Continual removal of proprietary code and marks.** While the initial pre-Alpha effort removed the vast majority of the now redundant proprietary bits and references, additional cleaning occured throughout the rest of development. You should now feel confident that OpenSearch is free of proprietary code and references.
 2. **Migration.** A few people will probably start using OpenSearch 1.0 in a greenfield, but most people will want to migrate into OpenSearch. With this in mind, the team has spent time making this as easy as possible, really no different than a version upgrade in the past, despite being a new, unique piece of software.
 3. **Compatibility**. OpenSearch’s usefulness depends on interfacing with a cornucopia of tools and libraries. Each one of these will use OpenSearch slightly differently, so the community has been instrumental in pointing out and helping the developers on the project understand what’s needed to ensure continued compatibility with your favorite tools. This involved making changes to how versions are reported as well as maintaining important markers used by various libraries.
 4. **Testing.** With a project as complex as OpenSearch, testing ensures that small changes don’t cascade into unintended problems. As such, the team paid special attention to making sure OpenSearch has a modern and flexible testing infrastructure that will serve the project for years to come. 
@@ -47,10 +47,10 @@ If anyone is missing from these lists, please reach out and we will very gratefu
 Now that OpenSearch has added test automation, built infrastructure, made updates to ensure the code is suitable for production use, and thoroughly tested, the project will be able to deliver on a more regular release cadence. Exciting things are coming for the project:
 
 * To ensure using OpenSearch is as easy as possible the intention is to release additional artifacts including RPM x64, DEB x64, DEB ARM64, RPM ARM64, MacOS ARM64, MacOS x64, and Windows x64 among others.
-* The project will make security **** investments such as more granular security for Index State Management and increasing SAML attribute flexibility.
+* The project will make security investments such as more granular security for Index State Management and increasing SAML attribute flexibility.
 * Observability features like bucket level alerting and out of the box security and operational analytics experiences will be added to make it easier to analyze your application and infrastructure data.
-* OpenSearch will support [cross cluster replication](https://github.com/opensearch-project/cross-cluster-replication/issues/1) to allow you to deploy for higher availability. 
-* To help you better understand your data, ML features such as [FAISS](https://github.com/opendistro-for-elasticsearch/k-NN/issues/225) library integrations and root cause analysis support will be added. 
+* OpenSearch will support cross cluster replication to allow you to deploy for higher availability. 
+* To help you better understand your data, ML features such as FAISS library integrations and root cause analysis support will be added. 
 
 ...among many others on the [roadmap](https://github.com/orgs/opensearch-project/projects/1). 
 
