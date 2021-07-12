@@ -56,7 +56,7 @@ Now that OpenSearch has added test automation, built infrastructure, made update
 
 ...among many others on the [roadmap](https://github.com/orgs/opensearch-project/projects/1). 
 
-The next major milestone for OpenSearch is 1.1 and is expected to be released August 30. In addition to more artifact coverage (e.g. RPM X64, DEB X64, DEB ARM64), OpenSearch 1.1 will include improvements to anomaly detection (ex. [universal flow](https://github.com/opendistro-for-elasticsearch/anomaly-detection/issues/380)), [indexing pressure protection](https://github.com/opensearch-project/OpenSearch/issues/478), and [notification support](https://github.com/opensearch-project/notifications/issues/181) among others. Check out the [public roadmap](https://github.com/orgs/opensearch-project/projects/1) for more details.
+The next major milestone is OpenSearch 1.1, which is expected to release on August 30. In addition to more artifact coverage (e.g. RPM X64, DEB X64, DEB ARM64), OpenSearch 1.1 will include improvements to anomaly detection (ex. [universal flow](https://github.com/opendistro-for-elasticsearch/anomaly-detection/issues/380)), [indexing pressure protection](https://github.com/opensearch-project/OpenSearch/issues/478), and [notification support](https://github.com/opensearch-project/notifications/issues/181) among others. Check out the [public roadmap](https://github.com/orgs/opensearch-project/projects/1) for more details.
 
 ### **How can you help?**
 
