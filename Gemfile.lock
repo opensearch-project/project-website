@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.8)
@@ -29,9 +29,6 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 2.0)
-    jekyll-category-pages (1.1.1)
-      jekyll (~> 4.0)
-      jekyll-paginate (~> 1.1, >= 1.0.0)
     jekyll-feed (0.15.1)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
@@ -78,7 +75,6 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.2.0)
-  jekyll-category-pages
   jekyll-feed (~> 0.12)
   jekyll-paginate
   jekyll-sitemap
