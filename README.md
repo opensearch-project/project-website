@@ -1,3 +1,5 @@
+<img src="https://opensearch.org/assets/img/opensearch-logo-themed.svg" height="64px">
+
 - [opensearch.org website](#opensearchorg-website)
   - [Contributing](#contributing)
     - [Adding to the Partners Page](#adding-to-the-partners-page)
