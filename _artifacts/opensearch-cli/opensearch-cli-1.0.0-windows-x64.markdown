@@ -8,5 +8,4 @@ artifact_url: https://artifacts.opensearch.org/opensearch-clients/opensearch-cli
 slug: opensearch-cli-1.0.0-windows-x64
 category: opensearch
 type: zip
-signature: https://artifacts.opensearch.org/opensearch-clients/opensearch-cli/opensearch-cli-1.0.0-windows-x64.zip.sig
 ---
