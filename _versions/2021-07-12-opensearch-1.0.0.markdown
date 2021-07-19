@@ -14,6 +14,10 @@ components:
     role: ui
     artifact: opensearch-dashboards
     version: 1.0.0
+  -
+    role: command-line-tools
+    artifact: opensearch-cli
+    version: 1.0.0
 #  -
 #    role: ingest
 #    artifact: logstash-oss-with-opensearch-output-plugin
@@ -48,7 +52,6 @@ sections:
     artifacts:
       opensearch-dashboards:
         explanation: "downloads/opensearch-ui.markdown"
-     
   data-ingest:
     explanation: "downloads/opensearch-data-ingest.markdown"
     role: ingest
@@ -58,6 +61,13 @@ sections:
         explanation: "downloads/data-prepper.html"
 #      logstash-oss-with-opensearch-output-plugin:
 #        explanation: "downloads/logstash-oss-with-opensearch-output-plugin.html"
+  command-line-tools:
+    role: command-line-tools
+    artifacts:
+      opensearch-cli:
+        explanation: "downloads/opensearch-cli.html"
+
+
   minimal:
     explanation: "downloads/minimal-distributions.markdown"
     role: minimal-artifacts
