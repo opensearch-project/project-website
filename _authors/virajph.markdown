@@ -3,6 +3,7 @@ short_name: virajph
 name: Viraj Phanse
 twitter: 'vrphanse'
 github: vrphanse
+photo: '/assets/media/authors/vrphanse.jpeg'
 ---
 
 
