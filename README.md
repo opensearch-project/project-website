@@ -14,11 +14,13 @@ This repo contains the source for the opensearch.org website.
 
 ## Contributing
 
-We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to learn more about how to contribute to the website.
+We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to learn more about how to contribute to the website. 
+
+_Note:_ As of July 20, 2021, contributions are welcome on the `main` branch; the `prod` branch is now protected and holds the finalized version of the site. The `staging` branch has been removed and is no longer being used.
 
 ### Adding to the Partners Page
 
-If you are a partner, you are welcome to add your logo/link to our partners page. See the [sample file](https://github.com/opensearch-project/project-website/blob/staging/_partners/_sample.md) and submit a pull request.
+If you are a partner, you are welcome to add your logo/link to our partners page. See the [sample file](https://github.com/opensearch-project/project-website/blob/main/_partners/_sample.md) and submit a pull request.
 
 ## Security
 
