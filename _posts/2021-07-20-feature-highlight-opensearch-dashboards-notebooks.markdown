@@ -47,8 +47,8 @@ Specify the input language on the first line using `%[language type]` syntax. Fo
 ### Sample markdown block
 
 ```
-`%md
-Add in text formatted in markdown.`
+%md
+Add in text formatted in markdown.
 ```
 
 ![markdown notebooks](/assets/media/blog-images/2021-07-20-feature-highlight-opensearch-dashboards-notebooks/markdown_notebooks.gif){: .img-fluid}
@@ -56,16 +56,16 @@ Add in text formatted in markdown.`
 ### Sample SQL block
 
 ```
-`%sql
-Select * from opensearch_dashboards_sample_data_flights limit 20;`
+%sql
+Select * from opensearch_dashboards_sample_data_flights limit 20;
 ```
 ![sql notebooks](/assets/media/blog-images/2021-07-20-feature-highlight-opensearch-dashboards-notebooks/sql_notebooks.gif){: .img-fluid}
 
 ### Sample PPL block
 
 ```
-`%ppl
-source=opensearch_dashboards_sample_data_logs | head 20`
+%ppl
+source=opensearch_dashboards_sample_data_logs | head 20
 ```
 
 ![ppl notebooks](/assets/media/blog-images/2021-07-20-feature-highlight-opensearch-dashboards-notebooks/ppl_notebooks.gif){: .img-fluid}
