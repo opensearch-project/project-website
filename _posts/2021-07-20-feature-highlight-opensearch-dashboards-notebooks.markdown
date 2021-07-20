@@ -10,7 +10,7 @@ date:   2021-07-20 01:01:01 -0700
 categories: feature
 ---
 
-OpenSearch Dashboards Notebooks lets you easily combine live visualizations, narrative text, and SQL and [Piped Processing Language (PPL)](https://opensearch.org/docs/search-plugins/ppl/index/) queries so that you can tell your data’s story. You can interactively explore data by running different visualizations and share them with team members to collaborate. Notebooks can help with a variety of use cases such as creating postmortem reports, designing operations run books, building live infrastructure reports, and even documentation.  With OpenSearch 1.0, Notebooks is now production ready. Additionally, multiple enhancements were introduced such as support for multi-tenancy, query languages like SQL and PPL and an integration with reporting.
+OpenSearch Dashboards [Notebooks](https://opensearch.org/docs/dashboards/notebooks/) lets you easily combine live visualizations, narrative text, and SQL and [Piped Processing Language (PPL)](https://opensearch.org/docs/search-plugins/ppl/index/) queries so that you can tell your data’s story. You can interactively explore data by running different visualizations and share them with team members to collaborate. Notebooks can help with a variety of use cases such as creating postmortem reports, designing operations run books, building live infrastructure reports, and even documentation.  With OpenSearch 1.0, Notebooks is now production ready. Additionally, multiple enhancements were introduced such as support for multi-tenancy, query languages like SQL and PPL and an integration with reporting.
 
 In this blog we will explore popular use cases for Notebooks, how the feature works, and how to get started with it.
 
