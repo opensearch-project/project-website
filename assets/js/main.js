@@ -34,9 +34,9 @@ define(function() {
     }
 
     //feature list
-    if (hasClass('list-features')) {
+    /*if (hasClass('list-features')) {
         mods.push('mod/list-feature');
-    }
+    }*/
 
     //collapsing list
     if (hasClass('list-collapsing')) {
@@ -49,20 +49,6 @@ define(function() {
 
     if (hasClass('doc-floating-warning')) {
         mods.push('mod/floating-warning');
-    }
-
-    //fundraising heart
-    if (hasClass('fundraising-heart')) {
-        mods.push('mod/fundraising-heart');
-    }
-    //fundraising donation form
-    if (hasClass('fundraising-index')) {
-        mods.push('mod/fundraising-index');
-    }
-
-    //fundraising heroes list
-    if (hasClass('heroes-section')) {
-        mods.push('mod/fundraising-heroes');
     }
 
     if (hasClass('dashboard-index')) {
@@ -78,10 +64,6 @@ define(function() {
         mods.push('mod/search-key');
     }
 
-
-    if (hasClass('corporate-membership-join-form')) {
-        mods.push('mod/corporate-member-join');
-    }
 
     if (hasClass('messages')) {
         mods.push('mod/messages');
