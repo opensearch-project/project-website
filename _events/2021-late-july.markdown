@@ -1,7 +1,7 @@
 ---
 eventdate: 2021-07-27T09:00
 tz: UTC -7
-title: OpenSearch Community Meeting - Early July
+title: OpenSearch Community Meeting - Late July
 online: true
 signup:
     url: https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/events/thmcwrycckbjc/

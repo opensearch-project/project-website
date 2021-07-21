@@ -22,7 +22,9 @@ If you need help and are unsure where to open an issue, try [forums](https://dis
 
 ## Contributing
 
-We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to learn more about how to contribute to the website.
+We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to learn more about how to contribute to the website. 
+
+_Note:_ As of July 20, 2021, contributions are welcome on the `main` branch; the `prod` branch is now protected and holds the finalized version of the site. The `staging` branch has been removed and is no longer being used.
 
 ### Adding to the Partners Page
 
