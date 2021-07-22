@@ -1,7 +1,8 @@
 The best way to try out OpenSearch is to use [Docker Compose](https://docs.docker.com/compose/install/). These steps will setup a two node cluster of OpenSearch plus OpenSearch Dashboards:
 
 1. Download [docker-compose.yml](https://opensearch.org/samples/docker-compose.yml) into your desired directory
-2. Run `docker-compose up`
-3. Have a nice coffee while everything is downloading and starting up
-4. Navigate to [http://localhost:5601/](http://localhost:5601) for OpenSearch Dashboards
-5. Login with the default username (`admin`) and password (`admin`)
+2. Make sure you have Docker set to use at least 4 GB of RAM in **Preferences** > **Resources**.
+3. Run `docker-compose up`
+4. Have a nice coffee while everything is downloading and starting up
+5. Navigate to [http://localhost:5601/](http://localhost:5601) for OpenSearch Dashboards
+6. Login with the default username (`admin`) and password (`admin`)
