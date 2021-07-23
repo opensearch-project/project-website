@@ -22,20 +22,13 @@
     }
     var require = {
         shim: {
-            'jquery': [],
-            'jquery.inview': ["jquery"],
-            'jquery.flot': ["jquery"],
-            'jquery.unveil': ["jquery"]
+            'jquery': []
         },
         paths: {
-            "jquery": extless("{{'assets/js/lib/jquery/dist/jquery.min.js' | relative_url }}"),
-            "jquery.inview": extless("{{'assets/js/lib/jquery.inview/jquery.inview.min.js'| relative_url }}"),
-            "jquery.unveil": extless("{{'assets/js/lib/unveil/jquery.unveil.min.js' | relative_url }}"),
-            "jquery.flot": extless("{{'assets/js/lib/jquery-flot/jquery.flot.min.js' | relative_url }}"),
+            "jquery": extless("{{'assets/js/lib/jquery-3.6/jquery-3.6.0.min.js' | relative_url }}"),
             "clipboard": extless("{{'assets/js/lib/clipboard/dist/clipboard.min.js' | relative_url }}"),
             "mod/floating-warning": extless("{{'assets/js/mod/floating-warning.js' | relative_url }}"),
             "mod/list-collapsing": extless("{{'assets/js/mod/list-collapsing.js' | relative_url }}"),
-            "mod/list-feature": extless("{{'assets/js/mod/list-feature.js' | relative_url }}"),
             "mod/mobile-menu": extless("{{'assets/js/mod/mobile-menu.js' | relative_url }}"),
             "mod/version-switcher": extless("{{'assets/js/mod/version-switcher.js' | relative_url }}"),
             "mod/search-key": extless("{{'assets/js/mod/search-key.js' | relative_url }}"),
