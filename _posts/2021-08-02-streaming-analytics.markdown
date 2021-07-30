@@ -4,7 +4,7 @@ title:  "Streaming Analytics in OpenSearch"
 authors: 
   - sudipto
   - joshtok
-date:   2021-07-30 01:01:01 -0700
+date:   2021-08-02 01:01:01 -0700
 categories: feature
 ---
 
