@@ -60,7 +60,7 @@ sections:
       data-prepper:
         explanation: "downloads/data-prepper.html"
       logstash-oss-with-opensearch-output-plugin:
-        explanation: "downloads/logstash-oss-with-opensearch-output-plugin.html"
+        explanation: "downloads/logstash-oss-with-opensearch-output-plugin.markdown"
   command-line-tools:
     role: command-line-tools
     artifacts:
