@@ -1,0 +1,1 @@
+This package includes open source Logstash bundled with the OpenSearch output plugin (v1.0.0). The output plugin is compatible with OpenSearch and Open Source versions of Elasticsearch (7.10.2 or lower). The output plugin is also available as a [Ruby Gem](https://rubygems.org/gems/logstash-output-opensearch).

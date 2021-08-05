@@ -18,10 +18,10 @@ components:
     role: command-line-tools
     artifact: opensearch-cli
     version: 1.0.0
-#  -
-#    role: ingest
-#    artifact: logstash-oss-with-opensearch-output-plugin
-#    version: 1.0.0
+  -
+    role: ingest
+    artifact: logstash-oss-with-opensearch-output-plugin
+    version: 7.13.2
   -
     role: ingest
     artifact: data-prepper
@@ -59,8 +59,8 @@ sections:
     artifacts:
       data-prepper:
         explanation: "downloads/data-prepper.html"
-#      logstash-oss-with-opensearch-output-plugin:
-#        explanation: "downloads/logstash-oss-with-opensearch-output-plugin.html"
+      logstash-oss-with-opensearch-output-plugin:
+        explanation: "downloads/logstash-oss-with-opensearch-output-plugin.markdown"
   command-line-tools:
     role: command-line-tools
     artifacts:
