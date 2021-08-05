@@ -2,4 +2,5 @@
 layout: none
 ---
 User-agent: *
-Sitemap: {{ site.url }}/sitemap.xml
+Disallow: /docs/javadoc/
+Sitemap: {{ site.url }}/sitemap-index.xml

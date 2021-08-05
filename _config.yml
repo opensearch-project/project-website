@@ -21,7 +21,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  
+  - bower.json
+  - package.json
+
 defaults:
 -
     scope:
@@ -73,7 +75,6 @@ collections:
     output: true
   versions:
     output: true
-  partners:
   faqs:
     
 paginate: 5
@@ -100,6 +101,3 @@ paginate_path: "/blog/page:num/"
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-exclude:
-  - bower.json
-  - package.json
