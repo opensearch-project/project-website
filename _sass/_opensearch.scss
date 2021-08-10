@@ -145,6 +145,10 @@ dl.list-features {
     margin-bottom: 0;
 }
 
+.homepage .list-features dt {
+    @include serif;
+}
+
 .homepage .list-features p + dt {
     padding-top: 0.5em;
 }
