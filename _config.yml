@@ -16,6 +16,7 @@ headings:
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-last-modified-at
   - jekyll-sitemap
 exclude:
   - Gemfile
@@ -36,7 +37,7 @@ defaults:
       type: "authors"
     values:
       layout: "author"
-      permalink: /:collection/:name
+      permalink: /:collection/:name/
 -
     scope:
       type: javadocs
@@ -54,13 +55,13 @@ defaults:
       type: versions
     values: 
       layout: versions
-      permalink:  versions/:categories/:slug
+      permalink:  versions/:categories/:slug.html
 -
     scope:
       type: artifacts
     values:
       layout: artifact
-      permalink: :collection/:categories/:slug
+      permalink: :collection/:categories/:slug.html
 
 collections:
   authors:
