@@ -3,7 +3,7 @@ layout: post
 title:  "Carrying forward the OpenSearch client libraries as a community"
 authors: 
   - elifish
-date:   2021-08-03 01:01:01 -0700
+date:   2021-08-11 01:01:01 -0700
 categories: 
   - community
 ---
@@ -12,12 +12,12 @@ Software projects often provide language specific client libraries to make it ea
 
 Starting with version 7.14, multiple of the [clients maintained by Elastic](https://www.elastic.co/guide/en/elasticsearch/client/index.html) contain [new logic](https://github.com/elastic/elasticsearch-py/pull/1623) that rejects connections to OpenSearch clusters or to clusters running open source distributions of Elasticsearch 7. This includes the [Apache-licensed distribution](https://www.elastic.co/downloads/past-releases/elasticsearch-oss-7-10-2) provided by Elastic, as well as community distributions like [Open Distro for Elasticsearch](https://opendistro.github.io/for-elasticsearch/).
 
-For the time being, users of these client libraries should not upgrade to version 7.14 as this may break applications. Please see these instructions for ensuring you’re using client connector libraries that work with open source Elasticsearch and OpenSearch clusters.
+For the time being, people who use open source Elasticsearch, Open Distro, or OpenSearch should avoid upgrading to version 7.14 of these client libraries as this may break applications. Please see [these instructions](https://opensearch.org/docs/clients/index/) for recommended versions of client libraries that have been tested to work with open source Elasticsearch and OpenSearch clusters.
 
-In the coming days, the OpenSearch project will add new open source clients for connecting applications to any OpenSearch or Elasticsearch version 7 cluster. These clients will be derived from the last compatible version of the corresponding Elastic-maintained client before product checks were added. The list of clients includes:
+Over the next few weeks, the OpenSearch project will add new open source clients for connecting applications to any OpenSearch or Elasticsearch version 7 cluster. These clients will be derived from the last compatible version of the corresponding Elastic-maintained client before product checks were added. The list of clients includes:
 
   1. [elasticsearch-py](https://github.com/elastic/elasticsearch-py)
-  2. elasticsearch-java
+  2. [elasticsearch-java](https://github.com/elastic/elasticsearch-java)
   3. [elasticsearch-net](https://github.com/elastic/elasticsearch-net)
   4. [go-elasticsearch](https://github.com/elastic/go-elasticsearch)
   5. [elasticsearch-js](https://github.com/elastic/elasticsearch-js) 
@@ -33,10 +33,12 @@ If there is a client library that you do not see, but would like to contribute t
  
 As stated in OpenSearch’s 6th [principle of development](https://opensearch.org/#principles) “Great open source software is built together, with a diverse community of contributors,” and so we are seeking co-maintainers for each of these client libraries. 
 
-[Maintainers](https://github.com/opensearch-project/.github/blob/main/MAINTAINERS.md#maintainer-responsibilities) are active and visible members of the community, and have [maintain-level permissions](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization) on a repository. They use those privileges to serve the community and evolve the software in the repository they maintain. As an OpenSearch project maintainer, you agree to advance the mission of the project and their repo, to uphold the project's [Code of Conduct](https://opensearch.org/codeofconduct.html), and to publish a written repository governance policy - whether that be consensus-based, voting-based, or something different. It's up to you.
+[Maintainers](https://github.com/opensearch-project/.github/blob/main/MAINTAINERS.md#maintainer-responsibilities) are active and visible members of the community, and have [maintain-level permissions](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization) on a repository. They use those privileges to serve the community and evolve the software in the repository they maintain. As an OpenSearch project maintainer, you agree to advance the mission of the project and their repo, and to uphold the project's [Code of Conduct](https://opensearch.org/codeofconduct.html). It's up to you.
 
 Should you take on this responsibility, you won’t be alone—AWS will contribute engineers to support each library as well. In addition, AWS will ensure there is continuity should any maintainers step down in the future. If you’re interested in maintaining a client library, you’ll find an open issue in each repo where volunteers are being solicited. 
 
 I’d like to give a big thanks to the people who have already stepped up to help progress and maintain the forks of the clients:
 
- _list of people_
+* [madhusudhankonda](https://github.com/madhusudhankonda)
+* [robcowart](https://github.com/robcowart)
+* [svencowart](https://github.com/svencowart)
