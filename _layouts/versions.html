@@ -243,10 +243,10 @@ this is the built-in error checking for the version definition having missing ar
 {% include downloads/final-section.html %}
 <hr />
 {% if page.next.url %}
-  <a href="{{page.next.url }}.html">Next Version</a>
+  <a href="{{page.next.url }}">Next Version</a>
 {% endif %}
 {% if page.previous.url %}
-  <a href="{{page.previous.url }}.html">Previous Version</a>
+  <a href="{{page.previous.url }}">Previous Version</a>
 {% endif %}
 
 {%endcapture%}
@@ -257,7 +257,7 @@ this is the built-in error checking for the version definition having missing ar
   <strong>Version:</strong> {{page.version}} {% if page.product == 'odfe' %}(Open Distro for Elasticsearch){% endif %}<br />
   <strong>Release Date:</strong> {{ page.date | date: "%b %d, %Y" }}<br />
   <a href="{{page.release_notes}}">Release Notes</a><br />
-  <a href="{{page.url}}.html">Version Permalink</a>
+  <a href="{{page.url}}">Version Permalink</a>
   <hr />
   <ul>
   {% for section in page.sections %}
