@@ -1,5 +1,6 @@
 ---
 layout: fullwidth
+primary_title: JavaDocs
 ---
 <h2>{{page.title}}</h2>
 <ul>
@@ -8,8 +9,9 @@ layout: fullwidth
     {% assign fname = parts  | last %}
     {%if fname == 'index.html' %}
       {% assign url = line %}
-      <li><a href="/javadocs/{{ page.slug }}/{{ url }}"><pre>{{line | remove: "OpenSearch/" | remove: 
-        "/build/docs/javadoc/index.html" | replace: "/" ,":"}}</pre></a></li>
+      <li><a href="/javadocs/{{ page.slug }}/{{ url }}" class="javadoc">
+          {{line | remove: "OpenSearch/" | remove: "/build/docs/javadoc/index.html" | replace: "/" ,":"}}
+      </a></li>
     {%endif%}
     </li>
   {% endfor %}
