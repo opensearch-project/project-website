@@ -43,7 +43,7 @@ defaults:
       type: javadocs
     values:
       layout: javadocs
-      permalink: /docs/:collection/:name
+      permalink: /:collection/:name.html
 -
     scope:
       type: events
