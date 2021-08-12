@@ -3,14 +3,13 @@ email: opensearch@amazon.com
 description: ""
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://opensearch.org
-twitter_username: 
-github_username: 
+twitter_username:
+github_username:
 headings:
-  news: 'News'
-  source: 'Source Code'
-  authors: 'Authors'
-  downloads: 'Download & Get Started'
-
+  news: "News"
+  source: "Source Code"
+  authors: "Authors"
+  downloads: "Download & Get Started"
 
 # Build settings
 plugins:
@@ -26,38 +25,32 @@ exclude:
   - package.json
 
 defaults:
--
-    scope:
+  - scope:
       type: "posts"
     values:
       permalink: blog/:categories/:year/:month/:title/
-- 
-    scope:
+  - scope:
       path: ""
       type: "authors"
     values:
       layout: "author"
       permalink: /:collection/:name/
--
-    scope:
+  - scope:
       type: javadocs
     values:
       layout: javadocs
       permalink: /docs/:collection/:name
--
-    scope:
+  - scope:
       type: events
     values:
       layout: event
-      permalink:  events/:title/
--
-    scope:
+      permalink: events/:title/
+  - scope:
       type: versions
-    values: 
+    values:
       layout: versions
-      permalink:  versions/:categories/:slug.html
--
-    scope:
+      permalink: versions/:categories/:slug.html
+  - scope:
       type: artifacts
     values:
       layout: artifact
@@ -67,7 +60,7 @@ collections:
   authors:
     output: true
   partners:
-  'community_projects':
+  "community_projects":
   javadocs:
     output: true
   events:
@@ -77,12 +70,9 @@ collections:
   versions:
     output: true
   faqs:
-    
+
 paginate: 5
 paginate_path: "/blog/page:num/"
-
-
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

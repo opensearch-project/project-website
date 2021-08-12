@@ -9,20 +9,20 @@
   - [Security](#security)
   - [License](#license)
   - [Credits](#credits)
-  
+
 # OpenSearch.org Website
 
-This repo contains the source for the [opensearch.org](https://opensearch.org/) website. 
+This repo contains the source for the [opensearch.org](https://opensearch.org/) website.
 
 ## Getting Help
 
-If you find a bug, or have a feature request, please don't hesitate to open an issue in this repository. 
+If you find a bug, or have a feature request, please don't hesitate to open an issue in this repository.
 
 If you need help and are unsure where to open an issue, try [forums](https://discuss.opendistrocommunity.dev/).
 
 ## Contributing
 
-We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to learn more about how to contribute to the website. 
+We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to learn more about how to contribute to the website.
 
 _Note:_ As of July 20, 2021, contributions are welcome on the `main` branch; the `prod` branch is now protected and holds the finalized version of the site. The `staging` branch has been removed and is no longer being used.
 
@@ -34,7 +34,7 @@ If you are a partner, you are welcome to add your logo/link to our partners page
 
 This site uses [Jekyll](https://jekyllrb.com/). You can build the site and make it available on a local server via `docker-compose up -d`, or by installing all the dependencies on your local environment as follows.
 
-1. Install [Ruby](https://www.ruby-lang.org/en/) and run `bundle install`.
+1. Install [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/), then run `bundle install`.
 2. Build and start Jekyll with `bundle exec jekyll serve`.
 3. Browse the site at [`http://127.0.0.1:4000/`](http://127.0.0.1:4000/).
 
