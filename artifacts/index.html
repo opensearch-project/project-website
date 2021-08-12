@@ -20,7 +20,7 @@ primary_title: Artifacts
                     <li><a href="{{ artifact.link }}">{{ artifact.link }}</a> [External]</li>
                   {% else %}
                  
-                    <li><a href=" {% if artifact.indirect %}{{artifact.url | append: '.html' }}{% else %}{{artifact.artifact_url}}{% endif %}">{{ artifact.artifact_url | split: "/" | last }}</a></li>
+                    <li><a href=" {% if artifact.indirect %}{{artifact.url}}{% else %}{{artifact.artifact_url}}{% endif %}">{{ artifact.artifact_url | split: "/" | last }}</a></li>
                   {% endif %}
                 {% endfor %}
               </ul> 
