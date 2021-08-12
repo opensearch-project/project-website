@@ -14,8 +14,10 @@ headings:
 
 # Build settings
 plugins:
+  - jekyll-redirect-from
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-last-modified-at
   - jekyll-sitemap
 exclude:
   - Gemfile
@@ -36,13 +38,13 @@ defaults:
       type: "authors"
     values:
       layout: "author"
-      permalink: /:collection/:name
+      permalink: /:collection/:name/
 -
     scope:
       type: javadocs
     values:
       layout: javadocs
-      permalink: /docs/:collection/:name
+      permalink: /:collection/:name.html
 -
     scope:
       type: events
@@ -54,13 +56,13 @@ defaults:
       type: versions
     values: 
       layout: versions
-      permalink:  versions/:categories/:slug
+      permalink:  versions/:categories/:slug.html
 -
     scope:
       type: artifacts
     values:
       layout: artifact
-      permalink: :collection/:categories/:slug
+      permalink: :collection/:categories/:slug.html
 
 collections:
   authors:

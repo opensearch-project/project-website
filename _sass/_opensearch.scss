@@ -170,6 +170,9 @@ dl.list-features {
     li h3 span {
         opacity: 0.9;
     }
+    ol li ul li {
+        list-style-type: disc;
+    }
 }
 
 .img-fluid {

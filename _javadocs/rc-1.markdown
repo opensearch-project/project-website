@@ -1,5 +1,5 @@
 ---
-primary_title: Docs
+primary_title: JavaDocs
 title: 'rc-1 JavaDocs'
 javadocs:
   - OpenSearch/benchmarks/build/docs/javadoc/allclasses-index.html
