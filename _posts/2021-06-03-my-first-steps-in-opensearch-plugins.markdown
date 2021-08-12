@@ -25,7 +25,7 @@ In this blog post, I will take you on a journey through my thought process and c
 
 
 ---
-- [My First Steps in OpenSearch Plugins](#my-first-steps-in-opensearch-plugins)
+- [My First Steps in OpenSearch Plugins](#)
     - [Taking the leap, not the _plunge_](#taking-the-leap-not-the-plunge)
   - [What are OpenSearch Plugins?](#what-are-opensearch-plugins)
 - [Building a Simple OpenSearch REST Plugin](#building-a-simple-opensearch-rest-plugin)

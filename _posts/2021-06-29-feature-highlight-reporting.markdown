@@ -25,7 +25,7 @@ The reporting feature is composed of two plugins; an [OpenSearch Dashboards plug
 
 ### Installation
 
-Reporting comes packaged with the OpenSearch and OpenSearch Dashboards downloads. You can follow the installation instructions on [opensearch.org/downloads](http://opensearch.org/downloads) 
+Reporting comes packaged with the OpenSearch and OpenSearch Dashboards downloads. You can follow the installation instructions on [opensearch.org/downloads](https://opensearch.org/downloads.html) 
 
 ### How do I create a report?
 

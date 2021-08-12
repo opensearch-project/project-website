@@ -27,7 +27,7 @@ There is a long list of enhancements and fixes that are part of this release inc
 - [PerfTop](https://github.com/opensearch-project/perftop/blob/main/release-notes/opensearch-perftop.release-notes-1.0.0.0-rc1.md)
 - [K-NN](https://github.com/opensearch-project/k-NN/blob/main/release-notes/opensearch-knn.release-notes-1.0.0.0-rc1.md)
 - [Job Scheduler](https://github.com/opensearch-project/job-scheduler/blob/main/release-notes/opensearch.job-scheduler.release-notes-1.0.0.0-rc1.md)
-- [Index Management](https://github.com/opensearch-project/index-management/blob/main/release-notes/opensearch-index-management.release-notes-1.0.0.0-rc1.md )
+- [Index Management](https://github.com/opensearch-project/index-management/blob/main/release-notes/opensearch-index-management.release-notes-1.0.0.0-rc1.md)
 - [Index Management Dashboards](https://github.com/opensearch-project/index-management-dashboards-plugin/blob/main/release-notes/opensearch-index-management-dashboards-plugin.release-notes-1.0.0.0-rc1.md)
 - [Alerting](https://github.com/opensearch-project/alerting/blob/main/release-notes/opensearch-alerting.release-notes-1.0.0.0-rc1.md)
 - [Alerting Dashboards](https://github.com/opensearch-project/alerting-dashboards-plugin/blob/main/release-notes/opensearch-alerting-dashboards-plugin.release-notes-1.0.0.0-rc1.md)
@@ -60,7 +60,7 @@ The best thing you can do is run the Release Candidate through its paces. Every 
 - Install the Release Candidate and open an [issue](https://github.com/opensearch-project/OpenSearch/issues) to report any bugs you discover. 
 - Test rolling upgrades from existing Elasticsearch and ODFE versions to OpenSearch RC1 in a sandbox cluster.
 - Test clients! This will help identify what is working (and not working) so issues can be opened and prioritized. 
-- Use our [docs](https://docs-beta.opensearch.org/) and highlight any additional content you'd like to see! Submit a [PR](https://github.com/opensearch-project/documentation-website/pulls) or open an [issue](https://github.com/opensearch-project/documentation-website/issues) for any content you think would be valuable.
+- Use our [docs](https://opensearch.org/docs/) and highlight any additional content you'd like to see! Submit a [PR](https://github.com/opensearch-project/documentation-website/pulls) or open an [issue](https://github.com/opensearch-project/documentation-website/issues) for any content you think would be valuable.
 
 Before installing or upgrading to OpenSearch 1.0.0 or OpenSearch Dashboards 1.0.0, please read the release notes ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/release-notes/opensearch.release-notes-1.0.0-rc1.md) and [OpenSearch Dashboard](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/release-notes/opensearch-dashboards.release-notes-1.0.0-rc1.md)). While this 1.0.0 Release Candidate is suitable for testing by the community, you should not use a release candidate in a production environment - this Release Candidate is provided for testing and validation purposes only.
 

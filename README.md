@@ -34,7 +34,7 @@ If you are a partner, you are welcome to add your logo/link to our partners page
 
 This site uses [Jekyll](https://jekyllrb.com/). You can build the site and make it available on a local server via `docker-compose up -d`, or by installing all the dependencies on your local environment as follows.
 
-1. Install [Ruby](https://www.ruby-lang.org/en/) and run `bundle install`.
+1. Install [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/), then run `bundle install`.
 2. Build and start Jekyll with `bundle exec jekyll serve`.
 3. Browse the site at [`http://127.0.0.1:4000/`](http://127.0.0.1:4000/).
 
