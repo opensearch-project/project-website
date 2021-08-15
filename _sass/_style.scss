@@ -14,6 +14,10 @@ Altered for OpenSearch by AWS
 */
 
 //------------------- Globals
+html {
+    background: $accent-dark;
+}
+
 body {
     @include serif;
     @include font-size(18);
@@ -198,6 +202,11 @@ tt {
 
 span.pre {
     @include monospace;
+}
+
+a.javadoc {
+    @include monospace;
+    font-size: 1.5rem;
 }
 
 a:hover, a:active, a:focus {
