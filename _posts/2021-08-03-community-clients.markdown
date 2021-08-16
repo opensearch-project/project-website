@@ -43,3 +43,5 @@ I’d like to give a big thanks to the people who have already stepped up to hel
 * [robcowart](https://github.com/robcowart)
 * [svencowart](https://github.com/svencowart)
 * [robsears](https://github.com/robsears)
+* [deztructor](https://github.com/deztructor)
+* [axeoman](https://github.com/axeoman)
