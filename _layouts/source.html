@@ -1,5 +1,6 @@
 ---
 layout: default
+
 ---
 {% assign primary_title = site.headings.source %}
 {% assign layout_class = 'sidebar-right' %}
@@ -8,9 +9,10 @@ layout: default
     {{ content }}
     <dl class="repos">
     {% for repo in site.data.repos %}
-        <dt><a href="{{repo.url}}"><span class="icon icon-github"></span> {{repo.title}}</a></dt>
-        <dd>
-            <p>{{repo.description}}</p>
+        {% capture categories %}{%for category in repo.categories %}repo-category-{{category}} {%endfor%}{%endcapture%}
+        <dt class="{{categories}}"><a href="{{repo.url}}"><span class="icon icon-github"></span> {{repo.title}}</a></dt>
+        <dd class="{{categories}}">
+            <p>{{repo.description}} </p>
             {% for special_file in repo.special_files %}
                 <a class="link-readmore" href="{{ special_file.url }}">{{ special_file.title }}</a>
             {% endfor %}
@@ -21,6 +23,25 @@ layout: default
 
 {% capture content_related %}
 <div role="complementary">
+  {% assign tags = '' | split: '' %}
+
+  {% for repo in site.data.repos %}
+    {% for category in repo.categories %}
+        {% unless tags contains category %}
+            {% assign tags =  tags | push: category %}
+        {% endunless %}
+    {% endfor %}
+  {% endfor %}
+  <div>
+    <h3>Filter</h3>
+    <div class="feature-content">
+        <div class="tag-picker">
+            {% for tag in tags %}
+                <span class="tag-pick" data-show-tag="repo-category-{{tag}}" data-toggled-off="tag-off">{{ tag }}</span>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
   {% include beta_feedback.html %}
 </div>
 {% endcapture %}
