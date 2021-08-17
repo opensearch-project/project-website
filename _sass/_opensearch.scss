@@ -378,3 +378,15 @@ dl.list-features {
         display: inline-block;
     }
 }
+
+.tag-pick {
+    padding: 0.25em;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid $line;
+    margin-bottom: 1em;
+}
+.tag-pick.tag-off {
+    background-color: $highlight;
+    color: $white;
+}
