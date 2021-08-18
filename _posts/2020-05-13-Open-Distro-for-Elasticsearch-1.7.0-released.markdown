@@ -50,12 +50,12 @@ Attend our bi-weekly online [community meetup](https://www.meetup.com/Open-Distr
 
 File an issue, request an enhancement or feature you need or suggest a plugin you need at [github.com/opendistro-for-elasticsearch](https://github.com/opendistro-for-elasticsearch).
 
-Contribute code, tests, documentation and even release packages at [github.com/opendistro-for-elasticsearch](https://github.com/opendistro-for-elasticsearch). If you want to showcase how you’re using Open Distro, write a blog post for [opendistro.github.io/blog](https://opendistro.github.io/blog). If you’re interested, please reach out to us on Twitter. You can find me @alolita or Jon at @jon_handler.
+Contribute code, tests, documentation and even release packages at [github.com/opendistro-for-elasticsearch](https://github.com/opendistro-for-elasticsearch). If you want to showcase how you’re using Open Distro, write a blog post for [opensearch.org/blog](https://opensearch.org/blog). If you’re interested, please reach out to us on Twitter. You can find me @alolita or Jon at @jon_handler.
 
 Check out what's in development and get involved in components like the [Performance Analyzer RCA Engine](https://github.com/opendistro-for-elasticsearch/performance-analyzer-rca).
 
 We also invite you to get involved in ongoing development of new Open Distro for Elasticsearch plugins, clients, drivers. Contribute code, documentation or tests for [Performance Analyzer RCA Engine](https://github.com/opendistro-for-elasticsearch/performance-analyzer-rca).
 
-You can also track upcoming features in Open Distro for Elasticsearch by watching the code repositories or checking the [project website.](https://opendistro.github.io/for-elasticsearch/features/comingsoon.html)
+You can also track upcoming features in Open Distro for Elasticsearch by watching the code repositories or checking the [project website.](https://opendistro.github.io)
 
 Thanks again for using and contributing to Open Distro for Elasticsearch and being part of the project’s growing community!

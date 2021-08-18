@@ -49,7 +49,7 @@ opendistro:
         alt: Open Distro Logo
     description: Open Distro for Elasticsearch is still available.
     link: 
-        url: http://opendistro.github.io/for-elasticsearch/
+        url: https://opendistro.github.io/for-elasticsearch/
         title: Find it here
 
 secondary:
