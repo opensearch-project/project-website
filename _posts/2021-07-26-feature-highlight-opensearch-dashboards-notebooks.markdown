@@ -121,6 +121,6 @@ If you’re interested in contributing please reach out on [GitHub issues](https
 
 ## Thank you
 
-We would like to thank [@ps48](https://github.com/ps48), [@joshuali925](https://github.com/joshuali925) , [davidcui-amzn](https://github.com/davidcui-amzn) , [chloe-zh](https://github.com/chloe-zh) and [lvndc](https://github.com/lvndc) for their contributions to this feature.
+We would like to thank [@ps48](https://github.com/ps48), [@joshuali925](https://github.com/joshuali925) , [davidcui1225](https://github.com/davidcui1225) , [chloe-zh](https://github.com/chloe-zh) and [lvndc](https://github.com/lvndc) for their contributions to this feature.
 
 

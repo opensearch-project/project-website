@@ -39,7 +39,7 @@ Attend our [bi-weekly online community meetup](https://www.meetup.com/Open-Distr
 
 File an issue, request an enhancement you need or suggest a plugin you need at [github.com/opendistro-for-elasticsearch](https://github.com/opendistro-for-elasticsearch).
 
-Contribute code, tests, documentation and even release packages at [github.com/opendistro-for-elasticsearch](https://github.com/opendistro-for-elasticsearch). If you want to showcase how you’re using Open Distro, write a blog post for [opendistro.github.io/blog](https://opendistro.github.io/blog). If you’re interested, please reach out to me on Twitter. You can find me at @vrphanse.
+Contribute code, tests, documentation and even release packages at [github.com/opendistro-for-elasticsearch](https://github.com/opendistro-for-elasticsearch). If you want to showcase how you’re using Open Distro, write a blog post for [opensearch.org/blog](https://opensearch.org/blog). If you’re interested, please reach out to me on Twitter. You can find me at @vrphanse.
 
 We also invite you to get involved in ongoing development of new Open Distro for Elasticsearch plugins, clients, drivers. Contribute code, documentation or upcoming features like [Kibana Reports](https://github.com/opendistro-for-elasticsearch/kibana-reports), and [Historical Workbench in Anomaly detection](https://github.com/opendistro-for-elasticsearch/anomaly-detection-kibana-plugin/issues/214).
 
