@@ -22,9 +22,9 @@ A **node** is an instance of OpenSearch and a **cluster** is a collection of one
 Now that we have reviewed OpenSearch components, let’s follow a query through OpenSearch. At a very high-level, a OpenSearch query can be broken down into two major phases; the query phase and the fetch phase. 
 
 ### Query Phase
-In this phase, the query provided to OpenSearch is broadcasted to a copy of every shard across the entire index. Once received, the query is executed locally. The result is a priority queue of matching, sorted documents for each shard. This priority queue is simply a sorted list of the top n matching documents with top being determined by relevance and n being determined by pagination parameters set by the user (or the default if not set by the user). Relevance in this case is a score of how well each document it matches the query. The individual shards are responsible for the actual matching process as well as the scoring. So for example, if you have a three node cluster and wanted to search for "OpenSearch", you could write a query like this;
+In this phase, the query provided to OpenSearch is broadcasted to a copy of every shard across the entire index. Once received, the query is executed locally. The result is a priority queue of matching, sorted documents for each shard. This priority queue is simply a sorted list of the *top n* matching documents with *top* being determined by relevance and *n* being determined by pagination parameters set by the user (or the default if not set by the user). Relevance in this case is a score of how well each document it matches the query. The individual shards are responsible for the actual matching process as well as the scoring. So for example, if you have a three node cluster and wanted to search for "Hamster", you could write a query like this;
 ```
-GET /_search?q=OpenSearch
+curl -X GET "localhost:9200/_search?q=Hamster&pretty"
 ```
 Once OpenSearch has your query, OpenSearch takes the following steps;
 1. The API or client sends your search query to Node 1. 
@@ -41,7 +41,7 @@ Once OpenSearch has your query, OpenSearch takes the following steps;
 
 
 ### Fetch Phase
-Now that the query phase has identified the documents that satisfy the request, OpenSearch needs to actually retrieve the documents. For the fetch phase, the coordinating node used the globally sorted priority list generated in the query phase to build the GET requests needed for the query. Using the same three node cluster as the earlier example, OpenSearch need to collect all the results for your query (i.e. "OpenSearch") and return them to you. 
+Now that the query phase has identified the documents that satisfy the request, OpenSearch needs to actually retrieve the documents. For the fetch phase, the coordinating node used the globally sorted priority list generated in the query phase to build the GET requests needed for the query. Using the same three node cluster as the earlier example, OpenSearch needs to collect all the results for your query (i.e. "Hamster") and return them to you. 
 
 1. The coordinating node uses the global list to identify which documents are needed.
 2. The coordinating node issues multiple GET requests to the relevant shards.
@@ -65,5 +65,3 @@ If you’re interested in contributing please reach out on [GitHub issues](https
 1. https://opensearch.org/docs/opensearch/index-data/
 2. https://opensearch.org/docs/opensearch/cluster/
 3. https://opensearch.org/docs/opensearch/ux/
-
-
