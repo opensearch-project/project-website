@@ -51,19 +51,19 @@ Now that the query phase has identified the documents that satisfy the request, 
 *Figure 2: Fetch Phase*
 ![FetchPhase](https://user-images.githubusercontent.com/9532728/130289580-89b6d8e1-2943-40ae-b547-1858de9a55f2.png)
 
+With the results returned, OpenSearch has completed the query! 
+
 ## Conclusion
 And there you go, you now have a basic understanding of how an OpenSearch query works! What’s next? Well, we are planning two additional posts to bring your conceptional understanding to the next level;
 
 1. A Deeper Look at Queries: A look at how query scoring, routing, and balancing work. 
 2. So you want to write an OpenSearch query: An overview of query basics such as Boolean Operators, Ranges Queries, Fields, Fuzzy Queries, and Wildcards. 
 
-**How do I contribute?**
 If you’re interested in contributing please reach out on [GitHub issues](https://github.com/opensearch-project/dashboards-reports/issues) or the [community forum](https://discuss.opendistrocommunity.dev/). The more formal contribution guidelines are documented in the [contributing guide](https://github.com/opensearch-project/dashboards-reports/blob/main/CONTRIBUTING.md).
 
 **Sources**
-
 1. https://opensearch.org/docs/opensearch/index-data/
-2. https://opensearch.org/docs/opensearch/cluster/ (https://opensearch.org/docs/opensearch/cluster/#step-2-set-node-attributes-for-each-node-in-a-cluster)
+2. https://opensearch.org/docs/opensearch/cluster/
 3. https://opensearch.org/docs/opensearch/ux/
 
 
