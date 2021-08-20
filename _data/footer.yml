@@ -43,7 +43,7 @@ columns:
       #  url: 'https://twitter.com/opensearch_project'
       #-
       #  title: 'Facebook'
-      #  url: 'http://www.facebook.com/opensearch'
+      #  url: 'https://www.facebook.com/opensearch'
       -
         title: 'E-mail'
         url: 'mailto:opensearch@amazon.com'

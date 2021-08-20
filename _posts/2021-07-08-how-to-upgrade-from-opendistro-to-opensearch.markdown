@@ -52,7 +52,7 @@ Second, you should verify the version of your existing cluster, and follow the r
 |1.12.0	|7.10.0	|Restart/Rolling Upgrade to Open Distro 1.13	|
 |1.13.2	|7.10.2	|Restart/Rolling Upgrade to OpenSearch 1.0	|
 
-And finally, now that you are ready for the upgrade, you should download the latest version of OpenSearch from the [OpenSearch downloads page](https://opensearch.org/downloads.html), and if you need help with installation instructions follow the install and [configure guide](https://docs-beta.opensearch.org/opensearch/install/index/) on the documentation website.
+And finally, now that you are ready for the upgrade, you should download the latest version of OpenSearch from the [OpenSearch downloads page](https://opensearch.org/downloads.html), and if you need help with installation instructions follow the install and [configure guide](https://opensearch.org/docs/opensearch/install/index/) on the documentation website.
 
 ### Types of Upgrade
 
@@ -64,7 +64,7 @@ Now that you have taken your snapshot, and validated the recommended upgrade pat
 
 ### Approach #1: Snapshot Upgrade
 
-The first approach to upgrading from Open Distro to OpenSearch is to take a [snapshot](https://docs-beta.opensearch.org/opensearch/snapshot-restore/) of your data (indices), [create an OpenSearch cluster](https://docs-beta.opensearch.org/opensearch/install/), restore the snapshot on the new cluster, and point your clients to the new host. While this approach means running two clusters in parallel, it provides you with an opportunity to validate that the OpenSearch cluster is working in a way that meets your needs prior to modifying the current Open Distro cluster. 
+The first approach to upgrading from Open Distro to OpenSearch is to take a [snapshot](https://opensearch.org/docs/opensearch/snapshot-restore/) of your data (indices), [create an OpenSearch cluster](https://opensearch.org/docs/opensearch/install/), restore the snapshot on the new cluster, and point your clients to the new host. While this approach means running two clusters in parallel, it provides you with an opportunity to validate that the OpenSearch cluster is working in a way that meets your needs prior to modifying the current Open Distro cluster. 
 
 1. Verify that the existing cluster is green and healthy. See the [Validation](#Validation) section below for additional guidance.
 2. Take a snapshot in Open Distro.

@@ -68,7 +68,7 @@ We would also like to extend a special thanks to the people already contributing
 - [FreCap](https://github.com/FreCap)
 - [anthonylouisbsb](https://github.com/anthonylouisbsb)
 - [aadrien](https://discuss.opendistrocommunity.dev/u/aadrien)
-- [accat](https://discuss.opendistrocommunity.dev/u/acca)
+- [accat](https://discuss.opendistrocommunity.dev/u/accat)
 - [adkalavadia](https://discuss.opendistrocommunity.dev/u/adkalavadia)
 - [alexz00](https://discuss.opendistrocommunity.dev/u/alexz00)
 - [amitai](https://discuss.opendistrocommunity.dev/u/amitai)

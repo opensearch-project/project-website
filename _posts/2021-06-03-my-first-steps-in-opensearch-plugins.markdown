@@ -7,7 +7,7 @@ title: "My First Steps in OpenSearch Plugins"
 categories:
 - technical-posts
 feature_image: "/assets/media/blog-images/2021-06-03-my-first-steps-in-opensearch-plugins/my-first-steps-in-plugins-feature-image.jpg"
-canonical: http://logz.io/blog/opensearch-plugins
+canonical: https://logz.io/blog/opensearch-plugins
 ---
 
 ### Taking the leap, not the _plunge_
@@ -25,7 +25,7 @@ In this blog post, I will take you on a journey through my thought process and c
 
 
 ---
-- [My First Steps in OpenSearch Plugins](#my-first-steps-in-opensearch-plugins)
+- [My First Steps in OpenSearch Plugins](#)
     - [Taking the leap, not the _plunge_](#taking-the-leap-not-the-plunge)
   - [What are OpenSearch Plugins?](#what-are-opensearch-plugins)
 - [Building a Simple OpenSearch REST Plugin](#building-a-simple-opensearch-rest-plugin)
@@ -231,7 +231,7 @@ A few things to note on the `build.gradle`:
 Example for `Notice.txt`:  
 ```
 This product includes software developed by The Apache Software
-Foundation (http://www.apache.org/).
+Foundation (https://www.apache.org/).
 ``` 
 And a copy of the Apache 2.0 license can be found [here](https://www.apache.org/licenses/LICENSE-2.0). 
 Add your plugin's license and notice `.txt` files to your project and edit them later:
@@ -400,7 +400,7 @@ public class HelloWorldService {
 ## Testing 
 OpenSearch offers test cases for you to extend, that give you the ability to have common cluster configurations for many tests. Some of these offer a way to test your plugin as part of an OpenSearch instance. In order to test the integration with our new endpoint we can implement a YAML test. This type of test is recommended by the documentation for REST tests.
 
-In order to run a YAML REST test we need to provide a resource containing the REST API spec adhering to the [api spec requirements](https://github.com/opensearch-project/OpenSearch/blob/main/rest-api-spec/README.markdown), and the YAML based tests describing the actions and the expected returned values.
+In order to run a YAML REST test we need to provide a resource containing the REST API spec adhering to the [api spec requirements](https://github.com/opensearch-project/OpenSearch/blob/main/rest-api-spec/README.md), and the YAML based tests describing the actions and the expected returned values.
 
 As previously described, the YAML REST test file structure should be like this:
 ```
@@ -616,4 +616,4 @@ In this simple plugin use case we got to see the REST layer implementation, add 
 I would like to thank [Sarat Vemulapalli](https://github.com/saratvemulapalli) from AWS for his feedback and assistance on this post.
 
 ---
-This post is contributed by Amitai Stern from Logz.io and is co-published on [Logz.io blog](http://logz.io/blog/opensearch-plugins)
+This post is contributed by Amitai Stern from Logz.io and is co-published on [Logz.io blog](https://logz.io/blog/opensearch-plugins)

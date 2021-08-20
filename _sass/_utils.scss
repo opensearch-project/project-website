@@ -62,7 +62,7 @@ $font-path: "../fonts/fira-mono";
     font-style: normal;
 }
 
-// Media Queries Mixin (http://jakearchibald.github.com/sass-ie/)
+// Media Queries Mixin (https://jakearchibald.github.io/sass-ie/)
 @mixin respond-min($width) {
     @media screen and (min-width: $width) {
         @content;
