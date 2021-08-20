@@ -58,4 +58,4 @@ This website was forked from the BSD-licensed [djangoproject.com](https://github
 
 ## Copyright
 
-Copyright OpenSearch Contributors. See [NOTICE](NOTICE.txt) for details.
+Copyright OpenSearch Contributors. 
