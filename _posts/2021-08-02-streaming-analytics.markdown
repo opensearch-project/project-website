@@ -11,7 +11,7 @@ categories: feature
 
 This post introduces an updated Random Cut Forest library, RCF 2.0. OpenSearch uses RCF 1.0 in its existing High Cardinality Anomaly Detection (HCAD) framework [[1](#footnote1),[2](#footnote2),[3](#footnote3)]. The sequel discusses the perspective motivating RCF 2.0.
 
-Anomaly detection is a quintessential search problem. A typical use case corresponds to a high cardinality dataset, where some attributes split the data into a large number of individual, and potentially incomparable, time series and one simultaneously monitors each of those time series. Anomalies are often only explainable in the context of past data specific to each time series. The use case exemplifies the needle-in-an-unfamiliar-haystack search task. The HCAD in OpenSearch [[2](#footnote2),[3]((#footnote3))] provides users an out of the box solution for this use case. See [[4]](#footnote4) for discussions on using the feature in OpenSearch. 
+Anomaly detection is a quintessential search problem. A typical use case corresponds to a high cardinality dataset, where some attributes split the data into a large number of individual, and potentially incomparable, time series and one simultaneously monitors each of those time series. Anomalies are often only explainable in the context of past data specific to each time series. The use case exemplifies the needle-in-an-unfamiliar-haystack search task. The HCAD in OpenSearch [[2](#footnote2),[3](#footnote3)] provides users an out of the box solution for this use case. See [[4]](#footnote4) for discussions on using the feature in OpenSearch. 
 
 However a  truly high cardinality scenario requires that models are stored on disk and loaded into memory on demand to save heap space. Loading the models repeatedly however, hearkens back to rebuilding models on every data value which is a bottleneck for scale. Imagine rebuilding hash tables every time a new value is seen — further, imagine rebuilding an ensemble of 50 such hash tables with the same entries in them! 
 
@@ -29,9 +29,9 @@ This task of finding a vanishing-needle-in-an-everchanging-haystack; deriving ep
 
 <a name="footnote2"></a>2: [https://aws.amazon.com/blogs/big-data/using-random-cut-forests-for-real-time-anomaly-detection-in-amazon-elasticsearch-service/](https://aws.amazon.com/blogs/big-data/using-random-cut-forests-for-real-time-anomaly-detection-in-amazon-elasticsearch-service/)
 
-<a name="footnote2"></a>3: [https://aws.amazon.com/blogs/big-data/a-deep-dive-into-high-cardinality-anomaly-detection-in-elasticsearch/](https://aws.amazon.com/blogs/big-data/a-deep-dive-into-high-cardinality-anomaly-detection-in-elasticsearch/)
+<a name="footnote3"></a>3: [https://aws.amazon.com/blogs/big-data/a-deep-dive-into-high-cardinality-anomaly-detection-in-elasticsearch/](https://aws.amazon.com/blogs/big-data/a-deep-dive-into-high-cardinality-anomaly-detection-in-elasticsearch/)
 
-<a name="footnote4"></a>4: [https://docs-beta.opensearch.org/monitoring-plugins/ad/index/](https://docs-beta.opensearch.org/monitoring-plugins/ad/index/)
+<a name="footnote4"></a>4: [https://opensearch.org/docs/monitoring-plugins/ad/index/](https://opensearch.org/docs/monitoring-plugins/ad/index/)
 
 <a name="footnote5"></a>5: [https://www.opensearch.org/blog/odfe-updates/2019/11/random-cut-forests/](https://www.opensearch.org/blog/odfe-updates/2019/11/random-cut-forests/)
 

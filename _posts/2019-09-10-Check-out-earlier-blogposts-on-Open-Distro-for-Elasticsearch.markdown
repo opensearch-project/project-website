@@ -123,7 +123,7 @@ by Atri Sharma and Jon Handler, May 09 2019
 
 It’s hard to size and scale an Elasticsearch cluster. You need to have sufficient storage for your data, but your mappings and the contents of the data are key components to your data’s size on disk. You need capacity for your queries and updates, but the amounts of CPU, JVM, disk, and network bandwidth you use are critically dependent on the queries you run and the updates you send.
 
-[Read more](https://https://aws.amazon.com/blogs/opensource/esrally-open-distro-for-elasticsearch/)
+[Read more](https://aws.amazon.com/blogs/opensource/esrally-open-distro-for-elasticsearch/)
 
 <b>Open Distro for Elasticsearch 0.9.0 Now Available</b>
 
