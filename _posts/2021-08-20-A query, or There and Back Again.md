@@ -37,7 +37,6 @@ Once OpenSearch has your query, OpenSearch takes the following steps;
 ![Figure 1: Query Phase Diagram](https://user-images.githubusercontent.com/9532728/130289482-4ef3379a-1dbf-49b7-af36-ba9339864005.png)
 
 
-
 *Note on coordinating nodes*: Once OpenSearch learns about the query, the query can be sent to any available data node and that node can become the coordinating node for that query. These nodes delegate client requests to the shards on the data nodes, collects and aggregates the results into one final result, and sends this result back to the client. Often larger clusters will have dedicated coordinating nodes that manage search volume. 
 
 
