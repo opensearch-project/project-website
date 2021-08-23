@@ -4,7 +4,7 @@ title: A query, or There and Back Again
 authors: 
   - andhopp
   - nknize
-date: 2021-08-20
+date: 2021-08-23
 categories:
   - community
 ---
@@ -13,7 +13,7 @@ OpenSearch is a distributed, open source search and analytics suite used for a b
 
 ## High-level concepts
 
-In order to understand how a query works, you’ll need a high-level understanding of OpenSearch itself. To start, OpenSearch is document oriented; meaning the most basic unit for OpenSearch is a **document**. Rather than information stored as rows and columns as you see in tabular data, OpenSearch stores data as [JSON](https://www.json.org/json-en.html) documents. By default, documents added to an OpenSearch store are **indexed**. Indices are logical partitions of documents and the largest unit of data in OpenSearch. To index these documents, OpenSearch leverages the Apache Lucene search library (https://lucene.apache.org/) which uses an **inverted index** (https://en.wikipedia.org/wiki/Inverted_index). An inverted index is a data structure that stores mappings of content to the location in a document (or set of documents). Rather than search each document and text directly, OpenSearch searches the index/indices allowing it to achieve it's fast search responses.
+In order to understand how a query works, you’ll need a high-level understanding of OpenSearch itself. To start, OpenSearch is document oriented; meaning the most basic unit for OpenSearch is a **document**. Rather than information stored as rows and columns as you see in tabular data, OpenSearch stores data as [JSON](https://www.json.org/json-en.html) documents. By default, documents added to an OpenSearch store are **indexed**. Indices are logical partitions of documents and the largest unit of data in OpenSearch. To index these documents, OpenSearch leverages the Apache Lucene search library ([https://lucene.apache.org/](https://lucene.apache.org/)) which uses an **inverted index** ([https://en.wikipedia.org/wiki/Inverted_index](https://en.wikipedia.org/wiki/Inverted_index)). An inverted index is a data structure that stores mappings of content to the location in a document (or set of documents). Rather than search each document and text directly, OpenSearch searches the index/indices allowing it to achieve it's fast search responses.
 
 A **node** is an instance of OpenSearch and a **cluster** is a collection of one or more OpenSearch nodes with the same cluster name. There are several different types of OpenSearch nodes that we can discuss in future blog posts (stay tuned), but at a high-level OpenSearch functionality is built off the distribution of tasks and work among all the nodes in a cluster. OpenSearch allows for indices to be subdivided into multiple **shards** and each shard is part of the OpenSearch index. You can copy those index shards as **replica shards** (or just replicas) which serve as redundant copies of data, increasing both resiliency and capacity for read requests. 
 
@@ -34,8 +34,7 @@ Once OpenSearch has your query, OpenSearch takes the following steps;
 5. Node 1 as the coordinator node, merges these values into a globally sorted list.
 
 *Figure 1: Query Phase*
-![Figure 1: Query Phase Diagram](https://user-images.githubusercontent.com/9532728/130289482-4ef3379a-1dbf-49b7-af36-ba9339864005.png)
-
+![Figure 1: Query Phase Diagram]({{ site.baseurl }}/assets/media/blog-images/2021-08-23-a-query-or-there-and-back-again/QueryPhase.png){: .img-fluid }
 
 *Note on coordinating nodes*: Once OpenSearch learns about the query, the query can be sent to any available data node and that node can become the coordinating node for that query. These nodes delegate client requests to the shards on the data nodes, collects and aggregates the results into one final result, and sends this result back to the client. Often larger clusters will have dedicated coordinating nodes that manage search volume. 
 
@@ -49,7 +48,7 @@ Now that the query phase has identified the documents that satisfy the request, 
 4. Once all the documents are returned, the results are returned to the client.
 
 *Figure 2: Fetch Phase*
-![FetchPhase](https://user-images.githubusercontent.com/9532728/130289580-89b6d8e1-2943-40ae-b547-1858de9a55f2.png)
+![Figure 2: Fetch Phase Diagram]({{ site.baseurl }}/assets/media/blog-images/2021-08-23-a-query-or-there-and-back-again/FetchPhase.png){: .img-fluid }
 
 With the results returned, OpenSearch has completed the query! 
 
