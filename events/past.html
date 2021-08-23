@@ -13,7 +13,8 @@ body_class: events-page
 <h2>Past</h2>
 
 <ul class="list-events">
-  {% for event in  past_events  %}
+  {% assign sorted_events = past_events | sort: "eventdate" | reverse %}
+  {% for event in sorted_events %}
     {% include event.html %}
   {% endfor %}  
 </ul>
