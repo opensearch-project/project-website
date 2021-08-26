@@ -42,6 +42,10 @@ define(function() {
         mods.push('mod/version-switcher');
     }
 
+    if (hasClass('tag-picker')) {
+        mods.push('mod/tag-picker');
+    }
+
     if (hasClass('doc-floating-warning')) {
         mods.push('mod/floating-warning');
     }

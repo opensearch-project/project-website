@@ -1,12 +1,15 @@
 -
     shortname: org
-    category: core
-    title: OpenSearch Project
+    pinned: true
+    categories: 
+    - core
+    title: OpenSearch Project Org
     description: The GitHub organization for the entire OpenSearch Project
     url: https://github.com/opensearch-project
 -
     shortname: os
-    category: core
+    categories: 
+      - core
     title: OpenSearch
     description: The full-text search daemon forked from Elasticsearch 7.10.2
     url: https://github.com/opensearch-project/opensearch
@@ -20,7 +23,8 @@
 
 -
     shortname: os-d
-    category: core
+    categories: 
+      - core
     title: OpenSearch Dashboards
     description: The user interface and visualization tool forked from Kibana 7.10.2
     url: https://github.com/opensearch-project/opensearch-dashboards
@@ -33,9 +37,377 @@
         url: https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md
 
 
+- shortname: os-alerting
+  title: Alerting Plugin
+  description: "\U0001F4DF OpenSearch Alerting Plugin"
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/alerting
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/alerting/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/alerting/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-d-alerting
+  title: Alerting Dashboards Plugin
+  description: "\U0001F4DF OpenSearch Dashboards Alerting Plugin"
+  categories: 
+    - dashboards-plugin
+  url: https://github.com/opensearch-project/alerting-dashboards-plugin
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/alerting-dashboards-plugin/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/alerting-dashboards-plugin/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-anomaly-detection
+  title: Anomaly Detection
+  description:
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/anomaly-detection
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/anomaly-detection/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/anomaly-detection/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-d-anomaly-detection
+  title: Anomaly Detection Dashboards Plugin
+  description: An OpenSearch Dashboards plugin to perform real-time and historical
+    anomaly detection on OpenSearch data.
+  categories: 
+    - dashboards-plugin
+  url: https://github.com/opensearch-project/anomaly-detection-dashboards-plugin
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/anomaly-detection-dashboards-plugin/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/anomaly-detection-dashboards-plugin/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: 'os-asynchronous-search'
+  title: Asynchronous Search
+  description: "Asynchronous search makes it possible for users to
+    run queries in the background, allowing users to track the progress, and retrieve
+    partial results as they become available."
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/asynchronous-search
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/asynchronous-search/blob/main/CONTRIBUTING.md
+
+
+- shortname: 'os-common-utils'
+  title: Common Utils
+  description:
+  categories: 
+    - components
+  url: https://github.com/opensearch-project/common-utils
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/common-utils/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/common-utils/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: 'os-cross-cluster-replication'
+  title: Cross-cluster Replication
+  description: Cross Cluster Replication for OpenSearch
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/cross-cluster-replication
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/cross-cluster-replication/blob/main/CONTRIBUTING.md
+
+- shortname: 'os-d-dashboards-notebooks'
+  title: Dashboards Notebooks
+  description:
+  categories: 
+    - dashboards-plugin
+  url: https://github.com/opensearch-project/dashboards-notebooks
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/dashboards-notebooks/blob/main/CONTRIBUTING.md
+
+- shortname: 'os-d-dashboards-reports'
+  title: Dashboards Reports
+  description: Dashboards Reports
+  categories: 
+    - dashboards-plugin
+  url: https://github.com/opensearch-project/dashboards-reports
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/dashboards-reports/blob/main/CONTRIBUTING.md
+
+
+- shortname: os-d-dashboards-visualizations
+  title: Dashboards Visualizations
+  description:
+  categories: 
+    - dashboards-plugin
+  url: https://github.com/opensearch-project/dashboards-visualizations
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/dashboards-visualizations/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/dashboards-visualizations/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: data-prepper
+  title: Data Prepper
+  description: Data Prepper is a data ingestion component that pre-processes documents
+    before indexing them in OpenSearch.
+  categories: 
+    - ingest
+  url: https://github.com/opensearch-project/data-prepper
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/data-prepper/blob/main/CONTRIBUTING.md
+
+
+
+
+- shortname: os-geospatial
+  title: Geospatial
+  description:
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/geospatial
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/geospatial/blob/main/CONTRIBUTING.md
+
+- shortname: os-index-management
+  title: Index Management
+  description: "\U0001F5C3 OpenSearch Index Management Plugin"
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/index-management
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/index-management/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/index-management/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-d-index-management-dashboards-plugin
+  title: Index Management Dashboards Plugin
+  description: 
+  categories: 
+    - dashboards-plugin
+  url: https://github.com/opensearch-project/index-management-dashboards-plugin
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/index-management-dashboards-plugin/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/index-management-dashboards-plugin/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-job-scheduler
+  title: Job Scheduler
+  description:
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/job-scheduler
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/job-scheduler/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/job-scheduler/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-k-nn
+  title: k-NN
+  description: "\U0001F195 A machine learning plugin which supports an approximate
+    k-NN search algorithm for OpenSearch"
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/k-NN
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/k-NN/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/k-NN/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: logstash-output-opensearch
+  title: Logstash Output Opensearch
+  description: A Logstash plugin that sends event data to a OpenSearch clusters and
+    stores as an index.
+  categories: 
+    - ingest
+  url: https://github.com/opensearch-project/logstash-output-opensearch
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/logstash-output-opensearch/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/logstash-output-opensearch/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-notifications
+  title: Notifications
+  description:
+  categories: 
+    - components
+  url: https://github.com/opensearch-project/notifications
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/notifications/blob/main/CONTRIBUTING.md
+
+- shortname: opensearch-build
+  title: OpenSearch Build
+  description: "OpenSearch / OpenSearch-Dashboards Build Scripts"
+  categories: 
+    - components
+  url: https://github.com/opensearch-project/opensearch-build
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/opensearch-build/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/opensearch-build/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: opensearch-cli
+  title: Opensearch CLI
+  description: A full-featured command line interface (CLI) for OpenSearch.
+  categories: 
+    - tools
+  url: https://github.com/opensearch-project/opensearch-cli
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/opensearch-cli/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/opensearch-cli/blob/main/DEVELOPER_GUIDE.md
+
+- shortname:  opensearch-devops
+  title: OpenSearch Devops
+  description:
+  categories: 
+    - meta
+  url: https://github.com/opensearch-project/opensearch-devops
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/opensearch-devops/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/opensearch-devops/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-opensearch-plugin-template-java
+  title: OpenSearch Plugin Template (Java)
+  description: Template repo for creating OpenSearch plugins
+  categories:
+    - meta
+  url: https://github.com/opensearch-project/opensearch-plugin-template-java
+
+- shortname: os-opensearch-plugins
+  title: OpenSearch Plugins
+  description: For all things OpenSearch plugins.
+  categories: 
+    - meta
+  url: https://github.com/opensearch-project/opensearch-plugins
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/opensearch-plugins/blob/main/CONTRIBUTING.md
+
+- shortname: performance-analyzer
+  title: Performance Analyzer
+  description: "\U0001F4C8 OpenSearch Performance Analyzer"
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/performance-analyzer
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/performance-analyzer/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/performance-analyzer/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: performance-analyzer-rca
+  title: Performance Analyzer RCA
+  description: The Performance Analyzer RCA is a framework that builds on the Performance
+    Analyzer engine to support root cause analysis (RCA) of performance and reliability
+    problems for OpenSearch instances.
+  categories: 
+    - components
+  url: https://github.com/opensearch-project/performance-analyzer-rca
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/performance-analyzer-rca/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/performance-analyzer-rca/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: perftop
+  title: PerfTop
+  description: "\U0001F4C8 PerfTop: A client for the OpenSearch Performance Analyzer"
+  categories: 
+    - tools
+  url: https://github.com/opensearch-project/perftop
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/perftop/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/perftop/blob/main/DEVELOPER_GUIDE.md
+
+
+- shortname: os-security
+  title: Security
+  description: "OpenSearch Security plugin"
+  categories: 
+    - plugin
+  url: https://github.com/opensearch-project/security
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/security/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/security/blob/main/DEVELOPER_GUIDE.md
+
+- shortname: os-d-security
+  title: Security Dashboards Plugin
+  description: "OpenSearch Dasihboard Security plugin"
+  categories: 
+    - dashboards-plugin
+  url: https://github.com/opensearch-project/security-dashboards-plugin
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/security-dashboards-plugin/blob/main/CONTRIBUTING.md
+  - title: Developer Guide
+    url: https://github.com/opensearch-project/security-dashboards-plugin/blob/main/DEVELOPER_GUIDE.md
+
+
+
+
+- shortname: sql
+  title: SQL
+  description: "https://opensearch.org/docs/search-plugins/sql/index/"
+  categories: 
+    - plugin
+    - dashboards-plugin
+  url: https://github.com/opensearch-project/sql
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/sql/blob/main/CONTRIBUTING.md
+
+
+
+- shortname: meta
+  title: Project Meta
+  description: Tools to make it easy to manage processes across the opensearch-project org.
+  categories: 
+    - meta
+  url: https://github.com/opensearch-project/project-meta
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/project-meta/blob/main/CONTRIBUTING.md
+
+
+- shortname: documentation-website
+  title: Documentation Website
+  description: The documentation for OpenSearch, OpenSearch Dashboards, and their
+    associated plugins.
+  categories: 
+    - website
+  url: https://github.com/opensearch-project/documentation-website
+  special_files:
+  - title: Contributing
+    url: https://github.com/opensearch-project/documentation-website/blob/main/CONTRIBUTING.md
+
 -
     shortname: website
-    category: support
+    categories: 
+      - website
     title: OpenSearch Website
     description: The source to this website.
     url: https://github.com/opensearch-project/project-website
@@ -43,3 +415,61 @@
       -
         title: Contributing
         url: https://github.com/opensearch-project/project-website/blob/main/CONTRIBUTING.md
+
+-
+    shortname: opensearch-py
+    categories: 
+      - client
+    title: OpenSearch-Py
+    description: Official Python Low Level Client for OpenSearch
+    url: https://github.com/opensearch-project/opensearch-py
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opensearch-project/opensearch-py/blob/main/CONTRIBUTING.md
+      -
+        title: Developer Guide
+        url: https://github.com/opensearch-project/opensearch-py/blob/main/DEVELOPER_GUIDE.md
+
+-
+    shortname: opensearch-js
+    categories: 
+      - client
+    title: OpenSearch-Js
+    description: Official Node.js Client for OpenSearch
+    url: https://github.com/opensearch-project/opensearch-js
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opensearch-project/opensearch-js/blob/main/CONTRIBUTING.md
+      -
+        title: Developer Guide
+        url: https://github.com/opensearch-project/opensearch-js/blob/main/DEVELOPER_GUIDE.md
+-
+    shortname: opensearch-java
+    categories: 
+      - client
+    title: OpenSearch-Java
+    description: Official Java High level Client for OpenSearch
+    url: https://github.com/opensearch-project/opensearch-java
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opensearch-project/opensearch-java/blob/main/CONTRIBUTING.md
+      -
+        title: Developer Guide
+        url: https://github.com/opensearch-project/opensearch-java/blob/main/DEVELOPER_GUIDE.md
+-
+    shortname: opensearch-go
+    categories: 
+      - client
+    title: OpenSearch-Go
+    description: Official Go Client for OpenSearch
+    url: https://github.com/opensearch-project/opensearch-go
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opensearch-project/opensearch-go/blob/main/CONTRIBUTING.md
+      -
+        title: Developer Guide
+        url: https://github.com/opensearch-project/opensearch-go/blob/main/DEVELOPER_GUIDE.md
