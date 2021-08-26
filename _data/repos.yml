@@ -415,3 +415,61 @@
       -
         title: Contributing
         url: https://github.com/opensearch-project/project-website/blob/main/CONTRIBUTING.md
+
+-
+    shortname: opensearch-py
+    categories: 
+      - client
+    title: OpenSearch-Py
+    description: Official Python Low Level Client for OpenSearch
+    url: https://github.com/opensearch-project/opensearch-py
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opensearch-project/opensearch-py/blob/main/CONTRIBUTING.md
+      -
+        title: Developer Guide
+        url: https://github.com/opensearch-project/opensearch-py/blob/main/DEVELOPER_GUIDE.md
+
+-
+    shortname: opensearch-js
+    categories: 
+      - client
+    title: OpenSearch-Js
+    description: Official Node.js Client for OpenSearch
+    url: https://github.com/opensearch-project/opensearch-js
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opensearch-project/opensearch-js/blob/main/CONTRIBUTING.md
+      -
+        title: Developer Guide
+        url: https://github.com/opensearch-project/opensearch-js/blob/main/DEVELOPER_GUIDE.md
+-
+    shortname: opensearch-java
+    categories: 
+      - client
+    title: OpenSearch-Java
+    description: Official Java High level Client for OpenSearch
+    url: https://github.com/opensearch-project/opensearch-java
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opensearch-project/opensearch-java/blob/main/CONTRIBUTING.md
+      -
+        title: Developer Guide
+        url: https://github.com/opensearch-project/opensearch-java/blob/main/DEVELOPER_GUIDE.md
+-
+    shortname: opensearch-go
+    categories: 
+      - client
+    title: OpenSearch-Go
+    description: Official Go Client for OpenSearch
+    url: https://github.com/opensearch-project/opensearch-go
+    special_files:
+      -
+        title: Contributing
+        url: https://github.com/opensearch-project/opensearch-go/blob/main/CONTRIBUTING.md
+      -
+        title: Developer Guide
+        url: https://github.com/opensearch-project/opensearch-go/blob/main/DEVELOPER_GUIDE.md
