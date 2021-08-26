@@ -7,12 +7,14 @@ layout: default
 {% capture content %}
     {{ content }}
     <dl class="pinned-repos">
-    {% for repo in page.pinned_repos %}
+    {% assign pinned =  site.data.repos | where_exp:"repo", "repo.pinned == true" %}
+    {% for repo in pinned %}
         {%- include repo.html repo=repo %}
     {% endfor %}
     </dl>
     <dl class="repos">
-    {% for repo in site.data.repos %}
+    {% assign unpinned =  site.data.repos | where_exp:"repo", "repo.pinned != true" %}
+    {% for repo in unpinned %}
         {%- include repo.html repo=repo %}
     {% endfor %}
     </dl>
