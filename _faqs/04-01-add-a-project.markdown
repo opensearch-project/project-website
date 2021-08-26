@@ -10,5 +10,5 @@ To add a project:
 * Add a [markdown file](https://github.com/opensearch-project/project-website/blob/main/_community_projects/_sample.md) for your project to .`/_community_projects/your-project.md`
 * Last create a pull request and one of the website maintainers will review it and work with you to merge it.
 
-To see an example pull request, look [here](http://https//github.com/opensearch-project/project-website/pull/186)).
+To see an example pull request, look [here](https://github.com/opensearch-project/project-website/pull/186)).
 

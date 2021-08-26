@@ -15,7 +15,7 @@ I expect very few people will *only* use OpenSearch and OpenSearch Dashboards. S
 
 Having a good end-to-end experience is important to the success of OpenSearch. Consequently, the team is looking to invest time and resources in testing, documenting and potentially contributing back to the tools to ensure that you have a smooth journey from agent to dashboard. However, like most things in life, the testing and documentation resources are not infinite and the team is looking to make the investment into the most used tools first.
 
-In order to get a grasp on the usage of these tools [Eli](/authors/elifish.html) from the product team has put together a poll in our forum. It breaks down the known tools and for each tool it allows you to indicate: 
+In order to get a grasp on the usage of these tools [Eli](/authors/elifish/) from the product team has put together a poll in our forum. It breaks down the known tools and for each tool it allows you to indicate: 
 
 * You’re currently using,
 * You’re not using but interested,

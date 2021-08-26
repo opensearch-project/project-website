@@ -1,22 +1,19 @@
 ---
 layout: default
-
 ---
 {% assign primary_title = site.headings.source %}
 {% assign layout_class = 'sidebar-right' %}
 
 {% capture content %}
     {{ content }}
+    <dl class="pinned-repos">
+    {% for repo in page.pinned_repos %}
+        {%- include repo.html repo=repo %}
+    {% endfor %}
+    </dl>
     <dl class="repos">
     {% for repo in site.data.repos %}
-        {% capture categories %}{%for category in repo.categories %}repo-category-{{category}} {%endfor%}{%endcapture%}
-        <dt class="{{categories}}"><a href="{{repo.url}}"><span class="icon icon-github"></span> {{repo.title}}</a></dt>
-        <dd class="{{categories}}">
-            <p>{{repo.description}} </p>
-            {% for special_file in repo.special_files %}
-                <a class="link-readmore" href="{{ special_file.url }}">{{ special_file.title }}</a>
-            {% endfor %}
-        </dd>
+        {%- include repo.html repo=repo %}
     {% endfor %}
     </dl>
 {% endcapture %}

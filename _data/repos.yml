@@ -1,11 +1,4 @@
 -
-    shortname: org
-    categories: 
-      - core
-    title: OpenSearch Project
-    description: The GitHub organization for the entire OpenSearch Project
-    url: https://github.com/opensearch-project
--
     shortname: os
     categories: 
       - core
@@ -397,7 +390,7 @@
   description: The documentation for OpenSearch, OpenSearch Dashboards, and their
     associated plugins.
   categories: 
-    - support
+    - website
   url: https://github.com/opensearch-project/documentation-website
   special_files:
   - title: Contributing
@@ -406,7 +399,7 @@
 -
     shortname: website
     categories: 
-      - support
+      - website
     title: OpenSearch Website
     description: The source to this website.
     url: https://github.com/opensearch-project/project-website
