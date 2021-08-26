@@ -1,4 +1,12 @@
 -
+    shortname: org
+    pinned: true
+    categories: 
+    - core
+    title: OpenSearch Project Org
+    description: The GitHub organization for the entire OpenSearch Project
+    url: https://github.com/opensearch-project
+-
     shortname: os
     categories: 
       - core
