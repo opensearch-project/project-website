@@ -1,5 +1,5 @@
 ---
-date: 2021-08-31
+date: 2021-09-01
 
 product: opensearch
 version: '1.0.1'
