@@ -35,10 +35,10 @@ If you are a partner, you are welcome to add your logo/link to our partners page
 This site uses [Jekyll](https://jekyllrb.com/). You can build the site and make it available on a local server via `docker-compose up -d`, or by installing all the dependencies on your local environment as follows.
 
 1. Install [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/), then run `bundle install`.
-2. Build and start Jekyll with `bundle exec jekyll serve`. **NOTE** To test blogs with a future publication date use `bundle exec jekyll serve --future`
+2. Build and start Jekyll with `bundle exec jekyll serve`. 
 3. Browse the site at [`http://127.0.0.1:4000/`](http://127.0.0.1:4000/).
 
-Alternatively, build the site with `bundle exec jekyll build`. The HTML output is generated into `/_site`.
+Alternatively, build the site with `bundle exec jekyll build`. The HTML output is generated into `/_site`. For the full configuration options when running Jekyll, see [this page](https://jekyllrb.com/docs/configuration/options/).
 
 ### Testing
 
