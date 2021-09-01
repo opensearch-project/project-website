@@ -4,7 +4,7 @@ title: A query, or There and Back Again
 authors: 
   - andhopp
   - nknize
-date: 2021-08-24
+date: 2021-09-01 01:01:01 -0700
 categories:
   - community
 ---
