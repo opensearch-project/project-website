@@ -140,7 +140,14 @@ dl.list-features {
     }
 }
 
-
+.homepage .sidebar .cta + .link-readmore {
+    margin-bottom: 0;
+}
+.homepage .latest-version {
+    color: $text-light;
+    text-align: center;
+    font-size: 1.25rem;
+}
 .homepage .list-features p {
     margin-bottom: 0;
 }
