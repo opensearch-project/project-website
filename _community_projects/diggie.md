@@ -5,7 +5,7 @@ owner: Serverless Operations, Inc.
 owner_link: https://serverless.co.jp
 link: https://github.com/DiggieApp/Diggie
 download_link: https://github.com/DiggieApp/Diggie/releases/tag/0.1.0
-license: Diggie EULA
+license: Diggie EULA (developer preview)
 license_link: "#" # in preparation
 # upload your logo to the following directory
 icon: /assets/media/partners/diggie.png
