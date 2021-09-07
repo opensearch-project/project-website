@@ -66,9 +66,10 @@ layout: default
       </a>
       {% endif %}
       <a href="{{ page.ctas.roadmap.url }}" class="link-readmore" target="_blank">{{ page.ctas.roadmap.text }}</a>
+      {% assign latest = site.versions | sort: date | last %}
+      <div class="latest-version">{{ page.version_feature.latest_label}} {{ latest.version }} {{ page.version_feature.date_label}} {{ latest.date | date_to_string: "ordinal", "US"}}</div>
 
       <div class="feature-box">
-        
         <h3>{{ page.opendistro.head }}</h3>
         <img src="{{ page.opendistro.img.url }}" alt="{{ page.opendistro.img.alt }}" />
         <div class="feature-content">
