@@ -29,13 +29,15 @@ headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze yo
 
 long_description: "OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, OpenSearch, and a visualization and user interface, OpenSearch Dashboards. OpenSearch enables people to easily ingest, secure, search, aggregate, view, and analyze data. These capabilities are popular for use cases such as application search, log analytics, and more. With OpenSearch people benefit from having an open source product they can use, modify, extend, monetize, and resell how they want. At the same time, OpenSearch will continue to provide a secure, high-quality search and analytics suite with a rich roadmap of new and innovative functionality."
 
-# Both OpenSearch and OpenSearch Dashboards are super pluggable -- you can provide your own or use the [OpenDistro Plugins](#) for extra functionality." 
 
 callouts_head: "The OpenSearch project's principles for development"
 callouts_class: list-features
 callouts_id: principles
 callouts_leader: 'When we (the contributors) are successful, OpenSearch will be:'
 
+version_feature:
+    latest_label: "Current Version:"
+    date_label: " / "
 
 
 callout_button:
