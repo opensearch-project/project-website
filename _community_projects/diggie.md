@@ -6,7 +6,7 @@ owner_link: https://serverless.co.jp
 link: https://github.com/DiggieApp/Diggie
 download_link: https://github.com/DiggieApp/Diggie/releases/tag/0.1.0
 license: Diggie EULA (developer preview)
-license_link: "#" # in preparation
+license_link: https://github.com/DiggieApp/Diggie/blob/master/license.txt
 # upload your logo to the following directory
 icon: /assets/media/partners/diggie.png
 ---
