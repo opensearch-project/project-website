@@ -19,6 +19,7 @@ pretty:
   platforms:
     windows: "Windows"
     linux: "Linux"
+    freebsd: "FreeBSD"
     macos: macOS
     java: "Java"
     docker: Docker
@@ -31,6 +32,7 @@ pretty:
     jar: ".jar"
     docker_hub: 'Dockerfile'
   architectures:
+    all: "All"
     arm64: "ARM64"
     x64: "x64"
     jvm: Java Virtual Machine
@@ -46,11 +48,13 @@ architecture_order:
   - x64
   - arm64
   - x86
+  - all
   - jvm
 
 platform_order:
   - linux
   - docker
+  - freebsd
   - macos
   - windows
   - java
@@ -191,6 +195,13 @@ this is the built-in error checking for the version definition having missing ar
               {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> 
                 <a href="{% if details.indirect %}{{details.url}}{% else %}{{details.artifact_url}}{% endif %}"
                 class="cta">Download</a> </div>{% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.freebsd_package_name %}
+              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
+                <p>Install from FreeBSD packages:</p>
+                <pre># pkg install {{details.freebsd_package_name}}</pre>
+                </div>{% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
             {% if details.link %}
