@@ -6,7 +6,7 @@ platform: freebsd
 architecture: all
 slug: opensearch-1.0.1-freebsd-all
 category: opensearch
-type: pkg
+type: system-package
 freebsd_package_name: opensearch
 link: https://www.freshports.org/textproc/opensearch
 ---
