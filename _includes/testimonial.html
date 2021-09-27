@@ -2,6 +2,14 @@
     {{ include.key }}
     {{ include.testimonial.content }}
     <div class="attribution">
-        {{ include.testimonial.author.name }}, {{ include.testimonial.author.title }}, {{ include.testimonial.author.organization }}
+        {% if include.testimonial.logo %}
+        <img src="{{include.testimonial.logo}}" />
+        {% endif %}
+        <div class="readable">
+            {{ include.testimonial.author.name }}<br />
+            {{ include.testimonial.author.title }}<br />
+            {{ include.testimonial.author.organization }}
+        </div>
+        
     </div>
 </div>

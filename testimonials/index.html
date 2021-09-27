@@ -3,11 +3,11 @@ layout: fullwidth
 title: Testimonials
 primary_title: Testimonials
 body_class: testimonials-page
-intro: Fusce imperdiet blandit sapien, nec mollis justo scelerisque nec. Vivamus convallis neque lacinia, vehicula nulla a, congue justo. Praesent mollis justo at libero cursus, vitae hendrerit orci venenatis. Nunc eu tellus id urna tristique consequat. Quisque interdum libero semper, dictum elit in, mattis lorem. Sed in tortor blandit, rhoncus justo sed, tincidunt nisi. Nulla non lacinia ex, ut accumsan libero. Curabitur id consectetur velit.
+intro: Fusce **imperdiet** blandit sapien, nec mollis justo scelerisque nec. Vivamus convallis neque lacinia, vehicula nulla a, congue justo. Praesent mollis justo at libero cursus, vitae hendrerit orci venenatis. Nunc eu tellus id urna tristique consequat. Quisque interdum libero semper, dictum elit in, mattis lorem. Sed in tortor blandit, rhoncus justo sed, tincidunt nisi. Nulla non lacinia ex, ut accumsan libero. Curabitur id consectetur velit.
 conclusion: Ut dictum leo ac sapien pharetra hendrerit. Praesent tincidunt tempor ante, sit amet luctus tortor interdum sed. Integer neque mauris, consectetur sit amet sapien efficitur, elementum rutrum lorem. 
 ---
 
-<p>{{page.intro}}</p>
+{{page.intro | markdownify }}
 
 <div class="testimonials">
     {% assign filter_testimonial = site.testimonials | where: "featured","true" %}
@@ -16,4 +16,4 @@ conclusion: Ut dictum leo ac sapien pharetra hendrerit. Praesent tincidunt tempo
     {% endfor %}
 </div>
 
-<p>{{page.conclusion}}</p>
+{{page.conclusion | markdownify }}

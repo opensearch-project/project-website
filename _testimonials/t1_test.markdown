@@ -1,5 +1,6 @@
 ---
 featured: true
+logo: /assets/brand/PNG/Logo/opensearch_logo_default.png
 author: 
     name: Kyle Davis
     organization: AWS
