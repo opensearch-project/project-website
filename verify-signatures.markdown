@@ -22,6 +22,6 @@ gpg --verify /path/to/signature /path/to/tarball
 
 It should show a good signature signed by opensearch@amazon.com.
 
-Our current PGP key fingerprint is `C2EE 2AF6 542C 03B4`
+Our current PGP key fingerprint is `C5B7 4989 65EF D1C2 924B  A9D5 39D3 1987 9310 D3FC`
 
 [Get our PGP Key](https://artifacts.opensearch.org/publickeys/opensearch.pgp)
