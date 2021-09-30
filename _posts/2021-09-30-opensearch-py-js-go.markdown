@@ -7,7 +7,7 @@ date:   2021-09-30 01:01:01 -0700
 categories: 
   - community
 twittercard:
-  description: "I think people often use Semantic Versioning (a.k.a SemVer) intuitively even if they don't know the term. So, let's take a look at what SemVer is and what it means for software like OpenSearch."
+  description: "Last month, the project announced the intention to release OpenSearch specific clients and today the first batch are ready for production use. You can get opensearch-py from PyPI, install opensearch-js from npm and start using opensearch-go."
 ---
 
 Last month, the [project announced the intention to release OpenSearch specific clients](https://opensearch.org/blog/community/2021/08/community-clients/) and today the first batch are ready for production use. You can get [opensearch-py from PyPI](https://pypi.org/project/opensearch-py/), install [opensearch-js from npm](https://www.npmjs.com/package/opensearch-js) and start using [opensearch-go](https://github.com/opensearch-project/opensearch-go).
@@ -78,7 +78,7 @@ OpenSearch is a community-driven project and your input is always valued and app
 
 ### Acknowledgements
 
-The following people contributed to opensearch-py, opensearch-js, or opensearch-go: [rushiagr](https://github.com/rushiagr), [axeoman](https://github.com/axeoman), [vchrombie](https://github.com/vchrombie), [deztructor](https://github.com/deztructor), [VijayanB](https://github.com/VijayanB), [peternied](https://github.com/peternied), [ananzh](https://github.com/ananzh), [boktorbb-amzn](https://github.com/boktorbb-amzn), [hansott](https://github.com/hansott), and [henvic](https://github.com/henvic).
+The following people contributed to opensearch-py, opensearch-js, or opensearch-go: [rushiagr](https://github.com/rushiagr), [axeoman](https://github.com/axeoman), [vchrombie](https://github.com/vchrombie), [deztructor](https://github.com/deztructor), [VijayanB](https://github.com/VijayanB), [peternied](https://github.com/peternied), [peterzhuamazon](https://github.com/peterzhuamazon), [ananzh](https://github.com/ananzh), [boktorbb-amzn](https://github.com/boktorbb-amzn), [hansott](https://github.com/hansott), and [henvic](https://github.com/henvic).
 
 
 
