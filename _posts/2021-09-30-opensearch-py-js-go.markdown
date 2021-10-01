@@ -30,10 +30,10 @@ from opensearchpy import OpenSearch
 
 ### Node.js
 
-Installing the JavaScript client in Node.js is through [npm](https://www.npmjs.com/):
+Installing the JavaScript client in Node.js is through [npm](https://www.npmjs.com/package/@opensearch-project/opensearch):
 
 ```
-$ npm install opensearch-js
+$ npm i @opensearch-project/opensearch
 ```
 
 You can use it in your script by requiring the module:
