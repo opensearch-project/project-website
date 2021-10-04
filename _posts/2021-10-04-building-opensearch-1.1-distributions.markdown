@@ -3,7 +3,7 @@ layout: post
 title:  "Building OpenSearch 1.1 Distributions using Automation"
 authors: 
   - dblock
-date: 2021-09-30
+date: 2021-10-04 01:01:01 -0700
 categories: 
   - technical-post
 twittercard:
