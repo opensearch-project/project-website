@@ -5,6 +5,7 @@ authors:
   - henkle
   - andhopp
   - elifish
+date: 2021-10-05 01:01:01 -0700
 title: "OpenSearch 1.1 is here!"
 category:
 - releases
@@ -45,6 +46,6 @@ If you’re interested in learning more, have a specific question, or just want 
 
 **Thank you!** 
 
-We knew OpenSearch would need to build a great open source community to succeed and we’re so excited about the progress! Not only is OpenSearch seeing some awesome contributions across the project but the community partners (https://opensearch.org/partners/) continue to grow (5 more partners have joined since 1.0.0). As always, everyone should be incredibly proud of the accomplishment of reaching 1.1.0 together. 
+We knew OpenSearch would need to build a great open source community to succeed and we’re so excited about the progress! Not only is OpenSearch seeing some awesome contributions across the project but the [community partners](https://opensearch.org/partners/) continue to grow (5 more partners have joined since 1.0.0). As always, everyone should be incredibly proud of the accomplishment of reaching 1.1.0 together. 
 
 Thank you for your continued support.
