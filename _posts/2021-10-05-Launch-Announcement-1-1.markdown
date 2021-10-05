@@ -1,19 +1,19 @@
 ---
 layout: post
 authors: 
-  - kyledvs
-  - henkle
   - andhopp
+  - henkle
   - elifish
+  - kyledvs
 date: 2021-10-05 01:01:01 -0700
-title: "OpenSearch 1.1 is here!"
+title: "OpenSearch 1.1.0 is here!"
 category:
 - releases
 twittercard:
-  description: "We are excited to announce the 1.1 release of the OpenSearch project!"
+  description: "We are excited to announce the 1.1.0 release of OpenSearch, OpenSearch Dashboards, and the OpenSearch Project plugins"
 ---
 
-We are excited to announce the 1.1.0 release of OpenSearch, OpenSearch Dashboards, and the OpenSearch Project plugins (available to [download](https://opensearch.org/versions/opensearch-1-0-1.html) today). 
+We are excited to announce the 1.1.0 release of OpenSearch, OpenSearch Dashboards, and the OpenSearch Project plugins (available to [download](https://opensearch.org/versions/opensearch-1-1-0.html) today). 
 
 **What’s Included in OpenSearch 1.1.0?**
 
@@ -27,7 +27,7 @@ This release includes dozens of new features and hundreds of improvements ([rele
 
 **What’s next?**
 
-With the launch of 1.1, OpenSearch is already racing forward. There are a number of upcoming feature and enhancements including:
+With the launch of 1.1.0, OpenSearch is already racing forward. There are a number of upcoming feature and enhancements including:
 
 * A [shard level back pressure framework](https://github.com/opensearch-project/OpenSearch/issues/478) is being added to improve OpenSearch indexing reliability.
 * A number of new [observability features](https://github.com/opensearch-project/trace-analytics/issues/63) are being added to help you analyze trace and log data. 
