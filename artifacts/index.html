@@ -4,31 +4,4 @@ title: Project Artifacts
 primary_title: Artifacts
 ---
 {% assign artifacts_by_id = site.artifacts | sort: "artifact_id" | group_by: "artifact_id" %}
-<div class="artifact-download-tree">
-  <ul class="tree">
-    {% for id_group in artifacts_by_id %}
-        <li id="{{id_group.name}}">{{ id_group.name }}
-        {% assign artifacts_by_platform = id_group.items | group_by: "platform" %}
-        <ul class="tree">
-        {% for platform_group in artifacts_by_platform %}    
-          {% assign architecture_group = platform_group.items | group_by: "architecture" %}
-          {% for artifacts in architecture_group %}
-            <li>{{ platform_group.name }}-{{ artifacts.name }}
-              <ul class="tree">
-                {% for artifact in artifacts.items %}
-                  {% if artifact.link %}
-                    <li><a href="{{ artifact.link }}">{{ artifact.link }}</a> [External]</li>
-                  {% else %}
-                 
-                    <li><a href="{% if artifact.indirect %}{{artifact.url}}{% else %}{{artifact.artifact_url}}{% endif %}">{{ artifact.artifact_url | split: "/" | last }}</a></li>
-                  {% endif %}
-                {% endfor %}
-              </ul> 
-            </li>
-        {% endfor %}
-        {% endfor %}
-        </ul>
-      </li>
-    {% endfor %} 
-    </ul>
-</div>
+{% include artifact_tree.html artifact_list=artifacts_by_id %}

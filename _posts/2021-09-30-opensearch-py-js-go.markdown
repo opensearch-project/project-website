@@ -10,7 +10,7 @@ twittercard:
   description: "Last month, the project announced the intention to release OpenSearch specific clients and today the first batch are ready for production use. You can get opensearch-py from PyPI, install opensearch-js from npm and start using opensearch-go."
 ---
 
-Last month, the [project announced the intention to release OpenSearch specific clients](https://opensearch.org/blog/community/2021/08/community-clients/) and today the first batch are ready for production use. You can get [opensearch-py from PyPI](https://pypi.org/project/opensearch-py/), install [opensearch-js from npm](https://www.npmjs.com/package/opensearch-js) and start using [opensearch-go](https://github.com/opensearch-project/opensearch-go).
+Last month, the [project announced the intention to release OpenSearch specific clients](https://opensearch.org/blog/community/2021/08/community-clients/) and today the first batch are ready for production use. You can get [opensearch-py from PyPI](https://pypi.org/project/opensearch-py/), install [opensearch-js from npm](https://www.npmjs.com/package/@opensearch-project/opensearch) and start using [opensearch-go](https://github.com/opensearch-project/opensearch-go).
 
 Let’s take a brief look at how to get going on these client libraries. You can find more info on the README file for each repo.
 
@@ -30,10 +30,10 @@ from opensearchpy import OpenSearch
 
 ### Node.js
 
-Installing the JavaScript client in Node.js is through [npm](https://www.npmjs.com/):
+Installing the JavaScript client in Node.js is through [npm](https://www.npmjs.com/package/@opensearch-project/opensearch):
 
 ```
-$ npm install opensearch-js
+$ npm i @opensearch-project/opensearch
 ```
 
 You can use it in your script by requiring the module:
