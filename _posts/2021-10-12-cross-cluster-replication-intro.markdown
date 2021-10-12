@@ -1,26 +1,15 @@
 ---
-# the `layout` is always 'post'
 layout: post
-# `title` will be main header
 title:  "Introduction to Cross-Cluster Replication"
-# authors contains the short form of your bio identifier (more on that later)
 authors: 
   - rohin
   - gopalak
   - sai
-# `date` in YYYY-MM-DD format. 
-# You must include the hours, minutes, and seconds 
-# Use the -0700 as the UTC offset
 date:   2021-10-12 10:00:00 -0700
-# `categories` not used widely on OpenSearch.org but this does
-# affect the URL. The category is the second part of the URL
-# e.g. `/blog/my-category/...`
 categories: 
   - cross-cluster
 twittercard:
-# the description is what people will see when they share the
-# post on social media
-  description: "Excited to introduce cross-cluster replication. Cross-cluster replication allows you to replicate indices from one cluster to another. "
+  description: "Cross-cluster replication allows you to replicate indices from one cluster to another. This post provides a brief overview of the feature and the thought process behind the design and implementation."
 ---
 
 Earlier this year while working on Open Distro the team announced the [experimental release of cross-cluster replication](https://opendistro.github.io/for-elasticsearch/blog/releases/2021/02/announcing-ccr/). I am happy to announce the general availability of cross-cluster replication for OpenSearch. This post provides a brief overview of the feature and the thought process behind the design and implementation.
