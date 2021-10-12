@@ -394,9 +394,9 @@ dl.list-features {
 
 .testimonial {
     p {
-        font-size: 2.25rem;
+        //font-size: 2.25rem;
         margin: 0;
-        
+        font-style: italic;
         padding-bottom: 0.25em;
     }
 
@@ -411,21 +411,21 @@ dl.list-features {
         justify-content: flex-end;
         margin-top: 1em;
         .readable {
-            margin-left: 1em;
+            margin-right: 1em;
         }
         img {
             padding-left: 1em;
             padding-right: 1em;
-            border-right: 1px solid $line;
+            border-left: 1px solid $line;
             height: 4em;
             width: auto;
         }
     }
     border-top: 1px solid $line;
-    padding-top: 0.5em;
+    padding: 0.5em;
     border-left: 1px solid $line;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     padding-left: 1em;
-    margin-left: 1em;
-    margin-right: 2em;
+    margin-left: 4em;
+    margin-right: 4em;
 }
