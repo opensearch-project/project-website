@@ -1,8 +1,10 @@
 ---
 name: Gopala Krishna
 short_name: gopalak
-photo: '?uid=gopalak'
+photo: '/assets/media/authors/gopala.jpg'
+twitter: 'krishna_ggk'
+github: krishna_ggk
 
 ---
 
-Gopala Krishna is a Senior Software Engineer working on Search Services at Amazon Web Services. His primary interests are distributed systems, networking and search. He is an active contributor to Open Distro for Elasticsearch.
+*Gopala Krishna* is a Senior Software Engineer working on Search Services at Amazon Web Services. He is passionate about solving problems in the large-scale distributed systems’ space. He is an active contributor to OpenSearch.
