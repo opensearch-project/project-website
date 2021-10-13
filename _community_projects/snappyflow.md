@@ -8,5 +8,5 @@ download_link: (Optional) link to downloadable artifact for the project
 license: SnappyFlow EULA
 license_link: https://s3.amazonaws.com/EULA/9dc09243-6d10-4b96-a17f-d8a4cdb90055_eula.pdf
 # upload your logo to the following directory 
-icon: (Optional) '/assets/media/community_projects/project-icon.png'
+icon: (Optional) '/assets/media/community_projects/SnappyFlow.png'
 ---
