@@ -4,9 +4,8 @@ description: SnappyFlow is a simplified observability platform that brings toget
 owner: MapleLabs, Inc.
 owner_link: www.maplelabs.com 
 link: www.snappyflow.io
-download_link: (Optional) link to downloadable artifact for the project
 license: SnappyFlow EULA
 license_link: https://s3.amazonaws.com/EULA/9dc09243-6d10-4b96-a17f-d8a4cdb90055_eula.pdf
 # upload your logo to the following directory 
-icon: (Optional) '/assets/media/community_projects/snappyflow.png'
+icon: /assets/media/community_projects/snappyflow.png
 ---
