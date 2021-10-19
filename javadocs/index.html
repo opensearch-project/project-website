@@ -4,10 +4,32 @@ primary_title: JavaDocs
 ---
 <p>There is an ongoing <a href="https://github.com/opensearch-project/OpenSearch/issues/221">effort to improve OpenSearch JavaDocs</a>.</p>
 <p>Arranged by version:</p>
-<ul>
-  {% for javadoc in site.javadocs %}
-  <li>
-    <a href="{{ javadoc.url}}">{{javadoc.title}}</a>
-  </li>
-  {% endfor %}
-</ul>
+<ul id="javadoc-versions"></ul>
+<script>
+  const elVersions = document.getElementById('javadoc-versions');
+  const versions = [
+    {% for javadoc in site.javadocs %}
+      {title: '{{javadoc.title}}', url: '{{ javadoc.url}}'},
+    {% endfor %}
+  ].map(v => ({
+    ...v,
+    sortKey: `${/^\d/.test(v.title) ? '' : '0-'}${v.title}`
+      .replace(/\s*JavaDocs.*$/i, '')
+      .replace(/\.*([^0-9\.-]+)/g, '.$1')
+      .split(/[\.-]+/)
+      .flatMap(part => isNaN(part) ? ['-', part.padStart('0', 3)] : part.padStart('0', 3))
+      .join('.')
+      .toLowerCase()
+  })).sort((b, a) => a.sortKey.localeCompare(b.sortKey));
+  const frag = document.createDocumentFragment();
+  versions.forEach(v => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.textContent = v.title;
+    a.href = v.url;
+    li.appendChild(a);
+    frag.appendChild(li);
+  });
+  while (elVersions.firstChild) elVersions.removeChild(elVersions.firstChild);
+  elVersions.appendChild(frag);
+</script>
