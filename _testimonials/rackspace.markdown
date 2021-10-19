@@ -7,4 +7,4 @@ author:
     title: Director of Professional Services Delivery
 ---
 
-At Rackspace Technology, we welcome more open-source contribution and collaboration as it underpins modern analytics platforms and technologies. Our engineers utilize the open-source spectrum across our data platform implementations and are excited by the increased options and flexibility OpenSearch offers when building modern data solutions for our customers. We look forward to supporting its advancement and participating in the OpenSearch community.”
+At Rackspace Technology, we welcome more open-source contribution and collaboration as it underpins modern analytics platforms and technologies. Our engineers utilize the open-source spectrum across our data platform implementations and are excited by the increased options and flexibility OpenSearch offers when building modern data solutions for our customers. We look forward to supporting its advancement and participating in the OpenSearch community.
