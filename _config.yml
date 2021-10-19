@@ -78,6 +78,8 @@ collections:
   versions:
     output: true
   faqs:
+  testimonials:
+
     
 paginate: 5
 paginate_path: "/blog/page:num/"

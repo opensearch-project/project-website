@@ -20,12 +20,12 @@ columns:
   -
     title: 'Resources'
     links:
-      #- 
-      #  title: 'Documentation'
-      #  url: 'https://github.com/opensearch/documentation'
       - 
         title: FAQ
         url: '/faq/'
+      -
+        title: 'Testimonials'
+        url: '/testimonials/'
       -
         title: 'Brand Guidelines'
         url: '/brand.html'
