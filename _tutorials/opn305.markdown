@@ -11,6 +11,8 @@ sitemap: false
 
 For this tutorial you will need a working version of OpenSearch and OpenSearch Dashboards with security enabled.
 
+### Starting OpenSearch & OpenSearch Dashboards
+
 [OpenSearch.org](https://opensearch.org/downloads.html#docker-compose) has instructions on how to start a OpenSearch and OpenSearch Dashboards with Docker Compose.
 {: .gitpod-hidden }
 
@@ -23,9 +25,19 @@ Once you see this, you can start up OpenSearch Dashboards by visiting the URL in
 
 `http://localhost:5601`{: .gitpod-dashboards }
 
+### First steps in OpenSearch Dashboards
+
 You should see an animation and the message “Loading OpenSearch” followed in a few moments by a login screen. If it shows a simple white page with the message “OpenSearch Dashboards server is not ready yet”, then wait 1 or 2 minutes and reload the page.
 
 You can log into OpenSearch Dashboards with the username `admin` and password `admin`.
+
+You'll be presented with a dialog box to "Select your tenant." Click "Confirm."
+
+![Select Tenant screenshot](/assets/media/tutorials/shared/select-tenant.png){: .img-fluid }
+
+Now you’ll see a splash screen welcoming you to OpenSearch. Today we don’t need to add any data, so click “Explore on my own.”
+
+![Welcome screen in OpenSearch](/assets/media/tutorials/shared/welcome-to-opensearch.png){: .img-fluid }
 
 
 ## Configuring basic authentication
