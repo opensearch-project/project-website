@@ -47,7 +47,7 @@ curl -X PUT -u admin:admin --insecure 'https://localhost:9200/sample-logs' -H 'C
 }'
 ```
 
-Next, you need to create [monitors](https://opensearch.org/docs/latest/monitoring-plugins/alerting/monitors/) to receive automated alerts on data ingested in this index. You can create a monitor using the Alerting UI in OpenSearch Dashboards or the REST API. The UI provides an interactive way to create a monitor and provides a validation feature that checks for the monitor’s query correctness and performance. On the other hand, the API is for programatic configuration. For example, you might use the API to build automation scripts for sharing configurations across multiple clusters. To [create](https://opensearch.org/docs/monitoring-plugins/alerting/api/#create-monitor) the monitor for the ‘sample-logs’ **** index, run the curl command below.
+Next, you need to create [monitors](https://opensearch.org/docs/latest/monitoring-plugins/alerting/monitors/) to receive automated alerts on data ingested in this index. You can create a monitor using the Alerting UI in OpenSearch Dashboards or the REST API. The UI provides an interactive way to create a monitor and provides a validation feature that checks for the monitor’s query correctness and performance. On the other hand, the API is for programatic configuration. For example, you might use the API to build automation scripts for sharing configurations across multiple clusters. To [create](https://opensearch.org/docs/monitoring-plugins/alerting/api/#create-monitor) the monitor for the ‘sample-logs’ index, run the curl command below.
 
 ```
 curl -XPOST -u admin:admin --insecure  'https://localhost:9200/_plugins/_alerting/monitors?pretty' -H 'Content-Type:application/json' -d'{
@@ -168,7 +168,7 @@ Now that you have triggering an alert, let’s dive a bit deeper into the lifecy
 4. If the corresponding monitor or trigger is deleted, the alert enters into DELETE state and is moved to `.opendistro-alertings-alert-history-*` indices.
 5. If the corresponding trigger conditional evaluates to false in the next monitor execution, then the alert state is moved to COMPLETED. Once completed, the alert is stored in the `.opendistro-alertings-alert-history-*` indices.
 
-By default the alert is stored in the cluster for 60 days, you can change this by using  `plugins.alerting.alert_history_retention_period` setting.  The complete list of settings can be found at in the [alert settings documentation](https://opensearch.org/docs/monitoring-plugins/alerting/settings/).
+By default the alert is stored in the cluster for 60 days, you can change this by using  `plugins.alerting.alert_history_retention_period` setting.  The complete list of settings can be found in the [alert settings documentation](https://opensearch.org/docs/monitoring-plugins/alerting/settings/).
 
 ## Conclusion 
 
