@@ -1,0 +1,55 @@
+---
+layout: tutorial
+comments: true
+title: "OPN305 Securing Your OpensSearch Data"
+sitemap: false
+---
+
+# OpenSearch: Securing your OpenSearch Data
+
+This is a [test](https://opensearch.org/)
+
+## Configuring basic authentication
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac efficitur nisi, et pharetra tortor. Donec vitae purus lectus. Morbi libero sem, tristique et erat ut, finibus sodales odio. Donec tellus velit, dignissim quis finibus eget, condimentum ut felis. Nunc volutpat faucibus magna suscipit auctor. Quisque placerat pharetra nisi. Phasellus semper mollis risus a gravida. Duis pharetra magna purus, eget tempus justo laoreet non. Donec purus enim, faucibus sed pulvinar non, accumsan vitae enim. Ut eget mauris semper, iaculis nisl id, varius lacus. Vestibulum egestas, massa ut auctor pharetra, libero ex vehicula lacus, ac vehicula nulla nisi ullamcorper libero.
+
+
+```
+$ curl 
+```
+
+
+## Configuring auditing
+
+Pellentesque purus lorem, accumsan et hendrerit in, finibus eu sapien. Phasellus mollis tempor ligula, a aliquam lorem condimentum vestibulum. Maecenas eleifend egestas lectus, eget porta urna eleifend ut. Sed vestibulum nibh vel nulla consectetur, eget congue tortor rhoncus. Sed consectetur convallis ultrices. Donec ornare eu arcu sed rutrum. Aenean hendrerit orci quis ullamcorper luctus. Donec in ipsum eu nibh volutpat pharetra. In suscipit metus id purus fermentum, vitae elementum dolor pulvinar. Aliquam erat volutpat. Fusce tellus elit, sodales nec mi vel, elementum volutpat arcu. Aliquam venenatis tellus augue, a vulputate dolor interdum et.
+
+
+
+## Configuring roles
+
+Phasellus efficitur tristique metus, a iaculis justo sollicitudin ut. Praesent ac finibus turpis. Quisque in finibus justo. Pellentesque ac elit accumsan, rhoncus nunc vitae, tempor sem. Nullam et ex consequat, euismod diam a, luctus libero. Morbi lacinia ut risus vel dictum. Fusce tincidunt tincidunt laoreet. Aliquam non congue eros. Vivamus a lacinia leo. In vel massa massa. Aliquam porta arcu sed tempor finibus. Morbi dolor dolor, aliquet nec sapien non, sollicitudin rhoncus sem. Donec vitae sagittis dui. Sed a diam sit amet purus aliquam volutpat. Nullam sagittis risus purus, at interdum urna suscipit id.
+
+ 
+
+## Configuring role mappings
+
+Sed lectus magna, commodo et porttitor vel, condimentum eget quam. In ornare nunc ante, ac gravida ex posuere quis. Suspendisse lacinia nulla non eleifend tempor. Maecenas id molestie ex, auctor rutrum eros. Aenean hendrerit, est eget tristique tincidunt, lacus risus eleifend arcu, a ullamcorper risus ligula quis lectus. Suspendisse dui arcu, pulvinar vitae odio vel, tempor malesuada diam. Nullam urna risus, pellentesque a tortor id, tristique vulputate nibh.
+
+
+## Configuring document level permissions
+
+Mauris sed erat purus. Quisque sit amet urna blandit, ultrices dolor id, ornare arcu. Phasellus eget ipsum sed mi laoreet accumsan non vitae velit. Pellentesque sodales ullamcorper velit ut dictum. Integer sodales eu mauris ultrices dignissim. Cras scelerisque sem aliquet sem viverra, id volutpat sem gravida. Sed a pulvinar ipsum. Sed a lectus efficitur, venenatis ante sit amet, feugiat sem. Cras consequat tellus ligula, vitae consequat turpis porttitor quis. Suspendisse sit amet libero ac massa maximus pharetra. Mauris eu venenatis massa. Ut vitae tempus felis.
+
+
+
+## Configuring field level permissions
+
+Aliquam erat volutpat. Duis est lorem, ornare ac est sed, pharetra fringilla sapien. Fusce tincidunt arcu vel iaculis pellentesque. Aenean ac mauris vel metus efficitur eleifend. Nullam rutrum consequat mollis. Vivamus finibus velit lacus, ac varius dolor placerat ullamcorper. Vestibulum auctor mi nulla, sed tempor ipsum tincidunt in. Proin efficitur sodales augue non volutpat. Vestibulum vehicula rutrum purus vel consequat.
+
+
+
+## Stay Connected!
+
+Find Kyle on Twitter at [@stockholmux](https://twitter.com/stockholmux), on [LinkedIn](https://www.linkedin.com/in/kyle-davis-search/), or reach out via email at kyledvs@amazon.com
+
+Find Kevin on Twitter at @example, on [LinkedIn](https://www.linkedin.com/in/kevinmichaelfallis/), or reach out via email at @amazon.com
