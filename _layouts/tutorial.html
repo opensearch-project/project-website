@@ -17,6 +17,20 @@ remote_domain: 'https://opensearch.org'
 
         <script>
             $( document ).ready(function() {
+
+                if (window.location.host[0] == '8') {
+                    $('body').addClass('gitpod');
+
+                    $('.gitpod-dashboards').each(function() {
+                        $(this).text('http://'+window.location.host.replace('8080','5601')+'/');
+                    });
+
+                    $('.gitpod-opensearch').each(function() {
+                        $(this).text('https://'+window.location.host.replace('8080','9200')+'/');
+                    });
+                }
+
+
                 if (window.location.host !== 'localhost:4000')  {
                     let replacementDomain = 'https://opensearch.org';
                     let replacer = function(attr) {
