@@ -28,10 +28,7 @@ remote_domain: 'https://opensearch.org'
                     $('.gitpod-opensearch').each(function() {
                         $(this).text('https://'+window.location.host.replace('8080','9200')+'/');
                     });
-                }
-
-
-                if (window.location.host !== 'localhost:4000')  {
+                    
                     let replacementDomain = 'https://opensearch.org';
                     let replacer = function(attr) {
                         return function() { 
@@ -44,6 +41,7 @@ remote_domain: 'https://opensearch.org'
 
 
                     $('link[rel="stylesheet"]').each(replacer('href'));
+                    $('img').each(replacer('src'));
 
                 }
             });
