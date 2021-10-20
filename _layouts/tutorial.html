@@ -1,0 +1,67 @@
+---
+remote_domain: 'https://opensearch.org'
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" class="tutorial-layout">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="ROBOTS" content="ALL" />
+        <meta name="MSSmartTagsPreventParsing" content="true" />
+        <meta name="Copyright" content="" />
+        <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
+        <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
+        <script src="https://opensearch.org/assets/js/lib/jquery-3.6/jquery-3.6.0.min.js"></script>
+        <script src="https://opensearch.org/assets/js/lib/webfontloader/webfontloader.js"></script>
+
+        <script>
+            $( document ).ready(function() {
+                if (window.location.host !== 'localhost:4000')  {
+                    let replacementDomain = 'https://opensearch.org';
+                    let replacer = function(attr) {
+                        return function() { 
+                            let hrefValue = $(this).attr(attr); 
+                            if (hrefValue[0] === '/') { 
+                                $(this).attr(attr, replacementDomain + hrefValue); 
+                            }  
+                        }
+                    };
+
+
+                    $('link[rel="stylesheet"]').each(replacer('href'));
+
+                }
+            });
+            WebFont.load({
+              custom: {
+                families: ['FontAwesome'],
+              },
+              google: {
+                families: [
+                  'Open Sans Condensed:700',
+                  'Open Sans:300italic,400italic,700italic,300,400,700',
+                  'Noto Serif:400italic,700italic,400,700',
+                  'Fira Mono:400'
+                ]
+              },
+              classes: false,
+              events: false,
+              timeout: 1000
+            });
+        </script>
+
+
+    </head>
+    <body >
+        <div class="simple-banner">
+            <img src="{{ layout.remote_domain }}/assets/img/opensearch-logo-themed.svg">
+        </div>
+        {{content}}
+        <div class="simple-footer">
+            {% include footer_legal.html %}
+        </div>
+    </body>
+
+</html>
+
