@@ -68,7 +68,7 @@ collections:
   authors:
     output: true
   partners:
-  'community_projects':
+  community_projects:
   javadocs:
     output: true
   events:
