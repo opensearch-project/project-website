@@ -436,3 +436,30 @@ dl.list-features {
     margin-left: 4em;
     margin-right: 4em;
 }
+
+.tutorial-layout {
+    background-color: $background-darker;
+    padding: 1em 2em;
+    body {
+        background-color: $background-darker;
+    }
+    .simple-banner {
+        top: 1em;
+        bottom: 1em;
+        border-bottom: 1px solid $line;
+        img {
+            max-width: 200px;
+        }
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        color: $text;
+    }
+    .simple-footer {
+        color: $text-light;
+        padding-top: 4em;
+        border-top: 1px solid $line;
+        font-size: 0.5em;
+        a { color: $text-light; }
+    }
+}

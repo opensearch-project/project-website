@@ -63,6 +63,12 @@ defaults:
     values:
       layout: artifact
       permalink: :collection/:categories/:slug.html
+-
+    scope:
+      type: tutorials
+    values:
+      layout: tutorial
+      permalink: :collection/:slug.html
 
 collections:
   authors:
@@ -79,6 +85,8 @@ collections:
     output: true
   faqs:
   testimonials:
+  tutorials:
+    output: true
 
     
 paginate: 5
