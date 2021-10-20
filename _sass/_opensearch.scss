@@ -462,4 +462,17 @@ dl.list-features {
         font-size: 0.5em;
         a { color: $text-light; }
     }
+
+    .gitpod-visible {
+        display: none;
+    }
+
+    .gitpod {
+        .gitpod-visible {
+            display: inherit;
+        }
+        .gitpod-hidden {
+            display: none;
+        }
+    }
 }
