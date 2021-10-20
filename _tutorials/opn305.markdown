@@ -7,6 +7,12 @@ sitemap: false
 
 # OpenSearch: Securing your OpenSearch Data
 
+## Setup
+
+Launch OpenSearch Dashboards by going to:
+
+`http://localhost:5601`{: .gitpod-dashboards }
+
 This is a [test](https://opensearch.org/)
 
 ## Configuring basic authentication
