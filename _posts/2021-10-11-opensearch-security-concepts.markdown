@@ -4,19 +4,21 @@ authors:
   - arubin
 date: 2021-10-11 01:01:01 -0700
 title: "OpenSearch Security Concepts"
-description: "OpenSearch provides a strong and reliable security model out-of-the-box. walks you through the setup of TLS encryption, users, roles, and permissions."
+description: "OpenSearch provides a strong and reliable security model out-of-the-box. This post explains some of the core concepts of OpenSearch security."
 category:
 - technical-posts
 canonical: "https://eliatra.com/blog/security-opensearch-concepts/"
 twittercard:
   account: "@eliatra_ire"
-  description: "OpenSearch provides a strong and reliable security model out-of-the-box. walks you through the setup of TLS encryption, users, roles, and permissions."
+  description: "OpenSearch provides a strong and reliable security model out-of-the-box. This post explains some of the core concepts of OpenSearch security."
   image: "/assets/media/blog-images/2021-10-11-opensearch-security-concepts/tls_encryption.png"
 ---
 
-For many years Elasticsearch had no built-in security. This led to numerous security breaches with millions of sensitive data leaked. Luckily, OpenSearch provides a strong and reliable security model out-of-the-box. 
+[Eliatra](https://eliatra.com/){:target="_blank"} provides OpenSearch Support, Professional Services and Custom Feature Development. Our team has been working with open source search engine technology like Lucene and Elastic products since the very beginning. We have extensive ecosystem knowledge. This makes us the perfect partner for AWS and OpenSearch, not only as a contributor but also to offer full support and professional services.
 
-This post is part of a multi-article series that walks you through the setup of TLS encryption, users, roles, and permissions. We will first explain some of the core concepts of OpenSearch security, and in the next part show you how to set up a basic security model using the internal user database.
+For many years Elasticsearch had no built-in security. This led to numerous security breaches with millions of sensitive data leaked. Luckily, OpenSearch provides a strong and reliable security model out-of-the-box.
+
+In this article, we will first explain some of the core concepts of OpenSearch security. Additional parts of this article can be found on the [Eliatra blog](https://eliatra.com/blog/opensearch-security-part-2-basic-setup/){:target="_blank"}, we walk you through a basic OpenSearch security setup using the demo configuration and the internal user database.
 
 ## OpenSearch Security Basic Concepts
 
@@ -27,7 +29,7 @@ The security model of OpenSearch is based on the following core concepts:
 * __Roles__ are used to implement *authorisation*. Any authenticated user can have one or more roles. Roles define what permissions a user has for particular indices.
 * __Permissions__ define what a user is allowed to do. For example,  the permissions of a user may grant READ access to data, but do not allow WRITE or DELETE operations.
 
-Apart from these basic security controls, OpenSearch also supports advanced features like Document- and Field-level security. We will cover those in follow-up articles as well.
+Apart from these basic security controls, OpenSearch also supports advanced features like LDAP authentication. You can find articles about it on the [Eliatra blog](https://eliatra.com/blog/opensearch-security-part-5-ldap-authentication/){:target="_blank"} too.
 
 ### TLS Encryption - REST Layer
 
@@ -44,7 +46,6 @@ OpenSearch is a distributed system, so most operations like indexing data or que
 By combining TLS encryption on both layers, all data in motion is end-to-end encrypted.
 
 ![OpenSearch Security end-to-end encryption](/assets/media/blog-images/2021-10-11-opensearch-security-concepts/tls_encryption.png){: .img-fluid}
-
 
 ## Users, Roles, and Permissions
 
