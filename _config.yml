@@ -63,12 +63,18 @@ defaults:
     values:
       layout: artifact
       permalink: :collection/:categories/:slug.html
+-
+    scope:
+      type: tutorials
+    values:
+      layout: tutorial
+      permalink: :collection/:slug.html
 
 collections:
   authors:
     output: true
   partners:
-  'community_projects':
+  community_projects:
   javadocs:
     output: true
   events:
@@ -78,6 +84,10 @@ collections:
   versions:
     output: true
   faqs:
+  testimonials:
+  tutorials:
+    output: true
+
     
 paginate: 5
 paginate_path: "/blog/page:num/"
