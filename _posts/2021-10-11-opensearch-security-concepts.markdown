@@ -2,7 +2,7 @@
 layout: post
 authors: 
   - arubin
-date: 2021-10-11 01:01:01 -0700
+date: 2021-10-26 01:01:01 -0700
 title: "Partner Highlight: Eliatra presents OpenSearch Security Concepts"
 description: "OpenSearch provides a strong and reliable security model out-of-the-box. This post explains some of the core concepts of OpenSearch security."
 category:
