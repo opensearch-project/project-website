@@ -5,10 +5,13 @@
   - [Contributing](#contributing)
     - [Adding to the Partners Page](#adding-to-the-partners-page)
     - [Building the Website](#building-the-website)
+    - [Testing](#testing)
+      - [Link checker](#link-checker)
   - [Code of Conduct](#code-of-conduct)
   - [Security](#security)
   - [License](#license)
   - [Credits](#credits)
+  - [Copyright](#copyright)
   
 # OpenSearch.org Website
 
@@ -44,7 +47,7 @@ Alternatively, build the site with `bundle exec jekyll build`. The HTML output i
 
 #### Link checker
 
-We use a link checker plugin to ensure that we dont have any broken links on the website. It does not run by default since it can slow down the build, especially when running `bundle exec jekyll serve`. To run the link checker, add the ENV flag `JEKYLL_LINK_CHECKER` or `JEKYLL_FATAL_LINK_CHECKER` with any one of the valid values `internal`,`forced`,`all` or `retry`. Each option tests a larger range of links. E.g.
+We use a link checker plugin to ensure that we don't have any broken links on the website. It does not run by default since it can slow down the build, especially when running `bundle exec jekyll serve`. To run the link checker, add the ENV flag `JEKYLL_LINK_CHECKER` or `JEKYLL_FATAL_LINK_CHECKER` with any one of the valid values `internal`,`forced`,`all` or `retry`. Each option tests a larger range of links. E.g.
 
 ```sh
 JEKYLL_FATAL_LINK_CHECKER=all bundle exec jekyll build
@@ -57,7 +60,7 @@ They both accept the same values with the only difference being that `JEKYLL_FAT
 **Env values**
 1. **internal**: validates only the internal links
 2. **forced**: validates internal links and links that are technically internal but instead link to an external page. e.g. `/docs`
-3. **all**: validates all links. however this option does not retry retry-able link or follow redirection links. e.g. HTTP:429 (too many attrmpts, retry after), HTTP:301 (Permanent redirect)
+3. **all**: validates all links. however this option does not retry retry-able link or follow redirection links. e.g. HTTP:429 (too many attempts, retry after), HTTP:301 (Permanent redirect)
 4. **retry**: validates all the links but also retries links with retry-able HTTP header 
 
 ## Code of Conduct
