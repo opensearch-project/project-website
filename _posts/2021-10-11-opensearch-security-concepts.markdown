@@ -3,7 +3,7 @@ layout: post
 authors: 
   - arubin
 date: 2021-10-11 01:01:01 -0700
-title: "OpenSearch Security Concepts"
+title: "Partner Highlight: Eliatra presents OpenSearch Security Concepts"
 description: "OpenSearch provides a strong and reliable security model out-of-the-box. This post explains some of the core concepts of OpenSearch security."
 category:
 - technical-posts
@@ -15,6 +15,8 @@ twittercard:
 ---
 
 [Eliatra](https://eliatra.com/){:target="_blank"} provides OpenSearch Support, Professional Services and Custom Feature Development. Our team has been working with open source search engine technology like Lucene and Elastic products since the very beginning. We have extensive ecosystem knowledge. This makes us the perfect partner for AWS and OpenSearch, not only as a contributor but also to offer full support and professional services.
+
+---
 
 For many years Elasticsearch had no built-in security. This led to numerous security breaches with millions of sensitive data leaked. Luckily, OpenSearch provides a strong and reliable security model out-of-the-box.
 
@@ -90,7 +92,7 @@ Cluster actions are actions that are not tied to specific indices, but rather op
 
 Index-level permissions can be granted by index or by index pattern. For example, you can assign READ permissions for all indices starting with logstash like:
 
-````
+```
 my-role:
   ...
   index_permissions:
@@ -98,7 +100,7 @@ my-role:
     - "logstash-*"
     allowed_actions:
     - "READ"
-````
+```
 
 OpenSearch comes with a number of pre-defined sets of permissions, like READ, WRITE, CRUD, etc. These permission sets are called [action groups](https://opensearch.org/docs/security-plugin/access-control/default-action-groups/) and should cover most use cases.  
 
@@ -118,7 +120,7 @@ new-user:
   opensearch_security_roles:
   - "my-role"
   - "my-other-role"  
-````
+```
 
 Here, user *myuser* has two roles, *my-role* and *my-other-role*.
 
@@ -126,14 +128,16 @@ This is nice and straightforward. However, if your user base grows, or if you us
 
 Think of it like adding users to groups first, and then assign one or more security roles to those groups. This introduces a layer of indirection but provides more flexibility when changing permissions. Let's say you have an LDAP and all employees that work in DevOps are members of this group:
 
-````
+```
 cn=devops,ou=it,dc=example,dc=com
-````
+```
 
 You can use the name of this group to automatically assign security roles to all members. To do so, add an entry in the *role_mapping.yml* configuration file like:
 
+```
 my-devops-security-role:
   - "cn=devops,ou=it,dc=example,dc=com"
+```
 
 Now all members of the LDAP group *cn=devops,ou=it,dc=example,dc=com* will be assigned to the security role my-devops-security-role.
 
