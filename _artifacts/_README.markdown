@@ -2,7 +2,42 @@
 
 Each artifact is represented by an item in a Jekyll collection
 
-By convention, each release is organized into a sub-folder.
+By convention, each release is organized into a sub-folder by minor version.
+
+Artifacts that are independently released (`opensearch-cli`,`data-prepper`, etc.) should be in their own folder.
+
+
+## Artifact example:
+```yaml
+---
+# `role` controls what section it will appear under in the downloads page
+role: cli 
+# `artifact_id` groups artifacts together by version
+artifact_id: opensearch-cli 
+# `version` is the semver version
+version: 1.0.0
+# `platform` is the identifier for the OS or platform. Should be `linux`, `windows`,`macos`,`freebsd`
+platform: linux
+# `architecture` should be `arm64`,`x86`,`x64`
+architecture: arm64
+# `artifact_url` should be the URL which will download the artifact
+artifact_url: https://artifacts.opensearch.org/opensearch-clients/opensearch-cli/opensearch-cli-1.0.0-linux-arm64.zip
+# `slug` is the name of the HTML file generated for each artifact.
+slug: opensearch-cli-1.0.0-linux-arm64
+# `category` Used in the URL for the HTML file. should be either `opensearch` or `opendistroforelasticsearch`
+category: opensearch
+# `type` the artifact type and controls how the download page template. Usually is the same as the `artifact_url` extension, unless it's `docker_hub` or `system-package`
+type: zip
+# `signature` is the download link to the signature file
+signature: https://artifacts.opensearch.org/opensearch-clients/opensearch-cli/opensearch-cli-1.0.0-linux-arm64.zip.sig
+# others:
+# `link` used for `docker_hub` and `freebsd_package_name`, the page that has information non-artifact
+# `freebsd_package_name` the `pkg` name, used in the template only for freebsd
+
+---
+```
+
+File names and folders are not used for rendering the site, but are used for organization. Please follow existing patterns (e.g. `opensearch-cli-1.0.0-macos-arm64.markdown`)
 
 
 ## Non-Artifacts
