@@ -443,6 +443,7 @@
   categories:
     - website
   title: OpenSearch Website Search
+  description: Provides the search experience for the OpenSearch documentation website
   url: https://github.com/opensearch-project/project-website-search
   special_files:
     - title: Contributing
