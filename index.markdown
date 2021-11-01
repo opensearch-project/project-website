@@ -16,7 +16,7 @@ download_ctas:
 ctas:
     post: ' on GitHub'
     primary: 
-        text: 'Get Started'
+        text: 'Download'
         url: '/downloads.html'
     roadmap:
         text: 'View the project roadmap'
