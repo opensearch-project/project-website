@@ -1,4 +1,5 @@
 ---
+logo_shape: square
 featured: true
 logo: /assets/media/testimonials/wipro.png
 author: 
