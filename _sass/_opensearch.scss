@@ -400,6 +400,13 @@ dl.list-features {
 
 
 .testimonial {
+    &.square {
+        .attribution {
+            img {
+                height: 8em;
+            }
+        }
+    }
     p {
         //font-size: 2.25rem;
         margin: 0;
