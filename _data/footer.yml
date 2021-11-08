@@ -36,7 +36,7 @@ columns:
         title: OpenSearch Disambiguation
         url: '/disambiguation.html'
   -
-    title: 'Connect'
+    title: 'Contact'
     links:
       # -
       #  title: 'Twitter'
@@ -45,5 +45,5 @@ columns:
       #  title: 'Facebook'
       #  url: 'https://www.facebook.com/opensearch'
       -
-        title: 'E-mail'
-        url: 'mailto:opensearch@amazon.com'
+        title: 'Connect'
+        url: '/connect.html'
