@@ -470,11 +470,22 @@ dl.list-features {
         a { color: $text-light; }
     }
 
-    .gitpod-visible {
+    .gitpod-visible, 
+    .gitpod-dashboards-ready-visible {
         display: none;
     }
 
+
+
     .gitpod {
+        &.gitpod-dashboards-ready {
+            .gitpod-dashboards-ready-visible {
+                display : inherit;
+            }
+            .gitpod-dashboards-ready-hidden {
+                display: none;
+            } 
+        }
         .gitpod-visible {
             display: inherit;
         }

@@ -11,5 +11,5 @@ Please be patient, your live environment is being setup. This page will go away 
 <script>
     window.setInterval(function refresh() {
         window.location.reload();
-    }, 2000); 	
+    }, 5000); 	
 </script>
