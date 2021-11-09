@@ -9,3 +9,4 @@ vendor
 *.csv
 *.lock
 .vscode
+/tutorial

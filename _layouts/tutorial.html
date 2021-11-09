@@ -38,7 +38,7 @@ remote_domain: 'https://opensearch.org'
                         } else {
                             gitPodStatus.checkCount += 1;
                         }
-                        jQuery.get('/dashboardsready.txt').done(function() { 
+                        jQuery.get('/tutorial/dashboardsready.txt').done(function() { 
                             clearInterval(gitPodStatus.dashboardsInterval);
                             $('body').addClass('gitpod-dashboards-ready');
                         });
