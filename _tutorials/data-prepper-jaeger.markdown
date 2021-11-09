@@ -14,7 +14,7 @@ Launch OpenSearch Dashboards with Docker Desktop
 Please wait while OpenSearch Dashboards is loading
 {: .gitpod-visible.gitpod-dashboards-ready-hidden }
 
-OpenSearch Dashboards is ready. You can <a href="http://localhost:5601/" class="gitpod-replace-port" data-port="5601">open Dashboards</a> or point a browser at `http://localhost:5601`{: .gitpod-dashboards }
+OpenSearch Dashboards is ready. You can <a href="https://localhost:5601/" class="gitpod-replace-port" data-port="5601" target="_blank">launch OpenSearch Dashboards</a> or point a browser at `https://localhost:5601`{: .gitpod-dashboards }
 {: .gitpod-dashboards-ready-visible }
 
 
