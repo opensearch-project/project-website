@@ -52,6 +52,13 @@ remote_domain: 'https://opensearch.org'
                         $(this).attr('href','https://'+window.location.host.replace('8000',port)+'/');
                     });
 
+                    $('code.gitpod-replace-port').each(function() {
+                        var text = $(this).text();
+                        var port = $(this).attr('data-port')
+                        $(this).text('https://'+window.location.host.replace('8000',port)+'/');
+                    });
+
+
                     $('.gitpod-dashboards').each(function() {
                         $(this).text('https://'+window.location.host.replace('8000','5601')+'/');
                     });
@@ -71,7 +78,7 @@ remote_domain: 'https://opensearch.org'
                     };
 
 
-                    $('link[rel="stylesheet"]').each(replacer('href'));
+                    //$('link[rel="stylesheet"]').each(replacer('href'));
                     $('img').each(replacer('src'));
 
                 } else {
@@ -102,6 +109,8 @@ remote_domain: 'https://opensearch.org'
         <div class="simple-banner">
             <img src="{{ layout.remote_domain }}/assets/img/opensearch-logo-themed.svg">
         </div>
+        <h1>{{ page.title }}</h1>
+        <hr />
         {{content}}
         <div class="simple-footer">
             {% include footer_legal.html %}
