@@ -95,7 +95,7 @@ Switch back to OpenSearch Dashboards.
 
 ![OpenSearch Dashboards Trace Analytics](/assets/media/tutorials/data-prepper-jaeger/trace.jpg){: .img-fluid}
 
-You’ll see the panels have been populated with some data based on your clicks. On the top, you have a listing of latency by trace groups, then below you have the service map, trace error rate and trace over time charts. Feel free to explore these panels,
+You’ll see the panels have been populated with some data based on your clicks (if not, click the "Refresh" button on the right). On the top, you have a listing of latency by trace groups, then below you have the service map, trace error rate and trace over time charts. Feel free to explore these panels,
 
 
 Now, view the traces of any trace group by clicking on the number of traces in the right most column of the “Latency by trace group” panel. 
