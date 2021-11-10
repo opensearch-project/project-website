@@ -445,10 +445,14 @@ dl.list-features {
 }
 
 .tutorial-layout {
-    background-color: $background-darker;
+    img.img-fluid {
+        padding: 1em;
+        border: 1px solid $text;
+    }
+    background-color: $white;
     padding: 1em 2em;
     body {
-        background-color: $background-darker;
+        background-color: $white;
     }
     .simple-banner {
         top: 1em;
@@ -471,13 +475,14 @@ dl.list-features {
     }
 
     .gitpod-visible, 
-    .gitpod-dashboards-ready-visible {
+    body:not(.gitpod-dashboards-ready) .gitpod-dashboards-ready-visible {
         display: none;
     }
 
 
 
     .gitpod {
+        
         &.gitpod-dashboards-ready {
             .gitpod-dashboards-ready-visible {
                 display : inherit;
