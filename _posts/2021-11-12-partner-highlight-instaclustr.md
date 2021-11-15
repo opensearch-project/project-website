@@ -3,7 +3,7 @@ layout: post
 title:  "Partner Highlight: Instaclustr adds OpenSearch to its managed service offerings"
 authors:
   - paulaubrey
-date: 2021-11-12 01:01:01
+date: 2021-11-15 01:01:01
 categories:
   - partners
 twittercard:
