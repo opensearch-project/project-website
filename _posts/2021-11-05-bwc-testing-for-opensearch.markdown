@@ -13,6 +13,8 @@ twittercard:
 
 Backwards Compatibility (BWC) testing is used to test and determine the safe upgrade paths from a supported BWC version to the current version. The framework in OpenSearch allows you to run these BWC tests for all supported BWC versions in OpenSearch allowing safe upgrade paths between versions. This framework is now extended to work for plugins which can introduce their BWC tests without creating individual frameworks of their own. This post provides details on the framework in OpenSearch for backwards compatibility.
 
+OpenSearch 1.1.0 was tested with versions 7.10.2 and 1.0.0 for backwards compatibility using the framework described in this post.
+
 ## The Framework
 
 As a general idea for BWC tests, the framework supports spinning up a test cluster with a supported BWC version, then upgrade the nodes to the current version and test various features and functionalities as a result of the upgrade. This allows for testing the compatibility of the code between versions.
@@ -91,4 +93,4 @@ Backwards compatibility especially for plugins has been a major concern during r
 
 For more information on BWC testing, please check out [OpenSearch/TESTING.md](https://github.com/opensearch-project/OpenSearch/blob/f54cc382d53f76b4edefc919cc69192dee456b33/TESTING.md#testing-backwards-compatibility) and [opensearch-plugins/TESTING.md](https://github.com/opensearch-project/opensearch-plugins/blob/b606c9e17163311ce2dee05a7a5d6f557e5fc197/TESTING.md#backwards-compatibility-testing).
 
-Closing on a high note, we hope this blog post adds light to the backwards compatibility framework and we are continuing to invest efforts in automating backwards compatibility for OpenSearch. Please refer to [opensearch-project/opensearch-build#90](https://github.com/opensearch-project/opensearch-build/issues/90) for the next steps.
+Closing on a high note, we hope this blog post adds light to the backwards compatibility framework and we are continuing to invest efforts in automating backwards compatibility for OpenSearch. The release automation currently built as part of [opensearch-project/opensearch-build#90](https://github.com/opensearch-project/opensearch-build/issues/90) runs the bwc tests for OpenSearch as part of the release process. Going further, we are working to add bwc tests for all plugins ([opensearch-project/opensearch-plugins#77](https://github.com/opensearch-project/opensearch-plugins/issues/77)), automate running the plugin bwc tests and run bwc tests for the bundle as part of the release process. Please refer to [opensearch-project/opensearch-build#90](https://github.com/opensearch-project/opensearch-build/issues/90) for the next steps.
