@@ -1,10 +1,16 @@
 tasks:
-  - init: code .gitpod-load.txt
-  - name: dev server
-    init: 
-      gem install bundler &&
-      bundle install
-    command: bundle exec jekyll serve
+  - init: "mkdir tutorial && curl https://opensearch.org/tutorials/opn305.html > ./tutorial/index.html && cd tutorial && python3 -m http.server 8000"
+  - init: "./_demo/docker-compose pull"
+  - command: "./_demo docker-compose up"
+  - init: "./_demo/check-dashboards.sh"
+    command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
+
 ports:
-  - port: 4000
+  - port: 8080
     onOpen: open-preview
+  - port: 5601
+    onOpen: ignore
+  - port: 9200
+    onOpen: ignore
+  - port: 9600
+    onOpen: ignore
