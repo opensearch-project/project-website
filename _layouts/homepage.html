@@ -61,7 +61,7 @@ layout: default
 
       {% assign org = site.data.repos | find: "shortname", "org" %}
       {% if org.url %}
-      <a href="{{ org.url }}" target="_blank" class="cta outline">
+      <a href="{{ org.url }}" class="cta outline target="_blank"">
         {{page.ctas.pre}} {{ org.title }} {{page.ctas.post}}
       </a>
       {% endif %}
