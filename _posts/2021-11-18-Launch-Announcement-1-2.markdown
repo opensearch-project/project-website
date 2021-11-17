@@ -10,7 +10,7 @@ PLACEHOLDER FOR GIF
 * **More efficient k-NN dense vectors**: k-NN now has support for the Faiss (https://github.com/facebookresearch/faiss) library, allowing you to expand the size of feature vectors. The Faiss library brings efficient similarity search and clustering of dense vectors and allows for search in data sets of vectors in sizes larger than what fits in memory. 
 * **Custom Dashboards Branding**: Align the look and feel of OpenSearch Dashboards to your own brand by providing a configurable logo, favicon, title, and more. 
 
-PLACEHOLDER FOR BRANDING COMPARISON
+![Custom Dashboard Branding]({{ site.baseurl }}assets/media/blog-images/2021-11-18-Launch-Announcement-1-2-0/CustomBrandingSideBySide.png){: .img-fluid }
 
 *What’s next?*
 
