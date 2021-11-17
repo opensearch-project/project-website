@@ -8,5 +8,4 @@ vendor
 *.tar
 *.csv
 *.lock
-.vscode
 /tutorial
