@@ -61,15 +61,20 @@ module Jekyll::ContentIndexer
       # Appropriately assign types based on collection
       case page.collection&.label
       when 'posts'
-        type = 'POSTS'
+        type = 'Blog'
       when 'authors'
-        type = 'AUTHORS'
-        url << '.html'    # Add .html to URLs of author pages to correct the url
+        type = 'Authors'
       when 'events'
-        type = 'EVENTS'
+        type = 'Events'
       when 'versions'
-        type = 'DOWNLOADS'
-        url << '.html'    # Add .html to URLs of author pages to correct the url
+        type = 'Downloads'
+      when 'testimonials'
+        type = 'Testimonials'
+      when 'tutorials'
+        type = 'Tutorials'
+        #url << '.html'    # Add .html to URLs of author pages to correct the url
+      else
+        puts 'Unknown type: ' + page.collection&.label
       end
     end
 
