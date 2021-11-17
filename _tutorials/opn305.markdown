@@ -1,82 +1,168 @@
 ---
 layout: tutorial
 comments: true
-title: "OPN305 Securing Your OpensSearch Data"
+title: "OPN305 OpenSearch: Securing your OpenSearch Data"
 sitemap: false
 ---
 
-# OpenSearch: Securing your OpenSearch Data
+Today’s builder’s session will leverage [Gitpod](https://www.gitpod.io/) (or Docker Compose, if you wish) to launch a container instance that hosts a single node of an [OpenSearch](https://opensearch.org/docs/latest/opensearch/index/) cluster coupled with [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/index/). The container image comes preinstalled with multiple plugins from the [OpenSearch project](https://opensearch.org/). One of those plugins is the [Security plugin](https://opensearch.org/docs/latest/security-plugin/index/). The session will focus specifically on the security plugin and how you can leverage the plugin for fine grained access controls on your indexes.
 
-## Setup
+## Tasks
 
-For this tutorial you will need a working version of OpenSearch and OpenSearch Dashboards with security enabled.
-
-### Starting OpenSearch & OpenSearch Dashboards
-
-[OpenSearch.org](https://opensearch.org/downloads.html#docker-compose) has instructions on how to start a OpenSearch and OpenSearch Dashboards with Docker Compose.
-{: .gitpod-hidden }
-
-A version of OpenSearch & OpenSearch Dashboards has already been launched for you. It might take a few minutes for it to be ready to use. 
-{: .gitpod-visible}
-
-In the output for OpenSearch Dashboards you should eventually see a message that says something like: `["info","http","server","OpenSearchDashboards"],"pid":1,"message":"http server running at http://0:5601"]`. 
-
-Once you see this, you can start up OpenSearch Dashboards by visiting the URL in a new browser window: 
-
-`http://localhost:5601`{: .gitpod-dashboards }
-
-### First steps in OpenSearch Dashboards
-
-You should see an animation and the message “Loading OpenSearch” followed in a few moments by a login screen. If it shows a simple white page with the message “OpenSearch Dashboards server is not ready yet”, then wait 1 or 2 minutes and reload the page.
-
-You can log into OpenSearch Dashboards with the username `admin` and password `admin`.
-
-You'll be presented with a dialog box to "Select your tenant." Click "Confirm."
-
-![Select Tenant screenshot](/assets/media/tutorials/shared/select-tenant.png){: .img-fluid }
-
-Now you’ll see a splash screen welcoming you to OpenSearch. Today we don’t need to add any data, so click “Explore on my own.”
-
-![Welcome screen in OpenSearch](/assets/media/tutorials/shared/welcome-to-opensearch.png){: .img-fluid }
+The builder’s session is divided into specific tasks to help you understand how you can leverage the security plugin to help control the scope of data and the operations that one user or group can perform on your data in your cluster. Many customers find that the fine grained access controls for the plugin can give customers a mechanism that ensures data access is scoped to the desired users. The plugin includes integrations with SAML providers and other authentication sources and it also has a local user database. This session focuses on the provisioning of a local user database to simulate entitlements such as those that are normally implemented in production deployments. You will perform the following activities with these instructions and you will have an OpenSearch person at your table to help you through any issues that may arise while going through these instructions. The task are broken down into the following actions:
 
 
-## Configuring basic authentication
+1. Get setup with Gitpod and create the cluster from an existing GitHub project
+2. Load data into the cluster using python scripts and other linux tools like wget
+3. Create users in the local user database with basic authentication
+4. Configure audit logging so you can see the actions of your users and verify compliance
+5. Configure roles at the index level and the document and field levels
+6. Assign the roles to users created in basic authentication
+7. Exercise queries in OpenSearch dashboards to view the data and the effects of the role
+assignments for particular users
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac efficitur nisi, et pharetra tortor. Donec vitae purus lectus. Morbi libero sem, tristique et erat ut, finibus sodales odio. Donec tellus velit, dignissim quis finibus eget, condimentum ut felis. Nunc volutpat faucibus magna suscipit auctor. Quisque placerat pharetra nisi. Phasellus semper mollis risus a gravida. Duis pharetra magna purus, eget tempus justo laoreet non. Donec purus enim, faucibus sed pulvinar non, accumsan vitae enim. Ut eget mauris semper, iaculis nisl id, varius lacus. Vestibulum egestas, massa ut auctor pharetra, libero ex vehicula lacus, ac vehicula nulla nisi ullamcorper libero.
+## Let’s create the cluster!
 
+Today’s session will leverage [Gitpod](https://www.gitpod.io/) to launch a container instance that hosts a single node of an [OpenSearch](https://opensearch.org/docs/latest/opensearch/index/) cluster coupled with [OpenSearch Dashboards](https://opensearch.org/docs/latest/opensearch/index/). The container image comes preinstalled with multiple plugins from the [OpenSearch project](https://opensearch.org/). One of those plugins is the [Security plugin](https://opensearch.org/docs/latest/security-plugin/index/). The session will focus specifically on this plugin and how you can leverage the plugin for fine grained access controls on your indexes.
+
+Navigate to the following project. Scroll down on the landing page until you see the following button.
+Click on it and it will launch an instance of OpenSearch in your developer account.
+
+[Screenshot 1]
+
+Once you click on the button, the container will launch in Gitpod. You should observe the following as
+the Gitpod environment spins up:
+
+![GitPod Loading](/assets/media/tutorials/opn305/gitpod-pull.png){: .img-fluid}
+
+Be patient while the container launches. You will shortly see a page similar to mine that has the
+following setup:
+
+[Screenshot 3]
+
+You will see the that there is a terminal frame that shows the container being prepared. Wait for the
+following output to be present in this terminal frame:
+
+[Screenshot 4]
+
+Once the container has started up, you will observe and even that states “http server running at
+http://0:5601”. Port 5601 is where your OpenSearch dashboard is listening for requests. Go ahead and
+navigate to the upper right hand size where you should see a frame that says Simple Browser. Ensure
+that the endpoint is prefixed with 5601. In my case the endpoint is https://5601-aquamarine-macawp1vxe8y9.ws-us18.gitpod.io. Click on the expand icon to launch the OpenSearch Dashboards.
+
+[Screenshot 5]
+
+You should see a sign on screen for OpenSearch Dashboards. The user name is `admin` and the `password`
+is admin for this image. Keep in mind, this password is only for demonstration purposes and you should
+create passwords that are complex and not easy to figure out. Your organization will most likely have
+standards and you should adhere to a strong password to keep things secure even in private
+environments.
+
+![Login to OpenSearch](/assets/media/tutorials/shared/login.jpg){: .img-fluid}
+
+## Import the movies data into the OpenSearch cluster
+
+When you first launched your deployment, you had a workspace in Gitpod that provided some
+additional features. If you look at the far lower righthand side of the page, you will see a bash
+breadcrumb. Navigate that to get a session on the container
+
+[Screenshot]
+
+## Download data and scripts
+
+The first thing that you are going to do is pull the data set from the location in which it is hosted. You
+will use `wget` to pull the dataset to your local storage on the container. Execute the following command
+in your bash shell:
 
 ```
-$ curl 
+wget https://search-sa-log-solutions.s3-us-east2.amazonaws.com/fluentd-kinesis-logstash/data/2013Imdb.txt
+```
+Observe the following:
+
+![Get the data](/assets/media/tutorials/opn305/wget.png){: .img-fluid}
+
+Next, you need to download two different scripts. The first script will add the index template to the
+cluster by leveraging the [_template](https://opensearch.org/docs/latest/opensearch/index-templates/) endpoint. The second script will parse the 2013imdb.txt file that
+you downloaded and it will convert it into [_bulk](https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/) API calls against the cluster.
+
+Go ahead and download the two files with the following commands:
+
+```
+wget https://search-sa-log-solutions.s3-us-east2.amazonaws.com/builders/put-mappings.py
+wget https://search-sa-log-solutions.s3-us-east2.amazonaws.com/builders/put-data.py
 ```
 
+Observe the following output:
 
-## Configuring auditing
+![Get the data](/assets/media/tutorials/opn305/wget_scripts.png){: .img-fluid}
 
-Pellentesque purus lorem, accumsan et hendrerit in, finibus eu sapien. Phasellus mollis tempor ligula, a aliquam lorem condimentum vestibulum. Maecenas eleifend egestas lectus, eget porta urna eleifend ut. Sed vestibulum nibh vel nulla consectetur, eget congue tortor rhoncus. Sed consectetur convallis ultrices. Donec ornare eu arcu sed rutrum. Aenean hendrerit orci quis ullamcorper luctus. Donec in ipsum eu nibh volutpat pharetra. In suscipit metus id purus fermentum, vitae elementum dolor pulvinar. Aliquam erat volutpat. Fusce tellus elit, sodales nec mi vel, elementum volutpat arcu. Aliquam venenatis tellus augue, a vulputate dolor interdum et.
+## Let’s create some users!
 
-
-
-## Configuring roles
-
-Phasellus efficitur tristique metus, a iaculis justo sollicitudin ut. Praesent ac finibus turpis. Quisque in finibus justo. Pellentesque ac elit accumsan, rhoncus nunc vitae, tempor sem. Nullam et ex consequat, euismod diam a, luctus libero. Morbi lacinia ut risus vel dictum. Fusce tincidunt tincidunt laoreet. Aliquam non congue eros. Vivamus a lacinia leo. In vel massa massa. Aliquam porta arcu sed tempor finibus. Morbi dolor dolor, aliquet nec sapien non, sollicitudin rhoncus sem. Donec vitae sagittis dui. Sed a diam sit amet purus aliquam volutpat. Nullam sagittis risus purus, at interdum urna suscipit id.
-
- 
-
-## Configuring role mappings
-
-Sed lectus magna, commodo et porttitor vel, condimentum eget quam. In ornare nunc ante, ac gravida ex posuere quis. Suspendisse lacinia nulla non eleifend tempor. Maecenas id molestie ex, auctor rutrum eros. Aenean hendrerit, est eget tristique tincidunt, lacus risus eleifend arcu, a ullamcorper risus ligula quis lectus. Suspendisse dui arcu, pulvinar vitae odio vel, tempor malesuada diam. Nullam urna risus, pellentesque a tortor id, tristique vulputate nibh.
+Once you are signed in on the cluster, you should see the following screen. Navigate to the Security
+plugin.
 
 
-## Configuring document level permissions
+![create users](/assets/media/tutorials/opn305/create_users.png){: .img-fluid}
 
-Mauris sed erat purus. Quisque sit amet urna blandit, ultrices dolor id, ornare arcu. Phasellus eget ipsum sed mi laoreet accumsan non vitae velit. Pellentesque sodales ullamcorper velit ut dictum. Integer sodales eu mauris ultrices dignissim. Cras scelerisque sem aliquet sem viverra, id volutpat sem gravida. Sed a pulvinar ipsum. Sed a lectus efficitur, venenatis ante sit amet, feugiat sem. Cras consequat tellus ligula, vitae consequat turpis porttitor quis. Suspendisse sit amet libero ac massa maximus pharetra. Mauris eu venenatis massa. Ut vitae tempus felis.
+For our session on security, lets lay a solid foundation for entitlements; otherwise known as permissions
+or roles that have permissions to do things on a cluster. You create these users so that you, as an
+admin, can monitor behaviours and ensure that users only have the permissions they need. Audit logs
+help you verify the permissions you create are performing as intended. The role of an admin user
+typically is limited in the fact that the admin user can issue entitlements and revoke them. Outside of
+that, admin users should never be used for programmatic access outside of the scope of entitlements as
+a best practice.
+
+You are going to create the following users:
+
+1. A power user – the power user will have the all_access role assigned to it. Typically, a power
+user can create dashboards and visualizations within assigned tenants, have CRUD access to all
+indexes and settings outside of the Security plugin on the cluster.
+2. A read only limited access user assigned to one index – this user can only read data on a specific
+index and the user can see all fields in the documents.
+3. A read only document level and field level security user – this user has access to the same single
+index the limited access user has and the user is further limited by specific documents matching
+a specific genre of movies. The user will not have access to the actors field in the movies index
+that you will create shortly.
+
+Once you click on the Security link, you should see the following page. Navigate to the Internal users
+link found on the left hand side of the browser window and click on the link.
+
+![internal users](/assets/media/tutorials/opn305/security_navigate_internal_users.png){: .img-fluid}
 
 
+## Create the power user
 
-## Configuring field level permissions
+You will be presented with a form. Fill in the following value for the user name:
+`power_user_non_admin`. Assign a password and go ahead and create the user.
 
-Aliquam erat volutpat. Duis est lorem, ornare ac est sed, pharetra fringilla sapien. Fusce tincidunt arcu vel iaculis pellentesque. Aenean ac mauris vel metus efficitur eleifend. Nullam rutrum consequat mollis. Vivamus finibus velit lacus, ac varius dolor placerat ullamcorper. Vestibulum auctor mi nulla, sed tempor ipsum tincidunt in. Proin efficitur sodales augue non volutpat. Vestibulum vehicula rutrum purus vel consequat.
+![power_user_non_admin](/assets/media/tutorials/opn305/power_user_all_access.png){: .img-fluid}
 
+Scroll to the bottom of the form, leave the other fields alone for now and click on the create button and
+observe that the power user got created.
+
+![user created](/assets/media/tutorials/opn305/user_created.png){: .img-fluid}
+
+![user created alert](/assets/media/tutorials/opn305/power_user_created.png){: .img-fluid}
+
+Repeat this activity for the next two users.
+
+## Create the read only index level user
+
+Create a user called `read_only_index_level` user. Do not map them.
+
+![read_only_index_level user](/assets/media/tutorials/opn305/read_only_index_level.png){: .img-fluid}
+
+## Create the read only document level field level user
+
+Create a user called `read_only_dls_fls` user.
+
+![read_only_dls_fls user](/assets/media/tutorials/opn305/read_only_dls_fls.png){: .img-fluid}
+
+## Observe all three users are created
+
+In the overview, you should see all three users created.
+
+![read_only_dls_fls user](/assets/media/tutorials/opn305/three_users_observe.png){: .img-fluid}
 
 
 ## Stay Connected!

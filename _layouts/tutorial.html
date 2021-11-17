@@ -76,11 +76,11 @@ remote_domain: 'https://opensearch.org'
                             }  
                         }
                     };
-
-
-                    $('link[rel="stylesheet"]').each(replacer('href'));
-                    $('img').each(replacer('src'));
-
+                    if (location.port !== '4000') {
+                        $('link[rel="stylesheet"]').each(replacer('href'));
+                        $('img').each(replacer('src'));
+                        console.log('not 4000');
+                    }
                 } else {
                     // not gitpod.
                 }
