@@ -1,7 +1,7 @@
 tasks:
   - init: "mkdir tutorial && curl https://opensearch.org/tutorials/opn305.html > ./tutorial/index.html && cd tutorial && python3 -m http.server 8000"
-  - init: "./_demo/docker-compose pull"
-  - command: "./_demo docker-compose up"
+  - init: "cd _demo && docker-compose pull"
+  - command: "cd _demo && docker-compose up"
   - init: "./_demo/check-dashboards.sh"
     command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
 
