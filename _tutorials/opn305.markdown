@@ -30,7 +30,7 @@ Today’s session will leverage [Gitpod](https://www.gitpod.io/) or [Docker Comp
 Click on the "Open in Gitpod" button below and it will launch an instance of OpenSearch in your browser account.
 {: .gitpod-hidden }
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/opensearch-project/project-website/tree/opn305-demo)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/opensearch-project/project-website/tree/opn305-demo)
 {: .gitpod-hidden }
 
 Once you click on the button, the container will launch in Gitpod. You should observe the following as
