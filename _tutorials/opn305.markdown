@@ -197,9 +197,16 @@ Create a user called `read_only_index_level` user. Do not map them.
 
 ## Create the read only document level field level user
 
-Create a user called `read_only_dls_fls` user.
+OpenSearch security has a rich set of REST APIs. Note that the `-u` argument is specifying the username/password, the `-k` argument is suppressing a warning about a self-signed certificate, `-H` specifies the header, `-d` is the payload and the final argument is the URI with the username included.
 
-![read_only_dls_fls user](/assets/media/tutorials/opn305/read_only_dls_fls.png){: .img-fluid}
+Use the `curl` to create the `read_only_dls_fls` user in the terminal with the REST API:
+
+```
+curl -u admin:admin -k -X PUT -H "Content-Type: application/json" -d '{ "password" : "foo" }' https://localhost:9200/_plugins/_security/api/internalusers/read_only_dls_fls
+```
+
+It should respond back with `{"status":"CREATED","message":"'read_only_dls_fls' created."}` 
+
 
 ## Observe all three users are created
 
