@@ -117,8 +117,9 @@ will use `wget` to pull the dataset to your local storage on the container. Exec
 in your bash shell:
 
 ```
-wget https://search-sa-log-solutions.s3-us-east2.amazonaws.com/fluentd-kinesis-logstash/data/2013Imdb.txt
+wget http://search-sa-log-solutions.s3-us-east-2.amazonaws.com/fluentd-kinesis-logstash/data/2013Imdb.txt
 ```
+
 Observe the following:
 
 ![Get the data](/assets/media/tutorials/opn305/wget.png){: .img-fluid}
@@ -130,8 +131,8 @@ you downloaded and it will convert it into [_bulk](https://opensearch.org/docs/l
 Go ahead and download the two files with the following commands:
 
 ```
-wget https://search-sa-log-solutions.s3-us-east2.amazonaws.com/builders/put-mappings.py
-wget https://search-sa-log-solutions.s3-us-east2.amazonaws.com/builders/put-data.py
+wget http://search-sa-log-solutions.s3-us-east-2.amazonaws.com/builders/put-mappings.py
+wget http://search-sa-log-solutions.s3-us-east-2.amazonaws.com/builders/put-data.py
 ```
 
 Observe the following output:
