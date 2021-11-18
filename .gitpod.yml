@@ -6,7 +6,7 @@ tasks:
     command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
 
 ports:
-  - port: 8080
+  - port: 8000
     onOpen: open-preview
   - port: 5601
     onOpen: ignore
