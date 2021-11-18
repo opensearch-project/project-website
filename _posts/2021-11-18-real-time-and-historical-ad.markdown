@@ -3,7 +3,7 @@ layout: post
 title: "Anomaly Detection for Historical Data and Real-time Streaming"
 authors:
   - ohltyler
-date: 2021-11-16 09:00:00 -0700
+date: 2021-11-18 09:00:00 -0700
 categories:
   - technical-post
 twittercard:
