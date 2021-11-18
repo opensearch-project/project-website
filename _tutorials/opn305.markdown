@@ -61,7 +61,7 @@ Now, let's launch OpenSearch Dashboards. Right click on the link below and *open
 
 ![GitPod Loading](/assets/media/tutorials/opn305/open-in-new-window.png){: .img-fluid.gitpod-visible.gitpod-dashboards-ready-visible}
 
-➡️ <a href="http://localhost:5601/" class="gitpod-replace-port" port="5601">Launch OpenSearch Dashboards</a>.
+➡️ <a href="http://localhost:5601/" class="gitpod-replace-port" data-port="5601">Launch OpenSearch Dashboards</a>.
 {: .gitpod-visible.gitpod-dashboards-ready-visible }
 
 
