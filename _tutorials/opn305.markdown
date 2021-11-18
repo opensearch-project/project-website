@@ -28,20 +28,27 @@ Today’s session will leverage [Gitpod](https://www.gitpod.io/) or [Docker Comp
 ### Starting the cluster with Gitpod
 
 Click on the "Open in Gitpod" button below and it will launch an instance of OpenSearch in your browser account.
+{: .gitpod-hidden }
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/opensearch-project/project-website/tree/opn305-demo)
-
+{: .gitpod-hidden }
 
 Once you click on the button, the container will launch in Gitpod. You should observe the following as
 the Gitpod environment spins up:
+{: .gitpod-hidden }
 
-![GitPod Loading](/assets/media/tutorials/opn305/gitpod-pull.png){: .img-fluid}
+![GitPod Loading](/assets/media/tutorials/opn305/gitpod-pull.png){: .img-fluid.gitpod-hidden}
 
 Be patient while the container launches. You will see these instructions come up in the preview window on top and terminal on the bottom:
+{: .gitpod-hidden }
 
-![GitPod Loading](/assets/media/tutorials/opn305/gitpod-layout.png){: .img-fluid}
+![GitPod Loading](/assets/media/tutorials/opn305/gitpod-layout.png){: .img-fluid.gitpod-hidden}
+
+Looks like you're running in GitPod - here is the status of OpenSearch Dashboards.
+{: .gitpod-visible}
 
 When this document is viewed in Gitpod, it will indicate when OpenSearch Dashboards is ready for use.
+{: .gitpod-hidden}
 
 🛑 Please wait while OpenSearch Dashboards is loading. This may take a few moments.
 {: .gitpod-visible.gitpod-dashboards-ready-hidden }
