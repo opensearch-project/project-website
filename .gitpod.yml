@@ -3,8 +3,7 @@ tasks:
   - init: "cd _demo && docker-compose pull"
   - command: "cd _demo && docker-compose up"
   - init: "./_demo/check-dashboards.sh"
-    command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
-  - command: "cd ./tutorial"
+    command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt && cd ./tutorial"
 
 ports:
   - port: 8000
