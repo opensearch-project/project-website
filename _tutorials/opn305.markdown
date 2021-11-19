@@ -13,7 +13,7 @@ The builder’s session is divided into specific tasks to help you understand ho
 
 
 1. Get setup with Gitpod and create the cluster from an existing GitHub project
-2. Load data into the cluster using python scripts and other linux tools like wget
+2. Load data into the cluster using Python scripts and other Linux tools like `wget`
 3. Create users in the local user database with basic authentication
 4. Configure audit logging so you can see the actions of your users and verify compliance
 5. Configure roles at the index level and the document and field levels
@@ -100,6 +100,54 @@ environments.
 
 ![Login to OpenSearch](/assets/media/tutorials/shared/login.jpg){: .img-fluid}
 
+Once you have signed in to OpenSearch Dashboards, you will be presented with the following screen:
+
+![Explore on my own](/assets/media/tutorials/opn305/add-your-data.png){: .img-fluid}
+
+## Select the tenant
+You will be prompted to select a tenant.  Chose the Global tenant and click on the confirm button.
+
+![Select your tenant](/assets/media/tutorials/opn305/global.png){: .img-fluid}
+
+
+
+## Let's configure audit logs!
+
+Audit logs give you visibility into what users are doing on your cluster and the logs help you understand how you are staying compliant for your organizational requirements.  For this builder’s session, the audit logs are already enabled.  Your focus will be on setting up the types of logs and users that you are going to monitor.  To do this, you need to navigate to the security plugin.  If you look at your console, there is an expand button next to the Home label.  Click on this to get to the menu.
+
+
+![Home](/assets/media/tutorials/opn305/home.png){: .img-fluid}
+
+## Navigate to the Security plugin
+
+The Security plugin manages the audit logs configuration.  Click on the Security option.
+
+
+![Select security](/assets/media/tutorials/opn305/select-security.png){: .img-fluid}
+
+
+## Navigate to the Audit logs menu
+
+The Audit logs by default will be contained in a series of indexes for this walkthrough.  You can adjust your `opensearch.yml` file to change the location.  For demo purposes, this will be in an index.  I suggest using logs instead if you deploy this in any production environment.
+
+![Select security](/assets/media/tutorials/opn305/audit.png){: .img-fluid}
+
+Once you click into General settings you will be presented with a series of options.  In the Layer settings, enable the REST layer logging.  Leave transport layer alone for now.  This REST layer will show you all requests over `GET`, `PUT`, `POST`, etc that come into the cluster.  This can help you see what queries are being run by your users so they there is visibility into user activities.  Some settings are already provisioned for you and we are going to verify that certain settings are adjusted as seen below:
+
+![Layer settings](/assets/media/tutorials/opn305/layer-settings.png){: .img-fluid}
+
+In the Attribute settings, enable Request body and Resolve indices.  These two settings show the query body and will show the actual index (in an alias or MGET/MSEARCH) for which a query was executed.
+
+![Attribute Settings](/assets/media/tutorials/opn305/attribute-settings.png){: .img-fluid}
+
+Save your settings.  We will example what gets logged here once we add some data to the cluster.
+
+![Save](/assets/media/tutorials/opn305/ignore-settings-save.png){: .img-fluid}
+
+You wont concern yourself with the compliance settings for this builder’s session.
+
+# Lets create some data to work with!
+
 ## Import the movies data into the OpenSearch cluster
 
 Now, switch over to the terminal. 
@@ -109,6 +157,7 @@ In Gitpod, this will be in the lower section of your workspace.
 
 If you are using Docker Compose, you'll need to use your favourite terminal emulator. If running Docker on your local machine, you can do this directly. If you are running OpenSearch in a cloud instance, you'll need SSH into that instance. 
 {: .gitpod-hidden }
+
 
 ## Download data and scripts
 
@@ -138,6 +187,17 @@ wget http://search-sa-log-solutions.s3-us-east-2.amazonaws.com/builders/put-data
 Observe the following output:
 
 ![Get the data](/assets/media/tutorials/opn305/wget_scripts.png){: .img-fluid}
+
+## Push the data and mappings to the OpenSearch cluster
+
+Verify all three files have been downloaded to your work area.  Use the following command:
+
+```
+ls -al
+```
+
+
+
 
 ## Let’s create some users!
 
