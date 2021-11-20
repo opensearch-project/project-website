@@ -10,7 +10,7 @@ twittercard:
   description: "This post walks through the steps to configure Java High-level REST client to connect with OpenSearch over HTTPS"
 ---
 
-If you ever use OpenSearch with a java application, you might come across OpenSearch Java high-level REST client. Java high-level REST client provides OpenSearch APIs as methods, and makes it easier for a java application to interact with OpenSearch using request/response objects. 
+If you have ever used OpenSearch with a java application, you might have come across OpenSearch Java high-level REST client. Java high-level REST client provides OpenSearch APIs as methods, and makes it easier for a java application to interact with OpenSearch using request/response objects.
 
 In this blog, we will see how to configure the Java high-level REST client (a.k.a JHLRC) to connect with an OpenSearch cluster securely. We will set up a local OpenSearch server using the default distribution which comes with security plugin pre-installed, and use JHLRC client in a sample Java application to interact with the server over HTTPS. I have used an Ubuntu 18.04 machine, but it should work for other linux distributions as well.
 
@@ -77,24 +77,28 @@ The OpenSearch Java High Level REST Client is available on [Maven central](https
 Let’s start with including the JHLRC dependency in `build.gradle`. This will download the dependency from maven central when the project is executed. It is recommended to use the same version of JHLRC client as OpenSearch version.
 
 ```
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     implementation 'org.opensearch.client:opensearch-rest-high-level-client:1.1.0'
 }
 ```
 
-Next, we will create an instance of `RestHighLevelClient` and use that to create an index and ingest some data into OpenSearch. But before going there, hold on a sec! Remember, while setting up the server we configured SSL certificates which enabled HTTPS (and disabled HTTP) on server side? We will need to configure the client as well for it to be able to trust the server to successfully establish an SSL connection with the server. Let’s see how we can configure the client truststore.
+Next, we will create an instance of `RestHighLevelClient` and use that to create an index and ingest some data into OpenSearch. But before going there, hold on a sec! Remember, while setting up the server we configured SSL certificates which enabled HTTPS (and disabled HTTP) on server side? We’ll need to configure the client as well to successfully establish an SSL connection with the server. Let’s see how to configure the client truststore.
 
-A java application, by default, uses the JVM truststore that has certificates from trusted Certified Authorities (CA) to verify the certificate presented by the server in an SSL connection. You can use the java `keytool` to see the list of trusted CAs in your JVM. 
+A java application (by default) uses the JVM truststore, which holds certificates from the trusted [Certified Authorities (CA)](https://en.wikipedia.org/wiki/Certificate_authority), to verify the certificate presented by the server in an SSL connection. You can use the java `keytool` to see the list of trusted CAs in your JVM truststore.
 
 ```
 keytool -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -list 
 ```
 
-To configure the client, we need to add the root CA certificate to the client truststore. The install_demo_configurations.sh tool created that in `opensearch-1.1.0/config/root-ca.pem` while setting up the server. We can either add it to the JVM truststore, or a custom truststore and use that custom truststore in the JHLRC client. I prefer the custom truststore approach to keep the JVM truststore clean. 
+To configure the client, we need to add the root CA certificate (root-ca.pem) to the client truststore. The install_demo_configurations.sh tool created `opensearch-1.1.0/config/root-ca.pem` while setting up the server. We can either add it to the JVM truststore, or add it to a custom truststore and use that custom truststore in the JHLRC client. I prefer the custom truststore approach to keep the JVM truststore clean. 
 
 Use the java `keytool` to create a custom truststore and import the root authority certificate. The `keytool` does not understand the `.pem` format, so we’ll have to first convert the root authority certificate to `.der` format using `openssl` cryptography library and then add it to the custom truststore using java `keytool`. Most Linux distributions already come with `openssl` installed. 
 
-_STEP 1:_ Convert the root authority certificates from .pem to .der format which the java `keytool` understands. 
+_STEP 1:_ Convert the root authority certificates from .pem to .der format.
 
 ```
 openssl x509 -in opensearch-1.1.0/config/root-ca.pem -inform pem -out root-ca.der --outform der
@@ -112,7 +116,7 @@ Confirm the action was successful by listing certs in truststore. The grep shoul
 keytool -keystore myTrustStore -storepass changeit -list | grep opensearch
 ```
 
-_STEP 3:_ Next, set the truststore properties in the client side code to point to the custom truststore. 
+_STEP 3:_ Next, set the truststore properties in the client code to point to the custom truststore. 
 
 ```
 //Point to keystore with appropriate certificates for security.
@@ -145,5 +149,4 @@ CreateIndexResponse createIndexResponse = client.indices().create(createIndexReq
 
 You can also checkout this [github example](https://github.com/setiah/OpenSearchRestClient/tree/main) for full code.
 
-Congratulations, you have successfully setup the Java high level REST client to connect with OpenSearch on a secure HTTPS channel. If you face any problems or would like to provide some feedback, please comment on this github issue. 
-
+Congratulations, you have now successfully setup the Java high level REST client to connect with OpenSearch on a secure HTTPS channel. If you face any problems or would like to provide some feedback, please comment on this [github issue](https://github.com/opensearch-project/project-website/issues/440). 
