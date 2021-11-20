@@ -13,7 +13,7 @@ The builder’s session is divided into specific tasks to help you understand ho
 
 
 1. Get setup with Gitpod and create the cluster from an existing GitHub project
-2. Load data into the cluster using python scripts and other linux tools like wget
+2. Load data into the cluster using Python scripts and other Linux tools like `wget`
 3. Create users in the local user database with basic authentication
 4. Configure audit logging so you can see the actions of your users and verify compliance
 5. Configure roles at the index level and the document and field levels
@@ -100,6 +100,54 @@ environments.
 
 ![Login to OpenSearch](/assets/media/tutorials/shared/login.jpg){: .img-fluid}
 
+Once you have signed in to OpenSearch Dashboards, you will be presented with the following screen:
+
+![Explore on my own](/assets/media/tutorials/opn305/add-your-data.png){: .img-fluid}
+
+## Select the tenant
+You will be prompted to select a tenant.  Chose the Global tenant and click on the confirm button.
+
+![Select your tenant](/assets/media/tutorials/opn305/global.png){: .img-fluid}
+
+
+
+## Let's configure audit logs!
+
+Audit logs give you visibility into what users are doing on your cluster and the logs help you understand how you are staying compliant for your organizational requirements.  For this builder’s session, the audit logs are already enabled.  Your focus will be on setting up the types of logs and users that you are going to monitor.  To do this, you need to navigate to the security plugin.  If you look at your console, there is an expand button next to the Home label.  Click on this to get to the menu.
+
+
+![Home](/assets/media/tutorials/opn305/home.png){: .img-fluid}
+
+## Navigate to the Security plugin
+
+The Security plugin manages the audit logs configuration.  Click on the Security option.
+
+
+![Select security](/assets/media/tutorials/opn305/select-security.png){: .img-fluid}
+
+
+## Navigate to the Audit logs menu
+
+The Audit logs by default will be contained in a series of indexes for this walkthrough.  You can adjust your `opensearch.yml` file to change the location.  For demo purposes, this will be in an index.  I suggest using logs instead if you deploy this in any production environment.
+
+![Select security](/assets/media/tutorials/opn305/audit.png){: .img-fluid}
+
+Once you click into General settings you will be presented with a series of options.  In the Layer settings, enable the REST layer logging.  Leave transport layer alone for now.  This REST layer will show you all requests over `GET`, `PUT`, `POST`, etc that come into the cluster.  This can help you see what queries are being run by your users so they there is visibility into user activities.  Some settings are already provisioned for you and we are going to verify that certain settings are adjusted as seen below:
+
+![Layer settings](/assets/media/tutorials/opn305/layer-settings.png){: .img-fluid}
+
+In the Attribute settings, enable Request body and Resolve indices.  These two settings show the query body and will show the actual index (in an alias or MGET/MSEARCH) for which a query was executed.
+
+![Attribute Settings](/assets/media/tutorials/opn305/attribute-settings.png){: .img-fluid}
+
+Save your settings.  We will example what gets logged here once we add some data to the cluster.
+
+![Save](/assets/media/tutorials/opn305/ignore-settings-save.png){: .img-fluid}
+
+You wont concern yourself with the compliance settings for this builder’s session.
+
+# Lets create some data to work with!
+
 ## Import the movies data into the OpenSearch cluster
 
 Now, switch over to the terminal. 
@@ -109,6 +157,7 @@ In Gitpod, this will be in the lower section of your workspace.
 
 If you are using Docker Compose, you'll need to use your favourite terminal emulator. If running Docker on your local machine, you can do this directly. If you are running OpenSearch in a cloud instance, you'll need SSH into that instance. 
 {: .gitpod-hidden }
+
 
 ## Download data and scripts
 
@@ -139,6 +188,137 @@ Observe the following output:
 
 ![Get the data](/assets/media/tutorials/opn305/wget_scripts.png){: .img-fluid}
 
+## Push the data and mappings to the OpenSearch cluster
+
+Verify all three files have been downloaded to your work area.  Use the following command:
+
+```
+ls -al
+```
+
+![directory list](/assets/media/tutorials/opn305/ls-results.jpg){: .img-fluid}
+
+Now that the scripts and the IMDB data is local for your container, you are going to push mappings and the data using a series of `_bulk` API calls.  Since the data is not in the proper format for OpenSearch, you will use a python script that reads from the file and writes to your cluster.
+
+
+## Create the index template and mappings using the put_mappings.py script
+
+Of the three files you downloaded, one creates an index template used to determine the mappings of the data being added to the cluster for the session.  It also defines sharding strategies and other index level settings.  
+
+You will use the `admin` user for the initial data seeding.  The `admin` user is already associated with the `all_access role` on the cluster.  You can verify this in OpenSearch Dashboards in the Security plugin.  The cluster is secured with basic authentication and only authenticated and authorized users can interact with the OpenSearch cluster.  For example, if you execute the `put_mappings` script with an invalid user, you will get an HTTP code of `401` which means the user either does not exist or the user lacks credentials to interact with the APIs.  Run the following command for a non-existent user:
+
+```
+python put-mappings.py --endpoint localhost:9200 --username john --password jinglehiemer
+```
+
+The python code is calling the OpenSearch cluster using invalid credentials.  And it will fail as seen below:
+
+![401 Error](/assets/media/tutorials/opn305/401-john.png){: .img-fluid}
+
+Using the admin user, lets get the template installed with the appropriate credentials.  Execute the following command:
+
+```
+python put-mappings.py --endpoint localhost:9200 --username admin --password admin
+```
+
+Observe a successful HTTP 200 code:
+
+![200 Success](/assets/media/tutorials/opn305/200-admin.png){: .img-fluid}
+
+You can verify the template is in the cluster by navigating to Dev Tools in OpenSearch Dashboards.  If you are not already logged into the OpenSearch Dashboards, log in and navigate to Dev Tools.  The home page has a breadcrumb that you can follow.
+
+![200 Success](/assets/media/tutorials/opn305/devtools.png){: .img-fluid}
+
+
+Once you have clicked on the Dev Tools link, you will be presented with a command line, auto complete, editor that enables you to interact with all the APIs on the cluster as long as you have permissions as defined in the Role Mappings.  Type in the following command and press the play button (click to send request) as seen in the image below:
+
+
+```
+GET _templates/movies_template
+```
+
+![200 Success](/assets/media/tutorials/opn305/template.png){: .img-fluid}
+
+So now you have a template for the data you will ingest using the next command.  This data will be used to show you have to control access to data in an index on the OpenSearch cluster.
+
+## Load the IMDB data into the cluster using the put_data.py script
+
+Another file you uploaded is a python script that loads data into the cluster.  It bundles the data after parsing the file and sends it to the cluster using the _bulk API.  The _bulk API is the most efficient way to add data to an index at scale.  Execute the following command:
+
+```
+python put-data.py --endpoint localhost:9200 --username admin --password admin
+```
+
+![200 Success](/assets/media/tutorials/opn305/put-data.png){: .img-fluid}
+
+Navigate to OpenSearch Dashboards and in Dev Tools, execute the following command and observe the output:
+
+```
+GET _cat/indices
+```
+
+![_cat/indicies](/assets/media/tutorials/opn305/cat_indices.png){: .img-fluid}
+
+Now run a query to grab the first 5 documents.  We will use this output to compare how all access permissions compare to limited access permissions.
+
+```
+GET movies/_search?size=5
+{
+  "query": {
+    "match_all": {}
+  },
+  "_source": ["title","directors","actors","genres"]
+}
+```
+
+Observe the following output:
+
+![search size 5](/assets/media/tutorials/opn305/search-size-5.png){: .img-fluid}
+
+At this point, you have data to query and you now have data to demonstrate how to lock that data down.  Let’s prepare the data just a little bit more.  Let’s split the data into to indexes using a [reindex](https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/reindex/) command and a [delete_by_query](https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/delete-by-query/). Go back to Dev Tools and issue the following command:
+
+```
+
+POST _reindex
+{
+  "source": {
+    "index": "movies",
+    "query": {
+      "match": {
+        "genres": "comedy"
+      }
+    }
+  },
+  "dest": {
+    "index": "movies_subset"
+  }
+}
+```
+
+Observe the following:
+
+![reindex](/assets/media/tutorials/opn305/reindex.png){: .img-fluid}
+
+Clean up the transferred data from the movies index so we have separated indexes to show fine grained access controls.  Issue the following command:
+
+```
+POST movies/_delete_by_query
+{
+  "query": {
+    "match": {
+      "genres": "comedy"
+    }
+  }
+}
+```
+
+Observe the following behavior:
+
+![reindex](/assets/media/tutorials/opn305/delete-query.png){: .img-fluid}
+
+Now we have two different indexes for which we can apply fine grained access controls at the index, document and field levels.  With the data, you can now setup the permissions for the users you are going to create next.
+
+
 ## Let’s create some users!
 
 Once you are signed in on the cluster, you should see the following screen. Navigate to the Security
@@ -147,22 +327,13 @@ plugin.
 
 ![create users](/assets/media/tutorials/opn305/create_users.png){: .img-fluid}
 
-For our session on security, lets lay a solid foundation for entitlements; otherwise known as permissions
-or roles that have permissions to do things on a cluster. You create these users so that you, as an
-admin, can monitor behaviours and ensure that users only have the permissions they need. Audit logs
-help you verify the permissions you create are performing as intended. The role of an admin user
-typically is limited in the fact that the admin user can issue entitlements and revoke them. Outside of
-that, admin users should never be used for programmatic access outside of the scope of entitlements as
-a best practice.
+For our session on security, lets lay a solid foundation for entitlements; otherwise known as permissions or roles that have permissions to do things on a cluster.  You create these users so that you, as an admin, can monitor behaviours and ensure that users only have the permissions they need.  Audit logs help you verify the permissions you create are performing as intended.  The role of an admin user typically is limited in the fact that the admin user can issue entitlements and revoke them.  Outside of that, admin users should never be used for programmatic access outside of the scope of entitlements as a best practice. 
 
 You are going to create the following users:
 
-1. A power user – the power user will have the all_access role assigned to it. Typically, a power
-user can create dashboards and visualizations within assigned tenants, have CRUD access to all
-indexes and settings outside of the Security plugin on the cluster.
-2. A read only limited access user assigned to one index – this user can only read data on a specific
+1. A read only limited access user assigned to one index – this user can only read data on a specific
 index and the user can see all fields in the documents.
-3. A read only document level and field level security user – this user has access to the same single
+2. A read only document level and field level security user – this user has access to the same single
 index the limited access user has and the user is further limited by specific documents matching
 a specific genre of movies. The user will not have access to the actors field in the movies index
 that you will create shortly.
@@ -173,50 +344,66 @@ link found on the left hand side of the browser window and click on the link.
 ![internal users](/assets/media/tutorials/opn305/security_navigate_internal_users.png){: .img-fluid}
 
 
-## Create the power user
-
-You will be presented with a form. Fill in the following value for the user name:
-`power_user_non_admin`. Assign a password and go ahead and create the user.
-
-![power_user_non_admin](/assets/media/tutorials/opn305/power_user_all_access.png){: .img-fluid}
-
-Scroll to the bottom of the form, leave the other fields alone for now and click on the create button and
-observe that the power user got created.
-
-![user created](/assets/media/tutorials/opn305/user_created.png){: .img-fluid}
-
-![user created alert](/assets/media/tutorials/opn305/power_user_created.png){: .img-fluid}
-
-Repeat this activity for the next two users.
-
 ## Create the read only index level user
 
-Create a user called `read_only_index_level` user. Do not map them.
+Create a user called `read_only_index_level` user. Scroll to the bottom of the form, leave the other fields alone for now and click on the create button and observe that the user got created. Do not map them.
 
 ![read_only_index_level user](/assets/media/tutorials/opn305/read_only_index_level.png){: .img-fluid}
 
+Scroll down and click the Create button.
+
+![create user](/assets/media/tutorials/opn305/create-user.png){: .img-fluid}
+
+Observe user is created.
+
+![Observe](/assets/media/tutorials/opn305/observe-user-created.png){: .img-fluid}
+
+
 ## Create the read only document level field level user
 
-OpenSearch security has a rich set of REST APIs. Note that the `-u` argument is specifying the username/password, the `-k` argument is suppressing a warning about a self-signed certificate, `-H` specifies the header, `-d` is the payload and the final argument is the URI with the username included.
+Next, you are going to exercise the APIs for OpenSearch security plugin and add a user through the command line.  Many organizations automate user mappings and provisioning of users.  Understanding that you can use the APIs to do this work will help with your automation needs.
 
-Use the `curl` to create the `read_only_dls_fls` user in the terminal with the REST API:
+Create a user called `read_only_dls_fls` user using the following command:
 
 ```
-curl -u admin:admin -k -X PUT -H "Content-Type: application/json" -d '{ "password" : "foo" }' https://localhost:9200/_plugins/_security/api/internalusers/read_only_dls_fls
+curl -XPUT https://localhost:9200/_opendistro/_security/api/internalusers/read_only_dls_fls -u admin:admin -k -H 'Content-Type: application/json' -d '{"password":"pa$$w0rd"}'
 ```
 
 It should respond back with `{"status":"CREATED","message":"'read_only_dls_fls' created."}` 
 
 
-## Observe all three users are created
+## Observe two users are created
 
-In the overview, you should see all three users created.
+In the overview, you should see two users created.
 
-![read_only_dls_fls user](/assets/media/tutorials/opn305/three_users_observe.png){: .img-fluid}
+![Observe](/assets/media/tutorials/opn305/two-users.png){: .img-fluid}
 
+## Let’s create some roles!
+
+Without a role assignment, a user is not able to do anything on the cluster.  To prove this point, logout of your OpenSearch Dashboards and log in as the `read_only_index_level` user.
+
+![Read only login](/assets/media/tutorials/opn305/read-only-login.png){: .img-fluid}
+
+Navigate to the Dev Tools plugin.
+
+![Read only login](/assets/media/tutorials/opn305/devtools.png){: .img-fluid}
+
+You will be presented with a preformed query.  Change add the movies index to the query:
+
+![Preformed Query](/assets/media/tutorials/opn305/preformed-query.png){: .img-fluid}
+
+When you execute the query by clicking the play button (Click to send request), you will see that this user has no permissions to query the movies index.  Let’s go ahead and give that user minimal permissions to execute this query.
+
+## Navigate to the Security plugin and click on the roles menu
+
+Make sure you **sign out of Dashboards and sign back in as admin**.  Once you have clicked on the roles option, you should see the following screen:
+
+![Create Role](/assets/media/tutorials/opn305/create-role.png){: .img-fluid}
+
+Click on the Create role button.
 
 ## Stay Connected!
 
 Find Kyle on Twitter at [@stockholmux](https://twitter.com/stockholmux), on [LinkedIn](https://www.linkedin.com/in/kyle-davis-search/), or reach out via email at kyledvs@amazon.com
 
-Find Kevin on Twitter at @example, on [LinkedIn](https://www.linkedin.com/in/kevinmichaelfallis/), or reach out via email at kffallis@amazon.com
+Find Kevin on [LinkedIn](https://www.linkedin.com/in/kevinmichaelfallis/), or reach out via email at kffallis@amazon.com
