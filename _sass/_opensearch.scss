@@ -462,7 +462,25 @@ dl.list-features {
             max-width: 200px;
         }
     }
-
+    .highlight pre {
+        border: none;
+    }
+    pre code {
+        padding: 0;
+    }
+    code {
+        padding-left: 4px;
+        padding-right: 4px;
+        border-radius: 4px;
+    }
+    code, .highlight {
+        background-color: $text-light-darkest;
+        color: $highlight-lighter;
+        &::selection { 
+            background-color: $warning; /* WebKit/Blink Browsers */
+            color: $text-light-darkest;
+        }
+    }
     h1,h2,h3,h4,h5,h6 {
         color: $text;
     }
