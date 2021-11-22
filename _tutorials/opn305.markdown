@@ -402,6 +402,96 @@ Make sure you **sign out of Dashboards and sign back in as admin**.  Once you ha
 
 Click on the Create role button.
 
+## Create the `read_only_index_level` role
+
+Assign the following name “read_only_index_level” to the role in the Create Role form.  Give `cluster_composite_ops_ro` permissions to the role.
+
+![adding cluster_composite_ops_ro](/assets/media/tutorials/opn305/cluster_composite_ops_ro.png){: .img-fluid}
+
+Scroll down to Index permissions and add a pattern `mov*` for index permissions.  Allow `read`, `get` and `search` permissions.
+
+![adding pattern-read-get](/assets/media/tutorials/opn305/pattern-read-get.png){: .img-fluid}
+
+Assign the global tenant in Tenant permissions and create the role by clicking the Create button at the bottom right of the form.
+
+![Global Tennant](/assets/media/tutorials/opn305/global_tenant.png){: .img-fluid}
+
+Observe the role gets created. 
+
+![Observe Roles](/assets/media/tutorials/opn305/observe-roles.png){: .img-fluid}
+
+Navigate back to the roles overview page and find the newly created role’s breadcrumb.  Click on the link labeled `read_only_index_level`.  
+
+![Click read only index level](/assets/media/tutorials/opn305/read_only_index_level-click.png){: .img-fluid}
+
+After clicking the link, you will see the following: 
+
+![To map users](/assets/media/tutorials/opn305/map-users.png){: .img-fluid}
+
+Click on "Map users" as there should be no users / processes / groups assigned to this role.  Assign the `read_only_inded_level` user to the `read_only_index_level` role.  
+
+![Map users](/assets/media/tutorials/opn305/map2.png){: .img-fluid}
+
+Observe the mappings have been updated:
+
+
+![Observe Map users](/assets/media/tutorials/opn305/read_only_index_level-observe.png){: .img-fluid}
+
+Once you have the role mapped, you can sign out as admin and sign back in as `read_only_index_level` user.
+
+![Log out](/assets/media/tutorials/opn305/logout.png){: .img-fluid}
+
+Enter the `read_only_index_level` credentials from your prior activities.
+
+![Log in](/assets/media/tutorials/opn305/read_only_index_level-login.png){: .img-fluid}
+
+Once you have signed in, navigate to Dev Tools and issue the following query:
+
+```
+GET movies/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+Observe that you are able to query the indexes that are mapped.  Keep in mind, you mapped this user to a pattern.  That means you will be able to read any indexes that begin with “mov”.  
+
+![Search with read_only](/assets/media/tutorials/opn305/_search-read_only.png){: .img-fluid}
+
+Before you test the other index, grab the document ID from the first document that shows up in your results.  Cut and paste that `_id` field into the following command:
+
+```
+DELETE movies/_doc/<your_pasted_id>
+```
+
+Issue that command in Dev Tools and observe that you have no permissions to delete the document.  Feel free to play with other commands to test the entitlements.  As you can see, you will not be able to delete any documents with the current permissions.
+
+
+![Delete with root_cause error](/assets/media/tutorials/opn305/delete-root_cause.png){: .img-fluid}
+
+Repeat this exercise for the `movies_subset` index.  You should observe similar behaviors.  At this point in time, your user cannot do anything other than view an index from Dev Tools.  What if you wanted to view the data in the discover tab?  If you navigate to the discover tab, you will find that nothing shows up.  What permissions do you think can enable this user to view things in the discover tab?
+
+![Discover](/assets/media/tutorials/opn305/discover.png){: .img-fluid}
+
+As you click on Discover link, there will be nothing on the browser but an empty work area.
+
+![Discover is empty](/assets/media/tutorials/opn305/discover-empty.png){: .img-fluid}
+
+Log out as the read only user and log back in as admin.  Navigate to the role and add the following permission `indices:admin/resolve/index`.  Add the permission and update the role.
+
+![Adding indices:admin/resolve/index](/assets/media/tutorials/opn305/admin-resolve-index.png){: .img-fluid}
+
+Next, find the role called `kibana_user` and map the `read_only_index_level` to the role.
+
+![map the read_only_index_level](/assets/media/tutorials/opn305/kibana_user.png){: .img-fluid}
+
+Click on the Map button at the bottom right of the form and observe the following:
+
+![map the read_only_index_level](/assets/media/tutorials/opn305/kibana-user-observe.png){: .img-fluid}
+
+
 ## Stay Connected!
 
 Find Kyle on Twitter at [@stockholmux](https://twitter.com/stockholmux), on [LinkedIn](https://www.linkedin.com/in/kyle-davis-search/), or reach out via email at kyledvs@amazon.com
