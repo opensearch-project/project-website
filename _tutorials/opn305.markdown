@@ -12,7 +12,7 @@ Today’s builder’s session will leverage [Gitpod](https://www.gitpod.io/) (or
 The builder’s session is divided into specific tasks to help you understand how you can leverage the security plugin to help control the scope of data and the operations that one user or group can perform on your data in your cluster. Many customers find that the fine grained access controls for the plugin can give customers a mechanism that ensures data access is scoped to the desired users. The plugin includes integrations with SAML providers and other authentication sources and it also has a local user database. This session focuses on the provisioning of a local user database to simulate entitlements such as those that are normally implemented in production deployments. You will perform the following activities with these instructions and you will have an OpenSearch person at your table to help you through any issues that may arise while going through these instructions. The task are broken down into the following actions:
 
 
-1. Get setup with Gitpod and create the cluster from an existing GitHub project
+1. Get setup and create the cluster
 2. Load data into the cluster using Python scripts and other Linux tools like `wget`
 3. Create users in the local user database with basic authentication
 4. Configure audit logging so you can see the actions of your users and verify compliance
@@ -92,8 +92,8 @@ http://0:5601”. Port 5601 is where your OpenSearch dashboard is listening for 
 
 ## Log into OpenSearch Dashboards
 
-You should see a sign on screen for OpenSearch Dashboards. The user name is `admin` and the `password`
-is admin for this image. Keep in mind, this password is only for demonstration purposes and you should
+You should see a sign on screen for OpenSearch Dashboards. The user name is `admin` and the password
+is `admin` for this image. Keep in mind, this password is only for demonstration purposes and you should
 create passwords that are complex and not easy to figure out. Your organization will most likely have
 standards and you should adhere to a strong password to keep things secure even in private
 environments.
