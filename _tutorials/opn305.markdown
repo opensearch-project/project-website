@@ -132,15 +132,15 @@ The Audit logs by default will be contained in a series of indexes for this walk
 
 ![Select security](/assets/media/tutorials/opn305/audit.png){: .img-fluid}
 
-Once you click into General settings you will be presented with a series of options.  In the Layer settings, enable the REST layer logging.  Leave transport layer alone for now.  This REST layer will show you all requests over `GET`, `PUT`, `POST`, etc that come into the cluster.  This can help you see what queries are being run by your users so they there is visibility into user activities.  Some settings are already provisioned for you and we are going to verify that certain settings are adjusted as seen below:
+Once you click into General settings you will be presented with a series of options.  In the Layer settings, enable the REST layer logging.  Leave transport layer alone for now.  This REST layer will show you all requests over `GET`, `PUT`, `POST`, etc that come into the cluster.  This can help you see what queries are being run by your users so there is visibility into user activities.  Some settings are already provisioned for you and we are going to verify that certain settings are adjusted as seen below:
 
 ![Layer settings](/assets/media/tutorials/opn305/layer-settings.png){: .img-fluid}
 
-In the Attribute settings, enable Request body and Resolve indices.  These two settings show the query body and will show the actual index (in an alias or MGET/MSEARCH) for which a query was executed.
+In the Attribute settings, enable Request body and Resolve indices.  These two settings show the query body and will show the actual index for which a query was executed.
 
 ![Attribute Settings](/assets/media/tutorials/opn305/attribute-settings.png){: .img-fluid}
 
-Save your settings.  We will example what gets logged here once we add some data to the cluster.
+Save your settings. You will review what gets logged here once you run through all the commands for the builder's session.
 
 ![Save](/assets/media/tutorials/opn305/ignore-settings-save.png){: .img-fluid}
 
