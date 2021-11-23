@@ -470,26 +470,7 @@ Issue that command in Dev Tools and observe that you have no permissions to dele
 
 ![Delete with root_cause error](/assets/media/tutorials/opn305/delete-root_cause.png){: .img-fluid}
 
-Repeat this exercise for the `movies_subset` index.  You should observe similar behaviors.  At this point in time, your user cannot do anything other than view an index from Dev Tools.  What if you wanted to view the data in the discover tab?  If you navigate to the discover tab, you will find that nothing shows up.  What permissions do you think can enable this user to view things in the discover tab?
-
-![Discover](/assets/media/tutorials/opn305/discover.png){: .img-fluid}
-
-As you click on Discover link, there will be nothing on the browser but an empty work area.
-
-![Discover is empty](/assets/media/tutorials/opn305/discover-empty.png){: .img-fluid}
-
-Log out as the read only user and log back in as admin.  Navigate to the role and add the following permission `indices:admin/resolve/index`.  Add the permission and update the role.
-
-![Adding indices:admin/resolve/index](/assets/media/tutorials/opn305/admin-resolve-index.png){: .img-fluid}
-
-Next, find the role called `kibana_user` and map the `read_only_index_level` to the role.
-
-![map the read_only_index_level](/assets/media/tutorials/opn305/kibana_user.png){: .img-fluid}
-
-Click on the Map button at the bottom right of the form and observe the following:
-
-![map the read_only_index_level](/assets/media/tutorials/opn305/kibana-user-observe.png){: .img-fluid}
-
+Repeat this exercise for the `movies_subset` index.  You should observe similar behaviors. 
 
 ## Stay Connected!
 
