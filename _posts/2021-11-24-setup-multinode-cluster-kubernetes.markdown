@@ -9,7 +9,7 @@ authors:
 # `date` in YYYY-MM-DD format. 
 # You must include the hours, minutes, and seconds 
 # Use the -0700 as the UTC offset
-date:   2021-11-22 01:01:01 -0700
+date:   2021-11-24 01:01:01 -0700
 # `categories` not used widely on OpenSearch.org but this does
 # affect the URL. The category is the second part of the URL
 # e.g. `/blog/my-category/...`
