@@ -38,10 +38,10 @@ You can check your current context by running :
 ```
 
 
-To switch to a different context say “abc”, run the following command and you will be good to go.
+To switch to a different context say “docker-desktop”, run the following command and you will be good to go.
 
 ```
-> kubectl config set-context abc
+> kubectl config set-context docker-desktop
 
 ```
 
