@@ -44,7 +44,7 @@ Be patient while the container launches. You will see these instructions come up
 
 ![GitPod Loading](/assets/media/tutorials/opn305/gitpod-layout.png){: .img-fluid.gitpod-hidden}
 
-Looks like you're running in GitPod - here is the status of OpenSearch Dashboards.
+Looks like you're running in GitPod - here is the status of OpenSearch Dashboards:
 {: .gitpod-visible}
 
 When this document is viewed in Gitpod, it will indicate when OpenSearch Dashboards is ready for use.
@@ -86,7 +86,7 @@ If you are using [Docker Desktop](https://www.docker.com/products/docker-desktop
 5. Navigate to `http://localhost:5601/` (or the address/hostname of your instance) for OpenSearch Dashboards in a web browser. This may take a few moments to full be ready.
 {: .gitpod-hidden }
 
-Once the container has started up, you will observe and even that states “http server running at
+Once the container has started up, you will observe an event that states “http server running at
 http://0:5601”. Port 5601 is where your OpenSearch dashboard is listening for requests.
 {: .gitpod-hidden }
 
@@ -144,7 +144,7 @@ Save your settings. You will review what gets logged here once you run through a
 
 ![Save](/assets/media/tutorials/opn305/ignore-settings-save.png){: .img-fluid}
 
-You wont concern yourself with the compliance settings for this builder’s session.
+You won't need to concern yourself with the compliance settings for this builder’s session.
 
 # Lets create some data to work with!
 
@@ -234,7 +234,7 @@ Once you have clicked on the Dev Tools link, you will be presented with a comman
 
 
 ```
-GET _templates/movies_template
+GET _template/movies_template
 ```
 
 ![200 Success](/assets/media/tutorials/opn305/template.png){: .img-fluid}
@@ -345,7 +345,7 @@ link found on the left hand side of the browser window and click on the link.
 
 ## Create the read only index level user
 
-Create a user called `read_only_index_level` user. Scroll to the bottom of the form, leave the other fields alone for now. Do not map them.
+Create a user called `read_only_index_level` user with a password of `pa$$word`. Scroll to the bottom of the form, leave the other fields alone for now. Do not map them.
 
 ![read_only_index_level user](/assets/media/tutorials/opn305/read_only_index_level.png){: .img-fluid}
 
@@ -400,7 +400,7 @@ When you execute the query by clicking the play button (Click to send request), 
 
 ## Navigate to the Security plugin and click on the roles menu
 
-Make sure you **sign out of Dashboards and sign back in as admin**.  Once you have clicked on the roles option, you should see the following screen:
+Make sure you **sign out of Dashboards and sign back in as admin**.  Once you have clicked on the 'Roles' option, you should see the following screen:
 
 ![Create Role](/assets/media/tutorials/opn305/create-role.png){: .img-fluid}
 
@@ -424,7 +424,7 @@ Observe the role gets created.
 
 ![Observe Roles](/assets/media/tutorials/opn305/observe-roles.png){: .img-fluid}
 
-Navigate back to the roles overview page and find the newly created role’s breadcrumb.  Click on the link labeled `read_only_index_level`.  
+Navigate back to the 'Roles' overview page and find the newly created role’s breadcrumb.  Click on the link labeled `read_only_index_level`.  
 
 ![Click read only index level](/assets/media/tutorials/opn305/read_only_index_level-click.png){: .img-fluid}
 
@@ -614,7 +614,7 @@ Next, lets pivot to the `movies_subset` index.  Keep in mind that now, we have e
 Issue the following command in bash:
 
 ```
-curl -XGET https://localhost:9200/movies_subset/_search?size=1\&pretty=true\&filter_path=hits -u read_only_index_level:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match": {"title.keyword": "Don Jon"}},"_source": ["title","directors","actors","genres"]}''
+curl -XGET https://localhost:9200/movies_subset/_search?size=1\&pretty=true\&filter_path=hits -u read_only_index_level:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match": {"title.keyword": "Don Jon"}},"_source": ["title","directors","actors","genres"]}'
 ```
 
 Observe the following behavior.  The user can query.  The index is defined in the role and there is no document level security:
@@ -643,7 +643,7 @@ Issue the following command in bash:
 curl -XGET https://localhost:9200/movies_subset/_search?size=1\&pretty=true\&filter_path=hits -u read_only_dls_fls:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
 ```
 
-Observe that you get data back.  You will see that the `genres` field has multiple values (array) and in fact “Fantasy” is in the result set.  There is NO field called `actors` and the `directors` field has been masked:
+Observe that you get data back.  You will see that the `genres` field has multiple values (array) and in fact “Fantasy” is in the result set.  There is NO field called `actors` and the `directors` field has been masked (your result might be different):
 
 
 ![funny characters in the directors field](/assets/media/tutorials/opn305/directors-masked.png){: .img-fluid}
@@ -656,7 +656,7 @@ But wait!  How do I validate and audit my users???
 
 ## Navigate to the Discover function as admin user
 
-Since this is the first index you query, it will force you to create an index pattern.
+Log back in as `admin`. Since this is the first index you query, it will force you to create an index pattern.
 
 ![create an index pattern](/assets/media/tutorials/opn305/index-pattern.png){: .img-fluid}
 
