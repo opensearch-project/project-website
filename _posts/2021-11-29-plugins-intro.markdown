@@ -12,12 +12,12 @@ twittercard:
 ---
 
 
-OpenSearch enables extending core features via plugins. Plugins are empowered to access all extensible features of OpenSearch and extend them. In this blog post, we wanted to unbox the plugin architecture, and help understand how they work.
+OpenSearch enables extending core features via plugins. Plugins are empowered to access all extensible features of OpenSearch and extend them. In this blog post we wanted to unbox the plugin architecture, and help understand how they work.
 
 
 ## Pluggable Architecture
 
-Plugins in OpenSearch bring in modular architecture and enable developing/managing a large codebase easier. The [blog post](https://logz.io/blog/opensearch-plugins/) from our partner [Logz.io](http://logz.io/) helps understand why pluggable architecture is important, and how the architecture works. 
+Plugins in OpenSearch bring in modular architecture and enable developing/managing a large code base easier. The [blog post](https://logz.io/blog/opensearch-plugins/) from our partner [Logz.io](http://logz.io/) helps understand why pluggable architecture is important, and how the architecture works. 
 
 The Plugin architecture is designed to enable solving specific problems and extending generic features. For example, [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection) plugin reads time stream data ingested and finds anomalies. Another example is [Job Scheduler](https://github.com/opensearch-project/job-scheduler) plugin which schedules and runs generic jobs. 
 
@@ -35,13 +35,13 @@ To develop these plugins, the code base has well defined [interfaces](https://gi
 
 ## Extension Points
 
-The architecture is built for plugins to hook onto various extension points within the codebase and subscribe to notifications/events they are interested in. There are a bunch of extension points few are the default for all plugins and the rest are custom defined by a few plugin interfaces. 
+The architecture is built for plugins to hook onto various extension points within the code base and subscribe to notifications/events they are interested in. There are bunch of extension points defined by Plugin.java and are available by default to all plugins. Plugins implementing custom interfaces have additional extension points.  
 
 Extension points enable plugins to hook into various events within the lifecycle of the OpenSearch cluster. 
 The default extension points are defined by [Plugin.java](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/plugins/Plugin.java#L90) abstract class:
 
 
-* `getFeature` - Could be used to implement a custom feature and respond to Cluster state API.
+* `getFeature` - Could be used to implement a custom feature and respond to cluster state API.
 * `createGuiceModules` - Node level guice modules.
 * `getGuiceServiceClasses` - Node level services which will be automatically called with node state changes.
 * `createComponents` - Custom component implemented and its lifecycle being managed by OpenSearch.
