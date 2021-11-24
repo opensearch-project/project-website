@@ -28,7 +28,7 @@ If applicable, add screenshots to help explain your problem.
 **Host/Environment (please complete the following information):**
  - OS: [e.g. iOS]
  - Version: [e.g. 22]
- - Browers: [e.g. Chrome, Safari]
+ - Browsers: [e.g. Chrome, Safari]
  - Browser Version: [e.g 93.0.4521.12]
 
 **Additional context**
