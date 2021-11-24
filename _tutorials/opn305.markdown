@@ -470,7 +470,183 @@ Issue that command in Dev Tools and observe that you have no permissions to dele
 
 ![Delete with root_cause error](/assets/media/tutorials/opn305/delete-root_cause.png){: .img-fluid}
 
-Repeat this exercise for the `movies_subset` index.  You should observe similar behaviors. 
+Repeat this exercise for the `movies_subset` index.  You should observe similar behaviors. Next, you are going to narrow the scope for the `read_only_dls_fls` user. 
+
+## Create the `read_only_dls_fls_role` role
+
+Next, you are going to work with document and field level permissions.  This part of the exercise will leverage scripting so that you can see how to provision roles and role mapping over APIs.  The role will have the following properties:
+
+* Limit the scope to only the `movies_subset` index (index level filtering)
+* Further narrow the scope to documents in that index that match only the genre “Fantasy” (document level filtering)
+* Mask the directors field in the results (field level anonymization) 
+* Remove actors from the results (field level elimination)
+
+Go to the command line in bash and execute the following command:
+
+```
+curl -XPUT https://localhost:9200/_opendistro/_security/api/roles/read_only_dls_fls_role -u admin:admin -k -H 'Content-Type: application/json' -d '{"cluster_permissions":["cluster_composite_ops_ro"],"index_permissions":[{"index_patterns":["movies_subset"],"dls":"{\"bool\":{\"must\": {\"match\": {\"genres\": \"Fantasy\"}}}}","fls":["~actors"],"masked_fields":["directors"],"allowed_actions":["read","get","search"]}],"tenant_permissions":[{"tenant_patterns":["global_tenant"],"allowed_actions":["kibana_all_read"]}]}'
+```
+
+Observe the role gets created:
+
+![command result](/assets/media/tutorials/opn305/read_only_dls_fls_role-observe.png){: .img-fluid}
+
+Now you need to map the role to the user.  Leveraging the role mapping API, issue the following command:
+
+```
+curl -XPUT https://localhost:9200/_opendistro/_security/api/rolesmapping/read_only_dls_fls_role -u admin:admin -k -H 'Content-Type: application/json' -d '{"backend_roles" :[],"hosts" : [], "users" : [ "read_only_dls_fls" ]}'
+```
+
+Once the command responds with success, query the `rolesmapping` API to view the final set of mappings.  There should be only one user.
+
+```
+curl -XGET https://localhost:9200/_opendistro/_security/api/rolesmapping/read_only_dls_fls_role -u admin:admin -k
+```
+
+![two command result](/assets/media/tutorials/opn305/curl-results.png){: .img-fluid}
+
+At this point in time you now have two new users on the cluster that are mapped to distinct roles that limit the scope of what each user can perform.  The entitlements go from wide (index level only) to narrow (document and field level permissions).
+
+## Let’s setup the tests and assert the entitlements!
+
+The remainder of this exercise will have you issue commands from bash that are queries against the `movies` and `movies_subset` indexes.  You will also observe that you cannot query other indexes. 
+
+### Create another index that does not fall under the patterns specified for the read only users
+
+Let’s create yet another index that just refers to drama genres. As the admin user, issue the following command:
+
+```
+curl -XPOST https://localhost:9200/_reindex -u admin:admin -k -H 'Content-Type: application/json' -d '{"source":{"index": "movies","query": {"match": {"genres": "Drama"}}},"dest": {"index": "shows"}}'
+```
+
+![reindex results](/assets/media/tutorials/opn305/reindex_results.png){: .img-fluid}
+
+### Verify only admin user can query `shows` index
+
+Issue the following command in bash:
+
+```
+curl -XGET https://localhost:9200/shows/_search?size=1\&pretty=true\&filter_path=hits -u admin:admin -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
+```
+
+![results of show query](/assets/media/tutorials/opn305/shows-index-observe.png){: .img-fluid}
+
+### As `read_only_index_level` user
+
+```
+curl -XGET https://localhost:9200/shows/_search?size=1\&pretty=true\&filter_path=hits -u read_only_index_level:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
+```
+
+Observe that the user has no permissions for this index which is in line with the settings you allowed in the role for `read_only_index_level_role` that gave access to `movies` and `movies_subset` indexes.
+
+![results of show query - read only](/assets/media/tutorials/opn305/query-as-read-only.png){: .img-fluid}
+
+### `shows` index summary
+
+Overall, you have proven that at the index level, both read only users have no access to the shows index.  This is because you specified that each read_only* user has a narrow scope of access that does not include the `shows` index.
+
+## Verify the read_only* user’s access against the “movies” index
+
+Next, lets pivot to the `movies` index.  You know that the admin user has “god” access.  It can create indexes, assign permissions and do other cluster level entitlements and actions.  For the remainder of the builder’s session, you will work with only the read_only* users for observations.
+
+### As `read_only_index_level` user
+
+Issue the following command in bash:
+
+```
+curl -XGET https://localhost:9200/movies/_search?size=1\&pretty=true\&filter_path=hits -u read_only_index_level:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
+```
+
+Observe the following behavior.  The user can query.  The index is defined in the role:
+
+![results of show query / filter - read only](/assets/media/tutorials/opn305/read_only_index_query.png){: .img-fluid}
+
+### As `read_only_dls_fls` user
+
+Issue the following command in bash:
+
+```
+curl -XGET https://localhost:9200/movies/_search?size=1\&pretty=true\&filter_path=hits -u read_only_dls_fls:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
+```
+
+Observe the following behavior.  The user can’t query.  The index is not defined in the role:
+
+![unable to query](/assets/media/tutorials/opn305/unable-to-query.png){: .img-fluid}
+
+## Verify the read_only* user’s access against the `movies_subset` index
+
+Next, lets pivot to the `movies_subset` index.  Keep in mind that now, we have entitlements for the `read_only_dls_fls` user that state the following:
+
+* Access to only the `movies_subset` index
+*	Document level permissions to the filter that must match the `genres` of 'Fantasy'
+*	Field level masking of the `directors` field
+*	Exclusion of the `actors` field
+
+### As `read_only_index_level` user
+
+Issue the following command in bash:
+
+```
+curl -XGET https://localhost:9200/movies_subset/_search?size=1\&pretty=true\&filter_path=hits -u read_only_index_level:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match": {"title.keyword": "Don Jon"}},"_source": ["title","directors","actors","genres"]}''
+```
+
+Observe the following behavior.  The user can query.  The index is defined in the role and there is no document level security:
+
+![able to query](/assets/media/tutorials/opn305/can-query.png){: .img-fluid}
+
+### As `read_only_dls_fls` user
+
+Issue the following command in bash:
+
+```
+curl -XGET https://localhost:9200/movies_subset/_search?size=1\&pretty=true\&filter_path=hits -u read_only_dls_fls:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match": {"title.keyword": "Don Jon"}},"_source": ["title","directors","actors","genres"]}'
+```
+
+Observe the following behavior.  The user can’t query documents that match “Don Jon” even though you specifically reindexed documents to the `movies_subset` index that match “Comedy”.  Only documents that match genres “Fantasy” are allowed.  Luckily, the `genres` field, like the others, can be expressed as an array.  Each movie can be associated with multiple genres.  Let’s see what the results are:
+
+![indexed but no match](/assets/media/tutorials/opn305/index-no-match.png){: .img-fluid}
+
+Nothing is found because the user can only pull back documents matching “Fantasy” in the `genres` field.
+
+### Verify that the `read_only_dls_fls` user can actually query something
+
+Issue the following command in bash:
+
+```
+curl -XGET https://localhost:9200/movies_subset/_search?size=1\&pretty=true\&filter_path=hits -u read_only_dls_fls:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
+```
+
+Observe that you get data back.  You will see that the `genres` field has multiple values (array) and in fact “Fantasy” is in the result set.  There is NO field called `actors` and the `directors` field has been masked:
+
+
+![funny characters in the directors field](/assets/media/tutorials/opn305/directors-masked.png){: .img-fluid}
+
+So as the final result indicates, THIS IS THE END 😉.  Have fun!  Keep in mind that the OpenSearch experts are here to assist in your questions.  Thanks so much for your time today!
+
+In summary, you built a set of users with varying permissions.  You have asserted those permissions in fact do work.  The Security plugin uses a variety of authentication sources and basic authentication is just one of those typically used for programmatic access.  Consider SAML or other more secure authentication methods for your activities.
+
+But wait!  How do I validate and audit my users???
+
+## Navigate to the Discover function as admin user
+
+Since this is the first index you query, it will force you to create an index pattern.
+
+![create an index pattern](/assets/media/tutorials/opn305/index-pattern.png){: .img-fluid}
+
+Click on the create index pattern.  Type in `security*` and click Next step.
+
+![security pattern](/assets/media/tutorials/opn305/security-pattern.png){: .img-fluid}
+
+Select the @timestamp field since this is a time series index and click on the Create index pattern button.
+
+![select timestamp field](/assets/media/tutorials/opn305/timestamp-field.png){: .img-fluid}
+
+Now navigate to the Discover function by invoking the menu on the left side of the Dashboards browser.  In the search bar, type `movies_subset`.
+
+![Discover with moves_subset](/assets/media/tutorials/opn305/discover-moves_subset.png){: .img-fluid}
+
+Click around in the results and you will discover a robust set of details about the queries, users and IP addresses from which the queries originated.   This feature gives you the ability to audit what goes on in your cluster.  As stated before, its best to have these logs go to local disk instead of an index as we have setup for this builder’s session. 
+
 
 ## Stay Connected!
 
