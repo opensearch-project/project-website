@@ -140,7 +140,7 @@ In the Attribute settings, enable Request body and Resolve indices.  These two s
 
 ![Attribute Settings](/assets/media/tutorials/opn305/attribute-settings.png){: .img-fluid}
 
-Save your settings. You will review what gets logged here once you run through all the commands for the builder's session.
+Save your settings. You will review what gets logged here once you run through all the exercises for the builder's session.
 
 ![Save](/assets/media/tutorials/opn305/ignore-settings-save.png){: .img-fluid}
 
@@ -215,7 +215,7 @@ The Python code is calling the OpenSearch cluster using invalid credentials.  An
 
 ![401 Error](/assets/media/tutorials/opn305/401-john.png){: .img-fluid}
 
-Using the admin user, lets get the template installed with the appropriate credentials.  Execute the following command:
+Using the `admin` user, lets get the template installed with the appropriate credentials.  Execute the following command:
 
 ```
 python put-mappings.py --endpoint localhost:9200 --username admin --password admin
@@ -243,7 +243,7 @@ So now you have a template for the data you will ingest using the next command. 
 
 ## Load the IMDB data into the cluster using the `put_data.py` script
 
-Another file you uploaded is a Python script that loads data into the cluster.  It bundles the data after parsing the file and sends it to the cluster using the `_bulk` API.  The _bulk API is the most efficient way to add data to an index at scale.  Execute the following command:
+Another file you uploaded is a Python script that loads data into the cluster.  It bundles the data after parsing the file and sends it to the cluster using the `_bulk` API.  The `_bulk` API is the most efficient way to add data to an index at scale.  Execute the following command:
 
 ```
 python put-data.py --endpoint localhost:9200 --username admin --password admin
@@ -337,7 +337,7 @@ index the limited access user has and the user is further limited by specific do
 a specific genre of movies. The user will not have access to the actors field in the movies index
 that you will create shortly.
 
-Once you click on the Security link, you should see the following page. Navigate to the Internal users
+Once you click on the Security link, you should see the following page. Navigate to the 'Internal users'
 link found on the left hand side of the browser window and click on the link.
 
 ![internal users](/assets/media/tutorials/opn305/security_navigate_internal_users.png){: .img-fluid}
@@ -345,7 +345,7 @@ link found on the left hand side of the browser window and click on the link.
 
 ## Create the read only index level user
 
-Create a user called `read_only_index_level` user. Scroll to the bottom of the form, leave the other fields alone for now and click on the create button and observe that the user got created. Do not map them.
+Create a user called `read_only_index_level` user. Scroll to the bottom of the form, leave the other fields alone for now. Do not map them.
 
 ![read_only_index_level user](/assets/media/tutorials/opn305/read_only_index_level.png){: .img-fluid}
 
@@ -370,6 +370,11 @@ curl -XPUT https://localhost:9200/_opendistro/_security/api/internalusers/read_o
 
 It should respond back with `{"status":"CREATED","message":"'read_only_dls_fls' created."}` 
 
+Observe the following output:
+
+![Observe status created](/assets/media/tutorials/opn305/read_only_dls_fls-observe.png){: .img-fluid}
+
+
 
 ## Observe two users are created
 
@@ -383,7 +388,7 @@ Without a role assignment, a user is not able to do anything on the cluster.  To
 
 ![Read only login](/assets/media/tutorials/opn305/read-only-login.png){: .img-fluid}
 
-Navigate to the Dev Tools plugin.
+Navigate to the Dev Tools.
 
 ![Read only login](/assets/media/tutorials/opn305/devtools.png){: .img-fluid}
 
@@ -503,6 +508,8 @@ Once the command responds with success, query the `rolesmapping` API to view the
 curl -XGET https://localhost:9200/_opendistro/_security/api/rolesmapping/read_only_dls_fls_role -u admin:admin -k
 ```
 
+Observe the results:
+
 ![two command result](/assets/media/tutorials/opn305/curl-results.png){: .img-fluid}
 
 At this point in time you now have two new users on the cluster that are mapped to distinct roles that limit the scope of what each user can perform.  The entitlements go from wide (index level only) to narrow (document and field level permissions).
@@ -519,19 +526,26 @@ Let’s create yet another index that just refers to drama genres. As the admin 
 curl -XPOST https://localhost:9200/_reindex -u admin:admin -k -H 'Content-Type: application/json' -d '{"source":{"index": "movies","query": {"match": {"genres": "Drama"}}},"dest": {"index": "shows"}}'
 ```
 
+Observe the results:
+
 ![reindex results](/assets/media/tutorials/opn305/reindex_results.png){: .img-fluid}
 
 ### Verify only admin user can query `shows` index
 
 Issue the following command in bash:
 
+#### As admin user
 ```
 curl -XGET https://localhost:9200/shows/_search?size=1\&pretty=true\&filter_path=hits -u admin:admin -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
 ```
 
+Observe success:
+
 ![results of show query](/assets/media/tutorials/opn305/shows-index-observe.png){: .img-fluid}
 
 ### As `read_only_index_level` user
+
+Issue the following command in bash:	
 
 ```
 curl -XGET https://localhost:9200/shows/_search?size=1\&pretty=true\&filter_path=hits -u read_only_index_level:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
@@ -540,6 +554,19 @@ curl -XGET https://localhost:9200/shows/_search?size=1\&pretty=true\&filter_path
 Observe that the user has no permissions for this index which is in line with the settings you allowed in the role for `read_only_index_level_role` that gave access to `movies` and `movies_subset` indexes.
 
 ![results of show query - read only](/assets/media/tutorials/opn305/query-as-read-only.png){: .img-fluid}
+
+### As `read_only_dls_fls` user
+
+Issue the following command in bash:
+
+```
+curl -XGET https://localhost:9200/shows/_search?size=1\&pretty=true\&filter_path=hits -u read_only_dls_fls:pa\$\$w0rd -k -H 'Content-Type: application/json' -d '{"query": {"match_all": {}},"_source": ["title","directors","actors","genres"]}'
+```
+
+Observe that the user has no permissions for this index which is in line with the settings you allowed in the role for `read_only_dls_fls_role` that gave access to `movies_subset` index.
+
+![results of show query - read only](/assets/media/tutorials/opn305/read_only_dls_fls_role-access.png){: .img-fluid}
+
 
 ### `shows` index summary
 
