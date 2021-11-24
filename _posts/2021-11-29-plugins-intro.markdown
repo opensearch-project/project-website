@@ -42,7 +42,7 @@ The default extension points are defined by [Plugin.java](https://github.com/ope
 
 
 * `getFeature` - Could be used to implement a custom feature and respond to cluster state API.
-* `createGuiceModules` - Node level guice modules.
+* `createGuiceModules` - Implement node level dependency injection modules via Guice.
 * `getGuiceServiceClasses` - Node level services which will be automatically called with node state changes.
 * `createComponents` - Custom component implemented and its lifecycle being managed by OpenSearch.
 * `additionalSettings` - Implement additional node level settings.
