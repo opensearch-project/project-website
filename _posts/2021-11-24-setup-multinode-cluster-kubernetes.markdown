@@ -1,23 +1,12 @@
 ---
-# the `layout` is always 'post'
 layout: post
-# `title` will be main header
 title:  "Setup OpenSearch multi-node cluster on Kubernetes using Helm Charts"
-# authors contains the short form of your bio identifier (more on that later)
 authors: 
   - jaindhir
-# `date` in YYYY-MM-DD format. 
-# You must include the hours, minutes, and seconds 
-# Use the -0700 as the UTC offset
 date:   2021-11-24 01:01:01 -0700
-# `categories` not used widely on OpenSearch.org but this does
-# affect the URL. The category is the second part of the URL
-# e.g. `/blog/my-category/...`
 categories: 
   - technical-posts
 twittercard:
-# the description is what people will see when they share the
-# post on social media
   description: "Setup OpenSearch multi-node cluster on Kubernetes using Helm Charts."
 ---
 
