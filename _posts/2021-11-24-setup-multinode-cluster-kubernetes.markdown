@@ -6,6 +6,8 @@ authors:
 date:   2021-11-24 01:01:01 -0700
 categories: 
   - technical-posts
+excerpt: |
+  OpenSearch can operate as a single-node or multi-node cluster. Production setup typically requires a multi-node cluster. In this tutorial, you will learn how to setup a multi-node cluster of OpenSearch using Helm and configure OpenSearch Dashboards to access the cluster. This will setup a  three-node cluster that has one dedicated master node, one dedicated coordinating node, and one data node that are used for ingesting data. So, let’s start setting up the OpenSearch stack on K8s.
 twittercard:
   description: "Setup OpenSearch multi-node cluster on Kubernetes using Helm Charts."
 ---
@@ -142,7 +144,7 @@ Install Helm in your environment for managing charts deployment by following the
     ```
 
     ![Port Forward](/assets/media/blog-images/2021-11-24-setup-multinode-cluster-kubernetes/port_forward.png){: .img-fluid}
-2. Open a different tab in the terminal and run the following command to check your cluster spinning
+2. Open a different tab in the terminal and run the following command to check your cluster is spinning
 
     ```
     curl -XGET https://localhost:9200 -u 'admin:admin' --insecure
