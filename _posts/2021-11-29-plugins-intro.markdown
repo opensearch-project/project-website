@@ -4,7 +4,7 @@ title: "Introduction to OpenSearch Plugins"
 authors: 
   - vemsarat
   - kazabdu
-date: 2021-11-22
+date: 2021-11-29
 categories:
   - technical-post
 twittercard:
