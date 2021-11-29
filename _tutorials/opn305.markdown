@@ -675,6 +675,10 @@ Now navigate to the Discover function by invoking the menu on the left side of t
 Click around in the results and you will discover a robust set of details about the queries, users and IP addresses from which the queries originated.   This feature gives you the ability to audit what goes on in your cluster.  As stated before, its best to have these logs go to local disk instead of an index as we have setup for this builder’s session. 
 
 
+## All the commands
+
+If you want to see all the commands used in this tutorial, take a look at [the command scratchpad](https://opensearch.org/tutorials/opn305-skratchpad_command.txt).
+
 ## Stay Connected!
 
 Find Kyle on Twitter at [@stockholmux](https://twitter.com/stockholmux), on [LinkedIn](https://www.linkedin.com/in/kyle-davis-search/), or reach out via email at kyledvs@amazon.com
