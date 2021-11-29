@@ -22,8 +22,8 @@ The Plugin architecture is designed to enable solving specific problems and exte
 Plugins are of various types, generally can be categorized as:
 
 
-* Analysis: Used for analysis of data available within the cluster, 
-* Discovery: Used for easy discovery of nodes in various platforms,
+* Analysis: Used for researching of data available within the cluster, 
+* Discovery: Used for easy recognition of nodes in various platforms,
 * Ingest: Used for pre/post-processing data during ingestion,
 * Mappers: Helps extend/create data fields,
 * Snapshot/Restore: Used to create a snapshot and restore data.
