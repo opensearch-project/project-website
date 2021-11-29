@@ -8,41 +8,40 @@ date: 2021-11-29
 categories:
   - technical-post
 twittercard:
-  description: "This post contains an overview of how OpenSearch plugins are loaded and interact with Java Security Manager."
+  description: "OpenSearch enables enhancing core features in a custom way via Plugins. In this blog post we wanted to unbox how plugins load, install, and run in OpenSearch..."
 ---
 
-
-OpenSearch enables extending core features via plugins. Plugins are empowered to access all extensible features of OpenSearch and extend them. In this blog post we wanted to unbox the plugin architecture, and help understand how they work.
-
+OpenSearch enables enhancing core features in a custom way via plugins. For example, plugins could add custom mapping types, engine scripts etc. In this blog post we wanted to unbox how plugins load, install, and run in OpenSearch.
 
 ## Pluggable Architecture
 
-Plugins in OpenSearch bring in modular architecture and enable developing/managing a large code base easier. The [blog post](https://logz.io/blog/opensearch-plugins/) from our partner [Logz.io](http://logz.io/) helps understand why pluggable architecture is important, and how the architecture works. 
+The modular architecture in OpenSearch makes it easier to develop on a large code base (4.5MM lines). The [blog post](https://logz.io/blog/opensearch-plugins/) from OpenSearch partner [Logz.io](http://logz.io/) describes why pluggable architecture is important and how plugins can be developed. 
 
-The Plugin architecture is designed to enable solving specific problems and extending generic features. For example, [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection) plugin reads time stream data ingested and finds anomalies. Another example is [Job Scheduler](https://github.com/opensearch-project/job-scheduler) plugin which schedules and runs generic jobs. 
+The Plugin architecture is designed to enable solving specific problems and extending generic features. For example, [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection) reads time stream data ingested and finds anomalies. Another example is [Job Scheduler](https://github.com/opensearch-project/job-scheduler) plugin which schedules and runs generic jobs. 
 
-Plugins are of various types, generally could be categorized as:
+Plugins are of various types, generally can be categorized as:
 
 
-* Analysis: Used for analysis of data available within the cluster. 
-* Discovery: Used for easy discovery of nodes in various platforms.
-* Ingest: Used for pre/post-processing data during ingestion.
-* Mappers: Helps extend/create data fields to OpenSearch.
-* Snapshot/Restore: Used to create a snapshot and restore data
+* Analysis: Used for analysis of data available within the cluster, 
+* Discovery: Used for easy discovery of nodes in various platforms,
+* Ingest: Used for pre/post-processing data during ingestion,
+* Mappers: Helps extend/create data fields,
+* Snapshot/Restore: Used to create a snapshot and restore data.
 
 To develop these plugins, the code base has well defined [interfaces](https://github.com/opensearch-project/OpenSearch/tree/main/server/src/main/java/org/opensearch/plugins) to solve specific sub-set of problems. 
 
 
 ## Extension Points
 
-The architecture is built for plugins to hook onto various extension points within the code base and subscribe to notifications/events they are interested in. There are bunch of extension points defined by Plugin.java and are available by default to all plugins. Plugins implementing custom interfaces have additional extension points.  
+The architecture is designed for plugins to hook onto various points within the OpenSearch code base. Plugins can subscribe to notifications/events they are interested in via these extension points. 
+The `Plugin.java` defines a list default extension points. 
 
-Extension points enable plugins to hook into various events within the lifecycle of the OpenSearch cluster. 
+Extension points enable plugins to hook into various events within the cluster and data lifecycles in OpenSearch.
 The default extension points are defined by [Plugin.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/Plugin.java#L90) abstract class:
 
 
 * `getFeature` - Could be used to implement a custom feature and respond to cluster state API.
-* `createGuiceModules` - Implement node level dependency injection modules via Guice.
+* `createGuiceModules` - Implement node level dependency injection modules via [Guice](https://github.com/google/guice).
 * `getGuiceServiceClasses` - Node level services which will be automatically called with node state changes.
 * `createComponents` - Custom component implemented and its lifecycle being managed by OpenSearch.
 * `additionalSettings` - Implement additional node level settings.
@@ -58,20 +57,18 @@ The default extension points are defined by [Plugin.java](https://github.com/ope
 * `getRoles` - Implement additional DiscoveryNodeRole’s.
 * `getAdditionalIndexSettingProviders` - Implement additional index level settings for newly created indices.
 
-Custom plugin interfaces define their new extension points for plugins to hook onto. For example, [Engine Plugin](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/plugins/EnginePlugin.java) interface which could be used to provide additional implementations to the core engine exposes a hook to [node bootstrap](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/node/Node.java#L577) after the plugin is loaded to load the custom `engineFactory` and [Index Service](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/indices/IndicesService.java#L763) overrides it if plugin chooses to override. 
+Custom plugin interfaces can define new extension points for plugins to hook onto. For example, the [Engine Plugin](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/plugins/EnginePlugin.java) interface could be used to provide additional implementations to the core engine, expose a hook to [node bootstrap](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/node/Node.java#L577) to load the custom `engineFactory` and the [Index Service](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/indices/IndicesService.java#L763) overrides it if plugin chooses to override. 
 
 
-## How do Plugins work?
+## How do plugins work?
 
-As you might have used plugins in the OpenSearch bundle. There are two parts for plugins to work with OpenSearch. 
-a. Installing a plugin.
-b. Loading a plugin
+As you might have used plugins in the OpenSearch bundle. There are two parts for plugins to work with OpenSearch: Installing a plugin, and Loading a plugin.
 
 ### Installing a plugin
 
-The OpenSearch bundle comes with a tool `./bin/opensearch-plugin` which helps to install a plugin. [PluginCli](https://github.com/opensearch-project/OpenSearch/blob/main/distribution/tools/plugin-cli/src/main/java/org/opensearch/plugins/PluginCli.java) reads and validates `plugin-descriptor.properties` file packaged with every plugin. For example, the OpenSearch security plugin defines [plugin-descriptor.properties](https://github.com/opensearch-project/security/blob/main/plugin-descriptor.properties) file which defines a bunch of parameters, and the tool verifies if it is using the compatible version of OpenSearch, and the dependencies are present. 
+The OpenSearch bundle comes with a tool `./bin/opensearch-plugin` which installs a plugin. [PluginCli](https://github.com/opensearch-project/OpenSearch/blob/main/distribution/tools/plugin-cli/src/main/java/org/opensearch/plugins/PluginCli.java) reads and validates `plugin-descriptor.properties` file packaged with every plugin. For example, the OpenSearch security plugin defines the [plugin-descriptor.properties](https://github.com/opensearch-project/security/blob/main/plugin-descriptor.properties) file which defines a bunch of parameters, and the tool verifies if it is using the compatible version of OpenSearch, and the dependencies are present. 
 
-Also, the tool verifies `plugin-security.policy` file, which is defined by the plugin which needs additional security permissions. For example, the OpenSearch security plugin defines many permissions like file read/write, classloading or networking that it needs through [plugin-security.policy](https://github.com/opensearch-project/security/blob/main/plugin-security.policy) file. These permissions are managed via Java Security Manager and have more details later in this post.
+Also, the tool verifies the `plugin-security.policy` file, defined by the plugin which needs additional security permissions. For example, the OpenSearch security plugin defines many permissions like file read/write, classloading or networking that it needs through the [plugin-security.policy](https://github.com/opensearch-project/security/blob/main/plugin-security.policy) file. These permissions are managed via Java Security Manager and have more details later in this post.
 
 After the tool validates the plugin, it copies all jars into `plugins` directory.
 By default, opensearch-min artifact does not package any plugins including the [native plugins](https://github.com/opensearch-project/OpenSearch/tree/main/plugins) which exist in the OpenSearch code base.
@@ -79,7 +76,7 @@ By default, opensearch-min artifact does not package any plugins including the [
 
 ### Loading a plugin
 
-Plugins run within the same process as OpenSearch. As OpenSearch process is bootstraps, it initializes [PluginService](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L125) via [Node.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/node/Node.java#L392). All plugins are class-loaded via [loadPlugin](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L763:20) during the bootstrapped of PluginService. 
+Plugins run within the same process as the OpenSearch. As OpenSearch process is bootstraps, it initializes [PluginService](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L125) via [Node.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/node/Node.java#L392). All plugins are class-loaded via [loadPlugin](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L763:20) during the bootstrapped of PluginService. 
 It checks the  `plugins` directory and loads the classpath where all the plugin jars and their dependencies are already installed by the `opensearch-plugin` install tool.
 
 ```
@@ -88,9 +85,8 @@ opensearch-alerting  opensearch-asynchronous-search opensearch-index-management 
 opensearch-anomaly-detection opensearch-cross-cluster-replication opensearch-job-scheduler opensearch-notebooks opensearch-reports-scheduler opensearch-sql
 ```
 
-During the bootstrap, each plugin is initialized and they hook up to various extension points through the interfaces they choose to implement. 
-
-As the plugins are class-loaded during the node bootstrap, the extension points initialize the data structures and this design prevents plugins to be loaded on the fly and cannot hot-swap when the node is up. (i.e. after the node bootstrap is complete). 
+As the plugins are class-loaded during the node bootstrap, the extension points (defined by the plugin interface) initialize the data structures.
+This design of loading plugins during the node bootstrap prevents them to be loaded on the fly and cannot be hot swapped. Each node within the cluster has to be restarted to load a new plugin.
 
 ### Plugins vs Modules
 
@@ -143,6 +139,7 @@ The security policy has a notion of per-user policies and it is useful in the co
 
 ## Closing Notes
 
-We hope this post helps unbox the mystery of how plugins work within OpenSearch. Now that you learnt how plugins work and what their limitations are, let us know if you have any feedback or would like new features in plugin architecture.
+We hope this post helps unbox the mystery of how plugins work within OpenSearch. Now that you learnt how plugins work and their limitations, we would love to see you getting your hands dirty and develop plugins for OpenSearch.
+Looking forward, we are thinking about solving the limitations in plugin architecture and would love your [feedback/thoughts](https://github.com/opensearch-project/OpenSearch/issues/1422).
 
-In the coming days, lookout for a follow-up post soon on how plugins work with OpenSearch Dashboards. 
+In the coming days, lookout for a follow-up post soon on intro to plugins with OpenSearch Dashboards. 
