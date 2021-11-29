@@ -38,7 +38,7 @@ To develop these plugins, the code base has well defined [interfaces](https://gi
 The architecture is built for plugins to hook onto various extension points within the codebase and subscribe to notifications/events they are interested in. There are a bunch of extension points few are the default for all plugins and the rest are custom defined by a few plugin interfaces. 
 
 Extension points enable plugins to hook into various events within the lifecycle of the OpenSearch cluster. 
-The default extension points are defined by [Plugin.java](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/plugins/Plugin.java#L90) abstract class:
+The default extension points are defined by [Plugin.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/Plugin.java#L90) abstract class:
 
 
 * `getFeature` - Could be used to implement a custom feature and respond to Cluster state API.
@@ -58,7 +58,7 @@ The default extension points are defined by [Plugin.java](https://github.com/ope
 * `getRoles` - Implement additional DiscoveryNodeRole’s.
 * `getAdditionalIndexSettingProviders` - Implement additional index level settings for newly created indices.
 
-Custom plugin interfaces define their new extension points for plugins to hook onto. For example, [Engine Plugin](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/plugins/EnginePlugin.java) interface which could be used to provide additional implementations to the core engine exposes a hook to [node bootstrap](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/node/Node.java#L577) after the plugin is loaded to load the custom `engineFactory` and [Index Service](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/indices/IndicesService.java#L763) overrides it if plugin chooses to override. 
+Custom plugin interfaces define their new extension points for plugins to hook onto. For example, [Engine Plugin](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/plugins/EnginePlugin.java) interface which could be used to provide additional implementations to the core engine exposes a hook to [node bootstrap](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/node/Node.java#L577) after the plugin is loaded to load the custom `engineFactory` and [Index Service](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/indices/IndicesService.java#L763) overrides it if plugin chooses to override. 
 
 
 ## How do Plugins work?
@@ -79,7 +79,7 @@ By default, opensearch-min artifact does not package any plugins including the [
 
 ### Loading a plugin
 
-Plugins run within the same process as OpenSearch. As OpenSearch process is bootstraps, it initializes [PluginService](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/plugins/PluginsService.java#L124) via [Node.java](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/node/Node.java#L392). All plugins are class-loaded via [loadPlugin](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/plugins/PluginsService.java#L765:20) during the bootstrapped of PluginService. 
+Plugins run within the same process as OpenSearch. As OpenSearch process is bootstraps, it initializes [PluginService](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L125) via [Node.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/node/Node.java#L392). All plugins are class-loaded via [loadPlugin](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L763:20) during the bootstrapped of PluginService. 
 It checks the  `plugins` directory and loads the classpath where all the plugin jars and their dependencies are already installed by the `opensearch-plugin` install tool.
 
 ```
@@ -110,13 +110,13 @@ Modules essentially are plugins and they implement plugin interfaces, but the on
 
 Java applications are prone to have vulnerabilities on a remote cluster or by a DDoS attack. To prevent this, JVM can be run in a sandbox mode which will prevent, for example: access to the local hard disk or the network. All of these are handled by the Security Manager.
 
-### How is it used in OpenSearch?
+### How Security Manager is used in OpenSearch?
 
 1. As OpenSearch bundles a few plugins, every plugin can define its own custom security policy file which will be installed at the same time when OpenSearch is installing the plugin.
-2. Security Manager is initialized in [Opensearch.java](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/bootstrap/OpenSearch.java#L91) and every plugin has a custom policy file called [plugin-secruity.policy](https://github.com/opensearch-project/anomaly-detection/blob/main/src/main/plugin-metadata/plugin-security.policy).
-3. The [getPolicy()](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/bootstrap/OpenSearchPolicy.java#L77-L79) method will take care of assigning the initial default policies required for the plugins and [setPolicy()](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/bootstrap/Security.java#L134) method will assign the custom policies of the plugins present in `plugin-secruity.policy`. 
+2. Security Manager is initialized in [Opensearch.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/bootstrap/OpenSearch.java#L91) and every plugin has a custom policy file called [plugin-secruity.policy](https://github.com/opensearch-project/anomaly-detection/blob/main/src/main/plugin-metadata/plugin-security.policy).
+3. The [getPolicy()](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/bootstrap/OpenSearchPolicy.java#L77-L79) method will take care of assigning the initial default policies required for the plugins and [setPolicy()](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/bootstrap/Security.java#L134) method will assign the custom policies of the plugins present in `plugin-secruity.policy`. 
 4. Each custom security policy file is signed and has a codebase which is a signed key between OpenSearch and the plugin.
-5. Each security policy can be attached via gradle plugin [opensearch.opensearchplugin](https://github.com/opensearch-project/anomaly-detection/blob/main/build.gradle#L94) in the `build.gradle` file of the plugin. 
+5. Each security policy can be attached via gradle plugin [opensearch.opensearchplugin](https://github.com/opensearch-project/anomaly-detection/blob/1.2/build.gradle#L94) in the `build.gradle` file of the plugin. 
 
 ```
 opensearchplugin {
