@@ -432,7 +432,7 @@ After clicking the link, you will see the following:
 
 ![To map users](/assets/media/tutorials/opn305/map-users.png){: .img-fluid}
 
-Click on "Map users" as there should be no users / processes / groups assigned to this role.  Assign the `read_only_inded_level` user to the `read_only_index_level` role.  
+Click on "Map users" as there should be no users / processes / groups assigned to this role.  Assign the `read_only_index_level` user to the `read_only_index_level` role.  
 
 ![Map users](/assets/media/tutorials/opn305/map2.png){: .img-fluid}
 
