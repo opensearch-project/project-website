@@ -4,14 +4,14 @@ title: "Introduction to OpenSearch Plugins"
 authors: 
   - vemsarat
   - kazabdu
-date: 2021-11-29
+date: 2021-12-01
 categories:
   - technical-post
 twittercard:
   description: "OpenSearch enables enhancing core features in a custom way via Plugins. In this blog post we wanted to unbox how plugins load, install, and run in OpenSearch..."
 ---
 
-OpenSearch enables enhancing core features in a custom way via plugins. For example, plugins could add custom mapping types, engine scripts etc. In this blog post we wanted to unbox how plugins load, install, and run in OpenSearch.
+OpenSearch enables enhancing core features in a custom way via plugins. For example, plugins could add custom mapping types, engine scripts, etc. In this blog post we wanted to unbox how plugins load, install, and run in OpenSearch.
 
 ## Pluggable Architecture
 
@@ -19,7 +19,7 @@ The modular architecture in OpenSearch makes it easier to develop on a large cod
 
 The Plugin architecture is designed to enable solving specific problems and extending generic features. For example, [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection) reads time stream data ingested and finds anomalies. Another example is [Job Scheduler](https://github.com/opensearch-project/job-scheduler) plugin which schedules and runs generic jobs. 
 
-Plugins are of various types, generally can be categorized as:
+Plugins are of various types, generally categorized as:
 
 
 * Analysis: Used for researching of data available within the cluster, 
@@ -33,14 +33,14 @@ To develop these plugins, the code base has well defined [interfaces](https://gi
 
 ## Extension Points
 
-The architecture is designed for plugins to hook onto various points within the OpenSearch code base. Plugins can subscribe to notifications/events they are interested in via these extension points. 
-The `Plugin.java` defines a list default extension points. 
+The architecture is designed for plugins to hook onto various points within the OpenSearch code base. Plugins can subscribe to relevant notifications/events via these extension points. 
+The `Plugin.java` file defines a list default extension points. 
 
 Extension points enable plugins to hook into various events within the cluster and data lifecycles in OpenSearch.
 The default extension points are defined by [Plugin.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/Plugin.java#L90) abstract class:
 
 
-* `getFeature` - Could be used to implement a custom feature and respond to cluster state API.
+* `getFeature` - Used to implement a custom feature and respond to cluster state API.
 * `createGuiceModules` - Implement node level dependency injection modules via [Guice](https://github.com/google/guice).
 * `getGuiceServiceClasses` - Node level services which will be automatically called with node state changes.
 * `createComponents` - Custom component implemented and its lifecycle being managed by OpenSearch.
@@ -68,10 +68,7 @@ As you might have used plugins in the OpenSearch bundle. There are two parts for
 
 The OpenSearch bundle comes with a tool `./bin/opensearch-plugin` which installs a plugin. [PluginCli](https://github.com/opensearch-project/OpenSearch/blob/main/distribution/tools/plugin-cli/src/main/java/org/opensearch/plugins/PluginCli.java) reads and validates `plugin-descriptor.properties` file packaged with every plugin. For example, the OpenSearch security plugin defines the [plugin-descriptor.properties](https://github.com/opensearch-project/security/blob/main/plugin-descriptor.properties) file which defines a bunch of parameters, and the tool verifies if it is using the compatible version of OpenSearch, and the dependencies are present. 
 
-Also, the tool verifies the `plugin-security.policy` file, defined by the plugin which needs additional security permissions. For example, the OpenSearch security plugin defines many permissions like file read/write, classloading or networking that it needs through the [plugin-security.policy](https://github.com/opensearch-project/security/blob/main/plugin-security.policy) file. These permissions are managed via Java Security Manager and have more details later in this post.
-
-After the tool validates the plugin, it copies all jars into `plugins` directory.
-By default, opensearch-min artifact does not package any plugins including the [native plugins](https://github.com/opensearch-project/OpenSearch/tree/main/plugins) which exist in the OpenSearch code base.
+Also, the tool verifies the `plugin-security.policy` file, defined by the plugin which needs additional security permissions. For example, the OpenSearch security plugin defines many permissions like file read/write, classloading or networking that it needs through the [plugin-security.policy](https://github.com/opensearch-project/security/blob/main/plugin-security.policy) file. These permissions are managed via Java Security Manager(more details later in this post).After the tool validates the plugin, it copies all jars into the `plugins` directory. By default, the OpenSearch Minimum distribution does not package any plugins including the [native plugins](https://github.com/opensearch-project/OpenSearch/tree/main/plugins) which exist in the OpenSearch code base.
 
 
 ### Loading a plugin
@@ -86,7 +83,7 @@ opensearch-anomaly-detection opensearch-cross-cluster-replication opensearch-job
 ```
 
 As the plugins are class-loaded during the node bootstrap, the extension points (defined by the plugin interface) initialize the data structures.
-This design of loading plugins during the node bootstrap prevents them to be loaded on the fly and cannot be hot swapped. Each node within the cluster has to be restarted to load a new plugin.
+This design of loading plugins during the node bootstrap prevents them being loaded on the fly and cannot be hot swapped. Each node within the cluster has to be restarted to load a new plugin.
 
 ### Plugins vs Modules
 
@@ -121,7 +118,7 @@ opensearchplugin {
 }
 ```
 
-![security-manager](/assets/media/blog-images/2021-11-29-plugins-intro/security_manager.jpg){: .img-fluid}  
+![security-manager](/assets/media/blog-images/2021-12-01-plugins-intro/security_manager.jpg){: .img-fluid}  
 
 
 The security policy has a notion of per-user policies and it is useful in the context of manually configuring the application deployment on a single specific computer, but it is hard to use in the generic case.
