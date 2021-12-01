@@ -82,24 +82,6 @@
         while (abortControllers.length) abortControllers.pop()?.abort?.();
     }
 
-    function getResultCategory(result) {
-        switch (result.type) {
-            case 'DOCS':
-                return `OpenSearch ${sanitizeText(result.version)}`;
-
-            default:
-                return result.type;
-        }
-    }
-
-    function getBreadcrumbs(result) {
-        const crumbs = [];
-        const cat = getResultCategory(result);
-        if (cat) crumbs.push(cat);
-
-        return sanitizeText(crumbs.join(' › '))
-    }
-
     const doSearch = async () => {
         const query = elInput.value.replace(/[^a-z0-9-_. ]+/ig, ' ');
         if (query.length < 3) return hideResults(true);
@@ -138,7 +120,10 @@
                 ? `
                 <div class="custom-search-result">
                     <a href="${sanitizeAttribute(result.url)}">
-                        <cite>${getBreadcrumbs(result)}</cite>
+                        <cite>
+                            ${result.type === 'DOCS' ? `OpenSearch ${sanitizeText(result.version)} › ` : ''}
+                            ${sanitizeText(result.ancestors?.join?.(' › '))}
+                        </cite>
                         ${sanitizeText(result.title || 'Unnamed Document')}
                     </a>
                     <span>${sanitizeText(result.content?.replace?.(/\n/g, '&hellip; '))}</span>
