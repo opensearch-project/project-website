@@ -250,13 +250,13 @@ K8s deployments are highly elastic and can be automatically scaled up and down v
 
 <img src="../assets/media/blog-images/2021-12-02-distributed-tracing-pipeline-with-opentelemetry/tracing_step2.png" align="center">
 
-The agent-gateway architecture also allows us to use [Tail Sampling Processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/tailsamplingprocessor/README.md) with more availability in this setup. Tail Sampling Processor enables us to make more intelligent choices when it comes to sampling traces. This is especially true for latency measurements, which can only be measured after they are complete. Since the collector sits at the end of the pipeline and has a complete picture of the distributed trace, sampling determinations are made in open telemetry collector to sample based on isolated, independent portions of the trace data.
+The agent-gateway architecture also allows us to use [Tail Sampling Processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/tailsamplingprocessor/README.md) with more availability in this setup. Tail Sampling Processor enables us to make more intelligent choices when it comes to sampling traces. This is especially true for latency measurements, which can only be measured after they are complete. Since the collector sits at the end of the pipeline and has a complete picture of the distributed trace, sampling determinations are made in opentelemetry collector to sample based on isolated, independent portions of the trace data.
 
 Today, this processor only works with a single instance of the collector. The workaround is to utilize [Trace ID aware load balancing](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/loadbalancingexporter/README.md) to support multiple collector instances and avoid a single point of failure. This load balancer exporter is added to the agent configuration. It is responsible for consistently exporting spans and logs belonging to a trace to the same backend gateway collector for tail based sampling.
 
 ### Filtering traces for tail based sampling
 
-We will use a combination of filters to sample the traces. The filters for tail sampling are positive selections only, so if a trace is caught by any of the filter it will be sampled; Alternatively, if no filter catches a trace, then it will not be sampled. The filters for tail based sampling can be chained together to get the desired effect:
+We will use a combination of filters to sample the traces. The filters for tail sampling are positive selections only, so if a trace is caught by any of the filter, it will be sampled; Alternatively, if no filter catches a trace, then it will not be sampled. The filters for tail based sampling can be chained together to get the desired effect:
 
 - **latency**: Sample based on the duration of the trace. The duration is determined by looking at the earliest start time and latest end time, without taking into consideration what happened in between.
 - **probabilistic**: Sample a percentage of traces.
@@ -264,11 +264,11 @@ We will use a combination of filters to sample the traces. The filters for tail 
 - **rate_limiting**: Sample based on rate of spans per trace per second
 - **string_attribute**: Sample based on string attributes value matches, both exact and regex value matches are supported
 
-While the top 4 are self-explanatory, we will be using the `string_attribute` filter to create a negative filter. We will be dropping specific service traces that we do not want sampled and sampling all other traces. Since there is no blocklist for filters, this is a workaround to sample all but cherrypick services that you might not want sampled. We can do this by:
+Since there is no blocklist for filters, we will be using a workaround to sample all but cherrypick services that we do not want sampled. we will be using the `string_attribute` filter to create a negative filter. The filter will be dropping specific service traces that we do not want sampled and sample all other traces. This can be done using the following:
 
-- **&#8594;** In the agent config, adding a span attribute for all traces with a key/value pair (e.g - retain_span/false) using attribute processor.
-- **&#8594;** In the agent config, adding another attribute processor now to override that value to false for cherrypicked services that we don't want to be sampled.
-- **&#8594;** In the gateway config, we can now use the string attribute filter on tail based sampling with the **key: retain_span** and **value: true**. This would then lead to all traces without *retain_span: true* attribute not being sampled.
+- **&#8594;** In the agent config, add a span attribute for all traces with a key/value pair (e.g - retain_span/false) using attribute processor.
+- **&#8594;** In the agent config, add another attribute processor now to override that value to false for cherrypicked services that we don't want to be sampled.
+- **&#8594;** In the gateway config, use the string attribute filter on tail based sampling with the **key: retain_span** and **value: true**. All traces without *retain_span: true* attribute will not be sampled.
 
 <details>
   <summary><em><b>Click to expand : K8s Manifest for OpenTelemetry collector </b></em></summary>
@@ -525,7 +525,7 @@ query:
 
 - **Data Prepper**
 
-Similar to Jaeger, to vizualize distributed traces through Trace Analytics feature in OpenSearch, we need to transform these traces for OpenSearch. Data Prepper is a key component in providing Trace Analytics feature in OpenSearch. Data Prepper is a last mile server-side component collecting telemetry data from AWS Distro OpenTelemetry collector or OpenTelemetry collector and transforms it for OpenSearch. Data Prepper is a data ingestion component of the OpenSearch project that pre-processes documents before storing and indexing in OpenSearch. To pre-process documents, Data Prepper allows you to configure a pipeline that specifies a source, buffers, a series of processors, and sinks. Once you have configured a data pipeline, Data Prepper takes care of managing source, sink, buffer properties, and maintains state across all instances of Data Prepper on which the pipelines are configured. A single instance of Data Prepper can have one or more pipelines configured. A pipeline definition requires at least a source and sink attribute to be configured, and will use the default buffer and no processor if they are not configured. Data Prepper can be deployed as a deployment with a horizontal pod autoscaler.
+Similar to Jaeger, to vizualize distributed traces through Trace Analytics in OpenSearch, we need to transform these traces for OpenSearch. Data Prepper is a key component in providing Trace Analytics feature in OpenSearch. Data Prepper is a last mile server-side component collecting telemetry data from AWS Distro OpenTelemetry collector or OpenTelemetry collector and transforms it for OpenSearch. Data Prepper is a data ingestion component of the OpenSearch project that pre-processes documents before storing and indexing in OpenSearch. To pre-process documents, Data Prepper allows you to configure a pipeline that specifies a source, buffers, a series of processors, and sinks. Once you have configured a data pipeline, Data Prepper takes care of managing source, sink, buffer properties, and maintains state across all instances of Data Prepper on which the pipelines are configured. A single instance of Data Prepper can have one or more pipelines configured. A pipeline definition requires at least a source and sink attribute to be configured, and will use the default buffer and no processor if they are not configured. Data Prepper can be deployed as a deployment with a horizontal pod autoscaler.
 
 <details>
   <summary><em><b>Click to expand : K8s Manifest for Data Prepper</b></em></summary>
@@ -589,9 +589,8 @@ data:
         - opensearch:
             hosts:
               - "https://opensearch-arn.us-east-1.es.amazonaws.com"
-            insecure: true
-            # putting aws_sigv4: false causes auth issues (TBFixed)
-            aws_sigv4: false
+            insecure: false
+            aws_sigv4: true
             aws_region: "region-name"
             trace_analytics_raw: true
     service-map-pipeline:
@@ -617,9 +616,8 @@ data:
         - opensearch:
             hosts:
               - "https://opensearch-arn.us-east-1.es.amazonaws.com"
-            insecure: true
-            # putting aws_sigv4: false causes auth issues (TBFixed)
-            aws_sigv4: false
+            insecure: false
+            aws_sigv4: true
             aws_region: "region-name"
             trace_analytics_service_map: true
   data-prepper-config.yaml: |
@@ -753,13 +751,17 @@ data:
 
 ### Sink : OpenSearch
 
-As you must have noticed in the architecture, we utilize OpenSearch to ship to and store traces. [Opensearch](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) is a community-driven, open source fork of Elasticsearch and Kibana. This project includes OpenSearch (derived from Elasticsearch 7.10.2) and OpenSearch Dashboards (derived from Kibana 7.10.2). Additionally, the OpenSearch project is the new home for previous distribution of Elasticsearch (Open Distro for Elasticsearch)
+As you must have noticed in the architecture, we utilize OpenSearch to ship to and store traces. [Opensearch](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) is a community-driven, open source fork of Elasticsearch and Kibana. This project includes OpenSearch (derived from Elasticsearch 7.10.2) and OpenSearch Dashboards (derived from Kibana 7.10.2). Additionally, the OpenSearch project is the new home for the previous distribution of Elasticsearch (Open Distro for Elasticsearch)
 
 OpenSearch makes an excellent choice for storing and searching trace data, along with other observability data due to its fast search capabilities and horizontal scalability.
 
 <img src="../assets/media/blog-images/2021-12-02-distributed-tracing-pipeline-with-opentelemetry/tracing_step3.png" align="center" >
 
-Jaeger collector and Data Prepper can be configured to ship traces to the same OpenSearch. Both deployments create their own index with a mutually exclusive prefix for index name. The OpenSearch can be configured with index patterns to create two views, one for Jaeger traces and the other for OTEL traces. Trace analytics and Jaeger UI (Query component) are configured to analyze their own indexes based on prefix and do not collide with each other. This allows for a single OpenSearch with multiple data formats existing side by side.
+Jaeger collector and Data Prepper can be configured to ship traces to the same OpenSearch. Both deployments create their indexes with a mutually exclusive prefix for name. OpenSearch can be configured with index patterns to create seperate views:
+- Jaeger : `jaeger-span*`
+- Trace Analytics : `otel-v1-apm-span*`
+
+Trace analytics and Jaeger UI (Query component) are configured to analyze their indexes based on prefix and do not collide with each other. This allows for a single OpenSearch service with multiple data formats existing side by side.
 
 ### Step 4 : Visualization
 
@@ -864,7 +866,7 @@ Once you have traces flowing through your pipeline, you should see indexes being
 
 We now have the distributed tracing pipeline. It is time to start an application that generates traces and exports them to agents. Depending on your application code and whether you want to do manual or automatic instrumentation, the [Open Telementry Instrumentation Docs](https://opentelemetry.io/docs/) should get you started.
 
-Since in our setup OTEL agents are running as daemonset, we will be sending the traces to the agent on the same host(worker-node). To get the host IP, we can set the HOST_IP environment variable via the [Kubernetes downwards API](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#capabilities-of-the-downward-api). and then reference it in our instrumentation as the destination address.
+In this setup, OTEL agents are running as daemonset. We will be exporting traces from the service to the agent on the same host(worker-node). To get the host IP, we can set the HOST_IP environment variable via the [Kubernetes downwards API](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#capabilities-of-the-downward-api). It can be referenced in our instrumentation as the destination address.
 
 Make sure you are injecting the HOST_IP environment variable in your application manifest:
 
@@ -876,13 +878,13 @@ env:
           fieldPath: status.hostIP
 ```
 
-To setup the pipeline, you can apply the kubernetes manifest files and helm chart(for jaeger). Besides being in the body of this blog, these manifest have been added to [djin-opensearch-blog github repo](https://github.com/newscorp-ghfb/djin-opensearch-blog/blob/master/source) for convenient access.
+To setup the pipeline, you can apply the kubernetes manifest files and helm chart(for jaeger). Besides being in the body of this blog, the manifests have been added to [djin-opensearch-blog github repo](https://github.com/newscorp-ghfb/djin-opensearch-blog/blob/master/source) for convenient access.
 
 ## Next Steps
 
-We built a scalable distributed tracing pipeline based on the OpenTelemetry project running in our EKS cluster. One of the most important reasons to move to OpenTelemetry is the fact that a single binary can be used to ingest, process, and export, not just traces but metrics and logs as well (telemetry data). We can collect and send telemetry data to multiple backends by creating [pipelines](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md#pipelines) and using exporters to send that data to the observability platform of choice.
+We built a scalable distributed tracing pipeline based on the OpenTelemetry project running in an EKS cluster. One of the driving forces behind our move to OpenTelemetry is to consolidate to a single binary to ingest, process, and export, not just traces but metrics and logs as well (telemetry data). Telemetry data can be exported to multiple backends by creating [pipelines](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md#pipelines) for pushing to observability platform of choice.
 
-Data Prepper 1.2 (December 2021) release is going to provide users the ability to send logs from Fluent Bit to OpenSearch or Amazon OpenSearch Service and use Grok to enhance the logs. These logs can then be correlated to traces coming from the OTEL collectors to further enhance deep diving into your service problems using OpenSearch Dashboards. This experience should make deep diving into your service much more simple with a unified experience and give a really powerful feature into the hands of developers and operators.
+Data Prepper 1.2 (December 2021) release is going to provide users the ability to send logs from Fluent Bit to OpenSearch or Amazon OpenSearch Service and use Grok to enhance the logs. Logs can then be correlated to traces coming from the OTEL collectors to further enhance deep diving into your service problems using OpenSearch Dashboards. This should elevate the experience of deep diving into your service with a unified view and give a really powerful feature into the hands of developers and operators.
 
 So the next step would naturally be to extend this pipeline to be more than just a distributed tracing pipeline and morph to a distributed telemetry pipeline!
 
