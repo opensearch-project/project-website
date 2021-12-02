@@ -256,7 +256,7 @@ Today, this processor only works with a single instance of the collector. The wo
 
 ### Filtering traces for tail based sampling
 
-We will use a combination of filters to sample the traces. The filters for tail sampling are positive selections only, so if a trace is caught by any of the filters it will be sampled; Alternatively, if no filter catches a trace, then it will not be sampled. The filters for tail based sampling can be chained together to get the desired effect:
+We will use a combination of filters to sample the traces. The filters for tail sampling are positive selections only, so if a trace is caught by any of the filter it will be sampled; Alternatively, if no filter catches a trace, then it will not be sampled. The filters for tail based sampling can be chained together to get the desired effect:
 
 - **latency**: Sample based on the duration of the trace. The duration is determined by looking at the earliest start time and latest end time, without taking into consideration what happened in between.
 - **probabilistic**: Sample a percentage of traces.
@@ -267,7 +267,7 @@ We will use a combination of filters to sample the traces. The filters for tail 
 While the top 4 are self-explanatory, we will be using the `string_attribute` filter to create a negative filter. We will be dropping specific service traces that we do not want sampled and sampling all other traces. Since there is no blocklist for filters, this is a workaround to sample all but cherrypick services that you might not want sampled. We can do this by:
 
 - **&#8594;** In the agent config, adding a span attribute for all traces with a key/value pair (e.g - retain_span/false) using attribute processor.
-- **&#8594;** In the agent config, adding another attribute processor now to override that value to false for cherrypicked services that we don't want sampled.
+- **&#8594;** In the agent config, adding another attribute processor now to override that value to false for cherrypicked services that we don't want to be sampled.
 - **&#8594;** In the gateway config, we can now use the string attribute filter on tail based sampling with the **key: retain_span** and **value: true**. This would then lead to all traces without *retain_span: true* attribute not being sampled.
 
 <details>
@@ -525,7 +525,7 @@ query:
 
 - **Data Prepper**
 
-Similar to Jaeger, to vizualize distributed traces through Trace Analytics feature in OpenSearch, we need to transform these traces for OpenSearch. Data Prepper is a key component in providing Trace Analytics feature in OpenSearch. Data Prepper is a last mile server-side component which collects telemetry data from AWS Distro OpenTelemetry collector or OpenTelemetry collector and transforms it for OpenSearch. Data Prepper is a data ingestion component of the OpenSearch project that pre-processes documents before storing and indexing in OpenSearch. To pre-process documents, Data Prepper allows you to configure a pipeline that specifies a source, buffers, a series of processors, and sinks. Once you have configured a data pipeline, Data Prepper takes care of managing source, sink, buffer properties, and maintains state across all instances of Data Prepper on which the pipelines are configured. A single instance of Data Prepper can have one or more pipelines configured. A pipeline definition requires at least a source and sink attribute to be configured, and will use the default buffer and no processor if they are not configured. Data Prepper can be deployed as a deployment with a horizontal pod autoscaler.
+Similar to Jaeger, to vizualize distributed traces through Trace Analytics feature in OpenSearch, we need to transform these traces for OpenSearch. Data Prepper is a key component in providing Trace Analytics feature in OpenSearch. Data Prepper is a last mile server-side component collecting telemetry data from AWS Distro OpenTelemetry collector or OpenTelemetry collector and transforms it for OpenSearch. Data Prepper is a data ingestion component of the OpenSearch project that pre-processes documents before storing and indexing in OpenSearch. To pre-process documents, Data Prepper allows you to configure a pipeline that specifies a source, buffers, a series of processors, and sinks. Once you have configured a data pipeline, Data Prepper takes care of managing source, sink, buffer properties, and maintains state across all instances of Data Prepper on which the pipelines are configured. A single instance of Data Prepper can have one or more pipelines configured. A pipeline definition requires at least a source and sink attribute to be configured, and will use the default buffer and no processor if they are not configured. Data Prepper can be deployed as a deployment with a horizontal pod autoscaler.
 
 <details>
   <summary><em><b>Click to expand : K8s Manifest for Data Prepper</b></em></summary>
@@ -586,7 +586,7 @@ data:
       prepper:
         - otel_trace_raw_prepper:
       sink:
-        - elasticsearch:
+        - opensearch:
             hosts:
               - "https://opensearch-arn.us-east-1.es.amazonaws.com"
             insecure: true
@@ -604,7 +604,7 @@ data:
         - service_map_stateful:
       buffer:
         bounded_blocking:
-          # buffer_size is the number of ExportTraceRequest from otel-collector the data prepper should hold in memeory.
+          # buffer_size is the number of ExportTraceRequest from otel-collector the data prepper should hold in memory.
           # We recommend to keep the same buffer_size for all pipelines.
           # Make sure you configure sufficient heap
           # default value is 512
@@ -614,7 +614,7 @@ data:
           # Make sure buffer_size >= workers * batch_size
           batch_size: 8
       sink:
-        - elasticsearch:
+        - opensearch:
             hosts:
               - "https://opensearch-arn.us-east-1.es.amazonaws.com"
             insecure: true
@@ -689,7 +689,7 @@ spec:
             - /etc/data-prepper/pipelines.yaml
             - /etc/data-prepper/data-prepper-config.yaml
             - -Dlog4j.configurationFile=config/log4j2.properties
-          image: amazon/opendistro-for-elasticsearch-data-prepper:1.0.0
+          image: amazon/opendistro-for-elasticsearch-data-prepper:1.1.0
           imagePullPolicy: IfNotPresent
           name: data-prepper
           resources:
@@ -856,13 +856,13 @@ esLookback:
 
 [Amazon Elasticsearch Service released Trace Analytics](https://aws.amazon.com/blogs/big-data/getting-started-with-trace-analytics-in-amazon-elasticsearch-service/), a new feature for distributed tracing that enables developers and operators to troubleshoot performance and availability issues in their distributed applications, giving them end-to-end insights not possible with traditional methods of collecting logs and metrics from each component and service individually. Trace Analytics supports OpenTelemetry, enabling customers to leverage Trace Analytics without having to re-instrument their applications.
 
-Once you have traces flowing through your pipeline, you should see indexes being created in OpenSearch under the otel-v1\* index prefix. As this is created, trace analytics plugin within OpenSearch dashboards should now have visuals for your traces including the service map, error/throughput graphs, and waterfall trace view for your services.
+Once you have traces flowing through your pipeline, you should see indexes being created in OpenSearch under the otel-v1\* index prefix. As this is created, trace analytics plugin within OpenSearch dashboards should now have visualization for your traces, inclusive of service map, error/throughput graphs, and waterfall trace view for your services.
 
 <img src="../assets/media/blog-images/2021-12-02-distributed-tracing-pipeline-with-opentelemetry/kibana.png" align="center" height="50%"  width="50%">
 
 ## Testing
 
-We now have the distributed tracing pipeline. It is time to start an application that generates traces and exports it to agents. Depending on your application code and whether you want to do manual or automatic instrumentation, the [Open Telementry Instrumentation Docs](https://opentelemetry.io/docs/) should get you started.
+We now have the distributed tracing pipeline. It is time to start an application that generates traces and exports them to agents. Depending on your application code and whether you want to do manual or automatic instrumentation, the [Open Telementry Instrumentation Docs](https://opentelemetry.io/docs/) should get you started.
 
 Since in our setup OTEL agents are running as daemonset, we will be sending the traces to the agent on the same host(worker-node). To get the host IP, we can set the HOST_IP environment variable via the [Kubernetes downwards API](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#capabilities-of-the-downward-api). and then reference it in our instrumentation as the destination address.
 
@@ -876,15 +876,15 @@ env:
           fieldPath: status.hostIP
 ```
 
-To setup the pipeline, you can apply the kubernetes manifest files and helm chart(for jaeger). Besides being in the body of this blog, they manifest have been added to  [djin-opensearch-blog github repo](https://github.com/newscorp-ghfb/djin-opensearch-blog/blob/master/source) for convenience.
+To setup the pipeline, you can apply the kubernetes manifest files and helm chart(for jaeger). Besides being in the body of this blog, these manifest have been added to [djin-opensearch-blog github repo](https://github.com/newscorp-ghfb/djin-opensearch-blog/blob/master/source) for convenient access.
 
 ## Next Steps
 
-We built a scalable distributed tracing pipeline based on the OpenTelemetry project running in our EKS cluster. One of the most important reasons to move to OpenTelemetry is the fact that a single binary can be used to ingest, process, and export not just traces but metrics and logs as well (telemetry data). We can collect and send telemetry data to multiple backends by creating [pipelines](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md#pipelines) and using exporters to send that data to the observability platform of choice.
+We built a scalable distributed tracing pipeline based on the OpenTelemetry project running in our EKS cluster. One of the most important reasons to move to OpenTelemetry is the fact that a single binary can be used to ingest, process, and export, not just traces but metrics and logs as well (telemetry data). We can collect and send telemetry data to multiple backends by creating [pipelines](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md#pipelines) and using exporters to send that data to the observability platform of choice.
 
-Data Prepper 1.2 (December 2021) release is going to provide users the ability to send logs from Fluent Bit to OpenSearch or Amazon OpenSearch Service and use Grok to enhance the logs. These logs can then be correlated to traces coming from the OTEL collectors to further enhance deep diving into your service problems using OpenSearch Dashboards. This experience should make deep diving into your service much more simple with a unified experience and give a really powerful feature into the hands of developer and operators.
+Data Prepper 1.2 (December 2021) release is going to provide users the ability to send logs from Fluent Bit to OpenSearch or Amazon OpenSearch Service and use Grok to enhance the logs. These logs can then be correlated to traces coming from the OTEL collectors to further enhance deep diving into your service problems using OpenSearch Dashboards. This experience should make deep diving into your service much more simple with a unified experience and give a really powerful feature into the hands of developers and operators.
 
-So the next step would naturally be to extend this pipeline to be more than just a distributed tracing pipeline and morph to a distributed telemetry pipeline !
+So the next step would naturally be to extend this pipeline to be more than just a distributed tracing pipeline and morph to a distributed telemetry pipeline!
 
 _Comments, questions, corrections? Just let me know on [twitter](https://twitter.com/kub3rkaul), via email kuber.kaul@dowjones.com, or submit a github issue_
 
