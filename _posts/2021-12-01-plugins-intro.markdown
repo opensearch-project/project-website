@@ -4,7 +4,7 @@ title: "Introduction to OpenSearch Plugins"
 authors: 
   - vemsarat
   - kazabdu
-date: 2021-12-01
+date: 2021-12-02
 categories:
   - technical-post
 twittercard:
@@ -68,12 +68,12 @@ As you might have used plugins in the OpenSearch distribution. Plugins are insta
 
 The OpenSearch distribution comes with a tool `./bin/opensearch-plugin` which installs a plugin. [PluginCli](https://github.com/opensearch-project/OpenSearch/blob/main/distribution/tools/plugin-cli/src/main/java/org/opensearch/plugins/PluginCli.java) reads and validates `plugin-descriptor.properties` file packaged with every plugin. For example, the OpenSearch security plugin defines the [plugin-descriptor.properties](https://github.com/opensearch-project/security/blob/main/plugin-descriptor.properties) file which defines a bunch of parameters, and the tool verifies if it is using the compatible version of OpenSearch, and the dependencies are present.
 
-The tool verifies the `plugin-security.policy` file, defined by the plugin which needs additional security permissions. For example, the OpenSearch security plugin defines many permissions like file read/write, classloading or networking that it needs through the [plugin-security.policy](https://github.com/opensearch-project/security/blob/main/plugin-security.policy) file. These permissions are managed via Java Security Manager (more details later in this post).After the tool validates the plugin, it copies all jars into the `plugins` directory. By default, the OpenSearch Minimum distribution does not package any plugins including the [native plugins](https://github.com/opensearch-project/OpenSearch/tree/main/plugins) which exist in the OpenSearch codebase.
+The tool verifies the `plugin-security.policy` file, defined by the plugin which needs additional security permissions. For example, the OpenSearch security plugin defines many permissions like file read/write, classloading or networking that it needs through the [plugin-security.policy](https://github.com/opensearch-project/security/blob/main/plugin-security.policy) file. These permissions are managed via Java Security Manager (more details later in this post). After the tool validates the plugin, it copies all jars into the `plugins` directory. By default, the OpenSearch Minimum distribution does not package any plugins including the [native plugins](https://github.com/opensearch-project/OpenSearch/tree/main/plugins) which exist in the OpenSearch codebase.
 
 
 ### Loading a plugin
 
-Plugins run within the same process as the OpenSearch. As OpenSearch process is bootstraps, it initializes [PluginService](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L125) via [Node.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/node/Node.java#L392). All plugins are class-loaded via [loadPlugin](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L763:20) during the bootstrapped of PluginService. 
+Plugins run within the same process as OpenSearch. As the OpenSearch process bootstraps, it initializes [PluginService](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L125) via [Node.java](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/node/Node.java#L392). All plugins are class-loaded via [loadPlugin](https://github.com/opensearch-project/OpenSearch/blob/1.2/server/src/main/java/org/opensearch/plugins/PluginsService.java#L763:20) during the bootstrapped of PluginService. 
 It checks the  `plugins` directory and loads the classpath where all the plugin jars and their dependencies are already installed by the `opensearch-plugin` install tool.
 
 ```
@@ -129,7 +129,7 @@ The security policy has a notion of per-user policies and it is useful in the co
 * `exitVM` permission is allowed for a few special classes, for other classes the process will kill and exit the cluster. This method calls [checkPermission](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/bootstrap/OpenSearch.java#L94) with the RuntimePermission and throws a SecurityException.
 * Security Manager Policy allows installing a plugin through `plugin-security.policy` which consists of dynamic configuration and dependencies required for a plugin to run.
 * Plugins can ask for `AllPermission` of the OpenSearch cluster. The Security Manager takes care of `AllPermission` and makes sure to check it as a part of Bootstrap.
-* Plugins can create a `plugin-security.policy` file and write dynamic configuration and permissions required to run from OpenSearch Cluster.
+* Plugins can create a `plugin-security.policy` file and write dynamic configuration and permissions required to run from the OpenSearch Cluster.
 
 ## Closing Notes
 
