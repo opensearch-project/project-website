@@ -878,7 +878,7 @@ env:
           fieldPath: status.hostIP
 ```
 
-To setup the pipeline, you can apply the kubernetes manifest files and helm chart(for jaeger). Besides being in the body of this blog, the manifests have been added to [djin-opensearch-blog github repo](https://github.com/dowjones/opensearch-blog/tree/master/source) for convenient access.
+To setup the pipeline, you can apply the kubernetes manifest files and helm chart(for jaeger). Besides being in the body of this blog, the manifests have been added to [opensearch-blog github repo](https://github.com/dowjones/opensearch-blog/tree/master/source) for convenient access.
 
 ## Next Steps
 
