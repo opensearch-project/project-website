@@ -7,6 +7,8 @@ layout_class: sidebar-right
 body_class: homepage
 sectionid: homepage
 
+primary_title: About OpenSearch
+
 meta_description: OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, OpenSearch, and a visualization and user interface, OpenSearch Dashboards. OpenSearch enables people to easily ingest, secure, search, aggregate, view, and analyze data.
 
 download_ctas:

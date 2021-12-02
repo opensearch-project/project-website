@@ -43,6 +43,11 @@ This site uses [Jekyll](https://jekyllrb.com/). You can build the site and make 
 
 Alternatively, build the site with `bundle exec jekyll build`. The HTML output is generated into `/_site`. For the full configuration options when running Jekyll, see [this page](https://jekyllrb.com/docs/configuration/options/).
 
+### Search Bar Invisible Pages
+
+To prevent a document from appearing in search results, you can add `omit_from_search: true` to its front matter.
+
+
 ### Testing
 
 #### Link checker
