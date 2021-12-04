@@ -4,7 +4,7 @@ title:  "Introducing OpenSearch Benchmark"
 authors:
   - achitojha
   - kyledvs
-date: 2021-11-17 01:01:01 -0700
+date: 2021-12-08 01:01:01 -0700
 categories:
   - update
 ---
