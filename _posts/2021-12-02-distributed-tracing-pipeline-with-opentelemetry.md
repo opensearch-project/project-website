@@ -2,7 +2,7 @@
 layout: post
 title:  "Building a distributed tracing pipeline with OpenTelemetry Collector, Data Prepper, and OpenSearch Trace Analytics"
 authors: 
-  - Kuber Kaul
+  - kuberkaul
 date: 2021-12-07 01:01:01 -0700
 categories: 
   - technical-post
