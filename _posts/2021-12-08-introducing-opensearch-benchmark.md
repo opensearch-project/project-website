@@ -9,10 +9,10 @@ categories:
   - update
 ---
 
-We would like to introduce OpenSearch Benchmark - a community driven, open source fork of [Rally](https://esrally.readthedocs.io/en/stable/). The mission of the project is to provide a convenient and reliable performance testing framework for the OpenSearch. OpenSearch Benchmark intends to be compatible with OpenSearch and Amazon OpenSearch Service. OpenSearch Benchmark is currently in alpha release and will be maintained under the Apache License, Version 2.0 (ALv2). 
+We would like to introduce OpenSearch Benchmark - a community driven, open source fork of [Rally](https://esrally.readthedocs.io/en/stable/). The mission of the project is to provide a convenient and reliable performance testing framework for OpenSearch. OpenSearch Benchmark intends to be compatible with OpenSearch and Amazon OpenSearch Service. OpenSearch Benchmark is currently in alpha release and will be maintained under the Apache License, Version 2.0 (ALv2). 
 
 #### Why is this important for the OpenSearch community?
-Users of OpenSearch often want to understand how various workloads perform across different settings, host types, and cluster configurations. OpenSearch Benchmark helps you to optimize OpenSearch cluster resource usage to reduce operating costs. A performance testing mechanism also empowers you to run periodic benchmarks which can be used to identify performance regressions and improve performance. These underline the need to have a performance testing mechanism for OpenSearch.
+Users of OpenSearch often want to understand how their workloads perform across different settings, host types, and cluster configurations. OpenSearch Benchmark helps you to optimize OpenSearch cluster resource usage to reduce operating costs. A performance testing mechanism also empowers you to run periodic benchmarks which can be used to identify performance regressions and improve performance.
 
 #### Sounds interesting? Here’s what you can do!
 We encourage you to join us and be a part of the growing OpenSearch Benchmark community! Please install [OpenSearch Benchmark](https://github.com/opensearch-project/opensearch-benchmark/blob/main/README.md#installing-benchmark) and view the source on the [OpenSearch Benchmark Github repository](https://github.com/opensearch-project/opensearch-benchmark). We’d like you to participate in the ongoing discussions and if you want to request any changes(bugs, feature requests), please create an issue [here](https://github.com/opensearch-project/opensearch-benchmark/issues/new/choose).
