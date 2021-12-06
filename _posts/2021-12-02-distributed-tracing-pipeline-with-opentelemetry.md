@@ -592,7 +592,7 @@ data:
           # default value is 512
           buffer_size: 4096
           # The raw prepper does bulk request to your elasticsearch sink, so configure the batch_size higher.
-          # If you use the recommended otel-collector setup each ExportTraceRequest could contain max 50 spans. https://github.com/opendistro-for-elasticsearch/data-prepper/tree/v0.7.x/deployment/aws
+          # If you use the recommended otel-collector setup each ExportTraceRequest could contain max 50 spans. 
           # With 64 as batch size each worker thread could process upto 3200 spans (64 * 50)
           batch_size: 512
       source:
@@ -702,7 +702,7 @@ spec:
             - /etc/data-prepper/pipelines.yaml
             - /etc/data-prepper/data-prepper-config.yaml
             - -Dlog4j.configurationFile=config/log4j2.properties
-          image: amazon/opendistro-for-elasticsearch-data-prepper:1.1.0
+          image: opensearchproject/data-prepper:1.1.0
           imagePullPolicy: IfNotPresent
           name: data-prepper
           resources:
@@ -766,7 +766,7 @@ data:
 
 ### Sink : OpenSearch
 
-As you may have noticed in the architecture, we utilize OpenSearch to ship to and store traces. [OpenSearch](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) makes an excellent choice for storing and searching trace data, along with other observability data due to its fast search capabilities and horizontal scalability.
+As you may have noticed in the architecture, we utilize OpenSearch to ship to and store traces. [OpenSearch](https://opensearch.org/) makes an excellent choice for storing and searching trace data, along with other observability data due to its fast search capabilities and horizontal scalability.
 
 ![tracing_step3](/assets/media/blog-images/2021-12-02-distributed-tracing-pipeline-with-opentelemetry/tracing_step3.png){: .img-fluid}
 
