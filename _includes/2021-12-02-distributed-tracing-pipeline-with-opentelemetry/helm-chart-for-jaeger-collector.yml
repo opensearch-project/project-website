@@ -1,0 +1,48 @@
+# All operations of service foo are sampled with probability 0.8 except for operations op1 and op2 which are probabilistically sampled with probabilities 0.2 and 0.4 respectively.
+# All operations for service bar are rate-limited at 5 traces per second.
+# Any other service will be sampled with probability 1 defined by the default_strategy.
+
+provisionDataStore:
+  cassandra: false
+storage:
+  type: elasticsearch
+  elasticsearch:
+    scheme: https
+    usePassword: false
+    host: "opensearch-arn.us-east-1.es.amazonaws.com"
+    port: "443"
+
+tag: 1.22.0
+
+agent:
+  enabled: false
+
+collector:
+  autoscaling:
+    enabled: true
+    targetMemoryUtilizationPercentage: 80
+  service:
+  serviceAccount:
+    name: jaeger
+  samplingConfig: |-
+    {
+      "service_strategies": [
+        {
+          "service": "foo",
+          "type": "probabilistic",
+          "param": 0.8
+        },
+        {
+          "service": "bar",
+          "type": "ratelimiting",
+          "param": 5
+        }
+      ],
+      "default_strategy": {
+        "type": "probabilistic",
+        "param": 1.0
+      }
+    }
+
+query:
+  enabled: false

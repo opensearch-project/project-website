@@ -33,8 +33,8 @@ body {
     }
 
     // don't activate mobile styles for larger screens
-    @include respond-min(768px) {
-        min-width: 768px;
+    @include respond-min(46.25rem) {
+        min-width: 46.25rem;
     }
 }
 a {
@@ -105,7 +105,7 @@ h1 {
     color: $background-lightest;
     letter-spacing: -1px;
     line-height: 1.1;
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         @include font-size(32);
     }
 
@@ -137,7 +137,7 @@ h2 {
         }
 
         &:first-child {
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 margin-top: 20px;
             }
         }
@@ -166,7 +166,7 @@ h3 {
         margin-bottom: 5px;
 
         &:first-child {
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 margin-top: 12px;
             }
         }
@@ -258,7 +258,7 @@ blockquote {
     //Main column. Left aligned by default. See /styleguide for explanation.
     background: $background-lightest;
     padding: 1px 10px 40px;
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         min-height: 800px;
         border: 1px solid #ddd;
         float: right;
@@ -295,7 +295,7 @@ blockquote {
         padding: 0 10px 40px;
         width: auto;
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             max-width: 740px;
             padding: 20px 0 40px;
             width: (704/768) * 100%;
@@ -338,7 +338,7 @@ blockquote {
     //Sidebar in column layouts, gray section in fullwidth layout
     padding: 0 10px 20px;
     @include font-size(15);
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         float: right;
         margin: 10px 0 20px 0;
         margin-right: 3%;
@@ -381,7 +381,7 @@ blockquote {
     margin: 0 10px;
     padding: 40px 0 60px;
 
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         .full-width & {
             max-width: 700px;
             margin: 0 auto;
@@ -404,7 +404,7 @@ blockquote {
     }
 }
 .container {
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         margin: 0 auto;
         max-width: 1400px;
         padding: 0 (32/768) * 100%;
@@ -423,7 +423,7 @@ blockquote {
 }
 .container--flex--wrap--mobile {
     flex-wrap: wrap;
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         flex-wrap: no-wrap;
     }
 }
@@ -442,7 +442,7 @@ blockquote {
     z-index: 0;
 
     .container {
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             position: relative;
         }
     }
@@ -490,7 +490,7 @@ blockquote {
             /*background: url(../img/opensearch-logo-monochrome.svg) center center no-repeat;*/
         }
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             margin-left: 0;
         }
     }
@@ -510,7 +510,7 @@ blockquote {
         text-decoration: none;
         width: 45px;
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             display: none;
         }
 
@@ -534,7 +534,7 @@ blockquote {
         -webkit-transition: all 0.3s ease-out;
         transition: all 0.3s ease-out;
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             // turn off animations if on a desktop width
             max-height: none;
 
@@ -552,7 +552,7 @@ blockquote {
 
         width: 100%;
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             width: auto;
             float: right;
         }
@@ -561,7 +561,7 @@ blockquote {
             margin: 10px 0 0;
             padding: 0;
 
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 margin: 0;
             }
         }
@@ -576,7 +576,7 @@ blockquote {
             text-transform: uppercase;
             margin: 0 10px;
 
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 margin: 0;
                 border: 0;
                 float: left;
@@ -600,7 +600,7 @@ blockquote {
         }
 
         .nav-primary {
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 position: absolute;
                 right: 0;
                 top: 45px;
@@ -631,7 +631,7 @@ blockquote {
         top: 0;
         max-width: 660px;
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             position: static;
         }
     }
@@ -641,7 +641,7 @@ blockquote {
     background: $background-darkest;
     padding: 1px 10px;
 
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         padding: 1px 0;
     }
 
@@ -660,7 +660,7 @@ blockquote {
             color: white;
         }
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             @include font-size(32);
 
             margin: .35em 0 .35em;
@@ -713,10 +713,6 @@ blockquote {
     }
 
     .homepage & {
-        padding: 50px 0;
-        background: white;
-        text-align: center;
-        border-bottom: 1px solid $line;
         p {
             max-width: 700px;
             margin-left: auto;
@@ -741,8 +737,19 @@ blockquote {
             color: white;
             border: 0;
         }
+    }
 
+    .container {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+    }
 
+    @media (min-width: 46.25rem) {
+        .container {
+            flex-direction: row;
+            align-items: center;
+        }
     }
 }
 
@@ -781,7 +788,7 @@ blockquote {
         }
     }
 
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         dt {
             float: left;
             width: 31%;
@@ -811,7 +818,7 @@ blockquote {
         @include clearfix;
         padding: 0 10px;
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             padding: 0;
         }
 
@@ -821,7 +828,7 @@ blockquote {
                     border-top: 0;
                 }
             }
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 float: left;
                 margin-bottom: -999px;
                 padding: 0 3% 999px 0;
@@ -847,7 +854,7 @@ blockquote {
         font-weight: 700;
         margin-top: 20px;
         padding: 30px 0 10px;
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             border: none;
             margin-top: 0;
         }
@@ -896,7 +903,7 @@ blockquote {
             float: left;
             @include font-size(12);
             margin: 20px 0 0 10px;
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 max-width: 80%;
                 padding-top: 30px;
                 margin: 0;
@@ -926,7 +933,7 @@ blockquote {
         text-decoration: none;
         text-indent: 100%;
         width: 142px;
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             float: left;
             margin: 20px 90px 0 0;
         }
@@ -943,7 +950,7 @@ blockquote {
         color: $attention-dark;
         margin: 0;
         padding: 0;
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             border: none;
         }
 
@@ -953,7 +960,7 @@ blockquote {
             padding: 17px 10px 11px;
             display: block;
             clear: both;
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 background: none;
                 float: left;
                 clear: none;
@@ -998,7 +1005,7 @@ blockquote {
             overflow: hidden;
             text-indent: -200px;
             width: 94px;
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 clear: both;
                 margin-top: 5px;
             }
@@ -1041,7 +1048,7 @@ blockquote {
     padding: 10px 0;
     text-align: center;
     text-transform: uppercase;
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         display: none;
     }
 }
@@ -1061,7 +1068,7 @@ blockquote {
     padding: 1em 1.5em;
     text-align: center;
     text-decoration: none;
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         margin: 20px auto;
         max-width: 400px;
     }
@@ -1085,7 +1092,7 @@ blockquote {
         + .link-readmore {
             display: block;
             text-align: center;
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 margin-top: -10px;
             }
         }
@@ -1171,7 +1178,7 @@ blockquote {
     //two column layout module
     margin: 20px 0;
 
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         @include clearfix;
         margin: 0;
         .col {
@@ -1227,7 +1234,7 @@ blockquote {
     }
 }
 .callout-right {
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         float: right;
         margin: 26px 0 0 35px;
         width: 33%;
@@ -1243,7 +1250,7 @@ blockquote {
     }
 }
 .callout-left {
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         float: left;
         margin: 26px 35px 0 0;
         width: 33%;
@@ -1511,7 +1518,7 @@ blockquote {
         float: left;
         margin: 10px 5% 0 0;
         width: 45%;
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             margin-right: 3%;
             width: 30%;
         }
@@ -1551,7 +1558,7 @@ dl.list-features {
         padding: 0;
     }
 
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         padding-bottom: 40px;
 
         dt {
@@ -1716,7 +1723,7 @@ dl.list-features {
                 }
             }
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
 
             dt {
                 padding: 20px 0 0px 0;
@@ -1746,7 +1753,7 @@ dl.list-features {
     }
 }
 
-@include respond-min(768px) {
+@include respond-min(46.25rem) {
 
     .list-collapsing-header {
         float: left;
@@ -1852,7 +1859,7 @@ dl.list-features {
         border-top: 1px solid $line;
         margin-top: 20px;
         padding-top: 40px;
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             @include clearfix;
             margin-top: 20px;
             padding-top: 40px;
@@ -1884,7 +1891,7 @@ dl.list-features {
         max-width: 100%;
     }
 
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         img {
             float: left;
             margin: 0 40px 0 0;
@@ -2193,9 +2200,9 @@ dl.list-features {
     text-align: center;
     background-color: #ffe761;
 
-    @include respond-min(768px) {
+    @include respond-min(46.25rem) {
         position: fixed;
-        min-width: 768px;
+        min-width: 46.25rem;
     }
 }
 
@@ -2488,7 +2495,7 @@ form {
         vertical-align: middle;
         width: 83%;
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             padding: 6px 18% 8px 10px;
             width: 80%;
         }
@@ -2585,7 +2592,7 @@ form {
         top: 6%;
         width: 40px;
 
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             right: 1%;
         }
 
@@ -2616,7 +2623,7 @@ form {
             height: 30px;
             width: 30px;
             top: 3px;
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 right: 0;
             }
             i {
@@ -2625,7 +2632,7 @@ form {
         }
     }
     &.search {
-        @include respond-min(768px) {
+        @include respond-min(46.25rem) {
             flex: 0 0 40%;
             margin: 10px 0;
         }
@@ -2727,14 +2734,14 @@ div[role=main] {
         }
         &.previous {
             margin-right: 10px;
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 margin-right: 70px;
             }
         }
         &.next {
             margin-left: 10px;
             text-indent: 1px;
-            @include respond-min(768px) {
+            @include respond-min(46.25rem) {
                 margin-left: 70px;
             }
         }
@@ -3021,7 +3028,7 @@ ul.corporate-members li {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 46.24rem) {
 
     [role="banner"] .nav-menu-on .small-nav {
     
