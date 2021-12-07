@@ -47,3 +47,5 @@ I’d like to give a big thanks to the people who have already stepped up to hel
 * [robsears](https://github.com/robsears)
 * [deztructor](https://github.com/deztructor)
 * [axeoman](https://github.com/axeoman)
+* [paulborgermans](https://github.com/paulborgermans)
+* [Shyim](https://github.com/shyim)
