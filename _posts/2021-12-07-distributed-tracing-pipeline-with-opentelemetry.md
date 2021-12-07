@@ -211,7 +211,7 @@ To visualize your traces with Jaeger we need to run a Jaeger Query. Jaeger-Query
 
 - **Trace Analytics feature in OpenSearch/OpenSearch Dashboards**
 
-Trace Analytics for Opensearch Dashboards can be levaraged without having to re-instrument applications. Once you have traces flowing through your pipeline, you should see indexes being created in OpenSearch under the `otel-v1\*` index prefix. As this is created, trace analytics plugin within OpenSearch Dashboards should now have visualization for your traces, inclusive of service map, error/throughput graphs, and waterfall trace view for your services.
+Trace Analytics for Opensearch Dashboards can be leveraged without having to re-instrument applications. Once you have traces flowing through your pipeline, you should see indexes being created in OpenSearch under the `otel-v1\*` index prefix. As this is created, trace analytics plugin within OpenSearch Dashboards should now have visualization for your traces, inclusive of service map, error/throughput graphs, and waterfall trace view for your services.
 
 ![opensearch](/assets/media/blog-images/2021-12-02-distributed-tracing-pipeline-with-opentelemetry/opensearch.png){: .img-fluid}
 
