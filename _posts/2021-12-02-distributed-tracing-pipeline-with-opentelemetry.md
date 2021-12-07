@@ -10,8 +10,6 @@ twittercard:
   description: "Over the past few years, the importance of observability when developing and managing applications has spiked with the spotlight firmly on micro-services, service mesh. Distributed services can be unpredictable. Despite our best efforts, failures and performance bottlenecks in such systems are inevitable and difficult to isolate. In such an environment, having deep visibility into the behavior of your applications is critical for software development teams and operators."
 ---
 
-# Building a distributed tracing pipeline with OpenTelemetry collector, Data Prepper, and OpenSearch trace analytics
-
 Over the past few years, the importance of observability when developing and managing applications has spiked with the spotlight firmly on micro-services, service mesh. Distributed services can be unpredictable. Despite our best efforts, failures and performance bottlenecks in such systems are inevitable and difficult to isolate. In such an environment, having deep visibility into the behavior of your applications is critical for software development teams and operators.
 
 The landscape for observability tools continues to grow as we speak. This growth is particularly large for metrics, error logging, and distributed traces. These can provide valuable information to optimize service performance and troubleshoot issues to make a service more reliable. With this in mind, it makes sense to create a distributed tracing pipeline to ingest, process, and visualize tracing data with query/alerting.
@@ -32,7 +30,7 @@ With OpenTelemetry as the core of our pipeline, we still needed to decide on the
 
 OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. Additionally, it comes with managed Trace Analytics plugin, a visualization and user interface, and OpenSearch Dashboards.
 
-- **Data Prepper** and **Jaeger** to re-format OpenTelemetry trace data and export it to OpenSearch in formats that both the OpenSearch dashboard and Jaeger understand. (This should go away soon as both Jaeger and OpenSearch Dashboards will natively be able to use OTLP traces)
+- **Data Prepper** and **Jaeger** to re-format OpenTelemetry trace data and export it to OpenSearch in formats that both the OpenSearch dashboard and Jaeger understand. This should go away soon as both Jaeger and OpenSearch Dashboards will natively be able to use OpenTelemetry Protocol (OLTP) traces.
 
 [Jaeger](https://www.jaegertracing.io/) tracks and measures requests and transactions by analyzing end-to-end data from service call chains, making it easier to understand latency issues in microservice architectures. It's exclusively meant for distributed tracing with a simple web UI to query traces and spans across services. Jaeger enables views of individual traces in a waterfall-style graph of all the related trace and span executions, service invocations for each trace, time spent in each service and each span, and the payload content of each span, including errors.
 
@@ -64,7 +62,7 @@ Let's break it down further by the flow of traces through the distributed tracin
 
 #### Creating traces
 
-We need to create/propagate traces to be able to use a distributed tracing pipeline. OpenTelemetry provides a collection of tools such as API, SDK and integrates with popular languages and frameworks to integrate with the greater OpenTelemetry ecosystem, such as OpenTelemetry Protocol (OTLP) and the OpenTelemetry collector.
+We need to create/propagate traces to be able to use a distributed tracing pipeline. OpenTelemetry provides a collection of tools such as API, SDK and integrates with popular languages and frameworks to integrate with the greater OpenTelemetry ecosystem, such as OTLP and the OpenTelemetry collector.
 
 OpenTelemetry provides a [status page](https://opentelemetry.io/status/) to keep track of its multiple tools as they go stable. Additionally, it provides documentation on how to create distributed traces for your service both [manually or with auto instrumentation](https://opentelemetry.io/docs/concepts/instrumenting/)
 
@@ -80,7 +78,7 @@ There are several protocols for context propagation that OpenTelemetry recognize
 - [W3C Correlation-Context HTTP Propagator](https://w3c.github.io/correlation-context/)
 - [B3 Zipkin HTTP Propagator](https://github.com/openzipkin/b3-propagation)
 
-This works well for our service mesh PaaS as Istio leverages Envoy’s distributed tracing feature to provide tracing integration out of the box. Specifically, Istio provides options to install various tracing backend and configure proxies to send trace spans to them automatically. It requires an application to propagate the [B3 Zipkin HTTP Propagator](https://github.com/openzipkin/b3-propagation) headers so that when the proxies send span information, the spans can be correlated correctly into a single trace. It natively works with OpenTelemetry as well, since this is a supported context propagation protocol in OpenTelemetry.
+This works well for our service mesh PaaS as Istio leverages Envoy’s distributed tracing feature to provide tracing integration out of the box. Specifically, Istio provides options to install various tracing backends and configure proxies to send trace spans to them automatically. It requires an application to propagate the [B3 Zipkin HTTP Propagator](https://github.com/openzipkin/b3-propagation) headers so that when the proxies send span information, the spans can be correlated correctly into a single trace. It natively works with OpenTelemetry as well, since this is a supported context propagation protocol in OpenTelemetry.
 
 ### Data Collection
 
@@ -99,7 +97,7 @@ We will be deploying a mix of both the agent and the gateway in our setup.
 
 We will be deploying OpenTelemetry agents as daemonset to receive, process, and export trace from every EKS worker node. The Agent is capable of receiving telemetry data (push and pull based) as well as enhancing telemetry data with metadata such as custom tags or infrastructure information. In addition, the agent can offload responsibilities that client instrumentation would otherwise need to handle including batching, retry, encryption, compression, and more.
 
-The agent can be deployed either as a daemonset or as a sidecar in a Kubernetes (k8s) cluster. This step may be skipped (not recommended), if you are creating this pipeline in a test environment and would rather send traces straight to the open telemetry collector, which is deployed as a kubernetes deployment (horizontally scalable).
+The agent can be deployed either as a daemonset or as a sidecar in a Kubernetes (k8s) cluster. This step may be skipped (not recommended), if you are creating this pipeline in a test environment and would rather send traces straight to the open telemetry collector, which is deployed as a Kubernetes deployment (horizontally scalable).
 
 ![tracing_step1](/assets/media/blog-images/2021-12-02-distributed-tracing-pipeline-with-opentelemetry/tracing_step1.png){: .img-fluid}
 
@@ -112,7 +110,7 @@ The agent can be deployed either as a daemonset or as a sidecar in a Kubernetes 
 
 ### Step 3 : OpenTelemetry Gateway
 
-The OpenTelemetry agent forwards the telemetry data to an OpenTelemetry collector gateway. A Gateway cluster runs as a standalone service and offers advanced capabilities over the agent, including tail-based sampling. In addition, a Gateway cluster can limit the number of egress points required to send data, as well as consolidate API token management. Each collector instance in a Gateway cluster operates independently, so it can be scaled with a simple load balancer. We will deploy gateway as a kubernetes [deployment type](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
+The OpenTelemetry agent forwards the telemetry data to an OpenTelemetry collector gateway. A Gateway cluster runs as a standalone service and offers advanced capabilities over the agent, including tail-based sampling. In addition, a Gateway cluster can limit the number of egress points required to send data, as well as consolidate API token management. Each collector instance in a Gateway cluster operates independently, so it can be scaled with a simple load balancer. We will deploy gateway as a Kubernetes [deployment type](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
 K8s deployments are highly elastic and can be automatically scaled up and down via Horizontal Pod Autoscale depending on the amount of traces flowing through the pipeline.
 
@@ -135,9 +133,11 @@ We will use a combination of filters to sample the traces. The filters for tail 
 
 Since there is no blocklist for filters, we will be using a workaround to sample all but cherrypick services that we do not want sampled. we will be using the `string_attribute` filter to create a negative filter. The filter will be dropping specific service traces that we do not want sampled and sample all other traces. This can be done using the following:
 
-- **&#8594;** In the agent config, add a span attribute for all traces with a key/value pair (e.g - retain_span/false) using attribute processor.
-- **&#8594;** In the agent config, add another attribute processor now to override that value to false for cherrypicked services that we don't want to be sampled.
-- **&#8594;** In the gateway config, use the string attribute filter on tail based sampling with the `key: retain_span` and `value: true`. All traces without `retain_span: true` attribute will not be sampled.
+**&#8594;** In the agent config, add a span attribute for all traces with a key/value pair (e.g - retain_span/false) using attribute processor.
+
+**&#8594;** In the agent config, add another attribute processor now to override that value to false for cherrypicked services that we don't want to be sampled.
+
+**&#8594;** In the gateway config, use the string attribute filter on tail based sampling with the `key: retain_span` and `value: true`. All traces without `retain_span: true` attribute will not be sampled.
 
 {% 
   include code_expand.html 
@@ -192,14 +192,14 @@ Trace analytics and Jaeger UI (Query component) are configured to analyze their 
 
 Once you reach this point, the difficult part is over. You should have distributed traces created, context propagated, and sampled using tail based sampling, transformed, and exported to OpenSearch under different index patterns.
 
-Now is the part where you actually get to use the pipeline and visualize these traces to run queries, build dashboards, setup alerting. While Trace Analytics OpenSearch Dashboards plugin is a managed plugin that comes with OpenSearch, we host our own [Jaeger Frontend/UI](https://www.jaegertracing.io/docs/1.28/frontend-ui/) with a simple jaeger UI to query for distributed traces with Traces View
-and Traces Detail View. We deploy Jaeger Query as a deployment within the EKS cluster. Jaeger query can be deployed as a deployment with a horizontal pod autoscaler.
+Now is the part where you actually get to use the pipeline and visualize these traces to run queries, build dashboards, setup alerting. While Trace Analytics OpenSearch Dashboards plugin is a managed plugin that comes with OpenSearch, we host our own [Jaeger Frontend/UI](https://www.jaegertracing.io/docs/1.28/frontend-ui/) with a simple Jaeger UI to query for distributed traces with Traces View
+and Traces Detail View. We deploy Jaeger Query as a deployment within the EKS cluster. Jaeger Query can be deployed as a deployment with a horizontal pod autoscaler.
 
 ![tracing_step4](/assets/media/blog-images/2021-12-02-distributed-tracing-pipeline-with-opentelemetry/tracing_step4.png){: .img-fluid}
 
-- **Jaeger UI (query)**
+- **Jaeger UI (Query)**
 
-To visualize your traces with Jaeger we need to run a Jaeger query. jaeger-query serves the API endpoints and a React/Javascript UI. The service is stateless and is typically run behind a load balancer:
+To visualize your traces with Jaeger we need to run a Jaeger Query. Jaeger-Query serves the API endpoints and a React/Javascript UI. The service is stateless and is typically run behind a load balancer:
 
 {% 
   include code_expand.html 
@@ -231,7 +231,7 @@ env:
           fieldPath: status.hostIP
 ```
 
-To setup the pipeline, you can apply the kubernetes manifest files and helm chart(for jaeger). Besides being in the body of this blog, the manifests have been added to [opensearch-blog github repo](https://github.com/dowjones/opensearch-blog/tree/master/source) for convenient access.
+To setup the pipeline, you can apply the Kubernetes manifest files and helm chart(for Jaeger). Besides being in the body of this blog, the manifests have been added to [opensearch-blog github repo](https://github.com/dowjones/opensearch-blog/tree/master/source) for convenient access.
 
 ## Next Steps
 
@@ -241,7 +241,7 @@ Data Prepper 1.2 (December 2021) release is going to provide users the ability t
 
 So the next step would naturally be to extend this pipeline to be more than just a distributed tracing pipeline and morph to a distributed telemetry pipeline!
 
-_Comments, questions, corrections? Just let me know on [twitter](https://twitter.com/kub3rkaul), via email kuber.kaul@dowjones.com, or submit a github issue_
+_Comments, questions, corrections? Just let me know on [Twitter](https://twitter.com/kub3rkaul), via email kuber.kaul@dowjones.com, or submit a github issue_
 
 Thanks to [EP team](https://github.com/orgs/newscorp-ghfb/teams/dj-ep/members), [Chris Nelligan](https://github.com/nelliganc).
 
