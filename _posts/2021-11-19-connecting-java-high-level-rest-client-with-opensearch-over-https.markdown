@@ -10,9 +10,9 @@ twittercard:
   description: "This post walks through the steps to configure Java High-level REST client to connect to OpenSearch over HTTPS."
 ---
 
-If you have ever used OpenSearch with a Java application, you might have come across the OpenSearch Java high-level REST client. The REST client provides OpenSearch APIs as methods, and makes it easier for a Java application to interact with OpenSearch using request/response objects.
+If you have ever used OpenSearch with a Java application, you might have come across the [OpenSearch Java high-level REST client](https://opensearch.org/docs/latest/clients/java-rest-high-level/). The REST client provides OpenSearch APIs as methods, and makes it easier for a Java application to interact with OpenSearch using request/response objects.
 
-In this blog, you will learn how to configure the Java high-level REST client to connect to OpenSearch over HTTPS. For demonstration purpose, I'll first setup an OpenSearch server with SSL certificates. If you already have one running, you may skip this step. Next, I'll walk you through the steps to configure and use the Java High level REST client in your Java application.
+In this blog, you will learn how to configure the Java high-level REST client to connect to OpenSearch over HTTPS. For demonstration purposes, I'll first setup an OpenSearch server with SSL certificates. If you already have one running, you may skip this step. Next, I'll walk you through the steps to configure and use the Java High level REST client in your Java application.
 
 ## Setup OpenSearch Server
 
@@ -33,11 +33,11 @@ cd opensearch-1.2.0/
 # Provide executable permissions to the tool if missing 
 chmod +x plugins/opensearch-security/tools/install_demo_configuration.sh
 
-# Install demo ssl certificates with install_demo_configurations.sh tool
-./plugins/opensearch-security/tools/install_demo_configurations.sh -y
+# Install demo ssl certificates with install_demo_configuration.sh tool
+./plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
 ```
 
-Once the certificates are setup, increase the default `max_map_count` limit and start the OpenSearch cluster.  
+Once the certificates are setup, increase the default [`vm.max_map_count` limit](https://opensearch.org/docs/latest/opensearch/install/important-settings/) and start the OpenSearch cluster.  
 
 ```
 # Increase mmap count limit 
@@ -74,11 +74,11 @@ You should see a response similar to -
 }
 ```
 
-Now that you have setup the OpenSearch server, let us move on to setting up the client.
+Now that you have setup the OpenSearch server, it's time to move on to the client.
 
 ## Setup Java High Level REST Client
 
-The OpenSearch Java High Level REST Client is available on [Maven Central](https://search.maven.org/search?q=a:opensearch-rest-high-level-client). To start using, you need to add it as a dependency to your Java application. 
+The OpenSearch Java High Level REST Client is available on [Maven Central](https://search.maven.org/search?q=a:opensearch-rest-high-level-client). To start using it, you need to add it as a dependency to your Java application. 
 
 For Gradle build system, include the following dependency in your project's `build.gradle` file:
 
@@ -95,28 +95,27 @@ For Maven, include the following dependency in your project's `pom.xml` file:
   <artifactId>opensearch-rest-high-level-client</artifactId>
   <version>1.2.0</version>
 </dependency>
-
 ```
 
-Next, you'll create an instance of `RestHighLevelClient` in your Java application and use that to create an index and ingest some data into OpenSearch. But before going there, hold on a sec! Remember, while setting up the server you configured SSL certificates on server to enable HTTPS (and disabled HTTP)? Now, since these server certificates are just demo certificates and not provided by any trusted Certificate Authority (CA), they won't be trusted by your Java application to establish an SSL connection. In order to make it work, you'll need to add the root authority (that signed the server certificate) certificate to your application truststore. Let’s see how to configure the Java application truststore. 
+Next, you'll create an instance of `RestHighLevelClient` in your Java application and use that to create an index and ingest some data into OpenSearch. But before going there, hold on a sec! Remember, while setting up the server you configured SSL certificates to enable HTTPS (and disabled HTTP)? Now, since these server certificates are just demo certificates and not provided by any trusted Certificate Authority (CA), they won't be trusted by your Java application to establish an SSL connection. In order to make it work, you'll need to add the root authority (that signed the server certificate) certificate to your application truststore. Let’s see how to configure the Java application truststore. 
 
-Java application (by default) uses the JVM truststore, which holds certificates from the trusted [Certified Authorities (CA)](https://en.wikipedia.org/wiki/Certificate_authority), to verify the certificate presented by the server in an SSL connection. You can use the Java `keytool` to see the list of trusted CAs in your JVM truststore.
+Java applications (by default) use the JVM truststore, which holds certificates from the trusted [Certified Authorities (CA)](https://en.wikipedia.org/wiki/Certificate_authority), to verify the certificate presented by the server in an SSL connection. You can use the Java `keytool` to see the list of trusted CAs in your JVM truststore.
 
 ```
 keytool -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -list 
 ```
 
-To use the `RestHighLevelClient`, you need to add the root CA certificate `root-ca.pem` to the application truststore. This tells your Java application to trust any certificates signed by this root authority.  The `install_demo_configurations.sh` tool created the `root-ca.pem` file in `opensearch-1.2.0/config/` directory while setting up the server. You can either add it to the JVM truststore, or add it to a custom truststore and use that custom truststore in the Java application. I used custom truststore approach to keep the JVM truststore clean. 
+To use the `RestHighLevelClient`, you need to add the root CA certificate `root-ca.pem` to the application truststore. This tells your Java application to trust any certificates signed by this root authority.  The `install_demo_configuration.sh` tool created the `root-ca.pem` file in `opensearch-1.2.0/config/` directory while setting up the server. You can either add it to the JVM truststore, or add it to a custom truststore and use that custom truststore in the Java application. I used the custom truststore approach to keep the JVM truststore clean. 
 
 Use the Java `keytool` to create a custom truststore and import the root authority certificate. The `keytool` does not understand the `.pem` format, so you’ll have to first convert the root authority certificate to `.der` format using `openssl` cryptography library and then add it to the custom truststore using Java `keytool`. Most Linux distributions already come with `openssl` installed.
 
-### STEP 1: Convert the root authority certificates from `.pem` to `.der` format.
+### Step 1: Convert the root authority certificates from `.pem` to `.der` format.
 
 ```
 openssl x509 -in opensearch-1.1.0/config/root-ca.pem -inform pem -out root-ca.der --outform der
 ```
 
-### STEP 2: Create a custom truststore and add the `root-ca.der` certs. 
+### Step 2: Create a custom truststore and add the `root-ca.der` certs. 
 
 Adding the root authority certificate to the application truststore tells the application to trust any certificate signed by this root CA.
 
@@ -130,7 +129,7 @@ Confirm the action was successful by listing certs in truststore. The `grep` sho
 keytool -keystore myTrustStore -storepass changeit -list | grep opensearch
 ```
 
-### STEP 3: Next, set the truststore properties in the Java application code to point to the custom truststore. 
+### Step 3: Set the truststore properties in the Java application code to point to the custom truststore. 
 
 ```
 // Point to keystore with appropriate certificates for security.
@@ -139,7 +138,7 @@ System.setProperty("javax.net.ssl.trustStorePassword", "password-for-myCustomTru
 ```
 
 
-### STEP 4: Now create an instance of the client and connect to OpenSearch over HTTPS. 
+### Step 4: Create an instance of the client and connect to OpenSearch over HTTPS. 
 
 ```
 // Create the client.
@@ -169,7 +168,7 @@ request.source(stringMapping); //Place your content into the index's source.
 IndexResponse indexResponse = client.index(request, RequestOptions.DEFAULT);
 ```
 
-Checkout this [documentation](https://opensearch.org/docs/latest/clients/java-rest-high-level/) for full sample code.
+Checkout this [documentation](https://opensearch.org/docs/latest/clients/java-rest-high-level/) for complete sample code.
 
 Congratulations! You have now successfully setup the Java high level REST client and connected to OpenSearch on a secure HTTPS channel. 
 
