@@ -72,7 +72,7 @@ The documentation should get you started with creating standard OTEL traces for 
 
 #### Propagating traces
 
-Once we have traces created for services, context propagation is required to convert these traces to distributed traces. Context propagation facilitates the movement of context between services and processes. Context is injected into a request and extracted by a receiving service to parent new spans. That service may then make additional requests and inject context to be sent to other services...and so on.
+Once we have traces created for services, context propagation is required to convert these traces to distributed traces. Context propagation facilitates the movement of context between services and processes. Context is injected into a request and extracted by a receiving service. It is then used to parent new spans. That service may then make additional requests and inject context to be sent to other services...and so on.
 
 There are several protocols for context propagation that OpenTelemetry recognizes.
 
@@ -99,7 +99,7 @@ We will be deploying a mix of both the agent and the gateway in our setup.
 
 We will be deploying OpenTelemetry agents as daemonset to receive, process, and export trace from every EKS worker node. The Agent is capable of receiving telemetry data (push and pull based) as well as enhancing telemetry data with metadata such as custom tags or infrastructure information. In addition, the agent can offload responsibilities that client instrumentation would otherwise need to handle including batching, retry, encryption, compression, and more.
 
-The agent can be deployed either as a daemonset or as a sidecar in a Kubernetes (k8s) cluster. This step may be skipped (not recommended), if you are creating this pipeline in a test environment and would rather send traces straight to the open telemetry collector, which is running as a deployment (horizontally scalable)
+The agent can be deployed either as a daemonset or as a sidecar in a Kubernetes (k8s) cluster. This step may be skipped (not recommended), if you are creating this pipeline in a test environment and would rather send traces straight to the open telemetry collector, which is deployed as a kubernetes deployment (horizontally scalable).
 
 ![tracing_step1](/assets/media/blog-images/2021-12-02-distributed-tracing-pipeline-with-opentelemetry/tracing_step1.png){: .img-fluid}
 
