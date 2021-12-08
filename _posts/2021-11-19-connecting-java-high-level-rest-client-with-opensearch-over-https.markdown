@@ -78,7 +78,7 @@ Now that you have setup the OpenSearch server, it's time to move on to the clien
 
 ## Setup Java High Level REST Client
 
-The OpenSearch Java High Level REST Client is available on [Maven Central](https://search.maven.org/search?q=a:opensearch-rest-high-level-client). To start using it, you need to add it as a dependency to your Java application. 
+The OpenSearch Java High Level REST Client is available on [Maven Central](https://search.maven.org/search?q=a:opensearch-rest-high-level-client). Add it as a dependency to your Java application.
 
 For Gradle build system, include the following dependency in your project's `build.gradle` file:
 
@@ -88,7 +88,7 @@ dependencies {
 }
 ```
  
-For Maven, include the following dependency in your project's `pom.xml` file:
+For Maven build system, include the following dependency in your project's `pom.xml` file:
 ```
 <dependency>
   <groupId>org.opensearch.client</groupId>
@@ -97,7 +97,7 @@ For Maven, include the following dependency in your project's `pom.xml` file:
 </dependency>
 ```
 
-Next, you'll create an instance of `RestHighLevelClient` in your Java application and use that to create an index and ingest some data into OpenSearch. But before going there, hold on a sec! Remember, while setting up the server you configured SSL certificates to enable HTTPS (and disabled HTTP)? Now, since these server certificates are just demo certificates and not provided by any trusted Certificate Authority (CA), they won't be trusted by your Java application to establish an SSL connection. In order to make it work, you'll need to add the root authority (that signed the server certificate) certificate to your application truststore. Let’s see how to configure the Java application truststore. 
+Next, create an instance of `RestHighLevelClient` in your Java application and use that to create an index and ingest some data into OpenSearch. But before going there, hold on a sec! Remember, while setting up the server you configured SSL certificates to enable HTTPS (and disabled HTTP)? Now, since these server certificates are just demo certificates and not provided by any trusted Certificate Authority (CA), they won't be trusted by your Java application to establish an SSL connection. In order to make it work, you'll need to add the root authority (that signed the server certificate) certificate to your application truststore. Let’s see how to configure the Java application truststore.
 
 Java applications (by default) use the JVM truststore, which holds certificates from the trusted [Certified Authorities (CA)](https://en.wikipedia.org/wiki/Certificate_authority), to verify the certificate presented by the server in an SSL connection. You can use the Java `keytool` to see the list of trusted CAs in your JVM truststore.
 
