@@ -3,7 +3,7 @@ layout: post
 title:  "Connecting to OpenSearch over HTTPS using the Java High-Level REST Client"
 authors: 
   - setiah
-date: 2021-11-19 01:01:01 -0700
+date: 2021-12-09 01:01:01 -0700
 categories: 
   - technical-post
 twittercard:
@@ -17,17 +17,17 @@ In this blog, you will learn how to configure the Java high-level REST client to
 ## Setup OpenSearch Server
 
 Start by downloading the latest [Linux distribution](https://opensearch.org/downloads.html) from the OpenSearch website. I have used the `1.2.0` version which is the latest available version at the time of this writing. You can also download this version with `wget` command as shown below.
-```
+```shell
 wget https://artifacts.opensearch.org/releases/bundle/opensearch/1.2.0/opensearch-1.2.0-linux-x64.tar.gz
 ```
 
 Next, unzip the downloaded `tar.gz` file.
-```
+```shell
 tar -xf opensearch-1.2.0-linux-x64.tar.gz
 ```
 
 The OpenSearch distribution comes pre-installed with the security plugin. As part of the initial setup, you are required to setup the SSL certificates for encrypting the client to node and the node to node communication channels. The distribution comes with a tool for setting up demo certificates for a quick getting started experience. However, it is highly recommended to use certificates from a trusted [Certification Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority). You could also setup self-signed certificates by following this [documentation](https://opensearch.org/docs/latest/security-plugin/configuration/generate-certificates/). For the purpose of this blog, I have used the demo certificates available with the [install_demo_configuration.sh](https://github.com/opensearch-project/security/blob/main/tools/install_demo_configuration.sh) tool. 
-```
+```shell
 cd opensearch-1.2.0/
 
 # Provide executable permissions to the tool if missing 
@@ -39,7 +39,7 @@ chmod +x plugins/opensearch-security/tools/install_demo_configuration.sh
 
 Once the certificates are setup, increase the default [`vm.max_map_count` limit](https://opensearch.org/docs/latest/opensearch/install/important-settings/) and start the OpenSearch cluster.  
 
-```
+```shell
 # Increase mmap count limit 
 sudo sysctl -w vm.max_map_count=262144
 
@@ -48,13 +48,13 @@ bin/opensearch
 ```
 
 At this point, your server is ready. You can verify using the below `curl` command. 
-```
+```shell
 curl -k -XGET https://localhost:9200 -u 'admin:admin'
 ```
 
 You should see a response similar to -
 
-```
+```json
 {
   "name" : "smoketestnode",
   "cluster_name" : "opensearch",
@@ -82,14 +82,14 @@ The OpenSearch Java High Level REST Client is available on [Maven Central](https
 
 For Gradle build system, include the following dependency in your project's `build.gradle` file:
 
-```
+```gradle
 dependencies {
     implementation 'org.opensearch.client:opensearch-rest-high-level-client:1.2.0'
 }
 ```
  
 For Maven build system, include the following dependency in your project's `pom.xml` file:
-```
+```xml
 <dependency>
   <groupId>org.opensearch.client</groupId>
   <artifactId>opensearch-rest-high-level-client</artifactId>
@@ -101,7 +101,7 @@ Next, create an instance of `RestHighLevelClient` in your Java application and u
 
 Java applications (by default) use the JVM truststore, which holds certificates from the trusted [Certified Authorities (CA)](https://en.wikipedia.org/wiki/Certificate_authority), to verify the certificate presented by the server in an SSL connection. You can use the Java `keytool` to see the list of trusted CAs in your JVM truststore.
 
-```
+```shell
 keytool -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -list 
 ```
 
@@ -111,7 +111,7 @@ Use the Java `keytool` to create a custom truststore and import the root authori
 
 ### Step 1: Convert the root authority certificates from `.pem` to `.der` format.
 
-```
+```shell
 openssl x509 -in opensearch-1.1.0/config/root-ca.pem -inform pem -out root-ca.der --outform der
 ```
 
@@ -119,19 +119,19 @@ openssl x509 -in opensearch-1.1.0/config/root-ca.pem -inform pem -out root-ca.de
 
 Adding the root authority certificate to the application truststore tells the application to trust any certificate signed by this root CA.
 
-```
+```shell
 keytool -import root-ca.der -alias opensearch -keystore myTrustStore
 ```
 
 Confirm the action was successful by listing certs in truststore. The `grep` should be able to find opensearch alias if the certs were added successfully.
 
-```
+```shell
 keytool -keystore myTrustStore -storepass changeit -list | grep opensearch
 ```
 
 ### Step 3: Set the truststore properties in the Java application code to point to the custom truststore. 
 
-```
+```java
 // Point to keystore with appropriate certificates for security.
 System.setProperty("javax.net.ssl.trustStore", "/full/path/to/myCustomTrustStore");
 System.setProperty("javax.net.ssl.trustStorePassword", "password-for-myCustomTrustStore");
@@ -140,7 +140,7 @@ System.setProperty("javax.net.ssl.trustStorePassword", "password-for-myCustomTru
 
 ### Step 4: Create an instance of the client and connect to OpenSearch over HTTPS. 
 
-```
+```java
 // Create the client.
 RestClientBuilder builder = RestClient.builder(new HttpHost("localhost", 9200, "https"))
         .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
