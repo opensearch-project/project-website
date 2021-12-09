@@ -3,8 +3,7 @@ layout: post
 title:  "Connecting to OpenSearch over HTTPS using the Java High-Level REST Client"
 authors: 
   - setiah
-date: 2021-12-09
- 01:01:01 -0700
+date: 2021-12-09 01:01:01 -0700
 categories: 
   - technical-post
 twittercard:
