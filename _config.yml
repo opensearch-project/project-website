@@ -81,6 +81,7 @@ collections:
   artifacts:
     output: true
   versions:
+    sort_by: version
     output: true
   faqs:
   testimonials:
