@@ -86,4 +86,7 @@ pretty:
     opensearch-dashboards-min: 'OpenSearch Dashboards Minimum'
 
 ---
+
+**Note: [Please use version 1.2.1 or higher](/blog/releases/2021/12/update-to-1-2-1/).**
+
 OpenSearch is open source software that uses the Apache License version 2 (ALv2). ALv2 grants you well-understood usage rights; you can use, modify, extend, embed, monetize, resell, and offer OpenSearch as part of your products and services. The source for the entire project is available on [GitHub](https://github.com/opensearch-project/) and you're welcome to build from source for customized deployments. Downloadable artifacts for OpenSearch and OpenSearch Dashboards include plugins and tools, ready for you to use with minimal configuration.

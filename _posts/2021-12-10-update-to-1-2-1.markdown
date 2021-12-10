@@ -6,6 +6,9 @@ authors:
 date: 2021-12-10 01:01:01 -0700
 categories:
   - releases
+
+excerpt: "A recently published security issue (CVE-2021-44228) affects the broadly-used Apache Log4j library. The OpenSearch project software includes versions of Log4j that are referenced in this CVE. As recommended by the advisory, we have released OpenSearch 1.2.1 which updated all OpenSearch Java components to use Log4j version 2.15.0. Additionally, this patch release resolves an issue from the underlying Amazon Linux version used in the Docker distributions (CVE-2021-4352). No additional changes over version 1.2.0 are included in this release."
+
 ---
 
 ### TL;DR: Upgrade your clusters to 1.2.1.
