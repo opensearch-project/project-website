@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "Important: Update to OpenSearch 1.2.1"
+authors:
+  - kyledvs
+date: 2021-12-10 01:01:01 -0700
+categories:
+  - releases
+---
+
+### TL;DR: Upgrade your clusters to 1.2.1.
+
+A [recently published](https://www.lunasec.io/docs/blog/log4j-zero-day/) security issue ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)) affects the broadly-used [Apache Log4j](https://logging.apache.org/log4j/2.x/) library. The OpenSearch project software includes versions of Log4j that are referenced in this CVE. As recommended by the advisory, we have released OpenSearch 1.2.1 which updated all OpenSearch Java components to use Log4j version 2.15.0. Additionally, this patch release resolves an issue from the underlying Amazon Linux version used in the Docker distributions ([CVE-2021-4352](https://alas.aws.amazon.com/AL2/ALAS-2021-1722.html)). No additional changes over [version 1.2.0](https://opensearch.org/blog/releases/2021/11/launch-announcement-1-2-0/) are included in this release.
+
+All users should upgrade to OpenSearch 1.2.1 as soon as possible. OpenSearch 1.2.1 is available for both the full and minimal distributions. You can get [version 1.2.1 on the downloads page](https://opensearch.org/versions/opensearch-1-2-0.html) and on Docker Hub.
+
+Additional components related to the OpenSearch project also include Log4j:
+
+Some other software in the project also includes versions of Log4j that are referenced in the CVE. Stay tuned for information on how to update these components, as fixes become available.
+
+* [Open Distro for Elasticsearch 1.13.2](https://opendistro.github.io/for-elasticsearch/)
+* [Data Prepper 1.1.0 for OpenSearch](https://github.com/opensearch-project/data-prepper) and [Data Prepper 1.0.0 for Open Distro](https://github.com/opendistro-for-elasticsearch/data-prepper) 
+* [Java high-level REST Client](https://search.maven.org/artifact/org.opensearch.client/opensearch-rest-high-level-client)
+* [OpenSearch-Java](https://search.maven.org/artifact/org.opensearch.client/opensearch-java)
+
+### Do you have questions or feedback?
+
+If you’re interested in learning more, have a specific question, or just want to provide feedback and thoughts, please visit [OpenSearch.org](https://opensearch.org/), open an issue on [GitHub](https://github.com/opensearch-project/OpenSearch/issues), or post in the [forums](https://discuss.opendistrocommunity.dev/). There are also regular [Community Meetings](https://opensearch.org/events/) that include progress updates at every session and include time for Q&A.
