@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "Important: Update to OpenSearch 1.2.1"
+authors:
+  - kyledvs
+date: 2021-12-10 01:01:01 -0700
+categories:
+  - releases
+
+excerpt: "A recently published security issue (CVE-2021-44228) affects several versions of the broadly-used Apache Log4j library. Some software in the OpenSearch project includes versions of Log4j referenced in this CVE. While, at time of writing, the team has not found a reproduceable example in OpenSearch of remote code execution (RCE) described in this issue, its severity is such that all users should take mitigation measures. As recommended by the advisory, the team has released OpenSearch 1.2.1, which updates Log4j to version 2.15.0. For those who cannot upgrade to 1.2.1, the Log4j website outlines additional measures to mitigate the issue. This patch release also addresses CVE-2021-4352 in the OpenSearch Docker distributions."
+
+---
+
+### TL;DR: Upgrade your clusters to 1.2.1.
+
+A [recently published](https://www.lunasec.io/docs/blog/log4j-zero-day/) security issue ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)) affects several versions of the broadly-used [Apache Log4j](https://logging.apache.org/log4j/2.x/) library. Some software in the OpenSearch project includes versions of Log4j referenced in this CVE. While, at time of writing, the team has not found a reproduceable example in OpenSearch of remote code execution (RCE) described in this issue, its severity is such that all users should take mitigation measures. As recommended by the advisory, the team has released OpenSearch 1.2.1, which updates Log4j to version 2.15.0. For those who cannot upgrade to 1.2.1, the [Log4j website outlines additional measures to mitigate the issue](https://logging.apache.org/log4j/2.x/). This patch release also addresses [CVE-2021-4352](https://alas.aws.amazon.com/AL2/ALAS-2021-1722.html) in the OpenSearch Docker distributions. 
+
+OpenSearch 1.2.1 is available for both the full and minimal distributions. You can get [version 1.2.1 on the downloads page](https://opensearch.org/versions/opensearch-1-2-0.html) and on Docker Hub.
+
+Some other software in the project also includes versions of Log4j that are referenced in the CVE and have been fixed or mitigated.
+
+* [Open Distro for Elasticsearch 1.13.3](https://opendistro.github.io/for-elasticsearch/downloads.html)
+* [Data Prepper 1.1.1 for OpenSearch](/downloads.html#data-prepper) and [Data Prepper 1.0.1 for Open Distro](https://opendistro.github.io/for-elasticsearch/downloads.html#ingest) 
+* [Logstash OSS with OpenSearch Output Plugin](https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476) 
+
+
+### Do you have questions or feedback?
+
+If you’re interested in learning more, have a specific question, or just want to provide feedback and thoughts, please visit [OpenSearch.org](https://opensearch.org/), open an issue on [GitHub](https://github.com/opensearch-project/OpenSearch/issues), or post in the [forums](https://discuss.opendistrocommunity.dev/). There are also regular [Community Meetings](https://opensearch.org/events/) that include progress updates at every session and include time for Q&A.

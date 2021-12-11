@@ -1,19 +1,19 @@
 ---
-date: 2021-11-23
+date: 2021-12-09 
 
 product: opensearch
-version: '1.2.0'
-release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.2.0.md
+version: '1.1.1'
+release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.1.1.md
 
 components:
   -
     role: daemon
     artifact: opensearch
-    version: 1.2.0
+    version: 1.1.1
   -
     role: ui
     artifact: opensearch-dashboards
-    version: 1.2.0
+    version: 1.1.1
   -
     role: command-line-tools
     artifact: opensearch-cli
@@ -29,11 +29,11 @@ components:
   -
     role: minimal-artifacts
     artifact: opensearch-min
-    version: 1.2.0
+    version: 1.1.0
   -
     role: minimal-artifacts
     artifact: opensearch-dashboards-min
-    version: 1.2.0
+    version: 1.1.0
 
 
 
@@ -86,7 +86,6 @@ pretty:
     opensearch-dashboards-min: 'OpenSearch Dashboards Minimum'
 
 ---
-
-**Note: [Please use version 1.2.1 or higher](/blog/releases/2021/12/update-to-1-2-1/).**
-
 OpenSearch is open source software that uses the Apache License version 2 (ALv2). ALv2 grants you well-understood usage rights; you can use, modify, extend, embed, monetize, resell, and offer OpenSearch as part of your products and services. The source for the entire project is available on [GitHub](https://github.com/opensearch-project/) and you're welcome to build from source for customized deployments. Downloadable artifacts for OpenSearch and OpenSearch Dashboards include plugins and tools, ready for you to use with minimal configuration.
+
+
