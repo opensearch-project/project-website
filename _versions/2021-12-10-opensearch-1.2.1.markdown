@@ -13,7 +13,7 @@ components:
   -
     role: ui
     artifact: opensearch-dashboards
-    version: 1.2.1
+    version: 1.2.0
   -
     role: command-line-tools
     artifact: opensearch-cli
@@ -25,7 +25,7 @@ components:
   -
     role: ingest
     artifact: data-prepper
-    version: data-prepper-1.1.0
+    version: data-prepper-1.1.1
   -
     role: minimal-artifacts
     artifact: opensearch-min
@@ -33,7 +33,7 @@ components:
   -
     role: minimal-artifacts
     artifact: opensearch-dashboards-min
-    version: 1.2.1
+    version: 1.2.0
 
 
 
