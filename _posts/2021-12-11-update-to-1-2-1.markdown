@@ -3,7 +3,7 @@ layout: post
 title:  "Important: Update to OpenSearch 1.2.1"
 authors:
   - kyledvs
-date: 2021-12-10 01:01:01 -0700
+date: 2021-12-11 01:01:01 -0700
 categories:
   - releases
 
