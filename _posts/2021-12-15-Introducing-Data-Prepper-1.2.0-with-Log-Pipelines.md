@@ -40,7 +40,7 @@ Data Prepper saves each log line as an individual OpenSearch document.
 
 This diagram outlines the basic architecture for log ingestion using FluentBit, Data Prepper, and OpenSearch.
 
-![Architecture](/assets/media/blog-images/2021-12-15-Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/Architecture.png)
+![Architecture](/assets/media/blog-images/2021-12-15-Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/Architecture.png){: .img-fluid}
 
 In this release, Data Prepper also provides a method to structure log data using the `grok` prepper. Pipeline authors can 
 [configure a `grok` prepper](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/grok-prepper) 
@@ -59,7 +59,7 @@ predefined patterns Data Prepper supports.
 To configure Data Prepper for log ingestion, you will create a pipeline with an `http` source, `grok` prepper, and `opensearch` sink. 
 The following diagram shows the flow of data through this type of pipeline.
 
-![Pipeline](/assets/media/blog-images/2021-12-15-Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/Pipeline.png)
+![Pipeline](/assets/media/blog-images/2021-12-15-Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/Pipeline.png){: .img-fluid}
 
 ### An Example
 
