@@ -125,7 +125,7 @@ Data Prepper 1.2.0 has a few other notable improvements.
 * **Configurable Authentication:** The existing [OTel Trace Source plugin](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/otel-trace-source) already accepts [OpenTelemetry Protocol](https://github.com/open-telemetry/oteps/blob/main/text/0035-opentelemetry-protocol.md) trace data. Now both the existing OTel Trace Source and the new HTTP source plugins support configurable authentication. You can configure a username and password for HTTP Basic authentication. Or you can create a plugin with custom authentication.
 * **Plugin Framework:** The new plugin framework improves the plugin author’s experience through a more flexible approach to creating plugins. It is also preparing future expansions for more community-driven plugins.
 * **Proxy Support for OpenSearch:** You can now connect Data Prepper to an OpenSearch cluster via a proxy when your network requires it.
-* **Log4j Fix:** This release also uses Log4j 2.15.0 which fixes [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228).
+* **Log4j Fix:** This release also uses Log4j 2.16.0 which fixes [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). It also disables JNDI as a security hardening against similar exploits.
 
 ## Next Steps
 
