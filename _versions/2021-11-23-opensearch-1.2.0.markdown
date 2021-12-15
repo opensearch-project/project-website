@@ -17,7 +17,7 @@ components:
   -
     role: command-line-tools
     artifact: opensearch-cli
-    version: 1.0.0
+    version: 1.1.0
   -
     role: ingest
     artifact: logstash-oss-with-opensearch-output-plugin
