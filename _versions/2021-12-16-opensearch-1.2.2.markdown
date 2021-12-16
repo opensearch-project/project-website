@@ -3,7 +3,7 @@ date: 2021-12-16
 
 product: opensearch
 version: '1.2.2'
-release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.2.1.md
+release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.2.2.md
 
 components:
   -
