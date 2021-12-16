@@ -97,7 +97,7 @@ We’d love to get your feedback on the Performance Analyzer Root Cause Analysis
 
 ### **Questions?**
 
-Please feel free to ask questions on the [project community discussion forum](https://discuss.opendistrocommunity.dev/). I also invite you to help answer questions on the forums for other community members. We also have a 30-minute online community meeting every two weeks that you can [join](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/) to ask questions.
+Please feel free to ask questions on the [project community discussion forum](https://discuss.opendistrocommunity.dev/). I also invite you to help answer questions on the forums for other community members. We also have a 30-minute online community meeting every two weeks that you can [join](https://www.meetup.com/OpenSearch/) to ask questions.
 
 ### **Report a bug or request a feature?**
 

@@ -4,7 +4,7 @@ tz: UTC -7
 title: OpenSearch Community Meeting - Late July
 online: true
 signup:
-    url: https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/events/thmcwrycckbjc/
+    url: https://www.meetup.com/OpenSearch/events/thmcwrycckbjc/
     title: Join on Meetup
 ---
 
