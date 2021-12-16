@@ -14,5 +14,3 @@ Meeting topics are listed in the [collaborative agenda](https://hackmd.io/r-HoQF
 
 Feel free to comment on the agenda before the meeting if you want to add an item or have a question. 
 During the meeting the agenda will be unlocked for collaborative editing / note taking. After the meeting the agenda will be set to read-only mode. 
-
-      
