@@ -129,5 +129,5 @@ If you're excited to jump in, we've marked a few issues that would be really hel
 
 **Questions? Feedback?**
 
-Let us know in by opening an [issue](https://github.com/opensearch-project/OpenSearch/issues) or posting in the [forums](https://discuss.opendistrocommunity.dev/). We are also having biweekly [Community Meetings](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/). The community meetings will include progress updates at every session as well as leaving time for Q&A. The next community meeting is on [May 18, 2021 at
+Let us know in by opening an [issue](https://github.com/opensearch-project/OpenSearch/issues) or posting in the [forums](https://discuss.opendistrocommunity.dev/). We are also having biweekly [Community Meetings](https://www.meetup.com/OpenSearch/). The community meetings will include progress updates at every session as well as leaving time for Q&A. The next community meeting is on [May 18, 2021 at
 9:00 AM PDT](/events/2021-may-late/).

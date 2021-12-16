@@ -61,7 +61,7 @@ You should see a response similar to -
   "cluster_uuid" : "2oMfOxJKQcmrDZ1e0OgXKw",
   "version" : {
     "distribution" : "opensearch",
-    "number" : "1.1.0",
+    "number" : "1.2.0",
     "build_type" : "tar",
     "build_hash" : "15e9f137622d878b79103df8f82d78d782b686a1",
     "build_date" : "2021-10-04T21:29:03.079792Z",
@@ -112,7 +112,7 @@ Use the Java `keytool` to create a custom truststore and import the root authori
 ### Step 1: Convert the root authority certificates from `.pem` to `.der` format.
 
 ```shell
-openssl x509 -in opensearch-1.1.0/config/root-ca.pem -inform pem -out root-ca.der --outform der
+openssl x509 -in opensearch-1.2.0/config/root-ca.pem -inform pem -out root-ca.der --outform der
 ```
 
 ### Step 2: Create a custom truststore and add the `root-ca.der` certs. 
