@@ -21,7 +21,7 @@ components:
   -
     role: ingest
     artifact: logstash-oss-with-opensearch-output-plugin
-    version: 7.13.2
+    version: 7.16.1
   -
     role: ingest
     artifact: data-prepper
