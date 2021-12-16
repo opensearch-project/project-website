@@ -25,7 +25,7 @@ components:
   -
     role: ingest
     artifact: data-prepper
-    version: data-prepper-1.1.1
+    version: data-prepper-1.2.0
   -
     role: minimal-artifacts
     artifact: opensearch-min
