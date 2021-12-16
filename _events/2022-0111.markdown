@@ -5,7 +5,7 @@ tz: UTC -7
 title: OpenSearch Community Meeting - 2022-01-11 - open office hour
 online: true
 signup:
-    url: https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group/events/282612997/
+    url: https://www.meetup.com/OpenSearch/events/282612997/
     title: Join on Meetup
 
 ---
