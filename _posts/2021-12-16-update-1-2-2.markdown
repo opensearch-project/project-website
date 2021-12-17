@@ -23,6 +23,8 @@ If you are using Open Distro 1.13.3, released as a response to [CVE-2021-44228](
 
 You can get [OpenSearch 1.2.2 on the downloads page](/downloads.html).
 
+**Update 2021-12-22:** The team has released 1.2.3 to solve a [regression introduced](https://github.com/opensearch-project/OpenSearch/issues/1734) in 1.2.0 for those using repository-azure plugin. If you don't use this plugin and you're already on 1.2.2 there is no need to update your cluster.
+
 
 ### Do you have questions or feedback?
 
