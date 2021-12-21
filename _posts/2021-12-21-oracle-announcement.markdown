@@ -3,7 +3,7 @@ layout: post
 title:  "Partner Highlight: Oracle offers OpenSearch as a service"
 authors: 
   - andhopp
-date: 2021-12/21
+date: 2021-12-21
 categories: 
   - partners
 twittercard:
