@@ -11,9 +11,9 @@ excerpt: "As indicated in the previous blog post, CVE-2021-45046 was issued shor
 
 ---
 
-### Update 2021-12-22:
+### Update 2021-12-22
 
-OpenSearch version 1.2.3 is now available. This release updates the version of Log4j used in OpenSearch to Log4j 2.17.0 as recommended by the advisory in [CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105). Additionally, this release addresses a [regression introduced in OpenSearch 1.2.0](https://github.com/opensearch-project/OpenSearch/issues/1734) for those using repository-azure plugin. All users of OpenSearch should update to OpenSearch 1.2.3. [Learn more](/blog/releases/2021/12/update-1-2-3/).
+OpenSearch version 1.2.3 is now available and addresses [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), [CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046), [CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105). Update your clusters to 1.2.3. [See the release blog](/blog/releases/2021/12/update-1-2-3/).
 
 ### Update your clusters to 1.2.2
 
