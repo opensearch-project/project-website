@@ -11,7 +11,11 @@ excerpt: "As indicated in the previous blog post, CVE-2021-45046 was issued shor
 
 ---
 
+### Update 2021-12-22
 
+OpenSearch version 1.2.3 is now available and addresses [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), [CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046), and [CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105). Update your clusters to 1.2.3. [See the release blog](/blog/releases/2021/12/update-1-2-3/).
+
+### Update your clusters to 1.2.2
 
 As indicated in the previous blog post, [CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046) was issued shortly following the release of OpenSearch 1.2.1. This new CVE advises upgrading from Log4j 2.15.0 (used in OpenSearch 1.2.1) to Log4j 2.16.0. Out of an abundance of caution, the team is releasing OpenSearch 1.2.2 which includes Log4j 2.16.0. While there has been no observed reproduction of the issue described in CVE-2021-45046, Log4j 2.16.0 takes much more extensive JNDI mitigation measures.
 
@@ -22,7 +26,6 @@ If you are using Open Distro 1.13.3, released as a response to [CVE-2021-44228](
 **Update:** The team has released a new version of Logstash OSS with OpenSearch Output Plugin that uses Logstash 7.16.2 and includes Log4j 2.16.0.
 
 You can get [OpenSearch 1.2.2 on the downloads page](/downloads.html).
-
 
 ### Do you have questions or feedback?
 
