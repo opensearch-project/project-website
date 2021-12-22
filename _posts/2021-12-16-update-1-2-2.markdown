@@ -13,7 +13,7 @@ excerpt: "As indicated in the previous blog post, CVE-2021-45046 was issued shor
 
 ### Update 2021-12-22
 
-OpenSearch version 1.2.3 is now available and addresses [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), [CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046), and[CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105). Update your clusters to 1.2.3. [See the release blog](/blog/releases/2021/12/update-1-2-3/).
+OpenSearch version 1.2.3 is now available and addresses [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), [CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046), and [CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105). Update your clusters to 1.2.3. [See the release blog](/blog/releases/2021/12/update-1-2-3/).
 
 ### Update your clusters to 1.2.2
 
