@@ -43,6 +43,13 @@ This site uses [Jekyll](https://jekyllrb.com/). You can build the site and make 
 
 Alternatively, build the site with `bundle exec jekyll build`. The HTML output is generated into `/_site`. For the full configuration options when running Jekyll, see [this page](https://jekyllrb.com/docs/configuration/options/).
 
+#### Content Modifier
+
+In order to automatically mitigate some common security risks, the generated pages are scanned and modified, during build, by the [`ContentModifier` plugin](_plugins/content-modifier.rb). Due to its impact on build times, the plugin does not run when developing locally using `jekyll serve`. This behavior can be changed to force the execution of plugin while serving by adding the ENV flag `JEKYLL_ALLOW_CONTENT_MODIFIER`. E.g.
+```sh
+JEKYLL_ALLOW_CONTENT_MODIFIER= bundle exec jekyll serve
+```
+
 ### Search Bar Invisible Pages
 
 To prevent a document from appearing in search results, you can add `omit_from_search: true` to its front matter.
