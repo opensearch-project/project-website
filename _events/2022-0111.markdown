@@ -1,7 +1,7 @@
 ---
 
-eventdate: 2022-01-11T09:00
-tz: UTC -7
+eventdate: 2022-01-11T07:00
+tz: UTC -8
 title: OpenSearch Community Meeting - 2022-01-11 - open office hour
 online: true
 signup:
@@ -10,7 +10,7 @@ signup:
 
 ---
 
-Join us for our our weekly online community meeting.
+Join us for our weekly online community meeting.
 
 Meeting topics are listed in the [collaborative agenda](https://hackmd.io/@HmdZWaVnQU6M8icdvC5TwQ/B1chFeYct?both=) on HackMD.
 
