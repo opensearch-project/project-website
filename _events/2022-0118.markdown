@@ -10,7 +10,7 @@ signup:
 
 ---
 
-Join us for our weekly online community meeting.
+Join us for our weekly online community meeting. (meeting moved from 2022-01-17 to accommodate MLK Day)
 
 Meeting topics are listed in the [collaborative agenda](https://hackmd.io/@HmdZWaVnQU6M8icdvC5TwQ/ry64qltqY?both=) on HackMD.
 
