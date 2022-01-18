@@ -24,7 +24,7 @@ components:
       - linux
   - role: minimal-artifacts
     artifact: opensearch-min
-    version: 1.2.3
+    version: 1.2.4
   - role: minimal-artifacts
     artifact: opensearch-dashboards-min
     version: 1.2.0
