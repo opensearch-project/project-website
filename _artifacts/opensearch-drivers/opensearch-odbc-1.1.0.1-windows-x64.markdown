@@ -7,5 +7,5 @@ architecture: x64
 artifact_url: https://artifacts.opensearch.org/opensearch-clients/odbc/signed_opensearch-sql-odbc-win64-1.1.0.1.msi
 slug: opensearch-sql-odbc-win64-1.1.0.1
 category: opensearch
-type: zip
+type: msi
 ---
