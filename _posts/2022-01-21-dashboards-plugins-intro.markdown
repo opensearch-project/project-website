@@ -10,13 +10,13 @@ twittercard:
   description: "Plugins are fundamental to how OpenSearch works, and that similarity extends to OpenSearch Dashboards too..."
 ---
 
-Plugins are fundamental to how OpenSearch works, and the similarity extends to OpenSearch Dashboards too. Infact almost everything that you see inside OpenSearch Dashboards is built inside a plugin. As a follow up the blog post on how plugins work for OpenSearch, this post will explore how plugins work for OpenSearch Dashboards.
+Plugins are fundamental to how OpenSearch works, and the similarity extends to OpenSearch Dashboards too. Infact almost everything that you see inside OpenSearch Dashboards is built inside a plugin. As a follow up to the blog post on how plugins work for OpenSearch, this post will explore how plugins work for OpenSearch Dashboards.
 
 ### What is a plugin
 
 To understand what a plugin in OpenSearch Dashboards is, first it's important to understand what makes up OpenSearch Dashboards.
 
-![DashboardsOverview](/assets/media/blog-images/2022-01-21-dashboards-plugin-intro/dashboards_overview.png){:width="100%"}
+![DashboardsOverview](/assets/media/blog-images/2022-01-21-dashboards-plugin-intro/dashboards_overview.png){: .img-fluid}
 
 It has 3 main components:
 
@@ -73,8 +73,6 @@ The role of the manifest file is to describe the set of required and optional pr
 
 The manifest file signature is defined by the interface [`PluginManifest`](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.2/src/core/server/plugins/types.ts#L126-L196)
 
-e.g. manifest file
-
 ```json
 {
   "id": "plugin_id",
@@ -99,9 +97,7 @@ Every plugin has 3 life cycle methods that the core system calls during the life
 - Start: is where any "running" logic for your plugin would live. This only applies if you need to start listening for outside events (polling for work, listening on a port, etc.)
 - Stop: Used to cleanup runtime.
 
-e.g.
-
-```js
+```ts
 // my_plugin/public/index.ts
 
 import { PluginInitializer } from '../../src/core/public';
@@ -161,7 +157,7 @@ export class MyPlugin implements Plugin<
 
 ## How does all this work?
 
-Now that I've talked about what makes up a plugin, let’s take a look at how it all works. The job of discovering, initializing and running plugins within OpenSearch Dashboards is handled by the [plugin service](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/src/core/server/plugins/plugins_service.ts) within the core system. It begins when we start OpenSearch Dashboards using `yarn start`. This kicks off the core workflow as follows:
+Now that I've talked about what makes up a plugin, let’s take a look at how it all works. The job of discovering, initializing and running plugins within OpenSearch Dashboards is handled by the [plugin service](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/src/core/server/plugins/plugins_service.ts) within the core system. It begins when you start OpenSearch Dashboards using `yarn start`. The core performs the following actions:
 
 - Read the config file `opensearch_dashboards.yml`
 - Discover the plugins and construct a dependency tree. Both [core plugins](https://github.com/opensearch-project/OpenSearch-Dashboards/tree/1.2/src/plugins) (plugins in the projects source that come with OpenSearch Dashboards) and external plugins
@@ -193,7 +189,7 @@ To load a plugin into an instance of OpenSearch Dashboards, the plugin must be p
 - `./plugins`
 - `../opensearch-dashboards-extra`
 
-Placing the plugin in one of these paths will ensure that they are discovered by the core system. The default paths are defined by the [env](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.2/packages/osd-config/src/env.ts#L133-L138) class within the `@osd-config` package and discovered using the plugin service’s [discover method](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.2/src/core/server/plugins/discovery/plugins_discovery.ts#L65). Alternatively we can also define an additional config parameter `additionalPluginPaths` to define other explicit plugin paths. This is however not recommended for production use and will throw a warning when used outside of dev mode.
+Placing the plugin in one of these paths will ensure that they are discovered by the core system. The default paths are defined by the [env](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.2/packages/osd-config/src/env.ts#L133-L138) class within the `@osd-config` package and discovered using the plugin service’s [discover method](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.2/src/core/server/plugins/discovery/plugins_discovery.ts#L65). Alternatively, we can also define an additional config parameter `additionalPluginPaths` to define other explicit plugin paths. This is however not recommended and will throw a warning in production.
 
 ### Building and distributing your plugin
 
@@ -203,7 +199,7 @@ To build the distributable archive of your plugin run
 yarn build
 ```
 
-Generated plugins receive a handful of scripts that can be used during development. Those scripts are detailed in the README.md file in each newly generated plugin, and expose the scripts provided by the [OpenSearch Dashboards plugin helpers](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.2.0/packages/osd-plugin-helpers/README.md). It also contains a script to build a distributable archive of your plugin.
+Generated plugins receive a handful of scripts that can be used during development. Those scripts are detailed in the `README.md` file in each newly generated plugin, and expose the scripts provided by the [OpenSearch Dashboards plugin helpers](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.2.0/packages/osd-plugin-helpers/README.md). It also contains a script to build a distributable archive of your plugin.
 
 ### Example plugins
 
