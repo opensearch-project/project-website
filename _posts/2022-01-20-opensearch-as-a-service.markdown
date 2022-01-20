@@ -47,8 +47,8 @@ More detail on the OpenSearch components available in DevOps PaaS can be found i
 
 ### Ready to Get Started?  
 
-If you need a high-performance and easy-to-manage OpenSearch Cluster, give it a try at one of the Virtuozzo DevOps PaaS service providers[Virtuozzo DevOps PaaS service providers](https://jelastic.cloud/). 
+If you need a high-performance and easy-to-manage OpenSearch Cluster, give it a try at one of the Virtuozzo DevOps PaaS service providers [Virtuozzo DevOps PaaS service providers](https://jelastic.cloud/). 
 
 
-If you are interested in offering OpenSearch Cluster as a service to your customers – or any other flavor of PaaS – we’d love to help. Get in touch to learn more[Get in touch to learn more](https://www.virtuozzo.com/company/contact/) !
+If you are interested in offering OpenSearch Cluster as a service to your customers – or any other flavor of PaaS – we’d love to help. [Get in touch to learn more](https://www.virtuozzo.com/company/contact/)!
 
