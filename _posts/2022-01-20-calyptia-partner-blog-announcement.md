@@ -12,7 +12,7 @@ excerpt: "Calyptia and the OpenSearch project team are partnering to build OpenS
 
 ---
 
-We are excited to share that [Calytpia](https://calyptia.com/) and the OpenSearch project team [are partnering]() to build OpenSearch connectors for [Fluent Bit](https://fluentbit.io/) and [Fluentd](https://www.fluentd.org/). These open source [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) graduated projects are commonly used for log collection, processing, and forwarding.
+We are excited to share that [Calytpia](https://calyptia.com/) and the OpenSearch project team [are partnering](https://calyptia.com/2022/01/20/calyptia-and-opensearch-partner-to-build-first-party-connectors-to-fluent-bit-and-fluentd/) to build OpenSearch connectors for [Fluent Bit](https://fluentbit.io/) and [Fluentd](https://www.fluentd.org/). These open source [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) graduated projects are commonly used for log collection, processing, and forwarding.
 
 **What is Fluent Bit?** Fluent Bit is a log processor and forwarder for collecting data, like logs, from different sources, enriching them with filters, and sending them to multiple destinations. It’s designed with performance in mind, meaning it is optimized for high throughput and low CPU and memory usage. It's written in C and has a pluggable architecture supporting more than [70 plugins](https://github.com/fluent/fluent-bit/tree/master/plugins) for inputs, filters, and outputs.
 
