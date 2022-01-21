@@ -2,7 +2,7 @@
 layout: post
 title:  "Partner Highlight: How to Offer OpenSearch as a Service using Virtuozzo DevOps PaaS"
 authors: 
-  - vlobzakov
+  - tetianaftv
 date: 2022-01-20
 categories: 
   - partners
@@ -31,7 +31,7 @@ Virtuozzo DevOps PaaS provides an OpenSearch Cluster using the following compone
 
 In such a solution, data is gathered on client nodes by **Beats** Data Shippers, sent to **Logstash** for the required transformation, and stored in **OpenSearch**. **OpenSearch Dashboard** is the supplementary visualization tool.  
 
-![OpenSearch Cluster Data Acquisition](/assets/media/blog-images/2022-01-20-opensearch-as-a-service/data-flow.png)
+![OpenSearch Cluster Data Acquisition](/assets/media/blog-images/2022-01-20-opensearch-as-a-service/data-flow.png){: .img-fluid}
 
 ### OpenSearch Cluster Installation
 
@@ -39,7 +39,7 @@ The OpenSearch Cluster creation within Virtuozzo DevOps PaaS is a straightforwar
 
 Select the **OpenSearch** stack at the **NoSQL database** section. [Auto-clustering](https://docs.jelastic.com/auto-clustering/) will be enabled by default and provide the required configurations.
 
-![Virtuozzo-OpenSearch Cluster Dashboard](/assets/media/blog-images/2022-01-20-opensearch-as-a-service/dashboard.png)
+![Virtuozzo-OpenSearch Cluster Dashboard](/assets/media/blog-images/2022-01-20-opensearch-as-a-service/dashboard.png){: .img-fluid}
 
 You can also add the **OpenSearch Dashboards** and **Logstash** components by activating the respective options.  
 
