@@ -3,7 +3,7 @@ layout: post
 title:  "Partner Highlight: How to Offer OpenSearch as a Service using Virtuozzo DevOps PaaS"
 authors: 
   - tetianaftv
-date: 2022-01-20
+date: 2022-01-24
 categories: 
   - partners
 twittercard:
