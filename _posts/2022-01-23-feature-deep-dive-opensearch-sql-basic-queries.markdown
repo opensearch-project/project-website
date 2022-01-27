@@ -10,43 +10,43 @@ categories:
 
 ---
 
-In this blog, we’ll explore some of the features and capabilities supported by OpenSearch SQL. We also briefly introduce how SQL engine works internally.
+In this post, we’ll explore some of the features and capabilities supported by OpenSearch SQL. We also briefly introduce how SQL engine works internally.
 
 ## What is OpenSearch SQL?
 
-OpenSearch SQL is similar to the SELECT statement in ANSI SQL, but it is purely designed for analyzing data in OpenSearch. In this document, we refer to it as OSQL (short for OpenSearch Structured Query Language). In order to make it easier for traditional SQL customers to get started, we make the OSQL syntax conform to the subset of the ANSI SQL specification. In addition, we also disclosed the unique features of OpenSearch, for example, we support [full-text search](https://github.com/opensearch-project/sql/blob/main/docs/user/beyond/fulltext.rst).
+OpenSearch SQL is similar to the `SELECT` statement in ANSI SQL, but it is purely designed for analyzing data in OpenSearch. In this document, we refer to it as OSQL (short for OpenSearch Structured Query Language). In order to make it easier for traditional SQL user to get started, we make the OSQL syntax conform to the subset of the ANSI SQL specification. In addition, we also disclosed the unique features of OpenSearch, for example, we support [full-text search](https://github.com/opensearch-project/sql/blob/main/docs/user/dql/functions.rst#match).
 
 ## How to use OpenSearch SQL?
 
-For OpenSearch user, you could use the familiar REST interface `_plugin/sql` with your query in query body. 
-For DBMS user, you could use [JDBC](https://github.com/opensearch-project/sql/tree/main/sql-jdbc)/[ODBC](https://github.com/opensearch-project/sql/tree/main/sql-odbc) driver to connect OpenSearch domain. You could download JDBC/ODBC driver. - add download link
-For Dashboards user, you could use [OpenSearch Dashboard Query Workbench](https://opensearch.org/docs/latest/search-plugins/sql/workbench/) to easily run on-demand SQL queries and download results
-An additional OpenSearch SQL CLI tool is provided for interactive SQL execution.
+For OpenSearch users, you could use the familiar REST interface `_plugin/sql` with your query in HTTP body . 
+For DBMS users, you could use [JDBC](https://opensearch.org/artifacts#opensearch-sql-jdbc)/[ODBC](https://opensearch.org/artifacts#opensearch-sql-odbc) driver to connect OpenSearch domain.
+For Dashboards users, you could use [OpenSearch Dashboard Query Workbench](https://opensearch.org/docs/latest/search-plugins/sql/workbench/) to easily run on-demand SQL queries and download results.
+An additional [OpenSearch SQL CLI](https://pypi.org/project/opensearchsql/) tool is provided for interactive SQL execution.
 
 ## Some Examples
 
 ### Basic Queries
 
 *“Find error logs where response code is 404 or 503”.* 
-You could run ODQL in Query Workbench. The result is in tabular format. You could download result in JSON, JDBC, CSV and Text format. Find more examples in [here](https://github.com/opensearch-project/sql/blob/main/docs/user/interfaces/protocol.rst).
+You can run OSQL in Query Workbench. The results are in tabular format. You could download result in JSON, JDBC, CSV and Text format. More [examples are on Github](https://github.com/opensearch-project/sql/blob/main/docs/user/interfaces/protocol.rst).
 ![basic queries](/assets/media/blog-images/2022-01-30-opensearch-sql-basic-queries/basic_queries.gif){: .img-fluid}
 ### Functions
 
 *“Find error logs where response code is 404 or 503, How many distinct host”* 
-You could run ODQL in Dashboards notebook also. There are 4 distinct hosts for about query,  result is in table format. More [aggregations](https://github.com/opensearch-project/sql/blob/main/docs/user/dql/aggregations.rst) and [functions](https://github.com/opensearch-project/sql/blob/main/docs/user/dql/functions.rst) are supported.
+You could also run OSQL from a OpenSearch Dashboards notebook. In this case, there are four distinct hosts and the results are in table format. More [aggregations](https://github.com/opensearch-project/sql/blob/main/docs/user/dql/aggregations.rst) and [functions](https://github.com/opensearch-project/sql/blob/main/docs/user/dql/functions.rst) are supported.
 ![functions](/assets/media/blog-images/2022-01-30-opensearch-sql-basic-queries/functions.gif){: .img-fluid}
 ### Explain
 
-*“How does ODQL execute in OpenSearch”*. Let’s explain an example query. OpenSearch SQL explain endpoint returns the query execution plan. For example, the above query two operators.
+*“How does OSQL execute in OpenSearch?”*. The OpenSearch SQL `explain` endpoint returns the query execution plan. For example, here are the three query operators for the above query.
 
-* ProjectOperator, execute in coordinate node, read output from child operator and project originCountry and count fields.
-* FilterOperator, execute in coordinator node, read output from child operator and filter docs which count > 500.
-* OpenSearchIndexScan, it is a **DSL query** which will be executed in OpenSearch through search endpoint**.**
+* `ProjectOperator`, execute in coordinate node, read output from child operator and project `originCountry` and `count` fields.
+* `FilterOperator`, execute in coordinator node, read output from child operator and filter docs which `count > 500`.
+* `OpenSearchIndexScan`, it is a **DSL query** which will be executed in OpenSearch through search endpoint.
 
 ![explain](/assets/media/blog-images/2022-01-30-opensearch-sql-basic-queries/explain.gif){: .img-fluid}
 ## Inside SQL Engines
 
-Internally, query will go through five major components in query engine. (1) **Language Processor** parse the query string by following the grammar and generate the AST (Abstract Syntax Tree). (2) **Core Engine** analyze, optimize the AST and build the Logical Plan. (3) **Storage Engine** is an pluggable component which provide the catalog schema and storage specified optimization and implementation. (4) **Execution Engine** schedule and execute the physical plan. (5) **Protocol** parse the request and control the response format. 
+Internally, a query will go through five major components in the query engine. (1) **Language Processor** parses the query string by following the grammar and generates the AST (Abstract Syntax Tree). (2) **Core Engine** analyzes and optimizes the AST and builds the Logical Plan. (3) **Storage Engine** is a pluggable component which provides the catalog schema and storage specified optimization and implementation. (4) **Execution Engine** schedules and executes the physical plan. (5) **Protocol** parses the request and formats the response. 
 ![architecture](/assets/media/blog-images/2022-01-30-opensearch-sql-basic-queries/architecture.png){: .img-fluid}
 ## How do I contribute?
 
