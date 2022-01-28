@@ -1,0 +1,19 @@
+---
+layout: fullwidth
+primary_title: 'New Community Project'
+---
+
+
+Test
+
+<script>
+jQuery(document).ready(function() {
+    let message = encodeURIComponent('sample.markdown');
+    let commit = encodeURIComponent('This is a test commit. Ignore');
+    let dco = encodeURIComponent('Signed-off-by: Kyle Davis <kyledvs@amazon.com>');
+    let branch = encodeURIComponent('new-community-project-'+Math.random());
+    let template = `https://github.com/opensearch-project/project-website/new/main/_community_projects?message=${message}&description=${dco}&filename=${filename}&target_branch=branch`;
+    console.log(template);
+});
+
+</script>
