@@ -83,7 +83,7 @@ The scope of our initial performance testing scenarios was focused on a common s
 
 # Running Data Prepper Performance tests
 
-Performance suite source code is available on [GitHub](https://github.com/sbayer55/gatling-tests/). To run the full test suite execute `./gradlew –rerun-tasks gatlingRun -Dhost=<target url>`. After all tests have completed HTML reports will be created in `./build/reports/gatling/<simulation-name>-<unix-timestamp>/index.html`. Further instructions on running performance tests and [Gatling](https://gatling.io/) are available in the repository [readme](https://github.com/sbayer55/gatling-tests/blob/main/README.md).
+Performance suite source code is available on [GitHub](https://github.com/opensearch-project/data-prepper/tree/main/performance-test). To run the full test suite execute `./gradlew –rerun-tasks gatlingRun -Dhost=<target url>`. After all tests have completed HTML reports will be created in `./build/reports/gatling/<simulation-name>-<unix-timestamp>/index.html`. Further instructions on running performance tests and [Gatling](https://gatling.io/) are available in the repository [readme](https://github.com/opensearch-project/data-prepper/tree/main/performance-test/README.md).
 
 # Summary
 
