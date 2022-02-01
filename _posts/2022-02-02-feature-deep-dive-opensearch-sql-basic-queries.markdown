@@ -4,7 +4,7 @@ title:  "Feature Deep Dive: OpenSearch SQL - Basic queries"
 authors: 
   - penghuo
   - jadhanir
-date: 2022-01-23
+date: 2022-02-02
 categories: 
   - feature
 
