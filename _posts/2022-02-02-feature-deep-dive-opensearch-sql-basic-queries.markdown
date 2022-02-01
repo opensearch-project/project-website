@@ -29,12 +29,12 @@ An additional [OpenSearch SQL CLI](https://pypi.org/project/opensearchsql/) tool
 
 *“Find error logs where response code is 404 or 503”.* 
 You can run OSQL in Query Workbench. The results are in tabular format. You could download result in JSON, JDBC, CSV and Text format. More [examples are on Github](https://github.com/opensearch-project/sql/blob/main/docs/user/interfaces/protocol.rst).
-![basic queries](/assets/media/blog-images/2022-01-30-opensearch-sql-basic-queries/basic_queries.gif){: .img-fluid}
+![basic queries](/assets/media/blog-images/2022-02-02-opensearch-sql-basic-queries/basic_queries.gif){: .img-fluid}
 ### Functions
 
 *“Find error logs where response code is 404 or 503, How many distinct host”* 
 You could also run OSQL from a OpenSearch Dashboards notebook. In this case, there are four distinct hosts and the results are in table format. More [aggregations](https://github.com/opensearch-project/sql/blob/main/docs/user/dql/aggregations.rst) and [functions](https://github.com/opensearch-project/sql/blob/main/docs/user/dql/functions.rst) are supported.
-![functions](/assets/media/blog-images/2022-01-30-opensearch-sql-basic-queries/functions.gif){: .img-fluid}
+![functions](/assets/media/blog-images/2022-02-02-opensearch-sql-basic-queries/functions.gif){: .img-fluid}
 ### Explain
 
 *“How does OSQL execute in OpenSearch?”*. The OpenSearch SQL `explain` endpoint returns the query execution plan. For example, here are the three query operators for the above query.
@@ -43,11 +43,11 @@ You could also run OSQL from a OpenSearch Dashboards notebook. In this case, the
 * `FilterOperator`, execute in coordinator node, read output from child operator and filter docs which `count > 500`.
 * `OpenSearchIndexScan`, it is a **DSL query** which will be executed in OpenSearch through search endpoint.
 
-![explain](/assets/media/blog-images/2022-01-30-opensearch-sql-basic-queries/explain.gif){: .img-fluid}
+![explain](/assets/media/blog-images/2022-02-02-opensearch-sql-basic-queries/explain.gif){: .img-fluid}
 ## Inside SQL Engines
 
 Internally, a query will go through five major components in the query engine. (1) **Language Processor** parses the query string by following the grammar and generates the AST (Abstract Syntax Tree). (2) **Core Engine** analyzes and optimizes the AST and builds the Logical Plan. (3) **Storage Engine** is a pluggable component which provides the catalog schema and storage specified optimization and implementation. (4) **Execution Engine** schedules and executes the physical plan. (5) **Protocol** parses the request and formats the response. 
-![architecture](/assets/media/blog-images/2022-01-30-opensearch-sql-basic-queries/architecture.png){: .img-fluid}
+![architecture](/assets/media/blog-images/2022-02-02-opensearch-sql-basic-queries/architecture.png){: .img-fluid}
 ## How do I contribute?
 
 If you’re interested in contributing please reach out on [GitHub issues](https://github.com/opensearch-project/sql/issues) or the [community forum](https://discuss.opendistrocommunity.dev/). The more formal contribution guidelines are documented in the [contributing guide](https://github.com/opensearch-project/sql/blob/main/CONTRIBUTING.md).
