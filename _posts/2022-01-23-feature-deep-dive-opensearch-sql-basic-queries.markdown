@@ -19,7 +19,7 @@ OpenSearch SQL is similar to the `SELECT` statement in ANSI SQL, but it is purel
 ## How to use OpenSearch SQL?
 
 For OpenSearch users, you could use the familiar REST interface `_plugin/sql` with your query in HTTP body . 
-For DBMS users, you could use [JDBC](https://opensearch.org/artifacts#opensearch-sql-jdbc)/[ODBC](https://opensearch.org/artifacts#opensearch-sql-odbc) driver to connect OpenSearch domain.
+For DBMS users, you could use [JDBC/ODBC](https://opensearch.org/downloads.html#drivers) driver to connect OpenSearch domain.
 For Dashboards users, you could use [OpenSearch Dashboard Query Workbench](https://opensearch.org/docs/latest/search-plugins/sql/workbench/) to easily run on-demand SQL queries and download results.
 An additional [OpenSearch SQL CLI](https://pypi.org/project/opensearchsql/) tool is provided for interactive SQL execution.
 
