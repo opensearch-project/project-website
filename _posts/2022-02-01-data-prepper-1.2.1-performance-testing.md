@@ -3,26 +3,26 @@ layout: post
 title:  "Data Prepper 1.2.1 Performance Testing"
 authors:
   - sbayer
-date: 2022-01-28
+date: 2022-02-01
 categories:
   - technical-post
 
-excerpt: "Following the launch of log pipeline in Data Prepper 1.2, the Data Prepper Team is excited to share the results of our performance testing suite. Our goal is to create a tool that can simulate a set of real-world scenarios in any environment while maintaining compatibility with popular log ingestion applications."
+excerpt: "Following the launch of log pipeline in Data Prepper 1.2, the Data Prepper Team is excited to share the results of the Data Prepper performance testing suite. The goal is to create a tool that can simulate a set of real-world scenarios in any environment while maintaining compatibility with popular log ingestion applications."
 
 ---
 
-Following the launch of log pipeline in [Data Prepper 1.2](https://www.opensearch.org/blog/technical-post/2021/12/Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/), we are excited to share the results of our performance testing suite. Our goal is to create a tool that can simulate a set of real-world scenarios in any environment while maintaining compatibility with popular log ingestion applications. In all performance test results discussed below, the test environments and configurations are identical, except where the same option is not available for all applications. See testing limitations section for additional details.
+Following the launch of log pipeline in [Data Prepper 1.2](https://www.opensearch.org/blog/technical-post/2021/12/Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/), the Data Prepper Team are excited to share the results of the Data Prepper performance testing suite. The goal is to create a tool that can simulate a set of real-world scenarios in any environment while maintaining compatibility with popular log ingestion applications. In all performance test results discussed below, the test environments and configurations are identical, except where the same option is not available for all applications. See testing limitations section for additional details.
 
 # TL;DR Data Prepper 1.2.1 vs Logstash 7.13.2 Results
 - Data Prepper 1.2.1 has 88% better sustained throughput than Logstash 7.13.2
 - Data Prepper 1.2.1 has 46% lower mean response latency than Logstash 7.13.2. Response latency here is, the amount of time it takes from when a request is made by the client to the time it takes for Data Prepper’s or Logstash’s response to get back to that client.
 
 
-![Throughput Graph](/assets/media/blog-images/2022-01-28-data-prepper-1.2.1-performance-testing/Graph-Throughput.png){: .img-fluid}
+![Throughput Graph](/assets/media/blog-images/2022-02-01-data-prepper-1.2.1-performance-testing/Graph-Throughput.png){: .img-fluid}
 
 Throughout the test, Data Prepper can consistently maintain a higher throughput.
 
-![Response Time Graph](/assets/media/blog-images/2022-01-28-data-prepper-1.2.1-performance-testing/Graph-Response-Time.png){: .img-fluid}
+![Response Time Graph](/assets/media/blog-images/2022-02-01-data-prepper-1.2.1-performance-testing/Graph-Response-Time.png){: .img-fluid}
 
 Logstash hit peak latency of 7,382ms<br>
 Data Prepper’s peak latency was 5,276ms
@@ -39,13 +39,13 @@ Data Prepper 1.2.1 processed 88% more logs than Logstash 7.13.2 within the 30-mi
 
 ## Data Prepper Environment
 
-![Data Prepper Environment](/assets/media/blog-images/2022-01-28-data-prepper-1.2.1-performance-testing/Data-Prepper.png){: .img-fluid}
+![Data Prepper Environment](/assets/media/blog-images/2022-02-01-data-prepper-1.2.1-performance-testing/Data-Prepper.png){: .img-fluid}
 
 ## Logstash Environment
 
-![Logstash Environment](/assets/media/blog-images/2022-01-28-data-prepper-1.2.1-performance-testing/Logstash.png){: .img-fluid}
+![Logstash Environment](/assets/media/blog-images/2022-02-01-data-prepper-1.2.1-performance-testing/Logstash.png){: .img-fluid}
 
-Comparing the performance of the latest release of Data Prepper 1.2.1 against Logstash 7.13.2. We configured 10 clients to send requests as frequently as possible. Each request was 19.2 KB and contained a batch of 200 logs. We then ran this test for 30 minutes and measured the latency and throughput.
+Comparing the performance of the latest release of Data Prepper 1.2.1 against Logstash 7.13.2. The tests are configured to simulate 10 clients to send requests as frequently as possible. Each request was 19.2 KB and contained a batch of 200 logs. The test ran for 30 minutes, measuring the latency and throughput.
 
 ## Application Configurations
 
@@ -65,21 +65,21 @@ _[*] Note, Max Connection Count, Request Timeout, Buffer Size are not configurab
 
 In this simulation clients are ramped up from 1 to 60 over one hour to measure the impact concurrent clients have on performance.
 
-![Data Prepper Throughput Increasing Users](/assets/media/blog-images/2022-01-28-data-prepper-1.2.1-performance-testing/Graph-Throughput-Increasing-Users.png){: .img-fluid}
+![Data Prepper Throughput Increasing Users](/assets/media/blog-images/2022-02-01-data-prepper-1.2.1-performance-testing/Graph-Throughput-Increasing-Users.png){: .img-fluid}
 
 As the number of clients increases Data Preppers throughput remains constant, processing an average of 10,473 MB/m.
 
 # Limitation of Testing
 
-It’s important to note that Data Prepper 1.2.1 and Logstash 7.13.2 support different feature sets, and our performance test suite is targeted at common functionality. As Data Prepper adds more processors and sources, test cases will be added. The Data Prepper team will continue update the community with performance benchmarks.
+It’s important to note that Data Prepper 1.2.1 and Logstash 7.13.2 support different feature sets, and the performance test suite is targeted at common functionality. As Data Prepper adds more processors and sources, test cases will be added. The Data Prepper team will continue update the community with performance benchmarks.
 
 ## Candidates for future performance testing scenarios and improvements
 
-![Environment Reference](/assets/media/blog-images/2022-01-28-data-prepper-1.2.1-performance-testing/Environment-Reference.png){: .img-fluid}
+![Environment Reference](/assets/media/blog-images/2022-02-01-data-prepper-1.2.1-performance-testing/Environment-Reference.png){: .img-fluid}
 
 In a real-world deployment, if Data Prepper is unable to keep pace with the logs generated by the source application. Data Prepper will become a bottleneck causing backpressure on the source application. In the future performance tests will be enhanced to simulate backpressure and measure the impact.
 
-The scope of our initial performance testing scenarios was focused on a common scenario, [http source](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/http-source), [grok processor](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/grok-prepper), and an [OpenSearch sink](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/opensearch). As new features are added to Data Prepper in upcoming releases, performance testing simulations will be added to cover core functionality.
+The scope of this initial performance testing scenarios was focused on a common scenario, [http source](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/http-source), [grok processor](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/grok-prepper), and an [OpenSearch sink](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/opensearch). As new features are added to Data Prepper in upcoming releases, performance testing simulations will be added to cover core functionality.
 
 # Running Data Prepper Performance tests
 
