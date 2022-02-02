@@ -2,7 +2,7 @@
 layout: post
 title: "Partner Highlight: Enjoy OpenSearch one click installation with Hidora"
 authors:
-  - piellick 
+  - pprost 
 date: 2022-01-27
 categories:
   - partners
@@ -27,7 +27,7 @@ One click installation with the Topology wizard !
 
 Take advantage of our customization interface to define the architecture of your cluster:
 
-![Hidora Topology wizard Cluster Dashboard](/assets/media/blog-images/2022-01-27-hidora-partner/image01.png){: .img-fluid}
+![Hidora Topology wizard Cluster Dashboard](/assets/media/blog-images/2022-01-27-hidora-partner/image1.png){: .img-fluid}
 
 
 
@@ -40,47 +40,39 @@ Take advantage of our customization interface to define the architecture of your
 
 After being created, the OpenSearch node is available on port _9200_ for internal communication between nodes of the environment and port _4848_ for external services through the shared load balancer. The HTTP basic auth is used in both cases (password can be reset using the **Reset Password** button).
 
-![Hidora Password reset](/assets/media/blog-images/2022-01-27-hidora-partner/image02.png){: .img-fluid}
- 
-@stockholmux stockholmux 5 days ago Member
-Can you merge this with Adding pictures for Hidora partner blog article #633 so we can see your photos in place?
-Each image needs a {: .img-fluid} at the end of the line. That will make it work on mobile
-@piellick	Reply…
-
-
+![Hidora Password reset](/assets/media/blog-images/2022-01-27-hidora-partner/image2.png){: .img-fluid}
 
 All the interconnection configurations are done automatically - the solution is ready for usage out-of-the-box and does not need any manual configuration. Access to OpenSearch Dashboard is available by the same credentials as for the OpenSearch node.
 
-![Hidora Dashboard login](/assets/media/blog-images/2022-01-27-hidora-partner/image03.png){: .img-fluid}
+![Hidora Dashboard login](/assets/media/blog-images/2022-01-27-hidora-partner/image3.png){: .img-fluid}
 
 Enjoy one-click Beat agent addon
 --------------------------------
 
 You already use Hidora for your accommodation and you want to monitor these with OpenSearch? We have an add-on to deploy agents in one click and thus report logs and metrics to the OpenSearch stack. Bringing a touch of observability to your environments has never been easier.
 
-![Hidora Elastic Beat agent addon](/assets/media/blog-images/2022-01-27-hidora-partner/image04.png){: .img-fluid}
+![Hidora Elastic Beat agent addon](/assets/media/blog-images/2022-01-27-hidora-partner/image4.png){: .img-fluid}
 
 Manage easily your Logstash pipelines
 -------------------------------------
 
 Use internal file explorer to easily manage Logstash configuration. FTP addon can also be deployed to improve configuration management.
 
-![Hidora Integrated monitoring](/assets/media/blog-images/2022-01-27-hidora-partner/image05.png){: .img-fluid}
+![Manage easily your Logstash pipelines](/assets/media/blog-images/2022-01-27-hidora-partner/image5.png){: .img-fluid}
 
 Integrated monitoring for your environnement
 --------------------------------------------
 
 Watch your cluster through the monitoring integrated to our platform, you will also receive alerts when there is a shortage of resources.
 
-![Hidora SSH acces](/assets/media/blog-images/2022-01-27-hidora-partner/image06.png){: .img-fluid}
+![Integrated monitoring](/assets/media/blog-images/2022-01-27-hidora-partner/image6.png){: .img-fluid}
 
 Need to go even further?
 ------------------------
 
 We provide secure SSH access to your platform as well as the ability to work with custom Docker image to fine tune your cluster. The OpenSearch stack benefits from all the functionality available for other certified templates - dashboard file manager, Web SSH, dashboard log viewer, etc.
 
-![Hidora Pay per use](/assets/media/blog-images/2022-01-27-hidora-partner/image07.png){: .img-fluid}
-
+![Go even further](/assets/media/blog-images/2022-01-27-hidora-partner/image7.png){: .img-fluid}
 
 
 Data prepper APM is coming
@@ -97,7 +89,7 @@ For example, you have created a 16Gb of RAM server, and you application consume 
 
 During peak loads, Hidora allocates more resources for applications and takes them back when they are no longer needed.
 
-![](https://t/image.png)
+![Hidora Pay per use](/assets/media/blog-images/2022-01-27-hidora-partner/image8.png){: .img-fluid}
 
 Hosted in Switzerland
 =====================
