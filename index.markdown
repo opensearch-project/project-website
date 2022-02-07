@@ -18,7 +18,7 @@ download_ctas:
 ctas:
     post: ' on GitHub'
     primary: 
-        text: 'Download OpenSearch to Get Started'
+        text: 'Download OpenSearch'
         url: '/downloads.html'
     roadmap:
         text: 'View the project roadmap'
@@ -43,7 +43,7 @@ version_feature:
 
 
 callout_button:
-    title: Download OpenSearch to Get Started
+    title: Download OpenSearch
     url: /downloads.html
 
 opendistro:
