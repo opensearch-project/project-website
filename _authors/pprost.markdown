@@ -5,4 +5,4 @@ photo: '/assets/media/authors/pprost.png'
 twitter: pierrickprost
 ---
 
-**Pierrick Prost** is an observability and infrastructure engineer. He try to be the unicorn with three heads but it’s not easy. He love mountain, bike and beer.
+**Pierrick Prost** is an observability and infrastructure engineer. He tries to be the unicorn with three heads but it’s not easy. He loves mountains, bike and beer.
