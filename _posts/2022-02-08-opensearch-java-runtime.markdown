@@ -3,6 +3,7 @@ layout: post
 title: "Using different Java runtimes with OpenSearch"
 authors:
   - dblock
+  - smortex
 date: 2022-02-08
 categories:
   - technical-post
@@ -63,7 +64,9 @@ TODO
 
 #### FreeBSD
 
-TODO
+FreeBSD packages are available for OpenSearch from [textproc/opensearch](https://www.freshports.org/textproc/opensearch/). These packages do not bundle a version of Java, and depend on one of the Java versions installed on FreeBSD. 
+
+Users building their own packages can customize the version of Java the package will depend on by setting the java version in the [`DEFAULT_VERSIONS` environment variable](https://wiki.freebsd.org/Ports/DEFAULT_VERSIONS) when building, e.g. `DEFAULT_VERSIONS=java=15`. See [opensearch-build#101](https://github.com/opensearch-project/opensearch-build/issues/101) and [Releasing for FreeBSD](https://github.com/opensearch-project/opensearch-build#releasing-for-freebsd) for more information.
 
 #### Windows
 
