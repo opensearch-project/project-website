@@ -43,7 +43,7 @@ The parent issue for this change is [opensearch-build#74](https://github.com/ope
 
 By default, any OpenSearch distribution consults `JAVA_HOME` first in order to find out the JVM runtime to run on. If `JAVA_HOME` is not set, OpenSearch will try to fallback to the bundled JVM runtime if available. 
 
-OpenSearch 1.3.0 also introduced support for a new environment variable `OPENSEARCH_JAVA_HOME` that take precedence over `JAVA_HOME`. This can be useful for systems with multiple applications co-located with different JVMs, or in migration scenarios with several instances of OpenSearch running on the same machine. The environment setting will propagate to plugins that launch Java processes, such as performance-analyzer. See [OpenSearch#1872](https://github.com/opensearch-project/OpenSearch/issues/1872) for details.
+OpenSearch 1.3.0 is also introducing support for a new environment variable `OPENSEARCH_JAVA_HOME` that take precedence over `JAVA_HOME`. This can be useful for systems with multiple applications co-located with different JVMs, or in migration scenarios with several instances of OpenSearch running on the same machine. The environment setting propagates to plugins that launch Java processes, such as performance-analyzer. See [OpenSearch#1872](https://github.com/opensearch-project/OpenSearch/issues/1872) for details.
 
 ### Version 2.0.0
 
@@ -67,7 +67,7 @@ TODO
 
 #### FreeBSD
 
-FreeBSD packages are available for OpenSearch from [textproc/opensearch](https://www.freshports.org/textproc/opensearch/). These packages do not bundle a version of Java, and depend on one of the Java versions installed on FreeBSD. 
+FreeBSD packages are available for OpenSearch from [textproc/opensearch](https://www.freshports.org/textproc/opensearch/). These packages do not bundle a version of Java, and depend on one of the Java versions installed on FreeBSD.
 
 Users building their own packages can customize the version of Java the package will depend on by setting the java version in the [`DEFAULT_VERSIONS` environment variable](https://wiki.freebsd.org/Ports/DEFAULT_VERSIONS) when building, e.g. `DEFAULT_VERSIONS=java=15`. See [opensearch-build#101](https://github.com/opensearch-project/opensearch-build/issues/101) and [Releasing for FreeBSD](https://github.com/opensearch-project/opensearch-build#releasing-for-freebsd) for more information.
 
