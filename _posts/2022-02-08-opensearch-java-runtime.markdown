@@ -41,6 +41,8 @@ The parent issue for this change is [opensearch-build#74](https://github.com/ope
 
 #### Customizing the OpenSearch Runtime
 
+By default, any OpenSearch distribution consults `JAVA_HOME` first in order to find out the JVM runtime to run on. If `JAVA_HOME` is not set, OpenSearch will try to fallback to the bundled JVM runtime if available. 
+
 OpenSearch 1.3.0 also introduced support for a new environment variable `OPENSEARCH_JAVA_HOME` that take precedence over `JAVA_HOME`. This can be useful for systems with multiple applications co-located with different JVMs, or in migration scenarios with several instances of OpenSearch running on the same machine. The environment setting will propagate to plugins that launch Java processes, such as performance-analyzer. See [OpenSearch#1872](https://github.com/opensearch-project/OpenSearch/issues/1872) for details.
 
 ### Version 2.0.0
