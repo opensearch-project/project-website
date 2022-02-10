@@ -8,7 +8,7 @@ date: 2022-02-10
 categories:
  - technical
 
-excerpt: "Getting started with Fluentd and OpenSearch."
+excerpt: "The OpenSearch project is, a community-driven open-source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 and Kibana 7.10.2. In order to get started with OpenSearch you will need to get data into OpenSearch. A new method, built through a partnership of Calyptia and the OpenSearch project, is native plugins for Fluentd. Fluentd is an open-source log and metrics processor that is part of the Cloud Native Computing Foundation (CNCF)."
 ---
 
 The OpenSearch project is, a community-driven open-source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 and Kibana 7.10.2. In order to get started with OpenSearch you will need to get data into OpenSearch. A new method, built through a partnership of Calyptia and the OpenSearch project, is native plugins for Fluentd. Fluentd is an open-source log and metrics processor that is part of the Cloud Native Computing Foundation (CNCF).
@@ -51,16 +51,16 @@ As Calyptia, we maintain a distribution of Fluentd, named Calyptia Fluentd. Thes
 With the latest 1.3.4 release of Calyptia Fluentd, the OpenSearch plugin is included by default.
 
 
-****Download and install the package****
+### Download and install the package
 
-    1. [_Red Hat Enterprise Linux / CentOS / Amazon Linux_](https://docs.fluentd.org/installation/install-by-rpm)
-    2. [_Debian / Ubuntu_](https://docs.fluentd.org/installation/install-by-deb)
-    3. [_Windows_](https://docs.fluentd.org/installation/install-by-msi)
-    4. [_MacOSX_](https://docs.fluentd.org/installation/install-by-dmg)
+1. [Red Hat Enterprise Linux / CentOS / Amazon Linux](https://docs.fluentd.org/installation/install-by-rpm)
+2. [Debian / Ubuntu](https://docs.fluentd.org/installation/install-by-deb)
+3. [Windows](https://docs.fluentd.org/installation/install-by-msi)
+4. [MacOSX](https://docs.fluentd.org/installation/install-by-dmg)
 
 
-****Adding configuration****
-We can create a barebones configuration that allows us to send the message “dummy” to OpenSearch. We can store this configuration under /etc/calyptia-fluentd/calyptia-fluentd.conf
+### Adding configuration 
+We can create a barebones configuration that allows us to send the message “dummy” to OpenSearch. We can store this configuration under `/etc/calyptia-fluentd/calyptia-fluentd.conf`
 
 ```
 <source>
@@ -77,31 +77,32 @@ index_name fluentd
 </match>
 ```
 
-****Running Calyptia Fluentd****
+### Running Calyptia Fluentd
 
 
 To run Calyptia Fluentd and start sending data to OpenSearch we can use the command line or restart the services that are configured during installation. For example, on Mac we can run the following command: 
 
-
+```shell
 sudo launchctl load /Library/LaunchDaemons/calyptia-fluentd.plist
+```
 
 ## Downloading as a Ruby gem
 
 If you are already using Fluentd or another distribution you can also retrieve the OpenSearch plugin by downloading the Ruby Gem. The Ruby Gem can be downloaded by running the following command:
 
 
-****Running the gem install command****
+### Running the gem install command 
 
 
-`gem install fluent-plugin-opensearch`
+```shell
+gem install fluent-plugin-opensearch
+```
 
 
 
 1. **Adding a configuration**
 
-We can create a barebones configuration that allows us to send the message “dummy” to OpenSearch. We can store this configuration under /etc/fluent.conf
-
-
+We can create a barebones configuration that allows us to send the message “dummy” to OpenSearch. We can store this configuration under `/etc/fluent.conf`
 
 
 ```
@@ -120,11 +121,13 @@ index_name fluentd
 ```
 
 
-****Running Fluentd****
+### Running Fluentd
 Once completed you will then be able to run the following command to use the configuration used above.
 
 
-`$>fluentd -c /etc/fluent.conf`
+```shell
+fluentd -c /etc/fluent.conf
+```
 
 
 ## Getting involved
