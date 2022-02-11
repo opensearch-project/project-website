@@ -36,11 +36,7 @@ This example is a stacked graph of response codes over time. Certain events are 
 
 The quickest way to get hands-on is to bring up an instance of OpenSearch.  Inspect the sample datasets and visualizations to get a feel for it. It is the straightest path to exemplifying what all can be done.  Visit the [downloads](https://opensearch.org/downloads.html) page and follow the instructions to get started. 
 
-After logging in with `admin:admin`
-you’ll see the home screen. 
-
-
-![Home Screen](/assets/media/blog-images/2022-02-11-a-quick-opensearch-primer/home.png){: .img-fluid}
+After logging in with `admin:admin` you’ll see the home screen.  ![Home Screen](/assets/media/blog-images/2022-02-11-a-quick-opensearch-primer/home.png){: .img-fluid}
 
 
 
@@ -52,12 +48,15 @@ Click ‘Add Data’ in the upper right or ‘Add Sample Data’ in the lower le
 
 
 There’s nothing like seeing it in action! The sample data sets offered come with dashboards that are excellent examples of the visualizations and how the information is structured. What you see here is the dashboard that comes with some test data for a fake airline company.  Heat maps, stacked graphs, pie charts, gauges and bar charts are available, among others. 
+
 ![dashboard example](/assets/media/blog-images/2022-02-11-a-quick-opensearch-primer/dashboard-sample.png){: .img-fluid}
 
 
 
 
 A wide selection of visualizations are available.  Arrange them on a Dashboard to get a view that’s just right.
+
+
 ![Visualization Selections](/assets/media/blog-images/2022-02-11-a-quick-opensearch-primer/viz-types.png){: .img-fluid}
 
 
@@ -72,7 +71,7 @@ Hopefully some of the uncertainty about what OpenSearch is and what it does has 
 
 ### A closing thought.
 
-**Anyone can help. Really.** This project wouldn’t be where it is today without the community. One of the project’s principles of development is to be “Open source like we mean it.” The participation of anyone willing and able will always be welcome. Assistance and contributions of any kind are helpful whether you’re a blogger, coder, tech writer, graphic designer, thought leader or jack of all trades. Not all contributions are code!  If you’ve enjoyed this, become part of the community! Check out the [project page on GitHub](https://github.com/opensearch-project), and the [public roadmap](https://github.com/orgs/opensearch-project/projects/1). Also, join the [community meetings](https://opensearch.org/events/). Last but not least, get involved in discussions and chat with other community members in the[OpenSearch Forums](https://discuss.opendistrocommunity.dev/). **All** are welcome and come as you are. 
+**Anyone can help. Really.** This project wouldn’t be where it is today without the community. One of the project’s principles of development is to be “Open source like we mean it.” The participation of anyone willing will always be welcome. Assistance and contributions of any kind are helpful whether you’re a blogger, coder, tech writer, graphic designer, thought leader or jack of all trades. Not all contributions are code!  If you’ve enjoyed this, become part of the community! Check out the [project page on GitHub](https://github.com/opensearch-project), and the [public roadmap](https://github.com/orgs/opensearch-project/projects/1). Also, join the [community meetings](https://opensearch.org/events/). Last but not least, get involved in discussions and chat with other community members in the[OpenSearch Forums](https://discuss.opendistrocommunity.dev/). **All** are welcome and come as you are. 
 
 
 
