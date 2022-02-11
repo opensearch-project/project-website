@@ -1,7 +1,7 @@
 ---
 name: Nate Boot
 short_name: nateboot
-photo: '/assets/media/authors/nateboot.jpg'
+photo: '/assets/media/authors/nateboot.png'
 twitter: 'nateboot'
 github: nateynateynate
 ---
