@@ -29,17 +29,17 @@ The use cases for OpenSearch are many. Here are a few popular examples.
 
 This example is a stacked graph of response codes over time. Certain events are configured to trigger an anomaly warning. It’s a short example of what visualizations are capable of.
 
-**Building your own custom search engine** is another use for which OpenSearch is fully capable.  Using an OpenSearch client library gives you access to use, ranked search, field weighting, and many other features common for search engines.  Results are scored based on the frequency of the terms searched, how many documents contain that term, and how many times they contain it, amongst other criteria. OpenSearch can **weight** the results as well. For example, matches against a document’s title can be considered a more meaningful match than matching terms in a document’s content. 
+**Building your own custom search engine** is another use for which OpenSearch is fully capable.  Using the OpenSearch client library gives you access to ranked search, field weighting, and many other features common for search engines.  Results are scored based on the frequency of the terms searched, how many documents contain that term, and how many times they contain it, amongst other criteria. OpenSearch can **weight** the results as well. For example, matches against a document’s title can be considered a more meaningful match than matching terms in a document’s content. 
 
 
 ### See for yourself
 
-The quickest way to get hands-on is to bring up your own instance of OpenSearch.  Inspect the sample datasets and visualizations to get a feel for it. It is the straightest path to exemplifying what all can be done.  Visit the [downloads](https://opensearch.org/downloads.html) page and follow the instructions to get started. 
+The quickest way to get hands-on is to bring up an instance of OpenSearch.  Inspect the sample datasets and visualizations to get a feel for it. It is the straightest path to exemplifying what all can be done.  Visit the [downloads](https://opensearch.org/downloads.html) page and follow the instructions to get started. 
 
 After logging in with `admin:admin`
 you’ll see the home screen. 
 
-[Image: image.png]
+
 ![Home Screen](/assets/media/blog-images/2022-02-11-a-quick-opensearch-primer/home.png){: .img-fluid}
 
 
