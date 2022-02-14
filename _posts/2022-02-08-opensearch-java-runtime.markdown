@@ -5,6 +5,7 @@ authors:
   - dblock
   - smortex
   - reta
+  - ryanbogan
 date: 2022-02-08
 categories:
   - technical-post
@@ -57,7 +58,7 @@ TODO
 
 ### Benchmarking JDKs
 
-TODO
+Before switching JVMs we wanted to understand the performance impact of upgrading to JDK 17. Benchmarking tests were run across JDK 8, 11, 14, 15, and 17 with both the x64 and ARM versions of OpenSearch-min. Latency and throughput were the primary metrics recorded. JDK 17 consistently outperformed the rest of JDKs. JDK 15 was the closest to the metrics of JDK 17, followed by JDK 8 and 11. Meanwhile, JDK 14 was significantly slower than the other choices. Based on the results, JDK 17 was decisively the best option for running OpenSearch. See [OpenSearch#1276](https://github.com/opensearch-project/OpenSearch/issues/1276) for details and numbers.
 
 ### Platform Specifics
 
