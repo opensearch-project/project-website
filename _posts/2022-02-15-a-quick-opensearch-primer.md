@@ -8,7 +8,7 @@ date: 2022-02-15
 categories:
  - intro
 
-excerpt: "OpenSearch is an open source project built on top of Apache Lucene, a powerful indexing and search library.  Even if you’ve never heard of an indexing library before, you’re still probably more familiar with indexing than you think. "
+excerpt: "OpenSearch is an open-source project built on top of Apache Lucene, a powerful indexing and search library.  Even if you’ve never heard of an indexing library before, you’re still probably more familiar with indexing than you think. "
 ---
 
 ### First time here?
@@ -17,26 +17,26 @@ Have you only recently heard of OpenSearch and are curious just what it is? Here
 
 ### So what is OpenSearch then? 
 
-OpenSearch is an open source project built on top of Apache Lucene, a powerful indexing and search library.  Even if you’ve never heard of an indexing library before, you’re still probably more familiar with indexing than you think. The quantity of data businesses maintain in this age necessitates it.  Apache Lucene provides OpenSearch the ability to maintain large volumes of full documents, arbitrary text as well as non-textual data while maintaining several indices to make searching through each of them efficient.  
+OpenSearch is an open-source project built on top of Apache Lucene, a powerful indexing and search library.  Even if you’ve never heard of an indexing library before, you’re still probably more familiar with indexing than you think. The quantity of data businesses maintain in this age necessitates it.  Apache Lucene provides OpenSearch the ability to maintain large volumes of full documents, arbitrary text as well as non-textual data while maintaining several indices to make searching through each of them efficient.  
 
 ### What is it used for?
 
 The use cases for OpenSearch are many. Here are a few popular examples. 
 
-**Log ingestion** takes advantage of the full text search capabilities against the unpredictability of log files. Indexing all the various data types encountered makes finding specific tokens (say, an IP address or a specific error message from a specific host) in a collection of log lines a short task. In distributed applications, this is even more useful. Summarize and aggregate an entire cluster’s logs using [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/README.md). Throw in a bit of **anomaly detection** and some **visualizations** for some extra insight.
+**Log ingestion** takes advantage of the full-text search capabilities against the unpredictability of data in log files. Indexing all the various data types encountered makes finding specific tokens (say, an IP address or a specific error message from a specific host) in a collection of log lines a short task. In distributed applications, this is even more useful. Summarize and aggregate an entire cluster’s logs using [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/README.md). Throw in a bit of **anomaly detection** and some **visualizations** for some extra insight.
 
 ![stacked chart example](/assets/media/blog-images/2022-02-15-a-quick-opensearch-primer/stacked-chart.png){: .img-fluid}
 
 This example is a stacked graph of response codes over time. Certain events are configured to trigger an anomaly warning. It’s a short example of what visualizations are capable of.
 
-**Building your own custom search engine** is another use for which OpenSearch is fully capable.  Using the OpenSearch client library gives you access to ranked search, field weighting, and many other features common for search engines.  Results are scored based on the frequency of the terms searched, how many documents contain that term, and how many times they contain it, amongst other criteria. OpenSearch can **weight** the results as well. For example, matches against a document’s title can be considered a more meaningful match than matching terms in a document’s content. 
+**Building your own custom search engine** is another use for which OpenSearch is fully capable.  Using the OpenSearch client library gives you access to ranked search, field weighting, and many other features common for search engines.  Results are scored based on the frequency of the terms searched, how many documents contain that term, and how many times they contain it, amongst other criteria. OpenSearch can **weigh** the results as well. For example, matches against a document’s title can be considered a more meaningful match than matching terms in a document’s content. 
 
 
-### See for yourself
+### See for yourself.
 
-The quickest way to get hands-on is to bring up an instance of OpenSearch.  Inspect the sample datasets and visualizations to get a feel for it. It is the straightest path to exemplifying what all can be done.  Visit the [downloads](https://opensearch.org/downloads.html) page and follow the instructions to get started. 
+The quickest way to get hands-on is to bring up OpenSearch.  Inspect the sample datasets and visualizations to get a feel for it. It is the straightest path to exemplifying what all can be done.  Visit the [downloads](https://opensearch.org/downloads.html) page and follow the instructions to get started. 
 
-After logging in with `admin:admin` you’ll see the home screen.  ![Home Screen](/assets/media/blog-images/2022-02-15-a-quick-opensearch-primer/home.png){: .img-fluid}
+After logging into OpenSearch Dashboards with `admin:admin` you’ll see the home screen.  ![Home Screen](/assets/media/blog-images/2022-02-15-a-quick-opensearch-primer/home.png){: .img-fluid}
 
 
 
