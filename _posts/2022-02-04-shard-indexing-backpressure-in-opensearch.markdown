@@ -11,7 +11,7 @@ categories:
   - feature
 ---
 
-In this post we wish to dive into the Shard Indexing Backpressure feature which got launched with OS-v1.2 and how it can improve cluster reliability. The Indexing APIs in OpenSearch such as ``_bulk`` allows you to write data in the cluster, which is distributed across multiple shards, on multiple data nodes. However, at times indexing requests may suffer performance degradation due to a number of reasons including non-optimal cluster configuration, shard strategy, traffic spikes, available node resources and more. These issues are further exacerbated for larger multi-node cluster and indices with many shards. All of these could cause out-of-memory errors, long garbage collection (GC) pauses, and reduced throughput, affecting the overall availability of data nodes in addition to degrading performance. This in turn would impact the node's ability to perform useful work. In addition, these node drop events could cascade due to a lack of effective backpressure which puts the entire cluster at the risk.
+In this post we wish to dive into the Shard Indexing Backpressure feature which got launched with OpenSearch 1.2.0 and how it can improve cluster reliability. The Indexing APIs in OpenSearch such as ``_bulk`` allows you to write data in the cluster, which is distributed across multiple shards, on multiple data nodes. However, at times indexing requests may suffer performance degradation due to a number of reasons including non-optimal cluster configuration, shard strategy, traffic spikes, available node resources and more. These issues are further exacerbated for larger multi-node cluster and indices with many shards. All of these could cause out-of-memory errors, long garbage collection (GC) pauses, and reduced throughput, affecting the overall availability of data nodes in addition to degrading performance. This in turn would impact the node's ability to perform useful work. In addition, these node drop events could cascade due to a lack of effective backpressure which puts the entire cluster at risk.
 
 Indexing Backpressure offers a real-time solution to address such issues, particularly for multi-node clusters with large data sets that have high throughput requirements. Indexing backpressure offers selective load-shedding of indexing requests when performance thresholds are exceeded. For example, in the case of too many stuck requests or request in the cluster running too long, indexing backpressure would kick in. This not only protects clusters from these types of cascading failures, but also ensures that the cluster can continue to perform as expected by only isolating the impacted paths. By tracking real-time performance on per shard basis in the background and evaluating them against dynamic thresholds, Indexing Backpressure applies appropriate in-time rejections decision at the shard-request level whenever a shard or a node suffers a duress situation affecting its ability to keep up with the other shards/nodes in the cluster. This prevents wide failures while also guaranteeing fairness in request execution.
 
@@ -36,7 +36,7 @@ Shard Level Indexing Backpressure introduces dynamic rejections of indexing requ
 5. **Skewness in shard distribution** – Improper distribution of shards leading to hot spots, bottlenecks, affecting the overall performance.
 
 
-Below are some of the key feature offered by the shard level indexing backpressure, which helps address the above scenarios:
+Below are some of the key features offered by the shard level indexing backpressure, which helps address the above scenarios:
 
 * Granular tracking of indexing tasks performance, at every Shard level, for each Node role i.e. coordinator, primary and replica.
 * Fair and Selective rejections by discarding the requests intended only for problematic path touching impacted indices or shards, while still allowing other requests to continue without any downtime.
@@ -198,7 +198,7 @@ The performance and rejection statistics collected by the framework are exposed 
 ## How do I contribute to the feature?
 
 If you have any feedback/suggestions on new topics please don’t hesitate to open issues or post to the forums.
-If you’d like to contribute, a great place to start would be below links.
+If you’d like to contribute, a great place to start would be the links below.
 
 Meta Issue and Related PRs :
 
