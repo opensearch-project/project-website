@@ -6,4 +6,4 @@ github: psychbot
 linkedin: dharmesh-singh-0415aa102
 ---
 
-**Dharmesh** is Software Engineer at AWS OpenSearch. His primary interests are distributed systems and performance.
+**Dharmesh** is Software Engineer at OpenSearch. His primary interests are distributed systems and performance.
