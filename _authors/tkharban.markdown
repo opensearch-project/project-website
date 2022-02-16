@@ -5,4 +5,4 @@ photo: '/assets/media/authors/tkharban.jpg'
 linkedin: 'tushar-kharbanda'
 ---
 
-**Tushar** is Software Engineer at AWS OpenSearch. In his spare time he is also an active contributor to OpenSearch.
+**Tushar** is Software Engineer at OpenSearch. He is an active contributor to OpenSearch.
