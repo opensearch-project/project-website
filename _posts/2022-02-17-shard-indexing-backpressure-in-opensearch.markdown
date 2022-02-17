@@ -6,7 +6,7 @@ authors:
   - sdharms
   - tkharban
   - ramaran
-date:   2022-02-04
+date:   2022-02-17
 categories:
   - feature
 ---
@@ -70,7 +70,7 @@ Indexing backpressure takes effect when one of the primary parameters and second
 
 The mechanism used by indexing backpressure is fair. The selective rejections of requests are intended only for problematic index or shard, while still allowing others to continue.  Below is the shard state transition diagram which covers these scenarios.
 
-![shard state transition](/assets/media/blog-images/2022-02-04-shard-indexing-backpressure-in-opensearch/shard_state_transition.png){: .img-fluid}
+![shard state transition](/assets/media/blog-images/2022-02-17-shard-indexing-backpressure-in-opensearch/shard_state_transition.png){: .img-fluid}
 ### **Stats API For Shard Indexing Backpressure**
 
 The performance and rejection statistics collected by the framework are exposed through REST APIs for users to have added visibility.
