@@ -3,7 +3,7 @@ layout: post
 title: "Update: OpenSearch Proposed 2022 Release Schedule"
 authors:
   - henkle
-date: 2022-02-24
+date: 2022-02-25
 categories:
   - partners
 twittercard:
