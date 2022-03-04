@@ -3,7 +3,7 @@ layout: post
 title:  "Auto Backport in OpenSearch"
 authors: 
   - vachshah
-date: 2022-03-01 01:01:01 -0700
+date: 2022-03-04 01:01:01 -0700
 categories: 
   - technical-post
 twittercard:
@@ -40,7 +40,7 @@ The current state of auto-backport after these learnings is:
 2. A GitHub App is used to create backport PRs so that CI workflows can trigger on such PRs.
 3. The backport branches from such PRs are deleted automatically once the backport PR is merged.
 
-![Figure 1: Backport automation]({{ site.baseurl }}/assets/media/blog-images/2022-03-01-auto-backport-in-opensearch/backport-automation.png){: .img-fluid }
+![Figure 1: Backport automation]({{ site.baseurl }}/assets/media/blog-images/2022-03-04-auto-backport-in-opensearch/backport-automation.png){: .img-fluid }
 
 ## Closing
 
