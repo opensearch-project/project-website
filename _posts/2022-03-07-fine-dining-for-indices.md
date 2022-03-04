@@ -4,14 +4,12 @@ title:  "Fine Dining for Indices"
 authors:
 - nateboot
 
-date: 2022-03-05
+date: 2022-03-07
 categories:
  - intro
 
 excerpt: "There are a lot of reasons you might want to fine-tune indices on an OpenSearch cluster. Every workflow has different requirements, and the default behavior of OpenSearch might not suit your use case. Before ingesting with reckless abandon to fill an index with data, enjoy some insight on tuning an index. "
 ---
-
-# Fine Dining for Indices
 
 ## Is Your Cluster Eating Healthy? 
 
@@ -109,6 +107,14 @@ There are also other options for keeping only specific pieces of the `_source` m
       ]
     }
   }
+```
+
+## Nutritional Information Available
+
+If you're worried about the size of your index, don't forget that you can always check the amount of disk space its using with an API call. Need a fun at-home experiment? Try defining two exact indices, one with `_source` and one without. How does their resource usage compare? 
+
+```
+GET /_cat/indices
 ```
 
 
