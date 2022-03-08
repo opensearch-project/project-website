@@ -52,7 +52,7 @@ POST dynamic_mapping_index/_doc
 {
 	"eat_me": "iron ration",
 	"drink_me": "potion of index familiarity",
-	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field if this document is ever retrieved.",
+	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field of this document is ever retrieved.",
 	"some_other_field": "This field is not in the mapping to exemplify Dynamic Mapping."
 }
 ```
@@ -301,14 +301,14 @@ A dash of data:
 ```
 POST exclude_index/_doc
 {
-  "eat_me": "iron ration",
-  "secret_ingredient": {
-       "msg": "yes I'm MSG, the flavor enhancer.", 
-       "salt": "I'm salt. Also a flavor enhancer."
-  },
-  "drink_me": "potion of index familiarity",
-  "dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field if this document is ever retrieved.",
-  "some_other_field": "This field is not in the mapping to exemplify Dynamic Mapping."
+	"eat_me": "iron ration",
+	"secret_ingredient": {
+		"msg": "yes I'm MSG, the flavor enhancer.", 
+		"salt": "I'm salt. Also a flavor enhancer."
+	},
+	"drink_me": "potion of index familiarity",
+	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field if this document is ever retrieved.",
+	"some_other_field": "This field is not in the mapping to exemplify Dynamic Mapping."
 }
 ```
 
@@ -317,12 +317,12 @@ What's leftover in `_source`?
 ```
 GET exclude_index/_doc/xxxXxXXxXxXx
 {
-  ...
-  "found" : true,
-  "_source" : {
-    "drink_me" : "potion of index familiarity",
-    "eat_me" : "iron ration"
-  }
+	...
+	"found" : true,
+	"_source" : {
+		"drink_me" : "potion of index familiarity",
+		"eat_me" : "iron ration"
+	}
 }
 ```
 
@@ -333,8 +333,59 @@ The `_source` is filtered down to only the elements described in the `include` a
 
 If you're worried about the size of your index, don't forget that you can always check the amount of disk space its using with an API call. Need a fun at-home experiment? Try defining two exact indices, one with `_source` and one without. How does their resource usage compare? 
 
+Here's how our examples are adding up so far: 
+
+
 ```
-GET /_cat/indices
+GET /_cat/indices/dynamic_mapping_index?format=json
+[
+  {
+    "health" : "green",
+    "status" : "open",
+    "index" : "dynamic_mapping_index",
+    "uuid" : "9g7x9PRoSyGcQp-3UMrP6g",
+    "pri" : "1",
+    "rep" : "1",
+    "docs.count" : "1",
+    "docs.deleted" : "0",
+    "store.size" : "10.1kb",
+    "pri.store.size" : "5kb"
+  }
+]
+
+
+GET _cat/indices/explicit_mapping_index?format=json
+[
+  {
+    "health" : "green",
+    "status" : "open",
+    "index" : "explicit_mapping_index",
+    "uuid" : "D66KzvYJSme5WZQU28YQDw",
+    "pri" : "1",
+    "rep" : "1",
+    "docs.count" : "1",
+    "docs.deleted" : "0",
+    "store.size" : "8.3kb",
+    "pri.store.size" : "4.1kb"
+  }
+]
+
+GET _cat/indices/exclude_index?format=json
+[
+  {
+    "health" : "green",
+    "status" : "open",
+    "index" : "exclude_index",
+    "uuid" : "3T4shiqERUS5qJTDm6qTWQ",
+    "pri" : "1",
+    "rep" : "1",
+    "docs.count" : "1",
+    "docs.deleted" : "0",
+    "store.size" : "13.8kb",
+    "pri.store.size" : "6.9kb"
+  }
+]
+
 ```
 
 
