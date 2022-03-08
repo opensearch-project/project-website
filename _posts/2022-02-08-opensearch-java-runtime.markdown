@@ -16,29 +16,31 @@ excerpt: ""
 ---
 At the time of the fork OpenSearch inherited bundling OpenJDK 15, and we have made 8 releases with AdoptOpenJDK 15.0.1+9 as the default runtime, replaced with Adoptium (Temurin) 17.0.2+8 in OpenSearch 1.3.0, which is a Long-Term Support (LTS) release. LTS releases focus on stability, therefore you can expect future versions of OpenSearch to always default to bundling an LTS JDK.
 
-| Version                                                         | Bundled JDK (Linux)         |
-|:---------------------------------------------------------------:|:---------------------------:|
-| [1.0.0](https://opensearch.org/versions/opensearch-1-0-0.html)  | AdoptOpenJDK 15.0.1+9       |
-| [1.0.1](https://opensearch.org/versions/opensearch-1-0-1.html)  | AdoptOpenJDK 15.0.1+9       |
-| [1.1.0](https://opensearch.org/versions/opensearch-1-1-0.html)  | AdoptOpenJDK 15.0.1+9       |
-| [1.2.0](https://opensearch.org/versions/opensearch-1-2-0.html)  | AdoptOpenJDK 15.0.1+9       |
-| [1.2.1](https://opensearch.org/versions/opensearch-1-2-1.html)  | AdoptOpenJDK 15.0.1+9       |
-| [1.2.2](https://opensearch.org/versions/opensearch-1-2-2.html)  | AdoptOpenJDK 15.0.1+9       |
-| [1.2.3](https://opensearch.org/versions/opensearch-1-2-3.html)  | AdoptOpenJDK 15.0.1+9       |
-| [1.2.4](https://opensearch.org/versions/opensearch-1-2-4.html)  | AdoptOpenJDK 15.0.1+9       |
-| [1.3.0](https://opensearch.org/versions/opensearch-1-3-0.html)  | Adoptium (Temurin) 17.0.2+8 |
+| Version                                                         | Bundled JDK (Linux)            |
+|:---------------------------------------------------------------:|:------------------------------:|
+| [1.0.0](https://opensearch.org/versions/opensearch-1-0-0.html)  | AdoptOpenJDK 15.0.1+9          |
+| [1.0.1](https://opensearch.org/versions/opensearch-1-0-1.html)  | AdoptOpenJDK 15.0.1+9          |
+| [1.1.0](https://opensearch.org/versions/opensearch-1-1-0.html)  | AdoptOpenJDK 15.0.1+9          |
+| [1.2.0](https://opensearch.org/versions/opensearch-1-2-0.html)  | AdoptOpenJDK 15.0.1+9          |
+| [1.2.1](https://opensearch.org/versions/opensearch-1-2-1.html)  | AdoptOpenJDK 15.0.1+9          |
+| [1.2.2](https://opensearch.org/versions/opensearch-1-2-2.html)  | AdoptOpenJDK 15.0.1+9          |
+| [1.2.3](https://opensearch.org/versions/opensearch-1-2-3.html)  | AdoptOpenJDK 15.0.1+9          |
+| [1.2.4](https://opensearch.org/versions/opensearch-1-2-4.html)  | AdoptOpenJDK 15.0.1+9          |
+| [1.3.0](https://opensearch.org/versions/opensearch-1-3-0.html)  | Adoptium (Temurin) 11.0.14.1+1 |
 
-This, however, doesn't tell the whole story. The OpenSearch distribution is comprised of the engine and a dozen plugins. Both the engine and each plugin is built and tested with a range of JDKs (a subset of 8, 11, 14, 15, 17, etc.), across multiple operating systems (Linux, Windows, FreeBSD, MacOS, etc.). Finally, the complete distribution is rebuilt from source, and tested with the bundled JDK.
+This, however, doesn't tell the whole story. The OpenSearch distribution is comprised of the engine and a dozen plugins. Both the engine and each plugin is built and tested with a range of JDKs (a subset of 8, 11, 14, 15, 17, etc.), across multiple operating systems (Linux, Windows, FreeBSD, MacOS, etc.). Finally, the complete distribution is rebuilt from source, and tested with the bundled JDK. And while we were claiming compatibility with JDK 8, we weren't running tests with that version for most plugins.
 
-### Versions 1.0-1.2.0
+### Versions 1.0 to 1.2.0
 
 The complete distribution 1.0 through 1.2.4 was built with JDK 14 and tested with the bundled JDK 15. Various individual components were built and tested individually with a different combination of JDKs, mostly 14. For example, the OpenSearch engine was built with JDK 14, but tested with JDK 8, 11, 14, but not 15. Different components individually used different versions for building and testing.  
 
 ### Version 1.3.0
 
-In 1.3.0 we have replaced version 14 with an LTS version 11 for builds, and are testing the complete distribution with the bundled version 17. All components build and test individually with JDK 8, 11, 14 and 17.
+In 1.3.0 we have replaced version 14 with an LTS version 11 for both builds and releases. All components build and test with JDK 8, 11, and 14.
 
-The parent issue for this change is [opensearch-build#74](https://github.com/opensearch-project/opensearch-build/issues/74). The change in OpenSearch engine was [OpenSearch#940](https://github.com/opensearch-project/OpenSearch/pull/940), and was followed by plug-ins, e.g. [security#1580](https://github.com/opensearch-project/security/pull/1580).
+The parent issues for this change were [opensearch-build#64](https://github.com/opensearch-project/opensearch-plugins/issues/64) and [opensearch-build#74](https://github.com/opensearch-project/opensearch-build/issues/74). The change in OpenSearch engine was [OpenSearch#940](https://github.com/opensearch-project/OpenSearch/pull/940), and was followed by plug-ins, e.g. [security#1580](https://github.com/opensearch-project/security/pull/1580). We also lowered the source and target Java versions back to 8 in [OpenSearch#2321](https://github.com/opensearch-project/OpenSearch/pull/2321) and fixed any incompatible code.
+
+Originally, we were also planning to upgrade the bundled JDK to 17 in this version, but ran into a number of issues. We decided to downgrade to JDK 11 in [OpenSearch#2301](https://github.com/opensearch-project/OpenSearch/pull/2301), and deferred upgrading to JDK 17 to 2.0.0 via [opensearch-plugins#129](https://github.com/opensearch-project/opensearch-plugins/issues/129).
 
 #### Customizing the OpenSearch Runtime
 
@@ -51,6 +53,8 @@ OpenSearch 1.3.0 is also introducing support for a new environment variable `OPE
 In OpenSearch 2.0 we will [upgrade Lucene to 9](https://github.com/opensearch-project/OpenSearch/pull/1109), which [requires JDK 11 or newer](https://cwiki.apache.org/confluence/display/LUCENE/Release+Notes+9.0). Furthermore, given that [Java 8 support ends in March 2022](https://endoflife.date/java), OpenSearch 2.0 will [drop support for JDK 8](https://github.com/opensearch-project/opensearch-plugins/issues/110).
 
 In 2.0.0 the complete distribution will be built with JDK 11, and tested with the bundled JDK 17. All individual components will be built and tested individually with JDK 11, 14 and 17.
+
+These changes were made in [OpenSearch#1368](https://github.com/opensearch-project/OpenSearch/pull/1368), [2007](https://github.com/opensearch-project/OpenSearch/pull/2007), [2025](https://github.com/opensearch-project/OpenSearch/pull/2025), and [2407](https://github.com/opensearch-project/OpenSearch/pull/2407). The remaining work in plugins is for adding support for JDK 17 in [opensearch-plugins#129](https://github.com/opensearch-project/opensearch-plugins/issues/129), upgrading to Gradle 7 in [opensearch-plugins#107](https://github.com/opensearch-project/opensearch-plugins/issues/107), and removing support for Java 8 in [opensearch-plugins#110](https://github.com/opensearch-project/opensearch-plugins/issues/110).
 
 ### No-JDK Distributions
 
