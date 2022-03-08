@@ -171,7 +171,7 @@ PUT explicit_mapping_index
 }
 ```
 
-Note the addition of `dynamic: false`. With this option in place, your mapping will never be automatically updated when ingesting a new field.  Let's repeat our previous experiment with this new **explicitly mapped** index. 
+Note the addition of `dynamic: false`. With this option in place, your mapping will never be automatically updated when ingesting a field that has not been seen before.  Let's repeat our previous experiment with this new **explicitly mapped** index. 
 
 ```
 POST explicit_mapping_index/_doc
@@ -210,7 +210,7 @@ GET explicit_mapping_index/_mapping
 
 ## Can I Keep the Recipe? 
 
-By default the entire document ingested is saved as a field named `_source`. This field can be disabled (it is by default enabled) when creating your index,  usually for storage space efficiency.  Ingested documents are indexed, but the originally submitted document is not stored. In this case, if you decide not to index every field encountered, the data will not be part of the index, nor will it be retrievable from the `_source` field. It will be lost to oblivion. 
+By default the entire document ingested is saved as a field named `_source`. This field can be disabled (it is by default enabled) when creating your index,  usually for storage space efficiency.  Ingested documents are indexed, but the originally submitted document is not stored. In this case, if you decide not to index every field encountered, the data will not be part of the index, nor will it be retrievable from the `_source` field. 
 
 Consider this index creation API call that would disable saving the `_source` field: 
 
