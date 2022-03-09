@@ -4,7 +4,7 @@ title:  "Fine Dining for Indices"
 authors:
 - nateboot
 
-date: 2022-03-07
+date: 2022-03-09
 categories:
  - intro
 
@@ -40,24 +40,24 @@ PUT dynamic_mapping_index
 }
 ```
 
-`dynamic_mapping_index` will refuse to index any ingested fields  called `dont_index_me`. If you later decide to retrieve the document you will still find the fields and values stored in the `_source` element. **This tradeoff is one of efficiency.** The size of your index will be somewhat proportional to the amount of data you store in it. Deciding not to index certain fields means a smaller index, which means a smaller cluster. 
+`dynamic_mapping_index` will refuse to index any ingested fields  called `dont_index_me`. If you later decide to retrieve the document you will still find the fields and values stored in the `_source` object. **This tradeoff is one of efficiency.** The size of your index will be somewhat proportional to the amount of data you store in it. Deciding not to index certain fields means a smaller index, which means a smaller cluster. 
 
 
 ## The Proof is in the Pudding 
 
-Let's see it in action. We'll put some data in that we know won't be stored, and then we'll query for that data. Remember, the field `dont_index_me` is explicitly  not stored in the index due to the mapping we provided with `index: false`
+How does this work in action? Remember, the field `dont_index_me` is explicitly not part of the index because of the mapping property of `index: false`. So, when you add a document with this field it isn't being added to the index but is being stored.
 
 ```
 POST dynamic_mapping_index/_doc
 {
 	"eat_me": "iron ration",
 	"drink_me": "potion of index familiarity",
-	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field of this document is ever retrieved.",
+	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` object of this document is ever retrieved.",
 	"some_other_field": "This field is not in the mapping to exemplify Dynamic Mapping."
 }
 ```
 
-Let's try to search our index using the field `dont_index_me`: 
+Let us try a search query using the field `dont_index_me`: 
 
 ```
 GET dynamic_mapping_index/_search
@@ -90,7 +90,7 @@ You'll be met with an error message.
 
 ```
 
-However, retrieve the document you stored and you'll see that `dont_index_me` is in the `_source` field. 
+However, retrieve the document you stored and you'll see that `dont_index_me` is in the `_source` object. 
 
 ```
 
@@ -101,7 +101,7 @@ GET dynamic_mapping_index/_doc/xxxxxxxxxxx
   "_source" : {
     "eat_me" : "iron ration",
     "drink_me" : "potion of index familiarity",
-    "dont_index_me" : "I'm expecting this field to be ingested, but I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field if this document's id is retrieved",
+    "dont_index_me" : "I'm expecting this field to be ingested, but I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` object if this document's id is retrieved",
     "some_other_field" : "This should exemplify dynamic mapping when we check the mapping later."
   }
 }
@@ -109,7 +109,8 @@ GET dynamic_mapping_index/_doc/xxxxxxxxxxx
 
 ```
 
-Let's at last check the mapping for our `dynamic_mapping_index` - 
+If you look at the mapping for `dynamic_mapping_index` - 
+
 ```
 GET dynamic_mapping_index/_mapping
 {
@@ -141,7 +142,7 @@ GET dynamic_mapping_index/_mapping
 }
 ```
 
-Wait a second - ingesting a field that wasn't explicitly mapped added a new mapping. `some_other_field` wasn't there in the mapping until we just happened to post it with a new document. This exemplifies a great dining tip: 
+Wait a second - ingesting a field that wasn't explicitly mapped added a new mapping. `some_other_field` wasn't there in the mapping until a new document was added that contained that field. This exemplifies a great dining tip: 
 
 ## Please Ingest Responsibly!
 
@@ -178,7 +179,7 @@ POST explicit_mapping_index/_doc
 {
 	"eat_me": "iron ration",
 	"drink_me": "potion of index familiarity",
-	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field if this document is ever retrieved.",
+	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` object if this document is ever retrieved.",
         "some_other_field": "This field is not in the mapping to exemplify Dynamic Mapping."
 }
 ```
@@ -210,9 +211,9 @@ GET explicit_mapping_index/_mapping
 
 ## Can I Keep the Recipe? 
 
-By default the entire document ingested is saved as a field named `_source`. This field can be disabled (it is by default enabled) when creating your index,  usually for storage space efficiency.  Ingested documents are indexed, but the originally submitted document is not stored. In this case, if you decide not to index every field encountered, the data will not be part of the index, nor will it be retrievable from the `_source` field. 
+By default the entire document is ingested to the `_source` object. `_source` can be disabled (it is by default enabled) when creating your index,  usually for storage space efficiency.  Ingested documents are indexed, but the originally submitted document is not stored. In this case, if you decide not to index every field encountered, the data will not be part of the index, nor will it be retrievable from the `_source` object. 
 
-Consider this index creation API call that would disable saving the `_source` field: 
+Consider this index creation API call that would disable saving the `_source` object: 
 
 ```
 PUT no_source_index
@@ -243,7 +244,7 @@ POST no_source_index/_doc
 {
   "eat_me": "iron ration",
   "drink_me": "potion of index familiarity",
-  "dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field if this document is ever retrieved.",
+  "dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` object if this document is ever retrieved.",
   "some_other_field": "This field is not in the mapping to exemplify Dynamic Mapping."
 }
 ```
@@ -266,7 +267,7 @@ GET no_source_index/_doc/xxxxxxxxxxx
 
 ## Save the Leftovers? 
 
-There are also other options for keeping only specific pieces of the `_source` material after indexing. This retains the `_source` document, but not in its entirety.  While this may reduce the size of the resulting `_source` field, you will lose the data you exclude if it were to be re-indexed, an operation that takes all of the documents `_source` fields in an index and re-processes them into a new index. 
+There are also other options for keeping only specific pieces of the `_source` material after indexing. This retains the `_source` document, but not in its entirety.  While this may reduce the size of the resulting `_source` object, you will lose the data you exclude if it were to be re-indexed, an operation that takes all of the documents `_source` objects in an index and re-processes them into a new index. 
 
 One more index: 
 
@@ -307,7 +308,7 @@ POST exclude_index/_doc
 		"salt": "I'm salt. Also a flavor enhancer."
 	},
 	"drink_me": "potion of index familiarity",
-	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` field if this document is ever retrieved.",
+	"dont_index_me": "I'm expecting this field to be ingested, but because I'm familiar with my data I know beforehand I don't need it. It will not be indexed and won't be returned in search queries. It will be retrievable in the `_source` object if this document is ever retrieved.",
 	"some_other_field": "This field is not in the mapping to exemplify Dynamic Mapping."
 }
 ```
@@ -395,7 +396,7 @@ A lot of index functionality is controlled by these small, sometimes overlooked 
 
 ## How Was The Service Today?
 
-As a community its important to know whether we’re advocating for all of the users. Please get involved and let us know if we’re providing what is needed to make the most out of OpenSearch. Whether via the [GitHub Project](https://github.com/opensearch-project), the [community forums](https://discuss.opendistrocommunity.dev/) or any of the other ways you can [connect with the community.](https://opensearch.org/connect.html) 
+As a community its important to know the team is advocating for all of the users. Please get involved and speak up if you find anything that would help you get more out of OpenSearch.  Whether via the [GitHub Project](https://github.com/opensearch-project), the [community forums](https://discuss.opendistrocommunity.dev/) or any of the other ways you can [connect with the community.](https://opensearch.org/connect.html) 
 
 
 
