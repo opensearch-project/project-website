@@ -87,4 +87,6 @@ sidebar:
                 title: 'Keeping Open Source Open'
                 url: https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/
 
+notice : true
+
 ---
