@@ -13,8 +13,6 @@ twittercard:
     description: "With this latest version of the OpenSearch distribution (OpenSearch, OpenSearch Dashboards, as well as plugins and tools) you can enjoy a number of new features and enhancements as well as improvements to stability and efficiency."
 ---
 
-# OpenSearch 1.3.0 is out now!
-
 With this latest version of the OpenSearch distribution (OpenSearch, OpenSearch Dashboards, as well as plugins and tools) you can enjoy a number of new features and enhancements as well as improvements to stability and efficiency.
 
 One of the major new additions to 1.3.0 is a set of tools for observability between logs, metrics, and other live data. When critical, event-based information is correlated with other application or system data and reported centrally, availability issues are easier to identify and resolve. Try these new tools out (see Observability, below) and let the community know what you think.
