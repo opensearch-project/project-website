@@ -14,7 +14,7 @@ twittercard:
 excerpt: ""
 
 ---
-At the time of the fork OpenSearch inherited bundling OpenJDK 15, and we have made 8 releases with AdoptOpenJDK 15.0.1+9 as the default runtime, replaced with Adoptium (Temurin) 11.0.14.1+1 in OpenSearch 1.3.0, which is a Long-Term Support (LTS) release. LTS releases focus on stability, therefore you can expect future versions of OpenSearch to always default to bundling an LTS JDK.
+At the time of the fork OpenSearch inherited bundling OpenJDK 15, and we have made 8 releases with AdoptOpenJDK 15.0.1+9 as the default runtime, replaced with Adoptium (Temurin) 11.0.14.1+1 in OpenSearch 1.3.0. This change was primarily driven by the fact that JDK 11 is a Long-Term Support (LTS) release and JDK 15 is not. LTS releases focus on stability, therefore you can expect future versions of OpenSearch to always default to bundling an LTS JDK.
 
 | Version                                                         | Bundled JDK (Linux)            |
 |:---------------------------------------------------------------:|:------------------------------:|
