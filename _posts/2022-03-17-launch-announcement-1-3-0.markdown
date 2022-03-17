@@ -29,25 +29,25 @@ Users can now create custom Observability Applications to view the availability 
 
 * **App Analytics**: In the past, users had to collate logs, traces, and metrics in separate views which made application monitoring difficult. With App Analytics Dashboards, users can now view application logs, traces, and metrics in one view instead of moving between different visualizations.
 
-![App Analytics Dashboard]({{ site.baseurl }}/assets/media/blog-images/2022-03-16-Launch-Announcement-1-3-0/App-Analytics.gif){: .img-fluid }
+![App Analytics Dashboard]({{ site.baseurl }}/assets/media/blog-images/2022-03-17-Launch-Announcement-1-3-0/App-Analytics.gif){: .img-fluid }
 
 * **Trace ID Correlation**: Users who regularly track events across applications will now be able to use correlation ID (based on the [Open Telemetry specification](https://opentelemetry.io/docs/reference/specification/logs/overview/#log-correlation)) to tie events together when viewing events and in-context visualizations.
 
-![Trace log Analytics]({{ site.baseurl }}/assets/media/blog-images/2022-03-16-Launch-Announcement-1-3-0/trace-log-correlation.gif){: .img-fluid }
+![Trace log Analytics]({{ site.baseurl }}/assets/media/blog-images/2022-03-17-Launch-Announcement-1-3-0/trace-log-correlation.gif){: .img-fluid }
 
 * **Live Tail**: Previously, when users were watching a live event take place, they had to manually refresh their view. Users can now configure the interval in which content is refreshed saving the hassle of manually refreshing.
 
-![Live Tail View]({{ site.baseurl }}/assets/media/blog-images/2022-03-16-Launch-Announcement-1-3-0/Live-Tail.gif){: .img-fluid }
+![Live Tail View]({{ site.baseurl }}/assets/media/blog-images/2022-03-17-Launch-Announcement-1-3-0/Live-Tail.gif){: .img-fluid }
 
 * **Field Insights and Enhanced Visualization Support**: Visualization types such as pie and heat maps were added as well as the ability to add named threshold markers as lines on the visualizations. When users want to know more about a metric that they are looking at, they can select "View surrounding events" to get a correlated picture. In the event a user needs a reference point for a future meeting, visualizations can now be saved to notebooks for convenience.
 
-![Field Insights View]({{ site.baseurl }}/assets/media/blog-images/2022-03-16-Launch-Announcement-1-3-0/field-insights.gif){: .img-fluid }
+![Field Insights View]({{ site.baseurl }}/assets/media/blog-images/2022-03-17-Launch-Announcement-1-3-0/field-insights.gif){: .img-fluid }
 
 ### SQL and PPL
 
 * **PPL Runtime Fields**: Users may opt out of formatting the schema upon writing the index (schema-on-write). This opt out can be used to speed up indexing time, or for additional presentation flexibility. Users who want to define their schema upon querying the index (schema-on-read), can now use regex and parse commands to further format their schema using PPL.
 
-![PPL runtime workflow]({{ site.baseurl }}/assets/media/blog-images/2022-03-16-Launch-Announcement-1-3-0/PPL-Parse.gif){: .img-fluid }
+![PPL runtime workflow]({{ site.baseurl }}/assets/media/blog-images/2022-03-17-Launch-Announcement-1-3-0/PPL-Parse.gif){: .img-fluid }
 
 
 * **Machine Learning Support in PPL (Piped Processing Language):** Users can now process arbitrary observability events using Anomaly Detection based on Random Cut Forest (RCF) and K-means commands in PPL.
@@ -77,6 +77,10 @@ Users can now create custom Observability Applications to view the availability 
 In planned future enhancements (see What’s Next, below), the OpenSearch 2.0.0 release will add distribution support for DEB X64 and RPM ARM64 in addition the those already offered.
 
 You can keep informed about upcoming distributions on the [distribution roadmap](https://github.com/orgs/opensearch-project/projects/13).
+
+## RPM & Debian Distributions
+
+As of yesterday (March 16), the team identified the [roadmap](https://github.com/orgs/opensearch-project/projects/1) for 1.3.0 included references to RPM and Debian distributions. In late January, the distribution efforts started to be [tracked on a separate board](https://github.com/orgs/opensearch-project/projects/13) as distributions were decoupled from version releases. In this transition, the cards for RPM and Debian distributions were never removed from the 1.3.0 roadmap. The team regrets this error and have put measures into place to ensure that the roadmap will be more accurate moving forward.
 
 ## What’s Next?
 
