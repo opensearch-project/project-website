@@ -16,12 +16,12 @@ excerpt: ""
 ---
 At the time of the fork OpenSearch inherited bundling OpenJDK 15, and we have made 8 releases with AdoptOpenJDK 15.0.1+9 as the default runtime, replaced with Adoptium (Temurin) 11.0.14.1+1 in OpenSearch 1.3.0. This change was primarily driven by the fact that JDK 11 is a Long-Term Support (LTS) release and JDK 15 is not. LTS releases focus on stability, therefore you can expect future versions of OpenSearch to always default to bundling an LTS JDK.
 
-| Version                                                                                                                       | Bundled JDK (Linux)            |
-|:-----------------------------------------------------------------------------------------------------------------------------:|:------------------------------:|
-| [1.0.0](https://opensearch.org/versions/opensearch-1-0-0.html)-[1.2.4](https://opensearch.org/versions/opensearch-1-2-4.html) | AdoptOpenJDK 15.0.1+9          |
-| [1.3.0](https://opensearch.org/versions/opensearch-1-3-0.html)                                                                | Adoptium (Temurin) 11.0.14.1+1 |
+| Version                                                                                                                       | Bundled JDK (Linux)            | Tested JDKs     |
+|:-----------------------------------------------------------------------------------------------------------------------------:|:------------------------------:|:---------------:|
+| [1.0.0](https://opensearch.org/versions/opensearch-1-0-0.html)-[1.2.4](https://opensearch.org/versions/opensearch-1-2-4.html) | AdoptOpenJDK 15.0.1+9          | 11, 14, 15      |
+| [1.3.0](https://opensearch.org/versions/opensearch-1-3-0.html)                                                                | Adoptium (Temurin) 11.0.14.1+1 | 8, 11, 14       |
 
-This, however, doesn't tell the whole story. The OpenSearch distribution is comprised of the engine and a dozen plugins. Both the engine, and each plugin, are built and tested with a range of JDKs (a subset of 8, 11, 14, 15, and 17), across multiple operating systems (Linux, Windows, FreeBSD, and MacOS). Then, the complete distribution is rebuilt from source, and tested with the bundled JDK. Finally, while we were claiming compatibility with JDK 8, we weren't running tests with that version for most plugins, nor were they actually built to target JDK8 in most components.
+This, however, doesn't tell the whole story. The OpenSearch distribution is comprised of the engine and a dozen plugins. Both the engine, and each plugin, are built and tested with a range of JDKs (a subset of 8, 11 LTS, 14, 15, and 17), across multiple operating systems (Linux, Windows, FreeBSD, and MacOS). Then, the complete distribution is rebuilt from source, and tested with the bundled JDK. Finally, while we were claiming compatibility with JDK 8, we weren't running tests with that version for most plugins, nor were they actually built to target JDK8 in most components.
 
 ### Versions 1.0 to 1.2.0
 
