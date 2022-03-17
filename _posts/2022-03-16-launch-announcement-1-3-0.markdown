@@ -6,7 +6,7 @@ authors:
   - jadhanir
   - jdbright
   - ylwu
-date: 2022-03-16 08:50:01
+date: 2022-03-17 08:50:01
 categories:
   - releases
 twittercard:
@@ -21,11 +21,11 @@ Here is a list of major and minor feature enhancements that have been included i
 
 ### Index State Management
 
-* **Continuous Mode in Transform**: With this release, you can now run transforms in a continuous mode based on a schedule. This enables you to keep an incremental transform job running on a group of source indices actively ingesting new data. At each run, only the modified buckets will be transformed, reducing the overhead for users who want to their transform up to date.
+* **Continuous Mode in Transform**: With this release, you can now run transforms in a continuous mode based on a schedule. This enables you to keep an incremental transform job running on a group of source indices actively ingesting new data. At each run, only the modified buckets will be transformed, reducing the overhead for users who want to keep their transform up-to-date.
 
 ### Observability
 
-Customers can now create custom Observability Applications to view the availability status of all their systems, where log events can be combined with trace and metric data, into a single view of system health empowering developers and IT Ops to resolve issues faster and with fewer escalations.
+Users can now create custom Observability Applications to view the availability status of all their systems, where log events can be combined with trace and metric data, into a single view of system health empowering developers and IT Ops to resolve issues faster and with fewer escalations.
 
 * **App Analytics**: In the past, users had to collate logs, traces, and metrics in separate views which made application monitoring difficult. With App Analytics Dashboards, users can now view application logs, traces, and metrics in one view instead of moving between different visualizations.
 
@@ -39,7 +39,7 @@ Customers can now create custom Observability Applications to view the availabil
 
 ![Live Tail View]({{ site.baseurl }}/assets/media/blog-images/2022-03-16-Launch-Announcement-1-3-0/Live-Tail.gif){: .img-fluid }
 
-* **Field Insights and Enhanced Visualization Support**: Visualization types such as Pie and heat maps were added as well as the ability to add named threshold markers as lines on the visualizations. When users want to know more about a metric that they are looking at, they can select view surrounding events to get a correlated picture. In the event a user needs a reference point for a future meeting, visualizations can now be saved to notebooks for convenience.
+* **Field Insights and Enhanced Visualization Support**: Visualization types such as pie and heat maps were added as well as the ability to add named threshold markers as lines on the visualizations. When users want to know more about a metric that they are looking at, they can select "View surrounding events" to get a correlated picture. In the event a user needs a reference point for a future meeting, visualizations can now be saved to notebooks for convenience.
 
 ![Field Insights View]({{ site.baseurl }}/assets/media/blog-images/2022-03-16-Launch-Announcement-1-3-0/field-insights.gif){: .img-fluid }
 
@@ -50,13 +50,13 @@ Customers can now create custom Observability Applications to view the availabil
 ![PPL runtime workflow]({{ site.baseurl }}/assets/media/blog-images/2022-03-16-Launch-Announcement-1-3-0/PPL-Parse.gif){: .img-fluid }
 
 
-* **Machine Learning Support in PPL (Piped Processing Language):** Users can now process arbitrary observability events using Anomaly Detection based on Random Cut Forest (RCF) and KMeans commands in PPL.
-* **Improved Aggregate Functions Support in SQL and PPL**: Users expect to use aggregate functions in SQL and PPL. OpenSearch SQL and PPL now supports ORDER BY and default query limit size.
+* **Machine Learning Support in PPL (Piped Processing Language):** Users can now process arbitrary observability events using Anomaly Detection based on Random Cut Forest (RCF) and K-means commands in PPL.
+* **Improved Aggregate Functions Support in SQL and PPL**: Users expect to use aggregate functions in SQL and PPL. OpenSearch SQL and PPL now supports `ORDER BY` and default query limit size.
 * **Support for Group Field and Span in Stats Command**: Users can now use group fields together and can span by a specified interval using the Stats command in PPL. Also, users can now create multiple time series’ with a single command.
 * **Comma-Separated Index Matching**: Users can now query multiple indices using a comma separated value using PPL.
-* **CAST Function Supported in PPL**: Users can now change datatypes using the CAST function in PPL.
-* **Support IN Clause in SQL and PPL**: Users can now use the IN clause within SQL and PPL to select from within a value list.
-* **Support date_nanos in SQL and PPL**: Users can now search on indices with the field type of data_nanos.
+* **CAST Function Supported in PPL**: Users can now change datatypes using the `CAST` function in PPL.
+* **Support IN Clause in SQL and PPL**: Users can now use the `IN` clause within SQL and PPL to select from within a value list.
+* **Support date_nanos in SQL and PPL**: Users can now search on indices with the field type of `data_nanos`.
 
 ### Alerting
 
@@ -70,7 +70,7 @@ Customers can now create custom Observability Applications to view the availabil
 
 * **Machine Learning (ML) Commons:** A new solution that makes it easy to develop new machine learning features. It allows engineers to leverage existing open source machine learning algorithms and reduce the efforts to build them from scratch. It also removes the necessity from engineers to manage the machine learning tasks which will help to speed the feature developing process.
 * **K-Means and Random Cut Forest Algorithm Support**:
-    * Kmeans, an oft-used "clustering" algorithm, is now supported in OpenSearch.
+    * K-means, an oft-used "clustering" algorithm, is now supported in OpenSearch.
     * Random Cut Forest (RCF), an unsupervised algorithm for detecting anomalous data points within a data set, is now supported in OpenSearch..
 * Both are available in ML Commons and can be accessed via the PPL user interface.
 
@@ -80,14 +80,14 @@ You can keep informed about upcoming distributions on the [distribution roadmap]
 
 ## What’s Next?
 
-We have a number of features in-progress (see the OpenSearch Roadmap). Below we’ve highlighted a few;
+We have a number of features in-progress (see the OpenSearch Roadmap). Below we’ve highlighted a few:
 
 * **Document Returning Alerts**: The new monitor type makes it easy to execute rules against log groups such as flow logs and DNS logs. Instead of a summary of the alerts triggered like in query or bucket based alerts, the monitor returns document ids for additional analysis and review.
 * **Search Backpressure**: This feature aims to enhance the overall resiliency of OpenSearch and will introduce constructs to have fair rejections, minimize wasted work, improved search request cost estimation, and adds the ability to stabilize a cluster when under duress.
 * **Search Memory Tracking**: The tasks framework already tracks latency and has some context about the query/work being done. The goal of this feature is to enhance this to start tracking additional stats of memory and CPU consumed per task allowing the tracking the cluster-wide resource consumption by a query.
 * **Drag and Drop**: The new drag and drop experience will allow users of OpenSearch Dashboards to create data visualizations and gather insights without preselecting the visualization output and with the flexibility to change visualization types and index patterns on the fly.
 
-In addition, OpenSearch 2.0.0 is already in development! The primary driver for the team to have an earlier 2.0.0 release is so that OpenSearch can get support for Lucene 9.0.0 in earlier. This change will likely enable some use of new Lucene features within the plugins, like KNN and Vector Field types. This release also allows for other breaking changes to be ready earlier, like inclusive naming. A few highlights include;
+In addition, OpenSearch 2.0.0 is already in development! The primary driver for the team to have an earlier 2.0.0 release is so that OpenSearch can get support for Lucene 9.0.0 in earlier. This change will likely enable some use of new Lucene features within the plugins, like KNN and Vector Field types. This release also allows for other breaking changes to be ready earlier, like inclusive naming. A few highlights include:
 
 * **Lucene 9.0.0**: Lucene 9.0.0 includes several new features and performance improvements ([Lucene 9.0.0 Documentation](https://lucene.apache.org/core/9_0_0/index.html)) that OpenSearch would like to make available to users, including K-NN support, Vectors, Big Endian, faster numeric indexing, faster sorting, concurrent merge scheduler, and prototype Java Jigsaw module support. Starting to use Lucene 9.0.0 as soon as possible is a priority. It will take a few releases to leverage the full value of it, but adding it with 2.0.0. is so exciting and has loads of potential for OpenSearch.
 * **Node.js Upgrade**: OpenSearch Dashboards needs to upgrade the Node.js version from the current version, 10.24.1, which is no longer in support to a newer version. The target version of node for the upgrade will be v14.18.1. Node v14 which will be in LTS until 2023.
