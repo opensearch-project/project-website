@@ -6,7 +6,7 @@ authors:
   - smortex
   - reta
   - ryanbogan
-date: 2022-03-17
+date: 2022-03-21
 categories:
   - technical-post
 twittercard:
@@ -45,13 +45,13 @@ OpenSearch 1.3.0 is also introducing support for a new environment variable `OPE
 
 In OpenSearch 2.0 we [are upgrading Lucene to 9.0](https://github.com/opensearch-project/OpenSearch/pull/1109), which [requires JDK 11 or newer](https://cwiki.apache.org/confluence/display/LUCENE/Release+Notes+9.0). Furthermore, given that [Java 8 support ends in March 2022](https://endoflife.date/java), OpenSearch 2.0 will [drop support for JDK 8](https://github.com/opensearch-project/opensearch-plugins/issues/110).
 
-In 2.0.0 the complete distribution will be built with JDK 11, and tested with the bundled JDK 17. All individual components will be built and tested individually with JDK 11, 14 and 17.
+In 2.0.0 the complete distribution will be built with JDK 11, and tested with the bundled JDK 17. All individual components will be built and tested individually with JDK 11 and 17. Building and testing with JDK 14 and 15 is up for a discussion in [opensearch-plugins#132](https://github.com/opensearch-project/opensearch-plugins/issues/132).
 
 These changes were made in [OpenSearch#1368](https://github.com/opensearch-project/OpenSearch/pull/1368), [2007](https://github.com/opensearch-project/OpenSearch/pull/2007), [2025](https://github.com/opensearch-project/OpenSearch/pull/2025), and [2407](https://github.com/opensearch-project/OpenSearch/pull/2407). The remaining work in plugins is for adding support for JDK 17 in [opensearch-plugins#129](https://github.com/opensearch-project/opensearch-plugins/issues/129), upgrading to Gradle 7 in [opensearch-plugins#107](https://github.com/opensearch-project/opensearch-plugins/issues/107), and removing support for Java 8 in [opensearch-plugins#110](https://github.com/opensearch-project/opensearch-plugins/issues/110).
 
 ### Benchmarking JDKs
 
-Before switching JVMs we wanted to understand the performance impact of upgrading to JDK 17. Benchmarking tests were run across JDK 8, 11, 14, 15, and 17 with both the x64 and ARM versions of OpenSearch-min. Latency and throughput were the primary metrics recorded. JDK 17 consistently outperformed the rest of JDKs. JDK 15 was the closest to the metrics of JDK 17, followed by JDK 8 and 11. Meanwhile, JDK 14 was significantly slower than the other choices. Based on the results, JDK 17 was decisively the best option for running OpenSearch and we are looking forward to shipping it by default in OpenSearch 2.0. See [OpenSearch#1276](https://github.com/opensearch-project/OpenSearch/issues/1276) for details and numbers.
+Before switching JVMs we wanted to understand the performance impact of upgrading to JDK 17. Benchmarking tests were run across JDK 8, 11, 14, 15, and 17 with both the x64 and ARM versions of OpenSearch-min. We primarily evaluated latency and throughput. JDK 17 consistently outperformed the rest of JDKs. JDK 15 was the closest to the metrics of JDK 17, followed by JDK 8 and 11. Meanwhile, JDK 14 was significantly slower than the other choices. Based on the results, JDK 17 was decisively the best option for running OpenSearch and we are looking forward to shipping it by default in OpenSearch 2.0. See [OpenSearch#1276](https://github.com/opensearch-project/OpenSearch/issues/1276) for details and numbers.
 
 ### No-JDK Distributions
 
