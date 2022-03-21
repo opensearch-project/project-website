@@ -30,7 +30,7 @@ offer the opportunity to rename, copy, add, or even delete entries in events. Us
 for example, would allow a user to add in an entry to their data to help debug the flow of data:
 
 
-```
+```yaml
 ...
 processor:
   - add_entries:
@@ -44,7 +44,7 @@ The mutate string processors offer tools to manipulate strings in the incoming d
 a string into an array. Simply add this processor:
 
 
-```
+```yaml
 ...
 processor:
   - split_string:
@@ -67,7 +67,7 @@ which can filter out specified log events. Say you are collecting web request lo
 non-successful requests. You could create a pipeline which drops any requests where the response is less than 400 
 so that only HTTP status codes 400 and above remain. The following example pipeline shows how you could configure this.
 
-```
+```yaml
 log-pipeline:
   source:
     http:
@@ -96,10 +96,10 @@ value of `q` from a query string. Data Prepper’s new
 [key-value processor](https://github.com/opensearch-project/data-prepper/blob/main/data-prepper-plugins/key-value-processor/README.md) 
 provides robust support for extracting keys and values from strings like these.
 
-The following example shows how you could use the new split_string processor and key_value processor to get query 
+The following example shows how you could use the new `split_string` processor and `key_value` processor to get query 
 parameters from an Apache log line.
 
-```
+```yaml
 processor:
   - grok:
       match:
@@ -117,7 +117,7 @@ processor:
 
 ## Setting Timestamps on Events
 
-Data Prepper new provides a new 
+Data Prepper provides a new 
 [date processor](https://github.com/opensearch-project/data-prepper/blob/main/data-prepper-plugins/date-processor/README.md) 
 to allow pipeline authors to configure the timestamp. This gives pipeline authors a couple options. The first option 
 is to parse a field in the current Event according to a date-time pattern. This is useful if your log events already 
@@ -154,7 +154,7 @@ The following pipeline configuration extracts fields of `sourceIp`, `destination
 processor, and then aggregates on those fields over a period of 30 seconds using the `aggregate` processor and 
 the `put_all` action. At the end of the 30 seconds, the aggregated log is sent to the OpenSearch sink.
 
-```
+```yaml
 aggregate_pipeline:  
    source:
      http:
@@ -177,7 +177,7 @@ aggregate_pipeline:
 
 Given the following batch of logs:
 
-```
+```json
   { "log": "127.0.0.1 192.168.0.1 80", "status": 200 }
   { "log": "127.0.0.1 192.168.0.1 80", "bytes": 1000 }
   { "log": "127.0.0.1 192.168.0.1 80" "http_verb": "GET" }
@@ -185,7 +185,7 @@ Given the following batch of logs:
 
 The grok processor will extract the `identification_keys` to create the following logs:
 
-```
+```json
   { "sourceIp": "127.0.0.1", "destinationIp": "192.168.0.1", "port": 80, "status": 200 }
   { "sourceIp": "127.0.0.1", "destinationIp": "192.168.0.1", "port": 80, "bytes": 1000 }
   { "sourceIp": "127.0.0.1", "destinationIp": "192.168.0.1", "port": 80, "http_verb": "GET" }
@@ -194,13 +194,13 @@ The grok processor will extract the `identification_keys` to create the followin
 And when the group is concluded after a duration of 30 seconds from the time that the first log is 
 received by the `aggregate` processor, the following aggregated log will be shipped to the sink:
 
-```
+```json
 { "sourceIp": "127.0.0.1", "destinationIp": "192.168.0.1", "port": 80, "status": 200, "bytes": 1000, "http_verb": "GET" }
 ```
 
 ## Other Improvements
 
-In addition to the new features already described, we have made a few other improvements to Data Prepper.
+In addition to the new features already described, Data Prepper 1.3.0 has a few other improvements.
 
 * Many OpenSearch users setup rolling indexes based on time to help reduce storage costs. You can now configure Data Prepper to use a date and time pattern in your index names for log-based indexes. Data Prepper can also convert index names with date-time patterns from your Logstash configuration files.
 * Data Prepper now uses the term “Processor” instead of “Prepper” in pipelines. This disambiguates the Data Prepper product from the processors which provide enrichment and transformation.
@@ -217,7 +217,7 @@ has other important features coming. We’d especially like to highlight the fol
 
 You can see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1) to see other 
 upcoming changes. If there are any features on the roadmap that you are most interested in, please comment on the 
-issue to help us prioritize issues. You can also request any changes by creating a 
+issue to help the team prioritize issues. You can also request any changes by creating a 
 [GitHub issue](https://github.com/opensearch-project/data-prepper/issues/new/choose). This project is open source 
 and we are happy to accept [community contributions](https://github.com/opensearch-project/data-prepper/blob/main/CONTRIBUTING.md).
 
