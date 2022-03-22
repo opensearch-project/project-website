@@ -18,7 +18,7 @@ components:
     version: 7.16.3
   - role: ingest
     artifact: data-prepper
-    version: data-prepper-1.2.1
+    version: data-prepper-1.3.0
     platform_order:
       - docker
       - linux
