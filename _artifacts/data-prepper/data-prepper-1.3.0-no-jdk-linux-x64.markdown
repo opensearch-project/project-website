@@ -9,4 +9,4 @@ artifact_url: https://artifacts.opensearch.org/data-prepper/1.3.0/opensearch-dat
 signature: https://artifacts.opensearch.org/data-prepper/1.3.0/opensearch-data-prepper-1.3.0-linux-x64.tar.gz.sig
 slug: data-prepper-1.3.0-linux-x64
 category: opensearch
----data
+---
