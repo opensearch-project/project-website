@@ -36,7 +36,8 @@ Taking the above into consideration, here’s how I think the majors and minors 
 |Version	|Feature Freeze	|Release Date	|
 |-------------	|-------------	|-------------	|
 |1.3.0	|March 9th	|March 15th	|
-|2.0.0 RC	|Core: March 21st <br>Plugins and Clients: April 18th	|April 26th	|
+|2.0.0 RC	|Core: March 21st|April 26th	|
+| 	|Plugins and Clients: April 18th	| 	|
 |2.0.0 GA	|May 2nd	|May 12th	|
 |2.1.0	|June 23rd	|June 30th	|
 |2.2.0	|August 4th	|August 11th	|
