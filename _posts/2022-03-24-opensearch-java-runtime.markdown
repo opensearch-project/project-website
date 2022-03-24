@@ -11,10 +11,10 @@ categories:
   - technical-post
 twittercard:
   description: "OpenSearch ships with a bundled Java Development Kit (JDK) that has recently been updated to version 11 (LTS). In this blog post we'll explain this change, and describe new features that make swapping the Java runtime easier."
-excerpt: ""
+excerpt: "OpenSearch ships with a bundled Java Development Kit (JDK) that has recently been updated to version 11 (LTS)."
 
 ---
-At the time of the fork OpenSearch inherited bundling OpenJDK 15, and eight releases have used AdoptOpenJDK 15.0.1+9 as the default runtime, replaced with Adoptium (Temurin) 11.0.14.1+1 in OpenSearch 1.3.0. This change was primarily driven by the fact that JDK 11 is a Long-Term Support (LTS) release, and JDK 15 is not. LTS releases of JDKs focus on stability, therefore you can expect future versions of OpenSearch to always default to bundling an LTS JDK.
+At the time of the fork OpenSearch inherited bundling OpenJDK 15, and eight releases have used AdoptOpenJDK 15.0.1+9 as the default runtime, replaced with Adoptium (Temurin) 11.0.14.1+1 in OpenSearch 1.3.0. This change was primarily driven by the fact that JDK 11 is a Long-Term Support (LTS) release, and JDK 15 is not. LTS releases of JDKs focus on stability, therefore you can expect future versions of OpenSearch to always default to bundling a LTS JDK.
 
 | Version                                                                                                                       | Bundled JDK (Linux)            | Tested JDKs     |
 |:-----------------------------------------------------------------------------------------------------------------------------:|:------------------------------:|:---------------:|
@@ -29,7 +29,7 @@ The complete distribution of OpenSearch 1.0 through 1.2.4 was built with JDK 14,
 
 ### Version 1.3.0
 
-In 1.3.0 we have replaced version 14 with an LTS version 11 for both builds and releases. All components build and test with JDK 8, 11, and 14.
+In 1.3.0 we have replaced version 14 with a LTS version 11 for both builds and releases. All components build and test with JDK 8, 11, and 14.
 
 The parent issues for this change were [opensearch-build#64](https://github.com/opensearch-project/opensearch-plugins/issues/64) and [opensearch-build#74](https://github.com/opensearch-project/opensearch-build/issues/74). The implementation in OpenSearch engine was [OpenSearch#940](https://github.com/opensearch-project/OpenSearch/pull/940), and was followed by plugins, e.g. [security#1580](https://github.com/opensearch-project/security/pull/1580). We also lowered the source and target Java versions back to 8 in [OpenSearch#2321](https://github.com/opensearch-project/OpenSearch/pull/2321) and fixed any incompatible code in the engine and plugins. Version 1.3.0 now reliably runs on JDK8. 
 
@@ -37,9 +37,9 @@ Originally, we were also planning to upgrade the bundled JDK to 17 in this versi
 
 #### Customizing the OpenSearch Runtime
 
-By default, any OpenSearch distribution consults `JAVA_HOME` first in order to find out the JVM runtime to run on. If `JAVA_HOME` is not set, OpenSearch will try to fallback to the bundled JVM runtime if available. 
+By default, any OpenSearch distribution consults `JAVA_HOME` first in order to find out the Java runtime to run on. If `JAVA_HOME` is not set, OpenSearch will try to fallback to the bundled JVM runtime if available. 
 
-OpenSearch 1.3.0 is also introducing support for a new environment variable `OPENSEARCH_JAVA_HOME` that take precedence over `JAVA_HOME`. This can be useful for systems with multiple applications co-located with different JVMs, or in migration scenarios with several instances of OpenSearch running on the same machine. The environment setting propagates to plugins that launch Java processes, such as performance-analyzer. See [OpenSearch#1872](https://github.com/opensearch-project/OpenSearch/issues/1872) for details.
+OpenSearch 1.3.0 is also introducing support for a new environment variable `OPENSEARCH_JAVA_HOME` that takes precedence over `JAVA_HOME`. This can be useful for systems with multiple applications co-located with different JVMs, or in migration scenarios with several instances of OpenSearch running on the same machine. The environment setting propagates to plugins that launch Java processes, such as performance-analyzer. See [OpenSearch#1872](https://github.com/opensearch-project/OpenSearch/issues/1872) for details.
 
 ### Version 2.0.0
 
@@ -71,7 +71,7 @@ The [community-contributed Arch Linux distribution of OpenSearch](https://wiki.a
 
 #### Windows and MacOS
 
-At this moment there's no official Windows or MacOs distribution of OpenSearch. However, this project does support building and assembling OpenSearch for Windows and MacOS, with some caveats. The version of JDK used and the configuration options are the same as on Linux. See [opensearch-build#33](https://github.com/opensearch-project/opensearch-build/issues/33), [#37](https://github.com/opensearch-project/opensearch-build/issues/37) and [#38](https://github.com/opensearch-project/opensearch-build/issues/38) for details and how you can contribute.
+At this moment there's no official Windows or MacOS distribution of OpenSearch. However, this project does support building and assembling OpenSearch for Windows and MacOS, with some caveats. The version of JDK used and the configuration options are the same as on Linux. See [opensearch-build#33](https://github.com/opensearch-project/opensearch-build/issues/33), [#37](https://github.com/opensearch-project/opensearch-build/issues/37) and [#38](https://github.com/opensearch-project/opensearch-build/issues/38) for details and how you can contribute.
 
 ### Documentation
 
