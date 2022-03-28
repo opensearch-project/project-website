@@ -1,6 +1,6 @@
 ---
 question: What is OpenSearch Data Prepper?
-category: Plugins
+category: Tools and Plugins
 ---
 
 Data Prepper is a server-side data collector capable of filtering, enriching, transforming, normalizing and aggregating data for downstream analytics and visualization. Also, Data Prepper lets users build custom pipelines to improve the operational view of applications.
