@@ -1,4 +1,8 @@
 # frozen_string_literal: true
+
+# Copyright OpenSearch Contributors
+# SPDX-License-Identifier: BSD-3-Clause
+
 require "net/http"
 require "jekyll/hooks"
 require "jekyll/document"
@@ -70,8 +74,8 @@ module Jekyll::LinkChecker
   @@LINK_CHECKER_STATES = ['internal', 'forced', 'all', 'retry']
   @check_links                # Enables the link checker
   @check_forced_external      # Enables checking internal links marked as external e.g. /docs
-  @check_external_links       # Enables checking external links 
-  @retry_external_links       # Enables retrying external links 
+  @check_external_links       # Enables checking external links
+  @retry_external_links       # Enables retrying external links
   @should_build_fatally       # indicates the need to fail the build for dead links
 
   ##
@@ -82,8 +86,14 @@ module Jekyll::LinkChecker
   @@max_retry_iterations = 10
 
   ##
-  # Initializes the singleton by recording the site
+  # Defines the priority of the plugin
+  # The hooks are registered with a very low priority to make sure they runs after any content modifying hook
+  def self.priority
+    10
+  end
 
+  ##
+  # Initializes the singleton by recording the site
   def self.init(site)
     @site = site
     @urls = {}
@@ -94,7 +104,10 @@ module Jekyll::LinkChecker
       @should_build_fatally = true if ENV.key?('JEKYLL_FATAL_LINK_CHECKER')
       check_flag = @should_build_fatally ? ENV['JEKYLL_FATAL_LINK_CHECKER'] : ENV['JEKYLL_LINK_CHECKER']
 
-      return unless check_flag
+      unless check_flag
+        return Jekyll.logger.info "LinkChecker:",
+                                              "disabled. Enable with JEKYLL_LINK_CHECKER on the environment"
+      end
 
       unless @@LINK_CHECKER_STATES.include?(check_flag)
         Jekyll.logger.info "LinkChecker: [Notice] Could not initialize, Valid values for #{@should_build_fatally ? 'JEKYLL_FATAL_LINK_CHECKER' : 'JEKYLL_LINK_CHECKER'} are #{@@LINK_CHECKER_STATES}"
@@ -112,6 +125,21 @@ module Jekyll::LinkChecker
         'all' => 'all links',
         'retry' => 'all links with retry',
       }
+
+      # Process a Page as soon as its content is ready
+      Jekyll::Hooks.register :pages, :post_convert, priority:self.priority do |page|
+        self.process(page)
+      end
+
+      # Process a Document as soon as its content is ready
+      Jekyll::Hooks.register :documents, :post_convert, priority:self.priority do |document|
+        self.process(document)
+      end
+
+      # Verify gathered links after Jekyll is done writing all its stuff
+      Jekyll::Hooks.register :site, :post_write, priority:self.priority do |site|
+        self.verify(site)
+      end
 
       Jekyll.logger.info "LinkChecker: [Notice] Initialized successfully and will check #{msg[check_flag]}" if @check_links
       Jekyll.logger.info "LinkChecker: [Notice] The build will fail if a dead link is found" if @should_build_fatally
@@ -338,25 +366,6 @@ module Jekyll::LinkChecker
 end
 
 # Before any Document or Page is processed, initialize the LinkChecker
-
-Jekyll::Hooks.register :site, :pre_render do |site|
+Jekyll::Hooks.register :site, :pre_render, priority:Jekyll::LinkChecker.priority do |site|
   Jekyll::LinkChecker.init(site)
-end
-
-# Process a Page as soon as its content is ready
-
-Jekyll::Hooks.register :pages, :post_convert do |page|
-  Jekyll::LinkChecker.process(page)
-end
-
-# Process a Document as soon as its content is ready
-
-Jekyll::Hooks.register :documents, :post_convert do |document|
-  Jekyll::LinkChecker.process(document)
-end
-
-# Verify gathered links after Jekyll is done writing all its stuff
-
-Jekyll::Hooks.register :site, :post_write do |site|
-  Jekyll::LinkChecker.verify(site)
 end
