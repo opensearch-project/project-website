@@ -1,5 +1,5 @@
 ---
-date: "2022-03-30"
+date: "2022-04-07"
 product: opensearch
 version: '1.3.1'
 release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.3.1.md
@@ -9,7 +9,7 @@ components:
     version: 1.3.1
   - role: ui
     artifact: opensearch-dashboards
-    version: 1.3.0
+    version: 1.3.1
   - role: command-line-tools
     artifact: opensearch-cli
     version: 1.1.0
@@ -27,7 +27,7 @@ components:
     version: 1.3.1
   - role: minimal-artifacts
     artifact: opensearch-dashboards-min
-    version: 1.3.0
+    version: 1.3.1
   - role: drivers
     artifact: opensearch-sql-odbc
     version: 1.1.0.1
