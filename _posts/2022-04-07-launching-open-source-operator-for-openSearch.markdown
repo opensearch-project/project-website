@@ -70,7 +70,7 @@ kubectl delete opensearchclusters my-cluster -n <namespace>
 ## Moving Forward
 
 The joint team is hard at work continuing to further develop the Operator and add even more powerful capabilities. 
-If you want to test the Operator and contribute feedback, or contribute to the development of the Operator, check out reach out the github repo [here](https://github.com/Opster/opensearch-k8s-operator).
+If you want to test the Operator and contribute feedback, or contribute to the development of the Operator, check out the github repo [here](https://github.com/Opster/opensearch-k8s-operator).
 If you have any questions or need help, reach out to the team at operator@opster.com.
 
 ## About Opster
