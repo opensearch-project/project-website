@@ -159,7 +159,7 @@ describe('EventDispatcher', function () {
       eventDispatcher.dispatchInactive();
     });
 
-    it('should not set the the inactive class', function () {
+    it('should not set the inactive class', function () {
       expect(element.className).toEqual('ns-active');
     });
 

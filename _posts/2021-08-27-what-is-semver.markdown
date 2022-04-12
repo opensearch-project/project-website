@@ -31,7 +31,7 @@ SemVer aside, when software breaks on a minor or patch version people tend to ge
 Unintuitively, SemVer does not indicate the drastic-ness of the change. Let's take a few scenarios:
 
 1. A patch version is released that fixes a major conceptual misunderstanding. This patch version could change *thousands* of lines of code, yet as long as it's not a new feature and doesn't change the API or data formats, it's still a valid patch release.
-2. A minor version includes dozens of new features. As long as the existing APIs and data formats are not disturbed by the the new features, this is still a valid minor release. 
+2. A minor version includes dozens of new features. As long as the existing APIs and data formats are not disturbed by the new features, this is still a valid minor release. 
 3. An API endpoint is misspelled and is corrected. Under SemVer, this correction might only be *a single byte change*, but it would be considered a major release. Granted, if spelling issues in the API are being released, this is indicative of other quality issues that probably also need attention! 
 
 That’s the biggest mental hurdle - a major version does not indicate a major leap forward or lots of new features. It just means that it’s breaking compatibility.

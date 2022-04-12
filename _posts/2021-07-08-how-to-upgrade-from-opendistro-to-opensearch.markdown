@@ -56,7 +56,7 @@ And finally, now that you are ready for the upgrade, you should download the lat
 
 ### Types of Upgrade
 
-Now that you have taken your snapshot, and validated the recommended upgrade path for your existing cluster, we can move on the the upgrade itself. We are going to provide instructions on 3 types of upgrades.
+Now that you have taken your snapshot, and validated the recommended upgrade path for your existing cluster, we can move on to the upgrade itself. We are going to provide instructions on 3 types of upgrades.
 
 1. **Snapshot Upgrade**: A snapshot upgrade involves taking a snapshot of the current cluster, spinning up a new cluster, and then restoring from the snapshot. Depending on how you do this, there may or may not be downtime. 
 2. **Restart Upgrade**: A restart upgrade involves taking down the whole cluster, upgrading it, and then starting it back up. This will include downtime.
