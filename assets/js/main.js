@@ -77,7 +77,7 @@ define(function() {
     }
     
     if (hasClass('pr-maker')) {
-        mods.push('mod/pr-maker.js')
+        mods.push('mod/pr-maker')
     }
 
     mods.push('/assets/js/mod/select_logic.js');
