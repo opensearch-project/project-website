@@ -19,5 +19,4 @@ There are several ways to connect with the OpenSearch community.
 * To report or inquire about a **potential security vulnerability**, see the **[Reporting a Vulnerability guidelines](https://github.com/opensearch-project/.github/blob/main/SECURITY.md)**.
 * Lastly, you can **[email](mailto:opensearch@amazon.com)** the OpenSearch maintainers with other inquiries that don’t fit into any of the above categories. 
 
-
 Thank you for being part of the OpenSearch community.
