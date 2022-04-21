@@ -10,7 +10,7 @@ signup:
 
 ---
 
-Join us for an open office community meeting.
+Join us for Q&A at an open office community meeting.
 
 Meeting topics and passcode are listed in the [collaborative agenda](https://hackmd.io/@HmdZWaVnQU6M8icdvC5TwQ/HyJ300V4c) on HackMD.
 

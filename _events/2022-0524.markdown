@@ -10,7 +10,7 @@ signup:
 
 ---
 
-Join us for our weekly online community meeting.
+Join us for our online community meeting.
 
 Meeting topics and passcode are listed in the [collaborative agenda](https://hackmd.io/@HmdZWaVnQU6M8icdvC5TwQ/HkG9_C64c) on HackMD.
 
