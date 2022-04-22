@@ -21,6 +21,11 @@ if [ -z "$3" ]; then
     exit 2
 fi
 
+if [ -z "$4" ]; then
+    echo "ERROR - specify the version sort in the fourth argument"
+    exit 2
+fi
+
 
 
 VERSION_FILE="$3-opensearch-$2.markdown"
@@ -41,9 +46,15 @@ echo "Setting the release date"
 export RELEASE_DATE=$3
 yq e --front-matter=process -i '.date = strenv(RELEASE_DATE)' $VERSION_PATH
 
+echo "Setting the version sort"
+export VERSION_SORT=$4
+yq e --front-matter=process -i '.version_sort = strenv(VERSION_SORT)' $VERSION_PATH
+
+
+
 
 cmdLineArgs=( "$@" )
-cmdCurrent=3
+cmdCurrent=4
 while [ ${cmdLineArgs[cmdCurrent]} ]
 do
     if [ ${cmdLineArgs[cmdCurrent]} ] && [ ${cmdLineArgs[cmdCurrent+1]} ]; then

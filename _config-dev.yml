@@ -17,7 +17,6 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-last-modified-at
-  - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -68,6 +67,7 @@ defaults:
     values:
       layout: tutorial
       permalink: :collection/:slug.html
+
 -
     scope:
       type: lines

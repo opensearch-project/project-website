@@ -3,7 +3,10 @@ date: 2021-10-05
 
 product: opensearch
 version: '1.1.0'
+version_sort: 10
 release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.1.0.md
+
+version_sort: 1.1.0-ga
 
 components:
   -
