@@ -3,10 +3,9 @@ layout: post
 title:  "Partner Highlight: Pureinsights adds OpenSearch to its Discovery Platform"
 authors:
   - plewis
-date: 2022-04-15 08:50:01
+date: 2022-04-22 08:50:01
 categories:
   - partners
-  - technical-post
 twittercard:
     description: "Open source search engine experts Pureinsights add OpenSearch to their Discovery Platform."
 ---
