@@ -15,7 +15,7 @@ excerpt: "The Operator enables high-level API use, for easily running advanced O
 
 ### Overview
 
-Since the launch of the OpenSearch project, a fully open-source K8s Operator has been a [popular request](https://discuss.opendistrocommunity.dev/t/kubernetes-operator-support-for-the-fork/5267)  with the community. We are happy to announce the [beta release](https://github.com/Opster/opensearch-k8s-operator/releases/tag/v0.9) for the OpenSearch Operator.
+Since the launch of the OpenSearch project, a fully open-source K8s Operator has been a [popular request](https://discuss.opendistrocommunity.dev/t/kubernetes-operator-support-for-the-fork/5267)  with the community. We are happy to announce the [release](https://github.com/Opster/opensearch-k8s-operator/releases/tag/v0.9) for the OpenSearch Operator.
 
 The [OpenSearch Operator](https://github.com/Opster/opensearch-k8s-operator) is a fully open-source Kubernetes Operator, licensed as Apache 2.0, and is used for automating the deployment, provisioning, management, and orchestration of OpenSearch clusters and OpenSearch dashboards.
 
@@ -25,7 +25,7 @@ The Operator development is being led by [Opster](https://opster.com/) with part
 
 The Operator enables high-level API use for easily running advanced OpenSearch operations on Kubernetes.
 
-With this beta release, the Operator allows for management of multiple OpenSearch clusters and OpenSearch dashboards. Using the Operator makes scaling up and down, version upgrades, rolling restarts, adjustment of memory and disk resources on the nodes, securing deployments, and managing certificates simplified and streamlined.
+With this release, the Operator allows for management of multiple OpenSearch clusters and OpenSearch dashboards. Using the Operator makes scaling up and down, version upgrades, rolling restarts, adjustment of memory and disk resources on the nodes, securing deployments, and managing certificates simplified and streamlined.
 
 In the future releases, it would also allow for advanced shard allocation strategies, monitoring with Prometheus and Grafana, control of shard balancing and allocation (For example, based on AZ/rack awareness, hot/warm) and auto scaling based on usage load and resources.
 
