@@ -25,16 +25,16 @@ The Operator development is being led by [Opster](https://opster.com/) with part
 
 The Operator enables high-level API use for easily running advanced OpenSearch operations on Kubernetes.
 
-With this beta release, the Operator allows for management of multiple OpenSearch clusters and OpenSearch Dashboards. Using Operator makes scaling up and down, version upgrades, rolling restarts, adjustment of memory and disk resources on the nodes, securing deployments and managing certificates simplified and streamlined.
+With this beta release, the Operator allows for management of multiple OpenSearch clusters and OpenSearch dashboards. Using the Operator makes scaling up and down, version upgrades, rolling restarts, adjustment of memory and disk resources on the nodes, securing deployments, and managing certificates simplified and streamlined.
 
-In the future releases, it would also allow for advanced shard allocation strategies, monitoring with Prometheus and Grafana, control shard balancing and allocation (For example based on AZ/Rack awareness, Hot/Warm) and auto-scaling based on usage load and resources.
+In the future releases, it would also allow for advanced shard allocation strategies, monitoring with Prometheus and Grafana, control of shard balancing and allocation (For example, based on AZ/rack awareness, hot/warm) and auto scaling based on usage load and resources.
 
 ### Getting Started
 The Operator is available [here](https://github.com/Opster/opensearch-k8s-operator).
 
 #### Step 1: Installation
-In order to install the Operator you can use 2 methods:
-    1. Helm chart and the other is to build it locally.
+In order to install the Operator, you can use two methods:
+    1. Helm chart installation.
     2. Local installation
 
 ###### Helm chart installation
@@ -44,8 +44,8 @@ In order to install the Operator you can use 2 methods:
 ###### Local installation
 - Clone the repo
 - Run `make build manifests` to build the controller binary and the manifests
-- Start a kubernetes cluster (e.g. with k3d or minikube) and make sure your `~/.kube/config` points to it
-- Run `make install` to create the CRD in the kubernetes cluster
+- Start a Kubernetes cluster (e.g, with k3d or minikube) and make sure your `~/.kube/config` points to it
+- Run `make install` to create the CustomResourceDefinition (CRD) in the Kubernetes cluster
 
 There is no special recommendation on which method to use; both of them will install the OpenSearch Operator deployment and CRD on your kubernetes cluster. If you would like to explore the source code, you can use method #2.
 
