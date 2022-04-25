@@ -1,7 +1,10 @@
 ---
-date: "2022-04-26"
+date: "2022-04-28"
 product: opensearch
 version: '2.0.0-rc'
+
+version_sort: 2.0.0-1
+
 release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.0.0-rc.md
 components:
   - role: daemon
