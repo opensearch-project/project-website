@@ -1,7 +1,7 @@
 ---
 date: "2022-04-28"
 product: opensearch
-version: '2.0.0-rc'
+version: '2.0.0-rc1'
 
 version_sort: 2.0.0-1
 
@@ -9,10 +9,10 @@ release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/
 components:
   - role: daemon
     artifact: opensearch
-    version: 2.0.0-rc
+    version: 2.0.0-rc1
   - role: ui
     artifact: opensearch-dashboards
-    version: 2.0.0-rc
+    version: 2.0.0-rc1
 #  - role: command-line-tools
 #    artifact: opensearch-cli
 #    version: 1.1.0
@@ -27,10 +27,10 @@ components:
 #      - linux
   - role: minimal-artifacts
     artifact: opensearch-min
-    version: 2.0.0-rc
+    version: 2.0.0-rc1
   - role: minimal-artifacts
     artifact: opensearch-dashboards-min
-    version: 2.0.0-rc
+    version: 2.0.0-rc1
 #  - role: drivers
 #    artifact: opensearch-sql-odbc
 #    version: 1.1.0.1
