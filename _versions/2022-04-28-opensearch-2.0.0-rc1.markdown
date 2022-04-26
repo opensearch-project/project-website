@@ -5,7 +5,9 @@ version: '2.0.0-rc1'
 
 version_sort: 2.0.0-1
 
-release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.0.0-rc.md
+version_note: "This is a **pre-release** version of OpenSearch 2.0.0. Feel free to try it out and provide feedback. If you are looking for the most recent production-ready release, see the [1.x line](/lines/1x.html)."
+
+release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.0.0-rc1.md
 components:
   - role: daemon
     artifact: opensearch
