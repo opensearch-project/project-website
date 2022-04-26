@@ -39,8 +39,8 @@ In order to install the Operator, you can use two methods:
 
 ###### Helm chart installation
 Artifact Hub is a web-based application that enables finding, installing, and publishing packages and configurations for CNCF projects, including publicly available distributed charts Helm charts.
-with artifacthub the deployment process is very simple, follow these [instructions](https://github.com/Opster/opensearch-k8s-operator#getting-started)
-to pull and install the OpenSearch operator under opensearch-operator-system namespace.
+The deployment process is very simple with Artifact Hub, you can follow these [instructions](https://github.com/Opster/opensearch-k8s-operator#getting-started)
+to pull and install the OpenSearch Operator under opensearch-operator-system namespace.
 
 ###### Local installation
 - Clone the repo
