@@ -35,13 +35,19 @@ If you are a partner, you are welcome to add your logo/link to our partners page
 
 ### Building the Website
 
-This site uses [Jekyll](https://jekyllrb.com/). You can build the site and make it available on a local server via `docker-compose up -d`, or by installing all the dependencies on your local environment as follows.
+This site uses [Jekyll](https://jekyllrb.com/). You can build the site and make it available on a local server via `docker-compose up -d`, or by installing all the dependencies on your local environment as follows (tested to work with Ruby 2.7.2).
 
 1. Install [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/), then run `bundle install`.
 2. Build and start Jekyll with `bundle exec jekyll serve`. 
 3. Browse the site at [`http://127.0.0.1:4000/`](http://127.0.0.1:4000/).
 
 Alternatively, build the site with `bundle exec jekyll build`. The HTML output is generated into `/_site`. For the full configuration options when running Jekyll, see [this page](https://jekyllrb.com/docs/configuration/options/).
+
+A full site build takes around 20 seconds. If you want to shave off some time, you can build the development version which lacks the sitemap.xml (which is very time consuming to build). The development version takes about 3 seconds to build, so it's great for fast iteration but not exactly what will be built in deployment (it's very close).
+
+```
+BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll serve --config ./_config-dev.yml
+```
 
 #### Content Modifier
 
