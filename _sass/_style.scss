@@ -1130,6 +1130,10 @@ blockquote {
             }
         }
     }
+
+    &.create-pr {
+        display: inline-block;
+    }
 }
 .link-alternate {
     // class render of the link-alternate mixin
