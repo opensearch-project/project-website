@@ -8,6 +8,6 @@ artifact_url: https://artifacts.opensearch.org/releases/bundle/opensearch/2.0.0-
 slug: opensearch-2.0.0-rc1-linux-x64-rpm
 category: opensearch
 type: rpm
-guide: https://opensearch.org/docs/2.0/opensearch/install/rpm/
+guide: https://opensearch.org/docs/latest/opensearch/install/rpm
 signature: https://artifacts.opensearch.org/releases/bundle/opensearch/2.0.0-rc1/opensearch-2.0.0-rc1-linux-x64.rpm.sig
 ---

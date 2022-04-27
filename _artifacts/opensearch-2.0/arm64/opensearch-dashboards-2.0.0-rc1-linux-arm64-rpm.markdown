@@ -10,5 +10,5 @@ version: 2.0.0-rc1
 category: opensearch-dashboards
 slug: opensearch-dashboards-2.0.0-rc1-linux-arm64-rpm
 signature: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/2.0.0-rc1/opensearch-dashboards-2.0.0-rc1-linux-arm64.rpm.sig
-guide: https://opensearch.org/docs/2.0/opensearch/install/rpm/
+guide: https://opensearch.org/docs/latest/opensearch/install/rpm
 ---
