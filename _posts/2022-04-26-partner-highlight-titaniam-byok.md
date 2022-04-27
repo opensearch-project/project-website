@@ -59,7 +59,7 @@ Steps to enabling data protection with BYOK for your OpenSearch based applicatio
 4. Create a key registry - specify which index should use which key and provide Titaniam with the credentials (in encrypted form) to access the corresponding keystores.
 5. Start loading data and querying it.
 
-![query-results](/assets/media/blog-images/2022-04-26-partner-highlight-titaniam/titaniam-opensearch-byok.png){: .img-fluid}  
+![query-results](/assets/media/blog-images/2022-04-26-partner-highlight-titaniam/BYOK_Opensearch.png){: .img-fluid}  
 **Fig1. BYOK in Titaniam Plugin for OpenSearch**
 
 Your customers can supply their key in any key store of their choice by putting it in a simple JSON structure like this.
