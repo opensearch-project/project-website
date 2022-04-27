@@ -1,5 +1,5 @@
 ---
-date: "2022-04-28"
+date: "2022-05-03"
 product: opensearch
 version: '2.0.0-rc1'
 
