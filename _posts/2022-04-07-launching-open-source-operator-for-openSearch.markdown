@@ -34,8 +34,8 @@ The Operator is available [here](https://github.com/Opster/opensearch-k8s-operat
 
 #### Step 1: Installation
 In order to install the Operator, you can use two methods:
-    1. Helm chart installation.
-    2. Local installation
+1. Helm chart installation.
+2. Local installation
 
 #### Helm chart installation
 Artifact Hub is a web-based application that enables finding, installing, and publishing packages and configurations for CNCF projects, including publicly available distributed charts Helm charts.
@@ -43,10 +43,10 @@ The deployment process is very simple with Artifact Hub, you can follow these [i
 to pull and install the OpenSearch Operator under opensearch-operator-system namespace.
 
 #### Local installation
-- Clone the repo
-- Run `make build manifests` to build the controller binary and the manifests
-- Start a Kubernetes cluster (e.g, with k3d or minikube) and make sure your `~/.kube/config` points to it
-- Run `make install` to create the CustomResourceDefinition (CRD) in the Kubernetes cluster
+- Clone the repo.
+- Run `make build manifests` to build the controller binary and the manifests.
+- Start a Kubernetes cluster (e.g, with k3d or minikube) and make sure your `~/.kube/config` points to it.
+- Run `make install` to create the CustomResourceDefinition (CRD) in the Kubernetes cluster.
 
 There is no special recommendation on which method to use; both of them will install the OpenSearch Operator deployment and CRD on your kubernetes cluster. If you would like to explore the source code, you can use method #2.
 
