@@ -29,6 +29,11 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo-data"
 end
 
+# Checks if running on Apple silicon 
+install_if -> { RUBY_PLATFORM =~ /arm64-darwin/ } do
+  ruby "~> 3.0.0"
+  gem "webrick", "~> 1.7"
+end
+
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
-
