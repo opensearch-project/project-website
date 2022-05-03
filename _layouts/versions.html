@@ -186,7 +186,7 @@ this is the built-in error checking for the version definition having missing ar
         {% assign platform_components = component_details | where: "platform", platform %} 
         
         {% for architecture in specified_architecture_order %}
-          {% assign architecture_components = platform_components | where: "architecture", architecture %}
+          {% assign architecture_components = platform_components | where: "architecture", architecture | sort: "slug"  %}
           {% for details in architecture_components %}
 
             {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}{%endcapture%}
@@ -198,7 +198,6 @@ this is the built-in error checking for the version definition having missing ar
             {% capture artifact_option %}<option class="platform_{{platform}}" value="{{artifact_id}}">{{ architecture_pretty }} / {{ extension_pretty }}</option>{%endcapture%}
             {% assign artifact_options = artifact_options | append: artifact_option %}
             {% if details.artifact_url %}
-
               {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> 
                 <a href="{% if details.indirect %}{{details.url}}{% else %}{{details.artifact_url}}{% endif %}"
                 class="cta">Download</a> </div>{% endcapture %}
