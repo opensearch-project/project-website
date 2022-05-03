@@ -39,7 +39,7 @@ Taking the above into consideration, here’s how I think the majors and minors 
 |1.3.2  |April 29 2022 | May 05 2022 |
 |2.0.0 RC	|Core: March 21st|	|
 | 	|Plugins and Clients: April 18th	| ~~April 26th~~ April 28th	|
-|2.0.0 GA	|May 2nd	|May 12th	|
+|2.0.0 GA	|~~May 2nd~~ May 17th	|~~May 12th~~ May 24th 	|
 |1.3.3 | June 3rd  | June 9th  |
 |2.1.0	|June 23rd	|June 30th	|
 |1.3.4  | July 1st | July 7th |
@@ -55,7 +55,8 @@ Taking the above into consideration, here’s how I think the majors and minors 
 |3.0.0 GA	|January 10th, 2023	|January 19th 2023	|
 {: .opensearch-supported-versions}
 
-(Updated April 2022 to include patch releases to 1.x, Moved the 2.0-rc date by 2 days, moved 3.0-RC out 1 week) 
+(Updated April 2022 to include patch releases to 1.x, Moved the 2.0-rc date by 2 days, moved 3.0-RC out 1 week)
+(Updated May 2022 to move RC GA date out 12 days)
 
 You’ll notice I’ve included a "Preview Release" for our major releases in 2022 to help folks get an early look. What the exact release process will look like and how feedback for the previews can be identified is yet-to-be determined, but as the first major releases I want to make sure everyone has a chance to try them out early.
 
