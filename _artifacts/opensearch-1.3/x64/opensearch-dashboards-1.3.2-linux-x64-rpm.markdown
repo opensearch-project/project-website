@@ -5,10 +5,10 @@ artifact_id: opensearch-dashboards
 architecture: x64
 platform: linux
 type: rpm
-artifact_url: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/2.0.0-rc1/opensearch-dashboards-2.0.0-rc1-linux-x64.rpm
-version: 2.0.0-rc1
+artifact_url: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/1.3.2/opensearch-dashboards-1.3.2-linux-x64.rpm
+version: 1.3.2
 category: opensearch-dashboards
-slug: opensearch-dashboards-2.0.0-rc1-linux-x64-rpm
-signature: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/2.0.0-rc1/opensearch-dashboards-2.0.0-rc1-linux-x64.rpm.sig
+slug: opensearch-dashboards-1.3.2-linux-x64-rpm
+signature: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/1.3.2/opensearch-dashboards-1.3.2-linux-x64.rpm.sig
 guide: https://opensearch.org/docs/latest/opensearch/install/rpm
 ---
