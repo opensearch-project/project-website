@@ -24,7 +24,7 @@ During the beta customers were able to easily migrate the Elasticsearch infrastr
 It’s a good day for open source and the OpenSearch community as another hyperscale cloud provider embraces OpenSearch. Congrats again. To learn more about OCI Search Service with OpenSearch go [here](http://oracle.com/cloud/search). 
 
 ## Get involved!
-We would love to see you contribute to OpenSearch (if you’re not already)! For almost any type of contribution, the first step is opening an GitHub issue (https://github.com/opensearch-project/OpenSearch). Even if you think you already know what the solution is, writing a description of the problem you’re trying to solve will help everyone get context when they review your pull request. 
+We would love to see you contribute to OpenSearch (if you’re not already)! For almost any type of contribution, the first step is opening an GitHub [issue](https://github.com/opensearch-project/OpenSearch/issues). Even if you think you already know what the solution is, writing a description of the problem you’re trying to solve will help everyone get context when they review your pull request. 
 
 Interested in sharing your OpenSearch story? The community partners (https://opensearch.org/partners/), community projects (https://opensearch.org/community_projects), and testimonials pages (https://opensearch.org/testimonials/) continue to grow and we would be happy to add your story!
  
