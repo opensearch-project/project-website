@@ -9,7 +9,7 @@ date: 2022-05-10
 categories:
   - partners
 
-excerpt: "Oracle has released it's Cloud Infrastructure Search Service!"
+excerpt: "Oracle has released it's Cloud Infrastructure Search Service with OpenSearch!"
 
 ---
 
