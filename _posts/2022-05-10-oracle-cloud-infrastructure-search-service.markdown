@@ -26,7 +26,7 @@ It’s a good day for open source and the OpenSearch community as another hypers
 ## Get involved!
 We would love to see you contribute to OpenSearch (if you’re not already)! For almost any type of contribution, the first step is opening an GitHub [issue](https://github.com/opensearch-project/OpenSearch/issues). Even if you think you already know what the solution is, writing a description of the problem you’re trying to solve will help everyone get context when they review your pull request. 
 
-Interested in sharing your OpenSearch story? The community partners (https://opensearch.org/partners/), community projects (https://opensearch.org/community_projects), and testimonials pages (https://opensearch.org/testimonials/) continue to grow and we would be happy to add your story!
+Interested in sharing your OpenSearch story? The [community partners](https://opensearch.org/partners/), [community projects](https://opensearch.org/community_projects), and [testimonials pages](https://opensearch.org/testimonials/) continue to grow and we would be happy to add your story!
  
 ## Do you have questions or feedback?
 If you’re interested in learning more, have a specific question, or just want to provide feedback and thoughts, please visit [OpenSearch.org](http://opensearch.org/), open an issue on [GitHub](https://github.com/opensearch-project/OpenSearch/issues), or post in the [forums](https://forum.opensearch.org/). There are also regular [community meetings](https://opensearch.org/events/) that include progress updates at every session and include time for Q&A.
