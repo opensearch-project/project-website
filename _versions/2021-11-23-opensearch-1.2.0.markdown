@@ -5,6 +5,8 @@ product: opensearch
 version: '1.2.0'
 release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.2.0.md
 
+version_sort: 1.2.0-ga
+
 components:
   -
     role: daemon
@@ -21,11 +23,11 @@ components:
   -
     role: ingest
     artifact: logstash-oss-with-opensearch-output-plugin
-    version: 7.16.2
+    version: 7.16.3
   -
     role: ingest
     artifact: data-prepper
-    version: data-prepper-1.2.1
+    version: data-prepper-1.3.0
     platform_order:
       - docker
       - linux

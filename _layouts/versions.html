@@ -1,6 +1,6 @@
 ---
 layout: default
-
+notice: true
 
 pretty:
   guide: "Install Guide"
@@ -14,6 +14,8 @@ pretty:
     kibana: Kibana
     odfe-jdbc: JDBC Driver
     odfe-odbc: ODBC Driver
+    opensearch-sql-odbc: ODBC Driver
+    opensearch-sql-jdbc: JDBC Driver
     data-prepper: Data Prepper
     data-prepper-no-jdk: Data Prepper (without bundled JDK)
     logstash-oss-with-opensearch-output-plugin: Logstash OSS with OpenSearch Output Plugin
@@ -45,6 +47,7 @@ pretty:
     data-ingest: 'Ingest Tools'
     docker-compose: 'Try OpenSearch with Docker Compose'
     minimal: 'Minimal Distributions'
+    drivers: "Drivers"
 
 architecture_order: 
   - x64
@@ -99,6 +102,9 @@ this is the built-in error checking for the version definition having missing ar
   <pre>{{error_block}}</pre>
 {% endif %}
 
+{% if page.version_note %}
+<div class="version-alert">{{ page.version_note | markdownify }}</div>
+{% endif %}
 
 {% for section in page.sections %}
   {% capture role %}{{section[1].role}}{%endcapture%}
@@ -180,7 +186,7 @@ this is the built-in error checking for the version definition having missing ar
         {% assign platform_components = component_details | where: "platform", platform %} 
         
         {% for architecture in specified_architecture_order %}
-          {% assign architecture_components = platform_components | where: "architecture", architecture %}
+          {% assign architecture_components = platform_components | where: "architecture", architecture | sort: "slug"  %}
           {% for details in architecture_components %}
 
             {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}{%endcapture%}
@@ -192,7 +198,6 @@ this is the built-in error checking for the version definition having missing ar
             {% capture artifact_option %}<option class="platform_{{platform}}" value="{{artifact_id}}">{{ architecture_pretty }} / {{ extension_pretty }}</option>{%endcapture%}
             {% assign artifact_options = artifact_options | append: artifact_option %}
             {% if details.artifact_url %}
-
               {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> 
                 <a href="{% if details.indirect %}{{details.url}}{% else %}{{details.artifact_url}}{% endif %}"
                 class="cta">Download</a> </div>{% endcapture %}
@@ -254,12 +259,36 @@ this is the built-in error checking for the version definition having missing ar
 {% endfor %}
 {% include downloads/final-section.html %}
 <hr />
+{% assign major_version =  page.version | split: "." | first %}
+Releases in the {{major_version}}.x line: <br />
+{% assign versions = site.versions | sort: 'version_sort' | reverse %}
+{% assign first_version_in_line = true %}
+{% for version in versions %}
+    {% assign this_major_version =  version.version | split: "." | first %}
+    {% if this_major_version == major_version %}
+      {% if first_version_in_line == true %} 
+        {% assign first_version_in_line = false %}
+      {% else %}
+        /
+      {% endif %}
+      {% if version.version == page.version %} 
+        {{version.version}} 
+      {% else %}
+        <a href="{{version.url}}">{{version.version}}</a> 
+      {% endif %}
+      
+    {%endif%}
+{% endfor %}
+<hr />
+Release sequence (all release lines): <br />
 {% if page.next.url %}
-  <a href="{{page.next.url }}">Next Version</a>
+  <a href="{{page.next.url }}">Next Release</a>
 {% endif %}
 {% if page.previous.url %}
-  <a href="{{page.previous.url }}">Previous Version</a>
+  <a href="{{page.previous.url }}">Previous Release</a>
 {% endif %}
+<hr />
+
 
 {%endcapture%}
 
@@ -270,6 +299,16 @@ this is the built-in error checking for the version definition having missing ar
   <strong>Release Date:</strong> {{ page.date | date: "%b %d, %Y" }}<br />
   <a href="{{page.release_notes}}">Release Notes</a><br />
   <a href="{{page.url}}">Version Permalink</a>
+  <hr />
+  This is a release in the <a href="/lines/{{major_version}}x/}}">{{major_version}}.x</a> line. Available release lines:
+  <ul>
+  {% assign lines = site.lines | reverse %}
+  {% for line in lines %}
+    <li><a href="{{ line.url }}">{{line.pretty_version}} {% if line.deprecated == true %} 
+        (Deprecated) 
+      {%endif%}</li>
+  {% endfor %}
+  </ul>
   <hr />
   <ul>
   {% for section in page.sections %}

@@ -3,6 +3,7 @@ redirect_from:
 - /download/
 - /downloads/
 - /download.html
+notice: true
 ---
-{% assign the_version = site.versions | sort: 'version' | last %}
+{% assign the_version = site.versions | sort: 'version_sort' | last %}
 {{ the_version }}

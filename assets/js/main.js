@@ -75,6 +75,11 @@ define(function() {
     if (hasClass('console-block')) {
         mods.push('mod/console-tabs');
     }
+    
+    if (hasClass('pr-maker')) {
+        mods.push('mod/pr-maker')
+    }
+
     mods.push('/assets/js/mod/select_logic.js');
 
     require(mods);

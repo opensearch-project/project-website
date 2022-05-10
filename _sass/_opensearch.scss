@@ -199,11 +199,22 @@ dl.list-features {
     }
 }
 
-.banner-alert {
+.banner-alert, .version-alert {
     @include sans-serif;
     @include warning-stripes;
 }
-  
+
+.version-alert {
+    padding: 0.5em;
+    margin-top: 1em;
+    position:-webkit-sticky; 
+    position:sticky; 
+    top:0;
+    p {
+        margin: 0;
+    }
+}
+
 .imported-post {
     margin-left: -1em;
     margin-right: -1em;
