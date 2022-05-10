@@ -9,7 +9,7 @@ categories:
  - intro
 ---
 
-## Tag ,You’re It! 
+## Tag, You’re It! 
 
 I feel a personal and vested interest in ensuring that the forums here at OpenSearch are an information-rich environment. They’re a great tool for directly interacting with users and also for seeing first hand what people need help with. To best leverage them as a tool, I need to generate some actionable data from the forum threads that can be a compass for content generation, and I’d also love for everyone to see what I’m up to.
 
