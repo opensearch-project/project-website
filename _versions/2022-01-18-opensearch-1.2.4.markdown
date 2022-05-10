@@ -15,10 +15,10 @@ components:
     version: 1.1.0
   - role: ingest
     artifact: logstash-oss-with-opensearch-output-plugin
-    version: 7.16.2
+    version: 7.16.3
   - role: ingest
     artifact: data-prepper
-    version: data-prepper-1.2.1
+    version: data-prepper-1.3.0
     platform_order:
       - docker
       - linux
@@ -28,6 +28,12 @@ components:
   - role: minimal-artifacts
     artifact: opensearch-dashboards-min
     version: 1.2.0
+  - role: drivers
+    artifact: opensearch-sql-odbc
+    version: 1.1.0.1
+  - role: drivers
+    artifact: opensearch-sql-jdbc
+    version: 1.1.0.1
 sections:
   docker-compose:
     explanation: "downloads/opensearch-docker.markdown"
@@ -54,6 +60,14 @@ sections:
     artifacts:
       opensearch-cli:
         explanation: "downloads/opensearch-cli.html"
+  drivers:
+    explanation: "downloads/drivers.markdown"
+    role: drivers
+    artifacts:
+      opensearch-sql-odbc:
+        explanation: "downloads/odbc.markdown"
+      opensearch-sql-jdbc:
+        explanation: "downloads/jdbc.markdown"
   minimal:
     explanation: "downloads/minimal-distributions.markdown"
     role: minimal-artifacts

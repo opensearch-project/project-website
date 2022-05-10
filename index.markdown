@@ -18,7 +18,7 @@ download_ctas:
 ctas:
     post: ' on GitHub'
     primary: 
-        text: 'Get Started'
+        text: 'Download OpenSearch'
         url: '/downloads.html'
     roadmap:
         text: 'View the project roadmap'
@@ -43,7 +43,7 @@ version_feature:
 
 
 callout_button:
-    title: Get Started
+    title: Download OpenSearch
     url: /downloads.html
 
 opendistro:
@@ -86,5 +86,7 @@ sidebar:
             -
                 title: 'Keeping Open Source Open'
                 url: https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/
+
+notice : true
 
 ---
