@@ -21,7 +21,7 @@ Oracle’s mission is "to help people see data in new ways, discover insights, u
 
 During the beta customers were able to easily migrate the Elasticsearch infrastructure to OpenSearch. Because their private endpoints use the same APIs as Elasticsearch, it was simply a matter of ingesting data and pointing to the new endpoints. In fact, one of their customers ingested 300 million items into their OpenSearch cluster and is now enabled for analysis and action with OpenSearch Dashboards.
 
-It’s a good day for open source and the OpenSearch community as another hyperscale cloud provider embraces OpenSearch. Congrats again. To learn more about OCI Search Service with OpenSearch go [here](http://oracle.com/cloud/search). 
+It’s a good day for open source and the OpenSearch community as another hyperscale cloud provider embraces OpenSearch. Congrats again. To learn more about OCI Search Service with OpenSearch go [here](https://oracle.com/cloud/search). 
 
 ## Get involved!
 We would love to see you contribute to OpenSearch (if you’re not already)! For almost any type of contribution, the first step is opening an GitHub [issue](https://github.com/opensearch-project/OpenSearch/issues). Even if you think you already know what the solution is, writing a description of the problem you’re trying to solve will help everyone get context when they review your pull request. 
