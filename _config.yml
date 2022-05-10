@@ -68,6 +68,12 @@ defaults:
     values:
       layout: tutorial
       permalink: :collection/:slug.html
+-
+    scope:
+      type: lines
+    values:
+      layout: lines
+      permalink: :collection/:slug.html
 
 collections:
   authors:
@@ -86,6 +92,8 @@ collections:
   faqs:
   testimonials:
   tutorials:
+    output: true
+  lines:
     output: true
 
     

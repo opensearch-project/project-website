@@ -3,6 +3,9 @@ date: "2022-03-17"
 product: opensearch
 version: '1.3.0'
 release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.3.0.md
+
+version_sort: 1.3.0-ga
+
 components:
   - role: daemon
     artifact: opensearch

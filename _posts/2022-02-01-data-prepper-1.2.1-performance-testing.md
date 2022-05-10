@@ -100,3 +100,7 @@ Table [1] - AWS Environment Details
 | Logstash Prometheus + Grafana     | m5.xlarge         |              1 |    4 |           16 |                        |
 | Logstash OpenSearch Cluster       | i3.xlarge         |              3 |    4 |         30.5 |                        |
 | Gatling                           | m5.2xlarge        |              1 |    8 |           32 |                        |
+
+## Latest Performance Test Results
+
+Follow this link to see the [Latest Performance Test Results](https://github.com/opensearch-project/data-prepper/blob/main/docs/latest_performance_test_results.md)
