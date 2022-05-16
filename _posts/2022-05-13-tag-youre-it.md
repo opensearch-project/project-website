@@ -32,7 +32,7 @@ I foresee an issue right away. In order to answer these questions, I need data! 
 ## So what’s the plan?
 
 
-I only want to start with some basic correlations, and the question I want to answer is basic enough: "What forum topic tags appear the most in each category of the forum?" I tallied up the number of topics tagged in February: 148 tags. Not bad. Then I counted again per category. The top 3 categories were "[OpenSearch & OpenSearch Dashboards](https://discuss.opendistrocommunity.dev/c/forking-elasticsearch-kibana/50)", "[Security](https://discuss.opendistrocommunity.dev/c/security/3)", and "[Open Source Elasticsearch and Kibana](https://discuss.opendistrocommunity.dev/c/general-elasticsearch/10)" (38, 38, and 20 threads with a tag, respectively). 
+I only want to start with some basic correlations, and the question I want to answer is basic enough: "What forum topic tags appear the most in each category of the forum?" I tallied up the number of topics tagged in February: 148 tags. Not bad. Then I counted again per category. The top 3 categories were "[OpenSearch & OpenSearch Dashboards](https://forum.opensearch.org/c/forking-elasticsearch-kibana/50)", "[Security](https://forum.opensearch.org/c/security/3)", and "[Open Source Elasticsearch and Kibana](https://forum.opensearch.org/c/general-elasticsearch/10)" (38, 38, and 20 threads with a tag, respectively). 
 
 This is a fine measure of activity and tells me where we might want to spend some time creating content. The content produced may not be specifically targeted though, and I had a specific question to answer. So, what are people specifically having trouble with? I tallied again by category but also by tag this time. The result painted an entirely different picture. 
 
