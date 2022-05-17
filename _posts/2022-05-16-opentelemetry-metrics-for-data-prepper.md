@@ -3,8 +3,7 @@ layout: post
 title:  "Metrics Ingestion with Data Prepper using OpenTelemetry"
 authors:
   - kschnitter
-  - ksternad
-date:   2022-05-06 12:00:00 -0200
+date:   2022-05-17 06:00:00 +0200
 categories:
   - technical-post
 ---
