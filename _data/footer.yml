@@ -7,7 +7,7 @@ columns:
         url: '/codeofconduct.html'
       -
         title: 'Forums'
-        url: 'https://discuss.opendistrocommunity.dev/'
+        url: 'https://forum.opensearch.org/'
       -
         title: 'Github'
         url: 'https://github.com/opensearch-project'
@@ -38,12 +38,15 @@ columns:
   -
     title: 'Contact Us'
     links:
-      # -
-      #  title: 'Twitter'
-      #  url: 'https://twitter.com/opensearch_project'
-      #-
-      #  title: 'Facebook'
-      #  url: 'https://www.facebook.com/opensearch'
       -
         title: 'Connect'
         url: '/connect.html'
+      -
+        title: 'Twitter'
+        url: 'https://twitter.com/OpenSearchProj'
+      -
+        title: 'LinkedIn'
+        url: 'https://www.linkedin.com/company/opensearch-project/'
+      -
+        title: 'Facebook'
+        url: 'https://www.facebook.com/OpenSearchProject/'
