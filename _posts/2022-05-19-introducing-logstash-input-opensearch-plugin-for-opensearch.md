@@ -101,7 +101,7 @@ Using the above configuration, the `match_all` query filter is triggered and dat
 
 `schedule` setting can be used to periodically schedule ingestion using cron syntax.
 
-Example: `schedule => "* * * * *"` Adding this to the above configuration loads the data every minute.
+Example: `schedule => "* * * * *"` Adding this to the above configuration loads the data every minute. 
 
 
 ### Start Logstash
