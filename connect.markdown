@@ -10,7 +10,7 @@ title: Connect with the Community
 
 There are several ways to connect with the OpenSearch community.
 
-* OpenSearch has **[active forums](https://discuss.opendistrocommunity.dev/)**, which are the **fastest way to get help using, troubleshooting, and developing** with OpenSearch. As a bonus, questions and discussions on the forums are easy for others to learn from in the future. 
+* OpenSearch has **[active forums](https://forum.opensearch.org/)**, which are the **fastest way to get help using, troubleshooting, and developing** with OpenSearch. As a bonus, questions and discussions on the forums are easy for others to learn from in the future. 
 * If you want to **share a feature idea or submit a bug report**, open an issue in the relevant repo in **[the GitHub project](https://github.com/opensearch-project)**. 
 * If you want to **present** or **have a question** for an upcoming **[community meeting](https://opensearch.org/events/)**, **add a comment to the agenda** for that meeting.
 * Businesses **partnering in the development and advancement** of OpenSearch can propose to **[add themselves](https://github.com/opensearch-project/project-website#adding-to-the-partners-page)** to the **[partners](https://opensearch.org/partners/)** page with a pull request.
