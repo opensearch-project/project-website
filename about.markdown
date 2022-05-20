@@ -5,9 +5,9 @@ title: About
 ---
 
 ## About
-_Updated April 21, 2022_
+_Updated May 19, 2022_
 
-[Principles for development](#principles-for-development) &middot; [Partnering with OpenSearch](#partnering-with-opensearch) &middot; [OpenSearch disambiguation](#opensearch-disambiguation) &middot;
+[Principles for development](#principles-for-development) &middot; [OpenSearch disambiguation](#opensearch-disambiguation) &middot;
 
 ---
 
@@ -15,7 +15,7 @@ OpenSearch is a community-driven, open-source search and analytics suite used by
  
 The OpenSearch project was [first announced in January 2021](https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/) as an open-source fork of Elasticsearch and Kibana to provide a secure, high-quality, fully open-source search and analytics suite with a rich feature roadmap. [In July 2021](https://opensearch.org/blog/updates/2021/07/opensearch-general-availability-announcement/), the project released OpenSearch 1.0 for production under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) (ALv2), with the codebase [published to GitHub](https://github.com/opensearch-project) and open to contribution from the OpenSearch community.
  
-Since the start of the project, the OpenSearch community has grown to N contributors and recorded more than X major feature updates and more than Y total new features. In March 2022, OpenSearch [released version 1.3](https://opensearch.org/blog/releases/2022/03/launch-announcement-1-3-0/) of the project with major updates to index state management, observability, visualization, and more. A comprehensive project roadmap is maintained [here](https://github.com/orgs/opensearch-project/projects/1).
+Since the start of the project, the OpenSearch community has grown to 100s of contributors, 1000s of pull requests, 1000s of issues closed, and is organized across 65 repositories. In March 2022, OpenSearch [released version 1.3](https://opensearch.org/blog/releases/2022/03/launch-announcement-1-3-0/) of the project with major updates to index state management, observability, visualization, and more. A comprehensive project roadmap is maintained [here](https://github.com/orgs/opensearch-project/projects/1).
  
 The latest release of OpenSearch is available for [download here](https://opensearch.org/downloads.html).
  
@@ -46,9 +46,6 @@ This will be a community where you will be heard, accepted, and valued, whether 
  
 ### A place to invent. ###
 You will be able to innovate rapidly. This project will have a stable and predictable foundation that is modular, making it easy to extend.
- 
-## Partnering with OpenSearch ##
-To learn about the benefits and opportunities to contribute that come with being an OpenSearch [Partner](https://opensearch.org/partners/), view our partner presentation [link to presentation from Joshua Bright].
 
 ## OpenSearch disambiguation ##
 At the 2005 O’Reilly Emerging Technology Conference, Jeff Bezos [showed the world](https://www.technologyreview.com/2005/03/15/231423/jeff-bezos-unveils-vertical-search-live-from-the-oreilly-e-tech-conference/) the OpenSearch syndication protocol. You can find more details on [Wikipedia](https://en.wikipedia.org/wiki/OpenSearch). This specification is maintained in GitHub at [github.com/dewitt/opensearch](http://github.com/dewitt/opensearch).

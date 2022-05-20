@@ -21,6 +21,9 @@ columns:
     title: 'Resources'
     links:
       - 
+        title: About
+        url: '/about.html'
+      - 
         title: FAQ
         url: '/faq/'
       -
@@ -32,9 +35,6 @@ columns:
       -
         title: 'Trademark Usage Policy'
         url: '/trademark-usage.html'
-      - 
-        title: OpenSearch Disambiguation
-        url: '/disambiguation.html'
   -
     title: 'Contact Us'
     links:
