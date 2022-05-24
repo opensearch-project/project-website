@@ -10,8 +10,6 @@ categories:
 excerpt: "In this post, we will talk about the new input plugin for Logstash. We will show how it works with OpenSearch by giving an example on how to read data from OpenSearch, perform a transformation, and index back to OpenSearch. This use case is useful in the event you want to migrate from one OpenSearch major version to another (e.g. 1.3 → 2.0)."
 ---
 
-# Introducing logstash-input-opensearch plugin for OpenSearch
-
 ## Overview
 
 Following the launch of [logstash-output-opensearch](https://github.com/opensearch-project/logstash-output-opensearch) plugin, the OpenSearch project team has released the logstash-input-opensearch plugin on [Github](https://github.com/opensearch-project/logstash-input-opensearch) as well as [Ruby Gems](https://rubygems.org/gems/logstash-input-opensearch/versions/1.0.0).
@@ -103,7 +101,7 @@ Using the above configuration, the `match_all` query filter is triggered and dat
 
 `schedule` setting can be used to periodically schedule ingestion using cron syntax.
 
-Example: `schedule => "* * * * *"` Adding this to the above configuration loads the data every minute.
+Example: `schedule => "* * * * *"` Adding this to the above configuration loads the data every minute. 
 
 
 ### Start Logstash
