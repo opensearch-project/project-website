@@ -27,7 +27,7 @@ This event will be held on September 21, 2022 in Seattle at the beautiful Fremon
 
 [**Register now**](https://opensearchcon.splashthat.com/){:target="_blank"}
 
-Are you interested in presenting at the first OpenSearchCon? Please review the ‘Call for Papers’ page and submit your idea for a presentation. Each presentation should be 15 to 20 minutes long with either one presenter or two joint presenters and cover topics that address innovative and relevant use cases, processes, or applications in which OpenSearch plays a central role in delivering an impactful solution. The CFP closes on May 25th, so be sure to submit your paper soon! 
+Are you interested in presenting at the first OpenSearchCon? Please review the ‘Call for Papers’ page and submit your idea for a presentation. Each presentation should be 15 to 20 minutes long with either one presenter or two joint presenters and cover topics that address innovative and relevant use cases, processes, or applications in which OpenSearch plays a central role in delivering an impactful solution. The CFP closes on May 31st, so be sure to submit your paper soon! 
 
 [**Submit your paper**](https://opensearchcon-cfp.splashthat.com/){:target="_blank"}
 
