@@ -29,8 +29,8 @@ layout: default
         </p>
     </div>
 
-    <div class="section" id="{{page.callouts_id}}">
-    <dl class="{{ page.callouts_class }}">
+   <div class="section" id="{{page.callouts_id}}">
+ <!--   <dl class="{{ page.callouts_class }}">
       <h2>{{ page.callouts_head }}</h2>
       {% if page.callouts_leader %}<p>{{page.callouts_leader}}</p>{% endif %}
       {% for callout in site.data.principles %}
@@ -38,7 +38,7 @@ layout: default
         <dd><p>{{callout.description}}</p></dd>
         </dd>
       {% endfor %}
-
+ -->
       <a href="{{ page.callout_button.url }}" class="cta outline">{{ page.callout_button.title }}</a>
     </div>
 
