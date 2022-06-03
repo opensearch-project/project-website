@@ -4,7 +4,7 @@ title:  "Partner Highlight: Using OpenSearch for F5 & NGINX with WorldTech IT"
 authors:
   - ausgeraci
   - ryanparas
-date: 2022-06-01
+date: 2022-06-06
 categories:
   - partners
 
