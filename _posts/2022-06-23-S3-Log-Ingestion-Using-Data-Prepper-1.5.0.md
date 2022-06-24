@@ -11,55 +11,56 @@ twittercard:
 ---
 
 Data Prepper is an open-source data collector for data ingestion into OpenSearch. It currently supports trace analytics 
-and log analysis use-cases. Earlier this year Data Prepper added log ingestion over HTTP using tools such as 
+and log analysis use cases. Earlier this year Data Prepper added log ingestion over HTTP using tools such as 
 [Fluent Bit](https://fluentbit.io/).
+And a recent community submission added OpenTelemetry metrics ingestion in Data Prepper 1.4.0.
 
-Today, the Data Prepper maintainers announce the release of Data Prepper 1.5.0 with support of 
-[Amazon S3](https://aws.amazon.com/s3/) as a source.
+Today, the Data Prepper maintainers announce the release of Data Prepper 1.5.0 with support for 
+[Amazon Simple Storage Service](https://aws.amazon.com/s3/) (Amazon S3) as a source.
 
 
-## The Current Environment
+## The current environment
 
-Many teams use cloud object stores such as Amazon S3 for storing logs. Many AWS services write logs to Amazon S3 that 
-customers want to analyze. For example, AWS Application Load Balancer writes access logs to S3. As part of a 
+Many teams use cloud object stores such as Amazon S3 for storing logs. AWS services often write valuable logs to Amazon S3 that 
+customers want to analyze. For example, Application Load Balancer writes access logs to S3. As part of a 
 comprehensive log solution, teams want to incorporate this log data along with their application logs.
 
 It’s not only AWS services writing logs to S3. S3 is a highly available service offering that does a fantastic job of 
 taking in large volumes of data. Because it does this so well, some application developers are sending their logs to S3.
 
-Right now, getting this log data out of S3 is complicated. Developers are writing their own code to read from S3. Much 
-of this is duplicated code for receiving S3 Event Notifications and then parsing S3. And developers may also easily hit 
+Right now, getting this log data out of S3 is complicated, and developers are writing their own code to read from S3. Much 
+of this is duplicated code for receiving S3 Event Notifications and then parsing S3 objects. And developers may also encounter 
 issues with the size and scale of some files.
 
 
-## Go Where the Logs Are
+## Go where the logs are
 
-To solve this recurring issues for teams, Data Prepper 1.5 adds support for Amazon S3 as a source of log data. S3 has a 
-feature for S3 Event Notifications that Data Prepper leverages to get log data. S3 Event Notifications send 
+To solve these recurring issues for teams, Data Prepper 1.5.0 adds support for Amazon S3 as a source of log data. S3 has a 
+feature called S3 Event Notifications that Data Prepper leverages to get log data. With this feature, Amazon S3 can send 
 notifications to configured destinations whenever objects in an S3 bucket change. For example, if a new object is 
 created, S3 will send this notification. You can configure an S3 bucket to send event notifications to an 
-[Amazon SQS](https://aws.amazon.com/sqs/) queue whenever new objects are written to S3. You then configure Data Prepper 
+[Amazon Simple Queue Service](https://aws.amazon.com/sqs/) (Amazon SQS) queue whenever new objects are written to S3. You then configure Data Prepper 
 to use that SQS queue for receiving event notifications.
 
-Data Prepper will receive messages from the SQS queue. For any newly created object, it then gets that object out of S3 
-and parses it into events. Initially, Data Prepper can read two types of formats.
+Data Prepper polls the SQS queue to receive event notifications. For any newly created object, Data Prepper then gets that object out of S3 
+and parses it into events. Initially, Data Prepper can read two types of formats:
 
-1. Single-line logs. These are logs where a single log line indicates the same event.
-2. JSON objects. Data Prepper expects a common JSON pattern where the JSON has one large JSON array of smaller objects. Data Prepper will take each smaller object and create a single event from that object.
+1. Single-line logs - These are logs where a single log line indicates the same event.
+2. JSON objects - Data Prepper expects a common JSON pattern where the JSON structure has one large JSON array of smaller objects. Data Prepper will create a single event from each smaller object.
 
 Additionally, Data Prepper supports either uncompressed data or Gzip-compressed data.
 
 
-### An Example
+### An example
 
 Earlier, I mentioned supporting Application Load Balancer (ALB) access logs. These logs are saved as traditional logs. 
-Each network request gets its own line and that line follows a specific format. Additionally, ALB logs are stored with 
+Each network request is a single line in the log file, and that line follows a specific format. Additionally, ALB logs are stored with 
 gzip compression in S3.
 
-There is a lot of rich information in these logs. You can find whether requests are HTTP, HTTPS, or gRPC. The time that 
-the entire request took to process is available, the time your application took to process it is available. You can get 
+There is a lot of rich information in these logs. You can determine whether requests are HTTP, HTTPS, or gRPC, and both the time that 
+the entire request took to process and the time your application took to process it are available. Also, you can get 
 the final status code, User-Agent headers, and AWS X-Ray trace information. Much of this information is also available 
-in your application logs. But, you can also find out why an ALB failed a request before sending it your application.
+in your application logs, but you can also find out why an ALB failed a request before sending it your application.
 
 
 The following is an example ALB log.
@@ -69,12 +70,12 @@ http 2022-06-22T20:18:15.398914Z app/awseb-AWSEB-1HEOQDG4Y6178/7714ad4a617cc2b1 
 ```
 
 Data Prepper can read these objects using the S3 Source, perform grok processing on the data, and create a document in 
-OpenSearch which is much richer than just a single log line. The following pipeline shows how you could do this.
+OpenSearch that is much richer than just a single log line. The following pipeline shows how you could do this.
 
-The first part is the `s3` source. It is new in Data Prepper 1.5.
+The first part is the `s3` source. It is new in Data Prepper 1.5.0.
 
 After that comes the processor chain. It has three `grok` processors. The first one breaks up the log line into 
-different parts. The second two break up some parts even further for more fine-grained information. Then the data 
+different parts. The second two break up some parts even further to produce more fine-grained information. Then the data 
 processor adds a timestamp representing the time the data was received from S3.
 
 After all of this, the data is sent to the configured OpenSearch cluster via the `opensearch` sink.
@@ -115,24 +116,25 @@ log-pipeline:
         index: alb_logs
 ```
 
-Data Prepper’s `grok` processor, `mutate` processor, and other processors allow you to configure Data Prepper to 
+You can use Data Prepper’s `grok` processor, `mutate` processor, and other processors to 
 ingest from other log sources as well.
 
-## Possible Future Extensions
+## Possible future extensions
 
-This initial version only supports two codecs - single-line logs and JSON. There can be opportunities to add other 
-codecs such as multiline logs, or Apache Parquet. Additionally, Data Prepper may benefit from a core concept of codecs. 
+This initial version only supports two codecs: single-line logs and JSON. There may be opportunities to add other 
+codecs, such as multiline logs, or Apache Parquet. Additionally, Data Prepper may benefit from a core concept of codecs
+which can be shared across different Sources and Sinks.
 Please comment on [this GitHub feature request](https://github.com/opensearch-project/data-prepper/issues/1532) to 
 add the concept of codecs to Data Prepper.
 
-## Other Changes
+## Other changes
 
-* **Disabling Index Management**: Data Prepper can manage OpenSearch indices. This can make it easier to get started with trace analytics in Data Prepper and OpenSearch. However, some teams have security requirements that prevent Data Prepper from having the necessary permissions to create Index State Management policies, templates, or indices. These teams may wish to manage index management directly in OpenSearch. Data Prepper now allows for disabling any form of index management which reduces the permissions that Data Prepper needs on the OpenSearch cluster.
-* **Custom Metrics Tags**: Data Prepper produces metrics indicating how Data Prepper itself is running. These metrics allow Data Prepper administrators to monitor the health of Data Prepper and its pipelines. Now, Data Prepper administrators can add custom tags to these metrics. This can help them to better organize their Data Prepper metrics.
+* **Disabling index management**: Data Prepper can manage OpenSearch indexes. This can make it easier to get started with trace analytics in Data Prepper and OpenSearch. However, some teams have security requirements that prevent Data Prepper from having the necessary permissions to create Index State Management (ISM) policies, templates, or indexes. These teams may wish to manage indexes directly in OpenSearch. Data Prepper now allows for disabling any form of index management that reduces the permissions that Data Prepper needs on the OpenSearch cluster.
+* **Custom metrics tags**: Data Prepper produces metrics indicating how Data Prepper itself is running. These metrics allow Data Prepper administrators to monitor the health of Data Prepper and its pipelines. Now, Data Prepper administrators can add custom tags to these metrics. This can help them to better organize their Data Prepper metrics.
 
-## What's Next
+## What's next
 
 The [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1) is the best place to see what 
-is coming next. The maintainers are moving toward working on Data Prepper 2.0 which will include 
+is coming next. The maintainers are working toward Data Prepper 2.0, which will include 
 [conditional routing](https://github.com/opensearch-project/data-prepper/issues/1007) of events and 
 [core peer forwarding](https://github.com/opensearch-project/data-prepper/issues/700) for log aggregations.
