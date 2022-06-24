@@ -58,8 +58,8 @@ Each network request is a single line in the log file, and that line follows a s
 gzip compression in S3.
 
 There is a lot of rich information in these logs. You can determine whether requests are HTTP, HTTPS, or gRPC, and both the time that 
-the entire request took to process and the time your application took to process it are available. You can get 
-the final status code, User-Agent headers, and AWS X-Ray trace information. Much of this information is also available 
+the entire request took to process and the time your application took to process it are available. Also, you can get 
+the final status code, User-Agent headers, and AWS X-Ray trace information. Much of this information is available 
 in your application logs, but you can also find out why an Application Load Balancer failed a request before sending it your application.
 
 
