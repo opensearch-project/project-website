@@ -94,7 +94,7 @@ You just need to configure the source and processor plugins:
 ```yaml
 metrics-pipeline:
   source:
-    otel_trace_source:
+    otel_metrics_source::
   processor:
     - otel_metrics_raw_processor:
   sink:
