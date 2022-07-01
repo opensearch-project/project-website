@@ -7,5 +7,15 @@ architecture: arm64
 slug: opensearch-2.1.0-docker-arm64
 category: opensearch
 type: docker_hub
-link: https://hub.docker.com/r/opensearchproject/opensearch/tags?page=1&ordering=last_updated&name=2.1.0
+inline_instructions:
+- label: "Docker Hub"
+  code: docker pull opensearchproject/opensearch:2.1.0
+  link:
+    label: View on Docker Hub
+    url: https://hub.docker.com/r/opensearchproject/opensearch/tags?page=1&ordering=last_updated&name=2.1.0
+- label: "Amazon ECR"
+  code: docker pull public.ecr.aws/opensearchproject/opensearch:2.1.0
+  link:
+    label: View on Amazon ECR
+    url: https://gallery.ecr.aws/opensearchproject/opensearch
 ---
