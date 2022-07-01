@@ -24,6 +24,12 @@ columns:
         title: About
         url: '/about.html'
       - 
+        title: Release Schedule
+        url: '/releases.html'
+      - 
+        title: Maintenance Policy
+        url: '/releases.html#maintenance-policy'
+      - 
         title: FAQ
         url: '/faq/'
       -
