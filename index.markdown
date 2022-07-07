@@ -92,7 +92,7 @@ sidebar:
                 url: /faq
             -
                 title: Ask in the forums
-                url: https://discuss.opendistrocommunity.dev/
+                url: https://forum.opensearch.org/
     -
         title: Founding documents
 #        more: 
