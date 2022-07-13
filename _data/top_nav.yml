@@ -25,9 +25,16 @@ items:
     label: Community
     fragments:
       - events
-      - partners
+      - community_projects
       - blog
+      - partners
     children:
+      -
+        label: Blog
+        url: /blog
+      -
+        label: Forum
+        url: https://forum.opensearch.org/
       -
         label: Events
         url: /events
@@ -35,11 +42,8 @@ items:
         label: Partners
         url: /partners
       -
-        label: Blog
-        url: /blog
-      -
-        label: Forum
-        url: https://forum.opensearch.org/
+        label: Projects
+        url: /community_projects
   -
     label: Documentation
     fragment: docs

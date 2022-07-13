@@ -43,6 +43,7 @@
 
         li {
           margin: 0;
+          float: none;
 
           &:before {
             display: none;
@@ -53,6 +54,7 @@
             padding: .75rem 1.5rem;
             display: block;
             font-size: 90%;
+            white-space: nowrap;
 
             &:hover {
               color: $attention;
