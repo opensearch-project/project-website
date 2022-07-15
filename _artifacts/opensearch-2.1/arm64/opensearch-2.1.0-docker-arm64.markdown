@@ -6,7 +6,7 @@ platform: docker
 architecture: arm64
 slug: opensearch-2.1.0-docker-arm64
 category: opensearch
-type: docker_hub
+type: docker
 inline_instructions:
 - label: "Docker Hub"
   code: docker pull opensearchproject/opensearch:2.1.0

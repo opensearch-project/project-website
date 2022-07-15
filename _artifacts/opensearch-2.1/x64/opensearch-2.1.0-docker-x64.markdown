@@ -6,7 +6,7 @@ platform: docker
 architecture: x64
 slug: opensearch-2.1.0-docker-x64
 category: opensearch
-type: docker_hub
+type: docker
 inline_instructions:
 - label: "Docker Hub"
   code: docker pull opensearchproject/opensearch:2.1.0

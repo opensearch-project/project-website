@@ -6,7 +6,7 @@ platform: docker
 architecture: arm64
 slug: opensearch-dashboards-2.1.0-docker-arm64
 category: opensearch-dashboards
-type: docker_hub
+type: docker
 inline_instructions:
 - label: "Docker Hub"
   code: docker pull opensearchproject/opensearch-dashboards:2.1.0

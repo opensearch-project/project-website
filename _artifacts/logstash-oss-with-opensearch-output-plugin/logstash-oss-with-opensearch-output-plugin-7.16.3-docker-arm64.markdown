@@ -6,7 +6,7 @@ platform: docker
 architecture: arm64
 slug: logstash-oss-with-opensearch-output-plugin-7.16.3-docker-arm64
 category: logstash-oss-with-opensearch-output-plugin
-type: docker_hub
+type: docker
 inline_instructions:
 - label: "Docker Hub"
   code: docker pull opensearchproject/logstash-oss-with-opensearch-output-plugin:7.16.3

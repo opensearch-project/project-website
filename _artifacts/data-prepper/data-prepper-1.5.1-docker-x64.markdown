@@ -3,7 +3,7 @@ role: ingest
 artifact_id: data-prepper
 version: data-prepper-1.5.1
 platform: docker
-type: docker_hub
+type: docker
 architecture: x64
 slug: data-prepper-1.5.1-docker-x64
 category: opensearch
