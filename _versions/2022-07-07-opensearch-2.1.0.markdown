@@ -25,10 +25,10 @@ components:
       - linux
   - role: minimal-artifacts
     artifact: opensearch-min
-    version: 2.0.1
+    version: 2.1.0
   - role: minimal-artifacts
     artifact: opensearch-dashboards-min
-    version: 2.0.1
+    version: 2.1.0
   - role: drivers
     artifact: opensearch-sql-odbc
     version: 1.1.0.1
