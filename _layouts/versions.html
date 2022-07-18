@@ -1,6 +1,7 @@
 ---
 layout: default
 notice: true
+highlighter: rouge
 
 pretty:
   guide: "Install Guide"
@@ -216,6 +217,23 @@ this is the built-in error checking for the version definition having missing ar
               </div>{% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
+            {% if details.inline_instructions %}
+              {% capture artifact_instructions %}
+                {{artifact_instructions}}
+                <div class="extra_instructions extra_{{artifact_id}}">
+                {% for instruction in details.inline_instructions %}
+                  <h4 class="instruction-label">
+                    {% if instruction.link %}
+                      <a href="{{instruction.link.url}}" target="_blank">{{instruction.link.label}}</a>
+                    {% endif %}
+                    {{instruction.label}}
+                  </h4>
+                  {% highlight bash %}{{instruction.code}}{% endhighlight %}
+                {% endfor %}
+              </div>
+              {% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
             {% if details.guide %}
               {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.guide}}"> {{guide_pretty}} </a> </div>{% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
@@ -242,12 +260,15 @@ this is the built-in error checking for the version definition having missing ar
         {% endif %}
         {% if artifact_option %}
             <label for="package_select_{{artifact_id}}">Package:</label>
-            <select for="package_select_{{artifact_id}}" class="dl-artifact-select">{{ artifact_options }}</select>
+            <select id="package_select_{{artifact_id}}" class="dl-artifact-select">{{ artifact_options }}</select>
           {% assign artifact_options = "" %}
         {% endif %}
         <div class="extra-links-group">{{artifact_extras}}</div>
         {% assign artifact_extras = "" %}
         </div>
+
+        <div class="extra-instructions-group">{{artifact_instructions}}</div>
+        {% assign artifact_instructions = "" %}
 
       </div>
     </div>
