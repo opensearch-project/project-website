@@ -381,7 +381,7 @@ On the left side of the screen you can type your adhoc queries. First, run the f
 GET /_cat/indices/fluent-log-*?h=index
 ```
 
-After clicking the play arrow, you should see the index name(s) created by the Fluent Bit example in the right hand panel.
+After clicking the play arrow, you should see the index name(s) created by the Fluent Bit example in the right-hand panel.
 
 Now, let’s look at one of those indexes by running this query:
 
