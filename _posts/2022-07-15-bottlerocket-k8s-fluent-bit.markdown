@@ -383,7 +383,7 @@ GET /_cat/indices/fluent-log-*?h=index
 
 After clicking the play arrow, you should see the index name(s) created by the Fluent Bit example in the right-hand panel.
 
-Now, let’s look at one of those indexes by running this query:
+Now let’s look at one of those indexes by running this query:
 
 ```
 GET /<index name>/_search
