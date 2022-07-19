@@ -23,6 +23,7 @@ pretty:
     windows: "Windows"
     linux: "Linux"
     freebsd: "FreeBSD"
+    archlinux: "Arch Linux"
     macos: macOS
     java: "Java"
     docker: Docker
@@ -59,6 +60,7 @@ platform_order:
   - linux
   - docker
   - freebsd
+  - archlinux
   - macos
   - windows
   - java
@@ -207,6 +209,21 @@ this is the built-in error checking for the version definition having missing ar
               {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
                 <p>Install from FreeBSD packages:</p>
                 <pre># pkg install {{details.freebsd_package_name}}</pre>
+                </div>{% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.archlinux_package_name %}
+              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
+                <p>Install from Community packages:</p>
+                <pre># pacman -Syu {{details.archlinux_package_name}}</pre>
+                {% if details.artifact_id == "opensearch" %}
+                  <p>The package is provided without any plugins, those are available as additional packages:</p>
+                  <pre># pacman -Sqs "opensearch.*plugin" | grep -v dashboards</pre>
+                {% endif %}
+                {% if details.artifact_id == "opensearch-dashboards" %}
+                  <p>The package is provided without any plugins, those are available as additional packages:</p>
+                  <pre># pacman -Sqs "opensearch-dashboards.*plugin"</pre>
+                {% endif %}
                 </div>{% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}

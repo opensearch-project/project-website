@@ -16,7 +16,7 @@ role: cli
 artifact_id: opensearch-cli 
 # `version` is the semver version
 version: 1.0.0
-# `platform` is the identifier for the OS or platform. Should be `linux`, `windows`,`macos`,`freebsd`
+# `platform` is the identifier for the OS or platform. Should be `linux`, `windows`,`macos`,`freebsd`,`archlinux`
 platform: linux
 # `architecture` should be `arm64`,`x86`,`x64`
 architecture: arm64
@@ -31,8 +31,9 @@ type: zip
 # `signature` is the download link to the signature file
 signature: https://artifacts.opensearch.org/opensearch-clients/opensearch-cli/opensearch-cli-1.0.0-linux-arm64.zip.sig
 # others:
-# `link` used for `docker_hub` and `freebsd_package_name`, the page that has information non-artifact
+# `link` used for `docker_hub`, `freebsd_package_name` and `archlinux_package_name`, the page that has information non-artifact
 # `freebsd_package_name` the `pkg` name, used in the template only for freebsd
+# `archlinux_package_name` the `pkg` name, used in the template only for Arch Linux
 
 ---
 ```
