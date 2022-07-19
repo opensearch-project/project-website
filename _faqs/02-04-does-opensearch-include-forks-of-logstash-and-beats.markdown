@@ -1,5 +1,5 @@
 ---
-question: Does OpenSearch include forks of logstash and beats?
+question: Does OpenSearch include forks of Logstash and Beats?
 category: Tools and Plugins
 ---
 
