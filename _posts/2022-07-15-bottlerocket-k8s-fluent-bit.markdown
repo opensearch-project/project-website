@@ -11,7 +11,7 @@ excerpt: "Today, I’m going to show you how to run OpenSearch with the OpenSear
 
 This place seems familiar 👀
 
-Today, I’m going to show you how to run OpenSearch with the OpenSearch Operator on Kubernetes using the Bottlerocket then add Fluent Bit to collect logs from the nodes of the same Kubernetes cluster. Phew. If that seems like a lot, don’t worry - this post will take it bit-by-bit. I’ll assume you know what OpenSearch is, but what about the rest of that stuff?
+Today, I’m going to show you how to run OpenSearch with the OpenSearch Operator on Kubernetes using the Bottlerocket and then add Fluent Bit to collect logs from the nodes of the same Kubernetes cluster. Phew. If that seems like a lot, don’t worry—this post will take it bit by bit. I’ll assume you know what OpenSearch is, but what about the rest of that stuff?
 
 * **OpenSearch Operator for Kubernetes** controls and abstracts configuration of OpenSearch & OpenSearch Dashboards in the Kubernetes environment.
 * **Fluent Bit** is a logging processor and forwarder that’ll be used to take the raw logs and send them up to OpenSearch for processing.
