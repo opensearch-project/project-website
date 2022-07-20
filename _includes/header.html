@@ -37,8 +37,12 @@
             {% if nav_item.children %}
               <ul>
                 {% for nav_child in nav_item.children %}
-                  {% assign child_url_parts = nav_child.url | split: "/" %}
-                  {% assign child_url_fragment = child_url_parts[1] | replace: '.html', '' %}
+                  {% if nav_child.url contains '://' %}
+                    {% assign child_url_fragment = '#' %}
+                  {% else %}
+                    {% assign child_url_parts = nav_child.url | split: "/" %}
+                    {% assign child_url_fragment = child_url_parts[1] | replace: '.html', '' %}
+                  {% endif %}
                   <li>
                     <a href="{{ nav_child.url }}"
                        {% if child_url_fragment == url_fragment %} class="in-category" {% endif %}
