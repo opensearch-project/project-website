@@ -57,5 +57,8 @@ columns:
         title: 'YouTube'
         url: 'https://www.youtube.com/c/OpenSearchProject'
       -
+        title: 'Meetup'
+        url: 'https://www.meetup.com/opensearch/'
+      -
         title: 'Facebook'
         url: 'https://www.facebook.com/OpenSearchProject/'

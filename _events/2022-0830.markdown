@@ -1,20 +1,20 @@
 ---
 
-eventdate: 2022-07-26T07:00
+eventdate: 2022-08-30T08:00
 tz: UTC -7
-title: OpenSearch Community Meeting - 2022-07-26
+title: OpenSearch Community Meeting - 2022-08-30
 online: true
 signup:
-    url: https://www.meetup.com/opensearch/events/286884548
+    url: https://www.meetup.com/opensearch/events/287311925/
     title: Join on Meetup
 
 ---
 
-Join us for an open office discussion.
+Join us for our online community meeting.
 
-Meeting topics and passcode are listed in the [collaborative agenda](https://forum.opensearch.org/t/opensearch-community-meeting-2022-0726-open-office/10129) on the forum.
+Meeting topics and passcode are listed in the [collaborative agenda](https://forum.opensearch.org/t/opensearch-community-meeting-2022-0830/10324) on the forum.
 
-Feel free to comment on the agenda before the meeting if you want to add an item or have a question. 
+Feel free to comment on the agenda before the meeting if you want to add an item or have a question. Would you like to present? Reach out on the forumn thread - we welcome community presentations. 
 
 After the meeting, we will post the chat log and any meeting notes. We welcome you to keep the conversation going on the forum. 
 
