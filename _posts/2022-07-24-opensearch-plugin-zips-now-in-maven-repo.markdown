@@ -40,7 +40,7 @@ Starting with release `2.1.0` all OpenSearch gradle supported plugins will have 
 
 Consume from Central Maven repo:
 ```
-mvn dependency:get -DgroupId=org.opensearch.plugin -DartifactId=opensearch-job-scheduler -Dversion=2.1.0.0 -Dpackaging=zip -DremoteRepositories=central::default::https://repo.maven.apache.org/maven2,myrepo::::http://myrepo.com/maven2
+mvn dependency:get -DgroupId=org.opensearch.plugin -DartifactId=opensearch-job-scheduler -Dversion=2.1.0.0 -Dpackaging=zip -DremoteRepositories=https://repo1.maven.org/maven2
 ```
 Consume from Snapshot Maven repo:
 ```
