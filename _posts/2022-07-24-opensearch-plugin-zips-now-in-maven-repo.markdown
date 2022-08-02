@@ -40,11 +40,11 @@ Starting with release `2.1.0` all OpenSearch gradle supported plugins will have 
 
 Consume from Central Maven repo:
 ```
-mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get -DrepoUrl=https://repo1.maven.org/maven2  -Dartifact=org.opensearch.plugin:opensearch-job-scheduler:2.1.0.0:zip
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get -DrepoUrl=https://repo1.maven.org/maven2 -Dartifact=org.opensearch.plugin:opensearch-job-scheduler:2.1.0.0:zip
 ```
 Consume from Snapshot Maven repo:
 ```
-mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get -DrepoUrl=https://aws.oss.sonatype.org/content/repositories/snapshots/  -Dartifact=org.opensearch.plugin:opensearch-job-scheduler:2.1.0.0-SNAPSHOT:zip
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get -DrepoUrl=https://aws.oss.sonatype.org/content/repositories/snapshots -Dartifact=org.opensearch.plugin:opensearch-job-scheduler:2.1.0.0-SNAPSHOT:zip
 ```
 
 **Gradle Project: using build.gradle file**
