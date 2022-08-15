@@ -91,7 +91,5 @@ dependencies {
 
 
 
-## Summary
 
-Using the [Release zips Maven Repo](https://repo1.maven.org/maven2/org/opensearch/plugin/) and [Snapshot zips Maven Repo](https://aws.oss.sonatype.org/content/repositories/snapshots/org/opensearch/plugin/) URL’s, OpenSearch plugin zips can be consumed and used as dependency to build other plugins and can also be fetched as standalone components to install them to the OpenSearch cluster.
 
