@@ -76,7 +76,7 @@ dependencies {
 }
 ```
 
-**Maven Project: using pom.xml file**
+**Maven Project: Using the pom.xml file**
 
 ```
 <dependencies>
