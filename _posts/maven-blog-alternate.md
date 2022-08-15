@@ -1,0 +1,92 @@
+---
+layout: post
+title:  "OpenSearch plugin zips now in Maven repo"
+authors: 
+  - prudhvigodithi
+date: 2022-07-24 01:01:01 -0700
+categories: 
+  - technical-post
+---
+
+Starting with the release of OpenSearch `2.1.0`, OpenSearch plugin zips are now signed and published to a central Apache Maven [repo](https://repo1.maven.org/maven2/org/opensearch/plugin/).  
+
+## Motivation 
+
+Before OpenSearch 2.1, plugin zips used as dependencies could not be downloaded dynamically during runtime, because plugin zips were not a part of the version-controlled Maven system. The only mechanism for plugin downloads was OpenSearch respective Java jar fetched through Maven coordinates. The Java jar forced users who wanted more control over their OpenSearch plugin configuration to use a random plugin version built on a developer desktop, instead of a more reliable version-controlled plugin. 
+
+Furthermore, tests executed against as part the OpenSearch build process from zip were not accurate, as each local build zip had to find the plugin repo in order to ensure that plugin's availability. These restrictions were challenging to our community, since those wishing to use plugin zips as separate isolated components via a cached mechanism proved to be impossible. 
+
+## Benefits of Maven
+
+With Maven, plugin zips can now be retrieved by:
+
+- Downloading each plugin directly using their respective Maven coordinates 
+- Using clickstream from the central Maven repo, which can be cached later to a local Maven repo.
+- Fetching the development `Snapshot` version with same Mavin `groupID` as [org.opensearch.plugin](https://aws.oss.sonatype.org/content/repositories/snapshots/org/opensearch/plugin/).
+
+Using OpenSearch plugin zips through Maven offers the following benefits:
+
+- Plugins zip in the central Maven repo is already signed with `.asc`, `.md5`, `.sha1`, `.sha256`, `.sha512` extensions.
+- Users are no longer required to to check in zips to any `src/` files, since zips can be fetched with the right `groupID`, `artifactID` and `version`.
+- Tests and CI workflows can directly run against the Maven repo, instead of requiring a manual download. 
+
+## Maven zip publication and gradle
+
+OpenSearch publishes plugin zips using a custom gradle plugin `opensearch.pluginzip`. With OpenSearch 2.1, all OpenSearch gradle supported plugins create a new task, `publishPluginZipPublicationToZipStagingRepository`. The task performs all the heavy lifting for users by:
+
+- Identifying the distribution plugin zip
+- Setting the Maven coordinates
+- Generating the POM file
+- Updating the user-generated PM fields
+- Publishing the task to your Maven repo
+
+You can find more details about the inner workings of OpenSearch plugins in the [opensearch-plugins repo](https://github.com/opensearch-project/opensearch-plugins/blob/main/BUILDING.md#opensearchpluginzip).
+
+**Figure 1**: Workflow that ship generated plugin zips to maven
+
+![Figure 1: Workflow that ship zips to maven]({{ site.baseurl }}/assets/media/blog-images/2022-07-24-opensearch-plugin-zips-now-in-maven-repo/figure1.png){: .img-fluid }**Figure 1**: Workflow that ships generated plugin zips to Maven
+
+## Consume plugin in zips
+
+You can fetch plugin in zips in three different ways:
+
+**Using mvn cli:**
+
+Consume from Central Maven repo:
+```
+mvn dependency:get -DgroupId=org.opensearch.plugin -DartifactId=opensearch-job-scheduler -Dversion=2.1.0.0 -Dpackaging=zip -DremoteRepositories=central::default::https://repo.maven.apache.org/maven2,myrepo::::http://myrepo.com/maven2
+```
+Consume from Snapshot Maven repo:
+```
+Snapshot Maven repo
+mvn dependency:get -DgroupId=org.opensearch.plugin -DartifactId=opensearch-job-scheduler -Dversion=2.1.0.0-SNAPSHOT -Dpackaging=zip -DremoteRepositories=https://aws.oss.sonatype.org/content/repositories/snapshots/
+```
+
+**Gradle Project: using build.gradle file**
+
+```
+dependencies {
+    classpath "org.opensearch.plugin:opensearch-job-scheduler:2.1.0.0@zip"
+    classpath "org.opensearch.plugin:opensearch-knn:2.1.0.0@zip"
+}
+```
+
+**Maven Project: using pom.xml file**
+
+```
+<dependencies>
+        <dependency>
+            <groupId>org.opensearch.plugin</groupId>
+            <artifactId>opensearch-job-scheduler</artifactId>
+            <version>2.1.0.0</version>
+            <packaging>zip</packaging>
+        </dependency>
+</dependencies>
+```
+
+
+
+## Summary
+
+Using the [Release zips Maven Repo](https://repo1.maven.org/maven2/org/opensearch/plugin/) and [Snapshot zips Maven Repo](https://aws.oss.sonatype.org/content/repositories/snapshots/org/opensearch/plugin/) URL’s, OpenSearch plugin zips can be consumed and used as dependency to build other plugins and can also be fetched as standalone components to install them to the OpenSearch cluster.
+
