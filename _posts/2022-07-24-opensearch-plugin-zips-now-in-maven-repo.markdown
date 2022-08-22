@@ -54,17 +54,16 @@ You can fetch plugin zips in three different ways.
 
 **Using the Maven CLI**
 
-Consume from the central Maven repo:
+Consume from the Central Maven repo:
 
 ```
-mvn dependency:get -DgroupId=org.opensearch.plugin -DartifactId=opensearch-job-scheduler -Dversion=2.1.0.0 -Dpackaging=zip -DremoteRepositories=central::default::https://repo.maven.apache.org/maven2,myrepo::::http://myrepo.com/maven2
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get -DrepoUrl=https://repo1.maven.org/maven2 -Dartifact=org.opensearch.plugin:opensearch-job-scheduler:2.1.0.0:zip
 ```
 
 Consume from the Snapshot Maven repo:
 
 ```
-Snapshot Maven repo
-mvn dependency:get -DgroupId=org.opensearch.plugin -DartifactId=opensearch-job-scheduler -Dversion=2.1.0.0-SNAPSHOT -Dpackaging=zip -DremoteRepositories=https://aws.oss.sonatype.org/content/repositories/snapshots/
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get -DrepoUrl=https://aws.oss.sonatype.org/content/repositories/snapshots -Dartifact=org.opensearch.plugin:opensearch-job-scheduler:2.1.0.0-SNAPSHOT:zip
 ```
 
 **Gradle Project: Using the build.gradle file**
@@ -88,8 +87,3 @@ dependencies {
         </dependency>
 </dependencies>
 ```
-
-
-
-
-
