@@ -3,7 +3,7 @@ layout: post
 title:  "OpenSearch plugin zips now in Maven repo"
 authors: 
   - prudhvigodithi
-date: 2022-07-24 01:01:01 -0700
+date: 2022-08-23 01:01:01 -0700
 categories: 
   - technical-post
 twittercard:
