@@ -24,7 +24,7 @@ After forking the [repository](https://github.com/opensearch-project/opensearch-
 
 Two weeks before release, [GitHub issues](https://github.com/opensearch-project/observability/issues/503) are created in each repository with a checklist for each (the actual checklist that was created for this version release is pictured below). I self-assign the issue and check off some of the completed tasks. In hindsight, it seems obvious that I would know that checking off a task does not mean that it is actually completed. But this only becomes clear to me when I wake up one morning to the continuous integration (CI) builds failing.
 
-![Image: Figure 1]({{ site.baseurl }}/assets/media/blog-images/2022-08-24-day-in-the-life-of-a-release-manager/release-checklist-1.png){: .img-fluid }
+![Image: Figure 1]({{ site.baseurl }}/assets/media/blog-images/2022-08-25-day-in-the-life-of-a-release-manager/release-checklist-1.png){: .img-fluid }
 
 Thanks to a teammate, the issue is quickly triaged: dashboards-visualizations’ main branch has not been bumped to 1.3. My memory of bumping the version for three repositories conveniently expanded to include the fourth. Mortified, I glare at the fourth and fifth check marks of my checklist.
 
@@ -34,7 +34,7 @@ As the code freeze date approaches, I hear other release managers talk about mak
 
 As OpenSearch moves toward its release date, I start my first release task: completing [documentation](https://github.com/opensearch-project/documentation-website). This means updating the [documentation-website](https://github.com/opensearch-project/documentation-website) repo. Along with documentation, release notes have to be gathered (the actual checklist that was created for this version release is pictured below).
 
-![Image: Figure 1]({{ site.baseurl }}/assets/media/blog-images/2022-08-24-day-in-the-life-of-a-release-manager/release-checklist-2.png){: .img-fluid }
+![Image: Figure 1]({{ site.baseurl }}/assets/media/blog-images/2022-08-25-day-in-the-life-of-a-release-manager/release-checklist-2.png){: .img-fluid }
 
 Now you may be wondering, as I was, what are release notes and where are they stored?
 
