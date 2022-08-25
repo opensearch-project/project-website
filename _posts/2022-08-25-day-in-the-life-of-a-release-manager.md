@@ -3,7 +3,7 @@ layout: post
 title:  "Day in the Life of a Release Manager"
 authors:
 - eugenesk
-date: 2022-08-24
+date: 2022-08-25
 categories:
  - community
 ---
@@ -16,7 +16,7 @@ A couple weeks go by with no updates until a couple days before feature freeze, 
 
 What is a release manifest? I turn to the [results](https://dzone.com/articles/release-snapshots-smart#:~:text=A%20release%20manifest%20contains%20the,signatures%20from%20sender%20and%20receiver.) of a quick Google search.
 
-> A release manifest contains the collection of versioned stuff that is being deployed, configuration settings, and approvals. What, how, where, and who approved it. This is similar to a shipping form listing out the boxes sent, value and contents of the goods, destination, and signatures from sender and receiver.
+*A release manifest contains the collection of versioned stuff that is being deployed, configuration settings, and approvals. What, how, where, and who approved it. This is similar to a shipping form listing out the boxes sent, value and contents of the goods, destination, and signatures from sender and receiver.*
 
 I find the release manifest for OpenSearch within a repository called [opensearch-build](https://github.com/opensearch-project/opensearch-build) within a folder conveniently called [manifests](https://github.com/opensearch-project/opensearch-build/tree/main/manifests). I start reading all of the docs I can find related to this release and previous ones. 
 
@@ -28,7 +28,7 @@ Two weeks before release, [GitHub issues](https://github.com/opensearch-project/
 
 Thanks to a teammate, the issue is quickly triaged: dashboards-visualizations’ main branch has not been bumped to 1.3. My memory of bumping the version for three repositories conveniently expanded to include the fourth. Mortified, I glare at the fourth and fifth check marks of my checklist.
 
-> Mistake #1: Checking off an item that wasn’t complete.
+*Mistake #1: Checking off an item that wasn’t complete.*
 
 As the code freeze date approaches, I hear other release managers talk about making sure branches are cut and manifests are updated. For the repositories I am managing, that means communicating with respective repo owners and tracking when they are ready to cut a 1.3 branch (Cutting a branch just means creating a new branch labeled 1.3, which marks the state of that release). Once pencils are down, I cut 1.3 branches and [update](https://github.com/opensearch-project/opensearch-build/commit/aa7590659cb8107102879f66274182b907aec347) the manifest to reference 1.3 instead of main. 
 
@@ -38,18 +38,18 @@ As OpenSearch moves toward its release date, I start my first release task: comp
 
 Now you may be wondering, as I was, what are release notes and where are they stored?
 
-> Release notes are a categorized list of the commits that are going into the new release. They are most likely stored in a folder called release-notes (https://github.com/opensearch-project/observability/tree/main/release-notes) within the repository. 
+*Release notes are a categorized list of the commits that are going into the new release. They are most likely stored in a folder called release-notes (https://github.com/opensearch-project/observability/tree/main/release-notes) within the repository.*
 
 Luckily, my team has a [script](https://github.com/opensearch-project/observability/blob/main/.github/draft-release-notes-config.yml) that automatically drafts release notes based on PRs that are merged with labels. Unluckily, none of the [observability](https://github.com/opensearch-project/observability) PRs were labeled, which means manually categorizing PRs. I create new release note files for this release in every repository.
 
-> Note to self: For future releases, put a mechanism in place to make sure PRs are labeled before they are merged for future releases.
+*Note to self: For future releases, put a mechanism in place to make sure PRs are labeled before they are merged for future releases.*
 
 After merging the PRs adding release notes, I check that off all of the lists. Little do I know, I have just made mistake #1 again. That afternoon I get a message from the overall release manager that one of my repositories does not have release notes. I learn that even repositories with no changes made for that release still need to have release notes. 
 
-> Mistake #2: Not adding release notes for repositories with no changes.
+*Mistake #2: Not adding release notes for repositories with no changes.*
 
 I quickly add a short release note and backport it to the 1.3 branch. 
 
-> To backport is to add commits to the main branch and then also push them to the tip of a previously cut branch. Most repositories have scripts to [auto-backport](https://github.com/opensearch-project/observability/blob/main/DEVELOPER_GUIDE.md#backports) PRs.
+*To backport is to add commits to the main branch and then also push them to the tip of a previously cut branch. Most repositories have scripts to [auto-backport](https://github.com/opensearch-project/observability/blob/main/DEVELOPER_GUIDE.md#backports) PRs.*
 
 I return to completing documentation. Soon after, the release launches and [release tags](https://github.com/opensearch-project/observability/tags) are automatically created. My job as release manager abruptly comes to an end. My final mission: make sure any future, first-time release managers do not struggle and make the same mistakes I did. 
