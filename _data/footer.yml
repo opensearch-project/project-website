@@ -6,7 +6,7 @@ columns:
         title: Code of Conduct
         url: '/codeofconduct.html'
       -
-        title: 'Forums'
+        title: 'Forum'
         url: 'https://forum.opensearch.org/'
       -
         title: 'Github'
@@ -14,9 +14,9 @@ columns:
      # -
       #  title: 'Partners'
       #  url: '/partners/'
-      -
-        title: 'Community Projects'
-        url: '/community_projects'
+     # -
+      #  title: 'Community Projects'
+       # url: '/community_projects'
   -
     title: 'Resources'
     links:
