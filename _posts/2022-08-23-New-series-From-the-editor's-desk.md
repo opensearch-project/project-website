@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "From the editor's desk: OpenSearch and Inclusion"
+title:  "From the editor's desk: OpenSearch and inclusion"
 authors: 
   - nbower
 date: 2022-08-31
