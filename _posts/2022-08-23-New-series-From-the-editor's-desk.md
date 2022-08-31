@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "New series: From the editor's desk"
+title:  "From the editor's desk: OpenSearch and Inclusion"
 authors: 
   - nbower
-date: 2022-08-23
+date: 2022-08-31
 categories: 
   - community
 ---
 
-As part of our commitment to providing complete and best-in-class documentation to the OpenSearch community, we want to ensure that you have visibility into how we approach creating bar-raising content. To that end, we will be publishing regular blog posts with tips, guidance, and best practices that will help contributors collaborate with us to produce exceptional documentation. Subjects may include technical writing, style, voice and tone, brand messaging, and other topics relevant to the production of our documentation. We hope you find this to be useful, and we would love to hear your thoughts on any of the subjects we discuss in this series. Please feel free to make your voice heard as part of the OpenSearch community through our [community meetings](https://www.meetup.com/OpenSearch/), [forum discussions](https://forum.opensearch.org/), and [GitHub repository](https://github.com/opensearch-project).
+As part of our commitment to providing complete and best-in-class documentation to the OpenSearch community, we want to ensure that you have visibility into how we approach creating bar-raising content. To that end, we will be publishing regular blog posts with tips, guidance, and best practices that will help contributors collaborate with us. Subjects may include technical writing, style, voice and tone, brand messaging, and other topics relevant to the production of our documentation. We hope you find this to be useful, and we would love to hear your thoughts on any of the subjects we discuss in this series. Please feel free to make your voice heard as part of the OpenSearch community through our [community meetings](https://www.meetup.com/OpenSearch/), [forum discussions](https://forum.opensearch.org/), and [GitHub repository](https://github.com/opensearch-project).
 
 ## OpenSearch is for everyone, and we are inclusive
 
@@ -49,10 +49,8 @@ We avoid using the following terms in OpenSearch content, depending on the conte
 | purge                    | delete, clear, remove               |
 | segregate                | separate, isolate                   |
 | trigger                  | initiate, invoke, launch, start     |
-| white day                | open day                            |
-| whitelist                | allow list                          |
 
-Version 2.0 replaced non-inclusive terminology (such as master, blacklist) throughout OpenSearch with inclusive terminology (such as cluster manager, allow list), but please let us know if you think we missed something so that we can address it in an expedient manner. Check out the associated [GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/2589) for more information.
+[Version 2.0](https://opensearch.org/blog/releases/2022/05/opensearch-2-0-is-now-available/) replaced non-inclusive terminology (such as master, blacklist) throughout OpenSearch with inclusive terminology (such as cluster manager, allow list), but please let us know if you think we missed something so that we can address it in an expedient manner. Check out the associated [GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/2589) for more information.
 
 ## Accessibility
 
@@ -61,6 +59,9 @@ Accessibility involves designing and creating websites, user interfaces, and doc
 We follow these general accessibility guidelines in our documentation:
 
 * Links: Use link text that adequately describes the target page. For example, use the title of the target page instead of “here” or “this link.” In most cases, a formal cross-reference (the title of the page you're linking to) is the preferred style because it provides context and helps readers understand where they’re going when they choose the link.
+* Images:
+  * Add introductory text that provides sufficient context for each image in your topic.
+  * Add ALT text that describes the image for screen readers.
 * Procedures: Not everyone uses a mouse, so use device-independent verbs; for example, use “choose” instead of “click.” 
 * Location: When you’re describing the location of something else in your content, such as an image or another section, use words such as “preceding,” “previous,” or “following” instead of “above” and “below.”
 
