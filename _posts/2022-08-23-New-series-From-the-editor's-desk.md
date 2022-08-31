@@ -60,7 +60,7 @@ We follow these general accessibility guidelines in our documentation:
 
 * Links: Use link text that adequately describes the target page. For example, use the title of the target page instead of “here” or “this link.” In most cases, a formal cross-reference (the title of the page you're linking to) is the preferred style because it provides context and helps readers understand where they’re going when they choose the link.
 * Images:
-  * Add introductory text that provides sufficient context for each image in your topic.
+  * Add introductory text that provides sufficient context for each image.
   * Add ALT text that describes the image for screen readers.
 * Procedures: Not everyone uses a mouse, so use device-independent verbs; for example, use “choose” instead of “click.” 
 * Location: When you’re describing the location of something else in your content, such as an image or another section, use words such as “preceding,” “previous,” or “following” instead of “above” and “below.”
