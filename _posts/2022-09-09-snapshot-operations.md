@@ -10,8 +10,6 @@ categories:
   - technical-post
 ---
 
-# Snapshot operations in OpenSearch
-
 In this post, we want to dive deep into snapshot operations in OpenSearch. Snapshots are backups of a cluster’s indexes and state. The state can include cluster settings, node information, index metadata, and shard allocation information. Snapshots are used to recover from failures, such as a red cluster, or to move data from one cluster to another without data loss. Remote searchable snapshots will enable users to restore a snapshot without downloading all the shards on the cluster nodes, requiring us to dive deep into the existing snapshot operations within OpenSearch.
 
 This post will help you understand the fundamentals of snapshot operations. If you enjoy this topic and want to put your knowledge into practice, please consider contributing to [remote searchable snapshots](https://github.com/opensearch-project/OpenSearch/issues/3895).
