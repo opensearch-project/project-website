@@ -136,4 +136,4 @@ SM depends on the Job Scheduler plugin to schedule and periodically run a job fo
 
 Snapshot Management automates taking snapshots of your cluster and gives useful features like notifications. To learn more about SM, check out the [SM documentation section](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-management/). To get more technical details, read the [SM meta issue](https://github.com/opensearch-project/index-management/issues/280). 
 
-If you're interested in snapshots, consider contributing to the next improvement we're working on: [searchable snapshots](https://github.com/opensearch-project/OpenSearch/issues/3895).
+If you're interested in snapshots, consider contributing to the next improvement we're working on: [searchable snapshots](https://github.com/opensearch-project/OpenSearch/issues/3895). 
