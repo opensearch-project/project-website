@@ -18,9 +18,9 @@ When developing OpenSearch documentation, we strive to create content that is in
 
 ## Inclusive terminology
 
-The following tables list offensive terms that we do not use in our content and sensitive terms that we avoid using. 
+Our philosophy is that we positively impact users and our industry as we proactively reduce our use of terms that are problematic in some contexts. Instead, we use more technically precise language and terms that are inclusive of all audiences. 
 
-We do not use the following terms in OpenSearch content. Instead, use one of the acceptable alternatives provided in the second column.
+The following terms may be associated with unconscious racial bias, violence, or politically sensitive topics and should not appear in OpenSearch content, if possible. Note that many of these terms are still present but on a path to not being supported.
 
 <div class="table-styler"></div>
 
@@ -38,7 +38,7 @@ We do not use the following terms in OpenSearch content. Instead, use one of the
 | white day      | open day                    |
 | whitelist      | allow list                  |
 
-We avoid using the following terms in OpenSearch content, depending on the context. Again, you can use one of the alternatives listed in the second column.
+The following terms may be problematic in some contexts. This doesn’t mean that you can’t use these terms—just be mindful of their potential associations when using them, and avoid using them to refer to people.
 
 <div class="table-styler"></div>
 
