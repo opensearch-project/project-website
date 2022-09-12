@@ -2,7 +2,7 @@
 layout: post
 title:  "SQL search relevance, selective aggregation, and window functions in OpenSearch"
 authors:
-- dai-chen
+- daichen
 - jdbright
 date: 2022-09-12
 categories:
