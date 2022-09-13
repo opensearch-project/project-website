@@ -5,4 +5,4 @@ photo: '/assets/media/authors/davidlago.jpg'
 github: davidlago
 ---
 
-**Dave Lago** is a Software Development Manager at AWS working on the OpenSearch project.
+**Dave Lago** is an AWS Software Development Manager working on the OpenSearch project.
