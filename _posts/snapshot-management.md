@@ -42,8 +42,6 @@ Think of Snapshot Management as having your index take selfies of itself.
 
 ### How to set up Snapshot Management
 
-To use SM, you need to install the Index Management Plugin. 
-
 You can set up Snapshot Management either using the [REST API](https://opensearch.org/docs/latest/opensearch/snapshots/sm-api/) or through [OpenSearch Dashboards](https://opensearch.org/docs/latest/opensearch/snapshots/sm-dashboards/). Here is the sequence that you should follow.
 
 First, create a repository to hold your snapshots.
@@ -54,7 +52,15 @@ Then, [create an SM policy](https://opensearch.org/docs/latest/opensearch/snapsh
 - Which snapshots to retain (for example, retain snapshots taken within the last 30 days or retain the last 100 snapshots). This is optional. If you don't specify a retention schedule, all snapshots will be retained.
 - How you want to be notified of snapshot events, and what snapshot events interest you (creation, deletion or failure). This is optional. 
 
-Here's a sample SM policy:
+You need to set the schedule for your automatic snapshots using a [cron expression](https://opensearch.org/docs/latest/monitoring-plugins/alerting/cron/). Let's dissect the cron expression `0 8 * * *` that is used in the example below.
+
+:--- | :--- | :--- | :--- | :---
+0 | 8 | * | * | *
+minute| hour | day<br>of<br>month | month | day<br>of<br>year
+
+So, with this cron expression you're asking to take snapshots at 8:00 AM every day.
+
+Here's a sample SM policy that puts together all of this information:
 
 ```json
 POST _plugins/_sm/policies/daily-policy
