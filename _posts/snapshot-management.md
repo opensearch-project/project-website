@@ -52,13 +52,13 @@ Then, [create an SM policy](https://opensearch.org/docs/latest/opensearch/snapsh
 - Which snapshots to retain (for example, retain snapshots taken within the last 30 days or retain the last 100 snapshots). This is optional. If you don't specify a retention schedule, all snapshots will be retained.
 - How you want to be notified of snapshot events, and what snapshot events interest you (creation, deletion or failure). This is optional. 
 
-You need to set the schedule for your automatic snapshots using a [cron expression](https://opensearch.org/docs/latest/monitoring-plugins/alerting/cron/). Let's dissect the cron expression `0 8 * * *` that is used in the example below.
+You need to set the schedule for your automatic snapshots using a [cron expression](https://opensearch.org/docs/latest/monitoring-plugins/alerting/cron/). Let's dissect the expression `0 8 * * *` that we'll use in the example below.
 
 :--- | :--- | :--- | :--- | :---
 0 | 8 | * | * | *
-minute| hour | day<br>of<br>month | month | day<br>of<br>year
+minute| hour | day of month | month | day of year
 
-So, with this cron expression you're asking to take snapshots at 8:00 AM every day.
+With this cron expression you're asking to take snapshots at 8:00 AM every day.
 
 Here's a sample SM policy that puts together all of this information:
 
