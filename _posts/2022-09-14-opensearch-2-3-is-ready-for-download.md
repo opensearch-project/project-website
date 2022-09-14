@@ -12,9 +12,9 @@ categories:
 
 ### Segment replication
 
-Segment replication offers a new approach to how OpenSearch stores data, with performance improvements on high-ingestion workloads. Currently, OpenSearch uses a document replication strategy, which indexes the primary shard and each replica in parallel whenever documents are added to, removed from, or updated within an index. With document replication, each transaction needs to be rerun on each node with a replica shard. With segment replication, you can opt to copy Lucene segment files from the primary shard to its replicas instead of having replicas rerun the operation. Because Lucene uses a write-once segmented architecture, only new segment files need to be copied; the existing ones will never change. This approach offers improved indexing throughput and lower resource utilization while potentially increasing network utilization and refresh times. 
+Segment replication offers a new approach to how OpenSearch replicates data, with performance improvements on high-ingestion workloads. Currently, OpenSearch uses a document replication strategy, which indexes the primary shard and each replica in parallel whenever documents are added to, removed from, or updated within an index. With document replication, each transaction needs to be rerun on each replica shard. With segment replication, you can opt to copy Lucene segment files from the primary shard to its replicas instead of having replicas rerun the operation. Because Lucene uses a write-once segmented architecture, only new segment files need to be copied; the existing ones will never change. This approach offers improved indexing throughput and lower resource utilization at the expense of increased network utilization and refresh times. 
 
-To learn how to enable this feature, see [the documentation](https://opensearch.org/docs/latest/opensearch/segment-replication/index/). You’ll have the option to have some indexes within a cluster that use document replication and others that use segment replication. You can learn more about how this feature is designed, see some preliminary performance metrics, and provide your feedback on [this GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/2229). 
+To learn how to enable this feature, see [the documentation](https://opensearch.org/docs/latest/opensearch/segment-replication/index/). You’ll have the option to have some indexes within a cluster that use document replication and others that use segment replication. You can learn more about how this feature is designed, see some preliminary performance metrics, and provide your feedback on [this GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/2194). 
 
 ### Remote-backed storage
 
@@ -22,7 +22,7 @@ With the introduction of segment replication, OpenSearch can now enable remote-b
 
 Now this experimental feature lets you deploy remote-backed storage on a per index basis for your OpenSearch clusters using Amazon Simple Storage Service (Amazon S3), Azure Blob Storage, Google Cloud Storage, or Oracle Cloud Infrastructure (OCI) Object Storage. You can choose from a few different approaches to activating remote-backed storage, as detailed in the [feature documentation](http://opensearch.org/docs/latest/opensearch/remote).
 
-We expect OpenSearch users will be excited about the increased data durability afforded by cloud-based backup and restore. We  look forward to your feedback on how this feature works with your clusters, which can be provided [here on GitHub](https://github.com/opensearch-project/OpenSearch/issues/2194).
+We expect OpenSearch users will be excited about the increased data durability afforded by cloud-based backup and restore. We  look forward to your feedback on how this feature works with your clusters, which can be provided [here on GitHub](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/2337).
 
 ### Drag-and-drop visualization
 
