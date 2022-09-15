@@ -95,7 +95,6 @@ You just need to configure the source and processor plugins:
 metrics-pipeline:
   source:
     otel_metrics_source:
-      ssl: false
   processor:
     - otel_metrics_raw_processor:
   sink:
