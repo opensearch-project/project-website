@@ -1,7 +1,7 @@
 ---
 name: Dave Lago
 short_name: davidlago
-photo: '/assets/media/authors/davidlago.jpg'
+photo: '/assets/media/authors/davidlago.png'
 github: davidlago
 ---
 
