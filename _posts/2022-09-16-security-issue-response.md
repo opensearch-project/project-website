@@ -8,7 +8,7 @@ categories:
   - technical-post
 ---
 
-Today we are taking the next step in our open-source journey by updating our security policy to include a process for how we respond to security issues. In proper open-source fashion, we are creating this as a [pull request](https://github.com/opensearch-project/.github/pull/XXX), and we are inviting everyone to take part in the discussion.
+Today we are taking the next step in our open-source journey by updating our security policy to include a process for how we respond to security issues. In proper open-source fashion, we are creating this as a [pull request](https://github.com/opensearch-project/.github/pull/90), and we are inviting everyone to take part in the discussion.
 
 Besides making the security issue response process transparent, this policy has a significant addition: **the creation of a pre-disclosure list**.
 
