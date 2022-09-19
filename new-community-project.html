@@ -1,0 +1,51 @@
+---
+layout: fullwidth
+primary_title: 'New Community Project'
+---
+<p>
+    Adding a new community project is accomplished through a pull request to <a href="https://github.com/opensearch-project/project-website" target="_blank">opensearch-project/project-website</a> in the <code>_community_projects</code> folder. The suggested method is to fork the repo, add the <a href="https://github.com/opensearch-project/project-website/blob/main/_community_projects/_sample.md" target="_blank">community project markdown file</a> and <a href="https://github.com/opensearch-project/project-website#building-the-website" target="_blank">build the website locally to verify it looks correct</a> then contribute the changed file back to opensearch-project/project-website.
+</p>
+<p>  
+    Alternately, this form will help you make the pull request and properly sign the DCO in the GitHub web interface by creating the pull request for you. You will need to have a GitHub account and be logged in for this form to work properly. Due to limitations in this process, you will need to add images through another method.
+</p>
+<p>This visual guide can help you understand how a community project tile connects to the rendered HTML.</p>
+<img src="/assets/media/community_projects/community-project-guide.png" alt="visual guide" class="img-fluid"/>
+<form class="pr-maker">
+    <input type="hidden" id="formType" value="community_project" />
+    <label for="projectName">Project Name</label>
+    <input type="text" class="active-input" id="projectName" />
+    <label for="projectLink">Link to Project (URL)</label>
+    <input type="text" class="active-input" id="projectLink" />
+
+    <label for="projectDescription">Project Description</label>
+    <input type="text" class="active-input" id="projectDescription" />
+    <label for="projectOwner">Owner</label>
+    <input type="text" class="active-input" id="projectOwner" />
+    <label for="projectOwnerLink">Owner Link (URL, Optional)</label>
+    <input type="text" class="active-input" id="projectOwnerLink" />
+
+    <label for="projectLicense">Project License (MIT, Apache 2.0, BSD 3 Clause, etc.)</label>
+    <input type="text" class="active-input" id="projectLicense" />
+    <label for="projectLicenseLink">Project License File URL</label>
+    <input type="text" class="active-input" id="projectLicenseLink" />
+
+    <hr />
+
+    <label for="commitMessage">Commit Message</label>
+    <input type="text" class="active-input" id="commitMessage" value="Adds new community project" />
+
+
+    <label for="fullName">Your Full Name  (must match GitHub name exactly)</label>
+    <input type="text" class="active-input" id="fullName" />
+
+    <label for="emailAddress">Your E-mail Address (must match GitHub email address exactly)</label>
+    <input type="text" class="active-input" id="emailAddress" />
+
+    <label for="fileName">Filename (usually lowercase, no spaces version of your project name; should end in .markdown)</label>
+    <input type="text" class="active-input" id="fileName"  />
+
+
+
+
+    <a href="#" target="_blank" class="cta create-pr" id="createPR">Create PR</a> 
+</form>

@@ -6,20 +6,29 @@ columns:
         title: Code of Conduct
         url: '/codeofconduct.html'
       -
-        title: 'Forums'
-        url: 'https://discuss.opendistrocommunity.dev/'
+        title: 'Forum'
+        url: 'https://forum.opensearch.org/'
       -
         title: 'Github'
         url: 'https://github.com/opensearch-project'
-      -
-        title: 'Partners'
-        url: '/partners/'
-      -
-        title: 'Community Projects'
-        url: '/community_projects'
+     # -
+      #  title: 'Partners'
+      #  url: '/partners/'
+     # -
+      #  title: 'Community Projects'
+       # url: '/community_projects'
   -
     title: 'Resources'
     links:
+      - 
+        title: About
+        url: '/about.html'
+      - 
+        title: Release Schedule
+        url: '/releases.html'
+      - 
+        title: Maintenance Policy
+        url: '/releases.html#maintenance-policy'
       - 
         title: FAQ
         url: '/faq/'
@@ -32,18 +41,24 @@ columns:
       -
         title: 'Trademark Usage Policy'
         url: '/trademark-usage.html'
-      - 
-        title: OpenSearch Disambiguation
-        url: '/disambiguation.html'
   -
     title: 'Contact Us'
     links:
-      # -
-      #  title: 'Twitter'
-      #  url: 'https://twitter.com/opensearch_project'
-      #-
-      #  title: 'Facebook'
-      #  url: 'https://www.facebook.com/opensearch'
       -
         title: 'Connect'
         url: '/connect.html'
+      -
+        title: 'Twitter'
+        url: 'https://twitter.com/OpenSearchProj'
+      -
+        title: 'LinkedIn'
+        url: 'https://www.linkedin.com/company/opensearch-project/'
+      -
+        title: 'YouTube'
+        url: 'https://www.youtube.com/c/OpenSearchProject'
+      -
+        title: 'Meetup'
+        url: 'https://www.meetup.com/opensearch/'
+      -
+        title: 'Facebook'
+        url: 'https://www.facebook.com/OpenSearchProject/'

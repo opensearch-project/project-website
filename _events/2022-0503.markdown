@@ -1,0 +1,18 @@
+---
+
+eventdate: 2022-05-03T015:00
+tz: UTC -7
+title: OpenSearch Community Meeting - 2022-05-03
+online: true
+signup:
+    url: https://www.meetup.com/OpenSearch/events/285396685
+    title: Join on Meetup
+
+---
+
+Join us for Q&A at an open office community meeting.
+
+Meeting topics and passcode are listed in the [collaborative agenda](https://hackmd.io/@HmdZWaVnQU6M8icdvC5TwQ/HyJ300V4c) on HackMD.
+
+Feel free to comment on the agenda before the meeting if you want to add an item or have a question.
+During the meeting the agenda will be unlocked for collaborative editing / note taking. After the meeting the agenda will be set to read-only mode.

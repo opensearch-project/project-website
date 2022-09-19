@@ -1,6 +1,6 @@
 ---
 question: Will older versions of Open Distro for Elasticsearch plugins still be available for open source Elasticsearch?
-category: Plugins
+category: Tools and Plugins
 ---
 
-Yes, all older Open Distro for Elasticsearch versions of plugins, from 0.7 to 1.13 will continue to remain available for download.
+No. Open Distro has been [archived](https://opendistro.github.io/for-elasticsearch/blog/2022/08/Open-Distro-is-archived/){:target="_blank"}.
