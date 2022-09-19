@@ -94,7 +94,7 @@ You just need to configure the source and processor plugins:
 ```yaml
 metrics-pipeline:
   source:
-    otel_metrics_source::
+    otel_metrics_source:
   processor:
     - otel_metrics_raw_processor:
   sink:
@@ -102,6 +102,7 @@ metrics-pipeline:
       hosts: [ "https://opensearch.local:9200" ]
       username: username
       password: password
+      index: metrics-otel-v1-%{yyyy.MM.dd}
 ```
 
 The metric source supports the same configuration as the OpenTelemetry trace source.
