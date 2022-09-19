@@ -63,11 +63,6 @@ define(function() {
         mods.push('mod/search-key');
     }
 
-
-    if (hasClass('messages')) {
-        mods.push('mod/messages');
-    }
-
     if (hasClass('code-block-caption') || hasClass('snippet')) {
         mods.push('mod/clippify');
     }
