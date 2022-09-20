@@ -5,4 +5,4 @@ linkedin: 'sayali-gaikawad'
 photo: '/assets/media/authors/sayaligaikawad.jpg'
 ---
 
-**Sayali Gaikawad** is a Software Engineer at Amazon Web Service, working on the OpenSearch project.
+**Sayali Gaikawad** is a Software Engineer at Amazon Web Services, working on the OpenSearch project.
