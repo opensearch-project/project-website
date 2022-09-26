@@ -7,7 +7,7 @@ layout_class: sidebar-right
 body_class: homepage
 sectionid: homepage
 
-primary_title: About OpenSearch
+primary_title: OpenSearch
 
 meta_description: OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data.
 
@@ -28,10 +28,10 @@ ctas:
 greeting: "More about OpenSearch"
 
 # Normal headline area (undo the commented out "- page.headline -" twice in homepage.html file)
-# headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze your data."
+headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze your data."
 
 # Hero banner area (commented out "- page.headline -" twice in homepage.html file)
-headline: <a href="https://opensearch.org/blog/community/2022/05/opensearchcon/"> <img src="/assets/media/blog-images/2022-05-09-opensearchcon/opensearchcon.jpg" alt="OpenSearchCon" class="img-fluid"/></a>
+# headline: <a href="https://opensearch.org/blog/community/2022/05/opensearchcon/"> <img src="/assets/media/blog-images/2022-05-09-opensearchcon/opensearchcon.jpg" alt="OpenSearchCon" class="img-fluid"/></a>
 
 long_description: "
 **Welcome to OpenSearch**
@@ -95,7 +95,7 @@ sidebar:
                 title: Check out the FAQ
                 url: /faq
             -
-                title: Ask in the forums
+                title: Ask in the forum
                 url: https://forum.opensearch.org/
     -
         title: Founding documents

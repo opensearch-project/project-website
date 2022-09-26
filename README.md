@@ -21,7 +21,7 @@ This repo contains the source for the [opensearch.org](https://opensearch.org/) 
 
 If you find a bug, or have a feature request, please don't hesitate to open an issue in this repository. 
 
-If you need help and are unsure where to open an issue, try [forums](https://discuss.opendistrocommunity.dev/).
+If you need help and are unsure where to open an issue, try [forums](https://forum.opensearch.org/).
 
 ## Contributing
 
