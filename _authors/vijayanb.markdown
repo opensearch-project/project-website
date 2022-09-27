@@ -1,7 +1,7 @@
 ---
 name: Vijayan Balasubramanian
 short_name: vijay
-photo: '/assets/media/authors/vijay.png'
+photo: '/assets/media/authors/vijayanb.jpg'
 gitHub: vijayanb
 ---
 
