@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introducing OpenSearch Playground"
+title:  "Launch Highlight: OpenSearch Playground"
 authors:
   - liutaoaz
   - andhopp
