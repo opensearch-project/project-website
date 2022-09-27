@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Launch Highlight: OpenSearch Playground"
+title:  "Introducing OpenSearch Playground"
 authors:
   - liutaoaz
   - andhopp
@@ -8,11 +8,10 @@ date:   2022-09-26 00:00:00 -0700
 categories:
   - community
 ---
-## Overview
 
 We are excited to announce the live demo environment of OpenSearch and OpenSearch Dashboards. The OpenSearch Playground provides a central location for existing and evaluating users to explore OpenSearch and OpenSearch Dashboards’ new and existing features without installation or download. It is easily accessible via this link: [playground.opensearch.org](https://playground.opensearch.org). 
 
-## So, what can you do with this environment?
+### So, what can you do with this environment?
 
 The first version of the OpenSearch Playground provides users anonymous, read-only access, allowing you to try the new features and see the preconfigured sample data. You can explore the sample dashboards, visualizations, and data sources without installing and configuring OpenSearch and OpenSearch Dashboards in your own environment. You can also query the demo data and evaluate plugin features without installing or configuring in your instance, including the anomaly detection and observability plugins (see below).
 
@@ -22,7 +21,7 @@ The first version of the OpenSearch Playground provides users anonymous, read-on
 **Observability**
 ![Observability](/assets/media/blog-images/2022-09-26-opensearch-playground/observability.png)
 
-## How does it work?
+### How does it work?
 
 At a high-level, the OpenSearch Playground is a deployment of OpenSearch and OpenSearch Dashboards hosted in AWS EKS (Elastic Kubernetes Service), deployed by [OpenSearch-helm-charts](https://github.com/opensearch-project/helm-charts), and made publicly accessible via [playground.opensearch.org](https://playground.opensearch.org/app/home). We leverage [fluent bit](https://github.com/opensearch-project/dashboards-anywhere/blob/main/config/playground/metrics/fluent-bit/fluent-bit.yaml) to ingest OpenSearch and OpenSearch Dashboards logs and use the Alerting plugin to monitor the heartbeat of the Playground site, which then triggers an alert if the site is down for any reason. We plan to keep the Playground up to date with the most current release. 
 
@@ -31,7 +30,7 @@ At a high-level, the OpenSearch Playground is a deployment of OpenSearch and Ope
 
 We plan to provide a more specific design breakdown in a subsequent blog to highlight how the team built the OpenSearch Playground. In the meantime, more details can be found on the [GitHub proposal](https://github.com/opensearch-project/dashboards-anywhere/issues/9). 
 
-## What’s Next?
+### What’s Next?
 
 While this launch is the completion of a short-term goal to provide a demo website that provides a real user experiences with read-only permissions, we aren’t stopping here. Couple of the items we would like to implement long-term;
 
@@ -42,7 +41,7 @@ While this launch is the completion of a short-term goal to provide a demo websi
 
 We have created a public backlog for the OpenSearch Playground on [GitHub](https://github.com/opensearch-project/dashboards-anywhere/projects/1). If you enjoy this topic and want to put your knowledge into practice, please consider contributing to [**dashboards-anywhere**](https://github.com/opensearch-project/dashboards-anywhere) repo!
 
-## Got any requests?
+### Got any requests?
 
 We’re happy to add more features to the environment – just let us know!
 
