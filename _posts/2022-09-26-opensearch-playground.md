@@ -32,9 +32,9 @@ We plan to provide a more specific design breakdown in a subsequent blog to high
 
 ### What’s Next?
 
-While this launch is the completion of a short-term goal to provide a demo website that provides a real user experiences with read-only permissions, we aren’t stopping here. Couple of the items we would like to implement long-term:
+While this launch is the completion of a short-term goal to build a demo website that provides a real user experiences with read-only permissions, we aren’t stopping here. Couple of the items we would like to implement long-term:
 
-* User Specific Sessions: We want to add user authentication via GitHub login to enable more exploration and experimentation for individual users. This will enable more capabilities for evaluating users such as persistent editing and saving to allow users to explore the entire user journey.
+* User Specific Sessions: We want to add user authentication via GitHub login to support more exploration and experimentation for individual users. This will enable more capabilities for evaluating users such as persistent editing and saving to allow users to explore the entire user journey.
 * Improved Landing Experience: We want to add a landing experience that guides users through new features, specific use cases, and ongoing experimental features. This will provide new users a more guided demonstration experience.
 * More Curated Demos, Data, and Use Cases: We want to add additional demo data, dashboards, visualization, and curated experiences to better demonstrate the breadth of use cases supported by the OpenSearch Project.
 * Partner Highlights: We want to provide direct partner highlights and links within OpenSearch Playground similar to the [partners page](https://opensearch.org/partners) on OpenSearch.org. We see this as another opportunity to highlight community and partner projects to evaluating users and community members.
