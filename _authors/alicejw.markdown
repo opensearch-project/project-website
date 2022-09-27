@@ -6,4 +6,4 @@ twitter:
 github: alicejw-aws
 ---
 
-Joshua Bright is an AWS Technical Writer working on the OpenSearch project documentation.
+Alice Williams is an AWS Technical Writer working on the OpenSearch project documentation.
