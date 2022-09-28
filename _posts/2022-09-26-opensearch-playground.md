@@ -16,17 +16,17 @@ We are excited to announce the live demo environment of OpenSearch and OpenSearc
 The first version of OpenSearch Playground provides users anonymous, read-only access, allowing you to try the new features and see the preconfigured sample data. You can explore the sample dashboards, visualizations, and data sources without installing and configuring OpenSearch and OpenSearch Dashboards in your own environment. You can also query the demo data and evaluate plugin features without installing or configuring in your instance, including the anomaly detection and observability plugins (see below).
 
 **Anomaly Detection**
-![Anomaly Detection](/assets/media/blog-images/2022-09-26-opensearch-playground/anomaly-detection.png)
+![Anomaly Detection](/assets/media/blog-images/2022-09-26-opensearch-playground/anomaly-detection.png){: .img-fluid}
 
 **Observability**
-![Observability](/assets/media/blog-images/2022-09-26-opensearch-playground/observability.png)
+![Observability](/assets/media/blog-images/2022-09-26-opensearch-playground/observability.png){: .img-fluid}
 
 ### How does it work?
 
 At a high-level, OpenSearch Playground is a deployment of OpenSearch and OpenSearch Dashboards hosted in AWS EKS (Elastic Kubernetes Service), deployed by [OpenSearch-helm-charts](https://github.com/opensearch-project/helm-charts), and made publicly accessible via [playground.opensearch.org](https://playground.opensearch.org/app/home). We leverage [fluent bit](https://github.com/opensearch-project/dashboards-anywhere/blob/main/config/playground/metrics/fluent-bit/fluent-bit.yaml) to ingest OpenSearch and OpenSearch Dashboards logs and use the Alerting plugin to monitor the heartbeat of OpenSearch Playground site, which then triggers an alert if the site is down. We will update OpenSearch Playground on the same day of each new release.
 
 **High level architecture diagram**
-![High level architecture diagram](/assets/media/blog-images/2022-09-26-opensearch-playground/playground-high-level-diagram.png)
+![High level architecture diagram](/assets/media/blog-images/2022-09-26-opensearch-playground/playground-high-level-diagram.png){: .img-fluid}
 
 We plan to provide a more specific design breakdown in a subsequent blog to highlight how the team built the OpenSearch Playground. In the meantime, more details can be found on the [GitHub proposal](https://github.com/opensearch-project/dashboards-anywhere/issues/9).
 
@@ -45,4 +45,4 @@ We have created a public backlog for OpenSearch Playground on [GitHub](https://g
 
 We’re happy to add more features to the environment – just let us know!
 
-<img src="../assets/media/blog-images/2022-09-26-opensearch-playground/playground-static-qr-code.png" width="200" height="200" />
+<img src="/assets/media/blog-images/2022-09-26-opensearch-playground/playground-static-qr-code.png" width="200" height="200" />{: .img-fluid}
