@@ -8,7 +8,7 @@ categories:
   - community
 ---
 
-It is exciting to announce that [Tracetest](https://tracetest.io) now supports OpenSearch! If you already use OpenSearch Trace Analytics, you can start writing tests based on your telemetry using Tracetest without having to change anything in your application. In this article, we will explain how you can start building trace-based tests right now.
+I am excited to announce that [Tracetest](https://tracetest.io) now supports OpenSearch! If you already use OpenSearch Trace Analytics, you can start writing tests based on your telemetry using Tracetest without having to change anything in your application. In this article, we will explain how you can start building trace-based tests right now.
 
 ### What is Tracetest?
 
@@ -18,9 +18,9 @@ Tracetest is an [open-source project](https://github.com/kubeshop/tracetest) tha
 
 The Tracetest team is working diligently to make installation as seamless as possible. Currently, you can use CLI to install the server to run on either Docker Compose or Kubernetes. Visit the [installation guide](https://tracetest.io/download) to install both the CLI and server.
 
-Before proceeding, make sure you have an OpenSearch instance running and have a Data Prepper instance pointing to it. Data Prepper is an OpenSearch component capable of converting OpenTelemetry format into JSON that can be indexed by OpenSearch. Tracetest has an [example application](https://github.com/kubeshop/tracetest/tree/main/examples/tracetest-opensearch) where you can see how the Data Prepper is configured.
+Before proceeding, make sure you have an OpenSearch instance running and have a Data Prepper instance pointing to it. Data Prepper is an OpenSearch component capable of converting OpenTelemetry format into JSON that can be indexed by OpenSearch. Tracetest has an [example application](https://github.com/kubeshop/tracetest/tree/main/examples/tracetest-opensearch). See how Data Prepper is configured.
 
-For simplicity sake in this article, you will learn how to setup Tracetest using Docker Compose. Execute the following steps to configure your Tracetest instance to connect to your OpenSearch instance:
+For simplicity's sake in this article, you will learn how to setup Tracetest using Docker Compose. Execute the following steps to configure your Tracetest instance to connect to your OpenSearch instance:
 
 1. Run **tracetest version** to verify your CLI version.
     1. Check if your CLI version is greater or equal to **0.7.2**.
@@ -96,7 +96,7 @@ Now it's possible to run the test. Tracetest will execute all assertions you jus
 
 ![Adding assertions](/assets/media/tutorials/tracetest/test_rerun.png){: .img-fluid}
 
-And Tracetest is not only an UI tool. You also can run that test from your CI environment. Click on the gear icon at the top of the page and click on **Test Definition**.
+Tracetest is not only a UI tool. You also can run that test from your CI environment. Click on the gear icon at the top of the page and click on **Test Definition**.
 
 ![Export test definition](/assets/media/tutorials/tracetest/test_definition.png){: .img-fluid}
 ![Exported definition](/assets/media/tutorials/tracetest/exported_test_definition.png){: .img-fluid}
