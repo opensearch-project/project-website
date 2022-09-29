@@ -33,18 +33,6 @@ headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze yo
 # Hero banner area (commented out "- page.headline -" twice in homepage.html file)
 # headline: <a href="https://opensearch.org/blog/community/2022/05/opensearchcon/"> <img src="/assets/media/blog-images/2022-05-09-opensearchcon/opensearchcon.jpg" alt="OpenSearchCon" class="img-fluid"/></a>
 
-# NSB Implementing Jekyll carousel sans plugin. Reads this frontmatter. See `_includes/carousel.html`
-
-carousels:
-  - images:
-    - image: /assets/media/testimonials/testimonial-dowjones-scaled.png
-    - image: /assets/media/testimonials/testimonial-goldman-sachs-scaled.png
-    - image: /assets/media/testimonials/testimonial-openinfra.png
-    - image: /assets/media/testimonials/testimonial-pinterest.png
-    - image: /assets/media/testimonials/testimonial-quantiphi.png
-    - image: /assets/media/testimonials/testimonial-rackspace.png
-    - image: /assets/media/testimonials/testimonial-sap.png
-    - image: /assets/media/testimonials/testimonial-wipro.png
 
 long_description: "
 **Welcome to OpenSearch**
