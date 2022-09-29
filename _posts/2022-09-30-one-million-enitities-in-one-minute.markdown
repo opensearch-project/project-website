@@ -4,6 +4,8 @@ title:  "Improving Anomaly Detection: One million entities in one minute"
 authors:
 - sudipto
 - naarcha
+- bpavani
+- joshtok
 date: 2022-09-30
 categories:
  - technical-post
