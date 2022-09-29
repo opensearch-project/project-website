@@ -29,7 +29,7 @@ At a high level, OpenSearch Playground is a deployment of OpenSearch and OpenSea
 
 **High-level architecture diagram**
 
-![High level architecture diagram](/assets/media/blog-images/2022-09-26-opensearch-playground/playground-high-level-diagram.png){: .img-fluid}
+![High-level architecture diagram](/assets/media/blog-images/2022-09-26-opensearch-playground/playground-high-level-diagram.png){: .img-fluid}
 
 We plan to provide a more specific design breakdown in a subsequent blog to highlight how the team built OpenSearch Playground. In the meantime, more details can be found on the [GitHub proposal](https://github.com/opensearch-project/dashboards-anywhere/issues/9).
 
