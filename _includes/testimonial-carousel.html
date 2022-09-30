@@ -69,8 +69,8 @@
 		{
 				if($("div#slide" + i).is(":visible"))
 				{
-						$("div#slide" + i).fadeOut();
-						$("div#slide" + ((i + 1) % thingies.length)).slideDown();
+						$("div#slide" + i).slideUp("slow");
+						$("div#slide" + ((i + 1) % thingies.length)).slideDown("slow");
 						break;
 				}
 		}
