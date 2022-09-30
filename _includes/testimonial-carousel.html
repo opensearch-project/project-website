@@ -51,7 +51,7 @@
 
 	{% assign filter_testimonial = site.testimonials %}
 	{% for testimonial in site.testimonials | where: "featured","true" %}
-	<div class="testimonial-slide-container" id="slide{{ forloop.index }}"
+	<div class="testimonial-slide-container" id="slide{{ forloop.index0 }}"
 		{% if forloop.first %}
 			style="display: inline;"
 		{% endif %}
@@ -63,18 +63,17 @@
 
 <script>
 	
-	var thingies = document.querySelectorAll('div.testimonial-slide-container');
 	setInterval(function() {
+		thingies = jQuery(".testimonial-slide-container");
 		for(i = 0; i < thingies.length; i++)
 		{
-				if(thingies[i].style.display == "inline")
+				if($("div#slide" + i).is(":visible"))
 				{
-						// light up the next index mod 7
-						thingies[i].style.display = "none";
-						thingies[(i + 1) % thingies.length].style.display = "inline";
+						$("div#slide" + i).fadeOut();
+						$("div#slide" + ((i + 1) % thingies.length)).slideDown();
 						break;
 				}
 		}
-	}, 15000);
+	}, 10000);
 
 </script>	
