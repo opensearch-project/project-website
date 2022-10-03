@@ -4,7 +4,7 @@ title:  "Launch Highlight: OpenSearch Playground"
 authors:
   - liutaoaz
   - andhopp
-date:   2022-09-26 00:00:00 -0700
+date:   2022-10-03 00:00:00 -0700
 categories:
   - community
 ---
