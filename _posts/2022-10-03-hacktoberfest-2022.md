@@ -60,4 +60,4 @@ To get credit for off platform blogs submit a link to your blog in an issue on t
 
 ![Leaderboard](/assets/media/blog-images/2022-10-03-hacktoberfest-2022/leaderboard.png){: .img-fluid}
 
-We are looking forward to all your contributions! Happy Hacktoberfest and make sure to follow our [Twitter](https://twitter.com/OpenSearchProj), [LinkedIn](https://www.linkedin.com/company/opensearch-project), and [YouTube](https://www.youtube.com/c/OpenSearchProject) pages for live streams and other Hacktoberfest related content!
+We are looking forward to all your contributions! Happy Hacktoberfest and make sure to follow our [Twitter](https://twitter.com/OpenSearchProj), [LinkedIn](https://www.linkedin.com/company/opensearch-project), and [YouTube](https://www.youtube.com/c/OpenSearchProject) pages for live streams and other Hacktoberfest related content! Also, if you have ANY questions feel free to open a thread in our [Hacktoberfest 2022](https://forum.opensearch.org/t/hacktoberfest-2022/11129) topic on the forum. Happy Hacking!
