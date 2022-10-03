@@ -5,7 +5,7 @@ authors:
   - dtaivpp
   - nateboot
   - krisfreedain
-date: 2022-10-03
+date: 2022-10-03 00:00:00 -0800
 categories:
   - community
 excerpt: |
