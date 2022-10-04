@@ -19,7 +19,7 @@ html {
 }
 
 body {
-    @include serif;
+    @include sans-serif;
     @include font-size(18);
     background: $background-darker;
     color: $text;
