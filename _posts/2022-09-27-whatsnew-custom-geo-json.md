@@ -2,10 +2,10 @@
 layout: post
 title:  "What’s new: Custom GeoJSON"
 authors:
-- alicejw
 - satnandi
 - shivamdhar
 - vijay
+- alicejw
 date: 2022-09-27
 categories:
  - technical-post
