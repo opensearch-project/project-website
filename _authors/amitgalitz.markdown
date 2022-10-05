@@ -1,7 +1,7 @@
 ---
 name: Amit Galitzky
 short_name: amitgalitz
-photo: ‘/assets/media/authors/amitgalitz.jpg’
+photo: '/assets/media/authors/amitgalitz.jpg'
 github: amitgalitz
 ---
 
