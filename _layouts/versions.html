@@ -261,11 +261,11 @@ this is the built-in error checking for the version definition having missing ar
       {% endfor %}
       
         <div class="download-panel">
-        {% if platform_list != pip %}
+        {% if platform_list %}
             <label for="platform_select_{{artifact_id}}">Platform:</label>
             <select id="platform_select_{{artifact_id}}" class="dl-platform-select">{{ platform_list }}</select>
         {% endif %}
-        {% if artifact_option != pip %}
+        {% if artifact_option %}
             <label for="package_select_{{artifact_id}}">Package:</label>
             <select id="package_select_{{artifact_id}}" class="dl-artifact-select">{{ artifact_options }}</select>
           {% assign artifact_options = "" %}
