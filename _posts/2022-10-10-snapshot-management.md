@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "Snapshot Management (SM): A new way to automate snapshots"
-authors: 
--  kolchfa
-date: 2022-09-16
+authors:
+- setiah 
+- kolchfa
+date: 2022-10-10
 categories:
  - technical-post
 
@@ -20,23 +21,23 @@ Think of taking snapshots as taking pictures of your cluster.
 
 ### What is a snapshot
 
-A snapshot is a point in time backup of your cluster. It can be used for disaster recovery, or for migrating data to a new cluster or for preserving a point in time view of your data.
+A snapshot is a point-in-time backup of your cluster. You can use it for disaster recovery, migrating data to a new cluster, or preserving a point-in-time view of your data.
 
 ### What do snapshots store? 
 
-A snapshot preserves two things: the cluster data and the cluster state. The cluster data includes OpenSearch index data, including settings and mappings. The cluster state includes persistent cluster settings, and index templates. Preserving the cluster state in snapshot is optional and can be controlled with `include_global_state` parameter.
+A snapshot preserves two things: the cluster data and the cluster state. The cluster data includes OpenSearch index data, such as settings and mappings. The cluster state includes persistent cluster settings and index templates. Preserving the cluster state in a snapshot is optional and can be controlled with `include_global_state` parameter.
 
 ### Why do you need to take snapshots?
 
 Let's go through the two most common scenarios in which you would need to take snapshots.
 
-**Scenario 1: Red Alert!** - Your cluster goes red because nodes went down causing data loss. In this case, you can restore the red indexes from the most recent snapshot.
+**Scenario 1: Red Alert!** - Your cluster goes red because nodes went down, causing data loss. In this case, you can restore the red indexes from the most recent snapshot.
 
 **Scenario 2: Migration** - ** You need to migrate from one cluster to another. In this case, you can restore the indexes on your new cluster from a snapshot.
 
-**Scenario 3: Restore to a point in time view** - You need to revert back to a point in time view. You can restore a snapshot to go back to the previous state.
+**Scenario 3: Restore to a point in time view** - You need to revert back to a point-in-time view. You can restore a snapshot to go back to the previous state.
 
-**Scenario 4: Save costs** - You need to save historical data for compliance but you primarily use only last 7 days of data. You can save all previous data in a snapshot and delete it from your cluster to save cost.
+**Scenario 4: Save costs** - You need to save historical data for compliance, but you primarily use only last seven days of data. You can save all previous data in a snapshot and delete it from your cluster to save cost.
 
 ### Snapshots are incremental
 
@@ -123,7 +124,7 @@ POST _plugins/_sm/policies/daily-policy
 }
 ```
 
-You can also setup your SM policy via OpenSearch Dashboards as shown in the gif below.
+You can also set up your SM policy through OpenSearch Dashboards as follows:
 
 <img src="/assets/media/blog-images/2022-09-16-snapshot-management/Snapshot-management-demo.gif" alt="SM Policy Create Workflow" width="150" style="float: left; margin-right: 15px;"/>
 
