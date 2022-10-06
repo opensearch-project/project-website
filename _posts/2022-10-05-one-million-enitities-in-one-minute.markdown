@@ -89,7 +89,7 @@ request_body = {
 
 When set up with the same category and sort order, the CPU spikes when using OpenSearch 2.0 were below 25%.
 
-![CPU spikes after category adjustment]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/cpu-spikes.png){: .img-fluid}
+![CPU spikes after category adjustment]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/cpu-spikes-below-25.png){: .img-fluid}
 
 Finally, we achieved continuous anomaly detection of one million entities at a one-minute interval.
 
@@ -101,9 +101,9 @@ It was serendipitous that the measurements taken from improving the plugin helpe
 
 Interestingly, our explorations of the 9 r6g.8xlarge Gravitron instances, each with a 128 GB (50 percent) heap, resulted in the measurements seen in the following readings. Notice the lower CPU spikes when compared with our measurements of the same instances from OpenSearch 2.0.
 
-![Comparison of CPU spikes in Gravitron nodes vs OpenSearch 2.0]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/jvm-measurements.png){: .img-fluid}
+![Comparison of CPU spikes in Gravitron nodes vs OpenSearch 2.0]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/cpu-compare.png){: .img-fluid}
 
-![Memory pressure in Gravitron nodes]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/jvm-measurements.png){: .img-fluid}
+![Memory pressure in Gravitron nodes]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/cpu-memory-pressure.png){: .img-fluid}
 
 ## See it for yourself
 
@@ -125,7 +125,7 @@ PUT /_cluster/settings
 }
 ```
 
-## But what if I don't one million entities
+## But what if I don't use one million entities
 
 From OpenSearch 1.2.4 to OpenSearch 2.2 or greater, many incremental improvements were made to AD, in particular to [historical analysis](https://opensearch.org/blog/technical-post/2021/11/real-time-and-historical-ad/) and other downstream [log analytics tasks](https://aws.amazon.com/blogs/security/analyze-aws-waf-logs-using-amazon-opensearch-service-anomaly-detection-built-on-random-cut-forests/). However, “cold start,” the gap between loading data and seeing results, has been a known challenge in AD since the beginning. Despite this challenge, the cold start gap has decreased from release to release as the AD model has improved.
 
