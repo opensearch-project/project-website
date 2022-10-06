@@ -5,7 +5,7 @@ title: Release Schedule and Maintenance Policy
 ---
 
 
-_Updated August 30, 2022_
+_Updated October 6, 2022_
 
 [Release Schedule](#release-schedule) &middot; [Maintenance Policy](#maintenance-policy)
 
@@ -27,7 +27,7 @@ For more information on the changes planned for each release, please see the [Pr
 | 2.2.1          | August 19, 2022    | September 1, 2022  |
 | 2.3            | September 7, 2022  | September 14, 2022 |
 | 1.3.6          | September 30, 2022 | October 6, 2022    |
-| 2.4            | November 4, 2022   | November 10, 2022  |
+| 2.4            | November 3, 2022   | November 10, 2022  |
 | 1.3.7          | December 1, 2022   | December 8, 2022   |
 | 2.5            | January 10, 2023   | January 12, 2023   |
 
@@ -47,6 +47,8 @@ For OpenSearch and other software in the OpenSearch project, new features and ac
 Sometimes an incompatible change is unavoidable. When this happens, the software’s maintainers will increment the major version number (e.g., increment from OpenSearch 1.3.z to OpenSearch 2.0.0). The last minor version of the previous major version of the software will then enter a *maintenance window* (e.g., 1.3.x). During the maintenance window, the software will continue to receive bug fixes and security patches, but no new features. 
 
 The duration of the maintenance window will vary from product to product and release to release. **By default, versions will remain under maintenance until the next major version enters maintenance, or 1 year passes, whichever is longer.** Therefore, at any given time, the current major version and previous major version will both be supported, as well as older major versions that have been in maintenance for less than 12 months. Please note that, maintenance windows are influenced by the support schedules for dependencies the software includes, community input, the scope of the changes introduced by the new version, and estimates for the effort required to continue maintenance of the previous version. 
+
+The software maintainers will not back-port fixes or features to versions outside of the maintenance window. That said, PRs with said back-ports are welcome and will follow the project’s [review process](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md#review-process). No new releases will result from these changes, but interested parties can [create their own distribution](https://github.com/opensearch-project/opensearch-build#building-and-testing-an-opensearch-distribution) from the updated source after the PRs are merged.
 
 <div class="table-styler"></div>
 
