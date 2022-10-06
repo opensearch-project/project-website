@@ -18,7 +18,7 @@ William Thomson, co-formulator of Thermodynamics
 
 We continually strive to improve the existing OpenSearch features through harnessing the capabilities of OpenSearch itself. One such feature is the [Anomaly Detection (AD) plugin](https://opensearch.org/docs/latest/monitoring-plugins/ad/index/), which automatically detects anomalies in your OpenSearch data.
 
-Because OpenSearch is used to index high volumes of data in a distributed fashion, we knew it was essential to design the AD feature to have minimal impact on application workloads. OpenSearch 1.0.1 did not scale beyond 360K entities. Since OpenSearch 1.2.4, it has been possible to track 1 million entities with a data arrival rate of 10 minutes using [36 data nodes](https://aws.amazon.com/blogs/big-data/detect-anomalies-on-one-million-unique-entities-with-amazon-opensearch-service/).
+Because OpenSearch is used to index high volumes of data in a distributed fashion, we knew it was essential to design the AD feature to have minimal impact on application workloads. OpenSearch 1.0.1 did not scale beyond 360K entities. Since OpenSearch 1.2.4, it has been possible to track one million entities with a data arrival rate of 10 minutes using [36 data nodes](https://aws.amazon.com/blogs/big-data/detect-anomalies-on-one-million-unique-entities-with-amazon-opensearch-service/).
 
 While the increase to one million entities was great, most monitoring solutions generate data at a far higher rate. If you want to react quickly to emergent scenarios within your cluster, that 10-minute interval is insufficient. In order for AD to be truly useful, our goal was simple: **Shorten the interval to one minute for one million entities**, without changing the model output or increasing the number of nodes.
 
