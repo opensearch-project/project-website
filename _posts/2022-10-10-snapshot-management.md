@@ -33,7 +33,7 @@ Let's go through the two most common scenarios in which you would need to take s
 
 **Scenario 1: Red Alert!** – Your cluster goes red because nodes went down, causing data loss. In this case, you can restore the red indexes from the most recent snapshot.
 
-**Scenario 2: Migration** – ** You need to migrate from one cluster to another. In this case, you can restore the indexes on your new cluster from a snapshot.
+**Scenario 2: Migration** – You need to migrate from one cluster to another. In this case, you can restore the indexes on your new cluster from a snapshot.
 
 **Scenario 3: Restore to a point-in-time view** – You need to revert back to a point-in-time view. You can restore your cluster from a snapshot to go back to a previous state.
 
@@ -62,6 +62,18 @@ Then, [create an SM policy](https://opensearch.org/docs/latest/opensearch/snapsh
 - How you want to be notified of snapshot events and what snapshot events interest you (creation, deletion, or failure). This is optional. 
 
 You need to set the schedule for your automatic snapshots using a [cron expression](https://opensearch.org/docs/latest/monitoring-plugins/alerting/cron/). Let's dissect the expression `0 8 * * *`, which we'll use in the example below.
+
+<style>
+table{
+    border:2px solid #e6e6e6;
+}
+
+td{
+    border:1px solid #e6e6e6;
+    padding: 10px;
+    text-align: center;
+}
+</style>
 
 :--- | :--- | :--- | :--- | :---
 0 | 8 | * | * | *
@@ -126,7 +138,7 @@ POST _plugins/_sm/policies/daily-policy
 
 You can also set up your SM policy through OpenSearch Dashboards as follows:
 
-<img src="/assets/media/blog-images/2022-10-10-snapshot-management/Snapshot-management-demo.gif" alt="SM Policy Create Workflow" width="150" style="float: left; margin-right: 15px;"/>
+<img src="/assets/media/blog-images/2022-10-10-snapshot-management/Snapshot-management-demo.gif" alt="SM Policy Create Workflow"/>{: .img-fluid }
 
 After you create an SM policy, you may start it using the [SM Start API](https://opensearch.org/docs/latest/opensearch/snapshots/sm-api/#start-a-policy) and stop it using the [SM Stop API](https://opensearch.org/docs/latest/opensearch/snapshots/sm-api/#stop-a-policy). To view the status of the snapshot operations, you can use the [SM Explain API](https://opensearch.org/docs/latest/opensearch/snapshots/sm-api/#explain).
 
