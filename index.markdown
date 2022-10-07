@@ -33,6 +33,7 @@ headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze yo
 # Hero banner area (commented out "- page.headline -" twice in homepage.html file)
 # headline: <a href="https://opensearch.org/blog/community/2022/05/opensearchcon/"> <img src="/assets/media/blog-images/2022-05-09-opensearchcon/opensearchcon.jpg" alt="OpenSearchCon" class="img-fluid"/></a>
 
+
 long_description: "
 **Welcome to OpenSearch**
 

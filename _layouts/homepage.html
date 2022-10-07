@@ -19,8 +19,9 @@ layout: default
 
 
 {% capture content %}
+
     <div class="section headline">
-      <h1>{{- page.headline -}} </h1>
+		<h1>{{- page.headline -}} </h1>
     </div> 
     <div class="section">
         <!-- <h2>{{ page.greeting }}</h2> -->
@@ -39,7 +40,11 @@ layout: default
         </dd>
       {% endfor %}
  -->
-      <a href="{{ page.callout_button.url }}" class="cta outline">{{ page.callout_button.title }}</a>
+
+
+	{% include testimonial-carousel.html %}
+
+
     </div>
 
 
