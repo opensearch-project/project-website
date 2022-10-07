@@ -25,19 +25,19 @@ A snapshot is a point-in-time backup of your cluster. You can use it for disaste
 
 ### What do snapshots store? 
 
-A snapshot preserves two things: the cluster data and the cluster state. The cluster data includes OpenSearch index data, such as settings and mappings. The cluster state includes persistent cluster settings and index templates. Preserving the cluster state in a snapshot is optional and can be controlled with `include_global_state` parameter.
+A snapshot preserves two things: the cluster data and the cluster state. The cluster data includes OpenSearch index data, such as settings and mappings. The cluster state includes persistent cluster settings and index templates. Preserving the cluster state in a snapshot is optional and can be controlled with the `include_global_state` parameter.
 
 ### Why do you need to take snapshots?
 
 Let's go through the two most common scenarios in which you would need to take snapshots.
 
-**Scenario 1: Red Alert!** - Your cluster goes red because nodes went down, causing data loss. In this case, you can restore the red indexes from the most recent snapshot.
+**Scenario 1: Red Alert!** – Your cluster goes red because nodes went down, causing data loss. In this case, you can restore the red indexes from the most recent snapshot.
 
-**Scenario 2: Migration** - ** You need to migrate from one cluster to another. In this case, you can restore the indexes on your new cluster from a snapshot.
+**Scenario 2: Migration** – ** You need to migrate from one cluster to another. In this case, you can restore the indexes on your new cluster from a snapshot.
 
-**Scenario 3: Restore to a point in time view** - You need to revert back to a point-in-time view. You can restore a snapshot to go back to the previous state.
+**Scenario 3: Restore to a point-in-time view** – You need to revert back to a point-in-time view. You can restore your cluster from a snapshot to go back to a previous state.
 
-**Scenario 4: Save costs** - You need to save historical data for compliance, but you primarily use only last seven days of data. You can save all previous data in a snapshot and delete it from your cluster to save cost.
+**Scenario 4: Save costs** – You need to save historical data for compliance, but you primarily use only last seven days of data. You can save all previous data in a snapshot and delete it from your cluster to save cost.
 
 ### Snapshots are incremental
 
@@ -126,7 +126,7 @@ POST _plugins/_sm/policies/daily-policy
 
 You can also set up your SM policy through OpenSearch Dashboards as follows:
 
-<img src="/assets/media/blog-images/2022-09-16-snapshot-management/Snapshot-management-demo.gif" alt="SM Policy Create Workflow" width="150" style="float: left; margin-right: 15px;"/>
+<img src="/assets/media/blog-images/2022-10-10-snapshot-management/Snapshot-management-demo.gif" alt="SM Policy Create Workflow" width="150" style="float: left; margin-right: 15px;"/>
 
 After you create an SM policy, you may start it using the [SM Start API](https://opensearch.org/docs/latest/opensearch/snapshots/sm-api/#start-a-policy) and stop it using the [SM Stop API](https://opensearch.org/docs/latest/opensearch/snapshots/sm-api/#stop-a-policy). To view the status of the snapshot operations, you can use the [SM Explain API](https://opensearch.org/docs/latest/opensearch/snapshots/sm-api/#explain).
 
@@ -140,7 +140,7 @@ SM uses a state machine that has two workflows: creation and deletion. These wor
 
 The following image shows the creation workflow of the SM state machine.
 
-<img src="/assets/media/blog-images/2022-09-16-snapshot-management/sm-state-machine.PNG" alt="SM State Machine" width="150" style="float: left; margin-right: 15px;"/>
+<img src="/assets/media/blog-images/2022-10-10-snapshot-management/sm-state-machine.PNG" alt="SM State Machine" width="150" style="float: left; margin-right: 15px;"/>
 
 - The creation workflow starts in the `CREATION_START` state and continuously checks whether the conditions in the creation schedule are met.
 - When the conditions are met, the creation workflow switches to the `CREATION_CONDITION_MET` state and continues to the `CREATING` state. 
