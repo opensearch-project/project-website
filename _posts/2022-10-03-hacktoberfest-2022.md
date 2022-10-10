@@ -46,7 +46,7 @@ I am so glad you asked! For contributions, I recommend you start small. OpenSear
 
 Once you have found an issue you would like to work on, you should check out their `CONTRIBUTING.md` file. It will take you through the process of contributing to that particular repo. Also, if you are contributing to a particular issue, it is helpful to comment on it to let others know you are working on it. 
 
-Generally, the process for contributing involves forking the repository, making your edit (don’t forget to sign your commits using -s in your commit message: `git commit -s -m "<your commit message>"`), and then submitting a pull request (PR). This guide goes into much more detail: [First Contribution Guide](https://github.com/firstcontributions/first-contributions).
+Generally, the process for contributing involves forking the repository, making your edit (don’t forget to sign your commits using -s in your commit message: `git commit -s`), and then submitting a pull request (PR). This guide goes into much more detail: [First Contribution Guide](https://github.com/firstcontributions/first-contributions).
 
 If you have questions along the way, you can always @ mention one of the maintainers on the issue. You can find the maintainers in the `MAINTAINERS.md` file for that repo. Please be patient as the maintainers may take several days to reply depending on their capacity. If more than a few days goes by without a response, feel free to reach out to another maintainer. 
 
