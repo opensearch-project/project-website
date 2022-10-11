@@ -112,10 +112,11 @@ peer_forwarder:
 
 ## Directory structure
 
-Previously, Data Prepper was distributed as a single executable JAR file. This is simple and convenient, but also makes it difficult for Data Prepper 
-to include custom plugins. Data Prepper 2.0 introduces a change for it and now distributes the application in a bundled directory structure. 
-The new directory structure features a shell script to launch Data Prepper and dedicated subdirectories for JAR files, configurations, pipelines, logs, and more. 
-The directory structure looks like this:
+Before the release of Data Prepper 2.0, we distributed Data Prepper as a single executable JAR file. While convenient, 
+it made it difficult for us to include custom plugins.
+
+We now distribute Data Prepper 2.0 in a bundled directory structure. This structure features a shell script to launch 
+Data Prepper and dedicated subdirectories for JAR files, configurations, pipelines, logs, and more.
 
 ```
 data-prepper-2.0.0/
@@ -133,12 +134,12 @@ data-prepper-2.0.0/
   logs/
 ```
 
-With this change, a user can launch Data Prepper by simply running `bin/data-prepper`. No additional command line arguments or Java system property definitions 
-are required. Instead, the application will load configurations from `config/` subdirectory.
+You now can launch Data Prepper by running `bin/data-prepper`; no need for additional command line arguments or Java system 
+property definitions. Instead, the application loads configurations from the `config/` subdirectory.
 
-Data Prepper will also read pipeline configurations from `pipelines/` subdirectory.  Users can now define pipelines across 
-multiple YAML files in the subdirectory, where each file contains the configuration for one or more pipelines. This will 
-allow users to keep their pipeline definitions distinct and thus more compact and focused. 
+Data Prepper 2.0 reads pipeline configurations from the `pipelines/` subdirectory. You can now define pipelines across 
+multiple YAML files in the subdirectory, where each file contains the definition for one or more pipelines. The directory 
+also helps keep pipeline definition distinct and, therefore, more compact and focused.
 
 ## JSON & CSV parsing
 
