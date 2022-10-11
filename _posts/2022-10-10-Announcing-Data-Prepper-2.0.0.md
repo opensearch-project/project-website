@@ -19,14 +19,14 @@ Here are some of the major changes and enhancements made for Data Prepper 2.0.
 
 Now Data Prepper 2.0 supports conditional routing to help pipeline authors send different logs to specific OpenSearch clusters.
 
-One common use-case this supports is to reducing the volume of data going to some clusters.
-When you want info logs that produce large volumes of data to go to a cluster or index with more frequent rollovers or 
+One common use case for conditional routing is reducing the volume of data going to some clusters.
+When you want info logs that produce large volumes of data to go to a cluster, index with more frequent rollovers, or add deletions to clear out large volumes of data, you can now configure pipelines to route the data with your chosen action.
 deletions to clear out these large volumes of data, you now configure pipelines to route your data.
 
 
 Simply pick a name appropriate for the domain and a Data Prepper expression.  
-Then for any sink that should only have some data coming through, define one or more routes to apply Data Prepper will evaluate 
-these expressions for each event to determine which sinks to route these events to. Any sink that has no routes defined will accept all events.
+Then for any sink that should only have some data coming through, define one or more routes to apply. Data Prepper will evaluate 
+these expressions for each event to determine which sinks to route these events. Any sink that has no routes defined will accept all events.
 
 For example, consider an application log that includes log data. A typical Java application log might look like the following.
 
@@ -73,14 +73,14 @@ application-log-pipeline:
         index: all-logs
 ```
 
-There are many other use-cases that conditional routing can support. If there are other conditional expressions 
+There are many other use cases that conditional routing can support. If there are other conditional expressions 
 you’d like to see support for, please create an issue in GitHub.
 
 ## Peer Forwarder
 
 Data Prepper 2.0 introduces peer forwarding as a core feature.
 
-Previous to Data Prepper 2.0, performing stateful trace aggregations required using the peer-forwarder processor plugin. 
+Previous to Data Prepper 2.0, performing stateful trace aggregations required using the peer forwarder processor plugin. 
 But this plugin only worked for traces and would send data back to the source. Also, log aggregations only worked on a 
 single node.
 
@@ -143,7 +143,7 @@ also helps keep pipeline definition distinct and, therefore, more compact and fo
 
 ## JSON & CSV parsing
 
-Many of our users have incoming data with embedded JSON or CSV fields. To help in these use-cases, Data Prepper 2.0 
+Many of our users have incoming data with embedded JSON or CSV fields. To help in these use cases, Data Prepper 2.0 
 supports parsing JSON or CSV.
 
 For example, when one large object includes a serialized JSON string, you can use the `parse_json` processor to extract 
@@ -153,14 +153,14 @@ Data Prepper can now import CSV or TSV formatted files from Amazon S3 sources. T
 which write their access logs as TSV files. Now you can parse these logs using Data Prepper. 
 
 Additionally, if your events have 
-CSV or TSV fields, Data Prepper 2.0 now contains a `csv` processor which can create fields from your incoming CSV data.
+CSV or TSV fields, Data Prepper 2.0 now contains a `csv` processor that can create fields from your incoming CSV data.
 
 ## Other improvements
 
 Data Prepper 2.0 includes a number of other improvements. We want to highlight a few of them.
 
 * The OpenSearch sink now supports `create` actions for OpenSearch when writing documents. Pipeline authors can configure their pipelines to only create new documents and not update existing ones.
-* The HTTP source now supports loading TLS/SSL credentials from either Amazon S3 or Amazon Certificate Manager. The OTel Trace Source supported these options; pipeline authors can now configure them for their log ingestion use-cases.
-* Data Prepper now requires Java 11 or higher, and the Docker image deploys with JDK 17.
+* The HTTP source now supports loading TLS/SSL credentials from either Amazon S3 or Amazon Certificate Manager. Pipeline authors can now configure them for their log ingestion use cases. Before Data Prepper 2.0, only the OTel Trace Source supported these options.
+* Data Prepper now requires Java 11 or higher. The Docker image deploys with JDK 17.
 
 Please see our [release notes](https://github.com/opensearch-project/data-prepper/releases/tag/2.0.0) for a complete list.
