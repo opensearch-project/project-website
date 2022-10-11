@@ -24,7 +24,7 @@ When you want info logs that produce large volumes of data to go to a cluster, i
 deletions to clear out these large volumes of data, you now configure pipelines to route your data.
 
 
-Simply pick a name appropriate for the domain and a Data Prepper expression.  
+Simply pick a name appropriate for the domain and a Data Prepper expression. 
 Then for any sink that should only have some data coming through, define one or more routes to apply. Data Prepper will evaluate 
 these expressions for each event to determine which sinks to route these events. Any sink that has no routes defined will accept all events.
 
@@ -39,9 +39,11 @@ The text that reads `INFO` indicates that this is an INFO-level log. Data Preppe
 The following example pipeline takes application logs from the `http` source. This source 
 accepts log data from external sources such as Fluent Bit. 
 
-The pipeline then uses the `grok` processor to split the log line into multiple fields. 
-The `grok` processor adds named `loglevel` to the event. Pipeline authors can use that field in routes. This pipeline has two OpenSearch sinks. The first sink only receives 
-logs with a log level of `WARN` or `ERROR`. Data Prepper will route all events to the second sink.
+The pipeline then uses the `grok` processor to split the log line into multiple fields. The `grok` processor adds a 
+field named `loglevel` to the event. Pipeline authors can use that field in routes.
+
+This pipeline contains two OpenSearch sinks. The first sink will only receive logs with a log level of `WARN` or `ERROR`.
+Data Prepper will route all events to the second sink.
 
 ```
 application-log-pipeline:
