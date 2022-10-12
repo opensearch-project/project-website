@@ -17,14 +17,14 @@ Here are some of the major changes and enhancements made for Data Prepper 2.0.
 
 ## Conditional routing
 
-Now Data Prepper 2.0 supports conditional routing to help pipeline authors send different logs to specific OpenSearch clusters.
+Data Prepper 2.0 supports conditional routing to help pipeline authors send different logs to specific OpenSearch clusters.
 
 One common use case for conditional routing is reducing the volume of data going to some clusters.
-When you want info logs that produce large volumes of data to go to a cluster, index with more frequent rollovers, or add deletions to clear out large volumes of data, you can now configure pipelines to route the data with your chosen action.
+When you want info logs that produce large volumes of data to go to a cluster, to index with more frequent rollovers, or to add deletions to clear out large volumes of data, you can now configure pipelines to route the data with your chosen action.
 deletions to clear out these large volumes of data, you now configure pipelines to route your data.
 
 
-Simply pick a name appropriate for the domain and a Data Prepper expression. 
+Simply choose a name appropriate for the domain and a Data Prepper expression. 
 Then for any sink that should only have some data coming through, define one or more routes to apply. Data Prepper will evaluate 
 these expressions for each event to determine which sinks to route these events. Any sink that has no routes defined will accept all events.
 
@@ -78,7 +78,7 @@ application-log-pipeline:
 There are many other use cases that conditional routing can support. If there are other conditional expressions 
 you’d like to see support for, please create an issue in GitHub.
 
-## Peer Forwarder
+## Peer forwarder
 
 Data Prepper 2.0 introduces peer forwarding as a core feature.
 
@@ -115,7 +115,7 @@ peer_forwarder:
 ## Directory structure
 
 Before the release of Data Prepper 2.0, we distributed Data Prepper as a single executable JAR file. While convenient, 
-it made it difficult for us to include custom plugins.
+this made it difficult for us to include custom plugins.
 
 We now distribute Data Prepper 2.0 in a bundled directory structure. This structure features a shell script to launch 
 Data Prepper and dedicated subdirectories for JAR files, configurations, pipelines, logs, and more.
@@ -136,22 +136,22 @@ data-prepper-2.0.0/
   logs/
 ```
 
-You now can launch Data Prepper by running `bin/data-prepper`; no need for additional command line arguments or Java system 
+You now can launch Data Prepper by running `bin/data-prepper`; there is no need for additional command line arguments or Java system 
 property definitions. Instead, the application loads configurations from the `config/` subdirectory.
 
 Data Prepper 2.0 reads pipeline configurations from the `pipelines/` subdirectory. You can now define pipelines across 
 multiple YAML files in the subdirectory, where each file contains the definition for one or more pipelines. The directory 
 also helps keep pipeline definition distinct and, therefore, more compact and focused.
 
-## JSON & CSV parsing
+## JSON and CSV parsing
 
 Many of our users have incoming data with embedded JSON or CSV fields. To help in these use cases, Data Prepper 2.0 
-supports parsing JSON or CSV.
+supports parsing JSON and CSV.
 
 For example, when one large object includes a serialized JSON string, you can use the `parse_json` processor to extract 
 the fields from the JSON into your event.
 
-Data Prepper can now import CSV or TSV formatted files from Amazon S3 sources. This is useful for systems like Amazon CloudFront 
+Data Prepper can now import CSV or TSV formatted files from Amazon Simple Storage Service (Amazon S3) sources. This is useful for systems like Amazon CloudFront, 
 which write their access logs as TSV files. Now you can parse these logs using Data Prepper. 
 
 Additionally, if your events have 
