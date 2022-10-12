@@ -89,7 +89,7 @@ single node.
 With peer forwarding as a core feature, pipeline authors can perform stateful 
 aggregations on multiple Data Prepper nodes. When performing stateful aggregations, Data Prepper uses a hash ring to determine 
 which nodes are responsible for processing different events based on the values of certain fields. Peer forwarder 
-routes events to the node responsible for processing them. That node then holds all the state necessary for performing the aggregation.
+routes events to the node responsible for processing them. That node then holds the state necessary for performing the aggregation.
 
 To use peer forwarding, configure how Data Prepper discovers other nodes and the security for connections in your
 `data-prepper-config.yaml` file.
