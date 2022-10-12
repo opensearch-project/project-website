@@ -89,12 +89,12 @@ single node.
 With peer forwarding as a core feature, pipeline authors can perform stateful 
 aggregations on multiple Data Prepper nodes. When performing stateful aggregations, Data Prepper uses a hash ring to determine 
 which nodes are responsible for processing different events based on the values of certain fields. Peer forwarder 
-routes events to the node responsible for processing the event. That node then holds all the state necessary for performing the aggregation.
+routes events to the node responsible for processing them. That node then holds all the state necessary for performing the aggregation.
 
 To use peer forwarding, configure how Data Prepper discovers other nodes and the security for connections in your
 `data-prepper-config.yaml` file.
 
-In the following example, Data Prepper discovers other peers using a DNS query on the `my-data-prepper-cluster.production` domain.
+In the following example, Data Prepper discovers other peers by using a DNS query on the `my-data-prepper-cluster.production` domain.
 When using peer forwarder with DNS, the DNS record should be an A record with a list of IP addresses for peers. The example also uses a custom certificate and private key.
 For host verification, it checks the fingerprint of the certificate. Lastly, it configures each server to authenticate requests using
 Mutual TLS (mTLS) to prevent data tampering.
@@ -149,7 +149,7 @@ Many of our users have incoming data with embedded JSON or CSV fields. To help i
 supports parsing JSON and CSV.
 
 For example, when one large object includes a serialized JSON string, you can use the `parse_json` processor to extract 
-the fields from the JSON into your event.
+the fields from the JSON string into your event.
 
 Data Prepper can now import CSV or TSV formatted files from Amazon Simple Storage Service (Amazon S3) sources. This is useful for systems like Amazon CloudFront, 
 which write their access logs as TSV files. Now you can parse these logs using Data Prepper. 
@@ -162,7 +162,7 @@ CSV or TSV fields, Data Prepper 2.0 now contains a `csv` processor that can crea
 Data Prepper 2.0 includes a number of other improvements. We want to highlight a few of them.
 
 * The OpenSearch sink now supports `create` actions for OpenSearch when writing documents. Pipeline authors can configure their pipelines to only create new documents and not update existing ones.
-* The HTTP source now supports loading TLS/SSL credentials from either Amazon S3 or Amazon Certificate Manager. Pipeline authors can now configure them for their log ingestion use cases. Before Data Prepper 2.0, only the OTel Trace Source supported these options.
+* The HTTP source now supports loading TLS/SSL credentials from either Amazon S3 or AWS Certificate Manager (ACM). Pipeline authors can now configure them for their log ingestion use cases. Before Data Prepper 2.0, only the OTel Trace Source supported these options.
 * Data Prepper now requires Java 11 or higher. The Docker image deploys with JDK 17.
 
 Please see our [release notes](https://github.com/opensearch-project/data-prepper/releases/tag/2.0.0) for a complete list.
