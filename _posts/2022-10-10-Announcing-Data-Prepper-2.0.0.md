@@ -169,5 +169,5 @@ Please see our [release notes](https://github.com/opensearch-project/data-preppe
 
 ## Try Data Prepper 2.0
 
-Data Prepper 2.0 is available for [download](https://opensearch.org/downloads.html#data-prepper) now. The maintainers encourage you to
+Data Prepper 2.0 is available for [download](https://opensearch.org/downloads.html#data-prepper) now! The maintainers encourage you to
 read the [latest documentation](https://opensearch.org/docs/latest/clients/data-prepper/index/) and try out the new features.
