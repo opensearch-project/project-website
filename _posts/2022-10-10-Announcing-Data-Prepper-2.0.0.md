@@ -20,8 +20,8 @@ Here are some of the major changes and enhancements made for Data Prepper 2.0.
 Data Prepper 2.0 supports conditional routing to help pipeline authors send different logs to specific OpenSearch clusters.
 
 One common use case for conditional routing is reducing the volume of data going to some clusters.
-When you want info logs that produce large volumes of data to go to a cluster, to index with more frequent rollovers, or to add deletions to clear out large volumes of data, you can now configure pipelines to route the data with your chosen action.
-deletions to clear out these large volumes of data, you now configure pipelines to route your data.
+When you want info logs that produce large volumes of data to go to a cluster, to index with more frequent rollovers, or to 
+add deletions to clear out large volumes of data, you can now configure pipelines to route the data with your chosen action.
 
 
 Simply choose a name appropriate for the domain and a Data Prepper expression. 
