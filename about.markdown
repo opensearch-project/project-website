@@ -5,9 +5,9 @@ title: About
 ---
 
 ## About
-_Updated May 19, 2022_
+_Updated October 14, 2022_
 
-[Principles for development](#principles-for-development) &middot; [OpenSearch disambiguation](#opensearch-disambiguation) &middot;
+[Principles for development](#principles-for-development) &middot; [Founding Documents](#founding-documents) &middot; [OpenSearch disambiguation](#opensearch-disambiguation) &middot;
 
 ---
 
@@ -46,6 +46,12 @@ This will be a community where you will be heard, accepted, and valued, whether 
  
 ### A place to invent. ###
 You will be able to innovate rapidly. This project will have a stable and predictable foundation that is modular, making it easy to extend.
+
+## Founding Documents ##
+
+* [Introducing OpenSearch](https://aws.amazon.com/blogs/opensource/introducing-opensearch)
+* [Stepping up for a truly open source Elasticsearch](https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/)
+* [Keeping Open Source Open](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/)
 
 ## OpenSearch disambiguation ##
 At the 2005 O’Reilly Emerging Technology Conference, Jeff Bezos [showed the world](https://www.technologyreview.com/2005/03/15/231423/jeff-bezos-unveils-vertical-search-live-from-the-oreilly-e-tech-conference/) the OpenSearch syndication protocol. You can find more details on [Wikipedia](https://en.wikipedia.org/wiki/OpenSearch). This specification is maintained in GitHub at [github.com/dewitt/opensearch](http://github.com/dewitt/opensearch).
