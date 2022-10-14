@@ -10,6 +10,7 @@
 | Kris Freedain | [krisfreedain](https://github.com/krisfreedain) | Amazon |
 | Peter Zhu | [peterzhuamazon](https://github.com/peterzhuamazon) | Amazon |
 | Charlotte Henkle | [CEHENKLE](https://github.com/CEHENKLE) | Amazon |
+| David Tippett | [dtaivpp](https://github.com/dtaivpp) | Amazon |
 
 ### Emeritus Maintainers
 | Maintainer | GitHub ID | Affiliation |
