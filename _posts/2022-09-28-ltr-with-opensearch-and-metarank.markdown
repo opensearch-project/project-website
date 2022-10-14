@@ -3,7 +3,7 @@ layout: post
 title:  "Learn-to-Rank with OpenSearch and Metarank"
 authors:
   - shuttie
-date:   2022-09-28 15:00:00 +0100
+date:   2022-10-14 10:00:00 +0100
 categories:
   - community
 ---
@@ -12,8 +12,9 @@ categories:
 ## Ranking in Lucene and OpenSearch
 
 OpenSearch, being a close relative to the [Apache Lucene](https://lucene.apache.org) project, uses a traditional approach to search results ordering:
-* on a **retrieval** stage, Lucene builds a result set of all the documents matching the query from the inverted index.
-* on a **scoring** stage, each document is scored with a [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) scoring function.
+* on a **retrieval** stage, Lucene builds a result set of all the documents matching the query from the inverted index within each shard.
+* on a per-shard **scoring** stage, each document is scored with a [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) scoring function.
+* on a **collection** stage, all per-shard lists of scored documents are merged together in a final sequence of top-N matching documents. 
 
 BM25 is a strong baseline for text relevance, but it only takes into account frequencies of terms in the query and some basic statistics over the collection of documents in the index. A more intuitive overview of logical parts of BM25 formula is shown on a diagram below, taken from the [Lectures 17-18 of the Text Technologies for Data Science (TTSDS) course at the University of Edinburgh](https://www.youtube.com/watch?v=XFIKE34HafY):
 
@@ -45,10 +46,10 @@ In the example above, we multiply the BM25 score with the stored column of the p
 * put external ranking factors into the scoring function, like having a separate set of weights for mobile and desktop visitors.
 
 But `script_score` approach also has a set of important drawbacks:
-* As the scoring function is invoked on each matching document, **you cannot do any complex computations inside**.
-* Which scoring formula should you have? There are no common ones, and you have to **invent your own scoring function**.
-* Scoring formula typically has a set of constants and weights. **How to choose the best values for parameters**?
-* Feature values used in the ranking formula should be either stored in the index (**requiring a frequent full reindexing**), or served outside the search (**requiring a custom satellite [Feature Store](https://www.featurestore.org/what-is-a-feature-store)**)
+* As the scoring function is invoked on each matching document, *you cannot do any complex computations inside*.
+* Which scoring formula should you have? There are no common ones, and you have to *invent your own scoring function*.
+* Scoring formula typically has a set of constants and weights. *How to choose the best values for parameters*?
+* Feature values used in the ranking formula should be either stored in the index *requiring a frequent full reindexing*, or served outside the search *requiring a custom satellite [Feature Store](https://www.featurestore.org/what-is-a-feature-store)*.
 
 ## Secondary reranking
 
@@ -70,7 +71,7 @@ But as final re-ranking is happening outside your search application and happens
 ## Metarank
 
 [Metarank](https://github.com/metarank/metarank) is an open-source secondary reranker:
-* Implements [LambdaMART](https://docs.metarank.ai/reference/overview/supported-ranking-models) on top of embedded feature engineering pipeline.
+* Implements [LambdaMART](https://docs.metarank.ai/reference/overview/supported-ranking-models) on top of embedded feature engineering pipeline. A couple of other ranking models implementations like [BPR](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf) and [BERT4Rec](https://arxiv.org/abs/1904.06690) are on the roadmap.
 * [A YAML DSL](https://docs.metarank.ai/reference/overview/feature-extractors) defining ranking factors: rates, counters, windows, UA/Referer/GeoIP parsers, etc.
 
 As a secondary reranker, it's agnostic to the way you perform the candidate retrieval: it should be integrated with your app, and not the search engine:
@@ -246,6 +247,21 @@ Metarank will respond with the same set of requested items, but in another order
 }
 ```
 
+## Re-ranking latency
+
+The main drawback of secondary re-ranking is extra latency: apart from the initial search request, you need to perform an extra network call to the ranker. Metarank is no exception, and latency depends on the following things:
+
+* **State encoding format**: Metarank can store aggregated user & item state in JSON format in Redis, but it takes more memory and much slower to encode-decode than [a custom binary format](https://docs.metarank.ai/reference/overview/persistence#state-encoding-formats).
+* **Network latency between Metarank and Redis**: Metarank pulls all features for all re-ranked items in a single large batch request. There are no multiple network calls and only a constant overhead.
+* **Request size**: the more items you ask to re-rank, the more data needs to be loaded.
+* **Number of features used**: the more per-item features are defined in the config, the more data is loaded during the request processing.
+
+Based on a [RankLens dataset](https://github.com/metarank/ranklens), we built a latency benchmark to measure a typical request processing time, dependent on the request size:
+
+![Latency distribution]({{ site.baseurl }}/assets/media/blog-images/2022-09-28-ltr-with-opensearch-and-metarank/latency.png){:class="img-centered"}
+
+So while planning your installation, expect Metarank to be within extra 20-30 ms latency budget.
+
 ## OpenSearch Remote Ranker Plugin RFC
 
 OpenSearch project maintainers are currently discussing a new approach for a better and more flexible reranking framework: [ [RFC] OpenSearch Remote Ranker Plugin (semantic)](https://github.com/opensearch-project/search-relevance/issues/4).
@@ -260,9 +276,10 @@ To quote the original RFC:
 
 The plugin will modify the OpenSearch query flow and do the following:
 
-1. **Get top N document results** from the OpenSearch index.
+1. **Get top-N BM25-scored document results** from each shard of the OpenSearch index.
 2. **Preprocess document results** and prepare them to be sent to an external “re-ranking” service.
 3. **Call the external service** that uses semantic search models to re-rank the results.
+4. **Collect per-shard results** into the final top-N ranking.
 
 ![reranking with a plugin]({{ site.baseurl }}/assets/media/blog-images/2022-09-28-ltr-with-opensearch-and-metarank/reranking2.png){:class="img-centered"}
 
