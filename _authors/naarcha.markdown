@@ -1,7 +1,7 @@
 ---
 short_name: naarcha
 name: Nate Archer
-photo: '/assets/media/authors/naarcha.jpg'
+photo: '/assets/media/authors/naarcha.jpeg'
 github: Naarcha-AWS
 ---
 
