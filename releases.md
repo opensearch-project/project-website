@@ -31,11 +31,8 @@ For more information on the changes planned for each release, please see the [Pr
 | 1.3.6          | September 30, 2022 | October 6, 2022    |
 | 2.4            | November 3, 2022   | November 10, 2022  |
 | 1.3.7          | December 1, 2022   | December 8, 2022   |
-| 2.5            | January 10, 2023   | January 17, 2023   |
 
 ### Proposed 2023 schedule ###
-
-
 
 Note:  We have not added a major release to the 2023 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
 
