@@ -3,7 +3,7 @@ layout: post
 title:  "OpenSearch automated build system is now live"
 authors: 
   - sayaligaikawad
-date: 2022-09-14 01:01:01 -0700
+date: 2022-10-24 01:01:01 -0700
 categories: 
   - community
 ---
