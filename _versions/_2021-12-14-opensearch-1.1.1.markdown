@@ -25,7 +25,7 @@ components:
   -
     role: ingest
     artifact: data-prepper
-    version: data-prepper-2.0.0
+    version: data-prepper-2.0.1
     platform_order:
       - docker
       - linux
