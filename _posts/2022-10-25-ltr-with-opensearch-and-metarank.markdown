@@ -89,7 +89,7 @@ But because final re-ranking happens outside your search application and happens
  * Implements [LambdaMART](https://docs.metarank.ai/reference/overview/supported-ranking-models) on top of the embedded feature engineering pipeline. A couple of other ranking model implementations, like [BPR](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf) and [BERT4Rec](https://arxiv.org/abs/1904.06690), are on the roadmap.
  * Contains [a YAML DSL query](https://docs.metarank.ai/reference/overview/feature-extractors) that defines ranking factors such as rates, counters, windows, and UA/Referer/GeoIP parsers.
 
-As a secondary re-ranker, it's agnostic to the way you perform the candidate retrieval. It should be integrated with your app,  not the search engine.
+As a secondary re-ranker, it's agnostic to the way you perform the candidate retrieval. It should be integrated with your app, not the search engine.
 
 Metarank's ranking predictions are based on past historical click-through events. These events are analyzed, aggregated into a set of [implicit judgments](https://softwaredoug.com/blog/2021/02/21/what-is-a-judgment-list.html), and later used to train the machine learning (ML) model. Finally, in the real-time inference stage, the model tries to predict the best ranking based on past visitor behavior.
 
