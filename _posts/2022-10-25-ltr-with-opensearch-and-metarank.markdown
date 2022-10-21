@@ -18,7 +18,7 @@ OpenSearch, being a close relative to the [Apache Lucene](https://lucene.apache.
 
 * In the per-shard **scoring** stage, a [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) scoring function scores each document and orders them accordingly.
 
-* In the **collection** stage, each each per-shard list of scored documents merges together in a final sequence of top-N matching documents. 
+* In the **collection** stage, each per-shard list of scored documents merges together in a final sequence of top-N matching documents. 
 
 BM25 is a strong baseline for text relevance, but it only takes into account frequencies of terms in the query and some basic statistics on the collection of documents in the index. A more intuitive overview of the logical parts of BM25 formula is shown in the following diagram, taken from [Lectures 17-18 of the Text Technologies for Data Science (TTSDS) course at the University of Edinburgh](https://www.youtube.com/watch?v=XFIKE34HafY).
 
