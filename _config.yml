@@ -30,7 +30,7 @@ defaults:
     scope:
       type: "posts"
     values:
-      permalink: blog/:categories/:year/:month/:title/
+      permalink: blog/:categories/:title/
 - 
     scope:
       path: ""
