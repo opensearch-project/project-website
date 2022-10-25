@@ -22,7 +22,7 @@ The manual processes also required development teams to create, own, and maintai
 
 ### OpenSearch CI/CD infrastructure design
 Figure 1 depicts a high-level overview of the CI system architecture.
-![Figure 1: Jenkins Infrastructure Overview]({{ site.baseurl }}assets/media/blog-images/2022-10-24-public-jenkins.markdown/jenkins.png){: .img-fluid }**Figure 1**: Jenkins Infrastructure Overview
+<img src="assets/media/blog-images/2022-10-24-public-jenkins.markdown/jenkins.png" alt="Jenkins Infrastructure Overview"/>{: .img-fluid }
 
 ### Overview of the Jenkins workflow(s)
 
