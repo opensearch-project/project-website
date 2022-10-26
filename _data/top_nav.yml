@@ -1,4 +1,6 @@
 items:
+  - label: Live Demo!
+    url: https://playground.opensearch.org/
   -
     label: Download
     fragments:
