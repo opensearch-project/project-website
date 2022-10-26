@@ -99,20 +99,20 @@ sidebar:
                 title: Ask in the forum
                 url: https://forum.opensearch.org/
     -
-        title: Founding documents
+#       title: Founding documents
 #        more: 
 #            title: 'Read all the founding documents'
 #            url: http://www.example.com/
-        links:
-            -
-                title: Introducing OpenSearch
-                url: https://aws.amazon.com/blogs/opensource/introducing-opensearch
-            -
-                title: 'Stepping up for a truly open source Elasticsearch'
-                url: https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/
-            -
-                title: 'Keeping Open Source Open'
-                url: https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/
+#       links:
+#           -
+#               title: Introducing OpenSearch
+#               url: https://aws.amazon.com/blogs/opensource/introducing-opensearch
+#           -
+#               title: 'Stepping up for a truly open source Elasticsearch'
+#               url: https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/
+#           -
+#               title: 'Keeping Open Source Open'
+#               url: https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/
 
 notice : true
 
