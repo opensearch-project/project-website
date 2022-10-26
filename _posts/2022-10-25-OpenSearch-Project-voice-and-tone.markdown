@@ -8,9 +8,11 @@ categories:
   - community
 ---
 
-In the [first installment]( https://opensearch.org/blog/community/2022/08/New-series-From-the-editors-desk/) of our *From the editor’s desk* series, we focused on the OpenSearch Project and inclusion, a subject that is foundational to who we are and how we talk to each other as a community. For the second installment, we’d like to focus on another subject related to community interaction: voice and tone.
+In the [first installment](https://opensearch.org/blog/community/2022/08/New-series-From-the-editors-desk/) of our *From the editor’s desk* series, we focused on the OpenSearch Project and inclusion, a subject that is foundational to who we are and how we talk to each other as a community. For the second installment, we’d like to focus on another subject related to community interaction: voice and tone.
 
-In response to feedback received during [OpenSearchCon 2022]( https://opensearch.org/blog/community/2022/05/opensearchcon/), we have updated our guidance on the voice and tone of the OpenSearch Project in our [OpenSearch Project style guidelines]( https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md). We have also added new guidance on OpenSearch Project naming conventions and brand personality traits. Check out this new and updated guidance in the following sections, and feel free to let us know your thoughts.
+In response to feedback received during [OpenSearchCon 2022](https://opensearch.org/blog/community/2022/05/opensearchcon/), we have updated our guidance on voice and tone. We have also added new guidance on OpenSearch Project naming conventions and brand personality traits. Check out this new and updated guidance in the [OpenSearch Project style guidelines](https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md).
+
+Here is a summary of what has changed.
 
 ## Naming conventions
 
@@ -60,4 +62,6 @@ Avoid excessive words, such as please. Be courteous but not wordy. Extra detail 
 
 ## Join the conversation
 
-As always, the OpenSearch Project is committed to being a community where everyone can join and contribute, and we welcome community contributions to the OpenSearch style guidelines. To access our documentation, see the [OpenSearch documentation home page]( https://opensearch.org/docs/latest). If you want to contribute to the OpenSearch documentation, see the [CONTRIBUTING.md]( https://github.com/opensearch-project/documentation-website/blob/main/CONTRIBUTING.md) file, which covers how to open an issue or create a pull request on GitHub.
+As always, the OpenSearch Project team is committed to promoting a community where everyone can join and contribute, and we welcome community contributions to the OpenSearch style guidelines. To access our documentation, see the [OpenSearch documentation home page]( https://opensearch.org/docs/latest). If you want to contribute to the OpenSearch documentation, see the [CONTRIBUTING.md]( https://github.com/opensearch-project/documentation-website/blob/main/CONTRIBUTING.md) file, which covers how to open an issue or create a pull request on GitHub.
+
+Thank you for contributing to OpenSearch Project and helping us to raise the bar on quality!
