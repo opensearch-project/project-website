@@ -70,4 +70,4 @@ Avoid excessive words, such as please. Be courteous but not wordy. Extra detail 
 
 As always, the OpenSearch Project team is committed to promoting a community where everyone can join and contribute, and we welcome community contributions to the OpenSearch style guidelines. To access our documentation, see the [OpenSearch documentation home page]( https://opensearch.org/docs/latest). If you want to contribute to the OpenSearch documentation, see the [CONTRIBUTING.md]( https://github.com/opensearch-project/documentation-website/blob/main/CONTRIBUTING.md) file, which covers how to open an issue or create a pull request on GitHub.
 
-Thank you for contributing to OpenSearch Project and helping us to raise the bar on quality!
+Thank you for contributing to the OpenSearch Project and helping us to raise the bar on quality!
