@@ -23,8 +23,7 @@ For more information on the changes planned for each release, please see the [Pr
 | 2.1            | June 30, 2022      | July 7, 2022       |
 | 1.3.4          | July 8, 2022       | July 14, 2022      |
 | 2.2            | August 4, 2022     | August 11, 2022    |
-| 1.3.5          | August 16, 2022    | August 25, 2022    |
-| 2.2.1          | August 19, 2022    | August 25, 2022    |
+| 1.3.5          | August 16, 2022    | August 23, 2022    |
 | 2.3            | September 7, 2022  | September 14, 2022 |
 | 1.3.6          | September 30, 2022 | October 6, 2022    |
 | 2.4            | November 4, 2022   | November 10, 2022  |
