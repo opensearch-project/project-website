@@ -3,7 +3,7 @@ layout: post
 title:  "From the editor's desk: OpenSearch Project voice and tone"
 authors: 
   - nbower
-date: 
+date: 2022-10-26
 categories: 
   - community
 ---
