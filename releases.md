@@ -36,6 +36,8 @@ For more information on the changes planned for each release, please see the [Pr
 
 Note:  We have not added a major release to the 2023 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
 
+<div class="table-styler"></div>
+
 | Release Number| Code Freeze Date  | Release Date          |
 |:--------------|:------------------|:-------------------   |
 | 2.5.0         | January 10th      | January 17th          |
