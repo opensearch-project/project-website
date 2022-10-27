@@ -205,7 +205,7 @@ Or see rates for each item:
   periods: [7, 14, 30, 60] // sum buckets for multiple time ranges
 ```
 
-There are many more feature extractors available, so check the [Metarank docs](https://docs.metarank.ai (https://docs.metarank.ai/)) for other examples and a more detailed [quickstart guide](https://docs.metarank.ai/introduction/quickstart).
+There are many more feature extractors available, so check the [Metarank docs](https://docs.metarank.ai) for other examples and a more detailed [quickstart guide](https://docs.metarank.ai/introduction/quickstart).
 
 These feature extractors map events into numerical features and form a set of implicit judgments, which are later used for ML model training.
 
