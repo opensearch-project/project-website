@@ -26,7 +26,7 @@ The task of improving AD since its [release](https://opensearch.org/blog/odfe-up
 
 ## First steps
 
-At first, it was unclear how to model data characteristics that would measure bottlenecks in a 39-node (36 data nodes, r5.2xlarge Gravitron instances) system. Inspired by Thomson, we began testing synthetic periodic functions with injected noise and some anomalies. A rough estimate of model inference time (including time for multiple invocations scoring, supporting explainability [features](https://github.com/opensearch-project/anomaly-detection/issues/299), and updates) was about two-minutes of compute in a 10-minute interval. Clearly, reducing the interval to one-minute would require newer ideas, and we would have to focus on the model.
+At first, it was unclear how to model data characteristics that would measure bottlenecks in a 39-node (36 data nodes, r5.2xlarge Graviton instances) system. Inspired by Thomson, we began testing synthetic periodic functions with injected noise and some anomalies. A rough estimate of model inference time (including time for multiple invocations scoring, supporting explainability [features](https://github.com/opensearch-project/anomaly-detection/issues/299), and updates) was about two-minutes of compute in a 10-minute interval. Clearly, reducing the interval to one-minute would require newer ideas, and we would have to focus on the model.
 
 ## RCF 2.0 compared with 3.0
 
@@ -44,7 +44,7 @@ But this still fell short of our one-minute goal. We would need to change more t
 
 ## CPU usage
 
-In OpenSearch 2.0.1, RCF 3.0 took 30 percent more time when compared with the 2-minute per-interval execution time of OpenSearch 1.2.4. In OpenSearch 1.2.4, the JVM usage was smaller by 30 percent, just as we had expected from smaller models. Also, CPU spikes decreased by 30 percent, even though total execution was larger. To leverage OpenSearch better, we investigated comparable Gravitron (r6g.2xlarge) instances and found that CPU spikes were the same as in our baseline (1.2.4) and that the execution time was 20 percent faster. We also looked at using 9 nodes of r6g.8xlarge or r5.8xlarge (both of which have the same vCPUs and RAM in their initial configurations) and found that in both cases, the CPU spikes were 4x smaller. 
+In OpenSearch 2.0.1, RCF 3.0 took 30 percent more time when compared with the 2-minute per-interval execution time of OpenSearch 1.2.4. In OpenSearch 1.2.4, the JVM usage was smaller by 30 percent, just as we had expected from smaller models. Also, CPU spikes decreased by 30 percent, even though total execution was larger. To leverage OpenSearch better, we investigated comparable Graviton (r6g.2xlarge) instances and found that CPU spikes were the same as in our baseline (1.2.4) and that the execution time was 20 percent faster. We also looked at using 9 nodes of r6g.8xlarge or r5.8xlarge (both of which have the same vCPUs and RAM in their initial configurations) and found that in both cases, the CPU spikes were 4x smaller. 
 
 Still, execution time in OpenSearch 2.0.1 was 1.5x slower than in our baseline. To dig deeper, we looked at the CPU spikes of the original c5.4xlarge nodes in OpenSearch 2.0.1 and found the underlying issue.
 
@@ -99,11 +99,11 @@ It was serendipitous that the measurements taken from improving the plugin helpe
 
 ![Anomalies in AD plugin JVM]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/jvm-measurements.png){: .img-fluid}
 
-Interestingly, our explorations of the 9 r6g.8xlarge Gravitron instances, each with a 128 GB (50 percent) heap, resulted in the measurements seen in the following readings. Notice the lower CPU spikes when compared with our measurements of the same instances from OpenSearch 2.0.
+Interestingly, our explorations of the 9 r6g.8xlarge Graviton instances, each with a 128 GB (50 percent) heap, resulted in the measurements seen in the following readings. Notice the lower CPU spikes when compared with our measurements of the same instances from OpenSearch 2.0.
 
-![Comparison of CPU spikes in Gravitron nodes vs OpenSearch 2.0]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/cpu-compare.png){: .img-fluid}
+![Comparison of CPU spikes in Graviton nodes vs OpenSearch 2.0]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/cpu-compare.png){: .img-fluid}
 
-![Memory pressure in Gravitron nodes]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/cpu-memory-pressure.png){: .img-fluid}
+![Memory pressure in Graviton nodes]({{ site.baseurl }}/assets/media/blog-images/2022-09-30-one-in-one/cpu-memory-pressure.png){: .img-fluid}
 
 ## See it for yourself
 
@@ -187,7 +187,7 @@ The following table compares the index latency, CPU and memory usage, GC time an
 
 While the benchmark data produced in our experiment could be viewed as less than perfect or perhaps more illustrative of a thought experiment in physics, the improvements were real. 
 
-We do expect that explainability, the ability to understand the impact of a model of your nodes, outstrips the demands of inference within analytics. After all, the number of invocations within a model often takes more computational power than accounting for the data running inside. Therefore, it is theoretically simpler to direct explainability away from the algorithm being used than to retrofit interpretations to create a desired output. Could streaming algorithms provide a process for invoking multiple API invocations and therefore improve explainability inside the AD model?
+We do expect that explainability, the ability to understand the impact of a model of your nodes, outstrips the demands of inference within analytics. After all, the number of invocations within a model often takes more computational power than accounting for the data running inside. It is simpler to provide explainability based directly on the algorithm being used than to retrofit interpretations. Could streaming algorithms provide a process for invoking multiple API invocations and therefore improve explainability inside the AD model?
 
 If that question or other questions related to machine learning interest you, we would love to hear from you about your experience. 
 
