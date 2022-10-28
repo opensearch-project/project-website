@@ -5,7 +5,6 @@
     // Restore padding on large screens
     @include respond-min(768px) {
         margin: 0 auto;
-        max-width: 1400px;
         padding: 0 (32/768) * 100%;
     }
 }
