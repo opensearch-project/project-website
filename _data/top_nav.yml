@@ -48,3 +48,6 @@ items:
     label: Documentation
     fragment: docs
     url: /docs/
+  -
+    label: Live Demo!
+    url: https://playground.opensearch.org/
