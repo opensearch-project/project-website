@@ -9,15 +9,18 @@ categories:
   - technical-post
 ---
 
-The Data Prepper maintainers are proud to announce the release of Data Prepper 2.0. This release makes Data Prepper 
+The Data Prepper maintainers are proud to announce the release of Data Prepper 2.0. This release makes 
+[Data Prepper](https://github.com/opensearch-project/data-prepper/projects/1) 
 easier to use and helps you improve your observability stack based on feedback from our users. Data Prepper 2.0 retains
 compatibility with all current versions of OpenSearch.
 
-Here are some of the major changes and enhancements made for Data Prepper 2.0.
+Here are some of the major changes and enhancements made for [Data Prepper 2.0](https://opensearch.org/downloads.html#data-prepper).
 
 ## Conditional routing
 
-Data Prepper 2.0 supports conditional routing to help pipeline authors send different logs to specific OpenSearch clusters.
+Data Prepper 2.0 supports conditional routing to help pipeline authors send different 
+[logs](https://opensearch.org/blog/technical-post/2021/12/Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/) 
+to specific OpenSearch clusters.
 
 One common use case for conditional routing is reducing the volume of data going to some clusters.
 When you want info logs that produce large volumes of data to go to a cluster, to index with more frequent rollovers, or to 
@@ -37,7 +40,7 @@ For example, consider an application log that includes log data. A typical Java 
 The text that reads `INFO` indicates that this is an INFO-level log. Data Prepper pipeline authors can now route logs with this level to only certain OpenSearch clusters.
 
 The following example pipeline takes application logs from the `http` source. This source 
-accepts log data from external sources such as Fluent Bit. 
+accepts log data from external sources such as [Fluent Bit](https://fluentbit.io/). 
 
 The pipeline then uses the `grok` processor to split the log line into multiple fields. The `grok` processor adds a 
 field named `loglevel` to the event. Pipeline authors can use that field in routes.
@@ -83,8 +86,9 @@ you’d like to see support for, please create an issue in GitHub.
 Data Prepper 2.0 introduces peer forwarding as a core feature.
 
 Previous to Data Prepper 2.0, performing stateful trace aggregations required using the peer forwarder processor plugin. 
-But this plugin only worked for traces and would send data back to the source. Also, log aggregations only worked on a 
-single node.
+But this plugin only worked for traces and would send data back to the source. Also, 
+[log aggregations](https://opensearch.org/blog/technical-post/2022/03/Introducing-Data-Prepper-1.3.0-with-New-Aggregation-Processor/) 
+only worked on a single node.
 
 With peer forwarding as a core feature, pipeline authors can perform stateful 
 aggregations on multiple Data Prepper nodes. When performing stateful aggregations, Data Prepper uses a hash ring to determine 
@@ -151,7 +155,9 @@ supports parsing JSON and CSV.
 For example, when one large object includes a serialized JSON string, you can use the `parse_json` processor to extract 
 the fields from the JSON string into your event.
 
-Data Prepper can now import CSV or TSV formatted files from Amazon Simple Storage Service (Amazon S3) sources. This is useful for systems like Amazon CloudFront, 
+Data Prepper can now import CSV or TSV formatted files from Amazon Simple Storage Service (Amazon S3) 
+[sources](https://opensearch.org/blog/technical-post/2022/06/S3-Log-Ingestion-Using-Data-Prepper-1.5.0/).
+This is useful for systems like Amazon CloudFront, 
 which write their access logs as TSV files. Now you can parse these logs using Data Prepper. 
 
 Additionally, if your events have 
