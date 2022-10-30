@@ -1,6 +1,6 @@
 ---
-name: SampleCompany
+name: Searchium.ai
 # upload your logo to the following directory - must be square
-logo: '/assets/media/partners/placeholder.png'
-link: 'http://example.com'
+logo: '/assets/media/partners/searchiumai.png'
+link: 'https://www.searchium.ai/'
 ---
