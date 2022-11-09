@@ -5,7 +5,7 @@ authors:
   - aoguan
   - kvngar
   - zengyan
-date: 2022-11-14 00:00:00 -0700
+date: 2022-11-17 00:00:00 -0700
 categories: 
   - community
 ---
@@ -48,4 +48,4 @@ When Dashboards bootstraps and loads security settings from `opensearch-dashboar
 
 ## Getting started
 
-For more information on setting up and exploring this feature, see the OpenSearch [documentation]({{site.url}}{{site.baseurl}}/security-plugin/configuration/multi-auth/). You can try out this feature in your local environment or the [OpenSearch playground](https://playground.opensearch.org/app/home#/). To leave feedback, visit the [OpenSearch Forum](https://forum.opensearch.org/t/feedback-experimental-feature-connect-to-external-data-sources/11144). If you're interested in contributing to this feature, consider contributing to the OpenSearch Dashboards [repository](https://github.com/opensearch-project/security-dashboards-plugin).
+For more information on setting up and exploring this feature, see the OpenSearch [documentation]({{site.url}}{{site.baseurl}}/security-plugin/configuration/multi-auth/). You can try out this feature in your local environment or the [OpenSearch playground](https://reinvent.playground.opensearch.org/app/home#/). To leave feedback, visit the [OpenSearch Forum](https://forum.opensearch.org/t/feedback-experimental-feature-connect-to-external-data-sources/11144). If you're interested in contributing to this feature, consider contributing to the OpenSearch Dashboards [repository](https://github.com/opensearch-project/security-dashboards-plugin).
