@@ -7,10 +7,13 @@ date: 2021-10-29
 categories:
   - technical-posts
 twittercard:
-  description: "As OpenSearch is now shipping out generally available releases, I wanted to provide an overview of how moving from open source Elasticsearch to OpenSearch looks like, and help you prepare for the move... "
+  description: "Learn how to move from open source Elasticsearch to OpenSearch, and why you want to move now."
 ---
-As OpenSearch is now shipping out generally available releases, I wanted to provide an overview of how moving from open source Elasticsearch to OpenSearch looks like, and help you prepare for the move. 
+*Blog refreshed for technical accuracy on 11 Nov 2022*
 
+The process of upgrading from open-source Elasticsearch to OpenSearch varies depending on your current version of Elasticsearch, installation type, tolerance for downtime, and cost sensitivity. Rather than recommended steps for every situation, we provide general guidance on the process.
+
+This blog post is a refresh of the upgrade process. 
 ### What is an open source Elasticsearch to OpenSearch Upgrade? 
 
 An *upgrade* is moving a cluster to either a new minor version or new major version. Major version upgrades come with breaking changes which is why it should be carefully upgraded via recommended paths. Minor version upgrades are relatively simple.
