@@ -24,9 +24,9 @@ Previously, OpenSearch Dashboards limited users to a single login authentication
 
 ## Use cases
 
-Customers using dedicated third-party enterprise-based IDPs to manage OpenSearch Dashboards user identities can now use OpenSearch as an Internal IDP for **admin, security, and privileged accounts**, and a single enterprise-based external IDP to maintain authentication information for **general Dashboards user accounts**. For larger enterprises that may have redundancy needs, they can enable multiple enterprise-based IDPs, for example, an enterprise OIDC IDP, and an enterprise SAML IDP.
+Customers using dedicated third-party enterprise-based IDPs to manage OpenSearch Dashboards user identities can now use OpenSearch as an Internal IDP for admin, security, and privileged accounts, and a single enterprise-based external IDP to maintain authentication information for general Dashboards user accounts. For larger enterprises that may have redundancy needs, they can enable multiple enterprise-based IDPs, for example, an enterprise OIDC IDP, and an enterprise SAML IDP.
 
-An additional use case for this that hasn’t been possible before is to add multiple external IDPs to mix and match needs. For example, OpenSearch can serve as an Internal IDP to maintain authentication information for **admin, and security accounts**, an Enterprise based IDP for **privileged and analyst accounts**, and a Social-based IDP for **limited read-only accounts** that can only view specific data.
+An additional use case for this that hasn’t been possible before is to add multiple external IDPs to mix and match needs. For example, OpenSearch can serve as an Internal IDP to maintain authentication information for admin, and security accounts, an Enterprise based IDP for privileged and analyst accounts, and a Social-based IDP for limited read-only accounts that can only view specific data.
 
 We would love to hear any additional use-cases you have that this feature can meet!
 
