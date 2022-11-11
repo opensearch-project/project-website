@@ -13,7 +13,9 @@ In the literature, an identity is an Authenticated [1] Subject [2].  In the syst
 - Background jobs interactions
 - Plugins in-process interactions
 - Extensions actions extra-process interactions
-  
+
+![image](https://user-images.githubusercontent.com/2754967/201424268-5687f162-4857-424b-96b8-ca8aff5f649a.png)
+
 ## Why have identity in all OpenSearch systems?
 By knowing who is performing actions we can check if that user is Authorized [3].  Plugins and extensions can only do actions that have been permitted to their identity.  The existing security plugin does not have the ability to control what other plugins can do.
 Protections of high-level tasks and low-level actions and resources be enforced OpenSearch-wide.  Plugins and extensions can access and depend on these systems to protect the features and functionality they bring to OpenSearch.
