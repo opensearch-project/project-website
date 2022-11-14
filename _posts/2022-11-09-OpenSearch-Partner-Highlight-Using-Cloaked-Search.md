@@ -24,7 +24,7 @@ probably not authenticated.
 the value drops to near zero. That's because the encryption key is only needed when the system starts up, after
 which the protection is transparent to anybody accessing the server.
 
-![Application-Layer Encryption]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/app-layer-enc.png){:class="img-centered"}
+![Application-Layer Encryption]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/app-layer-enc.png){: .img-fluid}
 
 ## Application-layer encryption: A better approach
 
@@ -58,7 +58,7 @@ abuse application-level access controls in order to peek at data they shouldn't.
 roles such as database administration, ops, customer support, and engineering can sneak peeks at sensitive data.
 These trusted folks who scratch the itch of curiosity can get a company in just as much trouble as a hacker.
 
-![Cloaked Search Proxy]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/cloaked-search-proxy.png){:class="img-centered"}
+![Cloaked Search Proxy]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/cloaked-search-proxy.png){: .img-fluid}
 
 Access to sensitive data should always be controlled. Backdoor access should be eliminated whenever possible.
 That includes controlling access by admins. With ALE, a company can build in these
@@ -75,7 +75,7 @@ sits in front of OpenSearch and automatically encrypts the sensitive data before
 service. It's ALE for search. A valid key is then required in order to search the data.  If you
 don't have a valid key, the data in OpenSearch is useless.
 
-![Cloaked Search Benefits]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/benefits.png){:class="img-entered"}
+![Cloaked Search Benefits]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/benefits.png){: .img-fluid}
 
 ## Features and functionality
 
@@ -93,7 +93,7 @@ and phonetic searches. The results are similar to what you would get without the
 weighting of fields and other rank tuning, though you can't do everything. For example, Cloaked Search doesn't
 support regular expression searches on encrypted fields. But for most users, it drops in and just works.
 
-![Cloaked Search Functionality]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/functionality.png){:class="img-entered"}
+![Cloaked Search Functionality]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/functionality.png){: .img-fluid}
 
 For those who are holding personal, private, sensitive, or regulated data in their OpenSearch service, Cloaked
 Search reduces the inherent risks. This makes it easier to comply with data privacy laws, data security requirements
@@ -101,7 +101,7 @@ set by statutes, and contractual obligations. If you offer software as a service
 trust of your customers. And for customers who have multiple tenants within OpenSearch, Cloaked Search seamlessly
 integrates with SaaS Shield.
 
-![SaaS Shield Integration]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/saas-shield.png){:class="img-entered"}
+![SaaS Shield Integration]({{ site.baseurl }}/assets/media/blog-images/2022-11-09-OpenSearch-Partner-Highlight-Using-Cloaked-Search/saas-shield.png){: .img-fluid}
 
 If you're looking for ALE encryption for the rest of your data, from queues to databases to files
 on disk, [IronCore Labs](https://ironcorelabs.com/) can help you protect that, too, with developer-proof,
