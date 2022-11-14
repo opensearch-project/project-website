@@ -3,7 +3,7 @@ layout: post
 title:  "OpenSearch partner highlight: Using Cloaked Search to protect your data"
 authors:
   - zmre
-date:   2022-11-09 1
+date:   2022-11-14
 categories:
   - partners
 ---
