@@ -1,5 +1,5 @@
 ---
-date: "2022-11-10"
+date: "2022-11-15"
 product: opensearch
 version: '2.4.0'
 release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.4.0.md
