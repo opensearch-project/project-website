@@ -4,4 +4,4 @@ short_name: aoguan
 photo: '/assets/media/authors/aoguan.jpeg'
 ---
 
-**Aozixuan, Priscilla, Guan** is a Software Engineer at Amazon Web Services, working on the OpenSearch project.
+**Aozixuan Guan** is a Software Engineer at Amazon Web Services working on the OpenSearch Project.
