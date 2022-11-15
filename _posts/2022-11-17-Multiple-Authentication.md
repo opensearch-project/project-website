@@ -43,7 +43,7 @@ When Dashboards bootstraps and loads security settings from `opensearch-dashboar
 * If **Single-Authentication Mode** is detected, only the authentication handler for the corresponding authentication type defined by *`attribute:opensearch_security.auth.type`* will be registered with the client. All the login requests flow to the dedicated IdP to complete identification and authentication.
 * If **Multiple-Authentication Mode** is detected, OSD will evaluate authentication handlers required for each individual authentication type defined by *`attribute:opensearch_security.auth.type`* and form a compound authentication handler, which will be registered with the OSD client instead. This compound authentication handler is able to redirect the authentication request to various IdP endpoints for authentication interchangeably based on the authentication type defined within the login request.
 
-The following image shows the high-level diagram for **Multiple Authentication Options for OpenSearch Dashboards**:
+The following image shows a high-level diagram of the multiple authentication options for OpenSearch Dashboards.
 
 ![High Level Diagram](/assets/media/blog-images/2022-11-14-multiple-authentication/high-level-diagram.png){: .img-fluid}
 
