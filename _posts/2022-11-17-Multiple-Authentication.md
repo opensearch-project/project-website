@@ -14,7 +14,7 @@ We’re excited to announce support for concurrent multiple authentication metho
 
 ## Benefits
 
-Previously, Dashboards limited users to a single login authentication option. Users could either use basic authentication (username and password) or SSO with a single external SAML/OIDC identity provider (IdP). Starting in **2.4**, the Dashboards security admin can enable multiple authentication options. The following are some of the benefits of enabling this feature:
+Previously, Dashboards limited users to a single login authentication option. Users could either use basic authentication (username and password) or SSO with a single external SAML/OIDC identity provider (IdP). Starting in **OpenSearch 2.4.0**, the Dashboards security admin can enable multiple authentication options. The following are some of the benefits of enabling this feature:
 
 * Simultaneous login with basic authentication (username and password) and SSO
 * An integrated login/logout experience regardless of your authentication methodology
