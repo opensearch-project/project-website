@@ -10,7 +10,7 @@ categories:
   - community
 ---
 
-We’re excited to announce support for concurrent multiple authentication methods in OpenSearch Dashboards (OSD). This enhancement for the security plugin implementation of Dashboards provides a more unified and user-friendly login experience for Dashboards users. Users can now choose from multiple options to login with either basic authentication (username and password) or one of two single sign-on (SSO) solutions, OpenID Connect (OIDC) or SAML.
+We’re excited to announce support for concurrent multiple authentication methods in OpenSearch Dashboards. This enhancement to the Dashboards security plugin provides a more unified and user-friendly login experience to Dashboards users, who are now able to choose a preferred option from a login UI that integrates basic authentication (username and password) and multiple single sign-on (SSO) providers for OpenID Connect (OIDC) and SAML.
 
 ## Benefits
 
@@ -40,8 +40,9 @@ OpenSearch Dashboards admins can enable single or multiple authentication option
 
 When Dashboards bootstraps and loads security settings from `opensearch-dashboards.yml`, the Dashboards client can detect whether Single-Authentication Mode or Multiple-Authentication Mode is enabled by evaluating the Multiple Authentication feature flag and authentication type setting:
 
-* If **Single-Authentication Mode** is detected, only the authentication handler for the corresponding authentication type defined by *`attribute:opensearch_security.auth.type`* will be registered with the client. All the login requests flow to the dedicated IdP to complete identification and authentication.
-* If **Multiple-Authentication Mode** is detected, OSD will evaluate authentication handlers required for each individual authentication type defined by *`attribute:opensearch_security.auth.type`* and form a compound authentication handler, which will be registered with the OSD client instead. This compound authentication handler is able to redirect the authentication request to various IdP endpoints for authentication interchangeably based on the authentication type defined within the login request.
+* If **Single-Authentication Mode** is detected, Dashboards registers a single authentication handler with the client based on the authentication type defined by the **opensearch_security.auth.type** setting. When Dashboards users log in, all requests flow to the dedicated IdP to complete identification and authentication.
+
+* If **Multiple-Authentication Mode** is detected, Dashboards evaluates all authentication handlers required for the multiple authentication types defined by **opensearch_security.auth.type** setting and forms a compound authentication handler. Dashboards then registers this compound authentication handler with the client. The compound authentication handler is able to redirect the authentication request to various IdP endpoints for authentication interchangeably based on the authentication type defined within the login request.
 
 The following image shows a high-level diagram of the multiple authentication options for OpenSearch Dashboards.
 

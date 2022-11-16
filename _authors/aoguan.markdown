@@ -1,5 +1,5 @@
 ---
-name: Aozixuan, Priscilla, Guan
+name: Aozixuan Guan
 short_name: aoguan
 photo: '/assets/media/authors/aoguan.jpeg'
 ---
