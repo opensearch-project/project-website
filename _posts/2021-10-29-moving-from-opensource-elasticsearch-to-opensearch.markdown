@@ -27,16 +27,16 @@ Static settings defined in the  `opensearch.yml` or `elasticsearch.yml` files ar
 
 ## Preparing for the upgrade
 
-If you run open-source Elasticsearch or older minor versions of OpenSearch and want to upgrade to the latest OpenSearch version, you’ll need to take the following actions.
+If you run open source Elasticsearch or older minor versions of OpenSearch and want to upgrade to the latest OpenSearch version, you’ll need to take the following actions.
 
 First, back up your data by taking a snapshot of your existing cluster (You can follow the approach outlined in [Upgrade to OpenSearch](https://opensearch.org/docs/latest/upgrade-to/index/).
 
-Second, verify version compatibility between the existing cluster and the version to which you are migrating. OpenSearch was forked from the last open-source version of Elasticsearch, 7.10.2.
+Second, verify version compatibility between the existing cluster and the version to which you are migrating. OpenSearch was forked from the last open source version of Elasticsearch, 7.10.2.
 
-* Indexes are compatible with current and previous major versions (OpenSearch 1.x or later can read/write indexes from open-source Elasticsearch 6.x and 7.x).
-* Wire compatibility works with all major versions and the minor verison(s) of the latest major version. OpenSearch 1.x or later can join an open-source Elasticsearch 6.8.x and 7.x cluster.
+* Indexes are compatible with current and previous major versions (OpenSearch 1.x or later can read/write indexes from open source Elasticsearch 6.x and 7.x).
+* Wire compatibility works with all major versions and the minor verison(s) of the latest major version. OpenSearch 1.x or later can join an open source Elasticsearch 6.8.x and 7.x cluster.
 
-Indexes that were created prior to open-source Elasticsearch 6.x must be reindexed or deleted in order to upgrade the cluster to OpenSearch. The cluster will fail to start if you have incompatible indexes.
+Indexes that were created prior to open source Elasticsearch 6.x must be reindexed or deleted in order to upgrade the cluster to OpenSearch. The cluster will fail to start if you have incompatible indexes.
 
 Use the [Reindex API](https://opensearch.org/docs/latest/api-reference/document-apis/reindex/) to migrate your data from indexes created in versions prior to 6.x to a new version. Here’s an example:
 
@@ -53,9 +53,9 @@ POST /_reindex
 ```
 Lastly, download the latest version of OpenSearch from the [OpenSearch downloads page](https://opensearch.org/downloads.html). If you need help with installation, see the guidance in [Install and Configure OpenSearch](https://opensearch.org/docs/latest/opensearch/install/index/).
 
-As described in a [previous blog post](https://opensearch.org/blog/technical-posts/2021/07/how-to-upgrade-from-opendistro-to-opensearch/), open-source Elasticsearch is the foundation for Open Distro, and it has the same upgrade paths. You can follow through the steps for the path you choose to upgrade your cluster.
+As described in a [previous blog post](https://opensearch.org/blog/technical-posts/2021/07/how-to-upgrade-from-opendistro-to-opensearch/), open source Elasticsearch is the foundation for Open Distro, and it has the same upgrade paths. You can follow through the steps for the path you choose to upgrade your cluster.
 
-## Support matrix for open-source Elasticsearch to OpenSearch
+## Support matrix for open source Elasticsearch to OpenSearch
 
 |Open Source Elasticsearch|Recommended Upgrade Path	|
 |---	|---	|
@@ -83,4 +83,4 @@ OpenSearch also provides [clients](https://opensearch.org/docs/latest/clients/in
 
 ### Going forward
 
-Now that you have the necessary information about migrating from open-source Elasticsearch to OpenSearch, you can decide the suitable path for your workload. Again, remember to take a backup before starting the upgrade process.
+Now that you have the necessary information about migrating from open source Elasticsearch to OpenSearch, you can decide the suitable path for your workload. Again, remember to take a backup before starting the upgrade process.
