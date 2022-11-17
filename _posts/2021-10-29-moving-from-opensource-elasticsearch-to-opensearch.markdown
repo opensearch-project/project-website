@@ -9,12 +9,12 @@ categories:
 twittercard:
   description: "Learn how to move from open source Elasticsearch to OpenSearch, and why you want to move now."
 ---
-*Blog refreshed for technical accuracy on 11 Nov 2022*
+*Blog refreshed for technical accuracy on 16 Nov 2022*
 
-The process of upgrading from open-source Elasticsearch to OpenSearch varies depending on your current version of Elasticsearch, installation type, tolerance for downtime, and cost sensitivity. Rather than recommended steps for every situation, we provide general guidance on the process.
+The process of upgrading from open source Elasticsearch to OpenSearch varies depending on your current version of Elasticsearch, installation type, tolerance for downtime, and cost sensitivity. Rather than recommended steps for every situation, we provide general guidance on the process.
 
 This blog post is a refresh of the upgrade process. 
-## What is an open-source Elasticsearch to OpenSearch upgrade? 
+## What is an open source Elasticsearch to OpenSearch upgrade? 
 
 An *upgrade* means moving a cluster to either a new major or latest minor version of the major version. Major version upgrades come with breaking changes, and the upgrade should follow the recommended migration path. Minor version upgrades are relatively simple.
 
@@ -23,7 +23,7 @@ When upgrading from Elasticsearch to OpenSearch, settings and indexes are upgrad
 * Cluster settings: All dynamic settings that are supported in the new cluster will be migrated, and the ones that were deprecated will be archived.
 * Indexes: All compatible indexes (that is, all your data) will be readable/writable by the new software version.
 
-Static settings defined in the  `opensearch.yml` or `elasticsearch.yml` files are not moved automatically during an upgrade. Each version of OpenSearch is bundled with the [`opensearch-upgrade`](https://opensearch.org/docs/latest/upgrade-to/upgrade-to/#upgrade-tool) tool. The tool connects to an Elasticsearch cluster and moves the static settings. The cluster and the settings are defined in the `elasticsearch.yml` to `opensearch.yml` files automatically.
+Static settings defined in the  `opensearch.yml` or `elasticsearch.yml` files are not moved automatically during an upgrade. Each version of OpenSearch is bundled with the [`opensearch-upgrade`](https://opensearch.org/docs/latest/upgrade-to/upgrade-to/#upgrade-tool) tool. The tool connects to an Elasticsearch cluster and moves the static settings, and the cluster and the settings are defined in the `elasticsearch.yml` to `opensearch.yml` files automatically. If you use ElasticSearch keystore to store secret values, you also can use the `opensearch-upgrade` tool to automate the migration.
 
 ## Preparing for the upgrade
 
