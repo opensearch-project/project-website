@@ -23,7 +23,7 @@ The Multiple Data Sources feature provides users the following benefits:
 
 Multiple Data Sources enables Dashboards to query data from multiple compatible OpenSearch endpoints:
 
-* Add or remove data sources that are compatible with OpenSearch DSL, such as OpenSearch domains, OpenSearch serverless collections, and customer-managed OpenSearch clusters.
+* Add or remove data sources that are compatible with OpenSearch DSL, such as OpenSearch domains, and customer-managed OpenSearch clusters.
 * Create visualizations comparing time-series data from different index patterns and combine that data in a single dashboard.
 
 ![Use case by persona](/assets/media/blog-images/2022-10-28-multiple-data-source/usecase-by-persona.png){: .img-fluid}
