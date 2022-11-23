@@ -2,6 +2,7 @@
 layout: default
 ---
 
+
 {% capture header %}
   {% comment%}<h1 class="visuallyhidden">OpenSearch</h1>
   <p>
@@ -73,7 +74,8 @@ layout: default
       {% assign latest = site.versions | sort: 'version_sort' | reverse | first %}
       <div class="latest-version">{{ page.version_feature.latest_label}} {{ latest.version }} {{ page.version_feature.date_label}} {{ latest.date | date_to_string: "ordinal", "US"}}</div>
 
-      
+	{% include feedback.html %}
+
       <div class="whats-new">
         <h3>What's new?</h3>
         {% for post in site.posts limit:5 %}
