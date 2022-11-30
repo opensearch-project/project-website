@@ -221,7 +221,7 @@ DELETE /_search/point_in_time
 }
 ```
 
-You can also get information about the PIT's segments using the Cat PIT Segments API.
+You can also get information about the PIT's segments using the CAT PIT Segments API.
 
 To learn more about all PIT APIs, see [Point in Time API](https://opensearch.org/docs/latest/opensearch/point-in-time-api/). 
 
