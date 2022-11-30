@@ -7,10 +7,10 @@ date: 2022-11-20 00:00:00 -0700
 categories:
  - community
 
-excerpt: New for version 2.4, Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways to paginate results, PIT search proves superior in capabilities and performance, because it is not bound to a query, and it supports consistent pagination going forward and backward.
+excerpt: New for version 2.4, Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways to paginate results, PIT search proves superior in capabilities and performance because it is not bound to a query and it supports consistent pagination going forward and backward.
 ---
 
-New for [version 2.4](https://opensearch.org/blog/releases/2022/11/opensearch-2-4-is-available-today/), Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways to paginate results, PIT search proves superior in capabilities and performance, because it is not bound to a query, and it supports consistent pagination going forward and backward.
+New for [version 2.4](https://opensearch.org/blog/releases/2022/11/opensearch-2-4-is-available-today/), Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways to paginate results, PIT search proves superior in capabilities and performance because it is not bound to a query and it supports consistent pagination going forward and backward.
 
 ## OpenSearch pagination methods 
 
@@ -27,8 +27,8 @@ So, what are the desired characteristics of a good pagination method? Of course,
 
 - **Moving forward and backward**: In addition to moving forward in search results, the user may want to go back to the page before the current page.
 - **Skipping pages**: The user may want to skip to a page out of order.
-- **Consistency**: The search results must stay consistent even with live index updates. If the user is on Page 1 of the results and selects Page 2 and then goes back to Page 1, Page 1 stays the same despite documents being indexed or deleted in the meantime.
-- **Deep pagination**: The search must stay efficient even when the user wants to view results starting with Page 1000.
+- **Consistency**: The search results must stay consistent, even with live index updates. If the user is on Page 1 of the results and selects Page 2 and then goes back to Page 1, Page 1 stays the same despite documents being indexed or deleted in the meantime.
+- **Deep pagination**: The search must stay efficient even when the user wants to view results starting with Page 1,000.
 
 ### Pagination methods, compared
 
@@ -73,7 +73,7 @@ When you use a query with a PIT ID, it searches the segments that are frozen in 
 
 ### What's the catch?
 
-So far we've seen that PIT search is superior to other pagination methods. But what are the drawbacks? First, for a PIT, OpenSearch has to keep the segments even though they might have been merged already and are not needed for the live dataset. This leads to an increased heap usage. Second, there is currently no built-in resiliency in PIT, so if your node goes down, all PIT segments are lost.
+So far we've seen that PIT search is superior to other pagination methods. But what are the drawbacks? First, for a PIT, OpenSearch has to keep the segments even though they might have been merged and are not needed for the live dataset. This leads to an increased heap usage. Second, there is currently no built-in resiliency in PIT, so if your node goes down, all PIT segments are lost.
 
 ## How to use PIT
 
@@ -105,7 +105,7 @@ Assuming you are not running the security plugin, you can set up the `shakespear
 
 ### Use the PIT functionality
 
-Follow these steps to use a PIT. 
+Follow these steps to use PIT. 
 
 **Step 1: Create a PIT**
 
@@ -132,7 +132,7 @@ The response contains a PIT ID:
 
 **Step 2: Use the PIT ID for your search**
 
-The following request searches for all documents in the play "Hamlet", sorted by speech number and then id, and returns the first 20 results:
+The following request searches for all documents in the play "Hamlet," sorted by speech number and then id, and returns the first 20 results:
 
 ```json
 GET /_search
@@ -221,7 +221,7 @@ DELETE /_search/point_in_time
 }
 ```
 
-You can also get information about the PIT's segments using the Cat PIT segments API.
+You can also get information about the PIT's segments using the Cat PIT Segments API.
 
 To learn more about all PIT APIs, see [Point in Time API](https://opensearch.org/docs/latest/opensearch/point-in-time-api/). 
 
