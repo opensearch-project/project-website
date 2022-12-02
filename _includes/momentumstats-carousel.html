@@ -1,0 +1,46 @@
+{% assign mstats = site.momentumstats | where: "display", "true" %}
+
+{% if mstats.size > 0 %}
+	<style type="text/css">
+		img.momentumstat-image
+		{
+			width: 420px;
+		}
+		
+	</style>
+
+	<h3>
+		Check out some of our momentum!
+	</h3>
+
+	<div class="momentumstats-carousel-container">
+
+		{% for momentumstat in mstats %}
+			<div class="momentumstats-slide-container" id="momentumslide{{ forloop.index0 }}"
+				{% if forloop.first %}
+					style="display: inline;"
+				{% else %}
+					style="display: none;"
+				{% endif %}
+				>
+				{% include momentumstats-carousel-slide.html momentumstat=momentumstat %}
+			</div>
+		{% endfor %}
+	</div>
+
+	<script language='javascript'>
+		setInterval(function() {
+			thingies = jQuery(".momentumstats-slide-container");
+			for(i = 0; i < thingies.length; i++)
+			{
+					if($("div#momentumslide" + i).is(":visible"))
+					{
+							$("div#momentumslide" + i).toggle();
+							$("div#momentumslide" + ((i + 1) % thingies.length)).toggle();
+							break;
+					}
+			}
+		}, 20000);
+	</script>
+{% endif %}
+

@@ -1,0 +1,15 @@
+<!-- Include the content if it's not type image. Otherwise, just show the stat_img and link it to stat_url. -->
+
+<div class="momentumstats-slide">
+
+	{% if momentumstat.stat_type == "image" %}
+		<a href="{{ momentumstat.stat_url }}">
+			<img class="momentumstat-image" src="{{momentumstat.stat_img}}">
+		</a>
+	{% else %}
+		<span class="momentumstat-html">
+			{{ include.momentumstat.content }}
+		</span>
+	{% endif %}
+        
+</div>

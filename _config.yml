@@ -76,6 +76,8 @@ defaults:
       permalink: :collection/:slug.html
 
 collections:
+  momentumstats: 
+    output: false
   authors:
     output: true
   partners:

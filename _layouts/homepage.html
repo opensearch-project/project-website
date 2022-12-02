@@ -74,6 +74,8 @@ layout: default
       {% assign latest = site.versions | sort: 'version_sort' | reverse | first %}
       <div class="latest-version">{{ page.version_feature.latest_label}} {{ latest.version }} {{ page.version_feature.date_label}} {{ latest.date | date_to_string: "ordinal", "US"}}</div>
 
+	{% include momentumstats-carousel.html %}
+
 	{% include feedback.html %}
 
       <div class="whats-new">
