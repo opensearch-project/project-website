@@ -28,7 +28,7 @@
     {% if page.twittercard.description %}
     <meta name="twitter:description" content="{{ page.twittercard.description  | xml_escape }}" />
     {% else %}
-    <meta name="twitter:description" content="OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, OpenSearch, and a visualization and user interface, OpenSearch Dashboards. OpenSearch enables people to easily ingest, secure, search, aggregate, view, and analyze data." />
+    <meta name="twitter:description" content="OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." />
     {% endif %}
     {% if page.twittercard.image %}
     <meta name="twitter:image" content="{{ page.twittercard.image }}" /> 
@@ -60,25 +60,6 @@
     <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
 
     <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
-    <script src="{{ 'assets/js/lib/webfontloader/webfontloader.js' | relative_url }}"></script>
-    <script>
-    WebFont.load({
-      custom: {
-        families: ['FontAwesome'],
-      },
-      google: {
-        families: [
-          'Open Sans Condensed:700',
-          'Open Sans:300italic,400italic,700italic,300,400,700',
-          'Noto Serif:400italic,700italic,400,700',
-          'Fira Mono:400'
-        ]
-      },
-      classes: false,
-      events: false,
-      timeout: 1000
-    });
-    </script>
     <script src="{{ 'assets/js/lib/modernizr.js' | relative_url }}"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV14XK08F"></script>

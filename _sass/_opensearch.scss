@@ -153,7 +153,7 @@ dl.list-features {
 }
 
 .homepage .list-features dt {
-    @include serif;
+    @include sans-serif;
 }
 
 .homepage .list-features p + dt {
@@ -187,6 +187,12 @@ dl.list-features {
     height: auto;
     border: 1px solid $line-lighter;
 }
+.img-centered {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid $line-lighter;
+}
 .downloads-page {
     .layout-2col {
         .col {
@@ -199,11 +205,22 @@ dl.list-features {
     }
 }
 
-.banner-alert {
+.banner-alert, .version-alert {
     @include sans-serif;
     @include warning-stripes;
 }
-  
+
+.version-alert {
+    padding: 0.5em;
+    margin-top: 1em;
+    position:-webkit-sticky; 
+    position:sticky; 
+    top:0;
+    p {
+        margin: 0;
+    }
+}
+
 .imported-post {
     margin-left: -1em;
     margin-right: -1em;
@@ -354,13 +371,18 @@ dl.list-features {
 }
 .artifact-container {
     display: flex;
+    flex-flow: row wrap;
+    gap: 1em;
 
     .artifact-explain { 
         width : 66%;
+        flex-grow: 1;
 
+        >p:last-child {
+            margin-bottom: 0;
+        }
     }
     .download-panel {
-        margin-left: 1em;
         flex-grow: 1;
         @include sans-serif;
 
@@ -375,6 +397,31 @@ dl.list-features {
         .extra_links .cta {
             font-size: 1.5rem;
             max-width: none;
+        }
+    }
+    .extra-instructions-group {
+        width: 100%;
+        flex-shrink: 0;
+
+        .highlight {
+            margin: 0 0 15px;
+        }
+    }
+
+    .instruction-label {
+        margin: 0 0 .2rem;
+
+        a {
+            @include sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            float: right;
+            margin-top: .6rem;
+            line-height: 1;
+
+            &:visited {
+                color: inherit;
+            }
         }
     }
 }

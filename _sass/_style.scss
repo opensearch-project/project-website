@@ -19,7 +19,7 @@ html {
 }
 
 body {
-    @include serif;
+    @include sans-serif;
     @include font-size(18);
     background: $background-darker;
     color: $text;
@@ -224,31 +224,6 @@ p {
 
 ul {
     padding-left: 20px;
-}
-
-// TODO: most of this is copy/pasted from .admonition. We should factor out the common bits
-blockquote {
-    background: $white;
-    padding: 15px 20px 15px 70px;
-    border: 1px solid $highlight;
-    border-radius: 4px;
-    margin: 25px 0;
-    position: relative;
-
-    p:first-child {
-        margin-top: 0;
-    }
-    &::before {
-        @include fa-icon();
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        font-size: 30px;
-        width: 34px;
-        text-align: center;
-        content: $fa-var-quote-left; // default icon
-        opacity: 0.5;
-    }
 }
 
 //------------------- Layout
@@ -1130,6 +1105,10 @@ blockquote {
             }
         }
     }
+
+    &.create-pr {
+        display: inline-block;
+    }
 }
 .link-alternate {
     // class render of the link-alternate mixin
@@ -1992,93 +1971,6 @@ dl.list-features {
     margin: 40px 0 20px;
 }
 
-.headerlink {
-    // Permalink styles for sections in docs
-    opacity: 0;
-    padding-left: 10px;
-    font-size: 0.8em;
-    position: relative;
-    top: -0.17em;
-    font-weight: 700;
-    text-decoration: none;
-    -webkit-transition: opacity 200ms ease-in-out;
-    transition: opacity 200ms ease-in-out;
-}
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    dl,
-    dt {
-        &:hover {
-            > .headerlink {
-                opacity: 1;
-            }
-        }
-    }
-
-//Notes, help blocks, and annotation sections
-.note,
-.admonition,
-.help-block {
-        background: $white;
-        padding: 15px 20px 15px 70px;
-        border: 1px solid $highlight;
-        border-radius: 4px;
-        margin: 25px 0;
-        position: relative;
-
-        h1,h2,h3,h4 {
-            margin-top: 20px;
-        }
-        p {
-            margin: 0.8em 0;
-        }
-        .first {
-            margin-top: 0;
-        }
-        // Add an icon on the left of the box
-        .admonition-title {
-            font-weight: bold;
-            &::before {
-                @include fa-icon();
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                font-size: 30px;
-                width: 34px;
-                text-align: center;
-                content: $fa-var-file-text-o; // default icon
-                opacity: 0.5;
-            }
-        }
-        &.warning {
-            background-color: $warning;
-            border-color: $warning-dark;
-            .admonition-title::before {
-                color: #E9BD46;
-                content: $fa-var-exclamation-triangle;
-            }
-        }
-        &.admonition-philosophy {
-            .admonition-title::before {
-                content: $fa-var-lightbulb-o;
-            }
-        }
-        &.admonition-behind-the-scenes {
-            .admonition-title::before {
-                content: $fa-var-cogs;
-            }
-        }
-        .last, .highlight {
-            margin-bottom: 0px;
-        }
-}
-
-
 // Horizontal navigation links for documentation
 .browse-horizontal {
 
@@ -2933,72 +2825,6 @@ ul.corporate-members li {
     max-height: 150px;
     max-width: 150px;
     padding: 0 0 10px 10px;
-}
-
-/* Messages */
-
-.messages {
-    list-style-type: none;
-    width: 100%;
-    padding-left: 0;
-
-    li {
-        padding: 15px;
-        background-color: $highlight-lighter;
-        color: $accent-dark;
-        border: 1px solid $accent-dark;
-        border-radius: 4px;
-
-        &::before {
-            @include fa-icon();
-            font-size: 30px;
-            width: 34px;
-            text-align: center;
-            float: left;
-            margin-left: -5px;
-            margin-right: 10px;
-        }
-
-        &.info {
-            &::before {
-                content: $fa-var-info-circle;
-            }
-        }
-
-        &.success {
-            background-color: $highlight-lightest;
-            content: $fa-var-check-circle;
-            &::before {
-                content: $fa-var-check-circle;
-            }
-        }
-
-        &.warning {
-            background-color: $warning;
-            border-color: darken($warning-dark, 50);
-            &::before {
-                color: darken($warning-dark, 50);
-                content: $fa-var-exclamation-triangle;
-            }
-        }
-
-        &.error {
-            background-color: $alert-lightest;
-            color: $alert-dark;
-            border-color: $alert-dark;
-            &::before {
-                content: $fa-var-times-circle;
-            }
-        }
-
-        i.close {
-            float: right;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: -10px;
-            margin-right: -10px;
-        }
-    }
 }
 
 .code-block-caption, .snippet {

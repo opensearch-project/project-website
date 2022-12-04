@@ -6,4 +6,4 @@ twitter: 'stockholmux'
 github: stockholmux
 ---
 
-Kyle Davis is the Senior Developer Advocate for OpenSearch and Open Distro for Elasticsearch. 
+Kyle Davis is the Senior Developer Advocate for Bottlerocket and Amazon Linux. Previously, Kyle was the Senior Developer Advocate for OpenSearch and Open Distro for Elasticsearch. 

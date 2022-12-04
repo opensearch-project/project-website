@@ -63,11 +63,6 @@ define(function() {
         mods.push('mod/search-key');
     }
 
-
-    if (hasClass('messages')) {
-        mods.push('mod/messages');
-    }
-
     if (hasClass('code-block-caption') || hasClass('snippet')) {
         mods.push('mod/clippify');
     }
@@ -75,6 +70,11 @@ define(function() {
     if (hasClass('console-block')) {
         mods.push('mod/console-tabs');
     }
+    
+    if (hasClass('pr-maker')) {
+        mods.push('mod/pr-maker')
+    }
+
     mods.push('/assets/js/mod/select_logic.js');
 
     require(mods);

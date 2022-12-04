@@ -13,6 +13,11 @@ require "json"
 #
 # To prevent the indexing of a document, include `omit_from_search: true` in the document's front matter.
 # In rare circumstances, this indexer fails to find the title of some documents; including `primary_title` solves that.
+#
+# The plugin does not apply changes when the Serve command is used but `JEKYLL_ALLOW_CONTENT_INDEXER`, set on the
+# environment, will override the behavior.
+# Usage: `JEKYLL_ALLOW_CONTENT_INDEXER= bundle exec jekyll serve --trace`
+
 module Jekyll::ContentIndexer
 
   ##
@@ -36,9 +41,39 @@ module Jekyll::ContentIndexer
   @header_matcher = /<div.+?class="[^"]*copy-banner[^"]*".*?>.*?<div.+?class="[^"]*container[^"]*".*?>.*?<h1.*?><a.*?>\s*([^<]+)\s*<\/a>.*?<\/h1>/m.freeze;
 
   ##
+  # Defines the priority of the plugin
+  # The hooks are registered with the lowest possible priority to make sure they run after any other
+  def self.priority
+    1
+  end
+
+  ##
   # Initializes the singleton by recording the site
   def self.init(site)
     @site = site
+
+    # Avoid initializing if serving and not forced to run
+    if site.config["serving"] and (!ENV.key?('JEKYLL_ALLOW_CONTENT_INDEXER') or ENV['JEKYLL_ALLOW_CONTENT_INDEXER'] == "false")
+      return Jekyll.logger.info "ContentIndexer:",
+                                      "disabled. Enable with JEKYLL_ALLOW_CONTENT_INDEXER on the environment"
+    end
+
+    # Process a Page as soon as its content is ready
+    Jekyll::Hooks.register :pages, :post_convert, priority:self.priority do |page|
+      self.add(page)
+    end
+
+    # Process a Document as soon as its content is ready
+    Jekyll::Hooks.register :documents, :post_convert, priority:self.priority do |document|
+      self.add(document)
+    end
+
+    # Save the produced collection after Jekyll is done writing all its stuff
+    Jekyll::Hooks.register :site, :post_write, priority:self.priority do |_|
+      self.save()
+    end
+
+    Jekyll.logger.info "ContentIndexer:", "initialized"
   end
 
   ##
@@ -109,7 +144,6 @@ module Jekyll::ContentIndexer
 
   ##
   # Saves the collection as a JSON file
-
   def self.save
     File.open(File.join(@site.config["destination"], "search-index.json"), 'w') do |f|
       f.puts JSON.pretty_generate(@data)
@@ -118,25 +152,6 @@ module Jekyll::ContentIndexer
 end
 
 # Before any Document or Page is processed, initialize the ContentIndexer
-
-Jekyll::Hooks.register :site, :pre_render do |site|
+Jekyll::Hooks.register :site, :pre_render, priority:Jekyll::ContentIndexer.priority do |site|
   Jekyll::ContentIndexer.init(site)
-end
-
-# Process a Page as soon as its content is ready
-
-Jekyll::Hooks.register :pages, :post_convert do |page|
-  Jekyll::ContentIndexer.add(page)
-end
-
-# Process a Document as soon as its content is ready
-
-Jekyll::Hooks.register :documents, :post_convert do |document|
-  Jekyll::ContentIndexer.add(document)
-end
-
-# Save the produced collection after Jekyll is done writing all its stuff
-
-Jekyll::Hooks.register :site, :post_write do |_|
-  Jekyll::ContentIndexer.save()
 end

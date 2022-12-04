@@ -50,18 +50,18 @@ As a general rule, if it doesn't change from release to release and isn't hosted
 
 ## Automation
 
-Included in this directory is the bash script `v_update.sh`. This script will make a new copy of all the artifact files for an existing version and change the yaml and file names to the new specified version. It is a blunt tool that will create a lot of new files, so use with caution. You will still need to update the corresponding version in `_version`.
+Included in this directory is the bash script `_v_update.sh`. This script will make a new copy of all the artifact files for an existing version and change the yaml and file names to the new specified version. It is a blunt tool that will create a lot of new files, so use with caution. You will still need to update the corresponding version in `_version`.
 
 Usage:
 
 ```shell
-./v_update.sh <directory> <old version> <new version>
+./_v_update.sh <directory> <old version> <new version>
 ```
 
 Example:
 
 ```shell
-./v_update.sh opensearch-1.2 1.2.1 1.2.2
+./_v_update.sh opensearch-1.2 1.2.1 1.2.2
 ```
 
 Reads all the artifact files in `opensearch-1.2` that match version 1.2.1 and converts them to 1.2.2 

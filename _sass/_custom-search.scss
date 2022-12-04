@@ -82,6 +82,16 @@
 .custom-search-results > div { padding: 1.6rem; }
 .custom-search-results cite { font-size: 12px; font-size: 1.2rem; font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif; color: #002A3A; text-decoration: none; font-style: normal; display: block; line-height: 1; font-weight: normal; }
 
+.search-active {
+  body {
+    position: fixed;
+
+    @media (min-width: 46.25rem) {
+      position: unset;
+    }
+  }
+}
+
 .custom-search-results a {
   font-size: 20px;
   font-size: 2rem;
@@ -103,6 +113,11 @@
 .custom-search-results span { font-size: 14px; font-size: 1.4rem; color: #1B4859; line-height: 1.4; display: block; overflow-wrap: break-word; }
 .custom-search-results span:only-child { text-align: center; padding: 1.6rem; }
 .custom-search-results .highlighted { background: #EAF4F9; }
+.custom-search-results {
+  a, h1 {
+    white-space: unset;
+  }
+}
 .banner-alert ~ main .custom-search-results { max-height: calc(100vh - 200% - 60px - 5.76rem) !important; }
 .search-spinner { display: none; font-weight: 700; outline: 0; user-select: none; position: absolute; padding-left: 0.96rem; height: 100%; }
 .search-spinner.spinning { display: flex; }

@@ -1,0 +1,18 @@
+---
+
+eventdate: 2022-03-29T07:00
+tz: UTC -8
+title: OpenSearch Community Meeting - 2022-03-29
+online: true
+signup:
+    url: https://www.meetup.com/OpenSearch/events/283833666/
+    title: Join on Meetup
+
+---
+
+Join us for our weekly online community meeting.
+
+Meeting topics are listed in the [collaborative agenda](https://hackmd.io/@HmdZWaVnQU6M8icdvC5TwQ/HJJg9vxJ9) on HackMD.
+
+Feel free to comment on the agenda before the meeting if you want to add an item or have a question.
+During the meeting the agenda will be unlocked for collaborative editing / note taking. After the meeting the agenda will be set to read-only mode.

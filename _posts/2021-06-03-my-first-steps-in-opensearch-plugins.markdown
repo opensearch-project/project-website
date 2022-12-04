@@ -193,7 +193,6 @@ opensearchplugin {
 buildscript {
     repositories {
         mavenCentral()
-        jcenter()
         mavenLocal()
     }
 

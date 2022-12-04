@@ -7,9 +7,9 @@ layout_class: sidebar-right
 body_class: homepage
 sectionid: homepage
 
-primary_title: About OpenSearch
+primary_title: OpenSearch
 
-meta_description: OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, OpenSearch, and a visualization and user interface, OpenSearch Dashboards. OpenSearch enables people to easily ingest, secure, search, aggregate, view, and analyze data.
+meta_description: OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data.
 
 download_ctas:
   - os
@@ -18,7 +18,7 @@ download_ctas:
 ctas:
     post: ' on GitHub'
     primary: 
-        text: 'Get Started'
+        text: 'Download OpenSearch'
         url: '/downloads.html'
     roadmap:
         text: 'View the project roadmap'
@@ -27,10 +27,37 @@ ctas:
 
 greeting: "More about OpenSearch"
 
+# Normal headline area (undo the commented out "- page.headline -" twice in homepage.html file)
 headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze your data."
 
-long_description: "OpenSearch is a community-driven, open source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2. It consists of a search engine daemon, OpenSearch, and a visualization and user interface, OpenSearch Dashboards. OpenSearch enables people to easily ingest, secure, search, aggregate, view, and analyze data. These capabilities are popular for use cases such as application search, log analytics, and more. With OpenSearch people benefit from having an open source product they can use, modify, extend, monetize, and resell how they want. At the same time, OpenSearch will continue to provide a secure, high-quality search and analytics suite with a rich roadmap of new and innovative functionality."
+# Hero banner area (commented out "- page.headline -" twice in homepage.html file)
+# headline: <a href="https://opensearch.org/blog/community/2022/05/opensearchcon/"> <img src="/assets/media/blog-images/2022-05-09-opensearchcon/opensearchcon.jpg" alt="OpenSearchCon" class="img-fluid"/></a>
 
+
+long_description: "
+**Welcome to OpenSearch**
+
+
+OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data. Developers build with OpenSearch for use cases such as application search, log analytics, data observability, data ingestion, and more. 
+
+
+OpenSearch consists of a data store and search engine (OpenSearch), and a visualization and user interface (OpenSearch Dashboards). Users can extend the functionality of OpenSearch with a selection of plugins that enhance search, security, performance analysis, machine learning, and more.
+
+
+To get started with OpenSearch, visit our [downloads](https://opensearch.org/downloads.html) page, check out our [documentation](https://opensearch.org/docs/latest), and explore the project on [Github](https://github.com/opensearch-project).
+
+
+**Open source flexibility**
+
+
+As a fully open source solution, OpenSearch offers you the freedom to modify, extend, monetize, and resell the product as you see fit, as well as the flexibility to deploy on a variety of infrastructures. At the same time, the OpenSearch project provides a secure, high-quality search and analytics suite with a rich [roadmap](https://github.com/orgs/opensearch-project/projects/1) of new and innovative functionality. 
+
+
+**A community-driven approach**
+
+
+OpenSearch is built with your input. The project is maintained and advanced by a [community](https://forum.opensearch.org/), including a network of [partners](https://opensearch.org/partners/), and is open to contribution. As noted in the project’s [principles for development](https://opensearch.org/about.html#principles-for-development), great open source software is built together, with a diverse community of contributors. We invite you to [get involved](https://opensearch.org/connect.html). 
+"
 
 callouts_head: "The OpenSearch project's principles for development"
 callouts_class: list-features
@@ -43,7 +70,7 @@ version_feature:
 
 
 callout_button:
-    title: Get Started
+    title: Download OpenSearch
     url: /downloads.html
 
 opendistro:
@@ -69,22 +96,24 @@ sidebar:
                 title: Check out the FAQ
                 url: /faq
             -
-                title: Ask in the forums
-                url: https://discuss.opendistrocommunity.dev/
+                title: Ask in the forum
+                url: https://forum.opensearch.org/
     -
-        title: Founding documents
+#       title: Founding documents
 #        more: 
 #            title: 'Read all the founding documents'
 #            url: http://www.example.com/
-        links:
-            -
-                title: Introducing OpenSearch
-                url: https://aws.amazon.com/blogs/opensource/introducing-opensearch
-            -
-                title: 'Stepping up for a truly open source Elasticsearch'
-                url: https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/
-            -
-                title: 'Keeping Open Source Open'
-                url: https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/
+#       links:
+#           -
+#               title: Introducing OpenSearch
+#               url: https://aws.amazon.com/blogs/opensource/introducing-opensearch
+#           -
+#               title: 'Stepping up for a truly open source Elasticsearch'
+#               url: https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/
+#           -
+#               title: 'Keeping Open Source Open'
+#               url: https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/
+
+notice : true
 
 ---

@@ -5,6 +5,8 @@ product: opensearch
 version: '1.0.0 (Release Candidate 1)'
 release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.0.0-rc1.md
 
+version_sort: 1.0.0-1
+
 components:
   -
     role: daemon
