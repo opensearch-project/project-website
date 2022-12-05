@@ -4,7 +4,7 @@ title:  "AWS SigV4 support for OpenSearch clients"
 authors:
   - hvamsi
   - theotr
-  - tsfarr
+  - xtansia
   - wbeckler
   - monicank
 date: 2022-12-09
