@@ -1,7 +1,7 @@
 ---
 name: Theo Truong
 short_name: theotr
-photo: '/assets/media/authors/nhtruong.jpg'
+photo: '/assets/media/authors/theotr.jpg'
 github: nhtruong
 ---
 
