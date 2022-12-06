@@ -170,6 +170,30 @@ let transport = TransportBuilder::new(SingleNodeConnectionPool::new(Url::parse(h
 let client = OpenSearch::new(transport);
 ```
 
+### Creating a client connection in PHP
+
+The PHP client uses the `setSigV4CredentialProvider` attribute to assume credentials from the the local credential store. Use the `setSigV4Region` attribute to set the region. 
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$client = (new \OpenSearch\ClientBuilder())
+    ->setSigV4Region('us-east-2')
+    
+    // Default credential provider.
+    ->setSigV4CredentialProvider(true)
+    
+    // If you want to specify a custom key and secret
+    ->setSigV4CredentialProvider([
+      'key' => 'awskeyid',
+      'secret' => 'awssecretkey',
+    ])
+    
+    ->build();
+```
+
 ## Conclusion
 
 You can now sign your requests using the client APIs natively instead of using workarounds. We’re continuing to work on improving the capabilities of SigV4 in clients with scenarios like async connections, compressed requests, and connection pooling support. We’re happy to take pull requests and feedback in the form of issues on [github](https://github.com/opensearch-project/opensearch-py/issues).
