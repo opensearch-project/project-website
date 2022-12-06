@@ -5,8 +5,8 @@ authors:
   - hvamsi
   - theotr
   - xtansia
-  - wbeckler
-  - monicank
+  - mnkugler
+  - mtimmerm
 date: 2022-12-09
 categories:
   - feature
@@ -30,7 +30,44 @@ Alternatively, you can set a domain level access policy without using fine grain
 
 ## Creating a client connection using SigV4 signing
 
- Before you start, ensure that you have [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) set up on your machine. AWS credentials are stored in `~/.aws/credentials` and contain an access key and a secret key that allow you to authenticate with AWS resources using IAM. 
+ Before you start, ensure that you have [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) set up on your machine. AWS credentials are stored in `~/.aws/credentials` and contain an access key and a secret key that allow you to authenticate with AWS resources using IAM.
+
+ ### Creating a client connection in Java
+
+Use the following code snippet to create a client connection in Java with SigV4 support:
+
+```java
+import java.io.IOException;
+
+import org.opensearch.client.opensearch.OpenSearchClient;
+import org.opensearch.client.opensearch.core.InfoResponse;
+import org.opensearch.client.transport.aws.AwsSdk2Transport;
+import org.opensearch.client.transport.aws.AwsSdk2TransportOptions;
+
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.apache.ApacheHttpClient;
+import software.amazon.awssdk.regions.Region;
+
+public static void main(final String[] args) throws IOException {
+    SdkHttpClient httpClient = ApacheHttpClient.builder().build();
+    try {
+
+        OpenSearchClient client = new OpenSearchClient(
+            new AwsSdk2Transport(
+                httpClient,
+                "search-...us-west-2.es.amazonaws.com",
+                Region.US_WEST_2,
+                AwsSdk2TransportOptions.builder().build()
+            )
+        );
+
+        InfoResponse info = client.info();
+        System.out.println(info.version().distribution() + ": " + info.version().number());
+    } finally {
+      httpClient.close();
+    }
+}
+``` 
 
 
 ### Creating a client connection in Python
