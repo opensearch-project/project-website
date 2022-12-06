@@ -5,7 +5,7 @@ title: Release Schedule and Maintenance Policy
 ---
 
 
-_Updated November 9, 2022_
+_Updated December 5, 2022_
 
 [Release Schedule](#release-schedule) &middot; [Maintenance Policy](#maintenance-policy)
 
@@ -30,7 +30,7 @@ For more information on the changes planned for each release, please see the [Pr
 | 2.3            | September 7, 2022  | September 14, 2022 |
 | 1.3.6          | September 30, 2022 | October 6, 2022    |
 | 2.4            | November 8, 2022   | November 15, 2022  |
-| 1.3.7          | December 1, 2022   | December 8, 2022   |
+| 1.3.7          | December 6, 2022   | December 13, 2022  |
 
 ### Proposed 2023 schedule ###
 
