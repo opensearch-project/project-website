@@ -5,8 +5,17 @@
     <meta name="ROBOTS" content="ALL" />
     <meta name="MSSmartTagsPreventParsing" content="true" />
     <meta name="Copyright" content="" />
-    <meta name="keywords" content="open-source, search, opensearch" />
+
+    <meta name="keywords" content="
+		{% if page.meta_keywords %} 
+			{{ page.meta_keywords }} 
+		{% else %} 
+			open-source, search, opensearch 
+		{% endif %}" 
+	/>
+
     {% feed_meta %}
+
     {% if page.meta_description %}<meta name="description" content="{{ page.meta_description }}" />{%endif%}
     
     {% assign pagetitle = page.title | strip_newlines %}
