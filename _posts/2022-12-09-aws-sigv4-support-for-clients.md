@@ -4,7 +4,7 @@ title:  "AWS SigV4 support for OpenSearch clients"
 authors:
   - hvamsi
   - theotr
-  - tsfarr
+  - xtansia
   - wbeckler
   - monicank
 date: 2022-12-09
@@ -128,6 +128,43 @@ client = OpenSearch::Aws::Sigv4Client.new({ log: true }, signer)
 client.cluster.health
 client.transport.reload_connections!
 client.search q: 'test'
+```
+
+### Creating a client connection in .NET
+
+All required request signing is handled by the `AwsSigV4HttpConnection` implementation, by default it will use the .NET AWS SDK's default credentials provider 
+to acquire credentials from the environment. However, you may opt to pass in your own credentials provider; e.g. to assume a role. Refer to the [OpenSearch.Net User Guide](https://github.com/opensearch-project/opensearch-net/blob/main/USER_GUIDE.md#opensearchnetauthawssigv4) for complete getting started instructions.
+
+```c#
+using OpenSearch.Client;
+using OpenSearch.Net.Auth.AwsSigV4;
+
+var endpoint = new Uri("https://search-xxx.region.es.amazonaws.com");
+var connection = new AwsSigV4HttpConnection();
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
+```
+
+### Creating a client connection in Rust
+
+Request signing is configured using the [`Credentials::AwsSigV4`](https://docs.rs/opensearch/latest/opensearch/auth/enum.Credentials.html#variant.AwsSigV4) enum variant or its helper conversion from an AWS SDK config. See [aws-config](https://docs.rs/aws-config/latest/aws_config/) for other AWS credentials provider implementations; e.g. assume role.
+
+```rust
+use opensearch::{
+    cat::CatIndicesParts,
+    http::transport::{SingleNodeConnectionPool, TransportBuilder},
+    OpenSearch,
+};
+use url::Url;
+
+let creds = aws_config::load_from_env().await;
+
+let host = "https://search-xxx.region.es.amazonaws.com";
+let transport = TransportBuilder::new(SingleNodeConnectionPool::new(Url::parse(host).unwrap()))
+    .auth(creds.try_into()?)
+    // .auth(Credentials::AwsSigV4(creds.credentials().unwrap().clone(), creds.region().unwrap().clone()))
+    .build()?;
+let client = OpenSearch::new(transport);
 ```
 
 ## Conclusion
