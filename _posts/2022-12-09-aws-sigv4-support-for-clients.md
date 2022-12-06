@@ -15,16 +15,16 @@ categories:
 
 ## Introduction
 
-OpenSearch Clients now support the ability to sign requests using [AWS Signature V4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html). This has been a community request since we forked clients from Elasticsearch, and we’re happy to announce that we have completed work across all clients, in collaboration with external contributors. Signing requests using native clients has been a big requirement for accessing the Amazon OpenSearch Service on AWS using fine grained access controls. Having SigV4 support natively in clients avoids using cURL requests or other workarounds.
+OpenSearch Clients now support the ability to sign requests using [AWS Signature V4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html). This has been a community request since we forked clients from Elasticsearch, and we’re happy to announce that we have completed work across all clients, in collaboration with external contributors. Signing requests using native clients has been an essential requirement for accessing the Amazon OpenSearch Service on AWS using fine grained access controls. Having SigV4 support natively in clients avoids using cURL requests and other workarounds.
 
 
 ## Setting up the managed service to use fine grained access control
 
-Be sure to update the access control to an IAM role/user. Do not use master user. Here the IAM role used allows access to this specific OpenSearch domain.
+Be sure to update the access control to an IAM role/user. Do not use master user. In the following image, the IAM role used allows access to this specific OpenSearch domain:
 
 ![Fine Grained Access Control]({{ site.baseurl }}/assets/media/blog-images/2022-12-09-aws-sigv4-support-for-clients/fine-grained-control.png){: .img-fluid}
 
-You can even set a domain level access policy without using fine grained access. Ensure that the IAM role used has read/write access to the domain.
+Alternatively, you can set a domain level access policy without using fine grained access. Ensure that the IAM role you use has read/write access to the domain.
 
 ![Access Policy]({{ site.baseurl }}/assets/media/blog-images/2022-12-09-aws-sigv4-support-for-clients/access-policy.png){: .img-fluid}
 
@@ -55,7 +55,7 @@ client = OpenSearch(
 
 ### Creating a client connection in JavaScript
 
-The javascript client requires you to have `aws-sdk` installed. Depending on which version of the sdk you are currently using, initalize the client appropriately as given below:
+The javascript client requires you to have `aws-sdk` installed. Depending on which version of the sdk you are using, initalize the client appropriately as shown in the following code segments:
 
 Using AWS V2 SDK
 
@@ -136,8 +136,7 @@ client.search q: 'test'
 
 ### Creating a client connection in .NET
 
-All required request signing is handled by the `AwsSigV4HttpConnection` implementation, by default it will use the .NET AWS SDK's default credentials provider 
-to acquire credentials from the environment. However, you may opt to pass in your own credentials provider; e.g. to assume a role. Refer to the [OpenSearch.Net User Guide](https://github.com/opensearch-project/opensearch-net/blob/main/USER_GUIDE.md#opensearchnetauthawssigv4) for complete getting started instructions.
+All required request signing is handled by the `AwsSigV4HttpConnection` implementation. By default, `AwsSigV4HttpConnection` uses the .NET AWS SDK's default credentials provider to acquire credentials from the environment. However, you may opt to pass in your own credentials provider, for example, to assume a role. Refer to the [OpenSearch.Net User Guide](https://github.com/opensearch-project/opensearch-net/blob/main/USER_GUIDE.md#opensearchnetauthawssigv4) for complete getting started instructions.
 
 ```c#
 using OpenSearch.Client;
@@ -151,7 +150,7 @@ var client = new OpenSearchClient(config);
 
 ### Creating a client connection in Rust
 
-Request signing is configured using the [`Credentials::AwsSigV4`](https://docs.rs/opensearch/latest/opensearch/auth/enum.Credentials.html#variant.AwsSigV4) enum variant or its helper conversion from an AWS SDK config. See [aws-config](https://docs.rs/aws-config/latest/aws_config/) for other AWS credentials provider implementations; e.g. assume role.
+Request signing is configured using the [`Credentials::AwsSigV4`](https://docs.rs/opensearch/latest/opensearch/auth/enum.Credentials.html#variant.AwsSigV4) enum variant or its helper conversion from an AWS SDK config. See [aws-config](https://docs.rs/aws-config/latest/aws_config/) for other AWS credentials provider implementations, for example, to assume a role.
 
 ```rust
 use opensearch::{
@@ -173,4 +172,4 @@ let client = OpenSearch::new(transport);
 
 ## Conclusion
 
-You can now sign their requests using the client APIs natively instead of using workarounds. We’re continuing to work on improving the capabilities of SigV4 in clients with scenarios like async connections, compressed requests, and connection pooling support. We’re happy to take pull requests and feedback in the form of issues on [github](https://github.com/opensearch-project/opensearch-py/issues).
+You can now sign your requests using the client APIs natively instead of using workarounds. We’re continuing to work on improving the capabilities of SigV4 in clients with scenarios like async connections, compressed requests, and connection pooling support. We’re happy to take pull requests and feedback in the form of issues on [github](https://github.com/opensearch-project/opensearch-py/issues).
