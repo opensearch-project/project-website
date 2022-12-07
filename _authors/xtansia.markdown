@@ -6,4 +6,4 @@ github: xtansia
 twitter: xtansia
 ---
 
-**Thomas Farr** is a Software Development Engineer at AWS working in the OpenSearch Clients team with a primary focus on the .NET & Rust clients.
+**Thomas Farr** is a Software Development Engineer at AWS working on the OpenSearch Clients team, with a primary focus on the .NET and Rust clients.

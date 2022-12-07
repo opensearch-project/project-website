@@ -6,4 +6,4 @@ github: harshavamsi
 twitter: _harshavamsi
 ---
 
-**Harsha Vamsi Kalluri** is a Software Development Engineer at AWS working in the OpenSearch Clients team.
+**Harsha Vamsi Kalluri** is a Software Development Engineer at AWS working on the OpenSearch Clients team.
