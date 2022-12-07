@@ -2,6 +2,12 @@
 layout: post
 title:  "Launch highlight: Paginate with Point in Time"
 authors:
+- gbh
+- snistala
+- abandeji
+- movvaam
+- dhruvdas
+- bukhtawa
 - kolchfa
 date: 2022-11-20 00:00:00 -0700
 categories:
