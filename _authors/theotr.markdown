@@ -5,4 +5,4 @@ photo: '/assets/media/authors/theotr.jpg'
 github: nhtruong
 ---
 
-**Theo Truong** is a software engineer working on OpenSearch at AWS.
+**Theo Truong** is a Software Engineer  at AWS working on OpenSearch.
