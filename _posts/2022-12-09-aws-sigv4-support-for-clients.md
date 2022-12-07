@@ -2,11 +2,14 @@
 layout: post
 title:  "AWS SigV4 support for OpenSearch clients"
 authors:
+  - vachshah
+  - dblock
   - hvamsi
   - theotr
   - xtansia
   - mnkugler
   - mtimmerm
+  - ssayakci
 date: 2022-12-09
 categories:
   - feature
@@ -231,6 +234,96 @@ $client = (new \OpenSearch\ClientBuilder())
     ->build();
 ```
 
+### Creating a client connection in Go
+
+Use the following code snippet to create a client connection in Go with SigV4 support.
+
+Using the AWS V1 SDK:
+
+```go
+package main
+
+import (
+	"context"
+	"io"
+	"log"
+
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/opensearch-project/opensearch-go/v2"
+	"github.com/opensearch-project/opensearch-go/v2/opensearchapi"
+	requestsigner "github.com/opensearch-project/opensearch-go/v2/signer/aws"
+)
+
+const endpoint = "" // e.g. https://opensearch-domain.region.com
+
+func main() {
+	ctx := context.Background()
+
+	// Create an AWS request Signer and load AWS configuration using default config folder or env vars.
+	// See https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html#request-signing-go
+	signer, err := requestsigner.NewSigner(session.Options{SharedConfigState: session.SharedConfigEnable})
+	if err != nil {
+		log.Fatal(err) // Do not log.fatal in a production ready app.
+	}
+
+	// Create an opensearch client and use the request-signer
+	client, err := opensearch.NewClient(opensearch.Config{
+		Addresses: []string{endpoint},
+		Signer:    signer,
+	})
+	if err != nil {
+		log.Fatal("client creation err", err)
+	}
+}
+```
+
+Using the AWS V2 SDK:
+
+```go
+package main
+
+import (
+	"context"
+	"io"
+	"log"
+
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/opensearch-project/opensearch-go/v2/opensearchapi"
+	requestsigner "github.com/opensearch-project/opensearch-go/v2/signer/awsv2"
+)
+
+const endpoint = "" // e.g. https://opensearch-domain.region.com
+
+func main() {
+	ctx := context.Background()
+
+	cfg, err := config.LoadDefaultConfig(ctx)
+	if err != nil {
+		log.Fatal(err) // Do not log.fatal in a production ready app.
+	}
+
+	// Create an AWS request Signer and load AWS configuration using default config folder or env vars.
+	// See https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html#request-signing-go
+	signer, err := requestsigner.NewSigner(cfg)
+	if err != nil {
+		log.Fatal(err) // Do not log.fatal in a production ready app.
+	}
+
+	// Create an opensearch client and use the request-signer
+	client, err := opensearch.NewClient(opensearch.Config{
+		Addresses: []string{endpoint},
+		Signer:    signer,
+	})
+	if err != nil {
+		log.Fatal("client creation err", err)
+	}
+}
+```
+
+## Usage with the Amazon OpenSearch Serverless Service (preview)
+
+Please refer to [this article](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-clients.html) on how to use clients with the serverless service.
+
 ## Conclusion
 
-You can now sign your requests using the client APIs natively instead of using workarounds. We’re continuing to work on improving the capabilities of SigV4 in clients with scenarios like async connections, compressed requests, and connection pooling support. We’re happy to take pull requests and feedback in the form of issues on [github](https://github.com/opensearch-project/opensearch-py/issues).
+You can now sign your requests using the client APIs natively instead of using workarounds. We’re continuing to work on improving the capabilities of SigV4 in clients with scenarios like async connections, compressed requests, and connection pooling support. We’re happy to take pull requests and feedback in the form of issues on [github](https://github.com/opensearch-project/).
