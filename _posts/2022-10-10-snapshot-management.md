@@ -9,6 +9,7 @@ categories:
  - technical-post
 
 excerpt: "In version 2.1, the OpenSearch project introduced Snapshot Management (SM). SM is a way to automatically take snapshots of your cluster. While previously you had to rely on external management tools like Curator, now you can automatically back up your index data and cluster state through OpenSearch."
+redirect_from: "/blog/technical-post/2022/10/snapshot-management/"
 ---
 
 In [version 2.1](https://opensearch.org/blog/releases/2022/07/opensearch-2-1-is-available-now/), the OpenSearch project introduced Snapshot Management (SM)&mdash;a way to automatically take snapshots of your cluster. While previously you had to rely on external management tools like Curator, now you can automatically back up your index data and cluster state through OpenSearch. Just set a schedule to take snapshots every hour or every Sunday at midnight, and sit back while the snapshots are created. 

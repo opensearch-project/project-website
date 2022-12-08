@@ -8,6 +8,7 @@ categories:
   - partners
 twittercard:
   description: "OpenSearch is now available as a certified container with auto-clustering inside Virtuozzo DevOps PaaS. Start offering OpenSearch Cluster as a service"
+redirect_from: "/blog/partners/2022/01/opensearch-as-a-service/"
 ---
 
 ## How to Offer OpenSearch as a Service using Virtuozzo DevOps PaaS  

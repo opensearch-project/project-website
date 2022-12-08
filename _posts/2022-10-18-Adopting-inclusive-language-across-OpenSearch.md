@@ -9,6 +9,7 @@ categories:
  - technical-post
 
 excerpt: "We are removing exclusionary language from the OpenSearch Project, including from APIs, documentation, and source code. Specifically, we are replacing the non-inclusive terms \"master\" and \"blacklist/whitelist\" with inclusive language throughout the OpenSearch Project."
+redirect_from: "/blog/technical-post/2022/10/Adopting-inclusive-language-across-OpenSearch/"
 ---
 
 We are removing exclusionary language from the OpenSearch Project, including from APIs, documentation, and source code. Specifically, we are replacing the non-inclusive terms "master" and "blacklist/whitelist" with inclusive language throughout the OpenSearch Project. 

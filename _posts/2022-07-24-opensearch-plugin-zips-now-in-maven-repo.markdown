@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: "Details on how to consume OpenSearch plugin zips from a Maven repo and the process involved in shipping them to a Maven repo."
+redirect_from: "/blog/technical-post/2022/08/opensearch-plugin-zips-now-in-maven-repo/"
 ---
 
 Starting with the release of OpenSearch `2.1.0`, OpenSearch plugin zips are now signed and published to a central Apache Maven [repo](https://repo1.maven.org/maven2/org/opensearch/plugin/).  Using the [Release zips](https://repo1.maven.org/maven2/org/opensearch/plugin/) and [Snapshot zips](https://aws.oss.sonatype.org/content/repositories/snapshots/org/opensearch/plugin/) Maven Repo URLs, OpenSearch plugin zips can now be consumed  as a dependency to build other plugins or fetched as standalone components for your OpenSearch cluster. 

@@ -9,7 +9,7 @@ categories:
   - releases
 
 excerpt: "Calyptia and the OpenSearch project team are partnering to build OpenSearch connectors for Fluent Bit and Fluentd."
-
+redirect_from: "/blog/releases/2022/01/calyptia-partner-blog-announcement/"
 ---
 
 We are excited to share that [Calytpia](https://calyptia.com/) and the OpenSearch project team [are partnering](https://calyptia.com/2022/01/20/calyptia-and-opensearch-partner-to-build-first-party-connectors-to-fluent-bit-and-fluentd/) to build OpenSearch connectors for [Fluent Bit](https://fluentbit.io/) and [Fluentd](https://www.fluentd.org/). These open source [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) graduated projects are commonly used for log collection, processing, and forwarding.

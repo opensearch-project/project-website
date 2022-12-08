@@ -10,6 +10,7 @@ categories:
   - partners
 twittercard:
   description: "Log analytics is a popular use case for OpenSearch. Alerting can help you by automatically detecting problems from your ingested logs. In this blog we walk through creating alerts and how they work."
+redirect_from: "/blog/partners/2021/10/alerting-intro/"
 ---
 
 Log analytics has grown to be one of OpenSearch’s popular use cases as it is able to easily ingest, secure, search, visualize, and analyze log data. The automated [alerting feature](https://opensearch.org/docs/latest/monitoring-plugins/alerting/index/) can further help you by automatically detecting problems from your ingested data. When a problem is detected, you can send an alert to external systems like Slack, email, and more. For example, you might want to create an alert and notify a Slack channel if your application logs see more than five HTTP 503 errors within an hour. In this blog we walk through setting up an alerting policy and discuss how the [alerting plugin](https://opensearch.org/docs/monitoring-plugins/alerting/index/) works.

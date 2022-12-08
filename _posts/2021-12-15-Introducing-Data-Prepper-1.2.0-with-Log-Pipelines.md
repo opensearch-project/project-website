@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: " You can start using Data Prepper 1.2.0 for log ingestion today. This release enables log collection into OpenSearch from Fluent Bit."
+redirect_from: "/blog/technical-post/2021/12/Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/"
 ---
 
 Development teams are using Data Prepper and OpenSearch to better understand their applications through 

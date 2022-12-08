@@ -9,6 +9,7 @@ categories:
   - technical-post
 twittercard:
   description: "This post provides details on the framework in OpenSearch for backwards compatibility testing."
+redirect_from: "/blog/technical-post/2021/11/bwc-testing-for-opensearch/"
 ---
 
 Backwards Compatibility (BWC) testing is used to test and determine the safe upgrade paths from a supported BWC version to the current version. The framework in OpenSearch allows you to run these BWC tests for all supported BWC versions in OpenSearch allowing safe upgrade paths between versions. This framework is now extended to work for plugins which can introduce their BWC tests without creating individual frameworks of their own. This post provides details on the framework in OpenSearch for backwards compatibility.

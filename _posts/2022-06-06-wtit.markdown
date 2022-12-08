@@ -9,7 +9,7 @@ categories:
   - partners
 
 excerpt: "WorldTech IT is excited to join the OpenSearch community as users, contributors, and official OpenSearch partners"
-
+redirect_from: "/blog/partners/2022/06/wtit/"
 ---
 
 [WorldTech IT](https://wtit.com/) is excited to join the OpenSearch community as users, contributors, and **official OpenSearch partners**. As the leader in [Professional](https://wtit.com/f5-services/f5-professional-services-load-balancer-support/) and [Managed Services](https://wtit.com/f5-services/f5-managed-services/) integrating [AWS](https://wtit.com/migrate-f5-big-ip-to-aws/) with [F5](https://wtit.com/f5-products/) and [NGINX](https://wtit.com/nginx-professional-services/) solutions, we rely on OpenSearch for use within our [Cloud.Red](https://wtit.com/cloud-red/) platform. Before we get into how we use and promote OpenSearch, you may be wondering where F5 and NGINX come into the picture.

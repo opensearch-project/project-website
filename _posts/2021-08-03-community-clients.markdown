@@ -6,6 +6,7 @@ authors:
 date:   2021-08-11 01:01:01 -0700
 categories: 
   - community
+redirect_from: "/blog/community/2021/08/community-clients/"
 ---
 
 _Note: This post was updated in Dec 2021 to reflect the current status of the new clients._

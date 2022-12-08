@@ -12,6 +12,7 @@ twittercard:
   account: "@eliatra_ire"
   description: "OpenSearch provides a strong and reliable security model out-of-the-box. This post explains some of the core concepts of OpenSearch security."
   image: "/assets/media/blog-images/2021-10-11-opensearch-security-concepts/tls_encryption.png"
+redirect_from: "/blog/technical-posts/2021/10/opensearch-security-concepts/"
 ---
 
 [Eliatra](https://eliatra.com/){:target="_blank"} provides OpenSearch Support, Professional Services and Custom Feature Development. Our team has been working with open source search engine technology like Lucene and Elastic products since the very beginning. We have extensive ecosystem knowledge. This makes us the perfect partner for AWS and OpenSearch, not only as a contributor but also to offer full support and professional services.

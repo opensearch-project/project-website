@@ -8,6 +8,7 @@ categories:
   - technical-posts
 twittercard:
   description: "Learn how to move from open source Elasticsearch to OpenSearch, and why you want to move now."
+redirect_from: "/blog/technical-posts/2021/10/moving-from-opensource-elasticsearch-to-opensearch/"
 ---
 *Blog refreshed for technical accuracy on 16 Nov 2022*
 

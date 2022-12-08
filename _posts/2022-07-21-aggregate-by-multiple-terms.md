@@ -7,7 +7,7 @@ authors:
 date: 2022-07-21
 categories:
  - technical-post
-
+redirect_from: "/blog/technical-post/2022/07/aggregate-by-multiple-terms/"
 excerpt: "Multi-terms aggregation allows you to group and sort results from a query. While terms aggregation has existed in OpenSearch for some time, multi-terms aggregation allows for sorting by deeper levels. This is particularly useful in the observability space."
 ---
 
