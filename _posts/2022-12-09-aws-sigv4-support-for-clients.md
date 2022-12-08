@@ -18,7 +18,7 @@ categories:
 
 ## Introduction
 
-OpenSearch clients now support the ability to sign requests using [AWS Signature V4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html). This has been a community request since we forked clients from Elasticsearch, and we’re happy to announce that we have completed work across all clients, in collaboration with external contributors. Signing requests using native clients has been an essential requirement for accessing the Amazon OpenSearch Service on AWS using fine grained access controls. Having native SigV4 support in clients avoids the need to use cURL requests and other workarounds.
+OpenSearch clients now support the ability to sign requests using [AWS Signature V4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html). This has been a community request for a while, and we’re happy to announce that we have completed work across all clients, in collaboration with external contributors. Signing requests using native clients has been an essential requirement for accessing the Amazon OpenSearch Service on AWS using fine grained access controls. Having native SigV4 support in clients avoids the need to use cURL requests and other workarounds.
 
 
 ## Setting up the managed service to use fine-grained access control
@@ -216,7 +216,7 @@ let client = OpenSearch::new(transport);
 
 ### Creating a client connection in PHP
 
-The PHP client uses the `setSigV4CredentialProvider` attribute to assume credentials from the the local credential store. Use the `setSigV4Region` attribute to set the region. 
+The PHP client uses the `setSigV4CredentialProvider` attribute to assume credentials from the the local credential store. Use the `setSigV4Region` attribute to set the AWS Region. 
 
 ```php
 <?php
