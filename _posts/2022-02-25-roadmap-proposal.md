@@ -9,7 +9,7 @@ categories:
 twittercard:
   description: "As part of thinking about releases for this year, I’ve been trying to sketch out a schedule of major and minor release dates through 2023. I wanted to share with you what I have so far, and hear your thoughts."
 excerpt: "As part of thinking about releases for this year, I’ve been trying to sketch out a schedule of major and minor release dates through 2023. I wanted to share with you what I have so far, and hear your thoughts."
-
+redirect_from: "/blog/partners/2022/02/roadmap-proposal/"
 ---
 
 As part of thinking about releases for this year, I’ve been trying to sketch out a schedule of major and minor release dates through 2023. I wanted to share with you what I have so far.

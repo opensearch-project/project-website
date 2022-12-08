@@ -9,6 +9,7 @@ categories:
   - releases
 twittercard:
   description: "Today is an exciting day! The roadmap for Data Prepper is now publicly available. Data Prepper is a component of OpenSearch that accepts, filters, transforms, enriches, and routes data at scale."
+redirect_from: "/blog/releases/2021/09/data-prepper-roadmap/"
 ---
 
 *This blog has been updated for technical accuracy on 17 Nov 2022.*

@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: "This post walks through the steps to configure Java High-level REST client to connect to OpenSearch over HTTPS."
+redirect_from: "/blog/technical-post/2021/12/connecting-java-high-level-rest-client-with-opensearch-over-https/"
 ---
 
 If you have ever used OpenSearch with a Java application, you might have come across the [OpenSearch Java high-level REST client](https://opensearch.org/docs/latest/clients/java-rest-high-level/). The REST client provides OpenSearch APIs as methods, and makes it easier for a Java application to interact with OpenSearch using request/response objects.

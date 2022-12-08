@@ -12,6 +12,7 @@ categories:
 twittercard:
   description: "OpenSearch ships with a bundled Java Development Kit (JDK) that has recently been updated to version 11 (LTS). In this blog post we'll explain this change, and describe new features that make swapping the Java runtime easier."
 excerpt: "OpenSearch ships with a bundled Java Development Kit (JDK) that has recently been updated to version 11 (LTS)."
+redirect_from: "/blog/technical-post/2022/03/opensearch-java-runtime/"
 
 ---
 At the time of the fork OpenSearch inherited bundling OpenJDK 15, and eight releases have used AdoptOpenJDK 15.0.1+9 as the default runtime, replaced with Adoptium (Temurin) 11.0.14.1+1 in OpenSearch 1.3.0. This change was primarily driven by the fact that JDK 11 is a Long-Term Support (LTS) release, and JDK 15 is not. LTS releases of JDKs focus on stability, therefore you can expect future versions of OpenSearch to always default to bundling a LTS JDK.

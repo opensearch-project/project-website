@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: "This post details how the OpenSearch project produces reliable and repeatable distributions."
+redirect_from: "/blog/technical-post/2021/10/building-opensearch-1-1-distributions/"
 ---
 The Open Distro for Elasticsearch was a package containing open source Elasticsearch and a dozen open source plugins. Open Distro's release process began by picking up a stable version of Elasticsearch OSS, incrementing all the plugin version numbers, and going through a development cycle. Plugins went from `-SNAPSHOT` to `-beta`, then `-rc`, then finally to a release.
 

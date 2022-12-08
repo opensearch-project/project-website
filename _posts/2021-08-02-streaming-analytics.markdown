@@ -6,6 +6,7 @@ authors:
   - joshtok
 date:   2021-08-02 01:01:01 -0700
 categories: feature
+redirect_from: "/blog/feature/2021/08/streaming-analytics/"
 ---
 
 

@@ -8,6 +8,7 @@ categories:
   - partners
 twittercard:
     description: "Open source search engine experts Pureinsights add OpenSearch to their Discovery Platform."
+redirect_from: "/blog/partners/2022/04/Partner-Highlight-Pureinsights-adds-OpenSearch-to-its-Discovery-Platform/"
 ---
 
 [Pureinsights](https://pureinsights.com/) has deep expertise in the design, implementation and management of open source search projects. Our team has undertaken hundreds of projects using Solr and Elasticsearch and we have developed technology assets that enhance these search engines most notably around adding fine grain document understanding pipelines and machine learning model based document vectorizers. On the query side we enable Google BERT based FAQs and Featured Snippets (Extractive Answers) as well as Knowledge Graph Answers (via NEO4J) to OpenSearch applications. We now embrace and add OpenSearch to our stable.
