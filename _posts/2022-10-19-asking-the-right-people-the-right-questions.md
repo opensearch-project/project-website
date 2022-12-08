@@ -8,6 +8,7 @@ categories:
  - technical-post
 excerpt: "There's no better feeling than getting some help from a living, breathing human being and finding out I'm not alone in my struggle."
 
+redirect_from: "/blog/technical-post/2022/10/asking-the-right-people-the-right-questions/"
 ---
 
 

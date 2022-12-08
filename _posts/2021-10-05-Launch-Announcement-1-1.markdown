@@ -11,6 +11,7 @@ category:
 - releases
 twittercard:
   description: "We are excited to announce the 1.1.0 release of OpenSearch, OpenSearch Dashboards, and the OpenSearch Project plugins"
+redirect_from: "/blog/releases/2021/10/Launch-Announcement-1-1/"
 ---
 
 We are excited to announce the 1.1.0 release of OpenSearch, OpenSearch Dashboards, and the OpenSearch Project plugins (available to [download](https://opensearch.org/versions/opensearch-1-1-0.html) today). 

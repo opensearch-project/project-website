@@ -13,7 +13,7 @@ categories:
 twittercard:
   description: "Join the OpenSearch community on September 21st in Seattle for #OpenSearchCon! Connect with peers and partners who can help you solve today’s search challenges and unlock the next phase of your OpenSearch journey."
 excerpt: "Join the OpenSearch community on September 21st in Seattle for #OpenSearchCon!"
-
+redirect_from: "/blog/community/2022/05/opensearchcon/"
 ---
 
 ![OpenSearchCon](/assets/media/blog-images/2022-05-09-opensearchcon/opensearchcon.jpg){: .img-fluid}

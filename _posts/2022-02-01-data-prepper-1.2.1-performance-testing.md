@@ -8,7 +8,7 @@ categories:
   - technical-post
 
 excerpt: "Following the launch of log pipeline in Data Prepper 1.2, the Data Prepper Team is excited to share the results of the Data Prepper performance testing suite. The goal is to create a tool that can simulate a set of real-world scenarios in any environment while maintaining compatibility with popular log ingestion applications."
-
+redirect_from: "/blog/technical-post/2022/02/data-prepper-1.2.1-performance-testing/"
 ---
 
 Following the launch of log pipeline in [Data Prepper 1.2](https://www.opensearch.org/blog/technical-post/2021/12/Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/), the Data Prepper Team are excited to share the results of the Data Prepper performance testing suite. The goal is to create a tool that can simulate a set of real-world scenarios in any environment while maintaining compatibility with popular log ingestion applications. In all performance test results discussed below, the test environments and configurations are identical, except where the same option is not available for all applications. See testing limitations section for additional details.

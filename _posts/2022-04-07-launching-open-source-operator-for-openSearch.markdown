@@ -10,6 +10,8 @@ twittercard:
   description: "The Kubernetes OpenSearch Operator is used for automating the deployment, provisioning, management, and orchestration of OpenSearch clusters and OpenSearch dashboards."
 
 excerpt: "The Operator enables high-level API use, for easily running advanced OpenSearch operations on Kubernetes."
+redirect_from: "/blog/technical-post/2022/04/launching-open-source-operator-for-openSearch/"
+
 ---
 
 

@@ -7,7 +7,7 @@ authors:
 date: 2022-07-22
 categories:
  - intro
-
+redirect_from: "/blog/intro/2022/07/content-compass/"
 meta_keywords: "data ingestion, ingestion, open source, opensearch, community, observability"
 meta_description: "Using OpenSearch to ingest community tag data helps us target learning material towards where knowledge gaps actually exist."
 ---

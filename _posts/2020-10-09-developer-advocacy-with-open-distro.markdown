@@ -8,6 +8,7 @@ title: "Developer Advocacy with Open Distro for Elasticsearch"
 categories:
 - community-updates
 feature_image: "/for-elasticsearch/assets/media/blog-images/community-addition.png"
+redirect_from: "/blog/community-updates/2020/10/developer-advocacy-with-open-distro/"
 ---
 
 While Open Distro for Elasticsearch is an open-source, community-led project, we are gaining another full-time person devoted to the project ([me](https://linkedin.com/in/kyle-davis-search)). Before I start contributing and interacting with the community, I wanted to take the time to introduce the role and myself.

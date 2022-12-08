@@ -10,6 +10,7 @@ categories:
   - technical-post
 twittercard:
   description: " Data Prepper 1.3.0 is available for use today. This release provides a log aggregation processor and other new processors."
+redirect_from: "/blog/technical-post/2022/03/Introducing-Data-Prepper-1.3.0-with-New-Aggregation-Processor/"
 ---
 
 Data Prepper is an open source data collector for trace and log data that can filter, 

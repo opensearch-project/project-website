@@ -8,6 +8,7 @@ categories:
 - technical
 twittercard:
     description: "We recently announced the release of Fluent Bit 1.9, and while there are a number of new features and enhancements to its already impressive speed, scale, and efficiency, one feature we are really excited about is the OpenSearch plugin for Fluent Bit. Fluent Bit is an Apache 2.0 open source lightweight log and metric processor that can gather data from many sources, while the OpenSearch project is a community-driven open-source search and analytics suite derived from Elasticsearch 7.10.2 and Kibana 7.10.2."
+redirect_from: "/blog/technical/2022/03/getting-started-with-fluent-bit-and-opensearch/"
 ---
 
 We recently announced the release of Fluent Bit 1.9, and while there are a number of new features and enhancements to its already impressive speed, scale, and efficiency, one feature we are really excited about is the OpenSearch plugin for Fluent Bit. Fluent Bit is an Apache 2.0 open source lightweight log and metric processor that can gather data from many sources, while the OpenSearch project is a community-driven open-source search and analytics suite derived from Elasticsearch 7.10.2 and Kibana 7.10.2.

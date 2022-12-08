@@ -8,7 +8,7 @@ categories:
   - releases
 
 excerpt: "Update Dec 14, 2021: The new CVE-2021-45046 affecting Log4j 2.15.0 was published earlier today, and OpenSearch 1.2.1 includes that version of Log4j. As with the previous issue, the team has not been able to reproduce this issue, nor any patterns thought to trigger this issue. Out of an abundance of caution, and, as indicated in the advisory, we will release a new version of OpenSearch shortly that uses Log4j 2.16.0 which is not affected by this new CVE."
-
+redirect_from: "/blog/releases/2021/12/update-to-1-2-1/"
 ---
 
 ### Update 2021-12-22
