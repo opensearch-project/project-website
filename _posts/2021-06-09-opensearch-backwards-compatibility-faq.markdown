@@ -8,6 +8,7 @@ categories:
   - technical-posts
 twittercard:
   description: "In introducing OpenSearch we said: \"The Amazon OpenSearch Service APIs will be backwards compatible with the existing service APIs to eliminate any need for customers to update their current client code or applications. Additionally, just as we did for previous versions of Elasticsearch, we will provide a seamless upgrade path from existing Elasticsearch 6.x and 7.x managed clusters to OpenSearch.\"... "
+redirect_from: "/blog/technical-posts/2021/06/opensearch-backwards-compatibility-faq/"
 ---
 In [introducing OpenSearch](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) we said:
 > The Amazon OpenSearch Service APIs will be backwards compatible with the existing service APIs to eliminate any need for customers to update their current client code or applications. Additionally, just as we did for previous versions of Elasticsearch, we will provide a seamless upgrade path from existing Elasticsearch 6.x and 7.x managed clusters to OpenSearch.

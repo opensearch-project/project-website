@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: "You can leverage anomaly detection to analyze vast amount of logs in many different ways. Some analytics approaches require real-time detection, such as application monitoring, event detection, and fraud detection. "
+redirect_from: "/blog/technical-post/2021/11/real-time-and-historical-ad/"
 ---
 
 You can leverage anomaly detection to analyze vast amount of logs in many different ways. Some analytics approaches require real-time detection, such as application monitoring, event detection, and fraud detection. Others involve analyzing past data to identify the trends and patterns, isolate the root cause and prevent them from happening again in the future. The anomaly detection plugin in OpenSearch already supports real-time streaming data. In OpenSearch 1.1.0, the team introduced support for anomaly detection on historical data. Often-times, the historical and real-time use cases work hand-in-hand. You may find real-time anomalies in your data, and decide to run historical detection to search for similar patterns in the past. Or, you may first search for anomalies in the past data, then decide to configure anomaly detection to monitor your system for anomalies in real-time. OpenSearch 1.1.0 also streamlines the anomaly detection configuration with the new unified flow that allows you to configure an anomaly detector once that can then be applied to both real-time or historical analysis. In this blog, I will review each of the steps in the unified workflow with an example.

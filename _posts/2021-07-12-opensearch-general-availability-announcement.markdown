@@ -11,6 +11,7 @@ categories:
   - updates
 twittercard:
   description: "Today is a really good day for the OpenSearch project. Since its start, the goal has been to quickly produce a version of OpenSearch that's ready to use in production environments. After a ton of work by the OpenSearch community, we’re thrilled to announce the first general availability (GA) release of OpenSearch 1.0. Everyone in this highly-engaged and diverse community should be proud of the accomplishment in reaching this milestone together."
+redirect_from: "/blog/updates/2021/07/opensearch-general-availability-announcement/"
 ---
 
 Today is a really good day for the OpenSearch project. Since its start, the goal has been to quickly produce a version of OpenSearch that's ready to use in production environments. After a ton of work by the OpenSearch community, we’re thrilled to announce the first general availability (GA) release of OpenSearch 1.0. Everyone in this highly-engaged and diverse community should be proud of the accomplishment in reaching this milestone together.

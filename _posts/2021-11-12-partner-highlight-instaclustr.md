@@ -8,6 +8,7 @@ categories:
   - partners
 twittercard:
     description: "@Instaclustr is excited to welcome #OpenSearch as another key open source technology to their suite of managed service offerings!"
+redirect_from: "/blog/partners/2021/11/partner-highlight-instaclustr/"
 ---
 
 [Instaclustr](https://www.instaclustr.com) is pleased to announce the general availability of OpenSearch and OpenSearch Dashboards on the Instaclustr SaaS Platform. OpenSearch is another key open source technology that joins our suite of managed offerings.  Instaclustr also provides Enterprise Support for organizations who choose to run OpenSearch themselves.

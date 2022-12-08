@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: "Plugins are fundamental to how OpenSearch works, and that similarity extends to OpenSearch Dashboards too..."
+redirect_from: "/blog/technical-post/2022/01/dashboards-plugins-intro/"
 ---
 
 Plugins are fundamental to how OpenSearch works, and the similarity extends to OpenSearch Dashboards too. Infact almost everything that you see inside OpenSearch Dashboards is built inside a plugin. As a follow up to the blog post on how plugins work for OpenSearch, this post will explore how plugins work for OpenSearch Dashboards.

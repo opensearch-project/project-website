@@ -6,6 +6,7 @@ authors:
 date: 2022-06-29
 categories: 
   - community
+redirect_from: "/blog/community/2022/06/announcing-style-guide/"
 ---
 
 The OpenSearch team is excited to announce the release of the [style guidelines](https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md) for our documentation and marketing content! These guidelines cover the style standards and terms to be observed when creating OpenSearch content. Our growing team of technical writers and editors is committed to providing complete and best-in-class documentation to the OpenSearch community, and releasing our style guidelines reflects this commitment.

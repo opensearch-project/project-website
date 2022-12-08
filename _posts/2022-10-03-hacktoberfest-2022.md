@@ -10,7 +10,7 @@ categories:
   - community
 excerpt: |
     Learn all about how you can contribute to OpenSearch this Hacktoberfest!
-
+redirect_from: "/blog/community/2022/10/hacktoberfest-2022/"
 ---
 
 ![Hacktoberfest Logo](/assets/media/blog-images/2022-10-03-hacktoberfest-2022/hacktoberfest.png){: .img-fluid}

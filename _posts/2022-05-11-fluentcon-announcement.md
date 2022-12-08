@@ -8,6 +8,7 @@ categories:
  - community
 
 excerpt: "The Fluent community is excited to partner with the OpenSearch community in hosting another installment of FluentCon. The conference is a co-located event alongside [KubeCon Europe](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/) on May 16th in Valencia, Spain, as well as virtually from your laptop. Similar to previous FluentCons, this event will feature both general sessions as well as in-depth workshops focused on core use cases, strategies for managing observability at scale, and conversation on how we build forward."
+redirect_from: "/blog/community/2022/05/fluentcon-announcement/"
 ---
 
 ![FluentCon EU 2022](/assets/media/blog-images/2022-05-11-fluentcon/fluentconeu2022.svg){: .img-fluid}

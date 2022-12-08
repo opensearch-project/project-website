@@ -9,6 +9,7 @@ categories:
  - technical
 
 excerpt: "The OpenSearch project is, a community-driven open-source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 and Kibana 7.10.2. In order to get started with OpenSearch you will need to get data into OpenSearch. A new method, built through a partnership of Calyptia and the OpenSearch project, is native plugins for Fluentd. Fluentd is an open-source log and metrics processor that is part of the Cloud Native Computing Foundation (CNCF)."
+redirect_from: "/blog/technical/2022/02/getting-started-with-fluentd-and-opensearch/"
 ---
 
 The OpenSearch project is, a community-driven open-source search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 and Kibana 7.10.2. In order to get started with OpenSearch you will need to get data into OpenSearch. A new method, built through a partnership of Calyptia and the OpenSearch project, is native plugins for Fluentd. Fluentd is an open-source log and metrics processor that is part of the Cloud Native Computing Foundation (CNCF).

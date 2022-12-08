@@ -10,6 +10,7 @@ categories:
   - cross-cluster
 twittercard:
   description: "Cross-cluster replication allows you to replicate indices from one cluster to another. This post provides a brief overview of the feature and the thought process behind the design and implementation."
+redirect_from: "/blog/cross-cluster/2021/10/cross-cluster-replication-intro/"
 ---
 
 Earlier this year while working on Open Distro the team announced the [experimental release of cross-cluster replication](https://opendistro.github.io/for-elasticsearch/blog/releases/2021/02/announcing-ccr/). I am happy to announce the general availability of cross-cluster replication for OpenSearch. This post provides a brief overview of the feature and the thought process behind the design and implementation.

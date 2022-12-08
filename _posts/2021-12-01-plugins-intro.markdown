@@ -9,6 +9,7 @@ categories:
   - technical-post
 twittercard:
   description: "OpenSearch enables enhancing core features in a custom way via Plugins. In this blog post we wanted to unbox how plugins load, install, and run in OpenSearch..."
+redirect_from: "/blog/technical-post/2021/12/plugins-intro/"
 ---
 
 OpenSearch enables enhancing core features in a custom way via plugins. For example, plugins could add custom mapping types, engine scripts, etc. In this blog post we wanted to unbox how plugins load, install, and run in OpenSearch.

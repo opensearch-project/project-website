@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: "This post provides details on how we navigated backports in OpenSearch and pursued automation."
+redirect_from: "/blog/technical-post/2022/03/auto-backport-in-opensearch/"
 ---
 
 Backporting is a common process in OpenSearch in order to maintain release branches separate from main and to be ready for a release. This blog post talks about how the team navigated backports manually in OpenSearch and pursued automation to streamline the process and use it across various repos.

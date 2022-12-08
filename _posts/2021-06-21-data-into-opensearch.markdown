@@ -9,6 +9,7 @@ categories:
   - community
 twittercard:
   description: "In introducing OpenSearch we said: \"The Amazon OpenSearch Service APIs will be backwards compatible with the existing service APIs to eliminate any need for customers to update their current client code or applications. Additionally, just as we did for previous versions of Elasticsearch, we will provide a seamless upgrade path from existing Elasticsearch 6.x and 7.x managed clusters to OpenSearch.\"... "
+redirect_from: "/blog/community/2021/06/data-into-opensearch/"
 ---
 
 I expect very few people will *only* use OpenSearch and OpenSearch Dashboards. Sure, you might do a little testing with the sample data in OpenSearch Dashboards, but really you’re going to be using something to help you get some data into that cluster. There is a ton of existing, compatible software that can help you do just that - agents, client libraries for programming languages, and data pipeline tools. 

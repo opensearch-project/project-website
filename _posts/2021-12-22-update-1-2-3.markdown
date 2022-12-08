@@ -8,7 +8,7 @@ categories:
   - releases
 
 excerpt: "CVE-2021-45105 for Log4j was issued after the release of OpenSearch 1.2.2. This CVE advises upgrading to Log4j 2.17.0. While there has been no observed reproduction of the issue described in CVE-2021-45105 in OpenSearch, we have released OpenSearch 1.2.3 which updates Log4j to version 2.17.0."
-
+redirect_from: "/blog/releases/2021/12/update-1-2-3/"
 ---
 
 ### Update your clusters to 1.2.3

@@ -6,6 +6,7 @@ authors:
 date: 2022-08-31
 categories: 
   - community
+redirect_from: "/blog/community/2022/08/New-series-From-the-editors-desk/"
 ---
 
 As part of our commitment to providing complete and best-in-class documentation to the OpenSearch community, we want to ensure that you have visibility into how we approach creating bar-raising content. To that end, we will be publishing regular blog posts with tips, guidance, and best practices that will help contributors collaborate with us. Subjects may include technical writing, style, voice and tone, brand messaging, and other topics relevant to the production of our documentation. We hope you find this to be useful, and we would love to hear your thoughts on any of the subjects we discuss in this series. Please feel free to make your voice heard as part of the OpenSearch community through our [community meetings](https://www.meetup.com/OpenSearch/), [forum discussions](https://forum.opensearch.org/), and [GitHub repository](https://github.com/opensearch-project).

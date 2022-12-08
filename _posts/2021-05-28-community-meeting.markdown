@@ -5,6 +5,8 @@ authors:
   - kyledvs
 date:   2021-05-28 01:01:01 -0700
 categories: meetings
+redirect_from: "/blog/meetings/2021/05/community-meeting/"
+
 ---
 
 You are welcome to join us for the biweekly [OpenSearch community meeting on Tuesday, June 1st](https://opensearch.org/events/2021-early-june/). In this meeting we’re going to try out a collaborative agenda, check out the event page for details and links.

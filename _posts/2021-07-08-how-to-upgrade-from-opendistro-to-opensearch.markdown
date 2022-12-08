@@ -9,6 +9,7 @@ categories:
   - technical-posts
 twittercard:
   description: "As general availability for OpenSearch and OpenSearch Dashboards is fast approaching, we wanted to provide some guidance on upgrading Open Distro for Elasticsearch (Open Distro) 1.13 to the OpenSearch 1.0 as well as some step to help you prepare.\"... "
+redirect_from: "/blog/technical-posts/2021/07/how-to-upgrade-from-opendistro-to-opensearch/"
 ---
 As general availability for OpenSearch and OpenSearch Dashboards is fast approaching, we wanted to provide some guidance on upgrading Open Distro for Elasticsearch (Open Distro) 1.13 to OpenSearch 1.0, along with some steps to help you prepare for the upgrade. While most of you will already have the experience of upgrading Elasticsearch clusters, we wanted to provide a refresher on the upgrade process, and make some specific call-outs regard the upgrade to OpenSearch from Open Distro.
 
