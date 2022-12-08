@@ -6,6 +6,7 @@ authors:
 date:   2021-08-24 01:01:01 -0700
 categories: 
   - partners
+redirect_from: "/blog/partners/2021/08/partner-highlight-titaniam/"
 ---
 
 Over the past few years there have been [numerous security breaches](https://en.wikipedia.org/wiki/List_of_data_breaches) reported in the news. These types of incidents are top of mind as people want to ensure the software and services they build are secure. OpenSearch provides an out-of-the-box security plugin so that developers can build OpenSearch deployments securely. The out-of-the-box [features](https://opensearch.org/docs/security-plugin/index/) include:

@@ -7,6 +7,7 @@ date:   2022-07-20
 categories:
   - technical-post
 excerpt: "Today, I’m going to show you how to run OpenSearch with the OpenSearch Operator on Kubernetes using the Bottlerocket and then add Fluent Bit to collect logs from the nodes of the same Kubernetes cluster."
+redirect_from: "/blog/technical-post/2022/07/bottlerocket-k8s-fluent-bit/"
 ---
 
 It's great to be writing about OpenSearch again!

@@ -6,6 +6,7 @@ authors:
 date:   2022-11-15 12:15:00 -0700
 categories:
   - releases
+redirect_from: "/blog/releases/2022/11/opensearch-2-4-is-available-today/"
 ---
 
 OpenSearch 2.4.0 brings Windows support, security analytics, new geospatial features, and a variety of upgrades for search, analytics, and observability use cases

@@ -7,6 +7,7 @@ authors:
 date: 2022-05-13
 categories:
  - intro
+redirect_from: "/blog/intro/2022/05/tag-youre-it/"
 ---
 
 ## Tag, You’re It! 

@@ -9,6 +9,7 @@ categories:
  - intro
 
 excerpt: "OpenSearch is an open-source project built on top of Apache Lucene, a powerful indexing and search library.  Even if you’ve never heard of an indexing library before, you’re still probably more familiar with indexing than you think. "
+redirect_from: "/blog/intro/2022/02/a-quick-opensearch-primer/"
 ---
 
 ### First time here?

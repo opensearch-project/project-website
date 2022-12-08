@@ -8,6 +8,7 @@ categories:
   - partners
 twittercard:
   description: "Aiven announces OpenSearch as the newest addition to their cloud data platform. This reinforces their commitment to Open Source, reflects their ongoing contributions in the OpenSearch project, and ensures a smooth upgrade path for customers using open source Elasticsearch"
+redirect_from: "/blog/partners/2021/10/partner-highlight-aiven/"
 ---
 [Aiven](https://aiven.io) has recently [announced](https://aiven.io/blog/announcing-aiven-for-opensearch) Aiven for OpenSearch as the newest addition to their managed database services platform. As an existing provider of open source Elasticsearch as a service, the move to OpenSearch was a logical next step. Customers can stay with Aiven and have an open source upgrade path ahead of them with easy migration of existing Elasticsearch services to Aiven for OpenSearch.
 

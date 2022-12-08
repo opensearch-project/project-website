@@ -7,7 +7,7 @@ authors:
 date: 2022-07-13
 categories:
  - technical-post
- 
+redirect_from: "/blog/technical-post/2022/07/whatsnew-document-level-monitors/" 
 ---
 
 In OpenSearch 2.0, OpenSearch released document-level monitors. With document-level monitors, alert creators can monitor documents as they are indexed in OpenSearch. If an alert is configured on a document-level monitor, the alert returns a reference to the document that triggered the alert. In this blog post, we will provide the following:

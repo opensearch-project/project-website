@@ -6,6 +6,7 @@ authors:
 date: 2022-07-12
 categories:
  - community
+redirect_from: "/blog/community/2022/07/year-one-the-opensearch-project/"
 ---
 
 

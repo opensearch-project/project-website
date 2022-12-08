@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: "You can start using Data Prepper 1.5.0 to ingest log data from S3 today."
+redirect_from: "/blog/technical-post/2022/06/S3-Log-Ingestion-Using-Data-Prepper-1.5.0/"
 ---
 
 Data Prepper is an open-source data collector for data ingestion into OpenSearch. It currently supports trace analytics 

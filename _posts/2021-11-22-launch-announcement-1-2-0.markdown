@@ -8,6 +8,7 @@ categories:
   - releases
 twittercard:
     description: "With this latest version of the OpenSearch distribution (OpenSearch, OpenSearch Dashboards, as well as plugins and tools) you can enjoy a number of new features and enhancements as well as improvements to stability and efficiency."
+redirect_from: "/blog/releases/2021/11/launch-announcement-1-2-0/"
 ---
 
 
