@@ -5,4 +5,4 @@ github: Bukhtawar
 photo: "/assets/media/authors/bukhtawa.png"
 ---
 
-Bukhtawar is a Senior Software Engineer working on Amazon OpenSearch Service. He is interested in distributed and autonomous systems. He is an active contributor to OpenSearch.
+Bukhtawar is a Senior Software Engineer working on Amazon OpenSearch Service. He is interested in distributed and autonomous systems and is an active contributor to the OpenSearch Project.

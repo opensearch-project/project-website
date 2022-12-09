@@ -13,10 +13,10 @@ date: 2022-11-20 00:00:00 -0700
 categories:
  - community
 
-excerpt: New for version 2.4, Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways to paginate results, PIT search proves superior in capabilities and performance because it is not bound to a query and it supports consistent pagination going forward and backward.
+excerpt: New for version 2.4, Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways of paginating results, PIT search provides superior capabilities and performance because it is not bound to a query and supports consistent pagination going both forward and backward.
 ---
 
-New for [version 2.4](https://opensearch.org/blog/releases/2022/11/opensearch-2-4-is-available-today/), Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways to paginate results, PIT search proves superior in capabilities and performance because it is not bound to a query and it supports consistent pagination going forward and backward.
+New for [version 2.4](https://opensearch.org/blog/releases/2022/11/opensearch-2-4-is-available-today/), Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways of paginating results, PIT search provides superior capabilities and performance because it is not bound to a query and supports consistent pagination going both forward and backward.
 
 ## OpenSearch pagination methods 
 
@@ -29,14 +29,14 @@ There are four [ways to paginate results](https://opensearch.org/docs/latest/ope
 
 ### What makes a good pagination method?
 
-So, what are the desired characteristics of a good pagination method? Of course, it depends on your application. If you don't need the ability to skip pages, you may be perfectly fine with the most basic scroll search. However, in general here are the qualities of a good pagination method:
+So, what are the desired characteristics of a good pagination method? It depends, of course, on your application. If you don't need the ability to skip pages, you may be perfectly fine with the most basic scroll search. However, in general, here are the qualities of a good pagination method:
 
 - **Moving forward and backward**: In addition to moving forward in search results, the user may want to go back to the page before the current page.
 - **Skipping pages**: The user may want to skip to a page out of order.
-- **Consistency**: The search results must stay consistent, even with live index updates. If the user is on Page 1 of the results and selects Page 2 and then goes back to Page 1, Page 1 stays the same despite documents being indexed or deleted in the meantime.
+- **Consistency**: The search results must stay consistent, even with live index updates. If the user is on Page 1 of the results, selects Page 2, and then goes back to Page 1, Page 1 stays the same despite documents being indexed or deleted in the meantime.
 - **Deep pagination**: The search must stay efficient even when the user wants to view results starting with Page 1,000.
 
-### Pagination methods, compared
+### Pagination methods compared
 
 Here is how OpenSearch pagination methods compare to each other.
 
@@ -67,7 +67,7 @@ Pagination method | Can move forward and backward? | Consistent pagination? | Ef
 
 ### And the winner is...
 
-As you can see, PIT with `search_after` is a clear winner because it checks all the boxes. Not only can it move forward and backward in search results and provide consistent pagination while documents are being indexed and deleted, but it is also efficient for deep pagination. Plus, the results are frozen in time and not bound to a particular query, so you can run different queries against the same result dataset.
+As you can see, PIT with `search_after` is a clear winner because it checks all the boxes. Not only can it move both forward and backward in search results and provide consistent pagination while documents are being indexed and deleted, but it is also efficient for deep pagination. Plus, the results are frozen in time and not bound to a particular query, so you can run different queries against the same result dataset.
 
 ## How PIT works
 
@@ -75,7 +75,7 @@ When you create a PIT for a set of indexes, OpenSearch takes the corresponding s
 
 <img src="/assets/media/blog-images/2022-11-20-point-in-time/pitUserDiagram.png" alt="PIT diagram"/>{: .img-fluid }
 
-When you use a query with a PIT ID, it searches the segments that are frozen in time. Because a PIT is query-agnostic, you can use any query to search the data in a PIT. PIT allows for consistent pagination because even though the index continues to ingest and delete documents, the PIT does not reflect those changes and the dataset remains constant. Alternatively, if you use a normal query without a PIT ID, it searches live segments. 
+When you use a query with a PIT ID, it searches the segments that are frozen in time. Because a PIT is query agnostic, you can use any query to search the data in a PIT. PIT allows for consistent pagination because even though the index continues to ingest and delete documents, the PIT does not reflect those changes and the dataset remains constant. Alternatively, if you use a normal query without a PIT ID, it searches live segments. 
 
 ### What's the catch?
 
@@ -138,7 +138,7 @@ The response contains a PIT ID:
 
 **Step 2: Use the PIT ID for your search**
 
-The following request searches for all documents in the play "Hamlet," sorted by speech number and then id, and returns the first 20 results:
+The following request searches for all documents in the play "Hamlet," sorted by speech number and then ID, and returns the first 20 results:
 
 ```json
 GET /_search
@@ -160,7 +160,7 @@ GET /_search
 }
 ```
 
-Note that there is no need to specify the index because the PIT is already created against the `shakespeare` index. The optional `keep_alive` parameter that is passed in the search prolongs the PIT keep alive period by 100 minutes.
+Note that there is no need to specify the index because the PIT is already created against the `shakespeare` index. The optional `keep_alive` parameter that is passed in the search prolongs the PIT keep-alive period by 100 minutes.
 
 The response contains the first 20 results. Here is the last result; you have to note its sort values to get the next batch of results:
 
