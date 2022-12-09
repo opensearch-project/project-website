@@ -75,13 +75,13 @@ When you create a PIT for a set of indexes, OpenSearch takes the corresponding s
 
 <img src="/assets/media/blog-images/2022-11-20-point-in-time/pitUserDiagram.png" alt="PIT diagram"/>{: .img-fluid }
 
-When you use a query with a PIT ID, it searches the segments that are frozen in time. Because a PIT is query agnostic, you can use any query to search the data in a PIT. PIT allows for consistent pagination because even though the index continues to ingest and delete documents, the PIT does not reflect those changes and the dataset remains constant. Alternatively, if you use a normal query without a PIT ID, it searches live segments. 
+When you use a query with a PIT ID, it searches the segments that are frozen in time. Because a PIT is query agnostic, you can use any query to search the data in a PIT. PIT search allows for consistent pagination because even though the index continues to ingest and delete documents, the PIT does not reflect those changes and the dataset remains constant. Alternatively, if you use a normal query without a PIT ID, it searches live segments. 
 
 ### What's the catch?
 
-So far we've seen that PIT search is superior to other pagination methods. But what are the drawbacks? First, for a PIT, OpenSearch has to keep the segments even though they might have been merged and are not needed for the live dataset. This leads to an increased heap usage. Second, there is currently no built-in resiliency in PIT, so if your node goes down, all PIT segments are lost.
+So far we've seen that PIT search is superior to other pagination methods. But what are the drawbacks? First, for a PIT, OpenSearch has to keep the segments even though they might have been merged and are not needed for the live dataset. This leads to an increased heap usage. Second, there is currently no built-in resiliency in a PIT, so if your node goes down, all PIT segments are lost.
 
-## How to use PIT
+## How to use PIT search
 
 The example in this section uses the `shakespeare` index. 
 
@@ -111,7 +111,7 @@ Assuming you are not running the security plugin, you can set up the `shakespear
 
 ### Use the PIT functionality
 
-Follow these steps to use PIT. 
+Follow these steps to use the PIT functionality. 
 
 **Step 1: Create a PIT**
 
@@ -233,6 +233,6 @@ To learn more about all PIT APIs, see [Point in Time API](https://opensearch.org
 
 ## What's next?
 
-For more information about PIT, see the [PIT documentation section](https://opensearch.org/docs/latest/opensearch/point-in-time/). 
+For more information about PIT search, see the [PIT documentation section](https://opensearch.org/docs/latest/opensearch/point-in-time/). 
 
 Next, we're planning to release a PIT frontend that you can use in OpenSearch Dashboards. To track the frontend progress, see the [PIT meta issue](https://github.com/opensearch-project/OpenSearch/issues/3959).
