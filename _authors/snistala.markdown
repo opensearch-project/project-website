@@ -5,4 +5,4 @@ github: eirsep
 photo: "/assets/media/authors/snistala.png"
 ---
 
-Surya is a Software Engineer at OpenSearch. His primary interests are distributed systems and cloud computing.
+Surya is a Software Engineer working on OpenSearch. His primary interests are distributed systems and cloud computing.
