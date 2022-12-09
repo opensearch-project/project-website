@@ -9,7 +9,7 @@ authors:
 - dhruvdas
 - bukhtawa
 - kolchfa
-date: 2022-11-20 00:00:00 -0700
+date: 2022-12-09 00:00:00 -0700
 categories:
  - community
 
@@ -73,7 +73,7 @@ As you can see, PIT with `search_after` is a clear winner because it checks all 
 
 When you create a PIT for a set of indexes, OpenSearch takes the corresponding segments of the indexes' shards and freezes them in time, creating contexts (pointers to the data) that you can use to access and query those shards. 
 
-<img src="/assets/media/blog-images/2022-11-20-point-in-time/pitUserDiagram.png" alt="PIT diagram"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2022-12-09-point-in-time/pitUserDiagram.png" alt="PIT diagram"/>{: .img-fluid }
 
 When you use a query with a PIT ID, it searches the segments that are frozen in time. Because a PIT is query agnostic, you can use any query to search the data in a PIT. PIT search allows for consistent pagination because even though the index continues to ingest and delete documents, the PIT does not reflect those changes and the dataset remains constant. Alternatively, if you use a normal query without a PIT ID, it searches live segments. 
 
