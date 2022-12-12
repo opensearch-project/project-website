@@ -119,8 +119,9 @@ The OpenSearch Project has grown tremendously over the past year. In this sessio
 
 Get the latest updates on OpenSearchCon 2023 through our forum or social channels. The project’s latest release, OpenSearch 2.4.0, is available for [download](https://opensearch.org/downloads.html), along with [documentation](https://opensearch.org/docs/latest/) to guide you. 
 
-Forum: https://forum.opensearch.org/
-Twitter: https://twitter.com/OpenSearchProj
-LinkedIn: [https://www.linkedin.com/company/opensearch-project?](https://www.linkedin.com/company/opensearch-project/mycompany/?viewAsMember=true)
-YouTube: https://www.youtube.com/@OpenSearchProject
-MeetUp: https://www.meetup.com/opensearch/
+Follow the project!
+- [Forum](https://forum.opensearch.org/)
+- [Twitter](https://twitter.com/OpenSearchProj)
+- [LinkedIn](https://www.linkedin.com/company/opensearch-project?)
+- [YouTube](https://www.youtube.com/@OpenSearchProject)
+- [MeetUp](https://www.meetup.com/opensearch/)
