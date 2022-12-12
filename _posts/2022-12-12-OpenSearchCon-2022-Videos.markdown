@@ -25,13 +25,13 @@ redirect_from:
 ---
 OpenSearchCon 2022 is now available on our YouTube channel! View demos and talks about observability, log analytics, speeding up your search, and much more!
 
-#### *Featuring Eli Fisher of the OpenSearch Project, Maria Hatfield of [Dattell,](https://dattell.com/) Laysa Uchoa of PyLadies Munich and [Aiven Oy,](https://aiven.io/?utm_source=google&utm_medium=cpc&utm_campaign=brand_na_en_exact&utm_content=brand_aiven_rsa&creative=626514482537&keyword=aiven&matchtype=e&network=g&device=c&gclid=CjwKCAiAs8acBhA1EiwAgRFdw_0A2RdgQYKbJIt_VCp1rzA0oiF8CyZWbtv4iWbDladwXW6Rw7ayVxoCDL8QAvD_BwE) and Jonah Kowall of [Logz.io](http://logz.io/)*
+#### *Featuring Eli Fisher of the OpenSearch Project, Maria Hatfield of [Dattell,](https://dattell.com/) Laysa Uchoa of PyLadies Munich and [Aiven Oy,](https://aiven.io) and Jonah Kowall of [Logz.io](http://logz.io/)*
 
 {% include youtube-player.html id=page.keynotespeakers %}
 
 #### The Art of the Possible with OpenSearch Anomaly Detection and UEBA
 
-***Lennart Koopmann, Founder & CTO, [Graylog](https://go2.graylog.org/log-management-software-demo?utm_term=&utm_campaign=Log+Management+-+US&utm_source=adwords&utm_medium=ppc&hsa_acc=9866754960&hsa_cam=13518028295&hsa_grp=132171728321&hsa_ad=554069251894&hsa_src=g&hsa_tgt=dsa-1411071661663&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAiAs8acBhA1EiwAgRFdw4QFQALq57ahCwLKC--FHAlp2Jft8U5V6mbS_Kjb6pI-fNJpzWwYRhoCFeMQAvD_BwE)***
+***Lennart Koopmann, Founder & CTO, [Graylog](https://go2.graylog.org)***
 Get an overview of how OpenSearch components can be used to successfully detect anomalies for critical cybersecurity challenges (brute force attacks, data exfiltration, etc.) that are indicators of potential cyber threats for organizations of all sizes and in all industries.
 
 {% include youtube-player.html id=page.lennart %}
@@ -96,7 +96,7 @@ This session showcases a cloud-vendor-agnostic alternative to deploying and oper
 
 #### Speed Up Your Search: Concurrency and Merge Policies to the Rescue
 
-***Andriy Redko, Staff Software Developer, [Aiven Oy](https://aiven.io/?utm_source=google&utm_medium=cpc&utm_campaign=brand_na_en_exact&utm_content=brand_aiven_rsa&creative=626514482537&keyword=aiven&matchtype=e&network=g&device=c&gclid=CjwKCAiAs8acBhA1EiwAgRFdw-V7tRj4vEJMw-YRM6XEI5ptQIsBafaZUAKFKPDrtj-QyuU3Qyz6txoCw1cQAvD_BwE)***
+***Andriy Redko, Staff Software Developer, [Aiven Oy](https://aiven.io)***
 Obtaining fast query times when dealing with large amounts of data in OpenSearch can be a challenge, and, unfortunately, there's not a single solution that will work for all use cases. This talk explores two somewhat orthogonal, but closely related, techniques to address the problem available to the community as of OpenSearch 2.1.0.
 
 {% include youtube-player.html id=page.andriy %}
