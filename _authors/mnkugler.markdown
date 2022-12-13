@@ -1,7 +1,7 @@
 ---
 name: Monica Kugler
 short_name: mnkugler
-photo: ‘/assets/media/authors/mnkugler.jpg'
+photo: '/assets/media/authors/mnkugler.jpg'
 github: mnkugler
 ---
 
