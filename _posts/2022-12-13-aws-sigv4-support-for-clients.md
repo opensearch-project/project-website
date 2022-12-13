@@ -13,10 +13,10 @@ authors:
 date: 2022-12-13
 categories:
   - feature
-
+  - 
+meta_description: "OpenSearch clients now support the ability to sign requests using AWS Signature V4 with fine-grained access control and domain-level access polices."
+meta_keywords: "AWS SigV4 support, fine grained access control, domain-level access policy, AWS request signing, AWS Identity Access Manager"
 ---
-
-## Introduction
 
 OpenSearch clients now support the ability to sign requests using [AWS Signature V4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html). This has been a community request for a while, and we’re happy to announce that we have completed work across all clients, in collaboration with external contributors. Signing requests using native clients has been an essential requirement for accessing the Amazon OpenSearch Service on AWS using fine grained access controls. Having native SigV4 support in clients avoids the need to use cURL requests and other workarounds.
 
@@ -326,7 +326,7 @@ func main() {
 
 ## Use with Amazon OpenSearch Serverless (preview)
 
-Refer to [this article](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-clients.html) for infomration about how to use clients with Amazon OpenSearch Serverless.
+Refer to [this article](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-clients.html) for information about how to use clients with Amazon OpenSearch Serverless.
 
 ## Summary
 
