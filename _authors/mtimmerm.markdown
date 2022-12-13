@@ -1,7 +1,7 @@
 ---
 name: Matt Timmermans
 short_name: mtimmerm
-photo: ‘/assets/media/authors/mtimmerm.jpeg'
+photo: '/assets/media/authors/mtimmerm.jpeg'
 github: mtimmerm
 twitter: matt_timmermans
 ---
