@@ -6,4 +6,4 @@ github: xtansia
 twitter: xtansia
 ---
 
-A Software Engineer at Education Perfect, as well as a contributor and maintainer for the OpenSearch Rust client.
+**Thomas Farr** is a Software Development Engineer at AWS working on the OpenSearch Clients team, with a primary focus on the .NET and Rust clients.
