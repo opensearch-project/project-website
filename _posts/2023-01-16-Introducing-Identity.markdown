@@ -1,21 +1,31 @@
 # Introducing Identity for OpenSearch
 
-OpenSearch's existing access control system through the security plugin lets administrators apply access control on for indices and cluster actions. These features are limited, making it hard for access control systems to be used by plugins.
+OpenSearch's existing access control features included in the Security plugin let administrators apply access control to indexes and cluster actions so that users have the right permissions to do their work and the cluster is protected from unwanted activity. However, the features for access control that are currently in place do have certain limitations that can make it hard to use them with other plugins.
 
-As OpenSearch focuses on extensibility, administrators, plugins, and extensions need mechanisms to control access that are more granular and cover more scenarios. We are naming this suite of features Identity, which will offer comprehensive access control to OpenSearch's ecosystem.
+As the core OpenSearch project begins its shift away from a plugin model to a framework that utilizes extensions, those extensions, its legacy plugins, and the administrators who manage them will need mechanisms for controlling access that are more granular and able to cover a broader range of scenarios where effective access control is critical. We are creating/building out/developing a new suite of features that are designed to provide comprehensive access control to OpenSearch’s ecosystem, and we collectively call these new features Identity. 
 
-- Mechanisms for OpenSearch, plugins, and extensions to check permissions before attempting an action 
-- Restricting plugins or extensions from performing actions unless they have been granted access 
-- Background task to run with the same access controls as interactive user requests 
-- Add new security boundaries inside the OpenSearch for better defense-in-depth posture. 
+The main objectives for Identity include:
 
-### Enable permissions checks 
+- Mechanisms for OpenSearch, plugins, and extensions that can check permissions before attempting an action.
+- The ability to restrict plugins or extensions from performing actions unless they have been granted access.
+- Functionality that allows background tasks to run with the same access controls as interactive user requests.
+- The addition of new security boundaries inside OpenSearch that create conditions for a better defense-in-depth posture.
 
-Knowing what permissions a user has is a hallmark for showing great user experiences. This is not possible with the current security plugin and we know this is a great feature.  Additional giving plugins and extensions the knowledge that features and functionality are missing permissions allows advocating to the user/administrator for additional access.
+Let’s look at these objectives one by one.
+
+### Enabling permissions checks 
+
+With any Using OpenSearch Dashboards your permissions you can start editing a Dashboard,and after hitting 'Save' seeing an error message "Dashboard ... was not saved. Error: Forbidden".  This scenario exists because Dashboards can not check if these commands are allowed or denied.
+
+There is a blind spot for OpenSearch Administrators where after they make a change to permissions of a user or group it is unclear if those were applied as expected.
+
+Identity will add APIs that Dashboards, plugins, and extensions can use to check.  Administrators will be able to make requests to these same APIs to check permissions.
 
 ### Plugins and Extensions restrictions
 
-Being able to protect parts of an OpenSearch cluster from plugins or extensions is critical to build confidence in these tools. Configuring a plugin or extension permission grants using the same mechanisms as configuring user permissions grants provides a clear framework for understanding and inspecting permissions.
+Feeling confidant installating apps on mobile phone is in part because there are limits on what apps can do.  OpenSearch's plugins have had few limits making them risky for Administrators to install.
+
+By associating the plugin/extension to activities on OpenSearch permissions checks can ensure limits are enforced.  These permissions will be the same as those used to grant users access - reducing the complexity and risk for Administrators.
 
 ### Background tasks permissions
 
