@@ -72,14 +72,15 @@ layout: default
       <a href="{{ page.ctas.roadmap.url }}" class="link-readmore" target="_blank">{{ page.ctas.roadmap.text }}</a>
       {% assign versions = site.versions | sort: 'version_sort' | reverse %}
       {% assign latest = versions | first %}
+      {% assign previous_major = latest.version | split: "." | first | plus: -1 %}
       {% for version in versions %}
-          {% assign major_version = version.version | split: "." | first %}
-          {% if major_version == 1 %}
+          {% assign major_version = version.version | split: "." | first | plus: 0 %}
+          {% if major_version == previous_major %}
             {% assign latest_first = version %}
             {% break %}
-          {%endif%}
+          {% endif %}
       {% endfor %}
-      <div class="latest-version">{{ page.version_feature.latest_label}} {{ latest.version }} {{ page.version_feature.date_label}} {{ latest_first.version }} {{ page.version_feature.date_label}} {{ latest.date | date_to_string: "ordinal", "US"}}</div>
+      <div class="latest-version">{{ page.version_feature.latest_label }} {{ latest.version }} {{ page.version_feature.date_label }} {{ latest_first.version }} {{ page.version_feature.date_label }} {{ latest.date | date_to_string: "ordinal", "US" }}</div>
 
       
       <div class="whats-new">
