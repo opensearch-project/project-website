@@ -8,7 +8,7 @@ categories:
   - releases
 
 excerpt: "As indicated in the previous blog post, CVE-2021-45046 was issued shortly following the release of OpenSearch 1.2.1. This new CVE advises upgrading from Log4j 2.15.0 (used in OpenSearch 1.2.1) to Log4j 2.16.0. Out of an abundance of caution, the team is releasing OpenSearch 1.2.2 which includes Log4j 2.16.0. While there has been no observed reproduction of the issue described in CVE-2021-45046, Log4j 2.16.0 takes much more extensive JNDI mitigation measures."
-
+redirect_from: "/blog/releases/2021/12/update-1-2-2/"
 ---
 
 ### Update 2021-12-22

@@ -8,6 +8,7 @@ categories:
  - community
 
 excerpt: "In this post, we will talk about the new input plugin for Logstash. We will show how it works with OpenSearch by giving an example on how to read data from OpenSearch, perform a transformation, and index back to OpenSearch. This use case is useful in the event you want to migrate from one OpenSearch major version to another (e.g. 1.3 → 2.0)."
+redirect_from: "/blog/community/2022/05/introducing-logstash-input-opensearch-plugin-for-opensearch/"
 ---
 
 ## Overview

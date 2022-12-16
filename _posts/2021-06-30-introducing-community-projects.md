@@ -8,6 +8,7 @@ categories:
   - community
 twittercard:
   description: "Many open source projects benefit from the ecosystem of software created on top of or for the project. As a first steps towards having a robust ecosystem, opensearch.org now has added a community projects page to highlight projects created for the OpenSearch community by the OpenSearch community... "
+redirect_from: "/blog/community/2021/06/introducing-community-projects/"
 ---
 
 Many open source projects benefit from the ecosystem of software created on top of or for the project. As an example, the Node Package Manager (NPM) makes JavaScript more approachable. It hosts a variety of modules that solve problems people face during the development of JavaScript software. Users can quickly search for these modules install them and incorporate them directly into their JavaScript project. Having a similar ecosystem for OpenSearch will help all of us get more out of our own OpenSearch deployments. As a first step, I wanted to share that [opensearch.org](/) now has a [community projects page](/community_projects/). The goal of this page is to highlight projects built by the OpenSearch community for the OpenSearch community.

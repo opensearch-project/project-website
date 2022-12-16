@@ -2,6 +2,7 @@
 layout: default
 ---
 
+
 {% capture header %}
   {% comment%}<h1 class="visuallyhidden">OpenSearch</h1>
   <p>
@@ -70,10 +71,20 @@ layout: default
       </a>
       {% endif %}
       <a href="{{ page.ctas.roadmap.url }}" class="link-readmore" target="_blank">{{ page.ctas.roadmap.text }}</a>
-      {% assign latest = site.versions | sort: 'version_sort' | reverse | first %}
-      <div class="latest-version">{{ page.version_feature.latest_label}} {{ latest.version }} {{ page.version_feature.date_label}} {{ latest.date | date_to_string: "ordinal", "US"}}</div>
+      {% assign versions = site.versions | sort: 'version_sort' | reverse %}
+      {% assign latest = versions | first %}
+      {% assign previous_major = latest.version | split: "." | first | plus: -1 %}
+      {% for version in versions %}
+          {% assign major_version = version.version | split: "." | first | plus: 0 %}
+          {% if major_version == previous_major %}
+            {% assign latest_first = version %}
+            {% break %}
+          {% endif %}
+      {% endfor %}
+      <div class="latest-version">{{ page.version_feature.latest_label }} {{ latest.version }} {{ page.version_feature.date_label }} {{ latest_first.version }} {{ page.version_feature.date_label }} {{ latest.date | date_to_string: "ordinal", "US" }}</div>
 
-      
+	{% include feedback.html %}
+
       <div class="whats-new">
         <h3>What's new?</h3>
         {% for post in site.posts limit:5 %}

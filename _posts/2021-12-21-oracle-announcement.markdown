@@ -8,6 +8,7 @@ categories:
   - partners
 twittercard:
   description: "Oracle Cloud Infrastructure’s (OCI) announcement of a fully managed search service based on OpenSearch"
+redirect_from: "/blog/partners/2021/12/oracle-announcement/"
 ---
 
 ## Oracle Cloud Infrastructure - Welcome to the OpenSearch community!

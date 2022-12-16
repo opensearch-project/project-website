@@ -9,6 +9,9 @@ categories:
  - intro
 
 excerpt: "There are a lot of reasons you might want to fine-tune indices on an OpenSearch cluster. Every workflow has different requirements, and the default behavior of OpenSearch might not suit your use case. Before ingesting with reckless abandon to fill an index with data, enjoy some insight on tuning an index. "
+meta_description: "This article helps create the most efficient OpenSearch index mapping that you can think of."
+meta_keywords: "data ingestion, indices, opensearch, index mapping"
+redirect_from: "/blog/intro/2022/03/fine-dining-for-indices/"
 ---
 
 ## Is Your Cluster Eating Healthy? 

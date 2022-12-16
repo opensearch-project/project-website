@@ -14,6 +14,7 @@ categories:
  - community
 meta_keywords: "PIT search, Point in Time search, paginating search results, pagination with PIT"
 meta_description: "OpenSearch is integrated with Point in Time (PIT) search that delivers consistent performance and pagination of search results going forward and backward." 
+
 excerpt: New for version 2.4, Point in Time (PIT) is the preferred pagination method for OpenSearch. While OpenSearch still supports other ways of paginating results, PIT search provides superior capabilities and performance because it is not bound to a query and supports consistent pagination going both forward and backward.
 ---
 

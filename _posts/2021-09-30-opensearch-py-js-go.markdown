@@ -8,6 +8,7 @@ categories:
   - community
 twittercard:
   description: "Last month, the project announced the intention to release OpenSearch specific clients and today the first batch are ready for production use. You can get opensearch-py from PyPI, install opensearch-js from npm and start using opensearch-go."
+redirect_from: "/blog/community/2021/09/opensearch-py-js-go/"
 ---
 
 Last month, the [project announced the intention to release OpenSearch specific clients](https://opensearch.org/blog/community/2021/08/community-clients/) and today the first batch are ready for production use. You can get [opensearch-py from PyPI](https://pypi.org/project/opensearch-py/), install [opensearch-js from npm](https://www.npmjs.com/package/@opensearch-project/opensearch) and start using [opensearch-go](https://github.com/opensearch-project/opensearch-go).

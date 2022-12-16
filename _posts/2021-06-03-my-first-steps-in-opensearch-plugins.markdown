@@ -8,6 +8,7 @@ categories:
 - technical-posts
 feature_image: "/assets/media/blog-images/2021-06-03-my-first-steps-in-opensearch-plugins/my-first-steps-in-plugins-feature-image.jpg"
 canonical: https://logz.io/blog/opensearch-plugins
+redirect_from: "/blog/technical-posts/2021/06/my-first-steps-in-opensearch-plugins/"
 ---
 
 ### Taking the leap, not the _plunge_

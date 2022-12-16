@@ -10,7 +10,7 @@ categories:
   - partners
 
 excerpt: "Oracle has released it's Cloud Infrastructure Search Service with OpenSearch!"
-
+redirect_from: "/blog/partners/2022/05/oracle-cloud-infrastructure-search-service/"
 ---
 
 Late last year, we [shared](https://opensearch.org/blog/partners/2021/12/oracle-announcement/) the news that Oracle joined the OpenSearch community and launched the public beta of their new service, OCI Search Service with OpenSearch. Today we’d like to congratulate them on the global availability of their service in all thirty OCI regions. The offering is a fully managed search service based on OpenSearch. The service automates common operational activities like patching, updating, upgrading, resizing, and backups. Using the reference architectures, customers will have access to a validated architecture to deploy and configure the service for log aggregation and in-application search.

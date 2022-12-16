@@ -8,6 +8,7 @@ categories:
   - technical-post
 twittercard:
   description: "I think people often use Semantic Versioning (a.k.a SemVer) intuitively even if they don't know the term. So, let's take a look at what SemVer is and what it means for software like OpenSearch."
+redirect_from: "/blog/technical-post/2021/08/what-is-semver/"
 ---
 
 I think people often use Semantic Versioning (a.k.a SemVer) intuitively even if they don't know the term. So, let's take a look at what SemVer is and what it means for software like OpenSearch.

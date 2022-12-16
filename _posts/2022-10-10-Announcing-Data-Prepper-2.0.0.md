@@ -7,6 +7,7 @@ authors:
 date: 2022-10-10 15:00:00 -0500
 categories:
   - technical-post
+redirect_from: "/blog/technical-post/2022/10/Announcing-Data-Prepper-2.0.0/"
 ---
 
 The Data Prepper maintainers are proud to announce the release of Data Prepper 2.0. This release makes 
