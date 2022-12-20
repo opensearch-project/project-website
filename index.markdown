@@ -7,7 +7,7 @@ layout_class: sidebar-right
 body_class: homepage
 sectionid: homepage
 
-primary_title: OpenSearch
+# primary_title: OpenSearch
 
 meta_description: OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data.
 
@@ -35,28 +35,32 @@ headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze yo
 
 
 long_description: "
-**Welcome to OpenSearch**
+OpenSearch is a scalable, flexible, and extensible open-source software suite for search, analytics, and observability applications licensed under Apache 2.0. Powered by [Apache Lucene](https://lucene.apache.org/) and driven by the [OpenSearch Project community](https://opensearch.org/about.html), OpenSearch offers a vendor-agnostic toolset to build secure, high-performance, cost-efficient applications. Use OpenSearch as an end-to-end solution or connect it with your preferred open source tools or [partner projects](https://opensearch.org/partners).
 
 
-OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data. Developers build with OpenSearch for use cases such as application search, log analytics, data observability, data ingestion, and more. 
+**Build powerful search solutions**
+<br>
+Deploy e-commerce, application, and document search with community-built tools. Support for [full text queries](https://opensearch.org/docs/latest/opensearch/query-dsl/full-text/), natural language processing, custom dictionaries, and a [range of search features](https://opensearch.org/docs/latest/opensearch/ux/) provides a flexible foundation for structured and unstructured search applications. With built-in faceting, relevance ranking and scoring, and a selection of machine learning features, you can build search solutions that are finely tuned to your data.
 
 
-OpenSearch consists of a data store and search engine (OpenSearch), and a visualization and user interface (OpenSearch Dashboards). Users can extend the functionality of OpenSearch with a selection of plugins that enhance search, security, performance analysis, machine learning, and more.
+**Analyze and discover at scale**
+<br>
+Capture, store, and analyze your business, operational, and security data from a variety of sources. Use your preferred data collector and enrich your analytics pipeline with integrated machine learning tools like [anomaly detection](https://opensearch.org/docs/latest/monitoring-plugins/ad/index/). Built-in search functionality supports fast, accurate query results and time-sensitive insights. Visualize and report discoveries with [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/index/) and use [JDBC](https://opensearch.org/docs/latest/search-plugins/sql/sql/jdbc/) to connect to popular business intelligence systems. 
 
 
-To get started with OpenSearch, visit our [downloads](https://opensearch.org/downloads.html) page, check out our [documentation](https://opensearch.org/docs/latest), and explore the project on [Github](https://github.com/opensearch-project).
+**Achieve end-to-end observability**
+<br>
+Visualize your monitored environments from end-to-end and identify and resolve issues as they arise with flexible [observability tools](https://opensearch.org/docs/latest/observability-plugin/index/). Build visualizations from your metrics, traces, and logs, with the option to use [Data Prepper](https://opensearch.org/docs/latest/data-prepper/index/) to transform and enrich your source data. Support for open source systems like OpenTelemetry and Prometheus means you can custom-create powerful observability solutions using state-of-the-art components. 
 
 
-**Open source flexibility**
+**Getting started**
+<br>
+OpenSearch includes a data store and search engine, a visualization and user interface, and a [library of plugins](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/plugins/#available-plugins) you can use to tailor your tools to your requirements. Get started in the way that best suits your team and your environment. To configure your first OpenSearch cluster, you can [download the OpenSearch components](https://opensearch.org/downloads.html) in a variety of distributions or start with the official [Docker Image](https://hub.docker.com/r/opensearchproject/opensearch). 
 
 
-As a fully open source solution, OpenSearch offers you the freedom to modify, extend, monetize, and resell the product as you see fit, as well as the flexibility to deploy on a variety of infrastructures. At the same time, the OpenSearch project provides a secure, high-quality search and analytics suite with a rich [roadmap](https://github.com/orgs/opensearch-project/projects/1) of new and innovative functionality. 
-
-
-**A community-driven approach**
-
-
-OpenSearch is built with your input. The project is maintained and advanced by a [community](https://forum.opensearch.org/), including a network of [partners](https://opensearch.org/partners/), and is open to contribution. As noted in the project’s [principles for development](https://opensearch.org/about.html#principles-for-development), great open source software is built together, with a diverse community of contributors. We invite you to [get involved](https://opensearch.org/connect.html). 
+**OpenSearch Project partners**
+<br>
+Visit the OpenSearch Project [partner page](https://opensearch.org/partners) for a network of organizations who offer hosted solutions, provide help with technical challenges, and build tools to extend the capabilities of OpenSearch. Interested in becoming a project partner? [Learn how](https://opensearch.org/new-partner.html).
 "
 
 callouts_head: "The OpenSearch project's principles for development"
