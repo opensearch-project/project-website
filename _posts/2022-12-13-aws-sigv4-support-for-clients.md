@@ -15,11 +15,10 @@ categories:
   - feature
   - 
 meta_description: "OpenSearch clients now support the ability to sign requests using AWS Signature V4 with fine-grained access control and domain-level access polices."
-meta_keywords: "AWS SigV4 support, fine grained access control, domain-level access policy, AWS request signing, AWS Identity Access Manager"
+meta_keywords: "AWS Sigv4 support, fine grained access control, domain-level access policy, AWS request signing, AWS Identity Access Manager"
 ---
 
 OpenSearch clients now support the ability to sign requests using [AWS Signature V4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html). This has been a community request for a while, and we’re happy to announce that we have completed work across all clients, in collaboration with external contributors. Signing requests using native clients has been an essential requirement for accessing the Amazon OpenSearch Service on AWS using fine grained access controls. Having native SigV4 support in clients avoids the need to use cURL requests and other workarounds.
-
 
 ## Setting up the managed service to use fine-grained access control
 
@@ -33,11 +32,9 @@ Alternatively, you can set a domain-level access policy without using fine-grain
 
 ## Creating a client connection using SigV4 signing
 
-Before you start, ensure that you have [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) set up on your machine. AWS credentials are stored in `~/.aws/credentials` and contain an access key and a secret key that allow you to authenticate with AWS resources using IAM.
+Before you begin, ensure that you have [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) set up on your machine. AWS credentials can be stored in `~/.aws/credentials` or set as `AWS_` environment variables, and contain an access key, a secret key and an optional session token, that allow you to authenticate with AWS resources using IAM.
 
 ### Creating a client connection in Java
-
-Use the following code snippet to create a client connection in Java with SigV4 support:
 
 ```java
 import java.io.IOException;
@@ -58,7 +55,7 @@ public static void main(final String[] args) throws IOException {
         OpenSearchClient client = new OpenSearchClient(
             new AwsSdk2Transport(
                 httpClient,
-                "search-...us-west-2.es.amazonaws.com",
+                "search-xxx.region.es.amazonaws.com",
                 Region.US_WEST_2,
                 AwsSdk2TransportOptions.builder().build()
             )
@@ -72,25 +69,36 @@ public static void main(final String[] args) throws IOException {
 }
 ``` 
 
-
 ### Creating a client connection in Python
 
-The Python client requires you to have `boto3` installed. Make sure to update the `connection_class` to use `RequestsHttpConnection`. Use the following code to create a client connection in Python:
+The Python client requires you to have `boto3` installed. Make sure to update the `connection_class` to use `RequestsHttpConnection`.
 
 ```python
-from opensearchpy import OpenSearch, RequestsHttpConnection, AWSV4SignerAuth
-import boto3
-host = '' # cluster endpoint, for example: my-test-domain.us-east-1.es.amazonaws.com
-region = 'us-west-2'
-credentials = boto3.Session().get_credentials()
+from urllib.parse import urlparse
+
+from boto3 import Session
+from opensearchpy import AWSV4SignerAuth, OpenSearch, RequestsHttpConnection
+
+url = urlparse("https://search-xxx.region.es.amazonaws.com")
+region = 'us-east-1'
+
+credentials = Session().get_credentials()
+
 auth = AWSV4SignerAuth(credentials, region)
+
 client = OpenSearch(
-    hosts = [{'host': host, 'port': 443}],
-    http_auth = auth,
-    use_ssl = True,
-    verify_certs = True,
-    connection_class = RequestsHttpConnection
+  hosts=[{
+    'host': url.netloc,
+    'port': url.port or 443
+  }],
+  http_auth=auth,
+  use_ssl=True,
+  verify_certs=True,
+  connection_class=RequestsHttpConnection
 )
+
+info = client.info()
+print(f"{info['version']['distribution']}: {info['version']['number']}")
 ```
 
 ### Creating a client connection in JavaScript
@@ -100,23 +108,15 @@ The JavaScript client requires you to have `aws-sdk` installed. Depending on whi
 #### Using AWS V2 SDK
 
 ```js
-const AWS = require('aws-sdk'); // V2 SDK.
+const AWS = require('aws-sdk');
 const { Client } = require('@opensearch-project/opensearch');
 const { AwsSigv4Signer } = require('@opensearch-project/opensearch/aws');
 
 const client = new Client({
   ...AwsSigv4Signer({
     region: 'us-east-1',
-    // Must return a Promise that resolve to an AWS.Credentials object.
-    // This function is used to acquire the credentials when the client start and
-    // when the credentials are expired.
-    // The Client will refresh the Credentials only when they are expired.
-    // With AWS SDK V2, Credentials.refreshPromise is used when available to refresh the credentials.
-
-    // Example with AWS SDK V2:
     getCredentials: () =>
       new Promise((resolve, reject) => {
-        // Any other method to acquire a new Credentials object can be used.
         AWS.config.getCredentials((err, credentials) => {
           if (err) {
             reject(err);
@@ -126,92 +126,122 @@ const client = new Client({
         });
       }),
   }),
-  node: "https://search-xxx.region.es.amazonaws.com", // OpenSearch domain URL
+  node: "https://search-xxx.region.es.amazonaws.com"
 });
 ```
 
 #### Using AWS V3 SDK
 
 ```js
-const { defaultProvider } = require("@aws-sdk/credential-provider-node"); // V3 SDK.
+const { defaultProvider } = require("@aws-sdk/credential-provider-node");
 const { Client } = require('@opensearch-project/opensearch');
 const { AwsSigv4Signer } = require('@opensearch-project/opensearch/aws');
 
-const client = new Client({
-  ...AwsSigv4Signer({
-    region: 'us-east-1',
-    // Must return a Promise that resolve to an AWS.Credentials object.
-    // This function is used to acquire the credentials when the client start and
-    // when the credentials are expired.
-    // The Client will refresh the Credentials only when they are expired.
-    // With AWS SDK V2, Credentials.refreshPromise is used when available to refresh the credentials.
+async function main() {
+  const client = new Client({
+    ...AwsSigv4Signer({
+      region: "us-east-1",
+      getCredentials: () => {
+        const credentialsProvider = defaultProvider();
+        return credentialsProvider();
+      },
+    }),
+    node: "https://search-xxx.region.es.amazonaws.com"
+  });
 
-    // Example with AWS SDK V3:
-    getCredentials: () => {
-      // Any other method to acquire a new Credentials object can be used.
-      const credentialsProvider = defaultProvider();
-      return credentialsProvider();
-    },
-  }),
-  node: "https://search-xxx.region.es.amazonaws.com", // OpenSearch domain URL
-});
+  var info = await client.info();
+  var version = info.body.version
+  console.log(version.distribution + ": " + version.number);
+}
 
+main();
 ```
+
 ### Creating a client connection in Ruby
 
-The [opensearch-aws-sigv4](https://github.com/opensearch-project/opensearch-ruby/tree/main/opensearch-aws-sigv4) gem provides the `OpenSearch::Aws::Sigv4Client` class, which has all the features of `OpenSearch::Client`. The only difference between these two clients is that `OpenSearch::Aws::Sigv4Client` requires an instance of `Aws::Sigv4::Signer` during instantiation to authenticate with AWS:
+The [opensearch-aws-sigv4](https://github.com/opensearch-project/opensearch-ruby/tree/main/opensearch-aws-sigv4) gem provides the `OpenSearch::Aws::Sigv4Client` class, which has all the features of `OpenSearch::Client`. The only difference between these two clients is that `OpenSearch::Aws::Sigv4Client` requires an instance of `Aws::Sigv4::Signer` during instantiation to authenticate with AWS.
 
 ```ruby
 require 'opensearch-aws-sigv4'
 require 'aws-sigv4'
-signer = Aws::Sigv4::Signer.new(service: 'es',
-                                region: 'us-west-2',
-                                access_key_id: 'key_id',
-                                secret_access_key: 'secret')
-client = OpenSearch::Aws::Sigv4Client.new({ log: true }, signer)
-client.cluster.health
-client.transport.reload_connections!
-client.search q: 'test'
+
+signer = Aws::Sigv4::Signer.new(
+  service: 'es',
+  region: 'us-east-1',
+  access_key_id: '...',
+  secret_access_key: '...',
+  session_token: '...'
+)
+
+client = OpenSearch::Aws::Sigv4Client.new({
+  host: "https://search-xxx.region.es.amazonaws.com",
+  log: false
+}, signer)
+
+info = client.info
+puts info['version']['distribution'] + ': ' + info['version']['number']
 ```
 
 ### Creating a client connection in .NET
 
 All required request signing is handled by the `AwsSigV4HttpConnection` implementation. By default, `AwsSigV4HttpConnection` uses the .NET AWS SDK's default credentials provider to acquire credentials from the environment. However, you may opt to pass in your own credentials provider, for example, to assume a role. Refer to the [OpenSearch.Net User Guide](https://github.com/opensearch-project/opensearch-net/blob/main/USER_GUIDE.md#opensearchnetauthawssigv4) for complete instructions.
 
-Use the following code to create a connection in .NET:
-
 ```c#
 using OpenSearch.Client;
 using OpenSearch.Net.Auth.AwsSigV4;
 
-var endpoint = new Uri("https://search-xxx.region.es.amazonaws.com");
-var connection = new AwsSigV4HttpConnection();
-var config = new ConnectionSettings(endpoint, connection);
-var client = new OpenSearchClient(config);
+namespace Application
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var endpoint = new Uri("https://search-xxx.region.es.amazonaws.com");
+            var connection = new AwsSigV4HttpConnection();
+            var config = new ConnectionSettings(endpoint, connection);
+            var client = new OpenSearchClient(config);
+
+            Console.WriteLine($"{client.RootNodeInfo().Version.Distribution}: {client.RootNodeInfo().Version.Number}");
+        }
+    }
+}
 ```
 
 ### Creating a client connection in Rust
 
 Request signing is configured using the [`Credentials::AwsSigV4`](https://docs.rs/opensearch/latest/opensearch/auth/enum.Credentials.html#variant.AwsSigV4) enum variant or its helper conversion from an AWS SDK configuration. See [aws-config](https://docs.rs/aws-config/latest/aws_config/) for other AWS credentials provider implementations, for example, to assume a role.
 
-Use the following code to create a connection in Rust:
-
 ```rust
-use opensearch::{
-    cat::CatIndicesParts,
-    http::transport::{SingleNodeConnectionPool, TransportBuilder},
-    OpenSearch,
-};
-use url::Url;
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    use std::{convert::TryInto, env, thread, time};
 
-let creds = aws_config::load_from_env().await;
+    use serde_json::Value;
 
-let host = "https://search-xxx.region.es.amazonaws.com";
-let transport = TransportBuilder::new(SingleNodeConnectionPool::new(Url::parse(host).unwrap()))
-    .auth(creds.try_into()?)
-    // .auth(Credentials::AwsSigV4(creds.credentials().unwrap().clone(), creds.region().unwrap().clone()))
-    .build()?;
-let client = OpenSearch::new(transport);
+    use opensearch::{
+        http::transport::{SingleNodeConnectionPool, TransportBuilder},
+        OpenSearch,
+    };
+
+    use url::Url;
+
+    let url = Url::parse("https://search-xxx.region.es.amazonaws.com");
+    let conn_pool = SingleNodeConnectionPool::new(url?);
+    let aws_config = aws_config::load_from_env().await.clone();
+    let transport = TransportBuilder::new(conn_pool)
+        .auth(aws_config.clone().try_into()?)
+        .build()?;
+    let client = OpenSearch::new(transport);
+
+    let info: Value = client.info().send().await?.json().await?;
+    println!(
+        "{}: {}",
+        info["version"]["distribution"].as_str().unwrap(),
+        info["version"]["number"].as_str().unwrap()
+    );
+
+    Ok(())
+}
 ```
 
 ### Creating a client connection in PHP
@@ -221,105 +251,55 @@ The PHP client uses the `setSigV4CredentialProvider` attribute to assume credent
 ```php
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $client = (new \OpenSearch\ClientBuilder())
-    ->setSigV4Region('us-east-2')
-    
-    // Default credential provider.
-    ->setSigV4CredentialProvider(true)
-    
-    // If you want to specify a custom key and secret
-    ->setSigV4CredentialProvider([
-      'key' => 'awskeyid',
-      'secret' => 'awssecretkey',
-    ])
-    
-    ->build();
+  ->setHosts(["https://search-xxx.region.es.amazonaws.com"])
+  ->setSigV4Region("us-east-1")
+  ->setSigV4CredentialProvider(true)
+  ->build();
+
+$info = $client->info();
+
+echo "{$info['version']['distribution']}: {$info['version']['number']}\n";
 ```
 
 ### Creating a client connection in Go
 
-Use the following code snippets to create a client connection in Go with SigV4 support.
-
-#### Using the AWS V1 SDK
-
 ```go
 package main
 
 import (
 	"context"
-	"io"
+	"encoding/json"
+	"fmt"
 	"log"
-
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/opensearch-project/opensearch-go/v2"
-	"github.com/opensearch-project/opensearch-go/v2/opensearchapi"
-	requestsigner "github.com/opensearch-project/opensearch-go/v2/signer/aws"
-)
-
-const endpoint = "" // e.g. https://opensearch-domain.region.com
-
-func main() {
-	ctx := context.Background()
-
-	// Create an AWS request Signer and load AWS configuration using default config folder or env vars.
-	// See https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html#request-signing-go
-	signer, err := requestsigner.NewSigner(session.Options{SharedConfigState: session.SharedConfigEnable})
-	if err != nil {
-		log.Fatal(err) // Do not log.fatal in a production ready app.
-	}
-
-	// Create an opensearch client and use the request-signer
-	client, err := opensearch.NewClient(opensearch.Config{
-		Addresses: []string{endpoint},
-		Signer:    signer,
-	})
-	if err != nil {
-		log.Fatal("client creation err", err)
-	}
-}
-```
-
-#### Using the AWS V2 SDK
-
-```go
-package main
-
-import (
-	"context"
-	"io"
-	"log"
+	"strings"
 
 	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/opensearch-project/opensearch-go/v2/opensearchapi"
+	"github.com/opensearch-project/opensearch-go/v2"
 	requestsigner "github.com/opensearch-project/opensearch-go/v2/signer/awsv2"
 )
 
-const endpoint = "" // e.g. https://opensearch-domain.region.com
-
 func main() {
 	ctx := context.Background()
+	cfg, _ := config.LoadDefaultConfig(ctx)
+	signer, _ := requestsigner.NewSigner(cfg)
 
-	cfg, err := config.LoadDefaultConfig(ctx)
-	if err != nil {
-		log.Fatal(err) // Do not log.fatal in a production ready app.
-	}
+	endpoint := "https://search-xxx.region.es.amazonaws.com"
 
-	// Create an AWS request Signer and load AWS configuration using default config folder or env vars.
-	// See https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html#request-signing-go
-	signer, err := requestsigner.NewSigner(cfg)
-	if err != nil {
-		log.Fatal(err) // Do not log.fatal in a production ready app.
-	}
-
-	// Create an opensearch client and use the request-signer
-	client, err := opensearch.NewClient(opensearch.Config{
+	client, _ := opensearch.NewClient(opensearch.Config{
 		Addresses: []string{endpoint},
 		Signer:    signer,
 	})
-	if err != nil {
-		log.Fatal("client creation err", err)
+
+	if info, err := client.Info(); err != nil {
+		log.Fatal("info", err)
+	} else {
+		var r map[string]interface{}
+		json.NewDecoder(info.Body).Decode(&r)
+		version := r["version"].(map[string]interface{})
+		fmt.Printf("%s: %s\n", version["distribution"], version["number"])
 	}
 }
 ```
