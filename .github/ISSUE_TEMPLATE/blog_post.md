@@ -2,7 +2,7 @@
 name: Blog Post
 about: Suggest or propose a blog post 
 title: ''
-labels: 'new blog, enhancement'
+labels: 'new blog, untriaged'
 assignees: ''
 ---
 
