@@ -35,22 +35,22 @@ headline: "OpenSearch makes it easy to ingest, search, visualize, and analyze yo
 
 
 long_description: "
-OpenSearch is a scalable, flexible, and extensible open-source software suite for search, analytics, and observability applications licensed under Apache 2.0. Powered by [Apache Lucene](https://lucene.apache.org/) and driven by the [OpenSearch Project community](https://opensearch.org/about.html), OpenSearch offers a vendor-agnostic toolset to build secure, high-performance, cost-efficient applications. Use OpenSearch as an end-to-end solution or connect it with your preferred open source tools or [partner projects](https://opensearch.org/partners).
+OpenSearch is a scalable, flexible, and extensible open-source software suite for search, analytics, and observability applications licensed under Apache 2.0. Powered by [Apache Lucene](https://lucene.apache.org/) and driven by the [OpenSearch Project community](https://opensearch.org/about.html), OpenSearch offers a vendor-agnostic toolset you can use to build secure, high-performance, cost-efficient applications. Use OpenSearch as an end-to-end solution or connect it with your preferred open-source tools or [partner projects](https://opensearch.org/partners).
 
 
 **Build powerful search solutions**
 <br>
-Deploy e-commerce, application, and document search with community-built tools. Support for [full text queries](https://opensearch.org/docs/latest/opensearch/query-dsl/full-text/), natural language processing, custom dictionaries, and a [range of search features](https://opensearch.org/docs/latest/opensearch/ux/) provides a flexible foundation for structured and unstructured search applications. With built-in faceting, relevance ranking and scoring, and a selection of machine learning features, you can build search solutions that are finely tuned to your data.
+Deploy e-commerce, application, and document search with community-built tools. Support for [full text queries](https://opensearch.org/docs/latest/opensearch/query-dsl/full-text/), natural language processing, custom dictionaries, and a [range of search features](https://opensearch.org/docs/latest/opensearch/ux/) provides a flexible foundation for structured and unstructured search applications. With built-in faceting, relevance ranking and scoring, and a selection of machine learning (ML) features, you can build search solutions that are finely tuned to your data.
 
 
 **Analyze and discover at scale**
 <br>
-Capture, store, and analyze your business, operational, and security data from a variety of sources. Use your preferred data collector and enrich your analytics pipeline with integrated machine learning tools like [anomaly detection](https://opensearch.org/docs/latest/monitoring-plugins/ad/index/). Built-in search functionality supports fast, accurate query results and time-sensitive insights. Visualize and report discoveries with [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/index/) and use [JDBC](https://opensearch.org/docs/latest/search-plugins/sql/sql/jdbc/) to connect to popular business intelligence systems. 
+Capture, store, and analyze your business, operational, and security data from a variety of sources. Use your preferred data collector and enrich your analytics pipeline with integrated ML tools like [anomaly detection](https://opensearch.org/docs/latest/monitoring-plugins/ad/index/). Built-in search functionality supports fast, accurate query results and time-sensitive insights. Visualize and report discoveries with [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/index/) and use [JDBC](https://opensearch.org/docs/latest/search-plugins/sql/sql/jdbc/) to connect to popular business intelligence systems. 
 
 
 **Achieve end-to-end observability**
 <br>
-Visualize your monitored environments from end-to-end and identify and resolve issues as they arise with flexible [observability tools](https://opensearch.org/docs/latest/observability-plugin/index/). Build visualizations from your metrics, traces, and logs, with the option to use [Data Prepper](https://opensearch.org/docs/latest/data-prepper/index/) to transform and enrich your source data. Support for open source systems like OpenTelemetry and Prometheus means you can custom-create powerful observability solutions using state-of-the-art components. 
+Visualize your monitored environments from end to end and identify and resolve issues as they arise with flexible [observability tools](https://opensearch.org/docs/latest/observability-plugin/index/). Build visualizations from your metrics, traces, and logs, with the option to use [Data Prepper](https://opensearch.org/docs/latest/data-prepper/index/) to transform and enrich your source data. Support for open-source systems like OpenTelemetry and Prometheus means you can create powerful, customized observability solutions using state-of-the-art components. 
 
 
 **Getting started**
@@ -94,7 +94,7 @@ secondary:
 sidebar:
     -
         title: Have a question?
-        description: Do you have a question regarding OpenSearch? Maybe you aren’t the first to ask it. Checkout our frequently asked questions (FAQ) to see if your question is already answered. If not, don’t hesitate to ask in the community forums.
+        description: Do you have a question regarding OpenSearch? Maybe you aren’t the first to ask it. Checkout our frequently asked questions (FAQs) to see if your question has already been answered. If not, don’t hesitate to ask in the community forums.
         links:
             -
                 title: Check out the FAQ
