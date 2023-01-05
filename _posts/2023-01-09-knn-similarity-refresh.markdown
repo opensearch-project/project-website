@@ -6,7 +6,7 @@ authors:
 - laijiang
 - csw
 - jmazane
-date: 2022-12-30 00:00:00 -0700
+date: 2023-01-09 00:00:00 -0700
 categories:
  - technical-post
 meta_keywords: "approximate k-NN search, k-nearest neighbor plugin, k-NN plugin, ANN similarity search solution"
