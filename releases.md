@@ -5,7 +5,7 @@ title: Release Schedule and Maintenance Policy
 ---
 
 
-_Updated December 5, 2022_
+_Updated January 5, 2023_
 
 [Release Schedule](#release-schedule) &middot; [Maintenance Policy](#maintenance-policy)
 
@@ -16,23 +16,7 @@ _Updated December 5, 2022_
 
 For more information on the changes planned for each release, please see the [Project Roadmap](https://github.com/orgs/opensearch-project/projects/1)
 
-### 2022 ###
-
-<div class="table-styler"></div>
-
-| Release Number | Code Freeze Date   | Release Date       |
-|:---------------|:-------------------|:-------------------|
-| 2.1            | June 30, 2022      | July 7, 2022       |
-| 1.3.4          | July 8, 2022       | July 14, 2022      |
-| 2.2            | August 4, 2022     | August 11, 2022    |
-| 1.3.5          | August 16, 2022    | September 1, 2022  |
-| 2.2.1          | August 19, 2022    | September 1, 2022  |
-| 2.3            | September 7, 2022  | September 14, 2022 |
-| 1.3.6          | September 30, 2022 | October 6, 2022    |
-| 2.4            | November 8, 2022   | November 15, 2022  |
-| 1.3.7          | December 6, 2022   | December 13, 2022  |
-
-### Proposed 2023 schedule ###
+### 2023 ###
 
 Note:  We have not added a major release to the 2023 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
 
@@ -50,7 +34,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 | 1.3.11        | June 22nd         | June 29th             |
 | 2.9.0         | July 11th         | July 18th             |
 | 1.3.12        | August 3rd        | August 10th           |
-| 2.10.0        | August 22nd       | August 29th           |     
+| 2.10.0        | August 22nd       | August 29th           |
 | 1.3.13        | September 14th    | September 21st        |
 | 2.11.0        | October 10th      | October 17th          |
 | 1.3.14        | November 9th      | November 16th         |
@@ -86,6 +70,23 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date 
 
+## Release History ##
+
+### 2022 ###
+
+<div class="table-styler"></div>
+
+| Release Number | Code Freeze Date   | Release Date       |
+|:---------------|:-------------------|:-------------------|
+| 2.1            | June 30, 2022      | July 7, 2022       |
+| 1.3.4          | July 8, 2022       | July 14, 2022      |
+| 2.2            | August 4, 2022     | August 11, 2022    |
+| 1.3.5          | August 16, 2022    | September 1, 2022  |
+| 2.2.1          | August 19, 2022    | September 1, 2022  |
+| 2.3            | September 7, 2022  | September 14, 2022 |
+| 1.3.6          | September 30, 2022 | October 6, 2022    |
+| 2.4            | November 8, 2022   | November 15, 2022  |
+| 1.3.7          | December 6, 2022   | December 13, 2022  |
 
 ## Change Log ##
 
