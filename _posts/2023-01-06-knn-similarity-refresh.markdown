@@ -6,7 +6,7 @@ authors:
 - laijiang
 - csw
 - jmazane
-date: 2023-01-09 00:00:00 -0700
+date: 2020-04-06
 categories:
  - technical-post
 meta_keywords: "approximate k-NN search, k-nearest neighbor plugin, k-NN plugin, ANN similarity search solution"
@@ -14,8 +14,6 @@ meta_description: "Learn how the OpenSearch approximate k-NN search solution ena
 
 excerpt: Since the OpenSearch Project introduced the k-nearest neighbor plugin in 2019, it has supported both exact and approximate k-NN search. The approximate k-NN search method is more efficient for large datasets with high dimensionality because it reduces the cardinality of searchable vectors. This approach is superior in speed at the cost of a slight reduction in accuracy. 
 ---
-
-# Build k-Nearest Neighbor (k-NN) Similarity Search Engine with OpenSearch
 
 *Blog refreshed for technical accuracy on 06 Jan 2023*
 
