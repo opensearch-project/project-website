@@ -1,6 +1,6 @@
 ---
 name: PGSync
-description: PGSync is a middleware for syncing data from Postgres to Opensearch
+description: PGSync is a middleware for syncing data from Postgres to OpenSearch
 owner: Tolu Aina
 link: https://pgsync.com/
 license: GNU General Public License v3.0
