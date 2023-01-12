@@ -15,11 +15,11 @@ redirect_from: "/blog/community/2022/10/hacktoberfest-2022/"
 
 ![Hacktoberfest Logo](/assets/media/blog-images/2022-10-03-hacktoberfest-2022/hacktoberfest.png){: .img-fluid}
 
-Happy Hacktoberfest everyone! Wait...you don’t know what Hacktoberfest is? Well my friend, Hacktoberfest is an event that happens every October to promote contributions to open-source projects. It is a way to celebrate the work of open-source maintainers and contributors and make it easier for new developers to get involved with open-source projects. 
+Happy Hacktoberfest everyone! Wait...you don't know what Hacktoberfest is? Well my friend, Hacktoberfest is an event that happens every October to promote contributions to open-source projects. It is a way to celebrate the work of open-source maintainers and contributors and make it easier for new developers to get involved with open-source projects. 
 
 For more information you can check out GitHub and [DigitalOcean’s Hacktoberfest page](https://hacktoberfest.com/). They have some pretty neat incentives for beginning your open-source journey! In addition to what they’ve got going on, we are offering incentives of our own for contributing that we will talk about a little later. 
 
-## What does it mean to “contribute” to open-source projects? 
+## What does it mean to "contribute" to open-source projects? 
 
 Well, contributing can mean a lot of different things. We need people using an open-source project to report any bugs that they find so that the project can run smoother. Once those bugs are reported, we need the community’s help to fix them. To get people using the project, we also need good documentation, “how-to” blogs, and even videos. Even more so, we need help answering questions on the project’s forum. Many people have questions—you may know the answer! 
 
