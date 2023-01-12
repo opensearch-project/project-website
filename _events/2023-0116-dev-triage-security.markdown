@@ -1,14 +1,15 @@
 ---
 
-eventdate: 2023-01-16T12:00
+eventdate: 2023-01-17T12:00
 tz: UTC -8
-title: Development Backlog & Triage Meeting - Security - 2023-01-16
+title: Development Backlog & Triage Meeting - Security - 2023-01-17
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/xkggbtyfccbmb
     title: Join on Meetup
 
 ---
+**PLEASE NOTE** - This was originally scheduled for Monday the 16th, but that is a US Holiday so we are moving this to Tuesday the 17th. Thank you for your understanding.
 
 Join the OpenSearch Security team for their next backlog & triage planning meeting.
 
