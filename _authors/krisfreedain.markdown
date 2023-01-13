@@ -5,4 +5,4 @@ photo: '/assets/media/authors/krisfreedain.jpg'
 twitter: 'KrisFreedain'
 github: krisfreedain
 ---
-**Kris Freedain** is the OpenSearch project Community Manager; his hobbies include gardening, garage gym powerlifting, and meditation.
+**Kris Freedain** is the OpenSearch Project Community Manager; his hobbies include gardening, garage gym powerlifting, and meditation.
