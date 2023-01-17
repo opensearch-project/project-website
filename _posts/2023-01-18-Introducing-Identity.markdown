@@ -1,3 +1,13 @@
+---
+layout: post
+title:  "Introducing identity and access control for OpenSearch"
+authors:
+  - peternied
+date:   2023-01-18 00:00:00 -0700
+categories:
+  - technical-post
+---
+
 # Introducing identity and access control for OpenSearch
 
 The existing OpenSearch[^1] access control features included in the Security plugin let administrators apply access control to indexes and cluster actions so that users have the right permissions[^2] and the cluster is protected from unwanted activity. However, the current access control features do have certain limitations that can make it difficult to use them with other plugins.
