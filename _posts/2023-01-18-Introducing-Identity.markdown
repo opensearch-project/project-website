@@ -49,7 +49,7 @@ Following the principle of least privilege, using a minimum number of permission
 
 ## Get involved
 
-These features present a significant departure from the current security model by making it easier for OpenSearch developers to access and build assets and for administrators to carry out tasks in a stable environment. Over the last several months, we’ve been busy defining new features and building tools to prepare for the integration of Security into core OpenSearch. We’ve struck out on this path in an effort to make OpenSearch security features more efficient, more reliable, and simply easier and more enjoyable to work with.
+These features present a significant departure from the current security model by making it easier for OpenSearch developers to access and build assets and for administrators to carry out tasks in a stable environment. Over the last several months, we’ve been busy defining new features and building tools to prepare for the integration of identity and access control into core OpenSearch. We’ve struck out on this path in an effort to make OpenSearch security features more efficient, more reliable, and simply easier and more enjoyable to work with.
 
 And since we operate in the open-source community, we’d like to learn about your ideas and benefit from your contributions as we make progress.
 
