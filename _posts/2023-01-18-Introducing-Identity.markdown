@@ -6,6 +6,12 @@ authors:
 date:   2023-01-18 00:00:00 -0700
 categories:
   - technical-post
+meta_description: "Learn about OpenSearch Identity and how this suite of features provides users with comprehensive access control and creates a better defense-in-depth posture."
+keywords:
+  - access control
+  - OpenSearch identity
+  - OpenSearch security
+  - least privilege access
 ---
 
 # Introducing identity and access control for OpenSearch
