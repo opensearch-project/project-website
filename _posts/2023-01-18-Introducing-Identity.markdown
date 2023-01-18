@@ -10,8 +10,6 @@ meta_keywords: "access control, OpenSearch identity, OpenSearch security, least 
 meta_description: "Learn about OpenSearch Identity and how this suite of features provides users with comprehensive access control and creates a better defense-in-depth posture."
 ---
 
-# Introducing identity and access control for OpenSearch
-
 The existing OpenSearch[^1] access control features included in the Security plugin let administrators apply access control to indexes and cluster actions so that users have the right permissions[^2] and the cluster is protected from unwanted activity. However, the current access control features do have certain limitations that can make it difficult to use them with other plugins.
 
 As the core OpenSearch Project begins its shift away from a plugin[^3] model to a platform model that utilizes extensions[^4], those extensions, its legacy plugins, and the administrators who manage them will need mechanisms for controlling access that are more granular and able to manage a broader range of scenarios where effective access control is critical. We are developing a new suite of features that are designed to provide comprehensive identity and access control to the OpenSearch ecosystem. 
@@ -57,7 +55,7 @@ And since we operate in the open-source community, we’d like to learn about yo
 
 Watch for further blog posts on specific identity and access control features, and join us for community meetings. Furthermore, you can stay informed of development by visiting the following resources in the OpenSearch repository:
 
-- [OpenSearch meetup group events](https://www.meetup.com/opensearch/events/)
+- [OpenSearch events](https://opensearch.org/events/)
 - [Support for native authentication and authorization in OpenSearch](https://github.com/opensearch-project/OpenSearch/issues/4514)
 - [Feature branch for Identity](https://github.com/opensearch-project/OpenSearch/pulls?q=is%3Apr+base%3Afeature%2Fidentity)
 - [Current issues for Identity](https://github.com/opensearch-project/OpenSearch/issues?q=label%3AIdentity+)
