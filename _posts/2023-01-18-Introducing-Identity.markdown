@@ -60,6 +60,8 @@ Watch for further blog posts on specific identity and access control features, a
 - [Feature branch for Identity](https://github.com/opensearch-project/OpenSearch/pulls?q=is%3Apr+base%3Afeature%2Fidentity)
 - [Current issues for Identity](https://github.com/opensearch-project/OpenSearch/issues?q=label%3AIdentity+)
 
+If you have any feedback, feel free to comment on [[Feedback] Identity and access control for OpenSearch](https://github.com/opensearch-project/OpenSearch/issues/5920).
+
 We look forward to your participation!
 
 ## Terms in this blog post
