@@ -12,7 +12,7 @@ categories:
 
 The existing OpenSearch[^1] access control features included in the Security plugin let administrators apply access control to indexes and cluster actions so that users have the right permissions[^2] and the cluster is protected from unwanted activity. However, the current access control features do have certain limitations that can make it difficult to use them with other plugins.
 
-As the core OpenSearch Project begins its shift away from a plugin[^3] model to a platform model that utilizes extensions[^4], those extensions, its legacy plugins, and the administrators who manage them will need mechanisms for controlling access that are more granular and able to manage a broader range of scenarios where effective access control is critical. We are developing a new suite of features that are designed to provide comprehensive access control to the OpenSearch ecosystem, and we collectively call these new features _identity_. 
+As the core OpenSearch Project begins its shift away from a plugin[^3] model to a platform model that utilizes extensions[^4], those extensions, its legacy plugins, and the administrators who manage them will need mechanisms for controlling access that are more granular and able to manage a broader range of scenarios where effective access control is critical. We are developing a new suite of features that are designed to provide comprehensive identity and access control to the OpenSearch ecosystem. 
 
 The main objectives are to:
 
@@ -29,7 +29,7 @@ Let’s look at some of the ways we plan to meet these objectives.
 
 To work effectively, application developers need to know what users can and cannot do in OpenSearch based on the permissions assigned to them. Likewise, administrators responsible for setting up users and the permissions assigned to users require a reliable way to make sure the permissions are configured correctly. Given the degree of complexity that these configurations can reach in large systems, there needs to be a way to verify which users have what permissions. At this time, a mechanism that would allow administrators and developers to check these mappings doesn’t exist.
 
-The approach to closing this gap is to provide a robust set of APIs that will allow these checks on permissions. Furthermore, these APIs should have the capacity to work not only in core OpenSearch but across all plugins and extensions as well.
+Our approach to closing this gap is to provide a robust set of APIs that will allow these checks on permissions. Furthermore, these APIs should have the capacity to work not only in core OpenSearch but across all plugins and extensions as well.
 
 ### Plugin and extension restrictions
 
@@ -45,11 +45,11 @@ Associating identity to tasks will ensure that permissions applied to these task
 
 ### Security isolation 
 
-Following the principle of least privilege, using a minimum number of permissions to run tasks is key to preventing execution errors or software flaws from impacting the stability of an OpenSearch cluster. By adding features that can protect all of the separate elements in OpenSearch by isolating the potential impact a problem in one element may have on another element. This will reduce the spread of errors and keep them from affecting other areas of OpenSearch.
+Following the principle of least privilege, using a minimum number of permissions to run tasks is key to preventing execution errors or software flaws from impacting the stability of an OpenSearch cluster. We will launch features that can protect all of the separate elements in OpenSearch by isolating the potential impact a problem in one element may have on another element. This will reduce the spread of errors and keep them from affecting other areas of OpenSearch.
 
 ## Get involved
 
-These features present a significant departure from the current security model. It does so by providing features that make it easier for OpenSearch developers to access and build assets and for administrators to carry out tasks in a stable environment. Over the last several months, we’ve been busy defining new features and building tools to prepare for the integration of Security into core OpenSearch. We’ve struck out on this path in an effort to make OpenSearch security features more efficient, more reliable, and simply easier and more enjoyable to work with.
+These features present a significant departure from the current security model by making it easier for OpenSearch developers to access and build assets and for administrators to carry out tasks in a stable environment. Over the last several months, we’ve been busy defining new features and building tools to prepare for the integration of Security into core OpenSearch. We’ve struck out on this path in an effort to make OpenSearch security features more efficient, more reliable, and simply easier and more enjoyable to work with.
 
 And since we operate in the open-source community, we’d like to learn about your ideas and benefit from your contributions as we make progress.
 
