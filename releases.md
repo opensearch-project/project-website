@@ -5,7 +5,7 @@ title: Release Schedule and Maintenance Policy
 ---
 
 
-_Updated January 13, 2023_
+_Updated January 19, 2023_
 
 [Release Schedule](#release-schedule) &middot; [Maintenance Policy](#maintenance-policy)
 
@@ -24,7 +24,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 
 | Release Number| Code Freeze Date  | Release Date          |
 |:--------------|:------------------|:-------------------   |
-| 2.5.0         | January 10th      | January 19th          |
+| 2.5.0         | January 10th      | January 24th          |
 | 1.3.8         | January 26th      | February 2nd          |
 | 2.6.0         | February 21th     | February 28th         |
 | 1.3.9         | March 9th         | March 16th            |
@@ -98,6 +98,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 |October 20,2022 |   Increased time between 2.5 code freeze and release | 7 days is standard, and there were only 2 days for 2.5 | 
 |October 20,2022 | Added Initial 2023 schedule|Current schedule was running out|
 | January 13, 2023  | Update to 2.5.0 release date  | Maps team found last minute issue, moving to accommodate resolution  |
+| January 19, 2023  | Update to 2.5.0 release date  | Docs team due diligence, moving to accommodate  |
 
 <br>
 
