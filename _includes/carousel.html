@@ -27,22 +27,20 @@
 
 <script>
 	
-	thingies = jQuery(".{{ include.carousel-id }}-container");
-	if(thingies.length > 1)
-	{
 		setInterval(function() {
 			thingies = jQuery(".{{ include.carousel-id }}-container");
-			
-			for(i = 0; i < thingies.length; i++)
+			if(thingies.length > 1)			
 			{
-					if($("div#{{ include.carousel-id }}-slide" + i).is(":visible"))
-					{
-							$("div#{{ include.carousel-id }}-slide" + i).slideUp("slow");
-							$("div#{{ include.carousel-id }}-slide" + ((i + 1) % thingies.length)).slideDown("slow");
-							break;
-					}
-			}
+				for(i = 0; i < thingies.length; i++)
+				{
+						if($("div#{{ include.carousel-id }}-slide" + i).is(":visible"))
+						{
+								$("div#{{ include.carousel-id }}-slide" + i).slideUp("slow");
+								$("div#{{ include.carousel-id }}-slide" + ((i + 1) % thingies.length)).slideDown("slow");
+								break;
+						}
+				}
+			}	
 		}, 20000);
-	}
 
 </script>	
