@@ -22,7 +22,7 @@ layout: default
 {% capture content %}
 
     <div class="section headline">
-		<h1>{{- page.headline -}} </h1>
+		{% include carousel.html carousel-id="herobanner" carousel-collection=site.herobanners %}
     </div> 
     <div class="section">
         <!-- <h2>{{ page.greeting }}</h2> -->

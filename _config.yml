@@ -91,6 +91,8 @@ collections:
     output: true
   faqs:
   testimonials:
+  herobanners:
+    output: true    
   tutorials:
     output: true
   lines:
