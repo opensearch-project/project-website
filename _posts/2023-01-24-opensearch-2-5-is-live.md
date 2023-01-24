@@ -52,6 +52,6 @@ This release also includes a number of enhancements to existing features. For a 
 
 ### Getting started
 
-You can [download OpenSearch 2.5.0 here](https://opensearch.org/downloads.html), and you can also explore OpenSearch Dashboards live on the [Playground](https://playground.opensearch.org/app/home). To find out more about the release, see the [release notes]((https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.5.0.md)) and the [documentation release notes](https://github.com/opensearch-project/documentation-website/blob/main/release-notes/opensearch-documentation-release-notes-2.5.0.md). To learn more about OpenSearch, see the [OpenSearch documentation](https://opensearch.org/docs/latest).
+You can [download OpenSearch 2.5.0 here](https://opensearch.org/downloads.html), and you can also explore OpenSearch Dashboards live on the [Playground](https://playground.opensearch.org/app/home). To find out more about the release, see the [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.5.0.md) and the [documentation release notes](https://github.com/opensearch-project/documentation-website/blob/main/release-notes/opensearch-documentation-release-notes-2.5.0.md). To learn more about OpenSearch, see the [OpenSearch documentation](https://opensearch.org/docs/latest).
 
 We look forward to seeing your thoughts on this release in the [community forum](https://forum.opensearch.org/)!
