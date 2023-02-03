@@ -2,7 +2,7 @@
 layout: post
 title:  "Announcing Data Prepper 2.1.0"
 authors:
-- TODO - Krishna
+- kkondaka
 - nsifmoh
 - dlv
 date: 2023-02-07 15:00:00 -0500
