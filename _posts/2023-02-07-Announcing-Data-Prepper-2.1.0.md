@@ -8,6 +8,8 @@ authors:
 date: 2023-02-07 15:00:00 -0500
 categories:
   - releases
+meta_keywords: Data Prepper 2.1.0, Open Telemetry metrics, OpenTelemetry logs, detect anomalies in logs and traces, sampling and rate-limiting
+meta_description: Data Prepper 2.1.0 improves performance and stability with enhancements such as generated metrics, anomaly detection, sampling and limiting, and more.
 ---
 
 Data Prepper 2.1.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)! This release
