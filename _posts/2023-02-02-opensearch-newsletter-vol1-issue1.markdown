@@ -6,7 +6,8 @@ authors:
 date: 2023-02-02
 categories:
   - community
-
+Meta description: "Read the OpenSearch Project Newsletter for the latest news, community happenings, events, product launches and to hear what’s new with our partners."
+Meta keywords: "OpenSearch Project news, open source newsletter, OpenSearch partner"
 
 
 redirect_from: 
