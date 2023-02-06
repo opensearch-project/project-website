@@ -12,33 +12,21 @@ meta_keywords: Data Prepper 2.1.0, Open Telemetry metrics, OpenTelemetry logs, d
 meta_description: Data Prepper 2.1.0 improves performance and stability with enhancements such as generated metrics, anomaly detection, sampling and limiting, and more.
 ---
 
-Data Prepper 2.1.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)! This release
-provides a number of new features to Data Prepper.  Additionally, the maintainers have improved Data Prepper’s 
-stability and performance. Many of the new features 
-came from community contributions in the form of GitHub issues and pull requests.
+Data Prepper 2.1.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)! This release provides a number of new features to Data Prepper.  Additionally, the maintainers have improved Data Prepper’s stability and performance. Many of the new features came from community contributions in the form of GitHub issues and pull requests.
 
 ## Generated metrics
 
-By creating metrics for logs and traces that pass through the Data Prepper, the performance and scalability of Open Search 
-(data store, search engine, and visualization) can be significantly enhanced. The ability to generate metrics enables the 
-summarization of events over a specific time period, making it easier to visualize and set alerts, as opposed to utilizing 
-raw data for visualization and alerting.
+By creating metrics for logs and traces that pass through the Data Prepper, the performance and scalability of Open Search (data store, search engine, and visualization) can be significantly enhanced. The ability to generate metrics enables the summarization of events over a specific time period, making it easier to visualize and set alerts, as opposed to utilizing raw data for visualization and alerting.
 
-Data Prepper 2.1 supports generating Open Telemetry format metrics from all incoming events. The Data Prepper aggregate 
-processor has two new actions to support the generation of metrics for logs and traces.
+Data Prepper 2.1 supports generating Open Telemetry format metrics from all incoming events. The Data Prepper aggregate processor has two new actions to support the generation of metrics for logs and traces.
 
-The `histogram` action generates a histogram of the data field being aggregated. The histogram data includes total 
-count, min, max, sum in addition to the histogram buckets and bucket level counts.
-
-The `count` action generates a count of the data being aggregated.
+The `histogram` action generates a histogram of the data field being aggregated. The histogram data includes total count, min, max, sum in addition to the histogram buckets and bucket level counts. The `count` action generates a count of the data being aggregated.
 
 Both these actions can be combined with aggregate processor’s conditional aggregation option to generate more meaningful metrics.
 
-For example, the number of traces with error (`status_code` equal to 2) be obtained using `count` aggregate action along 
-with `aggregate_when` option. We can also generate a histogram of trace latencies using another aggregate processor in 
-a parallel sub-pipeline.
+For example, the number of traces with error (`status_code` equal to 2) be obtained using `count` aggregate action along with `aggregate_when` option. We can also generate a histogram of trace latencies using another aggregate processor in a parallel sub-pipeline.
 
-The pipeline configuration for the above example would look like
+The pipeline configuration for the above example would look like the following:
 
 ```
 trace-error-metrics-pipeline:
@@ -86,17 +74,12 @@ trace-error-metrics-pipeline:
 
 ## Anomaly detection
 
-Data Prepper 2.1 introduces anomaly detection as an independent processor that can be placed anywhere in the pipeline to 
-detect anomalies using AI/ML techniques. It supports only random cut forest algorithm to detect anomalies for now. 
-Support for other AI/ML algorithms may be added in future. The processor can be configured to use any numerical (integer 
-or floating point data type) field in the input events to detect anomalies.
+Data Prepper 2.1 introduces anomaly detection as an independent processor that can be placed anywhere in the pipeline to detect anomalies using AI/ML techniques. It supports only random cut forest algorithm to detect anomalies for now. 
+Support for other AI/ML algorithms may be added in future. The processor can be configured to use any numerical (integer or floating point data type) field in the input events to detect anomalies.
 
-Anomaly detection in Data Prepper allows for more scalable and efficient way to detect anomalies in the logs and traces 
-because the ML algorithm is applied on the server side.
+Anomaly detection in Data Prepper allows for more scalable and efficient way to detect anomalies in the logs and traces because the ML algorithm is applied on the server side.
 
-For example, the anomaly detector processor placed after aggregate processor that generates histogram of trace latencies 
-(`durationInNanos`) could detect abnormally high latencies. The following anomaly detector processor configuration 
-can be used for it.
+For example, the anomaly detector processor placed after aggregate processor that generates histogram of trace latencies (`durationInNanos`) could detect abnormally high latencies. The following anomaly detector processor configuration can be used for it.
 
 ```
 trace-metric-anomaly-detector-pipeline:
@@ -121,13 +104,11 @@ trace-metric-anomaly-detector-pipeline:
 
 Data Prepper 2.1 supports sampling and rate-limiting to limit the number of events that are sent to a Sink.
 
-One possible use case for both these features can be used to reduce the load on the OpenSearch when storing normal 
-(not very interesting) logs and metrics.
+One possible use case for both these features can be used to reduce the load on the OpenSearch when storing normal (not very interesting) logs and metrics.
 
-Both these features are available as a configurable action in the aggregate processor. Simply choose the appropriate 
-action (sampling or rate limiting) and specify the sampling percent or events per second option as needed.
+Both these features are available as a configurable action in the aggregate processor. Simply choose the appropriate action (sampling or rate limiting) and specify the sampling percent or events per second option as needed.
 
-For example, the following percent sampler configuration sends 60% of the events to OpenSearch
+For example, the following percent sampler configuration sends 60% of the events to OpenSearch:
 
 ```
 trace-normal-pipeline:
@@ -151,11 +132,7 @@ trace-normal-pipeline:
          index: sampled-traces
 ```
 
-Rate limiter action can be configured to limit the number of events by specifying the number of events per second and 
-optionally what to do when the number of events exceed the specified limit using the `when_exceeds` option. This 
-`when_exceeds` option can take either `block` or `drop` value and can either block until events are allowed or drop any 
-excess events. The `block` is useful if there is a temporary burst and the user do not want to lose any events in that 
-case. The default value for this option is `block`.
+Rate limiter action can be configured to limit the number of events by specifying the number of events per second and optionally what to do when the number of events exceed the specified limit using the `when_exceeds` option. This `when_exceeds` option can take either `block` or `drop` value and can either block until events are allowed or drop any excess events. The `block` is useful if there is a temporary burst and the user do not want to lose any events in that case. The default value for this option is `block`.
 
 And the following rate limiter configuration send 10 events per second to the open search and using `drop` option.
 
