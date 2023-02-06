@@ -161,40 +161,22 @@ trace-normal-pipeline:
 
 ## OTel logs
 
-One of Data Prepper’s goals is supporting open standards. Data Prepper now supports the [OpenTelemetry](https://opentelemetry.io)
-log format. Previously, Data Prepper supported log data through the 
-[HTTP source plugin](https://opensearch.org/docs/latest/data-prepper/configuration/sources/http-source/) 
-which works well with tools such as [FluentBit](https://fluentbit.io). Some users would like to deploy the 
-[OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) on their applications 
-and not require any other sidecars. Those users can now start to send logs to Data Prepper and then to OpenSearch.
+One of Data Prepper’s goals is supporting open standards. Data Prepper now supports the [OpenTelemetry](https://opentelemetry.io) log format. Previously, Data Prepper supported log data through the [HTTP source plugin](https://opensearch.org/docs/latest/data-prepper/configuration/sources/http-source/) which works well with tools such as [FluentBit](https://fluentbit.io). Some users would like to deploy the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) on their applications and not require any other sidecars. Those users can now start to send logs to Data Prepper and then to OpenSearch.
 
 
 ## OpenSearch sink improvements
 
-Running Data Prepper as an ingestion pipeline in front of OpenSearch is an important capability for Data Prepper. This 
-release now adds hew enhancements to Data Prepper’s OpenSearch sink to make it even more useful with OpenSearch.
+Running Data Prepper as an ingestion pipeline in front of OpenSearch is an important capability for Data Prepper. This release now adds hew enhancements to Data Prepper’s OpenSearch sink to make it even more useful with OpenSearch.
 
-Data Prepper now supports routing traces and logs to different indices dynamically. Pipeline authors can define an 
-index name using a format string which can include properties from different events. With this capability, Data Prepper 
-can support an arbitrary number of indices using a single sink. For example, if you have logs with different 
-application identifiers, you could route events to an index specifically for each application.
+Data Prepper now supports routing traces and logs to different indices dynamically. Pipeline authors can define an index name using a format string which can include properties from different events. With this capability, Data Prepper can support an arbitrary number of indices using a single sink. For example, if you have logs with different application identifiers, you could route events to an index specifically for each application.
 
-Data Prepper also now allows routing documents to specific OpenSearch shards by use of the existing `routing` parameter 
-in OpenSearch. The new `routing_field` property on the OpenSearch sink will use properties from events to specify how to 
-route within OpenSearch. Most users will prefer to allow OpenSearch to generate document ids and choose the shard 
-from that. But, in some cases users need to specify these values and now Data Prepper offers users that option.
+Data Prepper also now allows routing documents to specific OpenSearch shards by use of the existing `routing` parameter in OpenSearch. The new `routing_field` property on the OpenSearch sink will use properties from events to specify how to route within OpenSearch. Most users will prefer to allow OpenSearch to generate document ids and choose the shard from that. But, in some cases users need to specify these values and now Data Prepper offers users that option.
 
-Going hand-in-hand with the routing field, Data Prepper now allows pipeline authors to specify a complex field to 
-use when specifying a document Id. Previously, a pipeline author would need to copy a value to a field in the root of 
-the event to use it as a document Id.
+Going hand-in-hand with the routing field, Data Prepper now allows pipeline authors to specify a complex field to use when specifying a document Id. Previously, a pipeline author would need to copy a value to a field in the root of the event to use it as a document ID.
 
 ## Type conversion
 
-Data Prepper now supports a new 
-[convert entry](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/mutate-event-processors#convertentryprocessor) 
-processor as part of 
-[mutate processors](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/mutate-event-processors#mutate-event-processors) 
-to convert value from one type to another. This can be particularly useful in conditional expressions when using conditional routing.
+Data Prepper now supports a new [convert entry](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/mutate-event-processors#convertentryprocessor) processor as part of [mutate processors](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/mutate-event-processors#mutate-event-processors) to convert value from one type to another. This can be particularly useful in conditional expressions when using conditional routing.
 
 For example, in the following pipeline using this processor would allow a user to convert value of `status` key to `integer`. 
 
@@ -221,8 +203,6 @@ See the [release notes](https://github.com/opensearch-project/data-prepper/relea
 
 ## Get started
 
-You can download Data Prepper or install a Docker container from the OpenSearch downloads page. The maintainers encourage 
-all users to update to Data Prepper 2.1.0 to gain the improved stability, administration options, and feature set.
+You can download Data Prepper or install a Docker container from the OpenSearch downloads page. The maintainers encourage all users to update to Data Prepper 2.1.0 to gain the improved stability, administration options, and feature set.
 
-Work is already started on Data Prepper 2.2. Please see the [roadmap](https://github.com/opensearch-project/data-prepper/projects/1)
-to learn about what is upcoming.
+Work is already started on Data Prepper 2.2. Please see the [roadmap](https://github.com/opensearch-project/data-prepper/projects/1) to learn about what is upcoming.
