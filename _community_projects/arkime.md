@@ -7,6 +7,6 @@ link: https://github.com/arkime/arkime
 download_link: https://arkime.com/downloads
 license: Apache License 2.0
 license_link: https://github.com/arkime/arkime/blob/main/LICENSE
-# upload your logo to the following directory
+# upload your logo to the following directory 
 icon: /assets/media/partners/arkime.png
 ---
