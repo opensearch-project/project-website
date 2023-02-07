@@ -13,7 +13,7 @@ meta_description: Data Prepper 2.1.0 improves performance and stability with enh
 ---
 
 Data Prepper 2.1.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)! This release
-provides a number of new features to Data Prepper.  Additionally, the maintainers have improved Data Prepper’s 
+provides several new features to Data Prepper.  Additionally, the maintainers have improved Data Prepper’s 
 stability and performance. Many of the new features 
 came from community contributions in the form of GitHub issues and pull requests.
 
@@ -186,7 +186,7 @@ trace-normal-pipeline:
 
 One of Data Prepper’s goals is supporting open standards. Data Prepper now supports the [OpenTelemetry](https://opentelemetry.io)
 log format. Previously, Data Prepper supported log data through the 
-[HTTP source plugin](https://opensearch.org/docs/latest/data-prepper/configuration/sources/http-source/) 
+[HTTP source plugin](https://opensearch.org/docs/latest/data-prepper/configuration/sources/http-source/), 
 which works well with tools such as [FluentBit](https://fluentbit.io). Some users would like to deploy the 
 [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) on their applications 
 and not require any other sidecars. Those users can now start to send logs to Data Prepper and then to OpenSearch.
@@ -244,7 +244,7 @@ See the [release notes](https://github.com/opensearch-project/data-prepper/relea
 
 ## Get started
 
-You can download Data Prepper or install a Docker container from the OpenSearch downloads page. The maintainers encourage 
+You can [download](https://opensearch.org/downloads.html) Data Prepper or install a Docker container from the OpenSearch downloads page. The maintainers encourage 
 all users to update to Data Prepper 2.1.0 to gain the improved stability, administration options, and feature set.
 
 Work is already started on Data Prepper 2.2. Please see the [roadmap](https://github.com/opensearch-project/data-prepper/projects/1)
