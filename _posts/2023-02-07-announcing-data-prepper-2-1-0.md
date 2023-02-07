@@ -12,7 +12,7 @@ meta_keywords: Data Prepper 2.1.0, Open Telemetry metrics, OpenTelemetry logs, d
 meta_description: Data Prepper 2.1.0 improves performance and stability with enhancements such as generated metrics, anomaly detection, sampling and limiting, and more.
 ---
 
-Data Prepper 2.1.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)! This release provides a number of new features to Data Prepper.  Additionally, the maintainers have improved Data Prepper’s stability and performance. Many of the new features came from community contributions in the form of GitHub issues and pull requests.
+Data Prepper 2.1.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)! This release provides several new features to Data Prepper.  Additionally, the maintainers have improved Data Prepper’s stability and performance. Many new features came from community contributions in the form of GitHub issues and pull requests.
 
 ## Generated metrics
 
@@ -20,18 +20,19 @@ By creating metrics for logs and traces that pass through the Data Prepper, the 
 
 Data Prepper 2.1 supports generating Open Telemetry format metrics from all incoming events. The Data Prepper aggregate processor has two new actions to support the generation of metrics for logs and traces.
 
-The `histogram` action generates a histogram of the data field being aggregated. The histogram data includes total count, min, max, sum in addition to the histogram buckets and bucket level counts. The `count` action generates a count of the data being aggregated.
+The `histogram` action generates a histogram of the data field being aggregated. Histogram data includes values for total count, minimum, maximum, and sum in addition to the histogram buckets and bucket level counts. The `count` action generates a count of the data being aggregated.
 
-Both these actions can be combined with aggregate processor’s conditional aggregation option to generate more meaningful metrics.
+Both the `historgram` and `count` actions can be combined with aggregate processor’s conditional aggregation option to generate more meaningful metrics.
 
-For example, the number of traces with error (`status_code` equal to 2) be obtained using `count` aggregate action along with `aggregate_when` option. We can also generate a histogram of trace latencies using another aggregate processor in a parallel sub-pipeline.
+For example, the number of traces with error (`status_code` equal to 2) can be obtained using the `count` aggregate action along with `aggregate_when` option. You can also generate a histogram of trace latencies using another aggregate processor in a parallel sub-pipeline.
 
-The pipeline configuration for the above example would look like the following:
+The pipeline configuration for the above example looks like the following:
 
 ```
 trace-error-metrics-pipeline:
   source:
     pipeline:
+    +
       name: "span-pipeline"
   processor:
     - aggregate:
