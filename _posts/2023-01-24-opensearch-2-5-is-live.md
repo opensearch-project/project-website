@@ -6,7 +6,7 @@ authors:
 date:   2023-01-24 12:15:00 -0700
 categories:
   - releases
-metadata_keywords: index management UI, Jaeger trace data, build multi-layered maps, opensearch debian, OpenSearch 2.5
+meta_keywords: index management UI, Jaeger trace data, build multi-layered maps, opensearch debian, OpenSearch 2.5
 meta_description: Learn how OpenSearch 2.5 expands core functionality, improves cluster administration, and provides you with tools to access, manage, and visualize data.
 ---
 
