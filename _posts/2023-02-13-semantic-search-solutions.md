@@ -4,8 +4,10 @@ title:  "Building a semantic search engine in OpenSearch"
 authors:
 - mshyani
 - nmishra
+- ylwu
+- seanzheng
 - kolchfa
-date: 2023-02-13
+date: 2023-02-01
 categories:
  - technical-post
 meta_keywords: 
