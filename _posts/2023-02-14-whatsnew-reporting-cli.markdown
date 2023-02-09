@@ -52,7 +52,7 @@ The Reporting CLI allows engineering and builder-focused people to configure and
 
 If you have tabular data in a **Discover** view, you can generate a CSV report to capture all the data and send to stakeholders. This is the one exception that requires you to log into the Dashboards and use the Reporting Plugin, and you can only create CSV reports for the OpenSearch Dashboards **Discover** application.
 
-![Image: An example Dashboard visualization PDF]({{site.baseurl}}/assets/media/blog-images/2023-02-14-whatsnew-reporting-cli/tab-csv.png){:.img-fluid }
+![Image: An example tabular Dashboard to create a CSV report]({{site.baseurl}}/assets/media/blog-images/2023-02-14-whatsnew-reporting-cli/tab-csv.png){:.img-fluid }
 
 ### Summary
 
