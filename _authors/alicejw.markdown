@@ -1,5 +1,5 @@
 ---
-name: 
+name: Alice Williams
 short_name: alicejw
 photo: '/assets/media/authors/alicejw.jpg'
 twitter:
