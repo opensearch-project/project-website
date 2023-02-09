@@ -18,9 +18,9 @@ The OpenSearch project is happy to announce the release of the Reporting CLI too
 
 In this post we’ll show you a few examples of how to leverage the Reporting CLI capabilities, such as:  
 
-* Generating a CSV from tabular data in the Dashboards *Discover* view
 * Generating a PDF from an eCommerce Dashboard that shows data visualizations
-* Incorporating report generation into your workflow
+* Incorporating report generation into your workflow with email or notifications
+* Generating a CSV from tabular data in the Dashboards *Discover* view
 
 ### What is the Reporting CLI?
 
