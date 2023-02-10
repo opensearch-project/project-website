@@ -40,7 +40,7 @@ A deep neural network (DNN) sees everything as a vector, be it images, videos, o
         width: 50%;
     }
 </style>
-<img src="/assets/media/blog-images/2023-02-01-semantic-search-solutions/vectors.jpg" alt="Similar vectors" class="center"/>
+<img src="/assets/media/blog-images/2023-02-13-semantic-search-solutions/vectors.jpg" alt="Similar vectors" class="center"/>
 
 In the context of web search, the neural net creates vector embeddings for every document in the database. At search time, the network creates a vector for the query and finds all the document vectors that are closest to the query vector using an approximate nearest neighbor search, such as [k-NN](https://opensearch.org/docs/latest/search-plugins/knn/index/). Because the vectors of similar texts are mapped close to each other, a nearest neighbor search is equivalent to a search for similar documents. 
 
