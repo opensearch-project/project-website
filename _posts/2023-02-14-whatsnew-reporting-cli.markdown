@@ -16,7 +16,7 @@ categories:
 
 The OpenSearch Project is happy to announce the release of the Reporting CLI, making it convenient to generate reports externally without logging in to OpenSearch Dashboards. This gives you the flexibility to programmatically generate reports and connect them to your preferred messaging system. You can now schedule and transport reports efficiently through email.
 
-In this post we’ll show you a few examples of how to leverage the Reporting CLI capabilities, such as:  
+In this post we’ll show you a few examples of how to leverage the capabilities of the Reporting CLI, such as:  
 
 * Generating a PDF from an eCommerce Dashboard that shows data visualizations and scheduling the report to run at a specific time using cron
 * Incorporating report generation into your workflow with email or notifications
