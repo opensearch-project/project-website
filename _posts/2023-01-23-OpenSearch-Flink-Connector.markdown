@@ -4,7 +4,7 @@ title:  "Apache Flink Connector for OpenSearch"
 authors:
 - ftisiot
 - reta
-date: 2022-02-10
+date: 2023-02-10
 categories:
  - technical-post
 
