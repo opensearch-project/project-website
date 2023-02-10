@@ -28,7 +28,7 @@ The Reporting CLI is a package you can install separately from the Reporting plu
 
 ### What can you do with the Reporting CLI?
 
-To automate report generation and distribute it across messaging systems can save you time, and connect with people who need the report data securely with several authentication options.
+The Reporting CLI can save you time by automating report generation and distribution across messaging systems and provides access to the report data through several authentication options.
 
 If you want more flexibility with how you can distribute reports throughout your organization through multiple messaging systems such as Slack or SES email systems, you can conveniently schedule and deliver those Dashboard **Discover** reports with the Reporting CLI.
 
