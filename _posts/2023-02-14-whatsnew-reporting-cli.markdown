@@ -32,7 +32,7 @@ The Reporting CLI can save you time by automating report generation and distribu
 
 If you want more flexibility in how you can distribute reports throughout your organization through multiple messaging systems, such as Slack or SES email systems, you can conveniently schedule and deliver those Dashboard **Discover** reports with the Reporting CLI.
 
-If you want to use an AWS service event to trigger a report, you can configure a trigger using AWS Lambda.
+If you want to use an AWS service event to trigger a report, you can configure a trigger using [AWS Lambda](https://aws.amazon.com/lambda/).
 
 ### Example: Generating a PDF from a Dashboard
 
