@@ -24,7 +24,7 @@ In this post we’ll show you a few examples of how to leverage the Reporting CL
 
 ### What is the Reporting CLI?
 
-Reporting CLI is a package you can install separately from the Reporting plugin that allows you to specify an OpenSearch Dashboards Discover URL and generate a report in PDF, PNG, or CSV format. You can download reports you generate locally or send reports programmatically to downstream messaging systems.
+Reporting CLI is a package you can install separately from the Reporting plugin that allows you to specify an OpenSearch Dashboards **Discover** URL and generate a report in PDF or PNG format. You can download reports you generate locally or send reports programmatically to downstream messaging systems. You can also leverage the capabilities of the Reporting CLI to email CSV reports, but that requires the Reporting plugin.
 
 ### What can you do with the Reporting CLI?
 
