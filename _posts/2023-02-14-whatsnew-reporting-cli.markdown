@@ -10,8 +10,8 @@ authors:
 date: 2023-02-14 00:00:00 -0700
 categories:
  - technical-post
- meta_keywords: "Reporting CLI, automate reports"
- meta_description: "The Reporting CLI makes it convenient to generate reports externally without logging in to OpenSearch Dashboards."
+meta_keywords: "Reporting CLI, OpenSearch Reporting plugin, automate reporting in OpenSearch"
+ meta_description: "Learn how the Reporting CLI makes it convenient to generate external reports without logging in to OpenSearch Dashboards."
 ---
 
 The OpenSearch Project is happy to announce the release of the Reporting CLI, making it convenient to generate reports externally without logging in to OpenSearch Dashboards. This gives you the flexibility to programmatically generate reports and connect them to your preferred messaging system. You can now schedule and transport reports efficiently through email.
@@ -56,6 +56,6 @@ If you have tabular data in a **Discover** view, you can generate a CSV report t
 
 ### Summary
 
-We encourage you to try out the Reporting CLI and let us know what you think. How do you incorporate the Reporting CLI into your workflows? We would love to hear from you! If you encounter any challenges with this feature, please let us know by creating a [GitHub issue](https://github.com/opensearch-project/reporting-cli/issues).
+We encourage you to try out the Reporting CLI and let us know what you think. How do you incorporate the Reporting CLI into your workflows? We would love to hear from you in the [OpenSearch community forum](https://forum.opensearch.org/). If you encounter any challenges with this feature, please let us know by creating a [GitHub issue](https://github.com/opensearch-project/reporting-cli/issues).
 
 To get started with the Reporting CLI, see [Creating reports with the Reporting CLI](https://opensearch.org/docs/latest/dashboards/reporting-cli/rep-cli-index/) in the OpenSearch documentation.
