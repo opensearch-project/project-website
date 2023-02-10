@@ -6,4 +6,4 @@ twitter:
 github: rupal-bq
 ---
 
-Rupal Mahajan is an AWS Software Development Engineer working on the OpenSearch project.
+Rupal Mahajan is an AWS software development engineer working on the OpenSearch Project.
