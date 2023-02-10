@@ -40,7 +40,7 @@ You can generate an eCommerce revenue dashboard PDF report that shows all of the
 
 ![Image: An example Dashboard visualization PDF]({{site.baseurl}}/assets/media/blog-images/2023-02-14-whatsnew-reporting-cli/cli-pdf-report.png){:.img-fluid }
 
-### Example: Using advanced options to add the Reporting CLI to your workflow*
+### Example: Using advanced options to add the Reporting CLI to your workflow
 
 The Reporting CLI allows engineers and builders to configure and connect their generated reports to messaging systems by specifying advanced CLI options. Out of the box, the Reporting CLI will download the report locally, but the following options will allow you to send the report to someone:
 
