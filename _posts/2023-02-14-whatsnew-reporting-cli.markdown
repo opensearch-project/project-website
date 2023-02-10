@@ -46,7 +46,7 @@ The Reporting CLI allows engineering and builder-focused people to configure and
 
 * **Email** – Send the report to stakeholders using [Amazon SES](https://aws.amazon.com/ses/) or Oracle Cloud Infrastructure (OCI) Email Delivery service.
 
-* **Schedule a Report using Notifications** – Use [Amazon SNS](https://aws.amazon.com/sns/) or Oracle Notification Service (ONS) to trigger a report and send a message to Slack, PagerDuty, or ServiceNow.
+* **Schedule a report using notifications** – Use [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns/) or Oracle Notification Service (ONS) to trigger a report and send a message to Slack, PagerDuty, or ServiceNow.
 
 ### Example: Generating a CSV report from tabular data
 
