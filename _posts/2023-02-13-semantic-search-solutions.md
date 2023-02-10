@@ -24,7 +24,7 @@ Imagine a dataset of public images with captions. What should the query [**Wild 
 
 To compare keyword search to semantic search, consider the following image, which shows search results for **Wild West** produced by BM25 (left) and [deep neural nets](https://en.wikipedia.org/wiki/Deep_learning) (right).
 
-<img src="/assets/media/blog-images/2023-02-01-semantic-search-solutions/semantic-search.jpg" alt="BM25 vs. Semantic Search Results"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-02-13-semantic-search-solutions/semantic-search.jpg" alt="BM25 vs. Semantic Search Results"/>{: .img-fluid }
 
 Notice how on the left, keyword search surfaces **West** Virginia university and **wild** animal.  On the right, neither caption contains the word **wild** or **west**, yet other terms in the caption form the basis for a closer match. 
 
@@ -78,7 +78,7 @@ If you’re interested in semantic search performance, look for detailed benchma
 
 To build a custom solution, ideally, you need a dataset that consists of `(query, relevant passage)` pairs from the chosen domain to train a model so that it performs well on that domain. In the OpenSearch context, it is common to have passages, but not queries. The synthetic query generation technique circumvents this problem by automatically generating artificial queries. For example, given the passage on the left, the synthetic query generator automatically generates a question similar to the one shown on the right.
 
-<img src="/assets/media/blog-images/2023-02-01-semantic-search-solutions/synthetic-query.png" alt="Synthetic query"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-02-13-semantic-search-solutions/synthetic-query.png" alt="Synthetic query"/>{: .img-fluid }
 
 A medium-sized transformer model such as TAS-B can then be trained on several such `(query, passage)` pairs. Using this technique, we trained and released a large machine learning model that can create queries based on passages.
 
