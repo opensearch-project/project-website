@@ -48,7 +48,7 @@ The Reporting CLI allows engineering and builder-focused people to configure and
 
 * **Schedule a Report using Notifications** – Use [Amazon SNS](https://aws.amazon.com/sns/) or Oracle Notification Service (ONS) to trigger a report and send a message to Slack, PagerDuty, or ServiceNow.
 
-### Example: Generating a CSV from tabular data
+### Example: Generating a CSV report from tabular data
 
 If you have tabular data in a **Discover** view, you can generate a CSV report to capture all the data and send to stakeholders. This is the one exception that requires you to log into the Dashboards and use the Reporting Plugin.
 
