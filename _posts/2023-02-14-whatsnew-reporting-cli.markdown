@@ -44,7 +44,7 @@ You can generate an eCommerce revenue Dashboard PDF report to show all of the da
 
 The Reporting CLI allows engineers and builders to configure and connect their generated reports to messaging systems by specifying advanced CLI options. Out of the box, the Reporting CLI will download the report locally, but the following options will allow you to send the report to someone:
 
-* **Email** – Send the report to stakeholders using [Amazon SES](https://aws.amazon.com/ses/) or Oracle Cloud Infrastructure (OCI) Email Delivery service.
+* **Email** – Send the report to stakeholders using [Amazon Simple Email Service (Amazon SES)](https://aws.amazon.com/ses/) or Oracle Cloud Infrastructure (OCI) Email Delivery.
 
 * **Schedule a report using notifications** – Use [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns/) or Oracle Notification Service (ONS) to trigger a report and send a message to Slack, PagerDuty, or ServiceNow.
 
