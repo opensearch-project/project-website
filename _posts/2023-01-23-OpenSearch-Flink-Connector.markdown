@@ -17,7 +17,7 @@ Apache Flink® and OpenSearch® are widely known and successful open source proj
 
 This post will help you understand how the Apache Flink Connector for OpenSearch bridges both projects by enabling you to push the outcome of data transformations directly to an OpenSearch index.
 
-![Flink + OpenSearch](flink_opensearch.png)
+<img src="/assets/media/blog-images/2023-01-23-OpenSearch-Flink-Connector/flink_opensearch.png" alt="Flink + OpenSearch"/>{: .img-fluid }
 
 ## What is Flink?
 
