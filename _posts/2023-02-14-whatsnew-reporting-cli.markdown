@@ -30,7 +30,7 @@ The Reporting CLI is a package you can install separately from the Reporting plu
 
 The Reporting CLI can save you time by automating report generation and distribution across messaging systems and provides access to the report data through several authentication options.
 
-If you want more flexibility with how you can distribute reports throughout your organization through multiple messaging systems such as Slack or SES email systems, you can conveniently schedule and deliver those Dashboard **Discover** reports with the Reporting CLI.
+If you want more flexibility in how you can distribute reports throughout your organization through multiple messaging systems, such as Slack or SES email systems, you can conveniently schedule and deliver those Dashboard **Discover** reports with the Reporting CLI.
 
 If you want to use an AWS service event to trigger a report, you can configure a trigger using AWS Lambda.
 
