@@ -56,6 +56,6 @@ If you have tabular data in a **Discover** view, you can generate a CSV report t
 
 ### Summary
 
-We encourage you to try out the Reporting CLI and let us know what you think! How do you incorporate the Reporting CLI into your workflows? We would love to hear from you! If you encounter any challenges with this feature, please let us know by creating a [GitHub issue](https://github.com/opensearch-project/reporting-cli/issues).
+We encourage you to try out the Reporting CLI and let us know what you think. How do you incorporate the Reporting CLI into your workflows? We would love to hear from you! If you encounter any challenges with this feature, please let us know by creating a [GitHub issue](https://github.com/opensearch-project/reporting-cli/issues).
 
 To get started using the Reporting CLI, see [Creating reports with the Reporting CLI](https://opensearch.org/docs/latest/dashboards/reporting-cli/rep-cli-index/) in the OpenSearch documentation.
