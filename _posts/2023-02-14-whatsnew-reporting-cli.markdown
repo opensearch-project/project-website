@@ -42,7 +42,7 @@ You can generate an eCommerce revenue Dashboard PDF report to show all of the da
 
 ### Example: Using advanced options to add Reporting CLI into your workflow*
 
-The Reporting CLI allows engineering and builder-focused people to configure and connect their generated reports with messaging systems by specifying the advanced CLI options. Out of the box, the Reporting CLI will download the report locally, but what if you want to send the report to someone? Below are a few ideas on how you would go about doing that.
+The Reporting CLI allows engineers and builders to configure and connect their generated reports to messaging systems by specifying advanced CLI options. Out of the box, the Reporting CLI will download the report locally, but the following options will allow you to send the report to someone:
 
 * **Email** – Send the report to stakeholders using [Amazon SES](https://aws.amazon.com/ses/) or Oracle Cloud Infrastructure (OCI) Email Delivery service.
 
