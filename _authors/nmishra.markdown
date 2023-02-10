@@ -5,4 +5,4 @@ photo:
 github: 
 ---
 
-**Nina Mishra** is a scientist at Amazon.
+**Nina Mishra** is a scientist at Amazon, interested in machine learning algorithms and healthcare.
