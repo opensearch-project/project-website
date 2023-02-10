@@ -7,11 +7,11 @@ authors:
 - ylwu
 - seanzheng
 - kolchfa
-date: 2023-02-01
+date: 2023-02-13
 categories:
  - technical-post
-meta_keywords: 
-meta_description: 
+meta_keywords: semantic search, semantic search solution, deep neural network, natural language queries, semantic search vs keyword search
+meta_description: Learn about the semantic search, its implementation in OpenSearch, and the fundamental concepts you need to conduct deep neural network-based searches.
 
 excerpt: Semantic search helps search engines understand queries. Unlike traditional search, which takes into account only keywords, semantic search also considers their meaning in the search context. Thus, a deep neural network-based semantic search engine has the ability to answer natural language queries in a human-like manner. In this post, you will learn about semantic search and the ways you can implement it in OpenSearch.
 ---
@@ -95,3 +95,12 @@ To try the synthetic query generator model, follow the end-to-end guide in the [
 If you have any comments or suggestions regarding semantic search, we welcome your feedback in the [OpenSearch forum](https://forum.opensearch.org/).
 
 We’ll be releasing blogs about benchmarking studies, an end-to-end guide on setting up a custom solution, and posts about new models and better neural search algorithms in the coming months. 
+
+## References
+
+1. Attention is all you need, Vaswani et al. https://doi.org/10.48550/arxiv.1706.03762
+1. Language Models are Unsupervised Multitask Learners, Radford et al. https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf
+1. Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks, Reimers et al. https://www.sbert.net/index.html
+1. Efficiently Teaching an Effective Dense Retriever with Balanced Topic Aware Sampling, Hofstätter et al. https://doi.org/10.48550/arXiv.2104.06967
+1. Synthetic QA Corpora Generation with Roundtrip Consistency, Alberti et al. https://aclanthology.org/P19-1620/ 
+1. Embedding-based Zero-shot Retrieval through Query Generation, Liang et al. https://doi.org/10.48550/arXiv.2009.10270
