@@ -18,7 +18,7 @@ The OpenSearch project is happy to announce the release of the Reporting CLI too
 
 In this post we’ll show you a few examples of how to leverage the Reporting CLI capabilities, such as:  
 
-* Generating a PDF from an eCommerce Dashboard that shows data visualizations
+* Generating a PDF from an eCommerce Dashboard that shows data visualizations and schedule the report to run at a specific time using cron
 * Incorporating report generation into your workflow with email or notifications
 * Generating a CSV from tabular data in the Dashboards *Discover* view
 
@@ -36,7 +36,7 @@ If you want to use an AWS service event to trigger a report, you can configure a
 
 ### Example: Generate a PDF from a Dashboard
 
-You can generate an eCommerce revenue Dashboard PDF report to show all of the data visualizations.
+You can generate an eCommerce revenue Dashboard PDF report to show all of the data visualizations, and schedule the report to run at a specific day and time with the cron utililty.
 
 ![Image: An example Dashboard visualization PDF]({{site.baseurl}}/assets/media/blog-images/2023-02-14-whatsnew-reporting-cli/cli-pdf-report.png){:.img-fluid }
 
