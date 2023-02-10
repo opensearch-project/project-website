@@ -19,7 +19,7 @@ The OpenSearch Project is happy to announce the release of the Reporting CLI, ma
 In this post we’ll show you a few examples of how to leverage the capabilities of the Reporting CLI, such as:  
 
 * Generating a PDF from an eCommerce dashboard that shows data visualizations and scheduling the report to run at a specific time using cron.
-* Incorporating report generation into your workflow with email or notifications
+* Incorporating report generation into your workflow with email or notifications.
 * Generating a CSV from tabular data in the Dashboards **Discover** application
 
 ### What is the Reporting CLI?
