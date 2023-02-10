@@ -34,7 +34,7 @@ If you want more flexibility in how you can distribute reports throughout your o
 
 If you want to use an AWS service event to trigger a report, you can configure a trigger using [AWS Lambda](https://aws.amazon.com/lambda/).
 
-### Example: Generating a PDF from a Dashboard
+### Example: Generating a PDF from a dashboard
 
 You can generate an eCommerce revenue Dashboard PDF report to show all of the data visualizations, and schedule the report to run at a specific day and time with the cron utility.
 
