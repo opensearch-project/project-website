@@ -47,8 +47,6 @@ You can easily choose the source/destination from the dropdown, and we also prov
 
 ### 6. Shrink index operation
 
-### 6. Shrink index operation
-
 Shrink index operation is used to shrink an existing index into a new index with fewer primary shards.
 
 When you want to shrink an index, go to the indices pages, select one index, click the `Shrink` action in the actions menu then you will enter the shrink index page. Please notice that only one index can be shrunk at once and data stream indices are not supported to do shrink, so if multiple indices are selected or a data stream backing index is seletecd in the indices pages, the `Shrink` option is disabled. 
