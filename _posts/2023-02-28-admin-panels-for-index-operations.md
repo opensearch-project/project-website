@@ -117,6 +117,14 @@ Open index is easier, you can select multiple indices to open even though these 
 
 ![Image: Open-index]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/open-index.jpg){:.img-fluid }
 
+### 8. Split index
+
+When user choose to split an index, we'll check the status of that index, if it's not ready to be splitted, we'll provide actions that user can operate to make the index ready for splitting. We'll also provide a list of shard numbers the index can be splitted to so user does not need to calculate it manually.
+User can  specify number of replicas, associate the new index with existing index alias or new alias. They can also use JSON editor to specify any index setting as well.
+
+![Image: Split page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/splitindex-normal.jpg){:.img-fluid }
+![Image: Split page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/splitindex-notready.jpg){:.img-fluid }
+
 # In the end
 
 **Try it**
