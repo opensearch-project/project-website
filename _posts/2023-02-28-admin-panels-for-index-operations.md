@@ -43,7 +43,84 @@ You can easily choose the source/destination from the dropdown, and we also prov
 
 ![Image: Reindex page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/reindex.png){:.img-fluid }
 
-### 6. Others
+### 6. Shrink index operation
+
+Shrink index operation is used to shrink an existing index into a new index with fewer primary shards.
+
+When you want to shrink an index, go to the indices pages, select one index, click the `Shrink` action in the actions menu then you will enter the shrink index page. Please notice that only one index can be shrunk at once and data stream indices are not supported to do shrink, so if multiple indices are selected or a data stream backing index is seletecd in the indices pages, the `Shrink` option is disabled. 
+
+![Image: Shrink-action]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-action.jpg){:.img-fluid }
+
+Before shrinking, please make sure that the index you want to shrink is not in these states:
+
+* the index's health status is red.
+* the index has only one primary shard.
+
+If the index is in one of the states above, some error messages will be shown in the shrink index page while the shrink button is disabled.
+
+![Image: Shrink-red]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-red.jpg){:.img-fluid }
+
+![Image: Shrink-one-shard]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-one-shard.jpg){:.img-fluid }
+
+Shrink index operation has some prerequisites, if the source index does not meet the conditions, some error messages will be shown in the shrink index page.
+
+One condition is that the source index must block write operations, i.e. the `index.blocks.write` setting in the source index is `true`, if the source index is not set to block write operations, then you can click the `Block write operations` button to set the `index.blocks.write` setting to `true`.
+
+![Image: Shrink-block-write]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-block-write.jpg){:.img-fluid }
+
+The second condition is that the source index must be open, when the source index is closed, the shrink operation will fail, so you can click the `Open` button to open the index, this may take additional time to complete and the index will be in red health status while opening.
+
+![Image: Shrink-open]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-open.jpg){:.img-fluid }
+
+Another condition is that a copy of every shard in the source index must reside on the same node, you can move a copy of every shard to one node manually or using the shard allocation filter to do so, but it is not required when the cluster has only one data node or the replica count of the source index is equal to the number of data nodes minus 1(in these cases, a copy of every shard in the source index just reside on the same node). So if a copy of every shard in the source index does not reside on the same node, you can update the `index.routing.allocation.require._name` setting of the source index to move shards to one node automatically.
+
+You can update the setting in the source index's detail page:
+![Image: Shrink-move-shards]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-move-shards.jpg){:.img-fluid }
+
+or submit the following request by `Dev Tools`:
+
+```
+PUT test-1/_settings
+{
+"index.routing.allocation.require._name":"node1"
+}
+
+```
+
+After all things are ready, fill the input form in the shrink index page, speficy a name, primary shard count and replica count for the new shrunken index, you can also secify new aliases or select existing aliases to attach them to the new shrunken index. 
+
+![Image: Shrink-configure]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-configure.jpg){:.img-fluid }
+
+All the settings you specified above will also be shown in the json editor contained in the `Advanced settings` part, you can specify more index settings for the new shrunken index in the json editor, for example, set both `index.routing.allocation.require._name` and `index.blocks.write` to `null`, this will clear the allocation requirement and the index write block copied from the source index.
+
+
+![Image: Shrink-advanced-settings]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-advanced-settings.jpg){:.img-fluid }
+
+As the settings for the new shrunken index are specified, click the `Shrink` button then the shrink operation will be triggered:
+
+![Image: Shrink-started]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-started.jpg){:.img-fluid }
+
+you can see a toast showing the shrink operation started successfully, after minutes or even hours, when the shrink operation is completed, a new toast will be shown says that the source index has been successfully shrunken.
+
+![Image: Shrink-completed]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-completed.jpg){:.img-fluid }
+
+### 7. Open and close index operation
+
+You can selecet multiple indices except the backing indices of a data stream to open or close.
+
+If you don't need to read or search some old indices, but you don't want to delete them, then you can use close opeartion to     close these indices which can maintain the data but have a small overhead on the cluster. Another scenario is that when you want to add an new analyzer to an existing index, you must close the index, define the analyzer and then open the index. A closed index is blocked for read and write operations, so you must type the word close to confirm your action:
+
+![Image: Close-index]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/close-index.jpg){:.img-fluid }
+
+Open index is easier, you can select multiple indices to open even though these indices are all open:
+
+![Image: Open-index]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/open-index.jpg){:.img-fluid }
+
+
+
+
+
+### 8. Others
 
 Indexes, aliases and templates are all enhanced with CRUD operations in GUI. 
 
