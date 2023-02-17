@@ -2,8 +2,10 @@
 layout: post
 title:  "Index management UI enhancements"
 authors:
+- ihailong
 - gbinlong
 - suzhou
+- lxuesong
 date: 2023-02-28
 categories:
  - technical-post
