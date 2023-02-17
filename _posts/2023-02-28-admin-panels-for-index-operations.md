@@ -36,7 +36,13 @@ The new index operation UI provides a visual editor and a JSON editor in case th
 [TODO](A screen shot)
 It is easy to see what aliases an index contains while hard to see how many indexes an aliases points to by API. The Aliases page give you the result grouping by alias. Moreover, users have to use alias actions to add/remove indexes behind an alias and manually type the indexes, which is easy to raise faults. By using the Admin UI, it will be much easier to attach/detach indexes from an alias and the alias actions will be automatically generated.
 
-### 5. Others
+### 5. Simplify the flow for the reindex operation.
+
+You can easily choose the source/destination from the dropdown, and we also provide an ad-hoc destination index creation flow that allows you to import settings and mappings directly from the source, making it more convenient.
+
+![Image: Reindex page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/reindex.png){:.img-fluid }
+
+### 6. Others
 
 Indexes, aliases and templates are all enhanced with CRUD operations in GUI. 
 
