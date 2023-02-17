@@ -41,7 +41,7 @@ It is easy to see what aliases an index contains while hard to see how many inde
 
 ### 5. Simplify the flow for the reindex operation.
 
-You can easily choose the source/destination from the dropdown, and we also provide an ad-hoc destination index creation flow that allows you to import settings and mappings directly from the source, making it more convenient.
+You can easily select the source and destination indexes, aliases, or data streams from the dropdown menu. Additionally, we provide an ad-hoc destination index creation flow that allows you to import settings and mappings directly from the source, making the process more convenient.
 
 ![Image: Reindex page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/reindex.png){:.img-fluid }
 
