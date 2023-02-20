@@ -109,30 +109,30 @@ You will see a notification showing the shrink operation has started successfull
 
 ### Open and close index operation
 
-You can selecet multiple indices except the backing indices of a data stream to open or close.
+You can select multiple indices, except for the backing indices of a data stream, to open or close.
 
-If you don't need to read or search some old indices, but you don't want to delete them, then you can use close opeartion to     close these indices which can maintain the data but have a small overhead on the cluster. Another scenario is that when you want to add an new analyzer to an existing index, you must close the index, define the analyzer and then open the index. A closed index is blocked for read and write operations, so you must type the word close to confirm your action:
+If you don't need to read or search old indices, but you don't want to delete them, you can use close operation to     close indices which will maintain the data but will  then have small overhead on the cluster. Additionally, when you want to add a new analyzer to an existing index you must close the index, define the analyzer, then open the index. A closed index is blocked for read and write operations so you must type the word close to confirm your action:
 
 ![Image: Close-index]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/close-index.jpg){:.img-fluid }
 
-Open index is easier, you can select multiple indices to open even though these indices are all open:
+Opening an index is easier as you can select multiple indices to open even though some indices are already open:
 
 ![Image: Open-index]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/open-index.jpg){:.img-fluid }
 
-### 8. Split index
+### Split index
 
-When user choose to split an index, we'll check the status of that index, if it's not ready to be splitted, we'll provide actions that user can operate to make the index ready for splitting. We'll also provide a list of shard numbers the index can be splitted to so user does not need to calculate it manually.
-User can  specify number of replicas, associate the new index with existing index alias or new alias. They can also use JSON editor to specify any index setting as well.
+When users choose to split an index the status of that index is checked. If the index not able to be split, actions the user can take to make the index ready for splitting are provided. A list of shard numbers the index can be split into are provided so that the user does not need to calculate it manually.
+Users can specify the number of replicas and then associate the new index with an existing index or use a new alias. They can also use the JSON editor to specify any index settings as well.
 
 ![Image: Split page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/splitindex-normal.jpg){:.img-fluid }
 ![Image: Split page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/splitindex-notready.jpg){:.img-fluid }
 
-# In the end
+## In conclusion
 
 **Try it**
 
-To try the new index management, please find features on [official playground](https://playground.opensearch.org/app/opensearch_index_management_dashboards#/indices).
+To try out the new index management features, check out these features on the [official playground](https://playground.opensearch.org/app/opensearch_index_management_dashboards#/indices).
 
 ## Next steps
 
-We’ll be releasing more admin UI on features related to data streams, monitor metrics and so on. If you have any great advice on what we have or will release, please leave you message on the [OpenSearch forum](https://forum.opensearch.org/).
+We’ll be releasing more Index Management UI features related to data streams, monitor metrics and so on. If you have any advice on what we currently have or will release, please leave a message on the [OpenSearch forum](https://forum.opensearch.org/).
