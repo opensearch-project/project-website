@@ -57,8 +57,8 @@ When you want to shrink an index, go to the indices page, select an index, then 
 
 Before shrinking, please make sure that the index you want to shrink is not in one of the following states:
 
-* the index's health status is red.
-* the index has only one primary shard.
+* The index's health status is red.
+* The index has only one primary shard.
 
 If the index is in one of the states above, some error messages will be shown in the shrink index page while the shrink button is disabled.
 
