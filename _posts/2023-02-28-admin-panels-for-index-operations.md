@@ -12,18 +12,18 @@ categories:
 meta_keywords: index operations, split, shrink, reindex, index template, alias
 meta_description: Simplify cluster operations with index management UI enhancements.
 
-excerpt: OpenSearch now offers users a new interface for running common indexing and data stream operations. Users can perform create, read, update, and delete (CRUD) and mapping for indexes, index templates, and aliases through the UI as well as open, close, reindex, shrink, and split indexes. This is the first step toward establishing an Admin UI, which will serve as a unified administration panel in OpenSearch Dashboards.
+excerpt: OpenSearch now offers users a new interface for running common indexing and data stream operations. Users can perform create, read, update, and delete (CRUD) and mapping for indexes, index templates, and aliases through the UI as well as open, close, reindex, shrink, and split indexes. This is the first step toward establishing an Index Management UI, which will serve as a unified administration panel in OpenSearch Dashboards.
 ---
 
-Users may find it difficult to manage indexes, aliases and templates on Opensearch Dashboard by using APIs. There are restrictions and relation-binding stuff, like adding aliases to indexes, simulating an index template by its name and so on in the before. And now, we are excited to announce that the cluster operations have been largely simplified with index management UI enhancements on Opensearch Dashboard v2.5.
+Users may find it difficult to manage indexes, aliases, and templates on Opensearch Dashboard using only APIs. There are restrictions and relation-binding tasks, like adding aliases to indexes, simulating an index template by its name and more. We are excited to announce that these cluster operations have now been largely simplified with index management UI enhancements on Opensearch Dashboard v2.5.
 
-### 1. Visual editor for index mappings with nested tree editor.
+### Visual editor for index mappings with nested tree editor
 
-It is more complicated to build a JSON when it comes to index mappings, which has multiple nested layers and properties. To simplify that, A visual editor is provided with nested properties editable capability. Users can add properties by clicking the operation buttons and see what the mappings will be like by switching to JSON editor.
+It is more complicated to build a JSON when it comes to index mappings, which have multiple nested layers and properties. To simplify that, a visual editor is provided with editable capabilities for nested properties. Users can add properties by clicking the operation buttons and then see what the mappings will look like by switching to the JSON editor.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/index-mapping-editor.png" alt="index mapping editor"/>{: .img-fluid }
 
-### 2. Simulate index by index name.
+### Simulate index by index name
 
 It is hard to indicate what the index will be like considering the existing templates. To solve that, we will try to find if the index name matches any template every time users change the index name and merge what users manually input with what the matching template contains. What you see is what the index you get.
 
