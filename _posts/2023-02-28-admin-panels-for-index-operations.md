@@ -25,37 +25,37 @@ It is more complicated to build a JSON when it comes to index mappings, which ha
 
 ### Simulate index by index name
 
-It is hard to indicate what the index will be like considering the existing templates. To solve that, we will try to find if the index name matches any template every time users change the index name and merge what users manually input with what the matching template contains. What you see is what the index you get.
+It is hard to indicate what the index will be like considering the existing templates. To solve that, we will try to find out if the index name matches any templates each time users change the index name and merge what users manually input with what the matching template contains. A what you see is what you get index.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/simulate-template.png" alt="simulate template"/>{: .img-fluid }
 
-### 3. Edit settings by JSON editor and diff mode.
+### Edit settings by JSON editor and diff mode
 
-The new index operation UI provides a visual editor and a JSON editor in case the visual editor does not support all the fields. Further more, we provide editor with diff mode so users can see what changes they have made comparing the existing index, ensure no mistake will be made.
+The new index operation UI provides a visual editor and a JSON editor in case the visual editor does not support all available fields. Further more, we provide the editor with diff mode so that users can see what changes they have made by comparing the existing index to ensure that no mistake are made.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/json-diff-editor.png" alt="JSON diff editor"/>{: .img-fluid }
 
-### 4. One click to manage aliases on indexes.
+### One click to manage aliases on indexes
 
-It is easy to see what aliases an index contains while hard to see how many indexes an aliases points to by API. The Aliases page give you the result grouping by alias. Moreover, by using API users have to build alias actions to add/remove indexes behind an alias and manually type the indexes, which is easy to raise faults. By using the Admin UI, it will be much easier to attach/detach indexes from an alias and the alias actions will be automatically generated.
+It is easy to see what aliases an index contains while it's hard to see how many indexes an aliases points to via API. The Aliases page gives you these results by grouping by alias. Moreover, by using the API users have to build alias actions to add/remove indexes behind an alias and manually type the indexes, which can lead to mistakes. By using the Index Management UI, it will be much easier to attach/detach indexes from an alias, and the alias actions will be automatically generated.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/alias-creation.png" alt="create an alias"/>{: .img-fluid }
 
-### 5. Simplify the flow for the reindex operation.
+### Simplify the flow for the reindex operation
 
 You can easily select the source and destination indexes, aliases, or data streams from the dropdown menu. Additionally, we provide an ad-hoc destination index creation flow that allows you to import settings and mappings directly from the source, making the process more convenient.
 
 ![Image: Reindex page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/reindex.png){:.img-fluid }
 
-### 6. Shrink index operation
+### Shrink index operation
 
-Shrink index operation is used to shrink an existing index into a new index with fewer primary shards.
+The shrink index operation is used to shrink an existing index into a new index with fewer primary shards.
 
-When you want to shrink an index, go to the indices pages, select one index, click the `Shrink` action in the actions menu then you will enter the shrink index page. Please notice that only one index can be shrunk at once and data stream indices are not supported to do shrink, so if multiple indices are selected or a data stream backing index is seletecd in the indices pages, the `Shrink` option is disabled. 
+When you want to shrink an index, go to the indices page, select an index, then click the `Shrink` action in the actions menu. You will then enter the shrink index page. Please note that only one index can be shrunk at once and data stream indices are not supported to do a shrink opperation, so if multiple indices are selected or a data stream backing index is selected in the indices pages, the `Shrink` option is disabled. 
 
 ![Image: Shrink-action]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-action.jpg){:.img-fluid }
 
-Before shrinking, please make sure that the index you want to shrink is not in these states:
+Before shrinking, please make sure that the index you want to shrink is not in one of the following states:
 
 * the index's health status is red.
 * the index has only one primary shard.
