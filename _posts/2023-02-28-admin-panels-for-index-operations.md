@@ -66,22 +66,22 @@ If the index is in one of the above states, error messages will be shown in the 
 
 ![Image: Shrink-one-shard]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-one-shard.jpg){:.img-fluid }
 
-Shrink index operation has some prerequisites, if the source index does not meet the conditions, some error messages will be shown in the shrink index page.
+The shrink index operation has some prerequisites. If the source index does not meet the specified conditions, error messages will be shown in the shrink index page.
 
-One condition is that the source index must block write operations, i.e. the `index.blocks.write` setting in the source index is `true`, if the source index is not set to block write operations, then you can click the `Block write operations` button to set the `index.blocks.write` setting to `true`.
+The source index must block write operations. For example, if the `index.blocks.write` setting in the source index is set to `true`. If the source index is not set to block write operations, you can click the `Block write operations` button to set the `index.blocks.write` setting to `false`.
 
 ![Image: Shrink-block-write]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-block-write.jpg){:.img-fluid }
 
-The second condition is that the source index must be open, when the source index is closed, the shrink operation will fail, so you can click the `Open` button to open the index, this may take additional time to complete and the index will be in red health status while opening.
+Secondly, the source index must be open. When the source index is closed, the shrink operation will fail. You can click the `Open` button to open the index. This may take additional time to complete and the index will be in the red health status while opening.
 
 ![Image: Shrink-open]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-open.jpg){:.img-fluid }
 
-Another condition is that a copy of every shard in the source index must reside on the same node, you can move a copy of every shard to one node manually or using the shard allocation filter to do so, but it is not required when the cluster has only one data node or the replica count of the source index is equal to the number of data nodes minus 1(in these cases, a copy of every shard in the source index just reside on the same node). So if a copy of every shard in the source index does not reside on the same node, you can update the `index.routing.allocation.require._name` setting of the source index to move shards to one node automatically.
+Additionally, a copy of every shard in the source index must reside on the same node. You can move a copy of every shard to one node manually or use the shard allocation filter to do so, but this is not required when the cluster has only one data node or if the replica count of the source index is equal to the number of data nodes minus 1. In these cases, a copy of every shard in the source index reside on the same node. If a copy of every shard in the source index does not reside on the same node, you can update the `index.routing.allocation.require._name` setting of the source index to move shards to one node automatically.
 
 You can update the setting in the source index's detail page:
 ![Image: Shrink-move-shards]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-move-shards.jpg){:.img-fluid }
 
-or submit the following request by `Dev Tools`:
+Or you can submit the following request with `Dev Tools`:
 
 ```
 PUT test-1/_settings
@@ -90,24 +90,24 @@ PUT test-1/_settings
 }
 ```
 
-After all things are ready, fill the input form in the shrink index page, speficy a name, primary shard count and replica count for the new shrunken index, you can also secify new aliases or select existing aliases to attach them to the new shrunken index. 
+After everything is ready, fill out the input form in the shrink index page, specify a name, the primary shard count, and the replica count for the new shrunken index. You can also specify new aliases or select existing aliases to attach to the new shrunken index. 
 
 ![Image: Shrink-configure]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-configure.jpg){:.img-fluid }
 
-All the settings you specified above will also be shown in the json editor contained in the `Advanced settings` part, you can specify more index settings for the new shrunken index in the json editor, for example, set both `index.routing.allocation.require._name` and `index.blocks.write` to `null`, this will clear the allocation requirement and the index write block copied from the source index.
+All of the settings specified above will also be shown in the json editor under the `Advanced settings` section. You can also specify additional index settings for the new shrunken index in the json editor. For example, set both `index.routing.allocation.require._name` and `index.blocks.write` to `null`. This will clear the allocation requirement and the index write block is copied from the source index.
 
 
 ![Image: Shrink-advanced-settings]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-advanced-settings.jpg){:.img-fluid }
 
-As the settings for the new shrunken index are specified, click the `Shrink` button then the shrink operation will be triggered:
+Now that the settings for the new shrunken index are specified, click the `Shrink` button. The shrink operation will be triggered:
 
 ![Image: Shrink-started]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-started.jpg){:.img-fluid }
 
-you can see a toast showing the shrink operation started successfully, after minutes or even hours, when the shrink operation is completed, a new toast will be shown says that the source index has been successfully shrunken.
+You will see a notification showing the shrink operation has started successfully. After the shrink operation is completed (this can be anywhere from minutes to hours), a new notification will be shown saying that the source index has been successfully shrunken.
 
 ![Image: Shrink-completed]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-completed.jpg){:.img-fluid }
 
-### 7. Open and close index operation
+### Open and close index operation
 
 You can selecet multiple indices except the backing indices of a data stream to open or close.
 
