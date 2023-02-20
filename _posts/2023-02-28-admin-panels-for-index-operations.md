@@ -60,7 +60,7 @@ Before shrinking, please make sure that the index you want to shrink is not in o
 * The index's health status is red.
 * The index has only one primary shard.
 
-If the index is in one of the states above, some error messages will be shown in the shrink index page while the shrink button is disabled.
+If the index is in one of the above states, error messages will be shown in the shrink index page and the shrink button will be disabled.
 
 ![Image: Shrink-red]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-red.jpg){:.img-fluid }
 
