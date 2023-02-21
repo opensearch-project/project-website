@@ -9,8 +9,8 @@ authors:
 date: 2023-02-28
 categories:
  - technical-post
-meta_keywords: index operations, split, shrink, reindex, index template, alias
-meta_description: Simplify cluster operations with index management UI enhancements.
+meta_keywords: index management, index mappings, index operation UI, shrink index operations, OpenSearch Dashboards
+meta_description: Simplify cluster operations with index management UI enhancements that enable you to open, close, reindex, shrink, and split indexes in a more user-friendly way.
 
 excerpt: OpenSearch now offers users a new interface for running common indexing and data stream operations. Users can perform create, read, update, and delete (CRUD) and mapping for indexes, index templates, and aliases through the UI as well as open, close, reindex, shrink, and split indexes. This is the first step toward establishing an Index Management UI, which will serve as a unified administration panel in OpenSearch Dashboards.
 ---
@@ -136,3 +136,7 @@ To try out the new index management features, check out these features on the [o
 ## Next steps
 
 We’ll be releasing more Index Management UI features related to data streams, monitor metrics and so on. If you have any advice on what we currently have or will release, please leave a message on the [OpenSearch forum](https://forum.opensearch.org/).
+
+## References
+
+1. OpenSearch 2.5 is live! https://opensearch.org/blog/opensearch-2-5-is-live/
