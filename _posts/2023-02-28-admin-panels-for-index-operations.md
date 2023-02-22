@@ -68,7 +68,7 @@ If the index is in one of the above states, error messages will be shown in the 
 
 The shrink index operation has some prerequisites. If the source index does not meet the specified conditions, error messages will be shown in the shrink index page.
 
-The source index must block write operations. For example, if the `index.blocks.write` setting in the source index is set to `true`. If the source index is not set to block write operations, you can click the `Block write operations` button to set the `index.blocks.write` setting to `false`.
+The source index must block write operations, that means you must set the `index.blocks.write` setting in the source index to `true`. If the source index is not set to block write operations, you can click the `Block write operations` button to set the `index.blocks.write` setting to `true`.
 
 ![Image: Shrink-block-write]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-block-write.jpg){:.img-fluid }
 
@@ -94,7 +94,7 @@ After everything is ready, fill out the input form in the shrink index page, spe
 
 ![Image: Shrink-configure]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-configure.jpg){:.img-fluid }
 
-All of the settings specified above will also be shown in the json editor under the `Advanced settings` section. You can also specify additional index settings for the new shrunken index in the json editor. For example, set both `index.routing.allocation.require._name` and `index.blocks.write` to `null`. This will clear the allocation requirement and the index write block is copied from the source index.
+All of the settings specified above will also be shown in the json editor under the `Advanced settings` section. You can also specify additional index settings for the new shrunken index in the json editor. For example, set both `index.routing.allocation.require._name` and `index.blocks.write` to `null`. This will clear the allocation requirement and the index write block which are copied from the source index.
 
 
 ![Image: Shrink-advanced-settings]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-advanced-settings.jpg){:.img-fluid }
