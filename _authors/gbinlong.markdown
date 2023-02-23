@@ -6,4 +6,4 @@ twitter:
 github: gaobinlong
 ---
 
-Binlong Gao is an AWS software development engineer working on the OpenSearch Project. He is a previous contributor to the elasticsearch project and experienced in operating and optimizing elasticsearch. Currently, he focuses on the index management and other plugins of OpenSearch.
+Binlong Gao is an AWS software development engineer working on the OpenSearch Project. He is a previous contributor to the Elasticsearch project and experienced in operating and optimizing Elasticsearch. Currently, he focuses on the Index Management plugin and other OpenSearch plugins.

@@ -5,4 +5,4 @@ photo: '/assets/media/authors/lxuesong.jpeg'
 github: xluo-aws
 ---
 
-**Xuesong Luo** is an Engineer Manager of Shanghai AWS OpenSearch Team
+**Xuesong Luo** is an AWS engineering manager working on the OpenSearch Project.

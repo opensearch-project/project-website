@@ -15,11 +15,11 @@ meta_description: Simplify cluster operations with index management UI enhanceme
 excerpt: OpenSearch now offers users a new interface for running common indexing and data stream operations. Users can perform create, read, update, and delete (CRUD) and mapping for indexes, index templates, and aliases through the UI as well as open, close, reindex, shrink, and split indexes. This is the first step toward establishing an Index Management UI, which will serve as a unified administration panel in OpenSearch Dashboards.
 ---
 
-Users may find it difficult to manage indexes, aliases, and templates on Opensearch Dashboard using only APIs. There are restrictions and relation-binding tasks, like adding aliases to indexes, simulating an index template by its name and more. We are excited to announce that these cluster operations have now been largely simplified with index management UI enhancements on Opensearch Dashboard v2.5.
+Users may find it difficult to manage indexes, aliases, and templates in Opensearch Dashboards using only APIs because there are restrictions and relation-binding tasks, like adding aliases to indexes, simulating an index template by its name, and more. We are excited to announce that these cluster operations have now been largely simplified with index management UI enhancements in Opensearch Dashboard v2.5.
 
 ### Visual editor for index mappings with nested tree editor
 
-It is more complicated to build a JSON when it comes to index mappings, which have multiple nested layers and properties. To simplify that, a visual editor is provided with editable capabilities for nested properties. Users can add properties by clicking the operation buttons and then see what the mappings will look like by switching to the JSON editor.
+It is more complicated to build a JSON when it comes to index mappings, which have multiple nested layers and properties. To simplify this task, a visual editor is provided, with editable capabilities for nested properties. Users can add properties by clicking the operation buttons and then see what the mappings will look like by switching to the JSON editor.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/index-mapping-editor.png" alt="index mapping editor"/>{: .img-fluid }
 
