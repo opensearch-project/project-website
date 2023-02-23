@@ -13,6 +13,7 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | Peter Zhu        | [peterzhuamazon](https://github.com/peterzhuamazon) | Amazon      |
 | Charlotte Henkle | [CEHENKLE](https://github.com/CEHENKLE)             | Amazon      |
 | David Tippett    | [dtaivpp](https://github.com/dtaivpp)               | Amazon      |
+| Fanit Kolchina   | [kolchfa-aws](https://github.com/kolchfa-aws)       | Amazon      |
 
 ### Emeritus
 
