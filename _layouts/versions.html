@@ -249,6 +249,7 @@ this is the built-in error checking for the version definition having missing ar
               {% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
+            {% assign artifact_extra = nil %}
           {% endfor %}
         {%endfor%}
       {% endfor %}
