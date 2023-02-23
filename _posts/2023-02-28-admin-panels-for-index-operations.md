@@ -19,7 +19,7 @@ Users may find it difficult to manage indexes, aliases, and templates in Opensea
 
 ### Visual editor for index mappings with nested tree editor
 
-It is more complicated to build a JSON when it comes to index mappings, which have multiple nested layers and properties. To simplify this task, a visual editor is provided, with editable capabilities for nested properties. Users can add properties by clicking the operation buttons and then see what the mappings will look like by switching to the JSON editor.
+It is complicated to build a JSON when it comes to index mappings, which have multiple nested layers and properties. To simplify this task, a visual editor is provided, as show in the following image, with editable capabilities for nested properties. Users can add properties by clicking the operation buttons and then see what the mappings will look like by switching to the JSON editor.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/index-mapping-editor.png" alt="index mapping editor"/>{: .img-fluid }
 
