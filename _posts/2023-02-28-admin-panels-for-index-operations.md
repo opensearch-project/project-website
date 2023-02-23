@@ -31,7 +31,7 @@ It is hard to indicate what the index will be like considering the existing temp
 
 ### Edit settings by JSON editor and diff mode
 
-The new index operation UI provides a visual editor and a JSON editor in case the visual editor does not support all available fields. Further more, we provide the editor with diff mode so that users can see what changes they have made by comparing the existing index to ensure that no mistake are made.
+The new index operation UI provides a visual editor and a JSON editor in case the visual editor does not support all available fields. Further more, we provide the editor with diff mode, as show in the following image, so that users can see what changes they have made by comparing the existing index to ensure that no mistake are made.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/json-diff-editor.png" alt="JSON diff editor"/>{: .img-fluid }
 
