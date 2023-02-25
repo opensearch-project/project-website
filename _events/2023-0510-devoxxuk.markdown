@@ -10,7 +10,7 @@ signup:
 
 ---
 
-Join Olena Kutsenko at DevoxxUK for the session "Using Apache Kafka and OpenSearch to explore Mastodon"
+Join Olena Kutsenko at DevoxxUK for the session "Using Apache Kafka and OpenSearch to explore Mastodon" - https://www.devoxx.co.uk/speaker-details/?id=7861
 
 Apache Kafka is a powerful tool to connect multiple systems together, allowing the data to flow across multiple services and be reused for multiple purposes. This can be useful in many scenarios both for mission-critical applications, as well as for fast data explorations.
 In this talk I’ll show one such data exploration. Mastodon, as a tool for microblogging, is rising in popularity in recent months. If you just recently joined Mastodon and are still exploring it, you might find that scrolling the timeline has its limits to understand all that is happening there. That being the case, applying some engineering skills will give a better overview on topics and discussions happening on the platform.
