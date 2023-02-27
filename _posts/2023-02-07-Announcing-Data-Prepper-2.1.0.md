@@ -120,8 +120,8 @@ trace-metric-anomaly-detector-pipeline:
 
 Data Prepper 2.1 supports sampling and rate limiting to limit the number of events that are sent to a sink.
 
-One possible use case for both these features is to reduce the load on the OpenSearch when storing ordinary 
-(not very interesting) logs and metrics.
+These features can be used to reduce the load on the OpenSearch cluster when storing uninteresting logs and metrics.
+For example, you can limit the number of success HTTP logs or repetitive requests such as from a health check. 
 
 Both sampling and rate limiting are available as configurable actions in the aggregate processor.
 To use sampling, specify the sampling percentage
@@ -185,7 +185,7 @@ trace-normal-pipeline:
          index: sampled-traces
 ```
 
-## OpenTelemetry (OTel) logs
+## OpenTelemetry logs
 
 One of Data Prepper’s goals is to support open standards. Data Prepper now supports the [OpenTelemetry](https://opentelemetry.io)
 log format. Previously, Data Prepper supported log data through the 
@@ -205,9 +205,9 @@ index name using a format string, which can include properties from different ev
 can support an arbitrary number of indexes using a single sink. For example, if you have logs with different 
 application identifiers, you can route events to an index specific to each application.
 
-Data Prepper also now also allows routing documents to specific OpenSearch shards using the existing `routing` parameter 
-in OpenSearch. The new `routing_field` property on the OpenSearch sink will use properties from events to specify how to 
-route within OpenSearch. Most users prefer allowing OpenSearch to generate document IDs and choose the shard 
+Data Prepper also now allows you to route documents to specific OpenSearch shards using the existing OpenSearch `routing` parameter.
+The new `routing_field` property on the OpenSearch sink will use properties from events to specify how to 
+route them within OpenSearch. Most users prefer allowing OpenSearch to generate document IDs and choosing the shard 
 from that. However, Data Prepper now allows you to specify these values explicitly.
 
 Going hand in hand with the routing field, Data Prepper now lets you specify a complex field to 
@@ -218,9 +218,9 @@ the event in order to use it as a document ID.
 
 Data Prepper now provides a new 
 [convert entry](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/mutate-event-processors#convertentryprocessor) 
-processor as part of 
-[mutate processors](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/mutate-event-processors#mutate-event-processors) 
-that can convert a value from one type to another. This can be particularly useful in conditional expressions when using conditional routing.
+as part of its collection of 
+[mutate processors](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/mutate-event-processors#mutate-event-processors). 
+This feature can convert a value from one type to another. This can be particularly useful in conditional expressions when using conditional routing.
 
 For example, you can use the following processor in a pipeline to convert the value of the `status` key to an `integer`: 
 
@@ -238,7 +238,7 @@ processor:
 In addition to the new features already described, Data Prepper 2.1.0 introduces several other important improvements:
 
 * Instead of failing, Data Prepper pipelines with OpenSearch sinks now wait for OpenSearch to start during pipeline initialization if the sink is not available.
-* OpenSearch sink now allows you to load index mapping and ISM template files from an S3 bucket. You can configure the S3 object by providing its S3 URI in existing configuration option to load them.
+* OpenSearch sinks now allow you to load index mapping and Index State Management (ISM) template files from an Amazon Simple Storage Service (Amazon S3) bucket.
 * Data Prepper expressions now support the `null` value keyword in conditions with equality operators.
 * To help with pipeline stability, Data Prepper now provides a circuit breaker on Java heap usage. The circuit breaker will cause the sources to stop accepting new data that could possibly cause the process to crash. 
 
