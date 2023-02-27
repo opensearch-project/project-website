@@ -1,0 +1,20 @@
+---
+
+eventdate: 2023-05-10 - 2023-05-12
+tz: UTC
+title: Using Apache Kafka and OpenSearch to explore Mastodon
+online: false
+signup:
+    url: https://www.devoxx.co.uk/
+    title: Join Devoxx UK 2023 conference in London
+
+---
+
+Join Olena Kutsenko at DevoxxUK for the session "Using Apache Kafka and OpenSearch to explore Mastodon" - https://www.devoxx.co.uk/speaker-details/?id=7861
+
+Apache Kafka is a powerful tool to connect multiple systems together, allowing the data to flow across multiple services and be reused for multiple purposes. This can be useful in many scenarios both for mission-critical applications, as well as for fast data explorations.
+In this talk I’ll show one such data exploration. Mastodon, as a tool for microblogging, is rising in popularity in recent months. If you just recently joined Mastodon and are still exploring it, you might find that scrolling the timeline has its limits to understand all that is happening there. That being the case, applying some engineering skills will give a better overview on topics and discussions happening on the platform.
+Since Mastodon's timeline is nothing more than a collection of continuously arriving events, its feed is well-suited for Apache Kafka. Adding Kafka connectors on top of that opens multiple opportunities to use data for aggregations and visualizations.
+During this talk you'll learn how to bring data from Mastodon to Kafka using TypeScript and a couple of helpful libraries. Once the data is in the topic, we'll use Kafka Connect to bring the data into OpenSearch and use it for search, aggregations and visualizations.
+This talk is for both beginners in Apache Kafka and intermediate users. We'll use some more advanced concepts, but will keep it all simple, so that everyone can follow along and experiment with Mastodon data!
+
