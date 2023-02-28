@@ -19,7 +19,7 @@ Managing indexes, aliases, and templates in OpenSearch Dashboards can be difficu
 
 ## Visual editor for index mappings with nested tree editor
 
-Building a JSON for index mappings is complicated because it has several nested layers and properties. To simplify this task, we now provide a visual editor, which is shown in the following image, with editable nested properties. You can add properties by clicking the operation buttons and then see what the mappings will look like by switching to the JSON editor.
+Building a JSON for index mappings is complicated because it has several nested layers and properties. To simplify this task, we now provide a visual editor with editable nested properties, as shown in the following image. You can add properties by choosing the operation buttons and then see what the mappings will look like by switching to the JSON editor.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/index-mapping-editor.png" alt="index mapping editor"/>{: .img-fluid }
 
