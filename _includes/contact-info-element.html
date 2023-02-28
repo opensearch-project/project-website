@@ -1,0 +1,54 @@
+<script type="module">
+    class ContactInfoElement extends HTMLElement {
+        isEmailAddress(value) {
+            const pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+            return pattern.test(value);
+        }
+        isPhoneNumber(value) {
+            const pattern = /^[+-.() ]*(\d+)[+-.() ]*[-. ]*((\d{3}[-. ]*){0,5}(\d{1,2})?)?/;
+            return pattern.test(value);
+        }
+        isWebAddress(value) {
+            const pattern = /^https?:\/\/[^\n]+$/;
+            return pattern.test(value);
+        }
+
+        static get observedAttributes() {
+            return ['conact-info'];
+        }
+        render() {
+            const contactInfo = this.getAttribute('contact-info');
+            if (this.isEmailAddress(contactInfo)) {
+                this.shadowRoot.innerHTML = `
+                    <a href="mailto:${contactInfo}" target="_blank">${contactInfo}</a>
+                `;
+            } else if (this.isPhoneNumber(contactInfo)) {
+                this.shadowRoot.innerHTML = `
+                    <a href="tel:${contactInfo}" target="_blank">${contactInfo}</a>
+                `;
+            } else if (this.isWebAddress(contactInfo)) {
+                this.shadowRoot.innerHTML = `
+                    <a href="${contactInfo} target="_blank">${contactInfo}</a>
+                `;
+            } else {
+                this.shadowRoot.innerHTML = `
+                    <span>${contactInfo}</span>
+                `;
+            }
+        }
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+        }
+        connectedCallback() {
+            this.render();
+        }
+        attributeChangedCallback(name, oldValue, newValue) {
+            if (oldValue !== newValue) {
+                this.render();
+            }
+        }
+    }
+
+    customElements.define('contact-info', ContactInfoElement);
+</script>

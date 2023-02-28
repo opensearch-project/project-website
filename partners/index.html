@@ -11,7 +11,7 @@ notice: true
 <div class="partners">
   {% for partner in site.partners %}
   <div class="partner">
-    <a href="{{ partner.link }}" target="_blank">
+    <a href="{{ partner.url | relative_url }}">
       <img src="{{ partner.logo }}" alt="{{ partner.name }} Logo" />
       <span class="partner-name"> {{ partner.name }} </span>
     </a>

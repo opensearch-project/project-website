@@ -1,0 +1,114 @@
+<template id="partner_social_links_facebook_tpl">
+    <style>
+        div, svg {
+            height: 36px;
+            width: 32px;
+            clear: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <div>
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg>
+    </div>
+</template>
+<template id="partner_social_links_twitter_tpl">
+    <style>
+        div, svg {
+            height: 36px;
+            width: 32px;
+            clear: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    </style>
+    <div>
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg>
+    </div>
+</template>
+<template id="partner_social_links_linkedin_tpl">
+    <style>
+        div, svg {
+            height: 36px;
+            width: 32px;
+            clear: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    </style>
+    <div>
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg>
+    </div>
+</template>
+<template id="partner_social_links_github_tpl">
+    <style>
+        div, svg {
+            height: 36px;
+            width: 32px;
+            clear: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    </style>
+    <div>
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="240.000000pt" height="240.000000pt" viewBox="0 0 240.000000 240.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,240.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M1065 2394 c-92 -14 -198 -39 -260 -61 -398 -143 -692 -479 -781
+-893 -23 -106 -26 -352 -5 -455 48 -245 161 -457 335 -631 104 -104 209 -178
+343 -241 113 -54 156 -63 183 -38 18 16 20 31 20 139 l0 121 -117 0 c-108 0
+-122 2 -168 27 -64 34 -85 57 -129 145 -35 71 -83 129 -140 169 -61 42 7 74
+88 40 41 -17 103 -71 121 -105 39 -75 127 -130 208 -131 59 0 138 19 141 34
+13 50 32 96 52 123 l24 31 -43 7 c-76 12 -187 45 -239 71 -108 55 -198 166
+-233 287 -23 80 -34 218 -24 299 9 71 51 174 91 222 24 28 24 30 11 94 -11 50
+-11 82 -3 133 17 110 22 119 74 119 55 0 129 -27 219 -80 l68 -39 72 16 c99
+23 355 23 454 0 l73 -16 67 40 c90 52 164 79 219 79 52 0 57 -9 74 -119 8 -51
+8 -83 -3 -133 -13 -64 -12 -66 11 -94 67 -82 94 -172 93 -309 -1 -192 -48
+-322 -153 -422 -81 -76 -182 -119 -352 -148 l-38 -6 20 -22 c50 -53 56 -88 60
+-327 3 -192 6 -228 20 -243 24 -27 72 -18 184 36 135 63 240 137 344 241 174
+174 287 386 335 631 21 103 18 349 -5 455 -100 464 -456 826 -916 931 -83 19
+-327 33 -395 23z"/>
+</g>
+</svg>
+</div>
+</template>
+<script type="module">
+    class PartnerSocialLinksElement extends HTMLElement {
+        // add an observed property named icon
+        static get observedAttributes() {
+            return ['icon'];
+        }
+
+        // called when the element is created
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+        }
+
+        // called when the element is inserted into the DOM
+        connectedCallback() {
+            this.render();
+        }
+
+        // called when attribute changes
+        attributeChangedCallback(name, oldValue, newValue) {
+            if (oldValue !== newValue) {
+                this.render();
+            }
+        }
+        render() {
+            const icon = this.getAttribute('icon');
+            const template = document.getElementById(`partner_social_links_${icon}_tpl`);
+            const instance = template.content.cloneNode(true);
+            this.shadowRoot.replaceChildren(instance);
+        }
+    }
+    // register the element
+    customElements.define('partner-social-links', PartnerSocialLinksElement);
+</script>
