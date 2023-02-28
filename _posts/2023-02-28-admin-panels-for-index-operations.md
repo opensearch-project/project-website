@@ -68,7 +68,7 @@ If the index is in either of these states, error messages will be displayed on t
 
 ![Image: Shrink-one-shard]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-one-shard.jpg){:.img-fluid }
 
-The **Shrink index* operation requires certain prerequisites to be met. If the source index does not meet the specified conditions, error messages will be displayed on the **Shrink index** page.
+The **Shrink index** operation requires certain prerequisites to be met. If the source index does not meet the specified conditions, error messages will be displayed on the **Shrink index** page.
 
 The source index must block write operations, which means that you need to set the `index.blocks.write` setting in the source index to `true`. If the source index is not set to block write operations, you can choose the **Block write operations** button to set the `index.blocks.write` setting to `true`, as shown in the following image.
 
