@@ -25,7 +25,7 @@ Building index mappings in pure JSON because it has several nested layers and pr
 
 ## Simulate an index by index name
 
-It is challenging to predict the appearance of the index taking into account existing templates. To resolve this issue, we will attempt to match the index name with the templates whenever you change the index name. We will merge what users manually input with what the matching template contains, making it a "what you see is what you get" index.
+It is challenging to predict the appearance of the index when taking into account existing templates. To resolve this issue, we will attempt to match the index name with the templates whenever you change the index name, as shown in the image below. We will merge what users manually input with what the matching template contains, making it a "what you see is what you get" index.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/simulate-template.png" alt="simulate template"/>{: .img-fluid }
 
