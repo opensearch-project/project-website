@@ -6,4 +6,4 @@ twitter:
 github: SuZhou-Joe
 ---
 
-Zhou Su is an AWS frontend engineer working on the Index Management plugin.
+**Zhou Su** is an AWS frontend engineer working on the Index Management plugin.
