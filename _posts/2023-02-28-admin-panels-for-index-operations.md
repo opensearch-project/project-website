@@ -37,7 +37,7 @@ The new Index Management UI offers a visual editor and a JSON editor, which you 
 
 ### One click to manage aliases on indexes
 
-Although it is easy to see what aliases an index contains, it is difficult to determine how many indexes an alias points to via the API. The **Aliases** page provides you with these results by grouping by alias. With the Index Management UI, it will be much easier to attach or detach indexes from an alias, and the alias actions will be automatically generated, eliminating the need for you to build alias actions to add or remove indexes behind an alias and manually type the indexes, which can lead to mistakes.
+It is straightforward to find out what aliases an index container through API, but it is difficult to determine how many indexes an alias points to through the API. The **Aliases** page provides you with these results by grouping indexes by alias. With the Index Management UI, it will be much effortless to attach or detach indexes from an alias, and the alias actions will be automatically generated, eliminating the need for you to build alias actions to add or remove indexes behind an alias and manually enter the indexes, which can lead to mistakes.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/alias-creation.png" alt="create an alias"/>{: .img-fluid }
 
