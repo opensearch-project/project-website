@@ -5,7 +5,7 @@ authors:
 - kkondaka
 - nsifmoh
 - dlv
-date: 2023-02-07 15:00:00 -0500
+date: 2023-03-02 14:30:00 -0500
 categories:
   - releases
 meta_keywords: Data Prepper 2.1.0, OpenTelemetry metrics, OpenTelemetry logs, detect anomalies in logs and traces, sampling and rate limiting
