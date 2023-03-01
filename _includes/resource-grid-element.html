@@ -7,6 +7,7 @@
                 justify-content: space-between;
                 align-items: center;
                 flex-wrap: wrap;
+                row-gap: 1.5em;
             }
         }
         @media screen and (min-width: 820px) {
@@ -25,15 +26,13 @@
 <template id="resource_grid_item_element_tpl">
     <style>
         .grid-item {
-            /* is there a variable for this color */
             background-color: #f5f7f7;
             padding: 0.5em;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            min-height: 281px;
-            max-height: 281px;
+            height: 300px;
             min-width: calc(270px - 1em);
             max-width: calc(360px - 1em);
         }
@@ -58,10 +57,12 @@
             text-overflow: ellipsis;
         }
         .title-type {
-            text-transform: lowercase;
+            text-transform: capitalize;
             width: 100%;
             text-align: left;
             padding: 0;
+            color: #002a3a;
+            font-weight: bold;
         }
         .title-text {
             vertical-align: text-top;
@@ -76,6 +77,7 @@
                 max-height: unset;
                 min-width: auto;
                 max-width: unset;
+                height: auto;
                 justify-content: flex-start;
             }
             .thumbnail {
@@ -85,6 +87,11 @@
         @media screen and (min-width: 820px) {
             .thumbnail {
                 min-height: 185px;
+            }
+        }
+        @media screen and (min-width: 820px) and (max-width: 1245px) {
+            .thumbnail {
+                min-height: 200px;
             }
         }
     </style>
@@ -110,7 +117,7 @@
             this.attachShadow({mode: 'open'});
             const tpl = document.getElementById('resource_grid_element_tpl');
             this.shadowRoot.appendChild(tpl.content.cloneNode(true));
-        }   
+        }
     }
 
     class ResourceGridItemElement extends HTMLElement {
@@ -126,7 +133,7 @@
             const img = this.shadowRoot.querySelector('img');
             img.src = this.getAttribute('thumbnail');
             const titleType = this.shadowRoot.querySelector('.title-type');
-            titleType.textContent = `# ${this.getAttribute('type')}`;
+            titleType.textContent = `${this.getAttribute('type')}`;
             const titleText = this.shadowRoot.querySelector('.title-text');
             titleText.textContent = this.getAttribute('title');
             const allA = this.shadowRoot.querySelectorAll('a');
