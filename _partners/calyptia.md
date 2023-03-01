@@ -9,6 +9,7 @@ business_type: 'Software Vendor'
 contact: 'https://calyptia.com/contact/'
 opensearch_tech: 'Analytics'
 industries: 'Software and Technology'
+region: 'North America'
 main_office_location: |
   2261 Market Street 
   Suite 4121
