@@ -1,6 +1,15 @@
 <template id="resource_grid_element_tpl">
     <style>
-        @media screen and (min-width: 580px) {
+        @media screen and (max-width: 819px) {
+            .grid {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+        }
+        @media screen and (min-width: 820px) {
             .grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(Min(260px, 100%), 1fr));
@@ -22,16 +31,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 250px;
-            max-height: fit-content;
+            justify-content: flex-start;
+            min-height: 281px;
+            max-height: 281px;
             min-width: calc(270px - 1em);
-            max-width: calc(360px - 1em)
+            max-width: calc(360px - 1em);
         }
         .thumbnail {
             flex-grow: 2;
             text-align: center;
-            height: 150px;
             padding: 8px;
         }
         .thumbnail img {
@@ -44,8 +52,10 @@
             text-align: left;
         }
         .title > div {
-            height: 80px;
-            display: inline-block;
+            height: 70px;
+            display: inline-flex;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .title-type {
             text-transform: lowercase;
@@ -54,11 +64,28 @@
             padding: 0;
         }
         .title-text {
-            vertical-align: top;
+            vertical-align: text-top;
         }
         a {
             text-decoration: none;
             line-height: 1;
+        }
+        @media screen and (max-width: 819px) {
+            .grid-item {
+                min-height: auto;
+                max-height: unset;
+                min-width: auto;
+                max-width: unset;
+                justify-content: flex-start;
+            }
+            .thumbnail {
+                height: auto;
+            }
+        }
+        @media screen and (min-width: 820px) {
+            .thumbnail {
+                min-height: 185px;
+            }
         }
     </style>
     <div class="grid-item">
