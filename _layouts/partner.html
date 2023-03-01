@@ -1,13 +1,14 @@
 ---
-layout: fullwidth
+layout: default
 title: Partners
 primary_title: Partners
-body_class: partners-page
+body_class: 'partners-page'
 notice: true
 ---
 
 {% include address-custom-element.html %}
 {% include partner-social-links.html %}
+{% include responsive-collapsible-panel.html %}
 {% assign primary_title = page.name %}
 {% assign layout_class = 'sidebar-left' %}
 <div class="container sidebar-left">
@@ -22,30 +23,33 @@ notice: true
     <div class="partner-page--layout">
         {% capture content_related %}
             <div role="complementary" class="partner-page--layout--meta sidebar">
-            <div class="partner-page--layout--meta__vspaced">
-                <dl>
-                    <dt>Partner Type</dt>
-                    <dd>{{ page.business_type }}</dd>
-                    <dt>Regions Served</dt>
-                    <dd>{{ page.region }}</dd>
-                    <dt>Technologies</dt>
-                    <dd>{{ page.opensearch_tech }}</dd>
-                    <dt>Industries</dt>
-                    <dd>{{ page.industries }}</dd>
-                </dl>
-            </div>
-            <div class="partner-page--layout--meta__vspaced">
-                <dl>
-                    <dt>Main Office Address</dt>
-                    <dd>
-                        <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
-                    </dd>
-                    <dt>Contact Info</dt>
-                    <dd><a href="mailto:{{ page.contact }}">{{ page.contact }}</a></dd>
-                    <dt>Website</dt>
-                    <dd><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></dd>
-                </dl>
-            </div>
+                <responsive-collapsible-panel>
+                    <span slot="heading-slot">Company Details</span>
+                    <div class="partner-page--layout--meta__vspaced" slot="content-slot">
+                        <dl>
+                            <dt>Partner Type</dt>
+                            <dd>{{ page.business_type }}</dd>
+                            <dt>Regions Served</dt>
+                            <dd>{{ page.region }}</dd>
+                            <dt>Technologies</dt>
+                            <dd>{{ page.opensearch_tech }}</dd>
+                            <dt>Industries</dt>
+                            <dd>{{ page.industries }}</dd>
+                        </dl>
+                    </div>
+                    <div class="partner-page--layout--meta__vspaced" slot="content-slot">
+                        <dl>
+                            <dt>Main Office Address</dt>
+                            <dd>
+                                <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
+                            </dd>
+                            <dt>Contact Info</dt>
+                            <dd><a href="mailto:{{ page.contact }}">{{ page.contact }}</a></dd>
+                            <dt>Website</dt>
+                            <dd><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></dd>
+                        </dl>
+                    </div>
+                </responsive-collapsible-panel>
             </div>
         {% endcapture %}
 
@@ -84,5 +88,7 @@ notice: true
                 {% endif %}
             </div>
         {% endcapture %}
+        {{ content_related }}
+        {{ content }}
     </div>
 </div>
