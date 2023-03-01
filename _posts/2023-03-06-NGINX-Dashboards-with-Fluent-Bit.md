@@ -3,6 +3,8 @@ layout: post
 title:  "Simple NGINX Dashboards with Fluent Bit and OpenSearch"
 authors:
   - jdbright
+  - lioperry
+  - anurag_gup
   - armarble
 date:   2023-03-06
 categories:
@@ -13,7 +15,7 @@ meta_description: While users can send their logs to OpenSearch today, there are
 
 Fluent Bit is a graduated sub-project under the Cloud Native Computing Foundation (CNCF) Fluentd project umbrella. Fluent Bit has hundreds of integrations to common tools such as Kafka, Syslog, Loki, and of course OpenSearch.
 
-While users can send their logs to OpenSearch today, there are no set formats or schemas which can make sharing dashboards and alerts cumbersome. In this blog, we talk about using Fluent Bit, a new simple schema and OpenSearch with Nginx as the first example.
+While users can send their logs to OpenSearch today, there are no set formats or schemas, which can make sharing dashboards and alerts cumbersome. In this blog, we talk about using Fluent Bit, a new simple schema, and OpenSearch with Nginx, as the first example.
 
 ## Simple Schema
 
@@ -28,12 +30,11 @@ Simple Schema for Observability is inspired by both [OpenTelemetry](https://open
 
 When raw logs are ingested by Fluent Bit they are automatically converted into MessagePack, a binary representation of JSON. Fluent Bit’s automatic conversion makes parsing and modifying messages in-flight simple and easy.
 
-In addition, Fluent Bit comes with out of the box parsers for common applications such as Nginx, Apache Web Logs, Kubernetes, and more. These parsers give some structure to a log file though do not have the depth that other log schema and formats do. Thankfully, Fluent Bit also can handle more complex transformations on top with processor (called filters), or even Lua code.
+In addition, Fluent Bit comes with out of the box parsers for common applications such as Nginx, Apache Web Logs, Kubernetes, and more. These parsers give structure to a log file, though they do not have the depth that other log schemas and formats do. Thankfully, Fluent Bit can also handle more complex transformations along with with processors (also known as filters), or even Lua code.
 
-[Lua filters](https://docs.fluentbit.io/manual/pipeline/filters/lua) give users extreme flexibility with how they want to transform their data, including modifying / adding / enriching via API / calculating / or even redacting. To help us connect Fluent Bit and the new simple schema we opted for a Lua script that can be pasted in your config file to run on top of nginx ingested logs
+[Lua filters](https://docs.fluentbit.io/manual/pipeline/filters/lua) give users extreme flexibility with how they want to transform their data, including modifying, adding, enriching via API, calculating, or even redacting. To help us connect Fluent Bit and the new simple schema, we opted for a Lua script that you can paste into your config file to run on top of NGINX ingested logs.
 
-
-fluent-bit.conf for VM or standalone deployments:
+fluent-bit.conf example for VM or standalone deployments:
 
 ```bash
 [INPUT]
@@ -57,10 +58,11 @@ fluent-bit.conf for VM or standalone deployments:
 
 ## Importing the dashboard in OpenSearch
 
-See two tutorials
+See the following tutorials:
+
 -	Preloaded data demo (use text in the [readme file](https://github.com/opensearch-project/observability/blob/e18cf354fd7720a6d5df6a6de5d53e51a9d43127/integrations/nginx/samples/preloaded/README.md ))
 -	Live nginx->fluent-bit->opensearch demo (use text in the [readme file](https://github.com/opensearch-project/observability/blob/e18cf354fd7720a6d5df6a6de5d53e51a9d43127/integrations/nginx/test/README.md))
 
 ## End result and next steps
 
-In this blog post, we provided an overview of OpenSearch’s new Simple Schema for Observability, shown how to take advantage of it using [Fluent Bit](https://fluentbit.io/), and modified and imported an NGINX dashboard contributed by [WorldTechIT](https://wtit.com/) to demonstrate a full agent to dashboard flow. Want to dive deeper and see how it works for yourself, download the [docker compose file](https://github.com/opensearch-project/observability/blob/e18cf354fd7720a6d5df6a6de5d53e51a9d43127/integrations/nginx/test/README.md) and drop us some feedback in [Github Discussions](https://github.com/fluent/fluent-bit/discussions).
+In this blog post, we provided an overview of OpenSearch’s new Simple Schema for Observability, shown how to take advantage of it using [Fluent Bit](https://fluentbit.io/), and modified and imported an NGINX dashboard contributed by [WorldTechIT](https://wtit.com/), to demonstrate a full agent to dashboard flow. To dive deeper and see how it all works for yourself, download the [docker compose file](https://github.com/opensearch-project/observability/blob/e18cf354fd7720a6d5df6a6de5d53e51a9d43127/integrations/nginx/test/README.md) and leave us feedback in [Github Discussions](https://github.com/fluent/fluent-bit/discussions).
