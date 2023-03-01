@@ -120,7 +120,7 @@ trace-metric-anomaly-detector-pipeline:
 
 Data Prepper 2.1 supports sampling and rate limiting to limit the number of events that are sent to a sink.
 
-These features can be used to reduce the load on the OpenSearch cluster when storing uninteresting logs and metrics.
+These features can be used to reduce the load on the OpenSearch cluster when storing ordinary logs and metrics.
 For example, you can limit the number of success HTTP logs or repetitive requests, such as from a health check. 
 
 Both sampling and rate limiting are available as configurable actions in the aggregate processor.
