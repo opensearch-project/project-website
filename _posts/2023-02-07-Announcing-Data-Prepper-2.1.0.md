@@ -34,7 +34,7 @@ count, min, max, and sum, in addition to the histogram buckets and bucket-level 
 
 You can combine both of these actions with the aggregate processor’s conditional aggregation option in order to generate more meaningful metrics.
 
-For example, you can obtain the number of traces with error (`status_code` equal to 2) using the `count` aggregate action along 
+For example, you can obtain the number of traces with an error (`status_code` equal to 2) using the `count` aggregate action along 
 with the `aggregate_when` option. You can also generate a histogram of trace latencies using another aggregate processor in 
 a parallel sub-pipeline.
 
@@ -121,7 +121,7 @@ trace-metric-anomaly-detector-pipeline:
 Data Prepper 2.1 supports sampling and rate limiting to limit the number of events that are sent to a sink.
 
 These features can be used to reduce the load on the OpenSearch cluster when storing uninteresting logs and metrics.
-For example, you can limit the number of success HTTP logs or repetitive requests such as from a health check. 
+For example, you can limit the number of success HTTP logs or repetitive requests, such as from a health check. 
 
 Both sampling and rate limiting are available as configurable actions in the aggregate processor.
 To use sampling, specify the sampling percentage
