@@ -25,19 +25,19 @@ Building index mappings in pure JSON because it has several nested layers and pr
 
 ## Simulate an index by index name
 
-It is challenging to predict the appearance of the index when taking into account existing templates. To resolve this issue, we will attempt to match the index name with the templates whenever you change the index name, as shown in the image below. We will merge what users manually input with what the matching template contains, making it a "what you see is what you get" index.
+It is challenging to predict the appearance of the index when taking into account existing templates. To resolve this issue, we will attempt to match the index name with the templates whenever you change the index name, as shown in the following image. We will merge what users manually input with what the matching template contains, making it a "what you see is what you get" index.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/simulate-template.png" alt="simulate template"/>{: .img-fluid }
 
 ## Edit settings by JSON editor and diff mode
 
-The new Index Management UI offers a visual editor and a JSON editor, which you can use if the visual editor does not support all available fields. Additionally, we provided the editor with a `diff` mode, as shown in the following image, so that you can compare the existing index and see what changes they have made to ensure that no mistakes are made.
+The new Index Management UI offers a visual editor and a JSON editor, which you can use if the visual editor does not support all available fields. Additionally, we provided the editor with a `diff` mode, as shown in the following image, so that you can compare the existing index with the index in the old version and see the changes, preventing errors.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/json-diff-editor.png" alt="JSON diff editor"/>{: .img-fluid }
 
-### One click to manage aliases on indexes
+### One click to manage index aliases
 
-It is straightforward to find out what aliases an index container through API, but it is difficult to determine how many indexes an alias points to through the API. The **Aliases** page provides you with these results by grouping indexes by alias. With the Index Management UI, it will be much effortless to attach or detach indexes from an alias, and the alias actions will be automatically generated, eliminating the need for you to build alias actions to add or remove indexes behind an alias and manually enter the indexes, which can lead to mistakes.
+It is straightforward to find out what aliases an index contains through the API, but it is difficult to determine how many indexes an alias points to through the API. The **Aliases** page provides you with these results by grouping indexes by alias. With the Index Management UI, it will be easier to attach or detach indexes from an alias, and the alias actions will be automatically generated, eliminating the need for you to build alias actions to add or remove indexes behind an alias and manually enter the indexes, which can lead to mistakes.
 
 <img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/alias-creation.png" alt="create an alias"/>{: .img-fluid }
 
@@ -113,7 +113,7 @@ After the shrink operation is complete, which may take anywhere from minutes to 
 
 You can select multiple indexes, except for the backing indexes of a data stream, to open or close.
 
-If you no longer need to read or search old indexes but do not want to delete them, you can use the **Close** operation to close indexes. This will maintain the data, but will have a small overhead on the cluster. Additionally, when you want to add a new analyzer to an existing index, you must close the index, define the analyzer, and then open the index. A closed index is blocked for read and write operations, so you must type the word "close" to confirm your action as seen in the following image.
+If you no longer need to read or search old indexes but do not want to delete them, you can use the **Close** operation to close indexes. This will maintain the data by occupying a small amount of overhead on the cluster. Additionally, when you want to add a new analyzer to an existing index, you must close the index, define the analyzer, and then open the index. A closed index is blocked for read and write operations, so you must enter the word "close" to confirm your action, as shown in the following image.
 
 ![Image: Close-index]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/close-index.jpg){:.img-fluid }
 
@@ -123,7 +123,7 @@ You can select multiple indexes to open, even if some indexes are already open, 
 
 ## Split index
 
-When you choose to split an index, the status of that index is checked. If the index is not able to be split, actions that the user can take to make the index ready for splitting are provided. A list of shard numbers that the index can be split into is also provided so that the user does not need to calculate it manually.
+When you choose to split an index, the status of that index is checked. If the index is not able to be split, actions that you can take to prepare the index for splitting are provided. A list of shard numbers that the index can be split into is also provided so that you do not need to calculate the shard numbers manually.
 You can then specify the number of replicas and associate the new index with an existing index or use a new alias. You can also use the JSON editor to specify any additional index settings, as shown in the following images.
 
 ![Image: Split page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/splitindex-normal.jpg){:.img-fluid }
@@ -131,7 +131,6 @@ You can then specify the number of replicas and associate the new index with an 
 
 
 
-If you want to try out the new index management features, you can check them out on the [official OpenSearch playground](https://playground.opensearch.org/app/opensearch_index_management_dashboards#/indices).
 
 ## Next steps
 
