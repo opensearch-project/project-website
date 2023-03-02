@@ -9,6 +9,8 @@ notice: true
 {% include address-custom-element.html %}
 {% include partner-social-links.html %}
 {% include responsive-collapsible-panel.html %}
+{% include uppercase-first-word.html %}
+
 {% assign primary_title = page.name %}
 {% assign layout_class = 'sidebar-left' %}
 <div class="container sidebar-left">
@@ -17,7 +19,9 @@ notice: true
             <img src="{{ page.logo_large }}" alt="{{ page.name }} Logo">
         </div>
         <div class="partner-page--branding--product">
-            <img src="{{ page.product_image }}" alt="{{ page.name }} Product">
+            {% if page.product_image %}
+                <img src="{{ page.product_image }}" alt="{{ page.name }} Product">
+            {% endif %}
         </div>
     </div>
     <div class="partner-page--layout">
@@ -27,14 +31,29 @@ notice: true
                     <span slot="heading-slot">Company Details</span>
                     <div class="partner-page--layout--meta__vspaced" slot="content-slot">
                         <dl>
-                            <dt>Partner Type</dt>
-                            <dd>{{ page.business_type }}</dd>
-                            <dt>Regions Served</dt>
-                            <dd>{{ page.region }}</dd>
-                            <dt>Technologies</dt>
-                            <dd>{{ page.opensearch_tech }}</dd>
-                            <dt>Industries</dt>
-                            <dd>{{ page.industries }}</dd>
+                            {% if page.business_type %}
+                                <dt>Partner Type</dt>
+                                <dd>{{ page.business_type }}</dd>
+                            {% endif %}
+                            {% if page.region %}
+                                <dt>Regions Served</dt>
+                                <dd>{{ page.region }}</dd>
+                            {% endif %}
+                            {% if page.opensearch_tech %}
+                                <dt>Technologies</dt>
+                                <dd>{{ page.opensearch_tech }}</dd>
+                            {% endif %}
+                            {% if page.industries %}
+                                {% assign industry_list = page.industries | split: ","  %}
+                                <dt>Industries</dt>
+                                <dd>
+                                    <ul>
+                                        {% for industry in industry_list %}
+                                            <li><uppercase-first-word>{{ industry | strip }}</uppercase-first-word></li>
+                                        {% endfor %}
+                                    </ul>
+                                </dd>
+                            {% endif %}
                         </dl>
                     </div>
                     <div class="partner-page--layout--meta__vspaced" slot="content-slot">
@@ -59,6 +78,22 @@ notice: true
                 <div class="partner-page--layout--details--description">
                     <p>{{ page.description }}</p>
                 </div>
+                {% if page.products %}
+                    <div class="partner-page--layout--details--products">
+                        <h2>Products</h2>
+                        <ul>
+                            {% for product in page.products %}
+                                {% if product.name %}
+                                    <li><a href="{{ product.url }}" target="_blank">{{ product.name }}</a>
+                                        {% if product.description %}
+                                            <p>{{ product.description }}</p>
+                                        {% endif %}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div> 
+                {% endif %}
                 {% if page.resources %}
                     {% include resource-grid-element.html %}
                     <div class="partner-page--layout--details--resources">
