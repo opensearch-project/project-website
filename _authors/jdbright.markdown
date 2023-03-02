@@ -6,4 +6,4 @@ twitter:
 github: brijos
 ---
 
-Joshua Bright is the Senior Technical Product Manager for OpenSearch. 
+**Joshua Bright** is the Senior Technical Product Manager for OpenSearch.

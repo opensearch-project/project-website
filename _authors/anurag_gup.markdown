@@ -6,5 +6,4 @@ twitter: 'Anurag_Gup'
 github: agup006
 ---
 
-Anurag is a maintainer of the Fluentd and Fluent Bit project as well as a co-founder of Calyptia. Previously he has worked at Elastic, driving cloud products and helping create the Elastic Kubernetes Operator. He has also worked at Treasure Data heading enterprise open source with Fluentd, and Microsoft Azure Log Analytics working on Observability as a cloud provider.
-
+**Anurag Gupta** is a maintainer of the Fluentd and Fluent Bit project as well as a co-founder of Calyptia. Previously he has worked at Elastic, driving cloud products and helping create the Elastic Kubernetes Operator. He has also worked at Treasure Data heading enterprise open source with Fluentd, and Microsoft Azure Log Analytics working on Observability as a cloud provider. 
