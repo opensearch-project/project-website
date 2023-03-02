@@ -6,7 +6,7 @@ authors:
 - gbinlong
 - suzhou
 - lxuesong
-date: 2023-03-01
+date: 2023-03-03
 categories:
  - technical-post
 meta_keywords: index management, index mappings, index operation UI, shrink index operations, OpenSearch Dashboards
