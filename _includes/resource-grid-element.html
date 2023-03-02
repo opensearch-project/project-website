@@ -130,15 +130,35 @@
             }
         }
         render() {
-            const img = this.shadowRoot.querySelector('img');
-            img.src = this.getAttribute('thumbnail');
+            if (!this.hasAttribute('url') || !this.hasAttribute('title')) {
+                console.error('ResourceGridItemElement needs a url attribute');
+                return;
+            }
+            const url = this.getAttribute('url')?.trim() ?? '';
+            const title = this.getAttribute('title')?.trim() ?? '';
+            if (!url || !title) {
+                console.error('ResourceGridItemElement needs a url and title attribute');
+                return;
+            }
+            const thumbnail = this.getAttribute('thumbnail');
+            if (thumbnail) {
+                const img = this.shadowRoot.querySelector('img');
+                img.src = this.getAttribute('thumbnail');
+            } else {
+                const thumbnail = this.shadowRoot.querySelector('.thumbnail');
+                thumbnail.style.visibility = 'hidden';
+            }
+            const type = this.getAttribute('type') || 'Uncategorized';
             const titleType = this.shadowRoot.querySelector('.title-type');
-            titleType.textContent = `${this.getAttribute('type')}`;
+            titleType.textContent = this.getAttribute('type');
+            
             const titleText = this.shadowRoot.querySelector('.title-text');
-            titleText.textContent = this.getAttribute('title');
+            titleText.textContent = title;
+
             const allA = this.shadowRoot.querySelectorAll('a');
-            allA.forEach(a => a.href = this.getAttribute('url'));
+            allA.forEach(a => a.href = url);
         }
+
         constructor() {
             super();
             this.attachShadow({mode: 'open'});
