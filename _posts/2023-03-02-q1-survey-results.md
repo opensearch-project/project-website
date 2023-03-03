@@ -1,9 +1,9 @@
 ---
 layout: post
 authors:
-  - hdhalter
+  - apasun
 title: "OpenSearch Receives High Marks in the Quarterly Q1 Community Survey"
-date: 2023-03-02 01:01:01 -0700
+date: 2023-03-02 
 categories:
 - community
 
