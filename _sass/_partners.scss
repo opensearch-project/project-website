@@ -136,10 +136,10 @@
             margin: 2rem 0;
         }
         .partner-page--layout--details--description {
-            padding: 0; /* Don't know yet */
+            padding: 0;
         }
         .partner-page--layout--details--products {
-            padding: 0; /* Don't know yet */
+            padding: 0;
             ul {
                 margin: 0;
                 padding: 0;
@@ -159,7 +159,7 @@
             }
         }
         .partner-page--layout--details--resources {
-            padding: 0; /* Don't know yet */
+            padding: 0;
         }
     }
     .partner-page--social-links {
@@ -204,7 +204,7 @@
 @media screen and (min-width: 740px) {
     .partner-page--layout {
         .partner-page--layout--meta {
-            display: block; /* TBD */
+            display: block; 
         }
         .partner-page--social-links {
             padding-top: 1em;
