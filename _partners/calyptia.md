@@ -3,7 +3,6 @@ name: Calyptia
 logo: '/assets/media/partners/calyptia.png'
 link: 'https://calyptia.com'
 logo_large: '/assets/media/partners/calyptia/calyptia-logo.png'
-# product_image: '/assets/media/partners/calyptia-product.png'
 description: 'As the creators and maintainers of the open source Fluent Bit project, Calyptia is dedicated to providing vendor-neutral products and services that enhance observability practices.'
 business_type: 'ISV'
 contact: 'hello@calyptia.com'
