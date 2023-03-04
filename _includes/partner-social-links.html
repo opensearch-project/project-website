@@ -81,23 +81,16 @@
 </template>
 <script type="module">
     class PartnerSocialLinksElement extends HTMLElement {
-        // add an observed property named icon
         static get observedAttributes() {
             return ['icon'];
         }
-
-        // called when the element is created
         constructor() {
             super();
             this.attachShadow({ mode: 'open' });
         }
-
-        // called when the element is inserted into the DOM
         connectedCallback() {
             this.render();
         }
-
-        // called when attribute changes
         attributeChangedCallback(name, oldValue, newValue) {
             if (oldValue !== newValue) {
                 this.render();
@@ -110,6 +103,5 @@
             this.shadowRoot.replaceChildren(instance);
         }
     }
-    // register the element
     customElements.define('partner-social-links', PartnerSocialLinksElement);
 </script>
