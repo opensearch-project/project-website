@@ -2,8 +2,6 @@
 layout: default
 title: Partners
 primary_title: Partners
-body_class: 'partners-page'
-notice: true
 ---
 
 {% include address-custom-element.html %}
@@ -12,7 +10,6 @@ notice: true
 {% include uppercase-first-word.html %}
 
 {% assign primary_title = page.name %}
-{% assign layout_class = 'sidebar-left' %}
 <div class="container sidebar-left">
     <div class="partner-page--branding">
         <div class="partner-page--branding--logo">
@@ -25,105 +22,98 @@ notice: true
         </div>
     </div>
     <div class="partner-page--layout">
-        {% capture content_related %}
-            <div role="complementary" class="partner-page--layout--meta sidebar">
-                <responsive-collapsible-panel>
-                    <span slot="heading-slot">Company Details</span>
-                    <div class="partner-page--layout--meta__vspaced" slot="content-slot">
-                        <dl>
-                            {% if page.business_type %}
-                                <dt>Partner Type</dt>
-                                <dd>{{ page.business_type }}</dd>
-                            {% endif %}
-                            {% if page.region %}
-                                <dt>Regions Served</dt>
-                                <dd>{{ page.region }}</dd>
-                            {% endif %}
-                            {% if page.opensearch_tech %}
-                                <dt>Technologies</dt>
-                                <dd>{{ page.opensearch_tech }}</dd>
-                            {% endif %}
-                            {% if page.industries %}
-                                {% assign industry_list = page.industries | split: ","  %}
-                                <dt>Industries</dt>
-                                <dd>
-                                    <ul>
-                                        {% for industry in industry_list %}
-                                            <li><uppercase-first-word>{{ industry | strip }}</uppercase-first-word></li>
-                                        {% endfor %}
-                                    </ul>
-                                </dd>
-                            {% endif %}
-                        </dl>
-                    </div>
-                    <div class="partner-page--layout--meta__vspaced" slot="content-slot">
-                        <dl>
-                            <dt>Main Office Address</dt>
+        <div role="complementary" class="partner-page--layout--meta sidebar">
+            <responsive-collapsible-panel>
+                <span slot="heading-slot">Company Details</span>
+                <div class="partner-page--layout--meta__vspaced" slot="content-slot">
+                    <dl>
+                        {% if page.business_type %}
+                            <dt>Partner Type</dt>
+                            <dd>{{ page.business_type }}</dd>
+                        {% endif %}
+                        {% if page.region %}
+                            <dt>Regions Served</dt>
+                            <dd>{{ page.region }}</dd>
+                        {% endif %}
+                        {% if page.opensearch_tech %}
+                            <dt>Technologies</dt>
+                            <dd>{{ page.opensearch_tech }}</dd>
+                        {% endif %}
+                        {% if page.industries %}
+                            {% assign industry_list = page.industries | split: ","  %}
+                            <dt>Industries</dt>
                             <dd>
-                                <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
+                                <ul>
+                                    {% for industry in industry_list %}
+                                        <li><uppercase-first-word>{{ industry | strip }}</uppercase-first-word></li>
+                                    {% endfor %}
+                                </ul>
                             </dd>
-                            <dt>Contact Info</dt>
-                            <dd><a href="mailto:{{ page.contact }}">{{ page.contact }}</a></dd>
-                            <dt>Website</dt>
-                            <dd><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></dd>
-                        </dl>
-                    </div>
-                </responsive-collapsible-panel>
-            </div>
-        {% endcapture %}
-
-        {% capture content %}
-            <div class="partner-page--layout--details" role="main">
-                <h1><a href="{{ page.link }}" target="_blank">{{ page.name }}</a></h1>
-                <div class="partner-page--layout--details--description">
-                    <p>{{ page.description }}</p>
+                        {% endif %}
+                    </dl>
                 </div>
-                {% if page.products %}
-                    <div class="partner-page--layout--details--products">
-                        <h2>Products</h2>
-                        <ul>
-                            {% for product in page.products %}
-                                {% if product.name %}
-                                    <li><a href="{{ product.url }}" target="_blank">{{ product.name }}</a>
-                                        {% if product.description %}
-                                            <p>{{ product.description }}</p>
-                                        {% endif %}
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div> 
-                {% endif %}
-                {% if page.resources %}
-                    {% include resource-grid-element.html %}
-                    <div class="partner-page--layout--details--resources">
-                        <h2>Resources</h2>
-                        <resource-grid>
-                            {% for resource in page.resources %}
-                                <resource-grid-item slot="grid-item"
-                                    url="{{ resource.url }}"
-                                    type="{{ resource.type }}"
-                                    title="{{ resource.title }}"
-                                    thumbnail="{{ resource.thumbnail }}"
-                                ></resource-grid-item>
-                            {% endfor %}
-                        </resource-grid>
-                    </div>
-                {% endif %}
-                {% if page.social_links %}
-                    <div class="partner-page--social-links">
-                        {% for social_link in page.social_links %}
-                            <div class="partner-page--social-links--icon">
-                                <a href="{{ social_link.url }}" target="_blank">
-                                    <partner-social-links icon="{{ social_link.icon }}"></partner-social-links>
-                                </a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
+                <div class="partner-page--layout--meta__vspaced" slot="content-slot">
+                    <dl>
+                        <dt>Main Office Address</dt>
+                        <dd>
+                            <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
+                        </dd>
+                        <dt>Contact Info</dt>
+                        <dd><a href="mailto:{{ page.contact }}">{{ page.contact }}</a></dd>
+                        <dt>Website</dt>
+                        <dd><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></dd>
+                    </dl>
+                </div>
+            </responsive-collapsible-panel>
+        </div>
+        <div class="partner-page--layout--details" role="main">
+            <h1><a href="{{ page.link }}" target="_blank">{{ page.name }}</a></h1>
+            <div class="partner-page--layout--details--description">
+                <p>{{ page.description }}</p>
             </div>
-        {% endcapture %}
-        {{ content_related }}
-        {{ content }}
+            {% if page.products %}
+                <div class="partner-page--layout--details--products">
+                    <h2>Products</h2>
+                    <ul>
+                        {% for product in page.products %}
+                            {% if product.name %}
+                                <li><a href="{{ product.url }}" target="_blank">{{ product.name }}</a>
+                                    {% if product.description %}
+                                        <p>{{ product.description }}</p>
+                                    {% endif %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div> 
+            {% endif %}
+            {% if page.resources %}
+                {% include resource-grid-element.html %}
+                <div class="partner-page--layout--details--resources">
+                    <h2>Resources</h2>
+                    <resource-grid>
+                        {% for resource in page.resources %}
+                            <resource-grid-item slot="grid-item"
+                                url="{{ resource.url }}"
+                                type="{{ resource.type }}"
+                                title="{{ resource.title }}"
+                                thumbnail="{{ resource.thumbnail }}"
+                            ></resource-grid-item>
+                        {% endfor %}
+                    </resource-grid>
+                </div>
+            {% endif %}
+            {% if page.social_links %}
+                <div class="partner-page--social-links">
+                    {% for social_link in page.social_links %}
+                        <div class="partner-page--social-links--icon">
+                            <a href="{{ social_link.url }}" target="_blank">
+                                <partner-social-links icon="{{ social_link.icon }}"></partner-social-links>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
     </div>
 </div>

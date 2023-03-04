@@ -5,7 +5,7 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
 
-  <body id="{{ page.sectionid }}" class="{{ page.body_class }} {{ layout.body_class }}">
+  <body id="{{ page.sectionid }}" class="{{ page.body_class }}">
     {%- include header.html -%}
     
     {{ content }}
