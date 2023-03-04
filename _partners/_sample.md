@@ -33,4 +33,11 @@ social_links:
     icon: 'facebook'
   - url: 'https://github.com/example'
     icon: 'github'
+products:
+  - url: 'https://example-product.example'
+    name: 'Example Product Name'
+    description: 'Example Product Description'
+  - url: 'https://another-example-product.example'
+    name: 'Another Example Product Name'
+    description: 'Another example product description.'
 ---
