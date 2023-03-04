@@ -14,8 +14,13 @@
             .grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(Min(260px, 100%), 1fr));
-                column-gap: 1em;
+                column-gap: 20px;
                 row-gap: 1em;
+            }
+        }
+        @media screen and (min-width: 820px) and (max-width: 919px) {
+            .grid {
+                row-gap: 2em;
             }
         }
     </style>
@@ -27,31 +32,28 @@
     <style>
         .grid-item {
             background-color: #f5f7f7;
-            padding: 0.5em;
+            padding: 1em;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             height: 300px;
             min-width: calc(270px - 1em);
-            max-width: calc(360px - 1em);
         }
         .thumbnail {
-            flex-grow: 2;
             text-align: center;
-            padding: 8px;
+            padding: 0;
         }
         .thumbnail img {
             width: 100%;
             height: auto;
-            margin-top: 8px;
         }
         .title {
             flex-grow: 1;
             text-align: left;
+            width: 100%;
         }
         .title > div {
-            height: 70px;
             display: inline-flex;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -84,14 +86,26 @@
                 height: auto;
             }
         }
-        @media screen and (min-width: 820px) {
-            .thumbnail {
-                min-height: 185px;
+        @media screen and (max-width: 861px) {
+            .grid-item {
+                height: auto;
             }
         }
-        @media screen and (min-width: 820px) and (max-width: 1245px) {
-            .thumbnail {
-                min-height: 200px;
+        @media screen and (min-width: 820px) and (max-width: 919px) {
+            .grid-item {
+                min-width: calc(270px - 1em);
+            }
+        }
+        @media screen and (min-width: 920px) and (max-width: 1000px) {
+            .grid-item {
+                min-width: calc(270px - 1.5em);
+                max-width: calc(360px - 1.5em);
+            }
+        }
+        @media screen and (min-width: 1221px) {
+            .grid-item {
+                min-width: calc(270px - 2em);
+                max-width: calc(360px - 2em);
             }
         }
     </style>
