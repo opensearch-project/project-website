@@ -23,7 +23,7 @@ OpenSearch 2.6 introduced a standardization for conforming to a common and unifi
 
 Observability is a collection of plugins and applications that let you visualize data-driven events by using PPL/SQL/DQL to explore and query data stored in OpenSearch. With the schema in place, Observability tools can ingest, automatically extract, and aggregate data and create custom dashboards, making it easier to understand the system at a higher level.
 
-Simple Schema for Observability is based on the way that Amazon Elastic Container Service ([Amazon ECS](https://github.com/elastic/ecs)) organizes logs and on information provided by [OpenTelemetry](https://opentelemetry.io/docs/), including metadata.
+Simple Schema for Observability is based on the way that Amazon Elastic Container Service ([Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_cwe_events.html)) organizes logs and on information provided by [OpenTelemetry](https://opentelemetry.io/docs/), including metadata.
 
 ## Connecting Simple Schema for Observability and Fluent Bit
 
