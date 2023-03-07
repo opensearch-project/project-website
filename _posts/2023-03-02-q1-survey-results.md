@@ -6,6 +6,8 @@ title: "OpenSearch Receives High Marks in the Quarterly Q1 Community Survey"
 date: 2023-03-02 
 categories:
 - community
+meta_keywords: OpenSearch NPS, OpenSearch net promoter score, OpenSearch user experience
+meta_description: OpenSearch receives high marks in its quarterly Q1 Community Survey, reporting a net promoter score of 57.8 and a UX health score of 77.2.
 
 excerpt: "Thank you to the OpenSearch community members who responded to our 2023-Q1 quarterly survey! Our first quarterly survey focused on understanding who our users are, what they use OpenSearch for, and establishing a baseline for how they feel about the current user experience on OpenSearch. We are thrilled to report a NPS (net promotor score) of **57.8** and a UX health score of **77.2** with **97** community members taking part in the survey."
 
