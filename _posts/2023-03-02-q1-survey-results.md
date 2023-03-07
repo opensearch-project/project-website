@@ -24,15 +24,14 @@ Here are some key insights from the Q1 survey:
 * We obtained our first NPS and UX health score, and will use these as a baseline to compare against results in future quarters.
 * Previously, we were unsure about the split of *search* and *analytics* use cases and were curious if there was an overlap in the way users were utilizing OpenSearch. Around 1/3 (one-third) of the sample that took the survey in Q1 indicated that they used OpenSearch as *both a search and analytics solution*. 
 * Users identified with four roles in OpenSearch: 
-  _Infrastructure Set Up_ - responsible for deploying OpenSearch, for allocation of resources, responsible for allocation of initial resources, and any action that impacts the billing and usage or resources
-  _OpenSearch Admin_ - responsible for asset and user management on OpenSearch
-  _Dashboard Creator or Data Producer_ - responsible for preparing data or dashboards for their own use or end user consumption
-  _Dashboard or Data Consumer_ - responsible for consuming data or dashboards
+  - _Infrastructure Set Up_ - responsible for deploying OpenSearch, for allocation of resources, responsible for allocation of initial resources, and any action that impacts the billing and usage or resources
+  - _OpenSearch Admin_ - responsible for asset and user management on OpenSearch
+  - _Dashboard Creator or Data Producer_ - responsible for preparing data or dashboards for their own use or end user consumption
+  - _Dashboard or Data Consumer_ - responsible for consuming data or dashboards
   
 * While users do not use the above labels to self-identify, the motivations described in the survey for each of these roles resonated with them.
 * 48.8%, or almost half of the community members who took the survey, self-identified themselves to be in an *administrative* role and almost half of the sample associated with all four roles.
 * 34.1% self-identified themselves to be in an *infrastructure setup* role. 
-*  
 
 Based on these insights, we concluded that close to half of our users have complex needs that span across all four roles, from *infrastructure setup* to *administrative* to *producer* to *consumer*.  Our offerings, therefore, should focus on providing consistent end-to-end workflows and transitions that enable users perform tasks seamlessly. This finding is also a good indication of the sample who accessed the survey on the OpenSearch website. In future quarters we intend to expand recruitment for the quarterly survey to the dashboard interface as well. This will help the OpenSearch team obtain feedback from dashboard users who are typically both *producers* and *consumers*.
  
