@@ -31,7 +31,7 @@ Each of the three approximate k-NN engines has its advantages. The Lucene functi
 
 For datasets of up to a few million vectors, the Lucene engine has better latency and recall than the other two. Its indexes are also the smallest. Benchmarks show that the Lucene 9.2 solution is comparable to HNSW implementations based on nmslib, although there are some tradeoffs. In particular, Lucene 9.2 does not support very high recall. But with comparable recall values, the Lucene 9.2 solution consumes fewer resources and has better query latency.
 
-Another functionality available in the Lucene library is efficient filtering of k-NN results. Until OpenSearch 2.4, only post-filtering was available, which can be inefficient and inaccurate. Starting with version 2.4, OpenSearch  [supports adaptive filtering](https://opensearch.org/docs/2.4/search-plugins/knn/filter-search-knn/), choosing pre- or post-filtering in order to provide the best speed and accuracy, thanks to improvements in Lucene.
+Another functionality available in the Lucene library is efficient filtering of k-NN results. Until OpenSearch 2.4, only post-filtering was available, which can be inefficient and inaccurate. Starting with version 2.4, OpenSearch  [supports adaptive filtering](https://opensearch.org/docs/latest/search-plugins/knn/filter-search-knn/), choosing pre- or post-filtering in order to provide the best speed and accuracy, thanks to improvements in Lucene.
 
 ## Summary
 
