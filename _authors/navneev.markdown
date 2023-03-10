@@ -6,4 +6,4 @@ github: navneet1v
 linkedin: navneet-verma-a37a33b0
 ---
 
-**Navneet Verma** is a senior software engineer at Amazon Web Services working on geospatial and vector search space in OpenSearch.
+**Navneet Verma** is a senior software engineer at AWS working on geospatial and vector search in OpenSearch.
