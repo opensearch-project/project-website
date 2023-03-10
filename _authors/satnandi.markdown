@@ -6,4 +6,4 @@ twitter:
 github: nandi-github
 ---
 
-Satish Nandi is the Senior Technical Product Manager for OpenSearch.
+**Satish Nandi** is a senior technical product manager for OpenSearch.
