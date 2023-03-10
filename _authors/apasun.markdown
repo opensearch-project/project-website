@@ -6,4 +6,4 @@ github: apasun
 linkedin: aparnasundar
 ---
 
-**Dr. Aparna Sundar** is a Senior UX Researcher at OpenSearch covering all areas of UI in the OpenSearch product. She has over 20 years of experience in the field of research and design and actively publishes in the area of cognitive science.
+**Dr. Aparna Sundar** is a senior UX researcher at AWS covering all areas of the OpenSearch UI. She has over 20 years of experience in the field of research and design and actively publishes in the area of cognitive science.
