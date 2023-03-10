@@ -9,7 +9,7 @@ categories:
 meta_keywords: OpenSearch NPS, OpenSearch net promoter score, OpenSearch user experience
 meta_description: OpenSearch Project Q1 community survey results, reporting a net promoter score of 57.8 and a UX health score of 77.2.
 
-excerpt: "Thank you to the OpenSearch community members who responded to our Q1 community survey! Our first quarterly survey focused on understanding who our users are, what they use OpenSearch for, and establishing a baseline for how they feel about the current user experience on OpenSearch. We are thrilled to report a NPS (net promoter score) of **57.8** and a UX health score of **77.2** with **97** community members taking part in the survey."
+excerpt: "Thank you to the OpenSearch community members who responded to our Q1 community survey! Our first quarterly survey focused on understanding who our users are, what they use OpenSearch for, and establishing a baseline for how they feel about the current user experience on OpenSearch. We are thrilled to report a net promoter score (NPS) of **57.8** and a UX health score of **77.2** with **97** community members taking part in the survey."
 
 ---
 
@@ -34,7 +34,7 @@ Here are some key insights from the Q1 survey:
 * 48.8%, or almost half of the community members who took the survey, self-identified as being in an *administrative* role, and almost half of the sample self-identified with all 4 roles.
 * 34.1% self-identified as being in an *infrastructure setup* role. 
 
-Based on these insights, we concluded that close to half of our users have complex needs that span across all four roles, from *infrastructure setup* to *administrative* to *producer* to *consumer*. Our offerings, therefore, should focus on providing consistent end-to-end workflows and transitions that enable users to perform tasks seamlessly. This finding is also a good indication of the sample who accessed the survey on OpenSearch.org, that is, respondents were primarily in _Infrastructure Setup_ or _Admin_ roles. In future quarters we intend to expand recruitment for the quarterly survey to the OpenSearch Dashboards interface as well. This will help us obtain feedback from Dashboards users, who are typically both *producers* and *consumers*.
+Based on these insights, we concluded that close to half of our users have complex needs that span across all four roles, from *infrastructure setup* to *administrative* to *producer* to *consumer*. Our offerings, therefore, should focus on providing consistent end-to-end workflows and transitions that enable users to perform tasks seamlessly. This finding is also a good indication of the sample who accessed the survey on OpenSearch.org, that is, respondents were primarily in _infrastructure setup_ or _admin_ roles. In future quarters we intend to expand recruitment for the quarterly survey to the OpenSearch Dashboards interface as well. This will help us obtain feedback from Dashboards users, who are typically both *producers* and *consumers*.
  
 In Q2 we want to gain a deeper understanding of ways to improve the OpenSearch user experience. We want to understand what blockers our users face when setting up OpenSearch for themselves or others. We also want to understand what blockers users encounter when dashboards are set up, shared, and consumed.
 
