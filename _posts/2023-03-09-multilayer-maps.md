@@ -129,7 +129,7 @@ To add, remove, or change fields that are shown in the tooltip, in the **Cancell
 
 <img src="/assets/media/blog-images/2023-03-09-multilayer-maps/tooltip-settings.png" alt="Setting up tooltips"/>{: .img-fluid }
 
-If you have more than one layer coinciding in one data point, the tooltip displays the information for all layers. If you reapply the **Delayed Flights** and **Flights On Time** layers, hover over Washington, D.C., once more, and select the tooltip, you’ll see that the tooltip now contains 13 flights. You can select the layer you’re interested in from the dropdown list in the tooltip. Each layer type may have different fields in the tooltip. For example, the **Flights On Time** layer is the only layer that displays the `FlightTimeMin` field. To see all layers, select **All layers**, as shown in the following image.
+If multiple layers coincide in one city, the tooltip displays the information for all layers. If you reapply the **Delayed Flights** and **Flights On Time** layers, hover over Washington, D.C., once more, and select the tooltip, you’ll see that the tooltip now contains 13 flights. You can select the layer you’re interested in from the dropdown list in the tooltip. Each layer type may have different fields in the tooltip. For example, the **Flights On Time** layer is the only layer that displays the `FlightTimeMin` field. To see all layers, select **All layers**, as shown in the following image.
 
 <img src="/assets/media/blog-images/2023-03-09-multilayer-maps/tooltips.gif" alt="Viewing tooltips from multiple layers"/>
 
