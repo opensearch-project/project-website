@@ -9,7 +9,7 @@ categories:
 meta_keywords: OpenSearch NPS, OpenSearch net promoter score, OpenSearch user experience
 meta_description: OpenSearch Project Q1 community survey results, reporting a net promoter score of 57.8 and a UX health score of 77.2.
 
-excerpt: "Thank you to the OpenSearch community members who responded to our Q1 community survey! Our first quarterly survey focused on understanding who our users are, what they use OpenSearch for, and establishing a baseline for how they feel about the current OpenSearch experience. We are thrilled to report a net promoter score (NPS) of **57.8** and a UX health score of **77.2** with **97** community members taking part in the survey."
+excerpt: "Thank you to the OpenSearch community members who responded to our Q1 community survey! Our first quarterly survey focused on understanding who our users are, what they use OpenSearch for, and establishing a baseline for how they feel about the current OpenSearch experience. We are thrilled to report a net promoter score (NPS) of **57.8** and a UX health score of **77.2**, with **97** community members taking part in the survey."
 
 ---
 
