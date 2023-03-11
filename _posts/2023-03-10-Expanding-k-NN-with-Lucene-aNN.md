@@ -6,8 +6,8 @@ authors:
 date: 2023-03-10
 categories:
  - technical-post
-meta_keywords: 
-meta_description: 
+meta_keywords: approximate k-NN, OpenSearch k-NN search, k-nearest neighbor, Lucene 9.0 k-NN
+meta_description: Learn how approximate k-NN in OpenSearch with faiss, nmslib, and Lucene, can produce results tens of milliseconds faster than with exact K-NN
 excerpt: OpenSearch pioneered k-nearest neighbor (k-NN) within search engines in 2019, and developers have adopted it enthusiastically on sets of millions or even billions of vectors. OpenSearch continues to innovate in the area of k-NN support. OpenSearch 2.2 added the Lucene 9.0 implementation of k-NN, and OpenSearch 2.4 added adaptive filtering.
 ---
 
