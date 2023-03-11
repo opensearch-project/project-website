@@ -103,6 +103,7 @@
     justify-content: flex-start;
     .partner-page--layout--meta {
         flex-grow: 1;
+        max-width: 25vw;
         .partner-page--layout--meta__vspaced {
             margin-top: 0;
             margin-bottom: 5em;
