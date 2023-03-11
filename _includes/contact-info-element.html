@@ -1,3 +1,13 @@
+<template id="contact_info_element_tpl">
+  <style>
+      ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
+  </style>
+  <ul></ul>
+</template>
 <script type="module">
     class ContactInfoElement extends HTMLElement {
         isEmailAddress(value) {
@@ -13,32 +23,60 @@
             return pattern.test(value);
         }
 
+        createEmailLink(contactInfo) {
+            const link = document.createElement('a');
+            link.href = `mailto:${contactInfo}`;
+            link.target = '_blank';
+            link.textContent = contactInfo;
+            return link;
+        }
+        createPhoneLink(contactInfo) {
+            const link = document.createElement('a');
+            link.href = `tel:${contactInfo}`;
+            link.target = '_blank';
+            link.textContent = contactInfo;
+            return link;
+        }
+        createWebLink(contactInfo) {
+            const link = document.createElement('a');
+            link.href = contactInfo;
+            link.target = '_blank';
+            link.textContent = contactInfo;
+            return link;
+        }
+        createListItem(childElement) {
+            const li = document.createElement('li');
+            li.appendChild(childElement);
+            return li;
+        }
         static get observedAttributes() {
             return ['conact-info'];
         }
+        
         render() {
-            const contactInfo = this.getAttribute('contact-info');
-            if (this.isEmailAddress(contactInfo)) {
-                this.shadowRoot.innerHTML = `
-                    <a href="mailto:${contactInfo}" target="_blank">${contactInfo}</a>
-                `;
-            } else if (this.isPhoneNumber(contactInfo)) {
-                this.shadowRoot.innerHTML = `
-                    <a href="tel:${contactInfo}" target="_blank">${contactInfo}</a>
-                `;
-            } else if (this.isWebAddress(contactInfo)) {
-                this.shadowRoot.innerHTML = `
-                    <a href="${contactInfo} target="_blank">${contactInfo}</a>
-                `;
-            } else {
-                this.shadowRoot.innerHTML = `
-                    <span>${contactInfo}</span>
-                `;
-            }
+            const contactInfo = this.getAttribute('contact-info')?.split?.(',') ?? [];
+            const childElements = contactInfo.map(contactInfo => {
+                if (this.isEmailAddress(contactInfo)) {
+                    return this.createListItem(this.createEmailLink(contactInfo));
+                } else if (this.isPhoneNumber(contactInfo)) {
+                    return this.createListItem(this.createPhoneLink(contactInfo));
+                } else if (this.isWebAddress(contactInfo)) {
+                    return this.createListItem(this.createWebLink(contactInfo));
+                } else {
+                    const span = document.createElement('span');
+                    span.textContent = contactInfo;
+                    return this.createListItem(span);
+                }
+            });
+            const ul = this.shadowRoot.querySelector('ul');
+            ul.append(...childElements);
         }
+
         constructor() {
             super();
             this.attachShadow({ mode: 'open' });
+            const tpl = document.getElementById('contact_info_element_tpl');
+            this.shadowRoot.appendChild(tpl.content.cloneNode(true));
         }
         connectedCallback() {
             this.render();
