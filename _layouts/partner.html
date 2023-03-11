@@ -8,16 +8,17 @@ primary_title: Partners
 {% include partner-social-links.html %}
 {% include responsive-collapsible-panel.html %}
 {% include uppercase-first-word.html %}
+{% include contact-info-element.html %}
 
-{% assign primary_title = page.name %}
+{% assign primary_title = page.name_long %}
 <div class="container sidebar-left">
     <div class="partner-page--branding">
         <div class="partner-page--branding--logo">
-            <img src="{{ page.logo_large }}" alt="{{ page.name }} Logo">
+            <img src="{{ page.logo_large }}" alt="{{ page.name_long }} Logo">
         </div>
         <div class="partner-page--branding--product">
             {% if page.product_image %}
-                <img src="{{ page.product_image }}" alt="{{ page.name }} Product">
+                <img src="{{ page.product_image }}" alt="{{ page_long }} Product">
             {% endif %}
         </div>
     </div>
@@ -59,7 +60,7 @@ primary_title: Partners
                             <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
                         </dd>
                         <dt>Contact Info</dt>
-                        <dd><a href="mailto:{{ page.contact }}">{{ page.contact }}</a></dd>
+                        <dd><contact-info contact-info="{{ page.contact | join: ',' }}"></contact-info></dd>
                         <dt>Website</dt>
                         <dd><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></dd>
                     </dl>
@@ -67,7 +68,7 @@ primary_title: Partners
             </responsive-collapsible-panel>
         </div>
         <div class="partner-page--layout--details" role="main">
-            <h1><a href="{{ page.link }}" target="_blank">{{ page.name }}</a></h1>
+            <h1><a href="{{ page.link }}" target="_blank">{{ page.name_long }}</a></h1>
             <div class="partner-page--layout--details--description">
                 <p>{{ page.description }}</p>
             </div>
