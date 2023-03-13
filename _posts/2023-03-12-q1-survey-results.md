@@ -3,7 +3,7 @@ layout: post
 authors:
   - apasun
 title: "OpenSearch Project Q1 community survey results"
-date: 2023-03-02 
+date: 2023-03-12
 categories:
 - community
 meta_keywords: OpenSearch NPS, OpenSearch net promoter score, OpenSearch user experience
@@ -17,7 +17,7 @@ Thank you to the OpenSearch community members who responded to our Q1 community 
 
 We’ve recently launched a research program in order to get a holistic view of the OpenSearch user experience. The program is designed to evaluate a user’s journey comprehensively using various research methodologies, including a quarterly survey. In addition to quarterly surveys, we also use "deep dives," which are qualitative research studies that include conversations with users to understand their use cases, requirements, and OpenSearch experience. The quarterly surveys will ask community members to provide feedback on new features, existing OpenSearch experiences, and more. This will help us prioritize improvements to best serve the community. After our Q2 survey is released this month, you will be able to access it at [OpenSearch.org](http://opensearch.org/), as shown in the following image.
 
-![OpenSearch.org website](../assets/media/blog-images/2023-03-02-q1-survey-results/q1-survey-results.png)
+![OpenSearch.org website](../assets/media/blog-images/2023-03-12-q1-survey-results/q1-survey-results.png)
 
 [Image: survey.png]
 

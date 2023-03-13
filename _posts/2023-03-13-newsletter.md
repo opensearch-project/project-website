@@ -3,7 +3,7 @@ layout: post
 title:  "OpenSearch Project Newsletter - Volume 1, Issue 2"
 authors:
   - uselmh
-date: 2023-03-10
+date: 2023-03-13
 categories:
   - community
 meta_description: "Read the OpenSearch Project Newsletter for the latest news, community happenings, events, product launches and to hear what's new with our partners."
@@ -12,7 +12,7 @@ meta_keywords: "OpenSearch Project news, open source newsletter, OpenSearch part
 
 The OpenSearch Project is pleased to present our newsletter. Distributed monthly, the newsletter is a great way to learn more about the latest OpenSearch news, relevant content from the community, and upcoming events that you may be interested in. 
 
-<img src="/assets/media/blog-images/2023-03-10-opensearch-newsletter-vol1-issue2/newsletterv1i2.png" alt="OpenSearch Project Newsletter"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-13-opensearch-newsletter-vol1-issue2/newsletterv1i2.png" alt="OpenSearch Project Newsletter"/>{: .img-fluid }
 ## What’s New?
 
 [OpenSearch 2.6 is live!](https://opensearch.org/blog/introducing-opensearch-2-6/)
