@@ -16,10 +16,8 @@ opensearch_tech: 'search, analytics, observability, security'
 resources:
   - url: 'https://cloudscaleinc.com/topics/cloud-computing/simplified-multi-cloud-by-cloudscale-experts/'
     title: 'What is a Multi-Cloud, Simplified by Cloud Scale Experts'
-    thumbnail: '/assets/media/partners/cloudscale/cloudscale-blog.png'
     type: 'blog'
   - url: 'https://cloudscaleinc.com/topics/tech-articles/cloud-native-security-and-compliance/'
     title: 'Cloud Native Security & Compliance challenges'
-    thumbnail: '/assets/media/partners/cloudscale/cloudscale-blog-2.png'
     type: 'blog'
 ---
