@@ -127,10 +127,28 @@
 </template>
 <script type="module">
     class ResourceGridElement extends HTMLElement {
-        connectedCallback() {
-            this.attachShadow({mode: 'open'});
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
             const tpl = document.getElementById('resource_grid_element_tpl');
             this.shadowRoot.appendChild(tpl.content.cloneNode(true));
+        }
+        connectedCallback() {
+            window.customElements.whenDefined('resource-grid-item').then(() => {
+                this.resizeGridItems();
+            });
+        }
+
+        resizeGridItems() {
+            const gridItemSlot = this.shadowRoot.querySelector('slot[name="grid-item"]');
+            const gridItemElements = Array.from(gridItemSlot.assignedElements());
+            Promise.all(gridItemElements.map(e => e.getThumbnailHeights())).then((thumbHeights) => {
+                const naturalHeights = thumbHeights.map(h => h.natural);
+                const heights = thumbHeights.map(h => h.height);
+                const minHeight = Math.min(...naturalHeights);
+                const maxHeight = Math.max(...heights);
+                gridItemElements.forEach(e => e.setThumbnailHeight(minHeight, maxHeight));
+            });
         }
     }
 
@@ -143,6 +161,37 @@
                 this.render();
             }
         }
+        getThumbnailHeights() {
+            return new Promise((resolve, reject) => {
+                const img = this.shadowRoot.querySelector('img');
+                if (!img.hasAttribute('src') || img.getAttribute('src').trim() === '') {
+                    reject();
+                }
+                if (img.complete) {
+                    resolve({natural: img.naturalHeight, height: img.height});
+                } else {
+                    img.addEventListener('load', () => {
+                        resolve({natural: img.naturalHeight, height: img.height});
+                    });
+                    img.addEventListener('error', () => {
+                        reject();
+                    });
+                }
+            });
+        }
+
+        setThumbnailHeight(height, wrapperHeight) {
+            const img = this.shadowRoot.querySelector('img');
+            const imgHeight = img.height;
+            if (height !== imgHeight) {
+                const bottomInset = imgHeight - height;
+                img.style.clipPath = `inset(0 0 ${bottomInset}px 0)`;
+            } else {
+                const thumbnail = this.shadowRoot.querySelector('.thumbnail');
+                thumbnail.style.height = `${wrapperHeight}px`;
+            }
+        }
+
         render() {
             if (!this.hasAttribute('url') || !this.hasAttribute('title')) {
                 console.error('ResourceGridItemElement needs a url attribute');
@@ -165,7 +214,7 @@
             const type = this.getAttribute('type') || 'Uncategorized';
             const titleType = this.shadowRoot.querySelector('.title-type');
             titleType.textContent = this.getAttribute('type');
-            
+
             const titleText = this.shadowRoot.querySelector('.title-text');
             titleText.textContent = title;
 
@@ -175,11 +224,12 @@
 
         constructor() {
             super();
-            this.attachShadow({mode: 'open'});
+            this.attachShadow({ mode: 'open' });
             const tpl = document.getElementById('resource_grid_item_element_tpl');
             this.shadowRoot.appendChild(tpl.content.cloneNode(true));
         }
     }
+
     customElements.define('resource-grid', ResourceGridElement);
     customElements.define('resource-grid-item', ResourceGridItemElement);
 </script>
