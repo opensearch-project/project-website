@@ -3,13 +3,13 @@ layout: post
 authors:
   - apasun
 title: "OpenSearch Project Q1 community survey results"
-date: 2023-03-02 
+date: 2023-03-12
 categories:
 - community
 meta_keywords: OpenSearch NPS, OpenSearch net promoter score, OpenSearch user experience
 meta_description: OpenSearch Project Q1 community survey results, reporting a net promoter score of 57.8 and a UX health score of 77.2.
 
-excerpt: "Thank you to the OpenSearch community members who responded to our Q1 community survey! Our first quarterly survey focused on understanding who our users are, what they use OpenSearch for, and establishing a baseline for how they feel about the current OpenSearch experience. We are thrilled to report a net promoter score (NPS) of **57.8** and a UX health score of **77.2**, with **97** community members taking part in the survey."
+excerpt: "Thank you to the OpenSearch community members who responded to our Q1 community survey! Our first quarterly survey focused on understanding who our users are, what they use OpenSearch for, and establishing a baseline for how they feel about the current OpenSearch experience. We are thrilled to report a net promoter score (NPS) of 57.8 and a UX health score of 77.2, with 97 community members taking part in the survey."
 
 ---
 
@@ -17,9 +17,7 @@ Thank you to the OpenSearch community members who responded to our Q1 community 
 
 We’ve recently launched a research program in order to get a holistic view of the OpenSearch user experience. The program is designed to evaluate a user’s journey comprehensively using various research methodologies, including a quarterly survey. In addition to quarterly surveys, we also use "deep dives," which are qualitative research studies that include conversations with users to understand their use cases, requirements, and OpenSearch experience. The quarterly surveys will ask community members to provide feedback on new features, existing OpenSearch experiences, and more. This will help us prioritize improvements to best serve the community. After our Q2 survey is released this month, you will be able to access it at [OpenSearch.org](http://opensearch.org/), as shown in the following image.
 
-![OpenSearch.org website](../assets/media/blog-images/2023-03-02-q1-survey-results/q1-survey-results.png)
-
-[Image: survey.png]
+<img src="/assets/media/blog-images/2023-03-12-q1-survey-results/q1-survey-results.png" alt="Survey Results"/>{: .img-fluid }
 
 Here are some key insights from the Q1 survey:
 
