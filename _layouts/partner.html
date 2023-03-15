@@ -91,13 +91,18 @@ primary_title: Partners
                     <h2>Products &amp; Services</h2>
                     <ul>
                         {% for product in page.products %}
-                            {% if product.name %}
-                                <li><a href="{{ product.url }}" target="_blank">{{ product.name }}</a>
-                                    {% if product.description %}
-                                        <p>{{ product.description }}</p>
+                            <li>
+                                {% if product.name %}
+                                    {% if product.url %}
+                                        <a href="{{ product.url }}" target="_blank">{{ product.name }}</a>
+                                    {% else %}
+                                        <span><strong>{{ product.name }}</strong></span>
                                     {% endif %}
-                                </li>
-                            {% endif %}
+                                {% endif %}
+                                {% if product.description %}
+                                    <p>{{ product.description }}</p>
+                                {% endif %}
+                            </li>
                         {% endfor %}
                     </ul>
                 </div> 
