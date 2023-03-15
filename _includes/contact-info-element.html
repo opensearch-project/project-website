@@ -54,20 +54,22 @@
         }
         
         render() {
-            const contactInfo = this.getAttribute('contact-info')?.split?.(',') ?? [];
-            const childElements = contactInfo.map(contactInfo => {
-                if (this.isEmailAddress(contactInfo)) {
-                    return this.createListItem(this.createEmailLink(contactInfo));
-                } else if (this.isPhoneNumber(contactInfo)) {
-                    return this.createListItem(this.createPhoneLink(contactInfo));
-                } else if (this.isWebAddress(contactInfo)) {
-                    return this.createListItem(this.createWebLink(contactInfo));
-                } else {
-                    const span = document.createElement('span');
-                    span.textContent = contactInfo;
-                    return this.createListItem(span);
-                }
-            });
+            const contactInfoAttrib = this.getAttribute('contact-info')?.split?.(/\s*,\s*/) ?? [];
+            const childElements = contactInfoAttrib
+                .filter(contactInfo => contactInfo !== '')
+                .map(contactInfo => {
+                    if (this.isEmailAddress(contactInfo)) {
+                        return this.createListItem(this.createEmailLink(contactInfo));
+                    } else if (this.isPhoneNumber(contactInfo)) {
+                        return this.createListItem(this.createPhoneLink(contactInfo));
+                    } else if (this.isWebAddress(contactInfo)) {
+                        return this.createListItem(this.createWebLink(contactInfo));
+                    } else {
+                        const span = document.createElement('span');
+                        span.textContent = contactInfo;
+                        return this.createListItem(span);
+                    }
+                });
             const ul = this.shadowRoot.querySelector('ul');
             ul.append(...childElements);
         }
