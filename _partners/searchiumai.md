@@ -1,6 +1,51 @@
 ---
 name: Searchium.ai
-# upload your logo to the following directory - must be square
+name_long: Searchium.ai
 logo: '/assets/media/partners/searchiumai.png'
 link: 'https://www.searchium.ai/'
+logo_large: '/assets/media/partners/searchiumai/searchiumai-logo.png'
+description: |
+  <p>Searchium.ai is a SaaS platform that optimizes neural search applications.</p>
+  <p>Based on in-memory computing built specifically for search, we give you a significant advantage, easy-to-integrate neural search that scales to billions without sacrificing speed or accuracy.</p>
+
+business_type: 'Product/Technology'
+region: 'Worldwide'
+contact: 'yvaknin@gsitechnology.com, devopsil@gsitechnology.com, social@gsitechnology.com'
+opensearch_tech: 'Search'
+industries: 'Software and Technology'
+main_office_location: |
+  18 Raul Wallenberg
+  Tel Aviv, Israel
+products:
+  - url: 'https://searchium.ai/'
+    name: 'Searchium.ai'
+    description: 'The Searchium OpenSearch plugin enables you to connect remotely to a hardware accelerator for low latency searching and infrastructure cost reduction.'
+resources:
+  - url: 'https://betterprogramming.pub/tired-of-troubleshooting-idle-search-resources-use-opensearch-benchmark-for-performance-tuning-d4277c9f724'
+    title: 'Tired of troubleshooting idle search resources? Use OpenSearch Benchmark for performance tuning'
+    thumbnail: '/assets/media/partners/searchiumai/searchiumai-benchmark.jpg'
+    type: 'blog'
+  - url: 'https://towardsdatascience.com/bolster-opensearch-performance-with-5-simple-steps-ca7d21234f6b?gi=904ccc0a0714'
+    title: 'Bolster OpenSearch performance with 5 simple steps'
+    thumbnail: '/assets/media/partners/searchiumai/searchiumai-performance.jpg'
+    type: 'blog'
+  - url: 'https://towardsdatascience.com/text-search-vs-vector-search-better-together-3bd48eb6132a'
+    title: 'Text Search vs. Vector Search: Better Together?'
+    thumbnail: '/assets/media/partners/searchiumai/searchiumai-vector.jpg'
+    type: 'blog'
+  - url: 'https://medium.com/gsi-technology/the-apu-novel-hardware-for-accelerated-similarity-search-beaef9b19b97'
+    title: 'The APU: Novel Hardware for Accelerated Similarity Search'
+    thumbnail: '/assets/media/partners/searchiumai/searchiumai-apu.png'
+    type: 'blog'
+  - url: 'https://medium.com/gsi-technology/semantic-vector-search-taking-the-leap-from-keyword-search-18855e96854a'
+    title: 'Neural Search — Taking the Leap from Keyword Search'
+    thumbnail: '/assets/media/partners/searchiumai/searchiumai-vector-search.png'
+    type: 'blog'
+  - url: 'https://towardsdatascience.com/speeding-up-bert-search-in-elasticsearch-750f1f34f455'
+    title: 'Speeding up BERT Search in Elasticsearch'
+    thumbnail: '/assets/media/partners/searchiumai/searchiumai-bert.png'
+    type: 'blog'
+social_links:
+  - url: 'https://github.com/Searchium-ai'
+    icon: 'github'
 ---
