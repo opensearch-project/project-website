@@ -44,6 +44,11 @@
             text-align: center;
             padding: 0;
         }
+        @media screen and (min-width: 1270px) {
+            .thumbnail {
+                height: auto;
+            }
+        }
         .thumbnail img {
             width: 100%;
             height: auto;
@@ -140,6 +145,10 @@
         }
 
         resizeGridItems() {
+            // TODO: Determine if there's a clean way to do this at all,
+            //       or if we should just be really deliberate about 
+            //       what images we are using. The latter is probably
+            //       the choice with the most predicatable outcome.
             const gridItemSlot = this.shadowRoot.querySelector('slot[name="grid-item"]');
             const gridItemElements = Array.from(gridItemSlot.assignedElements());
             Promise.all(gridItemElements.map(e => e.getThumbnailHeights())).then((thumbHeights) => {
@@ -183,13 +192,30 @@
         setThumbnailHeight(height, wrapperHeight) {
             const img = this.shadowRoot.querySelector('img');
             const imgHeight = img.height;
-            if (height !== imgHeight) {
-                const bottomInset = imgHeight - height;
-                img.style.clipPath = `inset(0 0 ${bottomInset}px 0)`;
-            } else {
-                const thumbnail = this.shadowRoot.querySelector('.thumbnail');
-                thumbnail.style.height = `${wrapperHeight}px`;
-            }
+            // if (imgHeight > height) {
+            //     const bottomInset = imgHeight - height;
+            //     img.style.clipPath = `inset(0 0 ${bottomInset}px 0)`;
+            // }
+            // const thumbnail = this.shadowRoot.querySelector('.thumbnail');
+            // thumbnail.style.height = `${wrapperHeight}px`;
+            this.getThumbnailCSSClassRule(
+                this.findStylesheetMediaRules()
+            ).style.height = `${wrapperHeight}px`;
+        }
+
+        getThumbnailCSSClassRule(mediaRules) {
+            const conditionText = 'screen and (min-width: 1270px)';
+            const rules = Array.from(mediaRules);
+            const rule = rules.find(r => r.conditionText === conditionText);
+            const thumbnailRule = Array.from(rule.cssRules).find(r => r.selectorText === '.thumbnail');
+            return thumbnailRule;
+        }
+
+        findStylesheetMediaRules() {
+            const stylesheet = this.shadowRoot.styleSheets.item(0);
+            const rules = Array.from(stylesheet.cssRules);
+            const mediaRules = rules.filter(r => r.type === CSSRule.MEDIA_RULE);
+            return mediaRules;
         }
 
         render() {
