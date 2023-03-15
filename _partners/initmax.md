@@ -20,4 +20,8 @@ resources:
     title: 'initMAX Blog'
     thumbnail: '/assets/media/partners/initmax.png'
     type: 'blog'
+products:
+  - url: 'https://www.initmax.com/service/zabbix-monitoring/'
+    name: Zabbix
+    description: 'Wazuh &amp; log management PostgreSQL, DevOps infrastructure form the secure and stable foundation of the most successful companies.'
 ---
