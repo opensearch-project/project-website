@@ -55,10 +55,24 @@ primary_title: Partners
                 </div>
                 <div class="partner-page--layout--meta__vspaced" slot="content-slot">
                     <dl>
-                        <dt>Main Office Address</dt>
-                        <dd>
-                            <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
-                        </dd>
+                        {% if page.multiple_office_locations %}
+                            <dt>Office Locations</dt>
+                            <dd>
+                                <dl>
+                                    {% for office_location in page.multiple_office_locations %}
+                                        <dt>{{ office_location.name }}</dt>
+                                        <dd>
+                                            <address-custom-element address="{{ office_location.location }}"></address-custom-element>
+                                        </dd>
+                                    {% endfor %}
+                                </dl>
+                            </dd>
+                        {% elsif page.main_office_location %}
+                            <dt>Main Office Address</dt>
+                            <dd>
+                                <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
+                            </dd>
+                        {% endif %}
                         <dt>Contact Info</dt>
                         <dd><contact-info contact-info="{{ page.contact | join: ',' }}"></contact-info></dd>
                         <dt>Website</dt>
@@ -74,7 +88,7 @@ primary_title: Partners
             </div>
             {% if page.products %}
                 <div class="partner-page--layout--details--products">
-                    <h2>Products</h2>
+                    <h2>Products &amp; Services</h2>
                     <ul>
                         {% for product in page.products %}
                             {% if product.name %}
