@@ -4,4 +4,4 @@ github: derek-ho
 photo: "/assets/media/authors/derek-ho.jpg"
 ---
 
-**Derek Ho** is an external contributor of the OpenSearch project.
+**Derek Ho** is a contributor to the OpenSearch Project.
