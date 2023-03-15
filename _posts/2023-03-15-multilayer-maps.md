@@ -7,11 +7,11 @@ authors:
   - junqiu
   - satnandi
   - kolchfa
-date:   2023-03-09
+date:   2023-03-15
 categories:
   - technical-post
-meta_keywords: 
-meta_description: 
+meta_keywords: multilayer maps, multiple map layers, OpenSearch Dashboards, geospatial data
+meta_description: Explore the multilayer map functionality in OpenSearch and see how you can visualize geographical data from different data sources at different zoom levels.
 excerpt: OpenSearch 2.5 introduced new multilayer maps for visualizing geographical data. Displaying multiple layers on a map lets you show data from different sources at different zoom levels. Additionally, in OpenSearch 2.6, you can add multilayer maps to dashboard panels within OpenSearch Dashboards, which makes it easier to analyze your geospatial data in the context of other visualizations. 
 ---
 
@@ -38,7 +38,7 @@ To explore a prebuilt example map, perform the following steps:
 
 You’ll see the following example map that is based on the **Sample flight data** dataset.
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/map-explanation.png" alt="Example map"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/map-explanation.png" alt="Example map"/>{: .img-fluid }
 
 Let’s get familiar with the map’s components:
 
@@ -58,7 +58,7 @@ The map in the preceding image has three additional layers: **Cancelled Flights*
 
 For example, if you select the **Cancelled Flights** layer, you’ll see the layer’s configuration, as shown in the following image.
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/layer-settings.gif" alt="Explore layer configuration"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/layer-settings.gif" alt="Explore layer configuration"/>{: .img-fluid }
 
 From the settings panel, explore the following tabs:
 
@@ -98,7 +98,7 @@ In fact, in the example map all the dots are green. Are no flights cancelled? Th
 
 The **Cancelled Flights** layer is visible only at zoom levels 4--22, so you’ll have to zoom in to see the cancelled flight data points, as shown in the following image. 
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/layers-zoomed-in.png" alt="All layers are visible when zooming in"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/layers-zoomed-in.png" alt="All layers are visible when zooming in"/>{: .img-fluid }
 
 Another question that you might have is, "Why are there only three document layers, but the dots on the map come in more than three colors?" 
 
@@ -115,11 +115,11 @@ However, all layers are set to 70% opacity so that if one data point coincides w
 
 Moreover, try reordering the layers by dragging them by the handlebar (two horizontal lines) next to the layer names. You will see the data points change color, as shown in the following image.
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/reordering-layers.gif" alt="Reordering layers"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/reordering-layers.gif" alt="Reordering layers"/>{: .img-fluid }
 
 To view only the **Cancelled Flights** layer, in the **Layers** panel, hide the **Delayed Flights** and **Flights On Time** by selecting the crossed-out eye icon next to the layer name. Now you see only the red dots that correspond to the **Cancelled Flights** layer, as shown in the following image.
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/cancelled-flights-only.png" alt="Showing only the cancelled flights layer"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/cancelled-flights-only.png" alt="Showing only the cancelled flights layer"/>{: .img-fluid }
 
 ## Tooltips are appreciated
 
@@ -127,11 +127,11 @@ The red data points alone don’t convey much information about your dataset. In
 
 To add, remove, or change fields that are shown in the tooltip, in the **Cancelled Flights** pane, select the **Data** tab. Then add or delete tooltip fields in **Tooltip fields**, as shown in the following image. 
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/tooltip-settings.png" alt="Setting up tooltips"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/tooltip-settings.png" alt="Setting up tooltips"/>
 
 If multiple layers coincide in one city, the tooltip displays the information for all layers. If you reapply the **Delayed Flights** and **Flights On Time** layers, hover over Washington, D.C., once more, and select the tooltip, you’ll see that the tooltip now contains 13 flights. You can select the layer you’re interested in from the dropdown list in the tooltip. Each layer type may have different fields in the tooltip. For example, the **Flights On Time** layer is the only layer that displays the `FlightTimeMin` field. To see all layers, select **All layers**, as shown in the following image.
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/tooltips.gif" alt="Viewing tooltips from multiple layers"/>
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/tooltips.gif" alt="Viewing tooltips from multiple layers"/>{: .img-fluid }
 
 ## A dashing dashboard map
 
@@ -139,7 +139,7 @@ In OpenSearch Dashboards version 2.6, you can not only create a map but also add
 
 To add the example map to a dashboard, perform the following steps, as shown in the following image.
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/add-to-dashboard.gif" alt="Adding a map to a dashboard"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/add-to-dashboard.gif" alt="Adding a map to a dashboard"/>{: .img-fluid }
 
 1. On the top menu, go to **OpenSearch Dashboards** > **Dashboard**.
 2. Select **[Flights] Global Flight Dashboard**.
@@ -150,7 +150,7 @@ To add the example map to a dashboard, perform the following steps, as shown in 
 
 After closing the **Add panels** flyout, you’ll see the example map on the bottom of the dashboard, as shown in the following image.
 
-<img src="/assets/media/blog-images/2023-03-09-multilayer-maps/map-in-dashboard.png" alt="A map added to a dashboard"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-03-15-multilayer-maps/map-in-dashboard.png" alt="A map added to a dashboard"/>{: .img-fluid }
 
 ## What’s next?
 
