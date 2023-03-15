@@ -77,6 +77,12 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    @include respond-min(740px) {
+        padding: 2em 0;
+    }
+    @include respond-max(739px) {
+        padding: 1em 0.5em;
+    }
     .partner-page--branding--logo {
         flex-grow: 1;
         max-width: 38%;
@@ -89,6 +95,7 @@
     .partner-page--branding--product {
         flex-grow: 2;
         max-width: 62%;
+        text-align: right;
         & > img {
             width: 100%;
             height: auto;
@@ -103,7 +110,9 @@
     justify-content: flex-start;
     .partner-page--layout--meta {
         flex-grow: 1;
-        max-width: 25vw;
+        @include respond-min(740px) {
+            max-width: 25vw;
+        }
         .partner-page--layout--meta__vspaced {
             margin-top: 0;
             margin-bottom: 5em;
@@ -164,12 +173,10 @@
         }
     }
     .partner-page--social-links {
-        width: 25%;
         text-align: center;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        margin-left: 33%;
+        justify-content: center;
         .partner-page--social-links--icon {
             position: relative;
             height: 36px;
