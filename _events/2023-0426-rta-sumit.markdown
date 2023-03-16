@@ -1,0 +1,19 @@
+---
+
+eventdate: 2023-04-26T13:30
+tz: UTC-8
+title: Upgrading Log-Analytics Clusters to OpenSearch
+online: false
+signup:
+    url: https://www.myeventi.events/rtasummit23/attendee/?code=Stern30
+    title: Join RTA-Summit 2023 conference in San Francisco, CA
+
+---
+
+### Join [Amitai Stern](https://opensearch.org/authors/amistrn/) at the Real-Time Analytics Summit for the session "Upgrading Log-Analytics Clusters to OpenSearch"
+
+Here at [Logz.io](https://logz.io/), the open-source observability and security company, we manage observability data for over 1300 companies in highly scalable multi-cloud deployments. With the Elasticsearch license changes of 2021 we needed to migrate to an open-source platform, and OpenSearch was where we were going to contribute and what we wanted to run in production.
+
+Many equate upgrading to OpenSearch from Elasticsearch in production as changing the tires on a moving bus. Upgrading has many risks, and if the cluster is in continuous production use, ingesting terabytes of data daily, the risks can seem overbearing.
+
+In this talk, we will cover multiple upgrade strategies, including version requirements, and their pros and cons. Additionally, we will cover a different option, which is the way we, at [Logz.io](https://logz.io/), upgraded all our clusters to OpenSearch without significant extra costs while minimizing risk. Not only did we upgrade to OpenSearch, but we also migrated our AWS workloads to Graviton2 instances.
