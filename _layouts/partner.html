@@ -29,16 +29,37 @@ primary_title: Partners
                 <div class="partner-page--layout--meta__vspaced" slot="content-slot">
                     <dl>
                         {% if page.business_type %}
+                            {% assign business_type_list = page.business_type | split: "," %}
                             <dt>Partner Type</dt>
-                            <dd>{{ page.business_type }}</dd>
+                            <dd>
+                                <ul>
+                                    {% for business_type in business_type_list %}
+                                        <li><uppercase-first-word>{{ business_type | strip }}</uppercase-first-word></li>
+                                    {% endfor %}
+                                </ul>
+                            </dd>
                         {% endif %}
                         {% if page.region %}
+                            {% assign region_list = page.region | split: "," %}
                             <dt>Regions Served</dt>
-                            <dd>{{ page.region }}</dd>
+                            <dd>
+                                <ul>
+                                    {% for region in region_list %}
+                                        <li><uppercase-first-word>{{ region | strip }}</uppercase-first-word></li>
+                                    {% endfor %}
+                                </ul>    
+                            </dd>
                         {% endif %}
                         {% if page.opensearch_tech %}
+                            {% assign opensearch_tech_list = page.opensearch_tech | split: "," %}
                             <dt>Technologies</dt>
-                            <dd>{{ page.opensearch_tech }}</dd>
+                            <dd>
+                                <ul>
+                                    {% for tech in opensearch_tech_list %}
+                                        <li><uppercase-first-word>{{ tech | strip }}</uppercase-first-word></li>
+                                    {% endfor %}
+                                </ul>
+                            </dd>
                         {% endif %}
                         {% if page.industries %}
                             {% assign industry_list = page.industries | split: ","  %}
