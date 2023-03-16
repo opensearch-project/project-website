@@ -8,7 +8,7 @@ logo_large: '/assets/media/partners/barefootcoders/barefootcoders-logo.png'
 description: 'Barefoot Coders is a boutique software and technical infrastructure development studio, helping organizations scale through cloud-native solutions.'
 business_type: 'Professional Services Organization'
 region: 'North America'
-industries: 'N/A - Industry & vertical agnostic'
+industries: 'N/A - Industry &amp; vertical agnostic'
 contact: 'hello@barefootcoders.com, +1 855 833 2777'
 opensearch_tech: 'Search, Log Management'
 main_office_location: |
@@ -25,7 +25,5 @@ multiple_office_locations:
       830 NE Holladay St
       Portland, OR 97232
 products:
-  - url: 'https://www.barefootcoders.com/'
-    name: 'Barefoot Coders'
-    description: 'Our comprehensive cloud architecture, engineering, and support practice offers organizations of all sizes a one-stop shop for establishing a foundation for, migrating to, managing, and optimizing within public cloud environments. Organizations that require comprehensive search, logging, analytics and observability will benefit from our domain expertise with OpenSearch in AWS.'
+  - description: 'Our comprehensive cloud architecture, engineering, and support practice offers organizations of all sizes a one-stop shop for establishing a foundation for, migrating to, managing, and optimizing within public cloud environments. Organizations that require comprehensive search, logging, analytics and observability will benefit from our domain expertise with OpenSearch in AWS.'
 ---
