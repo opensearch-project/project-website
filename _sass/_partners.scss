@@ -73,35 +73,50 @@
 }
 
 .partner-page--branding {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
     @include respond-min(740px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
         padding: 2em 0;
+        .partner-page--branding--logo {
+            flex-grow: 1;
+            max-width: 38%;
+            & > img {
+                width: 100%;
+                height: auto;
+                max-width: 250px;
+            }
+        }
+        .partner-page--branding--product {
+            flex-grow: 2;
+            max-width: 62%;
+            text-align: right;
+            & > img {
+                width: 100%;
+                height: auto;
+                max-width: 750px;
+            }
+        }
     }
     @include respond-max(739px) {
         padding: 1em 0.5em;
-    }
-    .partner-page--branding--logo {
-        flex-grow: 1;
-        max-width: 38%;
-        & > img {
+        display: block;
+        .partner-page--branding--logo {
+            display: inline-block;
             width: 100%;
             height: auto;
-            max-width: 250px;
+            & > img {
+                widtH: 100%;
+                height: auto;
+            }
+        }
+        .partner-page--branding--product {
+            display: none;
         }
     }
-    .partner-page--branding--product {
-        flex-grow: 2;
-        max-width: 62%;
-        text-align: right;
-        & > img {
-            width: 100%;
-            height: auto;
-            max-width: 750px;
-        }
-    }
+    
+    
 }
 
 .partner-page--layout {
