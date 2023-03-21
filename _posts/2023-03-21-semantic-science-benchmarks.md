@@ -6,7 +6,7 @@ authors:
 - dhrubo
 - nmishra
 - kolchfa
-date: 2023-03-20
+date: 2023-03-21
 categories:
  - technical-post
 meta_keywords: semantic search engine, neural search engine, keyword and natural language search, search relevance, benchmarking tests
@@ -18,6 +18,24 @@ excerpt: In an earlier blog post, we described different ways of building a sema
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+<style>
+table{
+    border:2px solid #e6e6e6;
+}
+
+th{
+    border:2px solid #e6e6e6;
+    padding: 5px;
+    text-align: center;
+}
+
+td{
+    border:1px solid #e6e6e6;
+    padding: 10px;
+    text-align: center;
+}
+</style>
 
 In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/), we described different ways of building a semantic search engine in OpenSearch. In this post, we'll dive further into the science behind it. We'll discuss the benefits of combining keyword-based search with neural search, the architecture and model options, and benchmarking tests and results:
 - In [Section 1](#section-1-overview), we provide an overview of our proposed solutions and a summary of the main results. 
@@ -50,27 +68,9 @@ Because most search systems are deployed on datasets outside of their training d
 
 ### Results summary
 
-In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/), we proposed two semantic search solutions: a pretrained transformer + BM25 and a fine-tuned transformer + BM25. In the following sections, we discuss the details of combining transformers with BM25. The following table summarizes the benchmarking results. 
+In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/), we proposed two semantic search solutions: a pretrained transformer + BM25 and a fine-tuned transformer + BM25. In the following sections, we discuss the details of combining transformers with BM25. The following table summarizes the nDCG@10 benchmarking results on the 10 test datasets for the pretrained and fine-tuned transformer (TAS-B) when combined with BM25. For the definition of the combination strategies (harmonic mean and arithmetic mean), see [Section 3](#section-3-combination-methods).
 
-<style>
-table{
-    border:2px solid #e6e6e6;
-}
-
-th{
-    border:2px solid #e6e6e6;
-    padding: 5px;
-    text-align: center;
-}
-
-td{
-    border:1px solid #e6e6e6;
-    padding: 10px;
-    text-align: center;
-}
-</style>
-
-| |BM25 | Pretrained transformer<br>+ BM25 (harmonic) | Fine-tuned transformer<br>+ BM25 (arithmetic) |
+| |BM25 | Pretrained transformer + BM25 (harmonic) | Fine-tuned transformer + BM25 (arithmetic) |
 | :--- | --- | --- | --- |
 |nfcorpus | 0.343 | 0.346 | **0.369** |
 |trec-covid | 0.688 | 0.731 | **0.752**	|
@@ -83,8 +83,6 @@ td{
 |cqadupstack	|0.325	|0.333	|**0.3673**	|
 |Amazon ESCI	|0.081	|0.088	|**0.091**	|
 |Average performance <br>against BM25	|N/A	|6.66%	|**14.39%**	|
-
-Table: nDCG@10 for 10 test datasets for the pretrained and fine-tuned transformer (TAS-B) when combined with BM25. For the definition of the combination strategies (harmonic mean) and (arithmetic mean), see Section 3.
 
 In [Section 2](#section-2-obtaining-a-fine-tuned-transformer) we discuss the details of obtaining a fine-tuned transformer. If you’re interested in the result details, skip to [Section 3](#section-3-combination-methods) and [Section 4](#section-4-normalization-and-other-combination-methods).
 
