@@ -248,7 +248,7 @@ $$\tilde{b_i} = \frac{{b_i}-min(b)}{max(b) - min(b)}$$.
 
 The results are summarized in the following table.
 
-|	|BM25	|TAS-B harmonic with min-max Norm	|TAS-B harmonic with L2 Norm	|Custom arithmetic with min-max Norm	|Custom arithmetic with L2 Norm	|
+|	|BM25	|TAS-B harmonic with min-max norm	|TAS-B harmonic with L2 norm	|Custom arithmetic with min-max norm	|Custom arithmetic with L2 norm	|
 |:---	|---	|---	|---	|---	|---	|
 |NFcorpus	|0.34281	|0.35749	|0.35046	|0.36523	|**0.36919**	|
 |Trec-Covid	|0.68803	|**0.73725**	|0.73094	|0.7271	|0.7268	|
