@@ -17,6 +17,10 @@ meta_description:
 excerpt: In an earlier blog post, we described different ways of building a semantic search engine in OpenSearch. In this post, we'll dive further into the science behind it. We'll discuss the benefits of combining keyword-based search with neural search, the choice of architectures and models, and benchmarking tests and results. First, we'll provide an overview of our proposed solutions and a summary of the main results. Next, we'll outline the steps for creating a solution and fine-tuning it for your own document corpus. Finally, we'll discuss the effects of different combination strategies and normalization protocols on search relevance. 
 ---
 
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/), we described different ways of building a semantic search engine in OpenSearch. In this post, we'll dive further into the science behind it. We'll discuss the benefits of combining keyword-based search with neural search, the choice of architectures and models, and benchmarking tests and results:
 - In [Section 1](#section-1-overview), we provide an overview of our proposed solutions and a summary of the main results. 
 - In [Section 2](#section-2-obtaining-a-fine-tuned-transformer), we outline the steps needed to create a solution and fine-tune it for your own document corpus. 
@@ -134,22 +138,46 @@ The synthetic corpus created in the previous step is used to fine-tune a pre-tra
 
 The model is trained to maximize the dot product between relevant queries and passages while at the same time minimizing the dot product between queries and irrelevant passages. This is known in the literature as *contrastive learning.* We implement contrastive learning using in-batch negatives and a symmetric loss. Specifically, for a given batch of size B, the loss is defined as
 
-Loss = C(q,p)+C(p,q),
-C(q,p) = −∑i=1i=B​log(∑j=1j=B​exp(qi​, pj​)exp(qi​, pi​)​),
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
 
-where *p* is a passage and *q* is a query.
+<span class="center">
+$$Loss = C(q​, p) + C(p​, q)$$,
+</span>
+
+<span class="center">
+$$C(q​, p) = −\sum_{i=1}^{i=B}​log \left(\frac{exp(q_i​,\ p_i​)}{\sum_{j=1}^{j=B}​exp(q_i​,\ p_j​)}​\right)$$,
+</span>
+
+where $$p$$ is a passage and $$q$$ is a query.
 
 The model is trained using the AdamW optimizer for 10 epochs with a learning rate of 2e-5 and a scheduler that uses a linear schedule with 10K warmup steps. Larger batch sizes lead to more in-batch negatives, which in turn lead to better models. On the other hand, larger batch sizes also may cause GPU out of memory issues and should be selected based on GPU memory. We also found that increasing the number of synthetic queries per passage produces better fine-tuned models. However, having a large number of synthetic queries comes with the cost of longer generation and training times, therefore diminishing the returns. On average, we created 24 queries per document in our experiments. 
 
 ## Section 3: Combination methods
 
-We combined transformers with BM25 using three main methods: arithmetic mean, geometric mean and harmonic mean. For each of these combination methods we retrieved the top 9,999 documents for BM25 and the top 250 documents for [neural query](https://opensearch.org/docs/latest/search-plugins/neural-search/). Each set of scores was normalized by the L2 norm. To be precise, given a list of scores b=[b1​,b2​,…], we normalized them using the following formula:
+We combined transformers with BM25 using three main methods: arithmetic mean, geometric mean and harmonic mean. For each of these combination methods we retrieved the top 9,999 documents for BM25 and the top 250 documents for [neural query](https://opensearch.org/docs/latest/search-plugins/neural-search/). Each set of scores was normalized by the L2 norm. To be precise, given a list of scores $$b=[b1​, b2​, …]$$, we normalized them using the following formula:
 
-b~i​=bi​/∣∣b∣∣
+<span class="center">
+$$\tilde{b_i}​=\frac{b_i}{​{\lVert b \rVert}}$$.
+</span>
 
-Given a list of scores *b* for BM25 and *n* for neural search, we can combine them into the combination score *s* as follows:
+Given a list of scores $$b$$ for BM25 and $$n$$ for neural search, we can combine them into the combination score $$s$$ as follows:
 
-si​=⎩⎪⎪⎪⎪⎪⎪⎨⎪⎪⎪⎪⎪⎪⎧​2b~i​+n~i​​,b~i​n~i​​,b~i​+n~i​2b~i​n~i​​,​arithmetic meangeometric meanharmonic mean​
+<span class="center">
+$$s_i​=\left\{
+\begin{array}{ll}
+      \frac{\tilde{b_i}+\tilde{n_i}}{2}, & arithmetic\ mean \\
+      \sqrt{\tilde{b_i}\tilde{n_i}}, & geometric\ mean \\
+      \frac{2\tilde{b_i}\tilde{n_i}}{\tilde{b_i}+\tilde{n_i}}, & harmonic\ mean. \\
+\end{array} 
+\right.$$
+</span>
 
 The fine-tuned models have been trained for 10 epochs on the synthetic queries created by the query generator. For smaller datasets, such as nfcorpus, arguana and fiqa, we created 32 queries per passage, while for larger datasets we created fewer queries per passage. In particular, we created 26 queries per passage for cqadupstack and 16 for Amazon ESCI.
 
@@ -200,9 +228,13 @@ We compared the effects of having min-max normalization against not applying any
 
 ### 4.2. Comparing normalization strategies
 
-We investigated different normalization strategies. In addition to L2, we also tried sklearn’s [minmax scaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) which normalizes the scores as 
- 
-b~i​=max(b)−min(b)bi​−min(b)​.
+We investigated different normalization strategies. In addition to L2, we tried sklearn’s [minmax scaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html), which normalizes the scores as 
+
+{% raw %}
+<span class="center">
+$$\tilde{b_i} = \frac{{b_i}-min(b)}{max(b) - min(b)}$$.
+</span>
+{% endraw %}
 
 The results are summarized in the following table.
 
@@ -218,9 +250,11 @@ The results are summarized in the following table.
 
 We experimented with different techniques of combining the scores. One such method is linear combination, where scores are calculated as
 
-si​=b~i​+f∗n~i​,
+<span class="center">
+$${s_i} = \tilde{b_i} + f \cdot \tilde{n_i}$$,
+</span>
 
-where *f* is a float that ranges from 0.1 to 1,024 in powers of two and b~i ​and n~i ​are the min-max normalized BM25 and neural scores, respectively. 
+where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of two and $$b_i$$ ​and $$n_i$$ ​are the min-max normalized BM25 and neural scores, respectively. 
 
 The following table contains the results of these experiments.
 
