@@ -3,10 +3,8 @@ layout: post
 title:  "The ABCs of semantic search in OpenSearch: Architectures, benchmarks, and combination strategies"
 authors:
 - mshyani
-- nmishra
 - dhrubo
-- ylwu
-- seanzheng
+- nmishra
 - kolchfa
 date: 2023-03-20
 categories:
@@ -71,8 +69,9 @@ td{
     text-align: center;
 }
 </style>
+
 | |BM25 | Pretrained transformer<br>+ BM25 (harmonic) | Fine-tuned transformer<br>+ BM25 (arithmetic) |
-| :--- | ---: | ---: | ---: |
+| :--- | --- | --- | --- |
 |nfcorpus | 0.343 | 0.346 | **0.369** |
 |trec-covid | 0.688 | 0.731 | **0.752**	|
 |arguana	|0.472	|0.482	| **0.527**	|
@@ -93,9 +92,9 @@ In [Section 2](#section-2-obtaining-a-fine-tuned-transformer) we discuss the det
 
 To understand the fine-tuned solution, we first need to explore the pretrained solution along with its strengths and limitations. Our pretrained solution consists of a state-of-the-art neural retriever model combined with BM25. We experimentally compared different ways of combining the neural retriever model with BM25 to produce the best results.
 
-A neural retriever model first creates a vector index of all the documents in the corpus and then at run time conducts a search using a k-NN query. The model has been trained to map relevant documents close to each other and irrelevant documents farther apart by reading the labeled `(query, passage)` pairs. Recall that in a zero-shot regime, training data is different from the test datasets. [TAS-B](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b)  is a popular state-of-the-art model that is trained on the [MS Marco](https://huggingface.co/datasets/ms_marco) dataset; it has been shown to have non-trivial zero-shot performance [BEIR 2021](https://arxiv.org/abs/2104.08663). There are other models, such as [MPNet](https://huggingface.co/docs/transformers/model_doc/mpnet), that show equivalent or better performance, but we do not recommend them over TAS-B. These models are trained on a lot of data, which includes some of the test datasets, so it is therefore difficult to benchmark them in terms of zero-shot performance. 
+A neural retriever model first creates a vector index of all the documents in the corpus and then at run time conducts a search using a k-NN query. The model has been trained to map relevant documents close to each other and irrelevant documents farther apart by reading the labeled `(query, passage)` pairs. Recall that in a zero-shot regime, training data is different from the test datasets. [TAS-B](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b)  is a popular state-of-the-art model that is trained on the [MS Marco](https://huggingface.co/datasets/ms_marco) dataset; it has been shown to have non-trivial zero-shot performance [(Thakur et al.)](https://arxiv.org/abs/2104.08663). There are other models, such as [MPNet](https://huggingface.co/docs/transformers/model_doc/mpnet), that show equivalent or better performance, but we do not recommend them over TAS-B. These models are trained on a lot of data, which includes some of the test datasets, so it is therefore difficult to benchmark them in terms of zero-shot performance. 
 
-Note that we work in the zero-shot regime because we often do not have access to supervised data from the domain of choice. To be precise, we have passages from the domain of choice but do not have access to queries or `(query, relevant passage)` pairs. If such data existed, the ideal solution would have been to use it to fine-tune a model such as TAS-B. A fine-tuned TAS-B model would certainly perform better than a base TAS-B [cite]. 
+Note that we work in the zero-shot regime because we often do not have access to supervised data from the domain of choice. To be precise, we have passages from the domain of choice but do not have access to queries or `(query, relevant passage)` pairs. If such data existed, the ideal solution would have been to use it to fine-tune a model such as TAS-B. A fine-tuned TAS-B model would certainly perform better than a base TAS-B [(Thakur et al.)](https://arxiv.org/abs/2104.08663). 
 
 However, in the absence of domain-specific data, we can leverage the power of large language models (LLMs) to create artificial queries when given a passage. In the rest of this section, we discuss generating synthetic queries and using them to obtain a model fine-tuned to your corpus. As shown in the preceding table, fine-tuned models perform better than pretrained models. 
 
@@ -183,9 +182,8 @@ The fine-tuned models have been trained for 10 epochs on the synthetic queries c
 
 The following tables contain the results of combining these scores on the 10 test datasets. 
 
-
 |	|BM25	|TAS-B	|TAS-B with L2 norm (arithmetic mean)	|TAS-B with L2 norm (harmonic mean)	|TAS-B with L2 norm (geometric mean)	|
-|---	|---:	|---:	|---:	|---:	|---:	|
+|---	|---	|---	|---	|---	|---	|
 |nfcorpus	|0.34281	|0.31886	|0.34607	|0.35046	|0.34845	|
 |trec-covid	|0.68803	|0.48115	|0.73248	|0.73094	|0.73533	|
 |arguana	|0.47163	|0.42704	|0.48523	|0.48167	|0.4838	|
@@ -196,11 +194,11 @@ The following tables contain the results of combining these scores on the 10 tes
 |scidocs	|0.16468	|0.14859	|0.16956	|0.16945	|0.16969	|
 |cqadupstack	|0.3253	|0.3144	|0.3434	|0.3374	|0.34	|
 |Amazon ESCI	|0.08111	|0.07061	|0.08525	|0.08761	|0.08662	|
-|Average performance against BM25 (in %)	|n/a	|-3.77257	|4.71726	|6.43925	|5.24445	|
+|Average performance against BM25 (in %)	|N/A	|-3.77257	|4.71726	|6.43925	|5.24445	|
 
 
 |	|Custom	|Custom with L2 norm (arithmetic mean)	|Custom with L2 norm (harmonic mean)	|Custom with L2 norm (geometric mean)	|
-|---	|---:	|---:	|---:	|---:	|
+|---	|---	|---	|---	|---	|
 |nfcorpus	|0.3014	|**0.36919**	|0.36458	|0.36727	|
 |trec-covid	|0.57726	|0.75211	|0.78825	|**0.79013**	|
 |arguana	|0.492	|**0.52722**	|0.51076	|0.52572	|
@@ -225,7 +223,7 @@ BM25 and neural scores use different scales, so there is no unique strategy for 
 We compared the effects of applying min-max normalization against not applying any normalization at all, as shown in the following table. 
 
 |	|BM25	|TAS-B harmonic with norm	|TAS-B harmonic without norm	|Custom arithmetic with norm	|Custom arithmetic without norm	|
-|---	|---:	|---:	|---:	|---:	|---:	|
+|---	|---	|---	|---	|---	|---	|
 |nfcorpus	|0.34281	|0.35046	|0.34506	|**0.36919**	|0.3531	|
 |trec-covid	|0.68803	|0.73094	|0.72986	|**0.752**	|0.66565	|
 |arguana	|0.47163	|0.48167	|0.48302	|**0.527**	|0.5188	|
@@ -236,7 +234,7 @@ We compared the effects of applying min-max normalization against not applying a
 |scidocs	|0.16468	|0.16956	|0.16768	|**0.184**	|0.16529	|
 |cqadupstack	|0.3253	|0.3374	|0.3328	|**0.367**	|0.3312	|
 |Amazon ESCI	|0.08111	|0.08761	|0.08343	|**0.091**	|0.07897	|
-|Average performance against BM25	|n/a	|6.44593	|2.96877	|13.91084	|5.45259	|
+|Average performance against BM25	|N/A	|6.44593	|2.96877	|13.91084	|5.45259	|
 
 
 
@@ -253,13 +251,13 @@ $$\tilde{b_i} = \frac{{b_i}-min(b)}{max(b) - min(b)}$$.
 The results are summarized in the following table.
 
 |	|BM25	|TAS-B harmonic with min-max Norm	|TAS-B harmonic with L2 Norm	|Custom arithmetic with min-max Norm	|Custom arithmetic with L2 Norm	|
-|---	|---:	|---:	|---:	|---:	|---:	|
+|---	|---	|---	|---	|---	|---	|
 |nfcorpus	|0.34281	|0.35749	|0.35046	|0.36523	|**0.36919**	|
 |trec-covid	|0.68803	|**0.73725**	|0.73094	|0.7271	|0.7268	|
 |fiqa	|0.25364	|0.31975	|0.2812	|0.35882	|**0.36422**	|
 |arguana	|0.47163	|0.47618	|0.48167	|**0.53098**	|0.52722	|
 |Amazon ESCI	|0.08111	|0.08724	|0.08761	|0.09071	|**0.09082**	|
-|Average peformance	|n/a	|9.20458	|5.89532	|15.62132	|16.13711	|
+|Average peformance	|N/A	|9.20458	|5.89532	|15.62132	|16.13711	|
 
 
 
@@ -276,16 +274,16 @@ where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ 
 The following tables contain the results of these experiments.
 
 |	|BM25	|TAS-B with factors 0.1	|TAS-B with factor 1 (arithmetic mean)	|TAS-B with factors 2	|TAS-B with factors 8	|TAS-B with factors 128	|TAS-B with factors 1024	|
-|---	|---:	|---:	|---:	|---:	|---:	|---:	|---:	|
+|---	|---	|---	|---	|---	|---	|---	|---	|
 |nfcorpus	|0.34281	|0.3294	|0.34607	|0.33387	|0.34314	|0.33454	|0.32371	|
 |Fiqa	|0.25364	|0.27266	|0.28911	|0.30029	|0.32659	|0.30346	|0.30046	|
 |arguana	|0.47163	|0.47592	|0.48523	|0.48919	|0.48474	|0.4371	|0.42763	|
 |Amazon ESCI	|0.08111	|0.08239	|0.08525	|0.08722	|0.08727	|0.07503	|0.07124	|
-|Average peformance	|n/a	|1.51869	|5.73079	|6.76015	|9.80796	|0.60305	|-2.15259	|
+|Average peformance	|N/A	|1.51869	|5.73079	|6.76015	|9.80796	|0.60305	|-2.15259	|
 
 
 |	|Custom model with factors 0.1	|Custom model with factor 1 (arithmetic mean)	|Custom model with factors 2	|Custom model with factors 8	|Custom model with factors 128	|Custom model with factors 1024	|
-|---	|---:	|---:	|---:	|---:	|---:	|---:	|
+|---	|---	|---	|---	|---	|---	|---	|
 |nfcorpus	|0.33607	|**0.369**	|0.34032	|0.32186	|0.30351	|0.30134	|
 |Fiqa	|0.31094	|**0.36422**	|0.3523	|0.32856	|0.31436	|0.31438	|
 |arguana	|0.49702	|**0.527**	|0.51615	|0.49369	|0.47946	|0.47892	|
@@ -357,7 +355,7 @@ The following table provides sample queries and passages for each dataset.
 The following table provides statistics about passages and queries for each dataset.
 
 |Dataset	|Average query length	|Median query Length	|Average passage length	|Median passage Length	|Number of passages	|Number of test queries	|
-|---	|---:	|---:	|---:	|---:	|---:	|---:	|
+|---	|---	|---	|---	|---	|---	|---	|
 |DBPedia	|5.54	|5	|46.89	|47	|4635922	|400	|
 |Quora	|9.531	|9	|11.46	|10	|522931	|10000	|
 |FiQA	|10.94	|10	|132.9	|90	|57638	|648	|
@@ -369,3 +367,13 @@ The following table provides statistics about passages and queries for each data
 |[NQ](https://ai.google.com/research/NaturalQuestions)	|9.16	|9	|76.03	|65	|2681468	|3452	|
 |scidocs	|9.44	|9	|167.24	|151	|25657	|1000	|
 |Amazon ESCI	|3.89	|4	|179.87	|137	|482105	|8956	|
+
+## References
+
+1. Hofstätter, Sebastian, et al. “Efficiently Teaching an Effective Dense Retriever with Balanced Topic Aware Sampling.” ArXiv.org, 26 May 2021, [https://arxiv.org/abs/2104.06967](https://arxiv.org/abs/2104.06967). 
+2. Thakur, Nandan, et al. “BEIR: A Heterogenous Benchmark for Zero-Shot Evaluation of Information Retrieval Models.” ArXiv.org, 21 Oct. 2021, [https://arxiv.org/abs/2104.08663](https://arxiv.org/abs/2104.08663). 
+3. Reddy, Chandan K., et al. “Shopping Queries Dataset: A Large-Scale ESCI Benchmark for Improving Product Search.” ArXiv.org, 14 June 2022, [https://arxiv.org/abs/2206.06588](https://arxiv.org/abs/2104.08663). 
+4. Alberti, Chris, et al. “Synthetic Qa Corpora Generation with Roundtrip Consistency.” ACL Anthology, [https://aclanthology.org/P19-1620/](https://arxiv.org/abs/2104.08663). 
+5. Liang, Davis, et al. “Embedding-Based Zero-Shot Retrieval through Query Generation.” ArXiv.org, 22 Sept. 2020, [https://arxiv.org/abs/2009.10270](https://arxiv.org/abs/2104.08663). 
+6. Bajaj, Payal, et al. “Ms Marco: A Human Generated Machine Reading Comprehension Dataset.” ArXiv.org, 31 Oct. 2018, [https://arxiv.org/abs/1611.09268](https://arxiv.org/abs/2104.08663). 
+7. Karpukhin, Vladimir, et al. “Dense Passage Retrieval for Open-Domain Question Answering - Arxiv.” ArXiv.org, 30 Sept. 2020, [https://arxiv.org/pdf/2004.04906.pdf](https://arxiv.org/abs/2104.08663). 
