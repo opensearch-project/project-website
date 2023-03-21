@@ -21,6 +21,7 @@ In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/
 - In [Section 1](#section-1-overview), we provide an overview of our proposed solutions and a summary of the main results. 
 - In [Section 2](#section-2-obtaining-a-fine-tuned-transformer), we outline the steps needed to create a solution and fine-tune it for your own document corpus. 
 - In [Section 3](#section-3-combination-methods) and [Section 4](#section-4-normalization-and-other-combination-methods), we discuss the effects of different combination strategies and normalization protocols on search relevance. 
+- In [Section 5](#section-5-strengths-and-limitations), we present the conclusions of our experiments.
 - In the [Appendix](#appendix-details-of-test-datasets), we provide more information about the test datasets used for benchmarking.
 
 ## Section 1: Overview 
@@ -254,7 +255,7 @@ There are two ways of incorporating transformers in search: as **cross-encoders*
 
 In contrast, **neural retrievers** just have to make one computation: create a vector for the query. The actual retrieval is accomplished by finding the top N nearest neighbors of this query vector. This is a very fast operation that is implemented using [k-NN](https://opensearch.org/docs/latest/search-plugins/knn/index/). Note that neural retrievers do not rely on keyword results but rather are used in combination with keyword search. Indeed, neural retrievers combined with BM25 yield better results than cross-encoders. 
 
-In this blog, we have included several experiments that can help build intuition about how and when to combine BM25 with neural retrievers. Additionally, it is important to remember that because every dataset is different, there is a chance that the configurations used here are not optimal for your dataset. Nevertheless, we believe that there are some **global conclusions** that will hold for most datasets: 
+In this blog, we have included several experiments that can help build intuition about how and when to combine BM25 with neural retrievers. It is important to remember that because every dataset is different, so there is a chance that the configurations used here are not optimal for your dataset. Nevertheless, we believe that there are some **global conclusions** that apply to most datasets: 
 
 1. Neural retrievers with BM25 work better than neural retrievers or BM25 alone.
 2. Neural retrievers with BM25 deliver the same (or better) results as cross-encoders at a fraction of the cost and latency.
