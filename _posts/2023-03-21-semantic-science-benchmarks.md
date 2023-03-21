@@ -22,6 +22,11 @@ excerpt: In an earlier blog post, we described different ways of building a sema
 <style>
 table{
     border:2px solid #e6e6e6;
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
 }
 
 th{
@@ -178,35 +183,23 @@ $$s_i​=\left\{
 
 The fine-tuned models have been trained for 10 epochs on the synthetic queries created by the query generator. For smaller datasets, such as NFCorpus, ArguAna, and FiQA, we created 32 queries per passage, while for larger datasets we created fewer queries per passage. In particular, we created 26 queries per passage for CQADupStack and 16 for Amazon ESCI.
 
-The following tables contain the results of combining these scores on the 10 test datasets. 
+The following table contains the results of combining these scores on the 10 test datasets. 
 
-|	|BM25	|TAS-B	|TAS-B with L2 norm (arithmetic mean)	|TAS-B with L2 norm (harmonic mean)	|TAS-B with L2 norm (geometric mean)	|
-|:---	|---	|---	|---	|---	|---	|
-|NFCorpus	|0.34281	|0.31886	|0.34607	|0.35046	|0.34845	|
-|Trec-Covid	|0.68803	|0.48115	|0.73248	|0.73094	|0.73533	|
-|ArguAna	|0.47163	|0.42704	|0.48523	|0.48167	|0.4838	|
-|FiQA	|0.25364	|0.30024	|0.28911	|0.2812	|0.28243	|
-|Scifact	|0.69064	|0.64276	|0.68598	|0.69132	|0.68722	|
-|DBPedia	|0.32016	|0.38423	|0.34081	|**0.39482**	|0.3586	|
-|Quora	|0.80771	|0.83516	|0.83587	|0.84714	|0.84105	|
-|Scidocs	|0.16468	|0.14859	|0.16956	|0.16945	|0.16969	|
-|CQADupStack	|0.3253	|0.3144	|0.3434	|0.3374	|0.34	|
-|Amazon ESCI	|0.08111	|0.07061	|0.08525	|0.08761	|0.08662	|
-|Average performance against BM25 (in %)	|N/A	|-3.77257	|4.71726	|6.43925	|5.24445	|
+|	|BM25	|TAS-B	|TAS-B with L2 norm (arithmetic mean)	|TAS-B with L2 norm (harmonic mean)	|TAS-B with L2 norm (geometric mean)	|Custom	|Custom with L2 norm (arithmetic mean)	|Custom with L2 norm (harmonic mean)	|Custom with L2 norm (geometric mean)	|
+|:---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|
+|NFCorpus	|0.34281	|0.31886	|0.34607	|0.35046	|0.34845	|0.3014	|**0.36919**	|0.36458	|0.36727	|
+|Trec-Covid	|0.68803	|0.48115	|0.73248	|0.73094	|0.73533	|0.57726	|0.75211	|0.78825	|**0.79013**	|
+|ArguAna	|0.47163	|0.42704	|0.48523	|0.48167	|0.4838	|0.492	|**0.52722**	|0.51076	|0.52572	|
+|FiQA	|0.25364	|0.30024	|0.28911	|0.2812	|0.28243	|0.31413	|**0.36422**	|0.32627	|0.34961	|
+|Scifact	|0.69064	|0.64276	|0.68598	|0.69132	|0.68722	|0.62275	|**0.72845**	|0.72227	|0.72749	|
+|DBPedia	|0.32016	|0.38423	|0.34081	|**0.39482**	|0.3586	|0.34194	|0.37337	|0.39159	|0.39235	|
+|Quora	|0.80771	|0.83516	|0.83587	|0.84714	|0.84105	|0.85524	|**0.87396**	|0.86943	|0.8719	|
+|Scidocs	|0.16468	|0.14859	|0.16956	|0.16945	|0.16969	|0.15415	|**0.18382**	|0.1805	|0.18351	|
+|CQADupStack	|0.3253	|0.3144	|0.3434	|0.3374	|0.34	|0.3566	|0.3673	|0.3518	|**0.3766**	|
+|Amazon ESCI	|0.08111	|0.07061	|0.08525	|0.08761	|0.08662	|0.07418	|**0.09082**	|0.09033	|0.09079	|
+|Average performance against BM25 (in %)	|n/a	|-3.77257	|4.71726	|6.43925	|5.24445	|-0.24703	|13.91945	|12.15005	|14.62501	|
 
-|	|Custom	|Custom with L2 norm (arithmetic mean)	|Custom with L2 norm (harmonic mean)	|Custom with L2 norm (geometric mean)	|
-|:---	|---	|---	|---	|---	|
-|NFCorpus	|0.3014	|**0.36919**	|0.36458	|0.36727	|
-|Trec-Covid	|0.57726	|0.75211	|0.78825	|**0.79013**	|
-|ArguAna	|0.492	|**0.52722**	|0.51076	|0.52572	|
-|FiQA	|0.31413	|**0.36422**	|0.32627	|0.34961	|
-|Scifact	|0.62275	|**0.72845**	|0.72227	|0.72749	|
-|DBPedia	|0.34194	|0.37337	|0.39159	|0.39235	|
-|Quora	|0.85524	|**0.87396**	|0.86943	|0.8719	|
-|Scidocs	|0.15415	|**0.18382**	|0.1805	|0.18351	|
-|CQADupStack	|0.3566	|0.3673	|0.3518	|**0.3766**	|
-|Amazon ESCI	|0.07418	|**0.09082**	|0.09033	|0.09079	|
-|Average performance against BM25 (in %)	|-0.24703	|13.91945	|12.15005	|14.62501	|
+
 
 We found that harmonic combination works best for the pretrained TAS-B model, while arithmetic combination works better for the fine-tuned custom model.  Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero. 
 
@@ -269,23 +262,13 @@ where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ 
 
 The following tables contain the results of these experiments.
 
-|	|BM25	|TAS-B with factors 0.1	|TAS-B with factor 1 (arithmetic mean)	|TAS-B with factors 2	|TAS-B with factors 8	|TAS-B with factors 128	|TAS-B with factors 1024	|
-|:---	|---	|---	|---	|---	|---	|---	|---	|
-|NFCorpus	|0.34281	|0.3294	|0.34607	|0.33387	|0.34314	|0.33454	|0.32371	|
-|Fiqa	|0.25364	|0.27266	|0.28911	|0.30029	|0.32659	|0.30346	|0.30046	|
-|ArguAna	|0.47163	|0.47592	|0.48523	|0.48919	|0.48474	|0.4371	|0.42763	|
-|Amazon ESCI	|0.08111	|0.08239	|0.08525	|0.08722	|0.08727	|0.07503	|0.07124	|
-|Average peformance	|N/A	|1.51869	|5.73079	|6.76015	|9.80796	|0.60305	|-2.15259	|
-
-
-|	|Custom model with factors 0.1	|Custom model with factor 1 (arithmetic mean)	|Custom model with factors 2	|Custom model with factors 8	|Custom model with factors 128	|Custom model with factors 1024	|
-|:---	|---	|---	|---	|---	|---	|---	|
-|NFCorpus	|0.33607	|**0.369**	|0.34032	|0.32186	|0.30351	|0.30134	|
-|Fiqa	|0.31094	|**0.36422**	|0.3523	|0.32856	|0.31436	|0.31438	|
-|ArguAna	|0.49702	|**0.527**	|0.51615	|0.49369	|0.47946	|0.47892	|
-|Amazon ESCI	|0.08501	|**0.09082**	|0.08906	|0.08194	|0.07486	|0.07423	|
-|Average peformance	|7.70418	|18.73714	|14.3531	|7.28184	|1.6075	|1.22841	|
-
+|	|BM25	|TASB with factors 0.1	|TASB with factor 1 (arithmetic mean)	|TASB with factors 2	|TASB with factors 8	|TASB with factors 128	|TASB with factors 1024	|Custom model with factors 0.1	|Custom model with factor 1 (arithmetic mean)	|Custom model with factors 2	|Custom model with factors 8	|Custom model with factors 128	|Custom model with factors 1024	|
+|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|
+|NFCorpus	|0.34281	|0.3294	|0.34607	|0.33387	|0.34314	|0.33454	|0.32371	|0.33607	|**0.369**	|0.34032	|0.32186	|0.30351	|0.30134	|
+|Fiqa	|0.25364	|0.27266	|0.28911	|0.30029	|0.32659	|0.30346	|0.30046	|0.31094	|**0.36422**	|0.3523	|0.32856	|0.31436	|0.31438	|
+|ArguAna	|0.47163	|0.47592	|0.48523	|0.48919	|0.48474	|0.4371	|0.42763	|0.49702	|**0.527**	|0.51615	|0.49369	|0.47946	|0.47892	|
+|Amazon ESCI	|0.08111	|0.08239	|0.08525	|0.08722	|0.08727	|0.07503	|0.07124	|0.08501	|**0.09082**	|0.08906	|0.08194	|0.07486	|0.07423	|
+|Average peformance	|n/a	|1.51869	|5.73079	|6.76015	|9.80796	|0.60305	|-2.15259	|7.70418	|18.73714	|14.3531	|7.28184	|1.6075	|1.22841	|
 
 ### 4.4. Other comparisons
 
