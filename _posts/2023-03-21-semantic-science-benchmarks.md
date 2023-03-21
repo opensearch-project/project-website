@@ -72,7 +72,7 @@ In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/
 
 | |BM25 | Pretrained transformer + BM25 (harmonic) | Fine-tuned transformer + BM25 (arithmetic) |
 | :--- | --- | --- | --- |
-|NFcorpus | 0.343 | 0.346 | **0.369** |
+|NFCorpus | 0.343 | 0.346 | **0.369** |
 |Trec-Covid | 0.688 | 0.731 | **0.752**	|
 |ArguAna	|0.472	|0.482	| **0.527**	|
 |FiQA	|0.254	|0.281	|**0.364**	|
@@ -176,13 +176,13 @@ $$s_i​=\left\{
 \right.$$
 </span>
 
-The fine-tuned models have been trained for 10 epochs on the synthetic queries created by the query generator. For smaller datasets, such as NFcorpus, ArguAna, and FiQA, we created 32 queries per passage, while for larger datasets we created fewer queries per passage. In particular, we created 26 queries per passage for CQADupStack and 16 for Amazon ESCI.
+The fine-tuned models have been trained for 10 epochs on the synthetic queries created by the query generator. For smaller datasets, such as NFCorpus, ArguAna, and FiQA, we created 32 queries per passage, while for larger datasets we created fewer queries per passage. In particular, we created 26 queries per passage for CQADupStack and 16 for Amazon ESCI.
 
 The following tables contain the results of combining these scores on the 10 test datasets. 
 
 |	|BM25	|TAS-B	|TAS-B with L2 norm (arithmetic mean)	|TAS-B with L2 norm (harmonic mean)	|TAS-B with L2 norm (geometric mean)	|
 |:---	|---	|---	|---	|---	|---	|
-|NFcorpus	|0.34281	|0.31886	|0.34607	|0.35046	|0.34845	|
+|NFCorpus	|0.34281	|0.31886	|0.34607	|0.35046	|0.34845	|
 |Trec-Covid	|0.68803	|0.48115	|0.73248	|0.73094	|0.73533	|
 |ArguAna	|0.47163	|0.42704	|0.48523	|0.48167	|0.4838	|
 |FiQA	|0.25364	|0.30024	|0.28911	|0.2812	|0.28243	|
@@ -194,10 +194,9 @@ The following tables contain the results of combining these scores on the 10 tes
 |Amazon ESCI	|0.08111	|0.07061	|0.08525	|0.08761	|0.08662	|
 |Average performance against BM25 (in %)	|N/A	|-3.77257	|4.71726	|6.43925	|5.24445	|
 
-
 |	|Custom	|Custom with L2 norm (arithmetic mean)	|Custom with L2 norm (harmonic mean)	|Custom with L2 norm (geometric mean)	|
 |:---	|---	|---	|---	|---	|
-|NFcorpus	|0.3014	|**0.36919**	|0.36458	|0.36727	|
+|NFCorpus	|0.3014	|**0.36919**	|0.36458	|0.36727	|
 |Trec-Covid	|0.57726	|0.75211	|0.78825	|**0.79013**	|
 |ArguAna	|0.492	|**0.52722**	|0.51076	|0.52572	|
 |FiQA	|0.31413	|**0.36422**	|0.32627	|0.34961	|
@@ -208,7 +207,6 @@ The following tables contain the results of combining these scores on the 10 tes
 |CQADupStack	|0.3566	|0.3673	|0.3518	|**0.3766**	|
 |Amazon ESCI	|0.07418	|**0.09082**	|0.09033	|0.09079	|
 |Average performance against BM25 (in %)	|-0.24703	|13.91945	|12.15005	|14.62501	|
-
 
 We found that harmonic combination works best for the pretrained TAS-B model, while arithmetic combination works better for the fine-tuned custom model.  Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero. 
 
@@ -222,7 +220,7 @@ We compared the effects of applying min-max normalization against not applying a
 
 |	|BM25	|TAS-B harmonic with norm	|TAS-B harmonic without norm	|Custom arithmetic with norm	|Custom arithmetic without norm	|
 |:---	|---	|---	|---	|---	|---	|
-|NFcorpus	|0.34281	|0.35046	|0.34506	|**0.36919**	|0.3531	|
+|NFCorpus	|0.34281	|0.35046	|0.34506	|**0.36919**	|0.3531	|
 |Trec-Covid	|0.68803	|0.73094	|0.72986	|**0.752**	|0.66565	|
 |ArguAna	|0.47163	|0.48167	|0.48302	|**0.527**	|0.5188	|
 |FiQA	|0.25364	|0.2812	|0.27361	|**0.364**	|0.32633	|
@@ -250,7 +248,7 @@ The results are summarized in the following table.
 
 |	|BM25	|TAS-B harmonic with min-max norm	|TAS-B harmonic with L2 norm	|Custom arithmetic with min-max norm	|Custom arithmetic with L2 norm	|
 |:---	|---	|---	|---	|---	|---	|
-|NFcorpus	|0.34281	|0.35749	|0.35046	|0.36523	|**0.36919**	|
+|NFCorpus	|0.34281	|0.35749	|0.35046	|0.36523	|**0.36919**	|
 |Trec-Covid	|0.68803	|**0.73725**	|0.73094	|0.7271	|0.7268	|
 |FiQA	|0.25364	|0.31975	|0.2812	|0.35882	|**0.36422**	|
 |ArguAna	|0.47163	|0.47618	|0.48167	|**0.53098**	|0.52722	|
@@ -273,7 +271,7 @@ The following tables contain the results of these experiments.
 
 |	|BM25	|TAS-B with factors 0.1	|TAS-B with factor 1 (arithmetic mean)	|TAS-B with factors 2	|TAS-B with factors 8	|TAS-B with factors 128	|TAS-B with factors 1024	|
 |:---	|---	|---	|---	|---	|---	|---	|---	|
-|NFcorpus	|0.34281	|0.3294	|0.34607	|0.33387	|0.34314	|0.33454	|0.32371	|
+|NFCorpus	|0.34281	|0.3294	|0.34607	|0.33387	|0.34314	|0.33454	|0.32371	|
 |Fiqa	|0.25364	|0.27266	|0.28911	|0.30029	|0.32659	|0.30346	|0.30046	|
 |ArguAna	|0.47163	|0.47592	|0.48523	|0.48919	|0.48474	|0.4371	|0.42763	|
 |Amazon ESCI	|0.08111	|0.08239	|0.08525	|0.08722	|0.08727	|0.07503	|0.07124	|
@@ -282,7 +280,7 @@ The following tables contain the results of these experiments.
 
 |	|Custom model with factors 0.1	|Custom model with factor 1 (arithmetic mean)	|Custom model with factors 2	|Custom model with factors 8	|Custom model with factors 128	|Custom model with factors 1024	|
 |:---	|---	|---	|---	|---	|---	|---	|
-|NFcorpus	|0.33607	|**0.369**	|0.34032	|0.32186	|0.30351	|0.30134	|
+|NFCorpus	|0.33607	|**0.369**	|0.34032	|0.32186	|0.30351	|0.30134	|
 |Fiqa	|0.31094	|**0.36422**	|0.3523	|0.32856	|0.31436	|0.31438	|
 |ArguAna	|0.49702	|**0.527**	|0.51615	|0.49369	|0.47946	|0.47892	|
 |Amazon ESCI	|0.08501	|**0.09082**	|0.08906	|0.08194	|0.07486	|0.07423	|
@@ -338,7 +336,7 @@ The following table provides sample queries and passages for each dataset.
 |DBPedia	|Szechwan dish food cuisine	|Mapo doufu (or \"mapo tofu\") is a popular Chinese dish from China's Sichuan province. It consists of tofu set in a spicy chili- and bean-based sauce, typically a thin, oily, and ....	|
 |FiQA	|“Business day” and “due date” for bills	|I don't believe Saturday is a business day either. When I deposit a check at a bank's drive-in after 4pm Friday, the receipt tells me it will credit as if I deposited on Monday. If a business' computer doesn't adjust their billing to have a weekday due date ...	|
 |CQADupStack	|Why does Simplify[b-a] give -a+b and not b-a?	|\`Simplify[b - a]\` results in \`-a + b\`. I prefer \`b - a\`, which is a bit simpler (3 symbols instead of 4). Can I make _Mathematica_ to think the same way? I believe one needs ...	|
-|NFcorpus	|How Doctors Responded to Being Named a Leading Killer	|By the end of graduate medical training, novice internists (collectively known as the housestaff) were initiated into the experience of either having done something to a patient which had a deleterious consequence or else having witnessed colleagues do the same. When these events occurred ...	|
+|NFCorpus	|How Doctors Responded to Being Named a Leading Killer	|By the end of graduate medical training, novice internists (collectively known as the housestaff) were initiated into the experience of either having done something to a patient which had a deleterious consequence or else having witnessed colleagues do the same. When these events occurred ...	|
 |Scifact	|β-sheet opening occurs during pleurotolysin pore formation.	|Membrane attack complex/perforin-like (MACPF) proteins comprise the largest superfamily of pore-forming proteins, playing crucial roles in immunity and pathogenesis. Soluble monomers assemble into large transmembrane ...	|
 |Trec-Covid	|what is the origin of COVID-19	|Although primary genomic analysis has revealed that severe acute respiratory syndrome coronavirus (SARS CoV) is a new type of coronavirus, the different protein trees published in previous reports have provided ....	|
 |ArguAna	|Poaching is becoming more advanced A stronger, militarised approach is needed as poaching is becoming ...	|Tougher protection of Africa\u2019s nature reserves will only result in more bloodshed. Every time the military upgrade their weaponry, tactics and logistic, the poachers improve their own methods to counter ...	|
@@ -373,5 +371,5 @@ The following table provides statistics about passages and queries for each data
 3. Reddy, Chandan K., et al. “Shopping Queries Dataset: A Large-Scale ESCI Benchmark for Improving Product Search.” ArXiv.org, 14 June 2022, [https://arxiv.org/abs/2206.06588](https://arxiv.org/abs/2206.06588). 
 4. Alberti, Chris, et al. “Synthetic QA Corpora Generation with Roundtrip Consistency.” ACL Anthology, [https://aclanthology.org/P19-1620/](https://aclanthology.org/P19-1620/). 
 5. Liang, Davis, et al. “Embedding-Based Zero-Shot Retrieval through Query Generation.” ArXiv.org, 22 Sept. 2020, [https://arxiv.org/abs/2009.10270](https://arxiv.org/abs/2009.10270). 
-6. Bajaj, Payal, et al. “Ms Marco: A Human Generated Machine Reading Comprehension Dataset.” ArXiv.org, 31 Oct. 2018, [https://arxiv.org/abs/1611.09268](https://arxiv.org/abs/1611.09268). 
+6. Bajaj, Payal, et al. “MS Marco: A Human Generated Machine Reading Comprehension Dataset.” ArXiv.org, 31 Oct. 2018, [https://arxiv.org/abs/1611.09268](https://arxiv.org/abs/1611.09268). 
 7. Karpukhin, Vladimir, et al. “Dense Passage Retrieval for Open-Domain Question Answering - Arxiv.” ArXiv.org, 30 Sept. 2020, [https://arxiv.org/pdf/2004.04906.pdf](https://arxiv.org/pdf/2004.04906.pdf). 
