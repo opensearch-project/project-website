@@ -166,7 +166,7 @@ The model is trained using the AdamW optimizer for 10 epochs with a learning rat
 We combined transformers with BM25 using three main methods: arithmetic mean, geometric mean and harmonic mean. For each of these combination methods we retrieved the top 9,999 documents for BM25 and the top 250 documents for [neural query](https://opensearch.org/docs/latest/search-plugins/neural-search/). Each set of scores was normalized by the L2 norm. To be precise, given a list of scores $$b=[b_1​, b_2​, …]$$, we normalized them using the following formula:
 
 <span class="center">
-$$\tilde{b_i}​=\frac{b_i}{​{\lVert b \rVert}}$$.
+$$\tilde{b_i}​=\frac{b_i}{​{\lVert b \rVert}_2}$$.
 </span>
 
 Given a list of scores $$b$$ for BM25 and $$n$$ for neural search, we can calculate their combined score $$s$$ as follows:
