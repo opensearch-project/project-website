@@ -265,7 +265,7 @@ The following tables contain the results of these experiments.
 |	|BM25	|TASB with factors 0.1	|TASB with factor 1 (arithmetic mean)	|TASB with factors 2	|TASB with factors 8	|TASB with factors 128	|TASB with factors 1024	|Custom model with factors 0.1	|Custom model with factor 1 (arithmetic mean)	|Custom model with factors 2	|Custom model with factors 8	|Custom model with factors 128	|Custom model with factors 1024	|
 |---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|
 |NFCorpus	|0.34281	|0.3294	|0.34607	|0.33387	|0.34314	|0.33454	|0.32371	|0.33607	|**0.369**	|0.34032	|0.32186	|0.30351	|0.30134	|
-|Fiqa	|0.25364	|0.27266	|0.28911	|0.30029	|0.32659	|0.30346	|0.30046	|0.31094	|**0.36422**	|0.3523	|0.32856	|0.31436	|0.31438	|
+|FiQA	|0.25364	|0.27266	|0.28911	|0.30029	|0.32659	|0.30346	|0.30046	|0.31094	|**0.36422**	|0.3523	|0.32856	|0.31436	|0.31438	|
 |ArguAna	|0.47163	|0.47592	|0.48523	|0.48919	|0.48474	|0.4371	|0.42763	|0.49702	|**0.527**	|0.51615	|0.49369	|0.47946	|0.47892	|
 |Amazon ESCI	|0.08111	|0.08239	|0.08525	|0.08722	|0.08727	|0.07503	|0.07124	|0.08501	|**0.09082**	|0.08906	|0.08194	|0.07486	|0.07423	|
 |Average peformance	|n/a	|1.51869	|5.73079	|6.76015	|9.80796	|0.60305	|-2.15259	|7.70418	|18.73714	|14.3531	|7.28184	|1.6075	|1.22841	|
