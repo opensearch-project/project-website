@@ -73,21 +73,21 @@ Because most search systems are deployed on datasets outside of their training d
 
 ### Results summary
 
-In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/), we proposed two semantic search solutions: a pretrained transformer + BM25 and a fine-tuned transformer + BM25. In the following sections, we discuss the details of combining transformers with BM25. The following table summarizes the nDCG@10 benchmarking results on the 10 test datasets for the pretrained and fine-tuned transformer (TAS-B) when combined with BM25. For the definition of the combination strategies (harmonic mean and arithmetic mean), see [Section 3](#section-3-combination-methods).
+In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/), we proposed two semantic search solutions: a pretrained transformer + BM25 and a fine-tuned transformer + BM25. In the following sections, we discuss the details of combining transformers with BM25. The following table summarizes the nDCG@10 benchmarking results on the 10 test datasets for the pretrained and fine-tuned transformer (TAS-B) when combined with BM25. For the definition of the combination strategies (harmonic mean, arithmetic mean, and geometric mean), see [Section 3](#section-3-combination-methods).
 
-| |BM25 | Pretrained transformer + BM25 (harmonic) | Fine-tuned transformer + BM25 (arithmetic) |
-| :--- | --- | --- | --- |
-|NFCorpus | 0.343 | 0.346 | **0.369** |
-|Trec-Covid | 0.688 | 0.731 | **0.752**	|
-|ArguAna	|0.472	|0.482	| **0.527**	|
-|FiQA	|0.254	|0.281	|**0.364**	|
-|Scifact	|0.691	|0.673	|**0.728**	|
-|DBPedia	|0.313	|**0.395**	|0.373	|
-|Quora	|0.789	|0.847	|**0.874**	|
-|Scidocs	|0.165	|0.173	|**0.184**	|
-|CQADupStack	|0.325	|0.333	|**0.3673**	|
-|Amazon ESCI	|0.081	|0.088	|**0.091**	|
-|Average performance <br>against BM25	|N/A	|6.66%	|**14.39%**	|
+| |BM25 | Pretrained transformer + BM25 (harmonic) | Fine-tuned transformer + BM25 (arithmetic) | Fine-tuned transformer + BM25 (geometric) |
+| :--- | --- | --- | --- | --- |
+|NFCorpus | 0.343 | 0.346 | **0.369** | 0.367 |
+|Trec-Covid | 0.688 | 0.731 | 0.752	| **0.790** |
+|ArguAna	|0.472	|0.482	| **0.527**	| 0.526 |
+|FiQA	|0.254	|0.281	|**0.364**	| 0.350 |
+|Scifact	|0.691	|0.673	|**0.728**	| 0.727 |
+|DBPedia	|0.313	|**0.395**	|0.373	| 0.392 |
+|Quora	|0.789	|0.847	|**0.874**	| 0.872 |
+|Scidocs	|0.165	|0.173	|**0.184**	| **0.184** |
+|CQADupStack	|0.325	|0.333	| 0.3673	| **0.377** |
+|Amazon ESCI	|0.081	|0.088	|**0.091**	| **0.091** |
+|Average performance <br>against BM25	|N/A	|6.42%	| 14.14%	| **14.93%** |
 
 In [Section 2](#section-2-obtaining-a-fine-tuned-transformer) we discuss the details of obtaining a fine-tuned transformer. If you’re interested in the result details, skip to [Section 3](#section-3-combination-methods) and [Section 4](#section-4-normalization-and-other-combination-methods).
 
@@ -157,7 +157,7 @@ $$Loss = C(q​, p) + C(p​, q)$$,
 $$C(q​, p) = −\sum_{i=1}^{i=B}​log \left(\frac{exp(q_i​,\ p_i​)}{\sum_{j=1}^{j=B}​exp(q_i​,\ p_j​)}​\right)$$,
 </span>
 
-where $$p$$ is a passage and $$q$$ is a query.
+where $$p$$ is a vector representation of a passage and $$q$$ is a vector representation of a query.
 
 The model is trained using the AdamW optimizer for 10 epochs with a learning rate of 2e-5 and a scheduler that uses a linear schedule with 10K warmup steps. Larger batch sizes lead to more in-batch negatives, which in turn lead to better models. On the other hand, larger batch sizes also may cause GPU out-of-memory issues and should be selected based on GPU memory. We also found that increasing the number of synthetic queries per passage produces better fine-tuned models. However, having a large number of synthetic queries comes with the cost of longer generation and training times, therefore diminishing the returns. On average, we created 24 queries per document in our experiments. 
 
@@ -201,7 +201,7 @@ The following table contains the results of combining these scores on the 10 tes
 
 
 
-We found that harmonic combination works best for the pretrained TAS-B model, while arithmetic combination works better for the fine-tuned custom model.  Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero. 
+We found that harmonic combination works best for the pretrained TAS-B model, while arithmetic and geometric combinations work best for the fine-tuned custom model.  Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero. 
 
 ## Section 4: Normalization and other combination methods
 
@@ -237,7 +237,7 @@ $$\tilde{b_i} = \frac{{b_i}-min(b)}{max(b) - min(b)}$$.
 </span>
 {% endraw %}
 
-The results are summarized in the following table.
+We found that, on average, the L2 norm works slightly better than the min-max norm for arithmetic combinations, as shown in the following table.
 
 |	|BM25	|TAS-B harmonic with min-max norm	|TAS-B harmonic with L2 norm	|Custom arithmetic with min-max norm	|Custom arithmetic with L2 norm	|
 |:---	|---	|---	|---	|---	|---	|
@@ -292,14 +292,11 @@ In this blog post, we have included several experiments that can help build intu
 3. If a dataset is heavy on keyword usage, BM25 works much better than neural retrievers. An example of such a dataset is one containing factory part numbers.
 4. If a dataset is heavy on natural language, neural retrievers work much better than BM25. An example of such a dataset is one containing data for a community forum.
 5. For datasets that contain both natural language and keywords, a combination of BM25 and neural retrievers works better. An example of such a dataset is one containing data for a clothing website that describes products using both natural language (product description) and numbers (product length, size, or weight).
-6. The optimal combination method depends on the dataset, but in general we have found that harmonic mean performs best for pretrained models and arithmetic mean performs best for fine-tuned models.
-
-
+6. The optimal combination method depends on the dataset. In general, we have found that harmonic mean performs best for pretrained models, while arithmetic mean and geometric mean perform best for fine-tuned models.
 
 ## Appendix: Details of test datasets
 
 In this appendix, we provide further details of the test datasets used for benchmarking. Our primary data sources were the BEIR challenge and the Amazon ESCI datasets. 
-
 
 ### The BEIR dataset
 
@@ -309,25 +306,22 @@ The BEIR challenge dataset was introduced in [a 2021 paper presented at NeurIPS]
 
 The [Amazon ESCI](https://github.com/amazon-science/esci-data) is a shopping query dataset from Amazon. It contains difficult search queries and was released with the goal of fostering research in the area of semantic matching of queries and products. We restricted the data to queries and documents in English. We focused on the task of query-product ranking: given a user-specified query and a list of matched products, the goal is to rank the products by relevance. We used `Task 1 (Query-Product Ranking)` with product_locale = US and set the following relevancy ratings: E = 100, S = 10, C = 1, and I = 0. Note that the relevancy ratings in the [Amazon ESCI paper by Reddy et al.](https://arxiv.org/abs/2206.06588) are E = 1, S = 0.1, C = 0.01, and I = 0. Consequently, you cannot directly compare our nDCG scores with the ones mentioned in the Amazon paper. However, the percentage improvement between different models (such as the one shown in the preceding tables) is still a meaningful comparison.
 
-
 ### Sample queries and passages
 
 The following table provides sample queries and passages for each dataset.
 
 |Dataset	|Sample query	|Sample passage	|
 |:---	|:---	|:---	|
-|DBPedia	|Szechwan dish food cuisine	|Mapo doufu (or \"mapo tofu\") is a popular Chinese dish from China's Sichuan province. It consists of tofu set in a spicy chili- and bean-based sauce, typically a thin, oily, and ....	|
-|FiQA	|“Business day” and “due date” for bills	|I don't believe Saturday is a business day either. When I deposit a check at a bank's drive-in after 4pm Friday, the receipt tells me it will credit as if I deposited on Monday. If a business' computer doesn't adjust their billing to have a weekday due date ...	|
-|CQADupStack	|Why does Simplify[b-a] give -a+b and not b-a?	|\`Simplify[b - a]\` results in \`-a + b\`. I prefer \`b - a\`, which is a bit simpler (3 symbols instead of 4). Can I make _Mathematica_ to think the same way? I believe one needs ...	|
-|NFCorpus	|How Doctors Responded to Being Named a Leading Killer	|By the end of graduate medical training, novice internists (collectively known as the housestaff) were initiated into the experience of either having done something to a patient which had a deleterious consequence or else having witnessed colleagues do the same. When these events occurred ...	|
-|Scifact	|β-sheet opening occurs during pleurotolysin pore formation.	|Membrane attack complex/perforin-like (MACPF) proteins comprise the largest superfamily of pore-forming proteins, playing crucial roles in immunity and pathogenesis. Soluble monomers assemble into large transmembrane ...	|
-|Trec-Covid	|what is the origin of COVID-19	|Although primary genomic analysis has revealed that severe acute respiratory syndrome coronavirus (SARS CoV) is a new type of coronavirus, the different protein trees published in previous reports have provided ....	|
-|ArguAna	|Poaching is becoming more advanced A stronger, militarised approach is needed as poaching is becoming ...	|Tougher protection of Africa\u2019s nature reserves will only result in more bloodshed. Every time the military upgrade their weaponry, tactics and logistic, the poachers improve their own methods to counter ...	|
-|Quora	|Is heaven a really nice place?	|What do you think heaven will be like?	|
-|Scidocs	|CFD Analysis of Convective Heat Transfer Coefficient on External Surfaces of Buildings	|This paper provides an overview of the application of CFD in building performance simulation for the outdoor environment, focused on four topics...	|
-|Amazon ESCI	|#1 black natural hair dye without ammonia or peroxide	|6N - Sagebrush BrownNaturcolor Haircolor Hair Dye - Sagebrush Brown, 4 Fl Oz (6N)contains no ammonia, resorcinol or parabens\navailable in 31 colors, each color ... 	|
-
-
+|DBPedia	|Szechwan dish food cuisine	|`Mapo doufu (or \"mapo tofu\") is a popular Chinese dish from China's Sichuan province. It consists of tofu set in a spicy chili- and bean-based sauce, typically a thin, oily, and ....`	|
+|FiQA	|“Business day” and “due date” for bills	|`I don't believe Saturday is a business day either. When I deposit a check at a bank's drive-in after 4pm Friday, the receipt tells me it will credit as if I deposited on Monday. If a business' computer doesn't adjust their billing to have a weekday due date ...	`|
+|CQADupStack	|Why does Simplify[b-a] give -a+b and not b-a?	|```` `Simplify[b - a]` results in `-a + b`. I prefer `b - a`, which is a bit simpler (3 symbols instead of 4). Can I make _Mathematica_ to think the same way? I believe one needs ...````	|
+|NFCorpus	|How Doctors Responded to Being Named a Leading Killer	|`By the end of graduate medical training, novice internists (collectively known as the housestaff) were initiated into the experience of either having done something to a patient which had a deleterious consequence or else having witnessed colleagues do the same. When these events occurred ...`	|
+|Scifact	|β-sheet opening occurs during pleurotolysin pore formation.	|`Membrane attack complex/perforin-like (MACPF) proteins comprise the largest superfamily of pore-forming proteins, playing crucial roles in immunity and pathogenesis. Soluble monomers assemble into large transmembrane ...`	|
+|Trec-Covid	|what is the origin of COVID-19	|`Although primary genomic analysis has revealed that severe acute respiratory syndrome coronavirus (SARS CoV) is a new type of coronavirus, the different protein trees published in previous reports have provided ....`	|
+|ArguAna	|Poaching is becoming more advanced A stronger, militarised approach is needed as poaching is becoming ...	|`Tougher protection of Africa\u2019s nature reserves will only result in more bloodshed. Every time the military upgrade their weaponry, tactics and logistic, the poachers improve their own methods to counter ...`	|
+|Quora	|Is heaven a really nice place?	|`What do you think heaven will be like?`	|
+|Scidocs	|CFD Analysis of Convective Heat Transfer Coefficient on External Surfaces of Buildings	|`This paper provides an overview of the application of CFD in building performance simulation for the outdoor environment, focused on four topics...`	|
+|Amazon ESCI	|#1 black natural hair dye without ammonia or peroxide	|`6N - Sagebrush BrownNaturcolor Haircolor Hair Dye - Sagebrush Brown, 4 Fl Oz (6N)contains no ammonia, resorcinol or parabens\navailable in 31 colors, each color ... `	|
 
 ### Dataset details
 
