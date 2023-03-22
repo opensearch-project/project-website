@@ -75,7 +75,7 @@ In the current state all dependencies are implicit and all versions must match, 
 
 We’ll augment the previously built rudimentary schema for extension’s metadata to provide additional fields beyond name, version or compatibility. These will include such fields as well-defined categories, or additional vendor/sponsor information. We will build a minimal catalog website with search functionality, deploy and maintain a public version of it. We’ll ensure that the catalog system can also be run by any enterprise internally and build signing and trust into the system, but will not do any validation beyond metadata correctness at this stage. An internal catalog will be able to sync with a public catalog with appropriate administrative controls, or existing third party catalog systems can use an API to import extensions. Developers will be able to sign up to publish extensions on the public instance and we will build mechanisms that help users trust publishers. An API in OpenSearch will supporting installing extensions from catalogs. A view in OpenSearch Dashboards will allow browsing available catalogs and extensions.
 
-Developers will be able to publish an extension into a public catalog, users can find extensions in a catalog via a taxonomy and search functions, detail pages with meaningful metadata and vendor information, administrators can install extensions from public or private catalogs, and import a subset of a public catalog in their Enterprise. Finally, everyone we'll establish trust into who each extension publisher is claiming to be, and some quality controls and publisher approvals.
+Developers will be able to publish an extension into a public catalog, users can find extensions in a catalog via a taxonomy and search functions, detail pages with meaningful metadata and vendor information, administrators can install extensions from public or private catalogs, and import a subset of a public catalog in their Enterprise. Finally, we'll add a way for publishers to verify themselves, add quality controls, and possibly publisher approvals.
 
 ### Supporting extensions in OpenSearch high level language clients
 
@@ -93,15 +93,15 @@ This is [opensearch-sdk-java#315](https://github.com/opensearch-project/opensear
 
 Assuming extensions have been widely adopted, we can deprecate the plugin APIs to be removed in the next major version of OpenSearch. We don't expect this to happen earlier than OpenSearch 4.0. Older versions of plugins continue to work with older versions of OpenSearch and continue receiving security patches.
 
-We will replace the two distribution flavors of OpenSearch/Dashboards (currently a -min distribution without security or plugins) by a set of distribution manifests tailored for purposes such as log analytics vs. search. Each distribution will be represented by a manifest that can be assembled “on-the-fly” by downloading the artifacts from the public catalog for packaging purposes. We want to enable single-click install a collection of extensions, recommended distributions of OpenSearch for tailored purposes, ability for vendors to create their favorite flavor of OpenSearch/Dashboards distribution easily, and add the capability to create enterprise-tailored distributions.
+We will replace the two distribution flavors of OpenSearch/Dashboards (currently a -min distribution without security or plugins) by a set of distribution manifests tailored for purposes such as log analytics vs. search. Each distribution will be represented by a manifest that can be assembled “on-the-fly” by downloading the artifacts from the public catalog for packaging purposes. We want to enable single-click installation of a collection of extensions, recommended distributions of OpenSearch for tailored purposes, the ability for vendors to create their favorite flavor of OpenSearch/Dashboards distribution easily, and the capability to create enterprise-tailored distributions.
 
 ## Future
 
-Extensions make a lot of new, big ideas possible! Below are some of our favorites.
+Extensions will make a lot of new, big ideas possible! Below are some of our favorites.
 
 ### Hot swap extensions 
 
-OpenSearch/Dashboards bootstrap plugins at start time and various parts of the system assume that plugins do not change at runtime. Requiring a cluster restart for all extensions is a severely crippling limitation on the path of ecosystem adoption of any significant number of extensions, primarily because cluster restarts mean stopping inbound traffic. We ensure that any part of the system can be loaded or unloaded at runtime, starting with making settings in OpenSearch core dynamic, and add tooling to support loading and unloading extensions at runtime without restarting OpenSearch/Dashboards nodes or the entire cluster. This creates the ability to add, upgrade, or remove an extension without the need to restart OpenSearch/Dashboards, or connect a remote extension to an existing OpenSearch/Dashboards cluster.
+OpenSearch/Dashboards bootstrap plugins at start time and various parts of the system assume that plugins do not change at runtime. Requiring a cluster restart for all extensions is a severely crippling limitation on the path of ecosystem adoption of any significant number of extensions, primarily because cluster restarts mean stopping inbound traffic. We ensure that any extension point can be loaded or unloaded at runtime, starting with making settings in OpenSearch core dynamic, and add tooling to support loading and unloading extensions at runtime without restarting OpenSearch/Dashboards nodes or the entire cluster. This creates the ability to add, upgrade, or remove an extension without the need to restart OpenSearch/Dashboards, or connect a remote extension to an existing OpenSearch/Dashboards cluster.
 
 ### Extensible document parsing
 
@@ -127,15 +127,15 @@ With the introduction of segment replication (segrep) node resources need to be 
 
 ### Extensions in other programming languages
 
-With extensions designed to operate remotely we can support out of process extensions written in other languages running on the JVM, and remote extensions written in any other language hosted externally. By enabling polyglot applications, or porting the extension SDKs to other programming languages we would also lower the barrier of entry for authoring extensions in languages such as JRuby. With TypeScript extensions on GraalVM we could support in-proc extensions.
+With extensions designed to operate remotely we can support out of process extensions written in other languages running on the JVM, and remote extensions written in any other language hosted externally. By enabling polyglot applications, or porting the extension SDKs to other programming languages, we would also lower the barrier of entry for authoring extensions in languages such as Ruby with a JRuby SDK, or add support for in-proc extensions written in TypeScript running on GraalVM.
 
 ### Extensions in other technologies
 
-An extension can not be entirely implemented in a Lambda, as it must maintain a network connection with OpenSearch and shares some state information. It would be possible to create a thin client for this purpose with Lambda implementation internally to enable Lambda extensions.
+An extension can not be entirely implemented in a Lambda, as it must maintain a network connection with OpenSearch and shares some state information. It would be possible to create a client for this purpose with Lambda implementation internally to enable Lambda extensions.
 
 ### Aggregations as an extension
 
-As we work towards separating search aggregations and compute, we will refactor and extract interface and SDK components for compute separate from the search phase lifecycle. Simple search aggregations, which default to the current single pass data aggregation implementation, may still be supported for basic search use cases not requiring a sophisticated compute engine. By separating the compute framework through extensions and a developer SDK enables drop-in replacements with more evolved data analytics systems such as Spark. By separating the search aggregation framework through extensions and a developer SDK third party contributors can bring in new kinds of search aggregation support such as Principal Component Analysis (PCA), or stratified sampling pipeline aggregations.
+As we work towards separating search aggregations and compute, we will refactor and extract interface and SDK components for compute separate from the search phase lifecycle. Simple search aggregations, which default to the current single pass data aggregation implementation, may still be supported for basic search use cases. By separating the compute framework through extensions and a developer SDK enables drop-in replacements with more evolved data analytics systems such as Spark. By separating the search aggregation framework through extensions and a developer SDK third party contributors can bring in new kinds of search aggregation support such as Principal Component Analysis (PCA), or stratified sampling pipeline aggregations.
 
 ### Cluster Manager as an extension
 
@@ -143,7 +143,7 @@ We would like to refactor and extract interfaces for cluster manager responsibil
 
 ### Offloading background tasks to extensions
 
-A number of background operations are currently run asynchronously in an OpenSearch cluster, including Lucene segment merges, data tier migrations (e..g hot to warm to cold), and most operations performed by ISM. These could be offloaded to dedicated or isolated compute via the extensions mechanism improving cluster scalability and availability.
+A number of background operations are currently run asynchronously in an OpenSearch cluster, including Lucene segment merges, data tier migrations (e.g. hot to warm to cold), and most operations performed by ISM. These could be offloaded to dedicated or isolated compute via the extensions mechanism improving cluster scalability and availability.
 
 ### Communication protocols as extensions
 
