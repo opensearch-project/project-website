@@ -3,7 +3,7 @@ layout: post
 title:  "Expanding k-NN with Lucene approximate nearest neighbor search"
 authors:
 - macrakis
-date: 2023-03-10
+date: 2023-03-22
 categories:
  - technical-post
 meta_keywords: approximate k-NN, OpenSearch k-NN search, k-nearest neighbor, Lucene 9.0 k-NN
