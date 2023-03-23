@@ -6,7 +6,7 @@ link: 'https://www.initmax.com'
 logo_large: '/assets/media/partners/initmax/initmax-logo.svg'
 product_image: '/assets/media/partners/initmax/initmax-product.png'
 description: 'Company initMAX is your partner for advanced IT monitoring'
-business_type: 'Professional Services Organization and Software developers'
+business_type: 'Professional Services Organization'
 contact: 'info@initmax.com, +420 800 244 442'
 main_office_location: |
   Czech Republic

@@ -8,7 +8,7 @@ logo_large: '/assets/media/partners/barefootcoders/barefootcoders-logo.png'
 description: 'Barefoot Coders is a boutique software and technical infrastructure development studio, helping organizations scale through cloud-native solutions.'
 business_type: 'Professional Services Organization'
 region: 'North America'
-industries: 'N/A - Industry &amp; vertical agnostic'
+industries: All
 contact: 'hello@barefootcoders.com, +1 855 833 2777'
 opensearch_tech: 'Search, Log Management'
 main_office_location: |

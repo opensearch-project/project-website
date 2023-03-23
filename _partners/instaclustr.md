@@ -11,7 +11,7 @@ business_type: MSP
 region: Worldwide
 contact: 'support@instaclustr.com'
 opensearch_tech:  'Fully managed and hosted OpenSearch service, Configure through the Instaclustr SaaS platform, Instaclustr API or Terraform, 24x7 Expert support, SOC 2, PCI Private Network and PrivateLink enabled, Built-in monitoring, 99.999% SLA, Run in your cloud provider account or ours'
-industries: 'All industries'
+industries: 'All'
 main_office_location:  |
   Canberra, Australia
   San Jose, California, US

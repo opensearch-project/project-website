@@ -8,7 +8,7 @@ product_image: '/assets/media/partners/dattell/dattel-product.png'
 description: |
   <p>Dattell offers consulting support and managed services for OpenSearch, Elasticsearch, Kafka, and Pulsar. We support implementations in our clients’ environments, on-prem or cloud (AWS, GCP, Azure).</p>
   <p>All of our team members are senior level DevOps, IT, or programming professionals with 10+ years experience running data infrastructure for complex use cases.</p>
-business_type: 'MSP and services organization'
+business_type: 'MSP, Services Organization'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'support@dattell.com, (619) 786-0813'
 opensearch_tech: 'We specialize in support of open source, free license software. That includes OpenSearch in all of its various implementations including: search, logging and monitoring, analytics, observability, security, e-commerce, machine learning, vector search, and content management.
