@@ -6,16 +6,17 @@
                 top: 0;
                 width: 100%;
                 overflow-x: hidden;
-                min-width: 14rem;
                 max-height: 100vh;
-                transition-property: height;
+                transition-property: all;
                 transition-duration: 0.3s;
                 transition-delay: 0.1s;
                 transition-timing-function: ease-out;
                 height: 0;
+                opacity: 0.3;
             }
             .collapsible-content.expanded {
                 height: 575px;
+                opacity: 1;
             }
             .collapsible-toggle {
                 background: #D9E1E2;
@@ -82,9 +83,17 @@
 <script type="module">
 
     class ResponsiveCollapsiblePanelElement extends HTMLElement {
-        connectedCallback() {
+        constructor() {
+            super();
             this.attachShadow({mode: 'open'});
             this.shadowRoot.appendChild(document.getElementById('responsive_collapsible_panel_tpl').content.cloneNode(true));
+        }
+        
+        static get observedAttributes() {
+            return ['expanded-height', 'transition-delay', 'transition-duration', 'transition-timing-function'];
+        }
+
+        connectedCallback() {
             this.shadowRoot.querySelector('.toggle-button').addEventListener('click', (e) => {
                 e.preventDefault();
                 this.shadowRoot.querySelector('.collapsible-content').classList.toggle('expanded');
@@ -92,6 +101,44 @@
         }
         disconnectedCallback() {
             this.shadowRoot.querySelector('.toggle-button').removeEventListener('click');
+        }
+        attributeChangedCallback(name, oldValue, newValue) {
+            if (name === 'expanded-height' && oldValue !== newValue) {
+                this.findCollapsibleContentExpandedClassCSSRule(
+                    this.findMobileBreakpointCSSMediaRule()
+                ).style.height = newValue;
+            } else if (name === 'transition-delay' && oldValue !== newValue) {
+                this.findCollapsibleContentClassCSSRule(
+                    this.findMobileBreakpointCSSMediaRule()
+                ).style.transitionDelay = newValue;
+            } else if (name === 'transition-duration' && oldValue !== newValue) {
+                this.findCollapsibleContentClassCSSRule(
+                    this.findMobileBreakpointCSSMediaRule()
+                ).style.transitionDuration = newValue;
+            } else if (name === 'transition-timing-function' && oldValue !== newValue) {
+                this.findCollapsibleContentClassCSSRule(
+                    this.findMobileBreakpointCSSMediaRule()
+                ).style.transitionTimingFunction = newValue;
+            }
+        }
+
+        findMobileBreakpointCSSMediaRule() {
+            const styleSheet = this.shadowRoot.styleSheets.item(0);
+            const rules = Array.from(styleSheet.cssRules);
+            const mediaRule = rules.find(rule => rule?.conditionText === 'screen and (max-width: 739px)' ?? false);            
+            return mediaRule;
+        }
+
+        findCollapsibleContentExpandedClassCSSRule(mediaRule) {
+            const rules = Array.from(mediaRule.cssRules);
+            const rule = rules.find(rule => rule?.selectorText === '.collapsible-content.expanded' ?? false);
+            return rule;
+        }
+
+        findCollapsibleContentClassCSSRule(mediaRule) {
+            const rules = Array.from(mediaRule.cssRules);
+            const rule = rules.find(rule => rule?.selectorText === '.collapsible-content' ?? false);
+            return rule;
         }
     }
     customElements.define('responsive-collapsible-panel', ResponsiveCollapsiblePanelElement);
