@@ -1,7 +1,7 @@
 <template id="resource_grid_element_tpl">
     <style>
         @media screen and (max-width: 819px) {
-            .grid {
+            :host {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -11,39 +11,41 @@
             }
         }
         @media screen and (min-width: 820px) {
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(Min(260px, 100%), 1fr));
+            :host {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
                 column-gap: 20px;
                 row-gap: 1em;
+                flex-wrap: wrap;
             }
         }
-        @media screen and (min-width: 820px) and (max-width: 919px) {
-            .grid {
+        @media screen and (min-width: 820px) and (max-width: 1220px) {
+            :host {
                 row-gap: 2em;
             }
         }
     </style>
-    <div class="grid">
-        <slot name="grid-item"></slot>
-    </div>
+    <slot name="grid-item"></slot>
 </template>
 <template id="resource_grid_item_element_tpl">
     <style>
-        .grid-item {
+        :host {
             background-color: #f5f7f7;
             padding: 1em;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            height: 300px;
-            min-width: calc(270px - 1em);
+            box-sizing: border-box;
         }
         .thumbnail {
-            text-align: center;
-            padding: 0;
+            position: relative;
+            padding-top: 66.66%;
+            width: 100%;
+            overflow: hidden;
         }
+        
         @media screen and (min-width: 1270px) {
             .thumbnail {
                 height: auto;
@@ -52,16 +54,30 @@
         .thumbnail img {
             width: 100%;
             height: auto;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
         .title {
             flex-grow: 1;
             text-align: left;
             width: 100%;
+            display: flex;
+            align-items: flex-end;
         }
         .title > div {
-            display: inline-flex;
+            display: -webkit-box;
             overflow: hidden;
+            max-width: 100%;
+            font-size: 18px;
+            line-height: 1.2;
             text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            height: 2.4em;
         }
         .title-type {
             text-transform: capitalize;
@@ -79,7 +95,7 @@
             line-height: 1;
         }
         @media screen and (max-width: 819px) {
-            .grid-item {
+            :host {
                 min-height: auto;
                 max-height: unset;
                 min-width: auto;
@@ -92,41 +108,50 @@
             }
         }
         @media screen and (max-width: 861px) {
-            .grid-item {
+            :host {
                 height: auto;
+                width: 100%;
             }
         }
         @media screen and (min-width: 820px) and (max-width: 919px) {
-            .grid-item {
-                min-width: calc(270px - 1em);
+            :host {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                flex-grow: 1;
+                flex-shrink: 1;
             }
         }
-        @media screen and (min-width: 920px) and (max-width: 1000px) {
-            .grid-item {
-                min-width: calc(270px - 1.5em);
-                max-width: calc(360px - 1.5em);
+        @media screen and (min-width: 920px) and (max-width: 1220px) {
+            :host {
+                width: calc(50% - 2em);
+                max-width: calc(50% - 2em);
+                flex-grow: 1;
+                flex-shrink: 1;
+                box-sizing: border-box;
             }
         }
         @media screen and (min-width: 1221px) {
-            .grid-item {
-                min-width: calc(270px - 2em);
-                max-width: calc(360px - 2em);
+            :host {
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: calc(33% - 2em);
+                max-width: calc(33% - 2em);
+                box-sizing: border-box;
             }
         }
     </style>
-    <div class="grid-item">
-        <div class="thumbnail">
+    <div class="thumbnail">
+        <a href="" target="_blank">
+            <img>
+        </a>
+    </div>
+    <div class="title-type"></div>
+    <div class="title">
+        <div>
             <a href="" target="_blank">
-                <img>
+                <span class="title-text"></span>
             </a>
-        </div>
-        <div class="title-type"></div>
-        <div class="title">
-            <div>
-                <a href="" target="_blank">
-                    <span class="title-text"></span>
-                </a>
-            </div>
         </div>
     </div>
 </template>
@@ -137,27 +162,6 @@
             this.attachShadow({ mode: 'open' });
             const tpl = document.getElementById('resource_grid_element_tpl');
             this.shadowRoot.appendChild(tpl.content.cloneNode(true));
-        }
-        connectedCallback() {
-            window.customElements.whenDefined('resource-grid-item').then(() => {
-                this.resizeGridItems();
-            });
-        }
-
-        resizeGridItems() {
-            // TODO: Determine if there's a clean way to do this at all,
-            //       or if we should just be really deliberate about 
-            //       what images we are using. The latter is probably
-            //       the choice with the most predicatable outcome.
-            const gridItemSlot = this.shadowRoot.querySelector('slot[name="grid-item"]');
-            const gridItemElements = Array.from(gridItemSlot.assignedElements());
-            Promise.all(gridItemElements.map(e => e.getThumbnailHeights())).then((thumbHeights) => {
-                const naturalHeights = thumbHeights.map(h => h.natural);
-                const heights = thumbHeights.map(h => h.height);
-                const minHeight = Math.min(...naturalHeights);
-                const maxHeight = Math.max(...heights);
-                gridItemElements.forEach(e => e.setThumbnailHeight(minHeight, maxHeight));
-            });
         }
     }
 
@@ -170,54 +174,7 @@
                 this.render();
             }
         }
-        getThumbnailHeights() {
-            return new Promise((resolve, reject) => {
-                const img = this.shadowRoot.querySelector('img');
-                if (!img.hasAttribute('src') || img.getAttribute('src').trim() === '') {
-                    reject();
-                }
-                if (img.complete) {
-                    resolve({natural: img.naturalHeight, height: img.height});
-                } else {
-                    img.addEventListener('load', () => {
-                        resolve({natural: img.naturalHeight, height: img.height});
-                    });
-                    img.addEventListener('error', () => {
-                        reject();
-                    });
-                }
-            });
-        }
-
-        setThumbnailHeight(height, wrapperHeight) {
-            const img = this.shadowRoot.querySelector('img');
-            const imgHeight = img.height;
-            // if (imgHeight > height) {
-            //     const bottomInset = imgHeight - height;
-            //     img.style.clipPath = `inset(0 0 ${bottomInset}px 0)`;
-            // }
-            // const thumbnail = this.shadowRoot.querySelector('.thumbnail');
-            // thumbnail.style.height = `${wrapperHeight}px`;
-            this.getThumbnailCSSClassRule(
-                this.findStylesheetMediaRules()
-            ).style.height = `${wrapperHeight}px`;
-        }
-
-        getThumbnailCSSClassRule(mediaRules) {
-            const conditionText = 'screen and (min-width: 1270px)';
-            const rules = Array.from(mediaRules);
-            const rule = rules.find(r => r.conditionText === conditionText);
-            const thumbnailRule = Array.from(rule.cssRules).find(r => r.selectorText === '.thumbnail');
-            return thumbnailRule;
-        }
-
-        findStylesheetMediaRules() {
-            const stylesheet = this.shadowRoot.styleSheets.item(0);
-            const rules = Array.from(stylesheet.cssRules);
-            const mediaRules = rules.filter(r => r.type === CSSRule.MEDIA_RULE);
-            return mediaRules;
-        }
-
+        
         render() {
             if (!this.hasAttribute('url') || !this.hasAttribute('title')) {
                 console.error('ResourceGridItemElement needs a url attribute');
