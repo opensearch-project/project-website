@@ -167,12 +167,25 @@
 
     class ResourceGridItemElement extends HTMLElement {
         static get observedAttributes() {
-            return ['url', 'type', 'title', 'thumbnail'];
+            return ['url', 'type', 'title', 'thumbnail', 'aspect-ratio'];
         }
         attributeChangedCallback(name, oldValue, newValue) {
             if (oldValue !== newValue) {
+                if (name === 'aspect-ratio') {
+                    if (this.isValidAspectRatio(newValue) === false) {
+                        console.error('ResourceGridItemElement aspect-ratio attribute must be a number between 0 and 100');
+                        return;
+                    }
+                    const thumbnail = this.shadowRoot.querySelector('.thumbnail');
+                    thumbnail.style.paddingTop = `${newValue}%`;
+                }
                 this.render();
             }
+        }
+
+        isValidAspectRatio(value) {
+            const ratio = parseFloat(value);
+            return !isNaN(ratio) && ratio > 0 && ratio <= 100;
         }
         
         render() {
