@@ -80,8 +80,14 @@
         align-items: center;
         padding: 2em 0;
         .partner-page--branding--logo {
+            @include respond-max(1220px) {
+                max-width: 33%;
+            }
+            @include respond-min(1221px) {
+                max-width: 25%;
+            }
             flex-grow: 1;
-            max-width: 38%;
+            flex-shrink: 1;
             & > img {
                 width: 100%;
                 height: auto;
@@ -92,6 +98,12 @@
             flex-grow: 2;
             max-width: 62%;
             text-align: right;
+            @include respond-max(1220px) {
+                max-width: 67%;
+            }
+            @include respond-min(1221px) {
+                max-width: 75%;
+            }
             & > img {
                 width: 100%;
                 height: auto;
@@ -115,8 +127,6 @@
             display: none;
         }
     }
-    
-    
 }
 
 .partner-page--layout {
@@ -125,8 +135,11 @@
     justify-content: flex-start;
     .partner-page--layout--meta {
         flex-grow: 1;
-        @include respond-min(740px) {
-            max-width: 25vw;
+        @media screen and (min-width: 740px) and (max-width: 1220px) {
+            max-width: 33%;
+        }
+        @include respond-min(1221px) {
+            max-width: 25%;
         }
         .partner-page--layout--meta__vspaced {
             margin-top: 0;
@@ -156,6 +169,20 @@
         }
     }
     .partner-page--layout--details {
+        &:not(:has(.partner-page--layout--details--social-links)) {
+            padding-bottom: 2em;
+        }
+        @media screen and (min-width: 740px) and (max-width: 1221px) {
+            max-width: 67%;
+        }
+        @include respond-min(1221px) {
+            max-width: 75%;
+        }
+        @include respond-min(46.25rem) {
+            margin: 0 auto;
+            box-shadow: none;
+            padding: 0 (32/768) * 100%;
+        }
         flex-grow: 2;
         > h1 {
             margin: 2rem 0;
@@ -221,6 +248,7 @@
             width: auto;
             margin-left: auto;
             justify-content: space-around;
+            padding: 2em 0 0;
         }
     }
 }
@@ -230,7 +258,7 @@
             display: block; 
         }
         .partner-page--social-links {
-            padding-top: 1em;
+            padding: 1em 0;
         }
     }
 }
