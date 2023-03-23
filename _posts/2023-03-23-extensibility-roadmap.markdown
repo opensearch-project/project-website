@@ -21,9 +21,11 @@ From the product point of view, _extensions_ are a new mechanism that provides a
 
 We aim for extensions to become the preferred mechanism for providing functionality in OpenSearch/Dashboards. Having multiple competing implementations will produce extensions with high performance, improved security, and versatile features for all categories of users, administrators and developers.
 
-## Extensions Roadmap 
+## Extensions Roadmap
 
-### Experimental SDKs, move extensibility concerns out of the monoliths 
+The proposed projects below are in order, but please note that many of these can be done in parallel.
+
+### Provide experimental SDKs and move extensibility concerns out of the monoliths
 
 First, we plan to introduce an OpenSearch SDK and an OpenSearch Dashboards SDK and refactor OpenSearch/Dashboards cores to support them as needed. This creates both a logical and a physical separation between extensions and their hosts. You should be able to author an extension that is compatible with all minor versions of an OpenSearch/Dashboards release and to upgrade OpenSearch/Dashboards without having to upgrade an installed extension.
 
