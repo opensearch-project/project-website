@@ -52,7 +52,7 @@ The user interface in OpenSearch Dashboards lists individual findings according 
 
 ## Looking ahead
 
-Since its release in version 2.4, Security Analytics has experienced refinements to both its functionality and number of features. Our intention is continue along this line. Here are a few areas for development we hope to work on in the near future.
+Since its release in version 2.4, Security Analytics has experienced refinements to both its functionality and number of features. Our intention is to continue along this line. Here are a few areas for development we hope to work on in the near future.
 
 The more compatibility Security Analytics has with different log types, the greater its ability to process a broader range of log data. Incrementally, we plan to continue adding to the number of log types that Security Analytics supports.
 
