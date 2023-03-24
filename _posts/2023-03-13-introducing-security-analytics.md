@@ -6,21 +6,21 @@ authors:
 date:   2023-03-13 12:15:00 -0700
 categories:
   - releases
-meta_keywords: security analytics
-meta_description: Provides and overview of Security Analytics and how it fits in with the OpenSearch Project
+meta_keywords: security analytics, security analytics in OpenSearch, open source SIEM tools
+meta_description: Learn how the powerful security analytics capabilities in OpenSearch allow administrators to track and analyze activity in the cluster to combat cyber threats.
 ---
 
 # Introducing Security Analytics
 
-In January of 2023, one of the largest wireless carriers in the US revealed that hackers had compromised a company database of customer information through unauthorized use of an API and had acquired the personal details of as many as 37 million individuals, including names, addresses, phone numbers, and account numbers. Once identified, the company was able to halt the malicious activity within a day. However, investigations indicated that the data breach had likely occurred at the end of November the previous year, giving the hackers over a month to extract the information.
+Recently one of the largest wireless carriers in the US revealed that hackers had compromised a company database of customer information through unauthorized use of an API and had acquired the personal details of as many as 37 million individuals, including names, addresses, phone numbers, and account numbers. In the modern world, where devices are interconnected across virtual boundaries, security attacks such as this one have become commonplace.
 
-Although unfortunate, occurrences like these now appear frequently in the media and have become almost commonplace in the modern world. With an ever-increasing volume of business data shared online and stored in the cloud, malicious attempts to disrupt companies’ business interests are now simply part of the reality of doing business. And in light of these threats, it’s therefore essential that companies have tools in place to detect and identify the signatures of possible attacks in real time so they can act to intervene as quickly as possible. To address these needs, OpenSearch now includes a package of pre-built features and functionality that allow businesses to quickly and easily roll out a security solution for confronting a full range of cyber threats. Security Analytics is this solution for OpenSearch, and it installs automatically with any distribution.
+With an ever-increasing volume of data shared online and stored in the cloud, malicious attempts to disrupt the interests of enterprises large and small are now simply part of the reality of doing business. And in light of these threats, it’s therefore essential that these enterprises have tools in place to detect and identify the signatures of possible attacks in real time so they can act to intervene as quickly as possible. To address these needs, OpenSearch now includes a package of pre-built features and functionality that allow organizations to quickly and easily roll out a security solution for confronting a full range of cyber threats. The default distribution of OpenSearch now includes Security Analytics with OpenSearch, and it installs automatically with all downloads. After installation, users can fine tune its functionality to meet the security needs of their organization.
 
 ## The role of Security Analytics in OpenSearch
 
-OpenSearch already includes powerful features that allow administrators to track and analyze activity within the cluster. They provide users the ability to identify anomalous behavior in system data and set up alerts and notifications to signal users when these events occur. However, scaling these existing tools to serve the specific needs of various industries, handling the volume of data they possess, and then assembling a team of professionals to manage and interpret the results, pose a number of challenges.
+OpenSearch already includes powerful features that allow administrators to analyze application logs and other security event logs within the cluster. They provide users the ability to identify anomalous behavior and set up alerts and notifications to signal users when these events occur. However, scaling these existing tools for security use cases, handling a volume of data, and assembling a team of professionals to manage and interpret results, pose challenges to managing and training costs and keeping the system up to date to detect complex threats.
 
-Security Analytics takes a different approach. It lets businesses use their existing OpenSearch cluster for detecting security threats, rather than requiring them to bear the cost of duplicating and storing their data for a separate off-the-shelf security solution. Security Analytics also leverages a schema of rules that it applies to log data to look for matches with abnormal events. These standardized rules address specific threats known throughout the industry and form a knowledge base of known attacks. Combined with a number of robust features, the rules also allow Security Analytics to be highly customizable.
+Security Analytics takes a different approach. It provides organizations with a single solution that contains a comprehensive suite of features and capabilities. This leads to lower costs and low-latency performance at scale. Security Analytics also leverages widely used Sigma rules to find threat patterns in your security event logs. The security rules are pre-packaged with OpenSearch and provide rules that detect many of the common threats across a diverse set of log sources. Combined with a number of robust features, the rules also allow Security Analytics to be highly customizable.
 
 ## The parts of the whole
 
@@ -28,15 +28,15 @@ To see how this works, let’s first look at some of the components in Security 
 
 ### Detectors
 
-Central to Security Analytics are its detectors. Detectors are components that interpret log data, compare that data to a schema of rules, and define the triggers that generate findings and the alerts that notify administrators of possible security events in the system. Their advantage is that they offer flexibility through their configuration, and this allows a business to fine tune its detection capabilities for specific threats, wider objectives, or targets in between.
+Central to Security Analytics are its detectors. Detectors are components that interpret log data, compare that data to a schema of rules, and enable you to configure alert triggers that generate findings and the alerts that notify administrators of possible security events in your infrastructure. Their advantage is that they offer flexibility through their configuration, and this allows a business to fine tune its detection capabilities for specific threats, wider objectives, or targets in between.
 
 ### Rules
 
-Security Analytics leverages the versatility, portability, and up-to-date framework of [Sigma rules](https://github.com/SigmaHQ/sigma). These rules define the conditional logic applied to ingested log data and allow the system to identify an event of interest. In general, they determine exactly what type of event or attack the system is looking out for. Security Analytics uses these prepackaged, open-source rules as a starting point for describing relevant log events. But with their inherently flexible format and wide compatibility, users can import and customize Sigma rules to meet their needs.
+Security Analytics leverages the versatility, portability, and comprehensive framework of [Sigma rules](https://github.com/SigmaHQ/sigma). These rules define the conditional logic applied to ingested log data and allow the system to identify an event of interest. They determine exactly what type of event or attack the system is monitoring. Security Analytics uses these prepackaged, open-source rules as a starting point for describing relevant log events. But with their inherently flexible format and wide compatibility, users can import and customize Sigma rules to meet their needs.
 
 ### Log types
 
-Log data is key to understanding activity in any network. Whether it’s server logs, firewall logs, infrastructure logs, application logs, or endpoint logs, this data is elemental in gaining insight into the activity within a network. In terms of security coverage, the more log data a security infrastructure can process the better. Similarly, the wider the variety of log types that infrastructure can ingest, the more versatile that solution. Security Analytics launched with options for the most common log types. Since then, we have devoted significant energy to expanding support for more and more log types. And that trend will continue.
+Log data is key to understanding activity in any network. Whether it’s server logs, firewall logs, infrastructure logs, application logs, or endpoint logs, this data is elemental in gaining insight into the activity within a network. In terms of security coverage, the more log data a security infrastructure can process the better. Similarly, the wider the variety of log types that infrastructure can ingest, the more versatile that solution. Security Analytics launched with options for the most common log types. Since then, we have continued to expand the number of available log types. And that trend will continue.
 
 ### The user interface and dashboards
 
