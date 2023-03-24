@@ -1,16 +1,22 @@
 ---
 layout: fullwidth
-primary_title: Resources
-title: Trademark Policy
+primary_title: 
+title: Trademark and Brand Policy
 ---
 
-## Trademark Policy
+## Trademark and Brand Policy
 _Updated May 18, 2021_
 
-[Overall Guidelines](#overall-guidelines) &middot; [Uses that do not require permission](#uses-that-do-not-require-permission) &middot; [Uses that require permission](#uses-that-require-permission) &middot; [Questions](#questions) &middot; [Trademark FAQ
-](#trademark-faq)
+## Trademark
+
+[Trademark Policy](#trademark-policy) &middot; [Overall Guidelines](#overall-guidelines) &middot; [Uses that do not require permission](#uses-that-do-not-require-permission) &middot; [Uses that require permission](#uses-that-require-permission) &middot; [Questions](#questions) &middot; [Trademark FAQ](#trademark-faq)
+
+## Brand
+
+[Brand Guidelines](#brand-guidelines) &middot; [Logo](#logo) &middot; [Mark](#mark) &middot; [More file formats](#more-file-formats)
 
 ---
+## Trademark Policy
 
 This Policy provides guidelines for use of the “OpenSearch” name and logos (the “OpenSearch Trademarks”) to identify the OpenSearch software. Amazon.com, Inc. or its affiliates (“Amazon”) strives to be a steward of the OpenSearch brand for the entire OpenSearch Community and is the owner of the OpenSearch Trademarks. As such, the law obligates us to police and protect the trademarks. Therefore, we require use of the OpenSearch Trademarks to be in accordance with this policy. Indeed, Amazon’s own use is designed to be consistent with this Policy.
 
@@ -83,3 +89,29 @@ This policy is based in part on the [open source trademark policy defined by the
 
 <br />
 
+## Brand Guidelines
+
+These guidelines were developed to help keep the OpenSearch brand unified and cohesive. Please reference this guide for all communication and brand design across all formats.
+
+Download: <a href="/assets/brand/OpenSearch-Brand-Guide.pdf" target="_blank">Brand Guidelines PDF</a>
+
+## Logos & Marks
+
+## Logo
+<img src="assets/brand/SVG/Logo/opensearch_logo_default.svg" height="30px" alt="OpenSearch Logo" style="display: block; margin-bottom: 1em;" />
+Default: <a href="assets/brand/PNG/Logo/opensearch_logo_default.png" target="_blank">PNG</a> &middot; <a href="assets/brand/SVG/Logo/opensearch_logo_default.svg" target="_blank">SVG</a><br />
+Dark Mode: <a href="assets/brand/PNG/Logo/opensearch_logo_darkmode.png" target="_blank">PNG</a> &middot; <a href="assets/brand/SVG/Logo/opensearch_logo_darkmode.svg" target="_blank">SVG</a><br />
+Monochrome: <a href="assets/brand/PNG/Logo/opensearch_logo_monochrome.png" target="_blank">PNG</a> &middot; <a href="assets/brand/SVG/Logo/opensearch_logo_monochrome.svg" target="_blank">SVG</a>
+
+## Mark
+<img src="assets/brand/SVG/Mark/opensearch_mark_default.svg" height="30px" alt="OpenSearch Mark" style="display: block; margin-bottom: 1em;" />
+Default: <a href="assets/brand/PNG/Mark/opensearch_mark_default.png" target="_blank">PNG</a> &middot; <a href="assets/brand/SVG/Mark/opensearch_mark_default.svg" target="_blank">SVG</a><br />
+Dark Mode: <a href="assets/brand/PNG/Mark/opensearch_mark_darkmode.png" target="_blank">PNG</a> &middot; <a href="assets/brand/SVG/Mark/opensearch_mark_darkmode.svg" target="_blank">SVG</a><br />
+Monochrome: <a href="assets/brand/PNG/Mark/opensearch_mark_monochrome.png" target="_blank">PNG</a> &middot; <a href="assets/brand/SVG/Mark/opensearch_mark_monochrome.svg" target="_blank">SVG</a>
+
+## More file formats
+The full set of PNG, SVG and EPS Logos, Marks, & Logotypes are available as downloadable .zip files below. 
+
+Download: <a href="assets/brand/opensearch-assets_SVG.zip" target="_blank">SVG</a> &middot; <a href="assets/brand/opensearch-assets_PNG.zip" target="_blank">PNG</a> &middot; <a href="assets/brand/opensearch-assets_EPS.zip" target="_blank">EPS</a>
+
+<br />
