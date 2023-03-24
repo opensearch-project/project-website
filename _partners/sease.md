@@ -20,6 +20,7 @@ resources:
   - url: 'https://sease.io/2022/12/opensearch-neural-search-plugin-tutorial.html'
     title: 'OpenSearch Neural Search Plugin Tutorial'
     thumbnail: '/assets/media/partners/sease/sease-neural-search.jpg'
+    aspect_ratio: '218:123'
     type: 'blog'
 products:
   - url: 'https://sease.io/'

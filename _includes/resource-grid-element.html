@@ -14,7 +14,7 @@
             :host {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: flex-start;
                 column-gap: 20px;
                 row-gap: 1em;
                 flex-wrap: wrap;
@@ -177,15 +177,20 @@
                         return;
                     }
                     const thumbnail = this.shadowRoot.querySelector('.thumbnail');
-                    thumbnail.style.paddingTop = `${newValue}%`;
+                    thumbnail.style.paddingTop = `${this.aspectRatioToPercent(newValue)}%`;
                 }
                 this.render();
             }
         }
 
         isValidAspectRatio(value) {
-            const ratio = parseFloat(value);
-            return !isNaN(ratio) && ratio > 0 && ratio <= 100;
+            const ratioPattern = /^\d+:\d+$/;
+            return ratioPattern.test(value);
+        }
+
+        aspectRatioToPercent(value) {
+            const [width, height] = value.split(':');
+            return (height / width) * 100;
         }
         
         render() {

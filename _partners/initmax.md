@@ -19,6 +19,7 @@ resources:
   - url: 'https://www.initmax.cz/blog/'
     title: 'initMAX Blog'
     thumbnail: '/assets/media/partners/initmax.png'
+    aspect_ratio: '74:73'
     type: 'blog'
 products:
   - url: 'https://www.initmax.com/service/zabbix-monitoring/'
