@@ -6,8 +6,8 @@ authors:
 date:   2023-03-23
 categories:
   - technical-post
-meta_keywords: OpenSearch extensibility, plugins, extensions
-meta_description: The OpenSearch plugin framework presents a number of challenges for users and developers. To solve these, we've embarked on a journey to replace the plugin mechanism with a new concept of extensions.
+meta_keywords: OpenSearch extensibility, extensions framework, OpenSearch plugins, OpenSearch Dashboards
+meta_description: Learn how the OpenSearch is replacing its plugin framework with a new catalog of extensions to help users and developers overcome extensibility challenges.
 excerpt: The OpenSearch plugin framework presents a number of challenges for users and developers. To solve these, we've embarked on a journey to replace the plugin mechanism with a new concept of extensions.
 ---
 
