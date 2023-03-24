@@ -1,5 +1,6 @@
 ---
 name: Calyptia
+name_long: 'Calyptia'
 logo: '/assets/media/partners/calyptia.png'
 link: 'https://calyptia.com'
 logo_large: '/assets/media/partners/calyptia/calyptia-logo.png'
