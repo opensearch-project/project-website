@@ -36,11 +36,11 @@ columns:
         title: 'Testimonials'
         url: '/testimonials/'
       -
-        title: 'Brand Guidelines'
-        url: '/brand.html'
+        title: 'Trademark and Brand Policy'
+        url: '/trademark-brand-policy.html'
       -
-        title: 'Trademark Usage Policy'
-        url: '/trademark-usage.html'
+        title: 'Privacy'
+        url: 'https://aws.amazon.com/privacy/'
   -
     title: 'Contact Us'
     links:

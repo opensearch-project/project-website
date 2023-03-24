@@ -19,7 +19,7 @@ The OpenSearch Project is pleased to present our newsletter. Distributed monthly
 OpenSearch 2.6.0 is now available, with a new data schema built to OpenTelemetry standards that unlocks an array of future capabilities for analytics and observability use cases. This release also delivers upgrades for index management, improves threat detection for security analytics workloads, and adds functionality for visualization tools, machine learning (ML) models, and more. 
 
 [OpenSearch Forum Leaderboard is now live!](https://forum.opensearch.org/leaderboard?sc_channel=sm&sc_campaign=Open_Source&sc_publisher=LINKEDIN&sc_geo=GLOBAL&sc_outcome=awareness&trk=opensearchproject)
-The OpenSearch forum now has a leaderboard! Let's give a big thanks to our community manager, [Kristopher Freedain](https://www.linkedin.com/in/ACoAAAAf8kkBOvk9t0NOzgN_Lnm4AuCbnz_pXWE)! Points are awarded for engaging with the community, such as visiting, liking, and posting.
+The OpenSearch forum now has a leaderboard! Let's give a big thanks to our community manager, [Kris Freedain](https://www.linkedin.com/in/krisfreedain/)! Points are awarded for engaging with the community, such as visiting, liking, and posting.
 
 [Data Prepper 2.1.0 is live!](https://opensearch.org/blog/Announcing-Data-Prepper-2.1.0/)
 Data Prepper 2.1.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)! This release adds several new features to Data Prepper. Additionally, the maintainers have improved Data Prepper’s stability and performance. Many of the new features came from community contributions in the form of GitHub issues and pull requests.
@@ -65,7 +65,7 @@ OpenSearch Developer Advocate, [David Tippett](https://twitter.com/dtaivpp) will
 The [Cloud Native Computing Foundation’s](https://www.cncf.io/) flagship conference gathers adopters and technologists from leading open source and cloud native communities in Amsterdam, The Netherlands from 18-21 April, 2023. Please reach out to community manager, [Kris Freedain](https://twitter.com/KrisFreedain), or Developer Advocate, [Nate Boot](https://twitter.com/nateboot) for more details on how to meet up with the OpenSearch team.
 
 
-Subscribe to our [MeetUp](https://www.meetup.com/opensearch/)group to join the latest meetings, local user groups. 
-Follow us on [Twitter](https://twitter.com/OpenSearchProj) and[LinkedIn](https://www.linkedin.com/company/opensearch-project/) to stay up-to-date with the latest #OpenSearch news.
-Visit our [forum](https://forum.opensearch.org/)to ask questions and interact with the OpenSearch community.
+Subscribe to our [MeetUp](https://www.meetup.com/opensearch/) group to join the latest meetings, local user groups. 
+Follow us on [Twitter](https://twitter.com/OpenSearchProj) and [LinkedIn](https://www.linkedin.com/company/opensearch-project/) to stay up-to-date with the latest #OpenSearch news.
+Visit our [forum](https://forum.opensearch.org/) to ask questions and interact with the OpenSearch community.
 
