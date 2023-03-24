@@ -16,7 +16,7 @@ With an ever-increasing volume of data shared online and stored in the cloud, ma
 
 ## The role of Security Analytics in OpenSearch
 
-OpenSearch already includes powerful features that allow administrators to analyze application logs and other security event logs within the cluster. They provide users the ability to identify anomalous behavior and set up alerts and notifications to signal users when these events occur. However, scaling these existing tools for security use cases, handling a volume of data, and assembling a team of professionals to manage and interpret results, pose challenges to managing and training costs and keeping the system up to date to detect complex threats.
+OpenSearch already includes powerful features that allow administrators to analyze application logs and other security event logs within the cluster. They provide users the ability to identify anomalous behavior and set up alerts and notifications to signal users when these events occur. However, scaling these existing tools for security use cases, handling a large volume of data, and assembling a team of professionals to manage and interpret results, pose challenges to managing and training costs and keeping the system up to date to detect complex threats.
 
 Security Analytics takes a different approach. It provides organizations with a single solution that contains a comprehensive suite of features and capabilities. This leads to lower costs and low-latency performance at scale. Security Analytics also leverages widely used Sigma rules to find threat patterns in your security event logs. The security rules are pre-packaged with OpenSearch and provide rules that detect many of the common threats across a diverse set of log sources. Combined with a number of robust features, the rules also allow Security Analytics to be highly customizable.
 
@@ -48,8 +48,6 @@ By integrating these separate components into one operation, we arrive at a solu
 
 Security Analytics interprets data in a company’s existing log files to identify abnormalities or suspicious patterns in network activity. After the log data is ingested in the system, detectors map the data to a common rule schema and transform it into meaningful events that can be applied to the rules. Depending on which rules have been assigned during configuration of the detector, the detector applies certain criteria to the log data and executes a match when any of the criteria are met. This generates a finding, which is simply an incident in which the detector has isolated as an event of interest. Simultaneously, the event triggers an alert, and security operations members are notified of the incident.
 
-(There could be a flow diagram graphic here to visually represent the sequence of events above)
-
 The user interface in OpenSearch Dashboards lists individual findings according to preferred metrics and displays these findings in a configurable graph so that users can drill down to see incidents in a short time frame, or expand out to get a sense of trends over a longer time period. The same format is applied to an Alerts dashboard so that users can track alerts in a selected span of time and view them by severity levels or whether or not they are still active or acknowledged.
 
 ## Looking ahead
@@ -66,5 +64,5 @@ Other improvements on the horizon include chaining of alerts, more efficient pro
 
 ## Getting involved
 
-As the first open-source SIEM available in the market, Security Analytics presents opportunities for the community to become involved early in its evolution. There are a few different options for participating in the project. And we’d love to hear from you. To get involved in the discussion, have a look at the [Security Analytics forum(https://forum.opensearch.org/c/plugins/security-analytics/73). To keep up to date on developments, see the [list of issues](https://github.com/opensearch-project/security-analytics/issues) in the Security Analytics repository to find out what enhancements are in the pipeline. And to make contributions, see the [Contributing Guidelines](https://github.com/opensearch-project/security-analytics/blob/main/CONTRIBUTING.md) in the repository.
+As the first open-source SIEM available in the market, Security Analytics presents opportunities for the community to become involved early in its evolution. There are a few different options for participating in the project. We’d love to hear from you. To get involved in the discussion, have a look at the [Security Analytics forum(https://forum.opensearch.org/c/plugins/security-analytics/73). To keep up to date on developments, see the [list of issues](https://github.com/opensearch-project/security-analytics/issues) in the Security Analytics repository to find out what enhancements are in the pipeline. And to make contributions, see the [Contributing Guidelines](https://github.com/opensearch-project/security-analytics/blob/main/CONTRIBUTING.md) in the repository.
 
