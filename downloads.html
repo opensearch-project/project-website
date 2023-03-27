@@ -6,6 +6,4 @@ redirect_from:
 notice: true
 ---
 {% assign the_version = site.versions | sort: 'version_sort' | last %}
-{% if the_version %}
 {{ the_version }}
-{% endif %}

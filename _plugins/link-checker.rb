@@ -52,7 +52,7 @@ module Jekyll::LinkChecker
 
   ##
   # Pattern of local paths to ignore
-  @ignored_paths = /(^\/javadocs\/)/.freeze
+  @ignored_paths = /(^\/javadocs|^\/mailto\:\/)/.freeze
 
   ##
   # Valid response codes for successful links
@@ -282,11 +282,12 @@ module Jekyll::LinkChecker
       return true if @ignored_domains.include? uri.host
 
       Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
-        # http.use_ssl = (uri.scheme == "https")
-  
         request = Net::HTTP::Head.new(uri)
   
         http.request(request) do |response|
+          # retry with a GET on a 405 method not allowed
+          response = http.request(Net::HTTP::Get.new(uri)) if response.code == "405"
+
           return true if @success_codes.include? response.code
 
           if @@retry_codes.include? response.code
