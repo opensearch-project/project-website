@@ -2,7 +2,7 @@
 name: Vijayan Balasubramanian
 short_name: vijay
 photo: '/assets/media/authors/vijayanb.jpg'
-gitHub: vijayanb
+github: VijayanB
 ---
 
-Vijayan Balasubramanian is a software engineer working on OpenSearch k-NN, Geospatial, and Maps. His interests includes Distributed Systems, Big Data, Data Mining, and Information Retrieval.
+**Vijayan Balasubramanian** is a software engineer working on OpenSearch k-NN, geospatial data, and maps. His interests include distributed systems, big data, data mining, and information retrieval.
