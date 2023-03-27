@@ -59,7 +59,7 @@ module Jekyll::LinkChecker
 
   ##
   # Questionable response codes for successful links
-  @@questionable_codes = %w[301 403]
+  @@questionable_codes = %w[301 308 403]
 
   ##
   # Retry response codes for links
