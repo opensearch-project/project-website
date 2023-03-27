@@ -2,7 +2,7 @@
 
 ## Write as *you* not as a representative
 
-Core to the principles of OpenSearch is open source. Open source is inherently about people and collaboration that goes across organizational lines. This extends to how content is written for [opensearch.org](http://opensearch.org/). Just as code ultimately is attributable to an individual’s GitHub account, blog posts should be attributed to people not organizations or teams. If multiple people collaborated on a post, attribute it to all those people. 
+Core to the principles of OpenSearch is open source. Open source is inherently about people and collaboration that goes across organizational lines. This extends to how content is written for [opensearch.org](https://opensearch.org/). Just as code ultimately is attributable to an individual’s GitHub account, blog posts should be attributed to people not organizations or teams. If multiple people collaborated on a post, attribute it to all those people. 
 
 Being crisp with how you reference yourself and work is important as well. Generally, collective pronouns (words such as *our*, *we*, *us*) can be confusing and lead readers to make assumptions about who belongs in that collective group. When proofreading, actively scan for these words and ask yourself if the reader will unambiguously understand whom your are talking about: if there is any doubt, rephrase. It’s typically easier to write in the first (*I*) and second person (*you*) from the start rather than trying to revise content later. If multiple people are collaborating on a piece of content, use collective pronouns sparingly, but make sure it’s very clear that every instance actually refers to the collective of the authors of the content not some other group.
 

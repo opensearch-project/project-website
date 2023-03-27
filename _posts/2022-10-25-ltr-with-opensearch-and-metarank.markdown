@@ -13,7 +13,7 @@ redirect_from: "/blog/community/2022/10/ltr-with-opensearch-and-metarank/"
 
 ## Ranking in Lucene and OpenSearch
 
-OpenSearch, being a close relative to the [Apache Lucene](https://lucene.apache.org (https://lucene.apache.org/)) project, uses a traditional approach to search results ordering:
+OpenSearch, being a close relative to the [Apache Lucene](https://lucene.apache.org/) project, uses a traditional approach to search results ordering:
 
 * In the **retrieval** stage, Lucene builds a result set of all the documents matching the query from the inverted index within each shard.
 

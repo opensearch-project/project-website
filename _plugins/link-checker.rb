@@ -47,7 +47,8 @@ module Jekyll::LinkChecker
 
   ##
   # List of domains to ignore
-  @ignored_domains = %w[localhost]
+  # LinkedIn mostly fails with 999 status codes
+  @ignored_domains = %w[localhost www.linkedin.com]
 
   ##
   # Pattern of local paths to ignore

@@ -79,7 +79,7 @@ OpenSearch is a community-driven project and your input is always valued and app
 
 ### Acknowledgements
 
-The following people contributed to opensearch-py, opensearch-js, or opensearch-go: [rushiagr](https://github.com/rushiagr), [axeoman](https://github.com/axeoman), [vchrombie](https://github.com/vchrombie), [deztructor](https://github.com/deztructor), [VijayanB](https://github.com/VijayanB), [peternied](https://github.com/peternied), [peterzhuamazon](https://github.com/peterzhuamazon), [ananzh](https://github.com/ananzh), [boktorbb-amzn](https://github.com/boktorbb-amzn), [hansott](https://github.com/hansott), and [henvic](https://github.com/henvic).
+The following people contributed to opensearch-py, opensearch-js, or opensearch-go: [rushiagr](https://github.com/rushiagr), [axeoman](https://github.com/axeoman), [vchrombie](https://github.com/vchrombie), [deztructor](https://github.com/deztructor), [VijayanB](https://github.com/VijayanB), [peternied](https://github.com/peternied), [peterzhuamazon](https://github.com/peterzhuamazon), [ananzh](https://github.com/ananzh), [boktorbb-amzn](https://github.com/boktorbb), [hansott](https://github.com/hansott), and [henvic](https://github.com/henvic).
 
 
 
