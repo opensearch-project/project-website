@@ -21,7 +21,11 @@ body_class: community_projects-page
     </div>
     <div class="extras-group">
       <p class="extra">License: <a href="{{community_project.license_link}}">{{community_project.license}}</a></p>
+      {% if community_project.owner_link != nil and community_project.owner != nil %}
       <p class="extra">Owner: <a href="{{community_project.owner_link}}">{{community_project.owner}}</a></p>
+      {% elsif community_project.owner != nil %}
+      <p class="extra">Owner: {{community_project.owner}}</p>
+      {% endif %}      
       {% if community_project.download_link != nil %}
       <a class="download" href="{{community_project.download_link}}">Download</a>
       {% endif %}

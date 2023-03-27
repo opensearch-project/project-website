@@ -31,7 +31,7 @@ Data Prepper 2.1.0 is now available for [download](https://opensearch.org/downlo
 Learn how to use OpenSearch to set up a hybrid search system so you can benefit from both text and vector search advantages.
 
 **[Top 8 Open-Source Observability & Testing Tools](https://medium.com/kubeshop-i/top-8-open-source-observability-testing-tools-9341a361a634)**
-Adnan Rahić, Senior Developer at [Tracetest.io,](http://tracetest.io/) has compiled a list of powerful opensource tools that can help you do both observability and testing. Tracetest.io is a partner is of the OpenSearch Project.
+Adnan Rahić, Senior Developer at [Tracetest.io](https://tracetest.io/), has compiled a list of powerful opensource tools that can help you do both observability and testing. Tracetest.io is a partner is of the OpenSearch Project.
 
 [**AWS: Why We Support Sustainable Open Source**](https://thenewstack.io/aws-why-we-support-sustainable-open-source/) 
 This article by David Nalley, Head of Open Source Strategy at AWS, explains the “why” behind AWS open source contributions and support for sustainable open source software. 

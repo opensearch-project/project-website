@@ -6,4 +6,4 @@ Yes. OpenSearch is a fork of open source Elasticsearch 7.10. As such, it provide
 
 Note that while the OpenSearch API is backwards compatible, some clients or tools may include code, such as version checks, that may cause the client or tool to not work with OpenSearch. 
 
-For more information on backwards compatibility, see [upgrading FAQs](#c3).
+For more information on backwards compatibility, see [upgrading FAQs](https://opensearch.org/faq/#c3).
