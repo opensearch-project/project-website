@@ -52,7 +52,7 @@ module Jekyll::LinkChecker
 
   ##
   # Pattern of local paths to ignore
-  @ignored_paths = /(^\/javadocs|^\/mailto\:\/)/.freeze
+  @ignored_paths = /(^\/javadocs|^mailto\:)/.freeze
 
   ##
   # Valid response codes for successful links
@@ -212,7 +212,9 @@ module Jekyll::LinkChecker
       # - valid URL: should not be failures but or in retry_hosts hash
       # - invalid URL: should be failures but not in retry_hosts hash
       # - retry URL: should not be failures, only in retry_hosts hash
-      urls.each do |url, pages|
+      urls.sort_by do |url, pages|
+        url
+      end.each do |url, pages|
         Jekyll.logger.info "LinkChecker: [Info] Checking #{url}".cyan
 
         valid_or_retry, metadata = check(url)
