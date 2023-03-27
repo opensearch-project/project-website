@@ -26,11 +26,11 @@ To see how this works, let’s first look at some of the components in Security 
 
 ### Detectors
 
-Central to Security Analytics are its detectors. Detectors are components that interpret log data, compare that data to a schema of rules, and enable you to configure alert triggers that generate findings and the alerts that notify administrators of possible security events in your infrastructure. Their advantage is that they offer flexibility through their configuration, and this allows a business to fine tune its detection capabilities for specific threats, wider objectives, or targets in between.
+Central to Security Analytics are its detectors. Detectors are components that interpret log data, compare that data to a schema of rules, and enable you to configure alert triggers that generate findings and the alerts that notify administrators of possible security events in your infrastructure. Their advantage is that they offer flexibility through their configuration. This allows a business to fine tune its detection capabilities for specific threats, wider objectives, or targets in between.
 
 ### Rules
 
-Security Analytics leverages the versatility, portability, and comprehensive framework of [Sigma rules](https://github.com/SigmaHQ/sigma). These rules define the conditional logic applied to ingested log data and allow the system to identify an event of interest. They determine exactly what type of event or attack the system is monitoring. Security Analytics uses these prepackaged, open-source rules as a starting point for describing relevant log events. But with their inherently flexible format and wide compatibility, users can import and customize Sigma rules to meet their needs.
+Security Analytics leverages the versatility, portability, and comprehensive framework of [Sigma rules](https://github.com/SigmaHQ/sigma). These rules define the conditional logic applied to ingested log data and determine exactly what type of event or attack the system should monitor, thereby allowing a detector to identify a particular event of interest. Security Analytics uses these prepackaged, open-source rules as a starting point for describing relevant log events. But with their inherently flexible format and wide compatibility, users can import and customize Sigma rules to meet their needs.
 
 ### Log types
 
