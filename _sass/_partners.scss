@@ -181,7 +181,6 @@
         @include respond-min(46.25rem) {
             margin: 0 auto;
             box-shadow: none;
-            padding: 0 (32/768) * 100%;
         }
         flex-grow: 2;
         > h1 {
