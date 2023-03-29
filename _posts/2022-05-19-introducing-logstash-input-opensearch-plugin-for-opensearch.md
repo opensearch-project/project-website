@@ -37,9 +37,9 @@ Plugins are configured within the Logstash config file. There are sections for *
 
 #### Logstash Installation
 
-This step can be skipped if you already have [OSS version of logstash](https://opensearch.org/artifacts#:~:text=x64.tar.gz-,logstash%2Doss%2Dwith%2Dopensearch%2Doutput%2Dplugin,-docker%2Darm64) installed. Otherwise follow the steps below:
+This step can be skipped if you already have [OSS version of logstash](https://opensearch.org/artifacts) installed. Otherwise follow the steps below:
 
-1. Download logstash-oss-with-opensearch-output-plugin (this example uses the distro for macos-x64). For other distro please refer the artifacts [here](https://opensearch.org/artifacts#:~:text=x64.tar.gz-,logstash%2Doss%2Dwith%2Dopensearch%2Doutput%2Dplugin,-docker%2Darm64).
+1. Download `logstash-oss-with-opensearch-output-plugin` (this example uses the distro for macos-x64). For other distros please refer the artifacts [here](https://opensearch.org/artifacts).
 
 ```
 wget https://artifacts.opensearch.org/logstash/logstash-oss-with-opensearch-output-plugin-7.16.3-macos-x64.tar.gz

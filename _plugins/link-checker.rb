@@ -32,7 +32,7 @@ module Jekyll::LinkChecker
   ##
   # Pattern to identify documents that should be excluded based on their URL
 
-  @excluded_paths = /(\/_faqs\/|\.(css|js|json|map|xml|txt|yml|svg|)$)/i.freeze
+  @excluded_paths = /(\.(css|js|json|map|xml|txt|yml)$|\/version-selector\.tpl$)/i.freeze
 
   ##
   # Pattern to identify certain HTML tags whose content should be excluded from indexing
@@ -47,11 +47,12 @@ module Jekyll::LinkChecker
 
   ##
   # List of domains to ignore
-  @ignored_domains = %w[localhost]
+  # LinkedIn mostly fails with 999 status codes
+  @ignored_domains = %w[localhost www.linkedin.com]
 
   ##
   # Pattern of local paths to ignore
-  @ignored_paths = /(^\/docs$|^mailto:|^\/javadocs\/)/.freeze
+  @ignored_paths = /(^\/javadocs|^mailto\:)/.freeze
 
   ##
   # Valid response codes for successful links
@@ -59,7 +60,7 @@ module Jekyll::LinkChecker
 
   ##
   # Questionable response codes for successful links
-  @@questionable_codes = %w[301 403]
+  @@questionable_codes = %w[301 307 308 403]
 
   ##
   # Retry response codes for links
@@ -83,7 +84,7 @@ module Jekyll::LinkChecker
   @retry_timeouts_dict = {}
   @retry_iteration = 0
   @@retry_buffer = 10
-  @@max_retry_iterations = 10
+  @@max_retry_iterations = 1
 
   ##
   # Defines the priority of the plugin
@@ -211,7 +212,11 @@ module Jekyll::LinkChecker
       # - valid URL: should not be failures but or in retry_hosts hash
       # - invalid URL: should be failures but not in retry_hosts hash
       # - retry URL: should not be failures, only in retry_hosts hash
-      urls.each do |url, pages|
+      urls.sort_by do |url, pages|
+        url
+      end.each do |url, pages|
+        Jekyll.logger.info "LinkChecker: [Info] Checking #{url}".cyan
+
         valid_or_retry, metadata = check(url)
         @failures << "Verify:: #{url}, linked to in ./#{pages.to_a.join(", ./")}" unless valid_or_retry
         
@@ -274,16 +279,17 @@ module Jekyll::LinkChecker
   # Check if an external URL is accessible by making a HEAD call
 
   def self.check_external(url)
-    uri = URI(url)
-    return true if @ignored_domains.include? uri.host
-
     begin
+      uri = URI(url)
+      return true if @ignored_domains.include? uri.host
+
       Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
-        # http.use_ssl = (uri.scheme == "https")
-  
-        request = Net::HTTP::Get.new(uri)
+        request = Net::HTTP::Head.new(uri)
   
         http.request(request) do |response|
+          # retry with a GET on a 405 method not allowed
+          response = http.request(Net::HTTP::Get.new(uri)) if response.code == "405"
+
           return true if @success_codes.include? response.code
 
           if @@retry_codes.include? response.code

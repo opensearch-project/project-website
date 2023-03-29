@@ -2,7 +2,7 @@
 
 ## Submitted Content
 
-[Opensearch.org](http://opensearch.org/) is open source! Getting content from people outside the team that typically manages the website and content is expected and encouraged. Generally, the idea is to decentralize all the content of the website and remove the concept of *someone* making the changes for someone else. If anyone wants to make a change, they should be empowered to do so. Those managing the website are encouraged to provide feedback and make sure it aligns with the user experience, technical, and editorial standards; the website team then shepherds the content through to publishing. Ultimately, the submitter of the content should be responsible for ensuring that the content is in the correct format, visually works in the template, has the appropriate metadata, and is submitted as a pull request correctly. 
+[Opensearch.org](https://opensearch.org/) is open source! Getting content from people outside the team that typically manages the website and content is expected and encouraged. Generally, the idea is to decentralize all the content of the website and remove the concept of *someone* making the changes for someone else. If anyone wants to make a change, they should be empowered to do so. Those managing the website are encouraged to provide feedback and make sure it aligns with the user experience, technical, and editorial standards; the website team then shepherds the content through to publishing. Ultimately, the submitter of the content should be responsible for ensuring that the content is in the correct format, visually works in the template, has the appropriate metadata, and is submitted as a pull request correctly. 
 
 This process is a bit atypical in the general world of websites but not that unusual in the specific realm of open source project websites. The website follows the widely understood open source software pattern of:
 
@@ -45,14 +45,14 @@ Once the reviewers are done, then the change can be merged. Generally, this can 
 
 ## Moving to production
 
-[Opensearch.org](http://opensearch.org/) is built to be operated from GitHub. Once a change is merged on GitHub, it automatically triggers a build and deployment of the website. However this is challenging as it can cause unintentional changes to go live immediately. To mitigate this issue, [opensearch.org](http://opensearch.org/) uses a two phase approach. Merging to the branch `main` will trigger a deployment of the staging site instead of the public facing website. The staging site URL is not a secret, but it is also not published to prevent unintentional linking, confusion, and SEO problems. 
+[Opensearch.org](https://opensearch.org/) is built to be operated from GitHub. Once a change is merged on GitHub, it automatically triggers a build and deployment of the website. However this is challenging as it can cause unintentional changes to go live immediately. To mitigate this issue, [opensearch.org](https://opensearch.org/) uses a two phase approach. Merging to the branch `main` will trigger a deployment of the staging site instead of the public facing website. The staging site URL is not a secret, but it is also not published to prevent unintentional linking, confusion, and SEO problems. 
 
-Making the changes appear on [opensearch.org](http://opensearch.org/) is done by doing a pull request from the `main` branch to the `prod` branch. Changes to the `prod` branch will automatically trigger a rebuild and deployment of [opensearch.org](http://opensearch.org/) . It’s important to only make changes to the `prod` branch through pull requests to avoid any sticky merge conflicts. 
+Making the changes appear on [opensearch.org](https://opensearch.org/) is done by doing a pull request from the `main` branch to the `prod` branch. Changes to the `prod` branch will automatically trigger a rebuild and deployment of [opensearch.org](https://opensearch.org/) . It’s important to only make changes to the `prod` branch through pull requests to avoid any sticky merge conflicts. 
 
 ## FAQ
 
 **I wrote a blog post in Word, Google Docs, or some other word processor - how can I turn it into a blog post?**
-[Opensearch.org](http://opensearch.org/) uses Jekyll which is a static site generator based on [Markdown](https://www.markdownguide.org/). Markdown is well supported and you should look for a feature or tool to export your content as Markdown then add the requisite front-matter.
+[Opensearch.org](https://opensearch.org/) uses Jekyll which is a static site generator based on [Markdown](https://www.markdownguide.org/). Markdown is well supported and you should look for a feature or tool to export your content as Markdown then add the requisite front-matter.
 
 **GitHub said that I didn’t do the DCO correctly and that it can’t be merged. What’s a DCO and how do I fix it?**
 OpenSearch uses a Developer Certificate of Origin (DCO) sign off as a way of ensuring that the developer has the permission to submit the code (or content). Each **commit** needs to be signed off using the `-s` flag:
@@ -73,7 +73,7 @@ Probably not! While it’s very tempting to use this, it’s exceptionally diffi
 [Front matter is a way of encoding metadata about a piece of content in opensearch.org’s CMS Jekyll](https://jekyllrb.com/docs/front-matter/). Front matter starts and ends with three dashes (`---`) and contains [YAML](https://en.wikipedia.org/wiki/YAML) fields and values between those two markers. These fields and values contain information that is interpolated by Jekyll into the content and templates and generally controls how content looks, feels and is converted to HTML.
 
 **How do I make sure my content looks good on any device?**
-The templates used by [opensearch.org](http://opensearch.org/) use a responsive layout and take care of most aspects of adapting the content for various devices. However, images embedded in content need special care to make sure they don’t cause horizontal scrolling. This is done by applying a special tag following any image markdown: `{: .img-fluid}`. In practice this creates an image that fills the horizontal space and scales proportionally in the vertical axis. In total, image tags should look something like this:
+The templates used by [opensearch.org](https://opensearch.org/) use a responsive layout and take care of most aspects of adapting the content for various devices. However, images embedded in content need special care to make sure they don’t cause horizontal scrolling. This is done by applying a special tag following any image markdown: `{: .img-fluid}`. In practice this creates an image that fills the horizontal space and scales proportionally in the vertical axis. In total, image tags should look something like this:
 
 
 ```
