@@ -93,15 +93,15 @@ In [Section 2](#section-2-obtaining-a-fine-tuned-transformer) we discuss the det
 
 ## Section 2: Obtaining a fine-tuned transformer
 
-To understand the fine-tuned solution, we first need to explore the pre-trained solution along with its strengths and limitations. Our pre-trained solution consists of a state-of-the-art neural retriever model combined with BM25. We experimentally compared different ways of combining the neural retriever model with BM25 to produce the best results.
+To understand the fine-tuned solution, we first need to explore the pretrained solution along with its strengths and limitations. Our pretrained solution consists of a state-of-the-art neural retriever model combined with BM25. We experimentally compared different ways of combining the neural retriever model with BM25 to produce the best results.
 
 A neural retriever model first creates a vector index of all the documents in the corpus and then at run time conducts a search using a k-NN query. The model has been trained to map relevant documents close to each other and irrelevant documents farther apart by reading the labeled `(query, passage)` pairs. Recall that in a zero-shot regime, training data is different from the test datasets. [TAS-B](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b)  is a popular state-of-the-art model that is trained on the [MS Marco](https://huggingface.co/datasets/ms_marco) dataset; it has been shown to have non-trivial zero-shot performance [2].  It uses the [DistilBert](https://huggingface.co/docs/transformers/model_doc/distilbert) checkpoint and has 66 million parameters and an embedding dimension of 768. 
 
 There are other models, such as [MPNet](https://huggingface.co/docs/transformers/model_doc/mpnet), that show equivalent or better performance. These models are trained on a lot of data, which includes some of the test datasets, so it is difficult to benchmark them in terms of zero-shot performance. 
 
-Note that one of the reasons we work in the zero-shot regime is that we often do not have access to supervised data from the domain of choice. To be precise, we have passages from the domain of choice but do not have access to queries or `(query, relevant passage)` pairs. If such data existed, the ideal solution would have been to use it to fine-tune a transformer model. A fine-tuned transformer would certainly perform better than a pre-trained transformer [2]. 
+Note that one of the reasons we work in the zero-shot regime is that we often do not have access to supervised data from the domain of choice. To be precise, we have passages from the domain of choice but do not have access to queries or `(query, relevant passage)` pairs. If such data existed, the ideal solution would have been to use it to fine-tune a transformer model. A fine-tuned transformer would certainly perform better than a pretrained transformer [2]. 
 
-However, in the absence of domain-specific data, we can leverage the power of large language models (LLMs) to create artificial queries when given a passage. In the rest of this section, we discuss generating synthetic queries and using them to obtain a model fine-tuned to your corpus. As shown in the preceding table, fine-tuned models perform better than pre-trained models.
+However, in the absence of domain-specific data, we can leverage the power of large language models (LLMs) to create artificial queries when given a passage. In the rest of this section, we discuss generating synthetic queries and using them to obtain a model fine-tuned to your corpus. As shown in the preceding table, fine-tuned models perform better than pretrained models.
 
 Creating a fine-tuned model consists of three steps:
 
@@ -139,7 +139,7 @@ For more information about these hyperparameters and how they affect text genera
 
 ### 2.3. Fine-tuning TAS-B on the synthetic corpus
 
-The synthetic corpus created in the previous step is used to fine-tune a pre-trained small language model for search. The demo notebook downloads the pre-trained TAS-B model and performs the remaining steps automatically. The model is trained to maximize the dot product between relevant queries and passages while at the same time minimizing the dot product between queries and irrelevant passages. This is known in the literature as *contrastive learning.* 
+The synthetic corpus created in the previous step is used to fine-tune a pretrained small language model for search. The demo notebook downloads the pretrained TAS-B model and performs the remaining steps automatically. The model is trained to maximize the dot product between relevant queries and passages while at the same time minimizing the dot product between queries and irrelevant passages. This is known in the literature as *contrastive learning.* 
 
 We implemented contrastive learning using in-batch negatives and a symmetric loss.  The loss is defined for a given batch $$B$$, where a *batch* is a subset of query-passage pairs.  Let $$p$$ be a vector representation of a passage and $$q$$ be a vector representation of a query. Let $$Q$$ be a collection of queries in a batch $$B$$, such that $$Q = \{q_1​,q_2​,\dots,q_{∣B∣​}\}$$. Further, let $$P$$ be a collection of passages, such that $$P = \{p_1​,p_2,\dots,p_{∣B∣​}\}$$. The loss $$\mathcal L$$ for a batch $$B$$ is given by
 
@@ -217,7 +217,7 @@ The following table contains the results of combining these scores on the 10 tes
 
 Overall, a fine-tuned model with an arithmetic or geometric combination provides state-of-the-art results. 
 
-We found that harmonic combination works best for the pre-trained TAS-B model, while arithmetic and geometric combinations work best for the fine-tuned custom model.  Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero.
+We found that harmonic combination works best for the pretrained TAS-B model, while arithmetic and geometric combinations work best for the fine-tuned custom model.  Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero.
 
 ## Section 4: Normalization and other combination methods
 
@@ -281,7 +281,7 @@ $$
 \end{align}
 $$
 
-where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ ​and $$n_i$$ ​are the min-max normalized BM25 and neural scores, respectively. We found that for the fine-tuned models, f=1 works best. Note that this is identical to the arithmetic combination. For the pre-trained models, we found that f=8 works better. For more information, see the [linear combination experiment results](#linear-combination-experiment-results). 
+where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ ​and $$n_i$$ ​are the min-max normalized BM25 and neural scores, respectively. We found that for the fine-tuned models, f=1 works best. Note that this is identical to the arithmetic combination. For the pretrained models, we found that f=8 works better. For more information, see the [linear combination experiment results](#linear-combination-experiment-results). 
 
 ### 4.4. Other comparisons
 
@@ -304,7 +304,7 @@ In this blog post, we have included several experiments that can help build intu
 3. If a dataset is heavy on keyword usage, BM25 works much better than neural retrievers. An example of such a dataset is one containing factory part numbers.
 4. If a dataset is heavy on natural language, neural retrievers work much better than BM25. An example is data from a community forum.
 5. For datasets that contain both natural language and keywords, a combination of BM25 and neural retrievers works better. An example of such a dataset is one containing data for a clothing website that describes products using both natural language (product description) and numbers (product length, size, or weight).
-6. The optimal combination method depends on the dataset. In general, we have found that harmonic mean performs best for pre-trained models, while arithmetic mean and geometric mean perform best for fine-tuned models.
+6. The optimal combination method depends on the dataset. In general, we have found that harmonic mean performs best for pretrained models, while arithmetic mean and geometric mean perform best for fine-tuned models.
 7. Most small-sized transformer models, such as TAS-B, have a context length of 512 tokens (about 350 words), and they ignore all words after that limit. If a document is long and the first few hundred words are not representative of its content, it is useful to chunk the document into multiple sections. Note that the index size will increase accordingly because each section corresponds to its own vector. 
 
 ## Appendix
