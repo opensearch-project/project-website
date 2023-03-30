@@ -145,7 +145,7 @@ We implemented contrastive learning using in-batch negatives and a symmetric los
 
 $$
 \begin{align}
-\mathcal L = C(q​, p) + C(p​, q) \tag{1} \label{1},
+\mathcal L = C(Q, P) + C(P​, Q) \tag{1} \label{1},
 \end{align}
 $$
 
@@ -153,7 +153,7 @@ where
 
 $$
 \begin{align}
-C(q​, p) = −\sum_{i=1}^{|B|}​log \left(\frac{sim(q_i​,p_i​)}{sim(q_i​,p_i​) + \sum_{j \neq i}^{|B|}sim(q_i​,p_j​)}​\right) \tag{2} \label{2}
+C(Q​, P) = −\sum_{i=1}^{|B|}​log \left(\frac{sim(q_i​,p_i​)}{sim(q_i​,p_i​) + \sum_{j \neq i}^{|B|}sim(q_i​,p_j​)}​\right) \tag{2} \label{2}
 \end{align}
 $$
 
