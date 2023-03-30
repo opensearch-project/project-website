@@ -16,7 +16,7 @@ OpenSearch enables enhancing core features in a custom way via plugins. For exam
 
 ## Pluggable Architecture
 
-The modular architecture in OpenSearch makes it easier to develop on a large codebase (4.5MM lines). The [blog post](https://logz.io/blog/opensearch-plugins/) from OpenSearch partner [Logz.io](http://logz.io/) describes why pluggable architecture is important and how plugins can be developed. 
+The modular architecture in OpenSearch makes it easier to develop on a large codebase (4.5MM lines). The [blog post](https://logz.io/blog/opensearch-plugins/) from OpenSearch partner [Logz.io](https://logz.io/) describes why pluggable architecture is important and how plugins can be developed. 
 
 The Plugin architecture is designed to enable solving specific problems and extending generic features. For example, [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection) reads time stream data ingested and finds anomalies. Another example is [Job Scheduler](https://github.com/opensearch-project/job-scheduler) plugin which schedules and runs generic jobs. 
 
@@ -67,7 +67,7 @@ As you might have used plugins in the OpenSearch distribution. Plugins are insta
 
 ### Installing a plugin
 
-The OpenSearch distribution comes with a tool `./bin/opensearch-plugin` which installs a plugin. [PluginCli](https://github.com/opensearch-project/OpenSearch/blob/main/distribution/tools/plugin-cli/src/main/java/org/opensearch/plugins/PluginCli.java) reads and validates `plugin-descriptor.properties` file packaged with every plugin. For example, the OpenSearch security plugin defines the [plugin-descriptor.properties](https://github.com/opensearch-project/security/blob/main/plugin-descriptor.properties) file which defines a bunch of parameters, and the tool verifies if it is using the compatible version of OpenSearch, and the dependencies are present.
+The OpenSearch distribution comes with a tool `./bin/opensearch-plugin` which installs a plugin. [PluginCli](https://github.com/opensearch-project/OpenSearch/blob/main/distribution/tools/plugin-cli/src/main/java/org/opensearch/plugins/PluginCli.java) reads and validates `plugin-descriptor.properties` file packaged with every plugin. For example, the OpenSearch security plugin defines the [plugin-descriptor.properties](https://github.com/opensearch-project/security/blob/1.0/plugin-descriptor.properties) file which defines a bunch of parameters, and the tool verifies if it is using the compatible version of OpenSearch, and the dependencies are present.
 
 The tool verifies the `plugin-security.policy` file, defined by the plugin which needs additional security permissions. For example, the OpenSearch security plugin defines many permissions like file read/write, classloading or networking that it needs through the [plugin-security.policy](https://github.com/opensearch-project/security/blob/main/plugin-security.policy) file. These permissions are managed via Java Security Manager (more details later in this post). After the tool validates the plugin, it copies all jars into the `plugins` directory. By default, the OpenSearch Minimum distribution does not package any plugins including the [native plugins](https://github.com/opensearch-project/OpenSearch/tree/main/plugins) which exist in the OpenSearch codebase.
 

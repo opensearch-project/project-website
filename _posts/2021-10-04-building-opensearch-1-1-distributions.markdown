@@ -18,7 +18,7 @@ The full distribution of OpenSearch 1.0 was similar to Open Distro, but with one
 
 Starting with [OpenSearch 1.1](https://opensearch.org/versions/opensearch-1-1-0.html), the entire distribution is built from source, end-to-end, orchestrated in [this Jenkinsfile](https://github.com/opensearch-project/opensearch-build/tree/1.1.0/bundle-workflow/Jenkinsfile) by invoking [a manifest-based workflow](https://github.com/opensearch-project/opensearch-build/blob/main/README.md#building-and-testing-an-opensearch-distribution). This includes a release and a snapshot build for x64 and arm64 CPU architectures, executed as follows.
 
-1. Given an [input manifest](https://github.com/opensearch-project/opensearch-build/blob/main/manifests/opensearch-1.1.0.yml) committed to GitHub, build all components from source, and generate a build manifest.
+1. Given an [input manifest](https://github.com/opensearch-project/opensearch-build/blob/opensearch-1.1.0/manifests/1.1.0/opensearch-1.1.0.yml) committed to GitHub, build all components from source, and generate a build manifest.
    ```
    bundle-workflow/build.sh manifests/1.1.0/opensearch-1.1.0.yml
    ```

@@ -43,7 +43,7 @@ The OpenSearch community continues to grow and we invite new users and members t
 
 **Do you have questions or feedback?**
 
-If you’re interested in learning more, have a specific question, or just want to provide feedback and thoughts, please visit OpenSearch.org (http://opensearch.org/), open an issue on [GitHub](https://github.com/opensearch-project/OpenSearch/issues), or post in the [forums](https://discuss.opendistrocommunity.dev/). There are also regular [Community Meetings](https://opensearch.org/events/) that include progress updates at every session and include time for Q&A.
+If you’re interested in learning more, have a specific question, or just want to provide feedback and thoughts, please visit OpenSearch.org (https://opensearch.org/), open an issue on [GitHub](https://github.com/opensearch-project/OpenSearch/issues), or post in the [forums](https://discuss.opendistrocommunity.dev/). There are also regular [Community Meetings](https://opensearch.org/events/) that include progress updates at every session and include time for Q&A.
 
 **Thank you!** 
 

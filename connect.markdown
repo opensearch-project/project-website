@@ -15,7 +15,7 @@ There are several ways to connect with the OpenSearch community.
 * If you want to **present** or **have a question** for an upcoming **[community meeting](https://opensearch.org/events/)**, **add a comment to the agenda** for that meeting.
 * Businesses **partnering in the development and advancement** of OpenSearch can propose to **[add themselves](https://github.com/opensearch-project/project-website#adding-to-the-partners-page)** to the **[partners](https://opensearch.org/partners/)** page with a pull request.
 * To **feature a plug-in or project you developed** with OpenSearch, add it to the **[community projects](https://opensearch.org/community_projects)** page with a pull request.
-* Information about using the OpenSearch **brand and logo** are available on the **[Brand Guidelines](https://opensearch.org/brand.html)** page.
+* Information about using the OpenSearch **brand and logo** are available on the **[Brand Guidelines](https://opensearch.org/trademark-brand-policy.html)** page.
 * To report or inquire about a **potential security vulnerability**, see the **[Reporting a Vulnerability guidelines](https://github.com/opensearch-project/.github/blob/main/SECURITY.md)**.
 * Lastly, you can **[email](mailto:opensearch@amazon.com)** the OpenSearch maintainers with other inquiries that don’t fit into any of the above categories. 
 

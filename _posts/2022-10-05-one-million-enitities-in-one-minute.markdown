@@ -192,7 +192,7 @@ We do expect that explainability, the ability to understand the impact of a mode
 
 If that question or other questions related to machine learning interest you, we would love to hear from you about your experience. 
 
-* To discuss topics with other OpenSearch users, start a conversation at [forum.opensearch.org](http://forum.opensearch.org/).
+* To discuss topics with other OpenSearch users, start a conversation at [forum.opensearch.org](https://forum.opensearch.org/).
 * To request improvements to the AD plugin, create an issue in the [Anomaly Detection plugin repository](https://github.com/opensearch-project/anomaly-detection).
 
 

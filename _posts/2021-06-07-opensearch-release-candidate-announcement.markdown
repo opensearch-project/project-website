@@ -19,34 +19,34 @@ This Release Candidate is a version of the project that is feature complete and 
 There is a long list of enhancements and fixes that are part of this release including span filtering support in Trace Analytics, tenant support in Notebooks, K-NN field level algorithm selection, support for index management transforms, and support for scheduling and tenants in reporting. Below you'll find the detailed highlights for this release:
 
 - [OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/release-notes/opensearch.release-notes-1.0.0-rc1.md)
-- [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/release-notes/opensearch-dashboards.release-notes-1.0.0-rc1.md)
-- [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection/blob/main/release-notes/opensearch-anomaly-detection.release-notes-1.0.0.0-rc1.md)
-- [Anomaly Detection Dashboards](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin/blob/main/release-notes/opensearch-anomaly-detection-dashboards.release-notes-1.0.0.0-rc1.md)
-- [Security](https://github.com/opensearch-project/security-dashboards-plugin/blob/main/release-notes/opensearch-security-dashboards-plugin.release-notes-1.0.0.0-rc1.md)
-- [Security Dashboards](https://github.com/opensearch-project/security/blob/main/release-notes/opensearch-security.release-notes-1.0.0.0-rc1.md)
-- [Performance Analyzer](https://github.com/opensearch-project/performance-analyzer/blob/main/release-notes/opensearch-performance-analyzer.release-notes-1.0.0.0-rc1.md)
-- [PerfTop](https://github.com/opensearch-project/perftop/blob/main/release-notes/opensearch-perftop.release-notes-1.0.0.0-rc1.md)
-- [K-NN](https://github.com/opensearch-project/k-NN/blob/main/release-notes/opensearch-knn.release-notes-1.0.0.0-rc1.md)
-- [Job Scheduler](https://github.com/opensearch-project/job-scheduler/blob/main/release-notes/opensearch.job-scheduler.release-notes-1.0.0.0-rc1.md)
-- [Index Management](https://github.com/opensearch-project/index-management/blob/main/release-notes/opensearch-index-management.release-notes-1.0.0.0-rc1.md)
-- [Index Management Dashboards](https://github.com/opensearch-project/index-management-dashboards-plugin/blob/main/release-notes/opensearch-index-management-dashboards-plugin.release-notes-1.0.0.0-rc1.md)
-- [Alerting](https://github.com/opensearch-project/alerting/blob/main/release-notes/opensearch-alerting.release-notes-1.0.0.0-rc1.md)
-- [Alerting Dashboards](https://github.com/opensearch-project/alerting-dashboards-plugin/blob/main/release-notes/opensearch-alerting-dashboards-plugin.release-notes-1.0.0.0-rc1.md)
-- [SQL/PPL OpenSearch Plugin](https://github.com/opensearch-project/sql/blob/main/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
-- [Query Workbench Dashboards Plugin](https://github.com/opensearch-project/sql/blob/main/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
-- [SQL JDBC Driver](https://github.com/opensearch-project/sql/blob/main/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
-- [SQL CLI Client](https://github.com/opensearch-project/sql/blob/main/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
-- [SQL ODBC Driver](https://github.com/opensearch-project/sql/blob/main/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
-- [Notebooks OpenSearch Plugin](https://github.com/opensearch-project/dashboards-notebooks/blob/main/release-notes/opensearch-dashboards-notebooks.release-notes-1.0.0.0-rc1.md)
-- [Notebooks Dashboards Plugin](https://github.com/opensearch-project/dashboards-notebooks/blob/main/release-notes/opensearch-dashboards-notebooks.release-notes-1.0.0.0-rc1.md)
-- [Reporting Opensearch Plugin](https://github.com/opensearch-project/dashboards-reports/blob/main/release-notes/opensearch-dashboards-reports.release-notes-1.0.0.0-rc1.md)
-- [Reporting Dashboards Plugin](https://github.com/opensearch-project/dashboards-reports/blob/main/release-notes/opensearch-dashboards-reports.release-notes-1.0.0.0-rc1.md)
-- [Trace Analytics Dashboards Plugin](https://github.com/opensearch-project/trace-analytics/blob/main/release-notes/opensearch-trace-analytics.release-notes-1.0.0.0-rc1.md)
-- [Gantt Charts Dashboards Visualization Plugin](https://github.com/opensearch-project/dashboards-visualizations/blob/main/release-notes/opensearch-dashboards-visualizations.release-notes-1.0.0.0-rc1.md)
-- [Async-Search](https://github.com/opensearch-project/asynchronous-search/blob/main/release-notes/opensearch-asynchronous-search.release-notes-1.0.0.0-rc1.md)
-- [Common-Utils](https://github.com/opensearch-project/common-utils/blob/main/release-notes/opensearch-common-utils.release-notes-1.0.0.0-rc1.md)
+- [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.x/release-notes/opensearch-dashboards.release-notes-1.0.0-rc1.md)
+- [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection/blob/1.x/release-notes/opensearch-anomaly-detection.release-notes-1.0.0.0-rc1.md)
+- [Anomaly Detection Dashboards](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin/blob/1.x/release-notes/opensearch-anomaly-detection-dashboards.release-notes-1.0.0.0-rc1.md)
+- [Security](https://github.com/opensearch-project/security-dashboards-plugin/blob/1.x/release-notes/opensearch-security-dashboards-plugin.release-notes-1.0.0.0-rc1.md)
+- [Security Dashboards](https://github.com/opensearch-project/security/blob/1.x/release-notes/opensearch-security.release-notes-1.0.0.0-rc1.md)
+- [Performance Analyzer](https://github.com/opensearch-project/performance-analyzer/blob/1.x/release-notes/opensearch-performance-analyzer.release-notes-1.0.0.0-rc1.md)
+- [PerfTop](https://github.com/opensearch-project/perftop/blob/1.x/release-notes/opensearch-perftop.release-notes-1.0.0.0-rc1.md)
+- [K-NN](https://github.com/opensearch-project/k-NN/blob/1.x/release-notes/opensearch-knn.release-notes-1.0.0.0-rc1.md)
+- [Job Scheduler](https://github.com/opensearch-project/job-scheduler/blob/1.x/release-notes/opensearch.job-scheduler.release-notes-1.0.0.0-rc1.md)
+- [Index Management](https://github.com/opensearch-project/index-management/blob/1.x/release-notes/opensearch-index-management.release-notes-1.0.0.0-rc1.md)
+- [Index Management Dashboards](https://github.com/opensearch-project/index-management-dashboards-plugin/blob/1.x/release-notes/opensearch-index-management-dashboards-plugin.release-notes-1.0.0.0-rc1.md)
+- [Alerting](https://github.com/opensearch-project/alerting/blob/1.x/release-notes/opensearch-alerting.release-notes-1.0.0.0-rc1.md)
+- [Alerting Dashboards](https://github.com/opensearch-project/alerting-dashboards-plugin/blob/1.x/release-notes/opensearch-alerting-dashboards-plugin.release-notes-1.0.0.0-rc1.md)
+- [SQL/PPL OpenSearch Plugin](https://github.com/opensearch-project/sql/blob/1.x/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
+- [Query Workbench Dashboards Plugin](https://github.com/opensearch-project/sql/blob/1.x/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
+- [SQL JDBC Driver](https://github.com/opensearch-project/sql/blob/1.x/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
+- [SQL CLI Client](https://github.com/opensearch-project/sql/blob/1.x/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
+- [SQL ODBC Driver](https://github.com/opensearch-project/sql/blob/1.x/release-notes/opensearch-sql.release-notes-1.0.0.0-rc1.md)
+- [Notebooks OpenSearch Plugin](https://github.com/opensearch-project/dashboards-notebooks/blob/1.x/release-notes/opensearch-dashboards-notebooks.release-notes-1.0.0.0-rc1.md)
+- [Notebooks Dashboards Plugin](https://github.com/opensearch-project/dashboards-notebooks/blob/1.x/release-notes/opensearch-dashboards-notebooks.release-notes-1.0.0.0-rc1.md)
+- [Reporting Opensearch Plugin](https://github.com/opensearch-project/dashboards-reports/blob/1.x/release-notes/opensearch-dashboards-reports.release-notes-1.0.0.0-rc1.md)
+- [Reporting Dashboards Plugin](https://github.com/opensearch-project/dashboards-reports/blob/1.x/release-notes/opensearch-dashboards-reports.release-notes-1.0.0.0-rc1.md)
+- [Trace Analytics Dashboards Plugin](https://github.com/opensearch-project/trace-analytics/blob/1.x/release-notes/opensearch-trace-analytics.release-notes-1.0.0.0-rc1.md)
+- [Gantt Charts Dashboards Visualization Plugin](https://github.com/opensearch-project/dashboards-visualizations/blob/1.x/release-notes/opensearch-dashboards-visualizations.release-notes-1.0.0.0-rc1.md)
+- [Async-Search](https://github.com/opensearch-project/asynchronous-search/blob/1.x/release-notes/opensearch-asynchronous-search.release-notes-1.0.0.0-rc1.md)
+- [Common-Utils](https://github.com/opensearch-project/common-utils/blob/1.x/release-notes/opensearch-common-utils.release-notes-1.0.0.0-rc1.md)
 
-You can find all the changes across the project in the [consolidate release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.0.0-rc1.md). 
+You can find all the changes across the project in the [consolidated release notes](https://github.com/opensearch-project/opensearch-build/blob/opensearch-1.0.0-rc1/release-notes/opensearch-release-notes-1.0.0-rc1.md). 
 
 **What does this Release Candidate not include?** 
 
@@ -63,7 +63,7 @@ The best thing you can do is run the Release Candidate through its paces. Every 
 - Test clients! This will help identify what is working (and not working) so issues can be opened and prioritized. 
 - Use our [docs](https://opensearch.org/docs/) and highlight any additional content you'd like to see! Submit a [PR](https://github.com/opensearch-project/documentation-website/pulls) or open an [issue](https://github.com/opensearch-project/documentation-website/issues) for any content you think would be valuable.
 
-Before installing or upgrading to OpenSearch 1.0.0 or OpenSearch Dashboards 1.0.0, please read the release notes ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/release-notes/opensearch.release-notes-1.0.0-rc1.md) and [OpenSearch Dashboard](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/release-notes/opensearch-dashboards.release-notes-1.0.0-rc1.md)). While this 1.0.0 Release Candidate is suitable for testing by the community, you should not use a release candidate in a production environment - this Release Candidate is provided for testing and validation purposes only.
+Before installing or upgrading to OpenSearch 1.0.0 or OpenSearch Dashboards 1.0.0, please read the release notes ([OpenSearch](https://github.com/opensearch-project/OpenSearch/blob/main/release-notes/opensearch.release-notes-1.0.0-rc1.md) and [OpenSearch Dashboard](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/1.x/release-notes/opensearch-dashboards.release-notes-1.0.0-rc1.md)). While this 1.0.0 Release Candidate is suitable for testing by the community, you should not use a release candidate in a production environment - this Release Candidate is provided for testing and validation purposes only.
 
 **Speaking of help...**
 
@@ -77,4 +77,4 @@ If I have missed anyone on this list, please reach out and I will very gratefull
 
 Let's work together to test for bugs and identify feature gaps while working towards a GA release. The goal is to release the GA version of 1.0.0 on July 12, 2021 (check out the public [roadmap](https://github.com/orgs/opensearch-project/projects/1)). Stay tuned to the [forums](https://discuss.opendistrocommunity.dev/), [GitHub](https://github.com/opensearch-project), the community [meeting](https://www.meetup.com/Open-Distro-for-Elasticsearch-Meetup-Group), and our [blog](https://opensearch.org/blog/) for the latest updates and announcements. 
 
-In the meantime, join us building OpenSearch (if you haven't already)! Feel free to take a look around at what the community has been up to, check out the public [roadmap](https://github.com/orgs/opensearch-project/projects/1), and then head over to look at the open issues. Or you could jump right in and start opening issues or contributing. For more details see [here](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md).
+In the meantime, join us building OpenSearch (if you haven't already)! Feel free to take a look around at what the community has been up to, check out the public [roadmap](https://github.com/orgs/opensearch-project/projects/1), and then head over to look at the open issues. Or you could jump right in and start opening issues or contributing. For more details see [here](https://github.com/opensearch-project/OpenSearch/blob/1.x/CONTRIBUTING.md).
