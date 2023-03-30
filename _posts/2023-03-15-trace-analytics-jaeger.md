@@ -26,6 +26,8 @@ The OpenSearch Project launched the trace analytics feature with support for OTe
 
 With Observability, you can now filter traces to isolate the spans with errors in order to quickly identify the relevant logs. You can use the same feature-rich analysis capabilities for RED metrics, contextually linking traces and spans to their related logs, which are available for the Data Prepper trace data.
 
+![Image: An example Dashboard trace example GIF]({{site.baseurl}}/assets/media/blog-images/2023-03-15-trace-analytics-jaeger/traces_movie.gif){:.img-fluid }
+
 Keep in mind that the OTel and Jaeger formats have several differences, as outlined in [OpenTelemetry to Jaeger Transformation](https://opentelemetry.io/docs/reference/specification/trace/sdk_exporters/jaeger/) in the OpenTelemetry documentation.
 
 ## Try it out
