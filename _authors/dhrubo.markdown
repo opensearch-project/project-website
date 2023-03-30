@@ -6,4 +6,4 @@ github: dhrubo-os
 linkedin: thedhrubo
 ---
 
-**Dhrubo Saha** is a machine learning engineer at Amazon Web Services interested in machine learning algorithms, large language models, and distributed systems.
+**Dhrubo Saha** is a machine learning engineer at Amazon Web Services (AWS) interested in machine learning algorithms, large language models, and distributed systems.
