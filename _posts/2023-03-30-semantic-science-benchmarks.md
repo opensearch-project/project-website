@@ -95,11 +95,11 @@ In [Section 2](#section-2-obtaining-a-fine-tuned-transformer) we discuss the det
 
 To understand the fine-tuned solution, we first need to explore the pretrained solution along with its strengths and limitations. Our pretrained solution consists of a state-of-the-art neural retriever model combined with BM25. We experimentally compared different ways of combining the neural retriever model with BM25 to produce the best results.
 
-A neural retriever model first creates a vector index of all the documents in the corpus and then at run time conducts a search using a k-NN query. The model has been trained to map relevant documents close to each other and irrelevant documents farther apart by reading the labeled `(query, passage)` pairs. Recall that in a zero-shot regime, training data is different from the test datasets. [TAS-B](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b)  is a popular state-of-the-art model that is trained on the [MS Marco](https://huggingface.co/datasets/ms_marco) dataset; it has been shown to have non-trivial zero-shot performance [2].  It uses the [DistilBert](https://huggingface.co/docs/transformers/model_doc/distilbert) checkpoint and has 66 million parameters and an embedding dimension of 768. 
+A neural retriever model first creates a vector index of all the documents in the corpus and then at runtime conducts a search using a k-NN query. The model has been trained to map relevant documents close to each other and irrelevant documents farther apart by reading the labeled `(query, passage)` pairs. Recall that in a zero-shot regime, training data is different from the test datasets. [TAS-B](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b) is a popular state-of-the-art model that is trained on the [MS Marco](https://huggingface.co/datasets/ms_marco) dataset; it has been shown to have non-trivial zero-shot performance [2]. It uses the [DistilBert](https://huggingface.co/docs/transformers/model_doc/distilbert) checkpoint and has 66 million parameters and an embedding dimension of 768. 
 
 There are other models, such as [MPNet](https://huggingface.co/docs/transformers/model_doc/mpnet), that show equivalent or better performance. These models are trained on a lot of data, which includes some of the test datasets, so it is difficult to benchmark them in terms of zero-shot performance. 
 
-Note that one of the reasons we work in the zero-shot regime is that we often do not have access to supervised data from the domain of choice. To be precise, we have passages from the domain of choice but do not have access to queries or `(query, relevant passage)` pairs. If such data existed, the ideal solution would have been to use it to fine-tune a transformer model. A fine-tuned transformer would certainly perform better than a pretrained transformer [2]. 
+Note that one of the reasons we work in a zero-shot regime is that we often do not have access to supervised data from the domain of choice. To be precise, we have passages from the domain of choice but do not have access to queries or `(query, relevant passage)` pairs. If such data existed, the ideal solution would have been to use it to fine-tune a transformer model. A fine-tuned transformer would certainly perform better than a pretrained transformer [2]. 
 
 However, in the absence of domain-specific data, we can leverage the power of large language models (LLMs) to create artificial queries when given a passage. In the rest of this section, we discuss generating synthetic queries and using them to obtain a model fine-tuned to your corpus. As shown in the preceding table, fine-tuned models perform better than pretrained models.
 
@@ -109,9 +109,9 @@ Creating a fine-tuned model consists of three steps:
 2. Use the query generator model to create synthetic queries given a corpus.
 3. Train a small model (such as TAS-B) on the synthetic corpus.
 
-The [Demo Notebook for Sentence Transformer Model Training, Saving and Uploading to OpenSearch](https://opensearch-project.github.io/opensearch-py-ml/examples/demo_transformer_model_train_save_upload_to_openSearch.html) automatically performs all of the these steps for the corpus of your choice.
+The [Demo Notebook for Sentence Transformer Model Training, Saving and Uploading to OpenSearch](https://opensearch-project.github.io/opensearch-py-ml/examples/demo_transformer_model_train_save_upload_to_openSearch.html) automatically performs all of these steps for the corpus of your choice.
 
-***Over time, we plan to release newer, more powerful LLMs for query generation, which will produce better synthetic queries and lead to improved downstream search performance.***
+***Over time, we plan to release newer, more powerful LLMs for query generation that will produce better synthetic queries and lead to improved downstream search performance.***
 
 ### 2.1. Obtaining a query generator model
 
@@ -133,7 +133,7 @@ We recommend running the notebook on a GPU-powered machine; we used a p3.x16larg
 
 The total time required to generate 16 queries per document for 1M documents is about 48 hours. The generation time scales linearly with the number of documents and can be improved by using larger batch sizes.
 
-During the generation phase we sampled tokens with a default temperature of 1, top-p value of 0.95, and top-k value of 50. Tokens are the atomic elements of a sentence from the model’s perspective. They are similar to words, except a word can be split into multiple tokens. Splitting words into tokens ensures that the vocabulary size does not grow very large. For instance, if some language consists of only four words---“internet”, “international”, “net”, and “national”---we can save space by splitting these words into three tokens---“inter”, “national”, and “net”. 
+During the generation phase we sampled tokens with a default temperature of 1, top-p value of 0.95, and top-k value of 50. From the model's perspective, tokens are the atomic elements of a sentence. They are similar to words, except a word can be split into multiple tokens. Splitting words into tokens ensures that the vocabulary size does not grow very large. For instance, if a language consists of only four words---“internet”, “international”, “net”, and “national”---we can save space by splitting these words into three tokens: “inter”, “national”, and “net”. 
 
 For more information about these hyperparameters and how they affect text generation, see [this Hugging Face blog post](https://huggingface.co/blog/how-to-generate). Intuitively, higher temperature, top-k, or top-p values yield more diverse samples. We specified the maximum length of the generated query as 25 tokens. Additionally, we set the `repetition_penalty` to 1.2, thus incentivizing the model to create queries with no repeating tokens. Once the queries are generated, the notebook automatically applies a query filtering model to remove toxic queries using the publicly available [Detoxify](https://pypi.org/project/detoxify/) package.
 
@@ -141,7 +141,7 @@ For more information about these hyperparameters and how they affect text genera
 
 The synthetic corpus created in the previous step is used to fine-tune a pretrained small language model for search. The demo notebook downloads the pretrained TAS-B model and performs the remaining steps automatically. The model is trained to maximize the dot product between relevant queries and passages while at the same time minimizing the dot product between queries and irrelevant passages. This is known in the literature as *contrastive learning.* 
 
-We implemented contrastive learning using in-batch negatives and a symmetric loss.  The loss is defined for a given batch $$B$$, where a *batch* is a subset of query-passage pairs.  Let $$p$$ be a vector representation of a passage and $$q$$ be a vector representation of a query. Let $$Q$$ be a collection of queries in a batch $$B$$, such that $$Q = \{q_1​,q_2​,\dots,q_{∣B∣​}\}$$. Further, let $$P$$ be a collection of passages, such that $$P = \{p_1​,p_2,\dots,p_{∣B∣​}\}$$. The loss $$\mathcal L$$ for a batch $$B$$ is given by
+We implemented contrastive learning using in-batch negatives and a symmetric loss. The loss is defined for a given batch $$B$$, where a *batch* is a subset of query-passage pairs. Let $$p$$ be a vector representation of a passage and $$q$$ be a vector representation of a query. Let $$Q$$ be a collection of queries in a batch $$B$$, such that $$Q = \{q_1​,q_2​,\dots,q_{∣B∣​}\}$$. Further, let $$P$$ be a collection of passages, such that $$P = \{p_1​,p_2,\dots,p_{∣B∣​}\}$$. The loss $$\mathcal L$$ for a batch $$B$$ is given by
 
 $$
 \begin{align}
@@ -165,17 +165,17 @@ sim(q​, p) =  q^T \cdot p. \tag{3}
 \end{align}
 $$
 
-The total loss is the sum of the losses over all batches. 
+The total loss is the sum of the losses across all batches. 
 
 Note that many models are trained using the dot product similarity (not cosine similarity), so the query and passage vectors are not necessarily normalized. For a given batch, the loss consists of the two terms $$C(Q,P)$$ and $$C(P,Q)$$. In equation $$(\ref{2})$$, $$C(Q,P)$$ is not symmetric in $$Q$$ and $$P$$ because the sums over $$i$$ and $$j$$ do not commute. Combining the two terms in equation $$(\ref{1})$$ makes the loss symmetric. 
 
-The loss is minimized as the argument of the logarithm in equation $$(\ref{2})$$ approaches 1. In other words, minimizing $$C(Q,P)$$ is equivalent to maximizing $$sim(q_i​,p_i​)$$ and minimizing $$sim(q_i​,p_j​)$$ for $$i\neq​j$$. Here we are assuming that if the data is shuffled randomly, the queries $$q_i$$​ and passages $$p_j$$​ within a batch $$B$$ are unrelated to each other for $$i\neq​j$$.  To achieve this goal, the model will learn to map the relevant query and passage pairs $$(q_i​,p_i​)$$ close to each other and irrelevant pairs $$(q_i​,p_j​)$$ farther apart. This technique, known as _in-batch negative sampling_, is widely used for training dense retrievers [7]. 
+The loss is minimized as the argument of the logarithm in equation $$(\ref{2})$$ approaches 1. In other words, minimizing $$C(Q,P)$$ is equivalent to maximizing $$sim(q_i​,p_i​)$$ and minimizing $$sim(q_i​,p_j​)$$ for $$i\neq​j$$. Here we are assuming that if the data is shuffled randomly, the queries $$q_i$$​ and passages $$p_j$$​ within a batch $$B$$ are unrelated to each other for $$i\neq​j$$. To achieve this goal, the model will learn to map the relevant query and passage pairs $$(q_i​,p_i​)$$ close to each other and irrelevant pairs $$(q_i​,p_j​)$$ farther apart. This technique, known as _in-batch negative sampling_, is widely used for training dense retrievers [7]. 
 
 The model is trained using the AdamW optimizer for 10 epochs with a learning rate of 2e-5 and a scheduler that uses a linear schedule with 10K warmup steps. Larger batch sizes lead to more in-batch negatives, which in turn lead to better models. On the other hand, larger batch sizes also may cause GPU out-of-memory issues and should be selected based on GPU memory. We also found that increasing the number of synthetic queries per passage produces better fine-tuned models. However, having a large number of synthetic queries comes with the cost of longer generation and training times, to the point of diminishing returns. On average, we created 24 queries per document in our experiments.
 
 ## Section 3: Combination methods
 
-We combined transformers with BM25 using three main methods: arithmetic mean, geometric mean and harmonic mean. For each of these combination methods we retrieved the top 9,999 documents for BM25 and the top 250 documents for [neural query](https://opensearch.org/docs/latest/search-plugins/neural-search/). Each set of scores was normalized by the L2 norm. To be precise, given a list of scores $$b=[b_1​, b_2​, \dots]$$, we normalize them using the following formula:
+We combined transformers with BM25 using three main methods: arithmetic mean, geometric mean, and harmonic mean. For each of these combination methods, we retrieved the top 9,999 documents for BM25 and the top 250 documents for [neural query](https://opensearch.org/docs/latest/search-plugins/neural-search/). Each set of scores was normalized by the L2 norm. To be precise, given a list of scores $$b=[b_1​, b_2​, \dots]$$, we normalized them using the following formula:
 
 $$
 \begin{align}
@@ -217,7 +217,7 @@ The following table contains the results of combining these scores on the 10 tes
 
 Overall, a fine-tuned model with an arithmetic or geometric combination provides state-of-the-art results. 
 
-We found that harmonic combination works best for the pretrained TAS-B model, while arithmetic and geometric combinations work best for the fine-tuned custom model.  Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero.
+We found that harmonic combination works best for the pretrained TAS-B model, while arithmetic and geometric combinations work best for the fine-tuned custom model. Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero.
 
 ## Section 4: Normalization and other combination methods
 
@@ -285,7 +285,7 @@ where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ 
 
 ### 4.4. Other comparisons
 
-We explored using [cosine similarity](https://pytorch.org/docs/stable/generated/torch.nn.CosineSimilarity.html) instead of dot product for the neural retriever, but it led to worse results. This is probably because TAS-B was trained using dot product similarity instead of cosine. 
+We explored using [cosine similarity](https://pytorch.org/docs/stable/generated/torch.nn.CosineSimilarity.html) instead of dot product for the neural retriever, but it led to worse results. This is probably because TAS-B was trained using dot product similarity instead of cosine similarity. 
 
 Among other neural models, we tried the [ANCE](https://huggingface.co/sentence-transformers/msmarco-roberta-base-ance-firstp) model, but it lead to substantially worse results than TAS-B. We did not benchmark the [MiniLM](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) or [MPNet](https://huggingface.co/sentence-transformers/all-mpnet-base-v2) models because both were tuned on the 1B sentence pair data and thus could not be evaluated in a zero-shot regime. Nevertheless, we evaluated them after fine-tuning on synthetic data using private test datasets and found the performance to be almost as good as TAS-B.
 
@@ -293,19 +293,19 @@ Among other neural models, we tried the [ANCE](https://huggingface.co/sentence-t
 
 There are two ways of incorporating transformers in search: as **cross-encoders** and **neural retrievers**.
 
-**Cross-encoders** work in series with keyword search and can be thought of as rerankers. Once BM25 fetches the top \(N\) results for a given query, a cross-encoder reranks these \(N\) results given the query \(q\). This approach generally produces better results than using neural retrievers alone. However, it is computationally expensive (high latency), because the transformer needs to compute \(N\) different scores, one for each `(query, document)` pair. The cross-encoder is also limited by the result quality of the BM25 retrieval.
+**Cross-encoders** work in series with keyword search and can be thought of as rerankers. Once BM25 fetches the top $$N$$ results for a given query, a cross-encoder reranks these $$N$$ results given the query $$q$$. This approach generally produces better results than using neural retrievers alone. However, it is computationally expensive (high latency) because the transformer needs to compute $$N$$ different scores, one for each `(query, document)` pair. The cross-encoder is also limited by the result quality of the BM25 retrieval.
 
-In contrast, **neural retrievers** have to perform only one computation: create a vector for the query. The actual retrieval is accomplished by finding the top \(N\) nearest neighbors of this query vector. This is a very fast operation that is implemented using [k-NN](https://opensearch.org/docs/latest/search-plugins/knn/index/). Note that neural retrievers do not rely on keyword results but rather are used in combination with keyword search. Indeed, neural retrievers combined with BM25 yield better results than cross-encoders, as shown by our experiments. It is also worth noting that cross-encoders work in the reranker paradigm and rely on first stage retrieval. They greatly benefit from combining BM25 and dense retrievers discussed in this post for their first stage retrieval. 
+In contrast, **neural retrievers** have to perform only one computation that creates a vector for the query. The actual retrieval is accomplished by finding the top $$N$$ nearest neighbors of this query vector. This is a very fast operation that is implemented using [k-NN](https://opensearch.org/docs/latest/search-plugins/knn/index/). Note that neural retrievers do not rely on keyword results but rather are used in combination with keyword search. Indeed, neural retrievers combined with BM25 yield better results than cross-encoders, as shown by our experiments. It is also worth noting that cross-encoders work in the reranker paradigm and rely on first-stage retrieval. They greatly benefit from combining BM25 and dense retrievers, discussed earlier in this post, for their first-stage retrieval. 
 
 In this blog post, we have included several experiments that can help build intuition about how and when to combine BM25 with neural retrievers. It is important to remember that because every dataset is different, there is a chance that the configurations used here are not optimal for your dataset. Nevertheless, we believe that there are some **global conclusions** that apply to most datasets:
 
 1. Neural retrievers with BM25 work better than neural retrievers or BM25 alone.
 2. Neural retrievers with BM25 deliver the same (or better) results as cross-encoders at a fraction of the cost and latency.
-3. If a dataset is heavy on keyword usage, BM25 works much better than neural retrievers. An example of such a dataset is one containing factory part numbers.
-4. If a dataset is heavy on natural language, neural retrievers work much better than BM25. An example is data from a community forum.
+3. If a dataset contains a lot of keyword usage, BM25 works much better than neural retrievers. An example of such a dataset is one containing factory part numbers.
+4. If a dataset contains a lot of natural language, neural retrievers work much better than BM25. An example is data from a community forum.
 5. For datasets that contain both natural language and keywords, a combination of BM25 and neural retrievers works better. An example of such a dataset is one containing data for a clothing website that describes products using both natural language (product description) and numbers (product length, size, or weight).
 6. The optimal combination method depends on the dataset. In general, we have found that harmonic mean performs best for pretrained models, while arithmetic mean and geometric mean perform best for fine-tuned models.
-7. Most small-sized transformer models, such as TAS-B, have a context length of 512 tokens (about 350 words), and they ignore all words after that limit. If a document is long and the first few hundred words are not representative of its content, it is useful to chunk the document into multiple sections. Note that the index size will increase accordingly because each section corresponds to its own vector. 
+7. Most small transformer models, such as TAS-B, have a context length of 512 tokens (about 350 words), and they ignore all words after that limit. If a document is long and the first few hundred words are not representative of its content, it is useful to split the document into multiple sections. Note that the index size will increase accordingly because each section corresponds to its own vector. 
 
 ## Appendix
 
@@ -317,7 +317,7 @@ The BEIR challenge dataset was introduced in [a 2021 paper presented at NeurIPS]
 
 ### The Amazon ESCI dataset
 
-The [Amazon ESCI](https://github.com/amazon-science/esci-data) is a shopping query dataset from Amazon. It contains difficult search queries and was released with the goal of fostering research in the area of semantic matching of queries and products. We restricted the data to queries and documents in English. We focused on the task of query-product ranking: given a user-specified query and a list of matched products, the goal is to rank the products by relevance. We used `Task 1 (Query-Product Ranking)` with product_locale = US and set the following relevancy ratings: E = 100, S = 10, C = 1, and I = 0. Note that the relevancy ratings in the [Amazon ESCI paper by Reddy et al.](https://arxiv.org/abs/2206.06588) are E = 1, S = 0.1, C = 0.01, and I = 0. Consequently, we cannot directly compare our nDCG scores with the ones mentioned in the Amazon paper. However, the percentage improvement between different models (such as the one shown in the preceding tables) is still a meaningful comparison.
+[Amazon ESCI](https://github.com/amazon-science/esci-data) is a shopping query dataset from Amazon. It contains difficult search queries and was released with the goal of fostering research in the area of semantic matching of queries and products. We restricted the data to queries and documents in English. We focused on the task of query-product ranking: given a user-specified query and a list of matched products, the goal is to rank the products by relevance. We used `Task 1 (Query-Product Ranking)` with product_locale = US and set the following relevancy ratings: E = 100, S = 10, C = 1, and I = 0. Note that the relevancy ratings in the [Amazon ESCI paper by Reddy et al.](https://arxiv.org/abs/2206.06588) are E = 1, S = 0.1, C = 0.01, and I = 0. Consequently, we cannot directly compare our nDCG scores with the ones mentioned in the Amazon paper. However, the percentage improvement between different models (such as the one shown in the preceding tables) is still a meaningful comparison.
 
 ### Sample queries and passages
 
