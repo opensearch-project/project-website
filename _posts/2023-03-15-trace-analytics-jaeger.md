@@ -24,7 +24,7 @@ OpenSearch provides extensive support for log analytics and observability use ca
 
 The OpenSearch Project launched the trace analytics feature with support for OTel-compliant trace data provided by Data Prepper---the OpenSearch server-side data collector. To incorporate the popular Jaeger trace data format, in version 2.5 OpenSearch introduced the trace analytics feature in Observability.  
 
-With Observability, you can now filter traces to isolate the spans with errors in order to quickly identify the relevant logs. You can use the same feature-rich analysis capabilities for RED metrics, contextually linking traces and spans to their related logs, which are available for the Data Prepper trace data.
+With Observability, you can now filter traces to isolate the spans with errors in order to quickly identify the relevant logs. You can use the same feature-rich analysis capabilities for RED metrics, contextually linking traces and spans to their related logs, which are available for the Data Prepper trace data. The following image shows how you can view traces with Observability.
 
 ![Image: An example Dashboard trace example GIF]({{site.baseurl}}/assets/media/blog-images/2023-03-15-trace-analytics-jaeger/traces_movie.gif){:.img-fluid }
 
