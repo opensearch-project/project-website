@@ -215,7 +215,7 @@ The following table contains the results of combining these scores on the 10 tes
 |Amazon ESCI	|0.081	|0.071	|0.085	|0.088	|0.087	|0.074	|**0.091**	|0.09	|**0.091**	|
 |**Average % change vs. BM25**	|N/A	|-3.52	|4.89	|6.7	|5.49	|-0.08	|14.14	|12.37	|**14.91**	|
 
-Overall, a fine-tuned model with an arithmetic or geometric combination provides state-of-the-art results. 
+Overall, a fine-tuned model with an arithmetic or geometric combination provides a boost of almost 15% in terms of nDCG@10 over traditional keyword search (BM25). 
 
 We found that harmonic combination works best for the pretrained TAS-B model, while arithmetic and geometric combinations work best for the fine-tuned custom model. Note that for a given query, there could be documents that are only present in the dense results and not in the BM25 results. In such cases, we assume that the BM25 score for those documents is zero. Conversely, if there are documents that are only present in the BM25 results, we assume that the neural query score for those documents is zero.
 
