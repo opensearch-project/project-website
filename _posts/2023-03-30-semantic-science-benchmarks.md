@@ -117,7 +117,7 @@ The [Demo Notebook for Sentence Transformer Model Training, Saving and Uploading
 
 There are many publicly available LLMs that can be used for free-form text generation. However, there are very few models that are trained to generate queries. To the best of our knowledge, there is no public GPT-style (that is, decoder only) LLM for query generation.
 
-We fine-tuned and released the [1.5B GPT2-XL](https://huggingface.co/gpt2-xl?text=My+name+is+Merve+and+my+favorite) model for synthetic query generation. This model is automatically downloaded by the demo notebook. The model is fine-tuned using the MS Marco and [Natural Questions](https://huggingface.co/datasets/natural_questions) (NQ) datasets. These datasets are famous, high-quality datasets in the field of information retrieval. They consist of human-generated queries and corresponding passages or documents that answer each query. For every `(query, passage)` pair, we created the following training sample:
+We fine-tuned and released the 1.5B GPT2-XL model that you can [download](https://artifacts.opensearch.org/models/ml-models/amazon/gpt/GPT2_xl_sqg/1.0.0/GPT2_xl_sqg.zip) for synthetic query generation. This model is automatically downloaded by the demo notebook. The model is fine-tuned using the MS Marco and [Natural Questions](https://huggingface.co/datasets/natural_questions) (NQ) datasets. These datasets are famous, high-quality datasets in the field of information retrieval. They consist of human-generated queries and corresponding passages or documents that answer each query. For every `(query, passage)` pair, we created the following training sample:
 
 `<startoftext> passage <QRY> query <endoftext>`
 
