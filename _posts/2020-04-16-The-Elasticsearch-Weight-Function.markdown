@@ -17,7 +17,7 @@ Distributed systems scale by coordinating and distributing their workloads horiz
 ![The Elasticsearch Weight Function]({{ site.baseurl }}/assets/media/blog-images/2020-04-16-The-Elasticsearch-Weight-Function/es-weights-stone-tower-by-the-beach-by-yuri-samoilov-ccbysa3-0.jpg){: .img-fluid }
 <p align="left">
 The Elasticsearch Weight Function<br>
-Image credit: <a href="https://yuri.samoilov.online">Yuri Samoilov</a>
+Image credit: Yuri Samoilov
 </p>
 
 Shards receive read and write traffic, and consume resources like disk, memory, JVM heap, and network. The overall resource consumption (workload) on a data node, depends on the shards it holds and the traffic they receive. Thus, a balanced distribution of shards corresponds to even workloads and efficient node utilization. In Elasticsearch, this responsibility belongs to the `ShardsAllocator` component.

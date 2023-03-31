@@ -12,9 +12,10 @@
                   {% for artifact in artifacts.items %}
                     {% if artifact.link %}
                       <li><a href="{{ artifact.link }}">{{ artifact.link }}</a> [External]</li>
-                    {% else %}
-                   
+                    {% elsif artifact.artifact_url %}                   
                       <li><a href="{% if artifact.indirect %}{{artifact.url}}{% else %}{{artifact.artifact_url}}{% endif %}">{{ artifact.artifact_url | split: "/" | last }}</a></li>
+                    {% else %}
+                      <li></li>                   
                     {% endif %}
                   {% endfor %}
                 </ul> 

@@ -60,7 +60,7 @@ Your thoughts and contributions make a real impact on the OpenSearch project! Fr
 
 If you’re interested in learning more, have a specific question, or just want to offer your feedback, please visit [OpenSearch.org](https://opensearch.org/), open an issue on GitHub for [OpenSearch](https://github.com/opensearch-project/OpenSearch/issues) or [OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards/issues), or post in the [forums](https://forum.opensearch.org/). There are also regular [Community Meetings](https://www.meetup.com/OpenSearch/) that include updates and time for Q&A in every session.
 
-For almost any type of contribution, opening an issue is the first step. If you’re eager to jump in, check out issues with the “[help wanted](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aopensearch-project+label%3A%22help+wanted%22)” label.
+For almost any type of contribution, opening an issue is the first step. If you’re eager to jump in, check out issues with the "help wanted" label.
 
 ### **Get Started**
 

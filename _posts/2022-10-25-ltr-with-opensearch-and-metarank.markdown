@@ -13,7 +13,7 @@ redirect_from: "/blog/community/2022/10/ltr-with-opensearch-and-metarank/"
 
 ## Ranking in Lucene and OpenSearch
 
-OpenSearch, being a close relative to the [Apache Lucene](https://lucene.apache.org (https://lucene.apache.org/)) project, uses a traditional approach to search results ordering:
+OpenSearch, being a close relative to the [Apache Lucene](https://lucene.apache.org/) project, uses a traditional approach to search results ordering:
 
 * In the **retrieval** stage, Lucene builds a result set of all the documents matching the query from the inverted index within each shard.
 
@@ -71,7 +71,7 @@ However, another approach to ranking exists: secondary/multi-level re-ranking. S
 * The second-level fast rankers like BM25 perform an initial scoring to reduce the number of matching documents to a top-N most relevant document, focusing on [recall metrics](https://en.wikipedia.org/wiki/Precision_and_recall).
 * Finally, the third-level slow ranker reorders only the top-N candidates into the final ranking, focusing on a [precision metric](https://en.wikipedia.org/wiki/Precision_and_recall).
 
-This approach is widespread in the industry. For a good overview, watch a talk [ Berlin Buzzwords 2019: Michael Sokolov & Mike McCandless–E-Commerce search at scale on Apache Lucene](https://youtu.be/EkkzSLstSAE?t=2191) on how multi-stage ranking is implemented on amazon.com (http://amazon.com/).
+This approach is widespread in the industry. For a good overview, watch a talk [ Berlin Buzzwords 2019: Michael Sokolov & Mike McCandless–E-Commerce search at scale on Apache Lucene](https://www.youtube.com/watch?v=EkkzSLstSAE&t=2191s) on how multi-stage ranking is implemented on amazon.com.
 
 ![Multi-phase ranking]({{ site.baseurl }}/assets/media/blog-images/2022-09-28-ltr-with-opensearch-and-metarank/mphase.png){:class="img-centered"}
 
@@ -217,7 +217,7 @@ These feature extractors map events into numerical features and form a set of im
 
 To integrate LTR between search applications, OpenSearch and Metarank require a couple of additions to your current setup:
 
-* * It's time to start collecting visitor *feedback events* if you're not yet doing so. You can either roll your own or use existing open-source telemetry collectors like [Snowplow Analytics](https://docs.metarank.ai/reference/overview-1/snowplow).
+* * It's time to start collecting visitor *feedback events* if you're not yet doing so. You can either roll your own or use existing open-source telemetry collectors like [Snowplow Analytics](https://docs.metarank.ai/reference/integrations-overview/snowplow).
  * Metarank uses **Redis as a state store**. The Redis node sizing usually depends on your ML feature setup and number of users. You can check the [Metarank RAM usage benchmark](https://blog.metarank.ai/metarank-ram-usage-benchmark-391c7018aaa) for ballpark estimations for your use case.
 * After receiving a response with top-N candidates from OpenSearch, you need to send an extra request to Metarank to perform re-ranking.
 
