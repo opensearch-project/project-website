@@ -36,7 +36,7 @@ defaults:
       type: "partners"
     values:
       layout: "partner"
-      permalink: partners/:name
+      permalink: partners/:name.html
 - 
     scope:
       path: ""
