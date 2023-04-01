@@ -30,6 +30,12 @@ defaults:
       type: "posts"
     values:
       permalink: blog/:categories/:year/:month/:title/
+-
+    scope:
+      type: "partners"
+    values:
+      layout: "partner"
+      permalink: /:collection/:name
 - 
     scope:
       path: ""
@@ -79,6 +85,7 @@ collections:
   authors:
     output: true
   partners:
+    output: true
   community_projects:
   javadocs:
     output: true
