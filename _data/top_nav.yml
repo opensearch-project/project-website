@@ -28,6 +28,7 @@ items:
       - community_projects
       - blog
       - partners
+      - slack
     children:
       -
         label: Blog
@@ -35,6 +36,9 @@ items:
       -
         label: Forum
         url: https://forum.opensearch.org/
+      -
+        label: Slack
+        url: /slack.html
       -
         label: Events
         url: /events
