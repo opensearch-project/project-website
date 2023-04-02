@@ -182,7 +182,7 @@ module Jekyll::LinkChecker
 
     @base_url_matcher = %r{^#{@site.config["url"]}#{@site.baseurl}(/.*)$}.freeze
 
-    @urls.each do |url, pages|
+    @urls.sort_by { |url, pages| rand }.each do |url, pages|
       location = "./#{pages.to_a.join(', ./')}"
       @failures << "#{url}, linked to in #{location}" unless check(url, location)
     end
