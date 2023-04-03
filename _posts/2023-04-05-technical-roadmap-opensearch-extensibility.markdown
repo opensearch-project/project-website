@@ -3,7 +3,7 @@ layout: post
 title:  "Technical roadmap: OpenSearch extensibility"
 authors:
   - dblock
-date:   2023-04-03
+date:   2023-04-05
 categories:
   - technical-post
 meta_keywords: OpenSearch extensibility, extensions framework, OpenSearch plugins, OpenSearch Dashboards
