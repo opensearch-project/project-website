@@ -11,6 +11,9 @@ columns:
       -
         title: 'Github'
         url: 'https://github.com/opensearch-project'
+      -
+        title: 'Slack'
+        url: '/slack.html'
      # -
       #  title: 'Partners'
       #  url: '/partners/'
