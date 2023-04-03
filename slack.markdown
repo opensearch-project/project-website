@@ -4,7 +4,7 @@ primary_title: Slack workspace
 title: Slack workspace
 ---
 
-_Updated December April 3, 2023_
+_Updated April 3, 2023_
 
 ---
 
