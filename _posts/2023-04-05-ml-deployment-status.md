@@ -6,12 +6,12 @@ authors:
 date: 2023-04-05
 categories:
  - technical-post
-meta_keywords: machine learning, ml commons, opensearch dashboards, model-serving framework, deployed models dashboard
-meta_description: Learn how to check your deployed machine learning models deployment status inside OpenSearch Dashboards.
+meta_keywords: machine learning, ML Commons for OpenSearch, deployed models dashboard
+meta_description: Test the experimental deployed model dashboard functionality of OpenSearch Dashboards to view the responsiveness of ML nodes in your cluster.
 excerpt: Before OpenSearch 2.6, checking the status of a deployed machine learning (ML) model in OpenSearch could only be done by using the ML Commons Profile API. Although the Profile APi returned data organized by ML nodes, it could not tell you the status of a specific model deployed on that node. 
 ---
 
-Before OpenSearch 2.6, checking the status of a deployed machine learning (ML) model in OpenSearch could only be done by using the [ML Commons Profile API](https://opensearch.org/docs/latest/ml-commons-plugin/api/#profile). Although the Profile APi returned data organized by ML nodes, it could not tell you the status of a specific model deployed on that node. 
+Before [OpenSearch 2.6](https://opensearch.org/blog/introducing-opensearch-2-6/), checking the status of a deployed machine learning (ML) model in OpenSearch could only be done by using the [ML Commons Profile API](https://opensearch.org/docs/latest/ml-commons-plugin/api/#profile). Although the Profile APi returned data organized by ML nodes, it could not tell you the status of a specific model deployed on that node. 
 
 The ML team is happy to announce the first piece of ML functionality in OpenSearch dashboards, the [deployed models dashboard](https://opensearch.org/docs/latest/ml-commons-plugin/ml-dashboard/#deployed-models-dashboard) as an experimental feature. The deployed models dashboard gives you a view into the responsiveness of each deployed model on each ML node in your cluster.
 
