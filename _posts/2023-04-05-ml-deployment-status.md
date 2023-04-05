@@ -47,7 +47,7 @@ Furthermore, the deployed model dashboard can automatically refresh data accordi
 ## Next steps
 
 
-The machine learning (ML) functionality in OpenSearch Dashboards is experimental, it shouldn't be used in a production environment. If you want to test out the functionality, see [Enabling ML in Dashboards](https://opensearch.org/docs/latest/ml-commons-plugin/ml-dashboard/#enabling-ml-in-dashboards) or visit the [ML OpenSearch Dashboard Playground](https://ml.playground.opensearch.org/app/ml-commons-dashboards/overview).
+The ML functionality in OpenSearch Dashboards is experimental, so it shouldn't be used in a production environment. If you want to test the functionality, see [Enabling ML in Dashboards](https://opensearch.org/docs/latest/ml-commons-plugin/ml-dashboard/#enabling-ml-in-dashboards) or visit the [ML OpenSearch Dashboard Playground](https://ml.playground.opensearch.org/app/ml-commons-dashboards/overview).
 
 For additional updates on the ML Dashboard or to leave feedback, see the [OpenSearch Forum discussion](https://forum.opensearch.org/t/feedback-ml-commons-ml-model-health-dashboard-for-admins-experimental-release/12494).
 {: .warning }
