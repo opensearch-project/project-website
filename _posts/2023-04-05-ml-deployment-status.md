@@ -34,7 +34,7 @@ If you want to see even more details about your model's responsiveness, select *
 
 ## Simplifying model filtering and searching
 
-If you deploy a large number of models, you might it hard to locate to model you need with the Profile API. Luckily, you can search and filter through all deployed models using:
+If you deploy a large number of models, you might find it difficult to locate the model you need with the Profile API. Luckily, you can search and filter through all deployed models by using:
 
 - Model name
 - Model ID
