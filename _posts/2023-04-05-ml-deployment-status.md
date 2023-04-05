@@ -19,7 +19,7 @@ The ML team is happy to announce the first piece of ML functionality in OpenSear
 
 ## Viewing deployed ML status at the model level
 
-You can find the the deployed model dashboard inside the **Machine Learning** section of OpenSearch Dashboards, as shown in the following image.
+You can find the the deployed model dashboard in the **Machine Learning** section of OpenSearch Dashboards, as shown in the following image.
 
 <img src="/assets/media/blog-images/2023-04-05-ml-deployment-status/ml-deployed-model-dashboard.png" alt="ML deployed model dashboard"/>{: .img-fluid }
 
