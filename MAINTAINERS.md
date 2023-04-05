@@ -14,6 +14,7 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | Charlotte Henkle | [CEHENKLE](https://github.com/CEHENKLE)             | Amazon      |
 | David Tippett    | [dtaivpp](https://github.com/dtaivpp)               | Amazon      |
 | Fanit Kolchina   | [kolchfa-aws](https://github.com/kolchfa-aws)       | Amazon      |
+| Nate Boot        | [nateynateynate](https://github.com/nateynateynate) | Amazon      |
 
 ### Emeritus
 

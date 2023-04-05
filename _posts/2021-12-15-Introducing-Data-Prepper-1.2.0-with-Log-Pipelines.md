@@ -44,7 +44,7 @@ This diagram outlines the basic architecture for log ingestion using FluentBit, 
 ![Architecture](/assets/media/blog-images/2021-12-15-Introducing-Data-Prepper-1.2.0-with-Log-Pipelines/Architecture.png){: .img-fluid}
 
 In this release, Data Prepper also provides a method to structure log data using the `grok` prepper. Pipeline authors can 
-[configure a `grok` prepper](https://github.com/opensearch-project/data-prepper/tree/main/data-prepper-plugins/grok-prepper) 
+[configure a `grok` prepper](https://github.com/opensearch-project/data-prepper/tree/1.2.0/data-prepper-plugins/grok-prepper) 
 based on the known log format. Data Prepper will extract the specified parts of the log lines into specific fields in the 
 destination OpenSearch document. The `grok` prepper uses patterns to extract parts of incoming log data. It has a number of 
 predefined patterns and allows authors to create custom patterns using regular expressions. Here are just a few common 
@@ -105,8 +105,8 @@ The Apache Common Log format is a common format. Data Prepper actually has a sho
         log: [ "%{COMMONAPACHELOG}" ]
 ```
 
-You can read the [Log Analytics guide](https://github.com/opensearch-project/data-prepper/blob/main/docs/log_analytics.md) 
-and try out [a complete demo](https://github.com/opensearch-project/data-prepper/blob/main/examples/log-ingestion/log_ingestion_demo_guide.md) 
+You can read the [Log Analytics guide](https://github.com/opensearch-project/data-prepper/blob/1.2.0/docs/log_analytics.md) 
+and try out [a complete demo](https://github.com/opensearch-project/data-prepper/blob/1.2.0/examples/log-ingestion/log_ingestion_demo_guide.md) 
 to start working with log ingestion today.
 
 ## Compatibility with Logstash Configuration Files

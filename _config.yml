@@ -31,6 +31,12 @@ defaults:
       type: "posts"
     values:
       permalink: blog/:title/
+-
+    scope:
+      type: "partners"
+    values:
+      layout: "partner"
+      permalink: partners/:name.html
 - 
     scope:
       path: ""
@@ -79,6 +85,7 @@ collections:
   authors:
     output: true
   partners:
+    output: true
   community_projects:
   javadocs:
     output: true

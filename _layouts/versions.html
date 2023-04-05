@@ -322,13 +322,11 @@ Release sequence (all release lines): <br />
   <a href="{{page.release_notes}}">Release Notes</a><br />
   <a href="{{page.url}}">Version Permalink</a>
   <hr />
-  This is a release in the <a href="/lines/{{major_version}}x/}}">{{major_version}}.x</a> line. Available release lines:
+  This is a release in the <a href="/lines/{{major_version}}x.html">{{major_version}}.x</a> line. Available release lines:
   <ul>
   {% assign lines = site.lines | reverse %}
   {% for line in lines %}
-    <li><a href="{{ line.url }}">{{line.pretty_version}} {% if line.deprecated == true %} 
-        (Deprecated) 
-      {%endif%}</li>
+    <li><a href="{{ line.url }}">{{line.pretty_version}}{% if line.deprecated == true %} (Deprecated){%endif%}</li>
   {% endfor %}
   </ul>
   <hr />

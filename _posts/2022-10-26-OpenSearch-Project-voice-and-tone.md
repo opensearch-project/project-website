@@ -11,7 +11,7 @@ redirect_from: "/blog/community/2022/10/OpenSearch-Project-voice-and-tone/"
 
 In the [first installment](https://opensearch.org/blog/community/2022/08/New-series-From-the-editors-desk/) of our *From the editor’s desk* series, we focused on the OpenSearch Project and inclusion, a subject that is foundational to who we are and how we talk to each other as a community. For the second installment, we’d like to focus on another subject related to community interaction: voice and tone.
 
-In response to feedback received during [OpenSearchCon 2022]( https://opensearch.org/blog/community/2022/05/opensearchcon/), we have updated our guidance on voice and tone. We have also added new guidance on OpenSearch Project naming conventions and brand personality traits. Check out this new and updated guidance in the [OpenSearch Project style guidelines]( https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md). 
+In response to feedback received during [OpenSearchCon 2022](https://opensearch.org/blog/opensearchcon-2022/), we have updated our guidance on voice and tone. We have also added new guidance on OpenSearch Project naming conventions and brand personality traits. Check out this new and updated guidance in the [OpenSearch Project style guidelines]( https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md). 
 
 Here is a summary of what has changed. 
 

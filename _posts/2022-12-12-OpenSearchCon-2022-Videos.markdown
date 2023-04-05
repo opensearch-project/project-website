@@ -25,7 +25,7 @@ redirect_from:
 ---
 OpenSearchCon 2022 is now available on our YouTube channel! View demos and talks about observability, log analytics, speeding up your search, and much more!
 
-#### *Featuring Eli Fisher of the OpenSearch Project, Maria Hatfield of [Dattell,](https://dattell.com/) Laysa Uchoa of PyLadies Munich and [Aiven Oy,](https://aiven.io) and Jonah Kowall of [Logz.io](http://logz.io/)*
+#### *Featuring Eli Fisher of the OpenSearch Project, Maria Hatfield of [Dattell,](https://dattell.com/) Laysa Uchoa of PyLadies Munich and [Aiven Oy,](https://aiven.io) and Jonah Kowall of [Logz.io](https://logz.io/)*
 
 {% include youtube-player.html id=page.keynotespeakers %}
 
