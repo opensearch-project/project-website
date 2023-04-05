@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "See machine learning model status in OpenSearch Dashboards"
+title:  "You can now see ML model status in OpenSearch Dashboards"
 authors:
 - naarcha
 date: 2023-04-05
