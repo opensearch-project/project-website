@@ -48,7 +48,7 @@ If you deploy a large number of models, you might find it difficult to locate th
 - the model ID
 - The model status.
 
-Furthermore, the deployed model dashboard can automatically refresh data according to a selected time cycle. To set the refresh cycle, select the **Clock** icon, set the refresh time, and then select **Start**, as shown in the following gif.
+Furthermore, the deployed model dashboard can automatically refresh data according to a selected time cycle. To set the refresh cycle, select the **Clock** icon, set the refresh time, and then select **Start**, as shown in the following image.
 
 <img src="/assets/media/blog-images/2023-04-05-ml-deployment-status/ml-model-search.gif" alt="Search and filter through deployed models"/>{: .img-fluid }
 
