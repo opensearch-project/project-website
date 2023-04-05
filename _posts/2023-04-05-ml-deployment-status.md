@@ -19,7 +19,7 @@ The ML team is happy to announce the first piece of ML functionality in OpenSear
 
 The deployed model dashboard shows the following information about your deployed models:
 
-- **Name:** The name of the model given upon upload.
+- **Name**: The name of the model given upon upload.
 - **Status**: The number of nodes for which the model is responsive. 
    - When all nodes are responsive, the status is **Green**.
    - When some nodes are responsive,the status is **Yellow**.
