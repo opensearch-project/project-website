@@ -45,7 +45,7 @@ The detailed view prevents you from having to manually call the Profile API and 
 If you deploy a large number of models, you might find it difficult to locate the model you need with the Profile API. Luckily, you can search and filter through all deployed models by using:
 
 - The model name.
-- the model ID
+- The model ID.
 - The model status.
 
 Furthermore, the deployed model dashboard can automatically refresh data according to a selected time cycle. To set the refresh cycle, select the **Clock** icon, set the refresh time, and then select **Start**, as shown in the following image.
