@@ -2,6 +2,8 @@
 layout: post
 title:  "You can now see ML model status in OpenSearch Dashboards"
 authors:
+- wonglam
+- yych
 - naarcha
 date: 2023-04-05
 categories:
@@ -17,6 +19,11 @@ The ML team is happy to announce the first piece of ML functionality in OpenSear
 
 ## Viewing deployed ML status at the model level
 
+You can find the the deployed model dashboard inside the **Machine Learning** section of OpenSearch Dashboards, as shown in the following image.
+
+<img src="/assets/media/blog-images/2023-04-05-ml-deployment-status/ml-deployed-model-dashboard.png" alt="ML deployed model dashboard"/>{: .img-fluid }
+
+
 The deployed model dashboard shows the following information about your deployed models:
 
 - **Name**: The name of the model given upon upload.
@@ -26,21 +33,22 @@ The deployed model dashboard shows the following information about your deployed
    - When all nodes are unresponsive, the status is **Red**.
 - **Model ID**: The model ID.
 
-<img src="/assets/media/blog-images/2023-04-05-ml-deployment-status/ml-deployed-model-dashboard.png" alt="ML deployed model dashboard"/>{: .img-fluid }
-
-If you want to see even more details about your model's responsiveness, select **View status details** to see a detailed view of your model on each of its ML nodes. The detailed view prevents you from having to manually call the Profile API and parse through complex return results to see which ML nodes are responsive. Instead, the detailed view tells you which ML nodes, by Node ID, are responding or not responding, which is very useful when troubleshooting deployment issues.
+If you want to see even more details about your model's responsiveness, select **View status details** to see a detailed view of your model on each of its ML nodes, as shown in the following image.
 
 <img src="/assets/media/blog-images/2023-04-05-ml-deployment-status/ml-model-status.png" alt="See the responsiveness of each ML node your model is deployed on"/>{: .img-fluid }
+
+The detailed view prevents you from having to manually call the Profile API and parse through complex return results to see which ML nodes are responsive. Instead, the detailed view tells you which ML nodes, by Node ID, are responding or not responding, which is very useful when troubleshooting deployment issues.
+
 
 ## Simplifying model filtering and searching
 
 If you deploy a large number of models, you might find it difficult to locate the model you need with the Profile API. Luckily, you can search and filter through all deployed models by using:
 
 - The model name.
-- Model ID
+- the model ID
 - The model status.
 
-Furthermore, the deployed model dashboard can automatically refresh data according to a selected time cycle. To set the refresh cycle, select the **Clock** icon, set the refresh time, and then select **Start**.
+Furthermore, the deployed model dashboard can automatically refresh data according to a selected time cycle. To set the refresh cycle, select the **Clock** icon, set the refresh time, and then select **Start**, as shown in the following gif.
 
 <img src="/assets/media/blog-images/2023-04-05-ml-deployment-status/ml-model-search.gif" alt="Search and filter through deployed models"/>{: .img-fluid }
 
