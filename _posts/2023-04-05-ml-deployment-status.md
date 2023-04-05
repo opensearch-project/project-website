@@ -38,7 +38,7 @@ If you deploy a large number of models, you might it hard to locate to model you
 
 - Model name
 - Model ID
-- Model status
+- The model status.
 
 Furthermore, the deployed model dashboard can automatically refresh data according to a selected time cycle. To set the refresh cycle, select the **Clock** icon, set the refresh time, and then select **Start**.
 
