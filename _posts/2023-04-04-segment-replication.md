@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Reduce compute costs and increase throughput with segment replication, available GA in OpenSearch 2.7."
+title:  "Reduce compute costs and increase throughput with segment replication, generally available in OpenSearch 2.7."
 authors:
 - satnandi
 date: 2023-04-04
@@ -35,29 +35,27 @@ td{
 }
 </style>
 
-We are excited to announce that segment replication---a new replication strategy introduced in OpenSearch 2.3---is generally available in version 2.7. Segment replication is an alternative to document replication, where documents are copied from primary shards to their replicas. With segment replication, index segments are transferred instead, so the heavy-duty indexing workload is done on the primary shard, significantly increasing index throughput and lowering compute costs. In this blog post, we will dive deep into the concept of segment replication, its advantages and shortcomings, and planned future enhancements.
+We are excited to announce that segment replication---a new replication strategy introduced as experimental in OpenSearch 2.3---is generally available in version 2.7. Segment replication is an alternative to document replication, where documents are copied from primary shards to their replicas for durability. With document replication, all replica shards need to perform the same indexing operation as the primary shard. With segment replication, only the primary shard performs the indexing operation, creating segment files that are transferred to the replicas. Thus, the heavy indexing workload is done only on the primary shard, significantly increasing index throughput and lowering compute costs. In this blog post, we will dive deep into the concept of segment replication, its advantages and shortcomings, and planned future enhancements.
 
 ## Document replication
 
 Until version 2.7, OpenSearch achieved durability and search scaling by replicating data, ingesting documents on the primary and replica nodes. This methodology is known as _document replication_. The advantage of document replication is the low refresh latency between the primary node and replica nodes. However, document replication consumes more CPU power because the workload is duplicated on all nodes.
 
-All operations that affect an OpenSearch index (for example, adding, updating, or removing documents) are routed to one of the index’s primary shards. The primary shard is responsible for validating the operation and subsequently executing it locally. Once the operation has been completed successfully on the primary shard, the operation is forwarded to each of its replica shards in parallel. Each replica shard executes the operation, duplicating the processing performed on the primary shard. When the operation has completed (either successfully or with a failure) on every replica and a response has been received by the primary shard, the primary shard responds to the client. The response includes information about replication success or failure on replica shards. Refer to the following diagram for the document replication process.
+All operations that affect an OpenSearch index (for example, adding, updating, or removing documents) are routed to one of the index’s primary shards. The primary shard is responsible for validating the operation and subsequently executing it locally. Once the operation has been completed successfully on the primary shard, the operation is forwarded to each of its replica shards in parallel. Each replica shard executes the forwarded operation, duplicating the processing performed on the primary shard. When the operation has completed (either successfully or with a failure) on every replica and a response has been received by the primary shard, the primary shard responds to the client. The response includes information about replication success or failure on replica shards. Refer to the following diagram for the document replication process.
 
 TODO: add diagram
 
 ## Segment replication
 
-With segment replication, documents are indexed only once on the node that contains the primary shard. The produced segments are then copied to all replicas and are made searchable. The underlying Lucene write-once segmented architecture makes copying segments possible: as documents are updated or deleted, new segments are created but the existing segments are left untouched. Additionally, the cluster only acknowledges index requests once all shards have completed the work. 
+With segment replication, documents are indexed only once on the node that contains the primary shard. The produced segment files are then copied to all replicas and are made searchable. The underlying Lucene write-once segmented architecture makes copying segments possible: as documents are updated or deleted, new segments are created but the existing segments are left untouched. Additionally, the cluster only acknowledges index requests once all shards have completed the work. 
 
-Segment replication aims to reduce compute costs and improve indexing throughput at the expense of possible replication delays and increased network usage. Segment replication uses a node-to-node replication method, where segments are copied directly from primary shards to their replicas. This replication method is enabled per index and operates within the OpenSearch cluster model and sharding strategy.
-
-Segment replication is compatible with the storage method chosen for the cluster, supporting both local storage with a node-to-node solution and remote stores. Refer to the following diagram for the segment replication process.
+Segment replication aims to reduce compute costs and improve indexing throughput at the expense of possible replication delays and increased network usage. Segment replication uses a node-to-node replication method, where segments are copied directly from primary shards to their replicas. This replication method is enabled per index and operates within the OpenSearch cluster model and sharding strategy. Refer to the following diagram for the segment replication process.
 
 TODO: Add diagram
 
 ## Performance
 
-Compared to document replication, segment replication performs better in OpenSearch cluster deployments with low replica counts. For example, segment replication is well-suited for log analytics because, typically, log analytics users maintain only one replica. The low replica count requirement is a limitation of node-to-node (peer-to-peer) replication. For higher replica counts, remote store integration works better. 
+Compared to document replication, segment replication performs better in OpenSearch cluster deployments with low replica counts, such as those used for log analytics. The low replica count requirement is a limitation of node-to-node (peer-to-peer) replication. For higher replica counts, remote store integration works better. We are planning to introduce remote store integration in the future releases.
 
 With segment replication, you can get the same throughput ingestion performance with 9 nodes in the cluster as you would get with 15 nodes with document replication. During experimental testing, our experimental release users have reported up to 40% higher throughput with segment replication than with document replication for the same cluster setup.
 
@@ -238,4 +236,4 @@ The following considerations apply to segment replication in the 2.7 release:
 
 ## What's next?
 
-The 2.7 OpenSearch release provides a peer-to-peer (node-to-node) implementation of segment replication. With this release, you can choose to use either document replication or segment replication based on your cluster configuration and workloads. In the coming releases, OpenSearch remote storage, our next-generation storage architecture, will use segment replication as the single replication mechanism. Segment replication-enabled remote store will eliminate network bottlenecks on primary shards for clusters with higher replica counts. We are also exploring a chain replication strategy to further alleviate the load on primary shards.
+The 2.7 OpenSearch release provides a peer-to-peer (node-to-node) implementation of segment replication. With this release, you can choose to use either document replication or segment replication based on your cluster configuration and workloads. In the coming releases, OpenSearch remote storage, our next-generation storage architecture, will use segment replication as the single replication mechanism. Segment replication-enabled remote store will eliminate network bottlenecks on primary shards for clusters with higher replica counts. We are also exploring a chain replication strategy to further alleviate the load on primary shards. For better usability, we are planning to integrate segment replication with OpenSearch Dashboards so you can enable the feature using the Dashboards UI. 
