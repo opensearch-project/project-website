@@ -281,7 +281,7 @@ $$
 \end{align}
 $$
 
-where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ ​and $$n_i$$ ​are the min-max normalized BM25 and neural scores, respectively. We found that for the fine-tuned models, f=1 works best. Note that this is identical to the arithmetic combination. For the pretrained models, we found that f=8 works better. For more information, see the [linear combination experiment results](#linear-combination-experiment-results). 
+where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ ​and $$n_i$$ ​are the min-max normalized BM25 and neural scores, respectively. We found that for the fine-tuned models, $$f$$ = 1 works best. Note that this is identical to the arithmetic combination. For the pretrained models, we found that $$f$$ = 8 works better. For more information, see the [linear combination experiment results](#linear-combination-experiment-results). 
 
 ### 4.4. Other comparisons
 
@@ -313,7 +313,7 @@ In this appendix, we provide further details of the test datasets used for bench
 
 ### The BEIR dataset
 
-The BEIR challenge dataset was introduced in [a 2021 paper presented at NeurIPS](https://arxiv.org/abs/2104.08663). It consists of 18 test datasets that cover several domains, from personal advice on Yahoo Answers to Stack Exchange questions about quantum physics. The datasets also come in different evaluation formats, for example, fact checking, question answering, and news retrieval. We used nine of the 19 datasets from the BEIR challenge. We did not use the MS Marco and NQ datasets because the query generator was trained on this data, so it is not zero shot. We did not benchmark on datasets that are not publicly available without registration (BioASQ, Signal-1M, Trec-News, and Robust04). In the future, we plan to benchmark large (more than 5M documents each) datasets, such as fever, climate-fever, and HotpotQA.
+The BEIR challenge dataset was introduced in a [2021 paper presented at NeurIPS](https://arxiv.org/abs/2104.08663). It consists of 18 test datasets that cover several domains, from personal advice on Yahoo Answers to Stack Exchange questions about quantum physics. The datasets also come in different evaluation formats, for example, fact checking, question answering, and news retrieval. We used nine of the 19 datasets from the BEIR challenge. We did not use the MS Marco and NQ datasets because the query generator was trained on this data, so it is not zero shot. We did not benchmark on datasets that are not publicly available without registration (BioASQ, Signal-1M, Trec-News, and Robust04). In the future, we plan to benchmark large (more than 5M documents each) datasets, such as fever, climate-fever, and HotpotQA.
 
 ### The Amazon ESCI dataset
 
