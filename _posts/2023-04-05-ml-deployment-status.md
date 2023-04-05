@@ -28,7 +28,7 @@ The deployed model dashboard shows the following information about your deployed
 
 <img src="/assets/media/blog-images/2023-04-05-ml-deployment-status/ml-deployed-model-dashboard.png" alt="ML deployed model dashboard"/>{: .img-fluid }
 
-If you want to see even more details about your model's responsiveness, select **View status details** to see a detailed view of your model on each of its ML nodes. The detailed view prevents you from having to manually call the Profile API and parse through complex return results to see which ML nodes are responsive. Instead, the detailed view tells you which ML nodes, by Node ID, are responding or not responding, which is very useful when troubleshooting deployment issues with your model.
+If you want to see even more details about your model's responsiveness, select **View status details** to see a detailed view of your model on each of its ML nodes. The detailed view prevents you from having to manually call the Profile API and parse through complex return results to see which ML nodes are responsive. Instead, the detailed view tells you which ML nodes, by Node ID, are responding or not responding, which is very useful when troubleshooting deployment issues.
 
 <img src="/assets/media/blog-images/2023-04-05-ml-deployment-status/ml-model-status.png" alt="See the responsiveness of each ML node your model is deployed on"/>{: .img-fluid }
 
