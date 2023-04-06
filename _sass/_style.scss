@@ -41,6 +41,7 @@ a {
     color: $text;
     text-decoration: underline;
     -webkit-tap-highlight-color: transparent;
+    filter: brightness(125%);
 
     &:visited {
         color: $text-visited;
