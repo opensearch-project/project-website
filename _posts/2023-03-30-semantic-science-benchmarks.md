@@ -161,7 +161,7 @@ and
 
 $$
 \begin{align}
-sim(q​, p) =  q^T \cdot p. \tag{3}
+sim(q​, p) =  \exp(q^T \cdot p). \tag{3}
 \end{align}
 $$
 
