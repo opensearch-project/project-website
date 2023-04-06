@@ -122,7 +122,7 @@ html {
 }
 @mixin font-size ( $size: 16 ) {
     font-size: $size + px;
-    font-size: $size/10 + rem;
+    font-size: calc($size / 10) + rem;
 }
 
 // Boilerplate Helper mixins (https://github.com/h5bp/html5-boilerplate/blob/v4.1.0/doc/css.md)
