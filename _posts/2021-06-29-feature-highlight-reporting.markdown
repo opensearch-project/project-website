@@ -18,7 +18,7 @@ Reporting is a form of organizing data into formal summaries; to make reports vi
 Reports are generated manually on OpenSearch Dashboards, via scheduled triggers, or through system triggers like alerts or API calls.
 
 **Anatomy of the Reporting feature on OpenSearch**
-The reporting feature is composed of two plugins; an [OpenSearch Dashboards plugin](https://github.com/opensearch-project/dashboards-reports/tree/main/dashboards-reports) which controls most of the [user experience](https://github.com/opensearch-project/dashboards-reports/blob/main/docs/dashboards-reports/ux/OpenSearch-Dashboards-Reporting-UX-documentation.md) and the [OpenSearch plugin](https://github.com/opensearch-project/dashboards-reports/tree/main/reports-scheduler) which provides scheduling features and secures access to user data with OpenSearch Security policies. The initial request for comments (RFC) for Reporting can be found [here](https://github.com/opensearch-project/dashboards-reports/blob/main/docs/dashboards-reports/dev/OpenSearch-Dashboards-Reporting-Design-Proposal.md).
+The reporting feature is composed of two plugins; an [OpenSearch Dashboards plugin](https://github.com/opensearch-project/dashboards-reports/tree/1.x/dashboards-reports) which controls most of the [user experience](https://github.com/opensearch-project/dashboards-reports/blob/main/docs/dashboards-reports/ux/OpenSearch-Dashboards-Reporting-UX-documentation.md) and the [OpenSearch plugin](https://github.com/opensearch-project/dashboards-reports/tree/1.x/reports-scheduler) which provides scheduling features and secures access to user data with OpenSearch Security policies. The initial request for comments (RFC) for Reporting can be found [here](https://github.com/opensearch-project/dashboards-reports/blob/main/docs/dashboards-reports/dev/OpenSearch-Dashboards-Reporting-Design-Proposal.md).
 
 ![Report Anatomy](/assets/media/blog-images/2021-06-29-feature-highlight-reporting/report-anatomy.png){: .img-fluid}
 
@@ -44,7 +44,7 @@ Reporting comes packaged with the OpenSearch and OpenSearch Dashboards downloads
 
 ## Development internals
 
-The reporting feature uses a custom [minimal build](https://github.com/opensearch-project/dashboards-reports/tree/main/dashboards-reports/rendering-engine/headless-chrome) of headless-chromium. Chromium is used as the rendering engine to generate visual reports. Below is are multiple flow diagrams for the various actions of Reporting. 
+The reporting feature uses a custom [minimal build](https://github.com/opensearch-project/dashboards-reports/tree/1.x/dashboards-reports/rendering-engine/headless-chrome) of headless-chromium. Chromium is used as the rendering engine to generate visual reports. Below is are multiple flow diagrams for the various actions of Reporting. 
 
 **Creating a report definition**: When a user defines a report in OpenSearch Dashboards, the Reporting Dashboards plugin saves that definition in an index in OpenSearch. 
 
@@ -56,7 +56,7 @@ The reporting feature uses a custom [minimal build](https://github.com/opensearc
 
 ## Community contributions
 
-Reporting was built by multiple contributors from the community (some PRs listed below). Our team presented the initial Reporting contributions in a community meeting with the [Reports RFC](https://github.com/opendistro-for-elasticsearch/kibana-reports/blob/master/docs/dev/Kibana-Reporting-Design-Proposal.md). Our team went over the initial design and requirements, and our high level plan to develop the feature. After the community meeting, some of the attendees expressed interest in contributing and helped build the CSV functionality. Since the initial release, there have been numerous other community contributions to improve and customize the project (see below). We thank all the contributors who have helped build the Reporting feature!
+Reporting was built by multiple contributors from the community (some PRs listed below). Our team presented the initial Reporting contributions in a community meeting with the [Reports RFC](https://github.com/opendistro-for-elasticsearch/kibana-reports/blob/dev/kibana-reports/docs/dev/Kibana-Reporting-Design-Proposal.md). Our team went over the initial design and requirements, and our high level plan to develop the feature. After the community meeting, some of the attendees expressed interest in contributing and helped build the CSV functionality. Since the initial release, there have been numerous other community contributions to improve and customize the project (see below). We thank all the contributors who have helped build the Reporting feature!
 
 * [CSV APIs endpoints for data reports. #50](https://github.com/opendistro-for-elasticsearch/kibana-reports/pull/50)
 * [Improve quality of rendered PDFs #354](https://github.com/opendistro-for-elasticsearch/kibana-reports/pull/354)

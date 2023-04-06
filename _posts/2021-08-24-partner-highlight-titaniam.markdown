@@ -54,10 +54,4 @@ Titaniam Arcus comes with a rich key management infrastructure including index s
 
 # Want to learn more?
 
-For more information, you can visit the [OpenSearch Arcus page](https://www.titaniamlabs.com/opensearch-arcus/) on Titaniam Labs or give it a try following these [instructions](https://docs.titaniamlabs.com/arcus/opensearch/getstarted.html). 
-
-
- 
- 
-
-
+For more information, you can visit the [OpenSearch Arcus page](https://titaniam.io/partners/aws-opensearch-security/) on Titaniam Labs.
