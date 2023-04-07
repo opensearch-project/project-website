@@ -45,9 +45,9 @@ Also check out the new Open Distro for Elasticsearch [Linux tarball](https://ope
 
 ### **SECURITY**
 
-* Make permissions for protected index equal to that of the security index. Protected Index Kibana Fix 1.1 (#[132](https://github.com/opendistro-for-elasticsearch/security/pull/132))
-* Add ability to block indices and index patterns to certain roles, adding another level of protection for these indices. Ability to protect indices even further. (#[126](https://github.com/opendistro-for-elasticsearch/security/pull/126))
-* Initialize opendistro index if injected user enabled. (#[125](https://github.com/opendistro-for-elasticsearch/security/pull/125))
+* Make permissions for protected index equal to that of the security index. Protected Index Kibana Fix 1.1 (#[132](https://github.com/opensearch-project/security/pull/132))
+* Add ability to block indices and index patterns to certain roles, adding another level of protection for these indices. Ability to protect indices even further. (#[126](https://github.com/opensearch-project/security/pull/126))
+* Initialize opendistro index if injected user enabled. (#[125](https://github.com/opensearch-project/security/pull/125))
 * Fix security configuration
 * Bump com.fasterxml.jackson.core to version 2.9.9.2
 
@@ -62,7 +62,7 @@ Also check out the new Open Distro for Elasticsearch [Linux tarball](https://ope
 
 * Fixed incorrect argument order when calling build.sh
 * Fix password validation error
-* Add ability to configure logout_url for 1.2 (#[82](https://github.com/opendistro-for-elasticsearch/security-kibana-plugin/pull/82))
+* Add ability to configure logout_url for 1.2 (#[82](https://github.com/opensearch-project/security-dashboards-plugin/pull/82))
 * Fix API endpoint naming
 
 ### **SQL**
@@ -98,7 +98,7 @@ Also check out the new Open Distro for Elasticsearch [Linux tarball](https://ope
 
 * No changes.
 
-You can find the latest release notes for each component at these URLs:[ Alerting](https://github.com/opendistro-for-elasticsearch/alerting/releases),[ Alerting Kibana UI](https://github.com/opendistro-for-elasticsearch/alerting-kibana-plugin/releases),[ Performance Analyzer](https://github.com/opendistro-for-elasticsearch/performance-analyzer/blob/opendistro-1.0/release-notes),[ PerfTop](https://github.com/opendistro-for-elasticsearch/perftop/blob/opendistro-1.0/release-notes),[ Security](https://github.com/opendistro-for-elasticsearch/security/releases),[ Security Kibana UI](https://github.com/opendistro-for-elasticsearch/security-kibana-plugin/releases),[ SQL](https://github.com/opendistro-for-elasticsearch/sql/releases),[ SQL JDBC](https://github.com/opendistro-for-elasticsearch/sql-jdbc/releases) driver, and[ Job Scheduler](https://github.com/opendistro-for-elasticsearch/job-scheduler/releases).
+You can find the latest release notes for each component at these URLs:[ Alerting](https://github.com/opendistro-for-elasticsearch/alerting/releases),[ Alerting Kibana UI](https://github.com/opendistro-for-elasticsearch/alerting-kibana-plugin/releases),[ Performance Analyzer](https://github.com/opendistro-for-elasticsearch/performance-analyzer/blob/opendistro-1.0/release-notes),[ PerfTop](https://github.com/opendistro-for-elasticsearch/perftop/blob/opendistro-1.0/release-notes),[ Security](https://github.com/opensearch-project/security/releases),[ Security Kibana UI](https://github.com/opensearch-project/security-dashboards-plugin/releases),[ SQL](https://github.com/opendistro-for-elasticsearch/sql/releases),[ SQL JDBC](https://github.com/opendistro-for-elasticsearch/sql-jdbc/releases) driver, and[ Job Scheduler](https://github.com/opendistro-for-elasticsearch/job-scheduler/releases).
 
 ## **Features In Development**
 
