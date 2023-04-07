@@ -38,7 +38,7 @@ body {
     }
 }
 a {
-    color: $text;
+    color: $text-link-alternate-darker;
     text-decoration: underline;
     -webkit-tap-highlight-color: transparent;
 
@@ -273,7 +273,7 @@ ul {
         @include respond-min(46.25rem) {
             max-width: 740px;
             padding: 20px 0 40px;
-            width: (704/768) * 100%;
+            width: calc(704/768) * 100%;
         }
     }
 
@@ -382,7 +382,7 @@ ul {
     @include respond-min(46.25rem) {
         margin: 0 auto;
         max-width: 1400px;
-        padding: 0 (32/768) * 100%;
+        padding: 0 calc(32/768) * 100%;
     }
 
     &.sidebar-right {
