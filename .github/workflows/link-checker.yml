@@ -1,9 +1,9 @@
 name: Check Links
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  schedule:
+    - cron: "30 11 * * *"
 
 jobs:
   check:

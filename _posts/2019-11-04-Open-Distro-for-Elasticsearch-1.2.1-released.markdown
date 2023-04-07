@@ -43,8 +43,8 @@ Docker images for this release of[ Open Distro for Elasticsearch](https://hub.do
 
 ### **SECURITY**
 
-* Support for ES 7.2.1 [(#153)](https://github.com/opendistro-for-elasticsearch/security/pull/153)
-* Extended proxy authenticator to pass additional attributes via header [(#174)](https://github.com/opendistro-for-elasticsearch/security/pull/174)
+* Support for ES 7.2.1 [(#153)](https://github.com/opensearch-project/security/pull/153)
+* Extended proxy authenticator to pass additional attributes via header [(#174)](https://github.com/opensearch-project/security/pull/174)
 
 ### **SECURITY ADVANCED MODULES**
 
@@ -56,9 +56,9 @@ Docker images for this release of[ Open Distro for Elasticsearch](https://hub.do
 
 ### **SECURITY KIBANA UI**
 
-* Support for ES 7.2.1 [(#106)](https://github.com/opendistro-for-elasticsearch/security-kibana-plugin/pull/106)
-* Update opendistro_security version to 7.2.1[*](https://github.com/opendistro-for-elasticsearch/security-kibana-plugin/commit/e3432d7e29df19a519d1b8a02aa1dd164a934eaf)
-* Update Open Distro version 1.2.1.0 for security kibana plugin [(#107)](https://github.com/opendistro-for-elasticsearch/security-kibana-plugin/pull/107)
+* Support for ES 7.2.1 [(#106)](https://github.com/opensearch-project/security-dashboards-plugin/pull/106)
+* Update opendistro_security version to 7.2.1[*](https://github.com/opensearch-project/security-dashboards-plugin/commit/e3432d7e29df19a519d1b8a02aa1dd164a934eaf)
+* Update Open Distro version 1.2.1.0 for security kibana plugin [(#107)](https://github.com/opensearch-project/security-dashboards-plugin/pull/107)
 
 ### **SQL**
 
@@ -80,7 +80,7 @@ Docker images for this release of[ Open Distro for Elasticsearch](https://hub.do
 * Fix vulnerabilities[*](https://github.com/opendistro-for-elasticsearch/perftop/commit/5c400aecf0e5702e683936e2a4a114d49aa3f7d7)
 * Merge pull request [(#31)](https://github.com/opendistro-for-elasticsearch/perftop/pull/31)
 
-You can find the latest release notes for each component at these URLs:[ Alerting](https://github.com/opendistro-for-elasticsearch/alerting/releases),[ Alerting Kibana UI](https://github.com/opendistro-for-elasticsearch/alerting-kibana-plugin/releases),[ Performance Analyzer](https://github.com/opendistro-for-elasticsearch/performance-analyzer/blob/opendistro-1.0/release-notes),[ PerfTop](https://github.com/opendistro-for-elasticsearch/perftop/blob/opendistro-1.0/release-notes),[ Security](https://github.com/opendistro-for-elasticsearch/security/releases),[ Security Kibana UI](https://github.com/opendistro-for-elasticsearch/security-kibana-plugin/releases),[ SQL](https://github.com/opendistro-for-elasticsearch/sql/releases),[ SQL JDBC](https://github.com/opendistro-for-elasticsearch/sql-jdbc/releases) driver, and[ Job Scheduler](https://github.com/opendistro-for-elasticsearch/job-scheduler/releases).
+You can find the latest release notes for each component at these URLs:[ Alerting](https://github.com/opendistro-for-elasticsearch/alerting/releases),[ Alerting Kibana UI](https://github.com/opendistro-for-elasticsearch/alerting-kibana-plugin/releases),[ Performance Analyzer](https://github.com/opendistro-for-elasticsearch/performance-analyzer/blob/opendistro-1.0/release-notes),[ PerfTop](https://github.com/opendistro-for-elasticsearch/perftop/blob/opendistro-1.0/release-notes),[ Security](https://github.com/opensearch-project/security/releases),[ Security Kibana UI](https://github.com/opensearch-project/security-dashboards-plugin/releases),[ SQL](https://github.com/opendistro-for-elasticsearch/sql/releases),[ SQL JDBC](https://github.com/opendistro-for-elasticsearch/sql-jdbc/releases) driver, and[ Job Scheduler](https://github.com/opendistro-for-elasticsearch/job-scheduler/releases).
 
 ## **Features in development**
 

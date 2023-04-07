@@ -5,5 +5,5 @@ owner: Amitai Stern
 owner_link: https://github.com/AmiStrn
 link: https://github.com/AmiStrn/opensearch-plugin-template-java
 license: Apache License 2.0
-license_link: https://github.com/AmiStrn/opensearch-plugin-template-java/blob/main/LICENSE
+license_link: https://github.com/opensearch-project/opensearch-plugin-template-java/blob/main/LICENSE.txt
 ---
