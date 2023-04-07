@@ -14,30 +14,8 @@ meta_description: Learn how to create a semantic search engine in OpenSearch, in
 
 excerpt: In an earlier blog post, we described different ways of building a semantic search engine in OpenSearch. In this post, we'll dive further into the science behind it. We'll discuss the benefits of combining keyword-based search with neural search, the architecture and model options, and benchmarking tests and results. First, we'll provide an overview of our proposed solutions and a summary of the main results. Next, we'll outline the steps for creating a solution and fine-tuning it for your own document corpus. Finally, we'll discuss the effects of different combination strategies and normalization protocols on search relevance.
 has_math: true
+has_science_table: true
 ---
-
-<style>
-table{
-    border:2px solid #e6e6e6;
-    display: block;
-    max-width: -moz-fit-content;
-    max-width: fit-content;
-    margin: 0 auto;
-    overflow-x: auto;
-}
-
-th{
-    border:2px solid #e6e6e6;
-    padding: 5px;
-    text-align: center;
-}
-
-td{
-    border:1px solid #e6e6e6;
-    padding: 10px;
-    text-align: center;
-}
-</style>
 
 In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/), we described different ways of building a semantic search engine in OpenSearch. In this post, we'll dive further into the science behind it. We'll discuss the benefits of combining keyword-based search with neural search, the architecture and model options, and benchmarking tests and results:
 - In [Section 1](#section-1-overview), we provide an overview of our proposed solutions and a summary of the main results. 
@@ -62,7 +40,7 @@ To benchmark solutions, you must select a **metric** for measuring search releva
 
 We chose [nDCG@10](https://en.wikipedia.org/wiki/Discounted_cumulative_gain), a widely used information retrieval **metric**, for measuring search relevance. 
 
-For the **test datasets**, we selected 10 different datasets covering a wide variety of domains, query lengths, document lengths, and corpus sizes. Each test dataset contains a list of queries, documents, and relevancy judgments. The relevancy judgments are annotated by human experts (see the [Appendix](#appendix) for more information) and are usually represented by binary labels (`1` for relevant and `0` for irrelevant). Nine of these datasets belong to the [BEIR](https://arxiv.org/abs/2104.08663) challenge---a popular collection of test datasets used to benchmark search engines. The tenth dataset is the [Amazon ESCI](https://github.com/amazon-science/esci-data) challenge dataset for product search. These 10 datasets cover multiple domains, including e-commerce, COVID-19 statistics, personal finance, and quantum physics. 
+For the **test datasets**, we selected 10 different datasets covering a wide variety of domains, query lengths, document lengths, and corpus sizes. Each test dataset contains a list of queries, documents, and relevancy judgments. The relevancy judgments are annotated by human experts (see the [Appendix](#appendix-details-of-test-datasets) for more information) and are usually represented by binary labels (`1` for relevant and `0` for irrelevant). Nine of these datasets belong to the [BEIR](https://arxiv.org/abs/2104.08663) challenge---a popular collection of test datasets used to benchmark search engines. The tenth dataset is the [Amazon ESCI](https://github.com/amazon-science/esci-data) challenge dataset for product search. These 10 datasets cover multiple domains, including e-commerce, COVID-19 statistics, personal finance, and quantum physics. 
 
 ### The zero-shot regime
 
@@ -158,7 +136,7 @@ and
 
 $$
 \begin{align}
-sim(q​, p) =  \exp(q^T \cdot p). \tag{3}
+sim(q​, p) =  q^T \cdot p. \tag{3}
 \end{align}
 $$
 
@@ -278,7 +256,7 @@ $$
 \end{align}
 $$
 
-where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ ​and $$n_i$$ ​are the min-max normalized BM25 and neural scores, respectively. We found that for the fine-tuned models, $$f$$ = 1 works best. Note that this is identical to the arithmetic combination. For the pretrained models, we found that $$f$$ = 8 works better. For more information, see the [linear combination experiment results](#linear-combination-experiment-results). 
+where $$f$$ is a float that ranges from 0.1 to 1,024 in powers of 2 and $$b_i$$ ​and $$n_i$$ ​are the min-max normalized BM25 and neural scores, respectively. We found that for the fine-tuned models, f=1 works best. Note that this is identical to the arithmetic combination. For the pretrained models, we found that f=8 works better. For more information, see the [linear combination experiment results](#linear-combination-experiment-results). 
 
 ### 4.4. Other comparisons
 
@@ -310,7 +288,7 @@ In this appendix, we provide further details of the test datasets used for bench
 
 ### The BEIR dataset
 
-The BEIR challenge dataset was introduced in a [2021 paper presented at NeurIPS](https://arxiv.org/abs/2104.08663). It consists of 18 test datasets that cover several domains, from personal advice on Yahoo Answers to Stack Exchange questions about quantum physics. The datasets also come in different evaluation formats, for example, fact checking, question answering, and news retrieval. We used nine of the 19 datasets from the BEIR challenge. We did not use the MS Marco and NQ datasets because the query generator was trained on this data, so it is not zero shot. We did not benchmark on datasets that are not publicly available without registration (BioASQ, Signal-1M, Trec-News, and Robust04). In the future, we plan to benchmark large (more than 5M documents each) datasets, such as fever, climate-fever, and HotpotQA.
+The BEIR challenge dataset was introduced in [a 2021 paper presented at NeurIPS](https://arxiv.org/abs/2104.08663). It consists of 18 test datasets that cover several domains, from personal advice on Yahoo Answers to Stack Exchange questions about quantum physics. The datasets also come in different evaluation formats, for example, fact checking, question answering, and news retrieval. We used nine of the 19 datasets from the BEIR challenge. We did not use the MS Marco and NQ datasets because the query generator was trained on this data, so it is not zero shot. We did not benchmark on datasets that are not publicly available without registration (BioASQ, Signal-1M, Trec-News, and Robust04). In the future, we plan to benchmark large (more than 5M documents each) datasets, such as fever, climate-fever, and HotpotQA.
 
 ### The Amazon ESCI dataset
 
