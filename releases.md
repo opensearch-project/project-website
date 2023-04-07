@@ -28,7 +28,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 | 1.3.8         | January 26th      | February 2nd          |
 | 2.6.0         | February 21th     | February 28th         |
 | 1.3.9         | March 9th         | March 16th            |
-| 2.7.0         | April 11th        | April 18th            |
+| 2.7.0         | April 17th        | April 25th            |
 | 1.3.10        | May 11th          | May 18th              |
 | 2.8.0         | May 30th          | June 6th              |
 | 1.3.11        | June 22nd         | June 29th             |
