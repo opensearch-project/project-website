@@ -5,7 +5,7 @@ authors:
 - wonglam
 - yych
 - naarcha
-date: 2023-04-05
+date: 2023-04-10
 categories:
  - technical-post
 meta_keywords: machine learning, ML Commons for OpenSearch, deployed models dashboard
