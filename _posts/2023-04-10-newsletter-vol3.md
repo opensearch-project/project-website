@@ -22,8 +22,6 @@ The OpenSearch Project is pleased to present our newsletter. Distributed monthly
 
 **OpenSearch 1.3.9 has been [released](https://opensearch.org/versions/opensearch-1-3-9.html) with Debian support.**
 
-**The OpenSearch UI framework (OUI) [document website launched](https://oui.opensearch.org/):** OUI is the design library we use at the OpenSearch Project to build projects that share our aesthetics. It distributes UI React components and static assets for use in building web layouts.
-
 **The College Contributor Initiative (CCI) raised 111 PRs:** The first batch of 100 college contributors last week started onboarding the second batch of 190 new college contributors.
 
 **OpenSearch SDK integrated a framework to permit plugins and extensions to trigger actions on other extensions:** This enables key plugin features such as Job Scheduler executing scheduled jobs on Extensions.
@@ -60,8 +58,11 @@ The [Cloud Native Computing Foundation’s](https://www.cncf.io/) flagship confe
 Open Source Summit is the premier event for open source developers, technologists, and community leaders to collaborate, share information, solve problems, and gain knowledge, furthering open source innovation and ensuring a sustainable open source ecosystem. It is the gathering place for open-source code and community contributors. Please reach out to [David Tippett](mailto:dtip@amazon.com) to connect with the OpenSearch team at Open Source Summit.
 
 
-Subscribe to our [MeetUp](https://www.meetup.com/opensearch/)group to join the latest meetings, local user groups. 
-Follow us on [Twitter](https://twitter.com/OpenSearchProj) and[LinkedIn](https://www.linkedin.com/company/opensearch-project/) to stay up-to-date with the latest #OpenSearch news.
+Subscribe to our [MeetUp](https://www.meetup.com/opensearch/) group to join the latest meetings, local user groups. 
+
+Follow us on [Twitter](https://twitter.com/OpenSearchProj) and [LinkedIn](https://www.linkedin.com/company/opensearch-project/) to stay up-to-date with the latest #OpenSearch news.
+
 Visit our [forum](https://forum.opensearch.org/)to ask questions and interact with the OpenSearch community.
-[Submit](https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=newsletter%2C+untriaged&template=newsletter.md&title=) Content for the Monthly Newsletter
+
+[Submit](https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=newsletter%2C+untriaged&template=newsletter.md&title=) Content for the Monthly Newsletter.
 
