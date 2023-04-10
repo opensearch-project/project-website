@@ -3,10 +3,11 @@ name: Check Links
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 11 * * *"
+    - cron: "30 11 1,15 * *"
 
 jobs:
   check:
+    if: github.repository == ‘opensearch-project/project-website’
     runs-on: ubuntu-latest
 
     steps:
