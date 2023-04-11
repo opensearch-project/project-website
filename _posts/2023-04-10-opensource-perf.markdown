@@ -13,15 +13,15 @@ meta_description: Learn how key contributors of APache James found out and fixed
 
 As an open source enthusiast, I believe in the power of collaboration to make open source projects faster and more efficient. In this blog post, I will share how my team at [LINAGORA](https://linagora.com), contributing to the Apache James project, identified and addressed a performance issue in OpenSearch using benchmark tools and flamegraphs, and collaborated with the OpenSearch community to make the project better.
 
-[Apache James](https://james.apache.org), a.k.a. Java Apache Mail Enterprise Server is an open source email server written in Java. It implements commons email protocols like SMTP, IMAP or [JMAP](https://jmap.io). Apache James is easy to customize with a wide range of extension mechanisms. It is even easy to use James as a toolbox to assemble your own email server! Apache James also proposes a novative architecture for email server: James is stateless and relies on NoSQL databases and message brokers for state management. Thus administrating James is as easy as managing any modern web applications: no sharding, no rotocol-aware load balancing. Apache James uses OpenSearch for search related features in the distributed mail server setup. 
+[Apache James](https://james.apache.org), a.k.a. Java Apache Mail Enterprise Server, is an open source email server written in Java. It implements common email protocols like SMTP, IMAP or [JMAP](https://jmap.io). Apache James is easy to customize with a wide range of extension mechanisms. It is even easy to use as a toolbox to assemble your own email server! Apache James proposes an innovative architecture for email servers: James is stateless and relies on NoSQL databases and message brokers for state management. Thus administrating James is as easy as managing any modern web application: no sharding and no protocol-aware load balancing. Apache James uses OpenSearch for search-related features in the distributed mail server setup. 
 
-Operating an email server, performance is a concern, as emails are massively used applications, generaly considered critical. Often with even medium sized deployment, handling over 1000 requests per seconds is not uncommon. We use a range of tools for benchmarking the performance of Apache James. Our docs [explains](https://github.com/apache/james-project/blob/master/server/apps/distributed-app/docs/modules/ROOT/pages/benchmark/index.adoc) some of the benchmarks we suggest our administrators run to identify performance bottlenecks and malfunctions in their clusters.
+When operating an email server, performance is a concern, as email is a massively used application, generally considered critical. Often with even a medium-sized deployment, handling over 1000 requests per seconds is not uncommon. We use a range of tools for benchmarking the performance of Apache James. Our docs [explain](https://github.com/apache/james-project/blob/master/server/apps/distributed-app/docs/modules/ROOT/pages/benchmark/index.adoc) some of the benchmarks we suggest our administrators run to identify performance bottlenecks and malfunctions in their clusters.
 
 Apache James relies on OpenSearch as its search engine for its email database. It takes as a dependency the [opensearch-java client](https://github.com/opensearch-project/opensearch-java). Performance testing revealed that the application was spending a noticeable chunk of time running the opensearch-java code, so we set out to examine the performance characteristics of this component.
 
 ### Identifying the performance issue
 
-Flamegraphs are powerful visualization tools that can help developers analyze the execution flow of their code and identify bottlenecks. By analyzing the flamegraphs, I was able to identify specific areas of code that were causing the performance issue. We used async-profiler to generate a flamegraph and found that the frequent SPI lookups were causing the performance issue.
+Flamegraphs are powerful visualization tools that can help developers analyze the execution flow of their code and identify bottlenecks. By analyzing the flamegraphs, I was able to identify specific areas of code that were causing the performance issue. We used async-profiler to generate a flamegraph and found that frequent SPI lookups were causing the performance issue.
 
 [opensearch_2.4.0.zip](https://github.com/opensearch-project/opensearch-java/files/10334079/opensearch_2.4.0.zip) is the flame graph we diagnosed this issue from. Taken with <https://github.com/jvm-profiling-tools/async-profiler> (From within my applicative container):
 
@@ -41,13 +41,13 @@ Then searching for opensearch using the search widget in the top left corner of 
 Observations on the driver event loop:
 
 -   Calls to the SPI make it easy to notice a CF issue. It not only eats CPU/heap allocations but it also blocks the HTTP event loop, which can be catastrophic (the James app is not OpenSearch heavy so that is not a big issue to me).
--   Unsurprisingly JSON parsing takes 11% of the drivers CPU and 24% of heap allocation.
+-   Unsurprisingly JSON parsing takes 11% of the driver's CPU and 24% of heap allocation.
 -   Event loop busyness (pushing stuff to the kernel network stack, SSL) takes around 60% of the event loop CPU, 25% of heap allocations, which again feels normal to me.
 -   2.3% of the event loop CPU is our binding to Reactor reactive library, which, again is normal: converting futures and enqueuing tasks takes time.
 
 To mitigate calls to the SPI, we submitted a [small change](https://github.com/opensearch-project/opensearch-java/pull/293/files) to JsonValueParser.java that addressed the issue. This led to a 50x speedup of the JSON parsing by getting rid of the SPI lookups, not even taking into account the blocking operations... Huge win!
 
-As a common practise we then run micro-benchmarks to validate changes, and [JMH](https://github.com/openjdk/jmh) comes in handy for this! It summarizes key metrics, performs warmup, repeats measurement and comes with nano-second resulution!
+As a common practice we then run micro-benchmarks to validate changes, and [JMH](https://github.com/openjdk/jmh) comes in handy for this! It summarizes key metrics, performs warmup, repeats measurements and comes with nano-second resolution!
 
 Here is the JMH output backing this change:
 
