@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "Collaborating to Improve Open Source Performance: A Case Study"
+title:  "Improving JSON parsing performance in opensearch-java"
 authors:
-  - dblock
+  - wbeckler
   - chibenwa
 date:   2023-04-10
 categories:
   - technical-post
 meta_keywords: OpenSearch, Apache James, Flame graph, Performance, Driver
-meta_description: Learn how key contributors of APache James found out and fixed major performance problems in OpenSearch Java driver.
+meta_description: Learn how contributors of Apache James found out and fixed major performance problems in OpenSearch Java driver JSON parsing.
 ---
 
 As an open source enthusiast, I believe in the power of collaboration to make open source projects faster and more efficient. In this blog post, I will share how my team at [LINAGORA](https://linagora.com), contributing to the Apache James project, identified and addressed a performance issue in OpenSearch using benchmark tools and flamegraphs, and collaborated with the OpenSearch community to make the project better.
@@ -17,7 +17,7 @@ As an open source enthusiast, I believe in the power of collaboration to make op
 
 When operating an email server, performance is a concern, as email is a massively used application, generally considered critical. Often with even a medium-sized deployment, handling over 1000 requests per seconds is not uncommon. We use a range of tools for benchmarking the performance of Apache James. Our docs [explain](https://github.com/apache/james-project/blob/master/server/apps/distributed-app/docs/modules/ROOT/pages/benchmark/index.adoc) some of the benchmarks we suggest our administrators run to identify performance bottlenecks and malfunctions in their clusters.
 
-Apache James relies on OpenSearch as its search engine for its email database. It takes as a dependency the [opensearch-java client](https://github.com/opensearch-project/opensearch-java). Performance testing revealed that the application was spending a noticeable chunk of time running the opensearch-java code, so we set out to examine the performance characteristics of this component.
+Apache James relies on OpenSearch as its search engine for its email database. It takes as a dependency the [opensearch-java client](https://github.com/opensearch-project/opensearch-java). We frequently run performance tests with custom [Gatling](https://gatling.io/) made benchmarks. Especially we conducting regression tests on performance when migrating from ElasticSearch 7.10 to OpenSearch for licenses reasons (as an Apache project the SSPL license of driver code is not acceptable). We realized the OpenSearch requests were slower and started investigating why.
 
 ### Identifying the performance issue
 
@@ -36,7 +36,7 @@ Then searching for opensearch using the search widget in the top left corner of 
 <img src="/assets/media/blog-images/2023-04-10-opensource-perf/flame2.png" alt="Flame graph: OpenSearch driver threads"/>{: .img-fluid }
 
 -   The driver thread (on the right) with the httpclient event loop
--   Applicatives calls to the driver from applicative threads (small stacktraces in the center)
+-   Apache James calls to the OpenSearch driver (small stacktraces in the center)
 
 Observations on the driver event loop:
 
