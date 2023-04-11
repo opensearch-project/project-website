@@ -10,6 +10,7 @@ categories:
 
 excerpt: "In version 2.1, the OpenSearch project introduced Snapshot Management (SM). SM is a way to automatically take snapshots of your cluster. While previously you had to rely on external management tools like Curator, now you can automatically back up your index data and cluster state through OpenSearch."
 redirect_from: "/blog/technical-post/2022/10/snapshot-management/"
+has_science_table: true
 ---
 
 In [version 2.1](https://opensearch.org/blog/releases/2022/07/opensearch-2-1-is-available-now/), the OpenSearch project introduced Snapshot Management (SM)&mdash;a way to automatically take snapshots of your cluster. While previously you had to rely on external management tools like Curator, now you can automatically back up your index data and cluster state through OpenSearch. Just set a schedule to take snapshots every hour or every Sunday at midnight, and sit back while the snapshots are created. 
@@ -63,18 +64,6 @@ Then, [create an SM policy](https://opensearch.org/docs/latest/opensearch/snapsh
 - How you want to be notified of snapshot events and what snapshot events interest you (creation, deletion, or failure). This is optional. 
 
 You need to set the schedule for your automatic snapshots using a [cron expression](https://opensearch.org/docs/latest/monitoring-plugins/alerting/cron/). Let's dissect the expression `0 8 * * *`, which we'll use in the example below.
-
-<style>
-table{
-    border:2px solid #e6e6e6;
-}
-
-td{
-    border:1px solid #e6e6e6;
-    padding: 10px;
-    text-align: center;
-}
-</style>
 
 :--- | :--- | :--- | :--- | :---
 0 | 8 | * | * | *
