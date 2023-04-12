@@ -2,7 +2,6 @@
 layout: post
 title:  "Improving JSON parsing performance in opensearch-java"
 authors:
-  - wbeckler
   - chibenwa
 date:   2023-04-10
 categories:
@@ -17,7 +16,7 @@ As an open source enthusiast, I believe in the power of collaboration to make op
 
 When operating an email server, performance is a concern, as email is a massively used application, generally considered critical. Often with even a medium-sized deployment, handling over 1000 requests per seconds is not uncommon. We use a range of tools for benchmarking the performance of Apache James. Our docs [explain](https://github.com/apache/james-project/blob/master/server/apps/distributed-app/docs/modules/ROOT/pages/benchmark/index.adoc) some of the benchmarks we suggest our administrators run to identify performance bottlenecks and malfunctions in their clusters.
 
-Apache James relies on OpenSearch as its search engine for its email database. It takes as a dependency the [opensearch-java client](https://github.com/opensearch-project/opensearch-java). We frequently run performance tests with custom [Gatling](https://gatling.io/) made benchmarks. Especially we conducting regression tests on performance when migrating from ElasticSearch 7.10 to OpenSearch for licenses reasons (as an Apache project the SSPL license of driver code is not acceptable). We realized the OpenSearch requests were slower and started investigating why.
+Apache James relies on OpenSearch as its search engine for its email database. It takes as a dependency the [opensearch-java client](https://github.com/opensearch-project/opensearch-java). We frequently run performance tests with custom [Gatling](https://gatling.io/) benchmarks. We specifically wanted to regression test performance when we migrated from ElasticSearch 7.10 to OpenSearch for licenses reasons (as an Apache project, the SSPL license of driver code is not acceptable). We realized the OpenSearch requests were slower and started investigating why.
 
 ### Identifying the performance issue
 
@@ -40,7 +39,7 @@ Then searching for opensearch using the search widget in the top left corner of 
 
 Observations on the driver event loop:
 
--   Calls to the SPI make it easy to notice a CF issue. It not only eats CPU/heap allocations but it also blocks the HTTP event loop, which can be catastrophic (the James app is not OpenSearch heavy so that is not a big issue to me).
+-   We spend a huge amount of resources doing SPI calls in order to locate the JSON parser implementation. It not only eats CPU/heap allocations but it also blocks the HTTP event loop, which can be catastrophic (the James app is not OpenSearch heavy so that is not a big issue to me).
 -   Unsurprisingly JSON parsing takes 11% of the driver's CPU and 24% of heap allocation.
 -   Event loop busyness (pushing stuff to the kernel network stack, SSL) takes around 60% of the event loop CPU, 25% of heap allocations, which again feels normal to me.
 -   2.3% of the event loop CPU is our binding to Reactor reactive library, which, again is normal: converting futures and enqueuing tasks takes time.
