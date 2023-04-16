@@ -10,19 +10,19 @@ meta_keywords: OpenSearch, Apache James, Flame graph, Performance, Driver
 meta_description: Learn how contributors of Apache James found out and fixed major performance problems in OpenSearch Java driver JSON parsing.
 ---
 
-As an open source enthusiast, I believe in the power of collaboration to make open source projects faster and more efficient. In this blog post, I will share how my team at [LINAGORA](https://linagora.com), contributing to the Apache James project, identified and addressed a performance issue in OpenSearch using benchmark tools and flamegraphs, and collaborated with the OpenSearch community to make the project better.
+As an open source enthusiast, I believe in the power of collaboration to make open source projects faster and more efficient. In this blog post, I will share how my team at [LINAGORA](https://linagora.com), contributing to the Apache James project, identified and addressed a performance issue in the OpenSearch java client using benchmark tools and flamegraphs, and collaborated with the OpenSearch community.
 
 [Apache James](https://james.apache.org), a.k.a. Java Apache Mail Enterprise Server, is an open source email server written in Java. It implements common email protocols like SMTP, IMAP or [JMAP](https://jmap.io). Apache James is easy to customize with a wide range of extension mechanisms. It is even easy to use as a toolbox to assemble your own email server! Apache James proposes an innovative architecture for email servers: James is stateless and relies on NoSQL databases and message brokers for state management. Thus administrating James is as easy as managing any modern web application: no sharding and no protocol-aware load balancing. Apache James uses OpenSearch for search-related features in the distributed mail server setup. 
 
 When operating an email server, performance is a concern, as email is a massively used application, generally considered critical. Often with even a medium-sized deployment, handling over 1000 requests per seconds is not uncommon. We use a range of tools for benchmarking the performance of Apache James. Our docs [explain](https://github.com/apache/james-project/blob/master/server/apps/distributed-app/docs/modules/ROOT/pages/benchmark/index.adoc) some of the benchmarks we suggest our administrators run to identify performance bottlenecks and malfunctions in their clusters.
 
-Apache James relies on OpenSearch as its search engine for its email database. It takes as a dependency the [opensearch-java client](https://github.com/opensearch-project/opensearch-java). We frequently run performance tests with custom [Gatling](https://gatling.io/) benchmarks. We specifically wanted to regression test performance when we migrated from ElasticSearch 7.10 to OpenSearch for licenses reasons (as an Apache project, the SSPL license of driver code is not acceptable). We realized the OpenSearch requests were slower and started investigating why.
+Apache James relies on OpenSearch as its search engine for its email database. It takes as a dependency the [opensearch-java client](https://github.com/opensearch-project/opensearch-java). We frequently run performance tests with custom [Gatling](https://gatling.io/) benchmarks. We specifically wanted to regression test performance when we migrated from ElasticSearch 7.10 to OpenSearch for licenses reasons (as an Apache project, we must use licenses compatible with the Apache License 2.0). We realized the OpenSearch requests were slower and started investigating why.
 
 ### Identifying the performance issue
 
 Flamegraphs are powerful visualization tools that can help developers analyze the execution flow of their code and identify bottlenecks. By analyzing the flamegraphs, I was able to identify specific areas of code that were causing the performance issue. We used async-profiler to generate a flamegraph and found that frequent SPI lookups were causing the performance issue.
 
-[opensearch_2.4.0.zip](https://github.com/opensearch-project/opensearch-java/files/10334079/opensearch_2.4.0.zip) is the flame graph we diagnosed this issue from. Taken with <https://github.com/jvm-profiling-tools/async-profiler> (From within my applicative container):
+[opensearch_2.4.0.zip](https://github.com/opensearch-project/opensearch-java/files/10334079/opensearch_2.4.0.zip) is the flame graph we diagnosed this issue from. It was taken with <https://github.com/jvm-profiling-tools/async-profiler>  from within Apache James container):
 
 `./profiler -d 120 -e itimer -f opensearch_2.4.0.html 1`
 
