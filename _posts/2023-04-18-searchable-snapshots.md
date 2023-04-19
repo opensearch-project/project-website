@@ -6,8 +6,8 @@ authors:
 date:   2023-04-18
 categories:
   - technical-post
-meta_keywords: opensearch, searchable snapshots, OpenSearch 2.7
-meta_description: The searchable snapshot feature incorporates technics like caching frequently used data segments in cluster nodes and removing the least used data segment from the cluster nodes in order to make space for frequency used data segments.
+meta_keywords: searchable snapshots, search data segment in snapshots, searchable snapshot index, OpenSearch 2.7
+meta_description: Go deeper into the design and implementation of searchable snapshots with OpenSearch, including performance characteristics and future enhancements.
 ---
 
 We are excited to announce the general availability of  Searchable Snapshot on the OpenSearch platform. With Searchable Snapshot feature, users can search data segment in snapshots in remote repositories without having to restore the index data in entirety to local disk first. The relevant index data is fetch on-demand on the search request. Searchable Snapshot resembles the UltraWarm Storage Cluster behavior using the OpenSearch cluster itself. Refer to UltraWarm Storage documentation for details. The system employs caching the data on local disk storage to improve the performance of the search.  In this blog post, we will go deeper into design and implementation details of Searchable snapshot, performance characteristics and future enhancements. 
