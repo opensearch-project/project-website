@@ -19,7 +19,7 @@ Prior to Data Prepper 2.2.0, the `opensearch` sink could only write failed event
 This required logging into your cloud instance or machine to retrieve failed events as well creating a different infrastructure to export them.
 
 Now, the `opensearch` sink can write documents from failed events directly in to an Amazon S3 dead-letter-queue (DLQ). 
-This will help you analyze event failures without having to retrieve them locally. 
+This helps you analyze event failures without having to retrieve them locally. 
 Furthermore, users that run on a serverless infrastructure can avoid maintaining a persistent fail state on serverless machines.
 
 ## End-to-end acknowledgements for S3 source
@@ -29,11 +29,11 @@ Data Prepper's `s3` source now support end-to-end acknowledgments.
 Before end-to-end acknowledgments, the `s3` source would only acknowledge event delivery with Amazon Simple Queue Service (SQS) after writing all events to a Data Prepper buffer. 
 In cases where Data Prepper was unable to write to OpenSearch, the SQS message would still be acknowledged, and Data Prepper would not read for the object.
 
-With end-to-end acknowledgments, the `s3` source does not acknowledge completion until all event are sent to an OpenSearch index or the `opensearch` sink's DLQ. 
+With end-to-end acknowledgments, the `s3` source does not acknowledge completion until all events are sent to an OpenSearch index or the `opensearch` sink's DLQ. 
 If the `s3` source receives no acknowledgment, the SQS message remains in the SQS queue for processing again.
 
 For Data Prepper 2.2.0, end-to-end acknowledgments are only supported inside the `s3` source since acknowledgments to `s3` are asynchronous. 
-However, we've designed end-to-end acknowledgments so that they could be in other sources. 
+However, we've designed end-to-end acknowledgments so that they could be used in other sources. 
 If you would like to see additional sources added for this feature,  
 [create a GitHub issue](https://github.com/opensearch-project/data-prepper/issues/new/choose).
 
@@ -48,11 +48,11 @@ collection, giving Amazon OpenSearch Serverless users the ability to use Data Pr
 
 * Added a new `list_to_map` processor, which converts lists of objects to maps.
 * Added support for format strings in the `add_entries` processor.
-* Add support to the `s3` source for reading S3 objects using [Amazon S3 Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html). With this feature, you can filter read Parquet files in Data Prepper or filter the data before Data Prepper.
+* Added support to the `s3` source for reading S3 objects using [Amazon S3 Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html). With this feature, you can filter read Parquet files in Data Prepper or filter the data before Data Prepper.
 
 ## Getting started
 
 * To download Data Prepper, see the [OpenSearch downloads](https://opensearch.org/downloads.html) page.
 * For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/2.6/data-prepper/getting-started/).
-* To learn more about the work in process for Data Prepper 2.3, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
+* To learn more about the work in progress for Data Prepper 2.3, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
 
