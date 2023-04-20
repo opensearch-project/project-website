@@ -11,14 +11,15 @@ meta_description: Data Prepper 2.2.0 improves data delivery assurances with end-
 ---
 
 Data Prepper 2.2.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)!
-This release has a number of changes that help with Data Prepper’s reliability and data delivery assurances.
+This release introduces a number of changes that help with Data Prepper’s reliability and data delivery assurances.
 
 ## S3-based dead-letter queue for OpenSearch
 
 Prior to Data Prepper 2.2.0, the `opensearch` sink could only write failed events to a local file. 
-This required logging into your cloud instance or machine to retrieve failed events as well creating a different infrastructure to export them.
+This required logging in to your cloud instance or machine to retrieve failed events as well creating a different infrastructure to export them.
 
-Now, the `opensearch` sink can write documents from failed events directly in to an Amazon S3 dead-letter-queue (DLQ). 
+Now, the `opensearch` sink can write documents from failed events directly into Amazon Simple Storage Service (Amazon S3) objects.
+You can now use these objects as an alternate dead-letter-queue (DLQ). 
 This helps you analyze event failures without having to retrieve them locally. 
 Furthermore, users that run on a serverless infrastructure can avoid maintaining a persistent fail state on serverless machines.
 
@@ -26,13 +27,13 @@ Furthermore, users that run on a serverless infrastructure can avoid maintaining
 
 Data Prepper's `s3` source now support end-to-end acknowledgments.
 
-Before end-to-end acknowledgments, the `s3` source would only acknowledge event delivery with Amazon Simple Queue Service (SQS) after writing all events to a Data Prepper buffer. 
+Before end-to-end acknowledgments, the `s3` source would only acknowledge event delivery with Amazon Simple Queue Service (Amazon SQS) after writing all events to a Data Prepper buffer. 
 In cases where Data Prepper was unable to write to OpenSearch, the SQS message would still be acknowledged, and Data Prepper would not read for the object.
 
 With end-to-end acknowledgments, the `s3` source does not acknowledge completion until all events are sent to an OpenSearch index or the `opensearch` sink's DLQ. 
-If the `s3` source receives no acknowledgment, the SQS message remains in the SQS queue for processing again.
+If the `s3` source receives no acknowledgment, the SQS message remains in the SQS queue for reprocessing.
 
-For Data Prepper 2.2.0, end-to-end acknowledgments are only supported inside the `s3` source since acknowledgments to `s3` are asynchronous. 
+For Data Prepper 2.2.0, end-to-end acknowledgments are only supported inside the `s3` source because acknowledgments to `s3` are asynchronous. 
 However, we've designed end-to-end acknowledgments so that they could be used in other sources. 
 If you would like to see additional sources added for this feature,  
 [create a GitHub issue](https://github.com/opensearch-project/data-prepper/issues/new/choose).
@@ -48,7 +49,7 @@ collection, giving Amazon OpenSearch Serverless users the ability to use Data Pr
 
 * Added a new `list_to_map` processor, which converts lists of objects to maps.
 * Added support for format strings in the `add_entries` processor.
-* Added support to the `s3` source for reading S3 objects using [Amazon S3 Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html). With this feature, you can filter read Parquet files in Data Prepper or filter the data before Data Prepper.
+* Added support to the `s3` source for reading S3 objects using [Amazon S3 Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html). With this feature, you can read Parquet files in Data Prepper or filter the data in S3 Select before it even reaches Data Prepper.
 
 ## Getting started
 
