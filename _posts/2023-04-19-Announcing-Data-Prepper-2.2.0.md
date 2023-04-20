@@ -18,7 +18,7 @@ This release introduces a number of changes that help with Data Prepper’s reli
 Prior to Data Prepper 2.2.0, the `opensearch` sink could only write failed events to a local file. 
 This required logging in to your cloud instance or machine to retrieve failed events as well creating a different infrastructure to export them.
 
-Now, the `opensearch` sink can write documents from failed events directly into Amazon Simple Storage Service (Amazon S3) objects.
+Now the `opensearch` sink can write documents from failed events directly into Amazon Simple Storage Service (Amazon S3) objects.
 You can now use these objects as an alternate dead-letter-queue (DLQ). 
 This helps you analyze event failures without having to retrieve them locally. 
 Furthermore, users that run on a serverless infrastructure can avoid maintaining a persistent fail state on serverless machines.
@@ -49,7 +49,7 @@ collection, giving Amazon OpenSearch Serverless users the ability to use Data Pr
 
 * Added a new `list_to_map` processor, which converts lists of objects to maps.
 * Added support for format strings in the `add_entries` processor.
-* Added support to the `s3` source for reading S3 objects using [Amazon S3 Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html). With this feature, you can read Parquet files in Data Prepper or filter the data in S3 Select before it even reaches Data Prepper.
+* Added support to the `s3` source for reading S3 objects using [Amazon S3 Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html). With this feature, you can read Parquet files in Data Prepper or filter the data in S3 Select before it ever even reaches Data Prepper.
 
 ## Getting started
 
