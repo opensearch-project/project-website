@@ -7,7 +7,7 @@ date: 2023-04-19 14:30:00 -0500
 categories:
   - releases
 meta_keywords: Data Prepper 2.2.0
-meta_description: Data Prepper 2.2.0 improves data delivery assurances with end-to-end acknowledgements and an S3 DLQ.
+meta_description: Data Prepper 2.2.0 improves data delivery assurances with end-to-end acknowledgments and an S3 DLQ.
 ---
 
 Data Prepper 2.2.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)!
@@ -23,7 +23,7 @@ You can now use these objects as an alternate dead-letter-queue (DLQ).
 This helps you analyze event failures without having to retrieve them locally. 
 Furthermore, users that run on a serverless infrastructure can avoid maintaining a persistent fail state on serverless machines.
 
-## End-to-end acknowledgements for S3 source
+## End-to-end acknowledgments for S3 source
 
 Data Prepper's `s3` source now support end-to-end acknowledgments.
 
