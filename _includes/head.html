@@ -69,6 +69,9 @@
     <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
 
     <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
+    {% if page.has_science_table %}
+        {%- include science-table-styles.html -%}
+    {% endif %}
     <script src="{{ 'assets/js/lib/modernizr.js' | relative_url }}"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV14XK08F"></script>
