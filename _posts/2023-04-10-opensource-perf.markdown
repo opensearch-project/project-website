@@ -10,7 +10,7 @@ meta_keywords: OpenSearch, Apache James, Flame graph, Performance, Driver
 meta_description: Learn how contributors of Apache James found out and fixed major performance problems in OpenSearch Java driver JSON parsing.
 ---
 
-As an open source enthusiast, I believe in the power of collaboration to make open source projects faster and more efficient. In this blog post, I will share how my team at [LINAGORA](https://linagora.com), contributing to the Apache James project, identified and addressed a performance issue in the OpenSearch java client using benchmark tools and flamegraphs, and collaborated with the OpenSearch community.
+As an open source enthusiast, I believe in the power of collaboration to make open source projects faster and more efficient. In this blog post, I will share how my team at [Linagora](https://linagora.com), contributing to the [Apache James](https://james.apache.org) project, identified and addressed a performance issue in the OpenSearch java client using benchmark tools and flamegraphs, and collaborated with the OpenSearch community.
 
 [Apache James](https://james.apache.org), a.k.a. Java Apache Mail Enterprise Server, is an open source email server written in Java. It implements common email protocols like SMTP, IMAP or [JMAP](https://jmap.io). Apache James is easy to customize with a wide range of extension mechanisms. It is even easy to use as a toolbox to assemble your own email server! Apache James proposes an innovative architecture for email servers: James is stateless and relies on NoSQL databases and message brokers for state management. Thus administrating James is as easy as managing any modern web application: no sharding and no protocol-aware load balancing. Apache James uses OpenSearch for search-related features in the distributed mail server setup. 
 
@@ -30,11 +30,11 @@ Flamegraphs are powerful visualization tools that can help developers analyze th
 <img src="/assets/media/blog-images/2023-04-10-opensource-perf/flame1.png" alt="Flame graph general overview"/>{: .img-fluid }
 
 
-Then searching for opensearch using the search widget in the top left corner of the flame graph:
+Then searching for `"opensearch"` using the search widget in the top left corner of the flamegraph:
 
 <img src="/assets/media/blog-images/2023-04-10-opensource-perf/flame2.png" alt="Flame graph: OpenSearch driver threads"/>{: .img-fluid }
 
--   The driver thread (on the right) with the httpclient event loop
+-   the driver thread (on the right) with the httpclient event loop
 -   Apache James calls to the OpenSearch driver (small stacktraces in the center)
 
 Observations on the driver event loop:
@@ -44,7 +44,7 @@ Observations on the driver event loop:
 -   Event loop busyness (pushing stuff to the kernel network stack, SSL) takes around 60% of the event loop CPU, 25% of heap allocations, which again feels normal to me.
 -   2.3% of the event loop CPU is our binding to Reactor reactive library, which, again is normal: converting futures and enqueuing tasks takes time.
 
-To mitigate calls to the SPI, we submitted a [small change](https://github.com/opensearch-project/opensearch-java/pull/293/files) to JsonValueParser.java that addressed the issue. This led to a 50x speedup of the JSON parsing by getting rid of the SPI lookups, not even taking into account the blocking operations... Huge win!
+To mitigate calls to the SPI, we submitted a [change](https://github.com/opensearch-project/opensearch-java/pull/293) to [JsonValueParser.java](https://github.com/opensearch-project/opensearch-java/blob/a8df7e7c26ccc644811539c4fea57d97f1031aaa/java-client/src/main/java/org/opensearch/client/json/jackson/JsonValueParser.java#L52) that addressed the issue. This led to a 50x speedup of the JSON parsing by getting rid of the SPI lookups, not even taking into account the blocking operations... Huge win!
 
 As a common practice we then run micro-benchmarks to validate changes, and [JMH](https://github.com/openjdk/jmh) comes in handy for this! It summarizes key metrics, performs warmup, repeats measurements and comes with nano-second resolution!
 
