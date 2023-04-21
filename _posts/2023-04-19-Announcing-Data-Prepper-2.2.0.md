@@ -60,7 +60,7 @@ collection, giving Amazon OpenSearch Serverless users the ability to use Data Pr
 
 ## Thanks to our contributors!
 
-The follower people contributed to this release. Thank you!
+The following people contributed to this release. Thank you!
 
 * [ashoktelukuntla](https://github.com/ashoktelukuntla) - Ashok Telukuntla
 * [asifsmohammed](https://github.com/asifsmohammed) - Asif Sohail Mohammed
