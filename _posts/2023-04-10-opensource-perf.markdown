@@ -22,7 +22,7 @@ Apache James relies on OpenSearch as its search engine for its email database. I
 
 Flamegraphs are powerful visualization tools that can help developers analyze the execution flow of their code and identify bottlenecks. By analyzing the flamegraphs, I was able to identify specific areas of code that were causing the performance issue. We used async-profiler to generate a flamegraph and found that frequent SPI lookups were causing the performance issue.
 
-[opensearch_2.4.0.zip](https://github.com/opensearch-project/opensearch-java/files/10334079/opensearch_2.4.0.zip) is the flame graph we diagnosed this issue from. It was taken with <https://github.com/jvm-profiling-tools/async-profiler>  from within Apache James container):
+Here is the flame graph we diagnosed this issue from. It was taken with [async-profiler](https://github.com/jvm-profiling-tools/async-profiler)  from within Apache James container:
 
 `./profiler -d 120 -e itimer -f opensearch_2.4.0.html 1`
 
@@ -39,12 +39,15 @@ Then searching for `"opensearch"` using the search widget in the top left corner
 
 Observations on the driver event loop:
 
--   We spend a huge amount of resources doing SPI calls in order to locate the JSON parser implementation. It not only eats CPU/heap allocations but it also blocks the HTTP event loop, which can be catastrophic (the James app is not OpenSearch heavy so that is not a big issue to me).
+-   We spend a huge amount of resources doing SPI calls in order to locate the JSON parser implementation. It not only eats CPU (roughly 26% of driver CPU consumption) /heap allocations.
+-   But it also blocks the HTTP event loop, which can be catastrophic: the driver relies on a few thread submitting requests in parallel thus blocking the thread impacts seriously overall latencies and throughput.
 -   Unsurprisingly JSON parsing takes 11% of the driver's CPU and 24% of heap allocation.
 -   Event loop busyness (pushing stuff to the kernel network stack, SSL) takes around 60% of the event loop CPU, 25% of heap allocations, which again feels normal to me.
 -   2.3% of the event loop CPU is our binding to Reactor reactive library, which, again is normal: converting futures and enqueuing tasks takes time.
 
 To mitigate calls to the SPI, we submitted a [change](https://github.com/opensearch-project/opensearch-java/pull/293) to [JsonValueParser.java](https://github.com/opensearch-project/opensearch-java/blob/a8df7e7c26ccc644811539c4fea57d97f1031aaa/java-client/src/main/java/org/opensearch/client/json/jackson/JsonValueParser.java#L52) that addressed the issue. This led to a 50x speedup of the JSON parsing by getting rid of the SPI lookups, not even taking into account the blocking operations... Huge win!
+
+You can download the interactive flame graph that was used to diagnose this issue [here](https://github.com/opensearch-project/opensearch-java/files/10334079/opensearch_2.4.0.zip).
 
 As a common practice we then run micro-benchmarks to validate changes, and [JMH](https://github.com/openjdk/jmh) comes in handy for this! It summarizes key metrics, performs warmup, repeats measurements and comes with nano-second resolution!
 
@@ -120,7 +123,7 @@ public class JMHFieldBench {
 }
 ```
 
-The bench was applied before/after the backport of this PR on top of Apache James CF [apache/james-project@d5af3a5](https://github.com/apache/james-project/commit/d5af3a52cd30eebf7a8fb4d8f2402920c42d5f7c)
+The bench was applied before/after the backport of this PR on top of Apache James CF [apache/james-project@d5af3a5](https://github.com/apache/james-project/commit/d5af3a52cd30eebf7a8fb4d8f2402920c42d5f7c).
 
 ### Collaborating with the OpenSearch community
 
