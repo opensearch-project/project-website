@@ -82,7 +82,6 @@ As with any distributed system, some cluster nodes can fall behind the tolerable
 ## Shard indexing backpressure
 
 When replica nodes start falling behind, the primary node will start applying [shard indexing backpressure](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/shard-indexing-backpressure/) when ingesting new documents, in an attempt to slow down the indexing. Shard indexing backpressure is a smart rejection mechanism at a per-shard level that dynamically rejects indexing requests when your cluster is under strain. It transfers requests from an overwhelmed node or shard to other nodes or shards that are still healthy.
-With shard indexing backpressure, you can prevent nodes in your cluster from running into cascading failures because of performance degradation caused by slow nodes, stuck tasks, resource-intensive requests, traffic surges, or skewed shard allocations. 
 
 ## Enabling segment replication
 
