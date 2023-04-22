@@ -6,6 +6,7 @@ authors:
 - handalm
 - aalkouz
 - kolchfa
+- handler
 date: 2023-04-04
 categories:
  - technical-post
@@ -38,39 +39,49 @@ td{
 }
 </style>
 
-We are excited to announce that segment replication---a new replication strategy introduced as experimental in OpenSearch 2.3---is generally available in version 2.7. Segment replication is an alternative to document replication, where documents are copied from primary shards to their replicas for durability. With document replication, all replica shards need to perform the same indexing operation as the primary shard. With segment replication, only the primary shard performs the indexing operation, creating segment files that are transferred to the replicas. Thus, the heavy indexing workload is performed only on the primary shard, significantly increasing index throughput and lowering compute costs. In this blog post, we will dive deep into the concept of segment replication, its advantages and shortcomings, and planned future enhancements.
+We are excited to announce that segment replication---a new replication strategy introduced as experimental in OpenSearch 2.3---is generally available in version 2.7. Segment replication is an alternative to document replication, where documents are copied from primary shards to their replicas for durability and to increas capacity. With document replication, all replica shards need to perform the same indexing operation as the primary shard. With segment replication, only the primary shard performs the indexing operation, creating segment files that are transferred to the replicas. Thus, the heavy indexing workload is performed only on the primary shard, significantly increasing index throughput and lowering compute costs. In this blog post, we will dive deep into the concept of segment replication, its advantages and shortcomings, and planned future enhancements.
+
+## Core concepts
+
+When you create an index in OpenSearch, you specify the index's _number_of_shards_ (default: 1), called "primary shards", and _number_of_replicas (default:1). Each replica is a full copy of the set of primaries. If you have 5 primaries, and 1 replica, you have 10 total shards in your cluster. The data you send for indexing is randomly hashed across the primary shards, and replicated by the primaries to the replica(s).
+
+Under the covers, each shard is an instance of [Lucene](https://lucene.apache.org/) --- a Java library for reading and writing search indices. Lucene, in-turn, is a file-based, append-only technology. A _segment_ is a portion of a Lucene index in a folder, on disk. Each document you send for indexing is split out across its fields, with indexed data for the fields stored across some 20-30 different structures. Lucene holds these structures in RAM until, eventually they are flushed to disk as a collection of files, called a "segment".
+
+You use replicas for two different purposes --- redundancy and capacity. Your first replica provides a redundant copy of the data in your cluster. OpenSearch guarantees that the primary and the replica are allocated to different nodes in the cluster, meaning that even if you lose a node, you don't lose data from the cluster. OpenSearch can automatically recreate the missing copies of any shards that were on a lost node. (If you are running in the cloud, where the cluster spans isolated data centers ("Availability Zones" in AWS), you can increase resiliency by running with 2 replicas across 3 zones.) The second and subsequent replicas provide additional query capacity. You add more nodes along with the additional replicas to provide further parallelism for query processing. 
 
 ## Document replication
 
-Until version 2.7, OpenSearch achieved durability and search scaling by replicating data, propagating the same indexing operation from the primary node to its replicas. This methodology is known as _document replication_. The advantage of document replication is the low refresh latency between the primary node and replica nodes. However, document replication consumes more CPU power because the workload is duplicated on all nodes.
+For versions before 2.7, OpenSearch propagates source documents from the primary to the replicas for indexing. All operations that affect an OpenSearch index (for example, adding, updating, or removing documents) are routed to the index’s primary shards. The primary shard is responsible for validating the operation and subsequently executing it locally. Once the operation has been completed successfully on the primary shard, the operation is forwarded to each of its replica shards in parallel. Each replica shard executes the forwarded operation, duplicating the processing performed on the primary shard. When the operation has completes (either successfully or with a failure) on every replica and a response has been received by the primary shard, the primary shard responds to the client. The response includes information about replication success or failure on replica shards.
 
-All operations that affect an OpenSearch index (for example, adding, updating, or removing documents) are routed to one of the index’s primary shards. The primary shard is responsible for validating the operation and subsequently executing it locally. Once the operation has been completed successfully on the primary shard, the operation is forwarded to each of its replica shards in parallel. Each replica shard executes the forwarded operation, duplicating the processing performed on the primary shard. When the operation has completed (either successfully or with a failure) on every replica and a response has been received by the primary shard, the primary shard responds to the client. The response includes information about replication success or failure on replica shards. Refer to the following diagram of the document replication process.
+The advantage of document replication is that documents are immediately sent to the replicas, where they become searchable as. The system reaches a consistent state between primaries and replicas as quickly as possible. But, because the indexing operation happens _n_ times (primary + replica count) for each document, document replication consumes more CPU.
+
+Refer to the following diagram of the document replication process.
 
 <img src="/assets/media/blog-images/2023-04-04-segment-replication/document-replication.png" alt="Document replication diagram"/>{: .img-fluid}
 
 ## Segment replication
 
-With segment replication, documents are indexed only once on the node that contains the primary shard. The produced segment files are then copied to all replicas and are made searchable. The underlying Lucene write-once segmented architecture makes copying segments possible: as documents are updated or deleted, new segments are created, but the existing segments are left untouched. Additionally, the cluster only acknowledges index requests once all shards have completed the work. 
+With segment replication, documents are indexed only on the node that contains the primary shard. The produced segment files are then copied directly to all replicas and are made searchable. Segment replication reduces the compute cost for adding, updating, or deleting documents by doing the CPU work only on the nodes with the primary shards. The underlying Lucene append-only indexing makes copying segments possible: as documents are added, updated, or deleted, Lucene creates new segments, but the existing segments are left untouched (deletes are handled with tombstones).
 
-Segment replication aims to reduce compute costs and improve indexing throughput at the expense of possible replication delays and increased network usage. Segment replication uses a node-to-node replication method, where segments are copied directly from primary shards to their replicas. This replication method is enabled per index and operates within the OpenSearch cluster model and sharding strategy. Refer to the following diagram of the segment replication process.
+The advantage of segment replication is that it reduces the CPU usage overall in your cluster by removing the duplicated effort of parsing and processing the data in your documents. But, because all indexing and networking originates on the nodes with primary shards, those nodes become more heavily loaded. Also, nodes with primary shards spend time waiting for segment creation (controlled by the _\_refresh\_interval_) and time sending the segments to the replica, increasing the time before a particular document is consistently searchable on every shard.
+
+You [enable segment replication](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/segment-replication/configuration/) for your cluster and then per index. Refer to the following diagram of the segment replication process.
 
 <img src="/assets/media/blog-images/2023-04-04-segment-replication/segment-replication.png" alt="Segment replication diagram"/>{: .img-fluid}
 
-## Performance
+## Understanding the trade-offs
 
-Compared to document replication, segment replication performs better in OpenSearch cluster deployments with low replica counts, such as those used for log analytics. The low replica count requirement is a limitation of node-to-node (peer-to-peer) replication. For higher replica counts, remote storage integration works better. We are planning to introduce remote storage integration in a future release.
+With segment replication, you can get the same throughput for ingestion with 9 nodes in a cluster as you would get with 15 nodes with document replication. During testing, our experimental release users reported up to 40% higher throughput with segment replication than with document replication for the same cluster setup.
 
-With segment replication, you can get the same throughput ingestion performance with 9 nodes in a cluster as you would get with 15 nodes with document replication. During experimental testing, our experimental release users reported up to 40% higher throughput with segment replication than with document replication for the same cluster setup.
+Compared to document replication, segment replication performs better in OpenSearch cluster deployments with low replica counts, such as those used for log analytics. Segment replication trades CPU for time and networking. The primary is less-frequently, sending larger blocks of data to its replicas. As replica count increases, the primary becomes the bottleneck, doing all of the indexing work, and replicating all of the segments. In our testing, we see an across-the-board improvement for a replica count of 1, decreasing linearly with the replica count. As with all performance results, your mileage will vary! Be sure to test with your own data and queries to determine the benefits for your workload.
 
-## Performance limitations
-
-Segment replication increases data traffic between nodes because of segment copying. As the number of replicas grows, the data traffic and the load on the primary node rise to support the copy function. Thus, a higher data transfer load diminishes the advantage of higher ingestion performance achieved with segment replication at a specific replica count. Another tradeoff of enabling segment replication on an index is increased read-after-write latencies because the primary node has to physically copy the segments to replicas after the data is flushed to disks. The segments are opened to searches only after full segment creation is complete.
+For higher replica counts, remote storage integration works better. In remote storage integration, the primary writes segments to an object store, like Amazon Simple Storage Service (S3). Replicas then load the segments from the object store, in parallel, freeing the node with the primary shard from sending out large data blocks to all of the replicas.  We are planning to introduce remote storage integration in a future release.
 
 As with any distributed system, some cluster nodes can fall behind the tolerable or expected throughput levels. Nodes may not be able to catch up to the primary node for various reasons, such as high local search loads or network congestion. To monitor segment replication performance, see [OpenSearch benchmark](https://github.com/opensearch-project/opensearch-benchmark).
 
 ## Shard indexing backpressure
 
-When replica nodes start falling behind, the primary node will start applying [shard indexing backpressure](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/shard-indexing-backpressure/) when ingesting new documents in an attempt to slow down the indexing. Shard indexing backpressure is a smart rejection mechanism at a per-shard level that dynamically rejects indexing requests when your cluster is under strain. It transfers requests from an overwhelmed node or shard to other nodes or shards that are still healthy.
+When replica nodes start falling behind, the primary node will start applying [shard indexing backpressure](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/shard-indexing-backpressure/) when ingesting new documents, in an attempt to slow down the indexing. Shard indexing backpressure is a smart rejection mechanism at a per-shard level that dynamically rejects indexing requests when your cluster is under strain. It transfers requests from an overwhelmed node or shard to other nodes or shards that are still healthy.
 With shard indexing backpressure, you can prevent nodes in your cluster from running into cascading failures because of performance degradation caused by slow nodes, stuck tasks, resource-intensive requests, traffic surges, or skewed shard allocations. 
 
 ## Enabling segment replication
