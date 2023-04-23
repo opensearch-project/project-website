@@ -10,33 +10,35 @@ meta_keywords: searchable snapshots, search data segment in snapshots, searchabl
 meta_description: Go deeper into the design and implementation of searchable snapshots with OpenSearch, including performance characteristics and future enhancements.
 ---
 
-We are excited to announce the general availability of Searchable Snapshot on the OpenSearch platform. With Searchable Snapshot feature, users can search data segment in snapshots in remote repositories without having to restore the index data in entirety to local disk first. The relevant index data is fetch on-demand on the search request. Searchable Snapshot resembles the UltraWarm Storage Cluster behavior using the OpenSearch cluster itself. Refer to [UltraWarm Storage documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) for details. The system employs caching the data on local disk storage to improve the performance of the search.  In this blog post, we will go deeper into design and implementation details of Searchable snapshot, performance characteristics and future enhancements. 
+The OpenSearch Project is excited to announce the general availability of searchable snapshots in OpenSearch. With searchable snapshots, users can search data segments within snapshots in remote repositories without first having to restore the index data to local storage. The relevant index data is retrieved on-demand with the search request. Searchable snapshots is similar to the UltraWarm storage cluster behavior, using the OpenSearch cluster itself, and employs caching the data on local storage to improve the performance. For further information, see the [UltraWarm Storage documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html). In this blog post, we will cover the design and implementation of searchable snapshots, performance, and future enhancements. 
 
-Before Searchable Snapshot, customers had to  restore the snapshots on the OpenSearch Cluster node to search data in the snapshots. This requires users to beef up the infrastructure with larger OpenSearch Cluster nodes. 
+Before searchable snapshots, users had to restore remote snapshots to the OpenSearch cluster node in order to search the data in the snapshots. This required users to size up their infrastructure with larger OpenSearch nodes. 
 
-The searchable snapshot feature incorporates techniques like caching frequently used data segments in cluster nodes and removing the least used data segment from the cluster nodes to make space for frequently used data segments. The data segments downloaded from snapshots on block storage reside alongside the general indexes of the cluster nodes. As such, the computing capacity of cluster nodes is shared between indexing, local search, and data segments on a snapshot residing on lower-cost object storage like Amazon Simple Storage Service (Amazon S3). While cluster node resources are utilized much more efficiently, the high number of tasks results in slower and longer snapshot searches. The local storage of the node is also used for caching the snapshot data. Users can search snapshots stored in a lower-cost storage like Amazon S3 or Google GCP or Azure at acceptable performance.
+The searchable snapshot feature incorporates techniques like caching frequently used data segments in cluster nodes and removing the least used data segment from the cluster nodes to make space for frequently used data segments. The data segments downloaded from snapshots on block storage reside alongside the general indexes of the cluster nodes. As such, the computing capacity of cluster nodes is shared between indexing, local search, and data segments on a snapshot residing on lower-cost object storage like Amazon Simple Storage Service (Amazon S3). While cluster node resources are utilized much more efficiently, the high number of tasks results in slower and longer snapshot searches. The local storage of the node is also used for caching the snapshot data. As such, users can search snapshots stored in a lower-cost storage like Amazon S3 with acceptable performance.
+
+The following image demonstrates the creation of an index using a remote storage option, such as Amazon S3.
 
 ![Searchable Snapshots](/assets/media/blog-images/search_snap.png){: .img-fluid}
 
-## Enabling Searchable Snapshot in an OpenSearch Cluster
+## Enabling searchable snapshot in OpenSearch
 
-To enable Searchable snapshots, follow the step-by-step instructions (https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/searchable_snapshot/) in the documentation.
+To enable searchable snapshots, reference the [instructions](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/searchable_snapshot/) in the OpenSearch documentation.
 
-## Attaching snapshot for search 
+## Using a snapshot for search
 
-OpenSearch cluster node will fetch the data from the Snapshot and cache it in the node's local storage. The user can configure the amount of storage available for caching snapshot data or let the system use the defaults based on predetermined logic. Any subsequent search on the cached data is served from the node's local store (Cache) without downloading the segment again from the Snapshot, which improves performance.
+OpenSearch cluster nodes will retrieve data from a snapshot and then cache it to the node's local storage. You can then configure the amount of storage available for caching snapshot data, or use the system defaults which are based on predetermined logic. Any subsequent searches on the cached data is then served from the node's local storage, or cache, without the need to download the segment data again from the snapshot, which improves performance.
 
-Whenever there is a search request on data in Snapshot (s) that is not cached, the data is downloaded from the snapshots from the object-store. If their cache is full, OpenSearch uses the Least Recently Used (LRU) is a common caching strategy, the policy to evict data segments from the cache to make room for new segments downloaded from Snapshot when the cache is full, meaning it discards the least recently used items first.
+Whenever there is a search request on data in a snapshot that is not cached, the data is downloaded from the object-store of the snapshot. If a node's cache is full, OpenSearch will use the Least Recently Used (LRU) caching strategy, which will clear data segments from the cache to make room for new segments, clearing out the least recently used items first.
 
 ## Performance
 
-Searchable snapshot provides good search performance/throughout when the cached data is searched again and again. The first read is slow but subsequent search performance are comparable with classic OpenSearch cluster search. The ratio of cache size to the combined size of the searchable snapshot and search pattern will factor into the performance. The higher the cache misses, the lower the overall performance of the searchable snapshot system. Later in the blog, we share the performance results of our benchmarks testing. 
+When cached data is searched repeatedly, searchable snapshots provide a good level of search performance and throughout. The first access of the snapshot data is slow, but subsequent searches are comparable to regular OpenSearch cluster searches. Please note however that the ratio of cache size to the combined size of the searchable snapshot, along with the search pattern, will factor into performance. The more data the cache misses, the lower the overall performance of searchable snapshot will be. In the next section of this blog post, we cover the performance results from our benchmarks testing.
 
-Any snapshots which are enabled for search cannot be deleted until it is searchable flag on these snapshots are disabled. Follow the configuration [steps]({{site.url}}{{site.baseurl}}/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/) to disable the snapshot from search.
+Note that any snapshots that are enabled for search cannot be deleted until the "searchable" flag on these snapshots is removed. Follow the snapshot [configuration steps]({{site.url}}{{site.baseurl}}/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/) in order to remove the snapshot from search.
 
 ## Benchmarks
 
-The OSB benchmark workload is configured for 0 warmup iterations so that the cache is not populated when measurements start. The test aims to achieve 1.5 ops/s. “search_clients” is set to 16 to match the number of processor cores on the service hosts. For searchable snapshots, the test is performed immediately after creating the searchable snapshot index and for UltraWarm, the test is performed immediately after migrating the index to the warm tier so that in both cases the cache is minimally warmed.
+For the following benchmarks, the OpenSearch benchmark workload was configured with 0 warmup iterations so that the cache was not populated when the measurements started. The test aimed to achieve 1.5 operations per second. “search_clients” was configured to 16 to match the number of CPU cores on the hosts. For searchable snapshots, the test was performed immediately after creating the searchable snapshot index. For UltraWarm, the test was performed immediately after migrating the index to the warm tier so that the cache was minimally warmed in both test cases.
 
 <table><colgroup><col /><col /><col /><col /><col /></colgroup>
 <tbody>
@@ -118,16 +120,20 @@ The OSB benchmark workload is configured for 0 warmup iterations so that the cac
 </tbody>
 </table>
 
-The 2.7 OpenSearch release provides capability to search snapshots on their active OpenSearch clusters at acceptable performance similar to UltraWarm. With this, customers can search through less frequency searched indices saved as snapshot without having to restore them on to the cluster. 
+With OpenSearch 2.7, you now have the capability to search snapshots on your OpenSearch cluster with performance similar to UltraWarm. With this, you can search through less frequency accessed indices saved as snapshot without having to restore them on to the cluster beforehand. 
 
-## Caveats
+## Things to consider
 
-- No prefetch logic: In absence of any prefetch algorithm, the data is not fetched until there is an explicit search on the data segment. This will cause every first search to be slow.
-- Managing large search on snapshot, which might slow other OpenSearch Cluster activities like indexing.
+There are a couple of caveats to keep in mind when using searchable snapshots:
 
-## Future plans
+- No prefetch logic: In absence of any prefetch algorithm, data is not fetched until there is an explicit search on the data segment. This will cause every initial search to be slow.
+- When managing large searches on snapshots, other OpenSearch cluster activities like indexing may be slower.
 
-1. Search on remote store index (mutable)
-1. Intelligent prefetch
-1. Safeguards from long/large searches and avoid impact on hot node activities.
-1. Concurrent search to improve the search performance.
+## Future enhancements
+
+Please look forward to the following future enhancements coming to searchable snapshots:
+
+1. Searching on a remote store index (mutable).
+1. Intelligent prefetch.
+1. Safeguards from long or large searches, avoiding impact on hot node activities.
+1. Concurrent search to improve search performance.
