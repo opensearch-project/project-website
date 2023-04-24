@@ -5,6 +5,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: https://opensearch.org
 twitter_username: 
 github_username: 
+mastodon_username:
 headings:
   news: 'News'
   authors: 'Authors'

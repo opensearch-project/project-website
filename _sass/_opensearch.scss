@@ -264,6 +264,10 @@ dl.list-features {
     > div.facebook:hover > svg {fill: #3B5998;}
     > div.twitter:hover > svg {fill: #55ACEE;}
     > div.linkedin:hover > svg {fill: #0077b5;}
+    > div.mastodon:hover > svg {fill: #2b90d9;}
+      
+    }
+    
     > div.mail:hover > svg {fill: #7D7D7D;}
     > div.facebook > svg {
         height: 18px; 
@@ -277,11 +281,16 @@ dl.list-features {
         height: 19px; 
         margin-top: 7px;
     }
+    > div.mastodon > svg {
+        height: 20px;
+        margin-top: 8px;
+      }
+      
     > div.mail > svg {
         height: 14px; 
         margin-top: 11px;
     }
-}
+
 
 .author-social-media {
     a {
@@ -562,21 +571,5 @@ dl.list-features {
         .gitpod-hidden {
             display: none;
         }
-    }
-}
-
-.img__outlined {
-    border-radius: 4px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
-}
-
-.img__no-outline {
-    border-radius: 0;
-    box-shadow: none;
-}
-
-.page--blog-post {
-    img {
-        @extend .img__outlined;
     }
 }

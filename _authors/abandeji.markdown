@@ -3,6 +3,7 @@ short_name: abandeji
 name: Arpit Bandejiya
 github: Arpit-Bandejiya
 linkedin: https://www.linkedin.com/in/arpit-bandejiya/
+mastodon: Arpit-Bandejiya
 photo: "/assets/media/authors/abandeji.jpg"
 ---
 
