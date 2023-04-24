@@ -7,14 +7,14 @@ date:   2023-04-27
 categories:
   - technical-post
 meta_keywords: searchable snapshots, search data segment in snapshots, searchable snapshot index, OpenSearch 2.7
-meta_description: Go deeper into the design and implementation of searchable snapshots with OpenSearch, including performance characteristics and future enhancements.
+meta_description: In OpenSearch 2.7, you can now search snapshots locally on your OpenSearch cluster with performance similar to UltraWarm storage. With searchable snapshots, you can search through less frequently accessed indexes saved as snapshots without having to restore them to the cluster beforehand.
 ---
 
-The OpenSearch Project is excited to announce the general availability of searchable snapshots in OpenSearch. With searchable snapshots, you can search data segments within snapshots in remote repositories without first having to restore the index data to local storage. The relevant index data is retrieved on demand with the search request. Similarly to UltraWarm storage clusters, searchable snapshots behave use the OpenSearch cluster itself, caching data on local storage to improve the performance. For more information, see the [UltraWarm Storage documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html). In this blog post, we will cover the design and implementation of searchable snapshots, their performance, and planned future enhancements. 
+The OpenSearch Project is excited to announce the general availability of searchable snapshots in OpenSearch. With searchable snapshots, you can search data segments within snapshots in remote repositories without first having to restore the index data to local storage. The relevant index data is retrieved on demand with the search request. Similarly to UltraWarm storage clusters, searchable snapshots use the OpenSearch cluster itself, caching data on local storage to improve the performance. For more information, see the [UltraWarm Storage documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html). In this blog post, we will cover the design and implementation of searchable snapshots, their performance, and planned future enhancements. 
 
 Before searchable snapshots, searching the data in remote snapshots required restoring the snapshots to the OpenSearch cluster node. Thus, in order to search snapshots, you had to expand your infrastructure with larger OpenSearch nodes. 
 
-The searchable snapshots feature caches frequently used data segments in cluster nodes, removing the least used data segments from the cluster nodes to make space for frequently used ones. The data segments downloaded from snapshots on block storage reside alongside the general indexes of the cluster nodes. As a result, the computing capacity of cluster nodes is shared between indexing, local search, and searching data segments in a snapshot that resides in lower-cost object storage like Amazon Simple Storage Service (Amazon S3). While cluster node resources are utilized much more efficiently, the large number of tasks results in slower snapshot searches. Additionally, the local storage of the node is used for caching the snapshot data. Therefore, you can search snapshots stored in a lower-cost storage, like Amazon S3, with acceptable performance.
+The searchable snapshots feature caches frequently used data segments in cluster nodes, removing the least used data segments from the cluster nodes to make space for frequently used ones. The data segments downloaded from snapshots on block storage reside alongside the general indexes of the cluster nodes. As a result, the computing capacity of cluster nodes is shared between indexing, local search, and data segment search in a snapshot that resides in lower-cost object storage, like Amazon Simple Storage Service (Amazon S3). While cluster node resources are utilized much more efficiently, the large number of tasks results in slower snapshot searches. Additionally, the local storage of the node is used for caching the snapshot data. Therefore, you can search snapshots stored in lower-cost storage, like Amazon S3, with acceptable performance.
 
 The following image shows the creation of an index using a remote storage option, such as Amazon S3.
 
@@ -120,7 +120,7 @@ For the following benchmarks, the OpenSearch benchmark workload was configured w
 </tbody>
 </table>
 
-In OpenSearch 2.7, you can now search snapshots locally on your OpenSearch cluster with performance similar to UltraWarm storage. With searchable snapshots, you can search through less frequently accessed indexes saved as snapshot without having to restore them to the cluster beforehand. 
+In OpenSearch 2.7, you can now search snapshots locally on your OpenSearch cluster with performance similar to UltraWarm storage. With searchable snapshots, you can search through less frequently accessed indexes saved as snapshots without having to restore them to the cluster beforehand. 
 
 ## Things to consider
 
