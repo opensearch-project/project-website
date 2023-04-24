@@ -57,3 +57,21 @@ collection, giving Amazon OpenSearch Serverless users the ability to use Data Pr
 * For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/2.6/data-prepper/getting-started/).
 * To learn more about the work in progress for Data Prepper 2.3, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
 
+
+## Thanks to our contributors!
+
+The following people contributed to this release. Thank you!
+
+* [ashoktelukuntla](https://github.com/ashoktelukuntla) - Ashok Telukuntla
+* [asifsmohammed](https://github.com/asifsmohammed) - Asif Sohail Mohammed
+* [chenqi0805](https://github.com/chenqi0805) - Qi Chen
+* [cmanning09](https://github.com/cmanning09) - Christopher Manning
+* [dlvenable](https://github.com/dlvenable) - David Venable
+* [engechas](https://github.com/engechas) - Chase Engelbrecht
+* [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
+* [kkondaka](https://github.com/kkondaka) - Krishna Kondaka
+* [KrishnanandSingh](https://github.com/KrishnanandSingh) - Krishnanand Singh
+* [livekn](https://github.com/livekn) - Toby Lam
+* [oeyh](https://github.com/oeyh) - Hai Yan
+* [roshan-dongre](https://github.com/roshan-dongre) - Roshan Dongre 
+* [udaych20](https://github.com/udaych20) - Uday Chintala 
