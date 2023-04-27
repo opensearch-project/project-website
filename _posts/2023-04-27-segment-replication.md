@@ -90,11 +90,25 @@ Refer to the following diagram of the segment replication process.
 
 During testing, our experimental release users reported up to 40% higher throughput with segment replication than with document replication for the same cluster setup. With segment replication, you can get the same throughput for ingestion with 9 nodes in a cluster as you would get with 15 nodes with document replication. 
 
-Compared to document replication, segment replication performs better in OpenSearch cluster deployments with low replica counts, such as those used for log analytics. Segment replication trades CPU usage for time and networking. The primary shard is sending larger blocks of data to its replicas less frequently. As replica count increases, the primary shard becomes the bottleneck, performing all indexing work and replicating all segments. In our testing, we see consistent improvement for a replica count of one. As replica count grows, the improvement decreases linearly. Performance improvement in your cluster depends on the workload, instance types, and configuration. Be sure to test segment replication with your own data and queries to determine the benefits for your workload.
+Segment replication trades CPU usage for time and networking. The primary shard is sending larger blocks of data to its replicas less frequently. As replica count increases, the primary shard becomes the bottleneck, performing all indexing work and replicating all segments. In our testing, we see consistent improvement for a replica count of one. As replica count grows, the improvement decreases linearly. Performance improvement in your cluster depends on the workload, instance types, and configuration. Be sure to test segment replication with your own data and queries to determine the benefits for your workload.
 
 For higher replica counts, remote storage integration works better. In remote storage integration, the primary shard writes segments to an object store, such as Amazon Simple Storage Service (S3). Replicas then load the segments from the object store in parallel, freeing the node with the primary shard from sending out large data blocks to all replicas.  We are planning to introduce remote storage integration in a future release.
 
 As with any distributed system, some cluster nodes can fall behind the tolerable or expected throughput levels. Nodes may not be able to catch up to the primary node for various reasons, such as high local search loads or network congestion. To monitor segment replication performance, see [OpenSearch benchmark](https://github.com/opensearch-project/opensearch-benchmark).
+
+## Segment replication or document replication
+
+Choose **segment replication** if:
+
+- Your cluster deployment has low replica counts (for example, log analytics).
+
+- Your workload prioritizes high ingestion rate with a low search volume.
+
+Choose **document replication** if:
+
+- Your cluster deployment has high replica counts and you value low replication lag. You can validate the replication lag across your cluster with the [CAT Segment Replication API](https://opensearch.org/docs/latest/api-reference-cat/cat-segment-replication/).
+
+See the [Benchmarks](#benchmarks) section for benchmarking test results with various cluster configurations and results discussion.
 
 ## Segment replication backpressure
 
@@ -278,7 +292,7 @@ The following table lists benchmarking results for the `stackoverflow` dataset f
     </tr>
     <tr>
         <td rowspan="2">Index throughput (number of requests per second)</td>
-        <td class="border-rt">p50</td>
+        <td class="border-rt">Median</td>
         <td>72,598.10</td>
         <td>90,776.10</td>
         <td class="border-rt green-clr">25.04%</td>
@@ -287,7 +301,7 @@ The following table lists benchmarking results for the `stackoverflow` dataset f
         <td class="red-clr">&minus;12.74%</td>
     </tr>
     <tr>
-        <td class="border-rt">p100</td>
+        <td class="border-rt">Maximum</td>
         <td>86,130.80</td>
         <td>96,471.00</td>
         <td class="border-rt green-clr">12.01%</td>
@@ -381,7 +395,7 @@ The following table lists benchmarking results for the `stackoverflow` dataset f
     </tr>
 </table>
 
-As the number of replicas grows, the time it takes for primary shards to keep replicas up to date (known as the _replication lag_) increases. This is because with segment replication the segment files are copied directly from primary shards to replicas.  If you need to prioritize keeping replication lag low, segment replication may not be the right choice for your cluster.
+As the number of replicas grows, the time it takes for primary shards to keep replicas up to date (known as the _replication lag_) increases. This is because with segment replication the segment files are copied directly from primary shards to replicas. 
 
 The benchmarking results show a non-zero error rate as the number of replicas increases. The error rate indicates that the [segment replication backpressure](#segment-replication-backpressure) mechanism is initiated at the times when replicas cannot keep up with the primary shard. However, the error rate is offset by the significant CPU and memory gains that segment replication provides.
 
@@ -393,7 +407,7 @@ The following considerations apply to segment replication in the 2.7 release:
 
 - **System indexes** will continue to use document replication internally until read-after-write guarantees are available. In this case, document replication does not hinder the overall performance because there are few system indexes. 
 
-- [Enabling segment replication for an existing index]((https://github.com/opensearch-project/OpenSearch/issues/3685)) requires **reindexing**.
+- [Enabling segment replication for an existing index](https://github.com/opensearch-project/OpenSearch/issues/3685) requires **reindexing**.
 
 
 ## What's next?
