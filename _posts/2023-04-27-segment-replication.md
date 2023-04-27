@@ -104,6 +104,8 @@ Choose **segment replication** if:
 
 - Your workload prioritizes high ingestion rate with a low search volume.
 
+- Your application is not sensitive to replication lag.
+
 Choose **document replication** if:
 
 - Your cluster deployment has high replica counts and you value low replication lag. You can validate the replication lag across your cluster with the [CAT Segment Replication API](https://opensearch.org/docs/latest/api-reference-cat/cat-segment-replication/).
