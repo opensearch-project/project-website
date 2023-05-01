@@ -1,6 +1,10 @@
 ---
+
 layout: fullwidth
 title: Save The Date for OpenSearchCon 2023!
+meta_description: "Save the date for OpenSearchCon 2023!"
+meta_keywords: "save the date, opensearch, open search, opensearchcon, opensearch con, opensearchcon 2023"
+permalink: "/OpenSearchCon2023"
 ---
 
 <div style="text-align: center">
