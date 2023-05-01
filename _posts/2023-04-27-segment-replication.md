@@ -98,17 +98,20 @@ As with any distributed system, some cluster nodes can fall behind the tolerable
 
 ## Segment replication or document replication
 
-Choose **segment replication** if:
+**Segment replication** is best suited for your deployment if:
 
-- Your cluster deployment has low replica counts (for example, log analytics).
+* Your cluster deployment has low replica counts (1--2 replicas). This is typically true for log analytics deployments.
+* Your deployment has a high ingestion rate and relatively low search volume.
+* Your application is not sensitive to replication lag.
+* The network bandwidth between the nodes is ample for the high volume of data transfer between nodes in segment replication configuration.
 
-- Your workload prioritizes high ingestion rate with a low search volume.
+**Document replication** is better for your deployment and segment replication does not work well if:
 
-- Your application is not sensitive to replication lag.
+* Your cluster deployment has high replica counts (more than 3) and you value low replication lag. This is typically true for search deployments. 
+* Deployments that cannot tolerate replication lag. In deployments such as search, where the data consistency between all replicas is critical, we do not recommend segment replication because of its high latency. 
+* In instances of insufficient network bandwidth for expedient data transfer for the number of replicas. 
 
-Choose **document replication** if:
-
-- Your cluster deployment has high replica counts and you value low replication lag. You can validate the replication lag across your cluster with the [CAT Segment Replication API](https://opensearch.org/docs/latest/api-reference-cat/cat-segment-replication/).
+You can validate the replication lag across your cluster with the [CAT Segment Replication API](https://opensearch.org/docs/latest/api-reference-cat/cat-segment-replication/).
 
 See the [Benchmarks](#benchmarks) section for benchmarking test results with various cluster configurations and results discussion.
 
