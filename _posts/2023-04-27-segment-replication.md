@@ -98,17 +98,17 @@ As with any distributed system, some cluster nodes can fall behind the tolerable
 
 ## Segment replication or document replication
 
-**Segment replication** is best suited for your deployment if:
+**Segment replication** is best suited for the following configurations:
 
 * Your cluster deployment has low replica counts (1--2 replicas). This is typically true for log analytics deployments.
 * Your deployment has a high ingestion rate and relatively low search volume.
 * Your application is not sensitive to replication lag.
 * The network bandwidth between the nodes is ample for the high volume of data transfer between nodes in segment replication configuration.
 
-**Document replication** is better for your deployment and segment replication does not work well if:
+We recommend using **document replication** in the following use cases where segment replication does not work well:
 
 * Your cluster deployment has high replica counts (more than 3) and you value low replication lag. This is typically true for search deployments. 
-* Deployments that cannot tolerate replication lag. In deployments such as search, where the data consistency between all replicas is critical, we do not recommend segment replication because of its high latency. 
+* Your deployment cannot tolerate replication lag. In deployments such as search, where the data consistency between all replicas is critical, we do not recommend segment replication because of its high latency. 
 * In instances of insufficient network bandwidth for expedient data transfer for the number of replicas. 
 
 You can validate the replication lag across your cluster with the [CAT Segment Replication API](https://opensearch.org/docs/latest/api-reference-cat/cat-segment-replication/).
@@ -215,7 +215,7 @@ The following table lists benchmarking results for the `nyc_taxi` dataset with t
     </tr>
 </table>
 
-As the size of the workload increases, the benefits of segment replication are amplified because the replicas are not required to index the larger dataset. In general, segment replication leads to a higher throughput at a lower resource cost than document replication in all cluster configurations, not accounting for replication lag. 
+As the size of the workload increases, the benefits of segment replication are amplified because the replicas are not required to index the larger dataset. In general, segment replication leads to higher throughput at lower resource cost than document replication in all cluster configurations, not accounting for replication lag. 
 
 ### Increasing the number of primary shards
 
@@ -400,9 +400,9 @@ The following table lists benchmarking results for the `stackoverflow` dataset f
     </tr>
 </table>
 
-As the number of replicas grows, the time it takes for primary shards to keep replicas up to date (known as the _replication lag_) increases. This is because with segment replication the segment files are copied directly from primary shards to replicas. 
+As the number of replicas increases, the amount of time required for primary shards to keep replicas up to date (known as the _replication lag_) also increases. This is because segment replication copies the segment files directly from primary shards to replicas.
 
-The benchmarking results show a non-zero error rate as the number of replicas increases. The error rate indicates that the [segment replication backpressure](#segment-replication-backpressure) mechanism is initiated at the times when replicas cannot keep up with the primary shard. However, the error rate is offset by the significant CPU and memory gains that segment replication provides.
+The benchmarking results show a non-zero error rate as the number of replicas increases. The error rate indicates that the [segment replication backpressure](#segment-replication-backpressure) mechanism is initiated when replicas cannot keep up with the primary shard. However, the error rate is offset by the significant CPU and memory gains that segment replication provides.
 
 ## Other considerations
 
