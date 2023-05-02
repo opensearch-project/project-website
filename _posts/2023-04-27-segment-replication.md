@@ -6,6 +6,7 @@ authors:
 - handalm
 - aalkouz
 - handler
+- nknize
 - kolchfa
 date: 2023-04-27
 categories:
@@ -56,7 +57,7 @@ td{
 }
 </style>
 
-We are excited to announce that segment replication---a new replication strategy introduced as experimental in OpenSearch 2.3---is generally available in version 2.7. Segment replication is an alternative to document replication, where documents are copied from primary shards to their replicas for durability and to increase capacity. With document replication, all replica shards need to perform the same indexing operation as the primary shard. With segment replication, only the primary shard performs the indexing operation, creating segment files that are transferred to the replicas. Thus, the heavy indexing workload is performed only on the primary shard, significantly increasing index throughput and lowering compute costs. In this blog post, we will dive deep into the concept of segment replication, its advantages and shortcomings, and planned future enhancements.
+We are excited to announce that segment replication---a new replication strategy introduced as experimental in OpenSearch 2.3---is generally available in version 2.7. Segment replication is an alternative to document replication, where documents are copied from primary shards to their replicas for durability and to increase capacity. With document replication, all replica shards need to perform the same indexing operation as the primary shard. With segment replication, only the primary shard performs the indexing operation, creating segment files that are transferred to the replicas. Thus, the heavy indexing workload is performed only on the primary shard, significantly increasing index throughput and lowering compute costs. Segment replication performs well in configurations with low replica counts, high ingestion demand, and replication lag tolerance. In this blog post, we will dive deep into the concept of segment replication, its advantages and shortcomings, and planned future enhancements. To find out if segment replication is the right choice for your use case, see [Segment replication or document replication](#segment-replication-or-document-replication).
 
 ## Core concepts
 
@@ -86,13 +87,17 @@ Refer to the following diagram of the segment replication process.
 
 <img src="/assets/media/blog-images/2023-04-27-segment-replication/segment-replication.png" alt="Segment replication diagram"/>{: .img-fluid}
 
-## Understanding the tradeoffs
+## Segment repication test results
 
-During testing, our experimental release users reported up to 40% higher throughput with segment replication than with document replication for the same cluster setup. With segment replication, you can get the same throughput for ingestion with 9 nodes in a cluster as you would get with 15 nodes with document replication. 
+During benchmark ingestion testing with 10 primary shards and 1 replica on the `stackoverflow` dataset, we saw up to 25% increase in throughput of the ingestion rate with segment replication over document replication. For detailed benchmarking results, see the [Benchmarks](#benchmarks) section.
+
+Our experimental release users reported up to 40% higher throughput with segment replication than with document replication for the same cluster setup. With segment replication, you can get the same throughput for ingestion with 9 nodes in a cluster as you would get with 15 nodes with document replication. 
+
+## Understanding the tradeoffs
 
 Segment replication trades CPU usage for time and networking. The primary shard is sending larger blocks of data to its replicas less frequently. As replica count increases, the primary shard becomes the bottleneck, performing all indexing work and replicating all segments. In our testing, we see consistent improvement for a replica count of one. As replica count grows, the improvement decreases linearly. Performance improvement in your cluster depends on the workload, instance types, and configuration. Be sure to test segment replication with your own data and queries to determine the benefits for your workload.
 
-For higher replica counts, remote storage integration works better. In remote storage integration, the primary shard writes segments to an object store, such as Amazon Simple Storage Service (S3). Replicas then load the segments from the object store in parallel, freeing the node with the primary shard from sending out large data blocks to all replicas.  We are planning to introduce remote storage integration in a future release.
+For higher replica counts, remote storage integration works better. In remote storage integration, the primary shard writes segments to an object store, such as Amazon Simple Storage Service (S3), Google Cloud Storage, or Azure Blob Storage. Replicas then load the segments from the object store in parallel, freeing the node with the primary shard from sending out large data blocks to all replicas.  We are planning to introduce remote storage integration in a future release.
 
 As with any distributed system, some cluster nodes can fall behind the tolerable or expected throughput levels. Nodes may not be able to catch up to the primary node for various reasons, such as high local search loads or network congestion. To monitor segment replication performance, see [OpenSearch benchmark](https://github.com/opensearch-project/opensearch-benchmark).
 
