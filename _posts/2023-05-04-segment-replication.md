@@ -12,7 +12,7 @@ date: 2023-05-04
 categories:
  - technical-post
 meta_keywords: segment replication, document replication, document-based replication, cross-cluster replication
-meta_description: Learn how OpenSearch segment replication increases index throughout and lowers compute costs by performing heavy indexing workloads only on primary shards.
+meta_description: Learn how OpenSearch segment replication increases index throughput and lowers compute costs by performing heavy indexing workloads only on primary shards.
 
 excerpt: We are excited to announce that segment replication---a new replication strategy introduced as experimental in OpenSearch 2.3---is generally available in OpenSearch 2.7. Implemented as an alternative to document replication, segment replication significantly increases indexing throughput while lowering compute costs for many use cases. With document replication, all replica nodes (referred to as a _replica group_) perform the same indexing operation as the primary node. With segment replication, only the primary node performs the indexing operation, creating segment files that are copied remotely to each node in the replica group. In this replication design, the heavy indexing workload is performed only on the primary node, freeing up resources on the replicas for scaling out other operations. In this blog post, we dive deep into the concept of segment replication, advantages and shortcomings as compared to document replication, and planned future enhancements.
 has_science_table: true
