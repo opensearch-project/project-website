@@ -87,7 +87,7 @@ Refer to the following diagram of the segment replication process.
 
 <img src="/assets/media/blog-images/2023-05-04-segment-replication/segment-replication.png" alt="Segment replication diagram"/>{: .img-fluid}
 
-## Segment repication test results
+## Segment replication test results
 
 During benchmark ingestion testing with 10 primary shards and 1 replica on the `stackoverflow` dataset, segment replication provided an increased ingestion rate throughput of up to 25% as compared to document replication. For detailed benchmarking results, see the [Benchmarks](#benchmarks) section.
 
