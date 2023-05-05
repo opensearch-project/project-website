@@ -1,0 +1,76 @@
+backend:
+  name: github
+  repo: "nateynateynate/project-website"
+  branch: "decap-cms"
+
+publish_mode: editorial_workflow
+media_folder: "assets/media/blog-images"
+
+collections:
+  - name: "blogs"
+    label: "Blog"
+    folder: "_posts/"
+    summary: "{{year}}-{{month}}-{{day}}: {{title}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true
+    editor:
+      preview: false
+    format: frontmatter
+    fields: 
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "Excerpt", name: "excerpt", widget: "string", required: false}
+      - {label: "Meta Description", name: "meta_description", widget: "string", required: true }
+      - {label: "Meta Keywords", name: "meta_keywords", widget: "string", required: true}
+      - {label: "Featured Image", name: "feature_image", widget: "image", required: true}
+      - {label: "Authors", name: "authors", widget: "list",  multiple: true}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Title", name: "title", widget: "string"}		
+      - {label: "Categories", name: "categories", widget: "list", multiple: true}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: 'authors'
+    label: 'Authors'
+    folder: '_authors/'
+    create: true
+    editor:
+      preview: false
+    extension: "markdown"
+    format: frontmatter
+    fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'author' }
+      - { label: 'Short Name', name: 'name', widget: 'string' }
+      - { label: 'Photo', name: "photo", widget: "image" }
+      - { label: 'Twitter Handle', name: "twitter", widget: "string" }
+      - { label: 'Github Handle', name: "github", widget: "string" }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'events'
+    label: 'Events'
+    summary: '{{fields.title}}: {{fields.eventdate}}'
+    folder: '_events/'
+    create: true
+    editor: 
+      preview: false
+    extension: "markdown"
+    format: "frontmatter"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Event Title", name: 'title', widget: 'string', default: 'Event Title' }
+      - { label: "Event Date", name: 'eventdate', widget: 'datetime', default: '' }
+      - { label: "Time Zone", name: "tz", widget: 'string', default: 'UTC -8' }
+      - { label: "Signup", name: "signup", widget: 'object', fields: [{ label: "Signup URL", name: "url", widget: "string" },{ label: "Signup Title", name: "title", widget: "string" }] }
+      - { label: "Content", name: "body", widget: 'markdown' }
+
+  - name: 'herobanners'
+    label: 'Hero Banners'
+    folder: '_herobanners/'
+    summary: "{{body}}"
+    create: true
+    editor:
+      preview: true
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Content", name: "body", widget: "markdown" }
+
