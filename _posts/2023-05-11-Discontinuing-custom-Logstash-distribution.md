@@ -3,7 +3,7 @@ layout: post
 title:  "Discontinuing the custom Logstash distribution"
 authors:
 - dlv
-date: 2023-04-11 12:30:00 -0500
+date: 2023-05-11 12:30:00 -0500
 ---
 
 One of the core [OpenSearch project principles](https://opensearch.org/about.html) is to be used everywhere. 
