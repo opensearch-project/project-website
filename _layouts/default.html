@@ -5,7 +5,13 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
 
-  <body id="{{ page.sectionid }}" class="{{ page.body_class }}">
+  {% if page.layout == 'post' %}
+    {% assign page_type_class = 'page--blog-post' %}
+  {% else %}
+    {% assign page_type_class = '' %}
+  {% endif %}
+
+  <body id="{{ page.sectionid }}" class="{{ page.body_class }} {{ page_type_class }}">
     {%- include header.html -%}
     
     {{ content }}

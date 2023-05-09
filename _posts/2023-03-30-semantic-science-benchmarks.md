@@ -13,34 +13,9 @@ meta_keywords: semantic search engine, neural search engine, keyword and natural
 meta_description: Learn how to create a semantic search engine in OpenSearch, including architecture and model options, benchmarking tests, and effects of different combination strategies and normalization protocols.
 
 excerpt: In an earlier blog post, we described different ways of building a semantic search engine in OpenSearch. In this post, we'll dive further into the science behind it. We'll discuss the benefits of combining keyword-based search with neural search, the architecture and model options, and benchmarking tests and results. First, we'll provide an overview of our proposed solutions and a summary of the main results. Next, we'll outline the steps for creating a solution and fine-tuning it for your own document corpus. Finally, we'll discuss the effects of different combination strategies and normalization protocols on search relevance. 
+has_math: true
+has_science_table: true
 ---
-
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-<style>
-table{
-    border:2px solid #e6e6e6;
-    display: block;
-    max-width: -moz-fit-content;
-    max-width: fit-content;
-    margin: 0 auto;
-    overflow-x: auto;
-}
-
-th{
-    border:2px solid #e6e6e6;
-    padding: 5px;
-    text-align: center;
-}
-
-td{
-    border:1px solid #e6e6e6;
-    padding: 10px;
-    text-align: center;
-}
-</style>
 
 In an earlier [blog post](https://opensearch.org/blog/semantic-search-solutions/), we described different ways of building a semantic search engine in OpenSearch. In this post, we'll dive further into the science behind it. We'll discuss the benefits of combining keyword-based search with neural search, the architecture and model options, and benchmarking tests and results:
 - In [Section 1](#section-1-overview), we provide an overview of our proposed solutions and a summary of the main results. 

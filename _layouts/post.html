@@ -1,5 +1,7 @@
 ---
 layout: default
+has_math: false
+has_science_table: false
 ---
 {% assign primary_title = site.headings.news %}
 {% assign layout_class = 'sidebar-right' %}
@@ -46,3 +48,6 @@ layout: default
 
 {% include copy_banner.html %}
 {% include base_3col.html %}
+{% if page.has_math == true %}
+    {%- include include-mathjax.html -%}
+{% endif %}
