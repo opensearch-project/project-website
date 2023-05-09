@@ -39,7 +39,7 @@ The following table presents the time in seconds taken to scan approximately 36 
 | First scan | 588 | 1233 |
 | Repeat scan | 590 | 641 |
 
-Note that searchable snapshots cannot be deleted until the `searchable` flag on these snapshots is removed. Follow the snapshot [configuration steps]({{site.url}}{{site.baseurl}}/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/) in order to remove the flag.
+Note that searchable snapshots cannot be deleted until the `searchable` flag on these snapshots is removed. Follow the snapshot [configuration steps](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/) in order to remove the flag.
 
 ## Benchmarks
 
