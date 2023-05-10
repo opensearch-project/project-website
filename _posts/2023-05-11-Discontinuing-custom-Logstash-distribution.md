@@ -7,7 +7,7 @@ date: 2023-05-11 12:30:00 -0500
 meta_description: The OpenSearch Project will continue to provide Logstash plugins while discontinuing the custom distribution.
 ---
 
-One of the core [OpenSearch Project principles](https://opensearch.org/about.html) includes being used everywhere: in businesses, software, and projects.
+One of the core [OpenSearch Project principles](https://opensearch.org/about.html) is that OpenSearch can be used everywhere: in businesses, software, and projects.
 Among the many people already using OpenSearch, a large number use the data processing pipeline [Logstash](https://www.elastic.co/logstash/).
 To help OpenSearch reach more people, we provide two Logstash plugins so that OpenSearch users can ingest data to and from OpenSearch using Logstash. 
 Those two plugins are [logstash-output-opensearch](https://github.com/opensearch-project/logstash-output-opensearch) and [logstash-input-opensearch](https://github.com/opensearch-project/logstash-input-opensearch).  
