@@ -4,6 +4,7 @@ title:  "Discontinuing the custom Logstash distribution"
 authors:
 - dlv
 date: 2023-05-11 12:30:00 -0500
+meta_description: OpenSearch project will continue to provide Logstash plugins while discontinuing the custom distribution.
 ---
 
 One of the core [OpenSearch project principles](https://opensearch.org/about.html) is to be used everywhere.
