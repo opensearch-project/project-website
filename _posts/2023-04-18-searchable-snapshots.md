@@ -22,7 +22,7 @@ The searchable snapshots feature caches frequently used data segments in cluster
 
 The following image shows the creation of an index using a remote storage option, such as Amazon S3.
 
-![Searchable Snapshots](/assets/media/blog-images/search_snap.png){: .img-fluid}
+![Searchable Snapshots](/assets/media/blog-images/2023-04-27-searchable-snapshots/searchable-snapshot.png){: .img-fluid}
 
 ## Enabling searchable snapshots in OpenSearch
 
