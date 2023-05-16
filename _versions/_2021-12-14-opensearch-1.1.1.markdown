@@ -20,12 +20,8 @@ components:
     version: 1.1.0
   -
     role: ingest
-    artifact: logstash-oss-with-opensearch-output-plugin
-    version: 8.6.1
-  -
-    role: ingest
     artifact: data-prepper
-    version: data-prepper-2.1.1
+    version: data-prepper-2.2.1
     platform_order:
       - docker
       - linux
@@ -33,6 +29,10 @@ components:
       - windows
       - freebsd
       - java
+  -
+    role: ingest
+    artifact: logstash-oss-with-opensearch-output-plugin
+    version: 8.6.1
   -
     role: minimal-artifacts
     artifact: opensearch-min
