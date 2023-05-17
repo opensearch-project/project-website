@@ -39,7 +39,7 @@ The following table presents the time in seconds taken to scan approximately 36 
 | First scan | 588 | 1233 |
 | Repeat scan | 590 | 641 |
 
-Note that in order to delete a snapshot you must first delete all searchable snapshots created from that snapshot. 
+Note that in order to delete a snapshot you must first delete all searchable snapshot indexes created from that snapshot. 
 
 ## Benchmarks
 
