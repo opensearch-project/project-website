@@ -18,7 +18,7 @@ The OpenSearch Project is excited to announce the general availability of search
 
 Before searchable snapshots, searching data within a snapshot required restoring the entire snapshot to the OpenSearch cluster node. This involved expanding your infrastructure, which is costly and time-consuming. 
 
-The searchable snapshots feature caches frequently used data segments in cluster nodes, using the Least Recently Used (LRU) caching strategy to remove the least used data segments from the cluster nodes in order to make space for frequently used ones. The data segments downloaded from snapshots on block storage reside alongside the general indexes of the cluster nodes. The local storage of the node is used for caching the snapshot data. Any subsequent searches on the cached data perform better because they are served from the node's local storage, or cache, without the need to redownload the segment data from the snapshot. Therefore, you can search snapshots stored in lower-cost storage, like Amazon S3, with acceptable performance. 
+The searchable snapshots feature caches frequently used data blocks in cluster nodes, using the Least Recently Used (LRU) caching strategy to remove the data blocks that are not accessed anymore in order to make space for the ones that are currently used. The data blocks downloaded from snapshots using the block mechanism reside alongside the general indexes of the cluster nodes. The local storage of the node is used for caching the data downloaded from the snapshot. Any subsequent searches on the cached data perform better because they are served from the node's local storage, or cache, without the need to redownload the segment data from the snapshot. Therefore, you can search snapshots stored in lower-cost storage, like Amazon S3, with acceptable performance. 
 
 The following image shows the creation of an index using a remote storage option, such as Amazon S3.
 
@@ -39,11 +39,11 @@ The following table presents the time in seconds taken to scan approximately 36 
 | First scan | 588 | 1233 |
 | Repeat scan | 590 | 641 |
 
-Note that searchable snapshots cannot be deleted until the `searchable` flag on these snapshots is removed. Follow the snapshot [configuration steps](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/) in order to remove the flag.
+Note that in order to delete a snapshot you must first delete all searchable snapshots created from that snapshot. 
 
 ## Benchmarks
 
-For the following benchmarks, the OpenSearch benchmark workload was configured with 0 warmup iterations so that the cache was not populated when the measurements started. The test aimed to achieve 1.5 operations per second. `search_clients` was configured to 16 to match the number of CPU cores on the hosts. For searchable snapshots, the test was performed immediately after creating the searchable snapshot index. 
+The benchmark data was collected using the [`nyc_taxi`](https://github.com/topics/nyc-taxi-dataset) dataset. For the following benchmarks, the OpenSearch benchmark [nyc_taxis workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/nyc_taxis) was configured with 0 warmup iterations so that the cache was not populated when the measurements started. The test aimed to achieve 1.5 operations per second. `search_clients` was configured to 16 to match the number of CPU cores on the hosts. For searchable snapshots, the test was performed immediately after creating the searchable snapshot index. 
 
 | | **Local index** | **Searchable snapshot** | 
 | :--- | --- | --- |
