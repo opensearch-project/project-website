@@ -71,7 +71,7 @@ layout: default
       </a>
       {% endif %}
       <a href="{{ page.ctas.roadmap.url }}" class="link-readmore" target="_blank">{{ page.ctas.roadmap.text }}</a>
-      {% assign versions = site.versions | sort: 'version_sort' | reverse %}
+      {% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
       {% assign latest = versions | first %}
       {% assign previous_major = latest.version | split: "." | first | plus: -1 %}
       {% for version in versions %}
