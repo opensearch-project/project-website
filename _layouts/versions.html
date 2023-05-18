@@ -283,7 +283,7 @@ this is the built-in error checking for the version definition having missing ar
 <hr />
 {% assign major_version =  page.version | split: "." | first %}
 Releases in the {{major_version}}.x line: <br />
-{% assign versions = site.versions | sort: 'version_sort' | reverse %}
+{% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
 {% assign first_version_in_line = true %}
 {% for version in versions %}
     {% assign this_major_version =  version.version | split: "." | first %}

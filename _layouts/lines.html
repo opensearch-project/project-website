@@ -6,7 +6,7 @@ layout: default
 {% capture content %}
 
 <ul>
-{% assign versions = site.versions | sort: 'version_sort' | reverse %}
+{% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
     {% for version in versions %}
         {% assign major_version =  version.version | split: "." | first %}
         {% if major_version == page.major_version %}
