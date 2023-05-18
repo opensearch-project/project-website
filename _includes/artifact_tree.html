@@ -9,7 +9,8 @@
             {% for artifacts in architecture_group %}
               <li>{{ platform_group.name }}-{{ artifacts.name }}
                 <ul class="tree">
-                  {% for artifact in artifacts.items %}
+                  {% assign artifacts_items = artifacts.items | sort_versions: "version" %}
+                  {% for artifact in artifacts_items %}
                     {% if artifact.link %}
                       <li><a href="{{ artifact.link }}">{{ artifact.link }}</a> [External]</li>
                     {% elsif artifact.artifact_url %}                   

@@ -5,5 +5,5 @@ redirect_from:
 - /download.html
 notice: true
 ---
-{% assign the_version = site.versions | sort: 'version_sort' | last %}
+{% assign the_version = site.versions | sort_versions: 'version_sort' | last %}
 {{ the_version }}
