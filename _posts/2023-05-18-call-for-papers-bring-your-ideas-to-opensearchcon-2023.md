@@ -12,11 +12,7 @@ title: "Call for papers: Bring your ideas to OpenSearchCon 2023!"
 categories:
   - community
 ---
-
-
-### Call for papers: Bring your ideas to OpenSearchCon 2023!
-
-The [call for papers](https://opensearch.org/opensearchcon2023-cfp.html)for OpenSearchCon 2023 is now live! This year’s conference dedicates three tracks to topics the OpenSearch community cares about. We invite you to submit your submit your best ideas for these tracks (or: for any of the following topics):
+The [call for papers](https://opensearch.org/opensearchcon2023-cfp.html) for OpenSearchCon 2023 is now live!  This year’s conference dedicates three tracks to topics the OpenSearch community cares about. We invite you to submit your submit your best ideas for these tracks (or: for any of the following topics):
 
 **Search**: Connect with other search and relevance practitioners with demos, deep dives, or new and novel techniques for building rich search applications. 
 
@@ -28,9 +24,4 @@ The call for papers **closes June 9,** so we encourage you to get your submissio
 
 The [call for papers page](https://opensearch.org/opensearchcon2023-cfp.html) has more details and a link to the submission form. If you have any questions, please reach out to us at [opensearchcon@amazon.com](mailto:opensearchcon@amazon.com)
 
-
-
-
-
-
-
+![see you at opensearchcon 2023](/assets/media/blog-images/see_you_at_opensearchcon_2023.png "opensearchcon 2023")
