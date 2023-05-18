@@ -19,8 +19,8 @@ collections:
     fields: 
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Excerpt", name: "excerpt", widget: "string", required: false}
-      - {label: "Meta Description", name: "meta_description", widget: "string", required: true }
-      - {label: "Meta Keywords", name: "meta_keywords", widget: "string", required: true}
+      - {label: "Meta Description", name: "meta_description", widget: "text", required: true }
+      - {label: "Meta Keywords", name: "meta_keywords", widget: "text", required: true}
       - {label: "Featured Image", name: "feature_image", widget: "image", required: true}
       - {label: "Authors", name: "authors", widget: "list",  multiple: true}
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
