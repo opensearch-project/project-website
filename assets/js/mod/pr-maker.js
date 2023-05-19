@@ -65,7 +65,7 @@ link: ${companyLink}
                 $('#createPR')
                     .attr('href',template);
                 $('#createPartnerPR')
-                    .attr('href',template);
+                    .attr('href',partnertemplate);
             };
             $('.active-input').change(createUrl);
 
