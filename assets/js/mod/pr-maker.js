@@ -59,10 +59,13 @@ link: ${companyLink}
                 let filename = encodeURIComponent(fileName);
                 let body = encodeURIComponent(body_markdown);
                 template = `https://github.com/opensearch-project/project-website/new/main/_community_projects?message=${message}&description=${dco}&filename=${filename}&target_branch=${branch}&value=${body}`;
+                partnerTemplate = `https://github.com/opensearch-project/project-website/new/main/_partners?message=${message}&description=${dco}&filename=${filename}&target_branch=${branch}&value=${body}`;
 
 
                 $('#createPR')
                     .attr('href',template);
+				$('#createPartnerPR')
+					.attr('href', partnerTemplate);
             };
             $('.active-input').change(createUrl);
 
