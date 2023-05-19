@@ -18,7 +18,7 @@ The [call for presentations](https://opensearch.org/opensearchcon2023-cfp.html) 
 
 **Analytics, Security, and Observability:** Deploying observability tools at scale? Using OpenSearch to turn log data into insights, or to help protect your infrastructure? We want to hear from you!
 
-**Community**: Engage a community of builders on a topic that means something to you. Anything that might educate and inspire a community of open search technologists is up for consideration here.
+**Community**: Engage a community of builders on a topic that means something to you. Anything that might educate and inspire a community of open source technologists is up for consideration here.
 
 The call for presentations **closes June 9,** so we encourage you to get your submissions in soon.
 
