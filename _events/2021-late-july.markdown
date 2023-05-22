@@ -1,6 +1,5 @@
 ---
-eventdate: 2021-07-27T09:00
-tz: UTC -7
+eventdate: 2021-07-27 09:00:00 -0700
 title: OpenSearch Community Meeting - Late July
 online: true
 signup:

@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2023-06-07T18:30
-tz: UTC -5
+eventdate: 2023-06-07 18:30:00 -0500
 title: Chicago Search Meetup Launch Event with Bonsai, OpenSearch, and Spantree
 online: false
 signup:
