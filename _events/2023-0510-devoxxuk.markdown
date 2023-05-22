@@ -1,6 +1,6 @@
 ---
 
-eventdate: 2023-05-10 - 2023-05-12
+eventdate: 2023-05-10T08:00:00
 tz: UTC
 title: Using Apache Kafka and OpenSearch to explore Mastodon
 online: false
