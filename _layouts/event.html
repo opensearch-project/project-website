@@ -22,8 +22,7 @@ body_class: events-page
 {% capture content_related %}
 <div role="complementary">
     <p>
-        <strong>Date:</strong>  {{page.eventdate | date: "%a, %b %d, %Y "}} <br />
-        <strong>Time:</strong> {{page.eventdate | date: "%H:%M"}} ({{page.tz}})
+        <strong>Date:</strong> <span class="locale-datetime" data-tz="{{page.tz}}">{{page.eventdate | date_to_rfc822}}</span>
     </p>
     <a href="{{page.signup.url}}" class="cta" target="_blank">{{page.signup.title}}</a>
 </div>
