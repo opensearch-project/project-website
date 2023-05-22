@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2023-04-26T13:30
-tz: UTC-8
+eventdate: 2023-04-26 13:30:00 -0800
 title: Upgrading Log-Analytics Clusters to OpenSearch
 online: false
 signup:

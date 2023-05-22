@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2023-03-07T09:00
-tz: UTC -5
+eventdate: 2023-03-07 09:00:00 -0500
 title: Partner Event - OpenSearch Unplugged - Observability and Search 
 online: false
 signup:

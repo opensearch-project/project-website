@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2022-11-07T08:00
-tz: UTC +2
+eventdate: 2022-11-07 08:00:00 +0200
 title: Ubuntu Summit - 2022-11-07 through 11-09
 online: false
 signup:

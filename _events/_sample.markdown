@@ -1,8 +1,6 @@
 ---
 # put your event date and time (24 hr) here:
-eventdate: 2021-01-01T12:34
-# the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
-tz: UTC -7
+eventdate: 2021-01-01 12:34:00 -0700
 # the title - this is how it will show up in listing and headings on the site:
 title: Your Event Title
 # if your event has an online component, put it here:
