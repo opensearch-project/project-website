@@ -63,7 +63,9 @@ In OpenSearch 2.7, you can now search snapshots locally on your OpenSearch clust
 
 ## When to use searchable snapshots
 
-Use searchable snapshots with less frequently accessed data that is not sensitive to latency.
+Use searchable snapshots on read-only data that is not sensitive to latency during first-time access. This works well for log analytics use cases where older data is not modified and is generally queried less than the newest data.
+
+Industries like legal practices and healthcare require data to be retained for set amounts of time. In this case, searchable snapshots can be a lightweight mechanism to search historical data stored in snapshots. When you need to search older data, you can restore its snapshot to the hot cluster to enable searching. With searchable snapshots, you can use the snapshot for searching with an expectation that the search is going to be slower.
 
 ## Things to consider
 
