@@ -4,6 +4,7 @@ title:  "Searchable snapshots are generally available in OpenSearch 2.7"
 authors:
   - satnandi
   - andrross
+  - kolchfa
 date:   2023-04-27
 categories:
   - technical-post
@@ -18,9 +19,11 @@ The OpenSearch Project is excited to announce the general availability of search
 
 Before searchable snapshots, searching data within a snapshot required restoring the entire snapshot to the OpenSearch cluster node. This involved expanding your infrastructure, which is costly and time-consuming. 
 
-The searchable snapshots feature caches frequently used data blocks in cluster nodes, using the Least Recently Used (LRU) caching strategy to remove the data blocks that are not accessed anymore in order to make space for the ones that are currently used. The data blocks downloaded from snapshots using the block mechanism reside alongside the general indexes of the cluster nodes. The local storage of the node is used for caching the data downloaded from the snapshot. Any subsequent searches on the cached data perform better because they are served from the node's local storage, or cache, without the need to redownload the segment data from the snapshot. Therefore, you can search snapshots stored in lower-cost storage, like Amazon S3, with acceptable performance. 
+With searchable snapshots, you can search snapshots locally on your OpenSearch cluster. This way, you can search through less frequently accessed indexes saved as snapshots without having to restore them to the cluster beforehand. 
 
-The following image shows the creation of an index using a remote storage option, such as Amazon S3.
+The searchable snapshots feature caches frequently used data blocks in cluster nodes, using the Least Recently Used (LRU) caching strategy to remove the data blocks that are not accessed anymore in order to make space for the ones that are currently used. The data blocks downloaded from snapshots using the block mechanism reside alongside the general indexes of the cluster nodes. The local storage of the node is used for caching the data downloaded from the snapshot. Any subsequent searches on the cached data perform better because they are served from the node's local storage, or cache, without the need to redownload the segment data from the snapshot. Therefore, you can search snapshots stored in lower-cost storage, such as Amazon Simple Storage Service (Amazon S3), Google Cloud Storage, or Azure Blob Storage, with acceptable performance. 
+
+The following image shows the creation of an index using a remote storage option, such as Amazon S3, Google Cloud Storage, or Azure Blob Storage.
 
 ![Searchable Snapshots](/assets/media/blog-images/2023-04-27-searchable-snapshots/searchable-snapshot.png){: .img-fluid}
 
@@ -59,11 +62,9 @@ The benchmark data was collected using the [`nyc_taxi`](https://github.com/topic
 | p99.9 | 2,212.63 | 20,595.50 | 
 | p100 | 2,212.72 | 20,596.00 | 
 
-In OpenSearch 2.7, you can now search snapshots locally on your OpenSearch cluster. With searchable snapshots, you can search through less frequently accessed indexes saved as snapshots without having to restore them to the cluster beforehand. 
-
 ## When to use searchable snapshots
 
-Use searchable snapshots on read-only data that is not sensitive to latency during first-time access. This works well for log analytics use cases where older data is not modified and is generally queried less than the newest data.
+Use searchable snapshots on infrequently accessed read-only data that is not sensitive to latency during first-time access. This works well for log analytics use cases where older data is not modified and is generally queried less than the newest data.
 
 Industries like legal practices and healthcare require data to be retained for set amounts of time. In this case, searchable snapshots can be a lightweight mechanism to search historical data stored in snapshots. When you need to search older data, you can restore its snapshot to the hot cluster to enable searching. With searchable snapshots, you can use the snapshot for searching with an expectation that the search is going to be slower.
 
