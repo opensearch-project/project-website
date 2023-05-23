@@ -12,7 +12,7 @@ title: "Call for presentations: Bring your ideas to OpenSearchCon 2023!"
 categories:
   - community
 ---
-The [call for presentations](https://opensearch.org/opensearchcon2023-cfp.html) for OpenSearchCon 2023 is now live!  This year’s conference dedicates three tracks to topics the OpenSearch community cares about. We invite you to submit your best ideas for any of the following topics:
+The [call for presentations](https://opensearch.org/opensearchcon2023-cfp.html) for OpenSearchCon 2023 is now live! OpenSearchCon will be held in Seattle, Sept. 28, 2023 at the Sheraton Grand Seattle hotel! This year’s conference dedicates three tracks to topics the OpenSearch community cares about. We invite you to submit your best ideas for any of the following topics:
 
 **Search**: Connect with other search and relevance practitioners with demos, deep dives, or new and novel techniques for building rich search applications. 
 
