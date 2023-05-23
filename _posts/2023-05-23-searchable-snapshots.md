@@ -5,7 +5,7 @@ authors:
   - satnandi
   - andrross
   - kolchfa
-date:   2023-04-27
+date:   2023-05-23
 categories:
   - technical-post
 meta_keywords: searchable snapshots, search data segment in snapshots, searchable snapshot index, OpenSearch 2.7
@@ -25,7 +25,7 @@ The searchable snapshots feature caches frequently used data blocks in cluster n
 
 The following image shows the creation of an index using a remote storage option, such as Amazon S3, Google Cloud Storage, or Azure Blob Storage.
 
-![Searchable Snapshots](/assets/media/blog-images/2023-04-27-searchable-snapshots/searchable-snapshot.png){: .img-fluid}
+![Searchable Snapshots](/assets/media/blog-images/2023-05-23-searchable-snapshots/searchable-snapshot.png){: .img-fluid}
 
 ## Enabling searchable snapshots in OpenSearch
 
