@@ -13,11 +13,11 @@ meta_description: In OpenSearch 2.7, you can now search snapshots locally on you
 has_science_table: true
 ---
 
-The OpenSearch Project is excited to announce the general availability of searchable snapshots in OpenSearch. With searchable snapshots, you can search indexes that are stored as snapshots within remote repositories in real time without the need to restore the index data to local storage ahead of time. The relevant index data is retrieved on demand with the search request. Searchable snapshots cache data on local storage to improve the performance. In this blog post, we will cover the design and implementation of searchable snapshots, their performance, and planned future enhancements. 
+The OpenSearch Project is excited to announce the general availability of searchable snapshots in OpenSearch. With searchable snapshots, you can search indexes that are stored as snapshots within remote repositories in real time without the need to restore the index data to local storage ahead of time. The relevant index data is retrieved on demand with the search request. Searchable snapshots cache data on local storage to improve performance. In this blog post, we will cover the design and implementation of searchable snapshots, their performance, and planned future enhancements. 
 
 ## Using a snapshot for search
 
-Before searchable snapshots, searching data within a snapshot required restoring the entire snapshot to the OpenSearch cluster node. This involved expanding your infrastructure, which is costly and time-consuming. 
+Before searchable snapshots, searching data within a snapshot required restoring the entire snapshot to the OpenSearch cluster node. This involved expanding your infrastructure, which is costly and time consuming. 
 
 With searchable snapshots, you can search snapshots locally on your OpenSearch cluster. This way, you can search through less frequently accessed indexes saved as snapshots without having to restore them to the cluster beforehand. 
 
@@ -33,7 +33,7 @@ To enable searchable snapshots, reference the [instructions](https://opensearch.
 
 ## Performance
 
-Comparing the performance of searchable snapshot queries and local index queries on the `stackoverflow` dataset, the initial run of searchable snapshots took approximately twice as long as the local index. However, subsequent queries showed similar performance for both searchable snapshots and local index because searchable snapshots used cached data. 
+Comparing the performance of searchable snapshot queries and local index queries on the `stackoverflow` dataset, the initial run of searchable snapshots took approximately twice as long as the local index. However, subsequent queries showed similar performance for both searchable snapshots and the local index because searchable snapshots used cached data. 
 
 The following table presents the time in seconds taken to scan approximately 36 million documents in the [`stackoverflow`](https://www.kaggle.com/datasets/stackoverflow/stackoverflow) dataset using the Scroll API in a single-threaded test runner.
 
@@ -42,7 +42,7 @@ The following table presents the time in seconds taken to scan approximately 36 
 | First scan | 588 | 1233 |
 | Repeat scan | 590 | 641 |
 
-Note that in order to delete a snapshot you must first delete all searchable snapshot indexes created from that snapshot. 
+Note that in order to delete a snapshot, you must first delete all searchable snapshot indexes created from that snapshot. 
 
 ## Benchmarks
 
@@ -64,9 +64,9 @@ The benchmark data was collected using the [`nyc_taxi`](https://github.com/topic
 
 ## When to use searchable snapshots
 
-Use searchable snapshots on infrequently accessed read-only data that is not sensitive to latency during first-time access. This works well for log analytics use cases where older data is not modified and is generally queried less than the newest data.
+Use searchable snapshots on infrequently accessed read-only data that is not sensitive to latency during first-time access. This works well for log analytics use cases where older data is not modified and is generally queried less frequently than the newest data.
 
-Industries like legal practices and healthcare require data to be retained for set amounts of time. In this case, searchable snapshots can be a lightweight mechanism to search historical data stored in snapshots. When you need to search older data, you can restore its snapshot to the hot cluster to enable searching. With searchable snapshots, you can use the snapshot for searching with an expectation that the search is going to be slower.
+Industries like law and healthcare require data to be retained for set amounts of time. In these cases, searchable snapshots can serve as a lightweight mechanism for searching historical data stored in snapshots. When you need to search older data, you can restore its snapshot to the hot cluster to enable searching. Searchable snapshots can now be used for search, with the expectation that the search may not be as fast.
 
 ## Things to consider
 
@@ -79,10 +79,10 @@ Here are a couple of things to keep in mind when using searchable snapshots:
 
 The following are planned future enhancements to searchable snapshots:
 
-1. Searching on a remote store index (mutable).
-1. Intelligent prefetch.
-1. Safeguards against long or large searches, avoiding impact on hot node activities.
-1. Concurrent search to improve search performance.
+1. Searching on a remote store index (mutable)
+1. Intelligent prefetch
+1. Safeguards against long or large searches, avoiding impact on hot node activities
+1. Concurrent search to improve search performance
 
 ## Try searchable snapshots
 
