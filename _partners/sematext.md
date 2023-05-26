@@ -8,8 +8,7 @@ link: 'https://sematext.com'
 # logo_large is used on the partner details page.
 logo_large: '/assets/media/partners/sematext.png'
 product_image: '/assets/media/partners/sematext.png'
-description: 'Sematext has deep expertise with OpenSearch and building search applications on top of it.  We've helped 100s of organizations with OpenSearch, Elasticsearch, and Solr.
-We've been in the search business since 2010 and provide consulting, production support, training for OpenSearch, Elasticsearch, and Apache Solr.'
+description: 'Sematext has deep expertise with OpenSearch and building search applications on top of it.  Having been in the search business since 2010 and providing consulting, production support and training, we have helped 100s of organizations with OpenSearch, Elasticsearch, and Apache Solr.'
 business_type: 'Systems Integrator, Technology Services Provider, Services Organisation, Consultancy &amp; Training, ISV'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'info@sematext.com, +1 (347) 480-1610'
