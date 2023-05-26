@@ -60,7 +60,7 @@ resources:
     title: 'OpenSearch vs Elasticsearch'
     thumbnail: '/assets/media/partners/sematext.png'
     type: 'resource'
-  - url: 'XXXXXXXXXXXXXX'
+  - url: 'https://sematext.com/blog/opensearch-vs-solr/'
     title: 'OpenSearch vs Solr'
     thumbnail: '/assets/media/partners/sematext.png'
     type: 'resource'
