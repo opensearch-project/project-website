@@ -266,6 +266,21 @@
         .partner-page--social-links {
             width: 50%;
             margin-left: 25%;
+            
+            div.partner-page--social-links--icon-wrap, 
+            svg.partner-page--social-links--icon {
+                height: 36px;
+                width: 32px;
+                clear: none;
+                margin: 0;
+                padding: 0;
+            }
+            svg.partner-page--social-links--icon {
+                fill: #D9E1E2
+            }
+            svg.partner-page--social-links--icon:hover {
+                fill: #55ACEE;
+            }
         }
     }
 }

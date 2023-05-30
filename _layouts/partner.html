@@ -4,7 +4,6 @@ title: Partners
 primary_title: Partners
 ---
 
-{% include partner-social-links.html %}
 {% include responsive-collapsible-panel.html %}
 {% include contact-info-element.html %}
 
@@ -148,7 +147,7 @@ primary_title: Partners
                     {% for social_link in page.social_links %}
                         <div class="partner-page--social-links--icon">
                             <a href="{{ social_link.url }}" target="_blank">
-                                <partner-social-links icon="{{ social_link.icon }}"></partner-social-links>
+                                {% include partner-social-links.html icon=social_link.icon %}
                             </a>
                         </div>
                     {% endfor %}
