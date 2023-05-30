@@ -125,20 +125,9 @@ primary_title: Partners
                 </div> 
             {% endif %}
             {% if page.resources %}
-                {% include resource-grid-element.html %}
                 <div class="partner-page--layout--details--resources">
                     <h2>Resources</h2>
-                    <resource-grid>
-                        {% for resource in page.resources %}
-                            <resource-grid-item slot="grid-item"
-                                url="{{ resource.url }}"
-                                type="{{ resource.type }}"
-                                title="{{ resource.title }}"
-                                thumbnail="{{ resource.thumbnail }}"
-                                aspect-ratio="{{ resource.aspect_ratio }}"
-                            ></resource-grid-item>
-                        {% endfor %}
-                    </resource-grid>
+                    {% include resource-grid-element.html resources=page.resources %}
                 </div>
             {% endif %}
             {% if page.social_links %}
