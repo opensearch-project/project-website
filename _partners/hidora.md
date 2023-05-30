@@ -21,12 +21,10 @@ resources:
   - url: 'https://hidora.io/en/ressources/opensearch-le-secret-dune-meilleure-observabilite/'
     title: 'OpenSearch: the secret of better observability'
     thumbnail: '/assets/media/partners/hidora/hidora-blog.jpg'
-    aspect_ratio: '109:73'
     type: 'blog'
   - url: 'https://hidora.io/produits/hebergement-opensearch-manage/'
     title: 'Hébergement OpenSearch Managé'
     thumbnail: '/assets/media/partners/hidora/hidora-product.png'
-    aspect_ratio: '109:73'
     type: 'product'
 products:
   - description: |
