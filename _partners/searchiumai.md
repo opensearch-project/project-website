@@ -10,7 +10,11 @@ description: |
 
 business_type: 'Product/Technology'
 region: 'Worldwide'
-contact: 'devopsil@gsitechnology.com, social@gsitechnology.com'
+contact: 
+  - type: 'email'
+    value: 'devopsil@gsitechnology.com'
+  - type: 'email'
+    value: 'social@gsitechnology.com'
 opensearch_tech: 'Search'
 industries: 'Software and Technology'
 main_office_location: |

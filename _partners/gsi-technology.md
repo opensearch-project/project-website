@@ -9,7 +9,9 @@ product_image: '/assets/media/partners/gsi-technology/gsi-technology-product.jpg
 description: 'GSI Technology offers the Gemini® APU, a massively parallel compute in-memory processor for big data similarity search. This innovative technology is offered both as an on-premises or SaaS solution. GSI currently holds over 50 patents for our associative computing technology.'
 business_type: 'Product/Technology, Services Organization'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
-contact: 'opensearch@gsitechnology.com'
+contact: 
+  - type: 'email'
+    value: 'opensearch@gsitechnology.com'
 opensearch_tech: 'k-NN, Approximate Nearest Neighbor (ANN), and Multi-modal Search acceleration for lower latency, higher accuracy, and lower power, with economical very large database support for ANN'
 industries: 'Software and Technology
 Supporting various industries (business services, IOT, financial services, healthcare, retail), including Aerospace & Defense'

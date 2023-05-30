@@ -7,7 +7,9 @@ logo_large: '/assets/media/partners/bigdataboutique/bigdataboutique-logo.png'
 description: 'BigData Boutique provides end-to-end OpenSearch expert consulting and 24/7 support services. As trusted OpenSearch experts, we address and overcome any challenge related to OpenSearch usage (performance, cost, modeling, and more), as well as data migration services.'
 business_type: ISV
 region: Worldwide
-contact: 'itamar@bigdataboutique.com'
+contact: 
+  - type: 'email'
+    value: 'itamar@bigdataboutique.com'
 opensearch_tech: 'Search, Analytics, Observability, Alerting, Optimizations'
 industries: 'Business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 resources:

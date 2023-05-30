@@ -10,7 +10,11 @@ Seacom has been main Elastic&apos;s partner in Italy since 2013, gaining strong 
 business_type: 'ISV, services organization'
 business_type: 'Consultancy, Support, Product'
 region: 'Europe, Middle East, Africa'
-contact: 'info@seacom.it, +390500984020'
+contact: 
+  - type: 'email'
+    value: 'info@seacom.it'
+  - type: 'phone'
+    value: '+390500984020'
 opensearch_tech: 'Observability, Security, Search, Analytics, NLP, SNA'
 main_office_location: |
   Via Gramsci 5

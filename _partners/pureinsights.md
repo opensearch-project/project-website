@@ -9,7 +9,9 @@ product_image: '/assets/media/partners/pureinsights/pureinsights-product.jpg'
 description: 'Pureinsights has deep expertise building search applications with conventional search engines. The company helps customers go "Beyond Search", using Knowledge Graphs, Machine Learning, and Natural Language Processing to build enterprise search applications that better understand user intent and deliver answers users want. &quot;Just make it work like Google.&quot;'
 business_type: 'Systems Integrator, Technology Services Provider'
 region: 'North, Central and South America, Europe.'
-contact: 'info@pureinsights.com'
+contact: 
+  - type: 'email'
+    value: 'info@pureinsights.com'
 opensearch_tech: 'Search and Analytics'
 industries: 'consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, software and technology.'
 main_office_location: |

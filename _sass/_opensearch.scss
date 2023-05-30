@@ -593,3 +593,12 @@ address.multiline-address {
 .word__uppercase-first {
     text-transform: capitalize;
 }
+
+ul.contact-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    > li.contact-info-list--item {
+        margin-bottom: 0.5em;
+    }
+}

@@ -10,7 +10,11 @@ description: |
   <p>All of our team members are senior level DevOps, IT, or programming professionals with 10+ years experience running data infrastructure for complex use cases.</p>
 business_type: 'MSP, Services Organization'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
-contact: 'support@dattell.com, (619) 786-0813'
+contact: 
+  - type: 'email'
+    value: 'support@dattell.com'
+  - type: 'phone'
+    value: '(619) 786-0813'
 opensearch_tech: 'We specialize in support of open source, free license software. That includes OpenSearch in all of its various implementations including: search, logging and monitoring, analytics, observability, security, e-commerce, machine learning, vector search, and content management.
 In addition, we support ancillary open source, free license software such as Apache Kafka, and Apache Pulsar.'
 industries: 'Financial Services, Healthcare, Software & Technology, Media, Public Sector, Consumer Services, Business Services, Energy & Utilities, Internet of Things, Fintech, Healthtech, Saas, Defense, Biotech, Medtech, High Tech, Energy & Utilities'

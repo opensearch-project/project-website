@@ -8,7 +8,9 @@ logo_large: '/assets/media/partners/oracle/oracle-logo.png'
 product_image: '/assets/media/partners/oracle/oracle-product.png'
 description: 'Our mission is to help people see data in new ways, discover insights, unlock endless possibilities.'
 business_type: 'Oracle’s public cloud is delivered by networks of globally distributed cloud regions that provide secure, high-performance, local environments, organized into separate, secure cloud realms. Organizations can move, build, and run all workloads and cloud applications on Oracle Cloud Infrastructure (OCI) while complying with regional data regulations.'
-contact: 'grant.herbon@oracle.com'
+contact: 
+  - type: 'email'
+    value: 'grant.herbon@oracle.com'
 industries: 'business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology.'
 region: 'Worldwide'
 main_office_location: |

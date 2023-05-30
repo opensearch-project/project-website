@@ -5,7 +5,6 @@ primary_title: Partners
 ---
 
 {% include responsive-collapsible-panel.html %}
-{% include contact-info-element.html %}
 
 {% assign primary_title = page.name_long %}
 <div class="container sidebar-left">
@@ -92,7 +91,7 @@ primary_title: Partners
                             </dd>
                         {% endif %}
                         <dt>Contact Info</dt>
-                        <dd><contact-info contact-info="{{ page.contact | join: ',' }}"></contact-info></dd>
+                        <dd>{% include contact-info-element.html contact_info=page.contact %}</dd>
                         <dt>Website</dt>
                         <dd><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></dd>
                     </dl>

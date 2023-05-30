@@ -8,7 +8,11 @@ product_image: '/assets/media/partners/maxcluster/maxcluster-product.jpg'
 description: 'maxcluster operates scalable, fail-safe and high-performance managed web clusters for e-commerce businesses. This includes 24/7/365 support by trained Linux administrators and a tech stack designed for the continuous operation of shop systems such as Magento or Shopware. Applications can be set up via the administration interface using pre-configured presets.'
 business_type: 'MSP'
 region: 'Europe'
-contact: 'beratung@maxcluster.de, +49 5251 4141 350'
+contact: 
+  - type: 'email'
+    value: 'beratung@maxcluster.de'
+  - type: 'phone'
+    value: '+49 5251 4141 350'
 industries: 'business services, software and technology'
 main_office_location: |
   Lise-Meitner-Str. 1b

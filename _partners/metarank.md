@@ -7,7 +7,9 @@ logo_large: '/assets/media/partners/metarank/metarank-logo.png'
 description: 'Metarank Labs Co. provides integration and ongoing support for companies that use open source personalized ranking and recommendations service Metarank.'
 business_type: 'product/technology, services'
 region: 'Worldwide'
-contact: 'seva@metarank.ai'
+contact: 
+  - type: 'email'
+    value: 'seva@metarank.ai'
 opensearch_tech: 'search, recommendations, personalization'
 industries: 'business services'
 resources:

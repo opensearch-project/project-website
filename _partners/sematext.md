@@ -11,7 +11,11 @@ product_image: '/assets/media/partners/sematext.png'
 description: 'Sematext has deep expertise with OpenSearch and building search applications on top of it.  Having been in the search business since 2010 and providing consulting, production support and training, we have helped 100s of organizations with OpenSearch, Elasticsearch, and Apache Solr.'
 business_type: 'Systems Integrator, Technology Services Provider, Services Organisation, Consultancy &amp; Training, ISV'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
-contact: 'info@sematext.com, +1 (347) 480-1610'
+contact: 
+  - type: 'email'
+    value: 'info@sematext.com'
+  - type: 'phone'
+    value: '+1 (347) 480-1610'
 opensearch_tech:  'Search, E-Commerce Search, Scaling and Performance Tuning, Search Relevance, Vector based search, Log Analytics, Observability'
 industries: 'business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 

@@ -9,7 +9,11 @@ description: 'Barefoot Coders is a boutique software and technical infrastructur
 business_type: 'Professional Services Organization'
 region: 'North America'
 industries: All
-contact: 'hello@barefootcoders.com, +1 855 833 2777'
+contact: 
+  - type: 'email'
+    value: 'hello@barefootcoders.com'
+  - type: 'phone'
+    value: '+1 855 833 2777'
 opensearch_tech: 'Search, Log Management'
 main_office_location: |
     240 Kent Ave. Ste B19, Brooklyn, NY 11249

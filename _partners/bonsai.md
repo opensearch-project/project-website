@@ -8,7 +8,9 @@ product_image: '/assets/media/partners/bonsai/bonsai-product.webp'
 description: 'The managed OpenSearch platform that provides the support of a search engineering team, but at a fraction of the cost.'
 business_type: 'MSP'
 region: 'Global'
-contact: 'team@bonsai.io'
+contact: 
+  - type: 'email'
+    value: 'team@bonsai.io'
 industries: 'Education, financial services, healthcare, media and entertainment, non-profit, retail, software and technology'
 opensearch_tech: Search
 main_office_location: |

@@ -8,7 +8,11 @@ product_image: '/assets/media/partners/opster/opster-product.webp'
 description: 'Opster provides optimization and management tools that streamline the daily operations of OpenSearch. Opster&apos;s products and services optimize search performance while reducing costs, saving users both time and money. Opster also offers 24/7 proactive support from industry experts who take charge of your entire search operation.'
 business_type: ISV
 region: Worldwide
-contact: 'info@opster.com, https://opster.com/form/contact/'
+contact: 
+  - type: 'email'
+    value: 'info@opster.com'
+  - type: 'website'
+    value: 'https://opster.com/form/contact/'
 opensearch_tech: 'Opster&apos;s products and services cover all OpenSearch technologies with an emphasis on search and indexing performance, resource utilization, and observability.'
 industries: 'Software and technology, business services, consumer services, Cyber, and e-commerce.'
 main_office_location: |
