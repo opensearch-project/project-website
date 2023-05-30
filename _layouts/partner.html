@@ -6,7 +6,6 @@ primary_title: Partners
 
 {% include partner-social-links.html %}
 {% include responsive-collapsible-panel.html %}
-{% include uppercase-first-word.html %}
 {% include contact-info-element.html %}
 
 {% assign primary_title = page.name_long %}
@@ -33,7 +32,7 @@ primary_title: Partners
                             <dd>
                                 <ul>
                                     {% for business_type in business_type_list %}
-                                        <li><uppercase-first-word>{{ business_type | strip }}</uppercase-first-word></li>
+                                        <li>{% include uppercase-first-word.html content=business_type %}</li>
                                     {% endfor %}
                                 </ul>
                             </dd>
@@ -44,7 +43,7 @@ primary_title: Partners
                             <dd>
                                 <ul>
                                     {% for region in region_list %}
-                                        <li><uppercase-first-word>{{ region | strip }}</uppercase-first-word></li>
+                                        <li>{% include uppercase-first-word.html content=region %}</li>
                                     {% endfor %}
                                 </ul>    
                             </dd>
@@ -55,7 +54,7 @@ primary_title: Partners
                             <dd>
                                 <ul>
                                     {% for tech in opensearch_tech_list %}
-                                        <li><uppercase-first-word>{{ tech | strip }}</uppercase-first-word></li>
+                                        <li>{% include uppercase-first-word.html content=tech %}</li>
                                     {% endfor %}
                                 </ul>
                             </dd>
@@ -66,7 +65,7 @@ primary_title: Partners
                             <dd>
                                 <ul>
                                     {% for industry in industry_list %}
-                                        <li><uppercase-first-word>{{ industry | strip }}</uppercase-first-word></li>
+                                        <li>{% include uppercase-first-word.html content=industry %}</li>
                                     {% endfor %}
                                 </ul>
                             </dd>

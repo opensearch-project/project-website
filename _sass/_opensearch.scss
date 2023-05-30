@@ -589,3 +589,7 @@ address.multiline-address {
         margin: 0;
     }
 }
+
+.word__uppercase-first {
+    text-transform: capitalize;
+}
