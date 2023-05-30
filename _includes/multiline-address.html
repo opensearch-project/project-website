@@ -1,0 +1,11 @@
+<address class="multiline-address">
+    <ul class="multiline-address--list">
+        {% assign address_lines = include.address | newline_to_br | split: '<br />' %}
+        {%- for line in address_lines -%}
+            {% assign stripped_line = line | strip_newlines %}
+            {%- if stripped_line != '' -%}
+                <li class="multiline-address--line">{{ line | strip_newlines }}</li>
+            {%- endif -%}
+        {%- endfor -%}
+    </ul>
+</address>

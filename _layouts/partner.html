@@ -83,7 +83,7 @@ primary_title: Partners
                                     {% for office_location in page.multiple_office_locations %}
                                         <dt>{{ office_location.name }}</dt>
                                         <dd>
-                                            <address-custom-element address="{{ office_location.location }}"></address-custom-element>
+                                            {% include multiline-address.html address=office_location.location %}
                                         </dd>
                                     {% endfor %}
                                 </dl>
@@ -91,7 +91,7 @@ primary_title: Partners
                         {% elsif page.main_office_location %}
                             <dt>Main Office Address</dt>
                             <dd>
-                                <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
+                                {% include multiline-address.html address=page.main_office_location %}
                             </dd>
                         {% endif %}
                         <dt>Contact Info</dt>
