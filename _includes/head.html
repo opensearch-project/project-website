@@ -21,7 +21,7 @@
     {% assign pagetitle = page.title | strip_newlines %}
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title }}{% else %}OpenSearch{% endif %}" />
+    <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title | truncate: 70 }}{% else %}OpenSearch{% endif %}" />
     {% if page.twittercard.account %}
     <meta name="twitter:site" content="{{ page.twittercard.account }}" />
     {% elsif page.authors %}
@@ -31,8 +31,6 @@
         <meta name="twitter:site" content="@{{ author.twitter }}" />
       {% endif %} 
     {% endif %}
-
-
 
     {% if page.twittercard.description %}
     <meta name="twitter:description" content="{{ page.twittercard.description  | xml_escape }}" />
