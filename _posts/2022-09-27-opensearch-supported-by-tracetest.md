@@ -6,6 +6,8 @@ authors:
 date:   2022-09-27 12:15:00 -0300
 categories:
   - community
+twittercard:
+  description: "I am excited to announce that [Tracetest](https://tracetest.io) now supports OpenSearch! If you already use OpenSearch Trace Analytics, you can start writing tests based on your telemetry using Tracetest without having to change anything in your application. In this article, we will explain how you can start building trace-based tests right now."
 redirect_from: "/blog/community/2022/09/opensearch-supported-by-tracetest/"
 ---
 

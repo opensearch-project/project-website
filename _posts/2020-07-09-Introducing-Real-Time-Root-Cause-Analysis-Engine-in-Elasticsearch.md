@@ -14,6 +14,10 @@ title: "Introducing real-time Root Cause Analysis Engine in Elasticsearch "
 categories:
 - odfe-updates
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
+twittercard:
+  description: |
+    We are excited to release the real-time Root Cause Analysis engine for Elasticsearch in 
+    [Open Distro for Elasticsearch version 1.9.0](https://opendistro.github.io/for-elasticsearch/blog/odfe-updates/2020/07/Open-Distro-for-Elasticsearch-1.9.0-is-released/).
 redirect_from: "/blog/odfe-updates/2020/07/Introducing-Real-Time-Root-Cause-Analysis-Engine-in-Elasticsearch/"
 ---
 

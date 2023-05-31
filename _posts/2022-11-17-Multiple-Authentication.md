@@ -8,6 +8,8 @@ authors:
 date: 2022-11-17 00:00:00 -0700
 categories: 
   - community
+twittercard:
+  description: "We’re excited to announce support for concurrent multiple authentication methods in OpenSearch Dashboards. This enhancement to the Dashboards security plugin provides a more unified and user-friendly login experience to Dashboards users, who are now able to choose a preferred option from a login UI that integrates basic authentication (username and password) and multiple single sign-on (SSO) providers for OpenID Connect (OIDC) and SAML."
 redirect_from: "/blog/community/2022/11/Multiple-Authentication/"
 ---
 

@@ -6,6 +6,8 @@ authors:
 date:   2022-04-26 01:01:01 -0700
 categories:
   - partners
+twittercard:
+  description: "We recently learnt that a number of our prospects were running their B2B SaaS platform on top of Elasticsearch. Nearly all of them asked if we also support AWS OpenSearch. Many of them are running older versions of Elasticsearch and are evaluating if they should upgrade to a more recent version or migrate to OpenSearch to stick to Apache license. This is about to play out in large scale in the upcoming months. SaaS companies operate on their customers' data, and they have to take all the precautions within their reach to protect that data."
 redirect_from: "/blog/partners/2022/04/partner-highlight-titaniam-byok/"
 ---
 
