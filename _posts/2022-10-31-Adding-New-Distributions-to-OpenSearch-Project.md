@@ -6,6 +6,8 @@ authors:
 date: 2022-10-31 01:01:01 -0700
 categories: 
   - community
+twittercard:
+  description: "Starting with OpenSearch version 1.3.2 for 1.x, and 2.0.0 for 2.x, OpenSearch has expanded its artifacts into multiple distributions, including `TAR`, `Docker`, and `RPM`. Looking back, it has been a challenging and exciting journey to get here."
 redirect_from: "/blog/community/2022/10/Adding-New-Distributions-to-OpenSearch-Project/"
 ---
 

@@ -9,6 +9,8 @@ title: "Announcing the experimental release of Cross-Cluster Replication"
 category:
 - releases
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
+twittercard:
+  description: Today we are excited to announce the experimental release of Cross-Cluster Replication in Open Distro for Elasticsearch, which enables customers to replicate indices from one Elasticsearch cluster to another.
 ---
 
 Today we are excited to announce the experimental release of Cross-Cluster Replication in Open Distro for Elasticsearch, which enables customers to replicate indices from one Elasticsearch cluster to another.  The key drivers for the new native replication feature are:

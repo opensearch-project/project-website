@@ -11,6 +11,8 @@ categories:
 meta_keywords: searchable snapshots, search data segment in snapshots, searchable snapshot index, OpenSearch 2.7
 meta_description: In OpenSearch 2.7, you can now search snapshots locally on your OpenSearch cluster. With searchable snapshots, you can search through less frequently accessed indexes saved as snapshots without having to restore them to the cluster beforehand.
 has_science_table: true
+twittercard:
+  description: "The OpenSearch Project is excited to announce the general availability of searchable snapshots in OpenSearch. With searchable snapshots, you can search indexes that are stored as snapshots within remote repositories in real time without the need to restore the index data to local storage ahead of time. The relevant index data is retrieved on demand with the search request. Searchable snapshots cache data on local storage to improve performance. In this blog post, we will cover the design and implementation of searchable snapshots, their performance, and planned future enhancements. "
 ---
 
 The OpenSearch Project is excited to announce the general availability of searchable snapshots in OpenSearch. With searchable snapshots, you can search indexes that are stored as snapshots within remote repositories in real time without the need to restore the index data to local storage ahead of time. The relevant index data is retrieved on demand with the search request. Searchable snapshots cache data on local storage to improve performance. In this blog post, we will cover the design and implementation of searchable snapshots, their performance, and planned future enhancements. 
