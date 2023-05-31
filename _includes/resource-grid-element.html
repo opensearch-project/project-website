@@ -8,7 +8,7 @@
                 <div class="resource-grid--item--thumbnail">
             {% endif %}
                 {% if resource.thumbnail %}
-                    <a href="{{ resource.url }}" target="_blank">
+                    <a class="resource-grid--item--link" href="{{ resource.url }}" target="_blank">
                         <img src="{{ resource.thumbnail }}" alt="{{ resource.title }}">
                     </a>
                 {% endif %}
@@ -16,7 +16,7 @@
             <div class="resource-grid--item--title-type">{{ resource.type }}</div>
             <div class="resource-grid--item--title">
                 <div>
-                    <a href="{{ resource.url }}" target="_blank"><span>{{ resource.title }}</span></a>
+                    <a class="resource-grid--item--link" href="{{ resource.url }}" target="_blank"><span>{{ resource.title }}</span></a>
                 </div>
             </div>
         </div>

@@ -689,8 +689,7 @@ ul.contact-info-list {
             vertical-align: text-top;
         }
 
-        // DON'T FORGET TO SCOPE THIS APPROPRIATELY!!!!!
-        a {
+        .resource-grid--item--link {
             text-decoration: none;
             line-height: 1;
         }
