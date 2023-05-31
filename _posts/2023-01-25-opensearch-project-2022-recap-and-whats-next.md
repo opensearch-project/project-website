@@ -9,6 +9,8 @@ categories:
   - technical-post
 meta_keywords: "OpenSearch roadmap, OpenSearch dashboards, open-source solution for search and analytics, OpenSearch migrations"
 meta_description: "OpenSearch's community has grown significantly during 2022. Take a look at what we are doing in 2023 to make building with OpenSearch better!"
+twittercard:
+  description: "What an amazing year for the OpenSearch community! As we head into 2023, we wanted to take a look back at what we were able to accomplish in 2022 as well as a look forward at what the next year will bring. "
 ---
 
 What an amazing year for the OpenSearch community! As we head into 2023, we wanted to take a look back at what we were able to accomplish in 2022 as well as a look forward at what the next year will bring. 
