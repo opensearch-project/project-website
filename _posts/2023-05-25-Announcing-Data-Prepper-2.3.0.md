@@ -4,10 +4,10 @@ title:  "Announcing Data Prepper 2.3.0"
 authors:
 - kkondaka
 - dlv
-date: 2023-05-25 21:30:00 -0700
+date: 2023-06-06 10:00:00 -0700
 categories:
   - releases
-meta_keywords: Data Prepper 2.3.0
+meta_keywords: Data Prepper 2.3.0, ingestion, observability, log pipelines
 meta_description: Data Prepper 2.3.0 with enhancements to expressions, event tagging, enhancements to add_entries processor, s3 sink and tail sampling processor
 ---
 
@@ -16,25 +16,25 @@ This release introduces a number of changes that help with Data Prepper’s abil
 
 ## Enhancements to Data Prepper expressions
 
-DataPrepper 2.3 supports using functions in expressions. List of functions supported are can be found at https://github.com/opensearch-project/data-prepper/blob/main/docs/expression_syntax.md
+Data Prepper 2.3 supports using functions in expressions. List of supported functions are available in the [Expression syntax documentation](https://opensearch.org/docs/latest/data-prepper/pipelines/expression-syntax/).
 
-DataPrepper 2.3 supports three types of expressions
+Data Prepper 2.3 supports three types of expressions
 
 * Conditional expressions
-    * Conditional expressions evaluate to a result of Boolean type. The expressions can now have functions in them. For example, length(/message) > 20 would evaluate to true if length of the message field in the event is greater than 20 other wise it evaluates to false. 
+    * Conditional expressions evaluate to a result of Boolean type. The expressions can now have functions in them. For example, `length(/message) > 20` would evaluate to true if length of the message field in the event is greater than 20 otherwise it evaluates to false. 
 * Arithmetic expressions
     * Arithmetic expressions evaluate to a result of Integer or Float type. The expressions can have simple arithmetic operators like `+,-,*,/` with functions or JSON pointers or literals as operands. For example, the following expression will add the length of message field of type string in the event with the value of event metadata with key `integerField` and subtracts 1 from it
 
- `length(/message) + getMetadata("integerField") - 1`
+ ```length(/message) + getMetadata("integerField") - 1```
 
 * String expressions
     * String expressions evaluate to a result of String type. String concatenation operator is supported in addition to using functions or JSON pointers or literals as operands. For example, the following expression will add the message1 field of type string in the event with message2 field of type string in the event and appends suffix to it.
 
-`/message1 + /message2 + "suffix"`
+```/message1 + /message2 + "suffix"```
 
 ## Event tagging
 
-DataPrepper 2.3 supports tagging events while using grok processor. Events can be tagged optionally using the following configuration
+Data Prepper 2.3 supports tagging events while using grok processor. Events can be tagged optionally using the following configuration
 
 ```
 processor:
@@ -88,7 +88,7 @@ Ingesting data into S3 offers a lot of possibilities for your data pipelines, in
 
 ## Tail sampling
 
-Data Prepper 2.3.0 supports tail sampling to limit the number of events that are sent to a sink similar to the tail sampling support provided by open telemetry. More details tail sampling in open telemetry can be found [here](https://opentelemetry.io/blog/2022/tail-sampling/).
+Data Prepper 2.3.0 supports tail sampling to limit the number of events that are sent to a sink similar to the tail sampling support provided by open telemetry. More details on tail sampling in [OpenTelemetry](https://opentelemetry.io) can be found [here](https://opentelemetry.io/blog/2022/tail-sampling/).
 
 Tail processing in Data Prepper is supported as an action to aggregate processor. The events are stored in the aggregate processor beyond the `group_duration` time until no events are received in the last `wait_period` time. 
 
