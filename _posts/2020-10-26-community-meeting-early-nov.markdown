@@ -9,7 +9,7 @@ categories:
 - meetings
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
 twittercard:
-  description: "We've got a jam-packed agenda for this biweekly community meeting! Join us on Monday, November 2nd at 10am Pacific (UTC-7) on [Zoom](https://www.meetup.com/OpenSearch/events/thmcwrybcpbdb/)."
+  description: "We've got a jam-packed agenda for this biweekly community meeting! Join us on Monday, November 2nd at 10am Pacific (UTC-7) on Zoom."
 redirect_from: "/blog/meetings/2020/10/community-meeting-early-nov/"
 ---
 

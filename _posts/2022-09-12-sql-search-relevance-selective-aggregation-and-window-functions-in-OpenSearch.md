@@ -8,7 +8,7 @@ date: 2022-09-12
 categories:
  - technical-post
 twittercard:
-  description: "According to a [review by IEEE Spectrum in 2022](https://spectrum.ieee.org/top-programming-languages-2022), SQL is the sixth most popular programming language. IEEE came to this conclusion by pulling and weighting data across GitHub, Google, Stack Overflow, Twitter, and IEEE Xplore. Did you know that OpenSearch offers a way to [query OpenSearch using SQL](https://opensearch.org/blog/feature/2022/02/feature-deep-dive-opensearch-sql-basic-queries/)? In recent releases, the SQL plugin included support for search relevance, selective aggregation, and window functions. You can use the REST API or use the OpenSearch Query Workbench to query OpenSearch using the SQL plugin. Today, we will use the Query Workbench inside the OpenSearch Playground environment to walk through search relevance, selective aggregation, and window functions."
+  description: "According to a review by IEEE Spectrum in 2022, SQL is the sixth most popular programming language. IEEE came to this conclusion by pulling and weighting data across GitHub, Google, Stack Overflow, Twitter, and IEEE Xplore. Did you know that OpenSearch offers a way to query OpenSearch using SQL?"
 redirect_from: "/blog/technical-post/2022/09/sql-search-relevance-selective-aggregation-and-window-functions-in-OpenSearch/"
 ---
 

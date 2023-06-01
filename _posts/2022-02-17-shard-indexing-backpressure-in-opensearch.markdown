@@ -10,7 +10,7 @@ date:   2022-02-17
 categories:
   - feature
 twittercard:
-  description: "In this post we wish to dive into the Shard Indexing Backpressure feature which got launched with OpenSearch 1.2.0 and how it can improve cluster reliability. The Indexing APIs in OpenSearch such as ``_bulk`` allows you to write data in the cluster, which is distributed across multiple shards, on multiple data nodes. However, at times indexing requests may suffer performance degradation due to a number of reasons including non-optimal cluster configuration, shard strategy, traffic spikes, available node resources and more. These issues are further exacerbated for larger multi-node cluster and indices with many shards. All of these could cause out-of-memory errors, long garbage collection (GC) pauses, and reduced throughput, affecting the overall availability of data nodes in addition to degrading performance. This in turn would impact the node's ability to perform useful work. In addition, these node drop events could cascade due to a lack of effective backpressure which puts the entire cluster at risk."
+  description: "In this post we wish to dive into the Shard Indexing Backpressure feature which got launched with OpenSearch 1.2.0 and how it can improve cluster reliability."
 redirect_from: "/blog/feature/2022/02/shard-indexing-backpressure-in-opensearch/"
 ---
 

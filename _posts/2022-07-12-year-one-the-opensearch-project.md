@@ -7,7 +7,7 @@ date: 2022-07-12
 categories:
  - community
 twittercard:
-  description: "I know its cliché, but what a difference a year makes. We launched the [OpenSearch project a year ago today](https://aws.amazon.com/blogs/opensource/opensearch-1-0-launches/) to help ensure that the community of open-source Elasticsearch users had a path forward. We wanted to be sure users continue to have a secure, high-quality, fully open-source search and analytics suite with a rich roadmap of new and innovative functionality."
+  description: "I know its cliché, but what a difference a year makes. We launched the OpenSearch project a year ago today  to help ensure that the community of open-source Elasticsearch users had a path forward. We wanted to be sure users continue to have a secure, high-quality, fully open-source search and analytics suite with a rich roadmap of new and innovative functionality."
 redirect_from: "/blog/community/2022/07/year-one-the-opensearch-project/"
 ---
 
