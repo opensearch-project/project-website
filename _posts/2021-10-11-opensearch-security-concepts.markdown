@@ -9,7 +9,7 @@ category:
 - technical-posts
 canonical: "https://eliatra.com/blog/security-opensearch-concepts/"
 twittercard:
-  account: "@eliatra_ire"
+  creator: "@eliatra_ire"
   description: "OpenSearch provides a strong and reliable security model out-of-the-box. This post explains some of the core concepts of OpenSearch security."
   image: "/assets/media/blog-images/2021-10-11-opensearch-security-concepts/tls_encryption.png"
 redirect_from: "/blog/technical-posts/2021/10/opensearch-security-concepts/"

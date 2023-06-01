@@ -9,7 +9,7 @@ date:   2022-08-11 13:48:00 -0700
 categories:
   - releases
 twittercard:
-  description: "OpenSearch 2.2 is ready to [download](https://opensearch.org/downloads.html)! This release includes 23 new features and 12 enhancements to help you build and optimize your solutions for search, analytics, and observability workloads. Following are some highlights of the capabilities you can use to advance machine learning (ML) models, data visualizations, cluster resiliency, and more. As always, the [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.2.0.md) provide further details."
+  description: "OpenSearch 2.2 is ready to download! This release includes 23 new features and 12 enhancements to help you build and optimize your solutions for search, analytics, and observability workloads. Following are some highlights of the capabilities you can use to advance machine learning (ML) models, data visualizations, cluster resiliency, and more. As always, the release notes provide further details."
 redirect_from: "/blog/releases/2022/08/opensearch-2-2-is-now-available/"
 ---
 

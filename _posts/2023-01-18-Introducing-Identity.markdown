@@ -9,8 +9,7 @@ categories:
 meta_keywords: "access control, OpenSearch identity, OpenSearch security, least privilege access"
 meta_description: "Learn about OpenSearch Identity and how this suite of features provides users with comprehensive access control and creates a better defense-in-depth posture."
 twittercard:
-  description: "
-The existing OpenSearch[^1] access control features included in the Security plugin let administrators apply access control to indexes and cluster actions so that users have the right permissions[^2] and the cluster is protected from unwanted activity. However, the current access control features do have certain limitations that can make it difficult to use them with other plugins."
+  description: "The existing OpenSearch access control features included in the Security plugin let administrators apply access control to indexes and cluster actions so that users have the right permissions and the cluster is protected from unwanted activity. However, the current access control features do have certain limitations that can make it difficult to use them with other plugins."
 ---
 
 The existing OpenSearch[^1] access control features included in the Security plugin let administrators apply access control to indexes and cluster actions so that users have the right permissions[^2] and the cluster is protected from unwanted activity. However, the current access control features do have certain limitations that can make it difficult to use them with other plugins.

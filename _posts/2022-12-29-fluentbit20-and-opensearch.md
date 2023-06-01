@@ -10,7 +10,7 @@ categories:
 meta_description: "Learn how Fluent Bit v2.0 helps you collect, process, and enrich observability data like logs, metrics, and traces, and use them with OpenSearch."
 meta_keywords: "Fluent Bit 2.0, observability, log date, trace data"
 twittercard:
-  description: "Earlier this year at KubeCon North America, the Fluent team announced [Fluent Bit v2.0](https://fluentbit.io/announcements/v2.0.0/). The Fluent Bit project is an open-source Apache 2.0 project that helps users collect, process, and enrich observability data (logs, metrics, and traces) from a variety of sources and send it to downstream analytics engines, such as OpenSearch. "
+  description: "Earlier this year at KubeCon North America, the Fluent team announced Fluent Bit v2.0. The Fluent Bit project is an open-source Apache 2.0 project that helps users collect, process, and enrich observability data (logs, metrics, and traces) from a variety of sources and send it to downstream analytics engines, such as OpenSearch."
 ---
 
 Earlier this year at KubeCon North America, the Fluent team announced [Fluent Bit v2.0](https://fluentbit.io/announcements/v2.0.0/). The Fluent Bit project is an open-source Apache 2.0 project that helps users collect, process, and enrich observability data (logs, metrics, and traces) from a variety of sources and send it to downstream analytics engines, such as OpenSearch. 
