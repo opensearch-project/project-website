@@ -3,6 +3,7 @@
 eventdate: 2023-03-07 09:00:00 -0500
 title: Partner Event - OpenSearch Unplugged - Observability and Search 
 online: false
+tz: America/New_York
 signup:
     url: https://opensearchunplugged3923.splashthat.com/
     title: Register Now
