@@ -20,7 +20,12 @@
     
     {% assign pagetitle = page.title | strip_newlines %}
 
+    {% if page.twittercard.image or page.feature_image %}
     <meta name="twitter:card" content="summary_large_image">
+    {% else %}
+    <meta name="twitter:card" content="summary"
+    {% endif %}
+
     <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title | truncate: 70 }}{% else %}OpenSearch{% endif %}" />
     {% if page.twittercard.site %}
     <meta name="twitter:site" content="{{ page.twittercard.site }}">
@@ -37,17 +42,9 @@
     {% endif %}
 
     {% if page.twittercard.image %}
-    <meta name="twitter:image" content="{{ page.twittercard.image }}"> 
+    <meta name="twitter:image" content="{{ page.twittercard.image | absolute_url }}"> 
     {% elsif page.feature_image %}
     <meta name="twitter:image" content="{{ page.feature_image | absolute_url }}">
-    {% else %}
-    {% comment %}
-      According to the Twtitter Documentation https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image
-      it is considered bad practice to reuse a default image across tweets. The documentation uses the words "should not", and not
-      "must not", so this practice is apparently not forbidden. It's worth considering however.
-      There is no indication of what might be the consequence of doing so.
-    {% endcomment %}
-    <meta name="twitter:image" content="https://opensearch.org/assets/opensearch-twitter-card.png">
     {% endif %}
 
     {% if page.twittercard.image_alt %}
