@@ -12,29 +12,29 @@ meta_description: Data Prepper 2.3.0 with enhancements to expressions, event tag
 ---
 
 Data Prepper 2.3.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)!
-This release introduces a number of changes that help with Data Prepper’s ability to process complex expressions with functions, arithmetic and string operations.
+This release introduces a number of changes that help with Data Prepper’s ability to process complex expressions with functions, arithmetic operations, and string operations.
 
 ## Enhancements to Data Prepper expressions
 
-Data Prepper 2.3 supports using functions in expressions. List of supported functions are available in the [Expression syntax documentation](https://opensearch.org/docs/latest/data-prepper/pipelines/expression-syntax/).
+Data Prepper 2.3 supports using functions in expressions. A list of supported functions is available in the [Expression syntax](https://opensearch.org/docs/latest/data-prepper/pipelines/expression-syntax/) documentation.
 
-Data Prepper 2.3 supports three types of expressions
+Data Prepper 2.3 supports three types of expressions:
 
 * Conditional expressions
-    * Conditional expressions evaluate to a result of Boolean type. The expressions can now have functions in them. For example, `length(/message) > 20` would evaluate to true if length of the message field in the event is greater than 20 otherwise it evaluates to false. 
+    * Conditional expressions evaluate to a result of Boolean type, and the expressions now can have functions in them. For example, `length(/message) > 20` would evaluate to true if the length of the message field in the event is greater than 20. Otherwise it evaluates to false. 
 * Arithmetic expressions
-    * Arithmetic expressions evaluate to a result of Integer or Float type. The expressions can have simple arithmetic operators like `+,-,*,/` with functions or JSON pointers or literals as operands. For example, the following expression will add the length of message field of type string in the event with the value of event metadata with key `integerField` and subtracts 1 from it
+    * Arithmetic expressions evaluate to a result of integer or float type. The expressions can have simple arithmetic operators like `+,-,*,/` with functions or JSON pointers or literals as operands. For example, the following expression adds the length of message field of string type in the event with the value of event metadata with the key `integerField` and subtracts 1 from it.
 
  ```length(/message) + getMetadata("integerField") - 1```
 
 * String expressions
-    * String expressions evaluate to a result of String type. String concatenation operator is supported in addition to using functions or JSON pointers or literals as operands. For example, the following expression will add the message1 field of type string in the event with message2 field of type string in the event and appends suffix to it.
+    * String expressions evaluate to a result of string type. The string concatenation operator is supported in addition to using functions or JSON pointers or literals as operands. For example, the following expression adds the message1 field of type string in the event with message2 field of type string in the event and appends "suffix" to it.
 
 ```/message1 + /message2 + "suffix"```
 
 ## Event tagging
 
-Data Prepper 2.3 supports tagging events while using grok processor. Events can be tagged optionally using the following configuration
+Data Prepper 2.3 supports tagging events while using the `grok` processor. Events can be tagged optionally using the following configuration
 
 ```
 processor:
@@ -44,13 +44,13 @@ processor:
         tags_on_match_failure: ["grok_match_fail", "another_tag"]
 ```
 
-Presence of tags can be checked in conditional expressions in different processors or routing using `hasTags()` function to do conditional ingestion. For example, a conditional expression checking for presence of tag `grok_match_fail` would be `hasTags("grok_match_fail")`
+The presence of tags can be checked in conditional expressions in different processors or routing using `hasTags()` function to do conditional ingestion. For example, a conditional expression checking for the presence of tag `grok_match_fail` would be `hasTags("grok_match_fail")`
 
 ## Enhancements to `add_entries` processor
 
-### Expression based value
+### Expression-based value
 
-`add_entries` processor is enhanced to support adding values based on expression where the return type can be Boolean or Integer/Float or String. An example `add_entries` processor configuration with `value_expression` option
+The `add_entries` processor is enhanced to support adding values based on an expression where the return type can be boolean, integer or float, or string. The following example shows an `add_entries` processor configuration with a `value_expression` option:
 
 ```
 processor:
@@ -60,11 +60,11 @@ processor:
            value_expression: "length(/request)"
 ```
 
-This configuration adds an entry with key `request_len` with value equal to the length of the request field in the key. The value expression can be any of the expressions supported (see [expression syntax](https://github.com/opensearch-project/data-prepper/blob/main/docs/expression_syntax.md) for more details)
+This configuration adds an entry with the key `request_len` with value equal to the length of the request field in the key. The value expression can be any of the expressions supported. See [Supported operators](https://github.com/opensearch-project/data-prepper/blob/main/docs/expression_syntax.md) for more details.
 
 ### Setting event metadata keys
 
-`add_entries` processor can also add entries in the event’s metadata instead of the event itself. And example `add_entries` processor configuration for adding an entry to metadata 
+The `add_entries` processor can add entries in the event’s metadata instead of the event itself. The following example shows an `add_entries` processor configuration for adding an entry to metadata:
 
 ```
 processor:
@@ -73,26 +73,26 @@ processor:
          - metadata_key: "request_len"
            value_expression: "length(/request)"
 ```
-This configuration adds an attribute to event metadata with attribute key `request_len` with value equal to the length of the request field in the key. The value can be set using value or format or `value_expression` option of entries field.
+This configuration adds an attribute to event metadata with the attribute key `request_len` with value equal to the length of the request field in the key. The value can be set using the value, format, or `value_expression` option of entries field.
 
 
-## S3 sink
+## Amazon S3 sink
 
-Data Prepper now supports saving data to Amazon S3 sinks as ndjson. Amazon S3 is a popular choice for storing large volumes of data reliably and in a cost-effective way.
+Data Prepper now supports saving data to Amazon S3 sinks as Newline delimited JSON (ndjson). Amazon S3 is a popular choice for storing large volumes of data reliably and in a cost-effective way.
 
-Ingesting data into S3 offers a lot of possibilities for your data pipelines, including some of the following:
+Ingesting data into Amazon S3 offers many possibilities for your data pipelines, including some of the following:
 
-* Noisy or uninteresting data can be routed to S3 and not to OpenSearch to reduce load on your OpenSearch cluster. This can also help you save on compute and storage costs.
-* Ingesting data to S3 creates data which you can use for future processing.
+* Noisy or uninteresting data can be routed to Amazon S3 and not to OpenSearch to reduce load on your OpenSearch cluster. This can help you save on compute and storage costs.
+* Ingesting data to Amazon S3 creates data that you can use for future processing.
 
 
 ## Tail sampling
 
-Data Prepper 2.3.0 supports tail sampling to limit the number of events that are sent to a sink similar to the tail sampling support provided by open telemetry. More details on tail sampling in [OpenTelemetry](https://opentelemetry.io) can be found [here](https://opentelemetry.io/blog/2022/tail-sampling/).
+Data Prepper 2.3.0 supports tail sampling to limit the number of events that are sent to a sink similar to the tail sampling support provided by OpenTelemetry. For details on tail sampling in [OpenTelemetry](https://opentelemetry.io) see the blog ["Tail Sampling with OpenTelemetry: Why it’s useful, how to do it, and what to consider"](https://opentelemetry.io/blog/2022/tail-sampling/).
 
-Tail processing in Data Prepper is supported as an action to aggregate processor. The events are stored in the aggregate processor beyond the `group_duration` time until no events are received in the last `wait_period` time. 
+Tail processing in Data Prepper is supported as an action to the `aggregate` processor. The events are stored in the `aggregate` processor beyond the `group_duration` time until no events are received in the last `wait_period` time. 
 
-For example, the following configuration sends all traces with errors to the sink and non-error events are sampled with the user specified `percent` probabilistic sampler. 
+For example, the following configuration sends all traces with errors to the sink and non-error events are sampled with the user specified `percent` probabilistic sampler:
 
 ```
 trace-normal-pipeline:
@@ -123,7 +123,7 @@ trace-normal-pipeline:
 ## Getting started
 
 * To download Data Prepper, see the [OpenSearch downloads](https://opensearch.org/downloads.html) page.
-* For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/2.6/data-prepper/getting-started/).
+* For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/latest/data-prepper/getting-started/).
 * To learn more about the work in progress for Data Prepper 2.3, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
 
 
