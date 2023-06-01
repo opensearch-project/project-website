@@ -9,7 +9,7 @@ categories:
 meta_description: "Read the OpenSearch Project Newsletter for the latest news, community happenings, events, product launches and to hear what’s new with our partners."
 meta_keywords: "OpenSearch Project news, open source newsletter, OpenSearch partner"
 twittercard:
-  description: "The OpenSearch Project is pleased to present our first newsletter. Distributed monthly, the newsletter is a great way to learn more about the latest OpenSearch news, relevant content from the community, and upcoming events that you may be interested in. "
+  description: "The OpenSearch Project is pleased to present our first newsletter. Distributed monthly, the newsletter is a great way to learn more about the latest OpenSearch news, relevant content from the community, and upcoming events that you may be interested in."
 
 redirect_from: 
 
