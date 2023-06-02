@@ -20,7 +20,7 @@ The [call for presentations](https://opensearch.org/opensearchcon2023-cfp.html) 
 
 **Community**: Engage a community of builders on a topic that means something to you. Anything that might educate and inspire a community of open source technologists is up for consideration here.
 
-The call for presentations **closes June 9,** so we encourage you to get your submissions in soon.
+The call for presentations **closes June 16,** so we encourage you to get your submissions in soon.
 
 The [call for presentations page](https://opensearch.org/opensearchcon2023-cfp.html) has more details and a link to the submission form. If you have any questions, please reach out to us at [opensearchcon@amazon.com](mailto:opensearchcon@amazon.com)
 
