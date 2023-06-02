@@ -20,7 +20,9 @@
     
     {% assign pagetitle = page.title | strip_newlines %}
 
-    {% if page.twittercard.image or page.feature_image %}
+    {% if page.twittercard.type %}
+    <meta name="twitter:card" content="{{ page.twittercard.type }}">
+    {% elsif page.twittercard.image or page.feature_image %}
     <meta name="twitter:card" content="summary_large_image">
     {% else %}
     <meta name="twitter:card" content="summary">
