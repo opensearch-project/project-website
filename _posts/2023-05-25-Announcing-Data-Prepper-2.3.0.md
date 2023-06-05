@@ -18,19 +18,27 @@ This release introduces a number of changes that improve Data Prepper’s abilit
 
 Data Prepper 2.3 supports using functions in expressions. A list of supported functions is available in the [Expression syntax](https://opensearch.org/docs/latest/data-prepper/pipelines/expression-syntax/) documentation.
 
-Data Prepper 2.3 supports three types of expressions:
+Data Prepper 2.3 supports three types of expressions; [conditional](#conditional-expressions), [arithmetic](#arithmetic-expressions), and [string](#string-expressions).
 
-* Conditional expressions
-    * Conditional expressions evaluate to a result of Boolean type, and the expressions can now have functions in them. For example, `length(/message) > 20` would evaluate to true if the length of the message field in the event is greater than 20. Otherwise it evaluates to false.
-* Arithmetic expressions
-    * Arithmetic expressions evaluate to a result of integer or float type. The expressions can have simple arithmetic operators like `+,-,*,/`, with functions, JSON pointers, or literals as operands. For example, the following expression adds the length of `message` field in the event with the value of `integerField` in the event metadata and subtracts 1 from it.
+### Conditional expressions
 
- ```length(/message) + getMetadata("integerField") - 1```
+ Conditional expressions evaluate to a result of Boolean type, and the expressions can now have functions in them. For example, `length(/message) > 20` would evaluate to true if the length of the message field in the event is greater than 20. Otherwise it evaluates to false.
 
-* String expressions
-    * String expressions evaluate to a result of string type. The string concatenation operator is supported, and it uses functions, JSON pointers, or literals as operands. For example, the following expression concatenates the `message1` field of type string in the event with the `message2` field in the event and appends "suffix" to it:
+### Arithmetic expressions
 
-```/message1 + /message2 + "suffix"```
+Arithmetic expressions evaluate to a result of integer or float type. The expressions can have simple arithmetic operators like `+,-,*,/`, with functions, JSON pointers, or literals as operands. For example, the following expression adds the length of `message` field in the event with the value of `integerField` in the event metadata and subtracts 1 from it.
+
+```
+length(/message) + getMetadata("integerField") - 1
+```
+
+### String expressions
+
+String expressions evaluate to a result of string type. The string concatenation operator is supported, and it uses functions, JSON pointers, or literals as operands. For example, the following expression concatenates the `message1` field of type string in the event with the `message2` field in the event and appends "suffix" to it:
+
+```
+/message1 + /message2 + "suffix"
+```
 
 ## Event tagging
 
