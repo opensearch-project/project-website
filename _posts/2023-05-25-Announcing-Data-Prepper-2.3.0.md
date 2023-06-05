@@ -7,8 +7,8 @@ authors:
 date: 2023-06-06 10:00:00 -0700
 categories:
   - releases
-meta_keywords: Data Prepper 2.3.0, ingestion, observability, log pipelines
-meta_description: Data Prepper 2.3.0 with enhancements to expressions, event tagging, enhancements to add_entries processor, s3 sink and tail sampling processor
+meta_keywords: Data Prepper expressions, tail sampling in Data Prepper, Amazon S3 Sink
+meta_description: Learn how Data Prepper 2.3.0 improves the ability to process complex expressions, supports event tagging, enhances the add entries processor, and supports Amazon S3 sink. Download it now.
 ---
 
 Data Prepper 2.3.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)!
