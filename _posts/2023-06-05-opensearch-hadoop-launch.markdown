@@ -11,7 +11,7 @@ meta_keywords: opensearch hadoop, apache spark, apache hive, apache hadoop, open
 meta_description: OpenSearch Hadoop is now generally available with support for multiple versions of OpenSearch to run on Spark and Hive.
 twittercard:
   description: OpenSearch-Hadoop is now generally available with support for multiple versions of OpenSearch to run on Spark and Hive.
-excerpt: We are excited to announce the release of the new OpenSearch Hadoop connector. This tool enables efficient interaction between your Hadoop-based Big Data operations and OpenSearch clusters, supporting all versions of OpenSearch.
+excerpt: We are excited to announce the release of the new OpenSearch-Hadoop connector. This tool enables efficient interaction between your Hadoop-based Big Data operations and OpenSearch clusters, supporting all versions of OpenSearch.
 ---
 
 We are excited to announce the release of the new OpenSearch-Hadoop connector. This tool enables efficient interaction between your Hadoop-based Big Data operations and OpenSearch clusters, supporting all versions of OpenSearch.
