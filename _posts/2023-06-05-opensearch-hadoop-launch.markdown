@@ -49,4 +49,4 @@ The following matrix shows the compatibility of [`opensearch-hadoop`](https://ce
 
 ## Get started today!
 
-This connector is a crucial tool for anyone looking to leverage the full power of OpenSearch alongside their Hadoop ecosystem. Download and start using it today.
+The OpenSearch-Hadoop connector is a must-have tool for anyone looking to leverage the full power of OpenSearch alongside their Hadoop ecosystem. Download and get started today, available on the OpenSearch Downloads page.
