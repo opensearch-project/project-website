@@ -16,7 +16,7 @@ excerpt: We are excited to announce the release of the new OpenSearch-Hadoop con
 
 We are excited to announce the release of the new OpenSearch-Hadoop connector. This tool enables efficient interaction between your Hadoop-based Big Data operations and OpenSearch clusters, supporting all versions of OpenSearch.
 
-## OpenSearch-Hadoop Connector Features:
+## OpenSearch-Hadoop connector features:
 
 - **Versatility**: Compatible with Scala up to version 2.13.x and Spark up to version 3.2.x, the connector facilitates data processing and analysis operations across different environments.
 - **Memory and I/O Efficient**: The connector is designed with a focus on performance. It uses pull-based parsing, supports bulk updates, and direct conversion to/of native types, resulting in efficient memory and network I/O usage.
@@ -28,13 +28,13 @@ We are excited to announce the release of the new OpenSearch-Hadoop connector. T
 
 The below matrix shows the compatibility of the [`opensearch-hadoop`](https://central.sonatype.com/artifact/org.opensearch.client/opensearch-hadoop) with versions of [`OpenSearch`](https://opensearch.org/downloads.html#opensearch).
 
-| Client Version | OpenSearch Version | ElasticSearch Version |
+| Client version | OpenSearch version | Elasticsearch version |
 | -------------- | ------------------ | --------------------- |
 | 1.0.1          | 1.0.0-2.8.0        | 7.10                  |
 
-## Compatibility with Spark and Scala
+## Compatibility with spark and scala
 
-| Client Version | Spark Version | Scala Version(s) |
+| Client version | Spark version | Scala version(s) |
 | -------------- | ------------- | ---------------- |
 | 1.0.1          | 2.2.3         | 2.10             |
 | 1.0.1          | 2.4.4         | 2.11/2.12        |
@@ -42,7 +42,7 @@ The below matrix shows the compatibility of the [`opensearch-hadoop`](https://ce
 
 ## Compatibility with AWS Glue
 
-| Client Version | Spark Version | Glue Version(s) |
+| Client version | Spark version | Glue version(s) |
 | -------------- | ------------- | --------------- |
 | 1.0.1          | 2.4.4         | 2               |
 | 1.0.1          | 3.2.4         | 3/4             |
