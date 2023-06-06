@@ -32,7 +32,7 @@ The following matrix shows the compatibility of [`opensearch-hadoop`](https://ce
 | -------------- | ------------------ | --------------------- |
 | 1.0.1          | 1.0.0-2.8.0        | 7.10                  |
 
-## Compatibility with spark and scala
+## Compatibility with Spark and Scala
 
 | Client version | Spark version | Scala version(s) |
 | -------------- | ------------- | ---------------- |
