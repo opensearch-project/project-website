@@ -47,4 +47,6 @@ The following matrix shows the compatibility of [`opensearch-hadoop`](https://ce
 | 1.0.1          | 2.4.4         | 2               |
 | 1.0.1          | 3.2.4         | 3/4             |
 
+## Get started today!
+
 This connector is a crucial tool for anyone looking to leverage the full power of OpenSearch alongside their Hadoop ecosystem. Download and start using it today.
