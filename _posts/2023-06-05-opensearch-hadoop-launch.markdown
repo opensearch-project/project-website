@@ -22,7 +22,7 @@ We are excited to announce the release of the new OpenSearch-Hadoop connector. T
 - **Memory and Input/Output (I/O) Efficient**: The connector is designed with a focus on performance. It uses pull-based parsing and supports bulk updates to and direct conversion of native types, resulting in efficient memory and network I/O usage.
 - **Adaptive I/O**: The connector can detect transport errors and retry automatically. In case of node failures, it can reroute requests to available nodes. If OpenSearch is overloaded, the connector can detect data rejection and resend it.
 - **Data Co-location Integration**: The connector integrates with Hadoop to expose network access information, enabling co-located OpenSearch and Hadoop clusters to be aware of each other, thus reducing network I/O.
-- **Secure Access**: Supports IAM for AWS-managed OpenSearch, ensuring secure access to your AWS resources.
+- **Secure Access**: Supports identity and access management (IAM) for AWS-managed OpenSearch, ensuring secure access to your AWS resources.
 
 ## Compatibility with OpenSearch
 
