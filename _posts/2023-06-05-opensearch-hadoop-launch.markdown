@@ -26,7 +26,7 @@ We are excited to announce the release of the new OpenSearch-Hadoop connector. T
 
 ## Compatibility with OpenSearch
 
-The below matrix shows the compatibility of the [`opensearch-hadoop`](https://central.sonatype.com/artifact/org.opensearch.client/opensearch-hadoop) with versions of [`OpenSearch`](https://opensearch.org/downloads.html#opensearch).
+The following matrix shows the compatibility of [`opensearch-hadoop`](https://central.sonatype.com/artifact/org.opensearch.client/opensearch-hadoop) with versions of [`OpenSearch`](https://opensearch.org/downloads.html#opensearch).
 
 | Client version | OpenSearch version | Elasticsearch version |
 | -------------- | ------------------ | --------------------- |
