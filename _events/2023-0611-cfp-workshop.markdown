@@ -1,6 +1,6 @@
 ---
 
-eventdate: 2023-06-12T9:00
+eventdate: 2023-06-13T9:00
 tz: UTC -7
 title: Submitting your first CFP workshop
 online: true
