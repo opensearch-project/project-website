@@ -16,7 +16,7 @@ excerpt: We are excited to announce the release of the new OpenSearch-Hadoop con
 
 We are excited to announce the release of the new OpenSearch-Hadoop connector. This tool enables efficient interaction between your Hadoop-based Big Data operations and OpenSearch clusters, supporting all versions of OpenSearch.
 
-## OpenSearch-Hadoop connector features
+## The following highlights the connector's features:
 
 - **Versatility**: Compatible with Scala up to version 2.13.x and Spark up to version 3.2.x, the connector facilitates data processing and analysis operations across different environments.
 - **Memory and Input/Output (I/O) Efficient**: The connector is designed with a focus on performance. It uses pull-based parsing and supports bulk updates to and direct conversion of native types, resulting in efficient memory and network I/O usage.
@@ -49,4 +49,4 @@ The following matrix shows the compatibility of [`opensearch-hadoop`](https://ce
 
 ## Get started today!
 
-The OpenSearch-Hadoop connector is a must-have tool for anyone looking to leverage the full power of OpenSearch alongside their Hadoop ecosystem. Download and get started today, available on the OpenSearch Downloads page.
+The OpenSearch-Hadoop connector is a must-have tool for anyone looking to leverage the full power of OpenSearch alongside their Hadoop ecosystem. Download and get started today [here](https://central.sonatype.com/artifact/org.opensearch.client/opensearch-hadoop/1.0.1).
