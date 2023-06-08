@@ -4,10 +4,10 @@ title: "OpenSearch Project Newsletter - Volume 1, Issue 4"
 authors: 
   - pattijuric
 date: 2023-06-08
-meta_keywords: 
-meta_description: 
+meta_keywords: OpenSearch Project news, open source newsletter, OpenSearch partner
+meta_description: Hear what’s new with our partners and learn about the latest news, community happenings, product launches, and events when your read the OpenSearch Project Newsletter.
 twittercard:
-  description: 
+  description: Hear what’s new with our partners and learn about the latest news, community happenings, product launches, and events when your read the OpenSearch Project Newsletter.
 category:
   - community
 excerpt: 
