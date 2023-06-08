@@ -1,5 +1,6 @@
 ---
-eventdate: 2021-09-07 09:00:00 -0700
+eventdate: 2021-09-07T09:00
+tz: UTC -7
 title: OpenSearch Community Meeting - Early Sept
 online: true
 signup:

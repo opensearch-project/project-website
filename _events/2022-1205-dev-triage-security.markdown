@@ -1,6 +1,7 @@
 ---
 
-eventdate: 2022-12-05 12:00:00 -0700
+eventdate: 2022-12-05T12:00
+tz: UTC -7
 title: Development Backlog & Triage Meeting - Security - 2022-12-05
 online: true
 signup:

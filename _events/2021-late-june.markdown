@@ -1,5 +1,6 @@
 ---
-eventdate: 2021-06-29 09:00:00 -0700
+eventdate: 2021-06-29T09:00
+tz: UTC -7
 title: OpenSearch Community Meeting - Late June
 online: true
 signup:

@@ -1,12 +1,12 @@
 ---
-# put your event date and time (24 hr) here (mind the time-zone and daylight saving time!):
-eventdate: 2021-01-01 12:34:00 -0700
+# put your event date and time (24 hr) here:
+eventdate: 2021-01-01T12:34
+# the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
+tz: UTC -7
 # the title - this is how it will show up in listing and headings on the site:
 title: Your Event Title
+# if your event has an online component, put it here:
 online: true
-# If the event is online, remove the next line, otherwise uncomment and adjust it:
-# tz: Pacific/Tahiti
-
 # This is for the sign up button
 signup:
     # the link URL
