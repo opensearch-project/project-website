@@ -1,5 +1,6 @@
 ---
-eventdate: 2021-06-14 10:00:00 -0700
+eventdate: 2021-06-14T10:00
+tz: UTC -7
 title: OpenSearch Community Meeting - Mid June
 online: true
 signup:

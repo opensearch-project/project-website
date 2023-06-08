@@ -1,9 +1,9 @@
 ---
 
-eventdate: 2023-04-26 13:30:00 -0800
+eventdate: 2023-04-26T13:30
+tz: UTC-8
 title: Upgrading Log-Analytics Clusters to OpenSearch
 online: false
-tz: America/Los_Angeles
 signup:
     url: https://www.myeventi.events/rtasummit23/attendee/?code=Stern30
     title: Join RTA-Summit 2023 conference in San Francisco, CA

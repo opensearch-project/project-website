@@ -1,6 +1,8 @@
 ---
 # put your event date and time (24 hr) here:
-eventdate: 2023-02-05 16:00:00 +0100
+eventdate: 2023-02-05T16:00
+# the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
+tz: UTC +1
 # the title - this is how it will show up in listing and headings on the site:
 title: FOSDEM - Python Logging Like Your Job Depends on It
 # if your event has an online component, put it here:

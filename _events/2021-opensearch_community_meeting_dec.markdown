@@ -1,5 +1,6 @@
 ---
-eventdate: 2021-12-14 09:00:00 -0800
+eventdate: 2021-12-14T09:00
+tz: UTC -8
 title: OpenSearch Community Meeting - Dec
 online: true
 signup:
