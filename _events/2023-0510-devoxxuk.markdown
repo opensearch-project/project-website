@@ -1,9 +1,9 @@
 ---
 
-eventdate: 2023-05-10 08:00:00 +0000
+eventdate: 2023-05-10 - 2023-05-12
+tz: UTC
 title: Using Apache Kafka and OpenSearch to explore Mastodon
 online: false
-tz: Europe/London
 signup:
     url: https://www.devoxx.co.uk/
     title: Join Devoxx UK 2023 conference in London

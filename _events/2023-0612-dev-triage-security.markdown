@@ -1,6 +1,7 @@
 ---
 
-eventdate: 2023-06-12 12:00:00 -0800
+eventdate: 2023-06-12T12:00
+tz: UTC -8
 title: Development Backlog & Triage Meeting - Security - 2023-06-12
 online: true
 signup:

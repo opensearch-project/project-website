@@ -1,6 +1,7 @@
 ---
 
-eventdate: 2022-10-24 12:00:00 -0700
+eventdate: 2022-10-24T12:00
+tz: UTC -7
 title: Development Backlog & Triage Meeting - Security - 2022-10-24
 online: true
 signup:

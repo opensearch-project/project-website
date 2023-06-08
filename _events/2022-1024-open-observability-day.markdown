@@ -1,9 +1,9 @@
 ---
 
-eventdate: 2022-10-24 08:00:00 -0400
+eventdate: 2022-10-24T08:00
+tz: UTC -4
 title: Kubecon Open Observability Day - 2022-10-24
 online: false
-tz: America/Detroit
 signup:
     url: https://events.linuxfoundation.org/open-observability-day-north-america/
     title: Meet us there!
