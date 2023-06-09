@@ -588,12 +588,16 @@ dl.definition-list__same-line-definition {
     > dd {
         margin-bottom: 1em;
         box-sizing: border-box;
+        border-bottom-width: 1px;
+        border-bottom-color: #ddd;
+        border-bottom-style: solid;
+        padding-bottom: 1em;
     }
     > dt {
         flex-basis: 20%;
         flex-grow: 0;
         flex-shrink: 0;
-        font-style: italic;
+        color: #0053b8;
     }
     > dd {
         flex-basis: 80%;
@@ -601,6 +605,10 @@ dl.definition-list__same-line-definition {
         flex-shrink: 1;
     }
     @include respond-max(959px) {
+        > dt {
+            border-bottom-style: none;
+            margin-bottom: 0;
+        }
         > dt,
         > dd {
             flex-basis: 100%;
