@@ -10,7 +10,7 @@ categories:
 meta_keywords: 
 meta_description: 
 
-excerpt: OpenSearch 2.7 introduced the new `flat_object` field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The `flat_object` field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the flat object field name or the standard dot path notation, but they are not indexed for fast lookup. 
+excerpt: OpenSearch 2.7 introduced the new `flat_object` field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The `flat_object` field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the flat object field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
 ---
 
 OpenSearch 2.7 introduced the new `flat_object` field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The `flat_object` field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the flat object field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
