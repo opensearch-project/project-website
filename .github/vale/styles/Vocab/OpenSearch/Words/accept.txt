@@ -42,6 +42,7 @@ gibibyte
 [Hh]ostname
 [Hh]yperparameters?
 [Ii]mpactful
+[Ii]ndexable
 [Ii]ngress
 [Ii]nitializer
 [Ii]nline
