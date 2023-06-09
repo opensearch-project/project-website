@@ -10,6 +10,8 @@ categories:
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
 
 redirect_from: "/blog/odfe-updates/2019/09/Open-Distro-for-Elasticsearch-1.2.0-released/"
+twittercard: 
+  description: Open Distro for Elasticsearch 1.2.0 is now available with new Linux tarball packages.
 ---
 
 Open Distro for Elasticsearch 1.2.0 is now available with new Linux tarball packages.

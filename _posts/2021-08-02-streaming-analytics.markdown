@@ -6,6 +6,8 @@ authors:
   - joshtok
 date:   2021-08-02 01:01:01 -0700
 categories: feature
+twittercard:
+  description: "This post introduces an updated Random Cut Forest library, RCF 2.0. OpenSearch uses RCF 1.0 in its existing High Cardinality Anomaly Detection (HCAD) framework. The sequel discusses the perspective motivating RCF 2.0."
 redirect_from: "/blog/feature/2021/08/streaming-analytics/"
 ---
 

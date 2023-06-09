@@ -6,6 +6,8 @@ authors:
 date: 2022-08-31
 categories: 
   - community
+twittercard:
+  description: "As part of our commitment to providing complete and best-in-class documentation to the OpenSearch community, we want to ensure that you have visibility into how we approach creating bar-raising content. To that end, we will be publishing regular blog posts with tips, guidance, and best practices that will help contributors collaborate with us. Subjects may include technical writing, style, voice and tone, brand messaging, and other topics relevant to the production of our documentation."
 redirect_from: "/blog/community/2022/08/New-series-From-the-editors-desk/"
 ---
 

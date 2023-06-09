@@ -5,6 +5,8 @@ authors:
   - elifish
 date:   2021-05-25 01:01:01 -0700
 categories: update
+twittercard:
+  description: "I wanted to share that a new public roadmap was published to the OpenSearch project’s GitHub. The roadmap shows the next several months of planned features and releases. Going forward, this roadmap will show what the maintainers and contributors of the various components of the project intend to work on and when that work aims to launch."
 redirect_from: "/blog/update/2021/05/opensearch-roadmap-announcement/"
 ---
 

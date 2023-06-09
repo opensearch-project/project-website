@@ -12,6 +12,8 @@ date: 2020-04-06
 categories:
 - odfe-updates
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
+twittercard:
+  description: "Since the OpenSearch Project introduced the k-nearest neighbor plugin in 2019, it has supported both exact and approximate k-NN search. The approximate k-NN search method is more efficient for large datasets with high dimensionality because it reduces the cardinality of searchable vectors. This approach is superior in speed at the cost of a slight reduction in accuracy."
 redirect_from: "/blog/odfe-updates/2020/04/Building-k-Nearest-Neighbor-(k-NN)-Similarity-Search-Engine-with-Elasticsearch/"
 meta_keywords: "approximate k-NN search, k-nearest neighbor plugin, k-NN plugin, ANN similarity search solution"
 meta_description: "Learn how the OpenSearch approximate k-NN search solution enables you to build a scalable, reliable, and distributed framework for similarity searches" 

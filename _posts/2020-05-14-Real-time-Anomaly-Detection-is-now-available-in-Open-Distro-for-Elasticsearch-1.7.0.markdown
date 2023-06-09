@@ -8,6 +8,8 @@ title: "Real-time Anomaly Detection is now available in Open Distro for Elastics
 categories:
 - odfe-updates
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
+twittercard:
+  description: "We are excited to announce the general availability of real-time anomaly detection for streaming applications in this release. We would like to thank the community for their feedback on the preview release of the feature."
 redirect_from: "/blog/odfe-updates/2020/05/Real-time-Anomaly-Detection-is-now-available-in-Open-Distro-for-Elasticsearch-1.7.0/"
 ---
 
