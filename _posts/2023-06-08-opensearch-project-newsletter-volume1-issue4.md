@@ -13,7 +13,7 @@ category:
 excerpt: 
 ---
 
-The OpenSearch Project is pleased to present our newsletter. Distributed monthly, the newsletter is a great way to learn more about the latest OpenSearch news, relevant content from the community, and upcoming events that you may be interested in. If you have topic or something you’d like us to share in the newsletter, please reach out to [Patti Juric](https://quip-amazon.com/ebH9EAd6OmY).
+The OpenSearch Project is pleased to present our newsletter. Distributed monthly, the newsletter is a great way to learn more about the latest OpenSearch news, relevant content from the community, and upcoming events that you may be interested in. If you have topic or something you’d like us to share in the newsletter, please reach out to [Patti Juric](mailto:pattijur@amazon.com)
 
 ![opensearch newsletter volume 1 issue 4](/assets/media/blog-images/2023-06-08-opensearch-newsletter-volume1-issue4/newslettervol4.png){:class="img-fluid"}
 ## What’s New?
