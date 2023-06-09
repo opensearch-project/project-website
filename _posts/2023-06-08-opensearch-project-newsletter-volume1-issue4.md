@@ -70,11 +70,11 @@ The OpenSearch Project is pleased to present our newsletter. Distributed monthly
 
 [**Berlin Buzzwords**](https://2023.berlinbuzzwords.de/) **June 18 - 20** Connect with OpenSearch at Buzzwords, an annual conference exploring search technologies with an emphasis on open-source tools. The OpenSearch Project will have a booth at the conference as well as a presentation showcasing OpenSearch search capabilities. 
 
-[**OpenSearchCon 2023**](https://opensearch.org/OpenSearchCon2023.html) **September 28** The second annual conference for OpenSearch takes place in Seattle with a conference track spanning search, observability, security analytics, and community sessions. Save the date and make your plans to join the OpenSearch community at the Sheraton Grand Seattle, and be sure to check out the [call for presentations](https://opensearch.org/blog/call-for-presentations-bring-your-ideas-to-opensearchcon-2023/)!
+[**OpenSearchCon 2023**](https://opensearchcon2023.splashthat.com/) The second annual conference for OpenSearch takes place in Seattle with a conference track spanning search, observability, security analytics, and community sessions. Save the date and make your plans to join the OpenSearch community at the Sheraton Grand Seattle, and be sure to check out the [call for presentations](https://opensearch.org/blog/call-for-presentations-bring-your-ideas-to-opensearchcon-2023/)! [**Register to Attend!**](https://opensearchcon2023.splashthat.com/)
 
-[**Visit the Events page**](https://www.meetup.com/pro/opensearchproject/) to learn about upcoming Community Meetings, Planning, Triage, and Office Hours meetings with the OpenSearch Project development teams. 
+[**Visit the Events page**](https://opensearch.org/events/) to learn about upcoming Community Meetings, Planning, Triage, and Office Hours meetings with the OpenSearch Project development teams. 
 
-Subscribe to our [MeetUp](https://www.meetup.com/opensearch/) group to join the latest meetings, local user groups. 
+Subscribe to our [MeetUp](https://www.meetup.com/pro/opensearchproject/) group to join the latest meetings, local user groups. 
 Follow us on [Twitter](https://twitter.com/OpenSearchProj) and [LinkedIn](https://www.linkedin.com/company/opensearch-project/) to stay up-to-date with the latest #OpenSearch news.
 Visit our [forum](https://forum.opensearch.org/) to ask questions and interact with the OpenSearch community.
 Join public [Slack](https://opensearch.org/slack.html) to brainstorm, review code, and other ad hoc collaborative discussions with the community.
