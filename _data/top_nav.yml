@@ -13,7 +13,7 @@ items:
     children:
       -
         label: Search
-        url: /platform/search.html
+        url: /platform/search/index.html
         children:
           -
             label: Vector Database
