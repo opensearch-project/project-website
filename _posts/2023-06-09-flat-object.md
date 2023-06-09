@@ -17,7 +17,7 @@ OpenSearch 2.7 introduced the new `flat_object` field type. This field type is u
 
 ## Dynamic mapping
 
-In OpenSearch, a _mapping_ defines the structure of your data. It specifies field names, types, and indexing and analysis settings, ensuring that your data is organized and interpreted correctly. If you don't specify a custom mapping, OpenSearch infers the structure of your document automatically when you upload the document. This process is called _dynamic mapping_, where OpenSearch detects the document data structure and generates the corresponding mapping file. 
+In OpenSearch, a [_mapping_](https://opensearch.org/docs/latest/field-types/index/) defines the structure of your data. It specifies field names, types, and indexing and analysis settings, ensuring that your data is organized and interpreted correctly. If you don't specify a custom mapping, OpenSearch infers the structure of your document automatically when you upload the document. This process is called _dynamic mapping_, where OpenSearch detects the document data structure and generates the corresponding mapping file. 
 
 ## When dynamic mapping falls flat
 
