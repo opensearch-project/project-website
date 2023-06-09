@@ -11,8 +11,6 @@ categories:
   - technical-post
 meta_keywords: opensearch simple schema, observability schema, opensearch opentelemetry, OpenSearch 2.6
 meta_description: While users can currently send their logs to OpenSearch, there are no set formats or schemas for the logs, which can make sharing dashboards and alerts cumbersome. In this blog post, we talk about using Fluent Bit, a new simple schema, and OpenSearch with NGINX as a new workflow that simplifies the sharing of dashboards and alerts.
-twittercard:
-  description: "Fluent Bit is a graduated sub-project under the Cloud Native Computing Foundation (CNCF) Fluentd project umbrella. Fluent Bit integrates with hundreds of common tools such as Kafka, Syslog, Loki, and, of course, OpenSearch."
 ---
 
 Fluent Bit is a graduated sub-project under the Cloud Native Computing Foundation (CNCF) Fluentd project umbrella. Fluent Bit integrates with hundreds of common tools such as Kafka, Syslog, Loki, and, of course, OpenSearch.

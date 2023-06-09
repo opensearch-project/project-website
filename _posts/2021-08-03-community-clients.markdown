@@ -6,8 +6,6 @@ authors:
 date:   2021-08-11 01:01:01 -0700
 categories: 
   - community
-twittercard:
-  description: "Software projects often provide language specific client libraries to make it easy to integrate applications. OpenSearch is built to be wire compatible with open source Elasticsearch 7.10.2 so that anyone can leverage the existing clients, connectors, and tools with minimal modifications to their deployments."
 redirect_from: "/blog/community/2021/08/community-clients/"
 ---
 

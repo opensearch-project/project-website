@@ -9,8 +9,6 @@ title: "The Elasticsearch Weight Function"
 categories:
 - odfe-updates
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
-twittercard:
-  description: "Distributed systems scale by coordinating and distributing their workloads horizontally, across several machines. In Elasticsearch, this is done by partitioning indexes into shards and distributing them across data nodes in the cluster."
 redirect_from: "/blog/odfe-updates/2020/04/The-Elasticsearch-Weight-Function/"
 ---
 

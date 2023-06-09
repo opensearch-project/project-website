@@ -8,8 +8,6 @@ categories:
   - releases
 meta_keywords: opensearch observability, flat field search, security analytics, cluster administration, OpenSearch 2.7
 meta_description: Explore OpenSearch 2.7.0 with new tools for search, observability, and security analytics workloads, plus major enhancements for cluster and data management.
-twittercard:
-  description: "OpenSearch 2.7.0 is ready for download! The latest version of OpenSearch offers a range of new capabilities for search, analytics, observability, and security applications, along with significant enhancements to administration and usability. This release also marks the general availability of several major features that were previously released as experimental—we hope you’re as eager as we are to put capabilities like segment replication, searchable snapshots, and more into production!"
 ---
 
 OpenSearch 2.7.0 is [ready for download](https://opensearch.org/downloads.html)! The latest version of OpenSearch offers a range of new capabilities for search, analytics, observability, and security applications, along with significant enhancements to administration and usability. This release also marks the general availability of several major features that were previously released as experimental—we hope you’re as eager as we are to put capabilities like segment replication, searchable snapshots, and more into production! As always, the [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.7.0.md) provide a full view of what’s new, and you can explore OpenSearch’s visualization tools on the [Playground](https://playground.opensearch.org/app/home#/).

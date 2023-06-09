@@ -7,8 +7,6 @@ authors:
 date: 2021-09-02 01:01:01 -0700
 categories:
   - community
-twittercard:
-  description: "OpenSearch is a distributed, open source search and analytics suite used for a broad set of use cases like real-time application monitoring, log analytics, and website search. And it's easy to imagine why you might want to query information from OpenSearch in those use cases. But you might not know how those queries actually work. Well, that’s what we’re going to explore in this blog! In particular, we’re going to take a closer look at how a query works by following a query through OpenSearch. "
 redirect_from: "/blog/community/2021/09/a-query-or-there-and-back-again/"
 ---
 

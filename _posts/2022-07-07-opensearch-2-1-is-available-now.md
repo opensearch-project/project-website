@@ -7,8 +7,6 @@ authors:
 date:   2022-07-07 11:59:00 -0700
 categories:
   - releases
-twittercard:
-  description: "OpenSearch 2.1 is now available for download! This release includes new features and significant enhancements aimed at boosting performance and expanding functionality for search, analytics, and observability use cases. OpenSearch 2.1 delivers a number of capabilities that have come up consistently in the OpenSearch community, including a dedicated node type for running machine learning (ML) workloads at scale, enhanced data protection capabilities, more flexible search options, and user interface upgrades."
 redirect_from: "/blog/releases/2022/07/opensearch-2-1-is-available-now/"
 ---
 

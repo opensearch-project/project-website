@@ -9,8 +9,6 @@ authors:
 date: 2022-09-27
 categories:
  - technical-post
-twittercard:
-  description: "In OpenSearch 2.2, we released custom GeoJSON support for region map visualizations in OpenSearch Dashboards. Custom GeoJSON enables customers to map their own GeoJSON file. Custom GeoJSON builds on the GeoShape features included in earlier releases."
 redirect_from: "/blog/technical-post/2022/09/whatsnew-custom-geo-json/"
 ---
 

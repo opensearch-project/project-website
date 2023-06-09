@@ -6,8 +6,6 @@ authors:
 date: 2022-10-24 01:01:01 -0700
 categories: 
   - community
-twittercard: 
-  description: "The OpenSearch Project deployed automated build, test, and release infrastructure that supports the end-to-end lifecycle of public distributions with the launch of OpenSearch 2.3.0. This includes the migration of OpenSearch Gradle check workflows that are run on every PR merge to the public infrastructure. Community members can now view logs by accessing the build infrastructure to understand the current state of their workflows and monitor runs as needed."
 redirect_from: "/blog/community/2022/10/public-jenkins/"
 ---
 

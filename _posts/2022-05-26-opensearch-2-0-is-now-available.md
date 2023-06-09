@@ -10,8 +10,6 @@ authors:
 date:   2022-05-26 09:45:00 -0700
 categories:
   - releases
-twittercard:
-  description: "OpenSearch 2.0 is now generally available! This release incorporates user feedback and contributions from across the OpenSearch community to deliver a wealth of new capabilities and performance enhancements. We’re grateful for the collaborative effort of the community to build a distributed search and analytics toolset with the features, usability, and open-source flexibility that developers can rely on to create their most innovative solutions yet."
 redirect_from: "/blog/releases/2022/05/opensearch-2-0-is-now-available/"
 ---
  
