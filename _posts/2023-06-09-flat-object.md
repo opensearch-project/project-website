@@ -242,7 +242,7 @@ After uploading the same documents, you can check the mappings for `test-index`:
 GET /test-index/_mappings
 ```
 
-The `Parameters` field, which is mapped as a `flat_object`, is the only indexable field. Its subfields are not indexed,effectively preventing a "mapping explosion:"
+The `Parameters` field, which is mapped as a `flat_object`, is the only indexable field. Its subfields are not indexed, effectively preventing a "mapping explosion:"
 
 
 ```json
