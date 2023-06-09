@@ -11,8 +11,6 @@ feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a
 
 redirect_from: /blog/odfe-updates/2019/09/Check-out-earlier-blogposts-on-Open-Distro-for-Elasticsearch/
 
-twittercard:
-  description: Check out earlier blogs posts for Open Distro for Elasticsearch which were published on the AWSOpen blog. Going forward, bookmark the Open Distro blog as your source for in-depth, technical articles on the project. You’ll find how-tos, release notes, case studies, event announcements, and if you’re inspired to contribute, your own content, too!
 
 ---
 Hi Open Distro blog readers,

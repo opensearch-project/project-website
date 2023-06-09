@@ -19,8 +19,6 @@ andriy: B1eYURNTTcQ
 james: sefpRfJN9CA
 charlotte: IG16SNiIS0g
 
-twittercard:
-  description: "OpenSearchCon 2022 is now available on our YouTube channel! View demos and talks about observability, log analytics, speeding up your search, and much more!"
 
 redirect_from: 
 

@@ -7,8 +7,6 @@ authors:
 date: 2022-07-22
 categories:
  - intro
-twittercard:
-  description: "I’m still tagging, and much like in my last post, I’ve been tagging forum threads in hopes of gaining insight into where to target content creation. What is most clear is the data showing that we definitely need more configuration, troubleshooting, and documentation material for OpenSearch and OpenSearch Dashboards in general (don’t forget to file an issue for whatever you think is missing!)"
 redirect_from: "/blog/intro/2022/07/content-compass/"
 meta_keywords: "data ingestion, ingestion, open source, opensearch, community, observability"
 meta_description: "Using OpenSearch to ingest community tag data helps us target learning material towards where knowledge gaps actually exist."
