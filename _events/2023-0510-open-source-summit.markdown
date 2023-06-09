@@ -1,9 +1,9 @@
 ---
 
-eventdate: 2023-05-10T14:00
-tz: UTC -8
+eventdate: 2023-05-10 14:00:00 -0800
 title: Demystifying Anomaly Detection in OpenSearch - Open Source Summit North America 2023
 online: false
+tz: America/Vancouver
 signup:
     url: https://ossna2023.sched.com/event/4a16eb089ae3231cf5c2bb76e087b6fb
     title: See you there!

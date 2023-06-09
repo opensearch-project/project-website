@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2022-01-24T09:00
-tz: UTC -8
+eventdate: 2022-01-24 09:00:00 -0800
 title: OpenSearch Community Meeting - 2022-01-24 - open office hour
 online: true
 signup:
