@@ -6,8 +6,6 @@ authors:
 date: 2022-10-19
 categories:
   - partners
-twittercard:
-  description: "OpenSearch partner and contributor AWS recently published a blog that focuses on the different algorithms and techniques used to perform approximate k-NN search at scales of more than a billion data points within OpenSearch."
 redirect_from: "/blog/partners/2022/10/aws-knn-algorithms-workload-optimizations/"
 ---
 

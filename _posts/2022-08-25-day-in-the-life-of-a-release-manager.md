@@ -6,8 +6,6 @@ authors:
 date: 2022-08-25
 categories:
  - community
-twittercard:
-  description: "An OpenSearch version release can be a daunting prospect, especially if you’re the one managing it. There are ambiguously worded tasks that need to be completed, deadlines to be met. Now not only do you have to get your work done, but you also have to make sure that everyone else does too. Facing this challenge for the first time, I thought it would be useful to document the process so that any future release managers can avoid the mistakes I made."
 redirect_from: "/blog/community/2022/08/day-in-the-life-of-a-release-manager/"
 ---
 

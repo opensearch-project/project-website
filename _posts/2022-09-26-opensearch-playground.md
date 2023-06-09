@@ -7,8 +7,6 @@ authors:
 date:   2022-10-03 00:00:00 -0700
 categories:
   - community
-twittercard:
-  description: "We are excited to announce the live demo environment of OpenSearch and OpenSearch Dashboards. OpenSearch Playground provides a central location for existing and evaluating users to explore features in OpenSearch and OpenSearch Dashboards without installing or downloading anything. You can access OpenSearch Playground at playground.opensearch.org."
 redirect_from: "/blog/community/2022/10/opensearch-playground/"
 ---
 

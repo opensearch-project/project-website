@@ -7,8 +7,6 @@ authors:
 date: 2021-12-08 01:01:01 -0700
 categories:
   - update
-twittercard:
-  description: "We would like to introduce OpenSearch Benchmark - a community driven, open source fork of Rally. The mission of the project is to provide a convenient and reliable performance testing framework for OpenSearch. OpenSearch Benchmark intends to be compatible with OpenSearch and Amazon OpenSearch Service. OpenSearch Benchmark is currently in alpha release and will be maintained under the Apache License, Version 2.0 (ALv2)."
 redirect_from: "/blog/update/2021/12/introducing-opensearch-benchmark/"
 ---
 

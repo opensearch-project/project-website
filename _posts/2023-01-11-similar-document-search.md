@@ -8,8 +8,6 @@ categories:
   - community
 Meta_keywords: Similar document search, document similarity, MLT query, neural search plugin
 Meta_description: Learn how similar document search inside of OpenSearch helps you find multiple results in search data to retrieve content similar to the query document.
-twittercard:
-  description: "When users need to find multiple results in your search data, such as recommendations for similar articles on a news website or recommendations for related products on an e-commerce site, you can take advantage of similar document search inside of OpenSearch. When you give OpenSearch a document as a query, similar document search retrieves contents similar to the query document."
 ---
 
 <sub>_This blog is available in Japanese here: [OpenSearch を使用した類似文書検索](https://qiita.com/gteu/items/aea38912b273919558ba)_</sub>
