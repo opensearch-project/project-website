@@ -7,8 +7,8 @@ benchmark_domain: 'benchmarks.opensearch.org'
 benchmark_dashboard_id: '88071cb0-f118-11ed-aff5-859eb6ed880f'
 benchmark_range_days: 7
 
-benchmark_height_desktop: 7300
-benchmark_height_mobile: 12400
+benchmark_height_desktop: 2000
+benchmark_height_mobile: 6000
 ---
 <style>
     #benchmark-dashboard {
@@ -17,11 +17,29 @@ benchmark_height_mobile: 12400
         background: transparent;
         border: 0;
     }
-    @media only screen and (max-width: 767px) {
-        #benchmark-dashboard {
-            height: {{ page.benchmark_height_mobile }}px;
-        }
+
+    #navigation ul
+    {
+        margin: 0;
+        padding: 8px;
     }
+
+    #navigation ul li
+    {
+        list-style-type: none;
+        display: inline-block;
+        background-color: lightgrey;
+    }
+    
+    #navigation li:not(:first-child):before {
+        content: " | ";
+    }
+   
+    @media only screen and (max-width: 767px) {
+            #benchmark-dashboard {
+                height: {{ page.benchmark_height_mobile }}px;
+            }
+        }
 </style>
 <p>
     Welcome to the OpenSearch performance benchmarking page. This page displays the results of ongoing performance testing for recent and upcoming versions of the OpenSearch software. You can view key performance metrics across different workloads with the dashboard visualizations below.
@@ -34,7 +52,17 @@ benchmark_height_mobile: 12400
 <p>
     Questions or contributions? Connect with the OpenSearch community in the <a href="https://app.slack.com/client/T01QQ0Q5GMA/C0516H8EJ7R">#performance</a> channel on our public Slack.
 </p>
-<iframe
-  id="benchmark-dashboard"
-  src="https://{{ page.benchmark_domain }}/app/dashboards?security_tenant=global#/view/{{ page.benchmark_dashboard_id }}?embed=true&show-time-filter=true&hide-filter-bar=true&&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-{{ page.benchmark_range_days }}d,to:now))"
-></iframe>
+
+<div class="switcher" id="navigation">
+<ul>
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?security_tenant=global#/view/{{ page.benchmark_dashboard_id }}?embed=true&show-time-filter=true&hide-filter-bar=true&&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-{{ page.benchmark_range_days }}d,to:now))" id="benchmark-dashboard" name="benchmark-dashboard" target="benchmark-dashboard">Indexing and Query</a>
+</li> 
+
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/d67264e0-f5aa-11ed-aff5-859eb6ed880f?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Segment%20Replication%20Benchmark',viewMode:view)&show-time-filter=true&hide-filter-bar=true></iframe>" target="benchmark-dashboard">Segment Replication</a>
+</li>
+</ul>
+</div>
+
+<iframe class="switch-target" src="https://{{ page.benchmark_domain }}/app/dashboards?security_tenant=global#/view/{{ page.benchmark_dashboard_id }}?embed=true&show-time-filter=true&hide-filter-bar=true&&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-{{ page.benchmark_range_days }}d,to:now))" id="benchmark-dashboard" name="benchmark-dashboard"></iframe>
