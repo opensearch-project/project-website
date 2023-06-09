@@ -11,7 +11,16 @@ product_image: '/assets/media/partners/calyptia-product.png'
 description: Brief description of your business and what it does (50 words or less).
 business_type: Type of business (e.g., MSP, CSP, ISV, product/technology, services organization, other). If other, please define.
 region: What regions do you serve (e.g.,North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia)?
-contact: How can people contact you (email and phone).
+
+# How can people contact you (email, phone, or website).
+contact: 
+  - type: 'email'
+    value: 'name@example.com'
+  - type: 'phone'
+    value: '+1-555-555-5555'
+  - type: 'website'
+    value: 'http://example.com'
+
 opensearch_tech:  What OpenSearch technologies do you specialize in (e.g., search, analytics, observability, security, or other)?
 industries:  What industries do you specialize in (e.g. business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology)? Add all that apply.
 

@@ -224,7 +224,20 @@
             width: 32px;
             float: left;
             text-align: center;
-            
+            .partner-page--social-links--icon-wrap, 
+            svg {
+                height: 36px;
+                width: 32px;
+                clear: none;
+                margin: 0;
+                padding: 0;
+            }
+            svg {
+                fill: #D9E1E2;
+            }
+            svg:hover {
+                fill: #55ACEE;
+            }
         }
     }
 }

@@ -4,11 +4,7 @@ title: Partners
 primary_title: Partners
 ---
 
-{% include address-custom-element.html %}
-{% include partner-social-links.html %}
 {% include responsive-collapsible-panel.html %}
-{% include uppercase-first-word.html %}
-{% include contact-info-element.html %}
 
 {% assign primary_title = page.name_long %}
 <div class="container sidebar-left">
@@ -34,7 +30,7 @@ primary_title: Partners
                             <dd>
                                 <ul>
                                     {% for business_type in business_type_list %}
-                                        <li><uppercase-first-word>{{ business_type | strip }}</uppercase-first-word></li>
+                                        <li>{% include uppercase-first-word.html content=business_type %}</li>
                                     {% endfor %}
                                 </ul>
                             </dd>
@@ -45,7 +41,7 @@ primary_title: Partners
                             <dd>
                                 <ul>
                                     {% for region in region_list %}
-                                        <li><uppercase-first-word>{{ region | strip }}</uppercase-first-word></li>
+                                        <li>{% include uppercase-first-word.html content=region %}</li>
                                     {% endfor %}
                                 </ul>    
                             </dd>
@@ -56,7 +52,7 @@ primary_title: Partners
                             <dd>
                                 <ul>
                                     {% for tech in opensearch_tech_list %}
-                                        <li><uppercase-first-word>{{ tech | strip }}</uppercase-first-word></li>
+                                        <li>{% include uppercase-first-word.html content=tech %}</li>
                                     {% endfor %}
                                 </ul>
                             </dd>
@@ -67,7 +63,7 @@ primary_title: Partners
                             <dd>
                                 <ul>
                                     {% for industry in industry_list %}
-                                        <li><uppercase-first-word>{{ industry | strip }}</uppercase-first-word></li>
+                                        <li>{% include uppercase-first-word.html content=industry %}</li>
                                     {% endfor %}
                                 </ul>
                             </dd>
@@ -83,7 +79,7 @@ primary_title: Partners
                                     {% for office_location in page.multiple_office_locations %}
                                         <dt>{{ office_location.name }}</dt>
                                         <dd>
-                                            <address-custom-element address="{{ office_location.location }}"></address-custom-element>
+                                            {% include multiline-address.html address=office_location.location %}
                                         </dd>
                                     {% endfor %}
                                 </dl>
@@ -91,11 +87,11 @@ primary_title: Partners
                         {% elsif page.main_office_location %}
                             <dt>Main Office Address</dt>
                             <dd>
-                                <address-custom-element address="{{ page.main_office_location }}"></address-custom-element>
+                                {% include multiline-address.html address=page.main_office_location %}
                             </dd>
                         {% endif %}
                         <dt>Contact Info</dt>
-                        <dd><contact-info contact-info="{{ page.contact | join: ',' }}"></contact-info></dd>
+                        <dd>{% include contact-info-list.html contact_info=page.contact %}</dd>
                         <dt>Website</dt>
                         <dd><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></dd>
                     </dl>
@@ -129,20 +125,9 @@ primary_title: Partners
                 </div> 
             {% endif %}
             {% if page.resources %}
-                {% include resource-grid-element.html %}
                 <div class="partner-page--layout--details--resources">
                     <h2>Resources</h2>
-                    <resource-grid>
-                        {% for resource in page.resources %}
-                            <resource-grid-item slot="grid-item"
-                                url="{{ resource.url }}"
-                                type="{{ resource.type }}"
-                                title="{{ resource.title }}"
-                                thumbnail="{{ resource.thumbnail }}"
-                                aspect-ratio="{{ resource.aspect_ratio }}"
-                            ></resource-grid-item>
-                        {% endfor %}
-                    </resource-grid>
+                    {% include resource-grid-element.html resources=page.resources %}
                 </div>
             {% endif %}
             {% if page.social_links %}
@@ -150,7 +135,7 @@ primary_title: Partners
                     {% for social_link in page.social_links %}
                         <div class="partner-page--social-links--icon">
                             <a href="{{ social_link.url }}" target="_blank">
-                                <partner-social-links icon="{{ social_link.icon }}"></partner-social-links>
+                                {% include partner-social-links.html icon=social_link.icon %}
                             </a>
                         </div>
                     {% endfor %}

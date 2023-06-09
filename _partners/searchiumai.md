@@ -10,7 +10,11 @@ description: |
 
 business_type: 'Product/Technology'
 region: 'Worldwide'
-contact: 'devopsil@gsitechnology.com, social@gsitechnology.com'
+contact: 
+  - type: 'email'
+    value: 'devopsil@gsitechnology.com'
+  - type: 'email'
+    value: 'social@gsitechnology.com'
 opensearch_tech: 'Search'
 industries: 'Software and Technology'
 main_office_location: |
@@ -24,17 +28,14 @@ resources:
   - url: 'https://towardsdatascience.com/text-search-vs-vector-search-better-together-3bd48eb6132a'
     title: 'Text Search vs. Vector Search: Better Together?'
     thumbnail: '/assets/media/partners/searchiumai/searchiumai-vector.jpg'
-    aspect_ratio: '226∶151'
     type: 'blog'
   - url: 'https://betterprogramming.pub/tired-of-troubleshooting-idle-search-resources-use-opensearch-benchmark-for-performance-tuning-d4277c9f724'
     title: 'Tired of troubleshooting idle search resources? Use OpenSearch Benchmark for performance tuning'
     thumbnail: '/assets/media/partners/searchiumai/searchiumai-benchmark.jpg'
-    aspect_ratio: '226∶151'
     type: 'blog'
   - url: 'https://towardsdatascience.com/bolster-opensearch-performance-with-5-simple-steps-ca7d21234f6b?gi=904ccc0a0714'
     title: 'Bolster OpenSearch performance with 5 simple steps'
     thumbnail: '/assets/media/partners/searchiumai/searchiumai-performance.jpg'
-    aspect_ratio: '113∶118'
     type: 'blog'
 social_links:
   - url: 'https://github.com/Searchium-ai'

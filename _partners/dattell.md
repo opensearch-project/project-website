@@ -10,7 +10,11 @@ description: |
   <p>All of our team members are senior level DevOps, IT, or programming professionals with 10+ years experience running data infrastructure for complex use cases.</p>
 business_type: 'MSP, Services Organization'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
-contact: 'support@dattell.com, (619) 786-0813'
+contact: 
+  - type: 'email'
+    value: 'support@dattell.com'
+  - type: 'phone'
+    value: '(619) 786-0813'
 opensearch_tech: 'We specialize in support of open source, free license software. That includes OpenSearch in all of its various implementations including: search, logging and monitoring, analytics, observability, security, e-commerce, machine learning, vector search, and content management.
 In addition, we support ancillary open source, free license software such as Apache Kafka, and Apache Pulsar.'
 industries: 'Financial Services, Healthcare, Software & Technology, Media, Public Sector, Consumer Services, Business Services, Energy & Utilities, Internet of Things, Fintech, Healthtech, Saas, Defense, Biotech, Medtech, High Tech, Energy & Utilities'
@@ -21,17 +25,14 @@ resources:
   - url: 'https://dattell.com/data-architecture-blog/enterprise-managed-opensearch/'
     title: 'Enterprise Managed OpenSearch'
     thumbnail: '/assets/media/partners/dattell/Enterprise-Managed-OpenSearch.png'
-    aspect_ratio: '209∶116'
     type: 'product'
   - url: 'https://dattell.com/data-architecture-blog/planning-a-successful-migration-to-opensearch/'
     title: 'Planning a Successful Migration to OpenSearch'
     thumbnail: '/assets/media/partners/dattell/Migrating-to-OpenSearch-2.png'
-    aspect_ratio: '209∶116'
     type: 'blog'
   - url: 'https://dattell.com/data-architecture-blog/how-to-query-opensearch-with-boolean-queries/'
     title: 'How to Query OpenSearch with Boolean Queries'
     thumbnail: '/assets/media/partners/dattell/How-to-Query-OpenSearch-With-Boolean-Queries.png'
-    aspect_ratio: '209∶116'
     type: 'tutorial'
 products:
   - name: 'Managed OpenSearch'

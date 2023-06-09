@@ -8,7 +8,9 @@ product_image: '/assets/media/partners/bonsai/bonsai-product.webp'
 description: 'The managed OpenSearch platform that provides the support of a search engineering team, but at a fraction of the cost.'
 business_type: 'MSP'
 region: 'Global'
-contact: 'team@bonsai.io'
+contact: 
+  - type: 'email'
+    value: 'team@bonsai.io'
 industries: 'Education, financial services, healthcare, media and entertainment, non-profit, retail, software and technology'
 opensearch_tech: Search
 main_office_location: |
@@ -45,16 +47,13 @@ resources:
   - url: 'https://bonsai.io/blog/welcome-to-opensearch'
     title: 'Welcome to OpenSearch'
     thumbnail: '/assets/media/partners/bonsai/bonsai-welcome-to-opensearch.jpg'
-    aspect_ratio: '21∶11'
     type: 'blog'
   - url: 'https://bonsai.io/blog/up-and-running-with-opensearch'
     title: 'Up and Running with OpenSearch'
     thumbnail: '/assets/media/partners/bonsai/bonsai-up-and-running-with-opensearch.jpg'
-    aspect_ratio: '21∶11'
     type: 'blog'
   - url: 'https://bonsai.io/blog/migrating-from-elasticsearch-to-opensearch'
     title: 'Migrating from Elasticsearch to OpenSearch'
     thumbnail: '/assets/media/partners/bonsai/bonsai-migrating-from-elasticsearch-to-opensearch.jpg'
-    aspect_ratio: '21∶11'
     type: 'blog'
 ---

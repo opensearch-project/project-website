@@ -7,7 +7,9 @@ logo_large: '/assets/media/partners/sease/sease-logo.png'
 description: |
   <p>Sease mission is to make research in Information Retrieval more accessible to an industry audience, transforming the best research ideas into real-world products.</p><p>Our focus is to provide R&D projects guidance and implementation, consulting services and training, using open source software such as Apache Lucene/Solr, Elasticsearch, OpenSearch, and Vespa.</p>
 business_type: 'ISV'
-contact: 'info@sease.io'
+contact: 
+  - type: 'email'
+    value: 'info@sease.io'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific and Australia.'
 opensearch_tech: 'Search, Vector based search'
 industries: 'software and technology'
@@ -20,7 +22,6 @@ resources:
   - url: 'https://sease.io/2022/12/opensearch-neural-search-plugin-tutorial.html'
     title: 'OpenSearch Neural Search Plugin Tutorial'
     thumbnail: '/assets/media/partners/sease/sease-neural-search.jpg'
-    aspect_ratio: '218:123'
     type: 'blog'
 products:
   - url: 'https://sease.io/'

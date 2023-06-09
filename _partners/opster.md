@@ -8,7 +8,11 @@ product_image: '/assets/media/partners/opster/opster-product.webp'
 description: 'Opster provides optimization and management tools that streamline the daily operations of OpenSearch. Opster&apos;s products and services optimize search performance while reducing costs, saving users both time and money. Opster also offers 24/7 proactive support from industry experts who take charge of your entire search operation.'
 business_type: ISV
 region: Worldwide
-contact: 'info@opster.com, https://opster.com/form/contact/'
+contact: 
+  - type: 'email'
+    value: 'info@opster.com'
+  - type: 'website'
+    value: 'https://opster.com/form/contact/'
 opensearch_tech: 'Opster&apos;s products and services cover all OpenSearch technologies with an emphasis on search and indexing performance, resource utilization, and observability.'
 industries: 'Software and technology, business services, consumer services, Cyber, and e-commerce.'
 main_office_location: |
@@ -17,17 +21,14 @@ resources:
   - url: 'https://opster.com/guides/opensearch/opensearch-basics/migrate-from-elasticsearch-to-opensearch/'
     title: 'How to Migrate from Elasticsearch to OpenSearch'
     thumbnail: '/assets/media/partners/opster/opster-migrate-from-elasticsearch-to-opensearch.webp'
-    aspect_ratio: '109:73'
     type: 'blog'
   - url: 'https://opster.com/guides/opensearch/opensearch-basics/install-opensearch-kubernetes-helm-charts/'
     title: 'How to Install OpenSearch on Kubernetes (Using HELM charts)'
     thumbnail: '/assets/media/partners/opster/opster-install-opensearch-on-kubernetes-with-helm-charts.webp'
-    aspect_ratio: '109:73'
     type: 'blog'
   - url: 'https://opster.com/guides/opensearch/opensearch-data-architecture/elasticsearch-ilm-vs-opensearch-ism-policy/'
     title: 'Elasticsearch ILM VS. OpenSearch ISM Policy – Comparison, Explanation and Instructions (OpenSearch ILM)'
     thumbnail: '/assets/media/partners/opster/opster-elasticsearch-ilm-vs-opensearch-ism-policy.webp'
-    aspect_ratio: '109:73'
     type: 'blog'
 products:
   - url: 'https://opster.com/elasticsearch-autoops/'

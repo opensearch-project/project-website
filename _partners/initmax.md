@@ -7,7 +7,11 @@ logo_large: '/assets/media/partners/initmax/initmax-logo.svg'
 product_image: '/assets/media/partners/initmax/initmax-product.png'
 description: 'Company initMAX is your partner for advanced IT monitoring'
 business_type: 'Professional Services Organization'
-contact: 'info@initmax.com, +420 800 244 442'
+contact: 
+  - type: 'email'
+    value: 'info@initmax.com'
+  - type: 'phone'
+    value: '+420 800 244 442'
 main_office_location: |
   Czech Republic
   Plynární 1617/10
@@ -19,7 +23,6 @@ resources:
   - url: 'https://www.initmax.cz/blog/'
     title: 'initMAX Blog'
     thumbnail: '/assets/media/partners/initmax.png'
-    aspect_ratio: '74:73'
     type: 'blog'
 products:
   - url: 'https://www.initmax.com/service/zabbix-monitoring/'

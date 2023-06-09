@@ -7,7 +7,9 @@ logo_large: '/assets/media/partners/digitalpebble/digitalpebble-logo.png'
 description: 'DigitalPebble&apos;s unique expertise covers all aspects of a document&apos;s life cycle, from web-wide crawling and collection, content analysis, filtering and categorization to indexing.
 DigitalPebble can help your organisation by advising on best practice and identifying suitable resources, designing scalable solutions as well as implementing them.'
 business_type: 'Consultancy'
-contact: 'contact@digitalpebble.com'
+contact: 
+  - type: 'email'
+    value: 'contact@digitalpebble.com'
 opensearch_tech: 'Search, analytics and observability'
 region: 'Worldwide'
 main_office_location: |
@@ -16,17 +18,14 @@ resources:
   - url: 'https://stormcrawler.net/'
     title: 'StormCrawler'
     thumbnail: '/assets/media/partners/digitalpebble/digitalpebble-stormcrawler.png'
-    aspect_ratio: '229∶157'
     type: 'product'
   - url: 'http://urlfrontier.net/'
     title: 'URL Frontier'
     thumbnail: '/assets/media/partners/digitalpebble/digitalpebble-urlfrontier.svg'
-    aspect_ratio: '229∶98'
     type: 'product'
   - url: 'https://forum.opensearch.org/t/opensearch-community-meeting-2023-0214/11894'
     title: 'OpenSearch Community Meeting 2023-02-14'
     thumbnail: '/assets/media/partners/digitalpebble/digitalpebble-stormcrawler.png'
-    aspect_ratio: '229∶157'
     type: 'discussion'
 products:
   - url: 'https://stormcrawler.net/'

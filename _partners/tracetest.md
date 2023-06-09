@@ -10,7 +10,11 @@ No more writing test scripts or mocks. Instead, test against real data.
 Get a 10x reduction in test creation time, and a 20x reduction in troubleshooting time.'
 business_type: 'Open-source product'
 region: 'Global'
-contact: 'ken@kubeshop.io, adnan@kubeshop.io'
+contact: 
+  - type: 'email'
+    value: 'ken@kubeshop.io'
+  - type: 'email'
+    value: 'adnan@kubeshop.io'
 opensearch_tech: 'Observability, Testing'
 industries: 'Software, Technology'
 main_office_location:  'Remote'

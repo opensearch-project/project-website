@@ -10,7 +10,11 @@ Seacom has been main Elastic&apos;s partner in Italy since 2013, gaining strong 
 business_type: 'ISV, services organization'
 business_type: 'Consultancy, Support, Product'
 region: 'Europe, Middle East, Africa'
-contact: 'info@seacom.it, +390500984020'
+contact: 
+  - type: 'email'
+    value: 'info@seacom.it'
+  - type: 'phone'
+    value: '+390500984020'
 opensearch_tech: 'Observability, Security, Search, Analytics, NLP, SNA'
 main_office_location: |
   Via Gramsci 5
@@ -19,17 +23,14 @@ resources:
   - url: 'https://www.seacom.it/novita-opensearch-2-4-0/'
     title: 'Novità OpenSearch 2.4.0'
     thumbnail: '/assets/media/partners/seacom/opensearch-2-4-0.jpg'
-    aspect_ratio: '214:120'
     type: 'blog'
   - url: 'https://www.seacom.it/prevenire-le-vulnerabilita-in-ambiente-zimbra-con-logos/'
     title: 'Prevenire le vulnerabilità in ambiente Zimbra con LogOs'
     thumbnail: '/assets/media/partners/seacom/Esempio-di-attacco-su-ambiente-Zimbra.jpg'
-    aspect_ratio: '214:120'
     type: 'blog'
   - url: 'https://www.seacom.it/data-visualization-per-il-business-limportanza-di-una-soluzione-completa-per-la-reportistica/'
     title: 'Data Visualization per il business: l’importanza di una soluzione completa per la reportistica'
     thumbnail: '/assets/media/partners/seacom/Data-Visualization-copertina.png'
-    aspect_ratio: '214:120'
     type: 'blog'
 products:
   - name: 'LogOs'
