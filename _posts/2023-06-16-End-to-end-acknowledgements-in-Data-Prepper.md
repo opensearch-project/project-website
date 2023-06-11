@@ -13,7 +13,7 @@ meta_description: Learn how Data Prepper end-to-end acknowledgements provide dat
 
 ---
 
-## The need: improving durability
+## The need: Improving durability
 
 
 [Data Prepper](https://opensearch.org/docs/latest/data-prepper/index/) is an open-source data collector. You can use Data Prepper to ingest data into OpenSearch clusters. With Data Prepper, you can filter, enrich, normalize, and transform the data going into your OpenSearch cluster.
@@ -24,7 +24,7 @@ Several challenges arise with data durability. For example, Data Prepper may exh
 
 We have also considered the sources of data. In particular, we have noticed that the Amazon S3 source is already reading data from a highly durable store. Keeping these observations in mind we realized that if Data Prepper fails to deliver data to OpenSearch, it can retry reading from S3. We just need to know when the data is written before deleting the SQS message that notifies Data Prepper of an available S3 object to consume.
 
-## Our solution: end-to-end acknowledgements
+## Our solution: End-to-end acknowledgements
 
 Data Prepper provides data durability through the use of end-to-end acknowledgements. When a Data Prepper source is configured to use end-to-end acknowledgements, the source is notified only when the data is successfully delivered to the sink. If the source receives end-to-end acknowledgments, it can take appropriate actions such as removing SQS messages that have been successfully delivered to the sink or incrementing the commit offset in case of Kafka source. If end-to-end acknowledgements are not received, the source may retry operation or notify the external source of the failure. The following picture illustrates the control flow when a Data Prepper source is configured to use end-to-end acknowledgements.
 
@@ -51,7 +51,7 @@ Data Prepper also provides support for sending negative acknowledgements to indi
 In certain scenarios, when Data Prepper sinks are configured with Dead Letter Queue (DLQ), events that cannot be delivered to the external sink (such as OpenSearch) are written to the DLQ. When end-to-end acknowledgements are enabled, successfully writing the events to the DLQ (after failing to deliver them to the external sink) is considered a successful completion of event delivery. In this case, a positive acknowledgement is delivered to the acknowledgment set, indicating successful processing and handling of the event.
 
 
-## Moving forward: conclusion and next steps
+## Moving forward: Conclusion and next steps
 
 End-to-end acknowledgments offer robust data durability when utilizing Data Prepper for data processing and ingestion. However, there are a couple of important considerations regarding this feature:
 
