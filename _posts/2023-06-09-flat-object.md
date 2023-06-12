@@ -10,10 +10,10 @@ categories:
 meta_keywords: 
 meta_description: 
 
-excerpt: OpenSearch 2.7 introduced the new `flat_object` field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The `flat_object` field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the flat object field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
+excerpt: OpenSearch 2.7 introduced the new flat object field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The flat object field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the flat object field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
 ---
 
-OpenSearch 2.7 introduced the new `flat_object` field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The `flat_object` field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the flat object field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
+OpenSearch 2.7 introduced the new `flat_object` field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The `flat_object` field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the `flat_object` field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
 
 ## Dynamic mapping
 
@@ -25,7 +25,7 @@ When documents have complex data structures or deeply nested fields, relying on 
 
 ## Use case
 
-To demonstrate a real life use case for the `flat_object` field type, we'll use the new ML Commons remote model inference project, in which you can store and search template documents. Some of the fields in the machine learning model template are user-defined key-value pairs. Because those are created by the user on the fly, it is difficult to predefine the mappings for the index that stores these documents.
+To demonstrate a real-life use case for the `flat_object` field type, we'll use the new ML Commons remote model inference project, in which you can store and search template documents. Some of the fields in the machine learning model template are user-defined key-value pairs. Because those are created by the user on the fly, it is difficult to predefine the mappings for the index that stores these documents.
 
 ### Example documents
 
@@ -221,7 +221,7 @@ GET /test-index/_search
 
 ### Mapping with flat object
 
-Using `flat_object`, you can save the entire `Parameters` fields as a string rather than JSON object and not specify the field names for its subfields: 
+Using the `flat_object` field type, you can save the entire `Parameters` fields as a string rather than JSON object and not specify the field names for its subfields: 
 
 ```json
 PUT /test-index/
@@ -242,7 +242,7 @@ After uploading the same documents, you can check the mappings for `test-index`:
 GET /test-index/_mappings
 ```
 
-The `Parameters` field, which is mapped as a `flat_object`, is the only indexable field. Its subfields are not indexed, effectively preventing a "mapping explosion:"
+The `Parameters` field, which is mapped as a `flat_object`, is the only indexable field. Its subfields are not indexed, effectively preventing a mapping explosion:
 
 
 ```json
@@ -286,7 +286,7 @@ The `Parameters` field, which is mapped as a `flat_object`, is the only indexabl
 
 ### Searching with flat object
 
-When searching for a model parameter, you can the use `flat_object` field name, `Parameters`: 
+When searching for a model parameter, you can the use the `flat_object` field name, `Parameters`: 
 
 ```json
 GET /test-index/_search
@@ -360,6 +360,6 @@ In both cases, the correct document is returned:
 
 For more information about capabilities and limitations of flat object, see the [flat object documentation](https://opensearch.org/docs/latest/field-types/supported-field-types/flat-object/). 
 
-We're adding the ability to search subfields in a flat object using a Painless script. See [this issue](https://github.com/opensearch-project/OpenSearch/issues/7138) for details. Also, we are adding support for [open parameters](https://github.com/opensearch-project/OpenSearch/issues/7137) to flat object.
+We're adding the ability to search subfields in a flat object using a Painless script. See [the GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/7138) for details. Also, we are adding support for [open parameters](https://github.com/opensearch-project/OpenSearch/issues/7137) to flat object.
 
 To learn more about the new ML Commons remote model inference project mentioned in this post, see [Extensibility for OpenSearch Machine Learning](https://github.com/opensearch-project/ml-commons/issues/881).
