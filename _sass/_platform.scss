@@ -1,0 +1,12 @@
+.platform-solution {
+    @include respond-max(767px) {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    h3 {
+        font-size: 2.2rem;
+    }
+    h4 {
+        font-size: 2rem;
+    }
+}
