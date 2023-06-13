@@ -9,18 +9,16 @@ categories:
   - technical-post
 
 meta_keywords: Data Prepper, end-to-end acknowledgements
-meta_description: Learn how Data Prepper end-to-end acknowledgements provide data durability by making sure that data is delivered to the sink before the source is notified
+meta_description: Learn how end-to-end acknowledgements in Data Prepper provide data durability by delivering data to the sink before notifying the source.
 
 ---
 
 ## The need: Improving durability
 
 
-[Data Prepper](https://opensearch.org/docs/latest/data-prepper/index/) is an open-source data collector. You can use Data Prepper to ingest data into OpenSearch clusters. With Data Prepper, you can filter, enrich, normalize, and transform the data going into your OpenSearch cluster.
+[Data Prepper](https://opensearch.org/docs/latest/data-prepper/index/) is an open-source data collector used to ingest data into OpenSearch clusters. To solve challenges with data durability, Data Prepper now has capability to use end-to-end acknowledgements.
 
-Data Prepper comes with an in-memory buffer which allows for fast processing of large volumes of data. Besides throughput, another quality that users often seek in Data Prepper is data durability. They want to ensure that data received by Data Prepper reaches the desired sink.
-
-Several challenges arise with data durability. For example, Data Prepper may exhaust memory or other system resources, or the hardware running Data Prepper may fail. The maintainers of Data Prepper and their teams have observed that the most common hindrance to data durability is the sink. If the OpenSearch cluster is unable to receive data either due to temporary stress on the cluster or if it is under-scaled, then Data Prepper cannot send data to the destination sink.
+While Data Prepper has an in-memory buffer that allows for fast throughput, users also want improved data durability, particularly, confirmation that the data received by Data Prepper reaches the desired sink. Data Prepper maintainers and their teams have observed that a common challenge to data durability is the sink. For example, if the OpenSearch cluster cannot receive data due to temporary stress on the cluster or underscaling, then Data Prepper cannot send data to the destination sink. Further, Data Prepper may exhaust memory or other system resources or the hardware running Data Prepper may fail.
 
 We have also considered the sources of data. In particular, we have noticed that the Amazon S3 source is already reading data from a highly durable store. Keeping these observations in mind we realized that if Data Prepper fails to deliver data to OpenSearch, it can retry reading from S3. We just need to know when the data is written before deleting the SQS message that notifies Data Prepper of an available S3 object to consume.
 
@@ -48,16 +46,17 @@ Data Prepper supports multiple pipelines and events can be routed to different p
 
 Data Prepper also provides support for sending negative acknowledgements to indicate explicit failure. The callback function can examine the acknowledgement status, whether it is positive or negative, and take appropriate action based on that information.
 
-In certain scenarios, when Data Prepper sinks are configured with Dead Letter Queue (DLQ), events that cannot be delivered to the external sink (such as OpenSearch) are written to the DLQ. When end-to-end acknowledgements are enabled, successfully writing the events to the DLQ (after failing to deliver them to the external sink) is considered a successful completion of event delivery. In this case, a positive acknowledgement is delivered to the acknowledgment set, indicating successful processing and handling of the event.
+In certain scenarios, when Data Prepper sinks are configured with Dead Letter Queue (DLQ), events that cannot be delivered to the external sink, such as OpenSearch, are written to DLQ. When end-to-end acknowledgements are enabled, successfully writing the events to DLQ (after failing to deliver them to the external sink) is considered a successful completion of event delivery. In this case, a positive acknowledgement is delivered to the AcknowledgmentSet, indicating successful event processing and handling.
 
 
 ## Moving forward: Conclusion and next steps
 
-End-to-end acknowledgments offer robust data durability when utilizing Data Prepper for data processing and ingestion. However, there are a couple of important considerations regarding this feature:
+End-to-end acknowledgments offer robust data durability when using Data Prepper for data processing and ingestion. Some considerations, however, are necessary:
 
-Firstly, it's worth noting that end-to-end acknowledgments are not currently compatible with stateful aggregations. The maintainers of Data Prepper have plans to delve into this area and explore potential solutions in future iterations.
+1. End-to-end acknowledgments currently are not compatible with stateful aggregations. The Data Prepper maintainers are considering this issue and exploring solutions for release in future iterations.
 
-Secondly, in order to leverage end-to-end acknowledgments, source plugins need to integrate with the acknowledgment system. Currently, the S3 source is the only source plugin offering this functionality. However, the capability is designed to expand to encompass additional sources and is particularly well-suited for pull-based sources. There is ongoing development of a new Kafka source that is a promising candidate for utilizing these acknowledgments. Some community members have also expressed interest in applying these acknowledgments to push-based sources like HTTP. This is an area that the maintainers intend to investigate further in the future.
+2. To leverage end-to-end acknowledgments, source plugins must integrate with the acknowledgment system. Currently, the Amazon S3 source is the only source plugin with this functionality. However, the capability is designed to expand to include additional sources and is well-suited for pull-based sources. Ongoing development of a new Kafka source is showing to be a promising candidate for using these acknowledgments. Users also have expressed interest in applying these acknowledgments to push-based sources like HTTP, which is an area maintainers are exploring.
 
-If you have data stored in S3 that you wish to ingest into OpenSearch, we highly encourage you to try out Data Prepper’s end-to-end acknowledgments feature which is available for use now. As always, feedback and contributions are welcomed and valued by the Data Prepper community.
+If you have data stored in Amazon S3 and would like to ingest it into OpenSearch, try out the Data Prepper end-to-end acknowledgments feature. As always, the Data Prepper community appreciates your feedback and contributions.
 
+Share your [feedback and comments](https://github.com/opensearch-project/data-prepper/issues) on the overall goals, user-experience, architecture of this feature.
