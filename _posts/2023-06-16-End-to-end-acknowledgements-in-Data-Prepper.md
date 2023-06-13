@@ -59,4 +59,6 @@ End-to-end acknowledgments offer robust data durability when using Data Prepper 
 
 If you have data stored in Amazon S3 and would like to ingest it into OpenSearch, try out the Data Prepper end-to-end acknowledgments feature. As always, the Data Prepper community appreciates your feedback and contributions.
 
+A brief description of the feature, how to enable it for the sources that currently support the feature, and details on how to add end-to-end acknowledgements to new or other sources can be found [here](https://github.com/opensearch-project/data-prepper/blob/main/docs/end_to_end_acknowledgements.md).
+
 Share your [feedback and comments](https://github.com/opensearch-project/data-prepper/issues) on the overall goals, user-experience, architecture of this feature.
