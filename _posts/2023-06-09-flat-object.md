@@ -7,13 +7,13 @@ authors:
 date: 2023-06-09
 categories:
  - technical-post
-meta_keywords: 
-meta_description: 
+meta_keywords: flat object field type, Mapping with flat object, OpenSearch mapping
+meta_description: Explore how the flat object field type simplifies mapping data structures introduced in OpenSearch 2.7 and enhances the search experience.
 
 excerpt: OpenSearch 2.7 introduced the new flat object field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The flat object field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the flat object field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
 ---
 
-OpenSearch 2.7 introduced the new `flat_object` field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The `flat_object` field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the `flat_object` field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
+[OpenSearch 2.7](https://opensearch.org/blog/get-started-opensearch-2-7-0/) introduced the new `flat_object` field type. This field type is useful for objects with a large number of fields or when you are not familiar with the field names in your documents. The `flat_object` field type treats the entire JSON object as a string. Subfields within the JSON object are accessible using the `flat_object` field name or the standard dot path notation, but they are not indexed for fast lookup. In this post, we explore how flat object simplifies mapping data structures and enhances the search experience in OpenSearch. 
 
 ## Dynamic mapping
 
@@ -21,7 +21,16 @@ In OpenSearch, a [_mapping_](https://opensearch.org/docs/latest/field-types/inde
 
 ## When dynamic mapping falls flat
 
-When documents have complex data structures or deeply nested fields, relying on dynamic mapping can lead to the number of mapped fields in an index quickly growing to hundreds or even thousands. This "mapping explosion" negatively impacts the performance of your cluster. Additionally, searching through deeply nested indexes with lengthy dot paths can be inconvenient, especially if you are unfamiliar with the document structure. Flat object solves both of these problems.
+When documents have complex data structures or deeply nested fields, relying on dynamic mapping can lead to the number of mapped fields in an index quickly growing to hundreds or even thousands. This "mapping explosion" negatively impacts the performance of your cluster. 
+
+Symptoms of mapping explosion include:
+
+- `OutOfMemoryError`： If the mapping becomes too large to fit in memory, you may encounter an OutOfMemoryError, resulting in the unavailability of the cluster or nodes.
+- `MapperParsingException` : If the number of unique field names becomes too large, the cluster may throw exceptions such as `MapperParsingException` or `IllegalArgumentException`, indicating that the mapping update has failed.
+- Performance degradation: As the mapping grows, the performance of indexing and search operations can degrade. Handling a large number of fields requires more resources and processing time, potentially leading to slower indexing and increased query latencies.
+- Increased storage requirements: Each field in the mapping needs storage space. With a mapping explosion, the index's storage requirements can significantly increase, impacting disk space utilization and potentially leading to resource constraints.
+
+Additionally, searching through deeply nested indexes with lengthy dot paths can be inconvenient, especially if you are unfamiliar with the document structure. Flat object solves both of these problems.
 
 ## Use case
 
