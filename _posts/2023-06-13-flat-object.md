@@ -4,7 +4,7 @@ title:  "Use flat object in OpenSearch"
 authors:
 - mingshl
 - kolchfa
-date: 2023-06-09
+date: 2023-06-13
 categories:
  - technical-post
 meta_keywords: flat object field type, Mapping with flat object, OpenSearch mapping
@@ -26,7 +26,7 @@ When documents have complex data structures or deeply nested fields, relying on 
 Symptoms of mapping explosion include:
 
 - `OutOfMemoryError`： If the mapping becomes too large to fit in memory, you may encounter an OutOfMemoryError, resulting in the unavailability of the cluster or nodes.
-- `MapperParsingException` : If the number of unique field names becomes too large, the cluster may throw exceptions such as `MapperParsingException` or `IllegalArgumentException`, indicating that the mapping update has failed.
+- `MapperParsingException`: If the number of unique field names becomes too large, the cluster may throw exceptions such as `MapperParsingException` or `IllegalArgumentException`, indicating that the mapping update has failed.
 - Performance degradation: As the mapping grows, the performance of indexing and search operations can degrade. Handling a large number of fields requires more resources and processing time, potentially leading to slower indexing and increased query latencies.
 - Increased storage requirements: Each field in the mapping needs storage space. With a mapping explosion, the index's storage requirements can significantly increase, impacting disk space utilization and potentially leading to resource constraints.
 
