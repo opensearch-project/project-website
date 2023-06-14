@@ -580,3 +580,38 @@ dl.list-features {
         @extend .img__outlined;
     }
 }
+
+dl.definition-list__same-line-definition {
+    display: flex;
+    flex-flow: row wrap;
+    > dt, 
+    > dd {
+        margin-bottom: 1em;
+        box-sizing: border-box;
+        border-bottom-width: 1px;
+        border-bottom-color: #ddd;
+        border-bottom-style: solid;
+        padding-bottom: 1em;
+    }
+    > dt {
+        flex-basis: 20%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding-right: 1em;
+    }
+    > dd {
+        flex-basis: 80%;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    @include respond-max(959px) {
+        > dt {
+            border-bottom-style: none;
+            margin-bottom: 0;
+        }
+        > dt,
+        > dd {
+            flex-basis: 100%;
+        }
+    }
+}

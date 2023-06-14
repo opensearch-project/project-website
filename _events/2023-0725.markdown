@@ -1,17 +1,17 @@
 ---
 
-eventdate: 2023-06-20 15:00:00 -0800
-title: OpenSearch Community Meeting - 2023-06-20
+eventdate: 2023-07-25 15:00:00 -0800
+title: OpenSearch Community Meeting - 2023-07-25
 online: true
 signup:
-    url: https://www.meetup.com/opensearch/events/293178523
+    url: https://www.meetup.com/opensearch/events/294165788/
     title: Join on Meetup
 
 ---
 
 Join us for our online community meeting.
 
-Meeting topics and passcode are listed in the [collaborative agenda](https://forum.opensearch.org/t/opensearch-community-meeting-2023-0620/14131) on the forum.
+Meeting topics and passcode are listed in the [collaborative agenda](https://forum.opensearch.org/t/opensearch-community-meeting-2023-0725/14675) on the forum.
 
 Feel free to comment on the agenda before the meeting if you want to add an item or have a question. Would you like to present? Reach out on the forumn thread - we welcome community presentations. 
 
