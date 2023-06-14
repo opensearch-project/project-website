@@ -10,7 +10,7 @@ twittercard:
   description: In February of 2023, the OpenSearch Project conducted user interviews with seven OpenSearch community members about their experience using OpenSearch Dashboards
 category:
   - community
-excerpt: In February of 2023, the OpenSearch Project conducted user interviews with seven OpenSearch community members about their experience using OpenSearch Dashboards. These community members were selected because they responded to a call for participants in one of our [community meetings](https://forum.opensearch.org/t/opensearch-community-meeting-2023-0131/11892). We wanted to recruit OpenSearch community members who regularly created dashboards so that we could explore user pain points and frustrations. Dashboards are typically created by OpenSearch users who either consume the dashboards themselves or who create dashboards that are consumed by other users (that is, dashboard consumers). 
+excerpt: In February of 2023, the OpenSearch Project conducted user interviews with seven OpenSearch community members about their experience using OpenSearch Dashboards. These community members were selected because they responded to a call for participants in one of our community meetings. We wanted to recruit OpenSearch community members who regularly created dashboards so that we could explore user pain points and frustrations. Dashboards are typically created by OpenSearch users who either consume the dashboards themselves or who create dashboards that are consumed by other users (that is, dashboard consumers). 
 ---
 
 
