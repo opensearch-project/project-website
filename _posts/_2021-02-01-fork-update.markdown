@@ -6,6 +6,8 @@ title: "Fork Updates"
 category:
 - community-updates
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
+twittercard: 
+  description: "We'll be providing updates on the forks through the The Open Distro forums and Biweekly Community Meetings channels."
 ---
 
 We'll be providing updates on the forks through a few channels:

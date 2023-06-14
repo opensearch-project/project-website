@@ -7,6 +7,8 @@ authors:
 date: 2022-09-12
 categories:
  - technical-post
+twittercard:
+  description: "According to a review by IEEE Spectrum in 2022, SQL is the sixth most popular programming language. IEEE came to this conclusion by pulling and weighting data across GitHub, Google, Stack Overflow, Twitter, and IEEE Xplore. Did you know that OpenSearch offers a way to query OpenSearch using SQL?"
 redirect_from: "/blog/technical-post/2022/09/sql-search-relevance-selective-aggregation-and-window-functions-in-OpenSearch/"
 ---
 

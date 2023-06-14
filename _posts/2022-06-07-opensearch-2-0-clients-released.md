@@ -13,6 +13,8 @@ authors:
 date: 2022-06-07
 categories:
  - releases
+twittercard:
+  description: "On the heels of the OpenSearch 2.0 release, the OpenSearch team is excited to announce that all OpenSearch clients have been released to support version 2.0. Not only were all clients updated, but Vacha Shah went above and beyond to improve each client repo by improving test coverage for multiple versions, support to test against unreleased versions, and adding backport functionality."
 redirect_from: "/blog/releases/2022/06/opensearch-2-0-clients-released/"
 ---
 

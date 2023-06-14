@@ -8,6 +8,8 @@ authors:
   - elifish
 date:   2021-07-26 01:01:01 -0700
 categories: feature
+twittercard:
+  description: "OpenSearch Dashboards Notebooks lets you easily combine live visualizations, narrative text, and SQL and Piped Processing Language (PPL) queries so that you can tell your data’s story. You can interactively explore data by running different visualizations and share them with team members to collaborate. Notebooks can help with a variety of use cases such as creating postmortem reports, designing operations run books, building live infrastructure reports, and even documentation.  With OpenSearch 1.0, Notebooks is now production ready. Additionally, multiple enhancements were introduced such as support for multi-tenancy, query languages like SQL and PPL and an integration with reporting."
 redirect_from: "/blog/feature/2021/07/feature-highlight-opensearch-dashboards-notebooks/"
 ---
 

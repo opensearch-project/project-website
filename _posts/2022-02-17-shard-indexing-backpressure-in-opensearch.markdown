@@ -9,6 +9,8 @@ authors:
 date:   2022-02-17
 categories:
   - feature
+twittercard:
+  description: "In this post we wish to dive into the Shard Indexing Backpressure feature which got launched with OpenSearch 1.2.0 and how it can improve cluster reliability."
 redirect_from: "/blog/feature/2022/02/shard-indexing-backpressure-in-opensearch/"
 ---
 
