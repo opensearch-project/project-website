@@ -6,6 +6,6 @@ github: ev2900
 linkedin: https://www.linkedin.com/in/christophersharkey/
 ---
 
-**Chris Sharkey** is an analytics specialist solution architect at AWS. Chris spends his time helping AWS customer architect, proof of concept, build and performance tune work loads using AWS analytics services including OpenSearch.
+**Chris Sharkey** is an analytics specialist solution architect at AWS. Chris spends his time helping AWS customer architect, proof of concept, build and performance tune workloads using AWS analytics services including OpenSearch.
 
-When Chris isn’t helping customers he is often found: learning about OpenSearch, building demos and code samples in his GitHub or spending time rock climbing, ice climbing and skiing.
+When Chris isn’t helping customers, he is often found: learning about OpenSearch, building demos and code samples in his GitHub or spending time rock climbing, ice climbing and skiing.
