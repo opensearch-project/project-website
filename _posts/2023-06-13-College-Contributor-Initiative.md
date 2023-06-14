@@ -33,7 +33,7 @@ Although our initial target for the 1st pilot was to include 100 students, the r
 
 ## Get selected into the program and reap the benefits
 
-An undergraduate or graduate student interested in participating in the program will need to fill out a form[placeholder].
+Please fill out the form[placeholder] to participate in our upcoming batch that kicks off on July 6th.
 
 Once the form is completed and if selected, the applicants will receive an email with a welcome packet and details about a kick-off call for their batch. The kick-off call will coincide with the launch of the program specifically for their batch.
 
