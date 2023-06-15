@@ -13,6 +13,7 @@ Boolean
 [Cc]lasspath
 [Cc]odec
 [Cc]omposable
+[Cc]onfig
 [Cc]ron
 [Cc]ybersecurity
 [Dd]atagram
@@ -39,9 +40,12 @@ GeoHex
 gibibyte
 [Hh]ashmap
 [Hh]ostname
+[Hh]yperparameters?
 [Ii]mpactful
+[Ii]ndexable
 [Ii]ngress
 [Ii]nitializer
+[Ii]nline
 [Ii]nstrumentations?
 [Ii]ntracluster
 [Jj]avadoc
@@ -68,14 +72,17 @@ Levenshtein
 pebibyte
 [Pp]luggable
 [Pp]reconfigure
+[Pp]refetch
 [Pp]refilter
 [Pp]reload
+[Pp]repackaged?
 [Pp]repend
 [Pp]repper
 [Pp]reprocess
 [Pp]retrain
 [Rr]ebalance
 [Rr]ebalancing
+[Rr]edownload
 [Rr]eenable
 [Rr]eimplement
 [Rr]eindex
@@ -83,6 +90,7 @@ pebibyte
 [Rr]epo
 [Rr]erank
 [Rr]erankers?
+[Rr]ewriters?
 [Rr]ollup
 [Rr]unbooks?
 [Ss]erverless
