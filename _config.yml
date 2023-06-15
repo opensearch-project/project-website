@@ -80,6 +80,12 @@ defaults:
     values:
       layout: lines
       permalink: :collection/:slug.html
+-
+    scope:
+      type: platforms
+    values:
+      layout: platform
+      permalink: platform/:categories/:name.html
 
 collections:
   authors:
@@ -103,6 +109,8 @@ collections:
   tutorials:
     output: true
   lines:
+    output: true
+  platforms:
     output: true
 
     
