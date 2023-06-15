@@ -9,4 +9,7 @@
     h4 {
         font-size: 2rem;
     }
+    dl {
+        @extend .definition-list__same-line-definition;
+    }
 }
