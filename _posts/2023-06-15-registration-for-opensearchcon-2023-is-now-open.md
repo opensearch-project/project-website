@@ -12,7 +12,7 @@ title: Registration for OpenSearchCon 2023 is now open!
 categories:
   - community
 ---
-![](/assets/media/blog-images/245890710-13cfc936-f1c7-4e4b-91c5-9927af4a05e2.jpg){: .img-fluid}
+![opensearchcon 2022 stage](/assets/media/blog-images/245890710-13cfc936-f1c7-4e4b-91c5-9927af4a05e2.jpg "opensearchcon crowd")
 
 [OpenSearchCon](https://opensearchcon2023.splashthat.com/) is back! The OpenSearch community will get together again September 27-29 to learn, share, and connect about all things search and analytics. The event is in-person only and there is no fee to attend.
 
