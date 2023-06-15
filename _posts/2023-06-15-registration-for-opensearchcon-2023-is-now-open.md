@@ -1,5 +1,8 @@
 ---
 date: 2023-06-15T22:09:26.908Z
+excerpt: The OpenSearch Project invites all builders to Seattle this fall, to
+  celebrate the success of the OpenSearch Project and look to the future of
+  search, analytics, and Generative AI. Join us to learn how to build at scale!
 meta_description: OpenSearchCon 2023 - Coming to the Sheraton Grand Hotel in
   Seattle September 27-29. Register today!
 meta_keywords: opensearchcon, opensearchcon 2023, register for opensearchcon,
