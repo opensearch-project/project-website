@@ -7,7 +7,7 @@ meta_description: " The OpenSearch Project partners with Key Lime Interactive
   for a usability study to establish a baseline for future UX improvements for
   our Admin users"
 meta_keywords: OpenSearch usability, OpenSearch user experience, OpenSearch research
-feature_image: /assets/media/blog-images/pexels-antoni-shkraba-4348404.jpg
+feature_image: /assets/media/blog-images/2023-06-15-opensearch-partners-with-key-lime-interactive-for-usability-studies-admin-panel-workflows/pexels-antoni-shkraba-4348404.jpg
 authors:
   - apasun
 layout: post
@@ -33,7 +33,7 @@ To manage this perception, the OpenSearch Project team has established a baselin
 
 The following image shows the geographic locations of the initial study participants.
 
-![geographic locations of study participants](/assets/media/blog-images/screenshot-2023-06-12-at-1.43.54-pm.png "study participant map")
+![geographic locations of study participants](/assets/media/blog-images/2023-06-15-opensearch-partners-with-key-lime-interactive-for-usability-studies-admin-panel-workflows/screenshot-2023-06-12-at-1.43.54-pm.png "study participant map"){: .img-fluid}
 
 Participants interacted with OpenSearch version 2.6. The tasks were rated as success, failure, or success with assistance. Participants demonstrated a relatively high level of success with the interface. Six of the seven tasks performed had a success rate of 65% or higher. Two of the seven tasks had a success rate of 100%. Of the 140 sub-task attempts, 107 were rated as success (approx. 76%), 25 were rated as failure (approx. 18%), and 8 were rated success with assistance (approx. 6%). Overall, Admin users in OpenSearch 2.6 found the interface highly usable for the tasks we evaluated.
 
