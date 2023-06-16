@@ -8,8 +8,8 @@ date: 2023-06-16 10:00:00 -0700
 categories:
   - technical-post
 
-meta_keywords: Data Prepper, end-to-end acknowledgements
-meta_description: Learn how end-to-end acknowledgements in Data Prepper provide data durability by delivering data to the sink before notifying the source.
+meta_keywords: Data Prepper E2E, Data Prepper sink, Data Prepper pipeline as the sink
+meta_description: Learn how Data Prepper provides data durability through the use of end to end acknowledgements by delivering data to the sink before notifying the source.
 
 ---
 
@@ -18,7 +18,7 @@ meta_description: Learn how end-to-end acknowledgements in Data Prepper provide 
 
 [Data Prepper](https://opensearch.org/docs/latest/data-prepper/index/) is an open-source data collector used to ingest data into OpenSearch clusters. To solve challenges with data durability, Data Prepper now has capability to use end-to-end acknowledgements.
 
-While Data Prepper has an in-memory buffer that allows for fast throughput, users also want improved data durability, particularly, confirmation that the data received by Data Prepper reaches the desired sink. Data Prepper maintainers and their teams have observed that a common challenge to data durability is the sink. For example, if the OpenSearch cluster cannot receive data due to temporary stress on the cluster or underscaling, then Data Prepper cannot send data to the destination sink. Further, Data Prepper may exhaust memory or other system resources or the hardware running Data Prepper may fail.
+While Data Prepper has an in-memory buffer that allows for fast throughput, users also want improved data durability, particularly, confirmation that the data received by Data Prepper reaches the desired sink. Data Prepper maintainers and their teams have observed that a common challenge to data durability is the sink. For example, if the OpenSearch cluster cannot receive data because of temporary stress on the cluster or underscaling, then Data Prepper cannot send data to the destination sink. Further, Data Prepper may exhaust memory or other system resources or the hardware running Data Prepper may fail.
 
 We have also considered the sources of data. In particular, we have noticed that the Amazon S3 source is already reading data from a highly durable store. Keeping these observations in mind we realized that if Data Prepper fails to deliver data to OpenSearch, it can retry reading from S3. We just need to know when the data is written before deleting the SQS message that notifies Data Prepper of an available S3 object to consume.
 
