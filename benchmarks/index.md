@@ -51,6 +51,8 @@ benchmark_height_mobile: 6000
 <p>
     Questions or contributions? Connect with the OpenSearch community in the <a href="https://app.slack.com/client/T01QQ0Q5GMA/C0516H8EJ7R">#performance</a> channel on our public Slack.
 </p>
+<p> You can also view the open GitHub issues tagged to performance label <a href ="https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aopensearch-project+label%3Aperformance+">here</a>.
+</p>
 
 <div class="switcher" id="navigation">
 <ul>
