@@ -6,6 +6,7 @@ title: How to verify signatures
 
 ## How to verify signatures for downloadable artifacts
 
+### PGP
 Download our PGP key using the link below and import it. 
 
 If you’re using gpg, you just need to run: 
@@ -27,6 +28,12 @@ Our current PGP key fingerprint is `C5B7 4989 65EF D1C2 924B  A9D5 39D3 1987 931
 [Get our PGP Key](https://artifacts.opensearch.org/publickeys/opensearch.pgp)
 
 *Note: If you see "gpg: Note: This key has expired!" as originally noted in [Issue 2040](https://github.com/opensearch-project/opensearch-build/issues/2040){:target="_blank"}, please download the newest key. See change log for dates.*
+
+### <a name="JarSigner"></a> JarSigner
+To verify signature run in the terminal:
+```
+jarsigner -verify -verbose <path_to_jar>
+```
 
 ## Change Log ##
 

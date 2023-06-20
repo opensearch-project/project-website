@@ -8,4 +8,5 @@ artifact_url: https://artifacts.opensearch.org/opensearch-clients/jdbc/opensearc
 slug: opensearch-sql-jdbc-1.3.0.0
 category: opensearch
 type: jar
+jarsigner: true
 ---
