@@ -44,6 +44,6 @@ jarsigner -verify -verbose <path_to_jar>
 |:-------------|:-------|:----------------|:----------------|
 | 2022-05-11  | [Issue 2040](https://github.com/opensearch-project/opensearch-build/issues/2040){:target="_blank"}  | 2022-05-12 | 2023-05-12 |
 | 2023-05-04  | [Issue 2136](https://github.com/opensearch-project/opensearch-build/issues/2136){:target="_blank"}  | 2023-05-03 | 2024-05-12 |
-| 2023-06-21  | [Issue 3652](https://github.com/opensearch-project/opensearch-build/issues/3652){:target="_blank"}  | 2023-04-13 | 2024-04-16 |
+| 2023-06-21  | [Issue 97](https://github.com/opensearch-project/sql-jdbc/issues/97){:target="_blank"}  | 2023-04-13 | 2031-11-09 |
 
 <br>
