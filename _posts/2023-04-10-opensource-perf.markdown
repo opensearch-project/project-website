@@ -30,12 +30,9 @@ Here is the flame graph we used to diagnose this issue. It was taken with [async
 
 <img src="/assets/media/blog-images/2023-04-10-opensource-perf/flame1.png" alt="Flame graph general overview"/>{: .img-fluid }
 
-Then we searched for `"opensearch"` using the search widget in the upper-left corner of the flame graph:
+Then we searched for `"opensearch"` using the search widget in the upper-left corner of the flame graph which shows the client thread (on the right) with the HttpClient event loop and Apache James calls to the OpenSearch client (small stack traces in the center):
 
 <img src="/assets/media/blog-images/2023-04-10-opensource-perf/flame2.png" alt="Flame graph: OpenSearch client threads"/>{: .img-fluid }
-
--   The client thread (on the right) with the httpclient event loop.
--   Apache James calls to the OpenSearch client (small stack traces in the center).
 
 Here are some observations on the client event loop:
 
