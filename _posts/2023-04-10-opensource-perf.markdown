@@ -4,7 +4,7 @@ title:  "Improving JSON parsing performance in opensearch-java"
 authors:
   - chibenwa
   - vachshah
-date:   2023-04-10
+date:   2023-06-27
 categories:
   - technical-post
 meta_keywords: Apache James, flame graph, flamegraph, JSON parsing performance, OpenSearch Java client
