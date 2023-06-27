@@ -3,7 +3,7 @@ layout: post
 title:  "Partner highlight: Exploring OpenSearch’s vector database capabilities"
 authors:
 - jhmcintyre
-date: 2023-06-29
+date: 2023-06-26
 categories:
  - partner-highlight
 meta_keywords: vector database, opensearch, semantic search, retrieval augmented generation, large language model, LLM, AI
