@@ -6,7 +6,7 @@ authors:
   - gbinlong
   - suzhou
   - gzhichao
-date: 2023-07-07
+date: 2023-06-07
 categories:
   - technical-post
 meta_keywords: index management, index operation UI, Notifications,OpenSearch Dashboards
@@ -15,15 +15,19 @@ meta_description: Transform long running operations, including Resize / Open / F
 excerpt: OpenSearch dashboard now provides a new interface you can use to manage  notifications for long running operations and component templates. You can now subscribe a specific task or a type of tasks through all the channels Notification plugin supports.
 ---
 
-It is always frustrating to constantly refresh and wait for a long-running operation to finish, especially when the task may be so large that it may take hours to go. For reindex, Opensearch has brought up a concept of `task`, which makes it possible to let a time-consuming job run in background. But admin still has to check task status now and then to ensure the task has gone to a final state, not to mention that operations like shrink do not have the basic ability to run asynchronously.
+<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/notificaitons-on-long-running-operation.gif" alt="notifications on long-running operations"/>{: .img-fluid }
+
+Index management plugin has release feature that enable notifications on long-running operations!
 
 # Notifications on long-running operations
+
+In the before it is always frustrating to constantly refresh and wait for a long-running operation to finish, especially when the task may be so large that it may take hours to go. For reindex, Opensearch has brought up a concept of `task`, which makes it possible to let a time-consuming job run in background. But admin still has to check task status now and then to ensure the task has gone to a final state, not to mention that operations like shrink do not have the basic ability to run asynchronously.
 
 ## Transform long-running operations into tasks
 
 Shrink, split, clone, open, force_merge are already known operations that may need roughly 30 minutes to finish when it comes to large indexes. Thus we transform all these operations into tasks when user declaim to run with `wait_for_completion` to `false`.
 
-<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/transform-operations-into-tasks.png" alt="transform long-running operations into tasks"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/transform-operations-into-tasks.png" alt="transform long-running operations into tasks" />{: .img-fluid }
 
 ## Notify when tasks of specific type finishes or fails
 
@@ -37,41 +41,37 @@ Sometimes it is reasonable that admin may want to let more people be informed on
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/support-adhoc-notification-config.png" alt="Support adhoc notification config"/>{: .img-fluid }
 
-## Support operations from API or Web GUI
+## Support operations from API or Dashboard UI
 
-It is straightforward to find out what aliases an index contains through the API, but it is difficult to determine how many indexes an alias points to through the API. The **Aliases** page provides you with these results by grouping indexes by alias. With the Index Management UI, it will be easier to attach or detach indexes from an alias, and the alias actions will be automatically generated, eliminating the need for you to build alias actions to add or remove indexes behind an alias and manually enter the indexes, which can lead to mistakes.
+The notification after the completion of operations is not only available on Dashboard UI, but also available when we do that from API.
 
-<img src="/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/alias-creation.png" alt="create an alias"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/support-operations-from-api-or-dashboard-ui.png" alt="Support operations from API or Dashboard UI"/>{: .img-fluid }
 
 ## Security enabled
 
-You can select the source and destination indexes, aliases, or data streams from the dropdown menu, as shown in the following image. Moreover, there is now a destination index creation flow that allows you to import settings and mappings directly from the source.
+Notifications can be annoying sometimes, especially when there are multiple tasks running in background. Notifications for long-running operations have integrated with security plugin with some fine-grained actions permission control.
 
-![Image: Reindex page]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/reindex.png){:.img-fluid }
+1. `cluster:admin/opensearch/controlcenter/lron/get` indicates if the user has permission to `view` the notification configs for long-running operations.
+1. `cluster:admin/opensearch/controlcenter/lron/write` indicates if the user has permission to `add or update` the notification configs for long-running operations.
+1. `cluster:admin/opensearch/controlcenter/lron/delete` indicates if the user has permission to `delete` the notification configs for long-running operations.
+
+<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/security-enabled.png" alt="Security enabled"/>{: .img-fluid }
 
 # Component templates
 
+Component templates makes it possible to create your index template by combining multiple component templates.
+
 ## Component-based template creation experience
 
-The **Shrink index** operation is used to reduce the number of primary shards in an existing index and create a new index.
+It is always to tell what the index template will be like after merging all the associated component templates and its own configs from API, now Dashboard UI enable admin to preview the index template while create/update. 
 
-To shrink an index, go to the **Indices** page, select an index, and choose the **Shrink** action in the **Actions** menu. This will take you to the shrink index page, as shown in the following image.
+<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/component-based-template-creation-experience.png" alt="Component-based template creation experience"/>{: .img-fluid }
 
-![Image: Shrink-action]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/shrink-action.jpg){:.img-fluid }
-Only one index can be shrunk at once, and the shrink operation does not support data stream indexes. If multiple indexes are selected or if a data stream backing an index is selected in the **Indices** page, the **Shrink** option is disabled.
-{: .note }
+## Aggregated view to help admin better manage index templates with component templates
 
-## Aggregation view to help you better manage index templates with component templates
+It is hard to tell how many index templates are using a single component template, thus Dashboard UI gives an aggregated view for admin to find all the index templates in perspect of component templates.
 
-You can select multiple indexes, except for the backing indexes of a data stream, to open or close.
-
-If you no longer need to read or search old indexes but do not want to delete them, you can use the **Close** operation to close indexes. This will maintain the data by occupying a small amount of overhead on the cluster. Additionally, when you want to add a new analyzer to an existing index, you must close the index, define the analyzer, and then open the index. A closed index is blocked for read and write operations, so you must enter the word "close" to confirm your action, as shown in the following image.
-
-![Image: Close-index]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/close-index.jpg){:.img-fluid }
-
-You can select multiple indexes to open, even if some indexes are already open, as shown in the following image.
-
-![Image: Open-index]({{site.baseurl}}/assets/media/blog-images/2023-02-28-admin-panels-for-index-operations/open-index.jpg){:.img-fluid }
+<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/aggregated-view-to-help-admin-better-manage-index-templates-with-component-templates.png" alt="Aggregated view to help admin better manage index templates with component templates"/>{: .img-fluid }
 
 ## Next steps
 
