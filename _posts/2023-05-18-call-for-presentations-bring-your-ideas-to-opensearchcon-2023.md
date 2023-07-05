@@ -1,6 +1,6 @@
 ---
 date: 2023-05-18T22:11:03.773Z
-meta_description: OpenSearch is now announcing their call for presentations for OpenSearchCon 2023.
+meta_description: OpenSearchCon2023 CFP is Now Closed.
 meta_keywords: opensearch, opensearchcon 2023, call for presentations
 feature_image: /assets/media/blog-images/see_you_at_opensearchcon_2023.png
 authors:
@@ -8,21 +8,19 @@ authors:
   - dtaivpp
   - nateboot
 layout: post
-title: "Call for presentations: Bring your ideas to OpenSearchCon 2023!"
+title: 'OpenSearchCon 2023: CFP is Now Closed'
 categories:
   - community
 ---
-The [call for presentations](https://opensearch.org/opensearchcon2023-cfp.html) for OpenSearchCon 2023 is now live! OpenSearchCon will be held in Seattle, Sept. 28, 2023 at the Sheraton Grand Seattle hotel! This year’s conference dedicates three tracks to topics the OpenSearch community cares about. We invite you to submit your best ideas for any of the following topics:
 
-**Search**: Connect with other search and relevance practitioners with demos, deep dives, or new and novel techniques for building rich search applications. 
+The Call for Presentations window for OpenSearchCon 2023 is now closed.
 
-**Analytics, Security, and Observability:** Deploying observability tools at scale? Using OpenSearch to turn log data into insights, or to help protect your infrastructure? We want to hear from you!
+There were more submissions than expected, and our panelists have a lot of great ideas to look through. Our community-led judges are busy scoring, sorting and categorizing the submissions and will be in touch with all of you within the next couple of weeks with results.
 
-**Community**: Engage a community of builders on a topic that means something to you. Anything that might educate and inspire a community of open source technologists is up for consideration here.
+If you end up getting a speaking slot, we look forward to working with you at the conference. If you don’t, you’ll be put on a wait list for cancellations and other presenting opportunities.
 
-The call for presentations **closes June 16,** so we encourage you to get your submissions in soon.
+Thanks to the entire community for showing such enthusiasm in our core topics of search, analytics, generative AI, and open-source citizenship! You can stay on top of the latest conference news by visiting our [OpenSearchCon Website](https://opensearchcon2023.splashthat.com/) - and remember to register for the conference if you haven’t already.
 
-The [call for presentations page](https://opensearch.org/opensearchcon2023-cfp.html) has more details and a link to the submission form. If you have any questions, please reach out to us at [opensearchcon@amazon.com](mailto:opensearchcon@amazon.com)
-
+We'll see you in Seattle in September!
 
 ![see you at opensearchcon 2023](/assets/media/blog-images/2023-05-18-call-for-presentations/see_you_at_opensearchcon_2023.png "opensearchcon 2023"){:width="550"}
