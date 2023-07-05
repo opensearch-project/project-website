@@ -1,7 +1,7 @@
 ---
 name: Ron Miller
 short_name: ronmiller
-photo: '/assets/media/authors/ronmiller.png'
+photo: '/assets/media/authors/ronmiller.jpg'
 github: ronmir-0
 ---
 
