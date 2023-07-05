@@ -10,7 +10,7 @@ online: true
 # This is for the sign up button
 signup:
     # the link URL
-    url: https://www.meetup.com/opensearch/events/293312244/
+    url: https://www.meetup.com/opensearch/events/294620396/
     # the button text
     title: Join on Meetup
 
