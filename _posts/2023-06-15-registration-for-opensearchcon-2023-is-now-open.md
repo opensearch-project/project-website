@@ -22,7 +22,6 @@ categories:
 
 We’re making room for more builders and more content by taking over the Sheraton Grand in Seattle. [Special room rates](https://book.passkey.com/event/50584019/owner/346/home) are available for those who wish to stay at the event hotel. OpenSearchCon 2023 passes are limited, so we encourage everyone to [register today](https://opensearchcon2023.splashthat.com/) in order to claim your spot at this year’s conference.
 
-The Call for Papers is still open as well but only until the end of the day on June 16. If you have a story you’d like to share, submit your talk NOW on the [Call for Presentations](https://airtable.com/shrVZLtXJ2d1cI6pT) site - time is of the essence!
 
 OpenSearchCon is for builders, with conference tracks designed to explore and learn more about building applications at scale as an open-source contributor. The current schedule for OpenSearchCon:
 
