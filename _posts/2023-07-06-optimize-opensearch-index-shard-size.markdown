@@ -37,7 +37,7 @@ Using the cat shards API on the example sample-data-5-1 index, you can see the p
 ## Change the number of primary shards
 It is always best to configure an appropriate number of primary shards when an index is created. The number of primary shards cannot be easily adjusted after an index is created. To adjust the number of primary shards, you must create a new index with the desired number of shards and then either use the reindex API to copy data from the old index to the new index or reingest the data into the new index from the source.
 
-Following along with the example, the API call below will create a new index with 1 primary shard and 1 replicate.
+Following along with the example, the following API call creates a new index with one primary shard and one replicate.
 
 ```
 PUT sample-data-1-1
