@@ -104,4 +104,4 @@ Optimizing the number and size of shards in your index can help you have the bes
 
 If you prefer to learn about this topic in the format of a video instead of a blog post, check out the YouTube video: [OpenSearch - How to change the number of primary and replica shard(s) of an index](https://www.youtube.com/watch?v=xadv93LlbY4). This blog post is based on the GitHub repository: [OpenSearch_Read_Only_Index](https://github.com/ev2900/OpenSearch_Read_Only_Index)
 
-If you are using the Amazon Managed OpenSearch services the AWS service documentation also has information on index shard sizes. The [operational best practices shard strategy](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/bp.html#bp-sharding-strategy) section includes recommendations specific to the AWS managed service.
+If you are using Amazon OpenSearch Service (that is, the managed service), the AWS documentation also has information on index shard sizes. The [operational best practices shard strategy](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/bp.html#bp-sharding-strategy) section includes recommendations specific to the AWS managed service.
