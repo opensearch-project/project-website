@@ -83,7 +83,7 @@ PUT sample-data-5-1/_settings
 }
 ```
 
-## Change the Number of Replica Shards
+## Change the number of replica shards
 The number of replicate shards for an index can be easily adjusted after an index is created. The index setting API allows for changing the number of replica shards without needing to create a new index and copying data.
 
 An OpenSearch index has both dynamic and static settings. You can change dynamic index settings at any time, but static settings cannot be changed after index creation. The number of replicas is a dynamic setting hence why it can be changed without needing to create a new index and copying the data.
