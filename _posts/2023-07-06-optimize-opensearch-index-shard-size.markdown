@@ -22,7 +22,7 @@ OpenSearch indexes have an ideal shard size. Shard size matters with respect to 
 What is the ideal number of shards? Only performance testing different numbers of shards, and by association different shard sizes, can determine the ideal number of shards for your index. This given, a good place to start is with a number of shards that give your index shard sizes between 10--50 GB per shard. Specifically, 10--30 GB per shard is preferred for workloads that prioritize low search latency. Often, these are application search workloads. For write heavy workloads, 30--50 GB per shard is preferred. Often, these are log analytics workloads.
 
 ## View the number and size of shard(s) in an index
-Running the API ```GET _cat/indices/?v``` will display the indices on the OpenSearch domain. It will also display the number of primary shards, the replication factor and the principal storage size. Comparing the storage size and number of primary shards can provide a quick overview of which indices may have sub optimal shard counts.
+Running the API ```GET _cat/indices/?v``` displays the indices on the OpenSearch domain. It also displays the number of primary shards, the replication factor, and the principal storage size. Comparing the storage size and number of primary shards can provide a quick overview of which indices may have suboptimal shard counts.
 
 In the example pictured below the index named *sample-data-5-1* has 5 primary shards each with 1 replica for a total of 10 shards. The principal storage size is only 176.9 KB. This means 176.9 KB is stored across 5 primary shards. Given the small storage size 5 primary shards is too many. 
 
