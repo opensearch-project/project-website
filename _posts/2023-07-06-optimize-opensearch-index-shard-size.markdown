@@ -24,7 +24,7 @@ What is the ideal number of shards? Only performance testing different numbers o
 ## View the number and size of shard(s) in an index
 Running the API ```GET _cat/indices/?v``` displays the indices on the OpenSearch domain. It also displays the number of primary shards, the replication factor, and the principal storage size. Comparing the storage size and number of primary shards can provide a quick overview of which indices may have suboptimal shard counts.
 
-In the example pictured below the index named *sample-data-5-1* has 5 primary shards each with 1 replica for a total of 10 shards. The principal storage size is only 176.9 KB. This means 176.9 KB is stored across 5 primary shards. Given the small storage size 5 primary shards is too many. 
+In the following example, the index named *sample-data-5-1* has five primary shards, each with one replica, for a total of 10 shards. The principal storage size is only 176.9 KB. This means 176.9 KB is stored across five primary shards. Given the small storage size, five primary shards is too many. 
 
 <img src="/assets/media/blog-images/2023-07-06-optimize-index-shard-size/cat_indicies.png" alt="cat/indicies"/>{: .img-fluid }
 
