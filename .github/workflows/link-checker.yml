@@ -7,7 +7,7 @@ on:
 
 jobs:
   check:
-    if: github.repository == ‘opensearch-project/project-website’
+    if: github.repository == 'opensearch-project/project-website'
     runs-on: ubuntu-latest
 
     steps:

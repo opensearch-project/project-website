@@ -16,7 +16,7 @@ components:
     version: 1.1.0
   - role: ingest
     artifact: data-prepper
-    version: data-prepper-2.3.0
+    version: data-prepper-2.3.1
     platform_order:
       - docker
       - linux
@@ -34,7 +34,7 @@ components:
     version: 1.1.0.1
   - role: drivers
     artifact: opensearch-sql-jdbc
-    version: 1.1.0.1
+    version: 1.3.0.0
 sections:
   docker-compose:
     explanation: "downloads/opensearch-docker.markdown"

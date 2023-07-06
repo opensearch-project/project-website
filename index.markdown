@@ -40,7 +40,7 @@ OpenSearch is a scalable, flexible, and extensible open-source software suite fo
 
 **Build powerful search solutions**
 <br>
-Deploy e-commerce, application, and document search with community-built tools. Support for [full text queries](https://opensearch.org/docs/latest/opensearch/query-dsl/full-text/), natural language processing, custom dictionaries, and a [range of search features](https://opensearch.org/docs/latest/opensearch/ux/) provides a flexible foundation for structured and unstructured search applications. With built-in faceting, relevance ranking and scoring, and a selection of machine learning (ML) features, you can build search solutions that are finely tuned to your data.
+Deploy e-commerce, application, and document search with community-built tools. Power artificial intelligence (AI) applications using OpenSearch’s [vector database functionality](https://opensearch.org/platform/search/vector-database.html). Support for [full text queries](https://opensearch.org/docs/latest/opensearch/query-dsl/full-text/), natural language processing, custom dictionaries, and a [range of search features](https://opensearch.org/docs/latest/opensearch/ux/) provides a flexible foundation for structured and unstructured search applications. With built-in faceting, relevance ranking and scoring, and a selection of machine learning (ML) features, you can build search solutions that are finely tuned to your data.
 
 
 **Analyze and discover at scale**
