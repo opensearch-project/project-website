@@ -28,7 +28,7 @@ In the following example, the index named *sample-data-5-1* has five primary sha
 
 <img src="/assets/media/blog-images/2023-07-06-optimize-index-shard-size/cat_indicies.png" alt="cat/indicies"/>{: .img-fluid }
 
-To view the sizes of the individual shards in an index, run the ```GET _cat/shards/<name_of_index>?v```
+To view the sizes of the individual shards in an index, run ```GET _cat/shards/<name_of_index>?v```.
 
 Using the cat shards API on the example sample-data-5-1 index. You can see the primary shards are all less than 1 mb in size. This is too small.
 
