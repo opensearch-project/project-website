@@ -72,7 +72,7 @@ Note a few additional considerations:
 * Free storage space should be considered before reindexing. When copying data to a new index, the new index will consume storage. Ensure you have sufficient free storage before reindexing.
 * When creating a new document, always consider using index templates if available. Index templates contain schema information for an index including data types. Using an index template during index creation helps ensure the correct settings are applied to the new index. Index templates are often used in log analytics workloads where nex indexes are created frequently.
 
-Following along with the example we could run the API call below to block all incoming writes to the *sample-data-5-1* index
+Following along with the example, we could run the following API call to block all incoming writes to the *sample-data-5-1* index.
 
 ```
 PUT sample-data-5-1/_settings
