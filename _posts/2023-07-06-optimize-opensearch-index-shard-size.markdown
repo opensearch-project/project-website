@@ -99,7 +99,7 @@ PUT sample-data-1-1/_settings
 }
 ```
 
-## Conclusion and other Resources
+## Conclusion and other resources
 Optimizing the number and size of shards in your index can help you have the best performance from OpenSearch. Thinking about and setting the correct number of primary shards when you first create an index is best. However if your index size changes or you use the default number of primary shards and the defaults don’t work well for your index, you can use this blog as a guide to help you optimize shard counts.
 
 If you prefer to learn about this topic in the format of a video instead of a blog post check out the YouTube video: [OpenSearch - How to change the number of primary and replica shard(s) of an index](https://www.youtube.com/watch?v=xadv93LlbY4). This blog post is based on the GitHub repository: [OpenSearch_Read_Only_Index](https://github.com/ev2900/OpenSearch_Read_Only_Index)
