@@ -68,7 +68,7 @@ POST _reindex
 ```
 
 Note a few additional considerations:
-* Before reindexing or copying data from the old index to the new index you may consider setting the old index to read only. This will ensure that no new data is written to the old index during the copy.
+* Before reindexing or copying data from the old index to the new index you may consider setting the old index to read only. This ensures that no new data is written to the old index during the copy.
 * Free storage space should be considered before reindexing. When copying data to a new index, the new index will consume storage. Ensure you have sufficient free storage before reindexing.
 * When creating a new document, always consider using index templates if available. Index templates contain schema information for an index including data types. Using an index template during index creation helps ensure the correct settings are applied to the new index. Index templates are often used in log analytics workloads where new indexes are created frequently.
 
