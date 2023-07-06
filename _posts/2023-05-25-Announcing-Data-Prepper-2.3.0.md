@@ -145,8 +145,8 @@ processor:
         mask:
           mask_character: "#"
           mask_character_length: 6
-      - obfuscate:
-        source: "phone"
+  - obfuscate:
+      source: "phone"
 ```
 
 
