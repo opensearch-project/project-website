@@ -130,6 +130,26 @@ trace-normal-pipeline:
 
 ```
 
+## Obfuscate processor:
+
+Data Prepper 2.3.0 supports obfuscation of sensitive data by replacing specified field's value with mask character(s). For example, the following configuration obfuscates pattern matching values for the key specified in the field `source`. If no pattern is specified, the entire value corresponding to the key specified in the field `source` is obfuscated.
+
+```
+processor:
+  - obfuscate:
+      source: "log"
+      target: "new_log"
+      patterns:
+        - "[A-Za-z0-9+_.-]+@([\\w-]+\\.)+[\\w-]{2,4}"
+      action:
+        mask:
+          mask_character: "#"
+          mask_character_length: 6
+      - obfuscate:
+        source: "phone"
+```
+
+
 ## Getting started
 
 * To download Data Prepper, see the [OpenSearch downloads](https://opensearch.org/downloads.html) page.
