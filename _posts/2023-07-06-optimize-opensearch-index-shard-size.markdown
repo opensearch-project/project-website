@@ -51,7 +51,7 @@ PUT sample-data-1-1
 }
 ```
 
-Once the new index is created with the desired number of primary shards the reindex API can copy data from to the new index from the old index.
+Once the new index is created with the desired number of primary shards, the reindex API can copy data to the new index from the old index.
 
 Following along with the example the API call below will copy data from the *sample-data-5-1* index to the *sample-data-1-1* index.
 
