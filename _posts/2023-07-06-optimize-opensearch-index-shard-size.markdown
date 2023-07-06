@@ -9,7 +9,7 @@ categories:
   - technical-posts
 ---
 
-This blog post will discuss optimizing the number shards in an OpenSearch index. Optimizing shard sizes helps you get the best performance from OpenSearch.
+This blog post discusses optimizing the number shards in an OpenSearch index. Optimizing shard sizes helps you get the best performance from OpenSearch.
 
 ## Introduction
 An OpenSearch index is composed of shards. Each document in an index is stored in the shards of an index. An index can have two types of shards, primary and replica shards. When you write document(s) to an OpenSearch index, indexing requests first go through primary shards before they are replicated to the replica shard(s). Each primary shard is hosted on a data node in an OpenSearch domain. When you read/search data in OpenSearch, a search request may interact with a number replica or primary shards. Replica shards are automatically updated mirroring their corresponding primary shards.
