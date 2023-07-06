@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Optimize OpenSearch Index Shard Sizes"
+title:  "Optimize OpenSearch index shard sizes"
 authors:
   - ev2900
   - ronmiller
