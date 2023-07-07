@@ -90,7 +90,7 @@ The number of replicate shards for an index can be easily adjusted after an inde
 
 An OpenSearch index has both dynamic and static settings. You can change dynamic index settings at any time, but static settings cannot be changed after index creation. The number of replicas is a dynamic setting, hence why it can be changed without needing to create a new index and copy the data.
 
-Following along with our example, if we want to change the replication factor for the *sample-data-1-1* index from 1 to 0 (that is, no replicates), we can use the index settings API:
+Following along with our example, if we want to change the replication factor for the *sample-data-1-1* index from 1 to 0 (that is, no replicas), we can use the index settings API:
 
 ```
 PUT sample-data-1-1/_settings
