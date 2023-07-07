@@ -7,6 +7,8 @@ authors:
 date: 2023-07-06
 categories:
   - technical-posts
+meta_keywords: OpenSearch index, OpenSearch shards, shard optimization, optimize shard sizes OpenSearch
+meta_description: Learn how optimizing the number of primary and replica shards in your OpenSearch index can help you improve search latency and write performance.
 ---
 
 This blog post discusses optimizing the number shards in an OpenSearch index. Optimizing shard sizes helps you get the best performance from OpenSearch.
