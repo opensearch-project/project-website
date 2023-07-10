@@ -3,7 +3,11 @@ layout: post
 title:  "Introducing Extensions for OpenSearch"
 authors:
   - vemsarat
-  - 
+  - widdisd
+  - kazabdu
+  - dblock
+  - dagney
+  - minalsha
 date: 2023-07-10
 categories:
   - technical-posts
