@@ -11,13 +11,11 @@ authors:
 date: 2023-07-10
 categories:
   - technical-posts
-meta_keywords: OpenSearch, plugins, extensions
-meta_description: Introducing Extensions for OpenSearch, a new way to extend features of OpenSearch.
+Meta_keywords: OpenSearch Extensions, OpenSearch plugins, OpenSearch extensibility
+Meta_description: Discover how the experimental Extensions feature in OpenSearch 2.9 helps extend OpenSearch to independently scale workloads without impacting cluster availability.
 ---
 
 This blog post introduces extensions for OpenSearch and the launch of experimental SDK.
-
-# Introducing Extensions for OpenSearch
 
 ## Introduction
 
@@ -38,7 +36,7 @@ The extensions architecture is illustrated below.
 
 ![Extensions for OpenSearch](/assets/media/blog-images/2023-07-10-introducing-extensions-for-opensearch/extensions.png){: .img-fluid}
 
-## Experimental SDK Launch
+## Experimental SDK launch
 
 The first step in our [extensibility roadmap](https://opensearch.org/blog/technical-roadmap-opensearch-extensibility/) is to launch a developer SDK that makes the experience of extending OpenSearch easier than with plugins. Today, we are launching a Java version, [opensearch-sdk-java](https://github.com/opensearch-project/opensearch-sdk-java), which works with OpenSearch 2.9 or above. To turn on the experimental extensibility feature, set `opensearch.experimental.feature.extensions.enabled` to `true` in your `opensearch.yml` .
 
