@@ -24,7 +24,7 @@ OpenSearch is a fork of Elasticsearch 7.10, which offered the extension of featu
 
 Plugins are class-loaded into memory during OpenSearch bootstrap and therefore run within the OpenSearch process. This leads to the following three architectural problems:
 
-1. Plugins require rigid version compatibility with OpenSearch. Every patch version change in OpenSearch core requires the plugin to be recompiled and re-released.
+1. Plugins require rigid version compatibility with OpenSearch. Every patch version change in OpenSearch core requires the plugin to be recompiled and rereleased.
 2. Plugins are not isolated, so they can fatally impact the OpenSearch cluster and cannot scale independently. 
 3. Having to manage dependencies of all components together makes it challenging to include 20+ plugins in a single product distribution.
 
