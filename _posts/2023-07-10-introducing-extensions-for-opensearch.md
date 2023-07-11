@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introducing Extensions for OpenSearch"
+title:  "Introducing extensions for OpenSearch"
 authors:
   - vemsarat
   - widdisd
@@ -8,11 +8,12 @@ authors:
   - dblock
   - dagney
   - minalsha
+  - kolchfa
 date: 2023-07-10
 categories:
   - technical-posts
-Meta_keywords: OpenSearch Extensions, OpenSearch plugins, OpenSearch extensibility
-Meta_description: Discover how the experimental Extensions feature in OpenSearch 2.9 helps extend OpenSearch to independently scale workloads without impacting cluster availability.
+Meta_keywords: OpenSearch extensions, OpenSearch plugins, OpenSearch extensibility
+Meta_description: Discover how the experimental extensions feature in OpenSearch 2.9 helps extend OpenSearch to independently scale workloads without impacting cluster availability.
 ---
 
 _Extensions_ is a new experimental feature in OpenSearch 2.9 that allows you to extend OpenSearch without impacting cluster availability and independently scale workloads. In this blog post, we will introduce extensions and compare them to plugins. Using a 36-node cluster running a machine learning algorithm that performs high-cardinality anomaly detection, we'll demonstrate how we have achieved a cost reduction of 33% per data node, with performance matching that of a plugin and the only added cost of one extension node.
