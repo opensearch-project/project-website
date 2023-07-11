@@ -118,7 +118,7 @@ AD’s historical HCAD restricts the rate of historical time period results, lim
 
 Extensions save costs and improve performance by right-sizing all resources to the task being performed. In our test, we did not need memory-optimized servers for the whole cluster to perform historical AD and therefore could achieve a 33% cost reduction per data node.
 
-As a plugin, AD shares CPU and memory with OpenSearch I/O and must limit its own resource consumption in order to ensure the cluster’s stability. For example, in the AD Plugin HCAD tests, models were limited to use half of the heap, which itself was half of the node’s memory. In the AD extension scenario, it was possible to scale the heap up to consume most of the server’s memory and fully utilize 64 vCPUs dedicated only to AD tasks.
+As a plugin, AD shares CPU and memory with OpenSearch I/O and must limit its own resource consumption in order to ensure the cluster’s stability. For example, in the AD plugin HCAD tests, models were limited to using half of the heap, which itself was half of the node’s memory. In the AD extension scenario, it was possible to scale the heap to consume most of the server’s memory and fully utilize 64 vCPUs dedicated only to AD tasks.
 
 Other existing plugins that could similarly benefit from this model include all plugins that have memory- or CPU-bound concerns, such as ML Commons, k-NN, and Reporting. This new technology also allows implementing new resource-heavy extensions, such as reranking, data transformation, big data processing, or video indexing.
 
