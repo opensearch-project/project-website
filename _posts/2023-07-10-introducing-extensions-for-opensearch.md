@@ -20,7 +20,7 @@ _Extensions_ is a new experimental feature in OpenSearch 2.9 that allows you to 
 
 ## The old way: Plugins
 
-OpenSearch is a fork of Elasticsearch 7.10, which offered extending features through plugins. Until now, plugins were the best way to extend features in OpenSearch, and we’ve written a [blog post](https://opensearch.org/blog/plugins-intro/) to help you understand how they worked. The OpenSearch project currently maintains 17 plugins, and we have learned a lot developing and operating them at scale over the last two years. In such, we’ve encountered many bottlenecks in the existing plugin architecture.
+OpenSearch is a fork of Elasticsearch 7.10, which offered the extension of features through plugins. Until now, plugins were the best way to extend features in OpenSearch, and we’ve written a [blog post](https://opensearch.org/blog/plugins-intro/) to help you understand how they worked. The OpenSearch Project currently maintains 17 plugins, and we have learned a lot developing and operating them at scale over the last 2 years. Over this time, we’ve encountered many bottlenecks in the existing plugin architecture.
 
 Plugins are class-loaded into memory during OpenSearch bootstrap and therefore run within the OpenSearch process. This leads to the following three architectural problems:
 
