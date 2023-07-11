@@ -40,7 +40,7 @@ The extensions architecture is illustrated in the following figure. For details,
 
 The first step on our [extensibility roadmap](https://opensearch.org/blog/technical-roadmap-opensearch-extensibility/) is to launch a developer SDK that makes extending OpenSearch easier than with plugins. Today we are launching a Java version, [opensearch-sdk-java](https://github.com/opensearch-project/opensearch-sdk-java), that works with OpenSearch 2.9 or above. To turn on the experimental extensions feature, set `opensearch.experimental.feature.extensions.enabled` to `true` in your `opensearch.yml` file.
 
-The extensions interfaces are compatible across minor and patch versions of OpenSearch, therefore there’s no need to recompile, redeploy, or reinstall your extension next time you upgrade to the next version of OpenSearch 2.10. These APIs currently include the capability of exposing a REST interface in your extension and ship with client libraries to interact with data in your OpenSearch cluster.
+The extension interfaces are compatible across minor and patch versions of OpenSearch, therefore there’s no need to recompile, redeploy, or reinstall your extension when you upgrade to the next version of OpenSearch 2.10. These APIs currently include the capability to expose a REST interface in your extension and ship with client libraries to interact with data in your OpenSearch cluster.
 
 The first version of the SDK v0.1.0 is available in Maven under [`org.opensearch.sdk`](https://aws.oss.sonatype.org/content/repositories/releases/org/opensearch/sdk). Get started with the [developer documentation](https://opensearch-project.github.io/opensearch-sdk-java/) to build your first extension.
 
