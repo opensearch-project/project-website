@@ -98,7 +98,7 @@ Because our extension ran on a remote node, we did observe an expected increase 
 
 ## Improving performance
 
-We proved that upgrading AD from plugin to extension could match existing performance for end users. But could we do better? We can, in the following three ways.  
+We proved that upgrading AD from a plugin to an extension could match existing performance for end users. But we believe that we can do even better in the following three ways.  
 
 ### 1. Use a cheaper cluster
 
