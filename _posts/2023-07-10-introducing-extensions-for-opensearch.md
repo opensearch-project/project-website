@@ -30,7 +30,7 @@ Plugins are class-loaded into memory during OpenSearch bootstrap and therefore r
 
 ## The new way: Extensions
 
-Unlike plugins, extensions run as a side-car process or on a remote node, are isolated, and have cleaner, well-defined interfaces to interact with OpenSearch core. These interfaces are versioned (they follow semantic versioning) and are guaranteed to work across minor and patch versions, providing the future possibility of being compatible with multiple major versions of OpenSearch.
+Unlike plugins, extensions run as a sidecar process or on a remote node, are isolated, and have cleaner, well-defined interfaces that interact with OpenSearch core. These interfaces are versioned (they follow semantic versioning) and are guaranteed to work across minor and patch versions, providing the future possibility of being compatible with multiple major versions of OpenSearch.
 
 The extensions architecture is illustrated in the following figure. For details, see [extension design documentation](https://opensearch-project.github.io/opensearch-sdk-java/DESIGN.html).
 
