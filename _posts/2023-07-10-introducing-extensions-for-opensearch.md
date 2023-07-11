@@ -102,7 +102,7 @@ We proved that upgrading AD from a plugin to an extension could match existing p
 
 ### 1. Use a cheaper cluster
 
-We found that by rewriting AD as an extension we could reduce the cost of our cluster and still meet the same performance bar. Because AD no longer runs on data nodes, we were able to replace all memory-optimized r5.2xlarge nodes with general purpose c5.2xlarge nodes for a 33% cost saving per data node for historical analysis, with the additional cost of one extension node.
+We found that by rewriting AD as an extension, we could reduce the cost of our cluster and still meet the same performance bar. Because AD no longer runs on data nodes, we were able to replace all memory-optimized r5.2xlarge nodes with general-purpose c5.2xlarge nodes, resulting in a 33% cost reduction per data node for historical analysis, with the additional cost of 1 extension node.
 
 We were also able to further decrease the number of data nodes in order to optimize searching the data and indexing the results. For example, since most data nodes in the original performance benchmark had insignificant usage other than indexing results, we tested a cluster with only 24 c5.2xlarge data nodes along with 1x r5.16xlarge extension node, a further 33% reduction. We believe that with further experimentation and fine tuning, you can find an even more optimal mix, depending on other resource requirements for the cluster.
 
