@@ -69,7 +69,7 @@ With the detectors set, we can simulate a security attack on this example infras
 
 When the attack occurs, each detector generates a finding for its corresponding infrastructure component. For example, the AD/LDAP detector generates a finding that indicates `Invalid Username/Password, ResultType: 50126`. This finding belongs to the individual detector's log type. 
 
-But how would you know that the AD/LDAP detector finding `Invalid Username/Password, ResultType: 50126` is related to a chain of security events occurring in the same time frame on the infrastructure, such as a `403 Forbidden error` finding from an application logs detector? Is there a way to correlate finding that belong to other log types in a particular time range automatically? 
+But how would you know that the AD/LDAP detector finding `Invalid Username/Password, ResultType: 50126` is related to a chain of security events occurring in the same time frame on the infrastructure, such as a `403 Forbidden error` finding from an application logs detector? Is there a way to correlate finding that belong to other log types in a particular time range automatically? Correlation engine makes all of this possible.
 
 
 ## Benefits of the correlation engine
