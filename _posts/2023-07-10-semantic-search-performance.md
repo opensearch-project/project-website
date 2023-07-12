@@ -165,34 +165,21 @@ The preceding formula provides general guidance for the number of ML cores requi
 
 The index used for semantic search stores both text and embeddings in one OpenSearch Index. The exact storage requirement for text fields is dependent on the number and types of fields in the document. Thus, for this section we will focus on the embeddings storage.
 
-Estimating storage is easier for vector fields (embeddings) than for text fields. For vector fields, storage mainly consists of the k-NN algorithm file and the OpenSearch bookkeeping files. Assuming we are using HNSW algorithm for k-NN search, the graph storage (in bytes/vector) can be calculated using the following formula[6]:
+Estimating storage is easier for vector fields (embeddings) than for text fields. For vector fields, storage mainly consists of the k-NN algorithm file and the OpenSearch bookkeeping files. Assuming we are using HNSW algorithm for k-NN search, the graph storage (in bytes/vector) can be calculated using the following formula [6]:
 
-$$
-\begin{align}
-\text{graph storage} = 1.1 \cdot (4 \cdot dimensions + 8 \cdot M),
-\end{align}
-$$
+graph storage = $$1.1 \cdot (4 \cdot dimensions + 8 \cdot M)$$,
 
 where $$M$$ defines the number of bidirectional links created for every new element during construction[10].
 
 The OpenSearch bookkeeping file storage (in bytes/vector) can be approximated using the following formula:
 
-$$
-\begin{align}
-\text{bookkeeping file storage} = 20 \cdot dimensions
-\end{align}
-$$ 
+bookkeeping file storage = $$20 \cdot dimensions$$
 
 This formula assumes 16-bit floating-point numbers as vector values, where each value has on an average 16 digits. Additionally, this formula assumes that the OpenSearch index is configured for `BEST_SPEED`. 
 
 Applying both of the preceding formulas(with default values) to the experiment, the storage required for storing a 768-dimensional 10 Million vector is:
 
-$$
-\begin{align}
-\text{storage} = ((20 \cdot 768) + (1.1 \cdot (4 \cdot 768 + 8 \cdot 16))) \cdot 10000000=175.8 \text{ GB}
-\end{align}
-$$ 
-
+storage = $$((20 \cdot 768) + (1.1 \cdot (4 \cdot 768 + 8 \cdot 16))) \cdot 10000000=175.8$$ GB
 
 ## FAQ
 
