@@ -117,7 +117,7 @@ For more information about using the Findings window, see [Working with findings
 
 ## Next steps
 
-To get started using correlation engine, see [Setting up Security Analytics](https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/index/) and [Creating correlation rules](https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/correlation-config/) in the OpenSearch documentation.
+To get started using the correlation engine, see [Setting up Security Analytics](https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/index/) and [Creating correlation rules](https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/correlation-config/) in the OpenSearch documentation.
 
 
 
