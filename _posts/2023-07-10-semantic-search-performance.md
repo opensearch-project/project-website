@@ -128,7 +128,7 @@ $$
 
 This explains why we were able to drop the number of cores from 48 to 16 (Configuration B compared with Configuration C) without taking a performance hit on queries per second. 
 
-Note that our recommendations are in terms of the number of cores. It is up to you decide how to split the cores. You can choose one ML node with $$c$$ cores or $$k$$ ML nodes with $$c/k$$ cores — the calculation remains the same. Also, keep in mind that the above calculation works, given that the inference call to ML Model is long polling. If the k-NN search latency in the Neural Search plugin becomes long polling, then you will not be able to achieve the required throughput. This will require configuring your data nodes according to best practices [5, 6]. 
+Note that our recommendations are in terms of the number of cores. It is up to you decide how to split the cores. You can choose one ML node with $$c$$ cores or $$k$$ ML nodes with $$c/k$$ cores — the calculation remains the same. Also, keep in mind that the above calculation works given that the inference call to ML Model is the most time-consuming operation. If the k-NN search latency in the Neural Search plugin becomes the most time-consuming, then you will not be able to achieve the required throughput. This will require configuring your data nodes according to best practices [5, 6]. 
 
 ## Cluster configuration for the required indexing throughput
 
@@ -148,7 +148,7 @@ c = \lfloor (i \cdot e) / (2 \cdot 1000) \rfloor
 \end{align}
 $$
 
-Note that the Predict API latency $$e$$ needs to be measured again because it is different for documents and queries as documents tend to be longer for ingestion. For MS Marco, the p99 predict API latency was measured to be ~4100ms with `msmarco-distilbert-base-tas-b`. For 10 ML nodes with 16 cores each, we have $$c = 160$$. Using the preceding formula, we get the average ingestion throughput of ~78 docs/second. Also, keep in mind that the above calculation works given that the inference call to the ML Model is long polling for indexing.
+Note that the Predict API latency $$e$$ needs to be measured again because it is different for documents and queries as documents tend to be longer for ingestion. For MS Marco, the p99 predict API latency was measured to be ~4100ms with `msmarco-distilbert-base-tas-b`. For 10 ML nodes with 16 cores each, we have $$c = 160$$. Using the preceding formula, we get the average ingestion throughput of ~78 docs/second. Also, keep in mind that the above calculation works given that the inference call to the ML Model is the most time-consuming operation for indexing.
 
 The preceding formula provides general guidance for the number of ML cores required to achieve the desired throughput. Ingestion is much more complex than query and depends on various factors. The following is a list of some (but not all) of those factors:
 
