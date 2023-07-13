@@ -17,8 +17,8 @@ authors:
 date: 2023-07-13
 categories:
   - technical-posts
-meta_keywords: OpenSearch security, OpenSearch security analytics, log analytics
-meta_description: This blog post details how Security Analytics can provide a better fidelity of data when viewed through a correlation graph, which can help security analysts monitor their systems and applications more effectively.
+meta_keywords: OpenSearch security analytics, OpenSearch correlation engine, identify correlated events in OpenSearch
+meta_description: Learn how the OpenSearch Security Analytics correlation engine helps you analyze different security logs and identify relationships between them to recognize correlated events."
 ---
 
 
