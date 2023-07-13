@@ -20,9 +20,6 @@ meta_keywords: OpenSearch security analytics, OpenSearch correlation engine, ide
 meta_description: Learn how the OpenSearch Security Analytics correlation engine helps you analyze different security logs and identify relationships between them to recognize correlated events."
 ---
 
-
-# Correlating security events across different log sources
-
 All enterprises, large and small, across different industries and geographies, are vulnerable to security threats to their valuable data. To detect and respond to these threats, organizations use commercial security information and event management (SIEM) solutions to gather security-related information and identify potential security issues. With the constantly changing techniques used by adversaries in the evolving threat landscape, it is increasingly necessary to monitor adversary actions across devices, hosts, and applications. 
 
 OpenSearch Security Analytics is an open-source solution for security practitioners that addresses the cost and complexity of running security operations by automating threat detection and threat analysis. It provides a single pane of glass for observability (logs, metrics, and traces) and security monitoring use cases, saving OpenSearch users the cost of cloning data in multiple places, and provides long-term retention of security event data. Due to OpenSearch’s flexible nature, Security Analytics can also be used for less critical workloads that don’t justify the high cost of a commercial security solution.
