@@ -13,14 +13,14 @@ date: 2023-07-10
 categories:
   - technical-posts
 Meta_keywords: OpenSearch extensions, OpenSearch plugins, OpenSearch extensibility
-Meta_description: Discover how the experimental extensions feature in OpenSearch 2.9 helps extend OpenSearch to independently scale workloads without impacting cluster availability.
+Meta_description: Discover how the experimental extensions feature in OpenSearch 2.9 helps extend OpenSearch and independently scale workloads without impacting cluster availability.
 ---
 
-_Extensions_ is a new experimental feature in OpenSearch 2.9 that allows you to extend OpenSearch without impacting cluster availability and independently scale workloads. In this blog post, we will introduce extensions and compare them to plugins. Using a 36-node cluster running a machine learning algorithm that performs high-cardinality anomaly detection, we'll demonstrate how we have achieved a cost reduction of 33% per data node, with performance matching that of a plugin and the only added cost of one extension node.
+_Extensions_ is a new experimental feature in OpenSearch 2.9 that allows you to extend OpenSearch and independently scale workloads without impacting cluster availability. In this blog post, we will introduce extensions and compare them to plugins. Using a 36-node cluster running a machine learning algorithm that performs high-cardinality anomaly detection, we'll demonstrate how we have achieved a cost reduction of 33% per data node, with performance matching that of a plugin and the only added cost of one extension node.
 
 ## The old way: Plugins
 
-OpenSearch is a fork of Elasticsearch 7.10, which offered extending features through plugins. Until now, plugins were the best way to extend features in OpenSearch, and we’ve written a [blog post](https://opensearch.org/blog/plugins-intro/) to help you understand how they worked. The OpenSearch project currently maintains 17 plugins, and we have learned a lot developing and operating them at scale over the last two years. In such, we’ve encountered many bottlenecks in the existing plugin architecture.
+OpenSearch is a fork of Elasticsearch 7.10, which offered extending features through plugins. Until now, plugins were the best way to extend features in OpenSearch, and we’ve written a [blog post](https://opensearch.org/blog/plugins-intro/) to help you understand how they work. The OpenSearch project currently maintains 17 plugins, and we have learned a lot developing and operating them at scale over the last two years. In such, we’ve encountered many bottlenecks in the existing plugin architecture.
 
 Plugins are class-loaded into memory during OpenSearch bootstrap and therefore run within the OpenSearch process. This leads to the following three architectural problems:
 
@@ -38,7 +38,7 @@ The extensions architecture is illustrated in the following figure. For details,
 
 ## Experimental SDK launch
 
-The first step in our [extensibility roadmap](https://opensearch.org/blog/technical-roadmap-opensearch-extensibility/) is to launch a developer SDK that makes the experience of extending OpenSearch easier than with plugins. Today, we are launching a Java version, [opensearch-sdk-java](https://github.com/opensearch-project/opensearch-sdk-java), which works with OpenSearch 2.9 or above. To turn on the experimental extensions feature, set `opensearch.experimental.feature.extensions.enabled` to `true` in your `opensearch.yml`.
+The first step in our [extensibility roadmap](https://opensearch.org/blog/technical-roadmap-opensearch-extensibility/) is to launch a developer SDK that makes the experience of extending OpenSearch easier than with plugins. Today, we are launching a Java version, [opensearch-sdk-java](https://github.com/opensearch-project/opensearch-sdk-java), which works with OpenSearch 2.9 and later. To turn on the experimental extensions feature, set `opensearch.experimental.feature.extensions.enabled` to `true` in your `opensearch.yml`.
 
 The extensions interfaces are compatible across minor and patch versions of OpenSearch, therefore there’s no need to recompile, redeploy, or reinstall your extension next time you upgrade to the next version of OpenSearch 2.10. These APIs currently include the capability of exposing a REST interface in your extension and ship with client libraries to interact with data in your OpenSearch cluster.
 
@@ -50,7 +50,7 @@ We selected the Anomaly Detection (AD) plugin as the first plugin to migrate to 
 
 Technically, AD wasn’t our first extension. Like anyone exploring a new space, we created a [“Hello World” example](https://github.com/opensearch-project/opensearch-sdk-java/blob/main/src/main/java/org/opensearch/sdk/sample/helloworld/HelloWorldExtension.java) to show how easy it was to get started and to demonstrate the usage of the basic interfaces without the complexity of a real world application. We then wanted to face the challenges of migrating a full fledged, production-ready plugin ourselves.
 
-Most plugins make requests to OpenSearch for user data or cluster state. Our extensions needed a REST client to match this functionality. Our initial choice was the[OpenSearch Java Client](https://github.com/opensearch-project/opensearch-java). As a robust, spec-based, auto-generated client, it seemed to be an ideal choice, especially because of our future wish to port the SDK to other programming languages that all have similar clients. This is still the preferred client for new extension development. However, for the experimental release, AD was very dependent on the existing NodeClient API, and we found ourselves rewriting too much code.
+Most plugins make requests to OpenSearch for user data or cluster state. Our extensions needed a REST client to match this functionality. Our initial choice was the [OpenSearch Java Client](https://github.com/opensearch-project/opensearch-java). As a robust, spec-based, auto-generated client, it seemed to be an ideal choice, especially because of our future wish to port the SDK to other programming languages that all have similar clients. This is still the preferred client for new extension development. However, for the experimental release, AD was very dependent on the existing NodeClient API, and we found ourselves rewriting too much code.
 
 The Java high-level REST Client, currently part of OpenSearch core, had a nearly identical interface but has been proposed for deprecation. We chose to use it for the early migration work and decided to not to switch the client until it’s removed in OpenSearch 3.0 or 4.0.  This allowed us to minimize the amount of work and to quickly migrate all APIs by adding a handful wrapper classes.
 
@@ -110,7 +110,7 @@ We were also able to further decrease the number of data nodes in order to optim
 
 While we have not run this experiment, we believe you can further independently fine-tune the cluster by increasing sharding and achieve better throughput in indexing AD results.
 
-### 3. Increase the rate of generating historical results
+### 3. Increase the historical results generation rate
 
 AD’s historical HCAD restricts the rate of historical time period results, limits the use of AD to half the heap, and sets the maximum for detection at 10 simultaneous threads to protect the cluster from being maxed out. You can raise these limits by adding more CPUs or RAM, swapping space with SSDs independently from the rest of the cluster, or horizontally scaling extension nodes.
 
@@ -124,4 +124,4 @@ Other existing plugins that could similarly benefit from this model include all 
 
 ## Next steps
 
-We are thrilled with the progress we have made with extensibility so far and the early performance benchmarking results. Before we commit to releasing this experimental feature and the SDK as generally available, we would like your feedback. After reading [extension documentation](https://opensearch-project.github.io/opensearch-sdk-java/), try implementing an experimental extension and give us feedback by posting in the [OpenSearch forum](https://forum.opensearch.org/) or opening issues in the [`opensearch-sdk-java` repo](https://github.com/opensearch-project/opensearch-sdk-java/). We can’t wait to hear from you!
+We are thrilled with the progress we have made with extensibility so far and with the early performance benchmarking results. Moving forward, in the short term we will shift our focus to using the learnings from the Extensibility project to enable extensibility in our OpenSearch Machine Learning (ML) offerings. The goal is to deliver a spec-based application framework where users will be able to create no-code ML-powered applications in OpenSearch and ultimately deliver a simple one-click way for users to test, build, and deploy ML-powered applications using OpenSearch. Additionally, before we commit to releasing this experimental feature and the SDK as generally available, we would like your feedback. After reading [extension documentation](https://opensearch-project.github.io/opensearch-sdk-java/), try implementing an experimental extension and give us feedback by posting in the [OpenSearch forum](https://forum.opensearch.org/) or opening issues in the [`opensearch-sdk-java` repo](https://github.com/opensearch-project/opensearch-sdk-java/). We can’t wait to hear from you!
