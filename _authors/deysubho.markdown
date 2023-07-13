@@ -1,7 +1,7 @@
 ---
 short_name: deysubho
 name: Subhobrata Dey
-photo: '/assets/media/authors/deysubho.jpeg'
+photo: '/assets/media/authors/deysubho.jpg'
 github: sbcd90 
 ---
 

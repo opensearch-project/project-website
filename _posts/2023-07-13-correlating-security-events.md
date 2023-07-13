@@ -5,14 +5,13 @@ authors:
   - amsiglan
   - deysubho
   - jimishsh
-  - sisurb
+  - sisurab
   - snistala
   - naarcha
   - nknize
   - prabarch
-  - prashagr
   - praveensameneni
-  - pallap
+  - pallp
   - xeniatup
 date: 2023-07-13
 categories:
@@ -20,9 +19,6 @@ categories:
 meta_keywords: OpenSearch security analytics, OpenSearch correlation engine, identify correlated events in OpenSearch
 meta_description: Learn how the OpenSearch Security Analytics correlation engine helps you analyze different security logs and identify relationships between them to recognize correlated events."
 ---
-
-
-# Correlating security events across different log sources
 
 All enterprises, large and small, across different industries and geographies, are vulnerable to security threats to their valuable data. To detect and respond to these threats, organizations use commercial security information and event management (SIEM) solutions to gather security-related information and identify potential security issues. With the constantly changing techniques used by adversaries in the evolving threat landscape, it is increasingly necessary to monitor adversary actions across devices, hosts, and applications. 
 
@@ -68,7 +64,7 @@ To understand a correlation between findings from different log sources, you wou
 The following example customer infrastructure diagram further illustrates the need for a correlation framework. This customer deploys a Django REST application hosted on an Amazon EC2 Windows instance. The REST APIs for the application use Active Directory as the identity provider and Amazon S3 to store and query files. The EC2 Windows instance stores incoming network traffic in VPC Flow Logs.
 
 
-<img src="/assets/media/blog-images/2023-07-13-correlating-security-events/customer application.png" alt="Sample customer infrastructure"/>{: .img-fluid }
+<img src="/assets/media/blog-images/2023-07-13-correlating-security-events/customer-application.png" alt="Sample customer infrastructure"/>{: .img-fluid }
 
 For Security Analytics to monitor and detect threats for this infrastructure, we need to the define a detector for each component in the infrastructure. The following diagram shows the infrastructure with a detector for each component, such as a network detector for VPC Flow Logs and a Windows detector for the EC2 Windows instance.
 
