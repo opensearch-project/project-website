@@ -372,3 +372,12 @@ For more information about capabilities and limitations of flat object, see the 
 We're adding the ability to search subfields in a flat object using a Painless script. See [the GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/7138) for details. Also, we are adding support for [open parameters](https://github.com/opensearch-project/OpenSearch/issues/7137) to flat object.
 
 To learn more about the new ML Commons remote model inference project mentioned in this post, see [Extensibility for OpenSearch Machine Learning](https://github.com/opensearch-project/ml-commons/issues/881).
+
+## Our contributors
+
+The following community members contributed to the flat object implementation:
+
+- [Mingshi Liu](https://github.com/mingshl)
+- [Lukáš Vlček](https://github.com/lukas-vlcek)
+
+Thank you for your contribution!
