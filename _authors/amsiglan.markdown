@@ -1,7 +1,7 @@
 ---
 name: Amardeepsingh Siglani
 short_name: amsiglan
-photo: '/assets/media/authors/amsiglan.jpg'
+photo: '/assets/media/authors/amsiglan.jpeg'
 github: amsiglan
 ---
 
