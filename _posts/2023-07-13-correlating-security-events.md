@@ -2,7 +2,18 @@
 layout: post
 title:  "Correlating security events across different log sources"
 authors:
-  - 
+  - amsiglan
+  - deysubho
+  - jimishsh
+  - sisurb
+  - snistala
+  - naarcha
+  - nknize
+  - prabarch
+  - prashagr
+  - praveensameneni
+  - pallap
+  - xeniatup
 date: 2023-07-13
 categories:
   - technical-posts
