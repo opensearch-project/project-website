@@ -67,6 +67,9 @@ items:
       -
         label: Vector Database
         url: /platform/search/vector-database.html
+      - 
+        label: Enterprise Search
+        url: /platform/search/enterprise.html
       -
         label: Live Demo
         url: https://playground.opensearch.org/
