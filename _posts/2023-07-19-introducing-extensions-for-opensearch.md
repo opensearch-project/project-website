@@ -9,7 +9,7 @@ authors:
   - dagney
   - minalsha
   - kolchfa
-date: 2023-07-10
+date: 2023-07-19
 categories:
   - technical-posts
 Meta_keywords: OpenSearch extensions, OpenSearch plugins, OpenSearch extensibility
@@ -30,15 +30,15 @@ Plugins are class-loaded into memory during OpenSearch bootstrap and therefore r
 
 ## The new way: Extensions
 
-Unlike plugins, extensions run as a sidecar process or on a remote node, are isolated, and have cleaner, well-defined interfaces that interact with OpenSearch core. These interfaces are versioned (they follow semantic versioning) and are guaranteed to work across minor and patch versions, providing the future possibility of being compatible with multiple major versions of OpenSearch.
+Unlike plugins, extensions run as independent processes or on a remote node, are isolated, and have cleaner, well-defined interfaces that interact with OpenSearch core. These interfaces are versioned (they follow semantic versioning) and are guaranteed to work across minor and patch versions, providing the future possibility of being compatible with multiple major versions of OpenSearch.
 
 The extensions architecture is illustrated in the following figure. For details, see [extension design documentation](https://opensearch-project.github.io/opensearch-sdk-java/DESIGN.html).
 
-![Extensions for OpenSearch](/assets/media/blog-images/2023-07-10-introducing-extensions-for-opensearch/extensions.png){: .img-fluid}
+![Extensions for OpenSearch](/assets/media/blog-images/2023-07-19-introducing-extensions-for-opensearch/extensions.png){: .img-fluid}
 
 ## Experimental SDK launch
 
-The first step on our [extensibility roadmap](https://opensearch.org/blog/technical-roadmap-opensearch-extensibility/) is to launch a developer SDK that makes the experience of extending OpenSearch easier than with plugins. Today we are launching a Java version, [opensearch-sdk-java](https://github.com/opensearch-project/opensearch-sdk-java), that works with OpenSearch 2.9 and later. To turn on the experimental extensions feature, set `opensearch.experimental.feature.extensions.enabled` to `true` in your `opensearch.yml` file.
+The first step on our [extensibility roadmap](https://opensearch.org/blog/technical-roadmap-opensearch-extensibility/) is to launch an SDK that makes the experience of extending OpenSearch easier than with plugins. Today we are launching a Java version, [opensearch-sdk-java](https://github.com/opensearch-project/opensearch-sdk-java), that works with OpenSearch 2.9 and later. To learn how to turn on the experimental extensions feature, see the [Developer Guide](https://github.com/opensearch-project/opensearch-sdk-java/blob/main/DEVELOPER_GUIDE.md#enable-the-extensions-feature-flag).
 
 The extension interfaces are compatible across minor and patch versions of OpenSearch, therefore there’s no need to recompile, redeploy, or reinstall your extension when you upgrade to the next version of OpenSearch 2.10. These APIs currently include the capability to expose a REST interface in your extension and ship with client libraries to interact with data in your OpenSearch cluster.
 
@@ -92,9 +92,9 @@ GET /_extensions/_ad/detectors/results/_search
 
 The plugin limits these analysis rates to ensure stable cluster performance. After some fine-tuning (we increased simultaneous detector tasks from 10 to 96 and reduced the batch task piece interval from 5 to 3 seconds), the extension version of Anomaly Detection was able to successfully complete this analysis in 55 seconds. This isn’t quite an apples-to-apples comparison because the test in the previously mentioned blog post involved 1 million smaller models x 1 time slice each to generate 1 million results (we needed more time to implement support for real-time anomaly detection in the extension). However, we believe that we should be able to support 1M models on a single node or on a small number of nodes once extensions are capable of running in that environment.
 
-Because our extension ran on a remote node, we did observe an expected increase in API call latency. For example, the start/stop detector call went from 50--100ms to 200--300ms. These calls are marginal CRUD operations that are used to set up anomaly detection. The following figure provides a latency comparison between extensions and plugins. For more information, see [Performance testing for the Anomaly Detection extension](https://github.com/opensearch-project/opensearch-sdk-java/issues/725#issuecomment-1597874382).
+Because our extension ran on a remote node, we did observe an expected increase in API call latency. For example, the start/stop detector call went from 50--100ms to 200--300ms. These calls are marginal CRUD operations that are used to set up Anomaly Detection. The following figure provides a latency comparison between extensions and plugins. For more information, see [Performance testing for the Anomaly Detection extension](https://github.com/opensearch-project/opensearch-sdk-java/issues/725#issuecomment-1597874382).
 
-![Extensions compared to plugins latency graph](/assets/media/blog-images/2023-07-10-introducing-extensions-for-opensearch/extension-graph.png){:.img-fluid}
+![Extensions compared to plugins latency graph](/assets/media/blog-images/2023-07-19-introducing-extensions-for-opensearch/extension-graph.png){:.img-fluid}
 
 ## Improving performance
 
