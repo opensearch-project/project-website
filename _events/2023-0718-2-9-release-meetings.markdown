@@ -34,9 +34,13 @@ Join the OpenSearch team for the open release meetings so we can push 2.9.0 live
 
 **July 17th - 3PM PT**
 
-* Go / No-Go voting 
+* Go / No-Go voting (result = no-go)
 
 **July 18th - 3PM PT**
+
+* Go / No-Go voting
+
+**TBD**
 
 * [Release / Post release](https://github.com/opensearch-project/opensearch-build/blob/1499c472fec3d36bc0d3b30ffca8b08bb5a65c4d/RELEASE_PROCESS_OPENSEARCH.md#release) (Release day!) [Release manager, leadership team, Repository owners ]
 
