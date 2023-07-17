@@ -8,14 +8,14 @@ architecture: x64
 slug: data-prepper-2.1.1-docker-x64
 category: opensearch
 inline_instructions:
-- label: "Docker Hub"
-  code: docker pull opensearchproject/data-prepper:2.1.1
-  link:
-  label: View on Docker Hub
-  url: https://hub.docker.com/r/opensearchproject/data-prepper/tags?page=1&ordering=last_updated&name=2.1.1
-- label: "Amazon ECR"
-  code: docker pull public.ecr.aws/opensearchproject/data-prepper:2.1.1
-  link:
-  label: View on Amazon ECR
-  url: https://gallery.ecr.aws/opensearchproject/data-prepper
+  - label: "Docker Hub"
+    code: docker pull opensearchproject/data-prepper:2.1.1
+    link:
+      label: View on Docker Hub
+      url: https://hub.docker.com/r/opensearchproject/data-prepper/tags?page=1&ordering=last_updated&name=2.1.1
+  - label: "Amazon ECR"
+    code: docker pull public.ecr.aws/opensearchproject/data-prepper:2.1.1
+    link:
+      label: View on Amazon ECR
+      url: https://gallery.ecr.aws/opensearchproject/data-prepper
 ---
