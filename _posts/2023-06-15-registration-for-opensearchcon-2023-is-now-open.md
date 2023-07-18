@@ -18,11 +18,10 @@ categories:
 ![opensearchcon 2022 stage](/assets/media/blog-images/2023-06-15-registration-for-opensearchcon-2023-is-now-open/245890710-13cfc936-f1c7-4e4b-91c5-9927af4a05e2.jpg "Laysa Uchoa giving her keynote speech at OpenSearconCon 2022"){: .img-fluid}
 
 
-[OpenSearchCon](https://opensearchcon2023.splashthat.com/) is back! The OpenSearch community will get together again September 27-29 to learn, share, and connect about all things search and analytics. The event is in-person only and there is no fee to attend.
+[OpenSearchCon](https://opensearchcon2023.splashthat.com/) is back! The OpenSearch community will get together again September 27-29 to learn and connect about all things search and analytics. The event is in-person only and there is no fee to attend.
 
 We’re making room for more builders and more content by taking over the Sheraton Grand in Seattle. [Special room rates](https://book.passkey.com/event/50584019/owner/346/home) are available for those who wish to stay at the event hotel. OpenSearchCon 2023 passes are limited, so we encourage everyone to [register today](https://opensearchcon2023.splashthat.com/) in order to claim your spot at this year’s conference.
 
-The Call for Papers is still open as well but only until the end of the day on June 16. If you have a story you’d like to share, submit your talk NOW on the [Call for Presentations](https://airtable.com/shrVZLtXJ2d1cI6pT) site - time is of the essence!
 
 OpenSearchCon is for builders, with conference tracks designed to explore and learn more about building applications at scale as an open-source contributor. The current schedule for OpenSearchCon:
 

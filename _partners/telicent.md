@@ -17,7 +17,10 @@ social_links:
     icon: github
 products:
   - url: 'https://github.com/Telicent-io/telicent-opensearch'
-    name: 'Talicentt OpenSearch Plugin'
+    name: 'Telicent OpenSearch Plugin'
     description: 'This plugin provides an alternative implementation of the SynonymGraphTokenFilter for OpenSearch.'
+  - url: 'https://hub.docker.com/repository/docker/telicent/opensearch/'
+    name: 'Telicent OpenSearch Docker image'
+    description: 'OpenSearch Docker image with Telicent plugin pre-installed'
 
 ---
