@@ -1,82 +1,116 @@
 ---
 layout: post
-title: "Long running operation notifications and component template"
+title: "New for OpenSearch Dashboards: Long-running operation notifications and component templates"
 authors:
   - ihailong
   - gbinlong
   - suzhou
   - gzhichao
-date: 2023-06-07
+  - kolchfa
+date: 2023-07-07
 categories:
   - technical-post
-meta_keywords: index management, index operation UI, Notifications,OpenSearch Dashboards
+meta_keywords: index management, index operation UI, Notifications, OpenSearch Dashboards
 meta_description: Transform long running operations, including Resize / Open / Force merge, into tasks and provides a mechanism to set up related notifications when specific task completes or fails. Simplify cluster operations with Index Management UI enhancements that enable you to manage component templates in a more user-friendly way.
 
-excerpt: OpenSearch dashboard now provides a new interface you can use to manage  notifications for long running operations and component templates. You can now subscribe a specific task or a type of tasks through all the channels Notification plugin supports.
+excerpt: Since version 2.7, OpenSearch Dashboards provides an interface you can use to manage notifications for long-running operations and component templates. You can subscribe to be notified of a specific task or type of tasks through any notification channel that the Notification plugin supports.
 ---
 
-<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/notificaitons-on-long-running-operation.gif" alt="notifications on long-running operations"/>{: .img-fluid }
+OpenSearch Dashboards now provides two additional user interface elements to simplify index management: [notifications for long-running operations](#long-running-operation-notifications) and [component templates](#component-templates). With long-running operation notification, you can subscribe to be notified of a specific task or type of tasks through any notification channel that the Notification plugin supports. With component templates, you can create a single index pattern that matches multiple indexes. Using component templates together with index templates provides a powerful tool for managing large volumes of data.
 
-Index management plugin has release feature that enable notifications on long-running operations!
+## Long-running operation notifications
 
-# Notifications on long-running operations
+In the past, if you ran a long-running operation, you needed to wait for it to complete, constantly refreshing to update the status. This was challenging when a task could take hours to finish. To alleviate the problem, OpenSearch introduced asynchronous tasks for `reindex` operations, making it possible for a time-consuming job to run in the background. However, admins still had to check the task status from time to time to ensure the task had progressed to its final state. Additionally, operations like `shrink` lacked the basic ability to run asynchronously.
 
-In the before it is always frustrating to constantly refresh and wait for a long-running operation to finish, especially when the task may be so large that it may take hours to go. For reindex, Opensearch has brought up a concept of `task`, which makes it possible to let a time-consuming job run in background. But admin still has to check task status now and then to ensure the task has gone to a final state, not to mention that operations like shrink do not have the basic ability to run asynchronously.
+### Transforming long-running operations into asynchronous tasks
 
-## Transform long-running operations into tasks
+The `shrink`, `split`, `clone`, `open`, and `force_merge` operations are known to need roughly 30 minutes to finish for large indexes. If you want to run them asynchronously, you can transform these operations into tasks by setting the `wait_for_completion` query parameter to `false`:
 
-Shrink, split, clone, open, force_merge are already known operations that may need roughly 30 minutes to finish when it comes to large indexes. Thus we transform all these operations into tasks when user declaim to run with `wait_for_completion` to `false`.
+```json
+POST /my-old-index/_shrink/my-new-index?wait_for_completion=false
+{
+  "settings": {
+    "index.number_of_replicas": 4,
+    "index.number_of_shards": 3
+  },
+  "aliases":{
+    "new-index-alias": {}
+  }
+}
+```
 
-<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/transform-operations-into-tasks.png" alt="transform long-running operations into tasks" />{: .img-fluid }
+The preceding query returns a task ID that you can use to monitor the operation status. 
 
-## Notify when tasks of specific type finishes or fails
+### Getting notified when asynchronous tasks finish or fail
 
-It is a waste of resources that admin has to manually loop request task status to retrive the final result of an operation. Thus we integrate tasks with notification channels to let Opensearch to notify admin when the task finishes or fails.
+To support notifications for long-running operations, we integrated tasks with notification channels. To be notified when a task finishes or fails, you can configure notification settings, as shown in the following image.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/notify-when-tasks-of-specific-type-finishes-or-fails.png" alt="Notify when tasks of specific type finishes or fails"/>{: .img-fluid }
 
-## Support adhoc notification config
+For detailed instructions on configuring notifications, see [Notification settings](https://opensearch.org/docs/latest/dashboards/im-dashboards/notifications/).
 
-Sometimes it is reasonable that admin may want to let more people be informed on a specific operation, like reindexing a production index. Index management provides the capability to set up adhoc notification config on an operation and please feel free to use it for your own need.
+### Notifying additional people of an indexing operation
+
+Sometimes you may want to notify additional people of the status of a specific operation, such as reindexing a production index. Index management provides the capability to amend default notifications with additional notifications for an individual operation, as shown in the following image.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/support-adhoc-notification-config.png" alt="Support adhoc notification config"/>{: .img-fluid }
 
-## Support operations from API or Dashboard UI
+For more information, see [Configuring notification settings for an individual operation](https://opensearch.org/docs/latest/dashboards/im-dashboards/notifications/#configuring-notification-settings-for-an-individual-operation).
 
-The notification after the completion of operations is not only available on Dashboard UI, but also available when we do that from API.
+### Configuring notifications through the API
 
-<img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/support-operations-from-api-or-dashboard-ui.png" alt="Support operations from API or Dashboard UI"/>{: .img-fluid }
+You can use the `lron` API endpoint to configure notification settings for a task. For example, the following query sets up notifications when a reindex task fails:
 
-## Security enabled
+```json
+POST /_plugins/_im/lron
+{
+  "lron_config": {
+      "task_id":"dQlcQ0hQS2mwF-AQ7icCMw:12354",
+      "action_name":"indices:data/write/reindex",
+      "lron_condition": {
+        "success": false,
+        "failure": true
+      },
+      "channels":[
+          {"id":"channel1"},
+          {"id":"channel2"}
+      ]
+  }
+}
+```
 
-Notifications can be annoying sometimes, especially when there are multiple tasks running in background. Notifications for long-running operations have integrated with security plugin with some fine-grained actions permission control.
+The `lron` API lets you create, retrieve, update, and delete notification settings. To learn more about these operations, see [Notification settings](https://opensearch.org/docs/latest/im-plugin/notifications-settings/).
 
-1. `cluster:admin/opensearch/controlcenter/lron/get` indicates if the user has permission to `view` the notification configs for long-running operations.
-1. `cluster:admin/opensearch/controlcenter/lron/write` indicates if the user has permission to `add or update` the notification configs for long-running operations.
-1. `cluster:admin/opensearch/controlcenter/lron/delete` indicates if the user has permission to `delete` the notification configs for long-running operations.
+### Setting up fine-grained access control with notification permissions
+
+To limit access to notification setup to certain users, notifications are integrated with the Security plugin, which provides the following fine-grained permissions:
+
+- `cluster:admin/opensearch/controlcenter/lron/get`: The user has permission to `view` the notification configs for long-running operations.
+- `cluster:admin/opensearch/controlcenter/lron/write`: The user has permission to `add or update` the notification configs for long-running operations.
+- `cluster:admin/opensearch/controlcenter/lron/delete`: The user has permission to `delete` the notification configs for long-running operations.
+
+If a user lacks permissions to view notification settings, the user is notified to request permissions.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/security-enabled.png" alt="Security enabled"/>{: .img-fluid }
 
-# Component templates
+## Component templates
 
-Component templates makes it possible to create your index template by combining multiple component templates.
+Component templates let you create a single index pattern that matches multiple indexes. You can combine multiple component templates to create an index template.
 
-## Component-based template creation experience
+### Creating component templates
 
-It is always to tell what the index template will be like after merging all the associated component templates and its own configs from API, now Dashboard UI enable admin to preview the index template while create/update. 
+When you create index templates through the API, it may be difficult to tell what the index template will be like after merging all the associated component templates with their own configurations. Now when you create or update an index template through the UI, you can preview the template in OpenSearch Dashboards.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/component-based-template-creation-experience.png" alt="Component-based template creation experience"/>{: .img-fluid }
 
-## Aggregated view to help admin better manage index templates with component templates
+For detailed instructions on creating component templates, see [Component templates](https://opensearch.org/docs/latest/dashboards/im-dashboards/component-templates/).
 
-It is hard to tell how many index templates are using a single component template, thus Dashboard UI gives an aggregated view for admin to find all the index templates in perspect of component templates.
+### Managing index templates with the aggregated index template view
+
+Using the API, it is difficult to tell how many index templates are using a single component template. Now OpenSearch Dashboards provides an aggregated view of all index templates associated with a particular component template so you can easily manage them.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/aggregated-view-to-help-admin-better-manage-index-templates-with-component-templates.png" alt="Aggregated view to help admin better manage index templates with component templates"/>{: .img-fluid }
 
 ## Next steps
 
-There will be more and more asynchronized scenarios that requires timely notifications, and we will integrate. If you have any feedback or suggestions, leave a message on the [OpenSearch forum](https://forum.opensearch.org/).
-
-## References
-
-- [OpenSearch 2.8 is here!](https://opensearch.org/blog/opensearch-2.8.0-released/) blog post
+We are exploring new ways to use the notification framework for other asynchronous task scenarios that require timely notifications. If you have any feedback or suggestions, join the discussion on the [OpenSearch forum](https://forum.opensearch.org/). 
