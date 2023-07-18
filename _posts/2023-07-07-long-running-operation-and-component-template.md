@@ -11,20 +11,20 @@ date: 2023-07-07
 categories:
   - technical-post
 meta_keywords: index management, index operation UI, Notifications, OpenSearch Dashboards
-meta_description: Transform long running operations, including Resize / Open / Force merge, into tasks and provides a mechanism to set up related notifications when specific task completes or fails. Simplify cluster operations with Index Management UI enhancements that enable you to manage component templates in a more user-friendly way.
+meta_description: Transform long-running operations, including Resize/Open/Force merge, into tasks and set up related notifications when a specific task finishes or fails. Simplify cluster operations with Index Management UI enhancements that enable you to manage component templates in a more user-friendly way.
 
 excerpt: Since version 2.7, OpenSearch Dashboards provides an interface you can use to manage notifications for long-running operations and component templates. You can subscribe to be notified of a specific task or type of tasks through any notification channel that the Notification plugin supports.
 ---
 
-OpenSearch Dashboards now provides two additional user interface elements to simplify index management: [notifications for long-running operations](#long-running-operation-notifications) and [component templates](#component-templates). With long-running operation notification, you can subscribe to be notified of a specific task or type of tasks through any notification channel that the Notification plugin supports. With component templates, you can create a single index pattern that matches multiple indexes. Using component templates together with index templates provides a powerful tool for managing large volumes of data.
+OpenSearch Dashboards now provides two additional UI elements to simplify index management: [notifications for long-running operations](#long-running-operation-notifications) and [component templates](#component-templates). With long-running operation notification, you can subscribe to be notified of a specific task or type of task through any notification channel supported by the Notification plugin. With component templates, you can create a single index pattern that matches multiple indexes. Using component templates together with index templates provides a powerful tool for managing large volumes of data.
 
 ## Long-running operation notifications
 
-In the past, if you ran a long-running operation, you needed to wait for it to complete, constantly refreshing to update the status. This was challenging when a task could take hours to finish. To alleviate the problem, OpenSearch introduced asynchronous tasks for `reindex` operations, making it possible for a time-consuming job to run in the background. However, admins still had to check the task status from time to time to ensure the task had progressed to its final state. Additionally, operations like `shrink` lacked the basic ability to run asynchronously.
+In the past, when you ran a long-running operation, you needed to wait for it to complete, constantly refreshing to update the status. This became challenging because a task could take hours to finish. To alleviate the problem, OpenSearch introduced asynchronous tasks for `reindex` operations, making it possible for a time-consuming job to run in the background. However, admins still had to check the task status from time to time to ensure that the task had progressed to its final state. Additionally, operations like `shrink` lacked the basic ability to run asynchronously.
 
 ### Transforming long-running operations into asynchronous tasks
 
-The `shrink`, `split`, `clone`, `open`, and `force_merge` operations are known to need roughly 30 minutes to finish for large indexes. If you want to run them asynchronously, you can transform these operations into tasks by setting the `wait_for_completion` query parameter to `false`:
+For large indexes, the `shrink`, `split`, `clone`, `open`, and `force_merge` operations are known to need roughly 30 minutes to finish. If you want to run them asynchronously, you can transform these operations into tasks by setting the `wait_for_completion` query parameter to `false`:
 
 ```json
 POST /my-old-index/_shrink/my-new-index?wait_for_completion=false
@@ -51,7 +51,7 @@ For detailed instructions on configuring notifications, see [Notification settin
 
 ### Notifying additional people of an indexing operation
 
-Sometimes you may want to notify additional people of the status of a specific operation, such as reindexing a production index. Index management provides the capability to amend default notifications with additional notifications for an individual operation, as shown in the following image.
+Sometimes you may want to notify additional people of the status of a specific operation, such as the reindexing of a production index. Index management provides the capability to amend default notifications with additional notifications for an individual operation, as shown in the following image.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/support-adhoc-notification-config.png" alt="Support adhoc notification config"/>{: .img-fluid }
 
@@ -83,13 +83,13 @@ The `lron` API lets you create, retrieve, update, and delete notification settin
 
 ### Setting up fine-grained access control with notification permissions
 
-To limit access to notification setup to certain users, notifications are integrated with the Security plugin, which provides the following fine-grained permissions:
+To limit notification setup access to certain users, notifications are integrated with the Security plugin, which provides the following fine-grained permissions:
 
 - `cluster:admin/opensearch/controlcenter/lron/get`: The user has permission to `view` the notification configs for long-running operations.
 - `cluster:admin/opensearch/controlcenter/lron/write`: The user has permission to `add or update` the notification configs for long-running operations.
 - `cluster:admin/opensearch/controlcenter/lron/delete`: The user has permission to `delete` the notification configs for long-running operations.
 
-If a user lacks permissions to view notification settings, the user is notified to request permissions.
+If a user lacks permissions to view notification settings, they are prompted to request permissions.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/security-enabled.png" alt="Security enabled"/>{: .img-fluid }
 
@@ -99,7 +99,7 @@ Component templates let you create a single index pattern that matches multiple 
 
 ### Creating component templates
 
-When you create index templates through the API, it may be difficult to tell what the index template will be like after merging all the associated component templates with their own configurations. Now when you create or update an index template through the UI, you can preview the template in OpenSearch Dashboards.
+When you create index templates through the API, it may be difficult to determine what the index template will be like after merging all the associated component templates with their own configurations. Now when you create or update an index template through the UI, you can preview the template in OpenSearch Dashboards.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/component-based-template-creation-experience.png" alt="Component-based template creation experience"/>{: .img-fluid }
 
@@ -107,7 +107,7 @@ For detailed instructions on creating component templates, see [Component templa
 
 ### Managing index templates with the aggregated index template view
 
-Using the API, it is difficult to tell how many index templates are using a single component template. Now OpenSearch Dashboards provides an aggregated view of all index templates associated with a particular component template so you can easily manage them.
+Using the API, it may be difficult to determine how many index templates are using a single component template. Now OpenSearch Dashboards provides an aggregated view of all index templates associated with a particular component template so you can easily manage them.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/aggregated-view-to-help-admin-better-manage-index-templates-with-component-templates.png" alt="Aggregated view to help admin better manage index templates with component templates"/>{: .img-fluid }
 
