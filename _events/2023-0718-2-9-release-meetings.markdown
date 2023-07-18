@@ -38,6 +38,10 @@ Join the OpenSearch team for the open release meetings so we can push 2.9.0 live
 
 **July 18th - 3PM PT**
 
+* Go / No-Go voting (result = no-go)
+
+**July 19th - 3PM PT**
+
 * Go / No-Go voting
 
 **TBD**
