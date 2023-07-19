@@ -1,10 +1,11 @@
 ---
 # rename this file to YYYY-MMDD-meeting-name.markdown - this will be the final URL
-# put your event date and time (24 hr) here:
-eventdate: 2023-02-28T15:00
-tz: UTC -8
+# put your event date and time (24 hr) here (mind the time-zone and daylight saving time!):
+eventdate: 2023-02-28 15:00:00 -0800
 title: OpenSearch Community Meeting - 2023-02-28
 online: true
+# If the event is online, remove the next line, otherwise uncomment and adjust it:
+# tz: Pacific/Tahiti
 signup:
     url: https://www.meetup.com/opensearch/events/290444926/
     title: Join on Meetup

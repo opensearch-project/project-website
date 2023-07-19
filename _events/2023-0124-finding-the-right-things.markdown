@@ -1,8 +1,6 @@
 ---
 # put your event date and time (24 hr) here:
-eventdate: 2023-01-24T13:00
-# the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
-tz: UTC -5
+eventdate: 2023-01-24 13:00:00 -0500
 # the title - this is how it will show up in listing and headings on the site:
 title: Data Ops Poland - Finding the Right Things with OpenSearch
 # if your event has an online component, put it here:

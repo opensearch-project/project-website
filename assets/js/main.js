@@ -75,6 +75,10 @@ define(function() {
         mods.push('mod/pr-maker')
     }
 
+    if (hasClass('locale-date') || hasClass('locale-datetime')) {
+        mods.push('mod/locale-date');
+    }
+
     mods.push('/assets/js/mod/select_logic.js');
 
     require(mods);
