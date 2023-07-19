@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2022-08-02T08:00
-tz: UTC -7
+eventdate: 2022-08-02 08:00:00 -0700
 title: OpenSearch Community Meeting - 2022-08-02
 online: true
 signup:

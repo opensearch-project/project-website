@@ -2,6 +2,7 @@
 
 eventdate: 2023-07-27 08:00:00 -0800
 tz: UTC -8
+
 title: Planning for Simple Schema Based Integrations and Apache Spark - 2023-0727
 online: true
 signup:

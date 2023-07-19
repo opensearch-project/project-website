@@ -2,6 +2,7 @@
 
 eventdate: 2023-07-28 09:00:00 -0800
 tz: UTC -8
+
 title: Brainstorm about OpenSearch and generative AI
 online: true
 signup:
