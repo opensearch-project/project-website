@@ -1,6 +1,9 @@
 ---
 # put your event date and time (24 hr) here:
 eventdate: 2023-07-27 10:00:00 -0700
+# the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
+tz: UTC -7
+
 # the title - this is how it will show up in listing and headings on the site:
 title: OpenSearch Dashboards Developer Office Hours - 2023-07-27
 # if your event has an online component, put it here:

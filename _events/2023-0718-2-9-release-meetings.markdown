@@ -1,6 +1,8 @@
 ---
 
-eventdate: 2023-07-18 15:00:00 -0700
+
+eventdate: 2023-07-19 15:00:00 -0800
+tz: UTC -8
 title: OpenSearch 2.9.0 Release Meetings - 2023-07-18
 online: true
 signup:
@@ -9,7 +11,7 @@ signup:
 
 ---
 
-**NOTE: This is a series, ending on July 18th with the release of 2.9.0 - Please read carefully** 
+**NOTE: This is a series, ending on July 18th with the release of 2.9.0 - Please read carefully**
 
 Join the OpenSearch team for the open release meetings so we can push 2.9.0 live as a community.
 
@@ -56,4 +58,3 @@ Join the OpenSearch team for the open release meetings so we can push 2.9.0 live
 **Meeting ID: 830 3099 4833**
 
 **Required Passcode: 950622**
-
