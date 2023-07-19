@@ -10,8 +10,8 @@ authors:
 date: 2023-07-07
 categories:
   - technical-post
-meta_keywords: index management, index operation UI, Notifications, OpenSearch Dashboards
-meta_description: Transform long-running operations, including Resize/Open/Force merge, into tasks and set up related notifications when a specific task finishes or fails. Simplify cluster operations with Index Management UI enhancements that enable you to manage component templates in a more user-friendly way.
+meta_keywords: OpenSearch index state management, index management UI, OpenSearch dashboards
+meta_description: Learn how OpenSearch simplifies cluster operations with index management UI enhancements that enable you to manage component templates in a user-friendly way.
 
 excerpt: OpenSearch Dashboards now provides two additional UI elements to simplify index management: notifications for long-running operations and component templates. With long-running operation notification, you can subscribe to be notified of a specific task or type of task through any notification channel supported by the Notification plugin. With component templates, you can create a single index pattern that matches multiple indexes. Using component templates together with index templates provides a powerful tool for managing large volumes of data.
 ---
