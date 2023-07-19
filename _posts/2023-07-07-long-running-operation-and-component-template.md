@@ -89,7 +89,7 @@ To limit notification setup access to certain users, notifications are integrate
 - `cluster:admin/opensearch/controlcenter/lron/write`: The user has permission to `add or update` the notification configurations for long-running operations.
 - `cluster:admin/opensearch/controlcenter/lron/delete`: The user has permission to `delete` the notification configurations for long-running operations.
 
-If a user lacks permissions to view notification settings, they are prompted to request permissions, as shown in the following image.
+If users lack permissions to view notification settings, they are prompted to request permissions, as shown in the following image.
 
 <img src="/assets/media/blog-images/2023-07-07-long-running-operation-and-component-template/security-enabled.png" alt="Security enabled"/>{: .img-fluid }
 
