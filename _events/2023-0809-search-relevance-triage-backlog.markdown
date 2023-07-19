@@ -1,7 +1,6 @@
 ---
 
 eventdate: 2023-08-09 09:00:00 -0800
-tz: UTC -8
 
 title: Search Relevance - Triage & Backlog Review - 2023-08-09
 online: true
