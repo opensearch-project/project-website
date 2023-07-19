@@ -1,8 +1,8 @@
 ---
 short_name: pallp
 name: Pallavi Priyadarshini
-photo: '?uid=pallp'
+photo: '/assets/media/authors/pallp.png'
 
 ---
 
-Pallavi Priyadarshini is an Engineering Manager at Amazon Web Services, leading the design and development of high-performing and at-scale analytics technologies.
+**Pallavi Priyadarshini** is an Engineering Manager at Amazon Web Services, leading the design and development of high-performing and at-scale analytics technologies.
