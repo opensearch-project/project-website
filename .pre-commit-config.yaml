@@ -19,5 +19,6 @@ repos:
         exit 1
         fi'
       language: system
-      types: [python]
+      types: [file]
+      files: \.(markdown|md)$
       pass_filenames: false
