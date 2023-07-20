@@ -1,7 +1,7 @@
 ---
 
 
-eventdate: 2023-07-19 15:00:00 -0800
+eventdate: 2023-07-19 15:00:00 -0700
 title: OpenSearch 2.9.0 Release Meetings - 2023-07-18
 online: true
 signup:
