@@ -1,9 +1,9 @@
 ---
-name: Spot
-name_long: 'Spot by NetApp'
-logo: '/assets/media/partners/spot.png'
+name: Spot by NetApp
+# upload your logo to the following directory - must be square
+logo: '/assets/media/partners/Spot-by-NetApp.png'
 link: 'https://spot.io/'
-logo_large: '/assets/media/partners/spot/spot-logo.png'
+logo_large: '/assets/media/partners/spot/Spot-NetApp.png'
 description: |
   <p>Spot by NetApp helps companies get the most out of their cloud investments. Our CloudOps portfolio helps customers securely and reliably deploy, operate and scale applications and infrastructure in the cloud.</p>
 business_type: MSP
@@ -13,7 +13,7 @@ opensearch_tech:  'Fully managed and hosted OpenSearch service, Configure throug
 industries: 'All'
 main_office_location:  |
   Canberra, Australia
-  San Jose, California, US
+  3060 Olsen Dr, San Jose, California, US
 resources:
   - url: 'https://www.instaclustr.com/blog/opensearch-feature-update/'
     title: 'OpenSearch Feature Update'
