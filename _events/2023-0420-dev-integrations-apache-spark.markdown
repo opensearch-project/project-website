@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2023-04-20T08:00
-tz: UTC -8
+eventdate: 2023-04-20 08:00:00 -0800
 title: Planning for Simple Schema Based Integrations and Apache Spark - 2023-0420
 online: true
 signup:

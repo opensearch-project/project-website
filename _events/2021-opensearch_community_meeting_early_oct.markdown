@@ -1,6 +1,5 @@
 ---
-eventdate: 2021-10-04T10:00
-tz: UTC -7
+eventdate: 2021-10-04 10:00:00 -0700
 title: OpenSearch Community Meeting - Early Oct
 online: true
 signup:
