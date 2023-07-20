@@ -1,7 +1,7 @@
 ---
 
-eventdate: 2023-08-09T09:00
-tz: UTC -8
+eventdate: 2023-08-09 09:00:00 -0800
+
 title: Search Relevance - Triage & Backlog Review - 2023-08-09
 online: true
 signup:
@@ -17,14 +17,14 @@ Join the OpenSearch Search Relevance team for their next triage & backlog meetin
 **Agenda:**
 
 **Introduction**
-* Search Applications: relevance tuning, capabilities for search applications, search pipelines, ingestion, etc. 
+* Search Applications: relevance tuning, capabilities for search applications, search pipelines, ingestion, etc.
 * Open to New Ideas and Direction
 * Where can you find us in between meetings?
 
 **[Board Review](https://github.com/orgs/opensearch-project/projects/45/views/1)**
 * [Triage Issues](https://github.com/orgs/opensearch-project/projects/45/views/21)
 * Backlog by Planned Release
-* Bug Dive 
+* Bug Dive
 
 **Q & A**
 
