@@ -1,8 +1,7 @@
 ---
 # put your event date and time (24 hr) here:
-eventdate: 2023-07-25T10:00
+eventdate: 2023-07-25 10:00:00 -0700
 # the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
-tz: UTC -7
 # the title - this is how it will show up in listing and headings on the site:
 title: Efficient Vector Search with OpenSearch - Webinar with BigData Boutique and MyPart
 # if your event has an online component, put it here:
@@ -22,5 +21,3 @@ Join MyPart's CEO and Chief Architect [Matan Kollnescher](https://www.linkedin.c
 In this session, we'll discuss MyPart's unique use-case and multi-dimensional approach that slices up sounds, lyrics and musical compositions into vectors that make sense to a computer. With that information stored in a Vector Database, MyPart can run intelligent, low-latency queries on huge music catalogs, without compromising accuracy or functionality.
 
 We will then dive into the intricacies of Vector Search with OpenSearch, learning ML techniques that apply to a wide range of projects. As we get more technical, we’ll discuss how OpenSearch makes searching through vector data easy and efficient.
-
-

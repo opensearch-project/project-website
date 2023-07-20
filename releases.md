@@ -32,7 +32,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 | 1.3.10        | May 11th          | May 18th              |
 | 2.8.0         | May 30th          | June 6th              |
 | 1.3.11        | June 22nd         | June 29th             |
-| 2.9.0         | July 11th         | July 20th             |
+| 2.9.0         | July 11th         | July 24th             |
 | 1.3.12        | August 3rd        | August 10th           |
 | 2.10.0        | August 22nd       | August 29th           |
 | 1.3.13        | September 14th    | September 21st        |
@@ -101,6 +101,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 | January 19, 2023  | Update to 2.5.0 release date  | Docs team due diligence, moving to accommodate  |
 | April 26, 2023  | Update to 2.7.0 release date  | Found CVE to resolve, fix issues found in regression tests  |
 | July 17, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
+| July 20, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
 
 <br>
 
