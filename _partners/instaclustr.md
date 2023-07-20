@@ -1,7 +1,7 @@
 ---
 name: Instaclustr
 name_long: 'Instaclustr, now part of Spot by NetApp'
-logo: '/assets/media/partners/Spot-NetApp_Logo_Color_22feb21_RGB.png'
+logo: '/assets/media/partners/instaclustr.png'
 link: 'https://www.instaclustr.com/'
 logo_large: '/assets/media/partners/instaclustr/instaclustr-logo.png'
 description: |
