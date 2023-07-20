@@ -4,7 +4,7 @@
 [Aa]utopopulate
 [Aa]utoscaler?
 [Bb]ackoff
-[Bb]ackport
+[Bb]ackport(s|ing)?
 [Bb]ackpressure
 [Bb]asemap
 [Bb]igram
@@ -59,6 +59,7 @@ Levenshtein
 [Ll]ookups?
 [Ll]ossy
 [Ll]owercases?d?
+[Mm]acrobenchmarks?
 [Mm]isorder
 [Mm]odularization
 [Mm]ultifield
@@ -88,12 +89,14 @@ pebibyte
 [Rr]eindex
 [Rr]eingest
 [Rr]epo
-[Rr]erank
+[Rr]erank(er|ed|ing)?
 [Rr]erankers?
 [Rr]ewriters?
+[Rr]ollout
 [Rr]ollup
 [Rr]unbooks?
 [Ss]erverless
+[Ss]harding
 [Ss]ignificand
 stdout
 [Ss]ubaggregation
