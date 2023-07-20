@@ -4,7 +4,10 @@ title: "Visualizing alerts and anomalies using OpenSearch Dashboards visualizati
 authors: 
   - jdbright
   - ashisagr
-  - 
+  - tyler ohlsen
+  - amit galitzsky
+  - jackie han
+  - vagimeli
 date: 2023-07-20
 meta_keywords: alerting, anomaly detection, alert, anomaly, observabilty, dashboard, dashboards, visualizations, visualize
 meta_description: Learn about visualizing alerts and anomalies using OpenSearch Dashboards visualization tools and applications.
@@ -21,7 +24,7 @@ Prior to OpenSearch 2.9, users maintain state between the data they were viewing
 
 ## Terms to know
 
-Here are the terms you need to know:
+Here are terms you need to know:
 
 - _OpenSearch Dashboards visualizations_ are visualizations defined within a dashboard.
 - _Anomaly Detection plugin_ is the free OpenSearch plugin using the Random Cut Forest algorithm (that is, an unsupervised algorithm for detecting anomalous data points within a data set) to detect anomalies in aggregated data.
@@ -29,13 +32,75 @@ Here are the terms you need to know:
 
 ## Getting started
 
-This feature is automatically enabled. You can turn it off in Stack Management > Advanced Settings by toggling Enable plugin augmentation to the off position. Before getting started, make sure you have:
+Alerting and anomaly detection visualiztions is automatically enabled. You can turn it off by going to **OpenSearch Dashboards** > **Stack Management** > **Advanced Settings** and toggling **Enable plugin augmentation** to the off position. Before getting started with this feature, make sure you have:
 
 * Installed OpenSearch and OpenSearch Dashboards version 2.9 or later. See [Installing OpenSearch]({{site.url}}{{site.baseurl}}/install-and-configure/install-opensearch/index/).
-* Installed Anomaly Detector or Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) to get started.
+* Installed Anomaly Detector or Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) for more information.
+* Started your local environment. Becasue OpenSearch Playground is read-only, the tutorials that follow aren't available in the playground.
 
-Because OpenSearch Playground is read-only, you need to spin up a local environment to try out this feature.
+In this blog, you'll learn to:
 
-Create a new visualization based on a line chart in an existing dashboard or create a new line chart. The only supported metric aggregations are y-axis aggregations, and only date histogram x-axis aggregations are supported.  After saving your dashboard, you can create a new detector or monitor. From the Options dropdown list, select Alerting or Anomaly Detection. If you are using static thresholds, create an alerting monitor. Otherwise, use anomaly detection to detect if your data is moving out of the normal.
+- Create a new visualization based on a line chart.
+- Create a new detector or monitor.
+- Add a detector from a visualization workflow.
+- Add a monitor from a visualiztiona workflow.
 
+The only supported metric aggregations are y-axis aggregations, and only date histogram x-axis aggregations are supported.  After saving your dashboard, you can create a new detector or monitor. From the Options dropdown list, select Alerting or Anomaly Detection. If you are using static thresholds, create an alerting monitor. Otherwise, use anomaly detection to detect if your data is moving out of the normal.
 
+<insert-image-1>
+#### </insert-caption>
+
+Regardless of the flow you choose, certain information about the anomalies and alerts is automatically populated. This information is based on the visualization's data. Additionally, if you have existing detectors or monitors, you can associate them from within their respective context menu. 
+
+### Add detector from the visualization workflow
+
+<insert-image-2>
+<insert-image-3>
+
+After clicking “Add anomaly detector” you have the option to either create a new detector that will be associated to the visualization as shown below or choose to associate an existing detector to the visualization. 
+
+Create new detector option:
+
+<insert-image-4>
+
+Associate Existing detector option:
+
+<insert-image-5>
+
+Advanced Use Case:
+
+After creating a new detector, if the alerting plugin is enabled in your cluster then you will have the option to create a monitor on top of the anomaly detector by clicking “Set up alerts” on the success notification. The anomaly detector will be pre-populated as a definition method for the alerting monitor. 
+
+Now that we’ve finished with the detector workflow, let’s take a look at the monitor workflow..
+
+### Add monitor from visualization workflow
+
+<insert-image-6>
+<insert-image-7>
+
+Associate existing monitor
+
+<insert-image-8>
+
+No matter which workflow you chose above (or both), you will see events being triggered on your dashboard based on the criteria you setup. If you want a more detailed view, head over to the view events screen to understand dive deep into what is triggering across the monitors and/or detectors you’ve created.
+
+<insert-image-9>
+
+### View Events on dashboards and the view events screen
+
+You can access the View Events flyout two different ways. You can click on an event in the visualization itself, or click on the View Events option within the visualization’s context menu.
+
+This flyout consists of two basic sections. The top portion is the original visualization showing the same aggregate view of events, as well as the time range that is consistent with the dashboard. This can be refreshed to fetch any new data as well. The bottom portion shows a detailed breakdown of the events. It is organized first by plugin (anomaly detection or alerting), and then by the individual plugin resources within that plugin (anomaly detectors or alerting monitors). You can see which plugin resources are producing the events, and at what time. An overall event count for each plugin resource is also shown beside the resource name. If you would like more information about a particular plugin resource, or about the events it has produced, you can click on the resource name which will open a new tab displaying the resource details within the respective plugin. The time range is also fixed at the bottom of the flyout to help visually correlate individual events.
+
+<insert-image-10>
+
+## Limitations
+
+Currently, this feature has following limitiations:
+
+- The number of objects associated with visualizations is <insert>.
+- <Any other limitations?> 
+
+## Community  feedback
+
+The OpenSearch Project team seeks your input about this feature. We're continuously working to improve the feature, and we'd love to hear from you about how we can improve the functionality and capability of the alerting and anomaly detection visualizations workflows. Leave your feedback on the <OpenSearch Forum/GitHub issue>.
