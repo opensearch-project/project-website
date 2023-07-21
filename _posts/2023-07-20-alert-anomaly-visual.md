@@ -29,7 +29,7 @@ Learn how this feature works by trying it out today! Follow the steps under [Get
 Here are terms you need to know:
 
 - _OpenSearch Dashboards visualizations_ are visualizations defined within a dashboard.
-- _Anomaly Detection plugin_ is the free OpenSearch plugin using the [Random Cut Forest algorithm](https://github.com/aws/random-cut-forest-by-aws) (that is, an unsupervised algorithm for detecting anomalous data points within a data set) to detect anomalies in aggregated data.
+- _Anomaly Detection plugin_ is the free OpenSearch plugin using the [Random Cut Forest algorithm](https://github.com/aws/random-cut-forest-by-aws) (that is, an unsupervised algorithm for detecting anomalous data points within a dataset) to detect anomalies in aggregated data.
 - _Alerting plugin_ is the free OpenSearch plugin used to monitor and trigger alerts on OpenSearch's health and machine-generated logs.
 
 ## Getting started
@@ -45,7 +45,7 @@ In this blog, you'll learn to:
 - Create a new visualization based on a line chart.
 - Create a new detector or monitor.
 - Add a detector from a visualization workflow.
-- Add a monitor from a visualiztiona workflow.
+- Add a monitor from a visualization workflow.
 
 Note that currently only y-axis metric (count, average, max, etc.) aggregations and x-axis date histogram aggregations are supported. 
 
