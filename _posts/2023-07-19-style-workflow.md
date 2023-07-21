@@ -67,7 +67,7 @@ By default, Vale is set up to report *errors* and *warnings*. **To select the le
     sudo systemctl start opensearch
     ```
     ````
-* If a word is flagged for spelling, it’s a hint that the word might need to be in code format. In general, use code format for commands, variables, and settings. Consider the following examples: `ifnull`, `curdate`,  `cluster_manager_timeout` . Values in all capitals (for example, `SELECT` or `AND`) should also generally be in code format.
+* If a word is flagged for spelling, it’s a hint that the word might need to be in code format. In general, use code format for commands, variables, and settings. Consider the following examples: `ifnull`, `curdate`, `cluster_manager_timeout`. Values in all capitals (for example, `SELECT` or `AND`) should also generally be in code format.
 
 ## Style workflow CI
 
