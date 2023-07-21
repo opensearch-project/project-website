@@ -27,12 +27,12 @@ Prior to OpenSearch 2.9, users maintain state between the data they were viewing
 Here are terms you need to know:
 
 - _OpenSearch Dashboards visualizations_ are visualizations defined within a dashboard.
-- _Anomaly Detection plugin_ is the free OpenSearch plugin using the Random Cut Forest algorithm (that is, an unsupervised algorithm for detecting anomalous data points within a data set) to detect anomalies in aggregated data.
+- _Anomaly Detection plugin_ is the free OpenSearch plugin using the [Random Cut Forest algorithm](https://github.com/aws/random-cut-forest-by-aws) (that is, an unsupervised algorithm for detecting anomalous data points within a data set) to detect anomalies in aggregated data.
 - _Alerting plugin_ is the free OpenSearch plugin used to monitor and trigger alerts on OpenSearch's health and machine-generated logs.
 
 ## Getting started
 
-Alerting and anomaly detection visualiztions is automatically enabled. You can turn it off by going to **OpenSearch Dashboards** > **Stack Management** > **Advanced Settings** and toggling **Enable plugin augmentation** to the off position. Before getting started with this feature, make sure you have:
+Alerting and anomaly detection visualizations is automatically enabled. You can turn it off by going to **OpenSearch Dashboards** > **Stack Management** > **Advanced Settings** and toggling **Enable plugin augmentation** to the off position. Before getting started with this feature, make sure you have:
 
 * Installed OpenSearch and OpenSearch Dashboards version 2.9 or later. See [Installing OpenSearch]({{site.url}}{{site.baseurl}}/install-and-configure/install-opensearch/index/).
 * Installed Anomaly Detector or Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) for more information.
