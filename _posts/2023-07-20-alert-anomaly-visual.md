@@ -4,10 +4,11 @@ title: "Visualizing alerts and anomalies using OpenSearch Dashboards visualizati
 authors: 
   - jdbright
   - ashisagr
-  - tyler ohlsen
-  - amit galitzsky
-  - jackie han
+  - ohltyler
+  - amgalitz
+  - hnyng
   - vagimeli
+  - xeniatup
 date: 2023-07-20
 meta_keywords: alerting, anomaly detection, alert, anomaly, observabilty, dashboard, dashboards, visualizations, visualize
 meta_description: Integrating alerts and anomalies visualizations across OpenSearch Dashboards applications.
