@@ -36,7 +36,7 @@ The alerting and anomaly detection visualizations feature is automatically enabl
 
 * Installed OpenSearch and OpenSearch Dashboards version 2.9 or later. See [Installing OpenSearch]({{site.url}}{{site.baseurl}}/install-and-configure/install-opensearch/index/).
 * Installed Anomaly Detector or Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) for more information.
-* Started your local environment. Becasue OpenSearch Playground is read-only, the tutorials that follow aren't available in the playground.
+* Started your local environment. Because OpenSearch Playground is read-only, use your local environment to perform the steps in the following tutorials.
 
 In this blog, you'll learn to:
 
