@@ -45,7 +45,7 @@ In this blog, you'll learn to:
 - Add a detector from a visualization workflow.
 - Add a monitor from a visualiztiona workflow.
 
-Note that currently only y-axis metric aggregations and x-axis date histogram aggregations are supported. 
+Note that currently only y-axis metric (count, min, max, etc.) aggregations and x-axis date histogram aggregations are supported. 
 
 ### Creating a monitor or detector
 
