@@ -103,11 +103,15 @@ To create a monitor by way of a visualization, you have two options: creating a 
 
 ### Viewing events
 
-Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of the tirgger criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu. The following images give you a snapshot of these options.
-
-This flyout consists of two basic sections. The top portion is the original visualization showing the same aggregate view of events, as well as the time range that is consistent with the dashboard. This can be refreshed to fetch any new data as well. The bottom portion shows a detailed breakdown of the events. It is organized first by plugin (anomaly detection or alerting), and then by the individual plugin resources within that plugin (anomaly detectors or alerting monitors). You can see which plugin resources are producing the events, and at what time. An overall event count for each plugin resource is also shown beside the resource name. If you would like more information about a particular plugin resource, or about the events it has produced, you can click on the resource name which will open a new tab displaying the resource details within the respective plugin. The time range is also fixed at the bottom of the flyout to help visually correlate individual events.
+Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of the tirgger criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu, as shown in the following image.
 
 <img width="719" alt="view-events-context-menu" src="https://github.com/vagimeli/project-website/assets/105296784/98cbb0ce-374c-40ff-bd2c-d6dbf2c36da1">
+##### Figure 6. Visualization showing View events context menu
+
+As shown in the following image, the events flyout has two sections. The top section is the visualization displaying the same aggregate view of events and time range as the visualization on the dashboard. The events flyout can be refreshed to fetch any new data. The bottom section displays the specific event details. This section is arranged by plugin (Anomaly Detection or Alerting), then by the individual plugin resources within that plugin (anomaly detectors or alerting monitors). In this view, you can see which plugin resources are producing events and when those events were produced. An overall event count for each plugin resource is displayed next to the resource name. To display more information about a specific plugin resource or the event it has produced, select the resource name. This opens a new tab that displays the resource details about that plugin. A time range is also fixed at the bottom of the flyout to help visually correlate individual events.
+
+![events-flyout](https://github.com/vagimeli/project-website/assets/105296784/4f1af73b-39dd-4472-813e-406322b8df89)
+##### Figure 7. Events flyout showing alerting and anomaly detectors details and a line chart visualization
 
 ## Limitations
 
