@@ -45,18 +45,16 @@ In this blog, you'll learn to:
 - Add a detector from a visualization workflow.
 - Add a monitor from a visualiztiona workflow.
 
-Note that currently only y-axis metric (count, min, max, etc.) aggregations and x-axis date histogram aggregations are supported. 
+Note that currently only y-axis metric (count, average, max, etc.) aggregations and x-axis date histogram aggregations are supported. 
 
 ### Creating a monitor or detector
 
-To create a new monitor or detector, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** dropdown list. 
+To create a new monitor or detector, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** context menu dropdown. The following image gives you a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
 
-If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor. Otherwise, use anomaly detection to observe any outliers.
+<img width="720" alt="dashboard-options-context-menu" src="https://github.com/vagimeli/project-website/assets/105296784/bee46a40-f674-482c-bd21-b288981f1d52">
+##### Figure 1. Interface showing dashboard panel with **Options** context menu dropdown. 
 
-<insert-image-1>
-#### </insert-caption>
-
-Regardless of the flow you choose, certain information about the anomalies and alerts is automatically populated. This information is based on the visualization's data. Additionally, if you have existing detectors or monitors, you can associate them from within their respective context menu. 
+Regardless of the workflow you choose, certain information, based on the visualization's data, about anomalies and alerts is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing detectors or monitors from within their respective context menus. 
 
 ### Add detector from the visualization workflow
 
