@@ -12,8 +12,8 @@ authors:
 date: 2023-07-25
 categories:
   - technical-posts
-meta_keywords: OpenSearch extensions, OpenSearch plugins, OpenSearch extensibility
-meta_description: Discover how the experimental extensions feature in OpenSearch 2.9 helps extend OpenSearch and independently scale workloads without impacting cluster availability.
+Meta_keywords: OpenSearch extensions, OpenSearch plugins, OpenSearch extensibility
+Meta_description: Discover how the experimental extensions feature in OpenSearch 2.9 helps extend OpenSearch and independently scale workloads without impacting cluster availability.
 ---
 
 _Extensions_ is a new experimental feature in OpenSearch 2.9 that allows you to extend OpenSearch and independently scale workloads without impacting cluster availability. In this blog post, we will introduce extensions and compare them to plugins. Using a 36-node cluster running a machine learning algorithm that performs high-cardinality anomaly detection, we'll demonstrate how we have achieved a cost reduction of 33% per data node, with performance matching that of a plugin and the only added cost of one extension node.
@@ -62,7 +62,7 @@ For implementation details and to examine the differences between Anomaly Detect
 
 To [benchmark high-cardinality Anomaly Detection (HCAD) as an extension](https://github.com/opensearch-project/opensearch-sdk-java/issues/652), we have replicated the setup described in [this blog post](https://opensearch.org/blog/one-million-enitities-in-one-minute/), replacing 36 r5.2xlarge data nodes with 28 r5.2xlarge data nodes (at the same cost), plus a single r5.16xlarge instance running the Anomaly Detection extension. We analyzed 1,000 historical time periods with 1,000 entities to generate 1 million results:
 
-```
+```json
 GET /_extensions/_ad/detectors/results/_search
 {
   "query": {
@@ -77,7 +77,7 @@ GET /_extensions/_ad/detectors/results/_search
 }
 ```
 
-```
+```json
 {
     ...
     "hits": {
