@@ -89,13 +89,13 @@ To create a monitor by way of a visualization, you have two options: **Create ne
 2. Select **Add alerting monitor** from the **Alerting** context menu dropdown, as shown in the following image.
 
 ![add-detector](https://github.com/vagimeli/project-website/assets/105296784/92dede31-0eb2-4534-b91e-510333713067)
-##### Figure 5. Visualization showing Anomaly Detection context menu dropdown. 
+##### Figure 5. Visualization showing Alerting context menu dropdown. 
 
-3. Choose **Create new detector** or **Associate existing detector**.
-- If you choose to create a new detector, input the required information under **Detector details** and **Model Features**.
-- If you choose to associate an existing detector, select a detector from the dropdown list under **Select detector to associate**.
+3. Choose **Create new monitor** or **Associate existing monitor**.
+- If you choose to create a new monitor, input the required information under **Monitor details**.
+- If you choose to associate an existing monitor, select a monitor from the dropdown list under **Select monitor to associate**.
 
-4. Select **Create detector** or **Associate detector**, as applicable, to add the detector to your visualization, as shown in the following images.
+4. Select **Create monitor** or **Associate monitor**, as applicable, to add the monitor to your visualization, as shown in the following images.
 
 | Create new monitor                    | Associate existing monitor            |
 |:-------------------------------------:|:-------------------------------------:|
@@ -105,10 +105,6 @@ To create a monitor by way of a visualization, you have two options: **Create ne
 
 Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of your criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu. The following images give you a snapshot of these options.
 
-
-
-
-
 This flyout consists of two basic sections. The top portion is the original visualization showing the same aggregate view of events, as well as the time range that is consistent with the dashboard. This can be refreshed to fetch any new data as well. The bottom portion shows a detailed breakdown of the events. It is organized first by plugin (anomaly detection or alerting), and then by the individual plugin resources within that plugin (anomaly detectors or alerting monitors). You can see which plugin resources are producing the events, and at what time. An overall event count for each plugin resource is also shown beside the resource name. If you would like more information about a particular plugin resource, or about the events it has produced, you can click on the resource name which will open a new tab displaying the resource details within the respective plugin. The time range is also fixed at the bottom of the flyout to help visually correlate individual events.
 
 <insert-image-10>
@@ -117,9 +113,9 @@ This flyout consists of two basic sections. The top portion is the original visu
 
 Currently, this feature has following limitiations:
 
-- The number of objects associated with visualizations is <insert>.
+- The number of objects associated with visualizations is limited to <insert>.
 - <Any other limitations?> 
 
 ## Community  feedback
 
-The OpenSearch Project team seeks your input about this feature. We're continuously working to improve the feature, and we'd love to hear from you about how we can improve the functionality and capability of the alerting and anomaly detection visualizations workflows. Leave your feedback on the <OpenSearch Forum/GitHub issue>.
+The OpenSearch Project team seeks your input about this feature. We're continuously working to improve the feature, and we'd love to hear from you about how we can improve the functionality and capability of the alerting and anomaly detection visualizations workflows. Leave your feedback on the [<OpenSearch Forum/GitHub issue>](<insert-link).
