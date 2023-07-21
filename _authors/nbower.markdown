@@ -5,4 +5,4 @@ photo: '/assets/media/authors/nbower.jpg'
 github: natebower
 ---
 
-Nate Bower is the Senior Technical Editor for OpenSearch.
+**Nathan Bower** is the Senior Technical Editor for OpenSearch.
