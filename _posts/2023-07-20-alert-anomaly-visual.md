@@ -49,17 +49,30 @@ Note that currently only y-axis metric (count, average, max, etc.) aggregations 
 
 ### Creating a monitor or detector
 
+The following tutorial describes how to create a simple monitor or detector. 
+
 To create a new monitor or detector, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** context menu dropdown. The following image gives you a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
 
 <img width="720" alt="dashboard-options-context-menu" src="https://github.com/vagimeli/project-website/assets/105296784/bee46a40-f674-482c-bd21-b288981f1d52">
 ##### Figure 1. Interface showing dashboard panel with **Options** context menu dropdown. 
 
-Regardless of the workflow you choose, certain information, based on the visualization's data, about anomalies and alerts is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing detectors or monitors from within their respective context menus. 
+Regardless of whether you choose Alerting or Anomaly Detection, certain information, based on the visualization's data, about alerts and anomalies is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing monitors or detectors. Learn more about this workflow in the respective OpenSearch documentation, [Alerting visualizations and dashboards](<insert-link>) and [Anomaly detection visualizations and dashboards](<insert-link>). 
 
-### Add detector from the visualization workflow
+### Adding a detector to a visualization 
 
-<insert-image-2>
-<insert-image-3>
+The following tutorial decribes how to add both a new detector or an existing detector to a visualization. 
+
+1. To add a new detector, open your dashboard and select **Anomaly Detection** from the Options content menu dropdown, as shown in the following image. 
+
+![anomaly-options-context-menu](https://github.com/vagimeli/project-website/assets/105296784/9212abe7-1bb9-4892-9b4e-4116ce2ac079)
+##### Figure 2. Visualization showing Add anomaly detector context menu dropdown. 
+
+2. Select **Add anomaly detector** from the **Anomaly Detection** context menu dropdown, as shown in the following image.
+
+![add-detector](https://github.com/vagimeli/project-website/assets/105296784/92dede31-0eb2-4534-b91e-510333713067)
+##### Figure 3. Visualization showing Anomaly Detection context menu dropdown. 
+
+3. 
 
 After clicking “Add anomaly detector” you have the option to either create a new detector that will be associated to the visualization as shown below or choose to associate an existing detector to the visualization. 
 
