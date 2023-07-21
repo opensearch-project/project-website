@@ -9,7 +9,7 @@ authors:
   - dagney
   - minalsha
   - kolchfa
-date: 2023-07-19
+date: 2023-07-25
 categories:
   - technical-posts
 Meta_keywords: OpenSearch extensions, OpenSearch plugins, OpenSearch extensibility
@@ -34,7 +34,7 @@ Unlike plugins, extensions run as independent processes or on a remote node, are
 
 The extensions architecture is illustrated in the following figure. For details, see [extension design documentation](https://opensearch-project.github.io/opensearch-sdk-java/DESIGN.html).
 
-![Extensions for OpenSearch](/assets/media/blog-images/2023-07-19-introducing-extensions-for-opensearch/extensions.png){: .img-fluid}
+![Extensions for OpenSearch](/assets/media/blog-images/2023-07-25-introducing-extensions-for-opensearch/extensions.png){: .img-fluid}
 
 ## Experimental SDK launch
 
@@ -94,7 +94,7 @@ The plugin limits these analysis rates to ensure stable cluster performance. Aft
 
 Because our extension ran on a remote node, we did observe an expected increase in API call latency. For example, the start/stop detector call went from 50--100ms to 200--300ms. These calls are marginal CRUD operations that are used to set up Anomaly Detection. The following figure provides a latency comparison between extensions and plugins. For more information, see [Performance testing for the Anomaly Detection extension](https://github.com/opensearch-project/opensearch-sdk-java/issues/725#issuecomment-1597874382).
 
-![Extensions compared to plugins latency graph](/assets/media/blog-images/2023-07-19-introducing-extensions-for-opensearch/extension-graph.png){:.img-fluid}
+![Extensions compared to plugins latency graph](/assets/media/blog-images/2023-07-25-introducing-extensions-for-opensearch/extension-graph.png){:.img-fluid}
 
 ## Improving performance
 
