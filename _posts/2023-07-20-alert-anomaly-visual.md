@@ -24,6 +24,8 @@ Prior to OpenSearch 2.9, users maintain state between the data they were viewing
 
 Learn how this feature works by trying it out today! Follow the steps under [Getting started](<insert-link>) and let us know how the feature works for you by leaving feedback in the [<OpenSearch Dashboards Forum>](insert-link).
 
+In this blog, you'll learn to create a new detector or monitor and add monitors and detectors to a visualization by way of the visualization, instead of through the Alerting or Anomaly Detection plugin pages.
+
 ## Terms to know
 
 Here are terms you need to know:
@@ -39,8 +41,6 @@ The alerting and anomaly detection visualizations feature is automatically enabl
 * Installed OpenSearch and OpenSearch Dashboards version 2.9 or later. See [Installing OpenSearch]({{site.url}}{{site.baseurl}}/install-and-configure/install-opensearch/index/).
 * Installed Anomaly Detector or Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) for more information.
 * Started your local environment. Because OpenSearch Playground is read-only, use your local environment to perform the steps in the following tutorials.
-
-In this blog, you'll learn to create a new detector or monitor and add monitors and detectors to a visualization by way of the visualization, instead of through the Alerting or Anomaly Detection plugin pages.
 
 Note that currently only y-axis metric (count, average, max, etc.) aggregations and x-axis date histogram aggregations are supported. 
 
