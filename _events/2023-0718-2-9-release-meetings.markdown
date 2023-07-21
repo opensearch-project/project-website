@@ -1,8 +1,7 @@
 ---
 
-
-eventdate: 2023-07-19 15:00:00 -0800
-title: OpenSearch 2.9.0 Release Meetings - 2023-07-18
+eventdate: 2023-07-24 11:30:00 -0700
+title: OpenSearch 2.9.0 Release Meetings - 2023-07-24
 online: true
 signup:
   url: https://us02web.zoom.us/j/83030994833
@@ -40,11 +39,11 @@ Join the OpenSearch team for the open release meetings so we can push 2.9.0 live
 
 * Go / No-Go voting (result = no-go)
 
-**July 19th - 3PM PT**
+**July 19th - 3PM PDT**
 
 * Go / No-Go voting
 
-**TBD**
+**July 24th - 11:30AM PDT**
 
 * [Release / Post release](https://github.com/opensearch-project/opensearch-build/blob/1499c472fec3d36bc0d3b30ffca8b08bb5a65c4d/RELEASE_PROCESS_OPENSEARCH.md#release) (Release day!) [Release manager, leadership team, Repository owners ]
 
