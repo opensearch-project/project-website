@@ -1,9 +1,9 @@
 ---
 name: Spot by NetApp
 # upload your logo to the following directory - must be square
-logo: '/assets/media/partners/Spot-by-NetApp.png'
+logo: '/assets/media/partners/spot-by-netapp.png'
 link: 'https://spot.io/'
-logo_large: '/assets/media/partners/spot/Spot-NetApp.png'
+logo_large: '/assets/media/partners/spot/spot.png'
 description: |
   <p>Spot by NetApp helps companies get the most out of their cloud investments. Our CloudOps portfolio helps customers securely and reliably deploy, operate and scale applications and infrastructure in the cloud.</p>
 business_type: MSP
