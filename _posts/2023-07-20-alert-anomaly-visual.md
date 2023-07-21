@@ -10,9 +10,9 @@ authors:
   - vagimeli
 date: 2023-07-20
 meta_keywords: alerting, anomaly detection, alert, anomaly, observabilty, dashboard, dashboards, visualizations, visualize
-meta_description: Learn about visualizing alerts and anomalies using OpenSearch Dashboards visualization tools and applications.
+meta_description: Integrating alerts and anomalies visualizations across OpenSearch Dashboards applications.
 twittercard:
-  description: Learn about visualizing alerts and anomalies using OpenSearch Dashboards visualization tools and applications.
+  description: Learn about integrating alerts and anomalies visualizations across OpenSearch Dashboards applications.
 category:
   - community
 excerpt: 
@@ -20,7 +20,7 @@ excerpt:
 
 # Introduction
 
-Prior to OpenSearch 2.9, users maintain state between the data they were viewing in the Discover and Dashboard interfaces and the data needed to create a new anomaly detector or alert monitor. Users provided feedback that creating new detectors or monitors was difficult because of context switching. With OpenSearch 2.9, users who use anomaly detection and alerting can create anomaly detectors and alerting monitors directly from their OpenSearch Dashboards Vizlib chart or line visualizations with select aggregations. After creating the new detector or monitor/alert, users can view anomalies or alerts overlaying the configured visualization. For users who have defined detectors or monitors, they can associate their existing detectors or monitors to the visualization. Associating a detector or monitor is helpful for tracking services that are not specific to the visualization, such as a dependent service.
+Prior to OpenSearch 2.9, users maintain state between the data they were viewing in the Discover and Dashboard interfaces and the data needed to create a new anomaly detector or alert monitor. Users provided feedback that creating new detectors or monitors was difficult because of context switching. With OpenSearch 2.9, users who use anomaly detection and alerting can create anomaly detectors and alerting monitors directly from their OpenSearch Dashboards Vizlib chart or line visualizations with select aggregations. After creating the new detector or monitor/alert, users can view anomalies or alerts overlaying the configured visualization. For users who have defined detectors or monitors, they can associate their existing detectors or monitors to the visualization, which helps track services that are not specific to the visualization, such as a dependent service.
 
 ## Terms to know
 
@@ -32,7 +32,7 @@ Here are terms you need to know:
 
 ## Getting started
 
-Alerting and anomaly detection visualizations is automatically enabled. You can turn it off by going to **OpenSearch Dashboards** > **Stack Management** > **Advanced Settings** and toggling **Enable plugin augmentation** to the off position. Before getting started with this feature, make sure you have:
+The alerting and anomaly detection visualizations feature is automatically enabled. You can turn it off by going to **OpenSearch Dashboards** > **Stack Management** > **Advanced Settings** and toggling off **Enable plugin augmentation**, which is in the **Visualization** pane. Before getting started with this feature, make sure you have:
 
 * Installed OpenSearch and OpenSearch Dashboards version 2.9 or later. See [Installing OpenSearch]({{site.url}}{{site.baseurl}}/install-and-configure/install-opensearch/index/).
 * Installed Anomaly Detector or Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) for more information.
@@ -45,7 +45,13 @@ In this blog, you'll learn to:
 - Add a detector from a visualization workflow.
 - Add a monitor from a visualiztiona workflow.
 
-The only supported metric aggregations are y-axis aggregations, and only date histogram x-axis aggregations are supported.  After saving your dashboard, you can create a new detector or monitor. From the Options dropdown list, select Alerting or Anomaly Detection. If you are using static thresholds, create an alerting monitor. Otherwise, use anomaly detection to detect if your data is moving out of the normal.
+Note that currently only y-axis metric aggregations and x-axis date histogram aggregations are supported. 
+
+### Creating a monitor or detector
+
+To create a new monitor or detector, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** dropdown list. 
+
+If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor. Otherwise, use anomaly detection to observe any outliers.
 
 <insert-image-1>
 #### </insert-caption>
