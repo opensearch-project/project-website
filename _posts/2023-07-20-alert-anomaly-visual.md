@@ -53,7 +53,7 @@ Regardless of whether you choose Alerting or Anomaly Detection, certain informat
 
 ### Adding a detector via a visualization 
 
-To add a detector by way of a visualization, you have two options: **Create new detector** or **Associate exisiting detector**. Choose the option that meets your use case.
+To add a detector by way of a visualization, you have two options: **Create new detector** or **Associate existing detector**. Choose the option that meets your use case.
 
 1. On your visualization, select **Anomaly Detection** from the Options context menu dropdown, as shown in the following image. 
 
@@ -67,7 +67,7 @@ To add a detector by way of a visualization, you have two options: **Create new 
 
 3. Choose **Create new detector** or **Associate existing detector**.
 - If you choose to create a new detector, input the required information under **Detector details** and **Model Features**.
-- If you choose to associate an existing detector, select from the dropdown list of detectors under **Select detector to associate**.
+- If you choose to associate an ing detector, select from the dropdown list of detectors under **Select detector to associate**.
 
 4. Select **Create detector** or **Associate detector**, as applicable, to add the detector to your visualization, as shown in the following images.
 
@@ -79,17 +79,17 @@ Note that if the Alerting plugin is enabled in your cluster, you'll have the opt
 
 ### Adding a monitor via a visualization  
 
-To create a monitor by way of a visualization, you have two options: **Create new monitor** or **Associate existing monitor**. Choose the option that meets your use case.
+To create a monitor by way of a visualization, you have two options: **Create new monitor** or **Associate ing monitor**. Choose the option that meets your use case.
 
 1. On your visualization, select **Alerting** from the Options context menu dropdown, as shown in the following image. 
 
 ![anomaly-options-context-menu](https://github.com/vagimeli/project-website/assets/105296784/9212abe7-1bb9-4892-9b4e-4116ce2ac079)
-##### Figure 2. Visualization showing Add anomaly detector context menu dropdown. 
+##### Figure 4. Visualization showing Add alerting monitor context menu dropdown. 
 
-2. Select **Add anomaly detector** from the **Anomaly Detection** context menu dropdown, as shown in the following image.
+2. Select **Add alerting monitor** from the **Alerting** context menu dropdown, as shown in the following image.
 
 ![add-detector](https://github.com/vagimeli/project-website/assets/105296784/92dede31-0eb2-4534-b91e-510333713067)
-##### Figure 3. Visualization showing Anomaly Detection context menu dropdown. 
+##### Figure 5. Visualization showing Anomaly Detection context menu dropdown. 
 
 3. Choose **Create new detector** or **Associate existing detector**.
 - If you choose to create a new detector, input the required information under **Detector details** and **Model Features**.
@@ -97,7 +97,7 @@ To create a monitor by way of a visualization, you have two options: **Create ne
 
 4. Select **Create detector** or **Associate detector**, as applicable, to add the detector to your visualization, as shown in the following images.
 
-| Create new detector                   | Associate existing detector           |
+| Create new monitor                    | Associate existing monitor            |
 |:-------------------------------------:|:-------------------------------------:|
 | <insert-image> | <insert-image> |
 
