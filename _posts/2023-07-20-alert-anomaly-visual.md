@@ -42,28 +42,28 @@ The alerting and anomaly detection visualizations feature is automatically enabl
 
 Note that currently only y-axis metric (count, average, max, etc.) aggregations and x-axis date histogram aggregations are supported. 
 
-### Creating a monitor or detector via a visualization
+### Creating a monitor or detector through a visualization
 
 To create a new monitor or detector by way of a visualization, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** context menu dropdown. The following image gives you a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
 
 <img width="720" alt="dashboard-options-context-menu" src="https://github.com/vagimeli/project-website/assets/105296784/bee46a40-f674-482c-bd21-b288981f1d52">
-##### Figure 1. Interface showing dashboard panel with **Options** context menu dropdown. 
+##### Figure 1. Interface showing dashboard panel with **Options** context menu 
 
 Regardless of whether you choose Alerting or Anomaly Detection, certain information, based on the visualization's data, about alerts and anomalies is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing monitors or detectors. Learn more about this workflow in the respective OpenSearch documentation, [Alerting visualizations and dashboards](<insert-link>) and [Anomaly detection visualizations and dashboards](<insert-link>). 
 
-### Adding a detector via a visualization 
+### Adding a detector through a visualization 
 
-To add a detector by way of a visualization, you have two options: **Create new detector** or **Associate existing detector**. Choose the option that meets your use case.
+To add a detector by way of a visualization, you have two options: creating a new detector or associating an existing detector. Choose the option that meets your use case.
 
 1. On your visualization, select **Anomaly Detection** from the Options context menu dropdown, as shown in the following image. 
 
 ![anomaly-options-context-menu](https://github.com/vagimeli/project-website/assets/105296784/9212abe7-1bb9-4892-9b4e-4116ce2ac079)
-##### Figure 2. Visualization showing Add anomaly detector context menu dropdown. 
+##### Figure 2. Visualization showing Anomaly Detection context menu 
 
 2. Select **Add anomaly detector** from the **Anomaly Detection** context menu dropdown, as shown in the following image.
 
 ![add-detector](https://github.com/vagimeli/project-website/assets/105296784/92dede31-0eb2-4534-b91e-510333713067)
-##### Figure 3. Visualization showing Anomaly Detection context menu dropdown. 
+##### Figure 3. Visualization showing Add anomaly detector context menu 
 
 3. Choose **Create new detector** or **Associate existing detector**.
 - If you choose to create a new detector, input the required information under **Detector details** and **Model Features**.
@@ -71,25 +71,25 @@ To add a detector by way of a visualization, you have two options: **Create new 
 
 4. Select **Create detector** or **Associate detector**, as applicable, to add the detector to your visualization, as shown in the following images.
 
-| Create new detector                   | Associate existing detector           |
-|:-------------------------------------:|:-------------------------------------:|
+| Create detector                   | Associate detector           |
+|:---------------------------------:|:----------------------------:|
 | ![save-new-detector](https://github.com/vagimeli/project-website/assets/105296784/c1a5cf74-05a4-4292-8118-89eb4fe56f33) | ![save-associated-detector](https://github.com/vagimeli/project-website/assets/105296784/8f30c93d-c87b-48b6-9b17-1e8cd227647b) |
 
 Note that if the Alerting plugin is enabled in your cluster, you'll have the option to create a monitor on top of the anomaly detector. To do this, select **Set up alerts** from the success notification popup you receive upon successfully creating the detector. The anomaly detector is prepopulated as a definition method for the alerting monitor. 
 
-### Adding a monitor via a visualization  
+### Adding a monitor through a visualization  
 
-To create a monitor by way of a visualization, you have two options: **Create new monitor** or **Associate ing monitor**. Choose the option that meets your use case.
+To create a monitor by way of a visualization, you have two options: creating a new monitor or associating an existing monitor. Choose the option that meets your use case.
 
-1. On your visualization, select **Alerting** from the Options context menu dropdown, as shown in the following image. 
+1. On your visualization, select **Alerting** from the Options context menu, as shown in the following image. 
 
-![anomaly-options-context-menu](https://github.com/vagimeli/project-website/assets/105296784/9212abe7-1bb9-4892-9b4e-4116ce2ac079)
-##### Figure 4. Visualization showing Add alerting monitor context menu dropdown. 
+<img width="896" alt="alerting-options-context-menu" src="https://github.com/vagimeli/project-website/assets/105296784/f4a1c87a-c834-4a4f-a01f-4bb0da38c41d">
+##### Figure 4. Visualization showing Alerting context menu 
 
 2. Select **Add alerting monitor** from the **Alerting** context menu dropdown, as shown in the following image.
 
-![add-detector](https://github.com/vagimeli/project-website/assets/105296784/92dede31-0eb2-4534-b91e-510333713067)
-##### Figure 5. Visualization showing Alerting context menu dropdown. 
+<img width="884" alt="add-monitor" src="https://github.com/vagimeli/project-website/assets/105296784/0a11b123-779c-4336-b28c-ba61b2983b5b">
+##### Figure 5. Visualization showing Add alerting monitor context menu
 
 3. Choose **Create new monitor** or **Associate existing monitor**.
 - If you choose to create a new monitor, input the required information under **Monitor details**.
@@ -97,17 +97,17 @@ To create a monitor by way of a visualization, you have two options: **Create ne
 
 4. Select **Create monitor** or **Associate monitor**, as applicable, to add the monitor to your visualization, as shown in the following images.
 
-| Create new monitor                    | Associate existing monitor            |
-|:-------------------------------------:|:-------------------------------------:|
-| <insert-image> | <insert-image> |
+| Create monitor | Associate monitor |
+|:--------------:|:-----------------:|
+| <img width="1780" alt="save-new-monitor" src="https://github.com/vagimeli/project-website/assets/105296784/53d0dd80-724d-4f56-bd41-4dad7fcdb4ea"> | <img width="1778" alt="save-associated-monitor" src="https://github.com/vagimeli/project-website/assets/105296784/4ab14032-085a-4383-bfd9-07eddeb58e5e"> |
 
 ### Viewing events
 
-Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of your criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu. The following images give you a snapshot of these options.
+Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of the tirgger criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu. The following images give you a snapshot of these options.
 
 This flyout consists of two basic sections. The top portion is the original visualization showing the same aggregate view of events, as well as the time range that is consistent with the dashboard. This can be refreshed to fetch any new data as well. The bottom portion shows a detailed breakdown of the events. It is organized first by plugin (anomaly detection or alerting), and then by the individual plugin resources within that plugin (anomaly detectors or alerting monitors). You can see which plugin resources are producing the events, and at what time. An overall event count for each plugin resource is also shown beside the resource name. If you would like more information about a particular plugin resource, or about the events it has produced, you can click on the resource name which will open a new tab displaying the resource details within the respective plugin. The time range is also fixed at the bottom of the flyout to help visually correlate individual events.
 
-<insert-image-10>
+<img width="719" alt="view-events-context-menu" src="https://github.com/vagimeli/project-website/assets/105296784/98cbb0ce-374c-40ff-bd2c-d6dbf2c36da1">
 
 ## Limitations
 
