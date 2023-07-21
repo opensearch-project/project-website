@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2023-06-13T09:00
-tz: UTC -7
+eventdate: 2023-06-13 09:00:00 -0700
 title: Submitting your first CFP workshop
 online: true
 signup:

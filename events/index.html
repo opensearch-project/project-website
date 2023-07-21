@@ -6,8 +6,8 @@ body_class: events-page
 notice: true
 ---
 
-{% assign now =  site.time |  date_to_xmlschema %}
-{% assign future_events = site.events | where_exp: "event","event.eventdate  > now" %}
+{% assign now = site.time %}
+{% assign future_events = site.events | where_exp: "event","event.eventdate > now" %}
 {% assign primary_title = site.headings.events %}
 {% assign layout_class = 'sidebar-right events-page' %}
 

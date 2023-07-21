@@ -1,7 +1,6 @@
 ---
 
-eventdate: 2023-07-12T09:00
-tz: UTC -8
+eventdate: 2023-07-12 09:00:00 -0700
 title: Search Relevance - Triage & Backlog Review - 2023-07-12
 online: true
 signup:
