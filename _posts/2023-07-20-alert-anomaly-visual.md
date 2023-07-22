@@ -22,7 +22,7 @@ excerpt:
 
 Prior to OpenSearch 2.9, users maintain state between the data they were viewing in the Discover and Dashboard interfaces and the data needed to create a new anomaly detector or alert monitor. Users provided feedback that creating new detectors or monitors was difficult because of context switching. Now, users can create anomaly detectors and alerting monitors directly from their OpenSearch Dashboards line chart visualizations, with select aggregations. After creating the new detector or monitor/alert, users can view anomalies or alerts overlaying the configured visualization. For users who have defined detectors or monitors, they can associate their existing detectors or monitors to the visualization, which helps track services that are not specific to the visualization, such as a dependent service.
 
-In this blog, you'll learn to create a new detector or monitor and add monitors and detectors to a visualization by way of the visualization, instead of through the Alerting or Anomaly Detection plugin pages.
+In this blog, you'll learn how to create a new anomaly detector or alerting monitor from a visualization and add existing monitors and detectors to a visualization instead of through the Alerting or Anomaly Detection plugin pages.
 
 ## Terms to know
 
