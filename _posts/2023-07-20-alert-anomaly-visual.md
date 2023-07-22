@@ -103,7 +103,7 @@ To create a monitor by way of a visualization, you have two options: creating a 
 
 ### Viewing events
 
-Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of the tirgger criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu, as shown in the following image.
+Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of the trigger criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu, as shown in the following image.
 
 <img width="719" alt="view-events-context-menu" src="https://github.com/vagimeli/project-website/assets/105296784/98cbb0ce-374c-40ff-bd2c-d6dbf2c36da1">
 ##### Figure 6. Visualization showing View events context menu
