@@ -1,5 +1,5 @@
 ---
-name: Nate Bower
+name: Nathan Bower
 short_name: nbower
 photo: '/assets/media/authors/nbower.jpg'
 github: natebower
