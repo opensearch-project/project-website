@@ -55,14 +55,14 @@ By default, Vale is set up to report *errors* and *warnings*. **To select the le
 ## Helpful hints
 
 * Code blocks that specify a language after the three tic marks are skipped, for example:
-    ````
+    ````plaintext
     ```json
     GET _cat/aliases?v
     ```
     ````
 
     It’s a best practice to specify the language in all code blocks. Use `bash` for command line operations:
-    ````
+    ````plaintext
     ```bash
     sudo systemctl start opensearch
     ```
