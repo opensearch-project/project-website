@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Visualizing alerts and anomalies using OpenSearch Dashboards visualization tools and applications"
+title: "Visualizing alerts and anomalies using OpenSearch Dashboards applications"
 authors: 
   - jdbright
   - ashisagr
