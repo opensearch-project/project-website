@@ -122,4 +122,4 @@ Currently, this feature has following limitations:
 
 ## Community feedback
 
-The OpenSearch Project team seeks your input about this feature. We're continuously working to improve the feature, and we'd love to hear from you about how we can improve the functionality and capability of the alerting and anomaly detection visualizations workflows. Leave your feedback on the [<OpenSearch Forum/GitHub issue>](<insert-link).
+The OpenSearch Project team seeks your input about this feature. We're continuously working to improve the feature, and we'd love to hear from you about how we can improve the functionality and capability of the alerting and anomaly detection visualizations workflows. Leave your feedback by [creating an issue](https://github.com/opensearch-project/OpenSearch/issues) in the OpenSearch Project GitHub repository.
