@@ -49,7 +49,7 @@ To create a new monitor or detector by way of a visualization, first [save your 
 ![Options context menu]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/dashboard-options-context-menu.png)
 ##### Figure 1. Interface showing dashboard panel with **Options** context menu 
 
-Regardless of whether you choose Alerting or Anomaly Detection, certain information, based on the visualization's data, about alerts and anomalies is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing monitors or detectors. Learn more about the workflow in the respective OpenSearch documentation, [Alerting visualizations and dashboards](<insert-link>) and [Anomaly detection visualizations and dashboards](<insert-link>). 
+Regardless of whether you choose Alerting or Anomaly Detection, certain information, based on the visualization's data, about alerts and anomalies is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing monitors or detectors. Learn more about the workflow in the respective OpenSearch documentation, [Alerting visualizations and dashboards]({{site.url}}{{site.baseurl}}/observing-your-data/alerting/dashboards-alerting/) and [Anomaly detection visualizations and dashboards]({{site.url}}{{site.baseurl}}/observing-your-data/ad/dashboards-anomaly-detection/). 
 
 ### Adding a detector through a visualization 
 
