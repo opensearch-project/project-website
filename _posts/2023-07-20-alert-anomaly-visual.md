@@ -56,7 +56,7 @@ Note that currently only y-axis metric (count, average, max, and so forth) aggre
 To create a new monitor or detector by way of a visualization, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** context menu dropdown. The following image gives you a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
 
 ![Options context menu]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/dashboard-options-context-menu.png)
-##### Figure 1. Interface showing dashboard panel with **Options** context menu 
+##### Figure 1. Dashboard panel with _Options_ context menu 
 
 Regardless of whether you choose Alerting or Anomaly Detection, certain information, based on the visualization's data, about alerts and anomalies is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing monitors or detectors. The following tutorials guide you through these workflows.  
 
@@ -67,12 +67,12 @@ To add a detector by way of a visualization, you have two options: creating a ne
 1. On your visualization, select **Anomaly Detection** from the Options context menu dropdown, as shown in the following image. 
 
 [Anomaly Detection context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/anomaly-options-context-menu.jpg)
-##### Figure 2. Visualization showing Anomaly Detection context menu 
+##### Figure 2. _Anomaly Detection_ context menu 
 
 2. Select **Add anomaly detector** from the **Anomaly Detection** context menu dropdown, as shown in the following image.
 
 ![Add anomaly detector context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/add-detector.jpg)
-##### Figure 3. Visualization showing Add anomaly detector context menu 
+##### Figure 3. _Add anomaly detector_ context menu 
 
 3. Choose **Create new detector** or **Associate existing detector**.
 - If you choose to create a new detector, input the required information under **Detector details** and **Model Features**.
@@ -93,12 +93,12 @@ To create a monitor by way of a visualization, you have two options: creating a 
 1. On your visualization, select **Alerting** from the Options context menu, as shown in the following image. 
 
 ![Alerting context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/alerting-options-context-menu.png)
-##### Figure 4. Visualization showing Alerting context menu 
+##### Figure 4. _Alerting_ context menu 
 
 2. Select **Add alerting monitor** from the **Alerting** context menu dropdown, as shown in the following image.
 
 ![Add Alerting monitor context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/add-monitor.png)
-##### Figure 5. Visualization showing Add alerting monitor context menu
+##### Figure 5. _Add alerting monitor_ context menu
 
 3. Choose **Create new monitor** or **Associate existing monitor**.
 - If you choose to create a new monitor, input the required information under **Monitor details**.
@@ -115,7 +115,7 @@ To create a monitor by way of a visualization, you have two options: creating a 
 Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of the trigger criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu, as shown in the following image.
 
 ![View events context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/view-events-context-menu.png)
-##### Figure 6. Visualization showing View events context menu
+##### Figure 6. _View events_ context menu
 
 As shown in the following image, the events flyout has two sections. The top section is the visualization displaying the same aggregate view of events and time range as the visualization on the dashboard. The events flyout can be refreshed to fetch any new data. The bottom section displays the specific event details. This section is arranged by plugin (Anomaly Detection or Alerting), then by the individual plugin resources within that plugin (anomaly detectors or alerting monitors). In this view, you can see which plugin resources are producing events and when those events were produced. An overall event count for each plugin resource is displayed next to the resource name. To display more information about a specific plugin resource or the event it has produced, select the resource name. This opens a new tab that displays the resource details about that plugin. A time range is also fixed at the bottom of the flyout to help visually correlate individual events.
 
