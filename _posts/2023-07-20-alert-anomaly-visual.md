@@ -122,7 +122,7 @@ As shown in the following image, the events flyout has two sections. The top sec
 ![View events flyout interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/events-flyout.png)
 ##### Figure 7. Events flyout showing alerting and anomaly detectors details and a line chart visualization
 
-We're excited to announce that we're continuing to work on this feature! We're adding new components and making them common components so that you can use them in your own applications. We're also working to remove these limitations: the number of objects associated with visualizations is 10 and only line chart visualizations containing time-series data are supported. We'll have updates in the upcoming release, so stay tuned!
+We're excited to announce that we're continuing to work on this feature! We're adding new components and making them common components so that you can use them in your own applications. We're also working to remove these limitations: the number of objects associated with visualizations is 10 and only line chart visualizations containing time-series data is supported. We'll have updates in the upcoming release, so stay tuned!
 
 ## Community feedback
 
