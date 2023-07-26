@@ -11,10 +11,10 @@ authors:
   - joshuarrrr
   - xeniatup
 date: 2023-07-20
-meta_keywords: alerting, anomaly detection, alert, anomaly, observabilty, dashboard, dashboards, visualizations, visualize
+meta_keywords: anomaly detection, OpenSearch observability, OpenSearch dashboards, OpenSearch Alerting Plugin
 meta_description: Integrating alerts and anomalies with OpenSearch Dashboard visualizations.
 twittercard:
-  description: Learn about integrating alerts and anomalies with OpenSearch Dashboard visualizationss.
+  description: Learn how you can create anomaly detectors and alerting monitors directly from your OpenSearch Dashboard line chart visualizations with select aggregations.
 category:
   - community
 excerpt: 
