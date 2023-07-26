@@ -2,14 +2,17 @@
 layout: post
 title: "Overlaying anomalies and alerts on OpenSearch Dashboards visualizations"
 authors: 
-  - jdbright
-  - ashisagr
+  - ashiasgr
   - ohltyler
-  - amgalitz
-  - ashwinpc
+  - amitgalitz
   - hnyng
-  - joshuarrrr
   - xeniatup
+  - kmleung
+  - kroosh
+  - rmerqg
+  - ashwinpc
+  - vagimeli
+  - jdbright
 date: 2023-07-20
 meta_keywords: anomaly detection, OpenSearch observability, OpenSearch dashboards, OpenSearch Alerting Plugin
 meta_description: Integrating alerts and anomalies with OpenSearch Dashboard visualizations.
