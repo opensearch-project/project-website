@@ -245,7 +245,7 @@ this is the built-in error checking for the version definition having missing ar
             {% if details.signature %}
               {% capture artifact_extra %}
                 <div class="extra_links extra_{{artifact_id}}"> <a href="{{details.signature}}"> {{signature_pretty}} </a>
-                <a href="/verify-signatures.html">Signature verification how to</a></div>
+                <a href="/verify-signatures.html#Pgp">Signature verification how to</a></div>
               {% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
@@ -253,6 +253,20 @@ this is the built-in error checking for the version definition having missing ar
               {% capture artifact_extra %}
                 <div class="extra_links extra_{{artifact_id}}">
                 <a href="/verify-signatures.html#JarSigner">Signature verification how to</a></div>
+              {% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.code_signer %}
+              {% capture artifact_extra %}
+                <div class="extra_links extra_{{artifact_id}}">
+                  <a href="/verify-signatures.html#CodeSigner">Signature verification how to</a></div>
+              {% endcapture %}
+              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.windows_signer %}
+              {% capture artifact_extra %}
+                <div class="extra_links extra_{{artifact_id}}">
+                  <a href="/verify-signatures.html#WindowsSigner">Signature verification how to</a></div>
               {% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}

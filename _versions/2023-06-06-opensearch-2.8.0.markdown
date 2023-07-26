@@ -31,7 +31,7 @@ components:
     version: 2.8.0
   - role: drivers
     artifact: opensearch-sql-odbc
-    version: 1.1.0.1
+    version: 1.5.0.0
   - role: drivers
     artifact: opensearch-sql-jdbc
     version: 1.3.0.0
