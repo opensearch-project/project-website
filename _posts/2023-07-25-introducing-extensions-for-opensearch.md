@@ -62,7 +62,7 @@ For implementation details and to examine the differences between Anomaly Detect
 
 To [benchmark high-cardinality Anomaly Detection (HCAD) as an extension](https://github.com/opensearch-project/opensearch-sdk-java/issues/652), we have replicated the setup described in [this blog post](https://opensearch.org/blog/one-million-enitities-in-one-minute/), replacing 36 r5.2xlarge data nodes with 28 r5.2xlarge data nodes (at the same cost), plus a single r5.16xlarge instance running the Anomaly Detection extension. We analyzed 1,000 historical time periods with 1,000 entities to generate 1 million results:
 
-```json
+```
 GET /_extensions/_ad/detectors/results/_search
 {
   "query": {
@@ -77,7 +77,7 @@ GET /_extensions/_ad/detectors/results/_search
 }
 ```
 
-```json
+```
 {
     ...
     "hits": {
