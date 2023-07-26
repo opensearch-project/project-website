@@ -6,7 +6,9 @@ authors:
   - ashisagr
   - ohltyler
   - amgalitz
+  - ashwinpc
   - hnyng
+  - joshuarrrr
   - xeniatup
 date: 2023-07-20
 meta_keywords: alerting, anomaly detection, alert, anomaly, observabilty, dashboard, dashboards, visualizations, visualize
