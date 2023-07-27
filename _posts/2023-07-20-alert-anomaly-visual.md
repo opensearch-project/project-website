@@ -53,7 +53,7 @@ Note that only y-axis metric (count, average, max, and so forth) aggregations an
 
 ### Creating a monitor or detector through a visualization
 
-To create a new monitor or detector by way of a visualization, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** context menu dropdown. The following image gives you a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
+To create a new monitor or detector through a visualization, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** context menu dropdown. The following image shows a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
 
 ![Options context menu]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/dashboard-options-context-menu.png)
 ##### Figure 1. Dashboard panel with _Options_ context menu 
