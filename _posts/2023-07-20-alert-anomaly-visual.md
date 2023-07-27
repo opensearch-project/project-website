@@ -53,7 +53,7 @@ Note that only y-axis metric (count, average, max, and so forth) aggregations an
 
 ### Creating a monitor or detector through a visualization
 
-To create a new monitor or detector through a visualization, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** context menu dropdown. The following image shows a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
+To create a new monitor or detector through a visualization, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** dropdown context menu. The following image shows a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
 
 ![Options context menu]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/dashboard-options-context-menu.png)
 ##### Figure 1. Dashboard panel with _Options_ context menu 
@@ -62,14 +62,14 @@ Regardless of whether you choose Alerting or Anomaly Detection, certain informat
 
 ### Adding a detector through a visualization 
 
-To add a detector through a visualization, you have two options: create a new detector or associate an existing detector. Choose the option that meets your use case.
+To add a detector through a visualization, you have two options: create a new detector or associate an existing detector. Choose the option that meets your use case. The following steps cover both options:
 
-1. On your visualization, select **Anomaly Detection** from the Options context menu dropdown, as shown in the following image. 
+1. On your visualization, select **Anomaly Detection** from the Options dropdown context menu, as shown in the following image. 
 
 [Anomaly Detection context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/anomaly-options-context-menu.jpg)
 ##### Figure 2. _Anomaly Detection_ context menu 
 
-2. Select **Add anomaly detector** from the **Anomaly Detection** context menu dropdown, as shown in the following image.
+2. Select **Add anomaly detector** from the **Anomaly Detection** dropdown context menu, as shown in the following image.
 
 ![Add anomaly detector context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/add-detector.jpg)
 ##### Figure 3. _Add anomaly detector_ context menu 
@@ -95,7 +95,7 @@ To create a monitor through a visualization, you have two options: create a new 
 ![Alerting context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/alerting-options-context-menu.png)
 ##### Figure 4. _Alerting_ context menu 
 
-2. Select **Add alerting monitor** from the **Alerting** context menu dropdown, as shown in the following image.
+2. Select **Add alerting monitor** from the **Alerting** dropdown context menu, as shown in the following image.
 
 ![Add Alerting monitor context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/add-monitor.png)
 ##### Figure 5. _Add alerting monitor_ context menu
