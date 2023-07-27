@@ -5,7 +5,7 @@ authors:
   - apasun
 date: 2023-08-01
 meta_keywords: OpenSearch personas, persona framework, user personas
-meta_description: Learn how the Haystack Conference and Berlin Buzzwords brought together OpenSearch contributors to discuss how user personas can be used to improve search experiences.
+meta_description: Learn how the Haystack Conference and Berlin Buzzwords brought together OpenSearch Project contributors to discuss how user personas can be used to improve search experiences.
 twittercard:
   description: Learn how the Haystack Conference and Berlin Buzzwords brought together OpenSearch contributors to discuss how user personas can be used to improve search experiences.
 category:
