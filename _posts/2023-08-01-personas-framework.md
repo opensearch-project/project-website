@@ -25,7 +25,7 @@ A segmentation-based persona is rooted in product markets. This approach classif
 
 A role-based approach highlights diverse domain specializations, such as high code or strategic business decision-making, that can be expected from a search and analytics user. Domain expertise can be a good indicator of the amount of UX assistance a user might need when they interact with the software. This approach centers on tasks to be accomplished and UX pain points. 
 
-A goal-based approach considers jobs to be done (JTBD), a framework that helps understand users’ needs and motivations at different stages of their journey in the product. This analysis aids in defining the user's path towards achieving their goals while using the software. Thus, this approach focuses on user goals and centers on the objectives users are striving to accomplish. The benefit of this approach is that it provides a foundation for curated experiences that can evolve harmoniously across industry segments without compromising user experience and dependencies.
+A goal-based approach considers jobs to be done (JTBD), a framework that provides an understanding of users’ needs and motivations at different stages of their journey with the product. This analysis aids in defining the user's path toward achieving their goals while using the software. Thus, this approach focuses on user goals and objectives. The benefit of this approach is that it provides a foundation for curated experiences that can evolve harmoniously across industry segments without compromising UX and dependencies.
 
 ## Research study overview
 
