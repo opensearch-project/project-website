@@ -7,15 +7,9 @@ authors:
   - ohltyler
   - amitgalitz
   - hnyng
-  
 date: 2023-07-27
 meta_keywords: anomaly detection, OpenSearch observability, OpenSearch dashboards, OpenSearch Alerting Plugin
 meta_description: Learn how you can create anomaly detectors and alerting monitors directly from your OpenSearch Dashboards line chart visualizations with select aggregations.
-twittercard:
-  description: Learn how you can create anomaly detectors and alerting monitors directly from your OpenSearch Dashboards line chart visualizations with select aggregations.
-category:
-  - community
-excerpt: 
 ---
 
 # Introduction
