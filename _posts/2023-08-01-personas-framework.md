@@ -15,7 +15,7 @@ excerpt:
 
 # Using community insights to create a persona framework to improve search experiences
 
-As the OpenSearch Project team began user experience (UX) research for search experience, clarifying the persona framework was essential. Using a goals-based approach we defined the search user, user flows, and user dependencies. In prior studies, the OpenSearch community validated four OpenSearch core user types. In this research study, we focused on producers of search solutions. This blog explains more about our study approach and learnings.
+As the OpenSearch Project began user experience (UX) research, clarifying the persona framework was essential. Using a goals-based approach, we defined the search user, user flows, and user dependencies. In prior studies, the OpenSearch community validated four OpenSearch core user types. In this research study, we focused on producers of search solutions. This blog post explains more about our study approach and learnings.
 
 For UX designers, crafting impactful software experiences hinges on comprehending the user and their requirements, a critical aspect, especially for users of search solutions. Fundamental details such as use identity and their objectives play a crucial role in designing user-centric interfaces. This is where personas are beneficial. 
 
