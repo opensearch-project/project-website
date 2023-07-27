@@ -33,8 +33,8 @@ In this blog post, you'll learn how to create a new anomaly detector or alerting
 Here are a few terms you need to know:
 
 - _OpenSearch Dashboards visualizations_ are visualizations defined within a dashboard.
-- The _Anomaly Detection plugin_ is a free OpenSearch plugin that uses the [Random Cut Forest algorithm](https://github.com/aws/random-cut-forest-by-aws) (that is, an unsupervised algorithm for detecting anomalous data points within a dataset) to detect anomalies in aggregated data.
-- The _Alerting plugin_ is a free OpenSearch plugin used to monitor and trigger alerts on OpenSearch's health and machine-generated logs.
+- The _Anomaly Detection plugin_ is a free OpenSearch plugin that uses the [Random Cut Forest (RCF) algorithm](https://github.com/aws/random-cut-forest-by-aws) (that is, an unsupervised algorithm for detecting anomalous data points within a dataset) to detect anomalies in aggregated data.
+- The _Alerting plugin_ is a free OpenSearch plugin used to monitor and trigger alerts on OpenSearch health and machine-generated logs.
 
 ## Getting started
 
@@ -126,13 +126,13 @@ We'll have updates in the upcoming release, so stay tuned!
 
 ## Community feedback
 
-The OpenSearch Project wants your feedback about this feature. Let us know how we can improve the functionality and capability of the alerting and anomaly detection visualization workflows. You can leave your feedback in an issue in the [Alerting repository](<insert-link>) or [Anomaly Detection repository](<insert-link>) on GitHub.
+The OpenSearch Project wants your feedback about this feature. Let us know how we can improve the functionality and capability of the alerting and anomaly detection visualization workflows. You can leave your feedback in an issue in the [Alerting repository](https://github.com/opensearch-project/alerting-dashboards-plugin) or [Anomaly Detection repository](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin) on GitHub.
 
 This feature required a lot of collaboration, and we are especially grateful for the hard work and dedication of the following contributors: @lezzago, @ohltyler, @amitgalitz, @jackiehanyang, @xeniatup, @kamingleung, @KrooshalUX, @joshuarrrr, @ashwin-pc, @vagimeli, and @brijos.  
 
 ## Related resources
 
-The following OpenSearch documentation provide more information about this feature:
+The following OpenSearch documentation provides more information about this feature:
 
 - [Alerting visualizations and dashboards]({{site.url}}{{site.baseurl}}/observing-your-data/alerting/dashboards-alerting/) 
 - [Anomaly detection visualizations and dashboards]({{site.url}}{{site.baseurl}}/observing-your-data/ad/dashboards-anomaly-detection/)
