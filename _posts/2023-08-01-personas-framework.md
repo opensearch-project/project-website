@@ -19,7 +19,7 @@ As the OpenSearch Project began user experience (UX) research, clarifying the pe
 
 For UX designers, crafting impactful software experiences hinges on comprehending the user and their requirements. This is especially critical for users of search solutions. Fundamental details such as user identity and objectives play a crucial role in designing user-centric interfaces. This is where personas are beneficial. 
 
-Personas are fictional characters representative of your users and are inspired by conversations with users and grounded in contextual inquiry. Persona definitions can be user segmentation-based, role-based, or goal-based. 
+Personas are fictional characters representative of your users and are inspired by conversations with users and grounded in contextual inquiry. Persona definitions can be user segmentation based, role based, or goal based. 
 
 A segmentation-based persona is rooted in product markets. This approach classifies users into distinct groups, or segments, based on shared characteristics of market segments. 
 
