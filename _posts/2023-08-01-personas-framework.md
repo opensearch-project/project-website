@@ -42,7 +42,7 @@ The following are key takeaways from our research study:
 
 ## Conclusion
 
-Users who set up search must accomplish four pivotal tasks: (1) discover and understand data, (2) understand the end user, (3) describe a successful search solution, and (4) tailor the end user experience. 
+Users who set up search solutions must accomplish four pivotal tasks: (1) discover and understand data, (2) understand the end user, (3) describe a successful search solution, and (4) tailor the end user experience. 
 
 The research findings help articulate the main persona framework for search, and ongoing research continues to give us deeper understanding of the search user and the variations of domain-specific user dependencies and user roles. Fleshing out a comprehensive set of personas will help us design more meaningful user experiences. We encourage our search users and community members to continue providing input on the personas framework. We look forward to hearing from you! 
 
