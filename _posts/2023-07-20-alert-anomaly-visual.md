@@ -134,7 +134,7 @@ The OpenSearch Project team wants your feedback about this feature. Let us know 
 
 ## Related resources
 
-The following OpenSearch documentation provide more information about these features.
+The following OpenSearch documentation provide more information about these features:
 
 - [Alerting visualizations and dashboards]({{site.url}}{{site.baseurl}}/observing-your-data/alerting/dashboards-alerting/) 
 - [Anomaly detection visualizations and dashboards]({{site.url}}{{site.baseurl}}/observing-your-data/ad/dashboards-anomaly-detection/)
