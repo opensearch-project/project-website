@@ -84,7 +84,7 @@ To add a detector through a visualization, you have two options: create a new de
 |:---------------------------------:|:----------------------------:|
 | ![Create detector interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-new-detector.jpg) | ![Associate existing detector interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-associated-detector.jpg) |
 
-Note that if the Alerting plugin is enabled in your cluster, you'll have the option to create a monitor on top of the anomaly detector. To do this, select **Set up alerts** from the success notification popup you receive upon successfully creating the detector. The anomaly detector is prepopulated as a definition method for the alerting monitor. 
+Note that if the Alerting plugin is enabled in your cluster, you'll have the option to create a monitor on top of the anomaly detector. To do this, select **Set up alerts** from the success notification pop-up you receive upon successfully creating the detector. The anomaly detector is prepopulated as a definition method for the alerting monitor. 
 
 ### Adding a monitor through a visualization  
 
