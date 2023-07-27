@@ -49,7 +49,7 @@ This feature is automatically enabled. You can turn it off by going to **OpenSea
 * Installed the Anomaly Detector and Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) for more information.
 * Started your local environment. Because OpenSearch Playground is read-only, use your local environment to perform the steps in the following tutorials.
 
-Note that currently only y-axis metric (count, average, max, and so forth) aggregations and x-axis date histogram aggregations are supported. 
+Note that only y-axis metric (count, average, max, and so forth) aggregations and x-axis date histogram aggregations are currently supported. 
 
 ### Creating a monitor or detector through a visualization
 
