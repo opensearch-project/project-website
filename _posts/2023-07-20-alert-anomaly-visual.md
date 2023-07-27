@@ -112,7 +112,7 @@ To create a monitor by way of a visualization, you have two options: creating a 
 
 ### Viewing events
 
-Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you set up. For a detailed view of the trigger criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu, as shown in the following image.
+Regardless of whether you choose to create a new monitor or detector or to associate an existing monitor or detector, events on your dashboard are triggered based on the criteria you select. For a detailed view of the trigger criteria, go to the **View Events** page. You have two options for accessing the **View Events** menu: Select an event on the visualization itself or select **View Events** from the visualization’s context menu, as shown in the following image.
 
 ![View events context menu interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/view-events-context-menu.png)
 ##### Figure 6. _View events_ context menu
