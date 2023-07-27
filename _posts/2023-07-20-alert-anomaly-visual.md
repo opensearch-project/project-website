@@ -6,12 +6,6 @@ authors:
   - ohltyler
   - amitgalitz
   - hnyng
-  - xeniatup
-  - kmleung
-  - kroosh
-  - rmerqg
-  - ashwinpc
-  - vagimeli
   - jdbright
 date: 2023-07-20
 meta_keywords: anomaly detection, OpenSearch observability, OpenSearch dashboards, OpenSearch Alerting Plugin
