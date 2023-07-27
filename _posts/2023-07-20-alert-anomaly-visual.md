@@ -27,7 +27,7 @@ excerpt:
 
 We have some exciting news to share with you!
 
-As part of our vision of offering plugin functionality in the dashboards the community loves, we have taken our first step. We have added the workflows of creating anomaly and alerting detectors and monitors, respectfully, into the dashboarding experience. Prior to 2.9, users had to remember the details of what they were looking at in dashboards and then move over to the Anomaly Detection and Alerting plugins to create the desired detectors and alerts. 
+We have taken the first step toward our vision of offering plugin functionality in the dashboards the community loves. We have added the anomaly and alerting detector and monitor creation workflows, respectfully, into the dashboarding experience. Prior to 2.9, users had to remember the details of what they were looking at in dashboards and then move over to the Anomaly Detection and Alerting plugins to create the desired detectors and alerts. 
 
 No more. Now, users can create anomaly detectors and alerting monitors directly from their OpenSearch Dashboards line chart visualizations, with select aggregations. After creating the new detector or monitor/alert, users can view anomalies or alerts overlaying the configured visualization. For users who have defined detectors or monitors, they can associate their existing detectors or monitors to the visualization, which helps track services that are not specific to the visualization, such as a dependent service.
 
