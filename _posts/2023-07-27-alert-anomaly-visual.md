@@ -3,11 +3,12 @@ layout: post
 title: "Overlaying anomalies and alerts on OpenSearch Dashboards visualizations"
 authors: 
   - jdbright
+  - ashiasgr
   - ohltyler
   - amitgalitz
   - hnyng
   
-date: 2023-07-20
+date: 2023-07-27
 meta_keywords: anomaly detection, OpenSearch observability, OpenSearch dashboards, OpenSearch Alerting Plugin
 meta_description: Learn how you can create anomaly detectors and alerting monitors directly from your OpenSearch Dashboards line chart visualizations with select aggregations.
 twittercard:
@@ -21,9 +22,9 @@ excerpt:
 
 We have some exciting news to share with you!
 
-We have taken the first step toward our vision of offering plugin functionality in the dashboards the community loves. We have added the anomaly and alerting detector and monitor creation workflows, respectfully, into the dashboarding experience. Prior to 2.9, users had to remember the details of what they were looking at in dashboards and then move over to the Anomaly Detection and Alerting plugins to create the desired detectors and alerts. 
+We have taken the first step toward our vision of offering plugin functionality in the dashboards the community loves. We have added the anomaly and alerting detector and monitor creation workflows, respectfully, into the dashboarding experience. Prior to 2.9, users had to remember the details of what they were looking at in a dashboard and then navigate away from it to the Anomaly Detection and Alerting plugins to create the detectors and alerts. 
 
-No more. Now users can create anomaly detectors and alerting monitors directly from their OpenSearch Dashboards line chart visualizations with select aggregations. After creating the new detector or monitor/alert, users can view anomalies or alerts overlaying the configured visualization. For users who have defined detectors or monitors, they can associate their existing detectors or monitors to the visualization, which helps track services that are not specific to the visualization, such as a dependent service.
+No more. Now users can create anomaly detectors and alerting monitors directly from their OpenSearch Dashboards line chart visualizations with select aggregations. After creating the new detector or monitor/alert, users can view anomalies or alerts overlaying the configured visualization. For users who have defined detectors or monitors, they can associate their existing detectors or monitors with the visualization, which helps track services that are not specific to the visualization, such as a dependent service.
 
 In this blog post, you'll learn how to create a new anomaly detector or alerting monitor from a saved visualization and add existing monitors and detectors to a visualization instead of using the Alerting or Anomaly Detection plugin pages. If you have already set up detectors and monitors, you'll learn how to associate them as well. Lastly, you will see how the events overlay onto the visualization, helping drive root cause analysis more efficiently by identifying which events were triggered. Hold on tight!
 
@@ -37,7 +38,7 @@ Here are a few terms you need to know:
 
 ## Getting started
 
-This feature is automatically enabled. You can turn it off by going to **OpenSearch Dashboards** > **Stack Management** > **Advanced Settings** and toggling off **Enable plugin augmentation**, which is in the **Visualization** pane. Before getting started with this feature, make sure you have:
+The functionality is automatically enabled. You can turn it off by going to **OpenSearch Dashboards** > **Stack Management** > **Advanced Settings** and toggling off **Enable plugin augmentation**, which is in the **Visualization** pane. Before getting started, make sure you have:
 
 * Installed OpenSearch and OpenSearch Dashboards version 2.9 or later. See [Installing OpenSearch]({{site.url}}{{site.baseurl}}/install-and-configure/install-opensearch/index/).
 * Installed the Anomaly Detector and Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) for more information.
@@ -117,7 +118,8 @@ As shown in the following image, the events flyout has two sections. The top sec
 ##### Figure 7. Events flyout showing alerting and anomaly detectors details and a line chart visualization
 
 As part of our continuing work on this feature, we're adding new components and making them common components so that you can use them in your own applications. We're also working to remove these limitations: 
-- The number of objects associated with visualizations is 10.
+
+- The number of objects associated with visualizations is limited to 10.
 - Only line chart visualizations containing time-series data are supported. 
 
 We'll have updates in the upcoming release, so stay tuned!
@@ -126,9 +128,11 @@ We'll have updates in the upcoming release, so stay tuned!
 
 The OpenSearch Project wants your feedback about this feature. Let us know how we can improve the functionality and capability of the alerting and anomaly detection visualization workflows. You can leave your feedback in an issue in the [Alerting repository](<insert-link>) or [Anomaly Detection repository](<insert-link>) on GitHub.
 
+This feature required a lot of collaboration, and we are especially grateful for the hard work and dedication of the following contributors: @lezzago, @ohltyler, @amitgalitz, @jackiehanyang, @xeniatup, @kamingleung, @KrooshalUX, @joshuarrrr, @ashwin-pc, @vagimeli, and @brijos.  
+
 ## Related resources
 
-The following OpenSearch documentation provide more information about these features:
+The following OpenSearch documentation provide more information about this feature:
 
 - [Alerting visualizations and dashboards]({{site.url}}{{site.baseurl}}/observing-your-data/alerting/dashboards-alerting/) 
 - [Anomaly detection visualizations and dashboards]({{site.url}}{{site.baseurl}}/observing-your-data/ad/dashboards-anomaly-detection/)
