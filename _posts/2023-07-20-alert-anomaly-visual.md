@@ -58,7 +58,7 @@ To create a new monitor or detector by way of a visualization, first [save your 
 ![Options context menu]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/dashboard-options-context-menu.png)
 ##### Figure 1. Dashboard panel with _Options_ context menu 
 
-Regardless of whether you choose Alerting or Anomaly Detection, certain information, based on the visualization's data, about alerts and anomalies is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing monitors or detectors. The following tutorials guide you through these workflows.  
+Regardless of whether you choose Alerting or Anomaly Detection, certain information about alerts and anomalies, based on the visualization's data, is automatically populated. Optionally, instead of creating a new monitor or detector, you can associate existing monitors or detectors. The following tutorials guide you through these workflows.  
 
 ### Adding a detector through a visualization 
 
