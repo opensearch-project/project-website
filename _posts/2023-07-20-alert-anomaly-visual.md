@@ -88,7 +88,7 @@ Note that if the Alerting plugin is enabled in your cluster, you'll have the opt
 
 ### Adding a monitor through a visualization  
 
-To create a monitor by way of a visualization, you have two options: creating a new monitor or associating an existing monitor. Choose the option that meets your use case.
+To create a monitor through a visualization, you have two options: create a new monitor or associate an existing monitor. Choose the option that meets your use case.
 
 1. On your visualization, select **Alerting** from the Options context menu, as shown in the following image. 
 
