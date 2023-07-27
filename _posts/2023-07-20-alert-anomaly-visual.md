@@ -62,7 +62,7 @@ Regardless of whether you choose Alerting or Anomaly Detection, certain informat
 
 ### Adding a detector through a visualization 
 
-To add a detector by way of a visualization, you have two options: creating a new detector or associating an existing detector. Choose the option that meets your use case.
+To add a detector through a visualization, you have two options: create a new detector or associate an existing detector. Choose the option that meets your use case.
 
 1. On your visualization, select **Anomaly Detection** from the Options context menu dropdown, as shown in the following image. 
 
