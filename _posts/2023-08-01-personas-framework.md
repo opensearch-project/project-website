@@ -34,7 +34,7 @@ At Berlin Buzzwords 2023, we shared insights from the deep-dive sessions held du
 
 The following are key takeaways from our research study:
 
-1. The search producer persona could be a search relevance engineer or a rater (a human judge and domain expert who rates the relevance for particular queries).
+1. The search producer persona could be a search relevance engineer or a rater (a human judge and domain expert who rates the relevance of particular queries).
 2. The search consumer persona could be the end user who performs the search or the product manager who sets expectations for the search solution.
 
 ## Conclusion
