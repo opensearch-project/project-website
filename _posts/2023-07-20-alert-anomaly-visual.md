@@ -2,7 +2,6 @@
 layout: post
 title: "Overlaying anomalies and alerts on OpenSearch Dashboards visualizations"
 authors: 
-  - ashiasgr
   - ohltyler
   - amitgalitz
   - hnyng
