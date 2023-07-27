@@ -76,7 +76,7 @@ To add a detector through a visualization, you have two options: create a new de
 
 3. Choose **Create new detector** or **Associate existing detector**.
 - If you choose to create a new detector, input the required information under **Detector details** and **Model Features**.
-- If you choose to associate an existing detector, select from the dropdown list of detectors under **Select detector to associate**.
+- If you choose to associate an existing detector, select a detector from the dropdown list under **Select detector to associate**.
 
 4. Select **Create detector** or **Associate detector**, as applicable, to add the detector to your visualization, as shown in the following images.
 
