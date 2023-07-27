@@ -35,7 +35,7 @@ In this blog post, you'll learn how to create a new anomaly detector or alerting
 
 ## Terms to know
 
-Here are terms you need to know:
+Here are a few terms you need to know:
 
 - _OpenSearch Dashboards visualizations_ are visualizations defined within a dashboard.
 - The _Anomaly Detection plugin_ is a free OpenSearch plugin that uses the [Random Cut Forest algorithm](https://github.com/aws/random-cut-forest-by-aws) (that is, an unsupervised algorithm for detecting anomalous data points within a dataset) to detect anomalies in aggregated data.
