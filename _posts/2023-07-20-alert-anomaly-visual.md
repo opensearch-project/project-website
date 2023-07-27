@@ -132,7 +132,7 @@ We'll have updates in the upcoming release, so stay tuned!
 
 The OpenSearch Project team wants your feedback about this feature. Let us know how we can improve the functionality and capability of the alerting and anomaly detection visualizations workflows. Leave your feedback in an issue in the [Alerting repository](<insert-link>) or [Anomaly Detection repository](<insert-link>) on GitHub.
 
-## Related sources
+## Related resources
 
 The following OpenSearch documentation provide more information about these features.
 
