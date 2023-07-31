@@ -16,6 +16,7 @@ Boolean
 [Cc]onfig
 [Cc]ron
 [Cc]ybersecurity
+[Dd]ashboarding
 [Dd]atagram
 [Dd]eallocate
 [Dd]eduplication
@@ -53,6 +54,7 @@ k-NN
 [Kk]eystore
 kibibyte
 mebibyte
+[Ll]earnings
 [Ll]emmatization
 Levenshtein
 [Ll]inestring
@@ -104,6 +106,7 @@ stdout
 [Ss]ubcommands?
 [Ss]ubfield
 [Ss]ubquery
+[Ss]ubstrings?
 [Ss]ubtag
 [Ss]ubtree
 [Ss]ubvector
