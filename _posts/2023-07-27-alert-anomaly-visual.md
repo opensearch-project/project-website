@@ -34,15 +34,15 @@ Here are a few terms you need to know:
 
 The functionality is automatically enabled. You can turn it off by going to **OpenSearch Dashboards** > **Stack Management** > **Advanced Settings** and toggling off **Enable plugin augmentation**, which is in the **Visualization** pane. Before getting started, make sure you have:
 
-* Installed OpenSearch and OpenSearch Dashboards version 2.9 or later. See [Installing OpenSearch]({{site.url}}{{site.baseurl}}/install-and-configure/install-opensearch/index/).
-* Installed the Anomaly Detector and Alerting plugins. See [Managing OpenSearch Dashboards plugins]({{site.url}}{{site.baseurl}}/install-and-configure/install-dashboards/plugins/) for more information.
+* Installed OpenSearch and OpenSearch Dashboards version 2.9 or later. See [Install and upgrade OpenSearch](https://opensearch.org/docs/latest/install-and-configure/index/).
+* Installed the Anomaly Detector and Alerting plugins. See [Managing OpenSearch Dashboards plugins](https://opensearch.org/docs/latest/install-and-configure/install-dashboards/plugins/) for more information.
 * Started your local environment. Because OpenSearch Playground is read-only, use your local environment to perform the steps in the following tutorials.
 
 Note that only y-axis metric (count, average, max, and so forth) aggregations and x-axis date histogram aggregations are currently supported. 
 
 ### Creating a monitor or detector through a visualization
 
-To create a new monitor or detector through a visualization, first [save your dashboard]({{site.url}}{{site.baseurl}}/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** dropdown context menu. The following image shows a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
+To create a new monitor or detector through a visualization, first [save your dashboard](https://opensearch.org/docs/latest/dashboards/dashboard/index/#saving-dashboards). Then select **Alerting** or **Anomaly Detection** from the **Options** dropdown context menu. The following image shows a snapshot of the interface. Tip: If you are using static thresholds (for example, metrics to monitor CPU spikes, memory usage, or disk usage), create an alerting monitor; otherwise, create an anomaly detector.
 
 ![Options context menu](/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/dashboard-options-context-menu.png){: .img-fluid}
 ##### Figure 1. Dashboard panel with _Options_ context menu 
@@ -71,7 +71,7 @@ To add a detector through a visualization, you have two options: create a new de
 
 | Create detector                   | Associate detector           |
 |:---------------------------------:|:----------------------------:|
-| ![Create detector interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-new-detector.jpg) | ![Associate existing detector interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-associated-detector.jpg) |
+| ![Create detector interface](/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-new-detector.jpg){: .img-fluid} | ![Associate existing detector interface](/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-associated-detector.jpg){: .img-fluid} |
 
 Note that if the Alerting plugin is enabled in your cluster, you'll have the option to create a monitor on top of the anomaly detector. To do this, select **Set up alerts** from the success notification pop-up you receive upon successfully creating the detector. The anomaly detector is prepopulated as a definition method for the alerting monitor. 
 
@@ -97,7 +97,7 @@ To create a monitor through a visualization, you have two options: create a new 
 
 | Create monitor | Associate monitor |
 |:--------------:|:-----------------:|
-| ![Create monitor interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-new-monitor.png) | ![Associate monitor interface]({{site.url}}{{site.baseurl}}/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-associated-monitor.png) |
+| ![Create monitor interface](/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-new-monitor.png){: .img-fluid} | ![Associate monitor interface](/assets/media/blog-images/2023-07-20-alert-anomaly-visual.md/save-associated-monitor.png){: .img-fluid} |
 
 ### Viewing events
 
