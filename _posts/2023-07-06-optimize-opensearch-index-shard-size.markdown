@@ -108,4 +108,3 @@ If you prefer to learn about this topic in video format instead of a blog post, 
 
 If you are using Amazon OpenSearch Service (that is, the managed service), the AWS documentation also has information on index shard sizes. The [operational best practices shard strategy](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/bp.html#bp-sharding-strategy) section includes recommendations specific to the AWS managed service.
 
-Backports to our repo 
