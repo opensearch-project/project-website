@@ -67,7 +67,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Major Version | Latest Minor Version |   Status    | Initial Release | Maintenance Window Start | Maintenance Window End             |
 |:--------------|:---------------------|:-----------:|:---------------:|:------------------------:|:----------------------:            |
-| 1             | 1.3.x                | Maintenance |  July 12, 2021  |       May 26, 2022       |   1 Year after 3.0 Release Date    |
+| 1             | 1.3.x                | Maintenance |  July 12, 2021  |       May 26, 2022       |    GA release of 3.0.              |
 | 2             | 2.0.0                |   Current   |  May 26, 2022   |           N/A            |          N/A                       |
 
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date 
