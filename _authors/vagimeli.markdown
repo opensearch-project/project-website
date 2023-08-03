@@ -6,4 +6,4 @@ twitter:
 github: vagimeli
 ---
 
-Melissa Vagi is an AWS Technical Writer working on the OpenSearch project documentation.
+Melissa Vagi is an AWS Technical Writer working on the OpenSearch Project documentation.
