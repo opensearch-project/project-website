@@ -1,6 +1,6 @@
 ---
 
-eventdate: 2023-07-24 11:30:00 -0700
+eventdate: 2023-08-08 11:30:00 -0700
 title: OpenSearch 2.9.0 Release Meetings - 2023-07-24
 online: true
 signup:
@@ -47,6 +47,9 @@ Join the OpenSearch team for the open release meetings so we can push 2.9.0 live
 
 * [Release / Post release](https://github.com/opensearch-project/opensearch-build/blob/1499c472fec3d36bc0d3b30ffca8b08bb5a65c4d/RELEASE_PROCESS_OPENSEARCH.md#release) (Release day!) [Release manager, leadership team, Repository owners ]
 
+**August 7th - 2PM PDT**
+
+* [Retrospective](https://github.com/opensearch-project/opensearch-build/issues/3808) Let's do a retro on the 2.9.0 release as a community.
 
 **Dial in information - valid for each meeting:**
 
