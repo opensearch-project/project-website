@@ -3,14 +3,12 @@ layout: post
 title: "Using community insights to create a persona framework to improve search experiences"
 authors: 
   - apasun
-date: 2023-08-01
+date: 2023-08-04
 category:
   - community
 meta_keywords: OpenSearch personas, persona framework, user personas
 meta_description: Learn how the Haystack Conference and Berlin Buzzwords brought together OpenSearch Project contributors to discuss how user personas can be used to improve search experiences.
 ---
-
-# Using community insights to create a persona framework to improve search experiences
 
 As the OpenSearch Project began user experience (UX) research, clarifying the persona framework was essential. Using a goals-based approach, we defined the search user, user flows, and user dependencies. In prior studies, the OpenSearch community validated four OpenSearch core user types. In this research study, we focused on producers of search solutions. This blog post explains more about our study approach and learnings.
 
