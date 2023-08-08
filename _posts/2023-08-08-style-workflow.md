@@ -4,11 +4,11 @@ title: "New custom automated style workflow"
 authors:
   - nbower
   - kolchfa
-date: 2023-07-19
+date: 2023-08-08
 categories:
   - community-updates
-meta_keywords: 
-meta_description: 
+meta_keywords: OpenSearch automated style workflow, OpenSearch style guidelines, integrated IDE extension in OpenSearch
+meta_description: OpenSearch Project implements a custom automated style workflow for documentation and blog posts to align its approach to quality assurance and development.
 ---
 
 The OpenSearch Project is pleased to announce the rollout of an exciting mechanism in the [`documentation-website`](https://github.com/opensearch-project/documentation-website) and [`project-website`](https://github.com/opensearch-project/project-website) repos. 
@@ -25,7 +25,7 @@ You can use the tool locally in two ways:
 
 1. **From the command line**. Run Vale on the whole directory (`vale .`) or a particular file (`vale /path/to/file`). Vale reports errors in the command line, as shown in the following image.
 
-    ![Command-line error example](/assets/media/blog-images/2023-07-19-style-workflow/command-line-error.png){: .img-fluid }    
+    ![Command-line error example](/assets/media/blog-images/2023-08-08-style-workflow/command-line-error.png){: .img-fluid }    
 
 1. **As an integrated IDE extension**. Vale integrates with many IDEs, including VS Code, IntelliJ IDEA and other JetBrains IDEs, Sublime, and Emacs. To integrate Vale in VS Code, follow these steps:
 
@@ -34,7 +34,7 @@ You can use the tool locally in two ways:
 
     The Vale extension highlights problems with squiggly underlines, similarly to Microsoft Word. You can hover over the underlined text to see the problem and optionally view the associated rule, which in most cases provides a link to the relevant section of the project style guide. For some problems, you can also choose **Quick Fix**, which fixes the problem automatically, as shown in the following image.
 
-    ![Vale error example](/assets/media/blog-images/2023-07-19-style-workflow/vale-error.png){: .img-fluid }
+    ![Vale error example](/assets/media/blog-images/2023-08-08-style-workflow/vale-error.png){: .img-fluid }
 
     NOTE: The Vale extension only refreshes when you save the file.
 
@@ -73,7 +73,7 @@ By default, Vale is set up to report *errors* and *warnings*. **To select the le
 
 We have added a style workflow CI to the `documentation-website` and `project-website` repos. The CI runs on any PR and all its subsequent commits and comments on any text flagged as an error or warning in the PR, as shown in the following image.
 
-![CI error example](/assets/media/blog-images/2023-07-19-style-workflow/ci-error.png){: .img-fluid }
+![CI error example](/assets/media/blog-images/2023-08-08-style-workflow/ci-error.png){: .img-fluid }
 
 The CI is set up as non-blocking, but contributors are expected to correct all errors before merging the PR.
 
