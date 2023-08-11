@@ -6,4 +6,5 @@ link: https://checkups.opster.com/ops-gpt
 license: Free
 license_link: https://opster.com/about/term-and-conditions/
 owner_link: https://opster.com
+icon: /assets/media/partners/opster.png
 ---
