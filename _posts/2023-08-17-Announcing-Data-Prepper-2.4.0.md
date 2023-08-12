@@ -2,6 +2,7 @@
 layout: post
 title:  "Announcing Data Prepper 2.4.0"
 authors:
+- sudipto
 - kkondaka
 - nsifmoh
 - dlv
@@ -71,6 +72,7 @@ This release includes three new codecs for the data it is writing.
 
 * JSON codec - This codec will write an S3 object which is a valid JSON object. All the events will be found within an array. This can be useful when integrating with systems that expect a JSON object.
 * Avro codec - You can define your Avro schema and write events in the efficient [Avro format](https://avro.apache.org/docs/).
+* Parquet codec - [Apache Parquet](https://parquet.apache.org/) is a popular columnar format. By saving your Data in Parquet format you can later efficiently retrieve data for analysis. 
 * CSV codec - This codec supports writing events as a delimited format, this can be CSV, TSV, or other delimited formats.
 
 
@@ -102,6 +104,33 @@ You can include this in your S3 sink configuration similar to the following.
 s3:
   compression: gzip
 ```
+
+## Filtering in sinks
+
+User can configure option of `include_keys` and `exclude_keys` under sink to allow-list or deny-list data being written to sinks. 
+This provides flexibility to ingest data from any source, apply common enrichments using a processor chain and selective send data to a specific sink like OpenSearch while sending all other data to sink like S3 for archival purpose. 
+Archived data in S3 can be written in columnar format say Parquet and can be easily queried in Athena or any other compatible query service. 
+Users can on-demand hydrate S3 archived data back to OpenSearch using S3-scan for richer analytics. 
+Such filtering allows to optimize storage requirements and hence reduces the cost of overall solution by sending specific data to specific Sinks.
+
+```
+sink:
+- opensearch:
+  include_keys:
+  - srcport
+  - dstport
+  - srcaddr
+  - dstaddr
+  - start
+  - end
+
+- s3:
+  exclude_keys:
+  - version
+  - interfaceId
+```
+
+
 
 ## S3 scan
 
@@ -142,8 +171,7 @@ s3:
 delete_s3_objects_on_read: true
 ```
 
-Optionally, scanning the bucket can be configured to be done periodically. 
-The following configuration can be used to schedule the scan.
+Optionally, scanning the bucket can be configured to be done periodically.
 The schedule can be configured using an interval between scans.
 If no scheduling is configured, then buckets will be scanned once.
 
@@ -154,7 +182,7 @@ See the [s3 sink documentation]((https://opensearch.org/docs/latest/data-prepper
 ## Anomaly detection with high cardinality
 
 The anomaly detector plugin will now take an optional value `identification_keys`. 
-This value will act the same as it does in the aggregate processor, and will cause the plugin to create a different forest model for each group of values identified by the `identification_keys`. 
+This value will act the same as it does in the aggregate processor, and will cause the plugin to create a different Random Cut Forest (RCF) model for each group of values identified by the `identification_keys`. 
 With this new option, anomalies can be detected in each unique set of identification keys. 
 The following configuration will detect latency anomalies for each unique IP address. 
 Without the `identification_keys` the anomaly detector would detect anomalies across all IP addresses.
@@ -168,18 +196,32 @@ processor:
       random_cut_forest:
 ```
 
+User can write these anomalies on a separate index and create alerts on these anomalies using [document level monitors](https://opensearch.org/docs/latest/observing-your-data/alerting/api/#document-level-monitors).
+
+We also listened to feedback from customers and took steps towards making the anomaly detection adjustable. 
+Notions of anomaly varies across applications as well as use cases. 
+For example, how many anomalies would one expect to find in the sequence?
+
+
+![Anomaly Detection sequence graph](/assets/media/blog-images/2023-08-17-Announcing-Data-Prepper-2.4.0/ad-graph.png){: .img-fluid}
+
+It is quite natural that some use case would expect all the peaks to be labeled anomalies. 
+Yet it is also natural that the peaks at the same repeated level are not considered anomalous and one expects only a few anomalies. 
+Data Prepper 2.4.0 introduces a `verbose` configuration in anomaly detection processor. 
+It is set to false as a default to reduce alerts and produce fewer anomalies, but can be changed to true to increase recall and address broader use cases.
 
 ## Other changes
 
 Data Prepper 2.4.0 adds a few other features that can help many different users.
 
 * The Data Prepper `opensearch` sink can now write to ElasticSearch 6.8 clusters. So now you can benefit from Data Prepper's rich feature set on even more versions.
-* Sinks now support the option to include or exclude keys which they provide. This allows you to send similar events to two different sinks without having another pipeline.
 
 
 ## Upcoming changes
 
-There is a lot of work underway 
+There is a lot of work underway for future versions of Data Prepper.
+A few noteworthy features include a [`geoip` processor](https://github.com/opensearch-project/data-prepper/issues/253) extracting locations from IP addresses, [migrations](https://github.com/opensearch-project/data-prepper/issues/1985) from older versions of OpenSearch, and writing to Amazon Simple Notification Service (SNS) using an [SNS sink](https://github.com/opensearch-project/data-prepper/issues/2938).
+Take a look at the [project roadmap](https://github.com/opensearch-project/data-prepper/projects/1) to see what we have planned, and add your support to features you are most looking forward to.
 
 ## Getting started
 
