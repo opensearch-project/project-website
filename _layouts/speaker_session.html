@@ -1,0 +1,50 @@
+---
+layout: redesign-fullwidth
+feature_area_icon_type: smiling-face
+feature_area_category_name: Session Summaries
+---
+{% assign session_speakers = site.speakers | where: "speaker_talk_title", page.speaker_talk_title %}
+
+<div class="landing-page-content__right-panel conference-speaker-session-page">
+    <div class="landing-page-content__right-panel--content">
+        <div class="landing-page-content__right-panel--content--body">
+            {{ content }}
+        </div>
+        <div class="landing-page-content__right-panel--content--side-panel">
+            <div class="speaker-session--details-card">
+                <h4>Details</h4>
+                {% assign session_date_time = page.session_time | split: " - " %}
+                {% assign session_date = session_date_time[0] | date: "%A, %B %e" %}
+                <div class="speaker-session--details-card--date">{{ session_date }} {{ session_date_time[1] }} in {{ page.session_room }}</div>
+                <h3>Track: {{ page.session_track }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% if session_speakers %}
+    <h2 class="conference-speaker-session-page">Speakers</h2>
+    <div class="speaker-session--speaker-cards">
+        {%- for speaker in session_speakers -%}
+        <div class="speaker-session--speaker-cards--card">
+            <div class="speaker-session--speaker-cards--card--image">
+                <img src="{{ speaker.speaker_image }}" alt="{{ page.speaker_name_full }} photograph">
+            </div>
+            <div class="speaker-session--speaker-cards--card--content">
+                {% if speaker.keynote_speaker %}
+                    <div class="keynote-speaker-label">Keynote Speaker</div>
+                {% endif %}
+                <h3>{{ speaker.speaker_name_full }}</h3>
+                <div class="speaker-session--speaker-cards--card--content--job-title">{{ speaker.speaker_title_and_company }}</div>
+            </div>
+        </div>
+        {%- endfor -%}
+    </div>
+{% endif %}
+<div class="conference-speaker-session-page--view-all">
+    <div>
+        <a href="/events/opensearchcon/sessions/index.html">View All Sessions</a>
+    </div>
+    <div>
+        <a href="/events/opensearchcon/speakers/index.html">View All Speakers</a>
+    </div>
+</div>
