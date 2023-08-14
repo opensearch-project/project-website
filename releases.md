@@ -65,21 +65,28 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 ## Release History ##
 
-### 2022 ###
-
 <div class="table-styler"></div>
 
-| Release Number | Code Freeze Date   | Release Date       |
-|:---------------|:-------------------|:-------------------|
-| 2.1            | June 30, 2022      | July 7, 2022       |
-| 1.3.4          | July 8, 2022       | July 14, 2022      |
-| 2.2            | August 4, 2022     | August 11, 2022    |
-| 1.3.5          | August 16, 2022    | September 1, 2022  |
-| 2.2.1          | August 19, 2022    | September 1, 2022  |
-| 2.3            | September 7, 2022  | September 14, 2022 |
-| 1.3.6          | September 30, 2022 | October 6, 2022    |
-| 2.4            | November 8, 2022   | November 15, 2022  |
-| 1.3.7          | December 6, 2022   | December 13, 2022  |
+| Release Number |  Release Date      |
+|:---------------|:-------------------|
+| 2.1            | July 7, 2022       |
+| 1.3.4          | July 14, 2022      |
+| 2.2            | August 11, 2022    |
+| 1.3.5          | September 1, 2022  |
+| 2.2.1          | September 1, 2022  |
+| 2.3            | September 14, 2022 |
+| 1.3.6          | October 6, 2022    |
+| 2.4            | November 15, 2022  |
+| 1.3.7          | December 13, 2022  |
+| 2.5.0          | January 24th, 2023 |
+| 1.3.8          | February 2nd, 2023   |
+| 2.6.0          | February 28th, 2023  |
+| 1.3.9          | March 9th, 2023      |
+| 2.7.0          | April 17th, 2023     |
+| 1.3.10         | May 11th, 2023       |
+| 2.8.0          | May 30th, 2023        |
+| 1.3.11         | June 22nd, 2023       |
+| 2.9.0          | July 11th, 2023       |
 
 ## Change Log ##
 
