@@ -5,7 +5,7 @@ speaker_name_full: 'Mehul Shah'
 primary_title: 'Speaker: Mehul Shah'
 speaker_title_and_company: 'Co-Founder of Aryn.ai'
 speaker_talk_title: 'Generative AI and OpenSearch: What’s Your Plan?'
-keynote_speaker: false
+keynote_speaker: true
 speaker_linkedin: "https://www.linkedin.com/in/mehulashah/"
 session_track: "Search"
 permalink: '/events/opensearchcon/mehul-shah.html'
