@@ -23,8 +23,8 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 <div class="table-styler"></div>
 
 ### 2023 ###
-| Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) |
-|:--------------|:-----------------|:---------------|
+| Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Date |
+|:--------------|:-----------------|:---------------|:---------------|
 | 2.10.0        | September 05th   | September 19th |
 | 1.3.13        | September 14th   | September 21st |
 | 2.11.0        | October 10th     | October 24th   |
@@ -33,13 +33,13 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
  
-For minor version releases, OpenSearch follows "release window" model as described in this [proposal](https://github.com/opensearch-project/.github/issues/150).  The goal is to release a new minor version approximately every six weeks which includes all the new features and fixes that are ready to go. Once we enter a release window, every day we will generate a release candidate. When the exit criteria are met by a release candidate, we will make an announce, update the release date (~2 days later) and publish release artifacts on that date. 
+For minor version releases, OpenSearch follows "release window" model as described in this [proposal](https://github.com/opensearch-project/.github/issues/150).  The goal is to release a new minor version approximately every six weeks which includes all the new features and fixes that are ready to go. Once we enter a release window, every day we will generate a release candidate. When the exit criteria are met by a release candidate, we will make an announcement, update the release date column above and publish new artifacts on that date. 
 
 **Note:** If we cannot pass the exit criteria by 2 weeks after the start of the release cycle window, we will cancel the minor release and hold changes until the next release window.
 
 In contrast, OpenSearch releases new major versions only when there are a critical mass of breaking changes (e.g. changes that are incompatible with existing APIs).  These tend to be tied to [Lucene](https://lucene.apache.org/) major version releases, and will be announced in the forums at least 4 weeks prior to the release date.
 
-Please note: Both the roadmap and the release dates reflect intentions rather than firm commitments and may change as we learn more or encounters unexpected issues. If dates do need to change, we will be as transparent as possible, and log all changes in the changelog at the bottom of this page.
+Both the roadmap and the release dates reflect intentions rather than firm commitments and may change as we learn more or encounters unexpected issues. If dates do need to change, we will be as transparent as possible, and log all changes in the changelog at the bottom of this page.
  
 
 ## Maintenance Policy ##
