@@ -27,9 +27,9 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 |:--------------|:-----------------|:---------------|:---------------|
 | 2.10.0        | September 05th   | September 19th |
 | 1.3.13        | September 14th   | September 21st |
-| 2.11.0        | October 10th     | October 24th   |
-| 1.3.14        | November 9th     | November 16th  |
-| 2.12.0        | November 30th    | December 14th  |
+| 2.11.0        | November 9th       | November 16th |
+| 1.3.14        | December 5th     | December 12th  |
+| 2.12.0        | January 9th, 2024    | January 23rd, 2024  |
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
  
