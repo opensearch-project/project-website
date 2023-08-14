@@ -6,7 +6,13 @@ items:
         label: Register for OpenSearchCon!
         url: https://opensearchcon2023.splashthat.com
       -
-        label: OpenSearchCon 2023 CFP!
+        label: Sessions
+        url: /events/opensearchcon/sessions/index.html
+      -
+        label: Speakers
+        url: /events/opensearchcon/speakers/index.html
+      -
+        label: CFP is closed
         url: /opensearchcon2023-cfp.html
   -
     label: Download
