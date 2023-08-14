@@ -12,6 +12,9 @@ excerpt: "As part of thinking about releases for this year, I’ve been trying t
 redirect_from: "/blog/partners/2022/02/roadmap-proposal/"
 ---
 
+**UPDATE - Please see the [Releases page](https://opensearch.org/releases.html) for full schedule and details.**
+
+
 As part of thinking about releases for this year, I’ve been trying to sketch out a schedule of major and minor release dates through 2023. I wanted to share with you what I have so far.
 
 ### Considerations
