@@ -3,6 +3,7 @@ speaker_name: 'sherman'
 speaker_image: '/assets/media/opensearchcon/speakers/sherman.jpg'
 speaker_name_full: 'Samuel Herman'
 primary_title: 'Speaker: Samuel Herman'
+title: 'OpenSearchCon 2023 Speaker: Samuel Herman'
 speaker_title_and_company: 'Architect at Oracle'
 speaker_talk_title: 'Journey to a 750-Node Cluster: Why Mastering Allocation and Routing in OpenSearch is the Key to Successfully Achieving Massive Scale'
 keynote_speaker: false

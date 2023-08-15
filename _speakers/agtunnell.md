@@ -3,6 +3,7 @@ speaker_name: 'agtunnell'
 speaker_image: '/assets/media/opensearchcon/speakers/agtunnell.jpg'
 speaker_name_full: 'Alexander Greaves-Tunnell'
 primary_title: 'Speaker: Alexander Greaves-Tunnell'
+title: 'OpenSearchCon 2023 Speaker: Alexander Greaves-Tunnell'
 speaker_title_and_company: 'Applied Scientist, AWS - OpenSearch'
 speaker_talk_title: 'How to Tame Your LLM: Reliability and Accuracy in AI-Powered Query Generation for OpenSearch'
 speaker_github: "https://github.com/greaa-aws"

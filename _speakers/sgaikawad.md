@@ -3,6 +3,7 @@ speaker_name: 'sgaikawad'
 speaker_image: '/assets/media/opensearchcon/speakers/sgaikawad.jpg'
 speaker_name_full: 'Sayali Gaikawad'
 primary_title: 'Speaker: Sayali Gaikawad'
+title: 'OpenSearchCon 2023 Speaker: Sayali Gaikawad'
 speaker_title_and_company: 'Software Development Engineer at AWS - OpenSearch'
 speaker_talk_title: 'Grokking OpenSearch&apos;s Build, Test, and Release Infrastructure'
 keynote_speaker: false

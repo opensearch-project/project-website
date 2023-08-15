@@ -3,6 +3,7 @@ speaker_name: 'efisher'
 speaker_image: '/assets/media/opensearchcon/speakers/efisher.jpg'
 speaker_name_full: 'Eli Fisher'
 primary_title: 'Speaker: Eli Fisher'
+title: 'OpenSearchCon 2023 Speaker: Eli Fisher'
 speaker_title_and_company: 'Senior Technical Product Manager at AWS'
 speaker_talk_title: ''
 keynote_speaker: true

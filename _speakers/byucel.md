@@ -3,6 +3,7 @@ speaker_name: 'byucel'
 speaker_image: '/assets/media/opensearchcon/speakers/byucel.jpg'
 speaker_name_full: 'Bilge Yücel'
 primary_title: 'Speaker: Bilge Yücel'
+title: 'OpenSearchCon 2023 Speaker: Bilge Yücel'
 speaker_title_and_company: 'Developer Advocate at Deepset'
 speaker_talk_title: 'Keyword-based or Semantic Search? Best of both worlds with Haystack and OpenSearch'
 keynote_speaker: false
