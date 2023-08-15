@@ -80,6 +80,16 @@ defaults:
     values:
       layout: lines
       permalink: :collection/:slug.html
+-
+    scope:
+      type: speakers
+    values:
+      layout: speaker
+-
+    scope:
+      type: speaker_sessions
+    values:
+      layout: speaker_session
 
 collections:
   authors:
@@ -103,6 +113,10 @@ collections:
   tutorials:
     output: true
   lines:
+    output: true
+  speakers:
+    output: true
+  speaker_sessions:
     output: true
 
     

@@ -5,10 +5,13 @@
 @import "utils"; // mixins & vars
 @import "font-awesome"; // symbol font styles
 @import "web-fonts";
+@import "redesign-palette";
+@import "redesign-typography";
 @import "style"; // mobile & desktop styles
 @import "pygments"; // code highlighting
 @import "print"; // print styles
 @import "opensearch";
+@import "resource-grid";
 @import "partners";
 @import "community_projects";
 @import "custom-search";
@@ -16,3 +19,6 @@
 @import "nested-nav";
 @import "herobanner";
 @import "platform";
+@import "redesign";
+@import "redesign-platform";
+@import "redesign-conference";
