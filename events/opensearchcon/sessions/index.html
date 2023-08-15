@@ -5,29 +5,6 @@ feature_area_icon_type: smiling-face
 feature_area_category_name: 2023 OpenSearchCon
 ---
 <div class="conference-speaker-session-page">
-    <h2>Featured Sessions</h2>
-    <div class="resource-grid">
-        {% for i in (0..2) %}
-            {% assign session = site.speaker_sessions[i] %}
-            {% assign session_speaker = site.speakers | where: "speaker_name", session.speaker_name | first %}
-            <div class="resource-grid--item speaker-session--details-card">
-                <h4>Track: {{ session.session_track }}</h4>
-                <div class="speaker-session--details-card--date">
-                    <h2><a href="{{ session.permalink }}">{{ session.speaker_talk_title }}</a></h2>
-                </div>
-                <h3><a href="{{ session_speaker.permalink }}">{{ session_speaker.speaker_name_full }}</a></h3>
-                <div class="speaker-session--details-card--related">
-                    <h4>{{ session_speaker.speaker_title_and_company }}</h4>
-                    {% assign session_date_time = session.session_time | split: " - " %}
-                    {% assign session_date = session_date_time[0] | date: "%A, %B %e" %}
-                    <h5>{{ session_date }} {{ session_date_time[1] }} | {{ session.session_room }}</h5>
-                    <div class="speaker-session--excerpt">
-                        {{ session.content }}
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
     <div class="conference-speakers--session-speakers">
         <div class="conference-speakers--session-speakers__categorized">
             <div class="conference-speakers--session-speakers__categorized--header">
