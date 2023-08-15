@@ -192,13 +192,13 @@ $content-panel-expand-breakpoint: 834px;
                         height: 175px;
                     }
                 }
-                @media screen and (max-width: 574px) and (min-width: 401px) {
+                @media screen and (max-width: 574px) and (min-width: 428px) {
                     height: 250px;
                     > .speaker-session--speaker-cards--card--content {
                         height: 250px;
                     }
                 }
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 427px) {
                     height: 300px;
                     > .speaker-session--speaker-cards--card--content {
                         height: 300px;
