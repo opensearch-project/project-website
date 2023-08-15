@@ -27,7 +27,7 @@ feature_area_category_name: Session Summaries
         {%- for speaker in session_speakers -%}
         <div class="speaker-session--speaker-cards--card">
             <div class="speaker-session--speaker-cards--card--image">
-                <img src="{{ speaker.speaker_image }}" alt="{{ page.speaker_name_full }} photograph">
+                <img src="{{ speaker.speaker_image }}" alt="{{ speaker.speaker_name_full }} photograph">
             </div>
             <div class="speaker-session--speaker-cards--card--content">
                 {% if speaker.keynote_speaker %}
