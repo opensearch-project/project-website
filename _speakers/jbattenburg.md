@@ -1,6 +1,6 @@
 ---
 speaker_name: 'jbattenburg'
-speaker_image: '/assets/media/opensearchcon/speakers/jbattenburg.jpg'
+speaker_image: '/assets/media/opensearchcon/speakers/no-image-available.png'
 speaker_name_full: 'Jim Battenburg'
 primary_title: 'Speaker: Jim Battenburg'
 speaker_title_and_company: ''
