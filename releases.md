@@ -35,7 +35,7 @@ OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/w
  
 For minor version releases, OpenSearch follows "release window" model as described in this [proposal](https://github.com/opensearch-project/.github/issues/150).  The goal is to release a new minor version approximately every six weeks which includes all the new features and fixes that are ready to go. Once we enter a release window, every day we will generate a release candidate. When the exit criteria are met by a release candidate, we will make an announcement, update the release date column above and publish new artifacts on that date. 
 
-**Note:** If we cannot pass the exit criteria by 2 weeks after the start of the release cycle window (1 week for 1.x releases), we will cancel the minor release and hold changes until the next release window.
+**Note:** If we cannot pass the exit criteria by 2 weeks after the start of the release cycle window (1 week for 1.x patch releases), we will cancel the minor release and hold changes until the next release window.
 
 In contrast, OpenSearch releases new major versions only when there are a critical mass of breaking changes (e.g. changes that are incompatible with existing APIs).  These tend to be tied to [Lucene](https://lucene.apache.org/) major version releases, and will be announced in the forums at least 4 weeks prior to the release date.
 
