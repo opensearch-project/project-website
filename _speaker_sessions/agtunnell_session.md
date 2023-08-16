@@ -3,6 +3,7 @@ speaker_name: 'agtunnell'
 speaker_name_full: 'Alexander Greaves-Tunnell'
 speaker_talk_title: 'How to Tame Your LLM: Reliability and Accuracy in AI-Powered Query Generation for OpenSearch'
 primary_title: 'How to Tame Your LLM: Reliability and Accuracy in AI-Powered Query Generation for OpenSearch'
+title: 'OpenSearchCon 2023 Session: How to Tame Your LLM'
 speaker_github: "https://github.com/greaa-aws"
 speaker_linkedin: "https://www.linkedin.com/in/alecgreavestunnell/"
 keynote_speaker: false

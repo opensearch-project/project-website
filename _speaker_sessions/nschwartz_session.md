@@ -3,6 +3,7 @@ speaker_name: 'nschwartz'
 speaker_name_full: 'Noam Schwartz'
 speaker_talk_title: 'Building a Powerful Hybrid Search System: Combining Text and Vector Search for Enhanced OpenSearch Performance'
 primary_title: 'Building a Powerful Hybrid Search System: Combining Text and Vector Search for Enhanced OpenSearch Performance'
+title: 'OpenSearchCon 2023 Session: Hybrid Search Systems Combining Text and Vector Search for Enhanced Performance'
 keynote_speaker: false
 speaker_github: "https://github.com/noamschwartz"
 speaker_linkedin: "https://www.linkedin.com/in/noam-schwartz-ba5466185/"

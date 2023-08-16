@@ -3,6 +3,7 @@ speaker_name: 'dfado'
 speaker_name_full: 'David Fado'
 speaker_talk_title: 'Information Discovery Across Multiple Models and Indices: Potential for Search Pipelines'
 primary_title: 'Information Discovery Across Multiple Models and Indices: Potential for Search Pipelines'
+title: 'OpenSearchCon 2023 Session: Information Discovery Across Multiple Models and Indices'
 keynote_speaker: false
 speaker_linkedin: "https://www.linkedin.com/in/phaedo"
 session_time: "2023-09-28 - 10:00-10:40am"

@@ -3,6 +3,7 @@ speaker_name: 'rsaparkhan'
 speaker_name_full: 'Raman Saparkhan'
 speaker_talk_title: 'Getting Started as a Contributor: Unleashing Your Potential in the OpenSearch Community'
 primary_title: 'Getting Started as a Contributor: Unleashing Your Potential in the OpenSearch Community'
+title: 'OpenSearchCon 2023 Session: Getting Started as a Contributor'
 keynote_speaker: false
 speaker_github: "https://github.com/roma2023"
 speaker_linkedin: "https://www.linkedin.com/in/raman-saparkhan/"

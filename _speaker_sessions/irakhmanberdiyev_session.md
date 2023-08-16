@@ -3,6 +3,7 @@ speaker_name: 'irakhmanberdiyev'
 speaker_name_full: 'Iskander Rakhmanberdiyev'
 speaker_talk_title: 'How we jump-started community growth in OpenSearch'
 primary_title: 'How we jump-started community growth in OpenSearch'
+title: 'OpenSearchCon 2023 Session: How we jump-started community growth in OpenSearch'
 keynote_speaker: false
 speaker_github: "https://github.com/rednaksi91"
 speaker_linkedin: "https://www.linkedin.com/in/irakhman/"

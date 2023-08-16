@@ -3,6 +3,7 @@ speaker_name: 'jkressin'
 speaker_name_full: 'Jochen Kressin'
 speaker_talk_title: 'Harnessing the Power of OpenSearch: Performance Optimization Techniques for High-Performing Clusters'
 primary_title: 'Harnessing the Power of OpenSearch: Performance Optimization Techniques for High-Performing Clusters'
+title: 'OpenSearchCon 2023 Session: Performance Optimization Techniques for High-Performing Clusters'
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/eliatra_ire"
 speaker_linkedin: "https://www.linkedin.com/in/jkressin/"

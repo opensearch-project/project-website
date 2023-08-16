@@ -3,6 +3,7 @@ speaker_name: 'scrawford'
 speaker_name_full: 'Stephen Crawford'
 speaker_talk_title: 'Running OpenSearch Repositories in the Open'
 primary_title: 'Running OpenSearch Repositories in the Open'
+title: 'OpenSearchCon 2023 Session: Running OpenSearch Repositories in the Open'
 keynote_speaker: false
 speaker_github: "https://github.com/scrawfor99"
 session_time: "2023-09-27 - 10:40am - 11:20pm"

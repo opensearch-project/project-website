@@ -3,6 +3,7 @@ speaker_name: 'dtippett'
 speaker_name_full: 'David Tippett'
 speaker_talk_title: 'Going Deep: Unraveling the Secrets to OpenSearch&apos;s Ingestion'
 primary_title: 'Going Deep: Unraveling the Secrets to OpenSearch&apos;s Ingestion'
+title: 'OpenSearchCon 2023 Session: Going Deep: Unraveling the Secrets to Ingestion'
 speaker_twitter: "https://twitter.com/dtaivpp"
 speaker_github: "https://github.com/dtaivpp"
 speaker_linkedin: "https://www.linkedin.com/in/david-tippett/"
