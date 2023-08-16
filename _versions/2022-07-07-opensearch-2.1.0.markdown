@@ -22,7 +22,7 @@ components:
       - linux
   - role: ingest
     artifact: logstash-oss-with-opensearch-output-plugin
-    version: 8.6.1
+    version: 8.9.0
   - role: minimal-artifacts
     artifact: opensearch-min
     version: 2.1.0
