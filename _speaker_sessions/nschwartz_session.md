@@ -9,6 +9,9 @@ speaker_linkedin: "https://www.linkedin.com/in/noam-schwartz-ba5466185/"
 session_time: "2023-09-28 - 2:45pm-3:25pm"
 session_room: "Willow"
 session_track: "Search"
+speakers: 
+  - nschwartz
+  - yvaknin
 permalink: '/events/opensearchcon/noam-schwartz/building-a-powerful-hybrid-search-system-combining-text-and-vector-search-for-enhanced-opensearch-performance.html'
 ---
 

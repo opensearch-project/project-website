@@ -8,6 +8,9 @@ speaker_linkedin: "https://www.linkedin.com/in/mehulashah/"
 session_time: "2023-09-28 - 10:45-11:25am"
 session_room: "Ballroom CD"
 session_track: "Search"
+presenters:
+  - mshah
+  - jfritz
 permalink: '/events/opensearchcon/mehul-shah/generative-ai-and-opensearch-whats-your-plan.html'
 ---
 

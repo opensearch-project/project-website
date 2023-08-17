@@ -9,6 +9,9 @@ speaker_linkedin: "https://www.linkedin.com/in/raman-saparkhan/"
 session_time: "2023-09-28 - 3:30pm-4:10pm"
 session_room: "Redwood"
 session_track: "Community"
+presenters: 
+  - rsaparkhan
+  - sturan
 permalink: '/events/opensearchcon/raman-saparkhan/getting-started-as-a-contributor-unleashing-your-potential-in-the-opensearch-community.html'
 ---
 
