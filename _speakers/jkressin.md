@@ -3,6 +3,7 @@ speaker_name: 'jkressin'
 speaker_image: '/assets/media/opensearchcon/speakers/jkressin.jpg'
 speaker_name_full: 'Jochen Kressin'
 primary_title: 'Speaker: Jochen Kressin'
+title: 'OpenSearchCon 2023 Speaker: Jochen Kressin'
 speaker_title_and_company: 'Co-Founder Eliatra and Search Guard'
 speaker_talk_title: 'Harnessing the Power of OpenSearch: Performance Optimization Techniques for High-Performing Clusters'
 speaker_twitter: "https://twitter.com/eliatra_ire"

@@ -3,6 +3,7 @@ speaker_name: 'astern'
 speaker_name_full: 'Amitai Stern'
 speaker_talk_title: '4 Very Different Ways to Migrate your Data from One Cluster to Another'
 primary_title: '4 Very Different Ways to Migrate your Data from One Cluster to Another'
+title: 'OpenSearchCon 2023 Session: 4 Different Ways to Migrate Data Between Clusters'
 speaker_twitter: "https://twitter.com/amitaistern"
 speaker_github: "https://github.com/AmiStrn"
 keynote_speaker: false

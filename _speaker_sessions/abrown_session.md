@@ -3,6 +3,7 @@ speaker_name: 'abrown'
 speaker_name_full: 'Alfonso Brown'
 speaker_talk_title: 'Community Inclusion'
 primary_title: 'Community Inclusion'
+title: 'OpenSearchCon 2023 Session: Community Inclusion'
 speaker_twitter: ""
 speaker_github: ""
 speaker_facebook: ""

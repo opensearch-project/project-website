@@ -3,6 +3,7 @@ speaker_name: 'sgaikawad'
 speaker_name_full: 'Sayali Gaikawad'
 speaker_talk_title: 'Grokking OpenSearch&apos;s Build, Test, and Release Infrastructure'
 primary_title: 'Grokking OpenSearch&apos;s Build, Test, and Release Infrastructure'
+title: 'OpenSearchCon 2023 Session: Grokking OpenSearch&apos;s Build, Test, and Release Infrastructure'
 keynote_speaker: false
 speaker_github: "https://github.com/gaiksaya"
 speaker_linkedin: "https://www.linkedin.com/in/sayali-gaikawad/"

@@ -3,6 +3,7 @@ speaker_name: 'parce'
 speaker_name_full: 'Pablo Arce'
 speaker_talk_title: 'Best Practices for Managing Extremely Large, Live Search Indices'
 primary_title: 'Best Practices for Managing Extremely Large, Live Search Indices'
+title: 'OpenSearchCon 2023 Session: Best Practices for Managing Extremely Large, Live Search Indices'
 keynote_speaker: false
 speaker_linkedin: "https://www.linkedin.com/in/pablo-arce-95504223/"
 session_time: "2023-09-28 - 2:00pm-2:40pm"

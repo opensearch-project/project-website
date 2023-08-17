@@ -3,6 +3,7 @@ speaker_name: 'byucel'
 speaker_name_full: 'Bilge Yücel'
 speaker_talk_title: 'Keyword-based or Semantic Search? Best of both worlds with Haystack and OpenSearch'
 primary_title: 'Keyword-based or Semantic Search? Best of both worlds with Haystack and OpenSearch'
+title: 'OpenSearchCon 2023 Session: Keyword-based or Semantic Search? Best of both worlds with Haystack and OpenSearch'
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/bilgeycl"
 speaker_github: "https://github.com/bilgeyucel"

@@ -3,6 +3,7 @@ speaker_name: 'ssingh'
 speaker_image: '/assets/media/opensearchcon/speakers/ssingh.jpg'
 speaker_name_full: 'Saurabh Singh'
 primary_title: 'Speaker: Saurabh Singh'
+title: 'OpenSearchCon 2023 Speaker: Saurabh Singh'
 speaker_title_and_company: 'Senior Software Development Engineer at AWS - OpenSearch'
 speaker_talk_title: 'Connecting the Dots: Advancing Threat Detection through Correlation in Security Analytics'
 keynote_speaker: false
