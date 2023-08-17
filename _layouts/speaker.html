@@ -18,7 +18,7 @@ feature_area_category_name: Session Summaries
                 </div>
                 <h3>{{ page.speaker_title_and_company }}</h3>
                 {%- assign speaker_sessions = site.speaker_sessions | where: "speaker_name", page.speaker_name -%}
-                {%- if speaker_sessions -%}
+                {%- if speaker_sessions.size > 0 -%}
                     <div class="speaker-session--details-card--related">
                         <h4>Sessions</h4>
                         {%- for session in speaker_sessions -%}
