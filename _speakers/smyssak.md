@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/smyssak.jpg'
 speaker_name_full: 'Sergey Myssak'
 primary_title: 'Speaker: Sergey Myssak'
 speaker_title_and_company: 'CCI Participant'
-speaker_talk_title: 'How we jump-started community growth in OpenSearch'
 keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/smyssak.html'

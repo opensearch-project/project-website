@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/khamric.jpg'
 speaker_name_full: 'Ken Hamric'
 primary_title: 'Speaker: Ken Hamric'
 speaker_title_and_company: 'Founder at Tracetest.io'
-speaker_talk_title: 'Fast-track integration tests with distributed traces!'
 keynote_speaker: false
 speaker_github: "https://github.com/kdhamric"
 speaker_linkedin: "https://www.linkedin.com/in/ken-hamric-016b1420/"

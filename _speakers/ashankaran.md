@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/ashankaran.jpg'
 speaker_name_full: 'Akash Shankaran'
 primary_title: 'Speaker: Akash Shankaran'
 speaker_title_and_company: 'Cloud Software Architect, Intel'
-speaker_talk_title: 'Enhancing OpenSearch Performance through ZStandard Compression'
 keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/akash-shankaran.html'

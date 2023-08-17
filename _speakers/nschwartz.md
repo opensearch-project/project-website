@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/nschwartz.jpg'
 speaker_name_full: 'Noam Schwartz'
 primary_title: 'Speaker: Noam Schwartz'
 speaker_title_and_company: 'Software Engineer at Searchium.ai'
-speaker_talk_title: 'Building a Powerful Hybrid Search System: Combining Text and Vector Search for Enhanced OpenSearch Performance'
 keynote_speaker: false
 speaker_github: "https://github.com/noamschwartz"
 speaker_linkedin: "https://www.linkedin.com/in/noam-schwartz-ba5466185/"

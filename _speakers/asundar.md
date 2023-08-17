@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/asundar.jpg'
 speaker_name_full: 'Aparna Sundar'
 primary_title: 'Speaker: Aparna Sundar'
 speaker_title_and_company: 'Lead UX Research at AWS - OpenSearch'
-speaker_talk_title: 'Determining the User Flows in UX: Search Relevance Engineer'
 keynote_speaker: false
 session_track: "Search"
 twitter_url: 'https://twitter.com/asundartweets'

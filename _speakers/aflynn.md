@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/aflynn.jpg'
 speaker_name_full: 'Alastair Flynn'
 primary_title: 'Speaker: Alastair Flynn'
 speaker_title_and_company: 'Software Engineer at Canonical'
-speaker_talk_title: 'Infra+OpenSearch in your laptop under 5 minutes'
 speaker_github: 'github.com/Aflynn50'
 keynote_speaker: false
 session_track: "Community"

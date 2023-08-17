@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/abrown.jpg'
 speaker_name_full: 'Alfonso Brown'
 primary_title: 'Speaker: Alfonso Brown'
 speaker_title_and_company: 'Researcher'
-speaker_talk_title: 'Community Inclusion'
 keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/alfonso-brown.html'

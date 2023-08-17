@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/dfado.jpg'
 speaker_name_full: 'David Fado'
 primary_title: 'Speaker: David Fado'
 speaker_title_and_company: 'Cyber Systems Architect at Peraton'
-speaker_talk_title: 'Information Discovery Across Multiple Models and Indices: Potential for Search Pipelines'
 keynote_speaker: false
 session_track: "Search"
 github_url: 'https://github.com/dtaivpp'

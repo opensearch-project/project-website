@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/saggarwal.jpg'
 speaker_name_full: 'Sarthak Aggarwal'
 primary_title: 'Speaker: Sarthak Aggarwal'
 speaker_title_and_company: 'Software Engineer at AWS - OpenSearch'
-speaker_talk_title: 'Enhancing OpenSearch Performance through ZStandard Compression'
 keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/sarthak-aggarwal.html'

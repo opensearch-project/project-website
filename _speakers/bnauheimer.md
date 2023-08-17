@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/bnauheimer.jpg'
 speaker_name_full: 'Brian Nauheimer'
 primary_title: 'Speaker: Brian Nauheimer'
 speaker_title_and_company: 'KMW Technology'
-speaker_talk_title: 'How to win organizational support for making open source contributions'
 keynote_speaker: false
 session_track: "Community"
 twitter_url: 'https://twitter.com/kmw_technology'

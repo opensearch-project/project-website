@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/gingersoll.jpg'
 speaker_name_full: 'Grant Ingersoll'
 primary_title: 'Speaker: Grant Ingersoll'
 speaker_title_and_company: ''
-speaker_talk_title: ''
 keynote_speaker: true
 speaker_linkedin: ""
 session_track: "keynote"

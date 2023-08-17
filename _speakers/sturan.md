@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/sturan.jpg'
 speaker_name_full: 'Sultan Turan'
 primary_title: 'Speaker: Sultan Turan'
 speaker_title_and_company: ''
-speaker_talk_title: 'Getting Started as a Contributor: Unleashing Your Potential in the OpenSearch Community'
 keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/sultan-turan.html'

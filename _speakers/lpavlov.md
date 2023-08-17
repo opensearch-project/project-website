@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/lpavlov.jpg'
 speaker_name_full: 'Laura Pavlov'
 primary_title: 'Speaker: Laura Pavlov'
 speaker_title_and_company: 'Senior UX Designer @ AWS - OpenSearch'
-speaker_talk_title: 'Determining the User Flows in UX: Search Relevance Engineer'
 keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/laura-pavlov.html'

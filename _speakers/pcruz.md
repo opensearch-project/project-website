@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/pcruz.jpg'
 speaker_name_full: 'Pedro Cruz'
 primary_title: 'Speaker: Pedro Cruz'
 speaker_title_and_company: 'Engineering Manager at Canonical'
-speaker_talk_title: 'From Document to Vector: Using OpenSearch to Store Embedding Data'
 keynote_speaker: false
 session_track: "Search"
 permalink: '/events/opensearchcon/pedro-cruz.html'

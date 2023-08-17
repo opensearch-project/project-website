@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/bomiunu.jpg'
 speaker_name_full: 'Bernice Omiunu'
 primary_title: 'Speaker: Bernice Omiunu'
 speaker_title_and_company: 'Founder and AWS CommunityBuilder'
-speaker_talk_title: 'Community Engagement and Outreach: Growing and Nurturing the OpenSearch Community'
 keynote_speaker: false
 session_track: "Community"
 twitter_url: 'https://twitter.com/Bare_nice'

@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/pzhu.jpg'
 speaker_name_full: 'Peter Zhu'
 primary_title: 'Speaker: Peter Zhu'
 speaker_title_and_company: 'Sr Systems Engineer at AWS - OpenSearch'
-speaker_talk_title: "Grokking OpenSearch's Build, Test, and Release Infrastructure"
 keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/peter-zhu.html'

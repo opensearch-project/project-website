@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/dtippett.jpg'
 speaker_name_full: 'David Tippett'
 primary_title: 'Speaker: David Tippett'
 speaker_title_and_company: 'Senior Developer Advocate / AWS - OpenSearch'
-speaker_talk_title: 'Going Deep: Unraveling the Secrets to OpenSearch&apos;s Ingestion'
 speaker_twitter: "https://twitter.com/dtaivpp"
 speaker_github: "https://github.com/dtaivpp"
 speaker_linkedin: "https://www.linkedin.com/in/david-tippett/"

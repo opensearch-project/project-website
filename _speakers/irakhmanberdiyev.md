@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/irakhmanberdiyev.jpg'
 speaker_name_full: 'Iskander Rakhmanberdiyev'
 primary_title: 'Speaker: Iskander Rakhmanberdiyev'
 speaker_title_and_company: 'Software Development Manager at AWS - OpenSearch'
-speaker_talk_title: 'How we jump-started community growth in OpenSearch'
 keynote_speaker: false
 session_track: "Community"
 speaker_github: "https://github.com/rednaksi91"

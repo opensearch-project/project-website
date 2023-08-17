@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/blewis.jpg'
 speaker_name_full: 'Bianca Lewis'
 primary_title: 'Speaker: Bianca Lewis'
 speaker_title_and_company: 'Chief Revenue Officer at Opster'
-speaker_talk_title: 'Community Inclusion'
 keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/bianca-lewis.html'

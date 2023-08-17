@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/ajadhav.jpg'
 speaker_name_full: 'Anirudha Jadhav'
 primary_title: 'Speaker: Anirudha Jadhav'
 speaker_title_and_company: 'Engineering Manager at AWS - OpenSearch'
-speaker_talk_title: 'From Log Analytics to Comprehensive Observability - New Features and Integrations in 2023'
 keynote_speaker: false
 session_track: "Analytics, Observability, and Security"
 permalink: '/events/opensearchcon/anirudha-jadhav.html'

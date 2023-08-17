@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/rsaparkhan.jpg'
 speaker_name_full: 'Raman Saparkhan'
 primary_title: 'Speaker: Raman Saparkhan'
 speaker_title_and_company: 'Carnegie Mellon University Student and CCI Contributor'
-speaker_talk_title: 'Getting Started as a Contributor: Unleashing Your Potential in the OpenSearch Community'
 keynote_speaker: false
 speaker_github: "https://github.com/roma2023"
 speaker_linkedin: "https://www.linkedin.com/in/raman-saparkhan/"
