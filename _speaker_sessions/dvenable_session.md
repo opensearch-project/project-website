@@ -10,6 +10,9 @@ speaker_linkedin: "https://www.linkedin.com/in/venabledavid"
 session_time: "2023-09-28 - 10:45-11:25am"
 session_room: "Redwood"
 session_track: "Analytics, Observability, and Security"
+presenters: 
+  - dvenable
+  - kkondaka
 permalink: '/events/opensearchcon/david-venable/now-is-the-time-to-start-using-data-prepper.html'
 ---
 

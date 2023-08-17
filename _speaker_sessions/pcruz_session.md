@@ -8,6 +8,9 @@ keynote_speaker: false
 session_time: "2023-09-28 - 1:15pm-1:55pm"
 session_room: "Willow"
 session_track: "Search"
+presenters:
+  - pcruz
+  - aflynn
 permalink: '/events/opensearchcon/pedro-cruz/from-document-to-vector-using-opensearch-to-store-embedding-data.html'
 ---
 

@@ -10,6 +10,9 @@ speaker_linkedin: "https://www.linkedin.com/in/getsaurabh02/"
 session_time: "2023-09-27 - 2:50pm-3:30pm"
 session_room: "Redwood"
 session_track: "Analytics, Observability, and Security"
+presenters:
+  - ssingh
+  - sdey
 permalink: '/events/opensearchcon/saurabh-singh/connecting-the-dots-advancing-threat-detection-through-correlation-in-security-analytics.html'
 ---
 

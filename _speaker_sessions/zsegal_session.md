@@ -11,6 +11,9 @@ speaker_linkedin: "https://www.linkedin.com/in/ziv-segal/"
 session_time: "2023-09-28 - 2:00pm-2:40pm"
 session_room: "Ballroom CD"
 session_track: "Analytics, Observability, and Security"
+presenters:
+  - zsegal
+  - blewis
 permalink: '/events/opensearchcon/ziv-segal/how-to-reduce-costs-in-opensearch.html'
 ---
 

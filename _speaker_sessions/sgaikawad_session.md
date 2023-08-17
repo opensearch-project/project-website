@@ -10,6 +10,9 @@ speaker_linkedin: "https://www.linkedin.com/in/sayali-gaikawad/"
 session_time: "2023-09-28 - 1:15pm-1:55pm"
 session_room: "Redwood"
 session_track: "Community"
+presenters: 
+  - sgaikawad
+  - pzhu
 permalink: '/events/opensearchcon/sayali-gaikawad/grokking-opensearchs-build-test-and-release-infrastructure.html'
 ---
 

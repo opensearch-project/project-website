@@ -14,6 +14,9 @@ github_url: 'https://github.com/apasun'
 session_time: "2023-09-28 - 4:15-4:55pm"
 session_room: "Willow"
 session_track: "Search"
+presenters:
+  - asundar
+  - lpavlov
 permalink : '/events/opensearchcon/aparna-sundar/determining-the-user-flows-in-ux-search-relevance-engineer.html'
 ---
 

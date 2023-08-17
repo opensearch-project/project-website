@@ -10,6 +10,10 @@ speaker_linkedin: "https://www.linkedin.com/in/irakhman/"
 session_time: "2023-09-27 - 3:40pm-4:20pm"
 session_room: "Redwood"
 session_track: "Community"
+presenters: 
+  - irakhmanberdiyev
+  - smyssak
+  - amyssak
 permalink: '/events/opensearchcon/irakhmanberdiyev/how-we-jump-started-community-growth-in-opensearch.html'
 ---
 

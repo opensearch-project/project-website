@@ -10,6 +10,10 @@ speaker_linkedin: "https://www.linkedin.com/in/mulugetamammo"
 session_time: "2023-09-28 - 3:30pm-4:10pm"
 session_room: "Ballroom CD"
 session_track: "Community"
+presenters: 
+  - mmammo
+  - ashankaran
+  - saggarwal
 permalink: '/events/opensearchcon/mulugeta-mammo/enhancing-opensearch-performance-through-zstandard-compression.html'
 ---
 
