@@ -3,6 +3,7 @@ speaker_name: 'schu'
 speaker_image: '/assets/media/opensearchcon/speakers/no-image-available.png'
 speaker_name_full: 'Stephen Chu'
 primary_title: 'Speaker: Stephen Chu'
+title: 'OpenSearchCon 2023 Speaker: Stephen Chu'
 speaker_title_and_company: 'Engineering Manager on Search Platform at Glean'
 speaker_talk_title: 'Fast Experimentation and Testing via Plugin Infrastructure'
 keynote_speaker: false

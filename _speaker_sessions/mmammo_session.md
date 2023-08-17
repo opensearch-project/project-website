@@ -2,7 +2,8 @@
 speaker_name: 'mmammo'
 speaker_name_full: 'Mulugeta Mammo'
 speaker_talk_title: 'Enhancing OpenSearch Performance through ZStandard Compression'
-primary_title: 'Enhancing OpenSearch Performance through ZStandard Compression'
+primary_title: 'Enhancing OpenSearch Performance Through ZStandard Compression'
+title: 'OpenSearchCon 2023 Session: Enhancing OpenSearch Performance Through ZStandard Compression'
 keynote_speaker: false
 speaker_github: "https://github.com/mulugetam/"
 speaker_linkedin: "https://www.linkedin.com/in/mulugetamammo"

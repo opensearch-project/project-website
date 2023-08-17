@@ -3,6 +3,7 @@ speaker_name: 'gbafna'
 speaker_image: '/assets/media/opensearchcon/speakers/gbafna.jpg'
 speaker_name_full: 'Gaurav Bafna'
 primary_title: 'Speaker: Gaurav Bafna'
+title: 'OpenSearchCon 2023 Speaker: Gaurav Bafna'
 speaker_title_and_company: 'Senior Software Engineer, AWS - OpenSearch'
 speaker_talk_title: 'How to Build Resilient Clusters with OpenSearch'
 keynote_speaker: false

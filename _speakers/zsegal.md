@@ -3,6 +3,7 @@ speaker_name: 'zsegal'
 speaker_image: '/assets/media/opensearchcon/speakers/zsegal.jpg'
 speaker_name_full: 'Ziv Segal'
 primary_title: 'Speaker: Ziv Segal'
+title: 'OpenSearchCon 2023 Speaker: Ziv Segal'
 speaker_title_and_company: 'CEO and Co-Founder of Opster'
 speaker_talk_title: 'How to Reduce Costs in OpenSearch'
 keynote_speaker: false

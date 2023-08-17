@@ -3,6 +3,7 @@ speaker_name: 'bwall'
 speaker_name_full: 'Bob Wall'
 speaker_talk_title: 'How to Secure AI Data Stored in an OpenSearch Vector Database'
 primary_title: 'How to Secure AI Data Stored in an OpenSearch Vector Database'
+title: 'OpenSearchCon 2023 Session: How to Secure AI Data Stored in an OpenSearch Vector Database'
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/bithead_bob"
 speaker_github: "https://github.com/BobWall23"

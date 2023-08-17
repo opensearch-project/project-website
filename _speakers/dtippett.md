@@ -3,6 +3,7 @@ speaker_name: 'dtippett'
 speaker_image: '/assets/media/opensearchcon/speakers/dtippett.jpg'
 speaker_name_full: 'David Tippett'
 primary_title: 'Speaker: David Tippett'
+title: 'OpenSearchCon 2023 Speaker: David Tippett'
 speaker_title_and_company: 'Senior Developer Advocate / AWS - OpenSearch'
 speaker_talk_title: 'Going Deep: Unraveling the Secrets to OpenSearch&apos;s Ingestion'
 speaker_twitter: "https://twitter.com/dtaivpp"

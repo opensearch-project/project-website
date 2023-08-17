@@ -3,6 +3,7 @@ speaker_name: 'mmammo'
 speaker_image: '/assets/media/opensearchcon/speakers/mmammo.jpg'
 speaker_name_full: 'Mulugeta Mammo'
 primary_title: 'Speaker: Mulugeta Mammo'
+title: 'OpenSearchCon 2023 Speaker: Mulugeta Mammo'
 speaker_title_and_company: 'Senior Software Engineer at Intel Corp.'
 speaker_talk_title: 'Enhancing OpenSearch Performance through ZStandard Compression'
 keynote_speaker: false

@@ -3,6 +3,7 @@ speaker_name: 'schu'
 speaker_name_full: 'Stephen Chu'
 speaker_talk_title: 'Fast Experimentation and Testing via Plugin Infrastructure'
 primary_title: 'Fast Experimentation and Testing via Plugin Infrastructure'
+title: 'OpenSearchCon 2023 Session: Fast Experimentation and Testing via Plugin Infrastructure'
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/steechu"
 speaker_linkedin: "https://www.linkedin.com/in/chustephen/"
