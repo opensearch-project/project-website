@@ -5,7 +5,7 @@ title: Release Schedule and Maintenance Policy
 ---
 
 
-_Updated April 26, 2023_
+_Updated August 14, 2023_
 
 [Release Schedule](#release-schedule) &middot; [Maintenance Policy](#maintenance-policy)
 
@@ -16,39 +16,29 @@ _Updated April 26, 2023_
 
 For more information on the changes planned for each release, please see the [Project Roadmap](https://github.com/orgs/opensearch-project/projects/1)
 
-### 2023 ###
 
 Note:  We have not added a major release to the 2023 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
 
+
 <div class="table-styler"></div>
 
-| Release Number| Code Freeze Date | Release Date   |
-|:--------------|:-----------------|:---------------|
-| 2.5.0         | January 10th     | January 24th   |
-| 1.3.8         | January 26th     | February 2nd   |
-| 2.6.0         | February 21th    | February 28th  |
-| 1.3.9         | March 9th        | March 16th     |
-| 2.7.0         | April 17th       | May 2nd        |
-| 1.3.10        | May 11th         | May 18th       |
-| 2.8.0         | May 30th         | June 6th       |
-| 1.3.11        | June 22nd        | June 29th      |
-| 2.9.0         | July 11th        | July 24th      |
-| 1.3.12        | August 3rd       | August 10th    |
-| 2.10.0        | September 05th   | TBD            |
+| Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Date |
+|:--------------|:-----------------|:---------------|:---------------|
+| 2.10.0        | September 05th   | September 19th |
 | 1.3.13        | September 14th   | September 21st |
-| 2.11.0        | October 10th     | TBD       |
-| 1.3.14        | November 9th     | November 16th  |
-| 2.12.0        | November 30th    | TBD      |
+| 2.11.0        | November 9th       | November 16th |
+| 1.3.14        | December 5th     | December 12th  |
+| 2.12.0        | January 9th, 2024    | January 23rd, 2024  |
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
  
-For minor version releases, OpenSearch follows "release window" model as described in this [proposal](https://github.com/opensearch-project/.github/issues/150).  We plan to release a new minor version approximately every six weeks which includes all the new features and fixes that are ready to go. The entry and exit criteria are defined for the artifacts to be released. Every day we generate a release candidate. When the exit criteria are met by a release candidate, we announce, update the release date (~2 days later) and publish release artifacts on that date. 
+For minor version releases, OpenSearch follows "release window" model as described in this [proposal](https://github.com/opensearch-project/.github/issues/150).  The goal is to release a new minor version approximately every six weeks which includes all the new features and fixes that are ready to go. Once we enter a release window, every day we will generate a release candidate. When the exit criteria are met by a release candidate, we will make an announcement, update the release date column above and publish new artifacts on that date. 
 
-**Note:** If we cannot pass the exit criteria by 2 weeks after the start of the release cycle window, we will cancel the minor release and hold changes until the next release window.
+**Note:** If we cannot pass the exit criteria by 2 weeks after the start of the release cycle window (1 week for 1.x patch releases), we will cancel the minor release and hold changes until the next release window.
 
 In contrast, OpenSearch releases new major versions only when there are a critical mass of breaking changes (e.g. changes that are incompatible with existing APIs).  These tend to be tied to [Lucene](https://lucene.apache.org/) major version releases, and will be announced in the forums at least 4 weeks prior to the release date.
 
-Please note: Both the roadmap and the release dates reflect intentions rather than firm commitments and may change as we learn more or encounters unexpected issues. If dates do need to change, we will be as transparent as possible, and log all changes in the changelog at the bottom of this page.
+Both the roadmap and the release dates reflect intentions rather than firm commitments and may change as we learn more or encounters unexpected issues. If dates do need to change, we will be as transparent as possible, and log all changes in the changelog at the bottom of this page.
  
 
 ## Maintenance Policy ##
@@ -74,21 +64,28 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 ## Release History ##
 
-### 2022 ###
-
 <div class="table-styler"></div>
 
-| Release Number | Code Freeze Date   | Release Date       |
-|:---------------|:-------------------|:-------------------|
-| 2.1            | June 30, 2022      | July 7, 2022       |
-| 1.3.4          | July 8, 2022       | July 14, 2022      |
-| 2.2            | August 4, 2022     | August 11, 2022    |
-| 1.3.5          | August 16, 2022    | September 1, 2022  |
-| 2.2.1          | August 19, 2022    | September 1, 2022  |
-| 2.3            | September 7, 2022  | September 14, 2022 |
-| 1.3.6          | September 30, 2022 | October 6, 2022    |
-| 2.4            | November 8, 2022   | November 15, 2022  |
-| 1.3.7          | December 6, 2022   | December 13, 2022  |
+| Release Number |  Release Date      |
+|:---------------|:-------------------|
+| 2.1            | July 7, 2022       |
+| 1.3.4          | July 14, 2022      |
+| 2.2            | August 11, 2022    |
+| 1.3.5          | September 1, 2022  |
+| 2.2.1          | September 1, 2022  |
+| 2.3            | September 14, 2022 |
+| 1.3.6          | October 6, 2022    |
+| 2.4            | November 15, 2022  |
+| 1.3.7          | December 13, 2022  |
+| 2.5.0          | January 24th, 2023 |
+| 1.3.8          | February 2nd, 2023   |
+| 2.6.0          | February 28th, 2023  |
+| 1.3.9          | March 9th, 2023      |
+| 2.7.0          | April 17th, 2023     |
+| 1.3.10         | May 11th, 2023       |
+| 2.8.0          | May 30th, 2023        |
+| 1.3.11         | June 22nd, 2023       |
+| 2.9.0          | July 11th, 2023       |
 
 ## Change Log ##
 
@@ -104,6 +101,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 | April 26, 2023  | Update to 2.7.0 release date  | Found CVE to resolve, fix issues found in regression tests  |
 | July 17, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
 | July 20, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
+| August 14, 2023 | Updated release table to reflect release windows | per adoption of https://github.com/opensearch-project/project-website/pull/1866 |
 
 <br>
 
