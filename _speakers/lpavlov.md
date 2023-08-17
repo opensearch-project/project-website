@@ -9,6 +9,4 @@ keynote_speaker: false
 session_track: "Community"
 permalink: '/events/opensearchcon/laura-pavlov.html'
 ---
-
-A researcher and writer, Al Brown is a man with unflinching determination. He has fought and overcome homelessness to graduate from the City University School of Education in Seattle, WA. This future New York Times best-selling author is working on getting his first professional journal published and co-writing a separate research article with Dr. Christine Gehrke. In the meantime, he has a story to tell.
-
+Laura Pavlov is a senior UX designer at the OpenSearch Project, where she spearheads the design of search relevancy features. Despite being relatively new to the search domain, Laura brings a wealth of passion for applying a goal-directed, user-centered, and research-based design approach to her work. Her background includes leading the design of AI/ML features at OpenSearch as well as enterprise data integration features at Dell Technologies. Laura's educational journey led her to Columbia University, where she focused on the fascinating realm of learning and memory during her experimental psychology studies.
