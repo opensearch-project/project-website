@@ -22,7 +22,6 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 
 <div class="table-styler"></div>
 
-### 2023 ###
 | Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Date |
 |:--------------|:-----------------|:---------------|:---------------|
 | 2.10.0        | September 05th   | September 19th |
