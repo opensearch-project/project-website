@@ -10,6 +10,9 @@ keynote_speaker: false
 session_time: "2023-09-27 - 2:00pm-2:40pm"
 session_room: "Redwood"
 session_track: "Community"
+presenters: 
+  - aflynn
+  - pcruz
 permalink: '/events/opensearchcon/alastair-flynn/infra-opensearch-in-your-laptop-under-5-minutes.html'
 ---
 
