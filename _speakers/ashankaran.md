@@ -3,6 +3,7 @@ speaker_name: 'ashankaran'
 speaker_image: '/assets/media/opensearchcon/speakers/ashankaran.jpg'
 speaker_name_full: 'Akash Shankaran'
 primary_title: 'Speaker: Akash Shankaran'
+title: 'OpenSearchCon 2023 Speaker: Akash Shankaran'
 speaker_title_and_company: 'Cloud Software Architect, Intel'
 keynote_speaker: false
 session_track: "Community"

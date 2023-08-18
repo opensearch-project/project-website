@@ -3,6 +3,7 @@ speaker_name: 'vborkar'
 speaker_image: '/assets/media/opensearchcon/speakers/vborkar.jpg'
 speaker_name_full: 'Vinayak Borkar'
 primary_title: 'Speaker: Vinayak Borkar'
+title: 'OpenSearchCon 2023 Speaker: Vinayak Borkar'
 speaker_title_and_company: 'CEO at Mach5 Software, Inc.'
 keynote_speaker: false
 speaker_github: "https://github.com/vinayakb"

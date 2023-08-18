@@ -3,6 +3,7 @@ speaker_name : 'asundar'
 speaker_name_full: 'Aparna Sundar'
 speaker_talk_title : 'Determining the User Flows in UX: Search Relevance Engineer'
 primary_title : 'Determining the User Flows in UX: Search Relevance Engineer'
+title: 'OpenSearchCon 2023 Session: Determining User Flows in UX: Search Relevance Engineer'
 speaker_twitter : ""
 speaker_github : ""
 speaker_facebook : ""

@@ -3,6 +3,7 @@ speaker_name: 'pmprasad'
 speaker_image: '/assets/media/opensearchcon/speakers/pmprasad.jpg'
 speaker_name_full: 'Praveen Mohan Prasad'
 primary_title: 'Speaker: Praveen Mohan Prasad'
+title: 'OpenSearchCon 2023 Speaker: Praveen Mohan Prasad'
 speaker_title_and_company: 'Analytics Specialist @ AWS - OpenSearch'
 keynote_speaker: false
 session_track: "Search"

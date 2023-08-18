@@ -3,6 +3,7 @@ speaker_name: 'zsegal'
 speaker_name_full: 'Ziv Segal'
 speaker_talk_title: 'How to Reduce Costs in OpenSearch'
 primary_title: 'How to Reduce Costs in OpenSearch'
+title: 'OpenSearchCon 2023 Session: How to Reduce Costs in OpenSearch'
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/zivseg"
 speaker_github: "https://github.com/segalziv"

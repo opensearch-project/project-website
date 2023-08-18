@@ -3,6 +3,7 @@ speaker_name: 'jkowall'
 speaker_name_full: 'Jonah Kowall'
 speaker_talk_title: '18 Months of Operating OpenSearch at Scale'
 primary_title: '18 Months of Operating OpenSearch at Scale'
+title: 'OpenSearchCon 2023 Session: 18 Months of Operating OpenSearch at Scale'
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/jkowall"
 speaker_github: "https://github.com/jkowall"

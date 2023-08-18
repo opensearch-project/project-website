@@ -3,6 +3,7 @@ speaker_name: 'sdey'
 speaker_image: '/assets/media/opensearchcon/speakers/sdey.jpg'
 speaker_name_full: 'Subhobrata Dey'
 primary_title: 'Speaker: Subhobrata Dey'
+title: 'OpenSearchCon 2023 Speaker: Subhobrata Dey'
 speaker_title_and_company: 'Software Engineer at AWS - OpenSearch'
 keynote_speaker: false
 session_track: "Analytics, Observability, and Security"

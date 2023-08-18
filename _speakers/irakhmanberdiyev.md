@@ -3,6 +3,7 @@ speaker_name: 'irakhmanberdiyev'
 speaker_image: '/assets/media/opensearchcon/speakers/irakhmanberdiyev.jpg'
 speaker_name_full: 'Iskander Rakhmanberdiyev'
 primary_title: 'Speaker: Iskander Rakhmanberdiyev'
+title: 'OpenSearchCon 2023 Speaker: Iskander Rakhmanberdiyev'
 speaker_title_and_company: 'Software Development Manager at AWS - OpenSearch'
 keynote_speaker: false
 session_track: "Community"

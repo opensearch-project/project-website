@@ -3,6 +3,7 @@ speaker_name: 'ajadhav'
 speaker_name_full: 'Anirudha Jadhav'
 speaker_talk_title: 'From Log Analytics to Comprehensive Observability - New Features and Integrations in 2023'
 primary_title: 'From Log Analytics to Comprehensive Observability - New Features and Integrations in 2023'
+title: 'OpenSearchCon 2023 Session: New Features and Integrations in 2023'
 keynote_speaker: false
 session_time: "2023-09-28 - 1:15pm-1:55pm"
 session_room: "Ballroom CD"

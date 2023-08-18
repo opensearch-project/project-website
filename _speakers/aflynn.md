@@ -3,6 +3,7 @@ speaker_name: 'aflynn'
 speaker_image: '/assets/media/opensearchcon/speakers/aflynn.jpg'
 speaker_name_full: 'Alastair Flynn'
 primary_title: 'Speaker: Alastair Flynn'
+title: 'OpenSearchCon 2023 Speaker: Alastair Flynn'
 speaker_title_and_company: 'Software Engineer at Canonical'
 speaker_github: 'github.com/Aflynn50'
 keynote_speaker: false

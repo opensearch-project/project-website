@@ -3,6 +3,7 @@ speaker_name: 'lpavlov'
 speaker_image: '/assets/media/opensearchcon/speakers/lpavlov.jpg'
 speaker_name_full: 'Laura Pavlov'
 primary_title: 'Speaker: Laura Pavlov'
+title: 'OpenSearchCon 2023 Speaker: Laura Pavlov'
 speaker_title_and_company: 'Senior UX Designer @ AWS - OpenSearch'
 keynote_speaker: false
 session_track: "Community"

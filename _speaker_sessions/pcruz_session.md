@@ -3,6 +3,7 @@ speaker_name: 'pcruz'
 speaker_name_full: 'Pedro Cruz'
 speaker_talk_title: 'From Document to Vector: Using OpenSearch to Store Embedding Data'
 primary_title: 'From Document to Vector: Using OpenSearch to Store Embedding Data'
+title: 'OpenSearchCon 2023 Session: Using OpenSearch to Store Embedding Data'
 keynote_speaker: false
 session_time: "2023-09-28 - 1:15pm-1:55pm"
 session_room: "Willow"

@@ -3,6 +3,7 @@ speaker_name: 'dfado'
 speaker_image: '/assets/media/opensearchcon/speakers/dfado.jpg'
 speaker_name_full: 'David Fado'
 primary_title: 'Speaker: David Fado'
+title: 'OpenSearchCon 2023 Speaker: David Fado'
 speaker_title_and_company: 'Cyber Systems Architect at Peraton'
 keynote_speaker: false
 session_track: "Search"

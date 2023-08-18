@@ -3,6 +3,7 @@ speaker_name: 'ssingh'
 speaker_name_full: 'Saurabh Singh'
 speaker_talk_title: 'Connecting the Dots: Advancing Threat Detection through Correlation in Security Analytics'
 primary_title: 'Connecting the Dots: Advancing Threat Detection through Correlation in Security Analytics'
+title: 'OpenSearchCon 2023 Session: Advancing Threat Detection through Correlation in Security Analytics'
 keynote_speaker: false
 speaker_github: "https://github.com/getsaurabh02"
 speaker_linkedin: "https://www.linkedin.com/in/getsaurabh02/"

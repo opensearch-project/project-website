@@ -3,6 +3,7 @@ speaker_name: 'smyssak'
 speaker_image: '/assets/media/opensearchcon/speakers/smyssak.jpg'
 speaker_name_full: 'Sergey Myssak'
 primary_title: 'Speaker: Sergey Myssak'
+title: 'OpenSearchCon 2023 Speaker: Sergey Myssak'
 speaker_title_and_company: 'CCI Participant'
 keynote_speaker: false
 session_track: "Community"

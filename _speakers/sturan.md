@@ -3,6 +3,7 @@ speaker_name: 'sturan'
 speaker_image: '/assets/media/opensearchcon/speakers/sturan.jpg'
 speaker_name_full: 'Sultan Turan'
 primary_title: 'Speaker: Sultan Turan'
+title: 'OpenSearchCon 2023 Speaker: Sultan Turan'
 speaker_title_and_company: ''
 keynote_speaker: false
 session_track: "Community"

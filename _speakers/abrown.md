@@ -3,6 +3,7 @@ speaker_name: 'abrown'
 speaker_image: '/assets/media/opensearchcon/speakers/abrown.jpg'
 speaker_name_full: 'Alfonso Brown'
 primary_title: 'Speaker: Alfonso Brown'
+title: 'OpenSearchCon 2023 Speaker: Alfonso Brown'
 speaker_title_and_company: 'Researcher'
 keynote_speaker: false
 session_track: "Community"

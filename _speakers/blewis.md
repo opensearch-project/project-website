@@ -3,6 +3,7 @@ speaker_name: 'blewis'
 speaker_image: '/assets/media/opensearchcon/speakers/blewis.jpg'
 speaker_name_full: 'Bianca Lewis'
 primary_title: 'Speaker: Bianca Lewis'
+title: 'OpenSearchCon 2023 Speaker: Bianca Lewis'
 speaker_title_and_company: 'Chief Revenue Officer at Opster'
 keynote_speaker: false
 session_track: "Community"

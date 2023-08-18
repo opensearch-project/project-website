@@ -3,6 +3,7 @@ speaker_name: 'ajambu'
 speaker_image: '/assets/media/opensearchcon/speakers/no-image-available.png'
 speaker_name_full: 'AJ Jambu'
 primary_title: 'Speaker: AJ Jambu'
+title: 'OpenSearchCon 2023 Speaker: AJ Jambu'
 speaker_title_and_company: 'Developer Evangelist at MinIO'
 keynote_speaker: false
 session_track: "Operating OpenSearch"

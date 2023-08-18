@@ -3,6 +3,7 @@ speaker_name: 'scrawford'
 speaker_image: '/assets/media/opensearchcon/speakers/scrawford.jpg'
 speaker_name_full: 'Stephen Crawford'
 primary_title: 'Speaker: Stephen Crawford'
+title: 'OpenSearchCon 2023 Speaker: Stephen Crawford'
 speaker_title_and_company: 'Software Engineer at AWS - OpenSearch'
 keynote_speaker: false
 speaker_github: "https://github.com/scrawfor99"

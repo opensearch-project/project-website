@@ -3,6 +3,7 @@ speaker_name: 'sherman'
 speaker_name_full: 'Samuel Herman'
 speaker_talk_title: 'Journey to a 750-Node Cluster: Why Mastering Allocation and Routing in OpenSearch is the Key to Successfully Achieving Massive Scale'
 primary_title: 'Journey to a 750-Node Cluster: Why Mastering Allocation and Routing in OpenSearch is the Key to Successfully Achieving Massive Scale'
+title: 'OpenSearchCon 2023 Session: Journey to a 750-Node Cluster'
 session_time: "2023-09-28 - 10:00-10:40am"
 session_room: "Ballroom CD"
 session_track: "Operating OpenSearch"

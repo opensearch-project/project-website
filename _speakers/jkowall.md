@@ -3,6 +3,7 @@ speaker_name: 'jkowall'
 speaker_image: '/assets/media/opensearchcon/speakers/jkowall.jpg'
 speaker_name_full: 'Jonah Kowall'
 primary_title: 'Speaker: Jonah Kowall'
+title: 'OpenSearchCon 2023 Speaker: Jonah Kowall'
 speaker_title_and_company: 'VP Product Management / Aiven'
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/jkowall"

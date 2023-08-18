@@ -3,6 +3,7 @@ speaker_name: 'parce'
 speaker_image: '/assets/media/opensearchcon/speakers/parce.jpg'
 speaker_name_full: 'Pablo Arce'
 primary_title: 'Speaker: Pablo Arce'
+title: 'OpenSearchCon 2023 Speaker: Pablo Arce'
 speaker_title_and_company: 'Senior Software Engineer at Pureinsights Technology Corporation'
 keynote_speaker: false
 speaker_linkedin: "https://www.linkedin.com/in/pablo-arce-95504223/"

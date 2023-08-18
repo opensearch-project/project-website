@@ -3,6 +3,7 @@ speaker_name: 'pcruz'
 speaker_image: '/assets/media/opensearchcon/speakers/pcruz.jpg'
 speaker_name_full: 'Pedro Cruz'
 primary_title: 'Speaker: Pedro Cruz'
+title: 'OpenSearchCon 2023 Speaker: Pedro Cruz'
 speaker_title_and_company: 'Engineering Manager at Canonical'
 keynote_speaker: false
 session_track: "Search"

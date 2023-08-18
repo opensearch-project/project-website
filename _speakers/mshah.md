@@ -3,6 +3,7 @@ speaker_name: 'mshah'
 speaker_image: '/assets/media/opensearchcon/speakers/mshah.jpg'
 speaker_name_full: 'Mehul Shah'
 primary_title: 'Speaker: Mehul Shah'
+title: 'OpenSearchCon 2023 Speaker: Mehul Shah'
 speaker_title_and_company: 'Co-Founder of Aryn.ai'
 keynote_speaker: true
 speaker_linkedin: "https://www.linkedin.com/in/mehulashah/"

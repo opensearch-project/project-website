@@ -3,6 +3,7 @@ speaker_name: 'sherman'
 speaker_image: '/assets/media/opensearchcon/speakers/sherman.jpg'
 speaker_name_full: 'Samuel Herman'
 primary_title: 'Speaker: Samuel Herman'
+title: 'OpenSearchCon 2023 Speaker: Samuel Herman'
 speaker_title_and_company: 'Architect at Oracle'
 keynote_speaker: false
 session_track: "Operating OpenSearch"

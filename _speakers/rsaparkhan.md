@@ -3,6 +3,7 @@ speaker_name: 'rsaparkhan'
 speaker_image: '/assets/media/opensearchcon/speakers/rsaparkhan.jpg'
 speaker_name_full: 'Raman Saparkhan'
 primary_title: 'Speaker: Raman Saparkhan'
+title: 'OpenSearchCon 2023 Speaker: Raman Saparkhan'
 speaker_title_and_company: 'Carnegie Mellon University Student and CCI Contributor'
 keynote_speaker: false
 speaker_github: "https://github.com/roma2023"
