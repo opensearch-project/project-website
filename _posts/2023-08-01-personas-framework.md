@@ -43,6 +43,6 @@ The research findings help articulate the main persona framework for search solu
 
 ## References
 
-Turnbull, D. (2022, April 23). *Start with who, not why*. Doug Turnbull’s Blog. https://softwaredoug.com/blog/2022/04/23/start-with-who.html
+Turnbull, D. (2022, April 23). *Start with who, not why*. Doug Turnbull’s Blog. [https://softwaredoug.com/blog/2022/04/23/start-with-who.html](https://softwaredoug.com/blog/2022/04/23/start-with-who.html)
 
-Sundar, A. (2023, March 12). *OpenSearch Project Q1 Community Survey Results*. OpenSearch. https://opensearch.org/blog/q1-survey-results/ 
+Sundar, A. (2023, March 12). *OpenSearch Project Q1 Community Survey Results*. OpenSearch. [https://opensearch.org/blog/q1-survey-results/](https://opensearch.org/blog/q1-survey-results/)
