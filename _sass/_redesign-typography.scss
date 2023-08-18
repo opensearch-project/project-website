@@ -10,7 +10,7 @@
     
     h2 {
         color: $primary-pacific-blue-s3;
-        font-family: 'Open Sans';
+        font-family: 'Open Sans Condensed';
         font-size: 30px;
         font-style: normal;
         font-weight: 700;
@@ -100,7 +100,7 @@
     }
     h2 {
         color: $primary-open-sky;
-        font-family: 'Open Sans';
+        font-family: 'Open Sans Condensed';
         font-size: 30px;
         font-style: normal;
         font-weight: 700;
@@ -182,7 +182,7 @@
 
 @mixin header-level2($color: $primary-pacific-blue-s3) {
     color: $color;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans Condensed';
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
