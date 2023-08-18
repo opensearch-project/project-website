@@ -497,7 +497,7 @@ h2.conference-speaker-session-page {
                     height: 20px;
                 }
                 > div:nth-of-type(2) {
-                    @include header-level5($primary-open-sky);
+                    @include header-level5($primary-open-sky-s3);
                 }
             }
         }
@@ -510,8 +510,8 @@ h2.conference-speaker-session-page {
             align-items: center;
             flex-wrap: nowrap;
             > .speaker-session--speaker-cards--card--content {
-                width: calc(100% - 30px - 20px);
-                flex-basis: calc(100% - 30px - 20px);
+                width: calc(100% - 20px - 70px);
+                flex-basis: calc(100% - 20px - 70px);
                 padding-left: 20px;
                 flex-shrink: 0;
                 flex-grow: 0;
@@ -522,9 +522,11 @@ h2.conference-speaker-session-page {
                 }
             }
             > .speaker-session--speaker-cards--card__categorized--categories {
-                width: 30px;
-                flex-basis: 30px;
-                flex-shrink: 0;
+                width: 20px;
+                padding-left: 40px;
+                padding-right: 10px;
+                flex-basis: 70px;
+                flex-shrink: 0; 
                 flex-grow: 0;
                 display: flex;
                 flex-direction: column;
