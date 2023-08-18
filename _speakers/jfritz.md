@@ -7,6 +7,6 @@ title: 'OpenSearchCon 2023 Speaker: Jon Fritz'
 speaker_title_and_company: ''
 keynote_speaker: false
 session_track: "Community"
-permalink: '/events/opensearchcon/jon-fritz.html'
+permalink: '/events/opensearchcon/speakers/jon-fritz.html'
 ---
 

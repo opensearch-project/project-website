@@ -10,7 +10,7 @@ speaker_twitter: "https://twitter.com/zivseg"
 speaker_github: "https://github.com/segalziv"
 speaker_linkedin: "https://www.linkedin.com/in/ziv-segal/"
 session_track: "Analytics, Observability, and Security"
-permalink: '/events/opensearchcon/ziv-segal.html'
+permalink: '/events/opensearchcon/speakers/ziv-segal.html'
 ---
 
 Ziv Segal is the CEO & Co-Founder of Opster, a platform that takes care of all OpenSearch and Elasticsearch needs. The platform improves performance, ensures stability and reduces hardware costs. Ziv has over a decade of experience working with search operations and is the Former Chief Architect & Founding Member of Logz.io.

@@ -8,7 +8,7 @@ speaker_title_and_company: 'Senior Technical Product Manager at AWS'
 keynote_speaker: true
 speaker_linkedin: ""
 session_track: "keynote"
-permalink: '/events/opensearchcon/eli-fisher.html'
+permalink: '/events/opensearchcon/speakers/eli-fisher.html'
 ---
 Eli Fisher is a Senior Technical Product Manager at AWS. Eli focuses on OpenSearch and OpenSearch Dashboards.
 

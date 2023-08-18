@@ -9,7 +9,7 @@ speaker_github: "https://github.com/greaa-aws"
 speaker_linkedin: "https://www.linkedin.com/in/alecgreavestunnell/"
 keynote_speaker: false
 session_track: "Search"
-permalink: '/events/opensearchcon/alexander-greaves-tunnell.html'
+permalink: '/events/opensearchcon/speakers/alexander-greaves-tunnell.html'
 ---
 
 Alec is an Applied Scientist on the OpenSearch ML team, where he leads the evaluation efforts underlying the team’s focus on iterative improvement of generative AI experiences. Previously, he developed methods for anomaly detection, monitoring of large scale events, and correlation of diverse metrics. Alec earned his Ph.D. in Statistics from the University of Washington, focusing on the analysis of memory in language models, music, and neuroscience.

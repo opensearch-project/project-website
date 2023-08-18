@@ -9,7 +9,7 @@ keynote_speaker: false
 session_track: "Analytics, Observability, and Security"
 linkedin_url: 'https://www.linkedin.com/in/venabledavid'
 github_url: 'https://github.com/dlvenable'
-permalink: '/events/opensearchcon/david-venable.html'
+permalink: '/events/opensearchcon/speakers/david-venable.html'
 ---
 
 David is a senior software engineer working on observability in OpenSearch at Amazon Web Services. He is a maintainer on the Data Prepper project. Prior to working at Amazon, he was the CTO at Allogy Interactive - a start-up creating mobile-learning solutions for healthcare.

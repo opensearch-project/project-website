@@ -9,7 +9,7 @@ keynote_speaker: false
 speaker_github: "https://github.com/noamschwartz"
 speaker_linkedin: "https://www.linkedin.com/in/noam-schwartz-ba5466185/"
 session_track: "Search"
-permalink: '/events/opensearchcon/noam-schwartz.html'
+permalink: '/events/opensearchcon/speakers/noam-schwartz.html'
 ---
 
 Noam is an experienced software engineer specializing in building search applications designed for vector search workloads.

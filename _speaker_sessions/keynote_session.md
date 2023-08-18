@@ -15,6 +15,6 @@ presenters:
   - mshah
   - jbattenberg
   - gingersoll
-permalink: '/events/opensearchcon/keynote.html'
+permalink: '/events/opensearchcon/sessions/keynote.html'
 ---
 Thursday’s agenda kicks off with a view into the accelerating trajectory of the OpenSearch Project and the growth opportunities enabled by open source, community-built search and analytics tools. Join OpenSearch product management lead Eli Fisher along with Mehul Shah, Grant Ingersoll, and Oracle’s Jim Battenberg for an inspirational look at what builders can unlock with OpenSearch.

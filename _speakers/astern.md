@@ -9,7 +9,7 @@ keynote_speaker: false
 session_track: "Operating OpenSearch"
 twitter_url: 'https://twitter.com/amitaistern'
 github_url: 'https://github.com/AmiStrn'
-permalink: '/events/opensearchcon/amitai-stern.html'
+permalink: '/events/opensearchcon/speakers/amitai-stern.html'
 ---
 
 Amitai Stern is a software engineer & team lead of the Telemetry Storage Team at Logz.io. Amitai works on Big data, SaaS projects, leading feature development from design to production, and monitoring. He is a contributor to the OpenSearch open-source project, and has led the successful initiative at Logz.io to upgrade to OpenSearch.

@@ -9,7 +9,7 @@ keynote_speaker: false
 session_track: "Community"
 twitter_url: 'https://twitter.com/Bare_nice'
 linkedin_url: 'https://ng.linkedin.com/in/bernice-e-omiunu-19065b86'
-permalink: '/events/opensearchcon/bernice-omiunu.html'
+permalink: '/events/opensearchcon/speakers/bernice-omiunu.html'
 ---
 
 Bernice Omiunu is a data expert, project and community builder. She is an advocate for diversity in tech, passionate about startups and innovation. Bernice is the founding member of Women in Blockchain Africa, Country Lead at WomenTech Network and Ambassador at WomenTech Makers

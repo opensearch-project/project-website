@@ -10,7 +10,7 @@ speaker_github: "https://github.com/dtaivpp"
 speaker_linkedin: "https://www.linkedin.com/in/david-tippett/"
 keynote_speaker: false
 session_track: "Operating OpenSearch"
-permalink: '/events/opensearchcon/david-tippett.html'
+permalink: '/events/opensearchcon/speakers/david-tippett.html'
 ---
 
 David is a Senior Developer Advocate for the open-source OpenSearch project. He works on every area from search to observability. Before working on OpenSearch he worked in network automation, devops, data engineering, web development, and the list goes on.
