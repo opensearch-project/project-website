@@ -4,7 +4,7 @@ speaker_image: '/assets/media/opensearchcon/speakers/bomiunu.jpg'
 speaker_name_full: 'Bernice Omiunu'
 primary_title: 'Speaker: Bernice Omiunu'
 title: 'OpenSearchCon 2023 Speaker: Bernice Omiunu'
-speaker_title_and_company: 'Founder and AWS CommunityBuilder'
+speaker_title_and_company: 'Founder and AWS Community Builder'
 keynote_speaker: false
 session_track: "Community"
 twitter_url: 'https://twitter.com/Bare_nice'
