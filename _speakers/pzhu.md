@@ -3,7 +3,7 @@ speaker_name: 'pzhu'
 speaker_image: '/assets/media/opensearchcon/speakers/pzhu.jpg'
 speaker_name_full: 'Peter Zhu'
 primary_title: 'Speaker: Peter Zhu'
-title: title: 'OpenSearchCon 2023 Speaker: Peter Zhu'
+title: 'OpenSearchCon 2023 Speaker: Peter Zhu'
 speaker_title_and_company: 'Sr Systems Engineer at AWS - OpenSearch'
 keynote_speaker: false
 session_track: "Community"
