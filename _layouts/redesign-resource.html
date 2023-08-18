@@ -1,0 +1,29 @@
+<div class="platform-solution-page--content__gradient">
+    <hgroup>
+        <h2>Resources</h2>
+        <p>{{ page.description }}</p>
+    </hgroup>
+    <div>
+        {{ content }}
+    </div>
+     {% if page.resources %}
+        <div class="resource-grid">
+            {% for resource in page.resources %}
+                {% assign default_thumbnail_ordinal = forloop.index0 | modulo: 3 | plus: 1  %}
+                {% assign default_thumbnail = "/assets/img/default-3up-thumbnail-" | append: default_thumbnail_ordinal | append: ".png" %}
+                {% assign thumbnail = resource.thumbnail | default: default_thumbnail %}
+                {% assign category = resource.type | default: "Blog" %}
+                {% assign default_aspect_ratio = "67.14%5" %}
+                {% assign aspect_ratio = resource.aspect_ratio | default: default_aspect_ratio %}
+                {% assign post_author = resource.author %}
+                {% assign post_twitter = resource.twitter | default: "OpenSearchProj" %}
+                {% include redesign-resource-grid-item.html aspect_ratio=aspect_ratio category=category title=resource.title url=resource.url thumbnail=thumbnail author=post_author twitter=post_twitter %}
+            {% endfor %}
+        </div>
+        <div class="resource-grid--more">
+            <div class="link-button">
+                <a class="button" href="/blog">View All Blog Posts</a>
+            </div>
+        </div>
+    {% endif %}
+</div>

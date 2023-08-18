@@ -90,6 +90,11 @@ defaults:
       type: speaker_sessions
     values:
       layout: speaker_session
+-
+    scope:
+      type: platforms
+    values:
+      permalink: platform/:categories/:name.html
 
 collections:
   authors:
@@ -117,6 +122,12 @@ collections:
   speakers:
     output: true
   speaker_sessions:
+    output: true
+  redesign_use_cases:
+    output: true
+  redesign_resources:
+    output: true
+  platforms:
     output: true
 
     

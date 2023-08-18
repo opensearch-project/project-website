@@ -1,0 +1,41 @@
+{%  case include.name %}
+    {% when 'download' %}
+        <label for="download-button" class="redesign-buttons--label">Download OpenSearch</label>
+        <opensearch-button id="download-button"
+            icon-position="right"
+            size="large"
+            theme-color="{{ include.theme_color | default: 'primary' }}"
+            no-outline="true"
+            class="redesign-buttons--download__large"
+        >
+            <div slot="icon-slot">
+                {% include icons.html type='angle-double-down' %}
+            </div>
+            <div slot="text-slot">
+                {%- include icons.html type='opensearch-logo-lightmode' -%}
+            </div>
+        </opensearch-button>
+    {% when 'project' %}
+        <label for="project-button" class="redesign-buttons--label">Join the Project</label>
+        <opensearch-button
+            size="large"
+            icon-position="right"
+            no-outline="true"
+            theme-color="{{ include.theme_color | default: 'primary' }}"
+            class="redesign-buttons--project__large"
+        >
+            <div slot="icon-slot">
+                {%- include icons.html type='chevron-right-circle' -%}
+            </div>
+            <div slot="text-slot">
+                <div class="opensearch-button--label__combined-text-icon">
+                    <div 
+                        class="opensearch-button--label__combined-text-icon--icon"
+                    >{%- include icons.html type='github' -%}</div>
+                    <div 
+                        class="opensearch-button--label__combined-text-icon--text"
+                    >OpenSearch Project Org</div>
+                </div>
+            </div>
+        </opensearch-button>
+{% endcase %}
