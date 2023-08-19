@@ -174,34 +174,83 @@ $content-panel-expand-breakpoint: 834px;
         &.speaker-session--speaker-cards--card__categorized {
             height: 130px;
             &.session-card {
-                @media screen and (min-width: 1215px) {
+                /*
+                 * FYI: The highly detailed and granular media queries below are necessary to account for
+                 * the wild variability in the length of text in the card content (Conference session names, especially)
+                 * while maintaining layout consistency with the category indicator, and defined margins / padding.
+                 * It's worth noting that should this code be used for future conferences it's likely that these media queries
+                 * won't apply to the new content, and will need to be adjusted. The best approach would be to normalize
+                 * requirements for the length of text in the card content, or use line clamping in the card text, because
+                 * this complexity makes 2 or 3 work while making the rest look like they have too much exmpty space, but
+                 * at least there's no text overflowing the cards.
+                 */
+                @media screen and (min-width: 1462px) {
                     height: 170px;
                     > .speaker-session--speaker-cards--card--content {
                         height: 150px;
                     }
                 }
+                @media screen and (min-width: 1415px) and (max-width: 1461px) {
+                    height: 220px;
+                    > .speaker-session--speaker-cards--card--content {
+                        height: 180px;
+                    }
+                }
+                @media screen and (min-width: 1215px) and (max-width: 1414px) {
+                    height: 240px;
+                    > .speaker-session--speaker-cards--card--content {
+                        height: 190px;
+                    }
+                }
                 @media screen and (max-width: 1214px) and (min-width: 1020px) {
-                    height: 200px;
+                    height: 220px;
                     > .speaker-session--speaker-cards--card--content {
                         height: 200px;
                     }
                 }
-                @media screen and (max-width: 1019px) and (min-width: 575px) {
+                @media screen and (max-width: 1019px) {
+                    max-width: unset;
+                }
+                @media screen and (max-width: 1019px) and (min-width: 619px) {
                     height: 175px;
                     > .speaker-session--speaker-cards--card--content {
-                        height: 175px;
+                        height: 150px;
                     }
                 }
-                @media screen and (max-width: 574px) and (min-width: 428px) {
-                    height: 250px;
+                @media screen and (min-width: 595px) and (max-width: 618px) {
+                    height: 210px;
                     > .speaker-session--speaker-cards--card--content {
-                        height: 250px;
+                        height: 170px;
                     }
                 }
-                @media screen and (max-width: 427px) {
+                @media screen and (min-width: 520px) and (max-width: 594px) {
+                    height: 230px;
+                    > .speaker-session--speaker-cards--card--content {
+                        height: 190px;
+                    }
+                }
+                @media screen and (min-width: 455px) and (max-width: 519px) {
+                    height: 270px;
+                    > .speaker-session--speaker-cards--card--content {
+                        height: 230px;
+                    }
+                }
+                @media screen and (min-width: 390px) and (max-width: 454px) {
                     height: 300px;
                     > .speaker-session--speaker-cards--card--content {
-                        height: 300px;
+                        height: 270px;
+                    }
+                }
+                @media screen and (min-width: 385px) and (max-width: 389px) {
+                    height: 330px;
+                    > .speaker-session--speaker-cards--card--content {
+                        height: 290px;
+                    }
+                }
+                @media screen and (max-width: 384px) {
+                    height: 400px;
+                    > .speaker-session--speaker-cards--card--content {
+                        height: 370px;
                     }
                 }
                 > .speaker-session--speaker-cards--card--content {
@@ -247,7 +296,7 @@ $content-panel-expand-breakpoint: 834px;
                 > .speaker-session--speaker-cards--card--content--job-title {
                     margin-top: 0;
                     white-space: break-spaces;
-                    max-width: calc(100% - 25px);
+                    max-width: 100%;
                 }
             }
         }
