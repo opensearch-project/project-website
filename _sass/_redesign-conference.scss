@@ -55,7 +55,7 @@ $content-panel-expand-breakpoint: 834px;
     @include thick-edge-bottom;
     @include card-shadow;
     > h4 {
-        margin-top: 0;
+        margin-top: 66px;
         margin-bottom: 10px;
     }
     > h3 {
@@ -63,6 +63,12 @@ $content-panel-expand-breakpoint: 834px;
     }
     > .speaker-session--details-card--date {
         @include header-level2($primary-open-sky);
+        margin-top: 0;
+    }
+    &:not(:has(> h4)) {
+        > .speaker-session--details-card--date {
+            margin-top: 66px;
+        }
     }
     > .speaker-session--details-card--related {
         > h4 {
