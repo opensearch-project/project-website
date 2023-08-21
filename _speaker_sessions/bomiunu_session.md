@@ -10,7 +10,7 @@ session_time: "2023-09-28 - 4:15-4:55pm"
 session_room: "Redwood"
 keynote_speaker: false
 session_track: "Community"
-permalink: '/events/opensearchcon/bernice-omiunu/community-engagement-and-outreach-growing-and-nurturing-the-opensearch-community.html'
+permalink: '/events/opensearchcon/sessions/community-engagement-and-outreach-growing-and-nurturing-the-opensearch-community.html'
 ---
 
-The vitality of an open-source project like OpenSearch relies on a vibrant . This session explores strategies for cultivating an inclusive OpenSearch , promoting growth active participation. We discuss practical approaches to inclusivity, effective communication channels, collaboration tools, governance models. Using real-world examples best practices, we aim to equip attendees with the tools to foster a robust OpenSearch.
+The vitality of an open-source project like OpenSearch relies on a vibrant community. This session explores strategies for cultivating an inclusive OpenSearch community, promoting growth active participation. We discuss practical approaches to inclusivity, effective communication channels, collaboration tools, governance models. Using real-world examples best practices, we aim to equip attendees with the tools to foster a robust OpenSearch.

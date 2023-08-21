@@ -13,7 +13,7 @@ session_track: "Community"
 presenters: 
   - sgaikawad
   - pzhu
-permalink: '/events/opensearchcon/sayali-gaikawad/grokking-opensearchs-build-test-and-release-infrastructure.html'
+permalink: '/events/opensearchcon/sessions/grokking-opensearchs-build-test-and-release-infrastructure.html'
 ---
 
 This session explores the evolution of OpenSearch's build, test and release process, from manual scripts to a fully automated system with comprehensive logging and auditing. You will learn about the build system that enables community members to create OpenSearch and OpenSearch Dashboards. We will demonstrate its integration, flexibility, and efficiency. We will cover end to end process of distribution, standalone component releases via a 1-click mechanism, and the usage of a customized CI/CD system. This session will inspire you to think outside the box with your own release processes!

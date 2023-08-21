@@ -12,7 +12,7 @@ session_track: "Search"
 presenters:
   - mshah
   - jfritz
-permalink: '/events/opensearchcon/mehul-shah/generative-ai-and-opensearch-whats-your-plan.html'
+permalink: '/events/opensearchcon/sessions/generative-ai-and-opensearch-whats-your-plan.html'
 ---
 
 Rapid advancements in large language models (LLMs) are reshaping search applications with personal, empathetic experiences and improved search quality. This session will explore multiple uses of generative AI in search stacks, demonstrating how to integrate it with OpenSearch. From ingest to query, we'll illustrate how LLMs can enhance your applications without a complete platform shift, ensuring your search application isn't left behind in the AI revolution.
