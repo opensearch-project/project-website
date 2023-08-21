@@ -152,6 +152,7 @@ $content-panel-expand-breakpoint: 834px;
     }
     
     > .speaker-session--speaker-cards--card {
+        cursor: pointer;
         background-color: white;
         @include thick-edge-left;
         &.speaker-session--speaker-cards--card__bottom-edge {
