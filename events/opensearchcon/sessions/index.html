@@ -48,34 +48,4 @@ feature_area_category_name: OpenSearchCon 2023
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        function findParentCardBoundary(element) {
-            const cardClassName = 'speaker-session--speaker-cards--card';
-            if (element === null) {
-                return null;
-            } else if (element.classList.contains(cardClassName)) {
-                return element;
-            } else {
-                return findParentCardBoundary(element.parentElement);
-            }
-        }
-        function findCardLink(cardElement) {
-            const link = cardElement.querySelector('a');
-            return link;
-        }
-        function onCardClick(e) {
-            if (e.target.tagName === 'A') {
-                e.stopImmediatePropagation();
-                return;
-            }
-            const card = findParentCardBoundary(e.target);
-            if (card) {
-                const link = findCardLink(card);
-                link.click();
-                event.stopPropagation();
-            }
-        }
-        document.querySelector('.speaker-session--speaker-cards').addEventListener('click', onCardClick);
-    });
-</script>
+{% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
