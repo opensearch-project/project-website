@@ -13,9 +13,9 @@ feature_area_category_name: Speaker Bios
                 {%- if page.keynote_speaker -%}
                     <h4>Keynote Speaker</h4>
                 {%- endif -%}
-                <div class="speaker-session--details-card--date">
+                <h2 class="speaker-session--details-card--date">
                     {{ page.speaker_name_full }}
-                </div>
+                </h2>
                 <h3>{{ page.speaker_title_and_company }}</h3>
                 {%- assign speaker_sessions = site.speaker_sessions | where: "speaker_name", page.speaker_name -%}
                 {%- if speaker_sessions.size > 0 -%}

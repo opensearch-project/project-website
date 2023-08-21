@@ -23,7 +23,7 @@ feature_area_category_name: Session Summaries
                 <h4>Details</h4>
                 {% assign session_date_time = page.session_time | split: " - " %}
                 {% assign session_date = session_date_time[0] | date: "%A, %B %e" %}
-                <div class="speaker-session--details-card--date">{{ session_date }} {{ session_date_time[1] }} in {{ page.session_room }}</div>
+                <h2 class="speaker-session--details-card--date">{{ session_date }} {{ session_date_time[1] }} in {{ page.session_room }}</h2>
                 <h3>Track: {{ page.session_track }}</h3>
             </div>
         </div>
@@ -60,34 +60,4 @@ feature_area_category_name: Session Summaries
         <a href="/events/opensearchcon/speakers/index.html">View All Speakers</a>
     </div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        function findParentCardBoundary(element) {
-            const cardClassName = 'speaker-session--speaker-cards--card';
-            if (element === null) {
-                return null;
-            } else if (element.classList.contains(cardClassName)) {
-                return element;
-            } else {
-                return findParentCardBoundary(element.parentElement);
-            }
-        }
-        function findCardLink(cardElement) {
-            const link = cardElement.querySelector('a');
-            return link;
-        }
-        function onCardClick(e) {
-            if (e.target.tagName === 'A') {
-                e.stopImmediatePropagation();
-                return;
-            }
-            const card = findParentCardBoundary(e.target);
-            if (card) {
-                const link = findCardLink(card);
-                link.click();
-                event.stopPropagation();
-            }
-        }
-        document.querySelector('.speaker-session--speaker-cards').addEventListener('click', onCardClick);
-    });
-</script>
+{% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
