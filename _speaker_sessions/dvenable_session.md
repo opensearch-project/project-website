@@ -1,9 +1,9 @@
 ---
 speaker_name: 'dvenable'
 speaker_name_full: 'David Venable'
-speaker_talk_title: 'Now is the time to start using Data Prepper'
-primary_title: 'Now is the time to start using Data Prepper'
-title: 'OpenSearchCon 2023 Session: Now is the time to start using Data Prepper'
+speaker_talk_title: 'Now is the Time to Start Using Data Prepper'
+primary_title: 'Now is the Time to Start Using Data Prepper'
+title: 'OpenSearchCon 2023 Session: Now is the Time to Start Using Data Prepper'
 keynote_speaker: false
 speaker_github: "https://github.com/dlvenable"
 speaker_linkedin: "https://www.linkedin.com/in/venabledavid"

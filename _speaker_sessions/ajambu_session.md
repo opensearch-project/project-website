@@ -1,9 +1,9 @@
 ---
 speaker_name: 'ajambu'
 speaker_name_full: 'AJ Jambu'
-speaker_talk_title: 'How to Create, Restore, Tier and Search Snapshot Indices Stored in Object Storage'
-primary_title: 'How to Create, Restore, Tier and Search Snapshot Indices Stored in Object Storage'
-title: 'OpenSearchCon 2023 Session: Create, Restore, Tier and Search Snapshot Indices Stored in Object Storage'
+speaker_talk_title: 'How to Create, Restore, Tier, and Search Snapshot Indices Stored in Object Storage'
+primary_title: 'How to Create, Restore, Tier, and Search Snapshot Indices Stored in Object Storage'
+title: 'OpenSearchCon 2023 Session: Create, Restore, Tier, and Search Snapshot Indices Stored in Object Storage'
 keynote_speaker: false
 session_time: "2023-09-27 - 1:10pm-1:50pm"
 session_room: "Redwood"

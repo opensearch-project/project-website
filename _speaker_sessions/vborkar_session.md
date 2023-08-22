@@ -1,9 +1,9 @@
 ---
 speaker_name: 'vborkar'
 speaker_name_full: 'Vinayak Borkar'
-speaker_talk_title: 'Experience building a SIEM with OpenSearch'
-primary_title: 'Experience building a SIEM with OpenSearch'
-title: 'OpenSearchCon 2023 Session: Experience building a SIEM with OpenSearch'
+speaker_talk_title: 'Experience Building a SIEM With OpenSearch'
+primary_title: 'Experience Building a SIEM With OpenSearch'
+title: 'OpenSearchCon 2023 Session: Experience Building a SIEM With OpenSearch'
 keynote_speaker: false
 speaker_github: "https://github.com/vinayakb"
 speaker_linkedin: "https://www.linkedin.com/in/vinayakborkar/"
