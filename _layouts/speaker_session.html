@@ -3,8 +3,16 @@ layout: redesign-fullwidth
 feature_area_icon_type: smiling-face
 feature_area_category_name: Session Summaries
 ---
-{% assign session_speakers = site.speakers | where: "speaker_talk_title", page.speaker_talk_title %}
 
+{% if page.presenters %}
+    {% assign session_speaker_names = page.presenters %}
+    {% assign primary_speaker_name = page.speaker_name  %}
+    {% assign copresenter_names = session_speaker_names | join: " " | remove: primary_speaker_name %}
+    {% assign primary_speaker_name_to_prepend = primary_speaker_name | append: " " %}
+    {% assign ordered_speaker_names = copresenter_names | prepend: primary_speaker_name_to_prepend | split: " " %}
+{% else %}
+    {% assign ordered_speaker_names = page.speaker_name | split: " " %}
+{% endif %}
 <div class="landing-page-content__right-panel conference-speaker-session-page">
     <div class="landing-page-content__right-panel--content">
         <div class="landing-page-content__right-panel--content--body">
@@ -21,26 +29,29 @@ feature_area_category_name: Session Summaries
         </div>
     </div>
 </div>
-{% if session_speakers %}
-    <h2 class="conference-speaker-session-page">Speakers</h2>
-    <div class="speaker-session--speaker-cards">
-        {%- for speaker in session_speakers -%}
-        <div class="speaker-session--speaker-cards--card">
-            <div class="speaker-session--speaker-cards--card--image">
-                {% assign speaker_image = speaker.speaker_image | default: "/assets/media/opensearchcon/speakers/no-image-available.png" %}
-                <img src="{{ speaker_image }}" alt="{{ speaker.speaker_name_full }} photograph">
+
+<h2 class="conference-speaker-session-page">Speakers</h2>
+<div class="speaker-session--speaker-cards">
+    {% for speaker_name in ordered_speaker_names %}
+        {% assign speaker = site.speakers | where: "speaker_name", speaker_name | first %}
+        {% if speaker %}
+            <div class="speaker-session--speaker-cards--card">
+                <div class="speaker-session--speaker-cards--card--image">
+                    {% assign speaker_image = speaker.speaker_image | default: "/assets/media/opensearchcon/speakers/no-image-available.png" %}
+                    <img src="{{ speaker_image }}" alt="{{ speaker.speaker_name_full }} photograph">
+                </div>
+                <div class="speaker-session--speaker-cards--card--content">
+                    {% if speaker.keynote_speaker %}
+                        <div class="keynote-speaker-label">Keynote Speaker</div>
+                    {% endif %}
+                    <h3><a href="{{ speaker.permalink }}">{{ speaker.speaker_name_full }}</a></h3>
+                    <div class="speaker-session--speaker-cards--card--content--job-title">{{ speaker.speaker_title_and_company }}</div>
+                </div>
             </div>
-            <div class="speaker-session--speaker-cards--card--content">
-                {% if speaker.keynote_speaker %}
-                    <div class="keynote-speaker-label">Keynote Speaker</div>
-                {% endif %}
-                <h3><a href="{{ speaker.permalink }}">{{ speaker.speaker_name_full }}</a></h3>
-                <div class="speaker-session--speaker-cards--card--content--job-title">{{ speaker.speaker_title_and_company }}</div>
-            </div>
-        </div>
-        {%- endfor -%}
-    </div>
-{% endif %}
+        {% endif %}
+    {%- endfor -%}
+</div>
+
 <div class="conference-speaker-session-page--view-all">
     <div>
         <a href="/events/opensearchcon/sessions/index.html">View All Sessions</a>

@@ -14,7 +14,10 @@ github_url: 'https://github.com/apasun'
 session_time: "2023-09-28 - 4:15-4:55pm"
 session_room: "Willow"
 session_track: "Search"
-permalink : '/events/opensearchcon/aparna-sundar/determining-the-user-flows-in-ux-search-relevance-engineer.html'
+presenters:
+  - asundar
+  - lpavlov
+permalink : '/events/opensearchcon/sessions/determining-the-user-flows-in-ux-search-relevance-engineer.html'
 ---
 
 This talk emphasizes the importance of curating user flows in OpenSearch UX, particularly for Search Relevance Engineers (or Producers). We'll present findings from deep-dive interviews with OpenSearch community's Search Producers. Our adopted user experience research and design process focuses on users' jobs to be done (JTBD) framework, placing the user at the center of innovation. Our approach allows us to discover users' pain points and hypothetical solutions in their job functions and data context. We'll also share proposed UX flows, demonstrating how we articulate success-paths for these users.
