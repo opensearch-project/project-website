@@ -11,6 +11,9 @@ speaker_linkedin: "https://www.linkedin.com/in/bilge-yucel"
 session_time: "2023-09-28 - 4:15-4:55pm"
 session_room: "Ballroom CD"
 session_track: "Search"
+presenters: 
+  - byucel
+  - tcelik
 permalink: '/events/opensearchcon/sessions/keyword-based-or-semantic-search-best-of-both-worlds-with-haystack-and-opensearch.html'
 ---
 

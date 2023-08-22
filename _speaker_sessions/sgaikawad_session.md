@@ -12,7 +12,7 @@ session_room: "Redwood"
 session_track: "Community"
 presenters: 
   - sgaikawad
-  - pzhu
+  - jzhu
 permalink: '/events/opensearchcon/sessions/grokking-opensearchs-build-test-and-release-infrastructure.html'
 ---
 
