@@ -4,7 +4,6 @@ speaker_image: '/assets/media/opensearchcon/speakers/no-image-available.png'
 speaker_name_full: 'Jim Battenberg'
 primary_title: 'Speaker: Jim Battenberg'
 speaker_title_and_company: ''
-speaker_talk_title: ''
 title: 'OpenSearchCon 2023 Speaker: Jim Battenberg'
 keynote_speaker: true
 speaker_linkedin: ""
