@@ -8,7 +8,7 @@ speaker_talk_title: ''
 keynote_speaker: true
 speaker_linkedin: ""
 session_track: "keynote"
-permalink: '/events/opensearchcon/jim-battenberg.html'
+permalink: '/events/opensearchcon/speakers/jim-battenberg.html'
 ---
 Jim Battenberg.
 
