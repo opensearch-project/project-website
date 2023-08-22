@@ -132,6 +132,9 @@ $content-panel-expand-breakpoint: 834px;
         > a {
             color: $secondary-sanfrancisco-fog-t1;
             padding: 10px 50px;
+            &:hover {
+                background: unset;
+            }
         }
     }
 }
