@@ -36,7 +36,7 @@ resources:
 
 ### Integrations
 
-- [Haystack integration with OpenSearc](https://www.deepset.ai/opensearch-integration){:target="_blank"}
+- [Haystack integration with OpenSearch](https://www.deepset.ai/opensearch-integration){:target="_blank"}
 - [Hopsworks integration with OpenSearch](https://docs.hopsworks.ai/3.0/user_guides/mlops/vector_database/#introduction){:target="_blank}
 - [LangChain integration with OpenSearch](https://python.langchain.com/en/latest/modules/indexes/vectorstores/examples/opensearch.html){:target="_blank"}
 - [LlamaIndex integration with OpenSearch](https://gpt-index.readthedocs.io/en/latest/reference/storage/vector_store.html#llama_index.vector_stores.OpensearchVectorClient){:target="_blank}
