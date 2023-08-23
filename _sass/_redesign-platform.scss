@@ -69,24 +69,21 @@
             }
         }
         .platform-page--feature-area--category-name,
-        .platform-page--feature-area--solution-name {
+        .platform-page--feature-area--solution-name,
+        .platform-page--feature-area--category-name-separator {
             min-width: fit-content;
-            padding-left: 20px;
+            margin-left: 1em;
             @media screen and (max-width: 390px) {
-                padding-left: 10px;
+                margin-left: 10px;
                 font-size: 19px;
             }
             @media screen and (max-width: 360px) {
-                padding-left: 0;
+                margin-left: 0;
             }
-            color: $secondary-sanfrancisco-fog-s4;
-            font-family: 'Open Sans';
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 21px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
+            @include header-level4($secondary-sanfrancisco-fog-s4)
+        }
+        .platform-page--feature-area--solution-name {
+            @include bottom-border-underline;
         }
     }
 }
