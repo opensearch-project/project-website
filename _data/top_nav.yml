@@ -1,6 +1,7 @@
 items:
   -
     label: OpenSearchCon
+    fragment: opensearchcon
     children:
       -
         label: Register for OpenSearchCon!

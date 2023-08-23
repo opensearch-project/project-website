@@ -1,6 +1,6 @@
 ---
 speaker_name: 'ajambu'
-speaker_image: '/assets/media/opensearchcon/speakers/no-image-available.png'
+speaker_image: '/assets/media/opensearchcon/speakers/no-image-available.svg'
 speaker_name_full: 'AJ Jambu'
 primary_title: 'Speaker: AJ Jambu'
 title: 'OpenSearchCon 2023 Speaker: AJ Jambu'

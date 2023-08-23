@@ -814,7 +814,7 @@ $resource-grid-1-column-max: 833px;
 
 .link-button {
     text-align: center;
-    height: 53px;
+    height: 50px;
     border-radius: 6px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     background-color: $light-theme-category-call-to-action-background;
@@ -823,6 +823,7 @@ $resource-grid-1-column-max: 833px;
         font-size: 18px;
         line-height: 2.8;
         text-decoration: none;
+        font-weight: 700;
         &:hover {
             background: $primary-pacific-sky-t2;
         }
