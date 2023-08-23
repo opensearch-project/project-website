@@ -10,7 +10,7 @@
     
     h2 {
         color: $primary-pacific-blue-s3;
-        font-family: 'Open Sans';
+        font-family: 'Open Sans Condensed';
         font-size: 30px;
         font-style: normal;
         font-weight: 700;
@@ -100,7 +100,7 @@
     }
     h2 {
         color: $primary-open-sky;
-        font-family: 'Open Sans';
+        font-family: 'Open Sans Condensed';
         font-size: 30px;
         font-style: normal;
         font-weight: 700;
@@ -182,7 +182,7 @@
 
 @mixin header-level2($color: $primary-pacific-blue-s3) {
     color: $color;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans Condensed';
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
@@ -249,14 +249,60 @@
     padding: 4px 12px;
 }
 
+@mixin focused-button-dark-mode {
+    border: 3px solid $primary-open-sky;
+    background: $primary-open-sky-s2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 44px;
+    > a {
+        line-height: 2.4;
+    }
+}
+
+@mixin hover-button-dark-mode {
+    background: $primary-open-sky;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@mixin active-button-dark-mode {
+    background: $primary-open-sky;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+@mixin disabled-button-dark-mode {
+    border-radius: 6px;
+    background: $secondary-sanfrancisco-fog-s1;
+    > a {
+        color: $secondary-sanfrancisco-fog;
+    }
+}
+
 @mixin link-button($fill-color: $primary-pacific-sky-t3) {
     font-family: 'Open Sans';
     border-radius: 6px;
-    background: $fill-color;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    &:not(:has(a:focus, a:hover, a[disabled])) {
+        background: $fill-color;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    &:has(a:focus) {
+        @include focused-button-dark-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-dark-mode;
+    }
+    &:has(a:active) {
+        @include active-button-dark-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-dark-mode;
+    }
+    
     white-space: nowrap;
     > a {
         text-decoration: none;
+    }
+    > a:focus {
+        padding: 10px 47px;
     }
 }
 

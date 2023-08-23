@@ -1,0 +1,33 @@
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        function findParentCardBoundary(element) {
+            const cardClassName = '{{ include.card_classname }}';
+            if (element === null) {
+                return null;
+            } else if (element.classList.contains(cardClassName)) {
+                return element;
+            } else {
+                return findParentCardBoundary(element.parentElement);
+            }
+        }
+        function findCardLink(cardElement) {
+            const link = cardElement.querySelector('a');
+            return link;
+        }
+        function onCardClick(e) {
+            if (e.target.tagName === 'A') {
+                e.stopImmediatePropagation();
+                return;
+            }
+            const card = findParentCardBoundary(e.target);
+            if (card) {
+                const link = findCardLink(card);
+                link.click();
+                event.stopPropagation();
+            }
+        }
+        document.querySelectorAll('{{ include.card_container_selector }}').forEach((cardList) => {
+            cardList.addEventListener('click', onCardClick);
+        });
+    });
+</script>
