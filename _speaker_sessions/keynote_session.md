@@ -1,9 +1,9 @@
 ---
 speaker_name: 'Keynote Speakers'
 speaker_name_full: 'Keynote Speakers'
-speaker_talk_title: 'Keynote'
-primary_title: 'Keynote'
-title: 'OpenSearchCon 2023 Session: Keynote'
+speaker_talk_title: 'Opening Keynote'
+primary_title: 'Opening Keynote'
+title: 'OpenSearchCon 2023 Session: Opening Keynote'
 speaker_twitter: ""
 speaker_github: ""
 speaker_facebook: ""

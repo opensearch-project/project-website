@@ -1,9 +1,9 @@
 ---
 speaker_name: 'bnauheimer'
 speaker_name_full: 'Brian Nauheimer'
-speaker_talk_title: 'How to win organizational support for making open source contributions'
-primary_title: 'How to win organizational support for making open source contributions'
-title: 'OpenSearchCon 2023 Session: How to win organizational support for making open source contributions'
+speaker_talk_title: 'How to Win Organizational Support for Making Open Source Contributions'
+primary_title: 'How to Win Organizational Support for Making Open Source Contributions'
+title: 'OpenSearchCon 2023 Session: How to Win Organizational Support for Making Open Source Contributions'
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/kmw_technology"
 speaker_linkedin: "https://www.linkedin.com/in/bnauheimer/"

@@ -1,8 +1,8 @@
 ---
 speaker_name: 'pmprasad'
 speaker_name_full: 'Praveen Mohan Prasad'
-speaker_talk_title: 'Empower your Keyword Search with Text-Expansion Technique to Outperform Unexplainable Vector Search'
-primary_title: 'Empower your Keyword Search with Text-Expansion Technique to Outperform Unexplainable Vector Search'
+speaker_talk_title: 'Empower Your Keyword Search With Text-Expansion Technique to Outperform Unexplainable Vector Search'
+primary_title: 'Empower Your Keyword Search With Text-Expansion Technique to Outperform Unexplainable Vector Search'
 title: 'OpenSearchCon 2023 Session: Text-Expansion Technique to Outperform Unexplainable Vector Search'
 keynote_speaker: false
 session_time: "2023-09-28 - 11:30am - 12:10pm"
