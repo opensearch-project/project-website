@@ -4,31 +4,32 @@ title: Using OpenSearch as a Vector Database
 categories:
   - search
 primary_title: Using OpenSearch as a Vector Database
+feature_area_icon_type: squinting-face
 feature_area_category_name: Search
 feature_area_solution_name: Vector Database
 callouts:
-  - name: 'Trusted &amp; Powerful'
+  - name: 'Trusted in production'
     description: 'Power AI applications on a mature search and analytics engine trusted in production by tens of thousands of users.'
-  - name: 'Stable &amp; Scalable'
-    description: 'Build stable, scalable applications with a data platform proven by users to scale to up to tens of billions of vectors in production, with the low latency and high availability required by mission-critical systems.'
-  - name: 'Flexible Frameworks'
-    description: 'Choose open-source tools and avoid lock-in with Apache 2.0-licensed software and integrations with popular open frameworks like LangChain and LlamaIndex, with the option to use managed services from major cloud providers.'
-  - name: 'Platform Driven'
-    description: 'Future-proof your next-generation AI applications with vector, term-based, and hybrid search, analytics, and observability capabilities, all in one software suite.'
+  - name: 'Proven at scale'
+    description: 'Build stable, scalable applications with a data platform proven by users to scale to up to tens of billions of vectors, with low latency and high availability required by mission-critical systems.'
+  - name: 'Open and flexible'
+    description: 'Choose open-source tools and take advantage of integrations with popular open frameworks, plus the option to use managed services from major cloud providers.'
+  - name: 'Build for the future'
+    description: 'Future-proof your AI applications with vector, lexical, and hybrid search, analytics, and observability capabilities, all in one software suite.'
 ---
 
 ## An open-source, all-in-one vector database for building flexible, scalable, and future-proof AI applications
 
-Traditional term-based search, based on term frequency models like BM25, is widely used and effective for many search applications. However, these term-based search techniques require significant investment in time and expertise to tune them to account for the meaning or relevance of the terms searched.  Today, more and more developers want to embed semantic understanding into their search applications. Enter machine learning embedding models that can encode the meaning and context of documents, images, and audio into vectors for similarity search. These embedded meanings can, in turn, be searched using the [k-nearest neighbors (k-NN)](https://opensearch.org/docs/latest/search-plugins/knn/index/ "k-nearest neighbors (k-NN)") functionality provided by OpenSearch.  
+Traditional lexical search, based on term frequency models like BM25, is widely used and effective for many search applications. However, lexical search techniques require significant investment in time and expertise to tune them to account for the meaning or relevance of the terms searched.  Today, more and more developers want to embed semantic understanding into their search applications. Enter machine learning embedding models that can encode the meaning and context of documents, images, and audio into vectors for similarity search. These embedded meanings can, in turn, be searched using the [k-nearest neighbors (k-NN)](https://opensearch.org/docs/latest/search-plugins/knn/index/ "k-nearest neighbors (k-NN)") functionality provided by OpenSearch.  
 
-Using OpenSearch as a vector database brings together the power of traditional search, analytics, and vector search in one complete package. OpenSearch’s vector database capabilities can accelerate artificial intelligence (AI) application development by reducing the effort for builders to operationalize, manage, and integrate AI-generated assets. Bring your models, vectors, and metadata into OpenSearch to power vector, term-based, and hybrid search and analytics, with performance and scalability built in.
+Using OpenSearch as a vector database brings together the power of traditional search, analytics, and vector search in one complete package. OpenSearch’s vector database capabilities can accelerate artificial intelligence (AI) application development by reducing the effort for builders to operationalize, manage, and integrate AI-generated assets. Bring your models, vectors, and metadata into OpenSearch to power vector, lexical, and hybrid search and analytics, with performance and scalability built in.
 
 Use the vector database functionality built into OpenSearch to:
 
 - Power AI applications on a mature search and analytics engine trusted in production by tens of thousands of users.
 - Build stable, scalable applications with a data platform proven by users to scale to up to tens of billions of vectors in production, with the low latency and high availability required by mission-critical systems.
 - Choose open-source tools and avoid lock-in with Apache 2.0-licensed software and integrations with popular open frameworks like LangChain and LlamaIndex, with the option to use managed services from major cloud providers.
-- Future-proof your next-generation AI applications with vector, term-based, and hybrid search, analytics, and observability capabilities, all in one software suite.
+- Future-proof your next-generation AI applications with vector, lexical, and hybrid search, analytics, and observability capabilities, all in one software suite.
 
 ## What is a vector database?
 

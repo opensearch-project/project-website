@@ -17,17 +17,17 @@ resources:
   - title: 'Amazon OpenSearch Service’s vector database capabilities explained'
     url: 'https://aws.amazon.com/blogs/big-data/amazon-opensearch-services-vector-database-capabilities-explained/?locale=en'
     type: Search
+  - title: 'Try semantic search with the Amazon OpenSearch Service vector engine'
+    url: 'https://aws.amazon.com/blogs/big-data/try-semantic-search-with-the-amazon-opensearch-service-vector-engine/'
+    type: Search
+  - title: 'How FIS ingests and searches vector data for quick ticket resolution with Amazon OpenSearch Service'
+    url: 'https://aws.amazon.com/blogs/big-data/how-fis-ingests-and-searches-vector-data-for-quick-ticket-resolution-with-amazon-opensearch-service/'
+    type: Search
   - title: 'Build a powerful question answering bot'
     url: 'https://aws.amazon.com/blogs/machine-learning/build-a-powerful-question-answering-bot-with-amazon-sagemaker-amazon-opensearch-service-streamlit-and-langchain/'
     type: Search
   - title: 'Implement unified text and image search with a CLIP model'
     url: 'https://aws.amazon.com/blogs/machine-learning/implement-unified-text-and-image-search-with-a-clip-model-using-amazon-sagemaker-and-amazon-opensearch-service/'
-    type: Search
-  - title: 'Building an NLU-powered search application with Amazon SageMaker and the Amazon OpenSearch Service'
-    url: 'https://aws.amazon.com/blogs/machine-learning/building-an-nlu-powered-search-application-with-amazon-sagemaker-and-the-amazon-es-knn-feature/'
-    type: Search
-  - title: 'Building a visual search application with Amazon SageMaker and Amazon ES'
-    url: 'https://aws.amazon.com/blogs/machine-learning/building-a-visual-search-application-with-amazon-sagemaker-and-amazon-es/'
     type: Search
   - title: 'Choose the k-NN algorithm for your billion-scale use case with OpenSearch'
     url: 'https://aws.amazon.com/blogs/big-data/choose-the-k-nn-algorithm-for-your-billion-scale-use-case-with-opensearch/'
