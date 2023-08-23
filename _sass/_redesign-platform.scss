@@ -31,13 +31,16 @@
     }
 }
 
+$platform-header-wide-screen-width: 1200px;
+$platform-header-reduce-padding-width: 1199px;
+
 .platform-page--header {
-    @media screen and (min-width: 834px) {
+    @media screen and (min-width: $platform-header-wide-screen-width) {
         padding-top: 40px;
         padding-left: 80px;
         padding-bottom: 40px;
     }
-    @media screen and (max-width: 833px) {
+    @media screen and (max-width: $platform-header-reduce-padding-width) {
         padding-top: 20px;
         padding-left: 20px;
         padding-bottom: 20px;

@@ -11,8 +11,8 @@ $resource-grid-1-column-max: 833px;
 $content-with-panel-right-side-width: 420px;
 $content-with-panel-wide-screen-width: 1200px;
 $content-with-panel-reduce-padding-width: 1199px;
-$content-with-panel-wide-screen-padding: 40px;
-$content-with-panel-reduced-padding: 20px;
+$content-with-panel-wide-screen-padding: 120px;
+$content-with-panel-reduced-padding: 40px;
 $content-with-panel-collapsed-max: 834px;
 $content-with-panel-expanded-min: 835px;
 
@@ -24,14 +24,14 @@ $content-with-panel-expanded-min: 835px;
         flex-wrap: wrap;
         > .landing-page-content__right-panel--content--body {
             @media screen and (min-width: $content-with-panel-wide-screen-width) {
-                padding: $content-with-panel-wide-screen-padding;
-                flex-basis: calc(100% - $content-with-panel-right-side-width - ($content-with-panel-wide-screen-padding * 2));
+                padding: 40px 40px 40px 80px;
+                flex-basis: calc(100% - $content-with-panel-right-side-width - $content-with-panel-wide-screen-padding);
                 flex-grow: 1;
                 flex-shrink: 1;
             }
             @media screen and (max-width: $content-with-panel-reduce-padding-width) {
-                padding: $content-with-panel-reduced-padding;
-                flex-basis: calc(100% - $content-with-panel-right-side-width - ($content-with-panel-reduced-padding * 2));
+                padding: 40px 20px 40px 20px;
+                flex-basis: calc(100% - $content-with-panel-right-side-width - $content-with-panel-reduced-padding);
                 flex-grow: 1;
                 flex-shrink: 1;
             }
@@ -67,10 +67,10 @@ $content-with-panel-expanded-min: 835px;
                     padding-right: 40px;
                     flex-basis: calc(100% - 80px);
                 }
-                @media screen and (min-width: 834px) {
-                    padding-left: 2em;
-                    padding-right: 2em;
-                }
+                // @media screen and (min-width: 834px) {
+                //     padding-left: 2em;
+                //     padding-right: 2em;
+                // }
             }
             &:has(.solutions-card-grid) {
                 > .solutions-card-grid {
