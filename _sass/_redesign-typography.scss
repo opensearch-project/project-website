@@ -346,3 +346,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+@mixin bottom-border-underline($color: $primary-pacific-blue) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $color;
+}
