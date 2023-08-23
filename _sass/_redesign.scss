@@ -8,6 +8,14 @@ $resource-grid-2-column-max: 1439px;
 $resource-grid-2-column-min: 834px;
 $resource-grid-1-column-max: 833px;
 
+$content-with-panel-right-side-width: 420px;
+$content-with-panel-wide-screen-width: 1200px;
+$content-with-panel-reduce-padding-width: 1199px;
+$content-with-panel-wide-screen-padding: 40px;
+$content-with-panel-reduced-padding: 20px;
+$content-with-panel-collapsed-max: 834px;
+$content-with-panel-expanded-min: 835px;
+
 .landing-page-content__right-panel {
     background: #fff;
     > .landing-page-content__right-panel--content {
@@ -15,22 +23,23 @@ $resource-grid-1-column-max: 833px;
         flex-direction: row;
         flex-wrap: wrap;
         > .landing-page-content__right-panel--content--body {
-            @media screen and (min-width: 1440px) {
-                flex-basis: calc(67% - 8em);
+            @media screen and (min-width: $content-with-panel-wide-screen-width) {
+                padding: $content-with-panel-wide-screen-padding;
+                flex-basis: calc(100% - $content-with-panel-right-side-width - ($content-with-panel-wide-screen-padding * 2));
                 flex-grow: 1;
                 flex-shrink: 1;
-                padding: 4em;
             }
-            @media screen and (max-width: 1439px) {
-                flex-basis: calc(100% - 4em);
-                flex-grow: 0;
+            @media screen and (max-width: $content-with-panel-reduce-padding-width) {
+                padding: $content-with-panel-reduced-padding;
+                flex-basis: calc(100% - $content-with-panel-right-side-width - ($content-with-panel-reduced-padding * 2));
+                flex-grow: 1;
+                flex-shrink: 1;
+            }
+            @media screen and (max-width: $content-with-panel-collapsed-max) {
                 flex-shrink: 0;
-                padding: 2em;
-            }
-            @media screen and (max-width: 833px) {
-                padding-bottom: 0;
-                padding: 2em 40px;
-                flex-basis: calc(100% - 80px);
+                flex-grow: 0;
+                padding: 20px 0 0 20px;
+                flex-basis: calc(100% - 20px);
             }
             
             background: #fff;
@@ -42,23 +51,18 @@ $resource-grid-1-column-max: 833px;
             }
         }
         > .landing-page-content__right-panel--content--side-panel {
-            @media screen and (min-width: 1440px) {
-                flex-basis: calc(33% - 4em);
+            @media screen and (min-width: $content-with-panel-expanded-min) {
+                flex-basis: 420px;
                 flex-grow: 0;
                 flex-shrink: 1;
             }
-            @media screen and (max-width: 1439px) {
-                flex-basis: calc(100% - 4em);
-                flex-grow: 0;
-                flex-shrink: 0;
-            }
-            @media screen and (max-width: 833px) {
-                flex-basis: calc(100% - 4em);
+            @media screen and (max-width: $content-with-panel-collapsed-max) {
+                flex-basis: calc(100% - 40px);
                 padding-top: 0;
             }
             padding-top: 2em;
             &:not(:has(.solutions-card-grid)) {
-                @media screen and (max-width: 833px) {
+                @media screen and (max-width: $content-with-panel-collapsed-max) {
                     padding-left: 40px;
                     padding-right: 40px;
                     flex-basis: calc(100% - 80px);
@@ -69,14 +73,29 @@ $resource-grid-1-column-max: 833px;
                 }
             }
             &:has(.solutions-card-grid) {
-                .solutions-card-grid {
+                > .solutions-card-grid {
                     > .solutions-card-grid--card-wrapper {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-around;
-                        align-items: center;
-                        flex-wrap: wrap;
+                        @media screen and (min-width: $content-with-panel-expanded-min) {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-around;
+                            align-items: center;
+                            flex-wrap: wrap;
+                        }
+                        @media screen and (min-width: 701) and (max-width: $content-with-panel-collapsed-max) {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                        }
+                        @media screen and (max-width: 700px) {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                        }
                         padding: 2em 0;
+                        > .solutions-card-grid--card-wrapper--card {
+                            @media screen and (max-width: 700px) {
+                                width: 100%;
+                            }
+                        }
                     }
                 }
                 .solutions-card-grid--card-wrapper--card--content {
@@ -101,14 +120,15 @@ $resource-grid-1-column-max: 833px;
             }
             > .draft-3-landing-page--button-stack {
                 
-                @media screen and (min-width: 834px) and (max-width: 1439px) {
+                @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     grid-gap: 2em;
                     padding: 0 2em;
                     width: calc(100% - 4em);
                 }
-                @media screen and (min-width: 1440px), screen and (max-width: 833px) {
+                @media screen and (min-width: $content-with-panel-expanded-min), 
+                screen and (max-width: $content-with-panel-collapsed-max) {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
@@ -116,13 +136,13 @@ $resource-grid-1-column-max: 833px;
                     width: 100%;
                     row-gap: 30px;
                 }
-                @media screen and (max-width: 833px) {
+                @media screen and (max-width: $content-with-panel-collapsed-max) {
                     width: 100%;
                 }
                 
                 height: 100%;
                 > .draft-3-landing-page--button-stack--button {
-                    @media screen and (min-width: 834px) and (max-width: 1439px) {
+                    @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
                         flex-basis: 50%;
                         flex-grow: 1;
                         flex-shrink: 1;
@@ -131,7 +151,7 @@ $resource-grid-1-column-max: 833px;
                     @media screen and (min-width: 1440px) {
                         width: calc(100% - 2em);
                     }
-                    @media screen and (max-width: 833px) {
+                    @media screen and (max-width: $content-with-panel-collapsed-max) {
                         width: 100%;
                     }
                     > opensearch-button {
@@ -154,10 +174,10 @@ $resource-grid-1-column-max: 833px;
             }
             > .landing-page-content__right-panel--content-side-panel--version-label {
                 @include header-level5($secondary-sanfrancisco-fog-s1);
-                @media screen and (min-width: 834px) and (max-width: 1439px) {
+                @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
                     text-align: center;
                 }
-                @media screen and (max-width: 833px) {
+                @media screen and (max-width: $content-with-panel-collapsed-max) {
                     padding-top: 6px;
                 }
             }
@@ -242,11 +262,6 @@ $resource-grid-1-column-max: 833px;
             top: 0;
             left: 0;
             margin: 0;
-            // background-image: url('../media/herobanners/redesign/gradient-hero-bg.png');
-            // background-position: center center;
-            // background-repeat: no-repeat;
-            // background-size: contain;
-            // background-attachment: scroll;
             width: 100%;
             max-width: 1440px;
             @media screen and (min-width: 834px) {
@@ -570,10 +585,7 @@ $resource-grid-1-column-max: 833px;
     > div {
         flex-basis: 268px;
         height: 50px;
-        @include link-button;
-        a {
-            @extend .button;
-        }
+        @include link-button-light-mode;   
     }
 }
 
@@ -581,10 +593,15 @@ $resource-grid-1-column-max: 833px;
     @include gradient-open-sky;
     width: 100%;
     box-sizing: border-box;
-    padding: 1em 2em 0 2em;
+    padding: 1em 35px 0 35px;
     @media screen and (max-width: 833px) {
         padding-left: 40px;
         padding-right: 40px;
+    }
+    > h2.solutions-card-grid--header {
+        @include header-level2($primary-open-sky-s3);
+        margin-top: 13px;
+        margin-bottom: 0;
     }
     > .solutions-card-grid--card-wrapper {
         display: grid;
@@ -594,9 +611,9 @@ $resource-grid-1-column-max: 833px;
         @media screen and (max-width: 1459px) {
             grid-template-columns: 1fr 1fr;
         }
-        @media screen and (max-width: 1023px) {
-            grid-template-columns: 1fr;
-        }
+        // @media screen and (max-width: 1023px) {
+        //     grid-template-columns: 1fr;
+        // }
         @media screen and (max-width: 833px) {
             padding: 0;
         }
@@ -621,14 +638,9 @@ $resource-grid-1-column-max: 833px;
             margin-bottom: 2em;
             > .solutions-card-grid--card-wrapper--card--label__no-icon {
                 color: $light-theme-category-card-label;
+                @include header-level4($primary-pacific-blue-s3);
                 width: 100%;
-                font-size: 15px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 21px;
-                letter-spacing: 4.5px;
-                text-transform: uppercase;
-                padding-top: 25px;
+                padding-top: 40px;
                 padding-bottom: 25px;
             }
             > .solutions-card-grid--card-wrapper--card--icon__left-label {

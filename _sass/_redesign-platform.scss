@@ -57,6 +57,7 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        flex-wrap: wrap;
         .platform-page--feature-area--icon {
             flex-basis: 40px;
             flex-grow: 0;
@@ -85,6 +86,9 @@
         .platform-page--feature-area--solution-name {
             @include bottom-border-underline;
         }
+    }
+    .platform-page--title {
+        padding-left: 10px;
     }
 }
 .platform-page--content {

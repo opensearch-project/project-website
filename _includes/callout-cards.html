@@ -1,6 +1,6 @@
 <div class="solutions-card-grid">
     {% if include.heading %}
-        <h2>{{ include.heading }}</h2>
+        <h2 class="solutions-card-grid--header">{{ include.heading }}</h2>
     {% endif %}
     <div class="solutions-card-grid--card-wrapper">
         {% for callout in include.callouts %}
