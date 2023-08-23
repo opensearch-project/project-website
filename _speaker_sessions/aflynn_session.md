@@ -1,9 +1,9 @@
 ---
 speaker_name: 'aflynn'
 speaker_name_full: 'Alastair Flynn'
-speaker_talk_title: 'Infra+OpenSearch in your laptop under 5 minutes'
-primary_title: 'Infra+OpenSearch in your laptop under 5 minutes'
-title: 'OpenSearchCon 2023 Session: Infra+OpenSearch in your laptop under 5 minutes'
+speaker_talk_title: 'Infra+OpenSearch in Your Laptop Under 5 Minutes'
+primary_title: 'Infra+OpenSearch in Your Laptop Under 5 minutes'
+title: 'OpenSearchCon 2023 Session: Infra+OpenSearch in Your Laptop Under 5 Minutes'
 speaker_twitter: ""
 speaker_github: 'github.com/Aflynn50'
 speaker_facebook: ""

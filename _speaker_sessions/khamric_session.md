@@ -1,9 +1,9 @@
 ---
 speaker_name: 'khamric'
 speaker_name_full: 'Ken Hamric'
-speaker_talk_title: 'Fast-track integration tests with distributed traces!'
-primary_title: 'Fast-track integration tests with distributed traces!'
-title: 'OpenSearchCon 2023 Session: Fast-track integration tests with distributed traces'
+speaker_talk_title: 'Fast-Track Integration Tests With Distributed Traces!'
+primary_title: 'Fast-Track Integration Tests With Distributed Traces!'
+title: 'OpenSearchCon 2023 Session: Fast-Track Integration Tests With Distributed Traces'
 keynote_speaker: false
 speaker_github: "https://github.com/kdhamric"
 speaker_linkedin: "https://www.linkedin.com/in/ken-hamric-016b1420/"

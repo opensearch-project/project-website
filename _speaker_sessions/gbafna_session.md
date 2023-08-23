@@ -1,9 +1,9 @@
 ---
 speaker_name: 'gbafna'
 speaker_name_full: 'Gaurav Bafna'
-speaker_talk_title: 'How to Build Resilient Clusters with OpenSearch'
-primary_title: 'How to Build Resilient Clusters with OpenSearch'
-title: 'OpenSearchCon 2023 Session: How to Build Resilient Clusters with OpenSearch'
+speaker_talk_title: 'How to Build Resilient Clusters With OpenSearch'
+primary_title: 'How to Build Resilient Clusters With OpenSearch'
+title: 'OpenSearchCon 2023 Session: How to Build Resilient Clusters With OpenSearch'
 speaker_github: "https://github.com/gbbafna/"
 keynote_speaker: false
 session_time: "2023-09-27 - 9:00am-9:40am"

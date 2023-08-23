@@ -23,7 +23,7 @@ feature_area_category_name: Session Summaries
                 <h4>Details</h4>
                 {% assign session_date_time = page.session_time | split: " - " %}
                 {% assign session_date = session_date_time[0] | date: "%A, %B %e" %}
-                <div class="speaker-session--details-card--date">{{ session_date }} {{ session_date_time[1] }} in {{ page.session_room }}</div>
+                <h2 class="speaker-session--details-card--date">{{ session_date }} {{ session_date_time[1] }} in {{ page.session_room }}</h2>
                 <h3>Track: {{ page.session_track }}</h3>
             </div>
         </div>
@@ -37,7 +37,7 @@ feature_area_category_name: Session Summaries
         {% if speaker %}
             <div class="speaker-session--speaker-cards--card">
                 <div class="speaker-session--speaker-cards--card--image">
-                    {% assign speaker_image = speaker.speaker_image | default: "/assets/media/opensearchcon/speakers/no-image-available.png" %}
+                    {% assign speaker_image = speaker.speaker_image | default: "/assets/media/opensearchcon/speakers/no-image-available.svg" %}
                     <img src="{{ speaker_image }}" alt="{{ speaker.speaker_name_full }} photograph">
                 </div>
                 <div class="speaker-session--speaker-cards--card--content">
@@ -53,10 +53,11 @@ feature_area_category_name: Session Summaries
 </div>
 
 <div class="conference-speaker-session-page--view-all">
-    <div>
+    <div class="link-button">
         <a href="/events/opensearchcon/sessions/index.html">View All Sessions</a>
     </div>
-    <div>
+    <div class="link-button">
         <a href="/events/opensearchcon/speakers/index.html">View All Speakers</a>
     </div>
 </div>
+{% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
