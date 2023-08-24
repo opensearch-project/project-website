@@ -365,3 +365,8 @@ $platform-page-content-reduce-padding-width: 1199px;
         }
     }
 }
+.platform-page--resources {
+    .resource-grid > .resource-grid--item {
+        cursor: pointer;
+    }
+}

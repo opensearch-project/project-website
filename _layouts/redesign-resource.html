@@ -1,4 +1,4 @@
-<div class="platform-solution-page--content__gradient">
+<div class="platform-solution-page--content__gradient platform-page--resources">
     <hgroup>
         <h2 class="platform-page--resource--header">Resources</h2>
         <p>{{ page.description }}</p>
@@ -25,5 +25,6 @@
                 <a href="/blog">View All Blog Posts</a>
             </div>
         </div>
+        {% include card-clickability.html card_container_selector=".platform-page--resources .resource-grid" card_classname="resource-grid--item" %}
     {% endif %}
 </div>
