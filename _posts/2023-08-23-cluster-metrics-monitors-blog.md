@@ -24,7 +24,7 @@ In OpenSearch version 1.3, we added cluster metrics monitors to the Alerting plu
 10. [_cat/tasks](https://opensearch.org/docs/2.9/api-reference/cat/cat-tasks/)
 
 
-In this blog post, we’ll walk through two common use cases for this monitor type: [monitoring CPU utilization](#monitoring-cluster-cpu-utilization) and [monitoring JVM memory pressure](#monitoring-cluster-jvm-memory-pressure). Additionally, we’ll present use cases for the newly-supported APIs, `_cluster/indices` and `_cluster/shards`. 
+In this blog post, we’ll walk through two common use cases for this monitor type: [monitoring CPU utilization](#monitoring-cluster-cpu-utilization) and [monitoring JVM memory pressure](#monitoring-cluster-jvm-memory-pressure). Additionally, we’ll present use cases for the newly-supported APIs, [`_cat/indices`](#_catindices) and [`_cat/shards`](#_catshards). 
 
 ## Monitoring cluster CPU utilization
 
@@ -88,7 +88,7 @@ You can also use the `_cluster/stats` API to receive alerts when the JVM memory 
 
 ## Monitoring `_cat/indices` and `_cat/shards` responses
 
-With the release of OpenSearch version 2.9, cluster metrics monitors now support calling the `_cluster/indices` and `_cluster/shards` APIs! The output from those APIs consist of a list of indexes and a list of shards, respectively. The following are some examples of trigger conditions that iterate through the list returned by the API to check whether any entry matches the desired condition.
+With the release of OpenSearch version 2.9, cluster metrics monitors now support calling the `_cat/indices` and `_cat/shards` APIs! The output from those APIs consist of a list of indexes and a list of shards, respectively. The following are some examples of trigger conditions that iterate through the list returned by the API to check whether any entry matches the desired condition.
 
 ### `_cat/indices`
 
