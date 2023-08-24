@@ -9,7 +9,7 @@ category:
 date: 2023-08-25 00:00:01 -0700
 
 # An excerpt of the blog post. It is used in the blog post list view, and in the home page what's new list of N most recent blog posts. It is also used as a fallback value for the twittercard:description field if not explictly defined in the front matter.
-excerpt: "Here we will show how to build an end-to-end generative AI application for enterprise search with Retrieval Augmented Generation (RAG) using Haystack, OpenSearch, and Sagemaker Jumpstart."
+excerpt: "Here we will show how to build an end-to-end generative AI application for enterprise search with Retrieval Augmented Generation (RAG) using Haystack, OpenSearch, and Sagemaker JumpStart."
 
 # Used as a fallback for the Twitter Card image, otherwise not currently used. Is only present in content up to June 3, 2021.
 feature_image: /assets/media/blog-images/2023-08-25-sagemaker-haystack-opensearch/Architecture.png
