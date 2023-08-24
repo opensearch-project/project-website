@@ -291,6 +291,7 @@ $platform-page-content-reduce-padding-width: 1199px;
     }
     .resource-grid--item {
         @include card-shadow;
+        @include thick-edge-bottom;
         max-width: 350px;
         height: 437px;
         background-color: white;
@@ -366,7 +367,10 @@ $platform-page-content-reduce-padding-width: 1199px;
     }
 }
 .platform-page--resources {
-    .resource-grid > .resource-grid--item {
-        cursor: pointer;
-    }
+    .resource-grid {
+        row-gap: 54px;
+        > .resource-grid--item {
+            cursor: pointer;
+        }
+    } 
 }
