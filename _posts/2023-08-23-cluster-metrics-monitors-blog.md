@@ -58,7 +58,7 @@ By creating a cluster metrics monitor that calls the `_cluster/stats` API, you c
 
 ## Monitoring cluster JVM memory pressure
 
-You can also use the `_cluster/stats` API to receive alerts when the JVM memory pressure of the cluster reaches a certain threshold. Let’s say you want to generate an alert when the JVM memory pressure reaches or exceeds 75%. This example requires a little more understanding of trigger conditions to configure because the `_cluster/stats` API doesn’t return the percentage of the heap that’s used; it returns `heap_used_in_bytes` and `heap_max_in_bytes`.
+You can also use the `_cluster/stats` API to receive alerts when the JVM memory pressure of the cluster reaches a certain threshold. Let’s say you want to generate an alert when the JVM memory pressure reaches or exceeds 75%. This example requires a little more understanding of configurable trigger conditions because the `_cluster/stats` API doesn’t return the percentage of the heap that’s used; it returns `heap_used_in_bytes` and `heap_max_in_bytes`.
 
 1. From the top menu, select **OpenSearch Plugins** > **Alerting**.
 1. On the **Monitors** tab, select **Create monitor**.
