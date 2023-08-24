@@ -15,9 +15,7 @@
                 {% assign category = resource.type | default: "Blog" %}
                 {% assign default_aspect_ratio = "67.14%5" %}
                 {% assign aspect_ratio = resource.aspect_ratio | default: default_aspect_ratio %}
-                {% assign post_author = resource.author %}
-                {% assign post_twitter = resource.twitter | default: "OpenSearchProj" %}
-                {% include redesign-resource-grid-item.html aspect_ratio=aspect_ratio category=category title=resource.title url=resource.url thumbnail=thumbnail author=post_author twitter=post_twitter %}
+                {% include redesign-resource-grid-item.html aspect_ratio=aspect_ratio category=category title=resource.title url=resource.url thumbnail=thumbnail %}
             {% endfor %}
         </div>
         <div class="resource-grid--more">
