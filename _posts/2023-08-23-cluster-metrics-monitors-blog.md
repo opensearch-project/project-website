@@ -33,7 +33,6 @@ By creating a cluster metrics monitor that calls the `_cluster/stats` API, you c
 1. From the top menu, select **OpenSearch Plugins** > **Alerting**.
 1. In the **Monitors** tab, select **Create monitor**.
 1. Select the **Per cluster metrics monitor** option. For demonstration purposes, you’ll configure this monitor to run every minute by leaving the default values under **Schedule**.
-    ![Configuring a per cluster monitor](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu1-monitor-type.png){: .img-fluid }
 1. Under **Query** > **Request type**, select **Cluster stats**. In the response preview, you can see that the current CPU utilization for this cluster is 0%.
     ![Configuring the request type](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu2-request-type.png){: .img-fluid }
 1. Configure a trigger condition that compares the CPU percent to your desired threshold: 
@@ -46,7 +45,7 @@ By creating a cluster metrics monitor that calls the `_cluster/stats` API, you c
     ![Configuring notifications](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu4-notification.png){: .img-fluid }
     As you can see in the example, you can include `ctx.results.0.nodes.process.cpu.percent` to print the CPU utilization in the notification message:
    
-    ```bash
+    ```plaintext
     The current CPU usage for the cluster is {% raw %}{{ctx.results.0.nodes.process.cpu.percent}}%{% endraw %}`.
 
     Monitor {% raw %}{{ctx.monitor.name}}{% endraw %} just entered alert status. Please investigate the issue.
@@ -62,17 +61,20 @@ By creating a cluster metrics monitor that calls the `_cluster/stats` API, you c
 You can also use the `_cluster/stats` API to receive alerts when the JVM memory pressure of the cluster reaches a certain threshold. Let’s say you want to generate an alert when the JVM memory pressure reaches or exceeds 75%. This example requires a little more understanding of trigger conditions to configure, because the `_cluster/stats` API doesn’t return the percentage of the heap that’s used; it returns `heap_used_in_bytes` and `heap_max_in_bytes`.
 
 1. From the top menu, select **OpenSearch Plugins** > **Alerting**.
-2. In the **Monitors** tab, select **Create monitor**.
-3. Select the **Per cluster metrics monitor** option. For demonstration purposes, you’ll configure this monitor to run every minute by leaving the default values under **Schedule**.
-4. Under **Query** > **Request type**, select **Cluster stats**. In the response preview, you can see that the current `heap_max_in_bytes` is `536870912`, and `heap_used_in_bytes` is `96278576`; which is about 17.93% of the max.
+1. In the **Monitors** tab, select **Create monitor**.
+1. Select the **Per cluster metrics monitor** option. For demonstration purposes, you’ll configure this monitor to run every minute by leaving the default values under **Schedule**.
+1. Under **Query** > **Request type**, select **Cluster stats**. In the response preview, you can see that the current `heap_max_in_bytes` is `536870912`, and `heap_used_in_bytes` is `96278576`; which is about 17.93% of the max.
     ![Configuring the request type](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-jvm2-request-type.png){: .img-fluid }
-5. Configure a trigger condition that calculates the JVM memory pressure percentage and compares it to the desired threshold:
+1. Configure a trigger condition that calculates the JVM memory pressure percentage and compares it to the desired threshold:
     ```bash
     ctx.results[0].nodes.jvm.mem.heap_used_in_bytes / ctx.results[0].nodes.jvm.mem.heap_max_in_bytes >= 0.75
     ```
-1. Configure notification actions as desired. This example uses a dummy channel for demonstration purposes. Mustache template does not currently support performing calculations, but you can print the current `heap_used_in_bytes` and `heap_max_in_bytes` in the message:
+1. Configure notification actions as desired. This example uses a dummy channel for demonstration purposes. 
+    ![Configuring notifications](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-jvm4-notification.png){: .img-fluid }
 
-    ```bash
+    Mustache template does not currently support performing calculations, but you can print the current `heap_used_in_bytes` and `heap_max_in_bytes` in the message:
+
+    ```plaintext
     JVM memory pressure breached 75%.
     {% raw %}{{ctx.results.0.nodes.jvm.mem.heap_used_in_bytes}} bytes used of {{ctx.results.0.nodes.jvm.mem.heap_max_in_bytes}} {% endraw %}total bytes available.
 
@@ -107,7 +109,7 @@ Under **Action**, you can set up a message that will be sent when the trigger co
 
 You can use the following Mustache template to print each entry in the list of indexes returned by the API call, along with information from each entry:
 
-```bash
+```plaintext
 Some indices are "red."
 {% raw %}{{#ctx.results.0.indices}}
 - {{index}}     health: {{health}}
@@ -141,7 +143,7 @@ Under **Action**, you can set up a message that will be sent when the trigger co
 
 You can use the following Mustache template to print each entry in the list of shards returned by the API call, along with information from each entry:
 
-```bash
+```plaintext
 Some shards are "UNASSIGNED."
 {% raw %}{{#ctx.results.0.shards}}
 - {{index}}     shard #{{shard}} ({{primaryOrReplica}}) state: {{state}}
