@@ -70,6 +70,7 @@ items:
     url: /docs/
   -
     label: Platform
+    fragment: platform
     children:
       -
         label: Vector Database
