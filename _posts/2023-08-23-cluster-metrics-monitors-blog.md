@@ -24,18 +24,18 @@ In OpenSearch version 1.3, we added cluster metrics monitors to the Alerting plu
 10. [_cat/tasks](https://opensearch.org/docs/2.9/api-reference/cat/cat-tasks/)
 
 
-In this blog post, we’ll walk through two common use cases for this monitor type: [monitoring CPU utilization](#monitoring-cluster-cpu-utilization) and [monitoring JVM memory pressure](#monitoring-cluster-jvm-memory-pressure). Additionally, we’ll present use cases for the newly-supported APIs, [`_cat/indices`](#_catindices) and [`_cat/shards`](#_catshards). 
+In this blog post, we’ll walk through two common use cases for this monitor type: [monitoring CPU utilization](#monitoring-cluster-cpu-utilization) and [monitoring JVM memory pressure](#monitoring-cluster-jvm-memory-pressure). Additionally, we’ll present use cases for the newly supported APIs [`_cat/indices`](#_catindices) and [`_cat/shards`](#_catshards). 
 
 ## Monitoring cluster CPU utilization
 
-By creating a cluster metrics monitor that calls the `_cluster/stats` API, you can receive alerts when the CPU utilization of the cluster reaches a certain threshold. To generate an alert when the CPU utilization reaches or exceeds 60%, use the following steps:
+By creating a cluster metrics monitor that calls the `_cluster/stats` API, you can receive alerts when the CPU utilization of the cluster reaches a certain threshold. To generate an alert when the CPU utilization reaches or exceeds 60%, follow these steps:
 
 1. From the top menu, select **OpenSearch Plugins** > **Alerting**.
-1. In the **Monitors** tab, select **Create monitor**.
+1. On the **Monitors** tab, select **Create monitor**.
 1. Select the **Per cluster metrics monitor** option. For demonstration purposes, you’ll configure this monitor to run every minute by leaving the default values under **Schedule**.
 1. Under **Query** > **Request type**, select **Cluster stats**. In the response preview, you can see that the current CPU utilization for this cluster is 0%.
     ![Configuring the request type](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu2-request-type.png){: .img-fluid }
-1. Configure a trigger condition that compares the CPU percent to your desired threshold: 
+1. Configure a trigger condition that compares the CPU percentage to your desired threshold: 
     ```bash
     ctx.results[0].nodes.process.cpu.percent >= 60
     ```
@@ -58,12 +58,12 @@ By creating a cluster metrics monitor that calls the `_cluster/stats` API, you c
 
 ## Monitoring cluster JVM memory pressure
 
-You can also use the `_cluster/stats` API to receive alerts when the JVM memory pressure of the cluster reaches a certain threshold. Let’s say you want to generate an alert when the JVM memory pressure reaches or exceeds 75%. This example requires a little more understanding of trigger conditions to configure, because the `_cluster/stats` API doesn’t return the percentage of the heap that’s used; it returns `heap_used_in_bytes` and `heap_max_in_bytes`.
+You can also use the `_cluster/stats` API to receive alerts when the JVM memory pressure of the cluster reaches a certain threshold. Let’s say you want to generate an alert when the JVM memory pressure reaches or exceeds 75%. This example requires a little more understanding of trigger conditions to configure because the `_cluster/stats` API doesn’t return the percentage of the heap that’s used; it returns `heap_used_in_bytes` and `heap_max_in_bytes`.
 
 1. From the top menu, select **OpenSearch Plugins** > **Alerting**.
-1. In the **Monitors** tab, select **Create monitor**.
+1. On the **Monitors** tab, select **Create monitor**.
 1. Select the **Per cluster metrics monitor** option. For demonstration purposes, you’ll configure this monitor to run every minute by leaving the default values under **Schedule**.
-1. Under **Query** > **Request type**, select **Cluster stats**. In the response preview, you can see that the current `heap_max_in_bytes` is `536870912`, and `heap_used_in_bytes` is `96278576`; which is about 17.93% of the max.
+1. Under **Query** > **Request type**, select **Cluster stats**. In the response preview, you can see that the current `heap_max_in_bytes` is `536870912` and the current `heap_used_in_bytes` is `96278576`, which is about 17.93% of the max.
     ![Configuring the request type](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-jvm2-request-type.png){: .img-fluid }
 1. Configure a trigger condition that calculates the JVM memory pressure percentage and compares it to the desired threshold:
     ```bash
@@ -72,7 +72,7 @@ You can also use the `_cluster/stats` API to receive alerts when the JVM memory 
 1. Configure notification actions as desired. This example uses a dummy channel for demonstration purposes. 
     ![Configuring notifications](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-jvm4-notification.png){: .img-fluid }
 
-    Mustache template does not currently support performing calculations, but you can print the current `heap_used_in_bytes` and `heap_max_in_bytes` in the message:
+    Mustache templates do not currently support performing calculations, but you can print the current `heap_used_in_bytes` and `heap_max_in_bytes` in the message:
 
     ```plaintext
     JVM memory pressure breached 75%.
@@ -88,7 +88,7 @@ You can also use the `_cluster/stats` API to receive alerts when the JVM memory 
 
 ## Monitoring `_cat/indices` and `_cat/shards` responses
 
-With the release of OpenSearch version 2.9, cluster metrics monitors now support calling the `_cat/indices` and `_cat/shards` APIs! The output from those APIs consist of a list of indexes and a list of shards, respectively. The following are some examples of trigger conditions that iterate through the list returned by the API to check whether any entry matches the desired condition.
+With the release of OpenSearch version 2.9, cluster metrics monitors now support calling the `_cat/indices` and `_cat/shards` APIs. The output from those APIs consists of a list of indexes and a list of shards, respectively. The following are some examples of trigger conditions that iterate through the list returned by the API to check whether any entry matches the desired condition.
 
 ### `_cat/indices`
 
@@ -162,7 +162,7 @@ Note that Mustache templates do not currently support conditional statements, so
 
 ## Next steps
 
-To learn more about cluster metrics monitors and the Alerting plugin as a whole, visit the [cluster metrics monitor documentation](https://opensearch.org/docs/latest/observing-your-data/alerting/monitors/#create-cluster-metrics-monitor).
+To learn more about cluster metrics monitors and the Alerting plugin, visit the [cluster metrics monitors documentation](https://opensearch.org/docs/latest/observing-your-data/alerting/monitors/#create-cluster-metrics-monitor).
 
 
-If you have any feedback, or would like to request an enhancement to cluster metrics monitors, create an [issue](https://github.com/opensearch-project/alerting/issues/new/choose) in our GitHub repository!
+If you have any feedback or would like to request an enhancement to cluster metrics monitors, create an [issue](https://github.com/opensearch-project/alerting/issues/new/choose) in our GitHub repository!
