@@ -16,6 +16,7 @@ callouts:
     description: 'Choose open-source tools and take advantage of integrations with popular open frameworks, plus the option to use managed services from major cloud providers.'
   - name: 'Build for the future'
     description: 'Future-proof your AI applications with vector, lexical, and hybrid search, analytics, and observability capabilities, all in one software suite.'
+meta_keywords: 'Vector search, vectordb, vector db, vector database, opensearch vector, generative AI, llm, vector llm, opensearch llm'
 ---
 
 ## An open-source, all-in-one vector database for building flexible, scalable, and future-proof AI applications
