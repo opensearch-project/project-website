@@ -34,7 +34,7 @@ components:
     version: 1.5.0.0
   - role: drivers
     artifact: opensearch-sql-jdbc
-    version: 1.3.0.0
+    version: 1.4.0.1
 sections:
   docker-compose:
     explanation: "downloads/opensearch-docker.markdown"
