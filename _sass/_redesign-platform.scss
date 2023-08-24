@@ -86,9 +86,6 @@ $platform-header-reduce-padding-width: 1199px;
             }
             @include header-level4($secondary-sanfrancisco-fog-s4)
         }
-        .platform-page--feature-area--solution-name {
-            @include bottom-border-underline;
-        }
     }
     .platform-page--title {
         padding-left: 10px;

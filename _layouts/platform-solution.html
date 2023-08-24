@@ -20,8 +20,7 @@ layout: default
                     </div>
                 {% endif %}
                 {% if category_name %}
-                    <div class="platform-page--feature-area--category-name">{{category_name}}</div>
-                    {%- if solution_name -%}<div class="platform-page--feature-area--category-name-separator">&gt;</div>{%- endif -%}
+                    <div class="platform-page--feature-area--category-name">{{category_name}}{%- if solution_name -%}:{%- endif -%}</div>
                 {% endif %}
                 {% if solution_name %}
                     <div class="platform-page--feature-area--solution-name">{{solution_name}}</div>
