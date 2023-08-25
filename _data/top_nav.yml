@@ -9,6 +9,12 @@ items:
         label: OpenSearchCon 2023 CFP!
         url: /opensearchcon2023-cfp.html
   -
+    label: Platform
+    children:
+      -
+        label: Vector Database
+        url: /platform/search/vector-database.html
+  -
     label: Download
     fragments:
       - downloads
@@ -62,12 +68,5 @@ items:
     fragment: docs
     url: /docs/
   -
-    label: Platform
-    children:
-      -
-        label: Vector Database
-        url: /platform/search/vector-database.html
-      -
-        label: Live Demo!
-        url: https://playground.opensearch.org/
-  
+    label: Live Demo!
+    url: https://playground.opensearch.org/
