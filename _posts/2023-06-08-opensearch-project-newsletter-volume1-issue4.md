@@ -20,7 +20,7 @@ The OpenSearch Project is pleased to present our newsletter. Distributed monthly
 
 **[OpenSearch 2.8.0 is here](https://opensearch.org/blog/opensearch-2.8.0-released/),** and it has a host of new features and enhancements and experimental functionality that are sure to generate excitement within the community! This release includes new tools for machine learning, search, and observability workloads and several enhancements to better manage your indexes and data. [Check out what’s new in 2.8.0](https://opensearch.org/blog/opensearch-2.8.0-released/). 
 
-[**Data Prepper 2.3.0 is now available for download!**](https://opensearch.org/blog/Announcing-Data-Prepper-2.3.0/) This release introduces a number of changes that improve Data Prepper’s ability to process complex expressions with functions, arithmetic operations, and string operations. [Get started with it now.](https://opensearch.org/downloads.html#data-prepper)  
+[**Data Prepper 2.3.0 is now available for download!**](https://opensearch.org/downloads.html#data-prepper) This release introduces a number of changes that improve Data Prepper’s ability to process complex expressions with functions, arithmetic operations, and string operations. [Get started with it now.](https://opensearch.org/downloads.html#data-prepper)  
 
 [**OpenSearch 1.3.10**](https://opensearch.org/versions/opensearch-1-3-10.html) is now available and includes bug fixes, infrastructure, enhancements, & maintenance updates. See the [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.3.10.md) for full details.
 
@@ -63,6 +63,7 @@ The OpenSearch Project is pleased to present our newsletter. Distributed monthly
 
 ## Upcoming Events & Meetings
 
+[**Chicago Search Meetup Launch Event with Bonsai, OpenSearch, and Spantree**](https://www.meetup.com/opensearch-project-chicago/events/293331344?sc_channel=sm&sc_campaign=Open_Source&sc_publisher=TWITTER&sc_geo=GLOBAL&sc_outcome=awareness&trk=OpenSearchProject) **June 7, 2023** If you’re near Chicago, join the launch of the Chicago Search Meetup and meet up with your local OpenSearch community! Hosted by [Spantree](https://spantree.net/), this in-person event will include representatives from [Bonsai](http://bonsai.io/) and the [OpenSearch Project](https://opensearch.org/) for networking and discussion, and a presentation from OpenSearch’s David Tippett on the BM-25 search algorithm. [Get registered today](https://www.meetup.com/opensearch-project-chicago/events/293331344?sc_channel=sm&sc_campaign=Open_Source&sc_publisher=TWITTER&sc_geo=GLOBAL&sc_outcome=awareness&trk=OpenSearchProject)!
 
 [**Berlin Buzzwords**](https://2023.berlinbuzzwords.de/) **June 18 - 20** Connect with OpenSearch at Buzzwords, an annual conference exploring search technologies with an emphasis on open-source tools. The OpenSearch Project will have a booth at the conference as well as a presentation showcasing OpenSearch search capabilities. 
 
