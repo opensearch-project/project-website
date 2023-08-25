@@ -1,0 +1,23 @@
+---
+layout: redesign-fullwidth
+primary_title: "OpenSearchCon 2023 Exhibitors"
+title: "OpenSearchCon 2023 Exhibitors"
+feature_area_icon_type: smiling-face
+feature_area_category_name: OpenSearchCon 2023
+---
+<div class="conference-exhibitors">
+    <div class="conference-exhibitors--grid resource-grid">
+        {% for exhibitor in site.exhibitors %}
+            {{ exhibitor }}
+        {% endfor %}
+    </div>
+</div>
+<div class="conference-speaker-session-page--view-all">
+    <div class="link-button">
+        <a href="/events/opensearchcon/sessions/index.html">View All Sessions</a>
+    </div>
+    <div class="link-button">
+        <a href="/events/opensearchcon/speakers/index.html">View All Speakers</a>
+    </div>
+</div>
+{% include card-clickability.html card_classname="resource-grid--item" card_container_selector=".conference-exhibitors--grid.resource-grid" %}
