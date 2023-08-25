@@ -23,7 +23,7 @@
     {% if page.twittercard.image or page.feature_image %}
     <meta name="twitter:card" content="summary_large_image">
     {% else %}
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary"
     {% endif %}
 
     <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title | truncate: 70 }}{% else %}OpenSearch{% endif %}">
