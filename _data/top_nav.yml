@@ -9,49 +9,6 @@ items:
         label: OpenSearchCon 2023 CFP!
         url: /opensearchcon2023-cfp.html
   -
-    label: Platform
-    children:
-      -
-        label: Search
-        url: /platform/search.html
-        children:
-          -
-            label: Vector Database
-            url: /platform/search/vector-database.html
-          -
-            label: Enterprise
-            url: /platform/search/enterprise.html
-          -
-            label: e-commerce
-            url: /platform/search/e-commerce.html
-      -
-        label: Security Analytics
-        url: /platform/security-analytics.html
-        children:
-          -
-            label: Real-time Threat Detection
-            url: /platform/security-analytics/real-time-threat-detection.html
-          -
-            label: Security Dashboards
-            url: /platform/security-analytics/security-dashboards.html
-      -
-        label: Observability
-        url: /platform/observability.html
-        children:
-          -
-            label: Simple Schema
-            url: /platform/observability/simple-schema.html
-          -
-            label: Data Ingest
-            url: /platform/observability/data-ingest.html
-      -
-        label: Machine Learning
-        url: /platform/machine-learning.html
-        children:
-          -
-            label: Neural Search
-            url: /platform/machine-learning/neural-search.html
-  -
     label: Download
     fragments:
       - downloads
