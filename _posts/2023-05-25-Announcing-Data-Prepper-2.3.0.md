@@ -60,7 +60,7 @@ The `add_entries` processor has been enhanced to support values with expressions
 
 ### Expression-based value
 
-The [`add_entries`](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/processors/add-entries/) processor has been enhanced to support adding values based on an expression where the return type can be Boolean, integer or float, or string. The following example shows an `add_entries` processor configuration with a `value_expression` option:
+The `add_entries` processor has been enhanced to support adding values based on an expression where the return type can be Boolean, integer or float, or string. The following example shows an `add_entries` processor configuration with a `value_expression` option:
 
 ```
 processor:
@@ -141,20 +141,17 @@ trace-normal-pipeline:
 
 The following community members contributed to this release. Thank you!
 
-* [ajeeshakd](https://github.com/ajeeshakd) - Ajeesh Gopalakrishnakurup
 * [ashoktelukuntla](https://github.com/ashoktelukuntla) - Ashok Telukuntla
 * [asifsmohammed](https://github.com/asifsmohammed) - Asif Sohail Mohammed
 * [chenqi0805](https://github.com/chenqi0805) - Qi Chen
 * [cmanning09](https://github.com/cmanning09) - Christopher Manning
-* [daixba](https://github.com/daixba) - Aiden Dai
-* [deepaksahu562](https://github.com/deepaksahu562) - Deepak Sahu
 * [dlvenable](https://github.com/dlvenable) - David Venable
 * [engechas](https://github.com/engechas) - Chase Engelbrecht
 * [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
 * [kkondaka](https://github.com/kkondaka) - Krishna Kondaka
 * [oeyh](https://github.com/oeyh) - Hai Yan
-* [rajeshLovesToCode](https://github.com/rajeshLovesToCode) - Rajesh
-* [tmonty12](https://github.com/tmonty12) - Thomas Montfort
 * [udaych20](https://github.com/udaych20) - Uday Chintala
+* [deepaksahu562](https://github.com/deepaksahu562) - Deepak Sahu
+* [ajeeshakd](https://github.com/ajeeshakd) - Ajeesh Gopalakrishnakurup
+* [rajeshLovesToCode](https://github.com/rajeshLovesToCode) - Rajesh
 * [umayr-codes](https://github.com/umayr-codes) - Umair Husain
-* [wanghd89](https://github.com/wanghd89)
