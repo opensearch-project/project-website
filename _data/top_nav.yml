@@ -13,6 +13,9 @@ items:
         label: Speakers
         url: /events/opensearchcon/speakers/index.html
       -
+        label: Unconference
+        url: /events/opensearchcon/unconference/index.html
+      -
         label: CFP is closed
         url: /opensearchcon2023-cfp.html
   -
