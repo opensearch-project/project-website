@@ -6,8 +6,6 @@ authors:
 date:   2022-05-03 10:01:01 -0700
 categories:
   - releases
-twittercard:
-  description: "I am excited to share that the release candidate (RC1) for version 2.0.0 of OpenSearch and OpenSearch Dashboards is now available for testing and validation. As a release candidate, this version of the project is feature complete and has passed automated testing, but we'll continue to add bug fixes until the full "General Availability" (GA) release date."
 redirect_from: "/blog/releases/2022/05/release-candidate-2-0-available/"
 ---
 

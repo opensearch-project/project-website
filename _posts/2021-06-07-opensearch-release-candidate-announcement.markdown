@@ -5,8 +5,6 @@ authors:
   - andhopp
 date:   2021-06-07
 categories: update
-twittercard:
-  description: "Today I am excited to announce the Release Candidate (RC1) for version 1.0.0 of both OpenSearch (derived from Elasticsearch 7.10.2) and OpenSearch Dashboards (derived from Kibana 7.10.2). The Release Candidate includes downloadable artifacts (Linux tars and Docker images) as well as a number of OpenSearch plugins (listed below)."
 redirect_from: "/blog/update/2021/06/opensearch-release-candidate-announcement/"
 ---
 

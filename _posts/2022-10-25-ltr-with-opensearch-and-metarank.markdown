@@ -6,8 +6,6 @@ authors:
 date:   2022-10-25 1
 categories:
   - community
-twittercard:
-  description: "[Metarank](https://github.com/metarank/metarank) is an open-source secondary ranker that can perform advanced search results by reordering the results with a [LambdaMART](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf) learning to rank (LTR) model. In this post, we'll discuss why and when an LTR approach to ranking may be helpful and how Metarank implements LTR on top of OpenSearch. "
 redirect_from: "/blog/community/2022/10/ltr-with-opensearch-and-metarank/"
 ---
 

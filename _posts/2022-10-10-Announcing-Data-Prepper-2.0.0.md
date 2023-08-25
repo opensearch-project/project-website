@@ -7,12 +7,6 @@ authors:
 date: 2022-10-10 15:00:00 -0500
 categories:
   - technical-post
-twittercard:
-  description: |
-    The Data Prepper maintainers are proud to announce the release of Data Prepper 2.0. This release makes 
-    [Data Prepper](https://github.com/opensearch-project/data-prepper/projects/1) 
-    easier to use and helps you improve your observability stack based on feedback from our users. Data Prepper 2.0 retains
-    compatibility with all current versions of OpenSearch.
 redirect_from: "/blog/technical-post/2022/10/Announcing-Data-Prepper-2.0.0/"
 ---
 

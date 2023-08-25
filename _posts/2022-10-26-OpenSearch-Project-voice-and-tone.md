@@ -6,8 +6,6 @@ authors:
 date: 2022-10-26
 categories: 
   - community
-twittercard:
-  description: "In the [first installment](https://opensearch.org/blog/community/2022/08/New-series-From-the-editors-desk/) of our *From the editor’s desk* series, we focused on the OpenSearch Project and inclusion, a subject that is foundational to who we are and how we talk to each other as a community. For the second installment, we’d like to focus on another subject related to community interaction: voice and tone."
 redirect_from: "/blog/community/2022/10/OpenSearch-Project-voice-and-tone/"
 ---
 

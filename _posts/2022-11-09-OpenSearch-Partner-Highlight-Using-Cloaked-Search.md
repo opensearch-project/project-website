@@ -6,11 +6,6 @@ authors:
 date:   2022-11-14
 categories:
   - partners
-twittercard:
-  description: |
-    Most companies will tell you that the data they hold is well protected. They'll say it's encrypted “at rest and
-    in transit,” which means they use HTTPS and disk-level or database-level encryption. Unfortunately, this isn't
-    the protection most people think it is.
 redirect_from: "/blog/partners/2022/11/OpenSearch-Partner-Highlight-Using-Cloaked-Search/"
 ---
 
