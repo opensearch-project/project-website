@@ -56,7 +56,7 @@
     {% if page.twittercard.creator %}
     <meta name="twitter:creator" content="{{ page.twittercard.creator }}">
     {% elsif page.authors %}
-    <meta name="twitter:creator" content="@{{ page.authors.first }}">
+    <meta name="twitter:creator" content="{{ page.authors.first }}">
     {% endif %}
 
     <meta content="{{ site.title }}" property="og:site_name">
