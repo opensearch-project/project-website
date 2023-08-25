@@ -3,8 +3,8 @@ items:
     label: OpenSearchCon
     children:
       -
-        label: Register for OpenSearchCon!
-        url: https://opensearchcon2023.splashthat.com
+        label: Save the Date!
+        url: /OpenSearchCon2023.html
       -
         label: OpenSearchCon 2023 CFP!
         url: /opensearchcon2023-cfp.html
