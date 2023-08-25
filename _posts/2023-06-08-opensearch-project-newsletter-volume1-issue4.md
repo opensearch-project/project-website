@@ -18,26 +18,22 @@ The OpenSearch Project is pleased to present our newsletter. Distributed monthly
 ![opensearch newsletter volume 1 issue 4](/assets/media/blog-images/2023-06-08-opensearch-newsletter-volume1-issue4/newslettervol4.png){:class="img-fluid"}
 ## What’s New?
 
-[**OpenSearchCon 2023 registration is now live!**](https://opensearchcon2023.splashthat.com/) This free-to-attend conference brings together users, developers, and technologists from across the OpenSearch Project to explore real-world successes and new applications - all while evolving what it means to be a builder. [Register now!](https://opensearchcon2023.splashthat.com/)
-
-[**Call for presentations: Bring your ideas to OpenSearchCon!**](https://opensearch.org/opensearchcon2023-cfp.html) OpenSearchCon 2023 is now accepting submissions. This year’s **in-person** conference is happening in Seattle, WA with session tracks reserved for search, analytics, observability, security, and community presentations. Submissions close June 16, so don’t wait to [build your proposal](https://airtable.com/shrVZLtXJ2d1cI6pT)!
-
 **[OpenSearch 2.8.0 is here](https://opensearch.org/blog/opensearch-2.8.0-released/),** and it has a host of new features and enhancements and experimental functionality that are sure to generate excitement within the community! This release includes new tools for machine learning, search, and observability workloads and several enhancements to better manage your indexes and data. [Check out what’s new in 2.8.0](https://opensearch.org/blog/opensearch-2.8.0-released/). 
 
-[**Data Prepper 2.3.0 is now available for download!**](https://opensearch.org/blog/Announcing-Data-Prepper-2.3.0/) This release introduces a number of enhancements and maintenance updates that improve Data Prepper’s ability to process complex expressions with functions, arithmetic operations, and string operations. [Get started with it now.](https://opensearch.org/downloads.html#data-prepper)  
+[**Data Prepper 2.3.0 is now available for download!**](https://opensearch.org/blog/Announcing-Data-Prepper-2.3.0/) This release introduces a number of changes that improve Data Prepper’s ability to process complex expressions with functions, arithmetic operations, and string operations. [Get started with it now.](https://opensearch.org/downloads.html#data-prepper)  
 
-[**OpenSearch 1.3.10**](https://opensearch.org/versions/opensearch-1-3-10.html) is now available and includes bug fixes, infrastructure enhancements, and maintenance updates. See the [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.3.10.md) for full details.
+[**OpenSearch 1.3.10**](https://opensearch.org/versions/opensearch-1-3-10.html) is now available and includes bug fixes, infrastructure, enhancements, & maintenance updates. See the [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-1.3.10.md) for full details.
 
 [**Searchable snapshots are now available.**](https://opensearch.org/blog/searchable-snapshots/) With searchable snapshots, you can search indexes that are stored as snapshots within remote repositories in real time without the need to restore the index data to local storage ahead of time. [Download OpenSearch 2.8](https://opensearch.org/downloads.html) to try them out, or read more about [Searchable snapshots](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/searchable_snapshot/) in the OpenSearch documentation. 
 
+[**Call for presentations: Bring your ideas to OpenSearchCon!**](https://opensearch.org/opensearchcon2023-cfp.html) OpenSearchCon 2023 is now accepting submissions. This year’s conference is happening Sept. 28 in Seattle, with session tracks reserved for search, analytics, observability, and security, and community presentations. Submissions close June 16, so don’t wait to [build your proposal](https://airtable.com/shrVZLtXJ2d1cI6pT)!
 
-**[Take our community survey and get an OpenSearch tumbler](https://amazonmr.au1.qualtrics.com/jfe/form/SV_1BxJNrtCo4LbweW).**  Each quarter the OpenSearch Project issues a survey to better understand our community members. In the second quarter of 2023, we are collecting data on a UX health metric that will help us understand and quantify the user journey. If your interested and would like to share your experiences, we’re offering an OpenSearch mug in appreciation of your time. Please [use this link to take the survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_1BxJNrtCo4LbweW), or or you can access it at [OpenSearch.org](http://opensearch.org/). 
+**[Take our customer survey and get a OpenSearch tumbler](https://amazonmr.au1.qualtrics.com/jfe/form/SV_1BxJNrtCo4LbweW).**  Each quarter the OpenSearch Project issues a survey to better understand our community members. In the second quarter of 2023, we are collecting data on a UX health metric that will help us understand and quantify the user journey. If your interested and would like to share your experiences, we’re offering an OpenSearch mug in appreciation of your time. Please [use this link to take the survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_1BxJNrtCo4LbweW), or or you can access it at [OpenSearch.org](http://opensearch.org/). 
 
 **[Keynote: OpenSearch: One Tool, Five Minutes, Countless Applications](https://www.youtube.com/watch?v=5X7N5HP4dO0&list=PLbzoR-pLrL6p2Q8Al7R4vnL330as8xSZi&index=12)**. Check out this five-minute keynote address to attendees at the Open Source Summit North America conference on May 10. Featuring Dagney Braun, OpenSearch principal product manager, her keynote takes a look at the growing OpenSearch community and offers a view into the project's priorities for 2023 and beyond. [Watch it here](https://www.youtube.com/watch?v=5X7N5HP4dO0&list=PLbzoR-pLrL6p2Q8Al7R4vnL330as8xSZi&index=12). 
 
 
 ## Blogs from the Community
-[**OpenSearch vs Solr: Which One Is Better to Use?**](https://sematext.com/blog/opensearch-vs-solr/) OpenSearch partner Sematext walks us through the similarities, and differences between OpenSearch and Solr.
 
 [**Reduce compute costs and increase throughput with segment replication, generally available in OpenSearch 2.7**](https://opensearch.org/blog/segment-replication/) Learn the tradeoffs between segment replication and document replication, view benchmark ingestion test results, and see how you can enable segment replication for your OpenSearch index.
 
@@ -72,11 +68,11 @@ The OpenSearch Project is pleased to present our newsletter. Distributed monthly
 
 [**OpenSearchCon 2023**](https://opensearch.org/OpenSearchCon2023.html) **September 28** The second annual conference for OpenSearch takes place in Seattle with a conference track spanning search, observability, security analytics, and community sessions. Save the date and make your plans to join the OpenSearch community at the Sheraton Grand Seattle, and be sure to check out the [call for presentations](https://opensearch.org/blog/call-for-presentations-bring-your-ideas-to-opensearchcon-2023/)!
 
-[**Visit the Events page**](https://www.meetup.com/pro/opensearchproject/) to learn about upcoming Community Meetings, Planning, Triage, and Office Hours meetings with the OpenSearch Project development teams. 
+[**Visit the Events page**](https://opensearch.org/events/) to learn about upcoming Community Meetings, Planning, Triage, and Office Hours meetings with the OpenSearch Project development teams. 
 
 Subscribe to our [MeetUp](https://www.meetup.com/opensearch/) group to join the latest meetings, local user groups. 
 Follow us on [Twitter](https://twitter.com/OpenSearchProj) and [LinkedIn](https://www.linkedin.com/company/opensearch-project/) to stay up-to-date with the latest #OpenSearch news.
-Visit our [forum](https://forum.opensearch.org/) to ask questions and interact with the OpenSearch community.
+Visit our [forum](https://forum.opensearch.org/)to ask questions and interact with the OpenSearch community.
 Join public [Slack](https://opensearch.org/slack.html) to brainstorm, review code, and other ad hoc collaborative discussions with the community.
 [Submit](https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=newsletter%2C+untriaged&template=newsletter.md&title=) Content for the Monthly Newsletter
 
