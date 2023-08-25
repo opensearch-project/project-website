@@ -136,7 +136,6 @@
         :host([theme-color="secondary"]) > button {
             background-color: #DCEBF4;
         }
-
     </style>
     <button>
         <span class="icon">
@@ -191,6 +190,7 @@
             shadowRoot.appendChild(templateContent);
             this.onKeyDownHandler = this.onKeyDownHandler.bind(this);
             this.onFocusHandler = this.onFocusHandler.bind(this);
+            this.onBlurHandler = this.onBlurHandler.bind(this);
         }
         
         connectedCallback() {
@@ -317,6 +317,7 @@
             }
             this.addEventListener('keydown', this.onKeyDownHandler);
             this.addEventListener('focus', this.onFocusHandler);
+            this.addEventListener('blur', this.onBlurHandler);
             // State assertion: the button is accessible.
         }
 
@@ -329,6 +330,10 @@
 
         onFocusHandler(event) {
             this.shadowRoot.querySelector('button')?.focus?.();
+        }
+
+        onBlurHandler(event) {
+            this.shadowRoot.querySelector('button')?.blur?.();
         }
 
         disconnectCallback() {
