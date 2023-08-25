@@ -182,4 +182,30 @@ For a list of more features we plan to include in future releases, see the [proj
 
 ## Thanks to our contributors!
 
-TODO - we will supply this after cutting our branch
+* [JonahCalvo](https://github.com/JonahCalvo) - Jonah Calvo
+* [MaGonzalMayedo](https://github.com/MaGonzalMayedo) - Marcos Gonzalez Mayedo
+* [ajeeshakd](https://github.com/ajeeshakd) - Ajeesh Gopalakrishnakurup
+* [asifsmohammed](https://github.com/asifsmohammed) - Asif Sohail Mohammed
+* [asuresh8](https://github.com/asuresh8) - Adi Suresh
+* [chenqi0805](https://github.com/chenqi0805) - Qi Chen
+* [daixba](https://github.com/daixba) - Aiden Dai
+* [deepaksahu562](https://github.com/deepaksahu562) - Deepak Sahu
+* [dlvenable](https://github.com/dlvenable) - David Venable
+* [engechas](https://github.com/engechas) - Chase
+* [gaiksaya](https://github.com/gaiksaya) - Sayali Gaikawad
+* [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
+* [hshardeesi](https://github.com/hshardeesi) - Hardeep Singh
+* [kkondaka](https://github.com/kkondaka)
+* [mallikagogoi7](https://github.com/mallikagogoi7)
+* [markkuhn](https://github.com/markkuhn) - Mark Kuhn
+* [oeyh](https://github.com/oeyh) - Hai Yan
+* [omkarmmore95](https://github.com/omkarmmore95) - Omkar
+* [rajeshLovesToCode](https://github.com/rajeshLovesToCode)
+* [shenkw1](https://github.com/shenkw1) - Katherine Shen
+* [travisbenedict](https://github.com/travisbenedict) - Travis Benedict
+* [udaych20](https://github.com/udaych20) - Uday Chintala
+* [umairofficial](https://github.com/umairofficial)
+* [umayr-codes](https://github.com/umayr-codes)
+* [venkataraopasyavula](https://github.com/venkataraopasyavula) - venkataraopasyavula
+* [vishalboin](https://github.com/vishalboin) - Vishal Boinapalli
+* [wanghd89](https://github.com/wanghd89)
