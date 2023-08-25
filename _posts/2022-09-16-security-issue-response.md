@@ -7,7 +7,7 @@ date:   2022-09-16 00:00:00 -0700
 categories:
   - technical-post
 twittercard:
-  description: "Today we are taking the next step in our open-source journey by updating our security policy to include a process for how we respond to security issues. In proper open-source fashion, we are creating this as a pull request, and we are inviting everyone to take part in the discussion."
+  description: "Today we are taking the next step in our open-source journey by updating our security policy to include a process for how we respond to security issues. In proper open-source fashion, we are creating this as a [pull request](https://github.com/opensearch-project/.github/pull/90), and we are inviting everyone to take part in the discussion."
 redirect_from: "/blog/technical-post/2022/09/security-issue-response/"
 ---
 

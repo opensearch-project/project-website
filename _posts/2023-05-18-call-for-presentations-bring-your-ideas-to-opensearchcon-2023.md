@@ -2,7 +2,7 @@
 date: 2023-05-18T22:11:03.773Z
 meta_description: OpenSearch is now announcing their call for presentations for OpenSearchCon 2023.
 meta_keywords: opensearch, opensearchcon 2023, call for presentations
-feature_image: /assets/media/blog-images/2023-05-18-call-for-presentations/see_you_at_opensearchcon_2023.png
+feature_image: /assets/media/blog-images/see_you_at_opensearchcon_2023.png
 authors:
   - krisfreedain
   - dtaivpp
@@ -12,7 +12,7 @@ title: "Call for presentations: Bring your ideas to OpenSearchCon 2023!"
 categories:
   - community
 twittercard:
-  description: "The call for presentations for OpenSearchCon 2023 is now live! OpenSearchCon will be held in Seattle, Sept. 28, 2023 at the Sheraton Grand Seattle hotel!"
+  description: "The [call for presentations](https://opensearch.org/opensearchcon2023-cfp.html) for OpenSearchCon 2023 is now live! OpenSearchCon will be held in Seattle, Sept. 28, 2023 at the Sheraton Grand Seattle hotel! This year’s conference dedicates three tracks to topics the OpenSearch community cares about."
 ---
 The [call for presentations](https://opensearch.org/opensearchcon2023-cfp.html) for OpenSearchCon 2023 is now live! OpenSearchCon will be held in Seattle, Sept. 28, 2023 at the Sheraton Grand Seattle hotel! This year’s conference dedicates three tracks to topics the OpenSearch community cares about. We invite you to submit your best ideas for any of the following topics:
 

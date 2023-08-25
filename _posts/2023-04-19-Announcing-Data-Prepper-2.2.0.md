@@ -9,7 +9,9 @@ categories:
 meta_keywords: Data Prepper 2.2.0
 meta_description: Data Prepper 2.2.0 improves data delivery assurances with end-to-end acknowledgments and an S3 DLQ.
 twittercard:
-  description: "Data Prepper 2.2.0 is now available for download! This release introduces a number of changes that help with Data Prepper’s reliability and data delivery assurances."
+  description: |
+    Data Prepper 2.2.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)!
+    This release introduces a number of changes that help with Data Prepper’s reliability and data delivery assurances.
 ---
 
 Data Prepper 2.2.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper)!
