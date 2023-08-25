@@ -580,30 +580,3 @@ dl.list-features {
         @extend .img__outlined;
     }
 }
-
-dl.definition-list__same-line-definition {
-    display: flex;
-    flex-flow: row wrap;
-    > dt, 
-    > dd {
-        margin-bottom: 1em;
-        box-sizing: border-box;
-    }
-    > dt {
-        flex-basis: 20%;
-        flex-grow: 0;
-        flex-shrink: 0;
-        font-style: italic;
-    }
-    > dd {
-        flex-basis: 80%;
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-    @include respond-max(959px) {
-        > dt,
-        > dd {
-            flex-basis: 100%;
-        }
-    }
-}
