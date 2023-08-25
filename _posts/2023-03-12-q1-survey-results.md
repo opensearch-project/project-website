@@ -23,7 +23,7 @@ Here are some key insights from the Q1 survey:
 
 * We obtained our first NPS and UX health scores and will use these as a baseline against which to compare future results.
 * Previously, we were unsure about the split between *search* and *analytics* use cases and were curious whether there was an overlap in the way the community was using OpenSearch. Around 1/3 (one-third) of the Q1 survey sample indicated that they use OpenSearch as *both a search and analytics solution*.  
-* Users identified with four roles in OpenSearch: 
+* Users identified with four roles with four roles in OpenSearch: 
   - _Infrastructure Setup_ -- Responsible for deploying OpenSearch, for allocation of resources, responsible for allocation of initial resources, and any action that impacts the billing and usage of resources
   - _OpenSearch Admin_ -- Responsible for asset and user management
   - _Dashboard Creator or Data Producer_ -- Responsible for preparing data or dashboards for their own use or end user consumption
