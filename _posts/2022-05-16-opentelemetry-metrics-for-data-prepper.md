@@ -6,6 +6,11 @@ authors:
 date:   2022-05-17 06:00:00 +0200
 categories:
   - technical-post
+twittercard:
+  description: "Data Prepper offers great capabilities for ingesting traces and logs into OpenSearch.
+Until now, that leaves out the third pillar of observability: metrics.
+Data Prepper 1.4.0 introduces support for metrics received via OpenTelemetry.
+This feature aligns nicely with the OpenTelemetry traces support in Data Prepper."
 redirect_from: "/blog/technical-post/2022/05/opentelemetry-metrics-for-data-prepper/"
 ---
 Data Prepper offers great capabilities for ingesting traces and logs into OpenSearch.

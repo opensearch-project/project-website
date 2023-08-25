@@ -7,6 +7,8 @@ title: "My First Steps in OpenSearch Plugins"
 categories:
 - technical-posts
 feature_image: "/assets/media/blog-images/2021-06-03-my-first-steps-in-opensearch-plugins/my-first-steps-in-plugins-feature-image.jpg"
+twittercard:
+  description: "Personally, I've always wanted to contribute to an open-source project, but never found a way to incorporate it with my day-to-day work. Occasionally, I'd muster up the courage to clone a project I liked, seeking a good entry point to add some new feature or handle some issue. I thought that all I needed was to make a small contribution and everything else would just flow into place."
 canonical: https://logz.io/blog/opensearch-plugins
 redirect_from: "/blog/technical-posts/2021/06/my-first-steps-in-opensearch-plugins/"
 ---

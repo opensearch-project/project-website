@@ -6,6 +6,8 @@ authors:
 date:   2022-09-14 12:15:00 -0700
 categories:
   - releases
+twittercard:
+  description: "OpenSearch 2.3.0 is here with new capabilities for you to explore! For this release, we prioritized three new features that OpenSearch users have been asking for and that offer significant advances in performance, data durability, and usability. We’re including them as experimental features so that you have the option to deploy them as you wish or stick with the default approach to these tasks."
 redirect_from: "/blog/releases/2022/09/opensearch-2-3-is-ready-for-download/"
 ---
 

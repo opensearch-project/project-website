@@ -8,6 +8,8 @@ title: "Open Distro for Elasticsearch 1.2.1 Released"
 categories:
 - odfe-updates
 feature_image: "https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2019/03/26/open_disto-elasticsearch-logo-800x400.jpg"
+twittercard:
+  description: "Version 1.2.1 includes upstream open source versions of Elasticsearch 7.2.1, Kibana 7.2.1, and all Open Distro plugins including Alerting, Performance Analyzer, Security, SQL, and corresponding Kibana plugins too. A SQL JDBC driver and PerfTop, a client for Performance Analyzer, also comes with the distribution. You can find details on enhancements, bug fixes, and new features in the release notes for each plugin on GitHub."
 redirect_from: "/blog/odfe-updates/2019/11/Open-Distro-for-Elasticsearch-1.2.1-released/"
 ---
 

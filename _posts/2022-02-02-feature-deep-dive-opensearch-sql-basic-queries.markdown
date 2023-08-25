@@ -7,6 +7,8 @@ authors:
 date: 2022-02-02
 categories: 
   - feature
+twittercard:
+  description: "In this post, we’ll explore some of the features and capabilities supported by OpenSearch SQL. We also briefly introduce how SQL engine works internally."
 redirect_from: "/blog/feature/2022/02/feature-deep-dive-opensearch-sql-basic-queries/"
 ---
 

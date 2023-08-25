@@ -6,6 +6,8 @@ authors:
 date: 2022-08-23
 categories:
  - technical-post
+twittercard:
+  description: "First, a huge thank you to all of you who responded to the survey. Understanding how you use agents in your ingestion pipelines helps us prioritize use cases that deliver the most value to the community."
 redirect_from: "/blog/technical-post/2022/08/Agent-Ingestion-Usage-In-OpenSearch-Survey-Results/"
 ---
 

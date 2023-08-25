@@ -11,6 +11,8 @@ authors:
 date: 2022-10-05
 categories:
  - technical-post
+twittercard:
+  description: "&quot;When you can measure what you are speaking about, and express it in numbers, you know something about it.&quot; William Thomson, co-formulator of Thermodynamics."
 redirect_from: "/blog/technical-post/2022/10/one-million-enitities-in-one-minute/"
 ---
 
