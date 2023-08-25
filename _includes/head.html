@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary"
     {% endif %}
 
-    <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title | truncate: 70 }}{% else %}OpenSearch{% endif %}">
+    <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title | truncate: 70 }}{% else %}OpenSearch{% endif %}" />
     {% if page.twittercard.site %}
     <meta name="twitter:site" content="{{ page.twittercard.site }}">
     {% else %}
@@ -49,7 +49,7 @@
 
     {% if page.twittercard.image_alt %}
     <meta name="twitter:image:alt" content="{{ page.twittercard.image_alt | truncate: 420 }}">
-    {% endif %}
+    {% else %}
 
     {% if page.twittercard.creator %}
     <meta name="twitter:creator" content="{{ page.twittercard.creator }}">
