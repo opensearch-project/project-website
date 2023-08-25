@@ -4,5 +4,4 @@ layout: none
 User-agent: *
 Disallow: /docs/javadoc*
 Disallow: /javadocs/
-Disallow: /benchmarks
 Sitemap: {{ site.url }}/sitemap-index.xml
