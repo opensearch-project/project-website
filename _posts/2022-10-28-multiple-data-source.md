@@ -8,6 +8,8 @@ authors:
 date:   2022-11-16 00:00:00 -0700
 categories:
   - community
+twittercard:
+  description: "OpenSearch Dashboards' current architecture works only with a single OpenSearch cluster, and to view data in different OpenSearch clusters and to navigate between Dashboards endpoints, users must have a complete OpenSearch with Dashboards stack setup. To solve this challenge, we are excited to announce for release 2.4 the Multiple Data Sources feature. This experimental feature supports multiple data source connections in OpenSearch Dashboards."
 redirect_from: "/blog/community/2022/11/multiple-data-source/"
 ---
 

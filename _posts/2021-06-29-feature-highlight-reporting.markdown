@@ -6,6 +6,8 @@ authors:
   - elifish
 date:   2021-06-29 01:01:01 -0700
 categories: feature
+twittercard:
+  description: "The OpenSearch Reporting feature helps users generate reports from Dashboards, Visualizations, and the Discover panel and export them to PDF, PNG, and CSV file formats to easily share. In this blog post we talk about how to use the reporting feature, how it is implemented and how it was built with numerous contributions from the open source community. Last, we discuss future plans to improve it."
 redirect_from: "/blog/feature/2021/06/feature-highlight-reporting/"
 ---
 
