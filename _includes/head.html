@@ -20,7 +20,7 @@
     
     {% assign pagetitle = page.title | strip_newlines %}
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title }}{% else %}OpenSearch{% endif %}" />
     {% if page.twittercard.account %}
     <meta name="twitter:site" content="{{ page.twittercard.account }}" />
@@ -36,15 +36,11 @@
 
     {% if page.twittercard.description %}
     <meta name="twitter:description" content="{{ page.twittercard.description  | xml_escape }}" />
-    {% elsif page.excerpt %}
-    <meta name="twitter:description" content="{{ page.excerpt | xml_escape }}" />
     {% else %}
     <meta name="twitter:description" content="OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." />
     {% endif %}
     {% if page.twittercard.image %}
     <meta name="twitter:image" content="{{ page.twittercard.image }}" /> 
-    {% elsif page.feature_image %}
-    <meta name="twitter:image" content="{{ page.feature_image }}" />
     {% else %}
     <meta name="twitter:image" content="https://opensearch.org/assets/opensearch-twitter-card.png" />
     {% endif %}
