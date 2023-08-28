@@ -90,6 +90,11 @@ defaults:
       type: speaker_sessions
     values:
       layout: speaker_session
+-
+    scope:
+      type: exhibitors
+    values:
+      layout: exhibitor
 
 collections:
   authors:
@@ -118,7 +123,8 @@ collections:
     output: true
   speaker_sessions:
     output: true
-
+  exhibitors:
+    output: true
     
 paginate: 5
 paginate_path: "/blog/page:num/"
