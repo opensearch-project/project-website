@@ -599,3 +599,57 @@ h2.conference-speaker-session-page {
         }
     }
 }
+
+.conference-exhibitors {
+    padding: 40px 80px;
+    @media screen and (max-width: 834px) {
+        padding: 40px 20px;
+    }
+    .conference-exhibitors--grid.resource-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 20px;
+        row-gap: 40px;
+        @media screen and (max-width: 1280px) {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 20px;
+        }
+        @media screen and (max-width: 639px) {
+            grid-template-columns: 1fr;
+            column-gap: 0;
+        }
+        > .resource-grid--item {
+            width: 350px;
+            height: auto;
+            aspect-ratio: 1;
+            cursor: pointer;
+            @media screen and (min-width: 640px) and (max-width: 719px) {
+                width: auto;
+                max-width: calc(50% - 10px);
+                min-width: 300px;
+            }
+            @media screen and (max-width: 639px) {
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%;
+            }
+            .resource-grid--item--thumbnail {
+                img {
+                    width: 50%;
+                    top: 45px;
+                    left: 23%;
+                }
+            }
+            .resource-grid--item--title-type {
+                top: 10px;
+                left: 20px;
+                padding-left: 0;
+            }
+            .resource-grid--item--title > div {
+                top: 10px;
+                left: 20px;
+            }
+            @include thick-edge-bottom;
+        }
+    }
+}
