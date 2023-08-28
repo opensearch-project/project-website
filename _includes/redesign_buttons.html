@@ -1,36 +1,35 @@
 {%  case include.name %}
     {% when 'download' %}
         <label for="download-button" class="redesign-buttons--label">Download OpenSearch</label>
-        <opensearch-button id="download-button"
-            icon-position="right"
-            size="large"
-            theme-color="{{ include.theme_color | default: 'primary' }}"
-            no-outline="true"
-            class="redesign-buttons--download__large"
-        >
-            <div slot="icon-slot">
-                <span class="download-button--mouseout-icon">
-                    {%- include icons.html type='angle-double-down' -%}
-                </span>
-                <span class="download-button--mouseover-icon" style="display: none">
-                    {%- include icons.html type='angle-double-down-2' -%}
-                </span>
-                <span class="download-button--disabled-icon" style="display: none">
-                    {%- include icons.html type='angle-double-down-monochrome-1' -%}
-                </span>
-            </div>
-            <div slot="text-slot">
-                <span class="download-button--mouseout-logo">
-                    {%- include icons.html type='opensearch-logo-darkmode' -%}
-                </span>
-                <span class="download-button--mouseover-logo" style="display: none">
-                    {%- include icons.html type='opensearch-logo-darkmode-2' -%}
-                </span>
-                <span class="download-button--disabled-logo" style="display: none">
-                    {%- include icons.html type='opensearch-logo-monochrome-1' %}
-                </span>
-            </div>
-        </opensearch-button>
+        <div class="redesign-button--wrapper">
+            <a href="/downloads" class="redesign-button--anchor" id="download-button">
+                <div class="redesign-button--contents redesign-buttons--download__large">
+                    <div class="redesign-button--contents--text-slot">
+                        <span class="download-button--mouseout-logo redesign-button--contents__mouseout">
+                            {%- include icons.html type='opensearch-logo-darkmode' -%}
+                        </span>
+                        <span class="download-button--mouseover-logo redesign-button--contents__mouseover">
+                            {%- include icons.html type='opensearch-logo-darkmode-2' -%}
+                        </span>
+                        <span class="download-button--disabled-logo redesign-button--contents__disabled">
+                            {%- include icons.html type='opensearch-logo-monochrome-1' %}
+                        </span>
+                    </div>
+                    <div class="redesign-button--contents--icon-slot">
+                        <span class="download-button--mouseout-icon redesign-button--contents__mouseout">
+                            {%- include icons.html type='angle-double-down' -%}
+                        </span>
+                        <span class="download-button--mouseover-icon redesign-button--contents__mouseover">
+                            {%- include icons.html type='angle-double-down-2' -%}
+                        </span>
+                        <span class="download-button--disabled-icon redesign-button--contents__disabled">
+                            {%- include icons.html type='angle-double-down-monochrome-1' -%}
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
     {% when 'project' %}
         <label for="project-button" class="redesign-buttons--label">Join the Project</label>
         <opensearch-button
@@ -55,55 +54,4 @@
             </div>
         </opensearch-button>
 {% endcase %}
-<script type="module">
-    document.addEventListener('DOMContentLoaded', () => {
-        const downloadButton = document.getElementById('download-button');
-        const downloadButtonMouseOutIcon = downloadButton.querySelector('.download-button--mouseout-icon');
-        const downloadButtonMouseOverIcon = downloadButton.querySelector('.download-button--mouseover-icon');
-        const downloadButtonMouseOutLogo = downloadButton.querySelector('.download-button--mouseout-logo');
-        const downloadButtonMouseOverLogo = downloadButton.querySelector('.download-button--mouseover-logo');
-        const downloadButtonDisabledIcon = downloadButton.querySelector('.download-button--disabled-icon');
-        const downloadButtonDisabledLogo = downloadButton.querySelector('.download-button--disabled-logo');
-        let isDown = false;
-        downloadButton.addEventListener('mouseover', (event) => {
-            [downloadButtonMouseOutIcon, downloadButtonMouseOutLogo].forEach((element) => {
-                element.style.display = 'none';
-            });
-            [downloadButtonMouseOverIcon, downloadButtonMouseOverLogo].forEach((element) => {
-                element.style.display = 'block';
-            });
-        });
-        downloadButton.addEventListener('mouseout', (event) => {
-            [downloadButtonMouseOutIcon, downloadButtonMouseOutLogo].forEach((element) => {
-                element.style.display = 'block';
-            });
-            [downloadButtonMouseOverIcon, downloadButtonMouseOverLogo].forEach((element) => {
-                element.style.display = 'none';
-            });
-            if (isDown) {
-                downloadButton.style.border = 'none';
-                downloadButton.style.boxShadow = '0px 4px 4px 0px rgba(0, 0, 0, 0.25)';
-                downloadButton.style.backgroundColor = '#002950';
-                isDown = false;
-            }
-        });
-        downloadButton.addEventListener('focus', (event) => {
-            downloadButton.style.border = '4px solid #4FB3E3';
-        });
-        downloadButton.addEventListener('blur', (event) => {
-            downloadButton.style.border = 'none';
-        });
-        downloadButton.addEventListener('mousedown', (event) => {
-            downloadButton.style.border = '4px solid #4FB3E3';
-            downloadButton.style.boxShadow = '0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset';
-            downloadButton.style.backgroundColor = '#006D97';
-            isDown = true;
-        });
-        downloadButton.addEventListener('mouseup', (event) => {
-            downloadButton.style.border = 'none';
-            downloadButton.style.boxShadow = '0px 4px 4px 0px rgba(0, 0, 0, 0.25)';
-            downloadButton.style.backgroundColor = '#002950';
-            isDown = false;
-        });
-    });
-</script>
+

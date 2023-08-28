@@ -184,7 +184,7 @@
 
         constructor() {
             super();
-            const shadowRoot = this.attachShadow({mode: 'open'});
+            const shadowRoot = this.attachShadow({mode: 'open', delegatesFocus: true});
             const template = document.getElementById('opensearch_button_element_tpl');
             const templateContent = template.content.cloneNode(true);
             shadowRoot.appendChild(templateContent);
@@ -313,11 +313,12 @@
             this.setAttribute('role', 'button');
             if (!this.hasAttribute('tabindex')) {
                 // only assign a tabindex if one is not already set.
+                // This should make it focusable by tabbing through elements in the page.
                 this.setAttribute('tabindex', 0);
             }
             this.addEventListener('keydown', this.onKeyDownHandler);
-            this.addEventListener('focus', this.onFocusHandler);
-            this.addEventListener('blur', this.onBlurHandler);
+            // this.addEventListener('focus', this.onFocusHandler);
+            // this.addEventListener('blur', this.onBlurHandler);
             // State assertion: the button is accessible.
         }
 
@@ -338,7 +339,7 @@
 
         disconnectCallback() {
             this.removeEventListener('keydown', this.onKeyDownHandler);
-            this.removeEventListener('focus', this.onFocusHandler);
+            // this.removeEventListener('focus', this.onFocusHandler);
         }
 
         attributeChangedCallback(name, oldValue, newValue) {
