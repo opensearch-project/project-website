@@ -63,15 +63,7 @@ $platform-header-reduce-padding-width: 1199px;
         padding-top: 20px;
         padding-left: 20px;
         padding-bottom: 20px;
-    }
-    @media screen and (max-width: 390px) {
-        padding-top: 20px;
-        padding-left: 5px;
-        padding-bottom: 20px;
-    }
-    @media screen and (max-width: 360px) {
-        padding-left: 0;
-        overflow-x: hidden;
+        padding-right: 20px;
     }
     background-color: white;
     .platform-page--feature-area {
@@ -82,7 +74,7 @@ $platform-header-reduce-padding-width: 1199px;
         flex-wrap: wrap;
         .platform-page--feature-area--icon {
             //
-            // NOTE: Hidding from display until the real icons are avaialable.
+            // NOTE: Hiding from display until the real icons are avaialable.
             //
             display: none; 
             flex-basis: 40px;
@@ -97,21 +89,35 @@ $platform-header-reduce-padding-width: 1199px;
         }
         .platform-page--feature-area--category-name,
         .platform-page--feature-area--solution-name,
-        .platform-page--feature-area--category-name-separator {
+        .platform-page--feature-area--category-name-separator,
+        .platform-page--feature-area--category-name__mobile {
             min-width: fit-content;
-            margin-left: 1em;
-            @media screen and (max-width: 390px) {
-                margin-left: 4px;
-                font-size: 19px;
-            }
-            @media screen and (max-width: 360px) {
-                margin-left: 4px;
-            }
             @include header-level4($secondary-sanfrancisco-fog-s4)
+        }
+        .platform-page--feature-area--category-name__mobile {
+            display: block;
+            @media screen and (min-width: 461px) {
+                display: none;
+            }
+        }
+        .platform-page--feature-area--category-name,
+        .platform-page--feature-area--solution-name,
+        .platform-page--feature-area--category-name-separator {
+            margin-left: 1em;
+            @media screen and (max-width: 460px) {
+                display: none;
+            }
         }
     }
     .platform-page--title {
         padding-left: 10px;
+        @media screen and (max-width: 460px) {
+            padding-left: 0;
+            > h1 {
+                @include header-level1-mobile;
+                margin-top: 10px;
+            }
+        }
     }
 }
 $platform-page-content-wide-screen-width: 1200px;

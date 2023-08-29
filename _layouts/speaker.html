@@ -11,9 +11,12 @@ feature_area_category_name: Speaker Bios
         <div class="landing-page-content__right-panel--content--side-panel">
             <div class="speaker-session--details-card">
                 {%- if page.keynote_speaker -%}
+                    {% assign date_modifier_classname = "speaker-session--details-card--date__is_keynote" %}
                     <h4>Keynote Speaker</h4>
+                {%- else -%}
+                    {%- assign date_modifier_classname = "speaker-session--details-card--date__not_keynote" -%}
                 {%- endif -%}
-                <h2 class="speaker-session--details-card--date">
+                <h2 class="speaker-session--details-card--date {{date_modifier_classname}}">
                     {{ page.speaker_name_full }}
                 </h2>
                 <h3>{{ page.speaker_title_and_company }}</h3>

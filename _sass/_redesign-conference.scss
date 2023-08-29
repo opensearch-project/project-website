@@ -65,10 +65,8 @@ $content-panel-expand-breakpoint: 834px;
         @include header-level2($primary-open-sky);
         margin-top: 0;
     }
-    &:not(:has(> h4)) {
-        > .speaker-session--details-card--date {
-            margin-top: 66px;
-        }
+    > .speaker-session--details-card--date.speaker-session--details-card--date__not_keynote {
+        margin-top: 66px;
     }
     > .speaker-session--details-card--related {
         > h4 {
