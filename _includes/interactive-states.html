@@ -1,0 +1,75 @@
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        const elementClassName = '{{include.element_classname}}';
+        const containerSelector = '{{include.container_selector}}';
+        const focusClassName = `${elementClassName}__focus`;
+        const activeClassName = `${elementClassName}__active`;
+        const disabledClassName = `${elementClassName}__disabled`;
+        const elementClassBasedSelector = `.${elementClassName}`;
+        const container = document.querySelector(containerSelector);
+
+        function elementHasClass(className, element) {
+            return element.classList.contains(className);
+        }
+
+        function addClassToElement(className, element) {
+            element.classList.add(className);
+        }
+
+        function removeClassFromAllElements(className, elements) {
+            if (elements?.length) {
+                elements.forEach(element => element.classList.remove(className));
+            }
+        }
+
+        const hasFocusClass = elementHasClass.bind(this, focusClassName);
+        const hasActiveClass = elementHasClass.bind(this, activeClassName);
+        const hasDisabledClass = elementHasClass.bind(this, disabledClassName);
+        
+        const addFocusClass = addClassToElement.bind(this, focusClassName);
+        const addActiveClass = addClassToElement.bind(this, activeClassName);
+        const addDisabledClass = addClassToElement.bind(this, disabledClassName);
+
+        const clearFocusClasses = removeClassFromAllElements.bind(this, focusClassName);
+        const clearActiveClasses = removeClassFromAllElements.bind(this, activeClassName);
+        const clearDisabledClasses = removeClassFromAllElements.bind(this, disabledClassName);
+        
+        function onElementFocusIn(e) {
+            if (e.target.tagName === 'A') {
+                const element = e.target.closest(elementClassBasedSelector);
+                if (!hasFocusClass(element)) {
+                    const elements = container.querySelectorAll(elementClassBasedSelector);
+                    clearFocusClasses(elements);
+                    addFocusClass(element);
+                }
+            }
+        }
+
+        function onElementFocusOut(e) {
+            if (e.target.tagName === 'A') {
+                const elements = container.querySelectorAll(elementClassBasedSelector);
+                clearFocusClasses(elements);
+            }
+        }
+
+        function onElementClick(e) {
+            if (e.target.tagName === 'A') {
+                const element = e.target.closest(elementClassBasedSelector);
+                if (!hasActiveClass(element)) {
+                    const elements = container.querySelectorAll(elementClassBasedSelector);
+                    clearActiveClasses(elements);
+                    addActiveClass(element);
+                }
+            }
+        }
+
+        if (container) {
+            const elements = container.querySelectorAll(elementClassBasedSelector);
+            elements.forEach(element => {
+                element.addEventListener('focusin', onElementFocusIn);
+                element.addEventListener('focusout', onElementFocusOut);
+                element.addEventListener('click', onElementClick);
+            });
+        }
+    });
+</script>
