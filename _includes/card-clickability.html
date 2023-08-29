@@ -1,5 +1,13 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
+        function addPointerCursor(elementSelector) {
+            const elements = document.querySelectorAll(elementSelector);
+            elements.forEach((element) => {
+                if (element.style.cursor !== 'pointer') {
+                    element.style.cursor = 'pointer';
+                }
+            });
+        }
         function findParentCardBoundary(element) {
             const cardClassName = '{{ include.card_classname }}';
             if (element === null) {
@@ -26,6 +34,8 @@
                 event.stopPropagation();
             }
         }
+        const cardSelector = '{{ include.card_container_selector }} .{{ include.card_classname }}';
+        addPointerCursor(cardSelector);
         document.querySelectorAll('{{ include.card_container_selector }}').forEach((cardList) => {
             cardList.addEventListener('click', onCardClick);
         });
