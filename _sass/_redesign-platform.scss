@@ -81,6 +81,10 @@ $platform-header-reduce-padding-width: 1199px;
         align-items: center;
         flex-wrap: wrap;
         .platform-page--feature-area--icon {
+            //
+            // NOTE: Hidding from display until the real icons are avaialable.
+            //
+            display: none; 
             flex-basis: 40px;
             flex-grow: 0;
             flex-shrink: 0;
@@ -97,11 +101,11 @@ $platform-header-reduce-padding-width: 1199px;
             min-width: fit-content;
             margin-left: 1em;
             @media screen and (max-width: 390px) {
-                margin-left: 10px;
+                margin-left: 4px;
                 font-size: 19px;
             }
             @media screen and (max-width: 360px) {
-                margin-left: 0;
+                margin-left: 4px;
             }
             @include header-level4($secondary-sanfrancisco-fog-s4)
         }
