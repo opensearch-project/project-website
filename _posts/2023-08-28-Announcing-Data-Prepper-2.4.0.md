@@ -141,7 +141,7 @@ s3:
 ## Streaming anomaly detection with high cardinality
 
 The streaming `anomaly_detector` now contains the `identification_keys` option, which creates a Random Cut Forest (RCF) model for each value in your time-series data.
-With the `identification_keys` option, anomalies can be detected in unique set of keys.
+With the `identification_keys` option, anomalies can be detected in a unique set of keys.
 
 The following example shows how to create an `anomaly_detector` processor that detects anomalies for each IP address:
 
