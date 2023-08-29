@@ -1,5 +1,5 @@
 <div class="resource-grid--item">
-    {%- if inclucde.aspect_ratio != "" -%}
+    {%- if include.aspect_ratio -%}
         <div class="resource-grid--item--thumbnail" 
             style="padding-top: {{ include.aspect_ratio }}"
         >
@@ -8,7 +8,7 @@
     {%- endif -%}
         {%- if include.thumbnail -%}
             <a class="resource-grid--item--link" 
-                href="{{ include..url }}"
+                href="{{ include.url }}"
             >
                 <img src="{{ include.thumbnail }}" 
                     alt="Thumbnail for blog post titled {{ include.title }}"
