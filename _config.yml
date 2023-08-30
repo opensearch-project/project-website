@@ -100,6 +100,11 @@ defaults:
       type: exhibitors
     values:
       layout: exhibitor
+-
+    scope:
+      type: conference_workshops
+    values:
+      layout: speaker_session
 
 collections:
   authors:
@@ -135,6 +140,8 @@ collections:
   platforms:
     output: true
   exhibitors:
+    output: true
+  conference_workshops:
     output: true
     
 paginate: 5

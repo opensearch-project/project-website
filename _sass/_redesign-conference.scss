@@ -24,6 +24,7 @@ $content-panel-expand-breakpoint: 834px;
         background: unset;
         > p {
             margin-top: 0;
+            padding-right: 20px;
         }
         > img {
             margin: 0;
@@ -33,7 +34,7 @@ $content-panel-expand-breakpoint: 834px;
         }
     }
     > .landing-page-content__right-panel--content {
-        > .landing-page-content__right-panel--content--side-panel:not(:has(.solutions-card-grid)) {
+        > .landing-page-content__right-panel--content--side-panel {
             @media screen and (max-width: $content-panel-collapse-breakpoint) {
                 flex-basis: calc(100% - 40px);
                 padding-left: 20px;
@@ -45,6 +46,7 @@ $content-panel-expand-breakpoint: 834px;
                 flex-basis: calc(37% - 63px);
                 padding-left: 23px;
                 padding-right: 40px;
+                padding-top: 55px;
             }
         }
     }
@@ -379,6 +381,9 @@ $content-panel-expand-breakpoint: 834px;
                 color: $secondary-sanfrancisco-fog-s5;
                 @include body-small;
             }
+        }
+        > .speaker-session--speaker-cards--card--content__fullwidth {
+            max-width: fit-content;
         }
         &:hover {
             h3 {
