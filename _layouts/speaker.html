@@ -11,9 +11,12 @@ feature_area_category_name: Speaker Bios
         <div class="landing-page-content__right-panel--content--side-panel">
             <div class="speaker-session--details-card">
                 {%- if page.keynote_speaker -%}
+                    {% assign date_modifier_classname = "speaker-session--details-card--date__is_keynote" %}
                     <h4>Keynote Speaker</h4>
+                {%- else -%}
+                    {%- assign date_modifier_classname = "speaker-session--details-card--date__not_keynote" -%}
                 {%- endif -%}
-                <h2 class="speaker-session--details-card--date">
+                <h2 class="speaker-session--details-card--date {{date_modifier_classname}}">
                     {{ page.speaker_name_full }}
                 </h2>
                 <h3>{{ page.speaker_title_and_company }}</h3>
@@ -39,10 +42,11 @@ feature_area_category_name: Speaker Bios
     {{ content  }}
 </hgroup>
 <div class="conference-speaker-session-page--view-all">
-    <div class="link-button">
+    <div class="conference-speaker-session-page--view-all--link-button">
         <a href="/events/opensearchcon/sessions/index.html">View All Sessions</a>
     </div>
-    <div class="link-button">
+    <div class="conference-speaker-session-page--view-all--link-button">
         <a href="/events/opensearchcon/speakers/index.html">View All Speakers</a>
     </div>
 </div>
+{% include interactive-states.html element_classname="conference-speaker-session-page--view-all--link-button" container_selector=".conference-speaker-session-page--view-all" %}

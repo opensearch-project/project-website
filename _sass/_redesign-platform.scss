@@ -1,3 +1,5 @@
+$dual-column-table-label-cell-width: 175px;
+$dual-column-table-label-cell-width-mobile: 100px;
 .platform-page--solutions--use-cases--table {
     background: #FFF;
     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
@@ -7,6 +9,16 @@
             > th {
                 @include table-header;
                 white-space: nowrap;
+            }
+            > th:nth-of-type(1) {
+                white-space: nowrap;
+                overflow-x: visible;
+                @media screen and (min-width: 601px) {
+                    width: $dual-column-table-label-cell-width;
+                }
+                @media screen and (max-width: 600px) {
+                    width: $dual-column-table-label-cell-width-mobile;
+                }
             }
         }
     }
@@ -18,6 +30,13 @@
             }
             > td:nth-of-type(1) {
                 @include header-level6;
+                white-space: normal;
+                @media screen and (min-width: 601px) {
+                    width: $dual-column-table-label-cell-width;
+                }
+                @media screen and (max-width: 600px) {
+                    width: $dual-column-table-label-cell-width-mobile;
+                }
             }
             > td:nth-of-type(2) {
                 @include header-level5($secondary-sanfrancisco-fog-s5);
@@ -31,25 +50,20 @@
     }
 }
 
+$platform-header-wide-screen-width: 1200px;
+$platform-header-reduce-padding-width: 1199px;
+
 .platform-page--header {
-    @media screen and (min-width: 834px) {
+    @media screen and (min-width: $platform-header-wide-screen-width) {
         padding-top: 40px;
         padding-left: 80px;
         padding-bottom: 40px;
     }
-    @media screen and (max-width: 833px) {
+    @media screen and (max-width: $platform-header-reduce-padding-width) {
         padding-top: 20px;
         padding-left: 20px;
         padding-bottom: 20px;
-    }
-    @media screen and (max-width: 390px) {
-        padding-top: 20px;
-        padding-left: 5px;
-        padding-bottom: 20px;
-    }
-    @media screen and (max-width: 360px) {
-        padding-left: 0;
-        overflow-x: hidden;
+        padding-right: 20px;
     }
     background-color: white;
     .platform-page--feature-area {
@@ -57,7 +71,12 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        flex-wrap: wrap;
         .platform-page--feature-area--icon {
+            //
+            // NOTE: Hiding from display until the real icons are avaialable.
+            //
+            display: none; 
             flex-basis: 40px;
             flex-grow: 0;
             flex-shrink: 0;
@@ -69,42 +88,75 @@
             }
         }
         .platform-page--feature-area--category-name,
-        .platform-page--feature-area--solution-name {
+        .platform-page--feature-area--solution-name,
+        .platform-page--feature-area--category-name-separator,
+        .platform-page--feature-area--category-name__mobile {
             min-width: fit-content;
-            padding-left: 20px;
-            @media screen and (max-width: 390px) {
-                padding-left: 10px;
-                font-size: 19px;
+            @include header-level4($secondary-sanfrancisco-fog-s4)
+        }
+        .platform-page--feature-area--category-name__mobile {
+            display: block;
+            @media screen and (min-width: 461px) {
+                display: none;
             }
-            @media screen and (max-width: 360px) {
-                padding-left: 0;
+        }
+        .platform-page--feature-area--category-name,
+        .platform-page--feature-area--solution-name,
+        .platform-page--feature-area--category-name-separator {
+            margin-left: 1em;
+            @media screen and (max-width: 460px) {
+                display: none;
             }
-            color: $secondary-sanfrancisco-fog-s4;
-            font-family: 'Open Sans';
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 21px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
+        }
+    }
+    .platform-page--title {
+        padding-left: 10px;
+        @media screen and (max-width: 460px) {
+            padding-left: 0;
+            > h1 {
+                @include header-level1-mobile;
+                margin-top: 10px;
+            }
         }
     }
 }
+$platform-page-content-wide-screen-width: 1200px;
+$platform-page-content-reduce-padding-width: 1199px;
 .platform-page--content {
+    h2.platform-page--solution--header {
+        color: $primary-pacific-blue-s3;
+    }
+    h2.platform-page--resource--header {
+        color: $primary-pacific-blue-s3;
+    }
+    .platform-solution-page--resources {
+        h3 {
+            color: $primary-pacific-blue-s3;
+        }
+    }
     .platform-page--solution--use-cases {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
+        @media screen and (min-width: $platform-page-content-wide-screen-width) {
+            padding-left: 80px;
+            padding-right: 40px;
+            width: calc(100% - 80px - 40px);
+        }
+        @media screen and (max-width: $platform-page-content-reduce-padding-width) {
+            padding-left: 20px;
+            padding-right: 20px;
+            width: calc(100% - 20px - 20px);
+        }
+        @media screen and (max-width: 390px) {
+            padding-left: 5px;
+            padding-right: 5px;
+            width: calc(100% - 5px - 5px);
+        }
         background: linear-gradient(180deg, #E1FAFF 0%, #98E3F4 48.15%, #00B7E0 100%);
-        > h2 {
-            flex-basis: 1265px;
-            padding-top: 50px;
+        padding-top: 40px;
+        padding-bottom: 66px;
+        h2 {
+            color: $primary-pacific-blue-s3;
         }
         > div {
-            flex-basis: 1265px;
             background: #D9D9D9;
             box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
             text-align: center;
@@ -113,13 +165,10 @@
             justify-content: center;
             align-items: center;
         }
-        > hgroup {
-            flex-basis: 1265px;
-        }
         > table {
             @extend .platform-page--solutions--use-cases--table;
-            flex-basis: 1265px;
             margin-bottom: 43px;
+            width: 100%;
         }
     }
 }
@@ -271,6 +320,7 @@
     }
     .resource-grid--item {
         @include card-shadow;
+        @include thick-edge-bottom;
         max-width: 350px;
         height: 437px;
         background-color: white;
@@ -333,15 +383,39 @@
     justify-content: center;
     align-items: center;
     padding: 0 0 42px;
-    > div {
+    > .conference-speakers--session-speakers--more--link-button {
         @include link-button($primary-open-sky-s1);
         padding: 0;
         > a {
             padding: 10px 50px;
             color: $secondary-sanfrancisco-fog-t1;
+            font-size: 18px;
+            line-height: 2.8;
+            text-decoration: none;
+            font-weight: 700;
             &:hover {
                 background: unset;
             }
         }
+        &:hover {
+            @include hover-button-dark-mode;
+        }
+        &.conference-speakers--session-speakers--more--link-button__focus {
+            @include focused-button-dark-mode;
+        }
+        &.conference-speakers--session-speakers--more--link-button__active {
+            @include active-button-dark-mode;
+        }
+        &.conference-speakers--session-speakers--more--link-button__disabled {
+            @include disabled-button-dark-mode;
+        }
     }
+}
+.platform-page--resources {
+    .resource-grid {
+        row-gap: 54px;
+        > .resource-grid--item {
+            cursor: pointer;
+        }
+    } 
 }
