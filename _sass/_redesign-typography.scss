@@ -155,10 +155,6 @@
     a {
         color: $primary-pacific-blue;
         font-family: 'Open Sans';
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 44px;
     }
 }
 
@@ -277,13 +273,74 @@
     }
 }
 
-@mixin link-button($fill-color: $primary-pacific-sky-t3) {
+@mixin focused-button-light-mode {
+    border: 3px solid $primary-open-sky;
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 44px;
+    > a {
+        line-height: 2.4;
+    }
+}
+
+@mixin hover-button-light-mode {
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    > a:hover {
+        color: $primary-open-sky;
+    }
+}
+
+@mixin active-button-light-mode {
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+@mixin disabled-button-light-mode {
+    background: $secondary-sanfrancisco-fog-s1;
+}
+
+@mixin link-button-light-mode($fill-color: $primary-pacific-sky-t3) {
     font-family: 'Open Sans';
     border-radius: 6px;
     &:not(:has(a:focus, a:hover, a[disabled])) {
         background: $fill-color;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
+    &:has(a:focus) {
+        @include focused-button-light-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-light-mode;
+    }
+    &:has(a:active) {
+        @include active-button-light-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-light-mode;
+    }
+    
+    white-space: nowrap;
+    > a {
+        color: $primary-deep-blue-sea;
+        padding: 10px 50px;
+        text-decoration: none;
+        &:hover {
+            background: unset;
+        }
+    }
+    > a:focus {
+        padding: 10px 47px;
+    }
+}
+
+@mixin link-button($fill-color: $primary-pacific-sky-t3) {
+    font-family: 'Open Sans';
+    border-radius: 6px;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
     &:has(a:focus) {
         @include focused-button-dark-mode;
     }
@@ -347,6 +404,11 @@
     overflow: hidden;
 }
 
+@mixin bottom-border-underline($color: $primary-pacific-blue) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $color;
+}
 @mixin header-level1-mobile {
     font-family: 'Open Sans';
     font-size: 40px;
