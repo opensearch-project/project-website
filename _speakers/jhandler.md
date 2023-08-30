@@ -1,6 +1,6 @@
 ---
 speaker_name: 'jhandler'
-speaker_image: '/assets/media/authors/handler.jpg'
+speaker_image: '/assets/media/opensearchcon/speakers/handler.jpg'
 speaker_name_full: 'Jon Handler'
 primary_title: 'Speaker: Jon Handler'
 title: 'OpenSearchCon 2023 Speaker: Jon Handler'
