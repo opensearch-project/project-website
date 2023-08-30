@@ -9,6 +9,7 @@ session_time: '2023-09-27 - 1:00pm-5:30pm'
 session_room: 'Grand Sheraton Seattle Willow Room'
 session_track: 'Unconference'
 primary_speaker_name: 'nknize'
+hero_banner_image: '/assets/media/opensearchcon/Uncon_web-1399x627.png'
 presenters:
   - nknize
   - kfreedain
