@@ -13,7 +13,7 @@ twittercard:
   creator: "@nateboot"
   description: "From zero to vectorizing text with the neural search plugin. "
 ---
-G﻿oing from a vanilla install of OpenSearch to having vectorized text stored in an index seemed like a short journey . On paper, it  sounded easy. Upload a model to a node designated as a ML node, load it, and start ingesting text and storing it as a vector. T﻿he herculean amount of probing, asking, experimenting, copying and pasting and smashing my head into my desk quickly made it clear to me that I was mistaken.  
+G﻿oing from a vanilla install of OpenSearch to having vectorized text stored in an index seemed like a short journey. On paper, it  sounded easy. Upload a model to a node designated as a ML node, load it, and start ingesting text and storing it as a vector. T﻿he herculean amount of probing, asking, experimenting, copying and pasting and smashing my head into my desk quickly made it clear to me that I was mistaken. 
 
 P﻿lease find below the chronicles of my efforts to load a pre-trained model into OpenSearch by hand, using nothing more than the dev console and a heavy dose of copypasta. I hope that it saves you the time spent researching that I needed. 
 
@@ -23,9 +23,11 @@ I﻿'ll apologize if my journey takes twists and turns. The toil involved has le
 
 I﻿ started [here](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) at the ml-framework documentation page. It gave me a good start. I apparently needed to register a model. 
 
-W﻿hat's a model? What kinds are there? Do I get them somewhere else? Does OpenSearch come with any? What do I do with it? 
+W﻿hat's a model? What kinds are there? Do I get them somewhere else? Does OpenSearch come with any? What do I do with it? sha256 hash missing from examples!
 
-Using an example call showed me that I needed to have a node as an "ML node" - I only have one node in my cluster. I decided to disable the requirement for now. Great!  Side quest number one: Learn the settings API. I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names. 
+Using an example call showed me that I needed to have a node as an "ML node" - I only have one node in my cluster. I decided to disable the requirement for now. 
+  
+Side quest number one: Learn the settings API. I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names. 
 
 I﻿ eventually cobbled together this call.
 
