@@ -13,6 +13,13 @@ feature_area_category_name: Session Summaries
 {% else %}
     {% assign ordered_speaker_names = page.speaker_name | split: " " %}
 {% endif %}
+{% if page.hero_banner_image %}
+<div class="hero-banner__fullwidth__responsive">
+    <div>
+        <img src="{{ page.hero_banner_image }}" alt="{{ page.title }}">
+    </div>
+</div>
+{% endif %}
 <div class="landing-page-content__right-panel conference-speaker-session-page">
     <div class="landing-page-content__right-panel--content">
         <div class="landing-page-content__right-panel--content--body">
