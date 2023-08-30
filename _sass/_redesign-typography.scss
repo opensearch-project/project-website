@@ -346,3 +346,11 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+@mixin header-level1-mobile {
+    font-family: 'Open Sans';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
