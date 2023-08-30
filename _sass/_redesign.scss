@@ -8,6 +8,16 @@ $resource-grid-2-column-max: 1439px;
 $resource-grid-2-column-min: 834px;
 $resource-grid-1-column-max: 833px;
 
+$content-with-panel-right-side-width: 420px;
+$content-with-panel-wide-screen-width: 1200px;
+$content-with-panel-reduce-padding-width: 1199px;
+$content-with-panel-wide-screen-padding: 120px;
+$content-with-panel-reduced-padding: 40px;
+$content-with-panel-collapsed-max: 834px;
+$content-with-panel-expanded-min: 835px;
+$max-iphone-width: 428px;
+$min-past-iphone-width: 429px;
+
 .landing-page-content__right-panel {
     background: #fff;
     > .landing-page-content__right-panel--content {
@@ -15,22 +25,23 @@ $resource-grid-1-column-max: 833px;
         flex-direction: row;
         flex-wrap: wrap;
         > .landing-page-content__right-panel--content--body {
-            @media screen and (min-width: 1440px) {
-                flex-basis: calc(67% - 8em);
+            @media screen and (min-width: $content-with-panel-wide-screen-width) {
+                padding: 40px 40px 40px 80px;
+                flex-basis: calc(100% - $content-with-panel-right-side-width - $content-with-panel-wide-screen-padding);
                 flex-grow: 1;
                 flex-shrink: 1;
-                padding: 4em;
             }
-            @media screen and (max-width: 1439px) {
-                flex-basis: calc(100% - 4em);
-                flex-grow: 0;
+            @media screen and (max-width: $content-with-panel-reduce-padding-width) {
+                padding: 40px 20px 40px 20px;
+                flex-basis: calc(100% - $content-with-panel-right-side-width - $content-with-panel-reduced-padding);
+                flex-grow: 1;
+                flex-shrink: 1;
+            }
+            @media screen and (max-width: $content-with-panel-collapsed-max) {
                 flex-shrink: 0;
-                padding: 2em;
-            }
-            @media screen and (max-width: 833px) {
-                padding-bottom: 0;
-                padding: 2em 40px;
-                flex-basis: calc(100% - 80px);
+                flex-grow: 0;
+                padding: 20px 0 0 20px;
+                flex-basis: calc(100% - 20px);
             }
             
             background: #fff;
@@ -42,49 +53,61 @@ $resource-grid-1-column-max: 833px;
             }
         }
         > .landing-page-content__right-panel--content--side-panel {
-            @media screen and (min-width: 1440px) {
-                flex-basis: calc(33% - 4em);
+            @media screen and (min-width: $content-with-panel-expanded-min) {
+                flex-basis: 420px;
                 flex-grow: 0;
                 flex-shrink: 1;
+                max-width: 420px;
             }
-            @media screen and (max-width: 1439px) {
-                flex-basis: calc(100% - 4em);
-                flex-grow: 0;
-                flex-shrink: 0;
-            }
-            @media screen and (max-width: 833px) {
-                flex-basis: calc(100% - 4em);
+            @media screen and (max-width: $content-with-panel-collapsed-max) {
+                flex-basis: 100%;
                 padding-top: 0;
             }
-            padding-top: 2em;
-            &:not(:has(.solutions-card-grid)) {
-                @media screen and (max-width: 833px) {
+            &.landing-page-content__right-panel--content--side-panel__has-card-grid {
+                padding-top: 2em;
+                padding-bottom: 2em;
+            }
+            &.landing-page-content__right-panel--content--side-panel__without-card-grid {
+                @media screen and (min-width: $min-past-iphone-width) and (max-width: $content-with-panel-collapsed-max) {
                     padding-left: 40px;
                     padding-right: 40px;
                     flex-basis: calc(100% - 80px);
                 }
-                @media screen and (min-width: 834px) {
-                    padding-left: 2em;
-                    padding-right: 2em;
+                @media screen and (max-width: $max-iphone-width) {
+                    padding-left: 0;
+                    padding-right: 0;
+                    flex-basis: 100%;
                 }
             }
-            &:has(.solutions-card-grid) {
-                .solutions-card-grid {
-                    > .solutions-card-grid--card-wrapper {
+            > .solutions-card-grid {
+                > .solutions-card-grid--card-wrapper {
+                    @media screen and (min-width: $content-with-panel-expanded-min) {
                         display: flex;
                         flex-direction: row;
                         justify-content: space-around;
                         align-items: center;
                         flex-wrap: wrap;
-                        padding: 2em 0;
+                    }
+                    @media screen and (min-width: 701) and (max-width: $content-with-panel-collapsed-max) {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                    }
+                    @media screen and (max-width: 700px) {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                    }
+                    padding: 2em 0;
+                    > .solutions-card-grid--card-wrapper--card {
+                        @media screen and (max-width: 700px) {
+                            width: calc(100% - 40px);
+                        }
+                        > .solutions-card-grid--card-wrapper--card--content {
+                            @include body-small;
+                            color: $secondary-sanfrancisco-fog-s3;
+                        }
                     }
                 }
-                .solutions-card-grid--card-wrapper--card--content {
-                    @include body-small;
-                    color: $primary-open-sky-s2;
-                }
             }
-            padding-bottom: 2em;
             > .landing-page-content__right-panel--content-side-panel--header {
                 display: flex;
                 flex-direction: row;
@@ -95,20 +118,18 @@ $resource-grid-1-column-max: 833px;
                     white-space: nowrap;
                 }
             }
-            &:has(.resource-grid) {
-                padding-left: 0;
-                @include gradient-open-sky;
-            }
             > .draft-3-landing-page--button-stack {
                 
-                @media screen and (min-width: 834px) and (max-width: 1439px) {
+                @media screen and (max-width: $content-with-panel-collapsed-max)
+                and (min-width: $min-past-iphone-width) {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     grid-gap: 2em;
                     padding: 0 2em;
                     width: calc(100% - 4em);
                 }
-                @media screen and (min-width: 1440px), screen and (max-width: 833px) {
+                @media screen and (min-width: $content-with-panel-expanded-min), 
+                screen and (max-width: $max-iphone-width) {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
@@ -116,13 +137,17 @@ $resource-grid-1-column-max: 833px;
                     width: 100%;
                     row-gap: 30px;
                 }
-                @media screen and (max-width: 833px) {
+                @media screen and (max-width: $content-with-panel-collapsed-max) {
                     width: 100%;
                 }
-                
-                height: 100%;
+                @media screen and (min-width: $content-with-panel-expanded-min) {
+                    padding-top: 110px;
+                }
+                @media screen and (max-width: $max-iphone-width) {
+                    padding-left: calc((100% - 350px) / 2);
+                }
                 > .draft-3-landing-page--button-stack--button {
-                    @media screen and (min-width: 834px) and (max-width: 1439px) {
+                    @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
                         flex-basis: 50%;
                         flex-grow: 1;
                         flex-shrink: 1;
@@ -131,9 +156,10 @@ $resource-grid-1-column-max: 833px;
                     @media screen and (min-width: 1440px) {
                         width: calc(100% - 2em);
                     }
-                    @media screen and (max-width: 833px) {
+                    @media screen and (max-width: $content-with-panel-collapsed-max) {
                         width: 100%;
                     }
+                    
                     > opensearch-button {
                         width: 100%;
                         height: 71px;
@@ -154,10 +180,10 @@ $resource-grid-1-column-max: 833px;
             }
             > .landing-page-content__right-panel--content-side-panel--version-label {
                 @include header-level5($secondary-sanfrancisco-fog-s1);
-                @media screen and (min-width: 834px) and (max-width: 1439px) {
+                @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
                     text-align: center;
                 }
-                @media screen and (max-width: 833px) {
+                @media screen and (max-width: $content-with-panel-collapsed-max) {
                     padding-top: 6px;
                 }
             }
@@ -242,11 +268,6 @@ $resource-grid-1-column-max: 833px;
             top: 0;
             left: 0;
             margin: 0;
-            // background-image: url('../media/herobanners/redesign/gradient-hero-bg.png');
-            // background-position: center center;
-            // background-repeat: no-repeat;
-            // background-size: contain;
-            // background-attachment: scroll;
             width: 100%;
             max-width: 1440px;
             @media screen and (min-width: 834px) {
@@ -290,17 +311,10 @@ $resource-grid-1-column-max: 833px;
                             height: 100%;
                         }
                     }
-                    // > img {
-                    //     width: 100%;
-                    //     height: 100%;
-                    // }
                     @media screen and (min-width: 834px) {
                         &.landing-page-hero--images--image__desktop {
                             display: block;
                             @include gradient-golden-sunrise;
-                            // &:nth-of-type(2) {
-                            //     @include gradient-purple-mint;
-                            // }
                         }
                         &.landing-page-hero--images--image__mobile {
                             display: none;
@@ -519,13 +533,61 @@ $resource-grid-1-column-max: 833px;
     }
 }
 
-.redesign-buttons--download__large {
-    div[slot="text-slot"] {
-        padding-top: 18px;
-        padding-left: 2px;
+.redesign-button--wrapper {
+    width: 350px;
+    > .redesign-button--anchor {
+        display: inline-block;
+        width: 350px;
+        height: 70px;
+        padding: 0px;
+        &:focus {
+            padding: 0;
+            > .redesign-button--contents {
+                border: 4px solid $primary-open-sky-t1;
+                margin: -4px auto auto -4px;
+            }
+        }
+        .redesign-button--contents__mouseout {
+            display: block;
+        }
+        .redesign-button--contents__mouseover {
+            display: none;
+        }
+        .redesign-button--contents__disabled {
+            display: none;
+        }
+        &:hover {
+            .redesign-button--contents__mouseout {
+                display: none;
+            }
+            .redesign-button--contents__mouseover {
+                display: block;
+            }
+        }
+        > .redesign-button--contents {
+            border-radius: 6px;
+            width: 100%;
+            margin: 0;
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: $primary-deep-blue-sea;
+        }
     }
-    div[slot="icon-slot"] {
-        padding-top: 10px;
+}
+.redesign-buttons--download__large {
+    // .redesign-button--contents {
+    //     height: 70px;
+    // }
+    .redesign-button--contents--text-slot {
+        padding: 18px 0 0 20px;
+        flex-basis: 90%;        
+    }
+    .redesign-button--contents--icon-slot {
+        padding: 22px 20px 16px;
+        flex-basis: 10%;
+        width: 37px;
+        height: 37px;
     }
 }
 
@@ -570,10 +632,7 @@ $resource-grid-1-column-max: 833px;
     > div {
         flex-basis: 268px;
         height: 50px;
-        @include link-button;
-        a {
-            @extend .button;
-        }
+        @include link-button-light-mode;   
     }
 }
 
@@ -581,10 +640,15 @@ $resource-grid-1-column-max: 833px;
     @include gradient-open-sky;
     width: 100%;
     box-sizing: border-box;
-    padding: 1em 2em 0 2em;
+    padding: 1em 35px 0 35px;
     @media screen and (max-width: 833px) {
         padding-left: 40px;
         padding-right: 40px;
+    }
+    > h2.solutions-card-grid--header {
+        @include header-level2($primary-open-sky-s3);
+        margin-top: 13px;
+        margin-bottom: 0;
     }
     > .solutions-card-grid--card-wrapper {
         display: grid;
@@ -594,11 +658,9 @@ $resource-grid-1-column-max: 833px;
         @media screen and (max-width: 1459px) {
             grid-template-columns: 1fr 1fr;
         }
-        @media screen and (max-width: 1023px) {
-            grid-template-columns: 1fr;
-        }
-        @media screen and (max-width: 833px) {
+        @media screen and (max-width: 834px) {
             padding: 0;
+            grid-template-columns: 1fr;
         }
         grid-gap: 2em;
         padding: 0 2em 2em;
@@ -613,22 +675,59 @@ $resource-grid-1-column-max: 833px;
             justify-content: start;
             align-items: center;
             background: #FFF;
-            box-shadow: 0px 4px 12px 2px rgba(0, 0, 0, 0.25);
-            border-left-style: solid;
-            border-left-width: 10px;
-            border-left-color: $light-theme-category-card-edge;
+            @include card-shadow;
+            @include thick-edge-left;
             padding: 15px;
             margin-bottom: 2em;
+            &.tall-card__no-image--grid--card {
+                border-left: unset;
+                @include thick-edge-bottom;
+                align-items: flex-start;
+                min-height: 215px;
+                // NOTE: The :has() selector is not supported in Firefox without being specifically
+                // enabled by the user. So, be advised that there is a brute force JavaScript function
+                // in _includes/card-clickability.html that will add the style explicitly if not set via CSS.
+                &:has(a[href]) {
+                    cursor: pointer;
+                }
+                &:hover {
+                    h3.tall-card__no-image--grid--card--title {
+                        a {
+                            border-bottom: 2px solid $primary-pacific-blue;
+                            color: $primary-open-sky;
+                        }
+                    }
+                }
+                > h3.tall-card__no-image--grid--card--title {
+                    margin-top: 0;
+                    > a {
+                        color: $primary-open-sky-s1;
+                    }
+                    a:focus{
+                        border-bottom: 2px solid $primary-pacific-blue;
+                    }
+                }
+                &:has(a:focus) {
+                    box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+                }
+                &:has(a:active) {
+                    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+                }
+                &.tall-card__no-image--grid--card__focused {
+                    box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+                }
+                &.tall-card__no-image--grid--card__active {
+                    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+                }
+                > .tall-card__no-image--grid--card--category {
+                    margin-top: 19px;
+                }
+            }
             > .solutions-card-grid--card-wrapper--card--label__no-icon {
                 color: $light-theme-category-card-label;
+                @include header-level4($primary-pacific-blue-s3);
                 width: 100%;
-                font-size: 15px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 21px;
-                letter-spacing: 4.5px;
-                text-transform: uppercase;
-                padding-top: 25px;
+                padding-top: 40px;
                 padding-bottom: 25px;
             }
             > .solutions-card-grid--card-wrapper--card--icon__left-label {
@@ -741,7 +840,6 @@ $resource-grid-1-column-max: 833px;
                     flex-shrink: 1;
                 }
                 @media screen and (max-width: $community-voices-vert-view-max) {
-                    // flex-basis: 100%;
                     flex-grow: 0;
                     flex-shrink: 0;
                 }

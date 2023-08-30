@@ -92,6 +92,11 @@ defaults:
       layout: speaker_session
 -
     scope:
+      type: platforms
+    values:
+      permalink: platform/:categories/:name.html
+-
+    scope:
       type: exhibitors
     values:
       layout: exhibitor
@@ -122,6 +127,12 @@ collections:
   speakers:
     output: true
   speaker_sessions:
+    output: true
+  redesign_use_cases:
+    output: true
+  redesign_resources:
+    output: true
+  platforms:
     output: true
   exhibitors:
     output: true

@@ -29,7 +29,11 @@
       <ul class="nested-nav">
         {% assign url_fragment = url_parts[1] | replace: '.html', '' %}
         {% if url_parts.size > 2 %}
-          {% assign is_conference_page = url_parts[2] == "opensearchcon" %}
+          {% if url_parts[2] == "opensearchcon" %}
+            {% assign is_conference_page = true %}
+          {% else %}
+            {% assign is_conference_page = false %}  
+          {% endif %}
         {% else %}
           {% if url_parts[1] == "opensearchcon2023-cfp.html" %}
             {% assign is_conference_page = true %}

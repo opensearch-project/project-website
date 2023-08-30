@@ -65,10 +65,8 @@ $content-panel-expand-breakpoint: 834px;
         @include header-level2($primary-open-sky);
         margin-top: 0;
     }
-    &:not(:has(> h4)) {
-        > .speaker-session--details-card--date {
-            margin-top: 66px;
-        }
+    > .speaker-session--details-card--date.speaker-session--details-card--date__not_keynote {
+        margin-top: 66px;
     }
     > .speaker-session--details-card--related {
         > h4 {
@@ -124,7 +122,7 @@ $content-panel-expand-breakpoint: 834px;
     
     padding-top: 20px;
     padding-bottom: 80px;
-    > div {
+    .conference-speaker-session-page--view-all--link-button {
         flex-basis: unset;
         max-width: unset;
         flex-grow: 0;
@@ -132,9 +130,25 @@ $content-panel-expand-breakpoint: 834px;
         > a {
             color: $secondary-sanfrancisco-fog-t1;
             padding: 10px 50px;
+            font-size: 18px;
+            line-height: 2.8;
+            text-decoration: none;
+            font-weight: 700;
             &:hover {
                 background: unset;
             }
+        }
+        &:hover {
+            @include hover-button-dark-mode;
+        }
+        &.conference-speaker-session-page--view-all--link-button__focus {
+            @include focused-button-dark-mode;
+        }
+        &.conference-speaker-session-page--view-all--link-button__active {
+            @include active-button-dark-mode;
+        }
+        &.conference-speaker-session-page--view-all--link-button__disabled {
+            @include disabled-button-dark-mode;
         }
     }
 }
@@ -287,14 +301,12 @@ $content-panel-expand-breakpoint: 834px;
             > .speaker-session--speaker-cards--card--content {
                 max-width: calc(95% - 20px);
                 @media screen and (max-width: $single-column-max-width) {
-                    // height: 150px;
                     > h3 {
                         margin-top: 0;
                         margin-bottom: 0;
                     }
                 }
                 @media screen and (min-width: $two-column-min-width) {
-                    // height: 130px;
                     > h3 {
                         margin-top: 10px;
                         margin-bottom: 10px;
@@ -367,6 +379,30 @@ $content-panel-expand-breakpoint: 834px;
                 color: $secondary-sanfrancisco-fog-s5;
                 @include body-small;
             }
+        }
+        &:hover {
+            h3 {
+                a {
+                    border-bottom: 2px solid $primary-pacific-blue;
+                }
+            }
+        }
+        h3 {
+            a:focus{
+                border-bottom: 2px solid $primary-pacific-blue;
+            }
+        }
+        &:has(a:focus) {
+            box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+        }
+        &:has(a:active) {
+            box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+        }
+        &.speaker-session--speaker-cards--card__focused {
+            box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+        }
+        &.speaker-session--speaker-cards--card__active {
+            box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
         }
     }
 }
@@ -600,6 +636,26 @@ h2.conference-speaker-session-page {
     }
 }
 
+.hero-banner__fullwidth__responsive {
+    @media screen and (min-width: 834px) {
+        padding: 40px 40px 40px 80px;
+        width: calc(100% - 120px);
+    }
+    @media screen and (max-eith: 833px) {
+        padding: 20px 20px 20px 20px;
+        width: calc(100% - 40px);
+    }
+    > div {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        > img {
+            object-fit: fill;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
 .conference-exhibitors {
     padding: 40px 80px;
     @media screen and (max-width: 834px) {

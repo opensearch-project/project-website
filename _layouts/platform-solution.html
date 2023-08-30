@@ -1,0 +1,67 @@
+---
+layout: default
+---
+{% if page.has_hero %}
+    {% assign page_type_class = "page-with-hero" %}
+{% else %}
+    {% assign page_type_class = "page-without-hero" %}
+{% endif %}
+{% assign icon_type = page.feature_area_icon_type | default: layout.feature_area_icon_type | default: 'smiling-face' %}
+{% assign category_name = page.feature_area_category_name | default: layout.feature_area_category_name | default: '' %}
+{% assign solution_name = page.feature_area_solution_name | default: layout.feature_area_solution_name | default: '' %}
+{% include opensearch-button.html %}
+<main class="container">
+    <div class="{{ page_type_class }}">
+        <div class="platform-page--header">
+            <div class="platform-page--feature-area">
+                {% if icon_type %}
+                    <div class="platform-page--feature-area--icon">
+                        {% include icons.html type=icon_type %}
+                    </div>
+                {% endif %}
+                {% if category_name %}
+                    <div class="platform-page--feature-area--category-name__mobile">&lt;&nbsp;{{category_name}}</div>
+                    <div class="platform-page--feature-area--category-name">{{category_name}}{%- if solution_name -%}:{%- endif -%}</div>
+                {% endif %}
+                {% if solution_name %}
+                    <div class="platform-page--feature-area--solution-name">{{solution_name}}</div>
+                {% endif %}
+            </div>
+            <div class="platform-page--title">
+                <h1>{{ page.primary_title }}</h1>
+            </div>
+        </div>
+        <div class="platform-page--content">
+            <div class="platform-solution-page">
+                {% if page.callouts %}
+                    <div class="landing-page-content__right-panel">
+                        <div class="landing-page-content__right-panel--content">
+                            <div class="landing-page-content__right-panel--content--body">
+                                {{ content }}
+                            </div>
+                            <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__has-card-grid">
+                                {% include callout-cards.html callouts=page.callouts heading="Use the vector database functionality built into OpenSearch to:" %}
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    {{ content }}
+                {% endif %}
+                {% assign category_use_cases = site.redesign_use_cases | where: "feature_area_category_name", page.feature_area_category_name  %}
+                {% assign feature_use_cases = category_use_cases | where: "feature_area_solution_name", page.feature_area_solution_name %}
+                {% if feature_use_cases %}
+                    {% for use_case in feature_use_cases %}
+                        {{ use_case }}
+                    {% endfor %}
+                {% endif %}
+                {% assign category_resources = site.redesign_resources | where: "feature_area_category_name", page.feature_area_category_name %}
+                {% assign feature_resources = category_resources | where: "feature_area_solution_name", page.feature_area_solution_name %}
+                {% if feature_resources %}
+                    {% for resource in feature_resources %}
+                        {{ resource }}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
