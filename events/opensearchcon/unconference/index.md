@@ -1,7 +1,7 @@
 ---
 layout: speaker_session
 feature_area_category_name: OpenSearchCon 2023
-feature_area_solution_name: UnOpenSearchCon
+feature_area_solution_name: Unconference
 title: 'OpenSearchCon 2023 Session: Unconference'
 primary_title: Unconference
 speaker_talk_title: Unconference
@@ -38,8 +38,8 @@ picture. Just be mindful of your 15 minutes!
 
 At 1:00 PM, each attendee will receive a card and three gold-star stickers. 
 Those who would like to give a talk will write their title and brief description 
-on the car, put their name on the back, and post them to the board for 
-voting
+on the card, put their name on the back, and post them to the board for 
+voting.
 
 At 1:10, you&apos;ll have 10 minutes to walk the board and place a gold star on 
 one of the talks you would like to hear. Two rules: please do not vote for 
