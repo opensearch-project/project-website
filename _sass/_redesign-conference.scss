@@ -636,6 +636,26 @@ h2.conference-speaker-session-page {
     }
 }
 
+.hero-banner__fullwidth__responsive {
+    @media screen and (min-width: 834px) {
+        padding: 40px 40px 40px 80px;
+        width: calc(100% - 120px);
+    }
+    @media screen and (max-eith: 833px) {
+        padding: 20px 20px 20px 20px;
+        width: calc(100% - 40px);
+    }
+    > div {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        > img {
+            object-fit: fill;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
 .conference-exhibitors {
     padding: 40px 80px;
     @media screen and (max-width: 834px) {
