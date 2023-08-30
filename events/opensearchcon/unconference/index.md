@@ -4,7 +4,7 @@ feature_area_category_name: OpenSearchCon 2023
 feature_area_solution_name: UnOpenSearchCon
 title: 'OpenSearchCon 2023 Session: Unconference'
 primary_title: Unconference
-speaker_talk_title: UnOpenSearchCon
+speaker_talk_title: Unconference
 session_time: '2023-09-27 - 1:00pm-5:30pm'
 session_room: 'Grand Sheraton Seattle Willow Room'
 session_track: 'Unconference'
@@ -15,14 +15,7 @@ presenters:
   - kfreedain
 ---
 
-## Who wants to attend UnOpenSearchCon?
-
-Nick Knize does. He wants to attend so bad, he agreed to be the host! He 
-wants to present something about Lucene that showcases his world-class 
-talent, too... but he&apos;ll have to compete with the rest of you to score a 
-speaking slot. Let the challenge begin!
-
-Make plans to join the first-ever UnOpenSearchCon and come ready to pitch 
+Make plans to join the first-ever Unconference and come ready to pitch 
 your favorite speaking topic! This is an opportunity for the community to 
 come together and kick off OpenSearchCon with an action-packed afternoon 
 of sharing and discovery. With no pre-planned talks, what you want to hear 
