@@ -16,6 +16,9 @@ items:
         label: Exhibitors
         url: /events/opensearchcon/exhibitors/index.html
       -
+        label: Workshops
+        url: /events/opensearchcon/workshops/index.html
+      -
         label: Unconference
         url: /events/opensearchcon/unconference/index.html
       -
