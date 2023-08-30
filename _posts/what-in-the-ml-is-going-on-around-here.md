@@ -1,5 +1,5 @@
 ---
-date: YYYY-MM-DD HH:MM:SS -NNNN
+date: 2023-08-30 00:00:01 -0700
 meta_description: getting started with the neural search plugin for opensearch
 meta_keywords: neural search, guide, getting started
 has_math: false
@@ -26,8 +26,8 @@ I﻿ started [here](https://opensearch.org/docs/latest/ml-commons-plugin/ml-fram
 W﻿hat's a model? What kinds are there? Do I get them somewhere else? Does OpenSearch come with any? What do I do with it? sha256 hash missing from examples!
 
 Using an example call showed me that I needed to have a node as an "ML node" - I only have one node in my cluster. I decided to disable the requirement for now. 
-  
-Side quest number one: Learn the settings API. I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names. 
+
+**Side quest number one**: Learn the settings API. I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names. 
 
 I﻿ eventually cobbled together this call.
 
@@ -44,4 +44,43 @@ PUT _cluster/settings
 }
 ```
 
-T﻿hat worked! Great. Now I can start!
+T﻿hat worked! Great. Now I can start!﻿ 
+
+
+
+L﻿et's upload a model! 
+
+```
+POST /_plugins/_ml/models/_upload
+{
+  "name": "all-MiniLM-L6-v2",
+  "version": "1.0.0",
+  "description": "test model",
+  "model_format": "TORCH_SCRIPT",
+  "model_config": {
+    "model_type": "bert",
+    "embedding_dimension": 384,
+    "framework_type": "sentence_transformers"
+  },
+  "url": "https://github.com/opensearch-project/ml-commons/raw/2.x/ml-algorithms/src/test/resources/org/opensearch/ml/engine/algorithms/text_embedding/all-MiniLM-L6-v2_torchscript_sentence-transformer.zip?raw=true"
+}
+```
+
+```
+GET /_plugins/_ml/tasks/_search
+{
+    "query": {
+     "match": { 
+
+ }
+ }
+}
+
+GET /_plugins/_ml/models/_search
+{
+    "query": {
+     "match_all": { 
+     }
+  }
+}
+```
