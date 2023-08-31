@@ -9,10 +9,10 @@ permalink: "/OpenSearchCon2023"
 
 <div style="text-align: center">
 
-<h2>Save the Date for OpenSearchCon 2023!</h2>
+<h2>Join us for OpenSearchCon 2023!</h2>
 
 
-<h3>September 28, 2023 @ the Sheraton Grand, Seattle</h3>
+<h3>September 27, 28, & 29 2023 @ the Sheraton Grand, Seattle</h3>
 
 </div>
 
@@ -22,7 +22,11 @@ This free-to-attend, one-day conference brings together users, developers, and t
 
 Mark your calendars and plan to join us for OpenSearchCon 2023, September 28 at the [Sheraton Grand](https://www.marriott.com/en-us/hotels/seasi-sheraton-grand-seattle/overview/) in Seattle! And don’t forget to click the link below and let us know if you’re interested in attending. When you do, we’ll make sure you’re one of the first to know when we share more details!
 
-Come back here and check in the [forums](https://forum.opensearch.org) for any updates!
+[Register now](https://opensearchcon2023.splashthat.com/)!
+
+[Book your hotel](https://book.passkey.com/event/50584019/owner/346/home)!
+
+
 
 <div style="text-align: center;">
 
