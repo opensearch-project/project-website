@@ -4,14 +4,14 @@ title: The OpenSearch Platform
 subtitle: Build enterprise-grade applications on a vendor-neutral, open-source foundation.
 callouts:
   - name: Search
-    icon: squinting-face
-    description: Lorem ipsum dolor sit amet consectetur
+    icon: search
+    description: Build smarter, more efficient search solutions for your application.
   - name: Observability
-    icon: squinting-face
-    description: Lorem ipsum dolor sit amet consectetur
+    icon: observability
+    description: Identify and resolve issues across your applications and infrastructure.
   - name: Security Analytics
-    icon: squinting-face
-    description: Lorem ipsum dolor sit amet consectetur
+    icon: security
+    description: Detect and respond to security threats in real time.
 include_community_voices: true
 platform_products:
   collection_title: The OpenSearch Toolbox
