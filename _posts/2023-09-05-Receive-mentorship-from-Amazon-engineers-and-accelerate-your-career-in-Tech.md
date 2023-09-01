@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "The OpenSearch Project College Contributor Initiative"
+title:  "Receive mentorship from Amazon engineers and accelerate your career in Tech"
 authors:
   - rednaksi
 date:   2023-09-05 09:00:00 -0700
 categories:
   - announcements
-meta_keywords: Google Summer of Code, Major League Hacking, MIT Summer Camp, College Contributor Initiative, Coding Bootcamp
+meta_keywords: Open Source Contributor Initiative, Google Summer of Code, Major League Hacking, MIT Summer Camp, Coding Bootcamp
 
-meta_description: The OpenSearch Project launched the College Contributor Initiative (CCI) in March 2023, a program that provided students with opportunities to gain software development experience and contribute to open-source projects. The successful 12-week pilot, which concluded in May, led to a significant increase in external contributions, streamlined onboarding for developers, improved code quality, expanded project roadmaps, enhanced open-source maintenance experience, clarified project issues, and increased community engagement, prompting an expansion of the program to new schools and locales.
+meta_description: The OpenSearch Project launches Open Source Contributor Initiative (OSCI) Spanning 10 weeks, this fully remote program allows participants to receive mentorship from seasoned engineers within a nurturing and inclusive environment. Participants in OSCI will work with Amazon engineers and will enhance their portfolios by directly contributing to a prominent open-source software project. When fully leveraged, these benefits can culminate in a recommendation letter signed by an AWS Principal Engineer and an internal endorsement.
 ---
 
 
