@@ -285,5 +285,10 @@
             <path d="M507.421 17.3545L512.504 7.58398H516.298L509.179 20.6797V29H505.678V20.8115L498.544 7.58398H502.367L507.421 17.3545Z" fill="black"/>
             <path d="M518.461 27.1836C518.461 26.3828 518.666 25.8213 519.076 25.499C519.496 25.167 520.004 25.001 520.599 25.001C521.195 25.001 521.703 25.167 522.123 25.499C522.552 25.8213 522.767 26.3828 522.767 27.1836C522.767 27.9648 522.552 28.5312 522.123 28.8828C521.703 29.2246 521.195 29.3955 520.599 29.3955C520.004 29.3955 519.496 29.2246 519.076 28.8828C518.666 28.5312 518.461 27.9648 518.461 27.1836Z" fill="black"/>
         </svg>
-
+    {% when 'search' %}
+        <img src="/assets/img/iconography/search.png" alt="Search" class="iconography" width="75" height="80">
+    {% when 'observability' %}
+        <img src="/assets/img/iconography/observability.png" alt="Observability" class="iconography" width="89" height="67">
+    {% when 'security' %}
+        <img src="/assets/img/iconography/security.png" alt="Security" class="iconography" width="76" height="81">
 {% endcase %}
