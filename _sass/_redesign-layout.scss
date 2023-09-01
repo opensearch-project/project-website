@@ -1,0 +1,7 @@
+@mixin center-flex($max-item-width: 100%) {
+    display: flex;
+    justify-content: center;
+    > * {
+        max-width: $max-item-width;
+    }
+}
