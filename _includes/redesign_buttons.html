@@ -29,7 +29,33 @@
                 </div>
             </a>
         </div>
-        
+    {% when 'documentation' %}
+        <label for="documentation-button" class="redesign-buttons--label">Learn More</label>
+        <div class="redesign-button--wrapper">
+            <a href="https://opensearch.org/docs/latest/" class="redesign-button--anchor" id="documentation-button">
+                <div class="redesign-button--contents redesign-buttons--documentation">
+                    Documentation
+                </div>
+            </a>
+        </div>
+    {% when 'community' %}
+        <label class="redesign-buttons--label">Join Our Community</label>
+        <div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper">
+                <a href="https://opensearch.org/community/" class="redesign-button--anchor">
+                    <div class="redesign-button--contents redesign-buttons--forum">
+                        Forum
+                    </div>
+                </a>
+            </div>
+            <div class="redesign-button--wrapper">
+                <a href="/slack.html" class="redesign-button--anchor">
+                    <div class="redesign-button--contents redesign-buttons--slack">
+                        Slack
+                    </div> 
+                </a>
+            </div>
+        </div>
     {% when 'project' %}
         <label for="project-button" class="redesign-buttons--label">Join the Project</label>
         <opensearch-button

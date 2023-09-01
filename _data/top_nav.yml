@@ -79,6 +79,7 @@ items:
     url: /docs/
   -
     label: Platform
+    url: /platform/index.html
     fragment: platform
     children:
       -

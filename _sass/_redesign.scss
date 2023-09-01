@@ -662,10 +662,10 @@ $min-past-iphone-width: 429px;
             padding: 0;
             grid-template-columns: 1fr;
         }
-        grid-gap: 2em;
+        grid-gap: 100px;
         padding: 0 2em 2em;
         > .solutions-card-grid--card-wrapper--card {
-            flex-basis: 350px;
+            max-width: 350px;
             min-height: 250px;
             min-width: auto;
             flex-shrink: 1;

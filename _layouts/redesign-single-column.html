@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<main class="container">
+    <div class="page-with-hero platform-landing-page platform-page--content">
+        <div class="landing-page-hero-wrapper">
+            <div class="landing-page-hero--header">
+                <h1>{{page.title}}</h1>
+            </div>
+            {%- if page.subtitle -%}
+                <div class="landing-page-hero--header-subtext">
+                    <h2>{{page.subtitle}}</h2>
+                </div>
+            {%- endif -%}
+        </div>
+        <div class="platform-landing-page--overview">
+            {{ content }}
+        </div>
+        {%- if page.callouts -%}
+            {% include callout-cards.html callouts=page.callouts %}
+        {%- endif -%}
+        {%- if page.include_community_voices -%}
+            <div class="platform-landing-page--community-voices-wrapper">
+                {% include community_voices_carousel.html %}
+            </div>
+        {%- endif -%}
+        {%- if page.platform_products -%}
+            {% include platform-products.html title=page.platform_products.collection_title collection_items=page.platform_products.collection %}
+        {%- endif -%}
+
+        {% include page-use-cases.html feature_area_category_name=page.feature_area_category_name feature_area_solution_name=page.feature_area_solution_name %}
+        
+    </div>
+</main>

@@ -156,15 +156,15 @@ $platform-page-content-reduce-padding-width: 1199px;
         h2 {
             color: $primary-pacific-blue-s3;
         }
-        > div {
-            background: #D9D9D9;
-            box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+        // > div {
+        //     background: #D9D9D9;
+        //     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+        //     text-align: center;
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: center;
+        //     align-items: center;
+        // }
         > table {
             @extend .platform-page--solutions--use-cases--table;
             margin-bottom: 43px;
@@ -176,13 +176,19 @@ $platform-page-content-reduce-padding-width: 1199px;
 .platform-landing-page {
     .landing-page-hero-wrapper {
         @include gradient-open-sky-dark;
-        padding: 48px 83px;
+        padding: 34px 83px;
         >.landing-page-hero--header {
-            @include hero-header-text;
+            > h1 {
+                @include hero-header-text;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
             width: 50%;
         }
         >.landing-page-hero--header-subtext {
-            @include hero-header-subtext;
+            > h2 {
+                @include hero-header-subtext;
+            }
             width: 50%;
         }
     }
@@ -212,16 +218,131 @@ $platform-page-content-reduce-padding-width: 1199px;
             }
         }
     }
-    .solutions-card-grid {
-        padding-left: 83px;
-        padding-right: 83px;
+    > .solutions-card-grid {
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 60px;
         h2 {
             padding-top: 1em;
         }
+        > .solutions-card-grid--card-wrapper {
+            padding: 60px 0;
+        }
+    }
+    &.platform-page--content {
+        .platform-page--solution--use-cases {
+            background: white;
+            padding-left: 0;
+            padding-right: 0;
+            width: 100%;
+            margin-bottom: 66px;
+            padding-bottom: 0;
+            @media screen and (min-width: $platform-page-content-wide-screen-width) {
+                > hgroup,
+                > table {
+                    margin-left: 80px;
+                    margin-right: 80px;
+                    width: calc(100% - 160px);
+                }
+                > table {
+                    margin-bottom: 70px;
+                }
+            }
+            @media screen and (max-width: $platform-page-content-reduce-padding-width) {
+                > hgroup,
+                > table {
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    width: calc(100% - 40px);
+                }
+                > table {
+                    margin-bottom: 35px;
+                }
+            }
+            @media screen and (max-width: 390px) {
+                > hgroup,
+                > table {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    width: calc(100% - 5px - 5px);
+                }
+                > table {
+                    margin-bottom: 20px;
+                }
+            }
+            .platform-page--solution--use-cases__fog-background {
+                background: $secondary-sanfrancisco-fog-t1;
+                padding-top: 70px;
+                @media screen and (min-width: $platform-page-content-wide-screen-width) {
+                    padding-left: 80px;
+                    padding-right: 80px;
+                    width: calc(100% - 160px);
+                }
+                @media screen and (max-width: $platform-page-content-reduce-padding-width) {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: calc(100% - 20px - 20px);
+                }
+                @media screen and (max-width: 390px) {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    width: calc(100% - 5px - 5px);
+                }
+            }
+        }
+        .landing-page-content__right-panel {
+            background: $secondary-sanfrancisco-fog-t1;
+            width: 100%;
+            margin-bottom: 80px;
+            > .landing-page-content__right-panel--content {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: stretch;
+                flex-wrap: nowrap;
+                column-gap: 0;
+                @media screen and (min-width: $platform-page-content-wide-screen-width) {
+                    margin-left: 80px;
+                    width: calc(100% - 175px);
+                    margin-right: 15px;
+                }
+                @media screen and (max-width: $platform-page-content-reduce-padding-width) {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: calc(100% - 20px - 20px);
+                }
+                @media screen and (max-width: 390px) {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    width: calc(100% - 5px - 5px);
+                }
+                @include card-shadow;
+            }
+            .landing-page-content__right-panel--content--body {
+                background: white;
+                flex-basis: 60.47%;
+                max-width: 665px;
+                min-height: 485px;
+                padding: 50px 3%;
+            }
+            .landing-page-content__right-panel--content--side-panel {
+                flex-basis: 39.53%;
+                max-width: 600px;
+                min-height: 485px;
+                @include gradient-open-sky;
+                > .draft-3-landing-page--button-stack {
+                    
+                }
+            }
+        }
     }
     .platform-landing-page--community-voices-wrapper {
-        height: 600px;
+        height: 750px;
         margin-bottom: 44px;
+        background-color: white;
+        .landing-page-solutions-community-voices--header {
+            padding: 80px 0 0 80px;
+        }
         .landing-page-solutions-community-voices--wrapper {
             > .landing-page-solutions-community-voices.landing-page-hero-wrapper {
                 background: transparent;
@@ -418,4 +539,56 @@ $platform-page-content-reduce-padding-width: 1199px;
             cursor: pointer;
         }
     } 
+}
+
+.platform-product-collection {
+    @include gradient-open-sky;
+    padding: 40px 80px;
+    > .platform-product {
+        max-width: 1265px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        column-gap: 0;
+        margin-bottom: 75px;
+        > .platform-product--title {
+            flex-basis: 47.43%;
+            max-width: 600px;
+            min-height: 400px;
+            @include gradient-deep-blue-sea;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            > .platform-product--title--text {
+                color: white;
+                font-family: 'Open Sans';
+                font-size: 51px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                width: 75%;
+                margin: auto;
+            }
+        }
+        > .platform-product--description {
+            flex-basis: 52.57%;
+            max-width: 665px;
+            padding: 50px 3%;
+            min-height: 400px;
+            background-color: white;
+            @include thick-edge-bottom;
+            box-sizing: border-box;
+            > h3 {
+                @include header-level3($primary-open-sky-s2);
+                margin-top: 0;
+            }
+            > p {
+                @include body-small;
+            }
+        }
+    }    
 }

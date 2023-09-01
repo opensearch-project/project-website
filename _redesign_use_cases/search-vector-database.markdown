@@ -4,7 +4,10 @@ title: Vector Database Use Cases
 description: 'OpenSearch as a vector database supports a range of applications. Following are a few examples of solutions you can build.'
 feature_area_category_name: Search
 feature_area_solution_name: Vector Database
-how_to_get_started: 'You can begin exploring OpenSearch&apos;s vector database functionality by downloading your preferred distribution. To learn more or start a discussion, join the Slack channel or check out our user forum and follow our blog for the latest on OpenSearch tools.'
+how_to_get_started: 
+  - 'You can begin exploring OpenSearch&apos;s vector database functionality by downloading your preferred distribution. To learn more or start a discussion, join the Slack channel or check out our user forum and follow our blog for the latest on OpenSearch tools.'
+button_stack:
+  - download
 ---
 {::comment}
     Implementation note: HTML tables are used instead of markdown, because markdown 
