@@ -132,8 +132,8 @@ $min-past-iphone-width: 429px;
                 screen and (max-width: $max-iphone-width) {
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-evenly;
-                    align-items: flex-start;
+                    justify-content: center;
+                    align-items: center;
                     width: 100%;
                     row-gap: 30px;
                 }
@@ -154,7 +154,7 @@ $min-past-iphone-width: 429px;
                         widtH: auto;
                     }
                     @media screen and (min-width: 1440px) {
-                        width: calc(100% - 2em);
+                        width: 71%;
                     }
                     @media screen and (max-width: $content-with-panel-collapsed-max) {
                         width: 100%;
@@ -535,44 +535,72 @@ $min-past-iphone-width: 429px;
 
 .redesign-button--wrapper {
     width: 350px;
-    > .redesign-button--anchor {
-        display: inline-block;
-        width: 350px;
-        height: 70px;
-        padding: 0px;
-        &:focus {
-            padding: 0;
-            > .redesign-button--contents {
-                border: 4px solid $primary-open-sky-t1;
-                margin: -4px auto auto -4px;
+    &.redesign-button--wrapper__complex-content {
+        > .redesign-button--anchor {
+            display: inline-block;
+            width: 350px;
+            height: 70px;
+            padding: 0px;
+            &:focus {
+                padding: 0;
+                > .redesign-button--contents {
+                    border: 4px solid $primary-open-sky-t1;
+                    margin: -4px auto auto -4px;
+                }
             }
-        }
-        .redesign-button--contents__mouseout {
-            display: block;
-        }
-        .redesign-button--contents__mouseover {
-            display: none;
-        }
-        .redesign-button--contents__disabled {
-            display: none;
-        }
-        &:hover {
             .redesign-button--contents__mouseout {
-                display: none;
-            }
-            .redesign-button--contents__mouseover {
                 display: block;
             }
+            .redesign-button--contents__mouseover {
+                display: none;
+            }
+            .redesign-button--contents__disabled {
+                display: none;
+            }
+            &:hover {
+                .redesign-button--contents__mouseout {
+                    display: none;
+                }
+                .redesign-button--contents__mouseover {
+                    display: block;
+                }
+            }
+            > .redesign-button--contents {
+                border-radius: 6px;
+                width: 100%;
+                margin: 0;
+                display: inline-flex;
+                flex-direction: row;
+                justify-content: center;
+                background-color: $primary-deep-blue-sea;
+            }
         }
-        > .redesign-button--contents {
-            border-radius: 6px;
-            width: 100%;
-            margin: 0;
-            display: inline-flex;
-            flex-direction: row;
-            justify-content: center;
-            background-color: $primary-deep-blue-sea;
+    }
+    &.redesign-button--wrapper__text-only {
+        @include link-button-light-mode;
+        &:hover {
+            @include hover-button-light-mode;
         }
+        &.redesign-button--wrapper__text-only__focus {
+            @include focused-button-light-mode;
+        }
+        &.redesign-button--wrapper__text-only__active {
+            @include active-button-light-mode;
+        }
+        &.redesign-button--wrapper__text-only__disabled {
+            @include disabled-button-light-mode;
+        }
+    }
+}
+
+.redesign-button-pair--wrapper {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    > .redesign-button--wrapper {
+        flex-basis: 45%;
     }
 }
 .redesign-buttons--download__large {
@@ -622,6 +650,13 @@ $min-past-iphone-width: 429px;
     > .opensearch-button--label__combined-text-icon--icon {
         padding-left: 2px;
     }
+}
+.redesign-buttons--documentation {
+    height: 50px;
+    padding: 10px 50px;
+    border-radius: 6px;
+    background: var(--pacific-sky-t-3, #F4F8FB);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .resource-grid--more {

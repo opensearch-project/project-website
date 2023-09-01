@@ -303,10 +303,10 @@
 @mixin link-button-light-mode($fill-color: $primary-pacific-sky-t3) {
     font-family: 'Open Sans';
     border-radius: 6px;
-    &:not(:has(a:focus, a:hover, a[disabled])) {
-        background: $fill-color;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
     &:has(a:focus) {
         @include focused-button-light-mode;
     }
@@ -319,18 +319,22 @@
     &:has(a[disabled]) {
         @include disabled-button-light-mode;
     }
-    
+    padding: 0;
     white-space: nowrap;
     > a {
         color: $primary-deep-blue-sea;
-        padding: 10px 50px;
         text-decoration: none;
+        padding: 10px 50px;
+        line-height: 2.8;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
         &:hover {
             background: unset;
         }
-    }
-    > a:focus {
-        padding: 10px 47px;
+        &:focus {
+            padding: 10px 47px;
+        }
     }
 }
 
