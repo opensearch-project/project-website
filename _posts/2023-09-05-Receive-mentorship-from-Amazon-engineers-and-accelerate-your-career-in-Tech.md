@@ -8,7 +8,7 @@ categories:
   - announcements
 meta_keywords: Open Source Contributor Initiative, Google Summer of Code, Major League Hacking, MIT Summer Camp, Coding Bootcamp
 
-meta_description: The OpenSearch Project launches Open Source Contributor Initiative (OSCI) Spanning 10 weeks, this fully remote program allows participants to receive mentorship from seasoned engineers within a nurturing and inclusive environment. Participants in OSCI will work with Amazon engineers and will enhance their portfolios by directly contributing to a prominent open-source software project. When fully leveraged, these benefits can culminate in a recommendation letter signed by an AWS Principal Engineer and an internal endorsement.
+meta_description: The OpenSearch Project launches Open Source Contributor Initiative (OSCI). Spanning 10 weeks, this fully remote program allows participants to receive mentorship from seasoned engineers within a nurturing and inclusive environment. Participants in OSCI will work with Amazon engineers and will enhance their portfolios by directly contributing to a prominent open-source software project. When fully leveraged, these benefits can culminate in a recommendation letter signed by an AWS Principal Engineer and an internal endorsement.
 ---
 
 
