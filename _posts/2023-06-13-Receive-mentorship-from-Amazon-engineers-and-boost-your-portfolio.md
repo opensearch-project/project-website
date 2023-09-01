@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "College Contributor Initiative"
+title:  "The OpenSearch Project College Contributor Initiative"
 authors:
   - rednaksi
 date:   2023-06-13 09:00:00 -0700
