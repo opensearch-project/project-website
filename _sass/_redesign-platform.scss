@@ -329,15 +329,13 @@ $platform-page-content-reduce-padding-width: 1199px;
                 max-width: 600px;
                 min-height: 485px;
                 @include gradient-open-sky;
-                > .flexible-button-stack {
-                    .redesign-button-pair--wrapper {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                        grid-template-rows: 1fr;
-                        grid-column-gap: 43px;
-                        > .redesign-button--wrapper {
-                            width: 159px;
-                        }
+                @include center-flex(350px);
+                > .draft-3-landing-page--button-stack {
+                    justify-content: space-evenly;
+                    row-gap: unset;
+                    padding-top: 0;
+                    > .draft-3-landing-page--button-stack--button {
+                        width: 100%;
                     }
                 }
             }
