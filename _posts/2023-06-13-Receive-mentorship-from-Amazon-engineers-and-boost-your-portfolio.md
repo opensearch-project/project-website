@@ -35,7 +35,7 @@ Although our initial target for the first pilot was to include 100 students, the
 
 Please fill out the form[placeholder] to participate in our upcoming batch that kicks off on July 6th.
 
-Once the form is completed and if selected, the applicants will receive an email with a welcome packet and details about a kick-off call for their batch. The kick-off call will coincide with the launch of the program specifically for their batch.
+Once the form is completed and batch selection is made, the applicants will receive an email with a welcome packet and details about a kick-off call for their batch. The kick-off call will coincide with the program launch specifically for their batch.
 
 ## Check out the impact of the program(so far)
 
