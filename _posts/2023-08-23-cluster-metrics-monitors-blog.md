@@ -6,8 +6,8 @@ authors:
 date: 2023-08-23
 categories:
   - technical-posts
-meta_keywords: 
-meta_description: 
+meta_keywords: cluster metrics monitor, monitor OpenSearch cluster metrics, alerting plugin for OpenSearch
+meta_description: Learn about common use cases for cluster metrics monitors in OpenSearch how you can monitor CPU utilization and JVM memory pressure with _cat/indices and _cat/shards APIs.
 ---
 
 In OpenSearch version 1.3, we added cluster metrics monitors to the Alerting plugin. Cluster metrics monitors allow you to execute popular CAT and cluster API calls against the local cluster and generate alerts based on the metrics reported by those APIs. Cluster metrics monitors support calling the following APIs:
