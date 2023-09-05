@@ -24,7 +24,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 
 | Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Date |
 |:--------------|:-----------------|:---------------|:---------------|
-| 2.10.0        | September 05th   | September 19th |
+| 2.10.0        | September 06th   | September 22nd |
 | 1.3.13        | September 14th   | September 21st |
 | 2.11.0        | November 9th       | November 16th |
 | 1.3.14        | December 5th     | December 12th  |
@@ -102,6 +102,6 @@ The software maintainers will not back-port fixes or features to versions outsid
 | July 17, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
 | July 20, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
 | August 14, 2023 | Updated release table to reflect release windows | per adoption of https://github.com/opensearch-project/project-website/pull/1866 |
-
+| September 5th, 2023 | Updated 2.10 date  |  Original release date was too close to US Memorial Holiday |
 <br>
 
