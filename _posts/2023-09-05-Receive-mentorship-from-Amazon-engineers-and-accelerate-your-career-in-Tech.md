@@ -6,7 +6,7 @@ authors:
 date:   2023-09-05 09:00:00 -0700
 categories:
   - announcements
-meta_keywords: Join the OpenSearch Project’s College Contributor Initiative and receive mentorship while collaborating closely with AWS engineers and growing your open-source project knowledge.
+meta_keywords: Open Source College Contributor Initiative, open source software project, OpenSearch college initiative
 
 meta_description: The OpenSearch Project launches Open Source Contributor Initiative (OSCI). Spanning 10 weeks, this fully remote program allows participants to receive mentorship from seasoned engineers within a nurturing and inclusive environment. Participants in OSCI will work with Amazon engineers and will enhance their portfolios by directly contributing to a prominent open-source software project. When fully leveraged, these benefits can culminate in a recommendation letter signed by an AWS Principal Engineer and an internal endorsement.
 ---
