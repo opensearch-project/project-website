@@ -1,4 +1,7 @@
-@media screen and (min-width: 46.25rem) {
+// This is the sum of the logo + the navigation menu items + the search field.
+$header-banner-min-width: 1137px;
+
+@media screen and (min-width: $header-banner-min-width) {
   #top {
     z-index: 9;
   }
@@ -55,10 +58,6 @@
             display: block;
             font-size: 90%;
             white-space: nowrap;
-
-            &:hover {
-              color: $attention;
-            }
           }
         }
       }
@@ -81,7 +80,6 @@
     }
 
     ul {
-      /*display: none;*/
       visibility: hidden;
       display: block;
       opacity: 0;
@@ -98,7 +96,7 @@
 /* This is placed in a media query to prevent the momentary distortion of the page
  * when it is rendered and the browser takes its time to evaluate the @media.
  */
-@media screen and (max-width: 46.24rem) {
+@media screen and (max-width: $header-banner-min-width) {
   [role="banner"] .nested-nav {
     li {
       line-height: 1.5em;
@@ -114,12 +112,6 @@
         &:not(:last-child) {
           pointer-events: none;
         }
-      }
-    }
-
-    > li {
-      > a.in-category:not(:last-child) {
-        color: white;
       }
     }
   }

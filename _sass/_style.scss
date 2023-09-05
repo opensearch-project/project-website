@@ -406,10 +406,13 @@ ul {
 
 //-------------------  Site Chrome (Header/Footer)
 
+// This is the sum of the logo + the navigation menu items + the search field.
+$header-banner-min-width: 1137px;
+
 [role="banner"] {
     // Includes global navigation, logo, and tagline at top of document
     @include clearfix;
-    background: $accent-dark;
+    background: $light-theme-navigation-background;
     overflow: hidden;
     margin: 0;
     padding: 10px 0 6px;
@@ -442,9 +445,8 @@ ul {
 
 
     .logo {
-        @include font-size(40);
+        font-size: 3.5rem;
         @include sans-serif;
-        /*background: url(../img/logo-search.png) 0 0 no-repeat;*/
         color: $background-lightest;
         display: block;
         float: left;
@@ -453,19 +455,20 @@ ul {
         overflow: hidden;
         text-decoration: none;
         text-indent: 100%;
-        width: 170px;
         height: 36px;
         position: relative;
+        //@media screen and (min-width: $header-banner-min-width) {
+            left: min(80px, calc(100% - $header-banner-min-width));
+        //}
+        @media screen and (max-width: 1339px) {
+            left: 0;
+        }
         svg {
             position: absolute;
             top: 1px;
             left: 1px
         }
-        .mdzr-svg & { // deliver svg logo if applicable
-            /*background: url(../img/opensearch-logo-monochrome.svg) center center no-repeat;*/
-        }
-
-        @include respond-min(46.25rem) {
+        @include respond-min($header-banner-min-width) {
             margin-left: 0;
         }
     }
@@ -485,7 +488,7 @@ ul {
         text-decoration: none;
         width: 45px;
 
-        @include respond-min(46.25rem) {
+        @include respond-min($header-banner-min-width) {
             display: none;
         }
 
@@ -509,7 +512,7 @@ ul {
         -webkit-transition: all 0.3s ease-out;
         transition: all 0.3s ease-out;
 
-        @include respond-min(46.25rem) {
+        @include respond-min($header-banner-min-width) {
             // turn off animations if on a desktop width
             max-height: none;
 
@@ -523,11 +526,11 @@ ul {
     }
 
     [role="navigation"] {
-        background: $accent-dark;
+        background: $light-theme-navigation-background;
 
         width: 100%;
 
-        @include respond-min(46.25rem) {
+        @include respond-min($header-banner-min-width) {
             width: auto;
             float: right;
         }
@@ -536,7 +539,7 @@ ul {
             margin: 10px 0 0;
             padding: 0;
 
-            @include respond-min(46.25rem) {
+            @include respond-min($header-banner-min-width) {
                 margin: 0;
             }
         }
@@ -551,7 +554,7 @@ ul {
             text-transform: uppercase;
             margin: 0 10px;
 
-            @include respond-min(46.25rem) {
+            @include respond-min($header-banner-min-width) {
                 margin: 0;
                 border: 0;
                 float: left;
@@ -569,13 +572,13 @@ ul {
             padding: 20px 0px;
             text-decoration: none;
 
-            &:active, &:hover {
-                color: $highlight;
-            }
+            // &:active, &:hover {
+            //     color: $highlight;
+            // }
         }
 
         .nav-primary {
-            @include respond-min(46.25rem) {
+            @include respond-min($header-banner-min-width) {
                 position: absolute;
                 right: 0;
                 top: 45px;
@@ -776,6 +779,12 @@ ul {
 
 }
 
+
+$footer-3-column-min: 1440px;
+$footer-2-column-max: 1439px;
+$footer-2-column-min: 834px;
+$footer-1-column-max: 833px;
+
 [role="contentinfo"] {
     // Global Footer at bottom of page
     @include clearfix;
@@ -792,9 +801,66 @@ ul {
     .subfooter {
         @include clearfix;
         padding: 0 10px;
-
+        @include gradient-deep-blue-sea;
         @include respond-min(46.25rem) {
             padding: 0;
+        }
+
+        .subfooter--flex-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            .subfooter--columns-wrapper {
+                flex-basis: 1265px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                > .subfooter--columns-wrapper--column {
+                    @media screen and (min-width: $footer-3-column-min) {
+                        flex-basis: 33%;
+                        max-width: 350px;
+                    }
+                    @media screen and (max-width: $footer-2-column-max) and (min-width: $footer-2-column-min) {
+                        &:nth-of-type(1) {
+                            flex-basis: calc(50% - 80px);
+                            padding-left: 80px;
+                        }
+                        &:nth-of-type(2) {
+                            flex-basis: calc(50% - 40px);
+                            padding-left: 40px;
+                        }
+                        &:nth-of-type(3) {
+                            flex-basis: calc(100% - 80px);
+                            padding-left: 80px;
+                        }
+                    }
+                    @media screen and (max-width: $footer-1-column-max) {
+                        flex-basis: calc(100% - 80px);
+                        padding-left: 40px;
+                        padding-bottom: 80px;
+                    }
+                    > h4 {
+                        @include header-level4($white);
+                    }
+                    > ul {
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 0;
+                        > li {
+                            @media screen and (max-width: $footer-1-column-max) {
+                                @include body-text($white);
+                            }
+                            @media screen and (min-width: $footer-2-column-min) {
+                                @include header-level5($white);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .col {
@@ -860,10 +926,62 @@ ul {
     }
 
     .footer {
-        background: $accent-dark;
-        margin-top: 20px;
+        background: $primary-deep-blue-sea-s3;
         padding: 10px 0 30px;
         color: $white;
+        .footer--flex-wrapper {
+            text-align: center;
+            .footer--legal-rows-wrapper {
+                text-align: left;
+                margin: auto;
+                max-width: 1265px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                row-gap: 40px;
+                @media screen and (max-width: $footer-2-column-max) {
+                    padding-left: 80px;
+                }
+                @media screen and (max-width: $footer-1-column-max) {
+                    padding-left: 40px;
+                }
+                > .footer--legal-rows-wrapper--row {
+                    flex-basis: 60px;
+                    @media screen and (max-width: $footer-1-column-max) {
+                        > .footer--legal-rows-wrapper--row--logo__desktop {
+                            display: none;
+                        }
+                        > .footer--legal-rows-wrapper--row--logo__mobile {
+                            display: block;
+                            > div {
+                                height: 50px;
+                                color: #FFF;
+                                font-family: 'Open Sans';
+                                font-size: 24.666px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 36.177px;
+                                letter-spacing: 8.387px;
+                                text-transform: uppercase;
+                                > a {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                    @media screen and (min-width: $footer-2-column-min) {
+                        > .footer--legal-rows-wrapper--row--logo__mobile {
+                            display: none;
+                        }
+                        > .footer--legal-rows-wrapper--row--logo__desktop {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
         a, svg {
             color: $accent-light;
         }

@@ -18,6 +18,57 @@ $content-with-panel-expanded-min: 835px;
 $max-iphone-width: 428px;
 $min-past-iphone-width: 429px;
 
+[role=banner] [role=navigation] li.landing-page-redesign--nav--search {
+    display: inline-flex;
+    align-items: flex-start;
+    >.landing-page-redesign--nav-search--field-with-results {
+        display: inline-flex;
+        align-items: flex-start;
+        min-width: 200px;
+        justify-content: stretch;
+        position: relative;
+        top: -4px;
+        
+        >.landing-page-redesign--nav-search--field-with-results--field {
+            flex-basis: 100%;
+            flex-grow: 1;
+            flex-shrink: 1;
+            >.landing-page-redesign--nav-search--field-with-results--field--wrapper {
+                position: relative;
+                >.search-input {
+                    padding-left: 0.96rem;
+                    padding-right: 0.6rem;
+                    transition: padding-right linear 200ms;
+                    border-radius: 6px;
+                    background-color: $primary-pacific-sky-t2;
+                    @include header-level6($primary-open-sky-s2);
+                    &::placeholder {
+                        @include header-level6($primary-open-sky-s2);
+                    }
+                }                
+                >.search-spinner {
+                    display: none; 
+                    font-weight: 700; 
+                    outline: 0; 
+                    user-select: none; 
+                    position: absolute; 
+                    padding-right: 0.96rem; 
+                    height: 100%;
+                    right: 0;
+                    left: auto;
+                }
+                >.search-label {
+                    right: -0.96rem;
+                    top: 1.5rem;
+                    padding-left: 0;
+                    padding-right: 0;
+                    transition: right linear 200ms;
+                }
+            }
+        }
+    }
+}
+
 .landing-page-content__right-panel {
     background: #fff;
     > .landing-page-content__right-panel--content {
