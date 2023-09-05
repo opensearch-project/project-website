@@ -8,10 +8,6 @@ categories:
   - technical-post
 meta_keywords: opensearch-benchmark
 meta_description: Learn how to add a randomized query set to an OpenSearch Benchmark workload
-
-excerpt: Performance testing is part science and part art. On the measurement side, you employ science to run test cases, collect and visualize metrics, and evaluate results. On the test creation side, you use intuition and understanding to make sure that you build coverage across the use cases and data that will comprise the majority of the uses of OpenSearch. 
-
-One limitation of OpenSearch Benchmark is that when you run a search operation, the query itself is hard-coded. If you want to randomize your query workload across a set of possible search terms, there's no out of the box way to do that. In this post, you'll use data from [BoardgameGeek.com](https://boardgamegeek.com/) (BGG) to create a custom Opensearch Benchmark workload. You'll then create two, line-per-query files and use those files to create randomized terms for querying OpenSearch. 
 ---
 
 Performance testing is part science and part art. On the measurement side, you employ science to run test cases, collect and visualize metrics, and evaluate results. On the test creation side, you use intuition and understanding to make sure that you build coverage across the use cases and data that will comprise the majority of the uses of OpenSearch.
