@@ -20,7 +20,7 @@ logo_large: '/assets/media/partners/addweb logo.png'
 # Large image displayed in the top right of the extended partner details page.
 product_image: '/assets/media/partners/samplecompany/sample-product-image.png'
 # Partner company description used on the extended partner details page.
-description: Since 2012, AddWeb has been a renowned company delivering Web, Mobile, Cloud, & Marketing Solution to Entrepreneurs, Startups & Businesses. With over 11 years of experience, we are an ISO 9001:2008 certified company catering to startups, SMEs, large-scale enterprises, and Fortune 500 clients worldwide. Our clientele includes prestigious brands such as VODAFONE, DOCOMO, CISCO,SKECHERS,UNITED NATIONS,ORANGE,TRAVEL NATION. 
+description: Since 2012, AddWeb has been a renowned company delivering Web, Mobile, Cloud, & Marketing Solution to Entrepreneurs, Startups & Businesses. With over 11 years of experience, we are an ISO 9001:2008 certified company catering to startups, SMEs, large-scale enterprises, and Fortune 500 clients worldwide. Our clientele includes prestigious brands such as VODAFONE, DOCOMO, CISCO, SKECHERS, UNITED NATIONS, ORANGE, TRAVEL NATION. 
 
 # Comma delimited list of business types used on the extended partner details page in the side panel.
 business_type: "Professional Services Organization"
@@ -46,10 +46,10 @@ main_office_location:  |
   Ahmedabad
   705, Silicon Tower, Opp. Law Garden, Off C.G. Road, Ahmedabad Gujarat 380009
 multiple_office_locations:
-  - name: USA'
+  - name: USA
     location: |
-      "4502 Bragdon Way, Glen Allen, VA 23059, United States"
-  - name: 'Jaipur'
+      4502 Bragdon Way, Glen Allen, VA 23059, United States
+  - name: Jaipur
     location: |
       1st Floor, 69/399,
       Madhyam Marg,
