@@ -14,8 +14,6 @@ excerpt:
   Creating visual representations from large amounts of data aligns with the fundamental mode of human understanding. To monitor data at scale and make strategic decisions, we need tools that can effectively and intuitively visualize data and support sound business decision-making. OpenSearch gives our users visualization capabilities through OpenSearch Dashboards. Dashboards serves as the user interface for OpenSearch features such as security, alerting, index state management, observability, security analytics, and so forth. 
 ---
 
-# OpenSearch Dashboards: A usability snapshot 
-
 Creating visual representations from large amounts of data aligns with the fundamental mode of human understanding. To monitor data at scale and make strategic decisions, we need tools that can effectively and intuitively visualize data and support sound business decision-making. OpenSearch gives our users visualization capabilities through OpenSearch Dashboards. Dashboards serves as the user interface for OpenSearch features such as security, alerting, index state management, observability, and security analytics. 
 
 Since July 2021, when OpenSearch was forked from Kibana 7.10.2, we have been evolving and differentiating OpenSearch Dashboards to meet the users’ demands, especially those that have migrated from Kibana to OpenSearch Dashboards. One such demand is the capability to search, view, and visualize data indexed in users’ search solutions. Communicating insights visually often involves visualizing data using bar charts, pie charts, tables, histograms, and maps or using the optimal solution that best aids comprehension of numbers. 
@@ -74,7 +72,7 @@ The following are some possible ways in which Dashboards could be improved:
 
 The findings from the Q1 2023 OpenSearch Dashboards study gave us better insight into what both Producers and Consumers require. We now have a better understanding of the current issues, usability gaps, and potential improvements related to overall usability. We are using the key takeaways (provide more user guidance, improve user-friendliness, align better with mental models, make features and tools more visible) can help to prioritize the roadmap of feature improvements while enhancing the user experience for both Producers and Consumers. 
 
-To learn more about our efforts toward the dashboard vision, look and feel and modernization, please see the [Request for Comments (RFC)](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/4298) on GitHub. We encourage you to get involved in our user experience studies. You can sign up at this link: https://amazonmr.au1.qualtrics.com/jfe/form/SV_251DHi1opohhist. 
+To learn more about our efforts toward the dashboard vision, look and feel and modernization, please see the [Request for Comments (RFC)](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/4298) on GitHub. We encourage you to get involved in our user experience studies. You can sign up at this link: [https://amazonmr.au1.qualtrics.com/jfe/form/SV_251DHi1opohhist](https://amazonmr.au1.qualtrics.com/jfe/form/SV_251DHi1opohhist) 
 
 ## References
 
