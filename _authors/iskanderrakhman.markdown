@@ -1,5 +1,5 @@
 ---
-short_name: Iskander Rakhman
+short_name: iskanderrakhman
 name: Iskander Rakhmanberdiyev
 photo: '/assets/media/authors/iskanderrakhman.jpg'
 github: rednaksi91

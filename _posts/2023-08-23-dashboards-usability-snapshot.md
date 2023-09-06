@@ -3,7 +3,7 @@ layout: post
 title: "OpenSearch Dashboards: A usability snapshot"
 authors: 
   - apasun
-date: 2023-06-08
+date: 2023-09-06
 meta_keywords: OpenSearch Dashboards, user experience, usability study
 meta_description: Read on to learn more about our usability study with two OpenSearch Dashboards user groups, Producers and Consumers.
 twittercard:
