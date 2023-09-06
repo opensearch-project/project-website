@@ -7,7 +7,7 @@ name_long: Addweb Solution
 
 # The partner logo is used on the partners collection page (/partners).
 # upload your logo to the following directory - must be square
-logo: '/assets/media/partners/addweb.logo.png'
+logo: '/assets/media/partners/addweb logo.png'
 
 # URL to the partner's website.
 link: 'https://www.addwebsolution.com/'
@@ -15,7 +15,7 @@ link: 'https://www.addwebsolution.com/'
 # logo_large is used on the extended partner details page.
 # It is normative to upload all extended partner page images to a subdirectory of /assets/media/partners/ with the name of the partner as the directory name.
 # For example given a partner named "SampleCompany" the logo_large image would be uploaded to /assets/media/partners/samplecompany/logo_large.png
-logo_large: '/assets/media/partners/placeholder.png'
+logo_large: '/assets/media/partners/addweb logo.png'
 
 # Large image displayed in the top right of the extended partner details page.
 product_image: '/assets/media/partners/samplecompany/sample-product-image.png'
@@ -63,7 +63,7 @@ multiple_office_locations:
 resources:
   - url: 'https://www.addwebsolution.com/blogs'
     title: 'Blogs | Addweb Solution'
-    thumbnail: '/assets/media/partners/placeholder.png'
+    thumbnail: '/assets/media/partners/addweb logo.png'
     type: 'blog'
   
 # Collection of social links that the partner wishes to promote on their extended partner details page. Supported types are 'twitter', 'linkedin', 'facebook', and 'github'.
