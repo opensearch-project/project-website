@@ -16,11 +16,11 @@ twittercard:
 
 Going from a vanilla install of OpenSearch to having vectorized text stored in a KNN enabled index seemed like a quick learning exercise. On paper, it almost looked easy. Upload a model to a node designated as a ML node, load it, and start ingesting text and storing it as a vector. The amount of probing, asking, experimenting, copying and pasting  made it clear to me that I was mistaken. I humbly beg of you all to learn from my toil. Please find below the chronicles of my efforts to load a pre-trained model into OpenSearch by hand, using nothing more than the dev console and a heavy dose of copypasta. I hope that it saves you the time spent researching that I needed.
 
+Being able to ingest text and store it as a vector will be the stopping point here. It was all I wanted.
+
 # Machine learning? I need human learning.
 
-I apologize if my journey takes twists and turns. The effort involved has left me a little winded (from excitement, I promise!) and I'd sure like to help improve the journey from zero to something. What are the steps? Where do I start?
-
-I started [here](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) at the ml-framework documentation page. It gave me a good start. I apparently needed to register a model. Using an example call showed me that I needed to have a node as an "ML node" - I only have one node in my cluster. I decided to disable the requirement for now.
+I apologize if my journey takes twists and turns. The effort involved has left me a little winded (from excitement, I promise!) and I'd sure like to help improve the journey from zero to something. What are the steps? Where do I start? I started [here](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) at the ml-framework documentation page. I apparently needed to register a model. Using an example call showed me that I needed to have a node as an "ML node" - I only have one node in my cluster. I decided to disable the requirement for now.
 
 ### Side Quest: The Settings API
 
@@ -59,7 +59,7 @@ POST /_plugins/_ml/models/_upload
 }
 ```
 
-The response was as expected - a new task id. I hope you followed **Side Quest Number 2**!
+The response was as expected - a new task id. 
 
 ```
 {
@@ -74,7 +74,7 @@ Let's see how the task is going.
 GET /_plugins/_ml/tasks/GeLGTIoBKue4OlrZmck7
 ```
 
-The response? Not quite what I expected.
+The response was not quite what I expected.
 
 ```
 {
@@ -106,16 +106,11 @@ nateboot@6c7e67babb2c ~ % shasum -a 256 all-MiniLM-L6-v2_torchscript_sentence-tr
 9376c2ebd7c83f99ec2526323786c348d2382e6d86576f750c89ea544d6bbb14  all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
 ```
 
-The lesson? Your API calls to register models via URL require some assembly. 
-
+The lesson? Your API calls to register models via URL require some assembly. This field does not seem to be required when registering a ["pre-trained" model.  ](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models).
 
 ### Lesson learned 2: Model Groups
 
 I had attempted to upload a model without passing in a model group id. OpenSearch does something for you when this happens. A model group is created for you, with the same name that you provided in your call. In my case, it was `all-MiniLM-L6-v2`. So, the next time I tried to upload that model, it kept telling me the name was taken by a particular model id, so I used the API to search for all of the models available. It wasn't there. What *was* there was a model group that I was able to delete. I used the API to delete all the tasks, models, and model groups I just made so I could start with a fresh slate. Make sure you follow the Tasks, Models and Model Groups side quest to make sure you can organize to your own level of comfort. 
-
-
-
-
 
 ### Side Quest: Tasks, Models, and Model Groups
 
@@ -143,3 +138,5 @@ GET /_plugins/_ml/tasks/_search
 # To delete a task
 DELETE /_plugins/_ml/tasks/`task_id`
 ```
+
+Let's try again. Here's my new call:
