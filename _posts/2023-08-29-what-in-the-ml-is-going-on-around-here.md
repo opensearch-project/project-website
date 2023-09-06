@@ -22,7 +22,7 @@ I humbly beg of you all to learn from my toil. Please find below the chronicles 
 
 I apologize if my journey takes twists and turns. The effort involved has left me a little winded (from excitement, I promise!) and I'd sure like to help improve the journey from zero to something. What are the steps? Where do I start?
 
-I started [here](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) at the ml-framework documentation page. It gave me a good start. I apparently needed to register a model. I would learn later that the example on this page is incorrect, but bare with me through my folly.
+I started [here](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) at the ml-framework documentation page. It gave me a good start. I apparently needed to register a model.  
 
 What's a model? What kinds are there? Do I get them somewhere else? Does OpenSearch come with any? What do I do with it? sha256 hash missing from examples!
 
@@ -109,12 +109,20 @@ The response? Not quite what I expected.
 }
 ```
 
-Well crap. It clearly failed, but `model content changed` isn't very helpful of an error message. I was missing something.
+### Lesson Learned 1: Model Content Hash Value Field
+
+Well crap. It clearly failed, but `model content changed` isn't very helpful of an error message. I was missing something. 
 
 ...*fast forward montage through hours of scanning through `MLModel.java` and pleading for help on our [public slack channel](...)*...
 
-I was missing a field called `model_content_hash_value`. It's the `sha256` checksum of the zipfile. (*TODO*: File issue in documentation repo about the examples missing this value). If you ever want to use a model that's not in the documentation examples, you'll need to calculate the `sha256` checksum of the zipfile and provide that as the `model_content_hash_value` field.
+It turns out the example was bad. I was missing a field called `model_content_hash_value`. It's the `sha256` checksum of the zipfile. If you ever want to use a model that's not in the documentation examples, you'll need to calculate the `sha256` checksum of the zipfile and provide that as the `model_content_hash_value` field. Unfortunately there wasn't any documentation for this field. I filed **[Issue 4966](https://github.com/opensearch-project/documentation-website/issues/4966)**.
 
+After downloading the model zip file, I was able to calculate it on my own like so: 
+
+```shell
+nateboot@6c7e67babb2c ~ % shasum -a 256 all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
+9376c2ebd7c83f99ec2526323786c348d2382e6d86576f750c89ea544d6bbb14  all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
+```
 
 
 
@@ -134,5 +142,8 @@ GET /_plugins/_ml/model_groups/_search
 
 GET /_plugins/_ml/tasks/_search
 { "query": { "match_all": {} } }
+
+Example Request Doesn't Work: https://github.com/opensearch-project/documentation-website/issues/4966
+
 
 ```
