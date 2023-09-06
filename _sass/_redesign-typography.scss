@@ -82,6 +82,7 @@
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: 400;
+        text-underline-offset: 5px;
         &:hover {
             font-weight: 600;
         }
@@ -382,6 +383,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: 42px;
+    @media screen and (max-width: 460px) {
+        font-size: 21px;
+        line-height: 36px;
+    }
 }
 
 @mixin body-small {

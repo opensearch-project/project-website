@@ -740,17 +740,26 @@ $min-past-iphone-width: 429px;
         display: grid;
         @media screen and (min-width: 1460px) {
             grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 100px;
+            padding: 0 2em 2em;
         }
-        @media screen and (max-width: 1459px) {
+        @media screen and (min-width: 1401px) and (max-width: 1459px) {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 25px;
+            padding: 0 1em 2em;
+        }
+        @media screen and (min-width: 835px) and (max-width: 1400px) {
             grid-template-columns: 1fr 1fr;
+            grid-gap: 50px;
+            padding: 0 1em 2em;
         }
         @media screen and (max-width: 834px) {
             padding: 0;
             grid-template-columns: 1fr;
         }
-        grid-gap: 100px;
-        padding: 0 2em 2em;
+
         > .solutions-card-grid--card-wrapper--card {
+            box-sizing: border-box;
             max-width: 350px;
             min-height: 250px;
             min-width: auto;
