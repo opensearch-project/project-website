@@ -2,7 +2,7 @@
 layout: post
 title:  "Receive mentorship from Amazon engineers and accelerate your career in Tech"
 authors:
-  - rednaksi
+  - iskanderrakhman
 date:   2023-09-05 09:00:00 -0700
 categories:
   - announcements
