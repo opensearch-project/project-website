@@ -31,11 +31,40 @@ Using an example call showed me that I needed to have a node as an "ML node" - I
 
 ### Side Quest: The Settings API
 
-I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names.
+I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names ([they're here](https://opensearch.org/docs/latest/ml-commons-plugin/cluster-settings/))
 
-### Side Quest: The Tasks API
+### Side Quest: Tasks, Models, and Model Groups
 
-It's a bit of a misnomer. Many API operations return a task id that you have to then look up. To become proficient with the tools out of the box, using the dev console in the dashboards UI to create, find and delete
+Many of the API operations we'll end up using return a task id, model id, or model group id that you have to then look up. Since we're only using the tools that come out of the box, here are the dev console examples that are likely of most help. 
+
+```
+# To see what models exist.
+GET /_plugins/_ml/models/_search
+{ "query": { "match_all": {} } }
+
+# To delete a model
+DELETE /_plugins/_ml/models/`model_id`
+
+
+# To see the model groups that exist. 
+GET /_plugins/_ml/model_groups/_search
+{ "query": { "match_all": {} } }
+
+# To delete a model group
+DELETE /_plugins/_ml/model_groups/`model_group_id`
+
+# To see the tasks that exist.
+GET /_plugins/_ml/tasks/_search
+{ "query": { "match_all": {} } }
+
+# To delete a task
+DELETE /_plugins/_ml/tasks/`task_id`
+
+
+
+```
+
+
 
 
 
