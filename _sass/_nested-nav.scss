@@ -1,5 +1,5 @@
 // This is the sum of the logo + the navigation menu items + the search field.
-$header-banner-min-width: 1137px;
+$header-banner-min-width: 1019px;
 
 @media screen and (min-width: $header-banner-min-width) {
   #top {
@@ -103,7 +103,7 @@ $header-banner-min-width: 1137px;
       font-size: 1em;
 
       ul {
-        margin: 0 0 10px;
+        margin: 10px 0 10px;
       }
 
       a {

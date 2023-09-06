@@ -1,13 +1,12 @@
-$fullwidth-min-width: 1440px;
+
 $speaker-card-squish-for-height-breakpoint: 1290px;
 $wide-speaker-card-gap: $speaker-card-squish-for-height-breakpoint + 1;
 $reduce-vertical-padding-breakpoint: 1120px;
-$two-column-max-width: 1020px;
 $two-column-min-width: 1020px;
 $single-column-max-width: 1019px;
 $shrink-card-images-breakpoint: 660px;
 $content-panel-collapse-breakpoint: 833px;
-$content-panel-expand-breakpoint: 834px;
+$content-panel-expand-breakpoint: 1019px;
 
 .landing-page-content__right-panel.conference-speaker-session-page {
     background: unset;
@@ -114,7 +113,7 @@ $content-panel-expand-breakpoint: 834px;
         padding-right: 20px;
         row-gap: 2em;
     }
-    @media screen and (min-width: $content-panel-expand-breakpoint) {
+    @media screen and (min-width: 834px) {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
@@ -533,23 +532,6 @@ h2.conference-speaker-session-page {
         @media screen and (min-width: $wide-speaker-card-gap) {
             column-gap: 66px;
         }
-        // @media screen and (max-width: $single-column-max-width) {
-        //     flex-direction: column;
-        //     justify-content: flex-start;
-        //     align-items: flex-start;
-        //     padding-left: 20px;
-        //     padding-right: 20px;
-        //     padding-top: 20px;
-        //     padding-bottom: 10px;
-        // }
-        // @media screen and (min-width: $two-column-min-width) {
-        //     flex-direction: row;
-        //     justify-content: space-between;
-        //     align-items: center;
-        //     padding-left: 80px;
-        //     padding-right: 80px;
-        //     padding-top: 20px;
-        // }
         .conference-speakers--session-speakers__categorized--header {
             max-width: 600px;
             min-width: 400px;
