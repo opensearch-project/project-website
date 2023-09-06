@@ -156,77 +156,152 @@ $platform-page-content-reduce-padding-width: 1199px;
         h2 {
             color: $primary-pacific-blue-s3;
         }
-        // > div {
-        //     background: #D9D9D9;
-        //     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
-        //     text-align: center;
-        //     display: flex;
-        //     flex-direction: column;
-        //     justify-content: center;
-        //     align-items: center;
-        // }
         > table {
             @extend .platform-page--solutions--use-cases--table;
             margin-bottom: 43px;
             width: 100%;
+            @media screen and (max-width: 490px) {
+                > thead {
+                    > tr {
+                        > th,
+                        > th:nth-of-type(1) {
+                            white-space: normal;
+                            overflow: hidden;
+                        }
+                    }
+                }
+                > tbody {
+                    > tr {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        > td,
+                        > td:nth-of-type(1) {
+                            width: calc(100% - 24px);
+                            height: min-content;
+                        }
+                        > td:nth-of-type(1) {
+                            border-bottom: none;
+                        }
+                        > td:nth-of-type(2) {
+                            border-bottom: 12px solid #fff;
+                        }
+                        &:last-of-type {
+                            > td:nth-of-type(2) {
+                                border-bottom: none;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
+$solutions-card-bottom-margin: 36px;
 .platform-landing-page {
     .landing-page-hero-wrapper {
         @include gradient-open-sky-dark;
-        padding: 34px 83px;
+        @media screen and (min-width: 1200px) {
+            padding: 34px 80px;
+        }
+        @media screen and (min-width: 740px) and (max-width: 1199px) {
+            padding: 34px 40px;
+        }
+        @media screen and (max-width: 739px) {
+            padding: 34px 20px;
+        }
         >.landing-page-hero--header {
             > h1 {
                 @include hero-header-text;
                 margin-top: 0;
                 margin-bottom: 0;
+                @media screen and (max-width: 460px) {
+                    @include header-level1-mobile;
+                }
             }
-            width: 50%;
+            @media screen and (min-width: 1200px) {
+                width: calc(50% - 160px);
+            }
+            @media screen and (min-width: 835px) and (max-width: 1199px) {
+                width: calc(75% - 80px);
+            }
+            @media screen and (max-width: 834px) {
+                width: calc(100% - 40px);
+            }
         }
         >.landing-page-hero--header-subtext {
             > h2 {
                 @include hero-header-subtext;
+                margin-bottom: 3px;
             }
-            width: 50%;
+            @media screen and (min-width: 1200px) {
+                width: calc(50% - 160px);
+            }
+            @media screen and (min-width: 1010px) {
+                width: calc(50% - 80px);
+            }
+            @media screen and (min-width: 835px) and (max-width: 1009px) {
+                width: calc(75% - 80px);
+            }
+            @media screen and (max-width: 834px) {
+                width: calc(100% - 40px);
+            }
         }
     }
     .platform-landing-page--overview {
         background: $secondary-sanfrancisco-fog-t1;
-        padding: 68px 83px;
-        > article {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            > aside {
-                width: 350px;
-                height: 233.333px;
-                flex-shrink: 0;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background: #D9D9D9;
-                > svg {
-                    margin: auto;
-                    width: 50px;
-                    height: 37px;
-                }
-            }
+        @media screen and (min-width: 1200px) {
+            padding: 60px 40px 0 80px;
+        }
+        @media screen and (min-width: 835px) and (max-width: 1199px) {
+            padding: 60px 20px 0 40px;
+        }
+        @media screen and (max-width: 834px) {
+            padding: 30px 20px 0;
+        }
+        > p {
+            margin-top: 0;
         }
     }
     > .solutions-card-grid {
-        padding-left: 80px;
-        padding-right: 80px;
-        padding-top: 60px;
+        @media screen and (min-width: 1200px) {
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 60px;
+            padding-bottom: calc(60px - $solutions-card-bottom-margin);
+        }
+        @media screen and (min-width: 835px) and (max-width: 1199px) {
+            padding-left: 40px;
+            padding-right: 20px;
+            padding-top: 60px;
+            padding-bottom: calc(60px - $solutions-card-bottom-margin);
+        }
+        @media screen and (max-width: 834px) {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 30px;
+            padding-bottom: 0;
+        }
         h2 {
             padding-top: 1em;
         }
         > .solutions-card-grid--card-wrapper {
-            padding: 60px 0;
+            padding: 0;
+            > .solutions-card-grid--card-wrapper--card {
+                @media screen and (min-width: 1401px) {
+                    min-width: 350px;
+                    max-width: 350px;
+                }
+                @media screen and (min-width: 835px) and (max-width: 1400px) {
+                    min-width: 300px;
+                    max-width: unset;
+                }
+                @media screen and (max-width: 834px) {
+                    min-width: calc(100% - 20px);
+                }
+            }
         }
     }
     &.platform-page--content {
@@ -237,6 +312,11 @@ $platform-page-content-reduce-padding-width: 1199px;
             width: 100%;
             margin-bottom: 66px;
             padding-bottom: 0;
+            > hgroup {
+                > p {
+                    margin-bottom: 60px;
+                }
+            }
             @media screen and (min-width: $platform-page-content-wide-screen-width) {
                 > hgroup,
                 > table {
@@ -273,6 +353,9 @@ $platform-page-content-reduce-padding-width: 1199px;
             .platform-page--solution--use-cases__fog-background {
                 background: $secondary-sanfrancisco-fog-t1;
                 padding-top: 70px;
+                > h2:nth-of-type(1) {
+                    margin-top: 0;
+                }
                 @media screen and (min-width: $platform-page-content-wide-screen-width) {
                     padding-left: 80px;
                     padding-right: 80px;
@@ -343,7 +426,7 @@ $platform-page-content-reduce-padding-width: 1199px;
     }
     .platform-landing-page--community-voices-wrapper {
         height: 750px;
-        margin-bottom: 44px;
+        margin-bottom: 0;
         background-color: white;
         .landing-page-solutions-community-voices--header {
             padding: 80px 0 0 80px;
@@ -352,68 +435,6 @@ $platform-page-content-reduce-padding-width: 1199px;
             > .landing-page-solutions-community-voices.landing-page-hero-wrapper {
                 background: transparent;
                 padding: 0;
-            }
-        }
-    }
-    .platform-landing-page--toolkit {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        @include gradient-open-sky;
-        > h2 {
-            flex-basis: 1265px;
-            padding-top: 50px;
-        }
-        > div {
-            flex-basis: 1265px;
-            height: 400px;
-            background: #D9D9D9;
-            box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            > svg {
-                width: 91.581px;
-                height: 68.571px;
-                flex-shrink: 0;
-                margin: auto;
-            }
-        }
-        > hgroup {
-            flex-basis: 1265px;
-            height: 400px;
-        }
-    }
-    .platform-landing-page--details {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        > hgroup {
-            flex-basis: 1265px;
-        }
-        >.platform-landing-page--details--2column {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-basis: 1265px;
-            >.platform-landing-page--details--2column--content {
-                flex-basis: calc(100% - 420px + 40px);
-                padding-right: 40px;
-            }
-            >.platform-landing-page--details--2column--right-panel {
-                @include gradient-open-sky;
-                flex-basis: calc(420px - 35px - 53px);
-                flex-shrink: 0;
-                padding: 60px 35px 130px;
             }
         }
     }
@@ -548,20 +569,48 @@ $platform-page-content-reduce-padding-width: 1199px;
 
 .platform-product-collection {
     @include gradient-open-sky;
-    padding: 40px 80px;
+    @media screen and (min-width: 1010px) {
+        padding: 40px 80px 15px;
+    }
+    @media screen and (min-width: 835px) and (max-width: 1009px) {
+        padding: 40px 40px 15px;
+    }
+    @media screen and (max-width: 834px) {
+        padding: 40px 20px 15px;
+    }
+    > h2 {
+        margin-top: 10px;
+    }
     > .platform-product {
-        max-width: 1265px;
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: stretch;
-        flex-wrap: nowrap;
-        column-gap: 0;
+        @media screen and (min-width: 835px) {
+            max-width: 1265px;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            column-gap: 0;
+        }
+        // @media screen and (min-width: 835px) and (max-width: 1009px) {
+        //     max-width: 100%;
+        // }
+        @media screen and (max-width: 834px) {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            row-gap: 0;
+        }
         margin-bottom: 75px;
         > .platform-product--title {
-            flex-basis: 47.43%;
-            max-width: 600px;
-            min-height: 400px;
+            @media screen and (min-width: 835px) {
+                flex-basis: 47.43%;
+                max-width: 600px;
+                min-height: 400px;
+            }
+            @media screen and (max-width: 834px) {
+                width: 100%;
+                min-height: 300px;
+            }
             @include gradient-deep-blue-sea;
             text-align: center;
             display: flex;
@@ -575,13 +624,23 @@ $platform-page-content-reduce-padding-width: 1199px;
                 font-style: normal;
                 font-weight: 700;
                 line-height: normal;
-                width: 75%;
+                @media screen and (min-width: 1010px) {
+                    width: 75%;
+                }
                 margin: auto;
+                @media screen and (max-width: 460px) {
+                    @include header-level1-mobile;
+                }
             }
         }
         > .platform-product--description {
-            flex-basis: 52.57%;
-            max-width: 665px;
+            @media screen and (min-width: 835px) {
+                flex-basis: 52.57%;
+                max-width: 665px;
+            }
+            @media screen and (max-width: 834px) {
+                width: 100%;
+            }
             padding: 50px 3%;
             min-height: 400px;
             background-color: white;
