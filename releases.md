@@ -102,6 +102,6 @@ The software maintainers will not back-port fixes or features to versions outsid
 | July 17, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
 | July 20, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
 | August 14, 2023 | Updated release table to reflect release windows | per adoption of https://github.com/opensearch-project/project-website/pull/1866 |
-| September 5th, 2023 | Updated 2.10 date  |  Original release date was too close to US Labor Holiday |
+| September 5th, 2023 | Updated 2.10 date  |  Original release date was too close to US Labor Day Holiday |
 <br>
 
