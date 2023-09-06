@@ -3,7 +3,7 @@ layout: post
 title:  Monitoring your cluster with cluster metrics monitors
 authors:
   - hurneyt
-date: 2023-08-23
+date: 2023-09-07
 categories:
   - technical-posts
 meta_keywords: cluster metrics monitor, monitor OpenSearch cluster metrics, alerting plugin for OpenSearch
@@ -34,15 +34,15 @@ By creating a cluster metrics monitor that calls the `_cluster/stats` API, you c
 1. On the **Monitors** tab, select **Create monitor**.
 1. Select the **Per cluster metrics monitor** option. For demonstration purposes, you’ll configure this monitor to run every minute by leaving the default values under **Schedule**.
 1. Under **Query** > **Request type**, select **Cluster stats**. In the response preview, you can see that the current CPU utilization for this cluster is 0%.
-    ![Configuring the request type](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu2-request-type.png){: .img-fluid }
+    ![Configuring the request type](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu2-request-type.png){: .img-fluid }
 1. Configure a trigger condition that compares the CPU percentage to your desired threshold: 
     ```bash
     ctx.results[0].nodes.process.cpu.percent >= 60
     ```
     In this example, you can see that the trigger condition response is `false` because the CPU utilization for the cluster is currently `0%`.
-    ![Configuring a trigger](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu3-trigger.png){: .img-fluid }
+    ![Configuring a trigger](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu3-trigger.png){: .img-fluid }
 1. Configure notification actions as desired. This example uses a dummy channel for demonstration purposes. 
-    ![Configuring notifications](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu4-notification.png){: .img-fluid }
+    ![Configuring notifications](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-cpu4-notification.png){: .img-fluid }
     As you can see in the example, you can include `ctx.results.0.nodes.process.cpu.percent` to print the CPU utilization in the notification message:
    
     ```plaintext
@@ -64,13 +64,13 @@ You can also use the `_cluster/stats` API to receive alerts when the JVM memory 
 1. On the **Monitors** tab, select **Create monitor**.
 1. Select the **Per cluster metrics monitor** option. For demonstration purposes, you’ll configure this monitor to run every minute by leaving the default values under **Schedule**.
 1. Under **Query** > **Request type**, select **Cluster stats**. In the response preview, you can see that the current `heap_max_in_bytes` is `536870912` and the current `heap_used_in_bytes` is `96278576`, which is about 17.93% of the max.
-    ![Configuring the request type](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-jvm2-request-type.png){: .img-fluid }
+    ![Configuring the request type](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-jvm2-request-type.png){: .img-fluid }
 1. Configure a trigger condition that calculates the JVM memory pressure percentage and compares it to the desired threshold:
     ```bash
     ctx.results[0].nodes.jvm.mem.heap_used_in_bytes / ctx.results[0].nodes.jvm.mem.heap_max_in_bytes >= 0.75
     ```
 1. Configure notification actions as desired. This example uses a dummy channel for demonstration purposes. 
-    ![Configuring notifications](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-jvm4-notification.png){: .img-fluid }
+    ![Configuring notifications](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-jvm4-notification.png){: .img-fluid }
 
     Mustache templates do not currently support performing calculations, but you can print the current `heap_used_in_bytes` and `heap_max_in_bytes` in the message:
 
@@ -94,7 +94,7 @@ With the release of OpenSearch version 2.9, cluster metrics monitors now support
 
 This example trigger condition generates an alert when the API response contains a `red` index. 
 
-![Trigger condition for red index](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-indices3-trigger.png){: .img-fluid }
+![Trigger condition for red index](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-indices3-trigger.png){: .img-fluid }
 
 The trigger condition is configured as follows:
 
@@ -105,7 +105,7 @@ for (int i = 0; i < ctx.results[0].indices.size(); ++i)
 
 Under **Action**, you can set up a message that will be sent when the trigger condition is met.
 
-![Cat indices notification](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-indices4-notification.png){: .img-fluid }
+![Cat indices notification](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-indices4-notification.png){: .img-fluid }
 
 You can use the following Mustache template to print each entry in the list of indexes returned by the API call, along with information from each entry:
 
@@ -128,7 +128,7 @@ Note that Mustache templates do not currently support conditional statements, so
 
 This example trigger condition generates an alert when the API response contains an `UNASSIGNED` shard.
 
-![Trigger condition for unassigned shard](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-shards3-trigger.png){: .img-fluid }
+![Trigger condition for unassigned shard](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-shards3-trigger.png){: .img-fluid }
 
 The trigger condition is configured as follows:
 
@@ -139,7 +139,7 @@ for (int i = 0; i < ctx.results[0].shards.size(); ++i)
 
 Under **Action**, you can set up a message that will be sent when the trigger condition is met. 
 
-![Cat shards notification](/assets/media/blog-images/2023-08-23-cluster-metrics-monitors-blog/cluster-metrics-v29-shards4-notification.png){: .img-fluid }
+![Cat shards notification](/assets/media/blog-images/2023-09-07-cluster-metrics-monitors-blog/cluster-metrics-v29-shards4-notification.png){: .img-fluid }
 
 You can use the following Mustache template to print each entry in the list of shards returned by the API call, along with information from each entry:
 
