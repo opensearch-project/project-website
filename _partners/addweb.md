@@ -43,20 +43,18 @@ industries:  business services, consumer services, education, financial services
 # and if both are used only the multiple_office_locations data will be rendered
 # in the template omitting the main_office_location data.
 main_office_location:  |
-  "Ahmedabad
-
-705, Silicon Tower, Opp. Law Garden, Off C.G. Road, Ahmedabad Gujarat 380009"
+  Ahmedabad
+  705, Silicon Tower, Opp. Law Garden, Off C.G. Road, Ahmedabad Gujarat 380009
 multiple_office_locations:
   - name: USA'
     location: |
-      "
-4502 Bragdon Way, Glen Allen, VA 23059, United States"
+      "4502 Bragdon Way, Glen Allen, VA 23059, United States"
   - name: 'Jaipur'
     location: |
-    "1st Floor, 69/399,
-Madhyam Marg,
-Mansarovar,
-Jaipur, Rajasthan, 302020"
+      1st Floor, 69/399,
+      Madhyam Marg,
+      Mansarovar,
+      Jaipur, Rajasthan, 302020
 
 # Collection of Web resources that the partner wishes to promote on their extended partner details page. Resources like blog posts, tutorials, news announcements, etc.
 # Each resource must have a url, title, thumbnail, and type.
@@ -86,7 +84,7 @@ products:
     name: 'Web Application Development'
   - url: 'https://www.addwebsolution.com/ecommerce-development'
     name: 'Ecommerce Development'
-     - url: 'https://www.addwebsolution.com/mobile-apps-development'
+  - url: 'https://www.addwebsolution.com/mobile-apps-development'
     name: 'Mobile App Development'
   - url: 'https://www.addwebsolution.com/digital-marketing'
     name: 'Digital Marketing'
