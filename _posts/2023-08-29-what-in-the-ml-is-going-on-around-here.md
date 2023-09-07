@@ -28,7 +28,7 @@ I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cl
 
 I eventually was able to cobble together this call.
 
-```
+```json
 # I want to be able to register a model via url as well as perform ML tasks
 # on any node in the cluster regardless of its role. 
 
@@ -43,7 +43,7 @@ PUT _cluster/settings
 
 That worked! Great. Now I can start, I hope. Let's upload a model!
 
-```
+```json
 POST /_plugins/_ml/models/_upload
 {
   "name": "all-MiniLM-L6-v2",
@@ -61,7 +61,7 @@ POST /_plugins/_ml/models/_upload
 
 The response was as expected - a new task id. 
 
-```
+```json
 {
   "task_id": "GeLGTIoBKue4OlrZmck7",
   "status": "CREATED"
@@ -70,13 +70,13 @@ The response was as expected - a new task id.
 
 Let's see how the task is going.
 
-```
+```json
 GET /_plugins/_ml/tasks/GeLGTIoBKue4OlrZmck7
 ```
 
 The response was not quite what I expected.
 
-```
+```json
 {
   "task_type": "REGISTER_MODEL",
   "function_name": "TEXT_EMBEDDING",
@@ -110,13 +110,16 @@ The lesson? Your API calls to register models via URL require some assembly. Thi
 
 ### Lesson learned 2: Model Groups
 
-I had attempted to upload a model without passing in a model group id. OpenSearch does something for you when this happens. A model group is created for you, with the same name that you provided in your call. In my case, it was `all-MiniLM-L6-v2`. So, the next time I tried to upload that model, it kept telling me the name was taken by a particular model id, so I used the API to search for all of the models available. It wasn't there. What *was* there was a model group that I was able to delete. I used the API to delete all the tasks, models, and model groups I just made so I could start with a fresh slate. Make sure you follow the Tasks, Models and Model Groups side quest to make sure you can organize to your own level of comfort. 
+I had attempted to upload a model without passing in a model group id. OpenSearch does something for you when this happens. A model group is created for you, with the same name that you provided in your call. In my case, it was `all-MiniLM-L6-v2`. So, the next time I tried to upload that model, it kept telling me the name was taken by a particular model id, so I used the API to search for all of the models available. It wasn't there. What *was* there was a model group that I was able to delete. I used the API to delete all the tasks, models, and model groups I just made so I could start with a fresh slate. Make sure you follow the Tasks, Models and Model Groups side quest to make sure you can organize to your own level of comfort.
+
+The error message was confusing, so I filed [issue 1289](https://github.com/opensearch-project/ml-commons/issues/1289).
+
 
 ### Side Quest: Tasks, Models, and Model Groups
 
 Many of the API operations we'll end up using return a task id, model id, or model group id that you have to then look up. Since we're only using the tools that come out of the box, here are the dev console examples that are likely of most help.
 
-```
+```json
 # To see what models exist.
 GET /_plugins/_ml/models/_search
 { "query": { "match_all": {} } }
@@ -139,4 +142,41 @@ GET /_plugins/_ml/tasks/_search
 DELETE /_plugins/_ml/tasks/`task_id`
 ```
 
-Let's try again. Here's my new call:
+----
+
+Something serendipitous happened as I was trying to teach myself the API for ml-commons when following my tasks, models, and model groups side quest. I found an API call example
+[here](https://opensearch.org/docs/latest/ml-commons-plugin/api/) on the ml-commons api reference page. It was perfectly formed, and included all of the stuff that I was missing. Here it is: 
+
+```json
+POST /_plugins/_ml/models/_register
+{
+    "name": "all-MiniLM-L6-v2",
+    "version": "1.0.0",
+    "description": "test model",
+    "model_format": "TORCH_SCRIPT",
+    "model_group_id": "FTNlQ4gBYW0Qyy5ZoxfR",
+    "model_content_hash_value": "c15f0d2e62d872be5b5bc6c84d2e0f4921541e29fefbef51d59cc10a8ae30e0f",
+    "model_config": {
+        "model_type": "bert",
+        "embedding_dimension": 384,
+        "framework_type": "sentence_transformers",
+       "all_config": "{\"_name_or_path\":\"nreimers/MiniLM-L6-H384-uncased\",\"architectures\":[\"BertModel\"],\"attention_probs_dropout_prob\":0.1,\"gradient_checkpointing\":false,\"hidden_act\":\"gelu\",\"hidden_dropout_prob\":0.1,\"hidden_size\":384,\"initializer_range\":0.02,\"intermediate_size\":1536,\"layer_norm_eps\":1e-12,\"max_position_embeddings\":512,\"model_type\":\"bert\",\"num_attention_heads\":12,\"num_hidden_layers\":6,\"pad_token_id\":0,\"position_embedding_type\":\"absolute\",\"transformers_version\":\"4.8.2\",\"type_vocab_size\":2,\"use_cache\":true,\"vocab_size\":30522}"
+    },
+    "url": "https://artifacts.opensearch.org/models/ml-models/huggingface/sentence-transformers/all-MiniLM-L6-v2/1.0.1/torch_script/sentence-transformers_all-MiniLM-L6-v2-1.0.1-torch_script.zip"
+}
+```
+
+It still begged of me the question, "How do I know what values to put under model_config if I'm using some other model?"
+
+And then I came across *another* example call referring to something called a "Pretrained model" - look at this call: 
+
+```json
+POST /_plugins/_ml/models/_upload
+{
+  "name": "huggingface/sentence-transformers/all-MiniLM-L12-v2",
+  "version": "1.0.1",
+  "model_format": "TORCH_SCRIPT"
+}
+```
+
+Why did this call have to be so short and the other ones so long? The answer is that while we refer to these as "pre-trained models", there's a lot of those out there and they're not specific to OpenSearch.  OpenSearch happens to have a handful of models in the github repository for which it knows all of the config requirements already, so if one of these fits your requirements you can probably save a lot of time using one of these. 
