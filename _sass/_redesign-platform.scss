@@ -222,13 +222,16 @@ $solutions-card-bottom-margin: 36px;
                 }
             }
             @media screen and (min-width: 1200px) {
-                width: calc(50% - 160px);
+                width: calc(70% - 160px);
             }
             @media screen and (min-width: 835px) and (max-width: 1199px) {
-                width: calc(75% - 80px);
+                width: calc(78% - 80px);
             }
             @media screen and (max-width: 834px) {
                 width: calc(100% - 40px);
+            }
+            @media screen and (max-width: 739px) {
+                width: 100%;
             }
         }
         >.landing-page-hero--header-subtext {
@@ -389,9 +392,12 @@ $solutions-card-bottom-margin: 36px;
                     width: calc(100% - 220px);
                 }
                 @media screen and (max-width: $platform-page-content-reduce-padding-width) {
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    width: calc(100% - 20px - 20px);
+                    padding-left: 0;
+                    padding-right: 0;
+                    width: 100%;
+                }
+                @media screen and (max-width: 834px) {
+                    flex-wrap: wrap;   
                 }
                 @media screen and (max-width: 390px) {
                     padding-left: 5px;
@@ -406,19 +412,66 @@ $solutions-card-bottom-margin: 36px;
                 max-width: 665px;
                 min-height: 485px;
                 padding: 50px 3%;
+                @media screen and (max-width: 834px) {
+                    flex-basis: unset;
+                    max-width: calc(100% - 6%);
+                }
             }
             .landing-page-content__right-panel--content--side-panel {
                 flex-basis: 39.53%;
                 max-width: 600px;
                 min-height: 485px;
+                @media screen and (max-width: 834px) {
+                    flex-basis: unset;
+                    max-width: 100%;
+                }
                 @include gradient-open-sky;
                 @include center-flex(350px);
                 > .draft-3-landing-page--button-stack {
                     justify-content: space-evenly;
                     row-gap: unset;
                     padding-top: 0;
-                    > .draft-3-landing-page--button-stack--button {
+                    width: calc(100% - 40px);
+                    @media screen and (max-width: 834px) and (min-width: 429px),
+                    screen and (max-width: 428px) {
+                        // Overrides defaults defined in _redesign.scss
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        row-gap: unset;
+                        padding-top: 0;
+                        width: calc(100% - 40px);
+                        align-items: center;
+                        grid-gap: unset;
+                    }
+                    @media screen and (max-width: 428px) {
                         width: 100%;
+                        max-width: unset;
+                    }
+                    > .draft-3-landing-page--button-stack--button {
+                        @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
+                            // Overrides defaults defined in _redesign.scss
+                            flex-basis: unset;
+                            flex-grow: unset;
+                            flex-shrink: unset;
+                            widtH: 100%;
+                        }
+                        width: 100%;
+                        > .redesign-button--wrapper {
+                            width: 100%;
+                            &.redesign-button--wrapper__complex-content {
+                                > .redesign-button--anchor {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        > .redesign-button-pair--wrapper {
+                            > .redesign-button--wrapper {
+                                &.redesign-button--wrapper__text-only {
+
+                                }
+                            } 
+                        }
                     }
                 }
             }
@@ -591,9 +644,6 @@ $solutions-card-bottom-margin: 36px;
             flex-wrap: nowrap;
             column-gap: 0;
         }
-        // @media screen and (min-width: 835px) and (max-width: 1009px) {
-        //     max-width: 100%;
-        // }
         @media screen and (max-width: 834px) {
             flex-direction: column;
             justify-content: flex-start;
