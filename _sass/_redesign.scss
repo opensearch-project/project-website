@@ -645,13 +645,20 @@ $min-past-iphone-width: 429px;
 }
 
 .redesign-button-pair--wrapper {
-    width: 350px;
+    // width: 350px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     > .redesign-button--wrapper {
         flex-basis: 45%;
+        &.redesign-button--wrapper__text-only {
+            > a {
+                @media screen and (max-width: 1400px) {
+
+                }
+            }
+        }
     }
 }
 .redesign-buttons--download__large {

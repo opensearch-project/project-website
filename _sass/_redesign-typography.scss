@@ -82,7 +82,7 @@
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: 400;
-        text-underline-offset: 5px;
+        text-underline-offset: 6px;
         &:hover {
             font-weight: 600;
         }
@@ -156,6 +156,7 @@
     a {
         color: $primary-pacific-blue;
         font-family: 'Open Sans';
+        text-underline-offset: 6px;
     }
 }
 
@@ -322,12 +323,12 @@
     > a {
         color: $primary-deep-blue-sea;
         text-decoration: none;
-        padding: 10px 50px;
+        padding: 10px 0;
         font-size: 18px;
         font-style: normal;
         font-weight: 700;
         display: inline-block;
-        width: calc(100% - 100px);
+        width: 100%;
         &:hover {
             background: unset;
         }
