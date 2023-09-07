@@ -389,7 +389,8 @@ $solutions-card-bottom-margin: 36px;
                 column-gap: 0;
                 @media screen and (min-width: $platform-page-content-wide-screen-width) {
                     margin-left: 80px;
-                    width: calc(100% - 220px);
+                    margin-right: 80px;
+                    // width: calc(100% - 220px);
                 }
                 @media screen and (max-width: $platform-page-content-reduce-padding-width) {
                     padding-left: 0;
@@ -408,19 +409,20 @@ $solutions-card-bottom-margin: 36px;
             }
             .landing-page-content__right-panel--content--body {
                 background: white;
-                flex-basis: 60.47%;
-                max-width: 665px;
-                min-height: 485px;
                 padding: 50px 3%;
+                flex-basis: 60.75%;
+                max-width: calc(774px - 6%);
+                min-height: 485px;
                 @media screen and (max-width: 834px) {
                     flex-basis: unset;
                     max-width: calc(100% - 6%);
                 }
             }
             .landing-page-content__right-panel--content--side-panel {
-                flex-basis: 39.53%;
-                max-width: 600px;
+                flex-basis: 39.25%;
+                max-width: unset;
                 min-height: 485px;
+                flex-grow: 1;
                 @media screen and (max-width: 834px) {
                     flex-basis: unset;
                     max-width: 100%;
