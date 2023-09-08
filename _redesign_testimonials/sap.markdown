@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: sap
 featured: true
 logo: /assets/media/testimonials/sap.png
 author: 

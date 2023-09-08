@@ -480,9 +480,30 @@ $solutions-card-bottom-margin: 36px;
         }
     }
     .platform-landing-page--community-voices-wrapper {
-        height: 750px;
+        @media screen and (max-width: $community-voices-vert-view-max) {
+            height: 900px;
+        }
+        // @media screen and (min-width: $community-voices-horz-view-min) {
+        //     height: 750px;
+        // }
         margin-bottom: 0;
         background-color: white;
+        .hero-with-headline {
+            margin: 0;
+            padding: 0;
+            .hero-with-headline--wrapper {
+                .hero-with-headline--carousel {
+                    .hero-with-headline--carousel--viewport {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            height: 350px;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            height: 600px;
+                        }
+                    }
+                }
+            }
+        }
         .landing-page-solutions-community-voices--header {
             padding: 80px 0 0 80px;
         }

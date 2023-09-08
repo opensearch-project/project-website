@@ -143,6 +143,14 @@
             }
         };
         const startCarousel = () => {
+
+            //
+            // REMOVE THIS RETURN STATEMENT!!!!!
+            // This is here to stop the thing from rotating while working out CSS issues
+            // for various breakpoints.
+            //
+            return;
+            
             if (carouselState.timer !== 0) {
                 // Already running.
                 return;

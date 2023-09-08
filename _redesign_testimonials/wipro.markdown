@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: wipro
 logo_shape: square
 featured: true
 logo: /assets/media/testimonials/wipro.png

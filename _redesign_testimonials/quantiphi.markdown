@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: quantiphi
 featured: true
 logo: /assets/media/testimonials/quantiphi.png
 author: 

@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: coralogix
 featured: true
 logo: /assets/media/testimonials/Coralogix.png
 author: 
