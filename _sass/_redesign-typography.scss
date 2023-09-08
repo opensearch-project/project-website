@@ -399,6 +399,15 @@
     text-align: left;
 }
 
+@mixin body-medium($color: #000) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 32px;
+    font-style: normal;
+}
+
 @mixin trim-ellipsis {
     overflow: hidden;
     color: #000;
