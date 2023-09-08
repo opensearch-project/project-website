@@ -922,6 +922,21 @@ $community-voices-reduce-size: 1199px;
             //     height: 500px;
             // }
         }
+        .hero-with-headline {
+            .hero-with-headline--wrapper {
+                .hero-with-headline--carousel {
+                    .hero-with-headline--carousel--viewport {
+                        .hero-with-headline--carousel--wrapper {
+                            .hero-with-headline--carousel--item {
+                                @media screen and (max-width: $community-voices-vert-view-max) {
+                                    justify-content: stretch;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         .landing-page-community-voices--arrow-margin-wrapper {
             height: 100%;
             align-content: space-between;
@@ -944,15 +959,14 @@ $community-voices-reduce-size: 1199px;
             }
             height: auto;
             .landing-page-community-voices--testimonial {
-                
+                display: flex;
                 @media screen and (max-width: $community-voices-vert-view-max) {
-                    display: block;
-                    // flex-direction: column;
-                    // justify-content: flex-start;
-                    // align-items: center;
+                    //display: block;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
                 }
                 @media screen and (min-width: $community-voices-horz-view-min) {
-                    display: flex;
                     flex-direction: row;
                     justify-content: stretch;
                     align-items: stretch;
@@ -1004,7 +1018,12 @@ $community-voices-reduce-size: 1199px;
                         margin-bottom: 0;
                         padding-top: 0;
                         padding-bottom: 0;
-                        margin-left: 40px;
+                        @media screen and (max-width: $community-voices-vert-view-max)  {
+                            margin-left: 0;
+                        }
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            margin-left: 40px;
+                        }
                         > p {
                             @media screen and (min-width: $community-voices-increase-size) {
                                 @include body-text;

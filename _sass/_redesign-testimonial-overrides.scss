@@ -8,9 +8,10 @@
                             flex-basis: 25%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 20px 0;
+                            padding: 0;
+                            flex-basis: 120px;
                             > img {
-                                width: 50%;
+                                width: 70%;
                             }
                         }
                     }
@@ -19,9 +20,10 @@
                             flex-basis: 75%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 120px - 20px - 40px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-text;
                                 }
                             }
                             > cite {
@@ -38,9 +40,10 @@
                             flex-basis: 30%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 20px 0;
+                            padding: 0;
+                            flex-basis: 120px;
                             > img {
-                                width: 50%;
+                                width: 70%;
                             }
                         }
                     }
@@ -49,9 +52,10 @@
                             flex-basis: 70%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 120px - 20px - 40px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-text;
                                 }
                             }
                             > cite {
@@ -68,9 +72,10 @@
                             flex-basis: 20%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 40px 0 20px;
+                            padding: 0;
+                            flex-basis: 265px;
                             > img {
-                                width: 25%;
+                                width: 70%;
                             }
                         }
                     }
@@ -79,9 +84,10 @@
                             flex-basis: 80%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 285px - 50px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-text;
                                 }
                             }
                             > cite {
@@ -98,9 +104,10 @@
                             flex-basis: 30%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 20px 0;
+                            padding: 0;
+                            flex-basis: 110px;
                             > img {
-                                width: 50%;
+                                width: 60%;
                             }
                         }
                     }
@@ -114,9 +121,10 @@
                             }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 125px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-text;
                                 }
                             }
                             > cite {
@@ -133,7 +141,8 @@
                             flex-basis: 20%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 40px 0 20px;
+                            padding: 0;
+                            flex-basis: 195px;
                             > img {
                                 width: 50%;
                             }
@@ -149,9 +158,10 @@
                             }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 235px - 40px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-text;
                                 }
                             }
                             > cite {
@@ -168,7 +178,8 @@
                             flex-basis: 20%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 20px 0;
+                            padding: 0;
+                            flex-basis: 125px;
                             > img {
                                 width: 50%;
                             }
@@ -184,9 +195,10 @@
                             }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 125px - 40px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-medium;
                                 }
                             }
                             > cite {
@@ -203,7 +215,8 @@
                             flex-basis: 20%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 20px 0;
+                            padding: 0;
+                            flex-basis: 110px;
                             > img {
                                 width: 50%;
                             }
@@ -219,9 +232,10 @@
                             }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 110px - 40px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-medium;
                                 }
                             }
                             > cite {
@@ -238,9 +252,10 @@
                             flex-basis: 25%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 20px 0;
+                            padding: 0;
+                            flex-basis: 195px;
                             > img {
-                                width: 75%;
+                                width: 50%;
                             }
                         }
                     }
@@ -249,9 +264,10 @@
                             flex-basis: 75%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 195px - 40px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-text;
                                 }
                             }
                             > cite {
@@ -268,9 +284,10 @@
                             flex-basis: 20%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 20px 0;
+                            padding: 0;
+                            flex-basis: 195px;
                             > img {
-                                width: 75%;
+                                width: 50%;
                             }
                         }
                     }
@@ -284,9 +301,10 @@
                             }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 195px - 40px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-medium;
                                 }
                             }
                             > cite {
@@ -303,7 +321,8 @@
                             flex-basis: 25%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            padding: 20px 0;
+                            padding: 0;
+                            flex-basis: 100px;
                             > img {
                                 width: 50%;
                             }
@@ -314,9 +333,10 @@
                             flex-basis: 75%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
+                            flex-basis: calc(600px - 100px - 40px);
                             > blockquote {
                                 > p {
-                                    @include body-small;
+                                    @include body-text;
                                 }
                             }
                             > cite {
