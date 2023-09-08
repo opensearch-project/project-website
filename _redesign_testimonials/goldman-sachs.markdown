@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: goldman
 logo_shape: square
 featured: true
 logo: /assets/media/testimonials/goldman-sachs.png

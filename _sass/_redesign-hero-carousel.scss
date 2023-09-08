@@ -181,19 +181,6 @@ $carousel-item-background-colors: (
                         flex-grow: 1;
                         flex-shrink: 0;
                         flex-basis: 100%;
-                        .hero-with-headline--carousel--name {
-                            color: black;
-                            font-size: 1.25rem;
-                            font-weight: 600;
-                            line-height: 1.2;
-                            margin: 0 0 5px;
-                        }
-                        .hero-with-headline--carousel--description {
-                            color: black;
-                            font-size: 0.875rem;
-                            line-height: 1.5;
-                            margin: 0;
-                        }
                     }
                 }
             }

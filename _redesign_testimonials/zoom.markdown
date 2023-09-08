@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: zoom
 featured: true
 logo: /assets/media/testimonials/zoom.png
 

@@ -1,0 +1,331 @@
+.landing-page-solutions-community-voices--wrapper {
+    > .landing-page-solutions-community-voices {
+        .landing-page-community-voices--arrow-margin-wrapper {
+            &.coralogix {
+                .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 25%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 20px 0;
+                            > img {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 75%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.dowjones {
+                .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 30%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 20px 0;
+                            > img {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 70%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.goldman {
+                .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 20%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 40px 0 20px;
+                            > img {
+                                width: 25%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 80%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.openinfra {
+                > .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 30%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 20px 0;
+                            > img {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 70%;
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.pinterest {
+                > .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 20%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 40px 0 20px;
+                            > img {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 80%;
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.quantiphi {
+                > .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 20%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 20px 0;
+                            > img {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 80%;
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.rackspace {
+                > .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 20%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 20px 0;
+                            > img {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 80%;
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.sap {
+                > .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 25%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 20px 0;
+                            > img {
+                                width: 75%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 75%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.wipro {
+                > .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 20%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 20px 0;
+                            > img {
+                                width: 75%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 80%;
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.zoom {
+                > .landing-page-community-voices--testimonial {
+                    > .landing-page-community-voices--testimonial--logo {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 25%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            padding: 20px 0;
+                            > img {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    > .landing-page-community-voices--testimonial--citation {
+                        @media screen and (min-width: $community-voices-horz-view-min) {
+                            flex-basis: 75%;
+                        }
+                        @media screen and (max-width: $community-voices-vert-view-max) {
+                            > blockquote {
+                                > p {
+                                    @include body-small;
+                                }
+                            }
+                            > cite {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: dowjones
 featured: true
 logo: /assets/media/testimonials/dow-jones.png
 author: 

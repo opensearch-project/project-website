@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: pinterest
 featured: true
 logo: /assets/media/testimonials/pinterest.png
 author: 

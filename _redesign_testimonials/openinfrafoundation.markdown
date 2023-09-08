@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: openinfra
 featured: true
 logo: /assets/media/testimonials/OpenInfraFoundation.png
 author: 

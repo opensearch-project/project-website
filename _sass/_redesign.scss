@@ -889,19 +889,18 @@ $min-past-iphone-width: 429px;
     }
 }
 
+$community-voices-vert-view-max: 979px;
+$community-voices-horz-view-min: 980px;
+$community-voices-increase-size: 1200px;
+$community-voices-reduce-size: 1199px;
 .landing-page-solutions-community-voices--wrapper {
-    margin-bottom: 80px;
+    // margin-bottom: 80px;
     > .landing-page-solutions-community-voices--header {
         > h2 {
             color: $primary-open-sky-s3;
         }
     }
-    $community-voices-vert-view-max: 1439px;
-    $community-voices-horz-view-min: 1440px;
-    @media screen and (max-width: 833px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
+    padding: 0;
     > .landing-page-solutions-community-voices {
         @media screen and (max-width: $community-voices-vert-view-max) {
             .hero-with-headline {
@@ -916,97 +915,125 @@ $min-past-iphone-width: 429px;
             }
         }
         @media screen and (min-width: $community-voices-horz-view-min) {
-            &.landing-page-hero-wrapper {
-                height: 500px;
-            }
-            .hero-with-headline .hero-with-headline--wrapper .hero-with-headline--carousel .hero-with-headline--carousel--viewport {
-                height: 500px;
-            }
+            // &.landing-page-hero-wrapper {
+            //     height: 500px;
+            // }
+            // .hero-with-headline .hero-with-headline--wrapper .hero-with-headline--carousel .hero-with-headline--carousel--viewport {
+            //     height: 500px;
+            // }
         }
-        .landing-page-community-voices--testimonial {
+        .landing-page-community-voices--arrow-margin-wrapper {
+            height: 100%;
+            align-content: space-between;
             display: flex;
+            justify-content: stretch;
+            align-items: stretch;
             @media screen and (max-width: $community-voices-vert-view-max) {
                 flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
             }
             @media screen and (min-width: $community-voices-horz-view-min) {
                 flex-direction: row;
-                justify-content: stretch;
-                align-items: stretch;
             }
-            > .landing-page-community-voices--testimonial--logo {
-                @media screen and (min-width: $community-voices-horz-view-min) {
-                    flex-basis: 34%;
-                    flex-grow: 1;
-                    flex-shrink: 1;
-                }
-                @media screen and (max-width: $community-voices-vert-view-max) {
-                    flex-grow: 0;
-                    flex-shrink: 0;
-                }
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                > img {
-                    flex-basis: content;
-                    flex-grow: 0;
-                    flex-shrink: 0;
-                    object-fit: contain;
-                    width: 100%;
-                    height: auto;
-                    max-height: 350px;
-                }
+            @media screen and (min-width: $community-voices-increase-size) {
+                margin: 0 80px;
+                width: calc(100% - 160px);
             }
-            > .landing-page-community-voices--testimonial--citation {
-                @media screen and (min-width: $community-voices-horz-view-min) {
-                    flex-basis: 66%;
-                    flex-grow: 1;
-                    flex-shrink: 1;
-                }
+            @media screen and (max-width: $community-voices-reduce-size) {
+                margin: 0 40px;
+                width: calc(100% - 80px);
+            }
+            height: auto;
+            .landing-page-community-voices--testimonial {
+                
                 @media screen and (max-width: $community-voices-vert-view-max) {
-                    // flex-basis: 100%;
-                    flex-grow: 0;
-                    flex-shrink: 0;
+                    display: block;
+                    // flex-direction: column;
+                    // justify-content: flex-start;
+                    // align-items: center;
                 }
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: baseline;
-                > blockquote {
-                    flex-basis: content;
-                    flex-grow: 1;
-                    flex-shrink: 1;
-                    margin-top: 0;
-                    margin-bottom: 0;
-                    padding-top: 0;
-                    padding-bottom: 0;
-                    > p {
-                        @include body-small;
-                        padding-top: 0;
-                        padding-bottom: 0;
+                @media screen and (min-width: $community-voices-horz-view-min) {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: stretch;
+                    align-items: stretch;
+                }
+                > .landing-page-community-voices--testimonial--logo {
+                    @media screen and (min-width: $community-voices-horz-view-min) {
+                        flex-basis: 38.6%;
+                        flex-grow: 1;
+                        flex-shrink: 1;
+                    }
+                    @media screen and (max-width: $community-voices-vert-view-max) {
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                    }
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    > img {
+                        flex-basis: content;
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                        object-fit: contain;
+                        width: 100%;
+                        height: auto;
+                        max-height: 350px;
+                    }
+                }
+                > .landing-page-community-voices--testimonial--citation {
+                    @media screen and (min-width: $community-voices-horz-view-min) {
+                        flex-basis: 61.4%;
+                        flex-grow: 1;
+                        flex-shrink: 1;
+                    }
+                    @media screen and (max-width: $community-voices-vert-view-max) {
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                    }
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: baseline;
+                    > blockquote {
+                        flex-basis: content;
+                        flex-grow: 1;
+                        flex-shrink: 1;
                         margin-top: 0;
                         margin-bottom: 0;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        margin-left: 40px;
+                        > p {
+                            @media screen and (min-width: $community-voices-increase-size) {
+                                @include body-text;
+                                line-height: 32px;
+                            }
+                            @media screen and (max-width: $community-voices-vert-view-max)  {
+                                @include body-text;
+                            }
+                            @media screen and (min-width: $community-voices-horz-view-min) 
+                            and (max-width: $community-voices-reduce-size) {
+                                @include body-small;
+                            }
+                            padding-top: 0;
+                            padding-bottom: 0;
+                            margin-top: 0;
+                            margin-bottom: 0;
+                        }
+                    }
+                    > cite {
+                        flex-basis: content;
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                        margin-left: 40px;
+                        > span {
+                            @include header-level4($primary-open-sky-s3);
+                        }
                     }
                 }
-                > cite {
-                    flex-basis: content;
-                    flex-grow: 0;
-                    flex-shrink: 0;
-                    > span {
-                        color: $primary-open-sky-s3;
-                        font-family: Open Sans;
-                        font-size: 15px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 21px;
-                        letter-spacing: 4.5px;
-                        text-transform: uppercase;
-                    }
-                }
-            }
+            }   
         }
     }
 }

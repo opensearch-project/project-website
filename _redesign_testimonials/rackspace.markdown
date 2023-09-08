@@ -1,5 +1,6 @@
 ---
 layout: redesign-testimonial
+testimonial_class: rackspace
 featured: true
 logo: /assets/media/testimonials/rackspace.png
 author: 
