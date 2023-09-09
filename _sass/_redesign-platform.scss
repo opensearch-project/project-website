@@ -506,6 +506,9 @@ $solutions-card-bottom-margin: 36px;
         }
         .landing-page-solutions-community-voices--header {
             padding: 80px 0 0 80px;
+            @media screen and (max-width: $community-voices-smallest-max-size) {
+                padding: 30px 0 0 30px;
+            }
         }
         .landing-page-solutions-community-voices--wrapper {
             > .landing-page-solutions-community-voices.landing-page-hero-wrapper {

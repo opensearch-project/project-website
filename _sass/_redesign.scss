@@ -893,6 +893,7 @@ $community-voices-vert-view-max: 979px;
 $community-voices-horz-view-min: 980px;
 $community-voices-increase-size: 1200px;
 $community-voices-reduce-size: 1199px;
+$community-voices-smallest-max-size: 739px;
 .landing-page-solutions-community-voices--wrapper {
     // margin-bottom: 80px;
     > .landing-page-solutions-community-voices--header {
@@ -957,6 +958,10 @@ $community-voices-reduce-size: 1199px;
                 margin: 0 40px;
                 width: calc(100% - 80px);
             }
+            @media screen and (max-width: $community-voices-smallest-max-size) {
+                margin: 0 20px;
+                width: calc(100% - 40px);
+            }
             height: auto;
             .landing-page-community-voices--testimonial {
                 display: flex;
@@ -1010,6 +1015,11 @@ $community-voices-reduce-size: 1199px;
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: baseline;
+                    @media screen and (max-width: $community-voices-smallest-max-size) {
+                        align-items: unset;
+                        padding: 0 20px;
+                        overflow-y: scroll;
+                    }
                     > blockquote {
                         flex-basis: content;
                         flex-grow: 1;
@@ -1023,6 +1033,10 @@ $community-voices-reduce-size: 1199px;
                         }
                         @media screen and (min-width: $community-voices-horz-view-min) {
                             margin-left: 40px;
+                        }
+                        @media screen and (max-width: $community-voices-smallest-max-size) {
+                            margin-left: 0;
+                            margin-right: 0;
                         }
                         > p {
                             @media screen and (min-width: $community-voices-increase-size) {
@@ -1047,6 +1061,9 @@ $community-voices-reduce-size: 1199px;
                         flex-grow: 0;
                         flex-shrink: 0;
                         margin-left: 40px;
+                        @media screen and (max-width: $community-voices-smallest-max-size) {
+                            margin-left: 0;
+                        }
                         > span {
                             @include header-level4($primary-open-sky-s3);
                         }
