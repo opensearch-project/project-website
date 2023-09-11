@@ -73,5 +73,14 @@
                 </div>
             </div>
         </opensearch-button>
+    {% when 'expand-collapse-toggle' %}
+        <div class="opensearch-toggle-button--wrapper">
+            <a href="#" slot="untoggled" class="opensearch-toggle-button-link opensearch-toggle-button-link--untoggled opensearch-toggle-button-link__visible">
+                {% include icons.html type='plus' %}
+            </a>
+            <a href="#" class="opensearch-toggle-button-link opensearch-toggle-button-link--toggled opensearch-toggle-button-link__invisible">
+                {% include icons.html type='minus' %}
+            </a>
+        </div>
 {% endcase %}
 

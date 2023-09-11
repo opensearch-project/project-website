@@ -1,6 +1,110 @@
 // This is the sum of the logo + the navigation menu items + the search field.
 $header-banner-min-width: 1019px;
+$header-banner-mobile-breakpoint: 1018px;
 
+@media screen and (max-width: $header-banner-mobile-breakpoint) {
+  [role="banner"]#top {
+    > .container {
+      padding: 0;
+    }
+  }
+  [role="banner"] [role="navigation"] {
+    li {
+      margin-right: 0;
+      margin-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      a {
+        @include body-text;
+        color: $primary-open-sky-t3;
+      } 
+    }  
+  }
+  
+  [role="navigation"] .nested-nav {
+    > li {
+      padding-bottom: 10px;
+      border-bottom-color: $primary-open-sky-s2;
+      border-bottom-style: solid;
+      border-bottom-width: 2px;
+      > .nested-nav--top-menu-item-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding: 0;
+        margin: 0;
+        border: none;
+        width: 100%;
+        &.nested-nav-top-menu-item--wrapper__has_children {
+          position: relative;
+          z-index: 10;
+        }
+        > .nested-nav--top-menu-item-wrapper--link {
+          flex-basis: calc(100% - 30px - 20px);
+          height: 30px;
+          flex-grow: 1;
+          flex-shrink: 1;
+          > a {
+            @include header-level3($primary-open-sky-t3);
+          }
+        }
+        > .nested-nav--top-menu-item-wrapper--toggle {
+          flex-basis: 30px;
+          width: 30px;
+          height: 30px;
+          padding: 0 20px 0 0;
+          flex-shrink: 0;
+          flex-grow: 0;
+          .opensearch-toggle-button--wrapper {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            height: 30px;
+            width: 30px;
+            > .opensearch-toggle-button-link {
+              display: none;
+              padding: 0;
+              margin: 0;
+              height: 30px;
+              width: 30px;
+              &.opensearch-toggle-button-link__visible {
+                display: inline-block;
+              }
+            }
+          }
+          
+        }
+        &.nested-nav--top-menu-item--wrapper__without-children {
+          > .nested-nav--top-menu-item-wrapper--link {
+            flex-basis: 100%;
+            width: 100%;
+            flex-grow: 0;
+            flex-shrink: 0;
+          }
+          > .nested-nav--top-menu-item-wrapper--toggle {
+            flex-basis: 0;
+            width: 0;
+            display: none;
+          }
+        }
+      }
+      
+      > ul {
+        height: 0;
+        opacity: 0;
+        transition: all .25s ease-out;
+        z-index: 1;
+        position: relative;
+        &[expanded] {
+          height: var(--expanded-height);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
 @media screen and (min-width: $header-banner-min-width) {
   #top {
     z-index: 9;
@@ -28,11 +132,26 @@ $header-banner-min-width: 1019px;
     > li {
       position: relative;
       float: left;
-
-      > a {
-        padding: .5em 0;
+      > .nested-nav--top-menu-item-wrapper {
+        display: block;
+        padding: 0;
+        margin: 0;
+        border: none;
+        width: 100%;
+        height: auto;
+        > .nested-nav--top-menu-item-wrapper--link {
+          display: block;
+          width: 100%;
+          margin: 0;
+          height: auto;
+          > a {
+            padding: .5em 0;
+          }    
+        }
+        > .nested-nav--top-menu-item-wrapper--toggle {
+          display: none;
+        }
       }
-
       > ul {
         list-style: none;
         position: absolute;
@@ -61,7 +180,7 @@ $header-banner-min-width: 1019px;
           }
         }
       }
-
+      
       &:not(:first-child) {
         > ul {
           left: .5em;
@@ -99,15 +218,12 @@ $header-banner-min-width: 1019px;
 @media screen and (max-width: $header-banner-min-width) {
   [role="banner"] .nested-nav {
     li {
-      line-height: 1.5em;
-      font-size: 1em;
-
       ul {
-        margin: 10px 0 10px;
+        margin: 0;
       }
 
       a {
-        padding: 0;
+        padding: 0 0 0 20px;
 
         &:not(:last-child) {
           pointer-events: none;

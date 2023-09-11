@@ -531,13 +531,20 @@ $header-banner-min-width: 1019px;
         }
 
         &.active {
-            max-height: calc(100vh + 100px);
-            overflow: scroll;
+            max-height: calc(100vh - 72px);
+            @include respond-min($header-banner-min-width) {
+                overflow-y: scroll;
+            }
         }
     }
 
     [role="navigation"] {
-        background: $light-theme-navigation-background;
+        @media screen and (min-width: $header-banner-min-width) {
+            background: $light-theme-navigation-background;
+        }
+        @media screen and (max-width: 1018px) {
+            background: $primary-open-sky-s3;
+        }
 
         width: 100%;
 
