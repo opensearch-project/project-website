@@ -1,0 +1,31 @@
+<div class="platform-solution-page--content__gradient">
+    <div class="landing-page-content__right-panel">
+        <div class="landing-page-content__right-panel--content">
+            <div class="landing-page-content__right-panel--content--body">
+                <div class="platform-page--resources solutions-card-grid">
+                    {% if page.resources %}
+                        <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
+                            {% for resource in page.resources %}
+                                {% assign category = resource.type | default: "Search" %}
+                                {% assign url = resource.url %}
+                                {% assign title = resource.title %}
+                                {% include tall-card-no-image.html category=category title=resource.title url=resource.url %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__without-card-grid">
+                {% if page.button_stack %}
+                    <div class="draft-3-landing-page--button-stack">
+                        {% for button in page.button_stack %}
+                            <div class="draft-3-landing-page--button-stack--button">
+                                {% include redesign_buttons.html name=button %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
