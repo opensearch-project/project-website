@@ -9,6 +9,8 @@ $header-banner-mobile-breakpoint: 1018px;
     }
   }
   [role="banner"] [role="navigation"] {
+    height: calc(100vh - 60px);
+    margin-top: 0;
     li {
       margin-right: 0;
       margin-left: 0;
@@ -18,12 +20,13 @@ $header-banner-mobile-breakpoint: 1018px;
         @include body-text;
         color: $primary-open-sky-t3;
       } 
-    }  
+    }
   }
   
   [role="navigation"] .nested-nav {
     > li {
-      padding-bottom: 10px;
+      padding-bottom: 20px;
+      padding-top: 15px;
       border-bottom-color: $primary-open-sky-s2;
       border-bottom-style: solid;
       border-bottom-width: 2px;
