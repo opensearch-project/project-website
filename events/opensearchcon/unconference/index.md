@@ -13,6 +13,7 @@ hero_banner_image: '/assets/media/opensearchcon/Uncon_web-1399x627.png'
 presenters:
   - nknize
   - kfreedain
+  - chenkle
 ---
 
 Make plans to join the first-ever Unconference and come ready to pitch 
@@ -46,8 +47,9 @@ one of the talks you would like to hear. Two rules: please do not vote for
 yourself, and, if a card already has all 5 spaces filled, you can no longer vote 
 for it.
 
-At 1:20, Nick and Kris will collect and sort the cards, then select the day's 
+At 1:20, Nick, Kris, and Charlotte will collect and sort the cards, then select the day's 
 talks from the cards receiving the most votes while ensuring the widest 
 arrangement of topics are covered. 
+
 At 1:30, we will return the cards to the wall in the order each talk will be 
 given. Be ready to talk and participate!
