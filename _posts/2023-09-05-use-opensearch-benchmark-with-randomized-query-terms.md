@@ -14,25 +14,25 @@ Performance testing is part science and part art. On the measurement side, you e
 
 [OpenSearch Benchmark](https://opensearch.org/docs/latest/benchmark/index/) is a community-driven, benchmarking framework that makes it easy to benchmark your workload against OpenSearch. You can use OpenSearch benchmark to create a custom workload, pulling data from your indices on OpenSearch, and then customize that workload to your requirements. 
 
-One limitation of OpenSearch Benchmark is that when you run a search operation, the query itself is hard-coded. If you want to randomize your query workload across a set of possible search terms, there's no out of the box way to do that. In this post, you'll use data from [BoardgameGeek.com](https://boardgamegeek.com/) (BGG) to create a custom Opensearch Benchmark workload. You'll then create two, line-per-query files and use those files to create randomized terms for querying OpenSearch. 
+One limitation of OpenSearch Benchmark is that when you run a search operation, the query itself is hard-coded. If you want to randomize your query workload across a set of possible search terms, there's no out-of-the-box way to do that. In this post, you'll use data from [BoardgameGeek.com](https://boardgamegeek.com/) (BGG) to create a custom Opensearch Benchmark workload. You'll then create two, one-line-per-query files and use those files to create randomized terms for querying OpenSearch. 
 
 ## Prerequisites
 
 To set up to follow this example, you’ll need the following:
 
-- **Python 3**: Follow instructions to install [Python 3](https://www.python.org/downloads/)
+- **Python 3.8+**: Follow instructions to install [Python 3.8+](https://www.python.org/downloads/)
 - **Java Development Kit (JDK) 17**: Follow instructions to [install JDK 17](https://www.oracle.com/java/technologies/downloads/)
 - **OpenSearch Benchmark**: Follow instructions to [install OpenSearch Benchmark](https://opensearch.org/docs/latest/benchmark/installing-benchmark/). I installed in a virtual environment in a scratch directory that also holds the custom workload and config. 
 - **OpenSearch Cluster**: For this walkthrough, I used [Docker Desktop](https://www.docker.com/products/docker-desktop/) to run OpenSearch on my machine. Follow the [OpenSearch Quick Start](https://opensearch.org/docs/latest/quickstart/) to create an OpenSearch cluster.
-- **Data in OpenSearch**: [BoardgameGeek provides APIs](https://boardgamegeek.com/wiki/page/BGG_XML_API2) that deliver data to you in Extensible Markup Language (XML). For this example, I used and extended [sample code from the Open Distro for Elasticsearch project that downloads some games from BoardGameGeek](https://github.com/opendistro-for-elasticsearch/sample-code/tree/main/BGG) to load games into OpenSearch in a `games` index. The data contains names, descriptions, ratings, user comments, and more. If you have your own data set, load that into OpenSearch instead.
+- **Data in OpenSearch**: [BoardgameGeek provides APIs](https://boardgamegeek.com/wiki/page/BGG_XML_API2) that deliver data to you in Extensible Markup Language (XML). For this example, I used and extended [sample code from the Open Distro for Elasticsearch project that downloads some games from BoardGameGeek](https://github.com/opendistro-for-elasticsearch/sample-code/tree/main/BGG) to load games into OpenSearch in a `games` index. The data contains names, descriptions, ratings, user comments, and more. If you have your own data set, you can load that into OpenSearch instead.
 
 ## Generate a custom workload
 
-Once you have your data loaded into the games index, `cd` to the directory where you installed OpenSearch Benchmark (I created a directory `osb`). If you installed Benchmark globally, create a directory and `cd` into it. Create a custom workload by running 
+Once you have your data loaded into the games index, create a working directory and `cd` into it. I created a directory `osb`. Create a custom workload by running:
 
-```opensearch-benchmark create-workload --workload=bgg --target-hosts="https://localhost:9200" --client-options="basic_auth_user:'<your user name>',basic_auth_password:'<your password>',verify_certs:false" --indices=games --output-path=.```
+```opensearch-benchmark create-workload --workload=bgg --target-hosts="<your cluster endpoint>" --client-options="basic_auth_user:'<your user name>',basic_auth_password:'<your password>',verify_certs:false" --indices=games --output-path=.```
 
-Be sure to replace `<your user name>`, and `<your user password>` with the values you used to set up the security plugin in the command-line above.
+**NOTE:** This example uses basic authentication. Be sure to replace `<your user name>`, and `<your user password>` with the values you used to set up the security plugin in the command-line above. Replace `<your cluster endpoint>` with the endpoint and port for your cluster.
 
 Opensearch benchmark creates a `bgg` directory with a number of files, including `games.json`, and `workload.py`. Examine `games.json`. This file contains the index settings that OpenSearch Benchmark will use when creating the games directory in your test cluster. In the settings section, you can see that Benchmark has created some templatized settings for `number_of_shards`, and `number_of_replicas`.
 
@@ -110,14 +110,14 @@ To wire your query terms in to the workload, use a custom parameter source. Modi
 
 You add a `param-source` parameter that calls the item `search-term-source` from Benchmark's registry. Create `workload.py` in the `bgg` directory. Benchmark will look for a file with this name and execute it on startup. You also increase the number of `iterations` for this operation to 1,000
 
-Create a file called `workload.py` with the below contents, in the same directory as `workload.json`. The `random_search_term` function selects random terms from either the English words corpus or the BGG corpus and injects them into a term query body. The `register` function registers the `random_search_term` function as the `search-term-source` parameter source. 
+Create a file called `workload.py` with the contents below, in the same directory as `workload.json`. The `random_search_term` function selects random terms from either the English words corpus or the BGG corpus and injects them into a term query body. The `register` function registers the `random_search_term` function as the `search-term-source` parameter source. 
 
 ```
 import random
 import logging
 
 # Load the source terms from the bgg_words and english_words files. To 
-# keep it simple, the files are structured as a single query per line.
+# keep it simple, the files are structured as a single set of terms per line.
 english_words = None
 with open('english_words.txt', 'r') as f:
     lines = f.readlines()
@@ -142,6 +142,9 @@ def random_search_term(track, params, **kwargs):
 
     # logging.log(logging.INFO, f'Query: {query}')
 
+    # Returns a basic term query against the description field. In most cases, for performance
+    # testing, you want to disable the request cache. This carries through any cache parameter
+    # specified in the workload.
     return {
         "body": {
             "query": {
@@ -156,7 +159,7 @@ def random_search_term(track, params, **kwargs):
 
 
 # This maps the random_search_term function to the search-term-source 
-# param-source specified in workload.json
+# parameter source specified in workload.json
 def register(registry):
     registry.register_param_source("search-term-source", random_search_term)
 ```
@@ -165,4 +168,4 @@ Run OpenSearch Benchmark with the command line above. If you want to validate th
 
 ## Summary
 
-In this post, you learned how to use `opensearch-benchmark create-workload` to read data from a running cluster, and build a test framework for that data. With the test framework in place, you generalized the search operation to provide a realistic set of queries by using terms from the corpus and from English language. You can generalize this method to pull in and randomize elements of your query to use OpenSearch Benchmark and get accurate results.
+In this post, you learned how to use `opensearch-benchmark create-workload` to read data from a running cluster, and build a test framework for that data. With the test framework in place, you generalized the search operation to provide a realistic set of queries by using terms from the corpus and from the English language. You can generalize this method to pull in and randomize elements of your query to use OpenSearch Benchmark and get accurate results.
