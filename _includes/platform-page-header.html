@@ -1,0 +1,28 @@
+{% assign icon_type = include.icon %}
+{% assign category_name = include.category %}
+{% assign solution_name = include.solution %}
+
+<div class="platform-page--header">
+    <div class="platform-page--feature-area">
+        {% if icon_type %}
+            <div class="platform-page--feature-area--icon">
+                {% include icons.html type=icon_type %}
+            </div>
+        {% endif %}
+        <div class="platform-page--feature-area--platform-name">
+            <a href="/platform/index.html">The OpenSearch Platform</a>
+        </div>
+        {% if category_name %}
+            <div class="platform-page--feature-area--category-name-separator">&gt;</div>
+            <div class="platform-page--feature-area--category-name__mobile">&lt;&nbsp;{{category_name}}</div>
+            <div class="platform-page--feature-area--category-name">{{category_name}}</div>
+        {% endif %}
+        {% if solution_name %}
+            <div class="platform-page--feature-area--category-name-separator">&gt;</div>
+            <div class="platform-page--feature-area--solution-name">{{solution_name}}</div>
+        {% endif %}
+    </div>
+    <div class="platform-page--title">
+        <h1>{{ page.primary_title }}</h1>
+    </div>
+</div>

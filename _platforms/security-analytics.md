@@ -5,8 +5,7 @@ primary_title: Security Analytics
 categories:
   - security-analytics
 feature_area_icon_type: security-shield
-feature_area_category_name: The OpenSearch Platform
-feature_area_solution_name: Security Analytics
+feature_area_category_name: Security Analytics
 has_hero: true
 key_benefits_list:
   - name: 'Analyze &amp; Discover'
@@ -16,7 +15,7 @@ key_benefits_list:
   - name: 'Robust Security Rules'
     description: 'Detect potential threats with prepackaged or customizable detection rules that follow a generic, open-source format.'
   - name: 'Real-Time Alerts'
-    desription: 'Monitor and correlate adversary actions in real time across devices, hosts, and applications.'
+    description: 'Monitor and correlate adversary actions in real time across devices, hosts, and applications.'
 key_features_list:
   - name: Open-source detection rules
     description: '2,200+ prepackaged rules for your security event log sources.'
@@ -30,7 +29,7 @@ key_features_list:
     description: 'Use any custom log source and define your own rules to detect potential threats.'
 ---
 
-### Detect and respond to security threats in real time
+## Detect and respond to security threats in real time
 
 The ever-increasing number of online, interconnected systems creates a large attack surface that is challenging to defend against malicious actors. Organizations that take a proactive approach to protecting their data and infrastructure can mitigate the legal, financial, and reputational risks posed by security threats.
 

@@ -1,8 +1,7 @@
 ---
 layout: redesign-resource-with-button-stack
 description: ''
-feature_area_category_name: The OpenSearch Platform
-feature_area_solution_name: Security Analytics
+feature_area_category_name: Security Analytics
 resources:
   - title: 'Correlating security events across different log sources'
     url: 'https://opensearch.org/blog/correlating-security-events/'

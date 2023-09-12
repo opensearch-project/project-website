@@ -1,11 +1,14 @@
 .page-with-hero {
     h1 {
-        color: $primary-open-sky-s1;
+        // color: $primary-open-sky-s1;
+        color: $primary-open-sky-s2;
         font-family: 'Open Sans';
-        font-size: 40px;
+        font-size: 51px;
         font-style: normal;
         font-weight: 300;
         line-height: normal;
+        margin-bottom: 0;
+        margin-top: 0;
     }
     
     h2 {
