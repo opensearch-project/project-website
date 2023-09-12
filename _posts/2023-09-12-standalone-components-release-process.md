@@ -10,6 +10,9 @@ categories:
     - community
 twittercard:
   description: "An article discussing the technical challenges we faced, our motivations for restructuring, and our approach to designing a sustainable and scalable release process for standalone components under OpenSearch project."
+meta_keywords: OpenSearch release process, centralized CI/CD system, standalone components in OpenSearch
+meta_description: Discover the steps the OpenSearch Project took to implement a centralized CI/CD system to create a repeatable and scalable release process for standalone components.
+
 ---
 
 ## Overview
