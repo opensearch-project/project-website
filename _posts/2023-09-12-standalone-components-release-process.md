@@ -15,8 +15,6 @@ meta_description: Discover the steps the OpenSearch Project took to implement a 
 
 ---
 
-## Overview
-
 The OpenSearch Project is growing quickly and currently has around 600+ contributors who actively participate in the project day to day. The project releases the OpenSearch and OpenSearch Dashboards distributions along with standalone components.
 
 For distribution release, OpenSearch follows a release train (now moving to a release window model) wherein a new version is released approximately every 6 weeks with dozens of plugins, supporting multiple architectures (x64, ARM64) and various distribution types (for example, Linux, RPM/DEB, Windows, Docker). Check out the release process [documentation](https://github.com/opensearch-project/opensearch-build/blob/main/RELEASE_PROCESS_OPENSEARCH.md#opensearch-release-process) for more details.
@@ -39,7 +37,7 @@ To address these challenges, we recognized the need for a centralized and reusab
 
 ## One-click release process end-to-end workflow
 
-![Figure 1: One-click release process end-to-end workflow]({{ site.baseurl }}assets/media/blog-images/2023-09-12-standalone-components-release-process/standalone_release_sequence_diagram.png){: .img-fluid }**Figure 1**: One-click release process end-to-end workflow
+![Figure 1: One-click release process end-to-end workflow]({{ site.baseurl }}/assets/media/blog-images/2023-09-12-standalone-components-release-process/standalone_release_sequence_diagram.png){: .img-fluid }**Figure 1**: One-click release process end-to-end workflow
 
 
 ## Solutions
@@ -80,7 +78,7 @@ However, our journey doesn't end here. We remain committed to continuous improve
 
 **Additional resources**
 
-* GitHub meta issue: https://github.com/opensearch-project/opensearch-build/issues/1234
-* Onboarding document for this release process: https://github.com/opensearch-project/opensearch-build/blob/main/ONBOARDING.md#onboarding-to-universal--1-click-release-process
-* Sample releasing document: https://github.com/opensearch-project/opensearch-java/blob/main/RELEASING.md#releasing
+* GitHub meta issue: <https://github.com/opensearch-project/opensearch-build/issues/1234>
+* Onboarding document for this release process: <https://github.com/opensearch-project/opensearch-build/blob/main/ONBOARDING.md#onboarding-to-universal--1-click-release-process>
+* Sample releasing document: <https://github.com/opensearch-project/opensearch-java/blob/main/RELEASING.md#releasing>
 
