@@ -1,0 +1,57 @@
+---
+layout: post
+title: "OpenSearch Project Q2 Community Survey Results: Experience Health Measures"
+authors: 
+  - apasun
+date: 2023-09-15
+meta_keywords: OpenSearch users, user experience, survey
+meta_description: Read on to learn more about the OpenSearch Quarterly survey that explored Experience Health Measures
+twittercard:
+  description: Learn about our quarterly survey results on the Experience Health Measures
+  - community
+excerpt: 
+ 
+---
+Every quarter, OpenSearch seeks feedback from community members.  Previously, [in Q1-2023, we captured role base information from the OpenSearch users](https://opensearch.org/blog/q1-survey-results/) and in Q2-2023, we obtained experience health measures from our users. Experience health measures are a form of customer outcome metrics. Understanding experience outcomes can help [understand the users journey and ways to improve](https://amazon.coupahost.com/requisition_headers/13629854) the product by focusing on the user’s workflow. We pivoted on the basic roles that our Search and Analytics users identify with and obtained feedback on user flows and also sample information. 
+
+**Overall scores**
+In comparison to Q1, our overall NPS score dipped as the sample consisted of users who accessed the survey from [OpenSearch.org](http://opensearch.org/) as well as dashboards. In 2023-Q1, our NPS score was 57.8% and in 2023-Q2, the NPS score dipped to 31%. [GRAPH]
+
+A common theme in the open ended feedback we received was that documentation and troubleshooting needed to be improved at various areas of the product. 
+
+We also saw a dip in the overall experience health scores. In 2023-Q1 the overall experience health score was 77.20% and in 2023-Q2, this dipped down ton 75.03%. [GRAPH]
+
+**Sample information**
+67.8% of the sample indicated that they used OpenSearch for Search, 62.1% of the sample indicated they used OpenSearch for Log Analytics and Observability and 25.3% of the sample used OpenSearch for Security Analytics. [GRAPH]
+
+59.8% of the sample self managed their OpenSearch software, 20.7% used managed services, and 8% did not know how their OpenSearch software was managed. [GRAPH]
+
+**Role**
+52.9% of the sample indicated performing activities that related to infra, 46% of the sample indicated performing activities that related to the admin role, 37.9% of the sample indicated performing activities that related to the producer and 36.8% of the sample indicated performing activities that related to the consumer role. [GRAPH]
+
+**Size of Company**
+53.8% of the sample indicated that they worked at a company that had 500 or fewer employees. [GRAPH]
+
+How do you use OpenSearch [GRAPH]
+Plug Ins [GRAPH]
+End User [GRAPH]
+
+**Version**
+Over two thirds (74.10%) of the sample had version 2.0 or higher of OpenSearch. [GRAPH]
+
+**Experience Metrics**
+The overall experience of Security producers were rated the best (82.6%) in comparison to the infra users experience. [GRAPH]
+
+Follow up questions by role indicated that
+46.2% of infra users set up clusters less frequently than a year. [GRAPH]. 82.10% of the sample updated OpenSearch regularly. [GRAPH]
+
+82% of our dashboard producers shared their dashboards with others as compared to 46.7% of our dashboard consumers who shared their dashboards with others. 
+
+
+
+
+**References**
+
+
+1. Sundar, A. “OpenSearch Project Q1 community survey results,” https://opensearch.org/blog/q1-survey-results/.
+2. Jithesh, A. “How to drive experience outcomes through product design,” https://bootcamp.uxdesign.cc/how-to-drive-experience-outcomes-through-product-design-1967f58c99c1
