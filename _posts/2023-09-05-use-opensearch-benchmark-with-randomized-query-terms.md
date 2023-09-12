@@ -55,10 +55,10 @@ Examine `workload.json`. This file contains the workload description in the `ind
 You can test this configuration by running the command
 
 ```
-opensearch-benchmark execute-test --pipeline benchmark-only --workload-path=<path-to-your-bgg-folder> --target-host=http://localhost:9200 --client-options="use_ssl:true,basic_auth_user:'<your user name>',basic_auth_password:'<your password>',verify_certs:false" --workload-params="bulk_size:300"
+opensearch-benchmark execute-test --pipeline benchmark-only --workload-path=<path-to-your-bgg-folder> --target-host=<your cluster endpoint> --client-options="use_ssl:true,basic_auth_user:'<your user name>',basic_auth_password:'<your password>',verify_certs:false" --workload-params="bulk_size:300"
 ```
 
-Be sure to replace `<your user name>`, `<your user password>`, and the `<path-to-your-bgg-folder>` with the correct values. In the command-line above, you can see where I set the actual `_bulk` size to 300 with the `--workload-params`. Benchmark resolves and inserts this value in the `bulk` operation from `workload.json`
+Be sure to replace `<your user name>`, `<your user password>`, `<your cluster endpoint>` and the `<path-to-your-bgg-folder>` with the correct values. In the command-line above, you can see where I set the actual `_bulk` size to 300 with the `--workload-params`. Benchmark resolves and inserts this value in the `bulk` operation from `workload.json`
 
 ```
     {
