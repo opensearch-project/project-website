@@ -4,7 +4,7 @@ speaker_name_full: 'Jon Handler'
 speaker_talk_title: 'When Life Hands You Data, Grab OpenSearch!'
 primary_title: 'When Life Hands You Data, Grab OpenSearch!'
 title: 'OpenSearchCon 2023 Workshop: When Life Hands You Data, Grab OpenSearch!'
-session_time: '2023-09-29 - 9:00am-11:00pm'
+session_time: '2023-09-29 - 9:00am-11:00am'
 session_room: 'Grand Ballroom A'
 session_track: 'Workshop'
 presenters:
