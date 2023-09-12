@@ -4,7 +4,7 @@ title: Using OpenSearch as a Vector Database
 categories:
   - search
 primary_title: Using OpenSearch as a Vector Database
-feature_area_icon_type: squinting-face
+feature_area_icon_type: search-magnifying-glass
 feature_area_category_name: Search
 feature_area_solution_name: Vector Database
 callouts:

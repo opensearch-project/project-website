@@ -1,8 +1,7 @@
 ---
 layout: redesign-use-case
 title: Use Cases
-feature_area_category_name: The OpenSearch Platform
-feature_area_solution_name: Security Analytics
+feature_area_category_name: Security Analytics
 how_to_get_started:
   - 'To learn more about OpenSearch Security Analytics and to start exploring your event logs, visit <a href="https://opensearch.org/docs/latest/security-analytics/index/">About Security Analytics</a> or <a href="https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/index/">Setting up Security Analytics</a> in our documentation.'
 button_stack:
