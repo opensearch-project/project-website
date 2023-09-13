@@ -6,8 +6,8 @@ authors:
 date: 2023-09-05
 categories:
   - technical-post
-meta_keywords: opensearch-benchmark
-meta_description: Learn how to add a randomized query set to an OpenSearch Benchmark workload
+meta_keywords: OpenSearch benchmark, OpenSearch benchmark workload, OpenSearch cluster
+meta_description: Learn how to add a randomized query set to an OpenSearch benchmark workload to read and build a test framework for data running in your cluster.
 ---
 
 Performance testing is part science and part art. On the measurement side, you employ science to run test cases, collect and visualize metrics, and evaluate results. On the test creation side, you use intuition and understanding to make sure that you build coverage across the use cases and data that will comprise the majority of the uses of OpenSearch.
