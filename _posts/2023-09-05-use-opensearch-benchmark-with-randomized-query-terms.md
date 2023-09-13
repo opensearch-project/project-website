@@ -3,7 +3,7 @@ layout: post
 title:  "Use OpenSearch Benchmark with Randomized Query Terms"
 authors:
 - handler
-date: 2023-09-05
+date: 2023-09-14
 categories:
   - technical-post
 meta_keywords: OpenSearch benchmark, OpenSearch benchmark workload, OpenSearch cluster
