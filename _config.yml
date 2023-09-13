@@ -80,6 +80,31 @@ defaults:
     values:
       layout: lines
       permalink: :collection/:slug.html
+-
+    scope:
+      type: speakers
+    values:
+      layout: speaker
+-
+    scope:
+      type: speaker_sessions
+    values:
+      layout: speaker_session
+-
+    scope:
+      type: platforms
+    values:
+      permalink: platform/:categories/:name.html
+-
+    scope:
+      type: exhibitors
+    values:
+      layout: exhibitor
+-
+    scope:
+      type: conference_workshops
+    values:
+      layout: speaker_session
 
 collections:
   authors:
@@ -104,7 +129,20 @@ collections:
     output: true
   lines:
     output: true
-
+  speakers:
+    output: true
+  speaker_sessions:
+    output: true
+  redesign_use_cases:
+    output: true
+  redesign_resources:
+    output: true
+  platforms:
+    output: true
+  exhibitors:
+    output: true
+  conference_workshops:
+    output: true
     
 paginate: 5
 paginate_path: "/blog/page:num/"

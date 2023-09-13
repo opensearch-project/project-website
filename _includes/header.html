@@ -28,10 +28,27 @@
     <div role="navigation">
       <ul class="nested-nav">
         {% assign url_fragment = url_parts[1] | replace: '.html', '' %}
+        {% if url_parts.size > 2 %}
+          {% if url_parts[2] == "opensearchcon" %}
+            {% assign is_conference_page = true %}
+          {% else %}
+            {% assign is_conference_page = false %}  
+          {% endif %}
+        {% else %}
+          {% if url_parts[1] == "opensearchcon2023-cfp.html" %}
+            {% assign is_conference_page = true %}
+          {% else %}
+            {% assign is_conference_page = false %}
+          {% endif %}
+        {% endif %}
         {% for nav_item in site.data.top_nav.items %}
           <li>
             <a {% if nav_item.url %} href="{{ nav_item.url }}" {% endif %}
+              {% unless is_conference_page %}
                {% if nav_item.fragments contains url_fragment or nav_item.fragment == url_fragment %} class="in-category" {% endif %}
+              {% else %}
+               {% if nav_item.fragment == "opensearchcon" %} class="in-category" {% endif %}
+              {% endunless %}
             >{{ nav_item.label }}</a>
 
             {% if nav_item.children %}
@@ -45,7 +62,20 @@
                   {% endif %}
                   <li>
                     <a href="{{ nav_child.url }}"
-                       {% if child_url_fragment == url_fragment %} class="in-category" {% endif %}
+                      {% unless is_conference_page %}
+                        {% unless nav_child.url contains "opensearchcon" %}
+                          {% if child_url_fragment == url_fragment %} class="in-category" {% endif %}
+                        {% endunless %}
+                      {% else %}
+                        {% assign split_child_url = nav_child.url | split: "/" %}
+                        {% assign url_part_to_remove = "/" | append: split_child_url.last %}
+                        {% assign child_url_parts_to_compare = nav_child.url | remove: url_part_to_remove %}
+                        {% unless split_child_url.size == 2 %}
+                          {% if page.url contains child_url_parts_to_compare %} class="in-category" {% endif %}
+                        {% else %}
+                          {% if page.url == nav_child.url %} class="in-category" {% endif %}
+                        {% endunless %}
+                      {% endunless %}
                     >{{ nav_child.label }}</a>
                   </li>
                 {% endfor %}

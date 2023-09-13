@@ -1,0 +1,31 @@
+<div class="solutions-card-grid">
+    {% if include.heading %}
+        <h2 class="solutions-card-grid--header">{{ include.heading }}</h2>
+    {% endif %}
+    <div class="solutions-card-grid--card-wrapper">
+        {% for callout in include.callouts %}
+            <div class="solutions-card-grid--card-wrapper--card">
+                {% if callout.icon %}
+                    <div class="solutions-card-grid--card-wrapper--card--icon__left-label">
+                        <div>{{ callout.name }}</div>
+                        <div>
+                            {% include icons.html type=callout.icon %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="solutions-card-grid--card-wrapper--card--label__no-icon">
+                        {{ callout.name }}
+                    </div>
+                {% endif %}
+                <div class="solutions-card-grid--card-wrapper--card--content">
+                    {{ callout.description }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if include.cta_label and include.cta_url %}
+    <div class="solutions-card-grid--call-to-action">
+        <div><a href="{{ include.cta_url }}">{{ include.cta_label }}</a></div>
+    </div>
+    {% endif %}
+</div>

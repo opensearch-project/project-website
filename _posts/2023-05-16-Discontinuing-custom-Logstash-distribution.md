@@ -56,6 +56,7 @@ bin/logstash-plugin install logstash-input-opensearch
 ```
 
 In the coming weeks, we will improve the documentation on using these plugins with the Logstash distribution and start to remove the download links for the existing distribution. 
-We plan to stop releasing new versions by the end of July 2023.
-And we will retain existing download URLs through October 2023 to give you time to update any automation you have in place.
+We released the last update to the distribution - Logstash 8.9.0 - in August 2023.
+There will not be any further updates to the Logstash distribution.
+However, we will retain existing download URLs through October 2023 to give you time to update any automation you have in place.
 We encourage our Logstash users to migrate to Apache-licensed Logstash provided by Elastic today.

@@ -511,3 +511,14 @@
       url: https://github.com/opensearch-project/opensearch-clients/blob/main/CONTRIBUTING.md
     - title: Developer Guide
       url: https://github.com/opensearch-project/opensearch-clients/blob/main/DEVELOPER_GUIDE.md
+- shortname: search-relevance-tools
+  categories:
+    - tools
+  title: OpenSearch Search Relevance Dashboards
+  description: Search Relevance tooling including the Search Comparison Tool
+  url: https://github.com/opensearch-project/dashboards-search-relevance
+  special_files:
+    - title: Contributing
+      url: https://github.com/opensearch-project/dashboards-search-relevance/blob/main/CONTRIBUTING.md
+    - title: Developer Guide
+      url: https://github.com/opensearch-project/dashboards-search-relevance/blob/main/DEVELOPER_GUIDE.md

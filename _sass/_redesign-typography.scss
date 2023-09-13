@@ -1,0 +1,418 @@
+.page-with-hero {
+    h1 {
+        color: $primary-open-sky-s1;
+        font-family: 'Open Sans';
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+    
+    h2 {
+        color: $primary-pacific-blue-s3;
+        font-family: 'Open Sans Condensed';
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    h3 {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px;
+    }
+    h4 {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 4.5px;
+        text-transform: uppercase;
+    }
+    h5 {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    h6 {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+    }
+    .body-text {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 48px;
+    }
+    .body-small-text {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 27px;
+    }
+    button {
+        color: #000;
+        font-family: 'Open Sans';
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    a {
+        color: $primary-pacific-blue;
+        font-family: 'Open Sans';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        &:hover {
+            font-weight: 600;
+        }
+    }
+}
+
+.page-without-hero {
+    h1 {
+        color: $primary-open-sky-s2;
+        font-family: 'Open Sans';
+        font-size: 51px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin-bottom: 0;
+    }
+    h2 {
+        color: $primary-open-sky;
+        font-family: 'Open Sans Condensed';
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    h3 {
+        color: $primary-open-sky-s2;
+        font-family: 'Open Sans';
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px;
+    }
+    h4 {
+        color: $primary-open-sky-s3;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 4.5px;
+        text-transform: uppercase;
+    }
+    h5 {
+        color: $primary-open-sky-s3;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+    }
+    h6 {
+        font-family: 'Open Sans';
+    }
+    p {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 48px;
+    }
+    button,
+    .button {
+        color: $primary-deep-blue-sea;
+        text-align: center;
+        font-family: 'Open Sans';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    a {
+        color: $primary-pacific-blue;
+        font-family: 'Open Sans';
+    }
+}
+
+@mixin body-text($color: #000) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+}
+
+@mixin caption-text {
+    color: $primary-open-sky-s3;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+@mixin header-level2($color: $primary-pacific-blue-s3) {
+    color: $color;
+    font-family: 'Open Sans Condensed';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+@mixin header-level3($color: $primary-open-sky-s1) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 21px;
+    font-style: normal;
+    line-height: 36px;
+    font-weight: 700;
+}
+
+@mixin header-level4($color: $primary-open-sky-s3) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+}
+
+@mixin header-level5($color: $primary-open-sky-s3) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; 
+}
+
+@mixin header-level6 {
+    color: $primary-open-sky-s2;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+@mixin table-header {
+    color: $primary-pacific-blue-s3;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    border-bottom: 6px solid $primary-open-sky-s2;
+    text-align: left;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+@mixin table-cell {
+    font-family: 'Open Sans';
+    background: $secondary-sanfrancisco-fog-t1;
+    border-bottom: 12px solid #fff;
+    padding: 4px 12px;
+}
+
+@mixin focused-button-dark-mode {
+    border: 3px solid $primary-open-sky;
+    background: $primary-open-sky-s2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 44px;
+    > a {
+        line-height: 2.4;
+    }
+}
+
+@mixin hover-button-dark-mode {
+    background: $primary-open-sky;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@mixin active-button-dark-mode {
+    background: $primary-open-sky;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+@mixin disabled-button-dark-mode {
+    border-radius: 6px;
+    background: $secondary-sanfrancisco-fog-s1;
+    > a {
+        color: $secondary-sanfrancisco-fog;
+    }
+}
+
+@mixin focused-button-light-mode {
+    border: 3px solid $primary-open-sky;
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 44px;
+    > a {
+        line-height: 2.4;
+    }
+}
+
+@mixin hover-button-light-mode {
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    > a:hover {
+        color: $primary-open-sky;
+    }
+}
+
+@mixin active-button-light-mode {
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+@mixin disabled-button-light-mode {
+    background: $secondary-sanfrancisco-fog-s1;
+}
+
+@mixin link-button-light-mode($fill-color: $primary-pacific-sky-t3) {
+    font-family: 'Open Sans';
+    border-radius: 6px;
+    &:not(:has(a:focus, a:hover, a[disabled])) {
+        background: $fill-color;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    &:has(a:focus) {
+        @include focused-button-light-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-light-mode;
+    }
+    &:has(a:active) {
+        @include active-button-light-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-light-mode;
+    }
+    
+    white-space: nowrap;
+    > a {
+        color: $primary-deep-blue-sea;
+        padding: 10px 50px;
+        text-decoration: none;
+        &:hover {
+            background: unset;
+        }
+    }
+    > a:focus {
+        padding: 10px 47px;
+    }
+}
+
+@mixin link-button($fill-color: $primary-pacific-sky-t3) {
+    font-family: 'Open Sans';
+    border-radius: 6px;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
+    &:has(a:focus) {
+        @include focused-button-dark-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-dark-mode;
+    }
+    &:has(a:active) {
+        @include active-button-dark-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-dark-mode;
+    }
+    
+    white-space: nowrap;
+    > a {
+        text-decoration: none;
+    }
+    > a:focus {
+        padding: 10px 47px;
+    }
+}
+
+@mixin hero-header-text {
+    color: #FFF;
+    font-family: 'Open Sans';
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+@mixin hero-header-subtext {
+    color: #FFF;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+}
+
+@mixin body-small {
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+@mixin trim-ellipsis {
+    overflow: hidden;
+    color: #000;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+@mixin trim-ellipsis-multiline($line_count: 3) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line_count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin bottom-border-underline($color: $primary-pacific-blue) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $color;
+}
+@mixin header-level1-mobile {
+    font-family: 'Open Sans';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
