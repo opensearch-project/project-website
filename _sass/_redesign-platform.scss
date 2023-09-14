@@ -493,7 +493,7 @@ $solutions-card-bottom-margin: 36px;
                 }
                 @include gradient-open-sky;
                 @include center-flex(350px);
-                > .draft-3-landing-page--button-stack {
+                .draft-3-landing-page--button-stack {
                     justify-content: space-evenly;
                     row-gap: unset;
                     padding-top: 0;
@@ -514,7 +514,7 @@ $solutions-card-bottom-margin: 36px;
                         width: 100%;
                         max-width: unset;
                     }
-                    > .draft-3-landing-page--button-stack--button {
+                    .draft-3-landing-page--button-stack--button {
                         @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
                             // Overrides defaults defined in _redesign.scss
                             flex-basis: unset;
@@ -640,7 +640,7 @@ $solutions-card-bottom-margin: 36px;
             }
         }
     }
-    .platform-solution-page--content__gradient {
+    .platform-page-resources.platform-solution-page--content__gradient {
         @include gradient-open-sky;
         @include page-element-padding;
         .landing-page-content__right-panel {
@@ -651,7 +651,7 @@ $solutions-card-bottom-margin: 36px;
             > .landing-page-content__right-panel--content {
                 padding: 0;
                 > .landing-page-content__right-panel--content--body {
-                    width: 67%;
+                    width: 66%;
                     box-sizing: border-box;
                     background: transparent;
                     .platform-page--resources.solutions-card-grid {
@@ -663,14 +663,35 @@ $solutions-card-bottom-margin: 36px;
                             box-sizing: border-box;
                             @media screen and (min-width: 1460px) {
                                 grid-template-columns: 1fr 1fr;
-                                grid-gap: 70px;
+                                column-gap: 70px;
+                            }
+                            @media screen and (min-width: 1200px) {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: center;
+                                flex-wrap: nowrap;
+                            }
+                            @media screen and (max-width: 1199px) {
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                row-gap: 40px;
                             }
                             > .solutions-card-grid--card-wrapper--card.tall-card__no-image--grid--card {
                                 box-sizing: border-box;
-                                min-height: 240px;
+                                min-height: 245px;
                                 padding-left: 30px;
                                 padding-right: 30px;
                                 position: relative;
+                                margin-bottom: 0;
+                                @media screen and (min-width: 1200px) {
+                                    max-width: 350px;
+                                    flex-basis: 350px;
+                                }
+                                @media screen and (max-width: 1199px) {
+                                    max-width: 100%;
+                                    flex-basis: 100%;
+                                }
                                 > .tall-card__no-image--grid--card--category {
                                     margin-bottom: 10px;
                                     white-space: nowrap;
@@ -721,13 +742,29 @@ $solutions-card-bottom-margin: 36px;
                 }
                 > .landing-page-content__right-panel--content--side-panel {
                     background: transparent;
-                    width: 33%;
+                    width: 34%;
+                    flex-basis: 34%;
                     box-sizing: border-box;
-                    > .draft-3-landing-page--button-stack {
-                        background: $secondary-sanfrancisco-fog-t1;
+                    padding: 0 0 0 6.32%;
+                    display: block;
+                    .draft-3-landing-page--button-stack__with-label {
+                        width: 100%;
+                        max-width: unset;
                         box-sizing: border-box;
-                        width: 425px;
-                        height: 245px;
+                        > .draft-3-landing-page--button-stack__with-label--label {
+                            > .h2 {
+                                margin-top: 0;
+                            }
+                        }
+                        > .draft-3-landing-page--button-stack {
+                            background: $secondary-sanfrancisco-fog-t1;
+                            box-sizing: border-box;
+                            width: 425px;
+                            height: 245px;
+                            > .draft-3-landing-page--button-stack--button {
+                                width: 350px;
+                            }
+                        }
                     }
                 }
             }

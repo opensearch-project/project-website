@@ -1,4 +1,4 @@
-<div class="platform-solution-page--content__gradient">
+<div class="platform-solution-page--content__gradient platform-page-resources">
     <div class="landing-page-content__right-panel">
         <div class="landing-page-content__right-panel--content">
             <div class="landing-page-content__right-panel--content--body">
@@ -20,15 +20,19 @@
             </div>
             <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__without-card-grid">
                 {% if page.button_stack %}
-                    <h2>Resources</h2>
-                    <div class="draft-3-landing-page--button-stack">
-                        {% for button in page.button_stack %}
-                            <div class="draft-3-landing-page--button-stack--button">
-                                {% include redesign_buttons.html name=button %}
-                            </div>
-                        {% endfor %}
+                    <div class="draft-3-landing-page--button-stack__with-label">
+                        <div class="draft-3-landing-page--button-stack__with-label--label">
+                            <h2>Resources</h2>
+                        </div>
+                        <div class="draft-3-landing-page--button-stack">
+                            {% for button in page.button_stack %}
+                                <div class="draft-3-landing-page--button-stack--button">
+                                    {% include redesign_buttons.html name=button %}
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                {% endif %}
+                {% endif %}             
             </div>
         </div>
     </div>
