@@ -36,6 +36,13 @@
                 Documentation
             </a>
         </div>
+    {% when 'documentation-dark' %}
+        <label for="documentation-button" class="redesign-buttons--label">Learn More</label>
+        <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+            <a href="https://opensearch.org/docs/latest/" class="redesign-button--anchor" id="documentation-button">
+                OpenSearch Documentation
+            </a>
+        </div>
     {% when 'community' %}
         <label class="redesign-buttons--label">Join Our Community</label>
         <div class="redesign-button-pair--wrapper">
@@ -45,6 +52,20 @@
                 </a>
             </div>
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only">
+                <a href="/slack.html" class="redesign-button--anchor">
+                    Slack
+                </a>
+            </div>
+        </div>
+    {% when 'community-dark' %}
+        <label class="redesign-buttons--label">Join Our Community</label>
+        <div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+                <a href="https://forum.opensearch.org/" class="redesign-button--anchor">
+                    Forum
+                </a>
+            </div>
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
                 <a href="/slack.html" class="redesign-button--anchor">
                     Slack
                 </a>

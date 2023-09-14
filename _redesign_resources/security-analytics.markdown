@@ -16,6 +16,6 @@ resources:
     date: 'Tue, Mar 14, 2023'
     icon: security-shield
 button_stack:
-  - documentation
-  - community
+  - documentation-dark
+  - community-dark
 ---

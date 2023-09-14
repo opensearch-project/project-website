@@ -257,8 +257,8 @@
     }
 }
 
-@mixin hover-button-dark-mode {
-    background: $primary-open-sky;
+@mixin hover-button-dark-mode($fill-color: $primary-open-sky) {
+    background: $fill-color;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -322,6 +322,44 @@
     white-space: nowrap;
     > a {
         color: $primary-deep-blue-sea;
+        text-decoration: none;
+        padding: 10px 50px;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2.8;
+        &:hover {
+            background: unset;
+        }
+        &:focus {
+            padding: 10px 47px;
+            width: calc(100% - 94px);
+        }
+    }
+}
+
+@mixin link-button-dark-mode($fill-color: $primary-open-sky-s2) {
+    font-family: 'Open Sans';
+    border-radius: 6px;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
+    &:has(a:focus) {
+        @include focused-button-dark-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-dark-mode;
+    }
+    &:has(a:active) {
+        @include active-button-dark-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-dark-mode;
+    }
+    white-space: nowrap;
+    > a {
+        color: $secondary-sanfrancisco-fog-t1;
         text-decoration: none;
         padding: 10px 50px;
         font-size: 18px;
