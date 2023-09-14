@@ -626,10 +626,13 @@ $header-banner-mobile-breakpoint: 1018px;
                 > .redesign-button--contents {
                     border: 4px solid $primary-open-sky-t1;
                     margin: -4px auto auto -4px;
+                    &.redesign-buttons--project__large {
+                        border: 4px solid $primary-open-sky-s2;
+                    }
                 }
             }
             .redesign-button--contents__mouseout {
-                display: block;
+                display: inline-flex;
             }
             .redesign-button--contents__mouseover {
                 display: none;
@@ -642,7 +645,7 @@ $header-banner-mobile-breakpoint: 1018px;
                     display: none;
                 }
                 .redesign-button--contents__mouseover {
-                    display: block;
+                    display: inline-flex;
                 }
             }
             > .redesign-button--contents {
@@ -653,6 +656,9 @@ $header-banner-mobile-breakpoint: 1018px;
                 flex-direction: row;
                 justify-content: center;
                 background-color: $primary-deep-blue-sea;
+                &.redesign-buttons--project__large {
+                    background-color: $primary-pacific-sky-t2;
+                }
             }
         }
     }
@@ -690,10 +696,17 @@ $header-banner-mobile-breakpoint: 1018px;
         }
     }
 }
+.redesign-buttons--project__large {
+    .redesign-button--contents--text-slot {
+        flex-basis: 95%;
+        padding: 18px 0 0 20px;
+    }
+    .redesign-button--contents--icon-slot {
+        flex-basis: 5%;
+        padding: 25px 20px 13px;
+    }
+}
 .redesign-buttons--download__large {
-    // .redesign-button--contents {
-    //     height: 70px;
-    // }
     .redesign-button--contents--text-slot {
         padding: 18px 0 0 20px;
         flex-basis: 90%;        
@@ -701,8 +714,6 @@ $header-banner-mobile-breakpoint: 1018px;
     .redesign-button--contents--icon-slot {
         padding: 22px 20px 16px;
         flex-basis: 10%;
-        width: 37px;
-        height: 37px;
     }
 }
 
@@ -715,8 +726,13 @@ $header-banner-mobile-breakpoint: 1018px;
 }
 
 .redesign-buttons--project__large {
-    div[slot="icon-slot"] {
-        padding-top: 10px;
+    .opensearch-button--label__combined-text-icon {
+        > .opensearch-button--label__combined-text-icon--text {
+            color: $primary-open-sky-s2;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+        }
     }
 }
 .redesign-buttons--project__large,
@@ -776,17 +792,20 @@ $header-banner-mobile-breakpoint: 1018px;
         display: grid;
         @media screen and (min-width: 1460px) {
             grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 100px;
+            column-gap: 100px;
+            row-gap: 100px;
             padding: 0 2em 2em;
         }
         @media screen and (min-width: 1401px) and (max-width: 1459px) {
             grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 25px;
+            column-gap: 25px;
+            row-gap: 25px;
             padding: 0 1em 2em;
         }
         @media screen and (min-width: 835px) and (max-width: 1400px) {
             grid-template-columns: 1fr 1fr;
-            grid-gap: 50px;
+            column-gap: 50px;
+            row-gap: 50px;
             padding: 0 1em 2em;
         }
         @media screen and (max-width: 834px) {

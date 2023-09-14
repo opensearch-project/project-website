@@ -1,9 +1,15 @@
 {% assign icon_type = include.icon %}
 {% assign category_name = include.category %}
 {% assign solution_name = include.solution %}
-
+{% if category_name and solution_name %}
+    {% assign breadcrumb_class = "platform-page--feature-area__solution-page" %}
+{% elsif category_name %}
+    {% assign breadcrumb_class = "platform-page--feature-area__category-page" %}
+{% else %}
+    {% assign breadcrumb_class = "platform-page--feature-area__platform-page" %}
+{% endif %}
 <div class="platform-page--header">
-    <div class="platform-page--feature-area">
+    <div class="platform-page--feature-area {{breadcrumb_class}}">
         {% if icon_type %}
             <div class="platform-page--feature-area--icon">
                 {% include icons.html type=icon_type %}
@@ -13,13 +19,16 @@
             <a href="/platform/index.html">The OpenSearch Platform</a>
         </div>
         {% if category_name %}
+            {% assign category_url_path = category_name | downcase | replace: ' ', '-' %}
             <div class="platform-page--feature-area--category-name-separator">&gt;</div>
-            <div class="platform-page--feature-area--category-name__mobile">&lt;&nbsp;{{category_name}}</div>
-            <div class="platform-page--feature-area--category-name">{{category_name}}</div>
+            <div class="platform-page--feature-area--category-name__mobile">&lt;&nbsp;<a href="/platform/{{ category_url_path }}/{{ category_url_path }}.html">{{category_name}}</a></div>
+            <div class="platform-page--feature-area--category-name"><a href="/platform/{{ category_url_path }}/{{ category_url_path }}.html">{{category_name}}</a></div>
         {% endif %}
         {% if solution_name %}
             <div class="platform-page--feature-area--category-name-separator">&gt;</div>
-            <div class="platform-page--feature-area--solution-name">{{solution_name}}</div>
+            <div class="platform-page--feature-area--solution-name">
+                <a href="{{ page.url }}">{{solution_name}}</a>
+            </div>
         {% endif %}
     </div>
     <div class="platform-page--title">

@@ -9,4 +9,18 @@
             {%- endif -%}
         </h3>
     {% endif %}
+    {% if include.icon or include.date %}
+        <div class="tall-card__no-image--grid--card--footer">
+            {%- if include.icon -%}
+                <div class="tall-card__no-image--grid--card--footer--icon">
+                    {% include icons.html type=include.icon %}
+                </div>
+            {%- endif -%}
+            {%- if include.date -%}
+                <div class="tall-card__no-image--grid--card--footer--date">
+                    {{ include.date }}
+                </div>
+            {%- endif -%}
+        </div>
+    {% endif %}
 </div>

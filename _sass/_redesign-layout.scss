@@ -5,3 +5,16 @@
         max-width: $max-item-width;
     }
 }
+
+@mixin page-element-padding() {
+    @media screen and (min-width: 1200px) {
+        padding: 40px 80px;
+    }
+    @media screen and (min-width: 740px) and (max-width: 1199px) {
+        padding: 30px 40px;
+    }
+    @media screen and (max-width: 739px) {
+        padding: 30px 20px;
+    }
+    box-sizing: border-box;
+}
