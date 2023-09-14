@@ -8,13 +8,13 @@ feature_area_icon_type: security-shield
 feature_area_category_name: Security Analytics
 has_hero: true
 key_benefits_list:
-  - name: 'Analyze &amp; Discover'
+  - name: 'Defend systems and data'
     description: 'Protect organizational systems and sensitive data from malicious activity, including insider threats.'
-  - name: 'One Dashboard'
+  - name: 'Comprehensive visibility'
     description: 'Collect security event data from a wide variety of log sources to generate critical insights.'
-  - name: 'Robust Security Rules'
+  - name: 'Flexible Toolkit'
     description: 'Detect potential threats with prepackaged or customizable detection rules that follow a generic, open-source format.'
-  - name: 'Real-Time Alerts'
+  - name: 'Real-time Response'
     description: 'Monitor and correlate adversary actions in real time across devices, hosts, and applications.'
 key_features_list:
   - name: Open-source detection rules
