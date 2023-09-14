@@ -3,7 +3,7 @@ layout: redesign-use-case
 title: Use Cases
 feature_area_category_name: Security Analytics
 how_to_get_started:
-  - 'To learn more about OpenSearch Security Analytics and to start exploring your event logs, visit <a href="https://opensearch.org/docs/latest/security-analytics/index/">About Security Analytics</a> or <a href="https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/index/">Setting up Security Analytics</a> in our documentation.'
+  - 'To learn more about OpenSearch Security Analytics and start exploring your event logs, visit <a href="https://opensearch.org/docs/latest/security-analytics/index/">About Security Analytics</a> and <a href="https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/index/">Setting up Security Analytics</a> in our documentation.'
 button_stack:
   - download
   - project
@@ -17,21 +17,21 @@ button_stack:
 <table>
   <thead>
     <tr>
-      <th colspan="2">Security Analytics</th>
+      <th colspan="2">Security Analytics Use Cases</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-        <td>?</td>
-        <td>Using correlation rules to detect activity across log sources</td>
+        <td>Event correlation</td>
+        <td>Use correlation rules to identify and investigate potential issues across multiple systems.</td>
     </tr>
     <tr>
-      <td>?</td>
-      <td>Creating custom rules for your custom log types</td>
+      <td>Analyze custom logs:</td>
+      <td>Create customized detection rules to analyze data from custom log types.</td>
     </tr>
     <tr>
-      <td>?</td>
-      <td>Detecting and analyzing security threats in real time</td>
+      <td>Real-time detection:</td>
+      <td>Detect adversarial actions in real time and notify security teams about potential threats.</td>
     </tr>
   </tbody>
 </table>

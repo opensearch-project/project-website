@@ -51,28 +51,48 @@
             </div>
         </div>
     {% when 'project' %}
-        <label for="project-button" class="redesign-buttons--label">Join the Project</label>
-        <opensearch-button
-            size="large"
-            icon-position="right"
-            no-outline="true"
-            theme-color="{{ include.theme_color | default: 'primary' }}"
-            class="redesign-buttons--project__large"
-        >
-            <div slot="icon-slot">
-                {%- include icons.html type='chevron-right-circle' -%}
-            </div>
-            <div slot="text-slot">
-                <div class="opensearch-button--label__combined-text-icon">
-                    <div 
-                        class="opensearch-button--label__combined-text-icon--icon"
-                    >{%- include icons.html type='github' -%}</div>
-                    <div 
-                        class="opensearch-button--label__combined-text-icon--text"
-                    >OpenSearch Project Org</div>
+        <label for="project-button" class="redesign-buttons--label">Check Out Github</label>
+        <div class="redesign-button--wrapper redesign-button--wrapper__complex-content">
+            <a id="project-button"
+                href="https://github.com/opensearch-project"
+                target="_blank"
+                class="redesign-button--anchor"
+            >
+                <div class="redesign-button--contents redesign-buttons--project__large">
+                    <div class="redesign-button--contents--text-slot">
+                        <span class="opensearch-button--label__combined-text-icon project-button--mouseout-logo redesign-button--contents__mouseout">
+                            <span class="opensearch-button--label__combined-text-icon--icon">
+                                {%- include icons.html type='github' -%}
+                            </span>
+                            <span class="opensearch-button--label__combined-text-icon--text">OpenSearch Project Org</span>
+                        </span>
+                        <span class="opensearch-button--label__combined-text-icon project-button--mouseover-logo redesign-button--contents__mouseover">
+                            <span class="opensearch-button--label__combined-text-icon--icon">
+                                {%- include icons.html type='github-mouseover' -%}
+                            </span>
+                            <span class="opensearch-button--label__combined-text-icon--text">OpenSearch Project Org</span>
+                        </span>
+                        <span class="opensearch-button--label__combined-text-icon project-button--disabled-logo redesign-button--contents__disabled">
+                            <span class="opensearch-button--label__combined-text-icon--icon">
+                                {%- include icons.html type='github-disabled' -%}
+                            </span>
+                            <span class="opensearch-button--label__combined-text-icon--text">OpenSearch Project Org</span>
+                        </span>
+                    </div>
+                    <div class="redesign-button--contents--icon-slot">
+                        <span class="project-button--mouseout-icon redesign-button--contents__mouseout">
+                            {%- include icons.html type='chevron-right-circle' -%}
+                        </span>
+                        <span class="project-button--mouseover-icon redesign-button--contents__mouseover">
+                            {%- include icons.html type='chevron-right-circle-mouseover' -%}
+                        </span>
+                        <span class="project-button--disabled-icon redesign-button--contents__disabled">
+                            {%- include icons.html type='chevron-right-circle-disabled' -%}
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </opensearch-button>
+            </a>
+        </div>
     {% when 'expand-collapse-toggle' %}
         <div class="opensearch-toggle-button--wrapper">
             <a href="#" slot="untoggled" class="opensearch-toggle-button-link opensearch-toggle-button-link--untoggled opensearch-toggle-button-link__visible">
