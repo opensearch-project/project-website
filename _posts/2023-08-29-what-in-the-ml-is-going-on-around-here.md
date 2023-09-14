@@ -24,9 +24,7 @@ I apologize if my journey takes twists and turns. The effort involved has left m
 
 ### Side Quest: The Settings API
 
-I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names ([they're here](https://opensearch.org/docs/latest/ml-commons-plugin/cluster-settings/)).
-
-I eventually was able to cobble together this call.
+I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names ([they're here](https://opensearch.org/docs/latest/ml-commons-plugin/cluster-settings/)). I eventually was able to cobble together this call.
 
 ```json
 # I want to be able to register a model via url as well as perform ML tasks
@@ -166,9 +164,7 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-It still begged of me the question, "How do I know what values to put under model_config if I'm using some other model?"
-
-And then I came across *another* example call referring to something called a "Pretrained model" - look at this call: 
+It still begged of me the question, "How do I know what values to put under model_config if I'm using some other model?" Then I came across *another* example call referring to something called a "Pretrained model" - look at this call: 
 
 ```json
 POST /_plugins/_ml/models/_upload
@@ -179,4 +175,185 @@ POST /_plugins/_ml/models/_upload
 }
 ```
 
-Why did this call have to be so short and the other ones so long? The answer is that while we refer to these as "pre-trained models", there's a lot of those out there and they're not specific to OpenSearch.  OpenSearch happens to have a handful of models in the github repository for which it knows all of the config requirements already, so if one of these fits your requirements you can probably save a lot of time using one of these. 
+Why did this call have to be so short and the other ones so long? The answer is that while we refer to these as "pre-trained models", there's a lot of those out there and they're not specific to OpenSearch.  OpenSearch happens to have a handful of models that it supports out of the box, so if one of these fits your requirements you can probably save a lot of time using one of these. Check out our list of [supported pre-trained models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models).
+
+Moving forward I think I'll stick with a pre-trained model. I'm going to delete all my tasks and models and model groups and start again now that we've learned a few lessons. 
+
+---
+
+## Scene 1 Act 2: Create a Model Group and Register a Model
+
+Let's try again. This time I want to create a model group for all of the models I upload to live under. Check this out: 
+
+```json
+POST /_plugins/_ml/model_groups/_register
+{
+    "name": "i_eat_pieces_of_ml_model_groups_like_you_for_breakfast",
+    "description": "This is Nate trying to make sense of the world."
+}
+
+# Response
+{
+  "model_group_id": "HeO3j4oBKue4OlrZrAL4",
+  "status": "CREATED"
+}
+```
+
+Ok, let's try to register a pre-trained model in that model group by passing the `model_group_id`.
+```json
+POST /_plugins/_ml/models/_register
+{
+    "name": "huggingface/sentence-transformers/all-MiniLM-L12-v2",
+    "model_group_id":"HeO3j4oBKue4OlrZrAL4",
+    "version": "1.0.1",
+    "model_format": "TORCH_SCRIPT"
+}
+
+# Response
+{
+  "task_id": "Q-PAj4oBKue4OlrZ-gLf",
+  "status": "CREATED"
+}
+
+# Task Status
+{
+    "model_id": "R-PAj4oBKue4OlrZ_QJ_",
+    "task_type": "REGISTER_MODEL",
+    "function_name": "TEXT_EMBEDDING",
+    "state": "COMPLETED",
+    "worker_node": [
+    "_QJb--HRS2-7lfq5DCWMiQ"
+    ],
+    "create_time": 1694628903647,
+    "last_update_time": 1694628916260,
+    "is_async": true
+}
+```
+
+I would consider that a great success. We've registered a model with OpenSearch (that is to say, the model exists in the OpenSearch model index), but according to the [ml-framework](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) docs we still need to load the model. This is the process of loading the model into memory.  I've got a model id - let's try it. 
+
+```json
+POST /_plugins/_ml/models/R-PAj4oBKue4OlrZ_QJ_/_load
+
+# Response
+{
+    "task_id": "yeOukIoBKue4OlrZ6gMO",
+    "status": "CREATED"
+}
+
+# Task Details
+{
+    "model_id": "R-PAj4oBKue4OlrZ_QJ_",
+    "task_type": "DEPLOY_MODEL",
+    "function_name": "TEXT_EMBEDDING",
+    "state": "COMPLETED",
+    "worker_node": [
+    "_QJb--HRS2-7lfq5DCWMiQ"
+    ],
+    "create_time": 1694644496910,
+    "last_update_time": 1694644503323,
+    "is_async": true
+}
+```
+
+Success again. Now, the million dollar question. How do we take our own text and documents and have them vectorized when we ingest? 
+
+## The Neural Search Plugin
+
+The [Neural Search Plugin](https://opensearch.org/docs/latest/search-plugins/neural-search/) is the solution. It will translate between vectors and text during ingestion and search time. As our goal is to ingest our own source of text and that's it, it looks like we're getting close to our goal. 
+
+
+```json
+PUT _ingest/pipeline/i-eat-pieces-of-nlp-pipelines-for-breakfast
+{
+  "description": "An example neural search pipeline",
+  "processors" : [
+    {
+      "text_embedding": {
+        "model_id": "R-PAj4oBKue4OlrZ_QJ_",
+        "field_map": {
+          "passage_text": "passage_embedding"
+        }
+      }
+    }
+  ]
+}
+
+# Response
+{
+"acknowledged": true
+}
+```
+
+Now, the part I'm mostly familiar with. Ingested docs have to go into an actual index, so let's make one akin to the example given. 
+
+```json
+PUT /super-awesome-nlp-index
+{
+  "settings": {
+    "index.knn": true,
+    "default_pipeline": "i-eat-pieces-of-nlp-pipelines-for-breakfast"
+  },
+  "mappings": {
+    "properties": {
+      "passage_embedding": {
+        "type": "knn_vector",
+        "dimension": int,
+        "method": {
+          "name": "string",
+          "space_type": "string",
+          "engine": "string",
+          "parameters": json_object
+        }
+      },
+      "passage_text": {
+        "type": "text"
+      },
+    }
+  }
+}
+```
+
+The response? 
+
+```json
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "parse_exception",
+        "reason": "Failed to parse content to map"
+      }
+    ],
+    "type": "parse_exception",
+    "reason": "Failed to parse content to map",
+    "caused_by": {
+      "type": "json_parse_exception",
+      "reason": "Unrecognized token 'int': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')\n at [Source: (byte[])\"{\n    \"settings\": {\n        \"index.knn\": true,\n        \"default_pipeline\": \"i-eat-pieces-of-nlp-pipelines-for-breakfast\"\n    },\n    \"mappings\": {\n        \"properties\": {\n            \"passage_embedding\": {\n                \"type\": \"knn_vector\",\n                \"dimension\": int,\n                \"method\": {\n                    \"name\": \"string\",\n                    \"space_type\": \"string\",\n                    \"engine\": \"string\",\n                    \"parameters\": json_object\n                }\n         \"[truncated 113 bytes]; line: 10, column: 34]"
+    }
+  },
+  "status": 400
+}
+```
+
+Crap again. Fortunately, I was quick to receive a response on Slack about these calls. Once again, some assembly was required. 
+
+## Side Quest 3: Creating a KNN index properly. 
+
+The example call was meant to have some pieces filled in. Specifically, the `dimension` value, as well as the values inside of the `method` object. Let's fill them in. 
+
+```json
+        "dimension": int,
+        "method": {
+          "name": "string",
+          "space_type": "string",
+          "engine": "string",
+          "parameters": json_object
+        }
+```
+
+According to the [pre-trained models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/) page, my model has a dimensionality of 384. I'll replace `int` with `384`. 
+
+Now for the KNN `method`, I had a really hard time understanding what to put here. The only **required** field is the name. I'll take the defaults.
+
+
