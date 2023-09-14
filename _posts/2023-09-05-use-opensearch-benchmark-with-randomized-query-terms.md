@@ -36,7 +36,8 @@ Once you have your data loaded into the games index, create a working directory 
 
 Opensearch benchmark creates a `bgg` directory with a number of files, including `games.json`, and `workload.py`. Examine `games.json`. This file contains the index settings that OpenSearch Benchmark will use when creating the games directory in your test cluster. In the settings section, you can see that Benchmark has created some templatized settings for `number_of_shards`, and `number_of_replicas`.
 
-```
+```json
+{%- raw -%}
     "settings": {
         "index": {
             "number_of_replicas": "{{number_of_replicas | default(1)}}",
@@ -46,6 +47,7 @@ Opensearch benchmark creates a `bgg` directory with a number of files, including
             }
         }
     }
+{% endraw -%}
 ```
 
 When you run Benchmark from the command-line, you can set these values to try out different test cases.
@@ -60,7 +62,8 @@ opensearch-benchmark execute-test --pipeline benchmark-only --workload-path=<pat
 
 Be sure to replace `<your user name>`, `<your user password>`, `<your cluster endpoint>` and the `<path-to-your-bgg-folder>` with the correct values. In the command-line above, you can see where I set the actual `_bulk` size to 300 with the `--workload-params`. Benchmark resolves and inserts this value in the `bulk` operation from `workload.json`
 
-```
+```json
+{%- raw -%}
     {
       "operation": {
         "operation-type": "bulk",
@@ -69,6 +72,7 @@ Be sure to replace `<your user name>`, `<your user password>`, `<your cluster en
       },
       "clients": {{bulk_indexing_clients | default(8)}}
     }
+{% endraw -%}
 ```
 
 Use `--workload-params` to vary values across your test cases.
@@ -96,7 +100,8 @@ One risk with the BGG terms and the English words, is that you will have too man
 
 To wire your query terms in to the workload, use a custom parameter source. Modify the search operation in `workload.json` to
 
-```
+```json
+{%- raw -%}
     {
       "operation": {
         "operation-type": "search",
@@ -106,6 +111,7 @@ To wire your query terms in to the workload, use a custom parameter source. Modi
       "clients": {{search_clients | default(8)}},
       "iterations": 1000
     }
+{% endraw -%}
 ```
 
 You add a `param-source` parameter that calls the item `search-term-source` from Benchmark's registry. Create `workload.py` in the `bgg` directory. Benchmark will look for a file with this name and execute it on startup. You also increase the number of `iterations` for this operation to 1,000
