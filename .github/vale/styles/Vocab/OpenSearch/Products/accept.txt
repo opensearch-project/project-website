@@ -36,6 +36,7 @@ ElastiFlow
 Eliatra
 Faiss
 Filebeat
+Flickr
 Flink
 Fluent Bit
 Fluentd
