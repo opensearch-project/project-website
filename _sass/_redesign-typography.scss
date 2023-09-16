@@ -251,15 +251,17 @@
     border: 3px solid $primary-open-sky;
     background: $primary-open-sky-s2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    height: 44px;
-    > a {
-        line-height: 2.4;
+    > a:focus {
+        line-height: 46px;
     }
 }
 
 @mixin hover-button-dark-mode($fill-color: $primary-open-sky) {
     background: $fill-color;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    a:hover {
+        background: unset;
+    }
 }
 
 @mixin active-button-dark-mode {
@@ -279,13 +281,21 @@
     border: 3px solid $primary-open-sky;
     background: $primary-pacific-sky-t3;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    height: 44px;
+    height: 45px;
+    > a:focus {
+        line-height: 46px;
+    }
 }
 
 @mixin hover-button-light-mode {
     background: $primary-pacific-sky-t3;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     > a:hover {
+        // NOTE: Using unset on the background is due to a global
+        // style set on a:hover states in the pre-existing, yet to be
+        // completely replaced design; global anchor states are still
+        // to come as well.
+        background: unset;
         color: $primary-open-sky;
     }
 }
@@ -321,20 +331,15 @@
     padding: 0;
     white-space: nowrap;
     > a {
+        display: inline-block;
+        box-sizing: border-box;
+        line-height: 50px;
+        width: 100%;
         color: $primary-deep-blue-sea;
         text-decoration: none;
-        padding: 10px 50px;
         font-size: 18px;
         font-style: normal;
         font-weight: 700;
-        line-height: 2.8;
-        &:hover {
-            background: unset;
-        }
-        &:focus {
-            padding: 10px 47px;
-            width: calc(100% - 94px);
-        }
     }
 }
 
@@ -357,22 +362,18 @@
     &:has(a[disabled]) {
         @include disabled-button-dark-mode;
     }
+    padding: 0;
     white-space: nowrap;
     > a {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 100%;
+        line-height: 50px;
         color: $secondary-sanfrancisco-fog-t1;
         text-decoration: none;
-        padding: 10px 50px;
         font-size: 18px;
         font-style: normal;
         font-weight: 700;
-        line-height: 2.8;
-        &:hover {
-            background: unset;
-        }
-        &:focus {
-            padding: 10px 47px;
-            width: calc(100% - 94px);
-        }
     }
 }
 

@@ -10,11 +10,18 @@
     @media screen and (min-width: 1200px) {
         padding: 40px 80px;
     }
-    @media screen and (min-width: 740px) and (max-width: 1199px) {
+    @media screen and (min-width:960px) and (max-width: 1199px) {
         padding: 30px 40px;
     }
-    @media screen and (max-width: 739px) {
+    @media screen and (min-width: 739px) and (max-width: 959px) {
         padding: 30px 20px;
     }
+    @media screen and (min-width: 431px) and (max-width: 739px) {
+        padding: 30px 10px;
+    }
+    @media screen and (max-width: 430px) {
+        padding: 30px 5px;
+    }
     box-sizing: border-box;
+    width: 100%;
 }
