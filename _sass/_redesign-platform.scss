@@ -330,6 +330,7 @@ $solutions-card-bottom-margin: 36px;
         }
     }
     &.platform-page--content {
+
         .platform-page--solution--use-cases {
             background: white;
             padding-left: 0;
@@ -378,23 +379,9 @@ $solutions-card-bottom-margin: 36px;
             .platform-page--solution--use-cases__fog-background {
                 background: $secondary-sanfrancisco-fog-t1;
                 padding-top: 70px;
+                @include page-element-padding;
                 > h2:nth-of-type(1) {
                     margin-top: 0;
-                }
-                @media screen and (min-width: $platform-page-content-wide-screen-width) {
-                    padding-left: 80px;
-                    padding-right: 80px;
-                    width: calc(100% - 160px);
-                }
-                @media screen and (max-width: $platform-page-content-reduce-padding-width) {
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    width: calc(100% - 20px - 20px);
-                }
-                @media screen and (max-width: 390px) {
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    width: calc(100% - 5px - 5px);
                 }
             }
         }
@@ -467,29 +454,36 @@ $solutions-card-bottom-margin: 36px;
                 flex-wrap: wrap;   
             }
             @media screen and (max-width: 390px) {
-                padding-left: 5px;
-                padding-right: 5px;
-                width: calc(100% - 5px - 5px);
+                padding-left: 0;
+                padding-right: 0;
+                width: 100%;
             }
             > .landing-page-content__right-panel--content--body {
                 background: white;
                 padding: 50px 3%;
+                box-sizing: border-box;
                 flex-basis: 60.75%;
-                max-width: calc(774px - 6%);
-                min-height: 485px;
+                max-width: 774px;
                 @media screen and (max-width: 834px) {
                     flex-basis: unset;
-                    max-width: calc(100% - 6%);
+                    max-width: 100%;
                 }
             }
             > .landing-page-content__right-panel--content--side-panel {
+                box-sizing: border-box;
                 flex-basis: 39.25%;
                 max-width: unset;
-                min-height: 485px;
                 flex-grow: 1;
                 @media screen and (max-width: 834px) {
                     flex-basis: unset;
                     max-width: 100%;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                @media screen and (min-width: 835px) {
+                    // Do we need a max-width????
+                    padding-left: 20px;
+                    padding-right: 20px;       
                 }
                 @include gradient-open-sky;
                 @include center-flex(350px);
@@ -497,7 +491,9 @@ $solutions-card-bottom-margin: 36px;
                     justify-content: space-evenly;
                     row-gap: unset;
                     padding-top: 0;
-                    width: calc(100% - 40px);
+                    @media screen and (min-width: 835px) and (max-width: 959px) {
+                        max-width: 300px;
+                    }
                     @media screen and (max-width: 834px) and (min-width: 429px),
                     screen and (max-width: 428px) {
                         // Overrides defaults defined in _redesign.scss
@@ -506,9 +502,11 @@ $solutions-card-bottom-margin: 36px;
                         justify-content: space-evenly;
                         row-gap: unset;
                         padding-top: 0;
-                        width: calc(100% - 40px);
                         align-items: center;
                         grid-gap: unset;
+                    }
+                    @media screen and (max-width: 834px) and (min-width: 429px) {
+                        padding: 0 20px;
                     }
                     @media screen and (max-width: 428px) {
                         width: 100%;
@@ -525,6 +523,7 @@ $solutions-card-bottom-margin: 36px;
                         width: 100%;
                         > .redesign-button--wrapper {
                             width: 100%;
+                            box-sizing: border-box;
                             &.redesign-button--wrapper__complex-content {
                                 > .redesign-button--anchor {
                                     width: 100%;
@@ -544,6 +543,20 @@ $solutions-card-bottom-margin: 36px;
         }
     }
 }
+
+.platform-landing-page {
+    .landing-page-content__right-panel {
+        > .landing-page-content__right-panel--content {
+            > .landing-page-content__right-panel--content--body {
+                min-height: 485px;
+            }
+            > .landing-page-content__right-panel--content--side-panel {
+                min-height: 485px;
+            }
+        }
+    }
+}
+
 .platform-category-page {
     @include thick-edge-top;
     .platform-category-page--overview {
@@ -633,10 +646,27 @@ $solutions-card-bottom-margin: 36px;
             padding-bottom: 0;
             > .landing-page-content__right-panel--content--body {
                 padding: 0;
-                max-width: 774px;
+                @media screen and (min-widtH: 835px) {
+                    max-width: 774px;
+                }
+                @media screen and (max-width: 834px) {
+                    max-width: 100%;
+                }
             }
             > .landing-page-content__right-panel--content--side-panel {
                 background: #fff;
+                .draft-3-landing-page--button-stack {
+                    .draft-3-landing-page--button-stack--button {
+                        > label {
+                            margin-top: 12px;
+                        }
+                        &:nth-of-type(1) {
+                            > label {
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -651,7 +681,13 @@ $solutions-card-bottom-margin: 36px;
             > .landing-page-content__right-panel--content {
                 padding: 0;
                 > .landing-page-content__right-panel--content--body {
-                    width: 66%;
+                    @media screen and (min-width: 835px) {
+                        width: 66%;
+                        flex-basis: 66%;
+                    }
+                    @media screen and (max-width: 834px) {
+                        width: 100%;
+                    }
                     box-sizing: border-box;
                     background: transparent;
                     .platform-page--resources.solutions-card-grid {
@@ -665,14 +701,20 @@ $solutions-card-bottom-margin: 36px;
                                 grid-template-columns: 1fr 1fr;
                                 column-gap: 70px;
                             }
-                            @media screen and (min-width: 1200px) {
+                            @media screen and (min-width: 1001px) and (max-width: 1199px) {
+                                column-gap: 25px;
+                            }
+                            @media screen and (min-width: 960px) and (max-width: 1000px) {
+                                column-gap: 10px;
+                            }
+                            @media screen and (min-width: 960px) {
                                 display: flex;
                                 flex-direction: row;
                                 justify-content: space-between;
                                 align-items: center;
                                 flex-wrap: nowrap;
                             }
-                            @media screen and (max-width: 1199px) {
+                            @media screen and (max-width: 959px) {
                                 display: grid;
                                 grid-template-columns: 1fr;
                                 row-gap: 40px;
@@ -680,15 +722,16 @@ $solutions-card-bottom-margin: 36px;
                             > .solutions-card-grid--card-wrapper--card.tall-card__no-image--grid--card {
                                 box-sizing: border-box;
                                 min-height: 245px;
-                                padding-left: 30px;
-                                padding-right: 30px;
+                                min-width: 280px;
+                                padding-left: 20px;
+                                padding-right: 10px;
                                 position: relative;
                                 margin-bottom: 0;
-                                @media screen and (min-width: 1200px) {
+                                @media screen and (min-width: 960px) {
                                     max-width: 350px;
                                     flex-basis: 350px;
                                 }
-                                @media screen and (max-width: 1199px) {
+                                @media screen and (max-width: 959px) {
                                     max-width: 100%;
                                     flex-basis: 100%;
                                 }
@@ -708,7 +751,7 @@ $solutions-card-bottom-margin: 36px;
                                     justify-content: flex-start;
                                     align-items: center;
                                     position: absolute;
-                                    left: 30px;
+                                    left: 20px;
                                     right: 30px;
                                     bottom: 20px;
                                     top: calc(100% - 50px);
@@ -742,15 +785,39 @@ $solutions-card-bottom-margin: 36px;
                 }
                 > .landing-page-content__right-panel--content--side-panel {
                     background: transparent;
-                    width: 34%;
-                    flex-basis: 34%;
-                    box-sizing: border-box;
-                    padding: 0 0 0 6.32%;
-                    display: block;
-                    .draft-3-landing-page--button-stack__with-label {
+                    @media screen and (min-width: 835px) and (max-width: 1099px) {
+                        display: block;
+                        width: 34%;
+                        flex-basis: 34%;
+                        padding: 0 0 0 20px;
+                    }
+                    @media screen and (min-width: 1100px) {
+                        width: 34%;
+                        flex-basis: 34%;
+                        padding: 0 0 0 6.32%;
+                        display: block;
+                    }
+                    @media screen and (max-width: 834px) {
                         width: 100%;
-                        max-width: unset;
+                        display: flex;
+                        justify-content: center;
+                    }
+                    box-sizing: border-box;
+                    
+                    .draft-3-landing-page--button-stack__with-label {
+                        @media screen and (min-width: 835px) {
+                            width: 100%;
+                            max-width: unset;
+                        }
+                        @media screen and (max-width: 834px) {
+                            width: auto;
+                            max-width: 350px;
+                        }
+                        
                         box-sizing: border-box;
+                        @media screen and (max-width: 834px) {
+                            padding-top: 40px;
+                        }
                         > .draft-3-landing-page--button-stack__with-label--label {
                             > .h2 {
                                 margin-top: 0;
@@ -759,11 +826,16 @@ $solutions-card-bottom-margin: 36px;
                         > .draft-3-landing-page--button-stack {
                             background: $secondary-sanfrancisco-fog-t1;
                             box-sizing: border-box;
-                            width: 425px;
-                            height: 245px;
-                            > .draft-3-landing-page--button-stack--button {
-                                width: 350px;
+                            @media screen and (min-width: 835px) {
+                                max-width: 350px;
+                                min-width: 280px;
+                                padding-left: 20px;
+                                padding-right: 20px;
                             }
+                            @media screen and (max-width: 834px) {
+                                width: 100%;
+                            }
+                            height: 245px;
                         }
                     }
                 }

@@ -199,7 +199,7 @@ $header-banner-mobile-breakpoint: 1018px;
                 }
             }
             .draft-3-landing-page--button-stack {
-                
+                box-sizing: border-box;
                 @media screen and (max-width: $content-with-panel-collapsed-max)
                 and (min-width: $min-past-iphone-width) {
                     display: grid;
@@ -224,7 +224,8 @@ $header-banner-mobile-breakpoint: 1018px;
                     padding-top: 110px;
                 }
                 @media screen and (max-width: $max-iphone-width) {
-                    padding-left: calc((100% - 350px) / 2);
+                    padding-left: 10px;
+                    padding-right: 10px;
                 }
                 .draft-3-landing-page--button-stack--button {
                     @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
@@ -737,6 +738,7 @@ $header-banner-mobile-breakpoint: 1018px;
     clear: both;
     width: 100%;
     margin-bottom: 12px;
+    white-space: nowrap;
 }
 
 .redesign-buttons--project__large {
@@ -746,6 +748,8 @@ $header-banner-mobile-breakpoint: 1018px;
             font-size: 18px;
             font-style: normal;
             font-weight: 700;
+            white-space: nowrap;
+            overflow-x: visible;
         }
     }
 }
