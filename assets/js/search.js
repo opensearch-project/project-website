@@ -49,12 +49,6 @@
                 e.preventDefault();
                 navToHighlightedResult();
                 break;
-
-            case 'Tab':
-                e.preventDefault();
-                highlightNextResult(!e.shiftKey);
-                break;
-
         }
     });
 

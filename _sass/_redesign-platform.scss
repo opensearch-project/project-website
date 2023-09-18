@@ -712,7 +712,7 @@ $solutions-card-bottom-margin: 36px;
                                 flex-direction: row;
                                 justify-content: space-between;
                                 align-items: center;
-                                flex-wrap: nowrap;
+                                flex-wrap: wrap;
                             }
                             @media screen and (max-width: 959px) {
                                 display: grid;
@@ -740,9 +740,12 @@ $solutions-card-bottom-margin: 36px;
                                     white-space: nowrap;
                                 }
                                 > h3.tall-card__no-image--grid--card--title {
+                                    @include trim-ellipsis-multiline(3);
                                     > a {
                                         font-weight: 700;
-                                        @include trim-ellipsis-multiline(3);
+                                        &:focus {
+                                            outline: none;
+                                        }
                                     }
                                 }
                                 > .tall-card__no-image--grid--card--footer {
