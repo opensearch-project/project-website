@@ -89,9 +89,11 @@ The response was not quite what I expected.
 }
 ```
 
+Crap on a crap cracker. 
+
 ### Lesson Learned 1: Model Content Hash Value Field
 
-Well crap. It clearly failed, but `model content changed` isn't very helpful of an error message. I was missing something. 
+It clearly failed, but `model content changed` isn't very helpful of an error message. I was missing something. 
 
 ...*fast forward montage through hours of scanning through `MLModel.java` and pleading for help on our [public slack channel](...)*...
 
@@ -100,13 +102,13 @@ It turns out the example was bad. I was missing a field called `model_content_ha
 After downloading the model zip file, I was able to calculate it on my own like so: 
 
 ```shell
-nateboot@6c7e67babb2c ~ % shasum -a 256 all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
+$ shasum -a 256 all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
 9376c2ebd7c83f99ec2526323786c348d2382e6d86576f750c89ea544d6bbb14  all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
 ```
 
 The lesson? Your API calls to register models via URL require some assembly. This field does not seem to be required when registering a ["pre-trained" model.  ](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models).
 
-### Lesson learned 2: Model Groups
+### Lesson Learned 2: Model Groups
 
 I had attempted to upload a model without passing in a model group id. OpenSearch does something for you when this happens. A model group is created for you, with the same name that you provided in your call. In my case, it was `all-MiniLM-L6-v2`. So, the next time I tried to upload that model, it kept telling me the name was taken by a particular model id, so I used the API to search for all of the models available. It wasn't there. What *was* there was a model group that I was able to delete. I used the API to delete all the tasks, models, and model groups I just made so I could start with a fresh slate. Make sure you follow the Tasks, Models and Model Groups side quest to make sure you can organize to your own level of comfort.
 
@@ -338,6 +340,7 @@ The response?
 
 Crap again. Fortunately, I was quick to receive a response on Slack about these calls. Once again, some assembly was required. 
 
+
 ## Side Quest 3: Creating a KNN index properly. 
 
 The example call was meant to have some pieces filled in. Specifically, the `dimension` value, as well as the values inside of the `method` object. Let's fill them in. 
@@ -354,6 +357,117 @@ The example call was meant to have some pieces filled in. Specifically, the `dim
 
 According to the [pre-trained models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/) page, my model has a dimensionality of 384. I'll replace `int` with `384`. 
 
-Now for the KNN `method`, I had a really hard time understanding what to put here. The only **required** field is the name. I'll take the defaults.
+Now for the KNN `method`, I had a really hard time understanding what to put here. The only **required** field is the name. I'll take the defaults for the sake of simplicity in my examples. I'll try to boil down the docs into something a bit easier to skim. 
+
+* The engine is one of three. `nmslib`, `faiss` and `lucene`.
+* The `nmslib` engine supports `hnsw`, which is the default if you supply a name but no engine. 
+* The `faiss` engine supports the methods `hnsw` and `ivf`. 
+* The `lucene` engine supports the method `hnsw`.
+
+I'm going to just specify a method name of `hnsw` which will provide the default engine of `nmslib`. Here's the call to create my KNN index now.
+```json
+PUT /super-awesome-nlp-index
+{
+  "settings": {
+    "index.knn": true,
+    "default_pipeline": "i-eat-pieces-of-nlp-pipelines-for-breakfast"
+  },
+  "mappings": {
+    "properties": {
+      "passage_embedding": {
+        "type": "knn_vector",
+        "dimension": 384,
+        "method": {
+          "name": "hnsw"
+        }
+      },
+      "passage_text": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+# The Response
+{
+    "acknowledged": true,
+    "shards_acknowledged": true,
+    "index": "super-awesome-nlp-index"
+}
+```
+
+Double rad! I made a KNN index attached to my neural search pipeline! NOW where was I? Oh right! I just want to ingest and vectorize some text, and that's it. I feel like I'm getting close. 
+
+```json
+POST /super-awesome-nlp-index/_doc
+{
+   "passage_text": "Why did the chicken cross the road? To get to the other side."
+}
+
+# The Response
+{
+    "_index": "super-awesome-nlp-index",
+    "_id": "SOPsmYoBKue4OlrZShCY",
+    "_version": 1,
+    "result": "created",
+    "_shards": {
+        "total": 2,
+        "successful": 1,
+        "failed": 0
+    },
+    "_seq_no": 0,
+    "_primary_term": 1
+}
+```
+
+Looks like it ingested my joke. Just to see it with my own eyes I'm going to do a quick search and see if the vector comes back. I'll point out again that the "dimensionality" of our vector is 384, so there's going to be 384 values. I'm going to cut some of them out. 
+
+```json
+{
+  "took": 0,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": 1,
+    "hits": [
+      {
+        "_index": "super-awesome-nlp-index",
+        "_id": "SOPsmYoBKue4OlrZShCY",
+        "_score": 1,
+        "_source": {
+          "passage_embedding": [
+            0.09026472,
+            0.022673616,
+            -0.027812438,
+            0.09684542,
+            0.083259515,
+            0.04510128,
+            0.05745254,
+            # SNIP!
+          ],
+          "passage_text": "Why did the chicken cross the road? To get to the other side."
+        }
+      }
+    ]
+  }
+}
+```
+This is where I stop. The goal has been achieved - a KNN index associated with a neural search pipeline and an ML model. Please stay tuned - I have no big plans for now, but where dad jokes are concerned, the sky is the limit. 
+
+
+
+
+
+
+
 
 
