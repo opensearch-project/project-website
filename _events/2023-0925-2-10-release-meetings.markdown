@@ -13,9 +13,11 @@ signup:
 
 Join the OpenSearch team for the open release meetings so we can push 2.10.0 live as a community.
 
-(hosts: [Barani Bikshandi](https://github.com/bbarani), [Prudhvi Godithi](https://github.com/prudhvigodithi), & [Kris Freedain](https://github.com/krisfreedain))
+(hosts: [Barani Bikshandi](https://github.com/bbarani), [Sayali Gaikawad](https://github.com/gaiksaya), [Prudhvi Godithi](https://github.com/prudhvigodithi), & [Kris Freedain](https://github.com/krisfreedain))
 
 [Release OpenSearch and OpenSearch Dashboards 2.10.0 - Tracking through Issue 3743](https://github.com/opensearch-project/opensearch-build/issues/3743)
+
+[Release Schedule and Maintenance Policy](https://opensearch.org/releases.html)
 
 **September 19th - 9AM PDT**
 
