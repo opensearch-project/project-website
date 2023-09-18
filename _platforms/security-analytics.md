@@ -27,6 +27,7 @@ key_features_list:
     description: 'Configure correlation rules to automatically link security findings and investigate them using a visual knowledge graph.'
   - name: Customizable tools
     description: 'Use any custom log source and define your own rules to detect potential threats.'
+permalink: '/platform/security-analytics/index.html'
 ---
 
 ## Detect and respond to security threats in real time
