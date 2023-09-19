@@ -851,7 +851,12 @@ $header-banner-mobile-breakpoint: 1018px;
                 border-left: unset;
                 @include thick-edge-bottom;
                 align-items: flex-start;
-                min-height: 215px;
+                min-height: 245px;
+                min-width: 280px;
+                box-sizing: border-box;
+                padding-left: 20px;
+                padding-right: 10px;
+                position: relative;
                 // NOTE: The :has() selector is not supported in Firefox without being specifically
                 // enabled by the user. So, be advised that there is a brute force JavaScript function
                 // in _includes/card-clickability.html that will add the style explicitly if not set via CSS.
@@ -867,12 +872,14 @@ $header-banner-mobile-breakpoint: 1018px;
                     }
                 }
                 > h3.tall-card__no-image--grid--card--title {
+                    @include trim-ellipsis-multiline(3);
                     margin-top: 0;
                     > a {
                         color: $primary-open-sky-s1;
                     }
                     a:focus{
                         border-bottom: 2px solid $primary-pacific-blue;
+                        outline: none;
                     }
                 }
                 &:has(a:focus) {
@@ -888,7 +895,43 @@ $header-banner-mobile-breakpoint: 1018px;
                     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
                 }
                 > .tall-card__no-image--grid--card--category {
-                    margin-top: 19px;
+                    margin-bottom: 10px;
+                    white-space: nowrap;
+                    margin-top: 10px;
+                }
+                > .tall-card__no-image--grid--card--footer {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    position: absolute;
+                    left: 20px;
+                    right: 30px;
+                    bottom: 20px;
+                    top: calc(100% - 50px);
+                    flex-wrap: nowrap;
+                    > .tall-card__no-image--grid--card--footer--icon {
+                        width: 27px;
+                        height: 30px;
+                        padding: 0;
+                        flex-basis: 27px;
+                        flex-shrink: 0;
+                        flex-grow: 0;
+                        > img {
+                            width: 28px;
+                            height: 38px;
+                        }
+                    }
+                    > .tall-card__no-image--grid--card--footer--date {
+                        height: 30px;
+                        flex-grow: 1;
+                        flex-shrink: 1;
+                        flex-basis: content;
+                        @include body-small;
+                        color: $secondary-sanfrancisco-fog-s4;
+                        padding-top: 12px;
+                        padding-left: 8px;
+                    }
                 }
             }
             > .solutions-card-grid--card-wrapper--card--label__no-icon {
