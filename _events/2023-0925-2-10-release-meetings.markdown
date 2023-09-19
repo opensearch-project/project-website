@@ -15,15 +15,19 @@ Join the OpenSearch team for the open release meetings so we can push 2.10.0 liv
 
 (hosts: [Barani Bikshandi](https://github.com/bbarani), [Sayali Gaikawad](https://github.com/gaiksaya), [Prudhvi Godithi](https://github.com/prudhvigodithi), & [Kris Freedain](https://github.com/krisfreedain))
 
-[Release OpenSearch and OpenSearch Dashboards 2.10.0 - Tracking through Issue 3743](https://github.com/opensearch-project/opensearch-build/issues/3743)
+**[Release OpenSearch and OpenSearch Dashboards 2.10.0 - Tracking through Issue 3743](https://github.com/opensearch-project/opensearch-build/issues/3743)**
 
 [Release Schedule and Maintenance Policy](https://opensearch.org/releases.html)
 
 **September 19th - 9AM PDT**
 
+* Go / No-Go voting (result - no-go)
+
+**September 21th - 9AM PDT**
+
 * Go / No-Go voting
 
-**September 21st - 11:30AM PDT**
+**September 25th - 11:30AM PDT**
 
 * [Release / Post release](https://github.com/opensearch-project/opensearch-build/blob/1499c472fec3d36bc0d3b30ffca8b08bb5a65c4d/RELEASE_PROCESS_OPENSEARCH.md#release) (Release day!) [Release manager, leadership team, Repository owners ]
 
