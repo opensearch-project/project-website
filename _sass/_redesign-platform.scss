@@ -700,19 +700,19 @@ $solutions-card-bottom-margin: 36px;
                             @media screen and (min-width: 1460px) {
                                 grid-template-columns: 1fr 1fr;
                                 column-gap: 70px;
+                                row-gap: 70px;
                             }
                             @media screen and (min-width: 1001px) and (max-width: 1199px) {
                                 column-gap: 25px;
+                                row-gap: 25px;
                             }
                             @media screen and (min-width: 960px) and (max-width: 1000px) {
                                 column-gap: 10px;
+                                row-gap: 10px;
                             }
                             @media screen and (min-width: 960px) {
-                                display: flex;
-                                flex-direction: row;
-                                justify-content: space-between;
-                                align-items: center;
-                                flex-wrap: wrap;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
                             }
                             @media screen and (max-width: 959px) {
                                 display: grid;
@@ -730,6 +730,8 @@ $solutions-card-bottom-margin: 36px;
                                 @media screen and (min-width: 960px) {
                                     max-width: 350px;
                                     flex-basis: 350px;
+                                    flex-grow: 1;
+                                    flex-shrink: 1;
                                 }
                                 @media screen and (max-width: 959px) {
                                     max-width: 100%;
