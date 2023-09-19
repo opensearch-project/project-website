@@ -17,6 +17,7 @@ This code of conduct applies to all spaces provided by the OpenSource project in
 * Publishing private information, such as physical or electronic address, without permission;
 * Other conduct which could reasonably be considered inappropriate in a professional setting;
 * Advocating for or encouraging any of the above behaviors.
-* Enforcement and Reporting Code of Conduct Issues:
+  
+**Enforcement and Reporting Code of Conduct Issues:**
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported. [Contact us](mailto:opensource-codeofconduct@amazon.com). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.
