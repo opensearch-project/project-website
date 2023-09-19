@@ -5,7 +5,7 @@
                 <div class="platform-page--resources solutions-card-grid">
                     {% if page.resources %}
                         <h2>Featured Blog Posts</h2>
-                        <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
+                        <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper solutions-card-grid--card-wrapper__2-col-max">
                             {% for resource in page.resources %}
                                 {% assign category = resource.type | default: "Search" %}
                                 {% assign url = resource.url %}
