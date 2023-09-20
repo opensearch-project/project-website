@@ -1,17 +1,14 @@
 <div class="landing-page-hero">
   <div class="landing-page-hero--images">
-    <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
-      <img src="{{ page.images.mobile.path }}" alt="{{ page.images.mobile.alt }}">
+    <div class="landing-page-hero--images--image">
+      <a 
+        href="{{ page.call_to_action.url }}" 
+        class="btn btn--primary"
+        title="{{ page.call_to_action.label }}"
+      ><img 
+        src="{{ page.image.path }}" 
+        alt="{{ page.image.alt }}"
+      ></a>
     </div>
-    <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
-      <img src="{{ page.images.desktop.path }}" alt="{{ page.images.desktop.alt }}">
-    </div>
-  </div>
-  <div class="landing-page-hero--call-to-action">
-    <a 
-      href="{{ page.call_to_action[0].url }}" 
-      class="btn btn--primary"
-    >{{ page.call_to_action[0].label }}</a>
   </div>
 </div>
-  
