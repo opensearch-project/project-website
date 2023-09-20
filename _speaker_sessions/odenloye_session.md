@@ -1,6 +1,6 @@
 ---
-speaker_name: 'mmammo'
-speaker_name_full: 'Mulugeta Mammo'
+speaker_name: 'odenloye'
+speaker_name_full: 'Olasoji Denloye'
 speaker_talk_title: 'Enhancing OpenSearch Performance Through ZStandard Compression'
 primary_title: 'Enhancing OpenSearch Performance Through ZStandard Compression'
 title: 'OpenSearchCon 2023 Session: Enhancing OpenSearch Performance Through ZStandard Compression'
@@ -11,7 +11,7 @@ session_time: "2023-09-28 - 3:30pm-4:10pm"
 session_room: "Ballroom CD"
 session_track: "Community"
 presenters: 
-  - mmammo
+  - odenloye
   - ashankaran
   - saggarwal
 permalink: '/events/opensearchcon/sessions/enhancing-opensearch-performance-through-zstandard-compression.html'
