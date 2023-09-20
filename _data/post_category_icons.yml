@@ -1,0 +1,9 @@
+post_category_icons:
+  - category: "search"
+    icon: "search-magnifying-glass"
+  - category: "observability"
+    icon: "observability"
+  - category: "security"
+    icon: "security-shield"
+  - category: "community"
+    icon: "community"

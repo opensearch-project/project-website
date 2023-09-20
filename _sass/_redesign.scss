@@ -267,6 +267,7 @@ $header-banner-mobile-breakpoint: 1018px;
                 @media screen and (max-width: $content-with-panel-collapsed-max) {
                     padding-top: 6px;
                 }
+                padding-top: 20px;
             }
             > .resource-grid {
                 flex-wrap: wrap;
@@ -284,9 +285,9 @@ $header-banner-mobile-breakpoint: 1018px;
     }
 }
 
-.draft-3-landing-page-design {
-    max-width: 1440px;
-    font-family: 'Open Sans';
+.homepage-wrapper {
+    width: 100%;
+    padding: 0;
     > .landing-page-hero__left-header {
         display: flex;
         flex-direction: row;
@@ -484,15 +485,44 @@ $header-banner-mobile-breakpoint: 1018px;
             }
         }
     }
+    > .landing-page-content__right-panel {
+        @include page-element-padding;
+        > .landing-page-content__right-panel--content {
+            > .landing-page-content__right-panel--content--body {
+                @media screen and (min-width: 1200px) {
+                    padding: 40px 0 40px 0;
+                }
+            }
+            > .landing-page-content__right-panel--content--side-panel {
+                @media screen and (min-width: 835px) {
+                    padding-left: 80px;
+                }
+                .draft-3-landing-page--button-stack {
+                    @media screen and (min-width: 835px) {
+                        padding-top: 0;
+                    }
+                    .draft-3-landing-page--button-stack--button {
+                        @media screen and (min-width: 1440px) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > .solutions-card-grid {
+        > .solutions-card-grid--card-wrapper {
+            > .solutions-card-grid--card-wrapper--card {
+                min-height: 280px;
+            }
+        }
+    }
     > .landing-page-solutions--hero-3up {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         @include gradient-open-sky;
-        padding: 80px;
-        @media screen and (max-width: 833px) {
-            padding: 40px;
-        }
+        @include page-element-padding;
         > div:nth-of-type(1) {
             width: 100%;
             flex-grow: 0;
@@ -525,19 +555,19 @@ $header-banner-mobile-breakpoint: 1018px;
                 }
                 > .landing-page-solutions--hero-3up--hero--preview {
                     background-color: #fff;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
                     padding: 40px;
-                    height: 414px;
                     border-bottom: $primary-open-sky-s2 6px solid;
+                    box-sizing: border-box;
                     > .landing-page-solutions--hero-3up--hero--preview--category {
                         @include header-level4;
                         flex-basis: 62.5px;
                     }
                     > .landing-page-solutions--hero-3up--hero--preview--title {
                         @include header-level3;
-                        flex-basis: 125px;
+                        > h3 {
+                            margin-top: 0;
+                            margin-bottom: 0;
+                        }
                     }
                     > .landing-page-solutions--hero-3up--hero--preview--excerpt {
                         @include body-small;
@@ -558,7 +588,40 @@ $header-banner-mobile-breakpoint: 1018px;
             }
         }
         >.landing-page-solutions--hero-3-up--3up {
-            padding: 0;
+            &.solutions-card-grid {
+                background: unset;
+                padding: 55px 0 0;
+                > .solutions-card-grid--card-wrapper {
+                    margin-bottom: 0;
+                    @media screen and (min-width: 1460px) {
+                        padding: 0;
+                    }
+                    .solutions-card-grid--card-wrapper--card {
+                        @media screen and (min-width: $resource-grid-3-column-min) {
+                            &:nth-of-type(1) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                .resource-grid--more {
+                    > .link-button {
+                        @include link-button-light-mode;
+                        &:hover {
+                            @include hover-button-light-mode;
+                        }
+                        &.link-button__focus {
+                            @include focused-button-light-mode;
+                        }
+                        &.link-button__active {
+                            @include active-button-light-mode;
+                        }
+                        &.link-button__disabled {
+                            @include disabled-button-light-mode;
+                        }
+                    }
+                }
+            }
             > .resource-grid {
                 min-height: 550px;
                 margin: 40px 0;
@@ -804,7 +867,6 @@ $header-banner-mobile-breakpoint: 1018px;
     > h2.solutions-card-grid--header {
         @include header-level2($primary-open-sky-s3);
         margin-top: 13px;
-        margin-bottom: 0;
     }
     > .solutions-card-grid--card-wrapper {
         display: grid;
@@ -924,7 +986,8 @@ $header-banner-mobile-breakpoint: 1018px;
                         flex-basis: 27px;
                         flex-shrink: 0;
                         flex-grow: 0;
-                        > img {
+                        > img,
+                        > svg {
                             width: 28px;
                             height: 38px;
                         }
@@ -961,7 +1024,7 @@ $header-banner-mobile-breakpoint: 1018px;
                     font-size: 15px;
                     font-style: normal;
                     font-weight: 600;
-                    line-height: 21px;
+                    line-height: 24px;
                     letter-spacing: 4.5px;
                     text-transform: uppercase;
                     padding-top: 50px;
@@ -1011,7 +1074,6 @@ $community-voices-increase-size: 1200px;
 $community-voices-reduce-size: 1199px;
 $community-voices-smallest-max-size: 739px;
 .landing-page-solutions-community-voices--wrapper {
-    // margin-bottom: 80px;
     > .landing-page-solutions-community-voices--header {
         > h2 {
             color: $primary-open-sky-s3;
@@ -1082,7 +1144,6 @@ $community-voices-smallest-max-size: 739px;
             .landing-page-community-voices--testimonial {
                 display: flex;
                 @media screen and (max-width: $community-voices-vert-view-max) {
-                    //display: block;
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: center;
