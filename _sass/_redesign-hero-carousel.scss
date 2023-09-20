@@ -110,6 +110,8 @@ $carousel-item-background-colors: (
                         margin: 0;
                         padding: 0;
                         cursor: pointer;
+                        box-sizing: border-box;
+                        padding-top: 6px;
                         > opensearch-button {
                             opacity: 0.4;
                             width: 60px;
