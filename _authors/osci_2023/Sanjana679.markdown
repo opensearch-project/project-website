@@ -1,7 +1,6 @@
 ---
 name: Sanjana Nandi 
 short_name: Sanjana
-twitter: 
 github: Sanjana679
 ---
 
