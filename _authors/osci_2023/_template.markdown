@@ -1,8 +1,8 @@
 ---
 name: <Diya Meeniga>
 short_name: <Diya>
-twitter: <twitter handle without the @>
-github: <github alias>
+twitter: <no twitter>
+github: <diyameeniga>
 ---
 
-**<Name>** <Something about you!>
+**<Name>** <Freshman in CS at Purdue University!>
