@@ -24,13 +24,16 @@ Boolean
 [Dd]eserializing
 [Dd]eserialization
 Dev
+[Dd]iscoverability
 Distro
+[Dd]uplicative
 [Ee]gress
 [Ee]num
 [Ff]ailover
 [Ff]lyout
 [Ff]sync
 Gantt
+[Gg]eobounds
 [Gg]eodistance
 [Gg]eohash
 GeoHex
@@ -83,6 +86,7 @@ pebibyte
 [Pp]repper
 [Pp]reprocess
 [Pp]retrain
+[Pp]seudocode
 [Rr]ebalance
 [Rr]ebalancing
 [Rr]edownload
@@ -103,9 +107,10 @@ pebibyte
 stdout
 [Ss]ubaggregation
 [Ss]ubcalculation
+[Ss]ubcollectors?
 [Ss]ubcommands?
 [Ss]ubfield
-[Ss]ubquery
+[Ss]ubquer(y|ies)
 [Ss]ubstrings?
 [Ss]ubtag
 [Ss]ubtree

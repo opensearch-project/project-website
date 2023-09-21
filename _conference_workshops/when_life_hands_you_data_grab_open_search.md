@@ -4,7 +4,7 @@ speaker_name_full: 'Jon Handler'
 speaker_talk_title: 'When Life Hands You Data, Grab OpenSearch!'
 primary_title: 'When Life Hands You Data, Grab OpenSearch!'
 title: 'OpenSearchCon 2023 Workshop: When Life Hands You Data, Grab OpenSearch!'
-session_time: '2023-09-29 - 9:00am-11:00pm'
+session_time: '2023-09-29 - 9:00am-11:00am'
 session_room: 'Grand Ballroom A'
 session_track: 'Workshop'
 presenters:
@@ -19,7 +19,7 @@ When you complete this lab, you will:
 
 - Have gained experience creating and managing Amazon Elastic Kubernetes Service clusters.
 - Have a working example of how to use the [OpenSearch helm charts](https://github.com/opensearch-project/helm-charts/blob/main/README.md){:target="blank"} to deploy OpenSearch and OpenSearch dashboards.
-- Know the basics of OpenSearch&apos;s query language, [Query DSL](https://github.com/opensearch-project/helm-charts/blob/main/README.md){:target="blank"}, for searching data.
+- Know the basics of OpenSearch&apos;s query language, [Query DSL](https://opensearch.org/docs/latest/query-dsl/index/){:target="blank"}, for searching data.
 - Understand how OpenSearch&apos;s [Trace Analytics](https://opensearch.org/docs/latest/monitoring-plugins/trace/index/){:target="blank"} can help you find and fix problems with your application and infrastructure.
 - Have a stronger understanding of the basics of the Neural plugin, and explore vector-based, semantic search.
 - Know how to build visualizations and dashboards to monitor your application in near-real-time.
