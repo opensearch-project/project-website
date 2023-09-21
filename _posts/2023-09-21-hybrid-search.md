@@ -1,0 +1,253 @@
+---
+layout: post
+title:  Hybrid search is generally available in OpenSearch 2.10
+authors:
+  - gaievski
+  - navneev
+  - kolchfa
+date: 2023-09-21
+categories:
+  - technical-posts
+meta_keywords: 
+meta_description: 
+---
+
+In an earlier [blog post](https://opensearch.org/blog/semantic-science-benchmarks), a group of scientists and engineers from Amazon described methods of combining keyword-based search with dense vector search in order to improve search relevance. With OpenSearch 2.10, you can tune your search relevance by using hybrid search, which combines and normalizes query relevance scores. In this post, we’ll describe what hybrid search is and how to use it and demonstrate how it improves relevance.
+
+
+## Overview
+
+The OpenSearch search engine supports both lexical and semantic search. Each of these techniques has its advantages and disadvantages, so it is natural to try to combine them so that they complement each other.
+
+The naive approach to combination---an arithmetic combination of the scores returned by each system---doesn’t work:
+
+* Different query types provide scores on different scales. For instance, a full-text `match` query score can be any positive number, while a `knn` or `neural-search` query score is typically between 0.0 and 1.0. 
+* OpenSearch normally calculates scores at the shard level. However, there still needs to be a global normalization of scores coming from all shards. 
+
+## Why the existing approach doesn't work
+
+In earlier OpenSearch versions, you could attempt combining the results of text search and neural search queries using one of the [compound query types](https://opensearch.org/docs/latest/query-dsl/compound/index/). 
+
+For example, you may start by combining `neural` and `match` queries as Boolean query clauses:
+
+```json
+    "query": {
+        "bool": {
+            "should": [
+                {
+                    "neural": {}
+                },
+                {
+                    "match": {}
+                }
+            ]
+        }
+    }
+```
+
+In this example, `match` query scores are in the [8.002, 11.999] range and `neural` query scores are in the [0.014, 0.016] range. The `match` query scores dominate the `neural` query scores, thus the `neural` query has little to no effect on the final scores, which are in the [8.019, 11.999] range. 
+
+This approach fails because in most cases, results from a full-text query like `match` will dominate results from neural queries because scores of different queries are on different scale . Effectively, this means that neural query .  
+
+
+To demonstrate this scenario, let's consider the query "**Washington Wells station**", which pertains to a [station located in Chicago, IL](https://en.wikipedia.org/wiki/Washington/Wells_station). Results from Boolean query (right) are same as results from BM25 query alone (center) and do not have any match from neural query results (left). Our ideal outcome would prioritize the first match from the BM25 query, which is the Washington/Wells station, followed by other train stations in subsequent results.
+[Image: image.png]                     Semantic search                                                Text search                                             Boolean query    
+[Image: image.png]Similar problem exists for other compound query types as well.
+
+## Hybrid search is a solution
+
+Problems of scores being on different scales and unawareness of another shard’s result can be solved by performing score normalization and combination when scores from all shards are available. We need a query type that will execute queries (In our particular example text search and neural query) separately and collect results of each one at the shard level. Then results from all shards are collected in one place, normalized first for each query separately and then combined into a final list. This is exactly what Hybrid query search proposes in it’s [main RFC for high level approach](https://github.com/opensearch-project/neural-search/issues/126). 
+
+At high level, hybrid search consists of two main elements:
+
+    * Hybrid query provides a way to define multiple individual queries, executes those queries and collects results from each shard
+    * Normalization processor which is a part of the search pipeline; it collects results from all the shards at the coordinator level node, normalizes scores for each of the queries and combine scores into a final result 
+
+Below flow diagram shows that solution works at high level: coordinator node sends queries to multiple data nodes, where actual results are collected. When Query phase is done, normalization processor received results from all queries and all nodes. At the end, normalized and combined results are sent to a Fetch phase where document content is retrieved. 
+[Image: image.png]We can observe the hybrid search approach in action by applying it to the previous example with the query “**Washington Wells station**”. Below, you can find the results generated by the hybrid query, which combine the most relevant matches from both the BM25 query (featuring an image of the Washington/Wells station) and the neural query (showcasing other train stations).
+[Image: image.png]                                          Hybrid search
+[Image: image.png]
+
+## Benchmarking the score accuracy and performance
+
+To benchmark solution’s score accuracy and performance we chose 7 datasets that cover different domains an vary in main dataset parameters, like query number, document length etc. Those are same datasets that were used in a previous blog, this allows us to use previous data as a baseline. 
+
+We built hybrid query as combination of two queries: neural-search query and text search “match” query. 
+
+For neural query we created and used an embeddings generated by [neural-search data ingestion](https://opensearch.org/docs/latest/search-plugins/neural-search/#ingest-data-with-neural-search) feature. We used pre-trained and fine-tuned transformers to generate embeddings and run search queries. For HNSW algorithm in KNN search we used k=100.
+
+For text search we used a text field with one analyzer (“english”). 
+
+To benchmark score accuracy we chose [nDCG@10](https://en.wikipedia.org/wiki/Discounted_cumulative_gain) metric as it’s widely used to measure search relevance. 
+
+For performance benchmark we measure time it took to process query on a server.
+
+As for the cluster configuration, we used 3 data nodes of type “r5.8xlarge” and 1 leader node of type “c4.2xlarge”. All scripts that we use for benchmarks can be found in [this repository](https://github.com/martin-gaievski/info-retrieval-test/tree/score-normalization-combination-testing).
+
+### Results summary for score accuracy
+
+|	|BM25	|**TAS-B**	|Theoretical baseline	|Hybrid query	|Fine-tuned transformer	|Theoretical baseline, fine-tuned	|Hybrid query, fine-tuned	|
+|---	|---	|---	|---	|---	|---	|---	|---	|
+|nfcorpus	|0.3208	|0.3155	|0.357	|0.3293	|0.301	|0.37	|0.3433	|
+|trec-covid	|0.6789	|0.4986	|0.731	|0.7376	|0.577	|0.79	|0.765	|
+|scidocs	|0.165	|0.149	|0.17	|0.173	|0.154	|0.184	|0.1808	|
+|quora	|0.789	|0.835	|0.847	|0.8649	|0.855	|0.874	|0.8742	|
+|amazon esci	|0.081	|0.071	|0.088	|0.088	|0.074	|0.091	|0.0913	|
+|dbpedia	|0.313	|0.384	|0.395	|0.391	|0.342	|0.392	|0.3742	|
+|fiqa	|0.254	|0.3	|0.289	|0.3054	|0.314	|0.364	|0.3383	|
+|average % change vs. BM25	|	|-6.97%	|7.85%	|8.12%	|-2.34%	|14.77%	|12.08%	|
+
+### Results summary for score performance
+
+|	|p50	|p90	|p99	|	|
+|---	|---	|---	|---	|---	|
+|bool (baseline)	|hybrid	|difference, ms	|bool (baseline)	|hybrid	|difference, **ms**	|bool (baseline)	|hybrid	|difference, **ms**	|
+|nfcorpus	|35.1	|37	|1.9	|53	|54	|1	|60.8	|62.3	|1.5	|
+|trec-covid	|58.1	|61.6	|3.5	|66.4	|70	|3.6	|70.5	|74.6	|4.1	|
+|scidocs	|54.9	|57	|2.1	|66.4	|68.6	|2.2	|81.3	|83.2	|1.9	|
+|quora	|61	|69	|8	|69	|78	|9	|73.4	|84	|10.6	|
+|amazon esci	|49	|50	|1	|58	|59.4	|1.4	|67	|70	|3	|
+|dbpedia	|100.8	|107.7	|6.9	|117	|130.9	|13.9	|129.8	|150.2	|20.4	|
+|fiqa	|53.9	|56.9	|3	|61.9	|65	|3.1	|64	|67.7	|3.7	|
+|% change vs. Boolean	|6.40%	|6.96%	|8.27%	|
+
+As a quick summary we’re seeing that hybrid search approach improves quality of results on 8-12% comparing to keyword  search and on 15% comparing to natural language search.  
+Simultaneously, a hybrid query exhibits a 6-8% decrease in speed compared to a boolean query when executing the same inner queries. 
+
+Our experimental findings indicate that the extent of improvement in score relevance is contingent on the size of the sampled data. For instance, the most favorable results are observed within the range of `size` [100 .. 200], whereas larger values do not enhance relevance but merely extend latency.
+
+## How to use hybrid query 
+
+Hybrid search is generally available starting from OpenSearch 2.10, no additional settings are required.
+
+Before you can use hybrid search please create a search pipeline with “normalization” processor. Example of request that will create pipeline and processor:
+
+```
+PUT /_search/pipeline/norm-pipeline
+{
+    "description": "Post-processor for hybrid search",
+    "phase_results_processors": [
+        {
+            "normalization-processor": {
+                "normalization": {
+                    "technique": "l2"
+                },
+                "combination": {
+                    "technique": "arithmetic_mean"
+                }
+            }
+        }
+    ]
+}
+```
+
+We do support followings techniques:
+
+*  `min-max` and `l2`  for score normalization
+* `arithmetic mean` , `geometric mean` and `harmonic mean` for score combination
+
+it’s possible to set additional parameters for score combination to define weights for each of inner query results. Multiple search pipelines can be created, each featuring distinct normalization processor configurations, and employed in various situations as per your specific needs. For more details on supported techniques and their definitions please refer to OpenSearch documentation <TODO: put link to documentation page for hybrid search once it’s done for 2.10, PR https://github.com/opensearch-project/documentation-website/pull/4985>.
+
+Use below syntax to execute hybrid search query
+
+```
+POST my_index/_search?search_pipeline=<search_pipeline>
+{
+   "query": {
+       "hybrid": [
+           {},// First Query
+           {} // Second Query
+           ..... // Other Queries
+       ] 
+   }
+}
+```
+
+for example
+
+
+```
+POST my_index/_search?search_pipeline=norm-pipeline
+{
+    "_source": {
+        "exclude": [
+            "passage_embedding"
+        ]
+    },
+    "query": {
+        "hybrid": {
+            "queries": [
+                
+                {
+                    "match": {
+                        "title_key": {
+                            "query": "Do Cholesterol Statin Drugs Cause Breast Cancer"
+                        }
+                    }
+                },
+                {
+                    "neural": {
+                        "passage_embedding": {
+                            "query_text": "Do Cholesterol Statin Drugs Cause Breast Cancer",
+                            "model_id": "1234567890",
+                            "k": 100
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "size": 10
+}
+```
+
+
+For more details and examples of hybrid search please refer to OpenSearch documentation <TODO: put link to documentation page for hybrid search once it’s done for 2.10, PR https://github.com/opensearch-project/documentation-website/pull/4985>.
+
+## Conclusion
+
+In this blog we have included series of experiments that show that hybrid search produces results that are very close to theoretical expectations and in most cases are better than individual queries alone. That comes with a certain decrease in latency, and will be addressed in future versions (progress can be tracked by following [this issue](https://github.com/opensearch-project/neural-search/issues/279) on github).
+It’s important to remember that datasets are different by many parameters and for some hybrid search approach may not produce stably high results. Additional experiments with different parameters may give better results as well, for instance setting higher values of `k` or use different `space type` for neural search. 
+
+We’ve seen that some of the conclusions may be applied to most datasets:
+
+* for semantic search hybrid query with normalization gives better results comparing to neural search or text search alone
+* combination of min-max for score normalization and arithmetic mean for score combination gives best results comparing to other techniques 
+* for most cases increasing `k` value in knn data type gives better results up to the certain point, but after that there is no increase in relevance. At the same time high values of `k` make search latency higher, so from our observations it’s better to choose value in range [100 ... 200]. 
+* we have seen best results when “inner product” is used as a space type for knn vector fields, this may be related to fact that our models were trained used that similarity function.
+* increase in search relevance comes with a cost of increased delay, although it’s not very high (6-8%) and should be acceptable in most cases
+
+In general, as our experiments showed results that are very close to described by the science team, [all their conclusions](https://opensearch.org/blog/semantic-science-benchmarks/#section-5-strengths-and-limitations) applicable to Hybrid search as well. 
+
+## Next steps
+
+We have seen certain areas of improvement for current solution, and we’re planning to work on them in future OpenSearch releases. Moving forward, in the short term good starting point is improvement of performance by running individual queries of the main hybrid query in parallel. That should improve latency especially when time taken by each of inner query is approximately same. Below is list of items that we consider for future releases:
+
+* parallel execution of individual queries 
+* add more configuration options and parameters for normalization processor to allow more control over combined results. For instance, it can be minimal score to avoid zero score for matching document with the smallest score. 
+* support for results pagination
+* support for filters in hybrid query clause. It’s possible to define a filter for each inner query individually, but it’s not optimal if filter condition is same for all inner queries
+* add more benchmark results for a larger datasets to have a clear view of when to use Hybrid search and in what configuration. 
+
+## Appendix
+
+### Dataset statistics
+
+|Dataset	|Average query length	|Average query length	|Average query length	|Average query length	|Average query length	|Average query length	|
+|---	|---	|---	|---	|---	|---	|---	|
+|NFCorpus	|3.29	|2	|22.098	|224	|3633	|323	|
+|Trec-Covid	|10.6	|10	|148.64	|155	|171332	|50	|
+|Scidocs	|9.44	|9	|167.24	|151	|25657	|1000	|
+|Quora	|9.531	|9	|11.46	|10	|522931	|10000	|
+|Amazon ESCI	|3.89	|4	|179.87	|137	|482105	|8956	|
+|DBPedia	|5.54	|5	|46.89	|47	|4635922	|400	|
+|FiQA	|10.94	|10	|132.9	|90	|57638	|648	|
+
+## References
+
+1. The ABCs of semantic search in OpenSearch: Architectures, benchmarks, and combination strategies, https://opensearch.org/blog/semantic-science-benchmarks 
+2. [RFC] High Level Approach and Design For Normalization and Score Combination, https://github.com/opensearch-project/neural-search/issues/126
+3. Building a semantic search engine in OpenSearch, https://opensearch.org/blog/semantic-search-solutions/ 
+4. An Analysis of Fusion Functions for Hybrid Retrieval, https://arxiv.org/abs/2210.11934
+5. Beir benchmarking for Information Retrieval https://github.com/beir-cellar/beir
+
