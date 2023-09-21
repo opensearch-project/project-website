@@ -1,7 +1,7 @@
 ---
 name: Prerana Sapkota
-short_name: Prerana
-
+short_name:Prerana
+twitter: <twitter handle without the @>
 github: prerana30
 ---
 
