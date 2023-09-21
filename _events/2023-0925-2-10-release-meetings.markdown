@@ -25,6 +25,10 @@ Join the OpenSearch team for the open release meetings so we can push 2.10.0 liv
 
 **September 21th - 9AM PDT**
 
+* Go / No-Go voting (result - no-go - likely due to flaky tests - regroup tomorrow)
+
+**September 22nd - 9AM PDT**
+
 * Go / No-Go voting
 
 **September 25th - 11:30AM PDT**
