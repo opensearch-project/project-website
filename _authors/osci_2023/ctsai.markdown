@@ -1,7 +1,6 @@
 ---
 name: Cho Tsai
 short_name: ctsai
-twitter: 
 github: ctsai21
 ---
 
