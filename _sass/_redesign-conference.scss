@@ -757,18 +757,6 @@ h2.conference-speaker-session-page {
             > td:nth-of-type(n+1) {
                 @include header-level5($secondary-sanfrancisco-fog-s5);
             }
-            > td.operating {
-                background: $secondary-golden-poppy-t3;
-            }
-            > td.search {
-                background: $primary-deep-blue-sea-t3;
-            }
-            > td.community {
-                background: $primary-open-sky-t3;
-            }
-            > td.analytics {
-                background: $secondary-purple-sage-t3;
-            }
         }
     }
 }
@@ -789,4 +777,20 @@ a {
     &:hover {
         text-decoration: underline;
     }
+}
+
+.operating {
+    background: $secondary-golden-poppy-t3;
+}
+
+.search {
+    background: $primary-deep-blue-sea-t3;
+}
+
+.community {
+    background: $primary-open-sky-t3;
+}
+
+.analytics {
+    background: $secondary-purple-sage-t3;
 }
