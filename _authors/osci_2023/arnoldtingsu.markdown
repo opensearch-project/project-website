@@ -1,6 +1,6 @@
 ---
 name: Arnold Su
-short_name: arnoldtingsu
+short_name: Arnold
 twitter: arnoldToken
 github: arnoldtingsu
 ---
