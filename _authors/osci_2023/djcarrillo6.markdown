@@ -5,4 +5,4 @@ twitter: Djcarrillo6
 github: Djcarrillo6
 ---
 
-**David Carrillo Jr** I'm a certified L2 wine sommelier.
+**David Carrillo Jr** I'm a certified L2 wine sommelier
