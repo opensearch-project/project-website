@@ -5,4 +5,4 @@ github: AManaswini
 
 ---
 
-Manaswini Aitha is a Masters in CS student at University of Chicago, looking forward to begin her open source journey.
+Manaswini Aitha is a Masters in CS student at University of Chicago.
