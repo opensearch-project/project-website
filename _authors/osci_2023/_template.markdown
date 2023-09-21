@@ -1,6 +1,6 @@
 ---
-name: <Name Here>
-short_name:
+name: <Diya Meeniga>
+short_name: <Diya>
 twitter: <twitter handle without the @>
 github: <github alias>
 ---
