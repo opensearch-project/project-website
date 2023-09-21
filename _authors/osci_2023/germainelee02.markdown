@@ -1,6 +1,7 @@
 ---
 name: Germaine Lee
 short_name: germainelee02
+photo: "/assets/media/authors/germainelee02.jpg"
 twitter: nil
 github: germainelee02
 ---
