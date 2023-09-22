@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "Important: Update to OpenSearch 1.2.1"
+authors:
+  - kyledvs
+date: 2021-12-11 01:01:01 -0700
+categories:
+  - releases
+
+excerpt: "Update Dec 14, 2021: The new CVE-2021-45046 affecting Log4j 2.15.0 was published earlier today, and OpenSearch 1.2.1 includes that version of Log4j. As with the previous issue, the team has not been able to reproduce this issue, nor any patterns thought to trigger this issue. Out of an abundance of caution, and, as indicated in the advisory, we will release a new version of OpenSearch shortly that uses Log4j 2.16.0 which is not affected by this new CVE."
+redirect_from: "/blog/releases/2021/12/update-to-1-2-1/"
+---
+
+### Update 2021-12-22
+
+OpenSearch version 1.2.3 is now available and addresses [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), [CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046), and [CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105). Update your clusters to 1.2.3. [See the release blog](/blog/releases/2021/12/update-1-2-3/).
+
+### Update Dec 14, 2021
+
+The new [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046) affecting Log4j 2.15.0 was published earlier today, and OpenSearch 1.2.1 includes that version of Log4j. As with the previous issue, the team has not been able to reproduce this issue, nor any patterns thought to trigger this issue. Out of an abundance of caution, and, as indicated in the advisory, we will release a new version of OpenSearch shortly that uses Log4j 2.16.0 which is not affected by this new CVE. In addition, we are releasing a version of the Logstash OSS with OpenSearch Output Plugin bundle which resolves both [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) and   [CVE-2021-45046.](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046) Open Distro 1.13.3 is not affected by [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046) as the `JndiLookup` mitigation resolves both this and the original security issue.
+
+
+### TL;DR: Upgrade your clusters to 1.2.1.
+
+A [recently published](https://www.lunasec.io/docs/blog/log4j-zero-day/) security issue ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)) affects several versions of the broadly-used [Apache Log4j](https://logging.apache.org/log4j/2.x/) library. Some software in the OpenSearch project includes versions of Log4j referenced in this CVE. While, at time of writing, the team has not found a reproduceable example in OpenSearch of remote code execution (RCE) described in this issue, its severity is such that all users should take mitigation measures. As recommended by the advisory, the team has released OpenSearch 1.2.1, which updates Log4j to version 2.15.0. For those who cannot upgrade to 1.2.1, the [Log4j website outlines additional measures to mitigate the issue](https://logging.apache.org/log4j/2.x/). This patch release also addresses [CVE-2021-4352](https://alas.aws.amazon.com/AL2/ALAS-2021-1722.html) in the OpenSearch Docker distributions. 
+
+OpenSearch 1.2.1 is available for both the full and minimal distributions. You can get [version 1.2.1 on the downloads page](https://opensearch.org/versions/opensearch-1-2-0.html) and on Docker Hub.
+
+Some other software in the project also includes versions of Log4j that are referenced in the CVE and have been fixed or mitigated.
+
+* [Open Distro for Elasticsearch 1.13.3](https://opendistro.github.io/for-elasticsearch/downloads.html)
+* [Data Prepper 1.1.1 for OpenSearch](/downloads.html#data-prepper) and [Data Prepper 1.0.1 for Open Distro](https://opendistro.github.io/for-elasticsearch/downloads.html#ingest) 
+* [Logstash OSS with OpenSearch Output Plugin](https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476) 
+
+
+### Do you have questions or feedback?
+
+If you’re interested in learning more, have a specific question, or just want to provide feedback and thoughts, please visit [OpenSearch.org](https://opensearch.org/), open an issue on [GitHub](https://github.com/opensearch-project/OpenSearch/issues), or post in the [forums](https://discuss.opendistrocommunity.dev/). There are also regular [Community Meetings](https://opensearch.org/events/) that include progress updates at every session and include time for Q&A.

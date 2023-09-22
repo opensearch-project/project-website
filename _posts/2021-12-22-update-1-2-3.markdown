@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Update to OpenSearch 1.2.3"
+authors:
+  - elifish
+date: 2021-12-22
+categories:
+  - releases
+
+excerpt: "CVE-2021-45105 for Log4j was issued after the release of OpenSearch 1.2.2. This CVE advises upgrading to Log4j 2.17.0. While there has been no observed reproduction of the issue described in CVE-2021-45105 in OpenSearch, we have released OpenSearch 1.2.3 which updates Log4j to version 2.17.0."
+redirect_from: "/blog/releases/2021/12/update-1-2-3/"
+---
+
+### Update your clusters to 1.2.3
+
+[CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105) for Log4j was issued after the release of OpenSearch 1.2.2. This CVE advises upgrading to Log4j 2.17.0. While there has been no observed reproduction of the issue described in CVE-2021-45105 in OpenSearch, we have released OpenSearch 1.2.3 which updates Log4j to version 2.17.0.
+
+In addition to OpenSearch, additional artifacts were released with Log4j 2.17.0 updates including:
+- Data Prepper 1.2.1, which updates Log4j to version 2.17.0.
+- Open source Logstash 7.16.2 with opensearch-output plugin, which includes a fix for [CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105) provided by the maintainers of Logstash.
+
+You can get [OpenSearch 1.2.3 and other updated artifacts on the downloads page](/downloads.html).
+
+### Do you have questions or feedback?
+
+If you're interested in learning more, have a specific question, or just want to provide feedback and thoughts, please visit [OpenSearch.org](https://opensearch.org/), open an issue on [GitHub](https://github.com/opensearch-project/OpenSearch/issues), or post in the [forums](https://discuss.opendistrocommunity.dev/). There are also regular [Community Meetings](https://opensearch.org/events/) that include progress updates at every session and include time for Q&A.

@@ -1,0 +1,1 @@
+OpenSearch provides SQL drivers like ODBC and JDBC that let you integrate OpenSearch with business intelligence software and other tools.

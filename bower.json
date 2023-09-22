@@ -1,0 +1,9 @@
+{
+  "name": "opensearchwebsite",
+  "private": true,
+  "dependencies": {
+    "jquery": "3.6",
+    "webfontloader": "~1.6.28",
+    "clipboard": "~1.5.12"
+  }
+}

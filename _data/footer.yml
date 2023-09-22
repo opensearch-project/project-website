@@ -1,0 +1,67 @@
+columns:
+  -
+    title: 'Get Involved'
+    links:
+      -
+        title: Code of Conduct
+        url: '/codeofconduct.html'
+      -
+        title: 'Forum'
+        url: 'https://forum.opensearch.org/'
+      -
+        title: 'Github'
+        url: 'https://github.com/opensearch-project'
+      -
+        title: 'Slack'
+        url: '/slack.html'
+     # -
+      #  title: 'Partners'
+      #  url: '/partners/'
+     # -
+      #  title: 'Community Projects'
+       # url: '/community_projects'
+  -
+    title: 'Resources'
+    links:
+      - 
+        title: About
+        url: '/about.html'
+      - 
+        title: Release Schedule
+        url: '/releases.html'
+      - 
+        title: Maintenance Policy
+        url: '/releases.html#maintenance-policy'
+      - 
+        title: FAQ
+        url: '/faq/'
+      -
+        title: 'Testimonials'
+        url: '/testimonials/'
+      -
+        title: 'Trademark and Brand Policy'
+        url: '/trademark-brand-policy.html'
+      -
+        title: 'Privacy'
+        url: 'https://aws.amazon.com/privacy/'
+  -
+    title: 'Contact Us'
+    links:
+      -
+        title: 'Connect'
+        url: '/connect.html'
+      -
+        title: 'Twitter'
+        url: 'https://twitter.com/OpenSearchProj'
+      -
+        title: 'LinkedIn'
+        url: 'https://www.linkedin.com/company/opensearch-project/'
+      -
+        title: 'YouTube'
+        url: 'https://www.youtube.com/c/OpenSearchProject'
+      -
+        title: 'Meetup'
+        url: 'https://www.meetup.com/pro/opensearchproject/'
+      -
+        title: 'Facebook'
+        url: 'https://www.facebook.com/OpenSearchProject/'
