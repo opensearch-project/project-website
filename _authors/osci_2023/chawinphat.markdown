@@ -1,5 +1,5 @@
 ---
-name: Teddy Tankuranand
+name: Chawinphat Tankuranand
 short name: chawinphat
 github: chawinphat
 ---
