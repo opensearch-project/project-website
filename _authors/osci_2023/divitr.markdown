@@ -4,4 +4,4 @@ short_name: divitrawal
 github: divitr
 ---
 
-**<Name>** <Something about you!>
+**Divit Rawal** Student at UC Berkeley
