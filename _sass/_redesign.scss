@@ -376,10 +376,48 @@ $header-banner-mobile-breakpoint: 1018px;
                     padding: 0;
                     width: 100%;
                     height: 100%;
+                    &.landing-page-hero--images--image__desktop {
+                        > img {
+                            object-fit: fill;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    &.landing-page-hero--images--image__mobile {
+                        > img {
+                            object-fit: fill;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
                     img {
                         object-fit: fill;
                         width: 100%;
                         height: 100%;
+                    }
+                    @media screen and (min-width: 834px) {
+                        &.landing-page-hero--images--image__desktop {
+                            display: block;
+                            @include gradient-golden-sunrise;
+                            // &:nth-of-type(2) {
+                            //     @include gradient-purple-mint;
+                            // }
+                        }
+                        &.landing-page-hero--images--image__mobile {
+                            display: none;
+                        }
+                    }
+                    @media screen and (max-width: 833px) {
+                        &.landing-page-hero--images--image__desktop {
+                            display: none;
+                        }
+                        &.landing-page-hero--images--image__mobile {
+                            display: block;
+                            @include gradient-golden-sunrise;
+                            &:nth-of-type(2) {
+                                @include gradient-purple-mint-vertical;
+                            }
+                        }
                     }
                 }
             }
@@ -568,7 +606,7 @@ $header-banner-mobile-breakpoint: 1018px;
                     > .landing-page-solutions--hero-3up--hero--preview--excerpt {
                         @include body-small;
                         > p:last-of-type {
-                            @include trim-ellipsis-multiline(6);
+                            @include trim-ellipsis-multiline(5);
                         }
                         flex-basis: 150px;
                     }
