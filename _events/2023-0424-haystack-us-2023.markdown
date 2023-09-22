@@ -1,0 +1,21 @@
+---
+# put your event date and time (24 hr) here:
+eventdate: 2023-04-24 09:00:00 -0500
+# the title - this is how it will show up in listing and headings on the site:
+title: Haystack US 2023 - The Search Relevance Conference
+# if your event has an online component, put it here:
+online: true
+# This is for the sign up button
+signup:
+    # the link URL
+    url: https://www.haystackconf.com
+    # the button text
+    title: Find out more and register
+
+# below this tripple dash, describe your event. It should be 1-3 sentences
+---
+Haystack is the conference for improving search relevance. If you're like us, you work to understand the shiny new tools or dense academic papers out there that promise the moon. Then you puzzle how to apply those insights to your search problem, in your search stack. But the path isn't always easy, and the promised gains don't always materialize.
+
+Haystack is the conference for organizations where search, matching, and relevance really matters to the bottom line. For search managers, developers, relevance engineers & data scientists finding ways to innovate, see past the silver bullets, and share what actually has worked well for their unique problems. Please come share and learn!
+
+Featuring talks from AWS OpenSearch, Getty Images, Elsevier Health, Delivery Hero, Pinecone, Weaviate & a raft of other search experts!

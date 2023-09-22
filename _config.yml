@@ -1,0 +1,172 @@
+title: OpenSearch
+email: opensearch@amazon.com
+description: ""
+baseurl: "" # the subpath of your site, e.g. /blog
+url: https://opensearch.org
+twitter_username: 
+github_username: 
+headings:
+  news: 'Blog'
+  authors: 'Authors'
+  downloads: 'Download & Get Started'
+
+
+# Build settings
+plugins:
+  - jekyll-redirect-from
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-last-modified-at
+  - jekyll-sitemap
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - bower.json
+  - package.json
+
+defaults:
+-
+    scope:
+      type: "posts"
+    values:
+      permalink: blog/:title/
+-
+    scope:
+      type: "partners"
+    values:
+      layout: "partner"
+      permalink: partners/:name.html
+- 
+    scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+      permalink: /:collection/:name/
+-
+    scope:
+      type: javadocs
+    values:
+      layout: javadocs
+      permalink: /:collection/:name.html
+-
+    scope:
+      type: events
+    values:
+      layout: event
+      permalink:  events/:title/
+-
+    scope:
+      type: versions
+    values: 
+      layout: versions
+      permalink:  versions/:categories/:slug.html
+-
+    scope:
+      type: artifacts
+    values:
+      layout: artifact
+      permalink: :collection/:categories/:slug.html
+-
+    scope:
+      type: tutorials
+    values:
+      layout: tutorial
+      permalink: :collection/:slug.html
+-
+    scope:
+      type: lines
+    values:
+      layout: lines
+      permalink: :collection/:slug.html
+-
+    scope:
+      type: speakers
+    values:
+      layout: speaker
+-
+    scope:
+      type: speaker_sessions
+    values:
+      layout: speaker_session
+-
+    scope:
+      type: platforms
+    values:
+      permalink: platform/:categories/:name.html
+-
+    scope:
+      type: exhibitors
+    values:
+      layout: exhibitor
+-
+    scope:
+      type: conference_workshops
+    values:
+      layout: speaker_session
+
+collections:
+  authors:
+    output: true
+  partners:
+    output: true
+  community_projects:
+  javadocs:
+    output: true
+  events:
+    output: true
+  artifacts:
+    output: true
+  versions:
+    sort_by: version
+    output: true
+  faqs:
+  testimonials:
+  herobanners:
+    output: true    
+  tutorials:
+    output: true
+  lines:
+    output: true
+  speakers:
+    output: true
+  speaker_sessions:
+    output: true
+  redesign_use_cases:
+    output: true
+  redesign_resources:
+    output: true
+  platforms:
+    output: true
+  exhibitors:
+    output: true
+  conference_workshops:
+    output: true
+    
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+timezone: "Etc/UTC"
+
+highlighter: rouge
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

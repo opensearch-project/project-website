@@ -1,0 +1,121 @@
+---
+remote_domain: 'https://opensearch.org'
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" class="tutorial-layout">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="ROBOTS" content="ALL" />
+        <meta name="MSSmartTagsPreventParsing" content="true" />
+        <meta name="Copyright" content="" />
+        <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
+        <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
+        <script src="https://opensearch.org/assets/js/lib/jquery-3.6/jquery-3.6.0.min.js"></script>
+        <script src="https://opensearch.org/assets/js/lib/webfontloader/webfontloader.js"></script>
+
+        <script>
+            $( document ).ready(function() {
+                var gitPodStatus = {};
+                // The OpenSearch tutorials in GitPod reveal themselves at a URL that looks like this:
+                // 8000-blah-blah-blah.gitpod.io
+                // so we check the window location starting with 8, this could be more specific
+                // but we really just want to check if we're being served from opensearch.org or not
+                if (window.location.host[0] == '8') {
+                    $('body').addClass('gitpod');
+
+                    // Dashboards has a strange way of making itself avaliable
+                    // there is a script on gitpod that checks for true avaliablity
+                    // then adds an empty file, so we can poll it
+                    gitPodStatus.dashboardsReady = false;
+                    gitPodStatus.checkCount = 0;
+                    // check every 2 seconds, clear if we reach a max or once found
+                    gitPodStatus.dashboardsInterval = setInterval(function() {
+                        // check for 5 minutes
+                        if (gitPodStatus.checkCount >= 150) {
+                            clearInterval(gitPodStatus.dashboardsInterval);
+                        } else {
+                            gitPodStatus.checkCount += 1;
+                        }
+                        jQuery.get('/tutorial/dashboardsready.txt').done(function() { 
+                            clearInterval(gitPodStatus.dashboardsInterval);
+                            $('body').addClass('gitpod-dashboards-ready');
+                        });
+                    }, 2000);
+
+
+
+                    $('a.gitpod-replace-port').each(function() {
+                        var href = $(this).attr('href');
+                        var port = $(this).attr('data-port')
+                        $(this).attr('href','https://'+window.location.host.replace('8000',port)+'/');
+                    });
+
+                    $('code.gitpod-replace-port').each(function() {
+                        var text = $(this).text();
+                        var port = $(this).attr('data-port')
+                        $(this).text('https://'+window.location.host.replace('8000',port)+'/');
+                    });
+
+
+                    $('.gitpod-dashboards').each(function() {
+                        $(this).text('https://'+window.location.host.replace('8000','5601')+'/');
+                    });
+
+                    $('.gitpod-opensearch').each(function() {
+                        $(this).text('https://'+window.location.host.replace('8000','9200')+'/');
+                    });
+                    
+                    let replacementDomain = 'https://opensearch.org';
+                    let replacer = function(attr) {
+                        return function() { 
+                            let hrefValue = $(this).attr(attr); 
+                            if (hrefValue[0] === '/') { 
+                                $(this).attr(attr, replacementDomain + hrefValue); 
+                            }  
+                        }
+                    };
+                    if (location.port !== '4000') {
+                        $('link[rel="stylesheet"]').each(replacer('href'));
+                        $('img').each(replacer('src'));
+                        console.log('not 4000');
+                    }
+                } else {
+                    // not gitpod.
+                }
+            });
+            WebFont.load({
+              custom: {
+                families: ['FontAwesome'],
+              },
+              google: {
+                families: [
+                  'Open Sans Condensed:700',
+                  'Open Sans:300italic,400italic,700italic,300,400,700',
+                  'Noto Serif:400italic,700italic,400,700',
+                  'Fira Mono:400'
+                ]
+              },
+              classes: false,
+              events: false,
+              timeout: 1000
+            });
+        </script>
+
+
+    </head>
+    <body >
+        <div class="simple-banner">
+            <img src="{{ layout.remote_domain }}/assets/img/opensearch-logo-themed.svg">
+        </div>
+        <h1>{{ page.title }}</h1>
+        <hr />
+        {{content}}
+        <div class="simple-footer">
+            {% include footer_legal.html %}
+        </div>
+    </body>
+
+</html>
+

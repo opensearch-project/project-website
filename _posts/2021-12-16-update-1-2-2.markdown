@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "Update to OpenSearch 1.2.2"
+authors:
+  - kyledvs
+date: 2021-12-16 01:01:01 -0700
+categories:
+  - releases
+
+excerpt: "As indicated in the previous blog post, CVE-2021-45046 was issued shortly following the release of OpenSearch 1.2.1. This new CVE advises upgrading from Log4j 2.15.0 (used in OpenSearch 1.2.1) to Log4j 2.16.0. Out of an abundance of caution, the team is releasing OpenSearch 1.2.2 which includes Log4j 2.16.0. While there has been no observed reproduction of the issue described in CVE-2021-45046, Log4j 2.16.0 takes much more extensive JNDI mitigation measures."
+redirect_from: "/blog/releases/2021/12/update-1-2-2/"
+---
+
+### Update 2021-12-22
+
+OpenSearch version 1.2.3 is now available and addresses [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), [CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046), and [CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105). Update your clusters to 1.2.3. [See the release blog](/blog/releases/2021/12/update-1-2-3/).
+
+### Update your clusters to 1.2.2
+
+As indicated in the previous blog post, [CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046) was issued shortly following the release of OpenSearch 1.2.1. This new CVE advises upgrading from Log4j 2.15.0 (used in OpenSearch 1.2.1) to Log4j 2.16.0. Out of an abundance of caution, the team is releasing OpenSearch 1.2.2 which includes Log4j 2.16.0. While there has been no observed reproduction of the issue described in CVE-2021-45046, Log4j 2.16.0 takes much more extensive JNDI mitigation measures.
+
+If you are currently using OpenSearch 1.2.1 or below you should upgrade to 1.2.2. If you cannot upgrade to OpenSearch 1.2.2, follow the mitigations as [described on the Log4j security page](https://logging.apache.org/log4j/2.x/security.html#Fixed_in_Log4j_2.16.0). Either action should be taken as soon as possible.
+
+If you are using Open Distro 1.13.3, released as a response to [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), no further action is needed as the original mitigation also addresses CVE-2021-45046. You should update Data Prepper 1.0.x or 1.1.x to 1.0.2 or 1.2.0 respectively. ~~Currently, Logstash OSS with OpenSearch Output Plugin requires mitigation [by classpath removal](https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476#:~:text=Users%20have%20noticed%20that%20the%20newly%20released%20Logstash%206.8.21) and the team will release a new version of the distribution using Logstash 7.16.2 which includes Log4j 2.16.0 shortly.~~ 
+
+**Update:** The team has released a new version of Logstash OSS with OpenSearch Output Plugin that uses Logstash 7.16.2 and includes Log4j 2.16.0.
+
+You can get [OpenSearch 1.2.2 on the downloads page](/downloads.html).
+
+### Do you have questions or feedback?
+
+If you’re interested in learning more, have a specific question, or just want to provide feedback and thoughts, please visit [OpenSearch.org](https://opensearch.org/), open an issue on [GitHub](https://github.com/opensearch-project/OpenSearch/issues), or post in the [forums](https://discuss.opendistrocommunity.dev/). There are also regular [Community Meetings](https://opensearch.org/events/) that include progress updates at every session and include time for Q&A.
