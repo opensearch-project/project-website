@@ -1,7 +1,6 @@
 ---
 name: Arnav Mehra
 short_name: Arnav
-twitter:
 github: arnav-mehra
 ---
 
