@@ -539,9 +539,6 @@ $header-banner-min-width: 1019px;
     }
 
     [role="navigation"] {
-        @media screen and (min-width: $header-banner-min-width) {
-            background: $light-theme-navigation-background;
-        }
         @media screen and (max-width: 1018px) {
             background: $primary-open-sky-s3;
         }
