@@ -4,4 +4,4 @@ short_name: tifflam
 github: tiffanylamm
 ---
 
-**<Tiffany Lam>** <I am a junior at UC Berkeley!>
+**Tiffany Lam** I am a junior at UC Berkeley!
