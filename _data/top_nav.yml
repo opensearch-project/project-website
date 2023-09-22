@@ -84,12 +84,14 @@ items:
     children:
       - label: Search
         url: /platform/search/index.html
-      -
-        label: Vector Database
-        url: /platform/search/vector-database.html
+      - label: Observability
+        url: /platform/observability/index.html
       -
         label: Security Analytics
         url: /platform/security-analytics/index.html
+      -
+        label: Vector Database
+        url: /platform/search/vector-database.html
       -
         label: Live Demo
         url: https://playground.opensearch.org/
