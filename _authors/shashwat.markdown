@@ -1,8 +1,9 @@
 ---
-name: <Name Here>
-short_name:
-twitter: <twitter handle without the @>
-github: <github alias>
+name: Shashwat Prakash
+short_name: Shash
+twitter: Awesome01768974
+github: AwesomeSauce42
 ---
 
-**<Name>** <Something about you!>
+**Shashwat** loves to play Badminton and chess. Hobbies including playing the guitar and piano. Major interests would inclued watching shows!
+ 
