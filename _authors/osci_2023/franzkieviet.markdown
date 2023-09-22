@@ -1,8 +1,6 @@
 ---
-name: <Name Here>
-short_name:
-twitter: <twitter handle without the @>
-github: <github alias>
+name: Franz Kieviet
+github: FranzKieviet
 ---
 
-**<Name>** <Something about you!>
+**Franz Kieviet** I love to code!
