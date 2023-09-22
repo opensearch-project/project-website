@@ -1,8 +1,7 @@
 ---
-name: <Name Here>
-short_name:
-twitter: <twitter handle without the @>
-github: <github alias>
+name: Oluwadamiloju Yusuf
+short_name: Dami
+github: Damiloju
 ---
 
-**<Name>** <Something about you!>
+**Damiloju** Is a basketball nerd who loves to travel and explore new places.
