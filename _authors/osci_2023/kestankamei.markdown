@@ -1,6 +1,6 @@
 ---
 name: Kestan Kamei
-short_name: Kestan
+short name: Kestan
 github: keskami
 ---
 
