@@ -4,4 +4,4 @@ short_name: divitrawal
 github: divitr
 ---
 
-**Divit Rawal** Student at UC Berkeley
+**Divit Rawal** is a student at UC Berkeley studying Physics and Electrical Engineering & Computer Science
