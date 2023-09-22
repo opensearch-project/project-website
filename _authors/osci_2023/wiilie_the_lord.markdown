@@ -1,7 +1,6 @@
 ---
 name: Sung-Jie Hung
 short_name: Willie
-twitter:
 github: Willie-The-Lord
 ---
 
