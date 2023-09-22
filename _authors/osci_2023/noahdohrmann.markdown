@@ -4,4 +4,4 @@ linkedin: noah-dohrmann
 github: n-dohrmann
 ---
 
-**<Noah Dohrmann>** Hi! Happy to get started here!
+**Noah Dohrmann** Hi! Happy to get started here!
