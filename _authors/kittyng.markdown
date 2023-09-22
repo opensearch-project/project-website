@@ -5,5 +5,4 @@ twitter: @kittyngng1
 github: kittynglin
 ---
 
-**Kitty Ng** is a Amazon Open Source Contributor
-
+**Kitty Ng** is a Amazon Open Search contributor
