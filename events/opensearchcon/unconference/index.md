@@ -24,7 +24,7 @@ about will be determined by you and your fellow conference-goers.
 
 ### Attendees/Speakers
 
-This is a first-come, first-served event; the room holds up to 150 individuals 
+This is a first-come, first-served event; the room holds up to 100 individuals 
 and anyone registered for OpenSearchCon is welcome to attend until the 
 room is full. We advise you to show up a little early to make sure you get 
 your spot.
