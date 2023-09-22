@@ -1,1 +1,0 @@
-<p>OpenSearch is compatible with a variety of ingestion and processing tools including <a href="https://opensearch.org/docs/clients/agents-and-ingestion-tools/index/#downloads">beats</a>, <a href="https://fluentbit.io/">fluentbit</a> and <a href="https://www.fluentd.org/">fluentd</a>. The project also maintains specific ingestion tools:</p>

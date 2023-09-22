@@ -1,5 +1,0 @@
----
-major_version: "1"
-pretty_version: "1.x"
-# deprecated: true
----

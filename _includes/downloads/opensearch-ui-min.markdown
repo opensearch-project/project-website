@@ -1,1 +1,0 @@
-This distribution **lacks important security features** and should be only used in carefully controlled environments. 
