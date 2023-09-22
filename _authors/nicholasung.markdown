@@ -1,7 +1,6 @@
 ---
 name: Nicholas Ung
 short_name: nung
-photo: '/assets/media/authors/nung.jpg'
 github: nung22
 ---
 
