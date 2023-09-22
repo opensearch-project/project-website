@@ -23,7 +23,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 |:--------------|:-----------------|:---------------|:---------------|
 | 2.10.0        | September 07th   | September 25th |
 | 1.3.13        | September 14th   | September 21st |
-| 2.11.0        | October 4th      | October 18th, 2023 |
+| 2.11.0        | October 4th      | October 18th   |
 | 1.3.14        | December 5th     | December 12th  |
 | 2.12.0        | January 9th, 2024    | January 23rd, 2024  |
 
