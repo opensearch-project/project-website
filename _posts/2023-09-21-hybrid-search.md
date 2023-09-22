@@ -284,7 +284,7 @@ The normalization processor supports the followings techniques:
 * `min-max` and `l2` for score normalization
 * `arithmetic mean` , `geometric mean`, and `harmonic mean` for score combination
 
-You can set additional parameters for score combination to define weights for each query clause. Additionally, you can create multiple search pipelines, each featuring distinct normalization processor configurations, as dictated by your specific needs. For more details on supported techniques and their definitions, see and [Normalization processor](https://opensearch.org/docs/latest/search-plugins/search-pipelines/normalization-processor/).
+You can set additional parameters for score combination to define weights for each query clause. Additionally, you can create multiple search pipelines, each featuring distinct normalization processor configurations, as dictated by your specific needs. For more details on supported techniques and their definitions, see [Normalization processor](https://opensearch.org/docs/latest/search-plugins/search-pipelines/normalization-processor/).
 
 To run a hybrid query, use the following syntax:
 
