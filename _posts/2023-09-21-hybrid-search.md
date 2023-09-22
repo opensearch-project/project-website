@@ -16,7 +16,7 @@ has_science_table: true
 In an earlier [blog post](https://opensearch.org/blog/semantic-science-benchmarks), a group of Amazon scientists and engineers described methods of combining keyword-based search with dense vector search in order to improve search relevance. With OpenSearch 2.10, you can tune your search relevance by using hybrid search, which combines and normalizes query relevance scores. In this post, we’ll describe what hybrid search is and how to use it and demonstrate how it improves relevance.
 
 
-## Overview
+## Combining lexical and semantic search
 
 The OpenSearch search engine supports both lexical and semantic search. Each of these techniques has its advantages and disadvantages, so it is natural to try to combine them so that they complement each other.
 
