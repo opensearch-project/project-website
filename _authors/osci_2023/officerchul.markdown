@@ -5,4 +5,4 @@ twitter: TigerKyo
 github: OfficerChul
 ---
 
-**Kyochul Jang** I graduate this semester.
+**Kyochul Jang** I graduate this semester!
