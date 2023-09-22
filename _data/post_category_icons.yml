@@ -1,6 +1,8 @@
 icon_map:
   - category: "announcements"
     icon: "marketing-content"
+  - category: "cross-cluster"
+    icon: "opensearch-admin"
   - category: "community"
     icon: "community"
   - category: "community-updates"
@@ -9,6 +11,8 @@ icon_map:
     icon: "meetings-and-events"
   - category: "feature"
     icon: "platform"
+  - category: "intro"
+    icon: "opensearch-admin"
   - category: "meetings"
     icon: "meetings-and-events"
   - category: "observability"
