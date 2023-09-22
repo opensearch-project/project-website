@@ -1,7 +1,6 @@
 ---
 name: Osinachi Chukwujama
 short_name: Osi
-photo: "/assets/media/authors/vicradon.png"
 twitter: vicradon
 github: vicradon
 ---
