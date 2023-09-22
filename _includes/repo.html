@@ -1,8 +1,0 @@
-{% capture categories %}{%for category in include.repo.categories %}repo-category-{{category}} {%endfor%}{%endcapture%}
-<dt class="{{categories}}"><a href="{{include.repo.url}}"><span class="icon icon-github"></span> {{include.repo.title}}</a></dt>
-<dd class="{{categories}}">
-    <p>{{include.repo.description}} </p>
-    {% for special_file in include.repo.special_files %}
-        <a class="link-readmore" href="{{ special_file.url }}">{{ special_file.title }}</a>
-    {% endfor %}
-</dd>

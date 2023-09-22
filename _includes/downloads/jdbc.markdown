@@ -1,1 +1,0 @@
-The Java Database Connectivity (JDBC) driver is a read-only driver for connecting business intelligence and data visualization applications with OpenSearch using SQL.

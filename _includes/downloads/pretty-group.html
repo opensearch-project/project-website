@@ -1,7 +1,0 @@
-{% if page.pretty[include.group][include.key] %}
-  {{ page.pretty[include.group][include.key] }}
-{% elsif layout.pretty[include.group][include.key] %}
-  {{ layout.pretty[include.group][include.key] }}
-{% else %}
-  {{ include.key }}
-{% endif %}

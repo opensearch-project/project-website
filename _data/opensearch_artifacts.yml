@@ -1,9 +1,0 @@
-opensearch:
-  sig: https://artifacts.opensearch.org/releases/bundle/opensearch/1.0.0-rc1/opensearch-1.0.0-rc1-linux-x64.tar.gz.sig
-  linux_x64: 'https://artifacts.opensearch.org/releases/bundle/opensearch/1.0.0-rc1/opensearch-1.0.0-rc1-linux-x64.tar.gz'
-  docker: 'https://hub.docker.com/r/opensearchproject/opensearch'
-
-opensearch_dashboards:
-  sig: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/1.0.0-rc1/opensearch-dashboards-1.0.0-rc1-linux-x64.tar.gz.sig
-  linux_x64: 'https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/1.0.0-rc1/opensearch-dashboards-1.0.0-rc1-linux-x64.tar.gz'
-  docker: 'https://hub.docker.com/r/opensearchproject/opensearch-dashboards'

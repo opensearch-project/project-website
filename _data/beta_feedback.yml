@@ -1,6 +1,0 @@
-feedback:
-  head: 'Found a bug?'
-  description: Report any unexpected behaviours or bugs on the OpenSearch GitHub repo. The team will make sure your issue gets the attention of the right folks.
-  link:
-    url: https://github.com/opensearch-project/OpenSearch/issues/new?assignees=&labels=bug%2C+untriaged%2C+Beta&template=bug_template.md&title=%5BBUG%5D
-    title: Report a bug

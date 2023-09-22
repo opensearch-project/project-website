@@ -1,1 +1,0 @@
-The Open Database Connectivity (ODBC) driver is a read-only ODBC driver for Windows and macOS that lets you connect business intelligence (BI) and data visualization applications like Tableau, Microsoft Excel, and Power BI to the SQL plugin.
