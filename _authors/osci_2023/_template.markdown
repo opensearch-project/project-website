@@ -1,8 +1,8 @@
 ---
-name: <Name Here>
+name: Sowresh Mecheri-Senthil
 short_name:
 twitter: <twitter handle without the @>
-github: <github alias>
+github: SowrehMS
 ---
 
-**<Name>** <Something about you!>
+**<Name>** I am an aspiring AI developer!
