@@ -93,18 +93,19 @@ layout: default
                             {% endcomment %}
                             {%- assign category = post.category | first | default: "search" -%}
                         {%- endunless -%}
-                        {% assign post_icon = site.post_category_icons | where: "category", category %}
+                        {% assign post_icon = site.data.post_category_icons.icon_map | where: "category", category %}
                         {% if post_icon %}
                             {% assign post_icon = post_icon | first %}
+                            {% assign icon_name = post_icon.icon %}
                         {% else %}
-                            {% assign post_icon = "search-magnifying-glass" %}
+                            {% assign icon_name = "search-magnifying-glass" %}
                         {% endif %}
                         {% assign post_date = post.date | date: "%a, %b %d, %Y" %}
                         {% include tall-card-no-image.html 
                             category=category
                             title=post.title
                             url=post.url
-                            icon=post_icon
+                            icon=icon_name
                             date=post_date
                         %}
                     {%- endfor -%}
@@ -118,4 +119,4 @@ layout: default
         </div>
     </div>
 </main>
-{% include interactive-states.html container_selector=".resource-grid--more" element_classname=".link-button" %}
+{% include interactive-states.html container_selector=".resource-grid--more" element_classname="link-button" %}
