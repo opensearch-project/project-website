@@ -339,7 +339,7 @@ POST my_index/_search?search_pipeline=norm-pipeline
 
 For more details and examples of hybrid search, see [Hybrid query](https://opensearch.org/docs/latest/query-dsl/compound/hybrid/).
 
-## Conclusion
+## Conclusions
 
 In this blog, we have included series of experiments that show that hybrid search produces results that are very close to theoretical expectations and in most cases are better than the results of individual queries alone. Hybrid search comes with a certain increase in latency, which will be addressed in future versions (you can track the progress of this enhancement in [this Github issue](https://github.com/opensearch-project/neural-search/issues/279)).
 
