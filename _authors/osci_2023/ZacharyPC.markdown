@@ -5,4 +5,4 @@ twitter: @realzacfowler
 github: RealZacharyFowler
 ---
 
-**Zachary Fowler** I love MERN and Anime and Lifting. 
+**Zachary Fowler** I love MERN and Anime and Lifting and Running. 
