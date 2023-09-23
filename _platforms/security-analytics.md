@@ -9,7 +9,7 @@ feature_area_category_name: Security Analytics
 has_hero: true
 key_benefits_list:
   - name: 'Defend systems and data'
-    description: 'Protect organizational systems and sensitive data from malicious activity, including insider threats.'
+    description: 'Help protect organizational systems and sensitive data from malicious activity, including insider threats.'
   - name: 'Comprehensive visibility'
     description: 'Collect security event data from a wide variety of log sources to generate critical insights.'
   - name: 'Flexible Toolkit'
@@ -34,5 +34,5 @@ permalink: '/platform/security-analytics/index.html'
 
 The ever-increasing number of online, interconnected systems creates a large attack surface that is challenging to defend against malicious actors. Organizations that take a proactive approach to protecting their data and infrastructure can mitigate the legal, financial, and reputational risks posed by security threats.
 
-OpenSearch offers out-of-the-box Security Analytics to help you detect, investigate, and respond to threats in real time. With Security Analytics, the security log data from your critical infrastructure can provide insight into potential risks to your systems, users, confidential data, and applications. Built-in functionality like customizable detection rules, integrated dashboards, and a robust correlation engine gives your security teams a powerful, flexible toolkit for mitigating those risks quickly and decisively.
+OpenSearch offers out-of-the-box Security Analytics to help you detect, investigate, and respond to threats in real time. With Security Analytics, the security log data from your critical infrastructure can provide insight into potential risks to your systems, users, confidential data, and applications. Built-in functionality like customizable detection rules, integrated dashboards, and a robust correlation engine gives your security teams a powerful, lexible toolkit to investigate potential threats and take necessary mitigation steps.
 

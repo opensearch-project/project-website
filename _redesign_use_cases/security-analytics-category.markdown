@@ -23,11 +23,11 @@ button_stack:
   <tbody>
     <tr>
         <td>Event correlation</td>
-        <td>Use correlation rules to identify and investigate potential issues across multiple systems.</td>
+        <td>Use correlation rules to help identify and investigate potential issues across multiple systems.</td>
     </tr>
     <tr>
       <td>Analyze custom logs:</td>
-      <td>Create customized detection rules to analyze data from custom log types.</td>
+      <td>Create customized detection rules to help analyze data from custom log types.</td>
     </tr>
     <tr>
       <td>Real-time detection:</td>
