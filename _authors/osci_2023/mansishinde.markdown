@@ -4,5 +4,3 @@ short_name: mansi
 email: mshinde@purdue.edu
 github: MansiShinde
 ---
-
-
