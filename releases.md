@@ -23,7 +23,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 |:--------------|:-----------------|:---------------|:---------------|
 | 2.10.0        | September 07th   | September 25th |
 | 1.3.13        | September 14th   | September 21st |
-| 2.11.0        | November 9th       | November 16th |
+| 2.11.0        | October 4th      | October 18th   |
 | 1.3.14        | December 5th     | December 12th  |
 | 2.12.0        | January 9th, 2024    | January 23rd, 2024  |
 
@@ -101,5 +101,6 @@ The software maintainers will not back-port fixes or features to versions outsid
 | September 5th, 2023 | Updated 2.10 date  |  Original release date was too close to US Labor Day Holiday |
 | September 6th, 2023 | Updated 2.10 date  |  8 hour github outage last night - moving to accomodate a few final fixes |
 | September 11th, 2023 | Link to RELEASING.md  |  updated link from proposal to releasing documentation |
+| September 29th, 2023 | Updated 2.11 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/3955) |
 
 <br>
