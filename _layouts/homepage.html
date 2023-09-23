@@ -26,7 +26,8 @@ layout: default
                 </div>
             </div>
         </div>
-        {% include callout-cards.html heading="Subheader to Introduce Platform/Solutions Categories" callouts=page.callouts cta_label="Learn About the Platform" cta_url="/platform/index.html" %}
+        {% include callout-cards.html heading="Build on a flexible foundation with open-source tools" callouts=page.callouts cta_label="Learn About the Platform" cta_url="/platform/index.html" %}
+        {% include interactive-states.html container_selector=".solutions-card-grid--call-to-action" element_classname="link-button" %}
         <div class="platform-landing-page--community-voices-wrapper">
             {% include community_voices_carousel.html %}
         </div>
@@ -48,20 +49,15 @@ layout: default
                     {% assign first_post_author_twitter = "OpenSearchProj" %}
                 {% endif %}
                 <div class="landing-page-solutions--hero-3up--hero--image">
-                    {% if first_post_featured_image %}
-                        <img src="{{ first_post.featured_image }}" 
-                            alt="Featured Image for {{ first_post.title }}"
-                        >
-                    {% else %}
-                        {% include icons.html type="missing-image" %}
-                    {% endif %}
+                    <img src="/assets/img/blog-hero-placeholder.png" 
+                            alt="Featured Image for {{ first_post.title }}">
                 </div>
                 <div class="landing-page-solutions--hero-3up--hero--preview">
                     <div class="landing-page-solutions--hero-3up--hero--preview--category">
                         {{ first_post.categories | first }}
                     </div>
                     <div class="landing-page-solutions--hero-3up--hero--preview--title">
-                        <h3>{{ first_post.title }}</h3>
+                        <h3><a href="first_post.url">{{ first_post.title }}</a></h3>
                     </div>
                     <div class="landing-page-solutions--hero-3up--hero--preview--excerpt">
                         {{ first_post.excerpt }}
