@@ -3,18 +3,19 @@ layout: homepage
 callouts:
   - name: Search
     icon: search-magnifying-glass
-    description: 'Build smarter, more efficient search solutions for your applications'
+    description: 'Build search solutions that evolve with your data'
   - name: Observability
     icon: observability
-    description: 'Identify and resolve issues across your applications and infrastructure'
+    description: 'Identify and expose issues across applications and infrastructure'
   - name: Security Analytics
     icon: security-shield
-    description: 'Detect and respond to security threats in real time'
+    description: 'Detect and reveal security threats in real time'
 button_stack:
   - download
   - project
 ---
 
-# H1 Header for SEO Optimization etc
+# Find the truth within your data
 
-Lorem ipsum dolor sit amet consectetur. Vitae et praesent sed consequat aliquet. Nisi condimentum turpis tortor est bibendum adipiscing. Imperdiet id accumsan adipiscing eu venenatis.
+OpenSearch is the flexible, scalable, open-source way to build solutions for data-intensive applications. Explore, enrich, and visualize your data with built-in performance, developer-friendly tools, and powerful integrations for machine learning, data processing, and more.
+
