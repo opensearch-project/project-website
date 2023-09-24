@@ -55,17 +55,6 @@ $platform-header-reduce-padding-width: 1199px;
 
 .platform-page--header {
     @include page-element-padding;
-    // @media screen and (min-width: $platform-header-wide-screen-width) {
-    //     padding-top: 40px;
-    //     padding-left: 80px;
-    //     padding-bottom: 40px;
-    // }
-    // @media screen and (max-width: $platform-header-reduce-padding-width) {
-    //     padding-top: 20px;
-    //     padding-left: 20px;
-    //     padding-bottom: 20px;
-    //     padding-right: 20px;
-    // }
     background-color: white;
     .platform-page--feature-area {
         display: flex;
@@ -127,7 +116,8 @@ $platform-header-reduce-padding-width: 1199px;
         .platform-page--feature-area--category-name-separator {
             margin-left: 1em;
         }
-        .platform-page--feature-area--platform-name__mobile {
+        .platform-page--feature-area--platform-name__mobile,
+        .platform-page--feature-area--category-name__mobile {
             display: none;
             margin-left: 0;
             white-space: nowrap;
@@ -169,9 +159,35 @@ $platform-header-reduce-padding-width: 1199px;
                 }
             }
         }
+        &.platform-page--feature-area__conference-page {
+            > .platform-page--feature-area--platform-name {
+                display: none;
+            }
+            > .platform-page--feature-area--category-name-separator {
+                display: none;
+            }
+            > .platform-page--feature-area--category-name__mobile {
+                display: none;
+                @media screen and (max–width: 460px) {
+                    display: block;
+                }
+            }
+            @media screen and (max–width: 460px) {
+                > .platform-page--feature-area--icon,
+                > .platform-page--feature-area--platform-name,
+                > .platform-page--feature-area--category-name-separator,
+                > .platform-page--feature-area--category-name,
+                > .platform-page--feature-area--platform-name__mobile {
+                    display: none;
+                }
+            }
+        }
     }
     .platform-page--title {
-        padding-left: 10px;
+        padding-left: 0;
+        > h1 {
+            margin-top: 21px;
+        }
         @media screen and (max-width: 460px) {
             padding-left: 0;
             > h1 {

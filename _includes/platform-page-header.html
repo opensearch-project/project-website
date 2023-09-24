@@ -1,10 +1,15 @@
 {% assign icon_type = include.icon %}
 {% assign category_name = include.category %}
 {% assign solution_name = include.solution %}
+
 {% if category_name and solution_name %}
     {% assign breadcrumb_class = "platform-page--feature-area__solution-page" %}
 {% elsif category_name %}
-    {% assign breadcrumb_class = "platform-page--feature-area__category-page" %}
+    {% if category_name == "OpenSearchCon 2023" %}
+        {% assign breadcrumb_class = "platform-page--feature-area__conference-page" %}
+    {% else %}
+        {% assign breadcrumb_class = "platform-page--feature-area__category-page" %}
+    {% endif %}
 {% else %}
     {% assign breadcrumb_class = "platform-page--feature-area__platform-page" %}
 {% endif %}
@@ -23,6 +28,7 @@
             {% assign category_url_path = category_name | downcase | replace: ' ', '-' %}
             <div class="platform-page--feature-area--category-name-separator">&gt;</div>
             <div class="platform-page--feature-area--category-name"><a href="/platform/{{ category_url_path }}/index.html">{{category_name}}</a></div>
+            <div class="platform-page--feature-area--category-name platform-page--feature-area--category-name__mobile">&lt;&nbsp;<a href="/platform/{{ category_url_path }}/index.html">{{category_name}}</a></div>
         {% endif %}
         {% if solution_name %}
             <div class="platform-page--feature-area--category-name-separator">&gt;</div>

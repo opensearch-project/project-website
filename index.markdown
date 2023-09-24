@@ -4,12 +4,15 @@ callouts:
   - name: Search
     icon: search-magnifying-glass
     description: 'Build search solutions that evolve with your data'
+    url: '/platform/search/index.html'
   - name: Observability
     icon: observability
     description: 'Identify and expose issues across applications and infrastructure'
+    url: '/platform/observability/index.html'
   - name: Security Analytics
     icon: security-shield
     description: 'Detect and reveal security threats in real time'
+    url: '/platform/security-analytics/index.html'
 button_stack:
   - download
   - project
