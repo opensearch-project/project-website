@@ -6,12 +6,15 @@ callouts:
   - name: Search
     icon: search
     description: Build smarter, more efficient search solutions for your application.
+    url: '/platform/search/index.html'
   - name: Observability
     icon: observability
     description: Identify and resolve issues across your applications and infrastructure.
+    url: '/platform/observability/index.html'
   - name: Security Analytics
     icon: security
     description: Detect and respond to security threats in real time.
+    url: '/platform/security-analytics/index.html'
 include_community_voices: true
 platform_products:
   collection_title: The OpenSearch Toolbox

@@ -18,6 +18,7 @@ layout: default
         </div>
         {%- if page.callouts -%}
             {% include callout-cards.html callouts=page.callouts %}
+            {% include card-clickability.html card_container_selector=".solutions-card-grid > .solutions-card-grid--card-wrapper" card_classname="solutions-card-grid--card-wrapper--card" %}
         {%- endif -%}
         {%- if page.include_community_voices -%}
             <div class="platform-landing-page--community-voices-wrapper">
