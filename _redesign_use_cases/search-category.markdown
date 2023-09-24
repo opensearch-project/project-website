@@ -4,7 +4,7 @@ title: Use Cases
 feature_area_category_name: Search
 feature_area_solution_name: ''
 how_to_get_started:
-  - 'To learn more about OpenSearch search tools and start building your next search application, visit the <a href="https://opensearch.org/docs/latest/search-plugins/index/">search</a> page in our documentation.'
+  - 'To learn more about OpenSearch search tools and start building your next search application, visit the <a href="https://opensearch.org/docs/latest/search-plugins/index/" target="_blank">search</a> page in our documentation.'
 button_stack:
   - download
   - project
