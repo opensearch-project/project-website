@@ -27,6 +27,7 @@ layout: default
             </div>
         </div>
         {% include callout-cards.html heading="Build on a flexible foundation with open-source tools" callouts=page.callouts cta_label="Learn About the Platform" cta_url="/platform/index.html" %}
+        {% include card-clickability.html card_container_selector=".homepage-wrapper > .solutions-card-grid > .solutions-card-grid--card-wrapper" card_classname="solutions-card-grid--card-wrapper--card" %}
         {% include interactive-states.html container_selector=".solutions-card-grid--call-to-action" element_classname="link-button" %}
         <div class="platform-landing-page--community-voices-wrapper">
             {% include community_voices_carousel.html %}
@@ -116,3 +117,4 @@ layout: default
     </div>
 </main>
 {% include interactive-states.html container_selector=".resource-grid--more" element_classname="link-button" %}
+{% include card-clickability.html card_container_selector=".landing-page-solutions--hero-3up .tall-card__no-image--grid" card_classname="tall-card__no-image--grid--card" %}

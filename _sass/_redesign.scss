@@ -285,8 +285,6 @@ $header-banner-mobile-breakpoint: 1018px;
 .homepage-wrapper {
     width: 100%;
     padding: 0;
-
-
     > .landing-page-hero__left-header {
         display: flex;
         flex-direction: row;
@@ -844,6 +842,7 @@ $header-banner-mobile-breakpoint: 1018px;
         }
     }
     > .solutions-card-grid {
+        @include page-element-padding;
         > .solutions-card-grid--card-wrapper {
             > .solutions-card-grid--card-wrapper--card {
                 min-height: 280px;
@@ -1252,8 +1251,34 @@ $header-banner-mobile-breakpoint: 1018px;
             background: #FFF;
             @include card-shadow;
             @include thick-edge-left;
-            padding: 15px;
+            padding: 0 15px 15px;
             margin-bottom: 2em;
+            // NOTE: The :has() selector is not supported in Firefox without being specifically
+            // enabled by the user. So, be advised that there is a brute force JavaScript function
+            // in _includes/card-clickability.html that will add the style explicitly if not set via CSS.
+            &:has(a[href]) {
+                cursor: pointer;
+            }
+            &:hover {
+                .solutions-card-grid--card-wrapper--card--content {
+                    a {
+                        border-bottom: 2px solid $primary-pacific-blue;
+                        color: $primary-open-sky;
+                    }
+                }
+            }
+            &:has(a:focus) {
+                box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+            }
+            &:has(a:active) {
+                box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+            }
+            &.solutions-card-grid--card-wrapper--card__focused {
+                box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+            }
+            &.solutions-card-grid--card-wrapper--card__active {
+                box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+            }
             &.tall-card__no-image--grid--card {
                 border-left: unset;
                 @include thick-edge-bottom;
@@ -1261,6 +1286,7 @@ $header-banner-mobile-breakpoint: 1018px;
                 min-height: 245px;
                 min-width: 280px;
                 box-sizing: border-box;
+                padding-top: 15px;
                 padding-left: 20px;
                 padding-right: 10px;
                 position: relative;
@@ -1380,6 +1406,10 @@ $header-banner-mobile-breakpoint: 1018px;
             }
             > .solutions-card-grid--card-wrapper--card--content {
                 @include header-level2($primary-open-sky);
+                > a {
+                    @include header-level2($primary-open-sky);
+                    text-decoration: none;
+                }
             }
         }
     }
