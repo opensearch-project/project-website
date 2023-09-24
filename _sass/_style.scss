@@ -38,18 +38,14 @@ body {
     }
 }
 a {
-    color: $text-link-alternate-darker;
+    color: $primary-pacific-blue;
     text-decoration: underline;
     -webkit-tap-highlight-color: transparent;
-
-    &:visited {
-        color: $text-visited;
-    }
-
-    &:active,
-    &:focus,
     &:hover {
-        color: $text-hover;
+        color: $primary-open-sky;
+    }
+    &:visited {
+        color: $primary-pacific-blue-s2;
     }
 }
 

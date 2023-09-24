@@ -15,14 +15,14 @@
                 {% include icons.html type=icon_type %}
             </div>
         {% endif %}
+        <div class="platform-page--feature-area--platform-name platform-page--feature-area--platform-name__mobile">&lt;&nbsp;<a href="/platform/index.html">The OpenSearch Platform</a></div>
         <div class="platform-page--feature-area--platform-name">
             <a href="/platform/index.html">The OpenSearch Platform</a>
         </div>
         {% if category_name %}
             {% assign category_url_path = category_name | downcase | replace: ' ', '-' %}
             <div class="platform-page--feature-area--category-name-separator">&gt;</div>
-            <div class="platform-page--feature-area--category-name__mobile">&lt;&nbsp;<a href="/platform/{{ category_url_path }}/{{ category_url_path }}.html">{{category_name}}</a></div>
-            <div class="platform-page--feature-area--category-name"><a href="/platform/{{ category_url_path }}/{{ category_url_path }}.html">{{category_name}}</a></div>
+            <div class="platform-page--feature-area--category-name"><a href="/platform/{{ category_url_path }}/index.html">{{category_name}}</a></div>
         {% endif %}
         {% if solution_name %}
             <div class="platform-page--feature-area--category-name-separator">&gt;</div>
