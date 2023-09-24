@@ -477,10 +477,8 @@ $header-banner-min-width: 1019px;
     }
 
     .menu-button {
-        @include font-size(20);
-        background: $accent-dark;
-        border-radius: 23px;
-        color: $background-lightest;
+        font-size: 35px;
+        color: $primary-deep-blue-sea-t1;
         cursor: pointer;
         display: block;
         float: right;
@@ -493,6 +491,12 @@ $header-banner-min-width: 1019px;
         > i {
             position: relative;
             top: -1px;
+            &:nth-of-type(1) {
+                display: inline-block;
+            }
+            &:nth-of-type(2) {
+                display: none;
+            }
         }
         @include respond-min($header-banner-min-width) {
             display: none;
@@ -507,7 +511,14 @@ $header-banner-min-width: 1019px;
         }
 
         &.active {
-            opacity: 0.5;
+            > i {
+                &:nth-of-type(1) {
+                    display: none;
+                }
+                &:nth-of-type(2) {
+                    display: inline-block;
+                }
+            }
         }
     }
 
@@ -576,7 +587,6 @@ $header-banner-min-width: 1019px;
         a {
             color: $background-lightest;
             display: block;
-            padding: 20px 0px;
             text-decoration: none;
         }
 
