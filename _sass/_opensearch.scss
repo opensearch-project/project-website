@@ -58,7 +58,7 @@ $max-container: 1440px;
         display: inline;
         @include header-level6($primary-open-sky-s3);
     }
-    .nested-nav > li > a.in-category {
+    .nested-nav a.in-category {
         @include bottom-border-underline($primary-open-sky-s3);
     }
 }
