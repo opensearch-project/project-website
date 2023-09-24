@@ -90,9 +90,6 @@ items:
         label: Security Analytics
         url: /platform/security-analytics/index.html
       -
-        label: Vector Database
-        url: /platform/search/vector-database.html
-      -
         label: Live Demo
         url: https://playground.opensearch.org/
       -
