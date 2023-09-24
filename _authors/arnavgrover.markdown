@@ -1,7 +1,6 @@
 ---
 name: Arnav Grover
 short_name:
-twitter: 
 github: Arnav-Gr0ver
 ---
 
