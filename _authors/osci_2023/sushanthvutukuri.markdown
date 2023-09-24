@@ -1,6 +1,6 @@
 ---
 name: Sushanth Kumar Vutukuri
-short_name:Sushi
+short_name: Sushi
 twitter: NA
 github: sushanthvutukuri
 ---
