@@ -3,10 +3,9 @@ name: T Vishnuvardhan Reddy
 short_name: Vishnu
 twitter: iamvishnuv7
 github: vishnu2411
-
 ---
-Hey there! I'm T Vishnuvardhan Reddy, a passionate software developer with a love for open-source development.
-I'm a versatile developer with expertise in a wide range of technologies:
+
+**T Vishnuvardhan Reddy** is a passionate software developer with a love for open-source development and is a versatile developer with expertise in a wide range of technologies as follows:
 Frontend: React.js, JavaScript, TypeScript
 Backend: Spring Boot, Java
 Scripting: Python
