@@ -80,7 +80,12 @@ items:
   -
     label: Platform
     url: /platform/index.html
-    fragment: platform
+    fragments: 
+      - platform
+      - search
+      - observability
+      - security-analytics
+      - benchmarks
     children:
       - label: Search
         url: /platform/search/index.html
