@@ -1,8 +1,7 @@
 ---
-name: <Name Here>
-short_name:
-twitter: <twitter handle without the @>
-github: <github alias>
+name: Aniruddh Srivastava
+short_name: Ani
+github: Noir01
 ---
 
-**<Name>** <Something about you!>
+**Aniruddh** enjoys scuba diving. 
