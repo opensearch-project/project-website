@@ -355,6 +355,56 @@
     }
 }
 
+@mixin focused-hero-call-to-action-button($fill-color, $border-color) {
+    border: 3px solid $border-color;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@mixin hover-hero-call-to-action-button($fill-color, $text-color) {
+    background: $fill-color;
+    border: 1px solid $text-color;
+    a {
+        color: $text-color;
+    }
+}
+@mixin active-call-to-action-button($border-color, $fill-color, $text-color) {
+    background: $fill-color;
+    border: 1px solid $border-color;
+    a {
+        color: $text-color;
+    }
+}
+
+@mixin hero-call-to-action-button($fill-color, $text-color, $focus-border-color) {
+    background: $fill-color;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    height: 60px;
+    padding: 17px 17px 16px 25px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid $text-color;
+    border-radius: 30px;
+    &:has(a:focus) {
+        @include focused-hero-call-to-action-button($fill-color, $focus-border-color);
+    }
+    &:has(a:hover) {
+        @include hover-hero-call-to-action-button($text-color, $fill-color);
+    }
+    &:has(a:active) {
+        @include active-call-to-action-button($focus-border-color, $text-color, $fill-color);
+    }
+    a:hover {
+        background: unset;
+    }
+}
+
 @mixin link-button-dark-mode($fill-color: $primary-open-sky-s2) {
     font-family: 'Open Sans';
     border-radius: 6px;
