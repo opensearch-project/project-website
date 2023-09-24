@@ -1,8 +1,8 @@
 ---
-name: <Name Here>
-short_name:
-twitter: <twitter handle without the @>
-github: <github alias>
+name: Sushanth Kumar Vutukuri
+short_name:Sushi
+twitter: NA
+github: sushanthvutukuri
 ---
 
-**<Name>** <Something about you!>
+**Sushanth Kumar Vutukuri** is a computer science student that is interested in AI and loves plating video games.
