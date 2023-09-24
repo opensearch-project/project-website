@@ -1308,7 +1308,7 @@ $header-banner-mobile-breakpoint: 1018px;
                     @include trim-ellipsis-multiline(3);
                     margin-top: 0;
                     > a {
-                        color: $primary-open-sky-s1;
+                        @include header-level3($primary-open-sky-s1);
                     }
                     a:focus{
                         border-bottom: 2px solid $primary-pacific-blue;
