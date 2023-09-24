@@ -34,16 +34,34 @@ layout: default
         </div>
         <div class="landing-page-solutions--hero-3up">
             <div>
-                <h2>Subheader for News/Blog</h2>
+                <h2>Featured Blog Posts</h2>
             </div>
             <div class="landing-page-solutions--hero-3up--hero">
                 {% assign first_post = site.posts[0] %}
                 {% assign first_post_featured_image = first_post.featured_image %}
                 {% assign first_post_author = site.authors | where: "github", first_post.authors[0] | first %}
-                {% assign first_post_category = first_post.categories | first %}
-                {% unless first_post_category %}
-                    {% assign first_post_category = first_post_category %}
-                {% endunless %}
+                {% if first_post.categories and first_post.categories.first %}
+                    {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
+                    {% assign first_post_category = first_post.categories | first %}
+                {% elsif first_post.categories %}
+                    {% comment %} Sometimes posts have a categories property that is only a single string. {% endcomment %}
+                    {% assign first_post_category = first_post.categories %}
+                {% elsif first_post.category %}
+                    {% comment %} Sometimes posts have a category property, and at this time all 11 of them are arrays. {% endcomment %}
+                    {% assign first_post_category = first_post.category | first %}
+                {% else %}
+                    {% comment %} If no category is defined apply a generic default. {% endcomment %}
+                    {% assign first_post_category = "post" %}
+                {% endif %}
+                {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
+                {% assign first_post_category = first_post_category | replace: "-", " " %}
+                {% assign category_chars = first_post_category | split: "" %}
+                {% assign last_category_char = category_chars | last %}
+                {% if last_category_char == "s" %}
+                    {% assign new_category_length = category_chars | size | minus: 1 %}
+                    {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
+                    {% assign first_post_category = new_category_chars | join: "" %}
+                {% endif %}
                 {% if first_post_author %}
                     {% assign first_post_author_twitter = first_post_author.twitter | default: "OpenSearchProj" %}
                 {% else %}
@@ -78,18 +96,19 @@ layout: default
                 <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
                     {% for i in (0..6) -%}
                         {%- assign post = site.posts[i] -%}
-                        {%- assign category = post.categories | first -%}
-                        {%- unless category -%}
-                            {%  comment  %}
-                                Both "categories" and "category" are observed in the blog posts.
-                                As of 2023-07-14 170 use "categories", and 7 use "category".
-                                5 that use "category" are from 2021, but the other two were written
-                                in June of this year. So, cover the bases.
-                                Also, most of the time they're arrays. Sometimes a single string.
-                                Not yet sure if using | first is going to break on those.
-                            {% endcomment %}
-                            {%- assign category = post.category | first | default: "search" -%}
-                        {%- endunless -%}
+                        {% if post.categories and post.categories.first %}
+                            {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
+                            {% assign category = post.categories | first %}
+                        {% elsif post.categories %}
+                            {% comment %} Sometimes posts have a categories property that is only a single string. {% endcomment %}
+                            {% assign category = post.categories %}
+                        {% elsif post.category %}
+                            {% comment %} Sometimes posts have a category property, and at this time all 11 of them are arrays. {% endcomment %}
+                            {% assign category = post.category | first %}
+                        {% else %}
+                            {% comment %} If no category is defined apply a generic default. {% endcomment %}
+                            {% assign category = "post" %}
+                        {% endif %}
                         {% assign post_icon = site.data.post_category_icons.icon_map | where: "category", category %}
                         {% if post_icon %}
                             {% assign post_icon = post_icon | first %}
@@ -98,7 +117,16 @@ layout: default
                             {% assign icon_name = "search-magnifying-glass" %}
                         {% endif %}
                         {% assign post_date = post.date | date: "%a, %b %d, %Y" %}
-                        {% include tall-card-no-image.html 
+                        {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
+                        {% assign category = category | replace: "-", " " %}
+                        {% assign category_chars = category | split: "" %}
+                        {% assign last_category_char = category_chars | last %}
+                        {% if last_category_char == "s" %}
+                            {% assign new_category_length = category_chars | size | minus: 1 %}
+                            {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
+                            {% assign category = new_category_chars | join: "" %}
+                        {% endif %}
+                        {% include tall-card-no-image.html
                             category=category
                             title=post.title
                             url=post.url
