@@ -54,17 +54,18 @@ $platform-header-wide-screen-width: 1200px;
 $platform-header-reduce-padding-width: 1199px;
 
 .platform-page--header {
-    @media screen and (min-width: $platform-header-wide-screen-width) {
-        padding-top: 40px;
-        padding-left: 80px;
-        padding-bottom: 40px;
-    }
-    @media screen and (max-width: $platform-header-reduce-padding-width) {
-        padding-top: 20px;
-        padding-left: 20px;
-        padding-bottom: 20px;
-        padding-right: 20px;
-    }
+    @include page-element-padding;
+    // @media screen and (min-width: $platform-header-wide-screen-width) {
+    //     padding-top: 40px;
+    //     padding-left: 80px;
+    //     padding-bottom: 40px;
+    // }
+    // @media screen and (max-width: $platform-header-reduce-padding-width) {
+    //     padding-top: 20px;
+    //     padding-left: 20px;
+    //     padding-bottom: 20px;
+    //     padding-right: 20px;
+    // }
     background-color: white;
     .platform-page--feature-area {
         display: flex;
@@ -84,7 +85,6 @@ $platform-header-reduce-padding-width: 1199px;
                 height: 40px;
             }
         }
-
         &.platform-page--feature-area__solution-page {
             .platform-page--feature-area--platform-name {
                 > a {
@@ -107,18 +107,18 @@ $platform-header-reduce-padding-width: 1199px;
         .platform-page--feature-area--platform-name,
         .platform-page--feature-area--category-name,
         .platform-page--feature-area--solution-name,
-        .platform-page--feature-area--category-name-separator,
-        .platform-page--feature-area--category-name__mobile {
+        .platform-page--feature-area--category-name-separator {
             min-width: fit-content;
             @include header-level4($secondary-sanfrancisco-fog-s4);
             > a {
                 @include header-level4($secondary-sanfrancisco-fog-s4);
-            }
-        }
-        .platform-page--feature-area--category-name__mobile {
-            display: block;
-            @media screen and (min-width: 461px) {
-                display: none;
+                text-decoration-color: $primary-pacific-blue;
+                text-decoration-thickness: 2px;
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
             }
         }
         .platform-page--feature-area--platform-name,
@@ -126,8 +126,47 @@ $platform-header-reduce-padding-width: 1199px;
         .platform-page--feature-area--solution-name,
         .platform-page--feature-area--category-name-separator {
             margin-left: 1em;
+        }
+        .platform-page--feature-area--platform-name__mobile {
+            display: none;
+            margin-left: 0;
+            white-space: nowrap;
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: visible;
+        }
+        &.platform-page--feature-area__solution-page {
+            // Solution page shows only the separator and the category name breadcrumb.
+            // Hide the solution name, icon, and hide the platform landing link.
             @media screen and (max-width: 460px) {
-                display: none;
+                > .platform-page--feature-area--icon,
+                > .platform-page--feature-area--platform-name,
+                > .platform-page--feature-area--platform-name__mobile,
+                > .platform-page--feature-area--category-name + .platform-page--feature-area--category-name-separator,
+                > .platform-page--feature-area--solution-name {
+                    display: none;
+                }
+                > .platform-page--feature-area--category-name-separator,
+                > .platform-page--feature-area--category-name {
+                    display: block;
+                    margin-left: 0;
+                }
+            }
+
+        }
+        &.platform-page--feature-area__category-page {
+            // Category page shows only the platform landing page link with a separator.
+            // Hide the icon, category name. Of course there is no solution name here.
+            @media screen and (max-width: 460px) {
+                > .platform-page--feature-area--icon,
+                > .platform-page--feature-area--platform-name,
+                > .platform-page--feature-area--category-name-separator,
+                > .platform-page--feature-area--category-name {
+                    display: none;
+                }
+                > .platform-page--feature-area--platform-name__mobile {
+                    display: block;
+                }
             }
         }
     }

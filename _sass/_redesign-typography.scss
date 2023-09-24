@@ -86,6 +86,12 @@
         font-style: normal;
         font-weight: 400;
         text-underline-offset: 6px;
+        &:hover {
+            color: $primary-open-sky;
+        }
+        &:visited {
+            color: $primary-pacific-blue-s2;
+        }
     }
 }
 
@@ -157,6 +163,12 @@
         color: $primary-pacific-blue;
         font-family: 'Open Sans';
         text-underline-offset: 6px;
+        &:hover { 
+            color: $primary-open-sky;
+        }
+        &:visited {
+            color: $primary-pacific-blue-s2;
+        }
     }
 }
 
