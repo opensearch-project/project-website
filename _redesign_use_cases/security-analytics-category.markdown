@@ -3,7 +3,7 @@ layout: redesign-use-case
 title: Use Cases
 feature_area_category_name: Security Analytics
 how_to_get_started:
-  - 'To learn more about OpenSearch Security Analytics and start exploring your event logs, visit <a href="https://opensearch.org/docs/latest/security-analytics/index/">About Security Analytics</a> and <a href="https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/index/">Setting up Security Analytics</a> in our documentation.'
+  - 'To learn more about OpenSearch Security Analytics and start exploring your event logs, visit <a href="https://opensearch.org/docs/latest/security-analytics/index/" target="_blank">About Security Analytics</a> and <a href="https://opensearch.org/docs/latest/security-analytics/sec-analytics-config/index/" target="_blank">Setting up Security Analytics</a> in our documentation.'
 button_stack:
   - download
   - project

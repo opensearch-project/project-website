@@ -4,7 +4,7 @@ title: Use Cases
 feature_area_category_name: Observability
 feature_area_solution_name: ''
 how_to_get_started:
-  - 'To learn more about OpenSearch observability tools and start gaining actionable insights, visit <a href="https://opensearch.org/docs/latest/observing-your-data/index/">Observability</a> and <a href="https://opensearch.org/docs/latest/observing-your-data/ss4o/">Simple Schema for Observability</a> in our documentation.'
+  - 'To learn more about OpenSearch observability tools and start gaining actionable insights, visit <a href="https://opensearch.org/docs/latest/observing-your-data/index/" target="_blank">Observability</a> and <a href="https://opensearch.org/docs/latest/observing-your-data/ss4o/" target="_blank">Simple Schema for Observability</a> in our documentation.'
 button_stack:
   - download
   - project
