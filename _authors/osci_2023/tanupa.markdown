@@ -1,7 +1,6 @@
 ---
 name: tanupa 
-short_name: 
-twitter: <twitter handle without the @>
+short_name: tanupa
 github: tanupa 
 ---
 
