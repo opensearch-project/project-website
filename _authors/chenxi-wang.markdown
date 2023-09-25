@@ -1,7 +1,7 @@
 ---
-name: <Chenxi Wang>
+name: Chenxi Wang
 short_name:
-github: <wang-chenxi>
+github: wang-chenxi
 ---
 
-**<Chenxi Wang>** <Hello world!>
+**Chenxi Wang** Hello world!
