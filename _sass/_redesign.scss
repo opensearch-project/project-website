@@ -545,9 +545,6 @@ $header-banner-mobile-breakpoint: 1018px;
                         &.landing-page-hero--images--image__desktop {
                             display: block;
                             @include gradient-golden-sunrise;
-                            // &:nth-of-type(2) {
-                            //     @include gradient-purple-mint;
-                            // }
                         }
                         &.landing-page-hero--images--image__mobile {
                             display: none;

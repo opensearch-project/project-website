@@ -8,6 +8,7 @@ feature_area_icon_type: observability
 feature_area_category_name: Observability
 feature_area_solution_name: ''
 has_hero: true
+overview_header_text: 'Detect, identify, and resolve operational issues across your applications and infrastructure'
 key_benefits_list:
   - name: Resolve issues quickly
     description: 'Shorten the time needed to resolve production issues that can impact the customer experience.'
@@ -33,8 +34,13 @@ key_features_list:
   - name: Anomaly detection
     description: 'Detect anomalies and analyze streaming data with rich transformation and aggregation.'
 permalink: '/platform/observability/index.html'
+hero_images:
+  mobile: 
+    path: '/assets/media/platform/mobile-platform-hero-observability.png'
+    alt: 'OpenSearch platform for observability applications hero banner.'
+  desktop: 
+    path: '/assets/media/platform/platform-hero-observability.png'
+    alt: 'OpenSearch platform for observability applications hero banner.'
 ---
-
-## Detect, identify, and resolve operational issues across your applications and infrastructure
 
 OpenSearch offers developers, IT administrators, site reliability engineers, and DevOps teams a comprehensive open-source observability solution that is cost conscious and highly scalable. You can use OpenSearch observability tools to detect, diagnose, and remedy issues that affect the performance, scalability, or availability of your software or infrastructure. A common open-standards-based schema coupled with a Piped Processing Language (PPL) optimized for observability use cases simplifies correlation and analysis of logs, metrics, and trace telemetry to support fast time to resolution and a better experience for your end users.

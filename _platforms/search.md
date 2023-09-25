@@ -8,6 +8,7 @@ feature_area_icon_type: search-magnifying-glass
 feature_area_category_name: Search
 feature_area_solution_name: ''
 has_hero: true
+overview_header_text: 'Build high-performance, customizable search solutions for document collections, e-commerce, and applications'
 key_benefits_list:
   - name: 'Durable high performance'
     description: 'Search massive document collections or data stores without sacrificing performance or durability.'
@@ -27,9 +28,14 @@ key_features_list:
   - name: 'Extensibility'
     description: 'Combine rich built-in functionality with access to a broad range of open solutions that allow you to build the right solution for your search needs.'
 permalink: '/platform/search/index.html'
+hero_images:
+  mobile: 
+    path: '/assets/media/platform/mobile-platform-hero-search.png'
+    alt: 'OpenSearch platform for search applications hero banner.'
+  desktop: 
+    path: '/assets/media/platform/platform-hero-search.png'
+    alt: 'OpenSearch platform for search applications hero banner.'
 ---
-
-## Build high-performance, customizable search solutions for document collections, e-commerce, and applications
 
 Search is a core component of many business-critical systems. For any search use case, relevance is key—some search results are better than others, and a variety of processes can be applied to determine which results should rise to the top. OpenSearch gives you a vast array of built-in functionality and integrated tools so you can tune your processes to your data and maximize the relevance and value of your search results.
 
