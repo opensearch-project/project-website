@@ -1,8 +1,8 @@
 ---
-name: Chuyue Zhang
-short_name: Chuyue 
+name: <Name Here>
+short_name:
 twitter: <twitter handle without the @>
-github: https://github.com/th3ch3wy/
+github: <github alias>
 ---
 
-**<Name>** <I like cats>
+**<Name>** <Something about you!>
