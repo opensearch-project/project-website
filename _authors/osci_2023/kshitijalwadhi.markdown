@@ -5,4 +5,4 @@ linkedin: kshitijalwadhi
 github: kshitijalwadhi
 ---
 
-**<Kshitij Alwadhi>** <First year MSCS grad at Purdue University>
+**Kshitij Alwadhi** First year MSCS grad at Purdue University
