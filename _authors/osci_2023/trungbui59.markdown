@@ -1,6 +1,6 @@
 ---
 name: Trung Bui
-short_name:
+short_name: Trung
 twitter: I dont use twitter, so here is my discord handler **snake_case_tb**
 github: TrungBui59
 ---
