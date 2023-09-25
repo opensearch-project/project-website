@@ -1,8 +1,6 @@
 ---
-name: Vedang Joshi
-short_name:
-twitter: 
+name: Vedang Joshi 
 github: VJoshi380
 ---
 
-**Vedang Joshi** I love security through obsucrity :O
+**Vedang Joshi** I love security through obsscurity :O
