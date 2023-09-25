@@ -4,6 +4,7 @@ title:  Improve search relevance with hybrid search, generally available in Open
 authors:
   - gaievski
   - navneev
+  - vamshin
   - kolchfa
 date: 2023-09-21
 categories:
@@ -362,7 +363,7 @@ We have identified several areas of improvement for hybrid search, and we’re p
 
 * Executing individual queries in parallel.
 * Adding more configuration options and parameters to the normalization processor to allow more control over combined results. For instance, we can add the ability to specify a minimal score for documents to be returned in the results, which will avoid returning non-competitive hits. 
-* Supporting results pagination
+* Supporting results pagination.
 * Supporting filters in the hybrid query clause. It’s possible to define a filter for each inner query individually, but it’s not optimal if a filter condition is the same for all inner queries.
 * Adding more benchmark results for larger datasets so we can provide recommendations for using hybrid search in various configurations. 
 
