@@ -1,7 +1,6 @@
 ---
 name: Hitensh Kharva
 short_name: Hit
-photo: 'assets\media\authors\hitenshkharva.jpeg'
 github: hitenshkharva
 ---
 
