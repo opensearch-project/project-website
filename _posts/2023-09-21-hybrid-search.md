@@ -359,12 +359,14 @@ In general, as our experiments demonstrated, hybrid search produces results that
 
 ## Next steps
 
-We have identified several areas of improvement for hybrid search, and we’re planning to work on them for the future OpenSearch releases. In the short term, a good starting point is to improve performance by running individual queries of the main hybrid query in parallel instead of sequentially. This should significantly improve latency, especially when all inner queries have similar running times. We are considering the following improvements for the future releases:
+We have identified several areas of improvement for hybrid search, and we’re planning to work on them for the future OpenSearch releases. In the short term, a good starting point is to improve performance by running individual queries of the main hybrid query in parallel instead of sequentially. This should significantly improve latency, especially when all inner queries have similar running times. 
 
-* Executing individual queries in parallel.
-* Adding more configuration options and parameters to the normalization processor to allow more control over combined results. For instance, we can add the ability to specify a minimal score for documents to be returned in the results, which will avoid returning non-competitive hits. 
-* Supporting results pagination.
-* Supporting filters in the hybrid query clause. It’s possible to define a filter for each inner query individually, but it’s not optimal if a filter condition is the same for all inner queries.
+We are considering the following improvements for the future releases:
+
+* Executing individual queries in parallel (see [issue #279](https://github.com/opensearch-project/neural-search/issues/279) and [issue #281](https://github.com/opensearch-project/neural-search/issues/281)).
+* Adding more configuration options and parameters to the normalization processor to allow more control over combined results. For instance, we can add the ability to specify a minimal score for documents to be returned in the results, which will avoid returning non-competitive hits (see [issue #299](https://github.com/opensearch-project/neural-search/issues/299)). 
+* Supporting results pagination (see [issue #280](https://github.com/opensearch-project/neural-search/issues/280)).
+* Supporting filters in the hybrid query clause (see [issue #282](https://github.com/opensearch-project/neural-search/issues/281)). It’s possible to define a filter for each inner query individually, but it’s not optimal if a filter condition is the same for all inner queries.
 * Adding more benchmark results for larger datasets so we can provide recommendations for using hybrid search in various configurations. 
 
 ## Dataset statistics
