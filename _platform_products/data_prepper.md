@@ -1,6 +1,7 @@
 ---
 layout: platform-product
 title: Data Prepper
+image: '/assets/media/platform/Data-Prepper.png'
 ---
 
 ### Data Prepper
