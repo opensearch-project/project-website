@@ -7,6 +7,7 @@ categories:
 feature_area_icon_type: security-shield
 feature_area_category_name: Security Analytics
 has_hero: true
+overview_header_text: Detect and respond to security threats in real time
 key_benefits_list:
   - name: 'Defend systems and data'
     description: 'Help protect organizational systems and sensitive data from malicious activity, including insider threats.'
@@ -28,9 +29,14 @@ key_features_list:
   - name: Customizable tools
     description: 'Use any custom log source and define your own rules to detect potential threats.'
 permalink: '/platform/security-analytics/index.html'
+hero_images:
+  mobile: 
+    path: '/assets/media/platform/mobile-platform-hero-security-analytics.png'
+    alt: 'OpenSearch platform for security analytics applications hero banner.'
+  desktop: 
+    path: '/assets/media/platform/platform-hero-security-analytics.png'
+    alt: 'OpenSearch platform for security analytics applications hero banner.'
 ---
-
-## Detect and respond to security threats in real time
 
 The ever-increasing number of online, interconnected systems creates a large attack surface that is challenging to defend against malicious actors. Organizations that take a proactive approach to protecting their data and infrastructure can mitigate the legal, financial, and reputational risks posed by security threats.
 

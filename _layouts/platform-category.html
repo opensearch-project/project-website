@@ -15,6 +15,17 @@ layout: default
         <div class="platform-page--content">
             <div class="platform-category-page">
                 <div class="platform-category-page--overview">
+                    <h2>{{ page.overview_header_text }}</h2>
+                    <div class="platform-category-page--hero">
+                        <div class="landing-page-hero--images">
+                            <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
+                                <img src="{{ page.hero_images.mobile.path }}" alt="{{ page.hero_images.mobile.alt }}">
+                            </div>
+                            <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
+                                <img src="{{ page.hero_images.desktop.path }}" alt="{{ page.hero_images.desktop.alt }}">
+                            </div>
+                        </div>
+                    </div>
                     {{ content }}
                 </div>
                 <div class="platform-category-page--key-benefits">
