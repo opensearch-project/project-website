@@ -1005,6 +1005,20 @@ $solutions-card-bottom-margin: 36px;
             }
         }
     }
+    .landing-page-content__right-panel--content--side-panel {
+        &.landing-page-content__right-panel--content--side-panel__has-card-grid {
+            .solutions-card-grid{
+                > .solutions-card-grid--card-wrapper {
+                    > .solutions-card-grid--card-wrapper--card {
+                        justify-content: center;
+                        > .solutions-card-grid--card-wrapper--card--label__no-icon {
+                            padding-bottom: 0;
+                        }
+                    } 
+                }
+            }
+        }
+    }
     .resource-grid--item {
         @include card-shadow;
         @include thick-edge-bottom;
