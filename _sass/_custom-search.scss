@@ -33,7 +33,7 @@
 @media (min-width: 46.25rem) { .search-label { padding-left: 3.2rem; transition: padding-left linear 200ms; } }
 .search-label .search-icon { width: 1.92rem; height: 1.92rem; align-self: center; color: #4D8399; }
 .search-results { position: absolute; left: 0; display: none; width: 100%; max-height: calc(100% - 6.4rem); overflow-y: auto; background-color: #fff; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08); }
-@media (min-width: 46.25rem) { .search-results { top: 100%; width: 536px; max-height: calc(100vh - 200%) !important; } }
+@media (min-width: 46.25rem) { .search-results { top: 50px; width: 536px; max-height: calc(100vh - 200%) !important; } }
 .search-results-list { padding-left: 0; margin-bottom: 0.4rem; list-style: none; font-size: 14px !important; }
 @media (min-width: 31.25rem) { .search-results-list { font-size: 16px !important; } }
 @media (min-width: 46.25rem) { .search-results-list { font-size: 12px !important; } }
