@@ -1,6 +1,6 @@
 ---
 name: Arnav Grover
-short_name:
+short_name: agrover
 github: Arnav-Gr0ver
 ---
 
