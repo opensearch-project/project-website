@@ -43,7 +43,7 @@ industries:  Manufacturing and Automotive, Supply Chain, Consumer Services, Educ
 # In the template rendering multiple_office_locations takes precedent,
 # and if both are used only the multiple_office_locations data will be rendered
 # in the template omitting the main_office_location data.
-main_office_location:  |
+main_office_location:
 	1248 Reamwood Avenue
 	Sunnyvale, CA 94089
 	+1 408 743 4400
