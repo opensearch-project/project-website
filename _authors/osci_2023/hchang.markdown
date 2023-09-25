@@ -1,7 +1,7 @@
 ---
 name: Henry Chang
 short_name: hchang
-linkedin: https://www.linkedin.com/in/henry-chang-340488244/
+linkedin: henry-chang-340488244/
 github: henrychang2313
 ---
 
