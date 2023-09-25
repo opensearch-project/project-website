@@ -1,6 +1,5 @@
 ---
 name: Yiming
-short_name:
 twitter: Yiming28576933
 github: plzdoo
 ---
