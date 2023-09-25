@@ -36,7 +36,7 @@ contact: info@xoriant.com
 opensearch_tech:  Search, Analytics, Observability, Migration
 
 # Comma delimited list of one or more industries that the partner specializes in serving.
-industries:  Manufacturing and Automotive, Supply Chain, Consumer Services, Education, Energy and Utilities, Financial Services, Healthcare, Media and Entertainment, Public sector, Non-Profit, Retail and e-commerce, Software and Technology
+industries:  Manufacturing and Automotive, Supply Chain, Consumer Services, Education, Energy and Utilities, Financial Services, Healthcare, Media and Entertainment, Public sector, Retail and e-commerce, Software and Technology
 
 # If the partner only has one office location then use the main_office_location key
 # otherwise use the multiple_office_locations key.
