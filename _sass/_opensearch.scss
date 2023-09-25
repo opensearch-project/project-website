@@ -58,9 +58,11 @@ $max-container: 1440px;
         display: inline;
         @include header-level6($primary-open-sky-s3);
     }
-    .nested-nav a.in-category {
+    .nested-nav a.in-category,
+    .nested-nav a:hover {
+        color: $primary-open-sky-s2;
         text-decoration: underline;
-        text-decoration-color: $primary-open-sky-s3;
+        text-decoration-color: $primary-open-sky-s2;
         text-decoration-thickness: 2px;
         text-underline-offset: 6px;
     }

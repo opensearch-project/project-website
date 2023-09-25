@@ -4,14 +4,26 @@ layout: default
 <main class="container">
     <div class="page-with-hero platform-landing-page platform-page--content">
         <div class="landing-page-hero-wrapper">
-            <div class="landing-page-hero--header">
-                <h1>{{page.title}}</h1>
-            </div>
-            {%- if page.subtitle -%}
-                <div class="landing-page-hero--header-subtext">
-                    <h2>{{page.subtitle}}</h2>
+            <div class="platform-category-page--hero">
+                <div class="landing-page-hero--images">
+                    <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
+                        <img src="{{ page.hero_images.mobile.path }}" alt="{{ page.hero_images.mobile.alt }}">
+                    </div>
+                    <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
+                        <img src="{{ page.hero_images.desktop.path }}" alt="{{ page.hero_images.desktop.alt }}">
+                    </div>
                 </div>
-            {%- endif -%}
+            </div>
+            <div class="landing-page-hero--header-wrapper">
+                <div class="landing-page-hero--header">
+                    <h1>{{page.title}}</h1>
+                </div>
+                {%- if page.subtitle -%}
+                    <div class="landing-page-hero--header-subtext">
+                        <h2>{{page.subtitle}}</h2>
+                    </div>
+                {%- endif -%}
+            </div>
         </div>
         <div class="platform-landing-page--overview">
             {{ content }}

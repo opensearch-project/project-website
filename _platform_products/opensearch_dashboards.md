@@ -1,6 +1,7 @@
 ---
 layout: platform-product
 title: OpenSearch Dashboards
+image: '/assets/media/platform/Dashboards.png'
 ---
 
 ### OpenSearch Dashboards

@@ -1,6 +1,7 @@
 ---
 layout: platform-product
 title: OpenSearch Core
+image: '/assets/media/platform/Core.png'
 ---
 
 ### OpenSearch Core
