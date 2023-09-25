@@ -1,6 +1,5 @@
 ---
 name: Idris Yalaletdinov
-short_name:
 twitter: Idryska
 github: in-odds
 ---
