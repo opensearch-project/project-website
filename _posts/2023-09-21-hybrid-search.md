@@ -343,7 +343,7 @@ Our experimental findings indicate that the extent of improvement in score relev
 
 ## Conclusions
 
-In this blog, we have included series of experiments that show that hybrid search produces results that are very close to theoretical expectations and in most cases are better than the results of individual queries alone. Hybrid search comes with a certain increase in latency, which will be addressed in future versions (you can track the progress of this enhancement in [this Github issue](https://github.com/opensearch-project/neural-search/issues/279)).
+In this blog, we have included series of experiments that show that hybrid search produces results that are very close to theoretical expectations and in most cases are better than the results of individual queries alone. Hybrid search comes with a certain increase in latency, which will be addressed in future versions (you can track the progress of this enhancement in [this GitHub issue](https://github.com/opensearch-project/neural-search/issues/279)).
 
 It’s important to remember that datasets have different parameters and for some datasets hybrid search may not consistently improve results. Additionally, experiments with different parameters&mdash;for instance, setting higher values of `k` or use different `space type` for neural search&mdash;may produce better results. 
 
