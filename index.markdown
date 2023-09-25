@@ -18,7 +18,6 @@ button_stack:
   - project
 ---
 
-# Find the Truth Within Your Data
+# Find the truth within your data
 
 OpenSearch is the flexible, scalable, open-source way to build solutions for data-intensive applications. Explore, enrich, and visualize your data with built-in performance, developer-friendly tools, and powerful integrations for machine learning, data processing, and more.
-
