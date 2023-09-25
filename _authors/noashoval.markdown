@@ -1,6 +1,6 @@
 ---
 name: Noa Shoval
-short_name:Noa
+short_name: Noa
 github: noashoval
 ---
 
