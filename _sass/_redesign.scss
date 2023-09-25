@@ -1366,11 +1366,11 @@ $header-banner-mobile-breakpoint: 1018px;
                 }
             }
             > .solutions-card-grid--card-wrapper--card--label__no-icon {
-                color: $light-theme-category-card-label;
                 @include header-level4($primary-pacific-blue-s3);
                 width: 100%;
                 padding-top: 40px;
                 padding-bottom: 25px;
+                box-sizing: border-box;
             }
             > .solutions-card-grid--card-wrapper--card--icon__left-label {
                 display: flex;

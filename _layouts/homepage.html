@@ -69,11 +69,11 @@ layout: default
                 {% endif %}
                 <div class="landing-page-solutions--hero-3up--hero--image">
                     <img src="/assets/img/blog-hero-placeholder.png" 
-                            alt="Featured Image for {{ first_post.title }}">
+                        alt="Featured Image for {{ first_post.title }}">
                 </div>
                 <div class="landing-page-solutions--hero-3up--hero--preview">
                     <div class="landing-page-solutions--hero-3up--hero--preview--category">
-                        {{ first_post.categories | first }}
+                        {{ first_post_category }}
                     </div>
                     <div class="landing-page-solutions--hero-3up--hero--preview--title">
                         <h3><a href="first_post.url">{{ first_post.title }}</a></h3>
