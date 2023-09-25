@@ -198,11 +198,13 @@ To benchmark score accuracy and performance of hybrid search, we chose 7 dataset
 
 We built the hybrid query as a combination of two queries: a neural search query and a text search `match` query. 
 
-For the neural query, we generated text embeddings using [neural search data ingestion](https://opensearch.org/docs/latest/search-plugins/neural-search/#ingest-data-with-neural-search). We used pretrained and fine-tuned transformers to generate embeddings and run search queries. For the HNSW algorithm in k-NN search we used k = 100.
+For the neural query, we generated text embeddings using [neural search data ingestion](https://opensearch.org/docs/latest/search-plugins/neural-search/#ingest-data-with-neural-search). We used pretrained and fine-tuned transformers to generate embeddings and run search queries. For the HNSW algorithm in k-NN search, we used k = 100.
 
 For text search, we used a text field with one analyzer (`english`). 
 
-The cluster configuration consisted of 3 `r5.8xlarge` data nodes and 1 `c4.2xlarge` leader node. All scripts that we used for benchmarks can be found in [this repository](https://github.com/martin-gaievski/info-retrieval-test/tree/score-normalization-combination-testing).
+The cluster configuration consisted of 3 `r5.8xlarge` data nodes and 1 `c4.2xlarge` leader node. 
+
+You can find all scripts that we used for benchmarks in [this repository](https://github.com/martin-gaievski/info-retrieval-test/tree/score-normalization-combination-testing).
 
 ### Score accuracy results
 
