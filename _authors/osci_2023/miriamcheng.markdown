@@ -1,7 +1,7 @@
 ---
-name: <Miriam Cheng>
+name: Miriam Cheng
 short_name: Mir
-github: <miriamcheng>
+github: miriamcheng
 ---
 
-**<Miriam Cheng>** <is a Sophomore at Stanford studying Math and Bioengineering.>
+**Miriam Cheng** is a Sophomore at Stanford studying Math and Bioengineering.
