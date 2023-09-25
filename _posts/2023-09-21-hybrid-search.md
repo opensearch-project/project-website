@@ -69,8 +69,8 @@ Let's recall the problems with the naive approach: scores being on different sca
 
 At a high level, hybrid search consists of two main elements:
 
-    * The **hybrid query** provides a way to define multiple individual queries, execute those queries and collect results from each shard.
-    * The **normalization processor**, which is part of a search pipeline, collects the results from all shards at the coordinator node level, normalizes scores for each of the queries, and combines scores into the final result. 
+* The **hybrid query** provides a way to define multiple individual queries, execute those queries and collect results from each shard.
+* The **normalization processor**, which is part of a search pipeline, collects the results from all shards at the coordinator node level, normalizes scores for each of the queries, and combines scores into the final result. 
 
 The following diagram shows how hybrid search works at a high level. During the query phase, the coordinator node sends queries to multiple data nodes, where the results are collected. When the query phase finishes, the normalization processor normalizes and combines the results from all queries and all nodes. The overall results are sent to a fetch phase, which retrieves the document content. 
 
@@ -146,9 +146,9 @@ POST my_index/_search?search_pipeline=<search_pipeline>
 {
    "query": {
      "hybrid": [
-         {},// First Query
-         {} // Second Query
-         ..... // Other Queries
+         {}, // First Query
+         {}, // Second Query
+         ... // Other Queries
      ] 
    }
 }
