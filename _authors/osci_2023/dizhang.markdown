@@ -1,7 +1,6 @@
 ---
 name: Di Zhang
 short_name: D
-photo: '/assets/media/authors/di.jpg'
 github: pea586
 ---
 
