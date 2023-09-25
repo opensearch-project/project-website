@@ -1,7 +1,6 @@
 ---
 name: Yan Chen
 short_name: Yan
-twitter: 
 github: chen2055
 ---
 
