@@ -1,7 +1,6 @@
 ---
 name: Shahriar Shatil
 short_name: shatil
-photo: 'assets\media\authors\shatil.jpg'
 twitter: ShatilKhan2077
 github: ShatilKhan
 ---
