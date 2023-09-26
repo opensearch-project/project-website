@@ -29,7 +29,7 @@ The infrastructure is created using [Terraform](https://www.terraform.io/) and t
 
 ### VPC and VPN
 
-A VPC with 3 public and private subnets is created using the [AWS VPC Terraform module](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest) (*vpc.tf*). Also, a [SoftEther VPN](https://www.softether.org/) server is deployed in order to access the resources in the private subnets from the developer machine (*vpn.tf*). The details about how to configure the VPN server can be found in [this post](/blog/2022-02-06-dev-infra-terraform).
+A VPC with 3 public and private subnets is created using the [AWS VPC Terraform module](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest) (*vpc.tf*). Also, a [SoftEther VPN](https://www.softether.org/) server is deployed in order to access the resources in the private subnets from the developer machine (*vpn.tf*). The details about how to configure the VPN server can be found in [this post](https://jaehyeon.me/blog/2022-02-06-dev-infra-terraform/).
 
 ### OpenSearch Cluster
 
