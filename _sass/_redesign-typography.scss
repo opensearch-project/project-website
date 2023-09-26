@@ -1,11 +1,14 @@
 .page-with-hero {
     h1 {
-        color: $primary-open-sky-s1;
+        // color: $primary-open-sky-s1;
+        color: $primary-open-sky-s2;
         font-family: 'Open Sans';
-        font-size: 40px;
+        font-size: 51px;
         font-style: normal;
         font-weight: 300;
         line-height: normal;
+        margin-bottom: 0;
+        margin-top: 0;
     }
     
     h2 {
@@ -51,6 +54,7 @@
         font-weight: 700;
         line-height: 24px;
     }
+    p,
     .body-text {
         color: #000;
         font-family: 'Open Sans';
@@ -79,11 +83,14 @@
     a {
         color: $primary-pacific-blue;
         font-family: 'Open Sans';
-        font-size: 24px;
         font-style: normal;
         font-weight: 400;
+        text-underline-offset: 6px;
         &:hover {
-            font-weight: 600;
+            color: $primary-open-sky;
+        }
+        &:visited {
+            color: $primary-pacific-blue-s2;
         }
     }
 }
@@ -155,6 +162,13 @@
     a {
         color: $primary-pacific-blue;
         font-family: 'Open Sans';
+        text-underline-offset: 6px;
+        &:hover { 
+            color: $primary-open-sky;
+        }
+        &:visited {
+            color: $primary-pacific-blue-s2;
+        }
     }
 }
 
@@ -214,8 +228,8 @@
     line-height: 24px; 
 }
 
-@mixin header-level6 {
-    color: $primary-open-sky-s2;
+@mixin header-level6($color: $primary-open-sky-s2) {
+    color: $color;
     font-family: 'Open Sans';
     font-size: 15px;
     font-style: normal;
@@ -249,15 +263,17 @@
     border: 3px solid $primary-open-sky;
     background: $primary-open-sky-s2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    height: 44px;
-    > a {
-        line-height: 2.4;
+    > a:focus {
+        line-height: 46px;
     }
 }
 
-@mixin hover-button-dark-mode {
-    background: $primary-open-sky;
+@mixin hover-button-dark-mode($fill-color: $primary-open-sky) {
+    background: $fill-color;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    a:hover {
+        background: unset;
+    }
 }
 
 @mixin active-button-dark-mode {
@@ -277,9 +293,9 @@
     border: 3px solid $primary-open-sky;
     background: $primary-pacific-sky-t3;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    height: 44px;
-    > a {
-        line-height: 2.4;
+    height: 45px;
+    > a:focus {
+        line-height: 46px;
     }
 }
 
@@ -287,6 +303,11 @@
     background: $primary-pacific-sky-t3;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     > a:hover {
+        // NOTE: Using unset on the background is due to a global
+        // style set on a:hover states in the pre-existing, yet to be
+        // completely replaced design; global anchor states are still
+        // to come as well.
+        background: unset;
         color: $primary-open-sky;
     }
 }
@@ -303,10 +324,10 @@
 @mixin link-button-light-mode($fill-color: $primary-pacific-sky-t3) {
     font-family: 'Open Sans';
     border-radius: 6px;
-    &:not(:has(a:focus, a:hover, a[disabled])) {
-        background: $fill-color;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
     &:has(a:focus) {
         @include focused-button-light-mode;
     }
@@ -319,18 +340,102 @@
     &:has(a[disabled]) {
         @include disabled-button-light-mode;
     }
-    
+    padding: 0;
     white-space: nowrap;
     > a {
+        display: inline-block;
+        box-sizing: border-box;
+        line-height: 50px;
+        width: 100%;
         color: $primary-deep-blue-sea;
-        padding: 10px 50px;
         text-decoration: none;
-        &:hover {
-            background: unset;
-        }
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
     }
-    > a:focus {
-        padding: 10px 47px;
+}
+
+@mixin focused-hero-call-to-action-button($fill-color, $border-color) {
+    border: 3px solid $border-color;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@mixin hover-hero-call-to-action-button($fill-color, $text-color) {
+    background: $fill-color;
+    border: 1px solid $text-color;
+    a {
+        color: $text-color;
+    }
+}
+@mixin active-call-to-action-button($border-color, $fill-color, $text-color) {
+    background: $fill-color;
+    border: 1px solid $border-color;
+    a {
+        color: $text-color;
+    }
+}
+
+@mixin hero-call-to-action-button($fill-color, $text-color, $focus-border-color) {
+    background: $fill-color;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    height: 60px;
+    padding: 17px 17px 16px 25px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid $text-color;
+    border-radius: 30px;
+    &:has(a:focus) {
+        @include focused-hero-call-to-action-button($fill-color, $focus-border-color);
+    }
+    &:has(a:hover) {
+        @include hover-hero-call-to-action-button($text-color, $fill-color);
+    }
+    &:has(a:active) {
+        @include active-call-to-action-button($focus-border-color, $text-color, $fill-color);
+    }
+    a:hover {
+        background: unset;
+    }
+}
+
+@mixin link-button-dark-mode($fill-color: $primary-open-sky-s2) {
+    font-family: 'Open Sans';
+    border-radius: 6px;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
+    &:has(a:focus) {
+        @include focused-button-dark-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-dark-mode;
+    }
+    &:has(a:active) {
+        @include active-button-dark-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-dark-mode;
+    }
+    padding: 0;
+    white-space: nowrap;
+    > a {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 100%;
+        line-height: 50px;
+        color: $secondary-sanfrancisco-fog-t1;
+        text-decoration: none;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
     }
 }
 
@@ -379,6 +484,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: 42px;
+    @media screen and (max-width: 460px) {
+        font-size: 21px;
+        line-height: 36px;
+    }
 }
 
 @mixin body-small {
@@ -388,6 +497,15 @@
     line-height: 27px;
     letter-spacing: 0em;
     text-align: left;
+}
+
+@mixin body-medium($color: #000) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 32px;
+    font-style: normal;
 }
 
 @mixin trim-ellipsis {
@@ -409,6 +527,7 @@
     padding-bottom: 10px;
     border-bottom: 2px solid $color;
 }
+
 @mixin header-level1-mobile {
     font-family: 'Open Sans';
     font-size: 40px;

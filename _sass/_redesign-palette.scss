@@ -79,7 +79,7 @@ $secondary-sanfrancisco-fog-s4: #415662;
 $secondary-sanfrancisco-fog-s5: #193442;
 
 
-$light-theme-hero-control-active: #CECCCC;
+$light-theme-hero-control-active: $secondary-sanfrancisco-fog;
 $light-theme-hero-control-inactive: #fff;
 $light-theme-hero-call-to-action-background: $secondary-malibu-sunrise;
 $light-theme-hero-call-to-action-text: $secondary-malibu-sunrise-t3;
@@ -91,16 +91,16 @@ $light-theme-category-card-edge: $primary-open-sky-s2;
 $light-theme-category-call-to-action-background: $primary-pacific-sky-t3;
 $light-theme-category-call-to-action-text: $primary-deep-blue-sea;
 
-$light-theme-navigation-background: rgb(0, 163, 224, 0.05);
+$light-theme-navigation-background: rgba(0, 163, 224, 0.05);
 
 @mixin thick-edge-bottom {
-    border-bottom: $primary-open-sky-s2 6px solid;
+    border-bottom: $primary-open-sky-s2 10px solid;
 }
 @mixin thick-edge-top {
-    border-top: $primary-open-sky-s2 6px solid;
+    border-top: $primary-open-sky-s2 10px solid;
 }
 @mixin thick-edge-left {
-    border-left: $primary-open-sky-s2 6px solid;
+    border-left: $primary-open-sky-s2 10px solid;
 }
 @mixin card-shadow {
     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
@@ -146,6 +146,10 @@ $light-theme-navigation-background: rgb(0, 163, 224, 0.05);
     background: linear-gradient(180deg, #F65275 0%, #FFB81C 100%);
 }
 
+@mixin gradient-malibu-sunset-dark {
+    background: linear-gradient(180deg, #F65275 0%, #8C3649 100%);
+}
+
 @mixin gradient-open-sky {
     background: linear-gradient(180deg, #E1FAFF 0%, #98E3F4 48.15%, #00B7E0 100%);
 }
@@ -167,7 +171,8 @@ $light-theme-navigation-background: rgb(0, 163, 224, 0.05);
 }
 
 @mixin gradient-purple-sage-dark {
-    background: #963CBD;
+    // background: #963CBD;
+    background: linear-gradient(180deg, #963CBD 0%, #692F84 50.52%, #411D52 100%);
 }
 
 @mixin gradient-seafoam-mint {

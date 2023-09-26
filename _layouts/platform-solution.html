@@ -6,31 +6,13 @@ layout: default
 {% else %}
     {% assign page_type_class = "page-without-hero" %}
 {% endif %}
-{% assign icon_type = page.feature_area_icon_type | default: layout.feature_area_icon_type | default: 'smiling-face' %}
-{% assign category_name = page.feature_area_category_name | default: layout.feature_area_category_name | default: '' %}
-{% assign solution_name = page.feature_area_solution_name | default: layout.feature_area_solution_name | default: '' %}
+{% assign icon_type = page.feature_area_icon_type | default: layout.feature_area_icon_type %}
+{% assign category_name = page.feature_area_category_name | default: layout.feature_area_category_name %}
+{% assign solution_name = page.feature_area_solution_name | default: layout.feature_area_solution_name  %}
 {% include opensearch-button.html %}
 <main class="container">
     <div class="{{ page_type_class }}">
-        <div class="platform-page--header">
-            <div class="platform-page--feature-area">
-                {% if icon_type %}
-                    <div class="platform-page--feature-area--icon">
-                        {% include icons.html type=icon_type %}
-                    </div>
-                {% endif %}
-                {% if category_name %}
-                    <div class="platform-page--feature-area--category-name__mobile">&lt;&nbsp;{{category_name}}</div>
-                    <div class="platform-page--feature-area--category-name">{{category_name}}{%- if solution_name -%}:{%- endif -%}</div>
-                {% endif %}
-                {% if solution_name %}
-                    <div class="platform-page--feature-area--solution-name">{{solution_name}}</div>
-                {% endif %}
-            </div>
-            <div class="platform-page--title">
-                <h1>{{ page.primary_title }}</h1>
-            </div>
-        </div>
+        {% include platform-page-header.html icon=icon_type category=category_name solution=solution_name %}
         <div class="platform-page--content">
             <div class="platform-solution-page">
                 {% if page.callouts %}
@@ -47,20 +29,8 @@ layout: default
                 {% else %}
                     {{ content }}
                 {% endif %}
-                {% assign category_use_cases = site.redesign_use_cases | where: "feature_area_category_name", page.feature_area_category_name  %}
-                {% assign feature_use_cases = category_use_cases | where: "feature_area_solution_name", page.feature_area_solution_name %}
-                {% if feature_use_cases %}
-                    {% for use_case in feature_use_cases %}
-                        {{ use_case }}
-                    {% endfor %}
-                {% endif %}
-                {% assign category_resources = site.redesign_resources | where: "feature_area_category_name", page.feature_area_category_name %}
-                {% assign feature_resources = category_resources | where: "feature_area_solution_name", page.feature_area_solution_name %}
-                {% if feature_resources %}
-                    {% for resource in feature_resources %}
-                        {{ resource }}
-                    {% endfor %}
-                {% endif %}
+                {% include page-use-cases.html feature_area_category_name=page.feature_area_category_name feature_area_solution_name=page.feature_area_solution_name %}
+                {% include page-resources.html feature_area_category_name=page.feature_area_category_name feature_area_solution_name=page.feature_area_solution_name %}
             </div>
         </div>
     </div>
