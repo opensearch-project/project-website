@@ -6,4 +6,4 @@
 ---
 
 **Vijay Vavdiya**
-Full-Stack Engineer. Having experiance on Javascript, TypeScript, NodeJs, ReactJs, React-Native, AWS Cloud Services.
+Full-Stack Engineer(MERN). Having experiance on Javascript, TypeScript, NodeJs, ReactJs, React-Native, AWS Cloud Services.
