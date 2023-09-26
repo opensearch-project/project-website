@@ -3,10 +3,38 @@
     {% if include.title %}
         <h3 class="tall-card__no-image--grid--card--title">
             {%- if include.url -%}
-                <a href="{{ include.url }}">{{ include.title }}</a>
+                {%- assign url_start_char = include.url | split: "" | first -%}
+                {%- if url_start_char == "/" -%}
+                    {% comment %} The URL is likely / hopefully a relative, internal URL {% endcomment %}
+                    {%- assign external_link = false -%}
+                {%- elsif include.url contains "opensearch.org" -%}
+                    {% comment %} The URL is likely / hopefully an absolute internal URL, with or without a protocol spec.{% endcomment %}
+                    {%- assign external_link = false -%}
+                {%- else -%}
+                    {% comment %}
+                        The URL is likely neither internal absolute, nor relative.
+                        Mark as external to apply a blank target.
+                    {% endcomment %}
+                    {%- assign external_link = true -%}
+                {%- endif -%}
+                <a href="{{ include.url }}" {% if external_link %} target="_blank" {% endif %}>{{ include.title }}</a>
             {%- else -%}
                 {{ include.title }}
             {%- endif -%}
         </h3>
+    {% endif %}
+    {% if include.icon or include.date %}
+        <div class="tall-card__no-image--grid--card--footer">
+            {%- if include.icon -%}
+                <div class="tall-card__no-image--grid--card--footer--icon">
+                    {% include icons.html type=include.icon %}
+                </div>
+            {%- endif -%}
+            {%- if include.date -%}
+                <div class="tall-card__no-image--grid--card--footer--date">
+                    {{ include.date }}
+                </div>
+            {%- endif -%}
+        </div>
     {% endif %}
 </div>

@@ -1,0 +1,47 @@
+{% assign icon_type = include.icon %}
+{% assign category_name = include.category %}
+{% assign solution_name = include.solution %}
+
+{% if category_name and solution_name %}
+    {% unless category_name == 'OpenSearchCon 2023' %}
+        {% assign breadcrumb_class = "platform-page--feature-area__solution-page" %}
+    {% else %}
+        {% assign breadcrumb_class = "platform-page--feature-area__conference-page" %}
+    {% endunless %}
+{% elsif category_name %}
+    {% if category_name == "OpenSearchCon 2023" %}
+        {% assign breadcrumb_class = "platform-page--feature-area__conference-page" %}
+    {% else %}
+        {% assign breadcrumb_class = "platform-page--feature-area__category-page" %}
+    {% endif %}
+{% else %}
+    {% assign breadcrumb_class = "platform-page--feature-area__platform-page" %}
+{% endif %}
+<div class="platform-page--header">
+    <div class="platform-page--feature-area {{breadcrumb_class}}">
+        {% if icon_type %}
+            <div class="platform-page--feature-area--icon">
+                {% include icons.html type=icon_type %}
+            </div>
+        {% endif %}
+        <div class="platform-page--feature-area--platform-name platform-page--feature-area--platform-name__mobile">&lt;&nbsp;<a href="/platform/index.html">The OpenSearch Platform</a></div>
+        <div class="platform-page--feature-area--platform-name">
+            <a href="/platform/index.html">The OpenSearch Platform</a>
+        </div>
+        {% if category_name %}
+            {% assign category_url_path = category_name | downcase | replace: ' ', '-' %}
+            <div class="platform-page--feature-area--category-name-separator">&gt;</div>
+            <div class="platform-page--feature-area--category-name"><a href="/platform/{{ category_url_path }}/index.html">{{category_name}}</a></div>
+            <div class="platform-page--feature-area--category-name platform-page--feature-area--category-name__mobile">&lt;&nbsp;<a href="/platform/{{ category_url_path }}/index.html">{{category_name}}</a></div>
+        {% endif %}
+        {% if solution_name %}
+            <div class="platform-page--feature-area--category-name-separator {% if solution_name == 'Unconference' %} platform-page--feature-area--category-name-separator__desktop-show {% endif %}">&gt;</div>
+            <div class="platform-page--feature-area--solution-name {% if solution_name == 'Unconference' %} platform-page--feature-area--solution-name__mobile-hide {% endif %}">
+                <a href="{{ page.url }}">{{solution_name}}</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="platform-page--title">
+        <h1>{{ page.primary_title }}</h1>
+    </div>
+</div>
