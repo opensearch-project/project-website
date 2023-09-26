@@ -12,7 +12,9 @@
                 {% assign category = resource.type | default: "Search" %}
                 {% assign url = resource.url %}
                 {% assign title = resource.title %}
-                {% include tall-card-no-image.html category=category title=resource.title url=resource.url %}
+                {% assign date = resource.date %}
+                {% assign icon = resource.icon %}
+                {% include tall-card-no-image.html category=category title=resource.title url=resource.url date=date icon=icon %}
             {% endfor %}
         </div>
         <div class="resource-grid--more">

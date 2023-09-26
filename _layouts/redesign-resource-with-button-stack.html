@@ -1,0 +1,45 @@
+<div class="platform-solution-page--content__gradient platform-page-resources">
+    <div class="landing-page-content__right-panel">
+        <div class="landing-page-content__right-panel--content">
+            <div class="landing-page-content__right-panel--content--body">
+                <div class="platform-page--resources solutions-card-grid">
+                    {% if page.resources %}
+                        {%- if page.resources_header -%}
+                            <h2>{{ page.resources_header }}</h2>
+                        {%- else -%}
+                            <h2>Featured Blog Posts</h2>
+                        {%- endif -%}
+                        <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper solutions-card-grid--card-wrapper__2-col-max">
+                            {% for resource in page.resources %}
+                                {% assign category = resource.type | default: "Search" %}
+                                {% assign url = resource.url %}
+                                {% assign title = resource.title %}
+                                {% assign date = resource.date %}
+                                {% assign icon = resource.icon %}
+                                {% include tall-card-no-image.html category=category title=resource.title url=resource.url date=date icon=icon %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__without-card-grid">
+                {% if page.button_stack %}
+                    <div class="draft-3-landing-page--button-stack__with-label">
+                        <div class="draft-3-landing-page--button-stack__with-label--label">
+                            <h2>Resources</h2>
+                        </div>
+                        <div class="draft-3-landing-page--button-stack">
+                            {% for button in page.button_stack %}
+                                <div class="draft-3-landing-page--button-stack--button">
+                                    {% include redesign_buttons.html name=button %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}             
+            </div>
+        </div>
+    </div>
+</div>
+{% include card-clickability.html card_container_selector=".platform-page--resources .tall-card__no-image--grid" card_classname="tall-card__no-image--grid--card" %}
+{% include interactive-states.html element_classname="redesign-button--wrapper" container_selector=".draft-3-landing-page--button-stack" %}

@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<main class="container">
+    <div class="page-with-hero platform-landing-page platform-page--content">
+        <div class="landing-page-hero-wrapper">
+            <div class="platform-category-page--hero">
+                <div class="landing-page-hero--images">
+                    <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
+                        <img src="{{ page.hero_images.mobile.path }}" alt="{{ page.hero_images.mobile.alt }}">
+                    </div>
+                    <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
+                        <img src="{{ page.hero_images.desktop.path }}" alt="{{ page.hero_images.desktop.alt }}">
+                    </div>
+                </div>
+            </div>
+            <div class="landing-page-hero--header-wrapper">
+                <div class="landing-page-hero--header">
+                    <h1>{{page.title}}</h1>
+                </div>
+                {%- if page.subtitle -%}
+                    <div class="landing-page-hero--header-subtext">
+                        <h2>{{page.subtitle}}</h2>
+                    </div>
+                {%- endif -%}
+            </div>
+        </div>
+        <div class="platform-landing-page--overview">
+            {{ content }}
+        </div>
+        {%- if page.callouts -%}
+            {% include callout-cards.html callouts=page.callouts %}
+            {% include card-clickability.html card_container_selector=".solutions-card-grid > .solutions-card-grid--card-wrapper" card_classname="solutions-card-grid--card-wrapper--card" %}
+        {%- endif -%}
+        {%- if page.include_community_voices -%}
+            <div class="platform-landing-page--community-voices-wrapper">
+                {% include community_voices_carousel.html %}
+            </div>
+        {%- endif -%}
+        {%- if page.platform_products -%}
+            {% include platform-products.html title=page.platform_products.collection_title collection_items=page.platform_products.collection %}
+        {%- endif -%}
+
+        {% include page-use-cases.html feature_area_category_name=page.feature_area_category_name feature_area_solution_name=page.feature_area_solution_name %}
+        
+    </div>
+</main>
