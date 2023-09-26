@@ -1,6 +1,6 @@
 ---
 name: Hongyuan Kang
-short_name:  Hongyuan
+short_name: Hongyuan
 github: SpecialAir123
 ---
 
