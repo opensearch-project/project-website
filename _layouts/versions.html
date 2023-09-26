@@ -27,6 +27,7 @@ pretty:
     macos: macOS
     java: "Java"
     docker: Docker
+    posix-platforms: "POSIX Platforms"
   extensions:
     targz: ".tar.gz"
     exe: "Installer (exe)"
@@ -37,6 +38,7 @@ pretty:
     docker_hub: 'Dockerfile'
     system-package: "System package"
   architectures:
+    all-architectures: "All Architectures"
     arm64: "ARM64"
     x64: "x64"
     x86: "x86"
@@ -52,12 +54,14 @@ pretty:
     drivers: "Drivers"
 
 architecture_order: 
+  - all-architectures
   - x64
   - arm64
   - x86
   - jvm
 
 platform_order:
+  - posix-platforms
   - linux
   - docker
   - freebsd
