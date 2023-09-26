@@ -38,7 +38,13 @@ layout: default
                     <div class="platform-category-page--key-features--list-box">
                         {% for key_feature in page.key_features_list %}
                             <hgroup>
-                                <h2>{{ key_feature.name }}</h2>
+                                <h2>
+                                    {%- if key_feature.url -%}
+                                        <a href="{{ key_feature.url }}">{{ key_feature.name }}</a>
+                                    {%- else -%}
+                                        {{ key_feature.name }}
+                                    {%- endif -%}
+                                </h2>
                                 <p>{{ key_feature.description }}</p>
                             </hgroup>
                         {% endfor %}
