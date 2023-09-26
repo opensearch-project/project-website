@@ -1,7 +1,7 @@
 ---
 layout: redesign-single-column
 title: The OpenSearch Platform
-subtitle: Build enterprise-grade applications on a vendor-neutral, open-source foundation.
+subtitle: Build enterprise-grade applications on a vendor-neutral, open-source foundation
 callouts:
   - name: Search
     icon: search
