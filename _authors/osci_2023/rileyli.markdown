@@ -1,7 +1,6 @@
 ---
 name: Riley Li
 short_name: Riley
-twitter:
 github: MadaniKK
 ---
 
