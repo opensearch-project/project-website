@@ -827,6 +827,7 @@ $header-banner-mobile-breakpoint: 1018px;
                     @media screen and (max-width: 428px) {
                         padding-left: 0;
                         padding-right: 0;
+                        width: calc(100% - 10px);
                     }
                     .draft-3-landing-page--button-stack--button {
                         @media screen and (min-width: 1440px) {
