@@ -74,6 +74,13 @@ $platform-header-reduce-padding-width: 1199px;
                 height: 40px;
             }
         }
+        &.platform-page--feature-area__conference-page-drilldown {
+            .platform-page--feature-area--platform-name {
+                > a {
+                    text-decoration: none;
+                }
+            }
+        }
         &.platform-page--feature-area__solution-page {
             .platform-page--feature-area--platform-name {
                 > a {
@@ -155,6 +162,19 @@ $platform-header-reduce-padding-width: 1199px;
                     display: none;
                 }
                 > .platform-page--feature-area--platform-name__mobile {
+                    display: block;
+                }
+            }
+        }
+        &.platform-page--feature-area__conference-page-drilldown {
+            > .platform-page--feature-area--category-name-separator.platform-page--feature-area--category-name-separator__desktop-show {
+                @media screen and (min-width: 461px) {
+                    display: block;
+                }
+            }
+            > .platform-page--feature-area--category-name__mobile {
+                display: none;
+                @media screen and (max–width: 460px) {
                     display: block;
                 }
             }
