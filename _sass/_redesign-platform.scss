@@ -878,6 +878,7 @@ $solutions-card-bottom-margin: 36px;
                     margin-bottom: 0;
                     > a {
                         @include header-level2($primary-open-sky-s2);
+                        text-decoration: underline;
                     }
                 }
                 > p {
