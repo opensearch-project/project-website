@@ -13,6 +13,10 @@
  *  SPDX-License-Identifier: MIT
  */
 
+ // This is the sum of the logo + the navigation menu items + the search field.
+$header-banner-min-width: 1019px;
+$header-banner-mobile-breakpoint: 1018px;
+
 .copy-banner {
   a,
   h1 {
@@ -75,7 +79,7 @@
   padding-left: 1.6rem;
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .search-label {
     padding-left: 3.2rem;
     transition: padding-left linear 200ms;
@@ -102,7 +106,7 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .search-results {
     top: 50px;
     width: 536px;
@@ -123,7 +127,7 @@
   }
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .search-results-list {
     font-size: 12px !important;
   }
@@ -185,7 +189,7 @@
   }
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .search-result-doc.search-result-doc-parent {
     font-size: 11px !important;
   }
@@ -324,7 +328,7 @@
   border-radius: 0;
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .search-active .search-input-wrap {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
   }
@@ -345,7 +349,7 @@
   transition: opacity ease 400ms, width 0s, height 0s;
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .search-active .main {
     position: fixed;
     right: 0;
@@ -357,13 +361,13 @@
   padding-top: 6.4rem;
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .search-active .main-header {
     padding-top: 0;
   }
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .copy-banner .search {
     display: block;
     height: 4.8rem !important;
@@ -371,7 +375,7 @@
   }
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .copy-banner .search-input-wrap {
     height: 4.8rem !important;
     right: 0;
@@ -382,7 +386,7 @@
   position: relative !important;
 }
 
-@media (min-width: 46.25rem) {
+@media (min-width: $header-banner-min-width) {
   .search-active .search-results {
     right: 0;
     left: auto;
@@ -417,7 +421,7 @@
   body {
     position: fixed;
 
-    @media (min-width: 46.25rem) {
+    @media (min-width: $header-banner-min-width) {
       position: unset;
     }
   }
