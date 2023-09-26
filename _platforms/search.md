@@ -22,6 +22,7 @@ key_features_list:
   - name: 'Lexical search tools'
     description: 'Access a full range of functionality for text-based data search.'
   - name: 'Vector search functionality'
+    url: '/platform/search/vector-database.html'
     description: 'Deploy efficient semantic and hybrid search applications using vector embeddings.'
   - name: 'Scalability'
     description: 'Tailor capacity and performance to meet the demands of your data and your users.'
