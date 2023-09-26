@@ -1,8 +1,7 @@
 ---
 name: Hongyuan Kang
-short_name: Wendell
-twitter: N/A
+short_name:  Hongyuan
 github: SpecialAir123
 ---
 
-**<Hongyuan Kang>** <I am a senior CS student of UC Berkeley>
+**Hongyuan Kang** I am a senior CS student of UC Berkeley. 
