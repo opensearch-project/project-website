@@ -103,18 +103,22 @@
           <div class="landing-page-redesign--nav-search--field-with-results">
             <div class="landing-page-redesign--nav-search--field-with-results--field">
               <div class="landing-page-redesign--nav-search--field-with-results--field--wrapper">
-                <input type="text" id="search-input" class="search-input"
-                  placeholder="Search for Anything" aria-label="Search {{ site.title }}"
-                  data-docs-version="latest" autocomplete="off"
-                >
-                <div class="search-spinner"><i></i></div>
-                <label for="search-input" class="search-label">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="search-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
-                    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                </label>
+                <div class="search">
+                  <div class="search-input-wrap">
+                    <input type="text" id="search-input" class="search-input"
+                      placeholder="Search for Anything" aria-label="Search {{ site.title }}"
+                      data-docs-version="latest" autocomplete="off"
+                    >
+                    <div class="search-spinner"><i></i></div>
+                    <label for="search-input" class="search-label">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="search-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                    </label>
+                  </div>
+                  <div id="search-results" class="search-results custom-search-results"></div>
+                </div>
               </div>
-              <div id="search-results" class="search-results custom-search-results"></div>
             </div>
           </div>
           <div class="search-overlay"></div>
