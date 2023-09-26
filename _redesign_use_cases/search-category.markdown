@@ -39,7 +39,7 @@ button_stack:
             <td>Replicate data from transactional database management systems (DBMS) into OpenSearch for fast, economical querying without a reduction in DBMS performance.</td>
         </tr>
         <tr>
-            <td>Artificial intelligence</td>
+            <td><a href="/platform/search/vector-database.html">Artificial intelligence</a></td>
             <td>Integrate with large language models (LLMs) to build smart natural-language applications.</td>
         </tr>
     </tbody>

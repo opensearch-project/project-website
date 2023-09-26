@@ -23,7 +23,7 @@ key_features_list:
     description: 'Access a full range of functionality for text-based data search.'
   - name: 'Vector search functionality'
     url: '/platform/search/vector-database.html'
-    description: 'Deploy efficient semantic and hybrid search applications using vector embeddings.'
+    description: 'Deploy efficient semantic and hybrid search applications using <a href="/platform/search/vector-database.html">vector embeddings</a>.'
   - name: 'Scalability'
     description: 'Tailor capacity and performance to meet the demands of your data and your users.'
   - name: 'Extensibility'

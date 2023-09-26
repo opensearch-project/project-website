@@ -30,6 +30,9 @@ $dual-column-table-label-cell-width-mobile: 100px;
             }
             > td:nth-of-type(1) {
                 @include header-level6;
+                > a {
+                    @include header-level6;
+                }
                 white-space: normal;
                 @media screen and (min-width: 601px) {
                     width: $dual-column-table-label-cell-width;
@@ -873,6 +876,9 @@ $solutions-card-bottom-margin: 36px;
                     @include header-level2($primary-open-sky-s2);
                     margin-top: 0;
                     margin-bottom: 0;
+                    > a {
+                        @include header-level2($primary-open-sky-s2);
+                    }
                 }
                 > p {
                     @include body-text($secondary-sanfrancisco-fog-s4);
