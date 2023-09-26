@@ -523,7 +523,9 @@ $header-banner-min-width: 1019px;
     }
 
     .nav-menu-on {
-        max-height: 0;
+        @media screen and (max-width: 1018px) {
+            height: 0;
+        }
         overflow: hidden;
 
         -webkit-transition: all 0.3s ease-out;
@@ -532,15 +534,25 @@ $header-banner-min-width: 1019px;
         @include respond-min($header-banner-min-width) {
             // turn off animations if on a desktop width
             max-height: none;
-
+            height: auto;
             -webkit-transition: none;
             transition: none;
         }
-
+        
         &.active {
-            max-height: calc(100vh - 60px);
+            // max-height: calc(100vh - 60px);
             @include respond-min($header-banner-min-width) {
                 overflow-y: scroll;
+            }
+
+            @media screen and (max-width: 1018px) {
+                height: calc(100vh - 65px);
+                overflow-y: auto;
+                > .nested-nav {
+                    @include clearfix;
+                    height: auto;
+                    clear: both;
+                }
             }
         }
     }
