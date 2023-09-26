@@ -639,7 +639,6 @@ $solutions-card-bottom-margin: 36px;
                     padding-right: 0;
                 }
                 @media screen and (min-width: 835px) {
-                    // Do we need a max-width????
                     padding-left: 20px;
                     padding-right: 20px;       
                 }
@@ -687,13 +686,6 @@ $solutions-card-bottom-margin: 36px;
                                     width: 100%;
                                 }
                             }
-                        }
-                        > .redesign-button-pair--wrapper {
-                            > .redesign-button--wrapper {
-                                &.redesign-button--wrapper__text-only {
-    
-                                }
-                            } 
                         }
                     }
                 }
