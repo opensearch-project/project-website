@@ -903,6 +903,9 @@ $solutions-card-bottom-margin: 36px;
             background: transparent;
             h2 {
                 margin-top: 0;
+                @media screen and (max-width: 375px) {
+                    padding-left: 10px;
+                }
             }
             > .landing-page-content__right-panel--content {
                 padding: 0;
