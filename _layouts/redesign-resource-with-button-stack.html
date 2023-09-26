@@ -4,7 +4,11 @@
             <div class="landing-page-content__right-panel--content--body">
                 <div class="platform-page--resources solutions-card-grid">
                     {% if page.resources %}
-                        <h2>Featured Blog Posts</h2>
+                        {%- if page.resources_header -%}
+                            <h2>{{ page.resources_header }}</h2>
+                        {%- else -%}
+                            <h2>Featured Blog Posts</h2>
+                        {%- endif -%}
                         <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper solutions-card-grid--card-wrapper__2-col-max">
                             {% for resource in page.resources %}
                                 {% assign category = resource.type | default: "Search" %}

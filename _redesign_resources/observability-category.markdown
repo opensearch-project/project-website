@@ -3,6 +3,7 @@ layout: redesign-resource-with-button-stack
 description: ''
 feature_area_category_name: Observability
 feature_area_solution_name: ''
+resources_header: Featured Resources
 resources:
   - title: 'How OpenSearch Visualizes Jaeger&apos;s Distributed Tracing'
     url: 'https://thenewstack.io/how-opensearch-visualizes-jaegars-distributed-tracing/'
