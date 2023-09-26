@@ -347,13 +347,13 @@ In this blog post, we have included series of experiments that show that hybrid 
 
 It’s important to remember that datasets have different parameters and that hybrid search may not consistently improve results for some datasets. Conversely, experimenting with different parameters&mdash;for instance, selecting higher values of `k` or a different `space_type` for neural search&mdash;may lead to better results. 
 
-We’ve seen that some of the conclusions may be applied to most datasets:
+We’ve seen that the following conclusions may be applied to most datasets:
 
-* For semantic search, hybrid query with normalization produces better results compared to neural search or text search alone.
+* For semantic search, a hybrid query with normalization produces better results compared to neural search or text search alone.
 * The combination of `min-max` score normalization and `arithmetic_mean` score combination achieves the best results, compared to other techniques.
 * In most cases, increasing the value of `k` in the k-NN data type leads to better results up to a certain point, but after that, there is no increase in relevance. At the same time, high values of `k` increase search latency, so from our observations, it’s better to choose a value of `k` between 100 and 200. 
 * The best results are produced when `innerproduct` is specified as a space type for k-NN vector fields. This may be because our models were trained using the inner product similarity function.
-* An increase in search relevance comes with a cost of a 6&ndash;8% increase in latency, which should be acceptable in most cases.
+* An increase in search relevance leads to a 6&ndash;8% increase in latency, which should be acceptable in most cases.
 
 In general, as our experiments demonstrated, hybrid search produces results that are very close to the ones described by the science team, so [all of their conclusions](https://opensearch.org/blog/semantic-science-benchmarks/#section-5-strengths-and-limitations) are applicable to hybrid search. 
 
@@ -385,9 +385,9 @@ The following table provides further details of the test datasets used for bench
 
 ## References
 
-1. The ABCs of semantic search in OpenSearch: Architectures, benchmarks, and combination strategies, https://opensearch.org/blog/semantic-science-benchmarks.
-2. [RFC] High Level Approach and Design For Normalization and Score Combination, https://github.com/opensearch-project/neural-search/issues/126.
-3. Building a semantic search engine in OpenSearch, https://opensearch.org/blog/semantic-search-solutions/.
-4. An Analysis of Fusion Functions for Hybrid Retrieval, https://arxiv.org/abs/2210.11934.
-5. Beir benchmarking for Information Retrieval https://github.com/beir-cellar/beir.
+1. _The ABCs of semantic search in OpenSearch: Architectures, benchmarks, and combination strategies_. https://opensearch.org/blog/semantic-science-benchmarks.
+2. _[RFC] High Level Approach and Design For Normalization and Score Combination_. https://github.com/opensearch-project/neural-search/issues/126.
+3. _Building a semantic search engine in OpenSearch_. https://opensearch.org/blog/semantic-search-solutions/.
+4. _An Analysis of Fusion Functions for Hybrid Retrieval_. https://arxiv.org/abs/2210.11934.
+5. _Beir benchmarking for Information Retrieval_. https://github.com/beir-cellar/beir.
 
