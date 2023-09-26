@@ -343,7 +343,7 @@ Our experimental findings indicate that the extent of improvement in score relev
 
 ## Conclusions
 
-In this blog post, we have included series of experiments that show that hybrid search produces results that are very close to theoretical expectations and in most cases are better than the results of individual queries alone. Hybrid search produces a certain increase in latency, which will be addressed in future versions (you can track the progress of this enhancement in [this GitHub issue](https://github.com/opensearch-project/neural-search/issues/279)).
+In this blog post, we have presented a series of experiments that show that hybrid search produces results that are very close to theoretical expectations and in most cases are better than the results of individual queries alone. Hybrid search produces a certain increase in latency, which will be addressed in future versions (you can track the progress of this enhancement in [this GitHub issue](https://github.com/opensearch-project/neural-search/issues/279)).
 
 It’s important to remember that datasets have different parameters and that hybrid search may not consistently improve results for some datasets. Conversely, experimenting with different parameters&mdash;for instance, selecting higher values of `k` or a different `space_type` for neural search&mdash;may lead to better results. 
 
@@ -355,7 +355,7 @@ We’ve seen that the following conclusions may be applied to most datasets:
 * The best results are produced when `innerproduct` is specified as a space type for k-NN vector fields. This may be because our models were trained using the inner product similarity function.
 * An increase in search relevance leads to a 6&ndash;8% increase in latency, which should be acceptable in most cases.
 
-In general, as our experiments demonstrated, hybrid search produces results that are very close to the ones described by the science team, so [all of their conclusions](https://opensearch.org/blog/semantic-science-benchmarks/#section-5-strengths-and-limitations) are applicable to hybrid search. 
+In general, as our experiments demonstrated, hybrid search produces results that are very close to the ones described by the science team in our [earlier blog post](https://opensearch.org/blog/semantic-science-benchmarks), so [all of their conclusions](https://opensearch.org/blog/semantic-science-benchmarks/#section-5-strengths-and-limitations) are applicable to hybrid search. 
 
 ## Next steps
 
