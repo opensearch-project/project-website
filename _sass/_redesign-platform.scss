@@ -166,6 +166,11 @@ $platform-header-reduce-padding-width: 1199px;
             > .platform-page--feature-area--category-name-separator {
                 display: none;
             }
+            > .platform-page--feature-area--category-name-separator.platform-page--feature-area--category-name-separator__desktop-show {
+                @media screen and (min-width: 461px) {
+                    display: block;
+                }
+            }
             > .platform-page--feature-area--category-name__mobile {
                 display: none;
                 @media screen and (max–width: 460px) {
@@ -180,6 +185,11 @@ $platform-header-reduce-padding-width: 1199px;
                 > .platform-page--feature-area--platform-name__mobile {
                     display: none;
                 }
+            }
+        }
+        .platform-page--feature-area--solution-name {
+            @media screen and (max-width: 460px) {
+                display: none;
             }
         }
     }
