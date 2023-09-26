@@ -1,7 +1,6 @@
 ---
 speaker_name: 'dblock'
 speaker_image: '/assets/media/authors/dblock.jpg'
-  https://opensearch.org/assets/media/authors/dblock.jpg
 speaker_name_full: 'Daniel Doubrovkine'
 primary_title: 'Speaker: Daniel (dB.) Doubrovkine'
 title: 'OpenSearchCon 2023 Speaker: Daniel Doubrovkine'
