@@ -9,14 +9,20 @@
     <div class="landing-page-content__right-panel--content">
         <hgroup class="landing-page-content__right-panel--content--body">
             <h2 class="platform-page--solution--header">Getting Started</h2>
-            <p>{{ page.how_to_get_started }}</p>
+            {% for how_to in page.how_to_get_started %}
+                <p>{{ how_to }}</p>
+            {% endfor %}
         </hgroup>
         <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__without-card-grid">
             <div class="draft-3-landing-page--button-stack">
-                <div class="draft-3-landing-page--button-stack--button">
-                    {% include redesign_buttons.html name="download" %}
-                </div>
+                {% for button in page.button_stack %}
+                    <div class="draft-3-landing-page--button-stack--button">
+                        {% include redesign_buttons.html name=button %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </div>
+{% include interactive-states.html element_classname="redesign-button--wrapper" container_selector=".draft-3-landing-page--button-stack" %}
+

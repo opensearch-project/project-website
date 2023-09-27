@@ -7,6 +7,7 @@
 @import "web-fonts";
 @import "redesign-palette";
 @import "redesign-typography";
+@import "redesign-layout";
 @import "style"; // mobile & desktop styles
 @import "pygments"; // code highlighting
 @import "print"; // print styles
@@ -19,6 +20,8 @@
 @import "nested-nav";
 @import "herobanner";
 @import "platform";
+@import "redesign-hero-carousel";
 @import "redesign";
 @import "redesign-platform";
 @import "redesign-conference";
+@import "redesign-testimonial-overrides";

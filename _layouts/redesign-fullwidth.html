@@ -11,25 +11,7 @@ layout: default
 {% assign solution_name = page.feature_area_solution_name | default: layout.feature_area_solution_name %}
 <main class="container">
     <div class="{{ page_type_class }}">
-        <div class="platform-page--header">
-            <div class="platform-page--feature-area">
-                {% if icon_type %}
-                    <div class="platform-page--feature-area--icon">
-                        {% include icons.html type=icon_type %}
-                    </div>
-                {% endif %}
-                {% if category_name %}
-                    <div class="platform-page--feature-area--category-name__mobile">&lt;&nbsp;{{category_name}}</div>
-                    <div class="platform-page--feature-area--category-name">{{category_name}}{%- if solution_name -%}:{%- endif -%}</div>
-                {% endif %}
-                {% if solution_name %}
-                    <div class="platform-page--feature-area--solution-name">{{solution_name}}</div>
-                {% endif %}
-            </div>
-            <div class="platform-page--title">
-                <h1>{{ page.primary_title }}</h1>
-            </div>
-        </div>
+        {% include platform-page-header.html icon=icon_type category=category_name solution=solution_name %}
         <div class="platform-page--content">
             <div class="platform-solution-page">
                 {{ content }}
