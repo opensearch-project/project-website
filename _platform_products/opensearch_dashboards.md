@@ -4,7 +4,7 @@ title: OpenSearch Dashboards
 image: '/assets/media/platform/Dashboards.png'
 ---
 
-### OpenSearch Dashboards
+### [OpenSearch Dashboards](https://playground.opensearch.org/app/home){:target="_blank"}
 
 OpenSearch Dashboards is the open-source data visualization toolset built to work with OpenSearch. 
 
