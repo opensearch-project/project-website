@@ -852,8 +852,10 @@ $header-banner-mobile-breakpoint: 1018px;
     > .solutions-card-grid {
         @include page-element-padding;
         > .solutions-card-grid--card-wrapper {
+            padding: 0;
             > .solutions-card-grid--card-wrapper--card {
                 min-height: 280px;
+                align-items: normal;
             }
         }
     }
