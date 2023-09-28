@@ -465,35 +465,34 @@ $solutions-card-bottom-margin: 36px;
     }
     .platform-landing-page--overview {
         background: $secondary-sanfrancisco-fog-t1;
+        @include page-element-padding;
         @media screen and (min-width: 1200px) {
-            padding: 60px 40px 0 80px;
+            padding-top: 60px;
+            padding-bottom: 0;
         }
         @media screen and (min-width: 835px) and (max-width: 1199px) {
-            padding: 60px 20px 0 40px;
+            padding-top: 60px;
+            padding-bottom: 0;
         }
         @media screen and (max-width: 834px) {
-            padding: 30px 20px 0;
+            padding-top: 30px;
+            padding-bottom: 0;
         }
         > p {
             margin-top: 0;
         }
     }
     > .solutions-card-grid {
+        @include page-element-padding;
         @media screen and (min-width: 1200px) {
-            padding-left: 80px;
-            padding-right: 80px;
             padding-top: 60px;
             padding-bottom: calc(60px - $solutions-card-bottom-margin);
         }
         @media screen and (min-width: 835px) and (max-width: 1199px) {
-            padding-left: 40px;
-            padding-right: 20px;
             padding-top: 60px;
             padding-bottom: calc(60px - $solutions-card-bottom-margin);
         }
         @media screen and (max-width: 834px) {
-            padding-left: 20px;
-            padding-right: 20px;
             padding-top: 30px;
             padding-bottom: 0;
         }
@@ -503,13 +502,12 @@ $solutions-card-bottom-margin: 36px;
         > .solutions-card-grid--card-wrapper {
             padding: 0;
             > .solutions-card-grid--card-wrapper--card {
+                align-items: normal;
                 @media screen and (min-width: 1401px) {
                     min-width: 350px;
-                    max-width: 350px;
                 }
                 @media screen and (min-width: 835px) and (max-width: 1400px) {
                     min-width: 300px;
-                    max-width: unset;
                 }
                 @media screen and (max-width: 834px) {
                     min-width: calc(100% - 20px);
@@ -518,7 +516,6 @@ $solutions-card-bottom-margin: 36px;
         }
     }
     &.platform-page--content {
-
         .platform-page--solution--use-cases {
             background: white;
             padding-left: 0;
