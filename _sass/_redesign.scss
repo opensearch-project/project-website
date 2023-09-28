@@ -898,6 +898,32 @@ $header-banner-mobile-breakpoint: 1018px;
                     padding: 40px;
                     border-bottom: $primary-open-sky-s2 6px solid;
                     box-sizing: border-box;
+                    &:has(a[href]) {
+                        cursor: pointer;
+                    }
+                    &:hover {
+                        .landing-page-solutions--hero-3up--hero--preview--title {
+                            a {
+                                border-bottom: 2px solid $primary-pacific-blue;
+                                color: $primary-open-sky;
+                            }
+                        }
+                    }
+                    &:has(a:focus) {
+                        box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+                    }
+                    &:has(a:active) {
+                        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+                    }
+                    &.landing-page-solutions--hero-3up--hero--preview__focused {
+                        box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+                    }
+                    &.landing-page-solutions--hero-3up--hero--preview__focused {
+                        box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+                    }
+                    &.landing-page-solutions--hero-3up--hero--preview__active {
+                        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+                    }
                     > .landing-page-solutions--hero-3up--hero--preview--category {
                         @include header-level4;
                         flex-basis: 62.5px;
