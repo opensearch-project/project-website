@@ -876,10 +876,6 @@ $solutions-card-bottom-margin: 36px;
                     @include header-level2($primary-open-sky-s2);
                     margin-top: 0;
                     margin-bottom: 0;
-                    > a {
-                        @include header-level2($primary-open-sky-s2);
-                        text-decoration: underline;
-                    }
                 }
                 > p {
                     @include body-text($secondary-sanfrancisco-fog-s4);
