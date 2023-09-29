@@ -79,6 +79,9 @@ layout: default
                         <h3><a href="{{ first_post.url }}">{{ first_post.title }}</a></h3>
                     </div>
                     <div class="landing-page-solutions--hero-3up--hero--preview--excerpt">
+                        {% comment %} The use of markdownify is necessary to properly format a blog post that has an
+                                      excplicit value for excerpt specified in its Front Matter.
+                        {% endcomment %}
                         {{ first_post.excerpt | markdownify }}
                     </div>
                     <div class="landing-page-solutions--hero-3up--hero--preview--author">
