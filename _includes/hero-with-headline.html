@@ -15,32 +15,31 @@
         <div class="hero-with-headline--carousel">
             <div class="hero-with-headline--carousel--viewport">
             {% if show_hero_carousel_arrows %}
-                <div class="landing-page-hero--arrows">
-                    <div class="landing-page-hero--arrows--arrow landing-page-hero--arrows--arrow__left">
-                        <opensearch-button 
-                            icon-only="true" 
-                            icon-position="center"
-                            fill="transparent" 
-                            no-outline="true"
-                        >
-                            <div slot="icon-slot">
-                                {%- include icons.html type=arrow_name_left -%}
-                            </div>
-                        </opensearch-button>
-                    </div>
-                    <div class="landing-page-hero--arrows--arrow landing-page-hero--arrows--arrow__right">
-                        <opensearch-button 
-                            icon-only="true" 
-                            icon-position="center"
-                            fill="transparent"
-                            no-outline="true"
-                        >
-                            <div slot="icon-slot">
-                                {%- include icons.html type=arrow_name_right -%}
-                            </div>
-                        </opensearch-button>
-                    </div>
+                <div class="landing-page-hero--arrows--arrow landing-page-hero--arrows--arrow__left">
+                    <opensearch-button 
+                        icon-only="true" 
+                        icon-position="center"
+                        fill="transparent" 
+                        no-outline="true"
+                    >
+                        <div slot="icon-slot">
+                            {%- include icons.html type='arrow-left' -%}
+                        </div>
+                    </opensearch-button>
                 </div>
+                <div class="landing-page-hero--arrows--arrow landing-page-hero--arrows--arrow__right">
+                    <opensearch-button 
+                        icon-only="true" 
+                        icon-position="center"
+                        fill="transparent"
+                        no-outline="true"
+                    >
+                        <div slot="icon-slot">
+                            {%- include icons.html type='arrow-right' -%}
+                        </div>
+                    </opensearch-button>
+                </div>
+            
             {% endif  %}
                 <div class="hero-with-headline--carousel--wrapper">
                     {%- for item in include.items -%}
