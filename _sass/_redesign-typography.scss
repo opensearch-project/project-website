@@ -197,6 +197,17 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    > a {
+        color: $primary-pacific-blue;
+        text-decoration: underline;
+        font-family: 'Open Sans Condensed';
+        &:hover { 
+            color: $primary-open-sky;
+        }
+        &:visited {
+            color: $primary-pacific-blue-s2;
+        }
+    }
 }
 
 @mixin header-level3($color: $primary-open-sky-s1) {
