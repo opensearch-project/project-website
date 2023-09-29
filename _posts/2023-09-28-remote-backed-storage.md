@@ -53,12 +53,12 @@ With remote-backed storage, in addition to storing data on a local disk, all the
 
 With all the indexed data and cluster state stored in the remote store, we can achieve more than just using it for backup purposes. Upcoming OpenSearch versions will add the following features:
 
-* **Searchable remote index:** Searchable remote index will serve search queries from the data in the remote store without fully copying data to the local disk. For more information, see this RFC: https://github.com/opensearch-project/OpenSearch/issues/6528.
-* **Writable remote index:** To make the remote index fully functional, supporting only search is not sufficient. The next step would be to support writing to the remote index. For more information, see this RFC: https://github.com/opensearch-project/OpenSearch/issues/7804.
+* **Searchable remote index:** Searchable remote index will serve search queries from the data in the remote store without fully copying data to the local disk. For more information, see this RFC: <https://github.com/opensearch-project/OpenSearch/issues/6528>.
+* **Writable remote index:** To make the remote index fully functional, supporting only search is not sufficient. The next step would be to support writing to the remote index. For more information, see this RFC: <https://github.com/opensearch-project/OpenSearch/issues/7804>.
 * **Point-in-time restore:** Currently, the remote-backed storage feature supports restoring the latest state of the data. Point-in-time restore functionality depends on the snapshot interoperability feature. But given that snapshots are manual, the granularity of the restores will be the same as the period of the snapshots. We can provide deterministic and second/minute-level granularity by adding data checkpoints in the remote store.
 
 ## References
 
-1. https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/
-2. https://opensearch.org/blog/segment-replication/
+1. <https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/>
+2. <https://opensearch.org/blog/segment-replication/>
 
