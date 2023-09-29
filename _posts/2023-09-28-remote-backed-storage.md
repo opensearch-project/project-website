@@ -12,7 +12,8 @@ authors:
 date: 2023-09-27 00:00:00 -0700
 categories:
  - community
-
+meta_keywords: OpenSearch remote backed storage, configured remote store, achieve a recovery point objective
+meta_description: Learn how the OpenSearch remote-backed storage features helps users achieve a recovery point objective of zero while leveraging the durability properties of a configured remote store.
 excerpt: We are excited to announce remote-backed storage, a new feature that enables request-level durability with remote storage options like Amazon Simple Storage Service (Amazon S3), Oracle Cloud Infrastructure Object Storage, Azure Blob Storage, and Google Cloud Storage. This was introduced as an experimental feature in OpenSearch 2.3 and is now generally available in OpenSearch 2.10. With this feature, users can achieve a recovery point objective (RPO) of zero and leverage the same durability properties of the configured remote store. In this blog post, we dive deep into architecture, benefits, trade-offs, and planned future enhancements.
 ---
 
