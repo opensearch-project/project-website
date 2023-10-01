@@ -844,7 +844,7 @@ $footer-1-column-max: 833px;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: flex-start;
-                > .subfooter--columns-wrapper--column {
+                .subfooter--columns-wrapper--column {
                     @media screen and (min-width: $footer-3-column-min) {
                         flex-basis: 33%;
                         max-width: 350px;
