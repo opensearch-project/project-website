@@ -6,13 +6,15 @@
       <div class="subfooter--flex-wrapper">
         <div class="subfooter--columns-wrapper">
           {% for column in site.data.footer.columns %}
-            <div class="subfooter--columns-wrapper--column">
-              <h4>{{ column.title }}</h4>
-              <ul>
-              {% for link in column.links %}
-                <li><a href="{{ link.url }}">{{ link.title}}</a></li>
-              {% endfor %}
-              </ul>
+            <div class="subfooter--columns-wrapper--container">
+              <div class="subfooter--columns-wrapper--column">
+                <h4>{{ column.title }}</h4>
+                <ul>
+                {% for link in column.links %}
+                  <li><a href="{{ link.url }}">{{ link.title}}</a></li>
+                {% endfor %}
+                </ul>
+              </div>
             </div>
           {% endfor %}
         </div>
