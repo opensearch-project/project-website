@@ -1,6 +1,6 @@
 ---
 name: Zachary Fowler
-short_name:
+short_name: RealZacharyFowler
 twitter: realzacfowler
 github: RealZacharyFowler
 ---
