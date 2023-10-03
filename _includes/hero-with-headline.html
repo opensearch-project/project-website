@@ -1,0 +1,222 @@
+{% assign show_hero_carousel_pagination = include.show_pagination | default: true %}
+{% assign show_hero_carousel_arrows = include.show_arrows | default: true %}
+<div id="{{ include.carousel_id }}" class="hero-with-headline">
+    <div class="hero-with-headline--wrapper">
+        {%- if include.headline and include.headline != "" -%}
+        <div class="hero-with-headline--headline">
+            <h1>{{ include.headline }}</h1>
+        </div>
+        {%- endif -%}
+        <div class="hero-with-headline--carousel">
+            <div class="hero-with-headline--carousel--viewport">
+            {% if show_hero_carousel_arrows %}
+                <div class="landing-page-hero--arrows">
+                    <div class="landing-page-hero--arrows--arrow landing-page-hero--arrows--arrow__left">
+                        <opensearch-button 
+                            icon-only="true" 
+                            icon-position="center"
+                            fill="transparent" 
+                            no-outline="true"
+                        >
+                            <div slot="icon-slot">
+                                {%- include icons.html type='arrow-left' -%}
+                            </div>
+                        </opensearch-button>
+                    </div>
+                    <div class="landing-page-hero--arrows--arrow landing-page-hero--arrows--arrow__right">
+                        <opensearch-button 
+                            icon-only="true" 
+                            icon-position="center"
+                            fill="transparent"
+                            no-outline="true"
+                        >
+                            <div slot="icon-slot">
+                                {%- include icons.html type='arrow-right' -%}
+                            </div>
+                        </opensearch-button>
+                    </div>
+                </div>
+            {% endif  %}
+                <div class="hero-with-headline--carousel--wrapper">
+                    {%- for item in include.items -%}
+                        <div class="hero-with-headline--carousel--item">
+                            {{ item }}
+                        </div>
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+        {%- if show_hero_carousel_pagination -%}
+        <div class="hero-with-headline--carousel--pagination">
+            <div class="hero-with-headline--carousel--pagination--items-wrapper">
+                {%- for item in include.items -%}
+                <div role="button" 
+                    aria-label="Go to slide {{ forloop.index }}" 
+                    title="Go to slide {{ forloop.index }}"
+                    {% if forloop.first %}
+                        class="hero-with-headline--carousel--pagination--item hero-with-headline--carousel--pagination--item__active"
+                    {% else %}
+                        class="hero-with-headline--carousel--pagination--item"
+                    {% endif %}
+                ></div>
+                {%- endfor -%}
+            </div>
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+{% assign carousel_timeout = include.timeout | default: 10000 %}
+{% assign carousel_pause_timeout = include.pause_timeout | default: 20000 %}
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const timeout = {{ carousel_timeout }};
+        const restartTimeout = {{ carousel_pause_timeout }};
+        const carouselState = {
+            isPaused: false,
+            unpauseCountDown: 0,
+            pauseTimer: 0,
+            restartTimeout,
+            timeout,
+            previousFrame: 0,
+            currentFrame: 1,
+            nextFrame: 2,
+            timer: 0,
+        };
+
+        const carouselId = "{{ include.carousel_id }}";
+        const carousel = document.getElementById(carouselId);
+        const itemCount = carousel.querySelectorAll('.hero-with-headline--carousel--item').length;
+        const wrapper = carousel.querySelector('.hero-with-headline--carousel--wrapper');
+        {% if show_hero_carousel_pagination %}
+        const paginationItems = carousel.querySelectorAll('.hero-with-headline--carousel--pagination--item');
+        {% endif %}
+        const move = (state) => {
+            const { classList } = wrapper;
+            const { length } = classList;
+            const nextAnimationClassName = `hero-with-headline--carousel--wrapper__running__from-${state.previousFrame}__to-${state.currentFrame}`;
+            for (let i = 0; i < length; ++i) {
+                const className = classList.item(i);
+                if (className.startsWith('hero-with-headline--carousel--wrapper__running__from-')) {
+                    classList.replace(className, nextAnimationClassName);
+                    break;
+                } else if (i === length - 1) {
+                    classList.add(nextAnimationClassName);
+                }
+            }
+
+            {% if show_hero_carousel_pagination %}
+            paginationItems.item(state.previousFrame).classList.remove('hero-with-headline--carousel--pagination--item__active');
+            paginationItems.item(state.currentFrame).classList.add('hero-with-headline--carousel--pagination--item__active');
+            {% endif %}
+        };
+
+        const carouselRunner = () => {
+            if (carouselState.isPaused) {
+                return;
+            } else {
+                if (carouselState.currentFrame === itemCount) {
+                    // Start over
+                    carouselState.currentFrame = 0;
+                    carouselState.nextFrame = 1;
+                }
+                move(carouselState);
+                carouselState.previousFrame = carouselState.currentFrame;
+                carouselState.currentFrame = carouselState.nextFrame;
+                carouselState.nextFrame = carouselState.currentFrame + 1;
+            }
+        };
+        const pauseCarousel = () => {
+            carouselState.isPaused = true;
+            stopCarousel();
+            if (carouselState.pauseTimer !== 0) {
+                window.clearTimeout(carouselState.pauseTimer);
+            }
+            carouselState.pauseTimer = window.setTimeout(startCarousel, carouselState.restartTimeout);
+        };
+        const unPauseCarousel = () => {
+            carouselState.isPaused = false;
+            carouselState.unpauseCountDown = 0;
+            if (carouselState.pauseTimer !== 0) {
+                window.clearTimeout(carouselState.pauseTimer);
+                carouselState.pauseTimer = 0;
+            }
+        };
+        const startCarousel = () => {
+            if (carouselState.timer !== 0) {
+                // Already running.
+                return;
+            } else if (carouselState.isPaused) {
+                unPauseCarousel();
+            }
+            carouselState.timer = window.setInterval(carouselRunner, carouselState.timeout);
+        };
+        const stopCarousel = () => {
+            if (carouselState.timer === 0) {
+                // Already stopped.
+                return;
+            }
+            window.clearInterval(carouselState.timer);
+            carouselState.timer = 0;
+        };
+
+        {% if show_hero_carousel_pagination %}
+        carousel.querySelector('.hero-with-headline--carousel--pagination--items-wrapper').addEventListener('click', (event) => {
+            const findItemParent = (element) => {
+                if (element.classList.contains('hero-with-headline--carousel--pagination--item')) {
+                    return element;
+                }
+                if (element.parentElement) {
+                    return findItemParent(element.parentElement);
+                }
+                return null;
+            };
+            const item = findItemParent(event.target);
+            if (item) {
+                const index = Array.prototype.indexOf.call(paginationItems, item);
+                carouselState.currentFrame = index;
+                carouselState.nextFrame = index + 1;
+                move(carouselState);
+                carouselState.previousFrame = index;
+                carouselState.currentFrame = carouselState.nextFrame;
+                carouselState.nextFrame = carouselState.nextFrame + 1;
+                pauseCarousel();
+            }
+        });
+        {% endif %}
+
+        {% if show_hero_carousel_arrows %}
+        function moveLeftRight(direction) {
+            if (direction === 'left') {
+                if (carouselState.currentFrame === 1) {
+                    return;
+                }
+            } else {
+                if (carouselState.currentFrame === itemCount) {
+                    return;
+                }
+            }
+            stopCarousel();
+            if (direction === 'left') {
+                // Move the carousel 'back'; next = previous; current = previous - 1.
+                carouselState.nextFrame = carouselState.previousFrame;
+                carouselState.currentFrame = carouselState.previousFrame - 1;
+            } 
+            // Position the carousel with the updated state.
+            // Then setup the next frame and start the timer.
+            move(carouselState);
+            carouselState.previousFrame = carouselState.currentFrame;
+            carouselState.currentFrame = carouselState.nextFrame;
+            carouselState.nextFrame = carouselState.nextFrame + 1;
+            startCarousel();
+        }
+        carousel.querySelector('.landing-page-hero--arrows--arrow__left > opensearch-button').addEventListener('click', (event) => {
+            moveLeftRight('left');
+        });
+        carousel.querySelector('.landing-page-hero--arrows--arrow__right > opensearch-button').addEventListener('click', (event) => {
+            moveLeftRight('right');
+        });
+        {% endif %}
+        startCarousel();
+    });
+</script>

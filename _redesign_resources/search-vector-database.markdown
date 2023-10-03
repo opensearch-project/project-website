@@ -6,32 +6,50 @@ feature_area_solution_name: Vector Database
 resources:
   - title: 'Augmenting Large Language Models with Verified Information Sources'
     url: 'https://medium.com/@shankar.arunp/augmenting-large-language-models-with-verified-information-sources-leveraging-aws-sagemaker-and-f6be17fb10a8'
-    type: Search
+    type: Medium
     author: 'Arun Shankar'
+    icon: 'search-magnifying-glass'
+    date: 'Sat, Apr 8, 2023'
   - title: 'The ABCs of semantic search in OpenSearch'
     url: '/blog/semantic-science-benchmarks/'
-    type: Search
+    type: OpenSearch
+    icon: 'search-magnifying-glass'
+    date: 'Thu, Mar 30, 2023'
   - title: 'Augmenting ChatGPT with Amazon OpenSearch'
     url: 'https://www.stratusgrid.com/open-space/augmenting-chatgpt-with-amazon-opensearch?locale=en'
-    type: Search
+    type: StratusGrid
+    icon: 'search-magnifying-glass'
+    date: 'Wed, Mar 15, 2023'
   - title: 'Amazon OpenSearch Service’s vector database capabilities explained'
     url: 'https://aws.amazon.com/blogs/big-data/amazon-opensearch-services-vector-database-capabilities-explained/?locale=en'
-    type: Search
+    type: Amazon Web Services
+    icon: 'search-magnifying-glass'
+    date: 'Wed, Jun 21, 2023'
   - title: 'Try semantic search with the Amazon OpenSearch Service vector engine'
     url: 'https://aws.amazon.com/blogs/big-data/try-semantic-search-with-the-amazon-opensearch-service-vector-engine/'
-    type: Search
+    type: Amazon Web Services
+    icon: 'search-magnifying-glass'
+    date: 'Mon, Aug 21, 2023'
   - title: 'How FIS ingests and searches vector data for quick ticket resolution with Amazon OpenSearch Service'
     url: 'https://aws.amazon.com/blogs/big-data/how-fis-ingests-and-searches-vector-data-for-quick-ticket-resolution-with-amazon-opensearch-service/'
-    type: Search
+    type: Amazon Web Services
+    icon: 'search-magnifying-glass'
+    date: 'Wed, Aug 2, 2023'
   - title: 'Build a powerful question answering bot'
     url: 'https://aws.amazon.com/blogs/machine-learning/build-a-powerful-question-answering-bot-with-amazon-sagemaker-amazon-opensearch-service-streamlit-and-langchain/'
-    type: Search
+    type: Amazon Web Services
+    icon: 'search-magnifying-glass'
+    date: 'Thu, May 25, 2023'
   - title: 'Implement unified text and image search with a CLIP model'
     url: 'https://aws.amazon.com/blogs/machine-learning/implement-unified-text-and-image-search-with-a-clip-model-using-amazon-sagemaker-and-amazon-opensearch-service/'
-    type: Search
+    type: Amazon Web Services
+    icon: 'search-magnifying-glass'
+    date: 'Wed, Apr 5, 2023'
   - title: 'Choose the k-NN algorithm for your billion-scale use case with OpenSearch'
     url: 'https://aws.amazon.com/blogs/big-data/choose-the-k-nn-algorithm-for-your-billion-scale-use-case-with-opensearch/'
-    type: Search
+    type: Amazon Web Services
+    icon: 'search-magnifying-glass'
+    date: 'Tue, Sep 13, 2022'
 ---
 
 ### Integrations

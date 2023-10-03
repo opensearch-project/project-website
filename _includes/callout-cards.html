@@ -18,14 +18,18 @@
                     </div>
                 {% endif %}
                 <div class="solutions-card-grid--card-wrapper--card--content">
-                    {{ callout.description }}
+                    {%- if callout.url -%}
+                        <a href="{{ callout.url }}">{{ callout.description }}</a>
+                    {%- else -%}
+                        {{ callout.description }}
+                    {%- endif -%}
                 </div>
             </div>
         {% endfor %}
     </div>
     {% if include.cta_label and include.cta_url %}
     <div class="solutions-card-grid--call-to-action">
-        <div><a href="{{ include.cta_url }}">{{ include.cta_label }}</a></div>
+        <div class="link-buton"><a href="{{ include.cta_url }}">{{ include.cta_label }}</a></div>
     </div>
     {% endif %}
 </div>

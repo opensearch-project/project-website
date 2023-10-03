@@ -1,117 +1,148 @@
 ---
 layout: default
 ---
-
-
-{% capture header %}
-  {% comment%}<h1 class="visuallyhidden">OpenSearch</h1>
-  <p>
-      <em>{{- page.headline -}}</em>
-  </p>
-  {% endcomment %} 
-  {% comment%}
-  <p>
-      <a href="" class="cta">get started</a>
-  </p>
-  {% endcomment %}
-{% endcapture %}
-
-{% include copy_banner.html %}
-
-
-{% capture content %}
-
-    <div class="section headline">
-		{% include carousel.html carousel-id="herobanner" carousel-collection=site.herobanners %}
-    </div> 
-    <div class="section">
-        <!-- <h2>{{ page.greeting }}</h2> -->
-        <p>
-          {{ page.long_description | markdownify }}
-        </p>
+<main class="container">
+    <div class="homepage-wrapper page-with-hero">
+        <div class="landing-page-hero-wrapper">
+            {% include hero-with-headline.html show_arrows=true show_pagination=true items=site.redesign_heros carousel_id="redesign_top_hero_carousel" %}
+        </div>
+        <div class="landing-page-content__right-panel">
+            <div class="landing-page-content__right-panel--content">
+                <div class="landing-page-content__right-panel--content--body">
+                    {{ content }}
+                </div>
+                <div class="landing-page-content__right-panel--content--side-panel">
+                    <div class="draft-3-landing-page--button-stack">
+                        {% for button in page.button_stack %}
+                            <div class="draft-3-landing-page--button-stack--button">
+                                {% include redesign_buttons.html name=button %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="landing-page-content__right-panel--content-side-panel--version-label">
+                        {% assign the_version = site.versions | sort_versions: 'version_sort' | last %}
+                        Current Version: {{ the_version.version }} / {{ the_version.date | date: "%b %d, %Y" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include callout-cards.html heading="Build on a flexible foundation with open-source tools" callouts=page.callouts cta_label="Learn About the Platform" cta_url="/platform/index.html" %}
+        {% include card-clickability.html card_container_selector=".homepage-wrapper > .solutions-card-grid > .solutions-card-grid--card-wrapper" card_classname="solutions-card-grid--card-wrapper--card" %}
+        {% include interactive-states.html container_selector=".solutions-card-grid--call-to-action" element_classname="link-button" %}
+        <div class="platform-landing-page--community-voices-wrapper">
+            {% include community_voices_carousel.html %}
+        </div>
+        <div class="landing-page-solutions--hero-3up">
+            <div>
+                <h2>Featured Blog Posts</h2>
+            </div>
+            <div class="landing-page-solutions--hero-3up--hero">
+                {% assign first_post = site.posts[0] %}
+                {% assign first_post_featured_image = first_post.featured_image %}
+                {% assign first_post_author = site.authors | where: "github", first_post.authors[0] | first %}
+                {% if first_post.categories and first_post.categories.first %}
+                    {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
+                    {% assign first_post_category = first_post.categories | first %}
+                {% elsif first_post.categories %}
+                    {% comment %} Sometimes posts have a categories property that is only a single string. {% endcomment %}
+                    {% assign first_post_category = first_post.categories %}
+                {% elsif first_post.category %}
+                    {% comment %} Sometimes posts have a category property, and at this time all 11 of them are arrays. {% endcomment %}
+                    {% assign first_post_category = first_post.category | first %}
+                {% else %}
+                    {% comment %} If no category is defined apply a generic default. {% endcomment %}
+                    {% assign first_post_category = "post" %}
+                {% endif %}
+                {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
+                {% assign first_post_category = first_post_category | replace: "-", " " %}
+                {% assign category_chars = first_post_category | split: "" %}
+                {% assign last_category_char = category_chars | last %}
+                {% if last_category_char == "s" %}
+                    {% assign new_category_length = category_chars | size | minus: 1 %}
+                    {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
+                    {% assign first_post_category = new_category_chars | join: "" %}
+                {% endif %}
+                {% if first_post_author %}
+                    {% assign first_post_author_twitter = first_post_author.twitter | default: "OpenSearchProj" %}
+                {% else %}
+                    {% assign first_post_author_twitter = "OpenSearchProj" %}
+                {% endif %}
+                <div class="landing-page-solutions--hero-3up--hero--image">
+                    <img src="/assets/img/blog-hero-placeholder.png" 
+                        alt="Featured Image for {{ first_post.title }}">
+                </div>
+                <div class="landing-page-solutions--hero-3up--hero--preview">
+                    <div class="landing-page-solutions--hero-3up--hero--preview--category">
+                        {{ first_post_category }}
+                    </div>
+                    <div class="landing-page-solutions--hero-3up--hero--preview--title">
+                        <h3><a href="{{ first_post.url }}">{{ first_post.title }}</a></h3>
+                    </div>
+                    <div class="landing-page-solutions--hero-3up--hero--preview--excerpt">
+                        {{ first_post.excerpt }}
+                    </div>
+                    <div class="landing-page-solutions--hero-3up--hero--preview--author">
+                        <span>
+                            {{ first_post_author.name }}
+                        </span>
+                        {% if first_post_author_twitter %}
+                            <span> | </span>
+                            <span>@{{ first_post_author_twitter }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="landing-page-solutions--hero-3-up--3up solutions-card-grid">
+                <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
+                    {% for i in (0..6) -%}
+                        {%- assign post = site.posts[i] -%}
+                        {% if post.categories and post.categories.first %}
+                            {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
+                            {% assign category = post.categories | first %}
+                        {% elsif post.categories %}
+                            {% comment %} Sometimes posts have a categories property that is only a single string. {% endcomment %}
+                            {% assign category = post.categories %}
+                        {% elsif post.category %}
+                            {% comment %} Sometimes posts have a category property, and at this time all 11 of them are arrays. {% endcomment %}
+                            {% assign category = post.category | first %}
+                        {% else %}
+                            {% comment %} If no category is defined apply a generic default. {% endcomment %}
+                            {% assign category = "post" %}
+                        {% endif %}
+                        {% assign post_icon = site.data.post_category_icons.icon_map | where: "category", category %}
+                        {% if post_icon %}
+                            {% assign post_icon = post_icon | first %}
+                            {% assign icon_name = post_icon.icon %}
+                        {% else %}
+                            {% assign icon_name = "search-magnifying-glass" %}
+                        {% endif %}
+                        {% assign post_date = post.date | date: "%a, %b %d, %Y" %}
+                        {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
+                        {% assign category = category | replace: "-", " " %}
+                        {% assign category_chars = category | split: "" %}
+                        {% assign last_category_char = category_chars | last %}
+                        {% if last_category_char == "s" %}
+                            {% assign new_category_length = category_chars | size | minus: 1 %}
+                            {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
+                            {% assign category = new_category_chars | join: "" %}
+                        {% endif %}
+                        {% include tall-card-no-image.html
+                            category=category
+                            title=post.title
+                            url=post.url
+                            icon=icon_name
+                            date=post_date
+                        %}
+                    {%- endfor -%}
+                </div>
+                <div class="resource-grid--more">
+                    <div class="link-button">
+                        <a href="/blog">View All Blog Posts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-   <div class="section" id="{{page.callouts_id}}">
- <!--   <dl class="{{ page.callouts_class }}">
-      <h2>{{ page.callouts_head }}</h2>
-      {% if page.callouts_leader %}<p>{{page.callouts_leader}}</p>{% endif %}
-      {% for callout in site.data.principles %}
-        <dt>{{callout.title}}</dt>
-        <dd><p>{{callout.description}}</p></dd>
-        </dd>
-      {% endfor %}
- -->
-
-
-	{% include testimonial-carousel.html %}
-
-
-    </div>
-
-
-{% endcapture %}
-
-{% capture content_secondary %}
-  <!--<div class="section">
-    <h1>{{ page.secondary.heading }}</h1>
-    {{ page.secondary.content | markdownify }}
-  </div>-->
-
-  <!-- END #content-secondary -->
-{% endcapture %}
-
-{% capture content_related %}
-  <div role="complementary">
-      <a href="{{page.ctas.primary.url}}" class="cta">{{page.ctas.primary.text}}</a>
-
-      {% assign org = site.data.repos | find: "shortname", "org" %}
-      {% if org.url %}
-      <a href="{{ org.url }}" target="_blank" class="cta outline">
-        {{page.ctas.pre}} {{ org.title }} {{page.ctas.post}}
-      </a>
-      {% endif %}
-      <a href="{{ page.ctas.roadmap.url }}" class="link-readmore" target="_blank">{{ page.ctas.roadmap.text }}</a>
-      {% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
-      {% assign latest = versions | first %}
-      {% assign previous_major = latest.version | split: "." | first | plus: -1 %}
-      {% for version in versions %}
-          {% assign major_version = version.version | split: "." | first | plus: 0 %}
-          {% if major_version == previous_major %}
-            {% assign latest_first = version %}
-            {% break %}
-          {% endif %}
-      {% endfor %}
-      <div class="latest-version">{{ page.version_feature.latest_label }} {{ latest.version }} {{ page.version_feature.date_label }} {{ latest_first.version }} {{ page.version_feature.date_label }} {{ latest.date | date_to_string: "ordinal", "US" }}</div>
-
-	{% include feedback.html %}
-
-      <div class="whats-new">
-        <h3>What's new?</h3>
-        {% for post in site.posts limit:5 %}
-          <div class="whats-new-post">
-            <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
-            <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-          </div>
-        {% endfor %}
-        <a href="{{ '/blog' | relative_url }}" class="link-readmore">More news</a>
-      </div>
-      
-      {% for sidebar_category in page.sidebar %}
-        <h3>{{sidebar_category.title}}</h3>
-        {% if sidebar_category.description %}
-        {{ sidebar_category.description | markdownify }}
-        {% endif %}
-        <ul class="list-links-small">
-          {% for link in sidebar_category.links %}
-          <li><a href="{{ link.url }}">{{ link.title}}</a></li>
-          {% endfor %}
-        </ul>
-        {% if sidebar_category.more %} <a href="sidebar_category.more.url" class="link-readmore">{{sidebar_category.more.title}}</a> {%endif%}
-      {% endfor %}
-      
-  </div>
-
-{% endcapture %}
-
-
-{% include base_3col.html %}
+</main>
+{% include interactive-states.html container_selector=".resource-grid--more" element_classname="link-button" %}
+{% include card-clickability.html card_container_selector=".landing-page-solutions--hero-3up .tall-card__no-image--grid" card_classname="tall-card__no-image--grid--card" %}

@@ -1,0 +1,7 @@
+<div class="platform-product-collection">
+    {%- if include.title -%}<h2>{{ include.title }}</h2>{%- endif -%}
+    {% for product_title in include.collection_items %}
+        {% assign product = site.platform_products | where: "title", product_title | first %}
+        {{product}}
+    {% endfor %}
+</div>
