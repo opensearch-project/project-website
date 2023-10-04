@@ -1,0 +1,103 @@
+{% comment %}
+    Note about all of the logic dealing with conference page behavior differences.
+    The HTML being the same for this part of the page between both the new Platform
+    pages, and the conference pages lead the developer to make the decision to reuse
+    the include. However, behavior was unexpectedly different leading to problems 
+    The conference is tomorrow. There's no time to do this correctly, and this 
+    will be handled later.
+{% endcomment %}
+{% assign icon_type = include.icon %}
+{% assign category_name = include.category %}
+{% assign solution_name = include.solution %}
+
+{% if category_name and solution_name %}
+    {% unless category_name == 'OpenSearchCon 2023' %}
+        {% assign breadcrumb_class = "platform-page--feature-area__solution-page" %}
+        {% assign is_conference_page = false %}
+    {% else %}
+        {% if category_name == 'Session Summaries' or category_name == 'Speaker Bios' %}
+            {% assign breadcrumb_class = "platform-page--feature-area__conference-page-drilldown" %}
+            {% assign is_conference_page = true %}
+            {% assign is_conference_drilldown = true %}
+        {% else %}
+            {% assign breadcrumb_class = "platform-page--feature-area__conference-page" %}
+            {% assign is_conference_page = true %}
+        {% endif %}
+    {% endunless %}
+{% elsif category_name %}
+    {% if category_name == "OpenSearchCon 2023" %}
+        {% assign breadcrumb_class = "platform-page--feature-area__conference-page" %}
+        {% assign is_conference_page = true %}
+    {% elsif category_name == 'Session Summaries' or category_name == 'Speaker Bios' %}
+        {% assign breadcrumb_class = "platform-page--feature-area__conference-page-drilldown" %}
+        {% assign is_conference_page = true %}
+        {% assign is_conference_drilldown = true %}
+    {% else %}
+        {% assign breadcrumb_class = "platform-page--feature-area__category-page" %}
+        {% assign is_conference_page = false %}
+    {% endif %}
+{% else %}
+    {% assign breadcrumb_class = "platform-page--feature-area__platform-page" %}
+    {% assign is_conference_page = false %}
+{% endif %}
+<div class="platform-page--header">
+    <div class="platform-page--feature-area {{breadcrumb_class}}">
+        {% if icon_type %}
+            <div class="platform-page--feature-area--icon">
+                {% include icons.html type=icon_type %}
+            </div>
+        {% endif %}
+        {% unless is_conference_drilldown %}
+            <div class="platform-page--feature-area--platform-name platform-page--feature-area--platform-name__mobile">&lt;&nbsp;<a href="/platform/index.html">The OpenSearch Platform</a></div>
+            <div class="platform-page--feature-area--platform-name">
+                <a href="/platform/index.html">The OpenSearch Platform</a>
+            </div>
+        {% else %}
+            {% if page.session_track == 'Workshop' %}
+                {% assign parent_link = '/events/opensearchcon/workshops/index.html' %}
+            {% elsif category_name == 'Session Summaries' %}
+                {% assign parent_link = '/events/opensearchcon/sessions/index.html' %}
+            {% elsif category_name == 'Speaker Bios' %}
+                {% assign parent_link = '/events/opensearchcon/speakers/index.html' %}
+            {% else %}
+                {% assign parent_link = nil %}
+            {% endif %}
+            {% if parent_link %}
+                <div class="platform-page--feature-area--platform-name platform-page--feature-area--platform-name__mobile">&lt;&nbsp;<a href="{{ parent_link }}">OPENSEARCHCON 2023</a></div>
+                <div class="platform-page--feature-area--platform-name">
+                    <a href="{{ parent_link }}">OPENSEARCHCON 2023</a>
+                </div>
+            {% else %}
+                <div class="platform-page--feature-area--platform-name platform-page--feature-area--platform-name__mobile">&lt;&nbsp;OPENSEARCHCON 2023</div>
+                <div class="platform-page--feature-area--platform-name">
+                    OPENSEARCHCON 2023
+                </div>
+            {% endif %}
+        {% endunless %}
+        {% if category_name %}
+            {% assign category_url_path = category_name | downcase | replace: ' ', '-' %}
+            <div class="platform-page--feature-area--category-name-separator">&gt;</div>
+            {% unless is_conference_page %}
+                <div class="platform-page--feature-area--category-name"><a href="/platform/{{ category_url_path }}/index.html">{{category_name}}</a></div>
+                <div class="platform-page--feature-area--category-name platform-page--feature-area--category-name__mobile">&lt;&nbsp;<a href="/platform/{{ category_url_path }}/index.html">{{category_name}}</a></div>
+            {% else %}
+                {% if is_conference_drilldown %}
+                    <div class="platform-page--feature-area--category-name"><a href="{{ page.url }}">{{category_name}}</a></div>
+                    <div class="platform-page--feature-area--category-name platform-page--feature-area--category-name__mobile">&lt;&nbsp;<a href="{{ page.url }}">{{category_name}}</a></div>
+                {% else %}
+                    <div class="platform-page--feature-area--category-name">{{category_name}}</div>
+                    <div class="platform-page--feature-area--category-name platform-page--feature-area--category-name__mobile">&lt;&nbsp;{{category_name}}</div>
+                {% endif %}
+            {% endunless %}
+        {% endif %}
+        {% if solution_name %}
+            <div class="platform-page--feature-area--category-name-separator {% if solution_name == 'Unconference' %} platform-page--feature-area--category-name-separator__desktop-show {% endif %}">&gt;</div>
+            <div class="platform-page--feature-area--solution-name {% if solution_name == 'Unconference' %} platform-page--feature-area--solution-name__mobile-hide {% endif %}">
+                <a href="{{ page.url }}">{{solution_name}}</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="platform-page--title">
+        <h1>{{ page.primary_title }}</h1>
+    </div>
+</div>

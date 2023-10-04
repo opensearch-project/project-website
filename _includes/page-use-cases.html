@@ -1,0 +1,11 @@
+{% assign category_use_cases = site.redesign_use_cases | where: "feature_area_category_name", include.feature_area_category_name %}
+{% if include.feature_area_solution_name %}
+    {% assign feature_use_cases = category_use_cases | where: "feature_area_solution_name", include.feature_area_solution_name %}
+{% else %}
+    {% assign feature_use_cases = category_use_cases %}
+{% endif %}
+{% if feature_use_cases %}
+    {% for use_case in feature_use_cases %}
+        {{ use_case }}
+    {% endfor %}
+{% endif %}

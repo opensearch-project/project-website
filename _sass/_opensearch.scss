@@ -31,31 +31,42 @@ dl.list-features {
     }
 }
 
+// This is the sum of the logo + the navigation menu items + the search field.
+$header-banner-min-width: 1019px;
+$header-logo-max-left: 80px;
+$header-navigation-max-right: 40px;
+$max-container: 1440px;
+
 [role="banner"] [role="navigation"] {
     margin-top: 17px;
-
+    margin-right: 40px;
+    @media screen and (max-width: 1339px) {
+        margin-right: 0;
+    }
     li {
-        color: $attention;
+        color: $primary-open-sky-s3;
         text-transform: none;
+        @media screen and (min-width: 1250px) {
+            margin-right: 2em;
+        }
+        @media screen and (min-width: 1150px) and (max-width: 1249px) {
+            margin-right: 1em;
+        }
         margin-right: 0.5em;
-        
     }
     li a {
         display: inline;
-        color: white;
+        @include header-level6($primary-open-sky-s3);
     }
-    li a.in-category {
-        color: $attention;
-    }
-
-    li + li:before {
-        content: "·";
-        color: $text-light;
-        display: inline-block;
-        margin-right: 0.25em;
+    .nested-nav a.in-category,
+    .nested-nav a:hover {
+        color: $primary-open-sky-s2;
+        text-decoration: underline;
+        text-decoration-color: $primary-open-sky-s2;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 6px;
     }
 }
-
 
 .whats-new {
     .whats-new-post {
