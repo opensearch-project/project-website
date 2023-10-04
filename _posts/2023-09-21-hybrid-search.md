@@ -373,7 +373,7 @@ We are considering including the following improvements in future versions:
 
 The following table provides further details of the test datasets used for benchmarking. 
 
-|Dataset	|Average query length	|Average query length	|Average query length	|Average query length	|Average query length	|Average query length	|
+|Dataset	|Average query length	|Median query Length	|Average passage length	|Median passage Length	|Number of passages	|Number of test queries	|
 |---	|---	|---	|---	|---	|---	|---	|
 |NFCorpus	|3.29	|2	|22.098	|224	|3633	|323	|
 |Trec-Covid	|10.6	|10	|148.64	|155	|171332	|50	|
