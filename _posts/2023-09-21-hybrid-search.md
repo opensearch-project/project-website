@@ -6,7 +6,7 @@ authors:
   - navneev
   - vamshin
   - kolchfa
-date: 2023-09-21
+date: 2023-10-04
 categories:
   - technical-posts
 meta_keywords: Improve search relevance, hybrid search in OpenSearch 2.10, semantic and keyword search
@@ -385,9 +385,9 @@ The following table provides further details of the test datasets used for bench
 
 ## References
 
-1. _The ABCs of semantic search in OpenSearch: Architectures, benchmarks, and combination strategies_. https://opensearch.org/blog/semantic-science-benchmarks.
-2. _[RFC] High Level Approach and Design For Normalization and Score Combination_. https://github.com/opensearch-project/neural-search/issues/126.
-3. _Building a semantic search engine in OpenSearch_. https://opensearch.org/blog/semantic-search-solutions/.
-4. _An Analysis of Fusion Functions for Hybrid Retrieval_. https://arxiv.org/abs/2210.11934.
-5. _Beir benchmarking for Information Retrieval_. https://github.com/beir-cellar/beir.
+1. _The ABCs of semantic search in OpenSearch: Architectures, benchmarks, and combination strategies_. <https://opensearch.org/blog/semantic-science-benchmarks>.
+2. _[RFC] High Level Approach and Design For Normalization and Score Combination_. <https://github.com/opensearch-project/neural-search/issues/126>.
+3. _Building a semantic search engine in OpenSearch_. <https://opensearch.org/blog/semantic-search-solutions/>.
+4. _An Analysis of Fusion Functions for Hybrid Retrieval_. <https://arxiv.org/abs/2210.11934>.
+5. _Beir benchmarking for Information Retrieval_. <https://github.com/beir-cellar/beir>.
 
