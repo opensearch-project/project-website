@@ -9,8 +9,8 @@ authors:
 date: 2023-09-21
 categories:
   - technical-posts
-meta_keywords: 
-meta_description: 
+meta_keywords: Improve search relevance, hybrid search in OpenSearch 2.10, semantic and keyword search
+meta_description: Improve search relevance with OpenSearch 2.10 when you tune search relevance by using hybrid search to combine and normalize query relevance scores.
 has_science_table: true
 ---
 
