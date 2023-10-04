@@ -4,7 +4,7 @@ title:  "Announcing Data Prepper 2.5.0"
 authors:
 - graytaylor0
 - oeyh
-date: 2023-08-28 11:30:00 -0500
+date: 2023-10-09 11:30:00 -0500
 categories:
   - releases
 meta_keywords: Data Prepper, OpenSearch migration, Processors, OpenSearch ingestion
@@ -33,8 +33,8 @@ Data Prepper possesses a suite of tools for parsing data with various types and 
 
 Data Prepper 2.5.0 includes a number of other improvements. We want to highlight a few of them.
 
-* The Opensearch sink now supports update, upsert and delete actions for bulk operation in additions to the existing create and index actions. Actions can also be specified with a condition to determine when to take which type of actions.
-* The key_value processor now supports writing parsed values to the root of event and adding tags to metadata when parsing fails.
+* The OpenSearch sink now supports update, upsert and delete actions for bulk operation in additions to the existing create and index actions. Actions can also be specified with a condition to determine when to take which type of actions.
+* The `key_value` processor now supports writing parsed values to the root of event and adding tags to metadata when parsing fails.
 
 ## Thanks to our contributors!
 
