@@ -6,12 +6,12 @@ authors:
 - junqiu
 - vamshin
 - satnandi
-  date: 2023-10-04 00:00:00 -0700
-  categories:
+date: 2023-10-04 00:00:00 -0700
+categories:
 - technical-posts
-  meta_keywords: OpenSearch ip2geo processor, ip to geo conversion, getting geo data from ip address
-  meta_description: Learn how the OpenSearch IP2Geo processor helps users to transform IP address to geolocation data during a document ingestion.
-  excerpt: When you host a service across geographic regions, it often helps to understand load patterns from various geographies. In many cases it helps to analyze anomalies and attacks. Starting with the 2.10 release, the OpenSearch IP2Geo processor allows you to filter the sources to the city level. Additionally, the IP2Geo processor periodically updates the IP-to-Geo mapping data in the background, ensuring that the IP address can be mapped to the latest location data.
+meta_keywords: OpenSearch ip2geo processor, ip to geo conversion, getting geo data from ip address
+meta_description: Learn how the OpenSearch IP2Geo processor helps users to transform IP address to geolocation data during a document ingestion.
+excerpt: When you host a service across geographic regions, it often helps to understand load patterns from various geographies. In many cases it helps to analyze anomalies and attacks. Starting with the 2.10 release, the OpenSearch IP2Geo processor allows you to filter the sources to the city level. Additionally, the IP2Geo processor periodically updates the IP-to-Geo mapping data in the background, ensuring that the IP address can be mapped to the latest location data.
 ---
 
 When you host a service across geographic regions, it often helps to understand load patterns from various geographies. In many cases it helps to analyze anomalies and attacks. Starting with the 2.10 release, the OpenSearch IP2Geo processor allows you to filter the sources to the city level. Additionally, the IP2Geo processor periodically updates the IP-to-Geo mapping data in the background, ensuring that the IP address can be mapped to the latest location data.
