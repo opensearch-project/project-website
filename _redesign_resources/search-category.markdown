@@ -22,6 +22,12 @@ resources:
     author: 'Shunsuke Goto'
     date: 'Wed, Jan 11, 2023'
     icon: 'search-magnifying-glass'
+  - title: 'Improve search relevance with hybrid search, generally available in OpenSearch 2.10'
+    url: '/blog/hybrid-search/'
+    type: 'OpenSearch'
+    author: 'Martin Gaievski, Navneet Verma, Vamshi Vijay Nakkirtha, Fanit Kolchina'
+    date: 'Wed, Oct 04, 2023'
+    icon: 'search-magnifying-glass'
 button_stack:
   - documentation-dark
   - community-dark
