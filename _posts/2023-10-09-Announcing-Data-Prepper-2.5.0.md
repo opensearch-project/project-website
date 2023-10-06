@@ -23,7 +23,7 @@ For more information, see the [OpenSearch source documentation](https://opensear
 
 ## Translate processor
 
-Data Prepper 2.5.0 introduces a new translate processor that modifies, or “translates” a value in incoming events to a different value based on user configured mappings. For example, you can translate an HTTP status code such as 404 to "Not Found" to make it readable. The processor supports regular expressions, number ranges and comma-delimited values as mapping keys. Users also have the flexibility to define the mappings either directly in the pipeline configuration or through a file on the local machine or a remote S3 bucket.
+Data Prepper 2.5.0 introduces a new translate processor that modifies, or “translates,” a value in incoming events to a different value based on user-configured mappings. For example, you can translate an HTTP status code such as 404 to "Not Found" to make it readable. The processor supports regular expressions, number ranges, and comma-delimited values as mapping keys. Users also have the flexibility to define the mappings either directly in the pipeline configuration or through a file on the local machine or in a remote Amazon Simple Storage Service (Amazon S3) bucket.
 
 ## Dissect processor
 
