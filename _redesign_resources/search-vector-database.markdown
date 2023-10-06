@@ -15,6 +15,12 @@ resources:
     type: OpenSearch
     icon: 'search-magnifying-glass'
     date: 'Thu, Mar 30, 2023'
+  - title: 'Improve search relevance with hybrid search, generally available in OpenSearch 2.10'
+    url: '/blog/hybrid-search/'
+    type: 'OpenSearch'
+    author: 'Martin Gaievski, Navneet Verma, Vamshi Vijay Nakkirtha, Fanit Kolchina'
+    date: 'Wed, Oct 04, 2023'
+    icon: 'search-magnifying-glass'
   - title: 'Augmenting ChatGPT with Amazon OpenSearch'
     url: 'https://www.stratusgrid.com/open-space/augmenting-chatgpt-with-amazon-opensearch?locale=en'
     type: StratusGrid
@@ -55,9 +61,9 @@ resources:
 ### Integrations
 
 - [Haystack integration with OpenSearch](https://www.deepset.ai/opensearch-integration){:target="_blank"}
-- [Hopsworks integration with OpenSearch](https://docs.hopsworks.ai/3.0/user_guides/mlops/vector_database/#introduction){:target="_blank}
+- [Hopsworks integration with OpenSearch](https://docs.hopsworks.ai/3.0/user_guides/mlops/vector_database/#introduction){:target="_blank"}
 - [LangChain integration with OpenSearch](https://python.langchain.com/en/latest/modules/indexes/vectorstores/examples/opensearch.html){:target="_blank"}
-- [LlamaIndex integration with OpenSearch](https://gpt-index.readthedocs.io/en/latest/reference/storage/vector_store.html#llama_index.vector_stores.OpensearchVectorClient){:target="_blank}
+- [LlamaIndex integration with OpenSearch](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/OpensearchDemo.html){:target="_blank"}
 
 ### Blog Posts
 
