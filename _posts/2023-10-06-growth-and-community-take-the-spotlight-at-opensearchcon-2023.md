@@ -8,7 +8,7 @@ authors:
 - krisfreedain
 - nateboot
 - dtaivpp
-date: 2023-10-05 00:00:00 -0700
+date: 2023-10-06 00:00:00 -0700
 categories:
  - community
 meta_keywords: opensearchcon, opensearch conference, opensearch seattle, opensearch event, opensearch community
