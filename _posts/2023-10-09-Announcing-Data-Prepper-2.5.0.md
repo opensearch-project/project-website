@@ -45,7 +45,7 @@ Data Prepper 2.5.0 includes a number of other improvements. We want to highlight
 * [gaiksaya](https://github.com/gaiksaya) - Sayali Gaikawad
 * [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
 * [JonahCalvo](https://github.com/JonahCalvo) - Jonah Calvo
-* [KarstenSchnitter](https://github.com/KarstenSchnitter) - Karsten Schnitter
+* [KarstenSchnitter](https://github.com/KarstenSchnitter) -- Karsten Schnitter
 * [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
 * [oeyh](https://github.com/oeyh) -- Hai Yan
 * [rajeshLovesToCode](https://github.com/rajeshLovesToCode)
