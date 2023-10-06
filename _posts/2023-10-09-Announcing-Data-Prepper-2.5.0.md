@@ -49,5 +49,5 @@ Data Prepper 2.5.0 includes a number of other improvements. We want to highlight
 * [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
 * [oeyh](https://github.com/oeyh) -- Hai Yan
 * [rajeshLovesToCode](https://github.com/rajeshLovesToCode)
-* [shenkw1](https://github.com/shenkw1) - Katherine Shen
+* [shenkw1](https://github.com/shenkw1) -- Katherine Shen
 * [vishalboin](https://github.com/vishalboin) -- Vishal Boinapalli
