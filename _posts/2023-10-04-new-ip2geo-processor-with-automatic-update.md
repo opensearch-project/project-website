@@ -32,18 +32,20 @@ Now let’s look at how to create a data source and an IP2Geo processor. OpenSea
 
 The original data is provided by MaxMind. MaxMind updates the data twice weekly, at most. Each endpoint provides a different type of database. You can find what type of data you can get from each database at https://dev.maxmind.com/geoip/docs/databases. Here you are going to use the country endpoint to create a data source so that you can get the country name to which the IP address belongs:
 
-```http request
+```
 PUT /_plugins/geospatial/ip2geo/datasource/county-datasource
 {
   "endpoint": "https://geoip.maps.opensearch.org/v1/geolite2-country/manifest.json",
   "update_interval_in_days": 3
 }
 ```
+
 After creation, it takes some time for the data source to be ready because IP-to-Geo mapping data needs to be downloaded from the external endpoint and stored in a system index. You can query the current state of the data source by using the get datasource API operations:
-```http request
+```
 GET /_plugins/geospatial/ip2geo/datasource/country-datasource
 ```
-```http request
+
+```
 {
     "datasources": [
         {
@@ -60,8 +62,9 @@ GET /_plugins/geospatial/ip2geo/datasource/country-datasource
     ]
 }
 ```
+
 Once the data source has been created, the state changes to `AVAILABLE` and it provides all the available fields that you can append to your document:
-```http request
+```
 {
     "datasources": [
         {
@@ -89,8 +92,9 @@ Once the data source has been created, the state changes to `AVAILABLE` and it p
     ]
 }
 ```
+
 Next, create an IP2Geo processor:
-```http request
+```
 PUT /_ingest/pipeline/my-processor
 {
     "description":"convert ip to country",
@@ -105,8 +109,9 @@ PUT /_ingest/pipeline/my-processor
     ]
 }
 ```
+
 After the processor is created, you can determine whether the processor works as expected:
-```http request
+```
 GET /_ingest/pipeline/my-processor/_simulate
 {
     "docs":[
@@ -118,8 +123,9 @@ GET /_ingest/pipeline/my-processor/_simulate
     ]
 }
 ```
+
 You can see that the IP address “2001:2000::” currently belongs to Sweden:
-```http request
+```
 {
     "docs": [
         {
@@ -140,13 +146,15 @@ You can see that the IP address “2001:2000::” currently belongs to Sweden:
     ]
 }
 ```
+
 Now you can use the processor to add the country name to your document during ingestion in the same way that you use other processors:
-```http request
+```
 PUT /my-index/_doc/1?pipeline=my-processor
 {
     "ip":"2001:2000::"
 }
 ```
+
 ## Summary
 In OpenSearch 2.10, users can create an IP2Geo processor and convert an IP address to a geolocation. This is just one example of how the IP2Geo processor can be used. With added geolocation data and OpenSearch's multilayer map infrastructure, users can present their insights through easily understandable visualizations. The geospatial information can also serve as additional data for anomaly detection algorithms. If you have your own success story about using the IP2Geo processor, we’d love to hear it! Feel free to submit a blog proposal using the blog post:Issue template on GitHub.
 
