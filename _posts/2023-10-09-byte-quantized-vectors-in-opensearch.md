@@ -6,7 +6,7 @@ authors:
   - vamshin
   - macrakis
   - talw
-date: 2023-10-10 00:00:00 -0700
+date: 2023-10-09 00:00:00 -0700
 categories:
   - technical-posts
 meta_keywords: byte-quantized vectors, OpenSearch k-NN plugin, storage and memory optimization using byte vectors
