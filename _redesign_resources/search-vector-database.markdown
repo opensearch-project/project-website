@@ -51,11 +51,6 @@ resources:
     type: Amazon Web Services
     icon: 'search-magnifying-glass'
     date: 'Wed, Apr 5, 2023'
-  - title: 'Choose the k-NN algorithm for your billion-scale use case with OpenSearch'
-    url: 'https://aws.amazon.com/blogs/big-data/choose-the-k-nn-algorithm-for-your-billion-scale-use-case-with-opensearch/'
-    type: Amazon Web Services
-    icon: 'search-magnifying-glass'
-    date: 'Tue, Sep 13, 2022'
 ---
 
 ### Integrations
