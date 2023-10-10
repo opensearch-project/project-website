@@ -2,10 +2,10 @@
 layout: post
 title:  "Byte-quantized vectors in OpenSearch"
 authors:
-  - navtat
+  - naveen
   - vamshin
   - macrakis
-  - talw
+  - tal
 date: 2023-10-09 00:00:00 -0700
 categories:
   - technical-posts
@@ -90,7 +90,7 @@ There are many quantization techniques, such as scalar quantization or product q
 
 The following section contain Python pseudocode demonstrating a scalar quantization technique suitable for data using Euclidean distance. Euclidean distance is shift invariant; that is, if we shift x and y, then the distance remains the same. Mathematically,
 
-_||x-y||=||(x-z)-(y-z)||_.
+||x-y||=||(x-z)-(y-z)||
 
 ### Scalar quantization technique for the L2 space type
 
