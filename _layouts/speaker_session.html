@@ -1,6 +1,6 @@
 ---
 layout: redesign-fullwidth
-feature_area_icon_type: smiling-face
+feature_area_icon_type: community
 feature_area_category_name: Session Summaries
 ---
 
@@ -21,6 +21,11 @@ feature_area_category_name: Session Summaries
 </div>
 {% endif %}
 <div class="landing-page-content__right-panel conference-speaker-session-page">
+    {% if page.youtube_video_id %}
+        <div class="conference-speaker-session-page--embedded-video">
+            {% include youtube-player.html id=page.youtube_video_id width="100%" height=""%}
+        </div>
+    {% endif %}
     <div class="landing-page-content__right-panel--content">
         <div class="landing-page-content__right-panel--content--body">
             {{ content }}

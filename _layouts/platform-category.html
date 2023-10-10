@@ -1,0 +1,52 @@
+---
+layout: default
+---
+{% if page.has_hero %}
+    {% assign page_type_class = "page-with-hero" %}
+{% else %}
+    {% assign page_type_class = "page-without-hero" %}
+{% endif %}
+{% assign icon_type = page.feature_area_icon_type | default: layout.feature_area_icon_type  %}
+{% assign category_name = page.feature_area_category_name | default: layout.feature_area_category_name %}
+{% assign solution_name = page.feature_area_solution_name | default: layout.feature_area_solution_name %}
+<main class="container">
+    <div class="{{ page_type_class }}">
+        {% include platform-page-header.html icon=icon_type category=category_name solution=solution_name %}
+        <div class="platform-page--content">
+            <div class="platform-category-page">
+                <div class="platform-category-page--overview">
+                    <h2>{{ page.overview_header_text }}</h2>
+                    <div class="platform-category-page--hero">
+                        <div class="landing-page-hero--images">
+                            <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
+                                <img src="{{ page.hero_images.mobile.path }}" alt="{{ page.hero_images.mobile.alt }}">
+                            </div>
+                            <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
+                                <img src="{{ page.hero_images.desktop.path }}" alt="{{ page.hero_images.desktop.alt }}">
+                            </div>
+                        </div>
+                    </div>
+                    {{ content }}
+                </div>
+                <div class="platform-category-page--key-benefits">
+                    {% if page.key_benefits_list %}
+                        {% include callout-cards.html callouts=page.key_benefits_list %}
+                    {% endif %}
+                </div>
+                <div class="platform-category-page--key-features">
+                    <h2>Key Features</h2>
+                    <div class="platform-category-page--key-features--list-box">
+                        {% for key_feature in page.key_features_list %}
+                            <hgroup>
+                                <h2>{{ key_feature.name }}</h2>
+                                <p>{{ key_feature.description }}</p>
+                            </hgroup>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% include page-use-cases.html feature_area_category_name=page.feature_area_category_name feature_area_solution_name=page.feature_area_solution_name %}
+                {% include page-resources.html feature_area_category_name=page.feature_area_category_name feature_area_solution_name=page.feature_area_solution_name %}
+            </div>
+        </div>
+    </div>
+</main>

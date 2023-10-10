@@ -1,0 +1,64 @@
+<template id="opensearch_toggle_button_tpl">
+    <style>
+        :host {
+            width: auto;
+            padding: 0;
+            margin: 0;
+        }
+        :host([toggled]) > .toggled {
+            display: flex;
+        }
+        :host([toggled]) > .untoggled {
+            display: none;
+        }
+        :host(:not([toggled])) > .toggled {
+            display: none;
+        }
+        :host(:not([toggled])) > .untoggled {
+            display: flex;
+        }
+        div {
+            flex-basis: 100%;
+            flex-grow: 1;
+            flex-shrink: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <div class="toggled">
+        <slot name="toggled"></slot>
+    </div>
+    <div class="untoggled">
+        <slot name="untoggled"></slot>
+    </div>
+</template>
+<script type="module">
+    class OpenSearchToggleButtonElement extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({mode: 'open'});
+            this.shadowRoot.appendChild(document.getElementById('opensearch_toggle_button_tpl').content.cloneNode(true));
+            this.toggle = this.toggle.bind(this);
+        }
+        static get observedAttributes() {
+            return ['toggled'];
+        }
+        
+        toggle(event) {
+            this.toggleAttribute('toggled');
+        }
+        connectedCallback() {
+            this.addEventListener('click', this.toggle);
+        }
+        disconnectedCallback() {
+            this.removeEventListener('click', this.toggle);
+        }
+    }
+    customElements.define('opensearch-toggle-button', OpenSearchToggleButtonElement);
+</script>

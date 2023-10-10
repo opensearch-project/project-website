@@ -143,6 +143,12 @@ collections:
     output: true
   conference_workshops:
     output: true
+  platform_products:
+    output: true
+  redesign_testimonials:
+    output: true
+  redesign_heros:
+    output: true
     
 paginate: 5
 paginate_path: "/blog/page:num/"

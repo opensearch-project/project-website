@@ -1,0 +1,249 @@
+$accent-dark-half-opacity: rgba(0, 59, 92, 0.5);
+//$cool-palette-reversed: (#6092c0, #7da3ca, #98b5d5, #b2c7df, #ccd9ea, #e5ecf4);
+$cool-palette-reversed: (
+  #6092c0,
+  #6997c3,
+  #729cc6,
+  #7aa2c9,
+  #82a7cd,
+  #8bacd0,
+  #93b1d3,
+  #9ab7d6,
+  #a2bcd9,
+  #aac2dc,
+  #b2c7df,
+  #bacce3,
+  #c2d2e6,
+  #c9d7e9,
+  #d1ddec,
+  #d9e3ef,
+  #e0e8f2,
+  #e8eef6,
+  #f0f4f9,
+  #f7f9fc
+);
+$max-hero-item-count: 20;
+$carousel-item-background-colors: (
+    #411D52,
+    #FFB81C,
+    #002A3A,
+    #F65275,
+    #2CD5C4,
+    #D9E1E2
+);
+
+.hero-with-headline {
+    margin: 1rem 0;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+
+    @include respond-max(833px) {
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-with-headline--wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        @include respond-min(834px) {
+            width: 100%;
+            max-width: 1440px;
+        }
+        @include respond-max(833px) {
+            width: 100%;
+        }
+
+        .hero-with-headline--headline {
+            > h1 {
+                color: black;
+                font-size: 2em;
+                font-weight: 600;
+                line-height: 1.3;
+                @include respond-max(833px) {
+                    margin: 1em 0 0.25em;
+                }
+                @include respond-min(834px) {
+                    margin: 0.5em 0 0.5em;
+                }
+            }
+        }
+        .hero-with-headline--carousel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .hero-with-headline--carousel--viewport {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: auto;
+                @include respond-min(834px) {
+                    height: 370px;
+                }
+                @include respond-max(833px) {
+                    height: 430px;
+                }
+                overflow-x: hidden;
+                > .landing-page-hero--arrows {
+                    position: absolute;
+                    top: calc(50% - 30px);
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    width: 100%;
+                    max-width: 1440px;
+                    height: 60px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    z-index: 2;
+                    > .landing-page-hero--arrows--arrow {
+                        width: 60px;
+                        height: 60px;
+                        background: rgba(255, 255, 255, 0.15);
+                        margin: 0;
+                        padding: 0;
+                        cursor: pointer;
+                        box-sizing: border-box;
+                        padding-top: 6px;
+                        > opensearch-button {
+                            opacity: 0.4;
+                            width: 60px;
+                            height: 60px;
+                            transition: opacity 0.25s ease-in-out;
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                        &.landing-page-hero--arrows--arrow__left {
+                            svg {
+                                position: relative;
+                                left: 15px;
+                                top: 2px;
+                            }
+                        }
+                        &.landing-page-hero--arrows--arrow__right {
+                            svg {
+                                position: relative;
+                                left: 7px;
+                                top: 2px;
+                            }
+                        }
+                    }
+                }
+                .hero-with-headline--carousel--wrapper {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    box-sizing: border-box;
+                    width: auto;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    &.hero-with-headline--carousel--items-wrapper__wind-back {
+                        animation: carousel-animation-wind-back 1s ease-in-out;
+                        animation-fill-mode: forwards;
+                        animation-delay: 0s;
+                        animation-iteration-count: 1;
+                        animation-direction: normal;
+                        animation-play-state: running;
+                        animation-timing-function: ease-in-out;
+                    }
+                    @for $from-frame-counter from 0 through $max-hero-item-count {
+                        @for $to-frame-counter from 0 through $max-hero-item-count {
+                            @if $from-frame-counter != $to-frame-counter {
+                                &.hero-with-headline--carousel--wrapper__running__from-#{$from-frame-counter}__to-#{$to-frame-counter} {
+                                    animation: carousel-animation-from-to-slide-#{$from-frame-counter}-to-#{$to-frame-counter} 1s ease-in-out;
+                                    animation-fill-mode: forwards;
+                                    animation-delay: 0s;
+                                    animation-iteration-count: 1;
+                                    animation-direction: normal;
+                                    animation-play-state: running;
+                                    animation-timing-function: ease-in-out;
+                                }
+                            }
+                        }
+                    }
+                    .hero-with-headline--carousel--item {
+                        display: inline-flex;
+                        flex-direction: column;
+                        align-items: stretch;
+                        justify-content: center;
+                        align-self: stretch;
+                        flex-grow: 1;
+                        flex-shrink: 0;
+                        flex-basis: 100%;
+                    }
+                }
+            }
+        }
+        .hero-with-headline--carousel--pagination {
+            display: block;
+            width: 100%;
+            box-sizing: content-box;
+            padding: 0.5rem 0;
+            text-align: center;
+            .hero-with-headline--carousel--pagination--items-wrapper {
+                display: inline-flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                .hero-with-headline--carousel--pagination--item {
+                    flex: 1;
+                    display: inline-block;
+                    width: 1em;
+                    height: 1em;
+                    margin: 0 0.25rem;
+                    border-radius: 50%;
+                    opacity: 0.5;
+                    transition: opacity 0.25s ease-in-out;
+                    box-shadow: $accent-dark-half-opacity 0 0 0 2px;
+                    $index: 1;
+                    cursor: pointer;
+                    border-color: $light-theme-hero-control-active;
+                    background: $light-theme-hero-control-inactive;
+                    &.hero-with-headline--carousel--pagination--item__active {
+                        background: $light-theme-hero-control-active;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@for $from-frame-counter from 0 through $max-hero-item-count {
+    @for $to-frame-counter from 0 through $max-hero-item-count {
+        @if $from-frame-counter != $to-frame-counter {
+            @keyframes carousel-animation-from-to-slide-#{$from-frame-counter}-to-#{$to-frame-counter} {
+                0% {
+                    transform: translateX(calc(-100% * #{$from-frame-counter}));
+                }
+                100% {
+                    transform: translateX(calc(-100% * #{$to-frame-counter}));
+                }
+            }
+        }
+    }
+}
+
+@keyframes carousel-animation-wind-back {
+    0% {
+        transform: translateX(-500%);
+    }
+    33% {
+        transform: translateX(-530%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
