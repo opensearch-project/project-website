@@ -4,7 +4,7 @@ title:  "Announcing Data Prepper 2.5.0"
 authors:
 - graytaylor0
 - oeyh
-date: 2023-10-09 11:30:00 -0500
+date: 2023-10-11 11:30:00 -0500
 categories:
   - releases
 meta_keywords: Data Prepper, OpenSearch migration, Processors, OpenSearch ingestion
