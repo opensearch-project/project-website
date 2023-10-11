@@ -13,6 +13,7 @@ meta_keywords: byte-quantized vectors, OpenSearch k-NN plugin, storage and memor
 meta_description: Learn how byte vector feature in OpenSearch helps to improve the overall performance with a minimal loss in quality. 
 excerpt: In OpenSearch k-NN plugin when we index and query vectors of type float, each vector element occupies 4 bytes. This is getting expensive in terms of memory and storage, especially for large-scale use cases. Starting with the OpenSearch 2.9 release, using the new byte vector feature we can reduce memory and storage requirements, significant reduction in query latencies with a minimal loss in recall.
 has_science_table: true
+has_math: true
 ---
 
 Until now, the OpenSearch k-NN plugin has supported the indexing and querying of vectors of type float, with each vector element occupying 4 bytes. This can be expensive in terms of memory and storage, especially for large-scale use cases. Using the new byte vector feature in [OpenSearch 2.9](https://opensearch.org/blog/introducing-opensearch-2.9.0/), users can reduce memory requirements by a factor of 4 and significantly reduce search latency, with minimal loss in quality (recall).
@@ -91,7 +92,7 @@ There are many quantization techniques, such as scalar quantization or product q
 
 The following section contain Python pseudocode demonstrating a scalar quantization technique suitable for data using Euclidean distance. Euclidean distance is shift invariant; that is, if we shift x and y, then the distance remains the same. Mathematically,
 
-||x-y||=||(x-z)-(y-z)||
+$$\lVert x-y\rVert =\lVert (x-z)-(y-z)\rVert$$
 
 ### Scalar quantization technique for the L2 space type
 
@@ -527,17 +528,17 @@ Document_Cnt/ (( ingest_took_total)_s + (refresh_index_took_total)_s)
 
 ### RSS comparison graphs (in KB)
 
-![RSS Comparison for gist-960-euclidean dataset](/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-gist-960-euclidean-dataset.png){: .img-fluid}
+<img width="100%" src="/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-gist-960-euclidean-dataset.png" alt="RSS Comparison for gist-960-euclidean dataset"/>{: .img-fluid }
 
-![RSS Comparison for sift-128-euclidean dataset](/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-sift-128-euclidean-dataset.png){: .img-fluid}
+<img width="100%" src="/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-sift-128-euclidean-dataset.png" alt="RSS Comparison for sift-128-euclidean dataset"/>{: .img-fluid }
 
-![RSS Comparison for mnist-784-euclidean dataset](/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-mnist-784-euclidean-dataset.png){: .img-fluid}
+<img width="100%" src="/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-mnist-784-euclidean-dataset.png" alt="RSS Comparison for mnist-784-euclidean dataset"/>{: .img-fluid }
 
-![RSS Comparison for glove-50-angular dataset](/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-glove-50-angular-dataset.png){: .img-fluid}
+<img width="100%" src="/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-glove-50-angular-dataset.png" alt="RSS Comparison for glove-50-angular dataset"/>{: .img-fluid }
 
-![RSS Comparison for glove-100-angular dataset](/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-glove-100-angular-dataset.png){: .img-fluid}
+<img width="100%" src="/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-glove-100-angular-dataset.png" alt="RSS Comparison for glove-100-angular dataset"/>{: .img-fluid }
 
-![RSS Comparison for glove-200-angular dataset](/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-glove-200-angular-dataset.png){: .img-fluid}
+<img width="100%" src="/assets/media/blog-images/2023-10-10-byte-quantized-vectors-in-opensearch/rss-comparison-for-glove-200-angular-dataset.png" alt="RSS Comparison for glove-200-angular dataset"/>{: .img-fluid }
 
 ### Analysis
 
