@@ -72,7 +72,7 @@ One of the challenges of aggregation support is that OpenSearch supports nearly 
 
 ## Performance results
 
-Currently, the feature is launched as experimental and is not recommended for use in a production environment. We are working on resolving all the issues found along the way to ensure that the feature is stable for production environments. You can track the status of the feature in the concurrent search section of the [project board](https://github.com/orgs/opensearch-project/projects/117/views/1). With the current functionality in place, we collected preliminary benchmark numbers using the OpenSearch Benchmark [`nyc_taxis` workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/nyc_taxis). The following sections summarize these benchmarking results.
+Currently, this feature is launched as experimental and is not recommended for use in a production environment. We are working on resolving all the issues found along the way to ensure that the feature is stable for production environments. You can track the status of the feature in the concurrent search section of the [project board](https://github.com/orgs/opensearch-project/projects/117/views/1). With the current functionality in place, we collected preliminary benchmark numbers using the OpenSearch Benchmark [`nyc_taxis` workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/nyc_taxis). The following sections summarize these benchmarking results.
 
 ### Cluster setup 1
 
