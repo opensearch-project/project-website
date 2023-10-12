@@ -4,8 +4,8 @@ items:
     fragment: opensearchcon
     children:
       -
-        label: Registration is closed
-        url: https://opensearchcon2023.splashthat.com
+        label: 2024 - Stay Informed
+        url: /events/opensearchcon/index.html
       -
         label: Sessions
         url: /events/opensearchcon/sessions/index.html

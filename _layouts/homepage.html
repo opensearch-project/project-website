@@ -79,7 +79,7 @@ layout: default
                         <h3><a href="{{ first_post.url }}">{{ first_post.title }}</a></h3>
                     </div>
                     <div class="landing-page-solutions--hero-3up--hero--preview--excerpt">
-                        {{ first_post.excerpt }}
+                        {{ first_post.excerpt | markdownify }}
                     </div>
                     <div class="landing-page-solutions--hero-3up--hero--preview--author">
                         <span>
