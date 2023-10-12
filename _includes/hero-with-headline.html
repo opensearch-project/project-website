@@ -1,5 +1,10 @@
-{% assign show_hero_carousel_pagination = include.show_pagination | default: true %}
-{% assign show_hero_carousel_arrows = include.show_arrows | default: true %}
+{%- assign show_hero_carousel_pagination = include.show_pagination | default: true -%}
+{%- assign show_hero_carousel_arrows = include.show_arrows | default: true -%}
+{%- assign arrow_color = include.arrow_color | default: "white" -%}
+{%- if show_hero_carousel_arrows -%}
+    {%- assign arrow_name_left = "arrow-left-" | append: arrow_color -%}
+    {%- assign arrow_name_right = "arrow-right-" | append: arrow_color -%}
+{%- endif -%}
 <div id="{{ include.carousel_id }}" class="hero-with-headline">
     <div class="hero-with-headline--wrapper">
         {%- if include.headline and include.headline != "" -%}
@@ -19,7 +24,7 @@
                             no-outline="true"
                         >
                             <div slot="icon-slot">
-                                {%- include icons.html type='arrow-left' -%}
+                                {%- include icons.html type=arrow_name_left -%}
                             </div>
                         </opensearch-button>
                     </div>
@@ -31,7 +36,7 @@
                             no-outline="true"
                         >
                             <div slot="icon-slot">
-                                {%- include icons.html type='arrow-right' -%}
+                                {%- include icons.html type=arrow_name_right -%}
                             </div>
                         </opensearch-button>
                     </div>

@@ -87,6 +87,7 @@ $carousel-item-background-colors: (
                 }
                 @include respond-max(833px) {
                     height: 430px;
+                    font-size: 0; // mobile-extra height fix.
                 }
                 overflow-x: hidden;
                 > .landing-page-hero--arrows {
@@ -125,13 +126,13 @@ $carousel-item-background-colors: (
                             svg {
                                 position: relative;
                                 left: 15px;
-                                top: 2px;
+                                top: 6px;
                             }
                         }
                         &.landing-page-hero--arrows--arrow__right {
                             svg {
                                 position: relative;
-                                left: 7px;
+                                left: 0px;
                                 top: 2px;
                             }
                         }

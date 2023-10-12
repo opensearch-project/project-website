@@ -11,7 +11,7 @@ signup:
 
 **NOTE: This is a series, ending with the release of 2.11.0 - Please read carefully**
 
-Join the OpenSearch team for the open release meetings so we can push 2.10.0 live as a community.
+Join the OpenSearch team for the open release meetings so we can push 2.11.0 live as a community.
 
 (hosts: [Barani Bikshandi](https://github.com/bbarani), [Charlotte Henkle](https://github.com/CEHENKLE), [Rishabh Singh](https://github.com/rishabh6788), & [Kris Freedain](https://github.com/krisfreedain))
 
