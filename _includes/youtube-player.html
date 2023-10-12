@@ -2,14 +2,16 @@
 Copyright (c) 2020 Nathan Lam
 https://github.com/nathancy/jekyll-embed-video
 -->
-
+{% assign player_width = include.player_width | default: '640'  %}
+{% assign player_height = include.player_height | default: '385'  %}
 <div class="embed-container">
     <iframe
         src="https://www.youtube.com/embed/{{ include.id }}"
-        width="640"
-        height="385"
+        width=" {{ player_width }}"
+        height="{{ player_height }}"
         frameborder="0"
         allowfullscreen="true"
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
     </iframe>
   </div>
+  
