@@ -4,8 +4,8 @@ items:
     fragment: opensearchcon
     children:
       -
-        label: Registration is closed
-        url: https://opensearchcon2023.splashthat.com
+        label: 2024 - Stay Informed
+        url: /events/opensearchcon/index.html
       -
         label: Sessions
         url: /events/opensearchcon/sessions/index.html
@@ -94,6 +94,9 @@ items:
       -
         label: Security Analytics
         url: /platform/security-analytics/index.html
+      -
+        label: Vector Database
+        url: https://opensearch.org/platform/search/vector-database.html
       -
         label: Live Demo
         url: https://playground.opensearch.org/
