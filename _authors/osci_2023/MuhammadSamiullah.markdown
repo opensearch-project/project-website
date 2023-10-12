@@ -1,7 +1,7 @@
 ---
 name: Muhammad Samiullah
 short_name: Samiullah
-twitter: @samipak458
+twitter: samipak458
 github: samipak458
 linkedin: https://www.linkedin.com/in/msamiullah-dev/
 ---
