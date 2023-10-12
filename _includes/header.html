@@ -1,4 +1,32 @@
 {% assign url_parts = page.url | split: "/" %}
+{% assign last_url_part = url_parts | last %}
+{% if last_url_part contains ".html" %}
+  {% assign url_has_filename = true %}
+{% else %}
+  {% assign url_has_filename = false %}
+{% endif %}
+{% if last_url_part == 'index.html' %}
+  {% assign url_filename_is_index = true %}
+{% else %}
+  {% assign url_filename_is_index = false %}
+{% endif %}
+<script type="module">
+  const pageUrl = "{{ page.url }}";
+  const pageUrlLength = {{ page.url.size }};
+  const urlPartsLength = {{ url_parts.size }};
+  const lastUrlPart = "{{ last_url_part }}";
+  const urlHasFileName = "{{ url_has_filename }}";
+  const urlFilenameIsIndex = "{{ url_filename_is_index }}";
+  console.log(`Page URL: ${pageUrl}`);
+  console.log(`Page URL Length: ${pageUrlLength}`);
+  console.log(`URL Parts length: ${urlPartsLength}`);
+  console.log(`Last URL part: ${lastUrlPart}`);
+  console.log(`URL Has Filename: ${urlHasFileName}`);
+  console.log(`URL Filename is Index: ${urlFilenameIsIndex}`);
+  {% for part in url_parts %}
+    console.log("Part {{ forloop.index0 }}: {{ part }}");
+  {% endfor %}
+</script>
 {%if page.alert %}
 <div role="banner" class="banner-alert">
   <div class="container">
@@ -21,20 +49,28 @@
     </a>
     <div role="navigation">
       <ul class="nested-nav">
+        {% if url_has_filename %}
+          {% unless url_filename_is_index %}
+            {% assign url_fragment = last_url_part | replace: '.html', '' %}
+          {% else %}
+            {% assign url_fragment_index = url_parts | size |  minus: 2 %}
+            {% assign url_fragment = url_parts[url_fragment_index] %}
+          {% endunless %}
+        {% else %}
+          {% assign url_fragment = last_url_part %}
+        {% endif %}
         {%- assign url_fragment = url_parts[1] | replace: '.html', '' -%}
-        {%- if url_parts.size > 2 -%}
-          {%- if url_parts[2] == "opensearchcon" -%}
-            {%- assign is_conference_page = true -%}
-          {%- else -%}
-            {%- assign is_conference_page = false -%}
-          {%- endif -%}
-        {%- else -%}
-          {%- if url_parts[1] == "opensearchcon2023-cfp.html" -%}
-            {%- assign is_conference_page = true -%}
-          {%- else -%}
-            {%- assign is_conference_page = false -%}
-          {%- endif -%}
-        {%- endif -%}
+        {% if page.url contains "opensearchcon" %}
+          {% assign is_conference_page = true %}
+        {% else %}
+          {% assign is_conference_page = false %}
+        {% endif %}
+        <script type="module">
+          const isConferencePage = "{{ is_conference_page }}";
+          const urlFragment = "{{ url_fragment }}";
+          console.log(`Is Conference Page: ${isConferencePage}`);
+          console.log(`URL Fragment: ${url_fragment}`);
+        </script>
         {% for nav_item in site.data.top_nav.items %}
           <li>
             {%- unless nav_item.children -%}
@@ -44,7 +80,7 @@
             {%- endunless -%}
             <div class="nested-nav--top-menu-item-wrapper {{nested_nav_item_wrapper_classname}}">
               <div class="nested-nav--top-menu-item-wrapper--link">
-                <a {% if nav_item.url %} href="{{ nav_item.url }}" {% endif %}
+                <a {% if nav_item.url %} href="{{ nav_item.url }}" {% else %} href="#" {% endif %}
                   {%- unless is_conference_page -%}
                     {% if nav_item.fragments contains url_fragment or nav_item.fragment == url_fragment %} class="in-category" {% endif %}
                   {%- else -%}
@@ -65,33 +101,39 @@
                     {%- assign child_url_fragment = '#' -%}
                   {%- else -%}
                     {%- assign child_url_parts = nav_child.url | split: "/" -%}
-                    {%- unless child_url_parts.size > 2 -%}
-                      {%- assign child_url_fragment = child_url_parts.last | replace: '.html', '' -%}
-                    {%- else -%}
-                      {%- assign fragment_index = child_url_parts.size | minus: 2 -%}
-                      {%- assign child_url_fragment = child_url_parts[fragment_index] -%}
-                    {%- endunless -%}
+                    {% assign last_child_url_part = child_url_parts | last %}
+                    {% if last_child_url_part contains ".html" %}
+                      {% assign child_url_has_filename = true %}
+                    {% else %}
+                      {% assign child_has_filename = false %}
+                    {% endif %}
+                    {% if last_child_url_part == 'index.html' %}
+                      {% assign child_url_filename_is_index = true %}
+                    {% else %}
+                      {% assign child_url_filename_is_index = false %}
+                    {% endif %}
+                    {% if child_url_has_filename %}
+                      {% unless child_url_filename_is_index %}
+                        {% assign child_url_fragment = last_child_url_part | replace: ".html", "" %}
+                      {% else %}
+                        {% assign child_url_fragment_index = child_url_parts | size | minus: 2 %}
+                        {% assign child_url_fragment = child_url_parts[child_url_fragment_index] %}
+                      {% endunless %}
+                    {% else %}
+                      {% assign child_url_fragment = last_child_url_part %}
+                    {% endif %}
                   {%- endif -%}
+                  <script type="module">
+                    const childUrlFragment = "{{ child_url_fragment }}";
+                    console.log(`Child URL Fragment: ${childUrlFragment}`);
+                  </script>
                   <li>
                     <a href="{{ nav_child.url }}"
-                      {%- unless is_conference_page -%}
-                        {%- unless nav_child.url contains "opensearchcon" -%}
-                          {%- if url_fragment == "platform" -%}
-                            {% if url_parts[2] == child_url_fragment %} class="in-category" {% endif %}
-                          {%- else -%}
-                            {% if child_url_fragment == url_fragment %} class="in-category" {% endif %}
-                          {%- endif -%}
-                        {%- endunless -%}
-                      {%- else -%}
-                        {%- assign split_child_url = nav_child.url | split: "/" -%}
-                        {%- assign url_part_to_remove = "/" | append: split_child_url.last -%}
-                        {%- assign child_url_parts_to_compare = nav_child.url | remove: url_part_to_remove -%}
-                        {%- unless split_child_url.size == 2 -%}
-                          {% if page.url contains child_url_parts_to_compare %} class="in-category" {% endif %}
-                        {%- else -%}
-                          {% if page.url == nav_child.url %} class="in-category" {% endif %}
-                        {%- endunless -%}
-                      {%- endunless -%}
+                      {% if page.url == nav_child.url -%}
+                        class="in-category"
+                      {%- elsif child_url_fragment == url_fragment -%}
+                        class="in-category"
+                      {%- endif %}
                     >{{ nav_child.label }}</a>
                   </li>
                 {% endfor %}
