@@ -2,7 +2,7 @@
 layout: post
 title:  "Announcing Data Prepper 2.5.0"
 authors:
-- graytaylor0
+- tylgry
 - oeyh
 date: 2023-10-11 11:30:00 -0500
 categories:
