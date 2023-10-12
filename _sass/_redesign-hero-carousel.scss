@@ -87,6 +87,7 @@ $carousel-item-background-colors: (
                 }
                 @include respond-max(833px) {
                     height: 430px;
+                    font-size: 0; // mobile-extra height fix.
                 }
                 overflow-x: hidden;
                 > .landing-page-hero--arrows {

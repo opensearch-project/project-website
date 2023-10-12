@@ -53,6 +53,14 @@ layout: default
                     {% comment %} If no category is defined apply a generic default. {% endcomment %}
                     {% assign first_post_category = "post" %}
                 {% endif %}
+                {% assign first_post_icon = site.data.post_category_icons.icon_map | where: "category", first_post_category %}
+                {% if post_icon %}
+                    {% assign first_post_icon = first_post_icon | first %}
+                    {% assign first_post_icon_name = post_icon.icon %}
+                {% else %}
+                    {% assign first_post_icon_name = "search-magnifying-glass" %}
+                {% endif %}
+                {% assign first_post_date = first_post.date | date: "%a, %b %d, %Y" %}
                 {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
                 {% assign first_post_category = first_post_category | replace: "-", " " %}
                 {% assign category_chars = first_post_category | split: "" %}
@@ -79,16 +87,18 @@ layout: default
                         <h3><a href="{{ first_post.url }}">{{ first_post.title }}</a></h3>
                     </div>
                     <div class="landing-page-solutions--hero-3up--hero--preview--excerpt">
+                        {% comment %} The use of markdownify is necessary to properly format a blog post that has an
+                                      excplicit value for excerpt specified in its Front Matter.
+                        {% endcomment %}
                         {{ first_post.excerpt | markdownify }}
                     </div>
-                    <div class="landing-page-solutions--hero-3up--hero--preview--author">
-                        <span>
-                            {{ first_post_author.name }}
-                        </span>
-                        {% if first_post_author_twitter %}
-                            <span> | </span>
-                            <span>@{{ first_post_author_twitter }}</span>
-                        {% endif %}
+                    <div class="landing-page-solutions--hero-3up--hero--preview--footer">
+                        <div class="landing-page-solutions--hero-3up--hero--preview--footer--icon">
+                            {% include icons.html type=first_post_icon_name %}
+                        </div>
+                        <div class="landing-page-solutions--hero-3up--hero--preview--footer--date">
+                            {{ first_post_date }}
+                        </div>
                     </div>
                 </div>
             </div>

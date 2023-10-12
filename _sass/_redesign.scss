@@ -921,6 +921,37 @@ $header-banner-mobile-breakpoint: 1018px;
                         }
                         flex-basis: 150px;
                     }
+                    > .landing-page-solutions--hero-3up--hero--preview--footer {
+                        flex-basis: 62.5px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                        > .landing-page-solutions--hero-3up--hero--preview--footer--icon {
+                            width: 27px;
+                            height: 30px;
+                            padding: 0;
+                            flex-basis: 27px;
+                            flex-shrink: 0;
+                            flex-grow: 0;
+                            > img,
+                            > svg {
+                                width: 28px;
+                                height: 38px;
+                            }
+                        }
+                        > .landing-page-solutions--hero-3up--hero--preview--footer--date {
+                            height: 30px;
+                            flex-grow: 1;
+                            flex-shrink: 1;
+                            flex-basis: content;
+                            @include body-small;
+                            color: $secondary-sanfrancisco-fog-s4;
+                            padding-top: 12px;
+                            padding-left: 8px;
+                        }
+                    }
                     > .landing-page-solutions--hero-3up--hero--preview--author {
                         @include caption-text;
                         flex-basis: 62.5px;
