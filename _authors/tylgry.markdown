@@ -1,5 +1,5 @@
 ---
-name: Tayor Gray
+name: Taylor Gray
 short_name: tylgry
 photo: '/assets/media/authors/tylgry.jpg'
 github: graytaylor0
