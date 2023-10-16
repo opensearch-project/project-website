@@ -35,6 +35,7 @@ items:
     fragments:
       - about
       - releases
+      - roadmap
       - faq
     children:
       -
@@ -43,6 +44,9 @@ items:
       -
        label: Releases
        url: /releases.html
+      -
+       label: Roadmap
+       url: https://github.com/orgs/opensearch-project/projects/1
       -
        label: FAQ
        url: /faq
