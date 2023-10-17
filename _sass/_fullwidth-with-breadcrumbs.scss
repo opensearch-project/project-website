@@ -108,6 +108,18 @@
         }
     }
     > .full-width-layout--content__release-page {
-        
+        > table {
+            @include page-element-margins;
+            @extend .platform-page--solutions--use-cases--table;
+            > thead {
+                > tr {
+                    > th,
+                    th:nth-of-type(1) {
+                        white-space: normal;
+                        overflow-x: auto;
+                    }
+                }
+            }
+        }
     }
 }
