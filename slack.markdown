@@ -4,7 +4,7 @@ primary_title: Slack workspace
 title: Slack workspace
 ---
 
-_Updated Aug 11, 2023_
+_Updated Oct 17, 2023_
 
 ---
 
@@ -18,7 +18,7 @@ In addition to the [OpenSearch Code of Conduct](https://opensearch.org/codeofcon
 * Full Transparency – All project maintainers are encouraged to use the Slack workspace along with the [discussion forums](https://forum.opensearch.org/) and [GitHub project](http://github.com/opensearch-project) repositories for all communication in order to discourage any closed-source discussions or development decisions.
 * No Sales Pitches – The OpenSearch Project Slack workspace is a place to discuss development of the project—not a place to sell things.
 
-<p><a href="https://join.slack.com/t/opensearch/shared_invite/zt-232ve3e86-mAUFTQIGF~tuDREmRNHj1g"><center><img src="/assets/media/community/slack-joinetheconvo.png" alt="Come join the conversation"></center></a></p> {: .img-fluid }
+<p><a href="https://join.slack.com/t/opensearch/shared_invite/zt-256d4yu2e-TvgKRoYD23vlUpKXFA1Wpw"><center><img src="/assets/media/community/slack-joinetheconvo.png" alt="Come join the conversation"></center></a></p> {: .img-fluid }
 
 
 Contributors, maintainers, and community members can use this communication channel to collaborate.
