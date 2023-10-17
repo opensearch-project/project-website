@@ -1,5 +1,5 @@
 ---
-layout: fullwidth-with-resources
+layout: fullwidth-with-breadcrumbs
 primary_title: About OpenSearch
 title: About OpenSearch
 breadcrumbs:

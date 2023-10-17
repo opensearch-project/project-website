@@ -1,7 +1,14 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 primary_title: Release Schedule and Maintenance Policy
 title: Release Schedule and Maintenance Policy
+breadcrumbs:
+  icon: platform
+  items:
+    - title: About
+      url: '/about.html'
+    - title: Releases
+      url: '/releases.html'
 ---
 
 
