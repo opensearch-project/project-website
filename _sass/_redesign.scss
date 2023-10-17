@@ -1240,7 +1240,7 @@ $header-banner-mobile-breakpoint: 1018px;
         padding-left: 40px;
         padding-right: 40px;
     }
-    > h2.solutions-card-grid--header {
+    > h2 {
         @include header-level2($primary-open-sky-s3);
         margin-top: 13px;
     }

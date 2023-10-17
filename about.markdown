@@ -1,13 +1,31 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-resources
 primary_title: About OpenSearch
-title: About
----
-
-_Updated December 20, 2022_
-
-[Principles for development](#principles-for-development) &middot; [Founding Documents](#founding-documents) &middot; [OpenSearch disambiguation](#opensearch-disambiguation) &middot;
-
+title: About OpenSearch
+breadcrumbs:
+  icon: platform
+  items:
+    - title: About
+    - title: OpenSearch
+      url: '/about.html'
+resources:
+  heading: 'Founding Documents'
+  items:
+    - title: 'Introducing OpenSearch'
+      url: 'https://aws.amazon.com/blogs/opensource/introducing-opensearch'
+      category: 'Amazon Web Services'
+      icon: 'opensearch-admin'
+      date: 'Mon, Apr 12, 2021'
+    - title: 'Stepping up for a truly open source Elasticsearch'
+      url: 'https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/'
+      category: 'Amazon Web Services'
+      icon: 'migration+upgrade'
+      date: 'Thu, Jan 21, 2021'
+    - title: 'Keeping Open Source Open'
+      url: 'https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/'
+      category: 'Amazon Web Services'
+      icon: 'platform'
+      date: 'Mon, Mar 11, 2019'
 ---
 
 OpenSearch is a community-driven, open-source search and analytics suite used by developers to ingest, search, visualize, and analyze data. OpenSearch consists of a data store and search engine (OpenSearch), a visualization and user interface (OpenSearch Dashboards), and a server-side data collector (Data Prepper). Users can extend the functionality of OpenSearch with a selection of plugins that enhance search, analytics, observability, security, machine learning, and more.
@@ -26,7 +44,10 @@ OpenSearch is built with your input. The project is maintained and advanced by a
 ## Principles for development ##
 
 When we (the contributors) are successful, OpenSearch will be:
- 
+
+
+<div class="principles-for-development"><div markdown=1>
+
 ### Great software. ###
 If it doesn’t solve your problems, everything else is moot. It’s going to be software you love to use.
  
@@ -50,16 +71,8 @@ This will be a community where you will be heard, accepted, and valued, whether 
  
 ### A place to invent. ###
 You will be able to innovate rapidly. This project will have a stable and predictable foundation that is modular, making it easy to extend.
-
-## Founding Documents ##
-
-* [Introducing OpenSearch](https://aws.amazon.com/blogs/opensource/introducing-opensearch)
-* [Stepping up for a truly open source Elasticsearch](https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/)
-* [Keeping Open Source Open](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/)
+</div></div>
 
 ## OpenSearch disambiguation ##
 At the 2005 O’Reilly Emerging Technology Conference, Jeff Bezos [showed the world](https://www.technologyreview.com/2005/03/15/231423/jeff-bezos-unveils-vertical-search-live-from-the-oreilly-e-tech-conference/) the OpenSearch syndication protocol. You can find more details on [Wikipedia](https://en.wikipedia.org/wiki/OpenSearch). This specification is maintained in GitHub at [github.com/dewitt/opensearch](https://github.com/dewitt/opensearch).
-
-
-<br />
 
