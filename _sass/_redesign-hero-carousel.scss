@@ -116,6 +116,7 @@ $carousel-item-background-colors: (
                     }
                     &.landing-page-hero--arrows--arrow__left {
                         left: 0;
+                        padding-top: 10px;
                         svg {
                             position: relative;
                             left: 15px;
@@ -126,7 +127,7 @@ $carousel-item-background-colors: (
                         left: calc(100% - $arrow-button-width-height);
                         svg {
                             position: relative;
-                            left: 7px;
+                            left: 0;
                             top: 2px;
                         }
                     }
