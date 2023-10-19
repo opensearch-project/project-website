@@ -59,7 +59,7 @@
 
 .full-width-layout--content {
     @include thick-edge-top;
-    > .full-width-layout--content__about-page {
+    > .full-width-layout--content--body {
         @extend .platform-page--content;
         > p {
             @include page-paragraph-padding;
@@ -107,8 +107,6 @@
                 }
             }
         }
-    }
-    > .full-width-layout--content__release-page {
         > table {
             @include page-element-margins;
             @extend .platform-page--solutions--use-cases--table;
@@ -144,5 +142,8 @@
                 }
             }
         }
+    }
+    > .full-width-layout--content__release-page {
+        
     }
 }
