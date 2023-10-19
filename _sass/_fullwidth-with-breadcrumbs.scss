@@ -86,7 +86,8 @@
                 @include card-shadow;
                 background-color: white;
                 @include inner-element-padding;
-                > h3 {
+                > h2 {
+                    @include header-level2($primary-open-sky-s2);
                     &:first-of-type {
                         margin-top: 0;
                     }
@@ -111,12 +112,34 @@
         > table {
             @include page-element-margins;
             @extend .platform-page--solutions--use-cases--table;
+            &:nth-of-type(3) {
+                width: 50%;
+            }
             > thead {
                 > tr {
                     > th,
                     th:nth-of-type(1) {
                         white-space: normal;
                         overflow-x: auto;
+                    }
+                }
+            }
+            > tbody {
+                > tr {
+                    > td {
+                        @include header-level5($secondary-sanfrancisco-fog-s5);
+                        // Implementation note: These are overrides to the base use-cases--table styles.
+                        &:nth-of-type(1) {
+                            @include header-level5($secondary-sanfrancisco-fog-s5);
+                        }
+                        &:nth-of-type(2) {
+                            @include header-level5($secondary-sanfrancisco-fog-s5);
+                        }
+                        @media screen and (min-width: 601px) {
+                            &:nth-of-type(1) {
+                                width: auto;
+                            }
+                        }
                     }
                 }
             }

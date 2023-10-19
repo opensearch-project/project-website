@@ -48,31 +48,30 @@ When we (the contributors) are successful, OpenSearch will be:
 
 <div class="principles-for-development"><div markdown=1>
 
-### Great software. ###
+## Great software. ##
 If it doesn’t solve your problems, everything else is moot. It’s going to be software you love to use.
  
-### Open source like we mean it. ###
+## Open source like we mean it. ##
 We are invested in this being a successful open-source project for the long term. It’s all Apache 2.0. There’s no Contributor License Agreement. Easy.
  
-### A level playing field. ###
+## A level playing field. ##
 We will not tweak the software so that it runs better for any vendor (including AWS) at the expense of others. If this happens, call it out and we will fix it as a community.
  
-### Used everywhere. ###
+## Used everywhere. ##
 Our goal is for as many people as possible to use it in their business, their software, and their projects. Use it however you want. Surprise us!
  
-### Made with your input. ###
+## Made with your input. ##
 We will ask for public input on direction, requirements, and implementation for any feature we build.
  
-### Open to contributions. ###
+## Open to contributions. ##
 Great open-source software is built together, with a diverse community of contributors. If you want to get involved at any level - big, small, or huge - we will find a way to make that happen. We don’t know what that looks like yet, and we look forward to figuring it out together.
  
-### Respectful, approachable, and friendly. ###
+## Respectful, approachable, and friendly. ##
 This will be a community where you will be heard, accepted, and valued, whether you are a new or experienced user or contributor.
  
-### A place to invent. ###
+## A place to invent. ##
 You will be able to innovate rapidly. This project will have a stable and predictable foundation that is modular, making it easy to extend.
 </div></div>
 
 ## OpenSearch disambiguation ##
 At the 2005 O’Reilly Emerging Technology Conference, Jeff Bezos [showed the world](https://www.technologyreview.com/2005/03/15/231423/jeff-bezos-unveils-vertical-search-live-from-the-oreilly-e-tech-conference/) the OpenSearch syndication protocol. You can find more details on [Wikipedia](https://en.wikipedia.org/wiki/OpenSearch). This specification is maintained in GitHub at [github.com/dewitt/opensearch](https://github.com/dewitt/opensearch).
-
