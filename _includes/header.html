@@ -1,46 +1,85 @@
 {% assign url_parts = page.url | split: "/" %}
-{% assign last_url_part = url_parts | last %}
-{% if last_url_part contains ".html" %}
-  {% assign url_has_filename = true %}
+{% if url_parts.size > 0 %}
+  
+  {% assign last_url_part = url_parts | last %}
+
+  {% comment %} Does the URL contain a filename, and is it an index.html or not? {% endcomment %}
+  {% if last_url_part contains ".html" %}
+    {% assign url_has_filename = true %}
+    {% if last_url_part == 'index.html' %}
+      {% assign url_filename_is_index = true %}
+    {% else %}
+      {% assign url_filename_is_index = false %}
+    {% endif %}
+  {% else %}
+    {% assign url_has_filename = false %}
+  {% endif %}
+
+  {% comment %} 
+    OpenSearchCon URLs require some special consideration, because it's a specialization
+    of the /events URL which is itself a child of Community; te OpenSearchCon menu is NOT
+    a child of Community.
+  {% endcomment %}
+  {% if page.url contains "opensearchcon" %}
+    {% assign is_conference_page = true %}
+  {% else %}
+    {% assign is_conference_page = false %}
+  {% endif %}
+
+  {% if is_conference_page %}
+    {% comment %}
+      If the page is a confernce page and it has a filename then its the penultimate
+      path component that has the child menu item of the OpenSearchCon that needs
+      to be marked as in-category. If there's no filename then reference the ultimate
+      path component.
+      Unless the filename is opensearchcon2023-cfp, because it's a one off that is not
+      within the /events/opensearchcon/... structure.
+    {% endcomment %}
+    {% if url_has_filename %}
+      {% unless page.url contains 'opensearchcon2023-cfp' %}
+        {% assign url_fragment_index = url_parts | size | minus: 2 %}
+        {% assign url_fragment = url_parts[url_fragment_index] %}
+      {% else %}
+        {% assign url_fragment = 'opensearchcon2023-cfp' %}
+      {% endunless %}
+    {% else %}
+      {% assign url_fragment = last_url_part %}
+    {% endif %}
+  {% else %}
+    {% comment %}
+      If the page is NOT a conference page, the URL has a filename, and the filename
+      is NOT index.html then refer to the filename without the .html extension.
+      If the filename is index.html then refer to the penultimate path component.
+      If there is not filename then refer to the ultimate path component.
+    {% endcomment %}
+    {% if url_has_filename %}
+      {% unless url_filename_is_index %}
+        {% assign url_fragment = last_url_part | replace: '.html', '' %}
+      {% else %}
+        {% assign url_fragment_index = url_parts | size |  minus: 2 %}
+        {% assign url_fragment = url_parts[url_fragment_index] %}
+      {% endunless %}
+    {% else %}
+      {% assign url_fragment = last_url_part %}
+    {% endif %}
+  {% endif %}
 {% else %}
-  {% assign url_has_filename = false %}
+  {% assign url_fragment = '' %}
 {% endif %}
-{% if last_url_part == 'index.html' %}
-  {% assign url_filename_is_index = true %}
-{% else %}
-  {% assign url_filename_is_index = false %}
-{% endif %}
-<script type="module">
-  const pageUrl = "{{ page.url }}";
-  const pageUrlLength = {{ page.url.size }};
-  const urlPartsLength = {{ url_parts.size }};
-  const lastUrlPart = "{{ last_url_part }}";
-  const urlHasFileName = "{{ url_has_filename }}";
-  const urlFilenameIsIndex = "{{ url_filename_is_index }}";
-  console.log(`Page URL: ${pageUrl}`);
-  console.log(`Page URL Length: ${pageUrlLength}`);
-  console.log(`URL Parts length: ${urlPartsLength}`);
-  console.log(`Last URL part: ${lastUrlPart}`);
-  console.log(`URL Has Filename: ${urlHasFileName}`);
-  console.log(`URL Filename is Index: ${urlFilenameIsIndex}`);
-  {% for part in url_parts %}
-    console.log("Part {{ forloop.index0 }}: {{ part }}");
-  {% endfor %}
-</script>
-{%if page.alert %}
+{% if page.alert %}
 <div role="banner" class="banner-alert">
   <div class="container">
-    {{page.alert | markdownify}}
+    {{ page.alert | markdownify }}
   </div>
 </div>
-{%endif%}
-{%if site.data.alert.message %}
+{% endif %}
+{% if site.data.alert.message %}
 <div role="banner" class="banner-alert">
   <div class="container">
   {{site.data.alert.message | markdownify}}
   </div>
 </div>
-{%endif%}
+{% endif %}
 <div role="banner" id="top">
   <div class="container">
     <a class="logo" href="{{ '/' | relative_url }}">
@@ -49,28 +88,6 @@
     </a>
     <div role="navigation">
       <ul class="nested-nav">
-        {% if url_has_filename %}
-          {% unless url_filename_is_index %}
-            {% assign url_fragment = last_url_part | replace: '.html', '' %}
-          {% else %}
-            {% assign url_fragment_index = url_parts | size |  minus: 2 %}
-            {% assign url_fragment = url_parts[url_fragment_index] %}
-          {% endunless %}
-        {% else %}
-          {% assign url_fragment = last_url_part %}
-        {% endif %}
-        {%- assign url_fragment = url_parts[1] | replace: '.html', '' -%}
-        {% if page.url contains "opensearchcon" %}
-          {% assign is_conference_page = true %}
-        {% else %}
-          {% assign is_conference_page = false %}
-        {% endif %}
-        <script type="module">
-          const isConferencePage = "{{ is_conference_page }}";
-          const urlFragment = "{{ url_fragment }}";
-          console.log(`Is Conference Page: ${isConferencePage}`);
-          console.log(`URL Fragment: ${url_fragment}`);
-        </script>
         {% for nav_item in site.data.top_nav.items %}
           <li>
             {%- unless nav_item.children -%}
@@ -81,11 +98,7 @@
             <div class="nested-nav--top-menu-item-wrapper {{nested_nav_item_wrapper_classname}}">
               <div class="nested-nav--top-menu-item-wrapper--link">
                 <a {% if nav_item.url %} href="{{ nav_item.url }}" {% else %} href="#" {% endif %}
-                  {%- unless is_conference_page -%}
-                    {% if nav_item.fragments contains url_fragment or nav_item.fragment == url_fragment %} class="in-category" {% endif %}
-                  {%- else -%}
-                   {% if nav_item.fragment == "opensearchcon" %} class="in-category" {% endif %}
-                  {%- endunless -%}
+                  {% if nav_item.fragments contains url_fragment or nav_item.fragment == url_fragment %} class="in-category" {% endif %}
                 >{{ nav_item.label }}</a>
               </div>
               {%- if nav_item.children -%}
@@ -105,28 +118,33 @@
                     {% if last_child_url_part contains ".html" %}
                       {% assign child_url_has_filename = true %}
                     {% else %}
-                      {% assign child_has_filename = false %}
+                      {% assign child_url_has_filename = false %}
                     {% endif %}
                     {% if last_child_url_part == 'index.html' %}
                       {% assign child_url_filename_is_index = true %}
                     {% else %}
                       {% assign child_url_filename_is_index = false %}
                     {% endif %}
-                    {% if child_url_has_filename %}
-                      {% unless child_url_filename_is_index %}
-                        {% assign child_url_fragment = last_child_url_part | replace: ".html", "" %}
-                      {% else %}
+                    {% if is_conference_page %}
+                      {% if child_url_has_filename %}
                         {% assign child_url_fragment_index = child_url_parts | size | minus: 2 %}
                         {% assign child_url_fragment = child_url_parts[child_url_fragment_index] %}
-                      {% endunless %}
+                      {% else %}
+                        {% assign child_url_fragment = last_child_url_part %}
+                      {% endif %}
                     {% else %}
-                      {% assign child_url_fragment = last_child_url_part %}
+                      {% if child_url_has_filename %}
+                        {% unless child_url_filename_is_index %}
+                          {% assign child_url_fragment = last_child_url_part | replace: ".html", "" %}
+                        {% else %}
+                          {% assign child_url_fragment_index = child_url_parts | size | minus: 2 %}
+                          {% assign child_url_fragment = child_url_parts[child_url_fragment_index] %}
+                        {% endunless %}
+                      {% else %}
+                        {% assign child_url_fragment = last_child_url_part %}
+                      {% endif %}
                     {% endif %}
                   {%- endif -%}
-                  <script type="module">
-                    const childUrlFragment = "{{ child_url_fragment }}";
-                    console.log(`Child URL Fragment: ${childUrlFragment}`);
-                  </script>
                   <li>
                     <a href="{{ nav_child.url }}"
                       {% if page.url == nav_child.url -%}
