@@ -4,12 +4,12 @@ title:  "Introducing concurrent segment search in OpenSearch"
 authors: 
   - reta
   - sohami
-date:   2023-09-25
+date:   2023-10-18
 categories: 
   - search
   - technical-post
-meta_keywords: concurrent segment search, search performance, search concurrency, OpenSearch 2.10
-meta_description: In OpenSearch 2.10, you can now enable concurrent segment search as an experimental feature in your OpenSearch cluster. With concurrent segment search, you can search through shard segments in parallel and improve search performance for your workload.
+meta_keywords: Concurrent segment search, search concurrency, concurrent shard search, OpenSearch 2.10
+meta_description: Learn how the experimental concurrent segment search feature in OpenSearch helps you search shard segments in parallel and improves search performance for your workloads.
 has_science_table: true
 ---
 
