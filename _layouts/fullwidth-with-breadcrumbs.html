@@ -1,0 +1,67 @@
+---
+layout: default
+---
+{% if page.has_hero %}
+    {% assign page_type_class = "page-with-hero" %}
+{% else %}
+    {% assign page_type_class = "page-without-hero" %}
+{% endif %}
+<main class="container">
+    <div class="{{ page_type_class }}">
+        <div class="full-width-layout--header">
+            {% if page.breadcrumbs %}
+                <div class="full-width-layout--header--category-area">
+                    {% assign icon_type = page.breadcrumbs.icon %}
+                    {% assign breadcrumb_items = page.breadcrumbs.items %}
+                    {% if icon_type %}
+                        <div class="full-width-layout--header--icon">
+                            {% include icons.html type=icon_type %}
+                        </div>
+                        {% if breadcrumb_items %}
+                            {% for item in breadcrumb_items %}
+                                <div class="full-width-layout--header--breadcrumbs--item">
+                                    {% if item.url -%}
+                                        <a href="{{ item.url }}">{{ item.title }}</a>
+                                    {%- else -%}
+                                        {{- item.title -}}
+                                    {%- endif %}
+                                </div>
+                                {% unless forloop.last %}
+                                    <div class="full-width-layout--header--breadcrumbs--item-separator">&gt;</div>
+                                {% endunless %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="full-width-layout--header--title">
+                <h1>{{ page.primary_title }}</h1>
+            </div>
+        </div>
+        <div class="full-width-layout--content">
+            <div class="full-width-layout--content--body">
+                {{ content }}
+            </div>
+            {% if page.resources %}
+                <div class="solutions-card-grid">
+                    {% if page.resources.heading -%}
+                        <h2>{{ page.resources.heading }}</h2>
+                    {%- endif %}
+                    <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
+                        {% for item in page.resources.items %}
+                            {% include tall-card-no-image.html
+                                title=item.title
+                                url=item.url
+                                category=item.category
+                                icon=item.icon
+                                date=item.date
+                            %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</main>
+{% include reposition-content.html source_selector=".solutions-card-grid" insert_before_selector=".full-width-layout--content__about-page > h2:last-of-type" %}
+{% include card-clickability.html card_container_selector=".solutions-card-grid > .solutions-card-grid--card-wrapper" card_classname="solutions-card-grid--card-wrapper--card" %}

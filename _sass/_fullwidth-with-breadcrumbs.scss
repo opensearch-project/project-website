@@ -1,0 +1,149 @@
+.full-width-layout--header {
+    @include page-element-padding;
+    background-color: white;
+    > .full-width-layout--header--category-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        > .full-width-layout--header--icon {
+            flex-basis: 40px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            > svg,
+            > img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        > .full-width-layout--header--breadcrumbs--item,
+        > .full-width-layout--header--breadcrumbs--item-separator {
+            min-width: fit-content;
+            @include header-level4($secondary-sanfrancisco-fog-s4);
+            margin-left: 1em;
+            > a {
+                @include header-level4($secondary-sanfrancisco-fog-s4);
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
+                text-decoration: none;
+            }
+            &:last-of-type {
+                > a {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
+            }
+        }
+    }
+    > .full-width-layout--header--title {
+        padding-left: 0;
+        > h1 {
+            margin-top: 21px;
+        }
+        @media screen and (max-width: 460px) {
+            padding-left: 0;
+            > h1 {
+                @include header-level1-mobile;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+.full-width-layout--content {
+    @include thick-edge-top;
+    > .full-width-layout--content--body {
+        @extend .platform-page--content;
+        > p {
+            @include page-paragraph-padding;
+            margin: 0;
+            &:first-of-type {
+                padding-top: 2em;
+            }
+            &:last-of-type {
+                padding-bottom: 2em;
+            }
+        }
+        > h2 {
+            @include header-level2($primary-open-sky-s3);
+            @include page-paragraph-padding;
+            margin: 0;
+            &:first-of-type {
+                margin-top: 1em;
+            }
+        }
+        > .principles-for-development {
+            @include page-element-padding;
+            > div {
+                @include thick-edge-bottom;
+                @include card-shadow;
+                background-color: white;
+                @include inner-element-padding;
+                > h2 {
+                    @include header-level2($primary-open-sky-s2);
+                    &:first-of-type {
+                        margin-top: 0;
+                    }
+                    margin-top: 2em;
+                    margin-bottom: 0;
+                }
+                > p {
+                    margin-top: 0;
+                }
+            }
+        }
+        > .solutions-card-grid {
+            @include page-element-padding;
+            > .solutions-card-grid--card-wrapper {
+                @media screen and (min-width: 1460px) {
+                    padding: 0;
+                }
+            }
+        }
+        > table {
+            @include page-element-margins;
+            @extend .platform-page--solutions--use-cases--table;
+            &:nth-of-type(3) {
+                width: 50%;
+            }
+            > thead {
+                > tr {
+                    > th,
+                    th:nth-of-type(1) {
+                        white-space: normal;
+                        overflow-x: auto;
+                    }
+                }
+            }
+            > tbody {
+                > tr {
+                    > td {
+                        @include header-level5($secondary-sanfrancisco-fog-s5);
+                        // Implementation note: These are overrides to the base use-cases--table styles.
+                        &:nth-of-type(1) {
+                            @include header-level5($secondary-sanfrancisco-fog-s5);
+                        }
+                        &:nth-of-type(2) {
+                            @include header-level5($secondary-sanfrancisco-fog-s5);
+                        }
+                        @media screen and (min-width: 601px) {
+                            &:nth-of-type(1) {
+                                width: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > .full-width-layout--content__release-page {
+        
+    }
+}
