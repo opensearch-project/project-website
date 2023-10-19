@@ -107,12 +107,12 @@ Currently, this feature is launched as experimental and is not recommended for u
 #### Latency comparison (in ms)
 
 | Workload operation  | CS disabled | CS enabled (Lucene default slices) | % improvement (positive is better) | CS enabled (fixed slice count=4) | % improvement (positive is better) | 
-|---------------------|-------------|------------------------------------|----------------------------------|----------------------------------|----------------------------------|
-| default             | 4.25        | 4.7                                | &minus;10%                             | 4.1                              | &minus;3%                              | 
-| range               | 227         | 91                                 | +60%                             | 74                               | +67%                             | 
-| date_histogram_agg  | 558         | 271                                | +51%                             | 255                              | +54%                             | 
-| distance_amount_agg | 12894       | 3334                               | +74%                             | 3790                             | +70%                             | 
-| autohisto_agg       | 537         | 286                                | +46%                             | 278                              | +48%                             | 
+|---------------------|-------------|------------------------------------|----------------------------------|----------------------------------|------------------------------------|
+| default             | 4.25        | 4.7                                | &minus;10%                             | 4.1                              | +3%                                | 
+| range               | 227         | 91                                 | +60%                             | 74                               | +67%                               | 
+| date_histogram_agg  | 558         | 271                                | +51%                             | 255                              | +54%                               | 
+| distance_amount_agg | 12894       | 3334                               | +74%                             | 3790                             | +70%                               | 
+| autohisto_agg       | 537         | 286                                | +46%                             | 278                              | +48%                               | 
 
 #### Average CPU utilization
 
