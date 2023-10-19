@@ -10,7 +10,7 @@ categories:
 twittercard:
   description: "Explore the benefits of using this tool to conduct tests on migrations and upgrades under actual workload conditions."
 meta_keywords: migrations, upgrades, change data capture, traffic replay
-meta_description: "Explore the benefits of using this tool for conduct tests on migrations and upgrades under actual workload conditions."
+meta_description: "Explore the benefits of using this tool to conduct tests on migrations and upgrades under actual workload conditions."
 
 ---
 
