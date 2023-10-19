@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introducing Traffic capture and replay solution for OpenSearch migrations and upgrades"
+title:  "Introducing a traffic capture and replay solution for OpenSearch migrations and upgrades"
 authors: 
   - setiah
   - mikaylathompson
