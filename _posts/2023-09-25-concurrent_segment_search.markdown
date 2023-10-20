@@ -81,15 +81,15 @@ Currently, this feature is launched as experimental and is not recommended for u
 * Shard count: 1
 * Search client count: 1
 
-#### Latency comparison (in ms)
+#### Latency comparison (p90)
 
-| Workload operation  | CS disabled | CS enabled (Lucene default slices) | % improvement (positive is better) | CS enabled (fixed slice count=4) | % improvement (positive is better) | 
-|---------------------|-------------|------------------------------------|----------------------------------|----------------------------------|----------------------------------|
-| default             | 4.4         | 4.6                                | &minus;4%                              | 5                                | &minus;13%                             | 
-| range               | 234         | 81                                 | +65%                             | 91                               | +61%                             | 
-| date_histogram_agg  | 582         | 267                                | +54%                             | 278                              | +52%                             | 
-| distance_amount_agg | 15348       | 4022                               | +73%                             | 4293                             | +72%                             | 
-| autohisto_agg       | 589         | 260                                | +55%                             | 273                              | +53%                             | 
+| Workload operation  | CS disabled<br/>(in ms) | CS enabled (Lucene default slices)<br/>(in ms) | % improvement (positive is better) | CS enabled (fixed slice count=4)<br/>(in ms) | % improvement (positive is better) | 
+|---------------------|--------------------|-------------------------------------------|------------------------------------|-----------------------------------------|------------------------------------|
+| default             | 4.4                | 4.6                                       | &minus;5%                          | 5                                       | &minus;14%                         | 
+| range               | 234                | 81                                        | +65%                               | 91                                      | +61%                               | 
+| date_histogram_agg  | 582                | 267                                       | +54%                               | 278                                     | +52%                               | 
+| distance_amount_agg | 15348              | 4022                                      | +73%                               | 4293                                    | +72%                               | 
+| autohisto_agg       | 589                | 260                                       | +55%                               | 273                                     | +53%                               | 
 
 #### Average CPU utilization
 
@@ -104,15 +104,15 @@ Currently, this feature is launched as experimental and is not recommended for u
 * Shard count: 1
 * Search client count: 1
 
-#### Latency comparison (in ms)
+#### Latency comparison (p90)
 
-| Workload operation  | CS disabled | CS enabled (Lucene default slices) | % improvement (positive is better) | CS enabled (fixed slice count=4) | % improvement (positive is better) | 
-|---------------------|-------------|------------------------------------|----------------------------------|----------------------------------|------------------------------------|
-| default             | 4.25        | 4.7                                | &minus;10%                             | 4.1                              | +3%                                | 
-| range               | 227         | 91                                 | +60%                             | 74                               | +67%                               | 
-| date_histogram_agg  | 558         | 271                                | +51%                             | 255                              | +54%                               | 
-| distance_amount_agg | 12894       | 3334                               | +74%                             | 3790                             | +70%                               | 
-| autohisto_agg       | 537         | 286                                | +46%                             | 278                              | +48%                               | 
+| Workload operation  | CS disabled<br/>(in ms) | CS enabled (Lucene default slices)<br/>(in ms) | % improvement (positive is better) | CS enabled (fixed slice count=4)<br/>(in ms) | % improvement (positive is better) | 
+|---------------------|--------------------|-------------------------------------------|------------------------------------|-----------------------------------------|------------------------------------|
+| default             | 4.25               | 4.7                                       | &minus;11%                         | 4.1                                     | +3%                                | 
+| range               | 227                | 91                                        | +59%                               | 74                                      | +67%                               | 
+| date_histogram_agg  | 558                | 271                                       | +51%                               | 255                                     | +54%                               | 
+| distance_amount_agg | 12894              | 3334                                      | +74%                               | 3790                                    | +70%                               | 
+| autohisto_agg       | 537                | 286                                       | +46%                               | 278                                     | +48%                               | 
 
 #### Average CPU utilization
 
