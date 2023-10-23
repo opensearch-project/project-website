@@ -96,6 +96,7 @@ $header-banner-mobile-breakpoint: 1018px;
 .search-results {
   position: absolute;
   left: 0;
+  top: 64px;
   display: none;
   width: 100%;
   max-height: calc(100% - 6.4rem);
@@ -304,7 +305,7 @@ $header-banner-mobile-breakpoint: 1018px;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 11;
   width: 0;
   height: 0;
   background-color: rgba(0, 0, 0, 0);
