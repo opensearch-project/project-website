@@ -60,6 +60,8 @@ $header-banner-mobile-breakpoint: 1018px;
                             padding-right: 0.6rem;
                             transition: padding-right linear 200ms;
                             border-radius: 6px;
+                            border-color: $primary-pacific-sky-t2;
+                            border-width: 0;
                             background-color: $primary-pacific-sky-t2;
                             @include header-level6($primary-open-sky-s2);
                             box-sizing: border-box;
