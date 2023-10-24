@@ -119,14 +119,14 @@ $carousel-item-background-colors: (
                         svg {
                             position: relative;
                             left: 15px;
-                            top: 2px;
+                            top: 6px;
                         }
                     }
                     &.landing-page-hero--arrows--arrow__right {
                         left: calc(100% - $arrow-button-width-height);
                         svg {
                             position: relative;
-                            left: 7px;
+                            left: 0;
                             top: 2px;
                         }
                     }
