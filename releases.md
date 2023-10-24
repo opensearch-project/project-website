@@ -18,8 +18,8 @@ For more information on the changes planned for each release, please see the [Pr
 Note:  We have not added a major release to the 2023 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
 
 
-| Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Date |
-|:--------------|:-----------------|:---------------|:---------------|
+| Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) |
+|:--------------|:-----------------|:---------------|
 | 2.10.0        | September 07th   | September 25th |
 | 1.3.13        | September 14th   | September 21st |
 | 2.11.0        | October 4th      | October 18th   |

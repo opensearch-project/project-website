@@ -109,10 +109,6 @@
         }
         > table {
             @include page-element-margins;
-            @extend .platform-page--solutions--use-cases--table;
-            &:nth-of-type(3) {
-                width: 50%;
-            }
             > thead {
                 > tr {
                     > th,
@@ -122,28 +118,55 @@
                     }
                 }
             }
-            > tbody {
-                > tr {
-                    > td {
-                        @include header-level5($secondary-sanfrancisco-fog-s5);
-                        // Implementation note: These are overrides to the base use-cases--table styles.
-                        &:nth-of-type(1) {
-                            @include header-level5($secondary-sanfrancisco-fog-s5);
+            &:nth-of-type(1) {
+                @extend .basic-data-table;
+                > tbody {
+                    > tr {
+                        > td:nth-of-type(1) {
+                            font-weight: 700;
+                            color: $primary-open-sky-s2;
                         }
-                        &:nth-of-type(2) {
-                            @include header-level5($secondary-sanfrancisco-fog-s5);
+                    }
+                }
+            }
+            &:nth-of-type(2) {
+                @extend .basic-data-table;
+                > tbody {
+                    > tr {
+                        > td:nth-of-type(1),
+                        > td:nth-of-type(2) {
+                            font-weight: 700;
+                            color: $primary-open-sky-s2;
                         }
-                        @media screen and (min-width: 601px) {
+                    }
+                }
+            }
+            &:nth-of-type(3) {
+                @extend .basic-data-table;
+                width: 50%;
+            }
+            &:nth-of-type(4) {
+                @extend .platform-page--solutions--use-cases--table;    
+                > tbody {
+                    > tr {
+                        > td {
+                            @include header-level5($secondary-sanfrancisco-fog-s5);
+                            // Implementation note: These are overrides to the base use-cases--table styles.
                             &:nth-of-type(1) {
-                                width: auto;
+                                @include header-level5($secondary-sanfrancisco-fog-s5);
+                            }
+                            &:nth-of-type(2) {
+                                @include header-level5($secondary-sanfrancisco-fog-s5);
+                            }
+                            @media screen and (min-width: 601px) {
+                                &:nth-of-type(1) {
+                                    width: auto;
+                                }
                             }
                         }
                     }
                 }
             }
         }
-    }
-    > .full-width-layout--content__release-page {
-        
     }
 }
