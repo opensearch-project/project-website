@@ -8,9 +8,9 @@ date: 2023-09-21 00:00:01 -0700
 categories: 
     - technical-post
 twittercard:
-  description: "Explore the benefits of using this tool to conduct tests on migrations and upgrades under actual workload conditions."
-meta_keywords: migrations, upgrades, change data capture, traffic replay
-meta_description: "Explore the benefits of using this tool to conduct tests on migrations and upgrades under actual workload conditions."
+  description: "Discover the advantages of live traffic capture and replay solution to streamline your migration and upgrade process to OpenSearch."
+meta_keywords: live traffic capture, OpenSearch migration, OpenSearch version upgrade, traffic replay in OpenSearch
+meta_description: "Streamline your transition to OpenSearch with the live traffic capture and replay solution."
 
 ---
 
