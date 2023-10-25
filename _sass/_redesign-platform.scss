@@ -30,6 +30,9 @@ $dual-column-table-label-cell-width-mobile: 100px;
             }
             > td:nth-of-type(1) {
                 @include header-level6;
+                > a {
+                    @include header-level6;
+                }
                 white-space: normal;
                 @media screen and (min-width: 601px) {
                     width: $dual-column-table-label-cell-width;
@@ -465,35 +468,34 @@ $solutions-card-bottom-margin: 36px;
     }
     .platform-landing-page--overview {
         background: $secondary-sanfrancisco-fog-t1;
+        @include page-element-padding;
         @media screen and (min-width: 1200px) {
-            padding: 60px 40px 0 80px;
+            padding-top: 60px;
+            padding-bottom: 0;
         }
         @media screen and (min-width: 835px) and (max-width: 1199px) {
-            padding: 60px 20px 0 40px;
+            padding-top: 60px;
+            padding-bottom: 0;
         }
         @media screen and (max-width: 834px) {
-            padding: 30px 20px 0;
+            padding-top: 30px;
+            padding-bottom: 0;
         }
         > p {
             margin-top: 0;
         }
     }
     > .solutions-card-grid {
+        @include page-element-padding;
         @media screen and (min-width: 1200px) {
-            padding-left: 80px;
-            padding-right: 80px;
             padding-top: 60px;
             padding-bottom: calc(60px - $solutions-card-bottom-margin);
         }
         @media screen and (min-width: 835px) and (max-width: 1199px) {
-            padding-left: 40px;
-            padding-right: 20px;
             padding-top: 60px;
             padding-bottom: calc(60px - $solutions-card-bottom-margin);
         }
         @media screen and (max-width: 834px) {
-            padding-left: 20px;
-            padding-right: 20px;
             padding-top: 30px;
             padding-bottom: 0;
         }
@@ -503,13 +505,12 @@ $solutions-card-bottom-margin: 36px;
         > .solutions-card-grid--card-wrapper {
             padding: 0;
             > .solutions-card-grid--card-wrapper--card {
+                align-items: normal;
                 @media screen and (min-width: 1401px) {
                     min-width: 350px;
-                    max-width: 350px;
                 }
                 @media screen and (min-width: 835px) and (max-width: 1400px) {
                     min-width: 300px;
-                    max-width: unset;
                 }
                 @media screen and (max-width: 834px) {
                     min-width: calc(100% - 20px);
@@ -518,7 +519,6 @@ $solutions-card-bottom-margin: 36px;
         }
     }
     &.platform-page--content {
-
         .platform-page--solution--use-cases {
             background: white;
             padding-left: 0;
@@ -743,27 +743,19 @@ $solutions-card-bottom-margin: 36px;
         @include page-element-padding;
         > .platform-category-page--hero {
             height: auto;
-            aspect-ratio: 2 / 1;
             @media screen and (min-width: 835px) {
                 max-width: unset;
+                aspect-ratio: 1280 / 400;
             }
             @media screen and (max-width: 834px) {
                 max-width: 100%;
+                aspect-ratio: 754 / 400;
             }
             position: relative;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             > .landing-page-hero--images {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
                 > .landing-page-hero--images--image {
                     position: absolute;
                     top: 0;
@@ -1280,6 +1272,29 @@ $solutions-card-bottom-margin: 36px;
             row-gap: 0;
         }
         margin-bottom: 75px;
+        :has(a[href]) {
+            cursor: pointer;
+        }
+        &:hover {
+            .platform-product--description {
+                a {
+                    border-bottom: 2px solid $primary-pacific-blue;
+                    color: $primary-open-sky;
+                }
+            }
+        }
+        &:has(a:focus) {
+            box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+        }
+        &:has(a:active) {
+            box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+        }
+        &.platform-product__focused {
+            box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+        }
+        &.platform-product__active {
+            box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+        }
         > .platform-product--image {
             @media screen and (min-width: 835px) {
                 flex-basis: 47.43%;
@@ -1343,6 +1358,9 @@ $solutions-card-bottom-margin: 36px;
             box-sizing: border-box;
             > h3 {
                 @include header-level3($primary-open-sky-s2);
+                > a {
+                    @include header-level3($primary-open-sky-s2);
+                }
                 margin-top: 0;
             }
             > p {

@@ -90,51 +90,44 @@ $carousel-item-background-colors: (
                     font-size: 0; // mobile-extra height fix.
                 }
                 overflow-x: hidden;
-                > .landing-page-hero--arrows {
+                $arrow-button-width-height: 60px;
+                $arrow-button-half-height: 30px;
+                .landing-page-hero--arrows--arrow {
                     position: absolute;
-                    top: calc(50% - 30px);
-                    left: 0;
-                    right: 0;
+                    top: calc(50% - $arrow-button-half-height);
                     margin: auto;
-                    width: 100%;
-                    max-width: 1440px;
-                    height: 60px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
+                    height: $arrow-button-width-height;
+                    width: $arrow-button-width-height;
+                    background: rgba(255, 255, 255, 0.15);
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                    box-sizing: border-box;
+                    padding-top: 6px;
                     z-index: 2;
-                    > .landing-page-hero--arrows--arrow {
-                        width: 60px;
-                        height: 60px;
-                        background: rgba(255, 255, 255, 0.15);
-                        margin: 0;
-                        padding: 0;
-                        cursor: pointer;
-                        box-sizing: border-box;
-                        padding-top: 6px;
-                        > opensearch-button {
-                            opacity: 0.4;
-                            width: 60px;
-                            height: 60px;
-                            transition: opacity 0.25s ease-in-out;
-                            &:hover {
-                                opacity: 1;
-                            }
+                    > opensearch-button {
+                        opacity: 0.4;
+                        width: $arrow-button-width-height;
+                        height: $arrow-button-width-height;
+                        transition: opacity 0.25s ease-in-out;
+                        &:hover {
+                            opacity: 1;
                         }
-                        &.landing-page-hero--arrows--arrow__left {
-                            svg {
-                                position: relative;
-                                left: 15px;
-                                top: 6px;
-                            }
+                    }
+                    &.landing-page-hero--arrows--arrow__left {
+                        left: 0;
+                        svg {
+                            position: relative;
+                            left: 15px;
+                            top: 6px;
                         }
-                        &.landing-page-hero--arrows--arrow__right {
-                            svg {
-                                position: relative;
-                                left: 0px;
-                                top: 2px;
-                            }
+                    }
+                    &.landing-page-hero--arrows--arrow__right {
+                        left: calc(100% - $arrow-button-width-height);
+                        svg {
+                            position: relative;
+                            left: 0;
+                            top: 2px;
                         }
                     }
                 }

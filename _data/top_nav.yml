@@ -1,26 +1,33 @@
 items:
   -
     label: OpenSearchCon
-    fragment: opensearchcon
+    fragments: 
+      - opensearchcon
+      - sessions
+      - speakers
+      - exhibitors
+      - workshops
+      - unconference
+      - opensearchcon2023-cfp
     children:
       -
         label: 2024 - Stay Informed
-        url: /events/opensearchcon/index.html
+        url: /events/opensearchcon/
       -
         label: Sessions
-        url: /events/opensearchcon/sessions/index.html
+        url: /events/opensearchcon/sessions/
       -
         label: Speakers
-        url: /events/opensearchcon/speakers/index.html
+        url: /events/opensearchcon/speakers/
       -
         label: Exhibitors
-        url: /events/opensearchcon/exhibitors/index.html
+        url: /events/opensearchcon/exhibitors/
       -
         label: Workshops
-        url: /events/opensearchcon/workshops/index.html
+        url: /events/opensearchcon/workshops/
       -
         label: Unconference
-        url: /events/opensearchcon/unconference/index.html
+        url: /events/opensearchcon/unconference/
       -
         label: CFP is closed
         url: /opensearchcon2023-cfp.html
@@ -35,6 +42,7 @@ items:
     fragments:
       - about
       - releases
+      - roadmap
       - faq
     children:
       -
@@ -43,6 +51,9 @@ items:
       -
        label: Releases
        url: /releases.html
+      -
+       label: Roadmap
+       url: https://github.com/orgs/opensearch-project/projects/1
       -
        label: FAQ
        url: /faq
@@ -85,6 +96,7 @@ items:
       - search
       - observability
       - security-analytics
+      - vector-database
       - benchmarks
     children:
       - label: Search
@@ -96,7 +108,7 @@ items:
         url: /platform/security-analytics/index.html
       -
         label: Vector Database
-        url: https://opensearch.org/platform/search/vector-database.html
+        url: /platform/search/vector-database.html
       -
         label: Live Demo
         url: https://playground.opensearch.org/
