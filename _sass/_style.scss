@@ -807,8 +807,8 @@ $header-banner-min-width: 1019px;
 
 $footer-3-column-min: 1440px;
 $footer-2-column-max: 1439px;
-$footer-2-column-min: 834px;
-$footer-1-column-max: 833px;
+$footer-2-column-min: 835px;
+$footer-1-column-max: 834px;
 
 [role="contentinfo"] {
     // Global Footer at bottom of page
@@ -821,55 +821,61 @@ $footer-1-column-max: 833px;
 
     .container {
         overflow: hidden;
+        @media screen and (max-width: 740px) {
+            padding: 0;
+        }
     }
 
     .subfooter {
         @include clearfix;
-        padding: 0 10px;
+        padding: 0;
         @include gradient-deep-blue-sea;
-        @include respond-min(46.25rem) {
-            padding: 0;
-        }
-
         .subfooter--flex-wrapper {
+            @include page-element-padding;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: center;
             align-items: flex-start;
             .subfooter--columns-wrapper {
-                flex-basis: 1265px;
+                flex-basis: 100%;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: flex-start;
+                padding-bottom: 60px;
                 > .subfooter--columns-wrapper--column {
+                    box-sizing: border-box;
                     @media screen and (min-width: $footer-3-column-min) {
                         flex-basis: 33%;
-                        max-width: 350px;
+                        &:nth-of-type(2) {
+                            padding-left: 35px;
+                        }
+                        &:nth-of-type(3) {
+                            padding-left: 70px;
+                        }
                     }
                     @media screen and (max-width: $footer-2-column-max) and (min-width: $footer-2-column-min) {
                         &:nth-of-type(1) {
-                            flex-basis: calc(50% - 80px);
-                            padding-left: 80px;
+                            flex-basis: 50%;
                         }
                         &:nth-of-type(2) {
-                            flex-basis: calc(50% - 40px);
-                            padding-left: 40px;
+                            flex-basis: 50%;
                         }
                         &:nth-of-type(3) {
-                            flex-basis: calc(100% - 80px);
-                            padding-left: 80px;
+                            flex-basis: 100%;
                         }
                     }
                     @media screen and (max-width: $footer-1-column-max) {
-                        flex-basis: calc(100% - 80px);
-                        padding-left: 40px;
+                        flex-basis: 100%;
+                        padding-left: 0;
                         padding-bottom: 80px;
                     }
                     > h4 {
                         @include header-level4($white);
+                        margin-top: 35px;
+                        margin-bottom: 20px;
                     }
                     > ul {
                         list-style-type: none;
@@ -953,60 +959,72 @@ $footer-1-column-max: 833px;
     .footer {
         background: $primary-deep-blue-sea-s3;
         padding: 10px 0 30px;
-        color: $white;
-        .footer--flex-wrapper {
-            text-align: center;
-            .footer--legal-rows-wrapper {
-                text-align: left;
-                margin: auto;
-                max-width: 1265px;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-                justify-content: space-between;
-                align-items: flex-start;
-                row-gap: 40px;
-                @media screen and (max-width: $footer-2-column-max) {
-                    padding-left: 80px;
-                }
-                @media screen and (max-width: $footer-1-column-max) {
-                    padding-left: 40px;
-                }
-                > .footer--legal-rows-wrapper--row {
-                    flex-basis: 60px;
-                    @media screen and (max-width: $footer-1-column-max) {
-                        > .footer--legal-rows-wrapper--row--logo__desktop {
-                            display: none;
+        color: #d9d9d9;
+        > .container {
+            padding: 0;
+            > .footer--flex-wrapper {
+                @include page-element-padding;
+                > .footer--legal-rows-wrapper {
+                    text-align: left;
+                    margin: auto;
+                    max-width: 1265px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    row-gap: 40px;
+                    // @media screen and (max-width: $footer-2-column-max) {
+                    //     padding-left: 80px;
+                    // }
+                    // @media screen and (max-width: $footer-1-column-max) {
+                    //     padding-left: 40px;
+                    // }
+                    > .footer--legal-rows-wrapper--row {
+                        flex-basis: 60px;
+                        font-size: 15px;
+                        line-height: 24px;
+                        box-sizing: border-box;
+                        a {
+                            color: $primary-open-sky-t1;
+                            text-decoration: underline;
+                            &:hover {
+                                color: $primary-pacific-sky-t3;
+                            }
+                            &:visited {
+                                color: $primary-open-sky-t2;
+                            }
                         }
-                        > .footer--legal-rows-wrapper--row--logo__mobile {
-                            display: block;
-                            > div {
-                                height: 50px;
-                                color: #FFF;
-                                font-family: 'Open Sans';
-                                font-size: 24.666px;
-                                font-style: normal;
-                                font-weight: 600;
-                                line-height: 36.177px;
-                                letter-spacing: 8.387px;
-                                text-transform: uppercase;
-                                > a {
-                                    color: #fff;
+                        svg > path {
+                            fill: $primary-pacific-sky-t3;
+                        }
+                        @media screen and (max-width: $footer-1-column-max) {
+                            > .footer--legal-rows-wrapper--row--logo__desktop {
+                                display: none;
+                            }
+                            > .footer--legal-rows-wrapper--row--logo__mobile {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                > svg {
+                                    height: auto;
                                 }
                             }
                         }
-                    }
-                    @media screen and (min-width: $footer-2-column-min) {
-                        > .footer--legal-rows-wrapper--row--logo__mobile {
-                            display: none;
-                        }
-                        > .footer--legal-rows-wrapper--row--logo__desktop {
-                            display: block;
+                        @media screen and (min-width: $footer-2-column-min) {
+                            > .footer--legal-rows-wrapper--row--logo__mobile {
+                                display: none;
+                            }
+                            > .footer--legal-rows-wrapper--row--logo__desktop {
+                                display: block;
+                            }
                         }
                     }
                 }
             }
         }
+        
         a, svg {
             color: $accent-light;
         }
