@@ -743,27 +743,19 @@ $solutions-card-bottom-margin: 36px;
         @include page-element-padding;
         > .platform-category-page--hero {
             height: auto;
-            aspect-ratio: 2 / 1;
             @media screen and (min-width: 835px) {
                 max-width: unset;
+                aspect-ratio: 1280 / 400;
             }
             @media screen and (max-width: 834px) {
                 max-width: 100%;
+                aspect-ratio: 754 / 400;
             }
             position: relative;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             > .landing-page-hero--images {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
                 > .landing-page-hero--images--image {
                     position: absolute;
                     top: 0;
