@@ -11,6 +11,10 @@ breadcrumbs:
       url: '/releases.html'
 ---
 
+_Updated September 11, 2023_
+
+[Release Schedule](#release-schedule) &middot; [Maintenance Policy](#maintenance-policy)
+
 ## Release Schedule ##
 
 For more information on the changes planned for each release, please see the [Project Roadmap](https://github.com/orgs/opensearch-project/projects/1)

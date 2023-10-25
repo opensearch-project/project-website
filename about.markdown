@@ -28,6 +28,10 @@ resources:
       date: 'Mon, Mar 11, 2019'
 ---
 
+_Updated December 20, 2022_
+
+[Principles for development](#principles-for-development) &middot; [Founding Documents](#founding-documents) &middot; [OpenSearch disambiguation](#opensearch-disambiguation)
+
 OpenSearch is a community-driven, open-source search and analytics suite used by developers to ingest, search, visualize, and analyze data. OpenSearch consists of a data store and search engine (OpenSearch), a visualization and user interface (OpenSearch Dashboards), and a server-side data collector (Data Prepper). Users can extend the functionality of OpenSearch with a selection of plugins that enhance search, analytics, observability, security, machine learning, and more.
  
 The OpenSearch Project was [first announced in January 2021](https://aws.amazon.com/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/) as an open-source fork of Elasticsearch and Kibana to provide a secure, high-quality, fully open-source search and analytics suite with a rich feature roadmap. [In July 2021](https://opensearch.org/blog/updates/2021/07/opensearch-general-availability-announcement/), the project released OpenSearch 1.0 for production under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) (ALv2), with the codebase [published to GitHub](https://github.com/opensearch-project) and open to contribution from the OpenSearch community. A comprehensive project roadmap is maintained [here](https://github.com/orgs/opensearch-project/projects/1).

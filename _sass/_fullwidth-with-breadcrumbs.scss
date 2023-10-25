@@ -79,6 +79,11 @@
                 margin-top: 1em;
             }
         }
+        > h3 {
+            @include header-level3($primary-open-sky-s2);
+            @include page-paragraph-padding;
+            margin: 0;
+        }
         > .principles-for-development {
             @include page-element-padding;
             > div {
