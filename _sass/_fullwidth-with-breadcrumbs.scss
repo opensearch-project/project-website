@@ -1,0 +1,224 @@
+.full-width-layout--header {
+    @include page-element-padding;
+    background-color: white;
+    > .full-width-layout--header--category-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        > .full-width-layout--header--icon {
+            flex-basis: 40px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            > svg,
+            > img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        > .full-width-layout--header--breadcrumbs--item,
+        > .full-width-layout--header--breadcrumbs--item-separator {
+            min-width: fit-content;
+            @include header-level4($secondary-sanfrancisco-fog-s4);
+            margin-left: 1em;
+            > a {
+                @include header-level4($secondary-sanfrancisco-fog-s4);
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
+                text-decoration: none;
+            }
+            &:last-of-type {
+                > a {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
+            }
+        }
+    }
+    > .full-width-layout--header--title {
+        padding-left: 0;
+        > h1 {
+            margin-top: 21px;
+        }
+        @media screen and (max-width: 460px) {
+            padding-left: 0;
+            > h1 {
+                @include header-level1-mobile;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+.full-width-layout--content {
+    @include thick-edge-top;
+    > .full-width-layout--content--body {
+        @extend .platform-page--content;
+        > h5:nth-of-type(1) {
+            @include header-level5(#000);
+            @include page-element-left-right-padding;
+            padding-bottom: 0;
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+        > h5:nth-of-type(1) + ul:nth-of-type(1) {
+            @include page-element-left-right-margins;
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            > li {
+                float: left;
+                margin-right: 30px;
+                > a {
+                    @include body-small;
+                    text-underline-offset: 1px;
+                }
+            }
+            @include clearfix;
+            & + p {
+                padding-top: 0;
+            }
+        }
+
+        > p {
+            @include page-paragraph-padding;
+            margin: 0;
+            &:first-of-type {
+                padding-top: 2em;
+            }
+            &:last-of-type {
+                padding-bottom: 2em;
+            }
+        }
+        > div {
+            @include page-element-padding;
+        }
+        > h2,
+        > ol > li > h2 {
+            @include header-level2($primary-open-sky-s3);
+            @include page-paragraph-padding;
+            margin: 0;            
+        }
+        > h2:first-of-type {
+            margin-top: 1em;
+        }
+        > ul:first-of-type + h2:first-of-type {
+            margin-top: 2em;
+        }
+        > h3,
+        > ol > li h3 {
+            @include header-level3($primary-open-sky-s2);
+            @include page-paragraph-padding;
+            margin: 0;
+        }
+        > ol > li p {
+            @include page-paragraph-padding;
+        }
+        > ol > li ul {
+            @include page-element-margins;
+        }
+        > ol:last-of-type {
+            padding-bottom: 20px;
+        }
+        > ol {
+            padding-left: 0;
+        }
+        > .principles-for-development {
+            @include page-element-padding;
+            > div {
+                @include thick-edge-bottom;
+                @include card-shadow;
+                background-color: white;
+                @include inner-element-padding;
+                > h2 {
+                    @include header-level2($primary-open-sky-s2);
+                    &:first-of-type {
+                        margin-top: 0;
+                    }
+                    margin-top: 2em;
+                    margin-bottom: 0;
+                }
+                > p {
+                    margin-top: 0;
+                }
+            }
+        }
+        > table {
+            @include page-element-margins;
+            > thead {
+                > tr {
+                    > th,
+                    th:nth-of-type(1) {
+                        white-space: normal;
+                        overflow-x: auto;
+                    }
+                }
+            }
+            &:nth-of-type(1) {
+                @extend .basic-data-table;
+                > tbody {
+                    > tr {
+                        > td:nth-of-type(1) {
+                            font-weight: 700;
+                            color: $primary-open-sky-s2;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(2) {
+                @extend .basic-data-table;
+                > tbody {
+                    > tr {
+                        > td:nth-of-type(1),
+                        > td:nth-of-type(2) {
+                            font-weight: 700;
+                            color: $primary-open-sky-s2;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(3) {
+                @extend .basic-data-table;
+                width: 50%;
+            }
+            &:nth-of-type(4) {
+                @extend .platform-page--solutions--use-cases--table;    
+                > tbody {
+                    > tr {
+                        > td {
+                            @include header-level5($secondary-sanfrancisco-fog-s5);
+                            // Implementation note: These are overrides to the base use-cases--table styles.
+                            &:nth-of-type(1) {
+                                @include header-level5($secondary-sanfrancisco-fog-s5);
+                            }
+                            &:nth-of-type(2) {
+                                @include header-level5($secondary-sanfrancisco-fog-s5);
+                            }
+                            @media screen and (min-width: 601px) {
+                                &:nth-of-type(1) {
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > .solutions-card-grid {
+        @include page-element-padding;
+        > .solutions-card-grid--card-wrapper {
+            @media screen and (min-width: 1460px) {
+                padding: 0;
+            }
+        }
+    }
+}
