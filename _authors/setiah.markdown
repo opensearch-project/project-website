@@ -1,7 +1,7 @@
 ---
 name: Himanshu Setia
 short_name: setiah
-linkedin: 'himanshusetia08'
+linkedin: 'himansetia'
 photo: '/assets/media/authors/setiah.jpg'
 ---
-Himanshu Setia is a Senior Software Engineer at Amazon Web Services. He is passionate about distributed systems and solving problems at scale. He is an active contributor to OpenSearch project.
+Himanshu Setia is passionate about distributed systems and building innovative products that solve technically complex problems at scale. 
