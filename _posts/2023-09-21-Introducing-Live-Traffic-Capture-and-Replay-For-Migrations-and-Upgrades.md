@@ -4,7 +4,7 @@ title:  "Introducing a traffic capture and replay solution for OpenSearch migrat
 authors: 
   - setiah
   - mikaylathompson
-date: 2023-09-21 00:00:01 -0700
+date: 2023-10-26
 categories: 
     - technical-post
 twittercard:
