@@ -45,7 +45,7 @@ layout: default
             {% if page.resources %}
                 <div class="solutions-card-grid">
                     {% if page.resources.heading -%}
-                        <h2>{{ page.resources.heading }}</h2>
+                        <h2 {% if page.resources.heading_id %}id="{{ page.resources.heading_id }}{% endif %}">{{ page.resources.heading }}</h2>
                     {%- endif %}
                     <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
                         {% for item in page.resources.items %}
