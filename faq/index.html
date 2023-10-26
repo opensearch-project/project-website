@@ -13,11 +13,13 @@ breadcrumbs:
 ---
 
 {% assign faqs = site.faqs | group_by: 'category' %}
-<div>Categories: {% for faq_group in faqs  %}
-  {% assign categoryindex = forloop.index %}
-  <a href="#c{{categoryindex}}">{{ faq_group.name }}</a>  {% if forloop.last != true %} &middot; {% endif %}
-{% endfor %}
-</div>
+<ul class="in-page-links-list">
+  <li>Categories:</li>
+  {% for faq_group in faqs  %}
+    {% assign categoryindex = forloop.index %}
+    <li><a href="#c{{categoryindex}}">{{ faq_group.name }}</a></li>
+  {% endfor %}
+</ul>
 
 <ol id="faq">
   

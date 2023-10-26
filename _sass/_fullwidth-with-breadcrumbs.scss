@@ -68,7 +68,8 @@
             padding-top: 0;
             margin-bottom: 0;
         }
-        > h5:nth-of-type(1) + ul:nth-of-type(1) {
+        > h5:nth-of-type(1) + ul:nth-of-type(1),
+        .in-page-links-list {
             @include page-element-left-right-margins;
             list-style-type: none;
             padding-left: 0;
@@ -82,7 +83,12 @@
                     text-underline-offset: 1px;
                 }
             }
+            @include clearfix;
+            & + p {
+                padding-top: 0;
+            }
         }
+
         > p {
             @include page-paragraph-padding;
             margin: 0;
@@ -146,14 +152,6 @@
                 }
             }
         }
-        > .solutions-card-grid {
-            @include page-element-padding;
-            > .solutions-card-grid--card-wrapper {
-                @media screen and (min-width: 1460px) {
-                    padding: 0;
-                }
-            }
-        }
         > table {
             @include page-element-margins;
             > thead {
@@ -213,6 +211,14 @@
                         }
                     }
                 }
+            }
+        }
+    }
+    > .solutions-card-grid {
+        @include page-element-padding;
+        > .solutions-card-grid--card-wrapper {
+            @media screen and (min-width: 1460px) {
+                padding: 0;
             }
         }
     }
