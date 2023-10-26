@@ -61,6 +61,28 @@
     @include thick-edge-top;
     > .full-width-layout--content--body {
         @extend .platform-page--content;
+        > h5:nth-of-type(1) {
+            @include header-level5(#000);
+            @include page-element-left-right-padding;
+            padding-bottom: 0;
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+        > h5:nth-of-type(1) + ul:nth-of-type(1) {
+            @include page-element-left-right-margins;
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            > li {
+                float: left;
+                margin-right: 30px;
+                > a {
+                    @include body-small;
+                    text-underline-offset: 1px;
+                }
+            }
+        }
         > p {
             @include page-paragraph-padding;
             margin: 0;
@@ -82,6 +104,9 @@
         }
         > h2:first-of-type {
             margin-top: 1em;
+        }
+        > ul:first-of-type + h2:first-of-type {
+            margin-top: 2em;
         }
         > h3,
         > ol > li h3 {

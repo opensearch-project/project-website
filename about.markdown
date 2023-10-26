@@ -10,6 +10,7 @@ breadcrumbs:
       url: '/about.html'
 resources:
   heading: 'Founding Documents'
+  heading_id: 'founding-documents'
   items:
     - title: 'Introducing OpenSearch'
       url: 'https://aws.amazon.com/blogs/opensource/introducing-opensearch'
@@ -28,9 +29,11 @@ resources:
       date: 'Mon, Mar 11, 2019'
 ---
 
-_Updated December 20, 2022_
+##### Updated December 20, 2022
 
-[Principles for development](#principles-for-development) &middot; [Founding Documents](#founding-documents) &middot; [OpenSearch disambiguation](#opensearch-disambiguation)
+* [Principles for development](#principles-for-development)
+* [Founding Documents](#founding-documents)
+* [OpenSearch disambiguation](#opensearch-disambiguation)
 
 OpenSearch is a community-driven, open-source search and analytics suite used by developers to ingest, search, visualize, and analyze data. OpenSearch consists of a data store and search engine (OpenSearch), a visualization and user interface (OpenSearch Dashboards), and a server-side data collector (Data Prepper). Users can extend the functionality of OpenSearch with a selection of plugins that enhance search, analytics, observability, security, machine learning, and more.
  

@@ -11,9 +11,10 @@ breadcrumbs:
       url: '/releases.html'
 ---
 
-_Updated September 11, 2023_
+##### Updated September 11, 2023
 
-[Release Schedule](#release-schedule) &middot; [Maintenance Policy](#maintenance-policy)
+* [Release Schedule](#release-schedule)
+* [Maintenance Policy](#maintenance-policy)
 
 ## Release Schedule ##
 
