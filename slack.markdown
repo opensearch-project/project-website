@@ -1,10 +1,15 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 primary_title: Slack workspace
 title: Slack workspace
+breadcrumbs:
+  icon: community
+  items:
+    - title: 'Slack Workspace'
+      url: '/slack.html'
 ---
 
-_Updated Oct 17, 2023_
+##### Updated Oct 17, 2023
 
 ---
 
@@ -23,6 +28,3 @@ In addition to the [OpenSearch Code of Conduct](https://opensearch.org/codeofcon
 
 Contributors, maintainers, and community members can use this communication channel to collaborate.
 Read more on Slack [communications here](https://github.com/opensearch-project/.github/blob/main/COMMUNICATIONS.md).
-
-
-<br />
