@@ -71,18 +71,35 @@
                 padding-bottom: 2em;
             }
         }
-        > h2 {
+        > div {
+            @include page-element-padding;
+        }
+        > h2,
+        > ol > li > h2 {
             @include header-level2($primary-open-sky-s3);
             @include page-paragraph-padding;
-            margin: 0;
-            &:first-of-type {
-                margin-top: 1em;
-            }
+            margin: 0;            
         }
-        > h3 {
+        > h2:first-of-type {
+            margin-top: 1em;
+        }
+        > h3,
+        > ol > li h3 {
             @include header-level3($primary-open-sky-s2);
             @include page-paragraph-padding;
             margin: 0;
+        }
+        > ol > li p {
+            @include page-paragraph-padding;
+        }
+        > ol > li ul {
+            @include page-element-margins;
+        }
+        > ol:last-of-type {
+            padding-bottom: 20px;
+        }
+        > ol {
+            padding-left: 0;
         }
         > .principles-for-development {
             @include page-element-padding;
