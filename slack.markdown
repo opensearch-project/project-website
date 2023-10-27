@@ -5,13 +5,12 @@ title: Slack workspace
 breadcrumbs:
   icon: community
   items:
+    - title: 'Community'
     - title: 'Slack Workspace'
       url: '/slack.html'
 ---
 
 ##### Updated Oct 17, 2023
-
----
 
 The OpenSearch Project has a public Slack to enable brainstorming, code reviews, and other ad hoc collaboration discussions with the community.
 

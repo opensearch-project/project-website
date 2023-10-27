@@ -88,7 +88,9 @@
                 padding-top: 0;
             }
         }
-
+        > ul {
+            @include page-element-left-right-margins;
+        }
         > p {
             @include page-paragraph-padding;
             margin: 0;
@@ -99,7 +101,8 @@
                 padding-bottom: 2em;
             }
         }
-        > div {
+        > div,
+        section {
             @include page-element-padding;
         }
         > h2,
