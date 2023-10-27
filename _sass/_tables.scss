@@ -48,6 +48,7 @@
 }
 
 .basic-data-table {
+  @include page-element-margins;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
   > thead {
     > tr {
@@ -76,6 +77,59 @@
         font-weight: 400;
         line-height: 48px;
         padding: 10px 12px;
+      }
+    }
+  }
+}
+
+.data-table__bold-first-column {
+  @extend .basic-data-table;
+  > tbody {
+    > tr {
+      > td:nth-of-type(1) {
+        font-weight: 700;
+        color: $primary-open-sky-s2;
+      }
+    }
+  }
+}
+
+.data-table__bold-first-two-columns {
+  @extend .data-table__bold-first-column;
+  > tbody {
+    > tr {
+      > td:nth-of-type(2) {
+        font-weight: 700;
+        color: $primary-open-sky-s2;
+      }
+    }
+  }
+}
+
+.data-table__half-width {
+  @extend .basic-data-table;
+  width: 50%;
+}
+
+.data-table__use-case-styles {
+  @extend .platform-page--solutions--use-cases--table;
+  @include page-element-margins;
+  > tbody {
+    > tr {
+      > td {
+        @include header-level5($secondary-sanfrancisco-fog-s5);
+        // Implementation note: These are overrides to the base use-cases--table styles.
+        &:nth-of-type(1) {
+          @include header-level5($secondary-sanfrancisco-fog-s5);
+        }
+        &:nth-of-type(2) {
+          @include header-level5($secondary-sanfrancisco-fog-s5);
+        }
+        @media screen and (min-width: 601px) {
+          &:nth-of-type(1) {
+            width: auto;
+          }
+        }
       }
     }
   }

@@ -1,15 +1,25 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 title: Frequently Asked Questions
-primary_title: FAQ
+primary_title: Frequently Asked Questions
 notice: true
+breadcrumbs:
+  icon: platform
+  items:
+    - title: About
+      url: '/about.html'
+    - title: FAQ
+      url: '/faq/'
 ---
-<h2> {{page.title}} </h2>
+
 {% assign faqs = site.faqs | group_by: 'category' %}
-Categories: {% for faq_group in faqs  %}
-  {% assign categoryindex = forloop.index %}
-  <a href="#c{{categoryindex}}">{{ faq_group.name }}</a>  {% if forloop.last != true %} &middot; {% endif %}
-{% endfor %}
+<ul class="in-page-links-list">
+  <li>Categories:</li>
+  {% for faq_group in faqs  %}
+    {% assign categoryindex = forloop.index %}
+    <li><a href="#c{{categoryindex}}">{{ faq_group.name }}</a></li>
+  {% endfor %}
+</ul>
 
 <ol id="faq">
   
