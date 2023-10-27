@@ -1,15 +1,20 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 primary_title: Release Schedule and Maintenance Policy
 title: Release Schedule and Maintenance Policy
+breadcrumbs:
+  icon: platform
+  items:
+    - title: About
+      url: '/about.html'
+    - title: Releases
+      url: '/releases.html'
 ---
 
+##### Updated September 11, 2023
 
-_Updated September 11, 2023_
-
-[Release Schedule](#release-schedule) &middot; [Maintenance Policy](#maintenance-policy)
-
----
+* [Release Schedule](#release-schedule)
+* [Maintenance Policy](#maintenance-policy)
 
 ## Release Schedule ##
 
@@ -17,15 +22,15 @@ For more information on the changes planned for each release, please see the [Pr
 
 Note:  We have not added a major release to the 2023 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
 
-<div class="table-styler"></div>
 
-| Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Date |
-|:--------------|:-----------------|:---------------|:---------------|
+| Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) |
+|:--------------|:-----------------|:---------------|
 | 2.10.0        | September 07th   | September 25th |
 | 1.3.13        | September 14th   | September 21st |
 | 2.11.0        | October 4th      | October 18th   |
 | 1.3.14        | December 5th     | December 12th  |
 | 2.12.0        | January 9th, 2024    | January 23rd, 2024  |
+{: .data-table__bold-first-column}
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
 
@@ -49,18 +54,17 @@ The duration of the maintenance window will vary from product to product and rel
 
 The software maintainers will not back-port fixes or features to versions outside of the maintenance window. That said, PRs with said back-ports are welcome and will follow the project’s [review process](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md#review-process). No new releases will result from these changes, but interested parties can [create their own distribution](https://github.com/opensearch-project/opensearch-build#building-and-testing-an-opensearch-distribution) from the updated source after the PRs are merged.
 
-<div class="table-styler"></div>
 
 | Major Version | Latest Minor Version |   Status    | Initial Release | Maintenance Window Start | Maintenance Window End             |
-|:--------------|:---------------------|:-----------:|:---------------:|:------------------------:|:----------------------:            |
-| 1             | 1.3.x                | Maintenance |  July 12, 2021  |       May 26, 2022       |    GA release of 3.0.              |
-| 2             | 2.0.0                |   Current   |  May 26, 2022   |           N/A            |          N/A                       |
+|:--------------|:---------------------|:------------|:----------------|:-------------------------|:-----------------------            |
+| 1             | 1.3.x                | Maintenance |  July 12, 2021  | May 26, 2022             | GA release of 3.0.                 |
+| 2             | 2.0.0                | Current     |  May 26, 2022   | N/A                      | N/A                                |
+{: .data-table__bold-first-two-columns}
 
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date
 
 ## Release History ##
 
-<div class="table-styler"></div>
 
 | Release Number |  Release Date      |
 |:---------------|:-------------------|
@@ -82,10 +86,10 @@ The software maintainers will not back-port fixes or features to versions outsid
 | 2.8.0          | May 30th, 2023        |
 | 1.3.11         | June 22nd, 2023       |
 | 2.9.0          | July 11th, 2023       |
+{: .data-table__half-width}
 
 ## Change Log ##
 
-<div class="table-styler"></div>
 
 | Date         | Change | Reason          |
 |:-------------|:-------|:----------------|
@@ -102,5 +106,4 @@ The software maintainers will not back-port fixes or features to versions outsid
 | September 6th, 2023 | Updated 2.10 date  |  8 hour github outage last night - moving to accomodate a few final fixes |
 | September 11th, 2023 | Link to RELEASING.md  |  updated link from proposal to releasing documentation |
 | September 29th, 2023 | Updated 2.11 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/3955) |
-
-<br>
+{: .data-table__use-case-styles}
