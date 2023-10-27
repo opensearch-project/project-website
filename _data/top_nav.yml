@@ -39,15 +39,13 @@ items:
     url: /downloads.html
   -
     label: About
+    url: /about.html
     fragments:
       - about
       - releases
       - roadmap
       - faq
     children:
-      -
-       label: OpenSearch
-       url: /about.html
       -
        label: Releases
        url: /releases.html
