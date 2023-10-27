@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% if page.has_hero %}
+    {% assign page_type_class= "page-with-hero" %}
+{% else %}
+    {% assign page_type_class = "page-without-hero" %}
+{% endif %}
+{% assign icon_type = page.feature_area_icon_type | default: layout.feature_area_icon_type %}
+{% assign category_name = page.feature_area_category_name | default: layout.feature_area_category_name %}
+{% assign solution_name = page.feature_area_solution_name | default: layout.feature_area_solution_name %}
+<main class="container">
+    <div class="{{ page_type_class }}">
+        {% include platform-page-header.html icon=icon_type category=category_name solution=solution_name %}
+        <div class="platform-page--content">
+            <div class="platform-solution-page">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</main>

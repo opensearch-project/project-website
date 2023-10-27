@@ -1,0 +1,545 @@
+.page-with-hero {
+    h1 {
+        // color: $primary-open-sky-s1;
+        color: $primary-open-sky-s2;
+        font-family: 'Open Sans';
+        font-size: 51px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    
+    h2 {
+        color: $primary-pacific-blue-s3;
+        font-family: 'Open Sans Condensed';
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    h3 {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px;
+    }
+    h4 {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 4.5px;
+        text-transform: uppercase;
+    }
+    h5 {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    h6 {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+    }
+    p,
+    .body-text {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 48px;
+    }
+    .body-small-text {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 27px;
+    }
+    button {
+        color: #000;
+        font-family: 'Open Sans';
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    a {
+        color: $primary-pacific-blue;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        text-underline-offset: 6px;
+        &:hover {
+            color: $primary-open-sky;
+        }
+        &:visited {
+            color: $primary-pacific-blue-s2;
+        }
+    }
+}
+
+.page-without-hero {
+    h1 {
+        color: $primary-open-sky-s2;
+        font-family: 'Open Sans';
+        font-size: 51px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin-bottom: 0;
+    }
+    h2 {
+        color: $primary-open-sky;
+        font-family: 'Open Sans Condensed';
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    h3 {
+        color: $primary-open-sky-s2;
+        font-family: 'Open Sans';
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px;
+    }
+    h4 {
+        color: $primary-open-sky-s3;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 4.5px;
+        text-transform: uppercase;
+    }
+    h5 {
+        color: $primary-open-sky-s3;
+        font-family: 'Open Sans';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+    }
+    h6 {
+        font-family: 'Open Sans';
+    }
+    p {
+        color: #000;
+        font-family: 'Open Sans';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 48px;
+    }
+    button,
+    .button {
+        color: $primary-deep-blue-sea;
+        text-align: center;
+        font-family: 'Open Sans';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    a {
+        color: $primary-pacific-blue;
+        font-family: 'Open Sans';
+        text-underline-offset: 6px;
+        &:hover { 
+            color: $primary-open-sky;
+        }
+        &:visited {
+            color: $primary-pacific-blue-s2;
+        }
+    }
+}
+
+@mixin body-text($color: #000) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+}
+
+@mixin caption-text {
+    color: $primary-open-sky-s3;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+@mixin header-level2($color: $primary-pacific-blue-s3) {
+    color: $color;
+    font-family: 'Open Sans Condensed';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    > a {
+        color: $primary-pacific-blue;
+        text-decoration: underline;
+        font-family: 'Open Sans Condensed';
+        &:hover { 
+            color: $primary-open-sky;
+        }
+    }
+}
+
+@mixin header-level3($color: $primary-open-sky-s1) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 21px;
+    font-style: normal;
+    line-height: 36px;
+    font-weight: 700;
+}
+
+@mixin header-level4($color: $primary-open-sky-s3) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+}
+
+@mixin header-level5($color: $primary-open-sky-s3) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; 
+}
+
+@mixin header-level6($color: $primary-open-sky-s2) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+@mixin table-header {
+    color: $primary-pacific-blue-s3;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    border-bottom: 6px solid $primary-open-sky-s2;
+    text-align: left;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+@mixin table-cell {
+    font-family: 'Open Sans';
+    background: $secondary-sanfrancisco-fog-t1;
+    border-bottom: 12px solid #fff;
+    padding: 4px 12px;
+}
+
+@mixin focused-button-dark-mode {
+    border: 3px solid $primary-open-sky;
+    background: $primary-open-sky-s2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    > a:focus {
+        line-height: 46px;
+    }
+}
+
+@mixin hover-button-dark-mode($fill-color: $primary-open-sky) {
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    a:hover {
+        background: unset;
+    }
+}
+
+@mixin active-button-dark-mode {
+    background: $primary-open-sky;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+@mixin disabled-button-dark-mode {
+    border-radius: 6px;
+    background: $secondary-sanfrancisco-fog-s1;
+    > a {
+        color: $secondary-sanfrancisco-fog;
+    }
+}
+
+@mixin focused-button-light-mode {
+    border: 3px solid $primary-open-sky;
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 45px;
+    > a:focus {
+        line-height: 46px;
+    }
+}
+
+@mixin hover-button-light-mode {
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    > a:hover {
+        // NOTE: Using unset on the background is due to a global
+        // style set on a:hover states in the pre-existing, yet to be
+        // completely replaced design; global anchor states are still
+        // to come as well.
+        background: unset;
+        color: $primary-open-sky;
+    }
+}
+
+@mixin active-button-light-mode {
+    background: $primary-pacific-sky-t3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+@mixin disabled-button-light-mode {
+    background: $secondary-sanfrancisco-fog-s1;
+}
+
+@mixin link-button-light-mode($fill-color: $primary-pacific-sky-t3) {
+    font-family: 'Open Sans';
+    border-radius: 6px;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
+    &:has(a:focus) {
+        @include focused-button-light-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-light-mode;
+    }
+    &:has(a:active) {
+        @include active-button-light-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-light-mode;
+    }
+    padding: 0;
+    white-space: nowrap;
+    > a {
+        display: inline-block;
+        box-sizing: border-box;
+        line-height: 50px;
+        width: 100%;
+        color: $primary-deep-blue-sea;
+        text-decoration: none;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+    }
+}
+
+@mixin focused-hero-call-to-action-button($fill-color, $border-color) {
+    border: 3px solid $border-color;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@mixin hover-hero-call-to-action-button($fill-color, $text-color) {
+    background: $fill-color;
+    border: 1px solid $text-color;
+    a {
+        color: $text-color;
+    }
+}
+@mixin active-call-to-action-button($border-color, $fill-color, $text-color) {
+    background: $fill-color;
+    border: 1px solid $border-color;
+    a {
+        color: $text-color;
+    }
+}
+
+@mixin hero-call-to-action-button($fill-color, $text-color, $focus-border-color) {
+    background: $fill-color;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    height: 60px;
+    padding: 17px 17px 16px 25px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid $text-color;
+    border-radius: 30px;
+    &:has(a:focus) {
+        @include focused-hero-call-to-action-button($fill-color, $focus-border-color);
+    }
+    &:has(a:hover) {
+        @include hover-hero-call-to-action-button($text-color, $fill-color);
+    }
+    &:has(a:active) {
+        @include active-call-to-action-button($focus-border-color, $text-color, $fill-color);
+    }
+    a:hover {
+        background: unset;
+    }
+}
+
+@mixin link-button-dark-mode($fill-color: $primary-open-sky-s2) {
+    font-family: 'Open Sans';
+    border-radius: 6px;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
+    &:has(a:focus) {
+        @include focused-button-dark-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-dark-mode;
+    }
+    &:has(a:active) {
+        @include active-button-dark-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-dark-mode;
+    }
+    padding: 0;
+    white-space: nowrap;
+    > a {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 100%;
+        line-height: 50px;
+        color: $secondary-sanfrancisco-fog-t1;
+        text-decoration: none;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+    }
+}
+
+@mixin link-button($fill-color: $primary-pacific-sky-t3) {
+    font-family: 'Open Sans';
+    border-radius: 6px;
+    background: $fill-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: 50px;
+    &:has(a:focus) {
+        @include focused-button-dark-mode;
+    }
+    &:has(a:hover) {
+        @include hover-button-dark-mode;
+    }
+    &:has(a:active) {
+        @include active-button-dark-mode;
+    }
+    &:has(a[disabled]) {
+        @include disabled-button-dark-mode;
+    }
+    
+    white-space: nowrap;
+    > a {
+        text-decoration: none;
+    }
+    > a:focus {
+        padding: 10px 47px;
+    }
+}
+
+@mixin hero-header-text {
+    color: #FFF;
+    font-family: 'Open Sans';
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+@mixin hero-header-subtext {
+    color: #FFF;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    @media screen and (max-width: 460px) {
+        font-size: 21px;
+        line-height: 36px;
+    }
+}
+
+@mixin body-small {
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+@mixin body-medium($color: #000) {
+    color: $color;
+    font-family: 'Open Sans';
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 32px;
+    font-style: normal;
+}
+
+@mixin trim-ellipsis {
+    overflow: hidden;
+    color: #000;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+@mixin trim-ellipsis-multiline($line_count: 3) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line_count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin bottom-border-underline($color: $primary-pacific-blue) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $color;
+}
+
+@mixin header-level1-mobile {
+    font-family: 'Open Sans';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}

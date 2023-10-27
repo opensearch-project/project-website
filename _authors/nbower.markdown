@@ -1,8 +1,8 @@
 ---
-name: Nate Bower
+name: Nathan Bower
 short_name: nbower
 photo: '/assets/media/authors/nbower.jpg'
 github: natebower
 ---
 
-Nate Bower is the Senior Technical Editor for OpenSearch.
+**Nathan Bower** is the senior technical editor for the OpenSearch Project.

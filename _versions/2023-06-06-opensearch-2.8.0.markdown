@@ -16,13 +16,13 @@ components:
     version: 1.1.0
   - role: ingest
     artifact: data-prepper
-    version: data-prepper-2.3.2
+    version: data-prepper-2.5.0
     platform_order:
       - docker
       - linux
   - role: ingest
     artifact: logstash-oss-with-opensearch-output-plugin
-    version: 8.6.1
+    version: 8.9.0
   - role: minimal-artifacts
     artifact: opensearch-min
     version: 2.8.0
@@ -31,7 +31,7 @@ components:
     version: 2.8.0
   - role: drivers
     artifact: opensearch-sql-odbc
-    version: 1.1.0.1
+    version: 1.5.0.0
   - role: drivers
     artifact: opensearch-sql-jdbc
     version: 1.3.0.0

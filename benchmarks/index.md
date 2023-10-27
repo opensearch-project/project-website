@@ -61,16 +61,17 @@ benchmark_height_mobile: 6000
 </li> 
 
 <li>
-    <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/ae971a70-0715-11ee-a68c-1330e5a77b4c?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'HTTP%20Logs',viewMode:view)&show-time-filter=true&hide-filter-bar=true></iframe>" target="benchmark-dashboard">HTTP logs</a>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/ae971a70-0715-11ee-a68c-1330e5a77b4c?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'HTTP%20Logs',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">HTTP logs</a>
 </li>
 
 <li>
-    <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/ed93fc60-072f-11ee-babf-6f5128a15ea1?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'NYC%20Taxis%20dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true></iframe>" target="benchmark-dashboard">NYC taxis</a>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/ed93fc60-072f-11ee-babf-6f5128a15ea1?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'NYC%20Taxis%20dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">NYC taxis</a>
 </li>
-
-
 <li>
-    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/d67264e0-f5aa-11ed-aff5-859eb6ed880f?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Segment%20Replication%20Benchmark',viewMode:view)&show-time-filter=true&hide-filter-bar=true></iframe>" target="benchmark-dashboard">Segment Replication</a>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/d67264e0-f5aa-11ed-aff5-859eb6ed880f?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Segment%20Replication%20Benchmark',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Segment Replication</a>
+</li>
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/445b3b10-20f5-11ee-a68c-1330e5a77b4c?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Index%20codec%20metrics',viewMode:view)&hide-filter-bar=true&show-time-filter=true" target="benchmark-dashboard">Index Compression</a>
 </li>
 </ul>
 </div>

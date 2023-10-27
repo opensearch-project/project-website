@@ -36,6 +36,7 @@ ElastiFlow
 Eliatra
 Faiss
 Filebeat
+Flickr
 Flink
 Fluent Bit
 Fluentd
@@ -105,6 +106,7 @@ Okta
 Open Distro
 OpenID Connect
 OpenSearch
+OpenSearch Benchmark
 OpenSearch Dashboards
 OpenSearch Project
 OpenSearch Service
@@ -143,7 +145,6 @@ Searchium
 Searchium.ai
 Sease
 Serverless
-SigV4 
 Simple Schema for Observability
 SnappyFlow
 SquareShift

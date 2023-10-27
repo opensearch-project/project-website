@@ -1,6 +1,5 @@
 ---
-eventdate: 2023-04-06T16:00
-tz: UTC -4
+eventdate: 2023-04-06 16:00:00 -0400
 title: Fluent Community Meeting
 online: true
 signup:
