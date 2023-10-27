@@ -25,20 +25,19 @@ November 10th, 2023 from 18:00 to 19:30. Room L3.36 at Lab 42, Science Park 900,
 **Schedule:**
 
 * 18:00 -- Arrival with food, drinks.
-* 18:30 -- Retrieval Augmented Generation: Lucene based vs Vector databases - Fernando Rejon Barrera.
+* 18:30 -- OpenSearch and Generative AI - Nate Boot.
 * 18:50 -- OpenSearch vector capabilities - Jettro Coenradie.
-* 19:10 -- OpenSearch and Generative AI - Nate Boot.
+* 19:10 -- Retrieval Augmented Generation: Lucene based vs Vector databases - Fernando Rejon Barrera.
 * 19:30 -- Networking with drinks.
 * 20:00 -- Closing.
 
 **Talks:**
 
-**Retrieval Augmented Generation: Lucene based vs Vector databases**
+**OpenSearch and Generative AI**
 
-Selecting the right retrieval backend for Retrieval Augmented Generation (RAG) systems can be the decisive factor between success and failure. In this talk, I'll share insights gained from building RAG systems for enterprise applications, highlighting the critical factors for ensuring quality, performance, and security. Join me for practical advice on moving your RAG system beyond the POC phase.
+Experiences with OpenSearch and generative AI as a developer advocate for the OpenSearch Project.
 
-
-*Speaker: Fernando Rejon Barrera, CTO at Zeta Alpha.*
+*Speaker: [Nate Boot](https://github.com/nateynateynate), Developer Advocate - OpenSearch Project.*
 
 **OpenSearch vector capabilities**
 
@@ -48,8 +47,8 @@ During this presentation, you step into the semantic or vector search world. You
 
 *Speaker: Jettro Coenradie, Information Retrieval Specialist | Coach | Architect at Luminis.*
 
-**OpenSearch and Generative AI**
+**Retrieval Augmented Generation: Lucene based vs Vector databases**
 
-Experiences with OpenSearch and generative AI as a developer advocate for the OpenSearch Project.
+Selecting the right retrieval backend for Retrieval Augmented Generation (RAG) systems can be the decisive factor between success and failure. In this talk, I'll share insights gained from building RAG systems for enterprise applications, highlighting the critical factors for ensuring quality, performance, and security. Join me for practical advice on moving your RAG system beyond the POC phase.
 
-*Speaker: [Nate Boot](https://github.com/nateynateynate), Developer Advocate - OpenSearch Project.*
+*Speaker: Fernando Rejon Barrera, CTO at Zeta Alpha.*
