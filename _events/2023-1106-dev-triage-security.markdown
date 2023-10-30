@@ -4,7 +4,7 @@ eventdate: 2023-11-06 09:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2023-11-06
 online: true
 signup:
-    url: https://www.meetup.com/opensearch/events/297055511/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link
+    url: https://www.meetup.com/opensearch/events/297055511/
     title: Join on Meetup
 
 ---
