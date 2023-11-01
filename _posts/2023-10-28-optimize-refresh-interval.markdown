@@ -42,7 +42,8 @@ In this example the refresh interval of the ```sample_data``` index is 1 second
 Note if a refresh interval is not manually set, the API call may not return any results. The default refresh interval is 1 second but this property is not automatically added to the ```_settings``` API response unless it is manually set or adjusted.
 
 ## Change the refresh interval
-You can adjust the refresh interval for an index by using ```_settings API```. In the example below, the refresh interval of the ```sample_data``` is set to 60 seconds.
+You can adjust the refresh interval for an index by using ```_settings API```. In the following example, the refresh interval of the ```sample_data``` is set to 60 seconds:
+
 
 ```
 PUT /sample_data/_settings
