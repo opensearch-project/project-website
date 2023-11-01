@@ -18,7 +18,8 @@ This blog post discusses optimizing the refresh interval of an OpenSearch index 
 
 
 ## Introduction
-In OpenSearch, the process of indexing documents initially places them into a memory buffer. At this stage, the documents are not yet searchable. To make these documents searchable, a refresh operation is required. This operation transfers the documents from the memory buffer to new segments. Segments are specific data structures that OpenSearch utilizes to store and retrieve documents. Once the documents are housed in these segments, they become searchable.
+In OpenSearch, the process of indexing documents initially places them into a memory buffer. At this stage, the documents are not yet searchable. To make these documents searchable, a refresh operation is required. This operation transfers the documents from the memory buffer to new segments. Segments are specific data structures that OpenSearch uses to store and retrieve documents. Once the documents are housed in these segments, they become searchable.
+
 
 The refresh operation, which enables documents to become searchable by moving them into segments, is managed automatically by OpenSearch. By default, OpenSearch refreshes indexes that have received one or more search requests in the past 30 seconds, every 1 second. This means that documents written to an active index should typically become searchable within 1 second of being written to OpenSearch. While the default refresh frequency for an index is set to 1 second, this setting can be adjusted on a per-index basis.
 
