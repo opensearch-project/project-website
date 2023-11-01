@@ -66,7 +66,8 @@ The following example API call manually triggers a refresh on the index ```sampl
 
 <img src="/assets/media/blog-images/2023-10-28-optimize-refresh-interval/manual_refresh_2.png" alt="manual refresh"/>{: .img-fluid }
 
-You have the option to disable automatic refreshes prior to initiating a known write-intensive workload, and then manually trigger a refresh upon its completion. For instance, if you're uploading new data to OpenSearch daily through a batch process, it might be beneficial to disable automatic refreshes just before the batch process begins. After the process concludes, you can manually initiate a refresh.
+You have the option to disable automatic refreshes prior to initiating a known write-intensive workload and then manually trigger a refresh upon its completion. For instance, if you're uploading new data to OpenSearch daily through a batch process, it might be beneficial to disable automatic refreshes just before the batch process begins. After the process concludes, you can manually initiate a refresh.
+
 
 ## Conclusion and other resources
 Modifying the default refresh interval to strike a balance between the speed at which new documents become searchable and the CPU and I/O costs of the refresh operation can enhance OpenSearch performance. While a shorter refresh interval, which implies more frequent refreshes, allows documents to become searchable more rapidly post-indexing, it does so at the expense of increased resource utilization.
