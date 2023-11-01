@@ -14,7 +14,8 @@ meta_keywords: OpenSearch refresh interval, refresh interval optimization, optim
 
 ---
 
-This blog post will discuss optimizing the refresh interval of an OpenSearch index. Optimizing the refresh interval will allow you to get the best performance from OpenSearch.
+This blog post discusses optimizing the refresh interval of an OpenSearch index and how the optimization enhances OpenSearch performance.
+
 
 ## Introduction
 In OpenSearch, the process of indexing documents initially places them into a memory buffer. At this stage, the documents are not yet searchable. To make these documents searchable, a refresh operation is required. This operation transfers the documents from the memory buffer to new segments. Segments are specific data structures that OpenSearch utilizes to store and retrieve documents. Once the documents are housed in these segments, they become searchable.
