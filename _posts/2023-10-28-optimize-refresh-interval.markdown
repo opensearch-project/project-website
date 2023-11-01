@@ -56,7 +56,8 @@ PUT /sample_data/_settings
 
 <img src="/assets/media/blog-images/2023-10-28-optimize-refresh-interval/change_refresh_1.png" alt="change refresh"/>{: .img-fluid }
 
-It is also possible to disable automatic refreshes. Setting ```"refresh_interval" : "-1"``` will disable any automatic refreshing. In this scenario an index will need to be refreshed manually using the ```_settings``` API. 
+It is also possible to disable automatic refreshes. Setting ```"refresh_interval" : "-1"``` will disable any automatic refreshing. In this scenario, an index will need to be refreshed manually using the ```_settings``` API. 
+
 
 The example API call below will manually trigger a refresh on the index ```sample_data```
 
