@@ -166,7 +166,7 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-It still begged of me the question, "How do I know what values to put under model_config if I'm using some other model?" Then I came across *another* example call referring to something called a "Pretrained model" - look at this call: 
+It still raised the question, "How do I know what values to put under model_config if I'm using some other model?" Then I came across *another* example call referring to something called a "Pretrained model" - look at this call: 
 
 ```json
 POST /_plugins/_ml/models/_upload
