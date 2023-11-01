@@ -72,4 +72,5 @@ You have the option to disable automatic refreshes prior to initiating a known w
 ## Conclusion and other resources
 Modifying the default refresh interval to strike a balance between the speed at which new documents become searchable and the CPU and I/O costs of the refresh operation can enhance OpenSearch performance. While a shorter refresh interval, which implies more frequent refreshes, allows documents to become searchable more rapidly post-indexing, it does so at the expense of increased resource utilization.
 
-If you prefer to learn about this topic in the format of a video instead of a blog post check out the YouTube video: [OpenSearch - How to change the refresh interval of an index](https://www.youtube.com/watch?v=8uyemEfgcY8). This blog post is based on the GitHub repository: [OpenSearch_Refresh_Interval](https://github.com/ev2900/OpenSearch_Refresh_Interval)
+If you prefer to learn about this topic in the format of a video instead of a blog post, check out the YouTube video [OpenSearch - How to change the refresh interval of an index](https://www.youtube.com/watch?v=8uyemEfgcY8). This blog post is based on the GitHub repository [OpenSearch_Refresh_Interval](https://github.com/ev2900/OpenSearch_Refresh_Interval).
+
