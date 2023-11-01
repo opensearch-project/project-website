@@ -10,7 +10,8 @@ categories:
   - technical-posts
 meta_description: Learn how to optimize the refresh interval of an OpenSearch index and strike a balance between the speed at which indexed information is available for search with CPU and I/O costs
 
-meta_keywords: OpenSearch refresh interval, refresh interval optimization, optimie OpenSearch index performance
+meta_keywords: OpenSearch refresh interval, refresh interval optimization, optimize OpenSearch index performance
+
 ---
 
 This blog post will discuss optimizing the refresh interval of an OpenSearch index. Optimizing the refresh interval will allow you to get the best performance from OpenSearch.
