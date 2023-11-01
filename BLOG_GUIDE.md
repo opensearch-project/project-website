@@ -49,7 +49,7 @@ Variable | Description
 `layout` | The page layout. Must be `post`.
 `title` | The blog title.
 `authors` | A list of authors' short names.
-`date` | The publish date of the blog post.
+`date` | The publish date of the blog post. To test your blog by running the project website locally, this date must be no later than the current date. You can change this date to the publish date once the blog post has been reviewed and is ready for publishing.
 `categories` | A list of categories to which the blog post applies. Common options are `community-updates`, `technical-posts`, `update`, `community`, `feature`, `updates`, `partners`, and `releases`.
 `meta_keywords` | Meta keywords are provided by the marketing team once you put up a PR with the blog post.
 `meta_description` | Meta keywords are provided by the marketing team once you put up a PR with the blog post.
@@ -90,12 +90,12 @@ To center a Markdown image, specify the `img-centered` class for the image:
 To center an HTML image, include `class="centered"` in the image tag:
 
 ```
-<img src="/assets/media/blog-images/2023-02-13-semantic-search-solutions/vectors.jpg" alt="Similar vectors" class="centered"/>
+<img src="/assets/media/blog-images/2023-02-13-semantic-search-solutions/vectors.jpg" alt="Similar vectors" class="img-centered"/>
 ```
 
 ## Authors
 
-For each author, you need to add an author bio and picture.
+For each author, add an author [bio](#author-bio) and [picture](#author-picture).
 
 ### Author bio
 
