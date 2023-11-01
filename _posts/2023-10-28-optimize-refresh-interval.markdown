@@ -59,7 +59,8 @@ PUT /sample_data/_settings
 It is also possible to disable automatic refreshes. Setting ```"refresh_interval" : "-1"``` will disable any automatic refreshing. In this scenario, an index will need to be refreshed manually using the ```_settings``` API. 
 
 
-The example API call below will manually trigger a refresh on the index ```sample_data```
+The following example API call manually triggers a refresh on the index ```sample_data```:
+
 
 ```POST sample_data/_refresh```
 
