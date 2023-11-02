@@ -106,7 +106,7 @@ $ shasum -a 256 all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
 
 The lesson? Your API calls to register models via URL require some assembly. This field does not seem to be required when registering a ["pre-trained" model](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models).
 
-### Lesson Learned 2: Model Groups
+### Lesson learned 2: Model groups
 
 I had attempted to upload a model without passing in a model group id. OpenSearch does something for you when this happens. A model group is created for you, with the same name that you provided in your call. In my case, it was `all-MiniLM-L6-v2`. So, the next time I tried to upload that model, it kept telling me the name was taken by a particular model id, so I used the API to search for all of the models available. It wasn't there. What *was* there was a model group that I was able to delete. I used the API to delete all the tasks, models, and model groups I just made so I could start with a fresh slate. Make sure you follow the Tasks, Models and Model Groups side quest to make sure you can organize to your own level of comfort.
 
