@@ -461,7 +461,7 @@ Looks like it ingested my joke. Just to see it with my own eyes I'm going to do 
   }
 }
 ```
-This is where I stop. The goal has been achieved - a KNN index associated with a neural search pipeline and an ML model. Please stay tuned - I have no big plans for now, but where dad jokes are concerned, the sky is the limit. 
+This is where I stop. The goal has been achieved---a k-NN index associated with a neural search pipeline and an ML model. Please stay tuned - I have no big plans for now, but where dad jokes are concerned, the sky is the limit. 
 
 
 
