@@ -89,7 +89,7 @@ The response was not quite what I expected.
 }
 ```
 
-### Lesson Learned 1: Model Content Hash Value Field
+### Lesson learned 1: Model content hash value field
 
 It clearly failed, but `model content changed` isn't very helpful of an error message. I was missing something. 
 
