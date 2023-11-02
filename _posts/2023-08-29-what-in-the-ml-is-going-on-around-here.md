@@ -113,7 +113,7 @@ I had attempted to upload a model without passing in a model group id. OpenSearc
 The error message was confusing, so I filed [issue 1289](https://github.com/opensearch-project/ml-commons/issues/1289).
 
 
-### Side Quest: Tasks, Models, and Model Groups
+### Side quest: Tasks, models, and model Groups
 
 Many of the API operations we'll end up using return a task id, model id, or model group id that you have to then look up. Since we're only using the tools that come out of the box, here are the dev console examples that are likely of most help.
 
