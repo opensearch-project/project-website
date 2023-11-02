@@ -14,7 +14,7 @@ twittercard:
   description: "From zero to vectorizing text with the neural search plugin. "
 ---
 
-Going from a vanilla install of OpenSearch to having vectorized text stored in a KNN enabled index seemed like a quick learning exercise. On paper, it almost looked easy. Upload a model to a node designated as a ML node, load it, and start ingesting text and storing it as a vector. The amount of probing, asking, experimenting, copying and pasting  made it clear to me that I was mistaken. I humbly beg of you all to learn from my toil. Please find below the chronicles of my efforts to load a pre-trained model into OpenSearch by hand, using nothing more than the dev console and a heavy dose of copypasta. I hope that it saves you the time spent researching that I needed.
+Going from a vanilla install of OpenSearch to having vectorized text stored in a k-NN--enabled index seemed like a quick learning exercise. On paper, it almost looked easy. Upload a model to a node designated as a ML node, load it, and start ingesting text and storing it as a vector. The amount of probing, asking, experimenting, and copying and pasting made it clear to me that I was mistaken. I humbly beg of you all to learn from my toil. The following blog chronicles my efforts in loading a pre-trained model into OpenSearch by hand, using nothing more than the dev console and a heavy dose of copypasta. I hope that it saves you the time spent researching that I needed.
 
 Being able to ingest text and store it as a vector will be the stopping point here. It was all I wanted.
 
