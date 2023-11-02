@@ -364,7 +364,7 @@ Now for the KNN `method`, I had a really hard time understanding what to put her
 * The `faiss` engine supports the methods `hnsw` and `ivf`. 
 * The `lucene` engine supports the method `hnsw`.
 
-I'm going to just specify a method name of `hnsw` which will provide the default engine of `nmslib`. Here's the call to create my KNN index now.
+I'm going to just specify a method name of `hnsw`, which will provide the default engine of `nmslib`. Here's the call to create my k-NN index now.
 ```json
 PUT /super-awesome-nlp-index
 {
