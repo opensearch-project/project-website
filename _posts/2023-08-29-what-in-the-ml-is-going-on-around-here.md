@@ -180,7 +180,7 @@ Moving forward, I think I'll stick with a pre-trained model. I'm going to delete
 
 ---
 
-## Scene 1 Act 2: Create a Model Group and Register a Model
+## Scene 1 Act 2: Create a model group and register a model
 
 Let's try again. This time I want to create a model group for all of the models I upload to live under. Check this out: 
 
