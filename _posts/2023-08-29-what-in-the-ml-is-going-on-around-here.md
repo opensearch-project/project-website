@@ -229,7 +229,7 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-I would consider that a great success. We've registered a model with OpenSearch (that is to say, the model exists in the OpenSearch model index), but according to the [ml-framework](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) docs we still need to load the model. This is the process of loading the model into memory.  I've got a model id - let's try it. 
+I would consider that a great success. We've registered a model with OpenSearch (that is to say, the model exists in the OpenSearch model index), but according to the [ml-framework](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) docs we still need to load the model. This is the process of loading the model into memory. I've got a model id---let's try it. 
 
 ```json
 POST /_plugins/_ml/models/R-PAj4oBKue4OlrZ_QJ_/_load
