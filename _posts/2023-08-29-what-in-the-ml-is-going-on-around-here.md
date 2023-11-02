@@ -57,7 +57,7 @@ POST /_plugins/_ml/models/_upload
 }
 ```
 
-The response was as expected - a new task id. 
+The response was as expected---a new task id. 
 
 ```json
 {
