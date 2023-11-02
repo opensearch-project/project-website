@@ -91,7 +91,7 @@ The response was not quite what I expected.
 
 ### Lesson learned 1: Model content hash value field
 
-It clearly failed, but `model content changed` isn't very helpful of an error message. I was missing something. 
+It clearly failed, but `model content changed` isn't a helpful error message. I was missing something. 
 
 ...*fast forward montage through hours of scanning through `MLModel.java` and pleading for help on our [public slack channel](...)*...
 
