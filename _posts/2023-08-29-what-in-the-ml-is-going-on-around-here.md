@@ -142,7 +142,7 @@ DELETE /_plugins/_ml/tasks/`task_id`
 ----
 
 Something serendipitous happened as I was trying to teach myself the API for ml-commons when following my tasks, models, and model groups side quest. I found an API call example
-[here](https://opensearch.org/docs/latest/ml-commons-plugin/api/) on the ml-commons api reference page. It was perfectly formed, and included all of the stuff that I was missing. Here it is: 
+[here](https://opensearch.org/docs/latest/ml-commons-plugin/api/) on the ml-commons API reference page. It was perfectly formed and included all of the stuff that I was missing. Here it is: 
 
 ```json
 POST /_plugins/_ml/models/_register
