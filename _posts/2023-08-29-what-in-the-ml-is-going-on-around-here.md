@@ -24,7 +24,7 @@ I apologize if my journey takes twists and turns. The effort involved has left m
 
 ### Side Quest: The Settings API
 
-I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names ([they're here](https://opensearch.org/docs/latest/ml-commons-plugin/cluster-settings/)). I eventually was able to cobble together this call.
+I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me to the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names ([they're here] (https://opensearch.org/docs/latest/ml-commons-plugin/cluster-settings/)) in this OpenSearch cluster settings documentation. I eventually was able to cobble together this call.
 
 ```json
 # I want to be able to register a model via url as well as perform ML tasks
