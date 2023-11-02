@@ -259,7 +259,7 @@ Success again. Now, the million-dollar question: How do we take our own text and
 
 ## The neural search plugin
 
-The [Neural Search Plugin](https://opensearch.org/docs/latest/search-plugins/neural-search/) is the solution. It will translate between vectors and text during ingestion and search time. As our goal is to ingest our own source of text and that's it, it looks like we're getting close to our goal. 
+The [Neural Search plugin](https://opensearch.org/docs/latest/search-plugins/neural-search/) is the solution. It will translate between vectors and text during ingestion and search time. As our goal is to ingest our own source of text and that's it, it looks like we're getting close to our goal. 
 
 
 ```json
