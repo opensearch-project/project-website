@@ -31,17 +31,17 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 * Last possible date 10/18 per the [Releases schedule](https://opensearch.org/releases.html).
 
-**TBD**
+**November 7th - 11:00AM PDT**
 
-* Retrospective - Let's do a retro on the 2.11.0 release as a community.
+* [Retrospective](https://github.com/opensearch-project/opensearch-build/issues/4061) - Let's do a retro on the 2.11.0 release as a community.
 
 **Dial in information - valid for each meeting:**
 
 **Join Meeting**
 
-**Click to join the meeting: <https://chime.aws/6864918125>**
+**Click to join the meeting: <https://chime.aws/4325833489>**
 
-**Meeting ID: 6864 91 8125** 
+**Meeting ID: 4325 83 3489** 
 
 A headset is recommended or you may use your computer’s microphone and speakers.
 
