@@ -255,7 +255,7 @@ POST /_plugins/_ml/models/R-PAj4oBKue4OlrZ_QJ_/_load
 }
 ```
 
-Success again. Now, the million dollar question. How do we take our own text and documents and have them vectorized when we ingest? 
+Success again. Now, the million-dollar question: How do we take our own text and documents and have them vectorized when we ingest? 
 
 ## The Neural Search Plugin
 
