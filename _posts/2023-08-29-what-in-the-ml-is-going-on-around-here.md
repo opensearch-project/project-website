@@ -95,7 +95,7 @@ It clearly failed, but `model content changed` isn't very helpful of an error me
 
 ...*fast forward montage through hours of scanning through `MLModel.java` and pleading for help on our [public slack channel](...)*...
 
-It turns out the example was bad. I was missing a field called `model_content_hash_value`. It's the `sha256` checksum of the zipfile. If you ever want to use a model that's not in the documentation examples, you'll need to calculate the `sha256` checksum of the zipfile and provide that as the `model_content_hash_value` field. Unfortunately there wasn't any documentation for this field. I filed **[Issue 4966](https://github.com/opensearch-project/documentation-website/issues/4966)**.
+It turns out the example was bad. I was missing a field called `model_content_hash_value`. It's the `sha256` checksum of the zipfile. If you ever want to use a model that's not in the documentation examples, you'll need to calculate the `sha256` checksum of the zipfile and provide that as the `model_content_hash_value` field. Unfortunately, there wasn't any documentation for this field. I filed **[Issue 4966](https://github.com/opensearch-project/documentation-website/issues/4966)**.
 
 After downloading the model zip file, I was able to calculate it on my own like so: 
 
