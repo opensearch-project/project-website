@@ -359,7 +359,7 @@ According to the [pre-trained models](https://opensearch.org/docs/latest/ml-comm
 
 Now for the KNN `method`, I had a really hard time understanding what to put here. The only **required** field is the name. I'll take the defaults for the sake of simplicity in my examples. I'll try to boil down the docs into something a bit easier to skim. 
 
-* The engine is one of three. `nmslib`, `faiss` and `lucene`.
+* The engine is one of three: `nmslib`, `faiss`, and `lucene`.
 * The `nmslib` engine supports `hnsw`, which is the default if you supply a name but no engine. 
 * The `faiss` engine supports the methods `hnsw` and `ivf`. 
 * The `lucene` engine supports the method `hnsw`.
