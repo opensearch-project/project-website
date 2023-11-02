@@ -174,7 +174,7 @@ POST /_plugins/_ml/models/_upload
 }
 ```
 
-Why did this call have to be so short and the other ones so long? The answer is that while we refer to these as "pre-trained models", there's a lot of those out there and they're not specific to OpenSearch.  OpenSearch happens to have a handful of models that it supports out of the box, so if one of these fits your requirements you can probably save a lot of time using one of these. Check out our list of [supported pre-trained models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models).
+Why did this call have to be so short and the other ones so long? The answer is that while we refer to these as "pre-trained models," there's a lot of those out there and they're not specific to OpenSearch. OpenSearch happens to have a handful of models that it supports out of the box. If one of them fits your requirements, you can save time by using it. Check out our list of [supported pre-trained models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models).
 
 Moving forward I think I'll stick with a pre-trained model. I'm going to delete all my tasks and models and model groups and start again now that we've learned a few lessons. 
 
