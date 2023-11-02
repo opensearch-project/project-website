@@ -72,7 +72,7 @@ Let's see how the task is going.
 GET /_plugins/_ml/tasks/GeLGTIoBKue4OlrZmck7
 ```
 
-The response was not quite what I expected.
+The response was not quite what I expected. The response says it failed!
 
 ```json
 {
@@ -111,7 +111,6 @@ The lesson? Your API calls to register models via URL require some assembly. Thi
 I had attempted to upload a model without passing in a model group id. OpenSearch does something for you when this happens. A model group is created for you, with the same name that you provided in your call. In my case, it was `all-MiniLM-L6-v2`. So, the next time I tried to upload that model, it kept telling me the name was taken by a particular model id. I used the API to search for all of the models available. It wasn't there. What *was* there was a model group that I was able to delete. I used the API to delete all the tasks, models, and model groups I just made so I could start fresh. Make sure you follow the Tasks, Models, and Model Groups side quest to make sure you can organize to your own level of comfort.
 
 The error message was confusing, so I filed [issue 1289](https://github.com/opensearch-project/ml-commons/issues/1289).
-
 
 ### Side quest: Tasks, models, and model Groups
 
