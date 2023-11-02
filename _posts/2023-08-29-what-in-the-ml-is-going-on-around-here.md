@@ -340,7 +340,7 @@ Crap again. Fortunately, I was quick to receive a response on Slack about these 
 
 ## Side quest 3: Creating a k-NN index properly 
 
-The example call was meant to have some pieces filled in. Specifically, the `dimension` value, as well as the values inside of the `method` object. Let's fill them in. 
+The example call was meant to have some pieces filled in. Specifically, the `dimension` value, and the values inside of the `method` object. Let's fill them in. 
 
 ```json
         "dimension": int,
