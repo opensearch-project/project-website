@@ -22,7 +22,7 @@ Being able to ingest text and store it as a vector will be the stopping point he
 
 I apologize if my journey takes twists and turns. The effort involved has left me a little winded (from excitement, I promise!), and I'd sure like to help improve the journey from zero to something. What are the steps? Where do I start? I started [here](https://opensearch.org/docs/latest/ml-commons-plugin/ml-framework/) at the ml-framework documentation page. I apparently needed to register a model. Using an example call showed me that I needed to have a node as an "ML node"---I only have one node in my cluster. I decided to disable the requirement for now.
 
-### Side Quest: The Settings API
+### Side quest: The Settings API
 
 I started [here](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/) at the cluster settings documentation, which got me to the general syntax of the call. Now I just needed the setting names. I embarrassingly had to google "opensearch ml cluster settings" to find the actual setting names ([they're here] (https://opensearch.org/docs/latest/ml-commons-plugin/cluster-settings/)) in this OpenSearch cluster settings documentation. I eventually was able to cobble together this call.
 
