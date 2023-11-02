@@ -114,7 +114,7 @@ The error message was confusing, so I filed [issue 1289](https://github.com/open
 
 ### Side quest: Tasks, models, and model Groups
 
-Many of the API operations we'll end up using return a task id, model id, or model group id that you have to then look up. Since we're only using the tools that come out of the box, here are the dev console examples that are likely of most help.
+Many of the API operations we'll end up using return a task id, model id, or model group id that you have to then look up. Since we're only using out-of-the-box tools, here are the dev console examples that are likely of most help.
 
 ```json
 # To see what models exist.
