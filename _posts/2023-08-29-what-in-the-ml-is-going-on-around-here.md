@@ -104,7 +104,7 @@ $ shasum -a 256 all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
 9376c2ebd7c83f99ec2526323786c348d2382e6d86576f750c89ea544d6bbb14  all-MiniLM-L6-v2_torchscript_sentence-transformer.zip
 ```
 
-The lesson? Your API calls to register models via URL require some assembly. This field does not seem to be required when registering a ["pre-trained" model.  ](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models).
+The lesson? Your API calls to register models via URL require some assembly. This field does not seem to be required when registering a ["pre-trained" model](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models).
 
 ### Lesson Learned 2: Model Groups
 
