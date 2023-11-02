@@ -1,7 +1,7 @@
 ---
-date: 2023-08-30 00:00:00 -0700
-meta_description: getting started with the neural search plugin for opensearch
-meta_keywords: neural search, guide, getting started
+date: 2023-11-02 00:00:00 -0700
+meta_description: Learn how to get started with the neural search plugin for OpenSearch to setup a k-NN index associated with a neural search pipeline and an ML model.
+meta_keywords: Neural search plugin, machine learning OpenSearch, get started with neural search, k-NN index
 has_math: false
 authors:
   - nateboot
@@ -88,8 +88,6 @@ The response was not quite what I expected.
   "is_async": true
 }
 ```
-
-Crap on a crap cracker. 
 
 ### Lesson Learned 1: Model Content Hash Value Field
 
@@ -461,6 +459,7 @@ Looks like it ingested my joke. Just to see it with my own eyes I'm going to do 
   }
 }
 ```
+
 This is where I stop. The goal has been achieved---a k-NN index associated with a neural search pipeline and an ML model. Please stay tuned - I have no big plans for now, but where dad jokes are concerned, the sky is the limit. 
 
 
