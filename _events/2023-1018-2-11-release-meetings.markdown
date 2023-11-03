@@ -1,10 +1,10 @@
 ---
 
-eventdate: 2023-10-18 09:00:00 -0700
+eventdate: 2023-11-07 11:00:00 -0700
 title: OpenSearch 2.11.0 Release Meetings
 online: true
 signup:
-  url: https://chime.aws/6864918125
+  url: https://chime.aws/4325833489
   title: Join on Chime
 
 ---

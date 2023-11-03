@@ -377,9 +377,17 @@ $max-container: 1440px;
         border-top: 1px solid $line;
     }
 }
+
 #content-main .artifact-group:first-child h2 {
     border-top: none;
 }
+
+#content-main {
+    img {
+        max-width: 100%;
+    }
+}
+
 .artifact-container {
     display: flex;
     flex-flow: row wrap;

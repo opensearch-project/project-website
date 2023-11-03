@@ -1,10 +1,11 @@
 <img src="https://opensearch.org/assets/img/opensearch-logo-themed.svg" height="64px">
 
-- [OpenSearch.org Website](#opensearchorg-website)
-  - [Getting Help](#getting-help)
+- [OpenSearch.org website](#opensearchorg-website)
+  - [Getting help](#getting-help)
   - [Contributing](#contributing)
-    - [Adding to the Partners Page](#adding-to-the-partners-page)
-    - [Building the Website](#building-the-website)
+    - [Adding to the Partners page](#adding-to-the-partners-page)
+    - [Writing a blog](#writing-a-blog)
+    - [Building the website](#building-the-website)
     - [Testing](#testing)
       - [Link checker](#link-checker)
   - [Code of Conduct](#code-of-conduct)
@@ -13,11 +14,11 @@
   - [Credits](#credits)
   - [Copyright](#copyright)
   
-# OpenSearch.org Website
+# OpenSearch.org website
 
 This repo contains the source for the [opensearch.org](https://opensearch.org/) website. 
 
-## Getting Help
+## Getting help
 
 If you find a bug, or have a feature request, please don't hesitate to open an issue in this repository. 
 
@@ -29,11 +30,15 @@ We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to
 
 _Note:_ As of July 20, 2021, contributions are welcome on the `main` branch; the `prod` branch is now protected and holds the finalized version of the site. The `staging` branch has been removed and is no longer being used.
 
-### Adding to the Partners Page
+### Adding to the Partners page
 
 If you are a partner, you are welcome to add your logo/link to our partners page. Please copy and edit the [sample file](_partners/_sample.md), and submit a pull request.
 
-### Building the Website
+### Writing a blog
+
+If you'd like to contribute a blog, see the [BLOG_GUIDE](BLOG_GUIDE.md) to learn about formatting the blog contents and adding authors. For writing guidelines, see the [OpenSearch Project Style Guidelines](https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md).
+
+### Building the website
 
 This site uses [Jekyll](https://jekyllrb.com/). You can build the site and make it available on a local server via `docker-compose up -d`, or by installing all the dependencies on your local environment as follows (tested to work with Ruby 2.7.2).
 
@@ -56,7 +61,7 @@ In order to automatically mitigate some common security risks, the generated pag
 JEKYLL_ALLOW_CONTENT_MODIFIER= bundle exec jekyll serve
 ```
 
-### Search Bar Invisible Pages
+### Search bar invisible pages
 
 To prevent a document from appearing in search results, you can add `omit_from_search: true` to its front matter.
 
