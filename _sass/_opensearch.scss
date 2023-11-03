@@ -174,7 +174,6 @@ $max-container: 1440px;
 .author-photo {
     width: 180px;
     height: auto;
-    border: none;
 }
 
 
@@ -194,20 +193,17 @@ $max-container: 1440px;
     }
 }
 
-img {
+.img-fluid {
     max-width: 100%;
+    height: auto;
     border: 1px solid $line-lighter;
 }
-
-.img-fluid {
-    height: auto;  
-}
-
 .img-centered {
+    max-width: 100%;
     margin: 0 auto;
     display: block;
+    border: 1px solid $line-lighter;
 }
-
 .downloads-page {
     .layout-2col {
         .col {
@@ -381,9 +377,17 @@ img {
         border-top: 1px solid $line;
     }
 }
+
 #content-main .artifact-group:first-child h2 {
     border-top: none;
 }
+
+#content-main {
+    img {
+        max-width: 100%;
+    }
+}
+
 .artifact-container {
     display: flex;
     flex-flow: row wrap;
