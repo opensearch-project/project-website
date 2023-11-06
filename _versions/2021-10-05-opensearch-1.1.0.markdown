@@ -20,7 +20,7 @@ components:
   -
     role: command-line-tools
     artifact: opensearch-cli
-    version: 1.1.0
+    version: 1.2.0
   -
     role: ingest
     artifact: data-prepper
