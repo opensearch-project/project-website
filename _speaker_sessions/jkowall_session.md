@@ -12,6 +12,7 @@ session_time: "2023-09-28 - 11:30am - 12:10pm"
 session_room: "Ballroom CD"
 session_track: "Operating OpenSearch"
 permalink: '/events/opensearchcon/sessions/18-months-of-operating-opensearch-at-scale.html'
+youtube_video_id: 'VYL69m82fDY'
 ---
 
 Running an OpenSearch cluster in production presents unique challenges. At Aiven, we manage thousands of OpenSearch nodes for numerous customers across multiple clouds and regions. We'll share our experiences, discussing monitoring, resiliency, scaling, optimization, handling upgrades, and enabling customers to navigate releases. We'll also reveal the most adopted service integrations, versions, preferred clouds, and instance sizes. This session provides insights into managing OpenSearch at scale, useful for those running stable systems or looking to expand their OpenSearch usage.

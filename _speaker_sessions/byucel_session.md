@@ -15,6 +15,7 @@ presenters:
   - byucel
   - tcelik
 permalink: '/events/opensearchcon/sessions/keyword-based-or-semantic-search-best-of-both-worlds-with-haystack-and-opensearch.html'
+youtube_video_id: 'jM8EyhG6Nck'
 ---
 
 Semantic search improves relevance and efficiency in information retrieval, but struggles with new domains. Keyword search is effective and adaptable, but lacks understanding of word meanings. Can we combine them to minimize drawbacks? This talk explores hybrid search on Haystack website, leveraging pipelines and optimized query clauses. We showcase building a domain-agnostic search system with open source tools and models.
