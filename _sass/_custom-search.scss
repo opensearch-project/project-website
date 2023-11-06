@@ -37,7 +37,7 @@
    box-sizing: border-box;
  }
  
- @media (min-width: 46.25rem) {
+ @media (min-width: 462.5px) {
    .search {
      position: relative;
    }
@@ -49,7 +49,7 @@
    transition: height linear 200ms;
  }
  
- @media (min-width: 46.25rem) {
+ @media (min-width: 462.5px) {
    .search-input-wrap {
      position: absolute;
      width: 100%;
@@ -76,19 +76,19 @@
    position: absolute;
    display: flex;
    height: 100%;
-   padding-left: 1.6rem;
+   padding-left: 16px;
  }
  
  @media (min-width: $header-banner-min-width) {
    .search-label {
-     padding-left: 3.2rem;
+     padding-left: 32px;
      transition: padding-left linear 200ms;
    }
  }
  
  .search-label .search-icon {
-   width: 1.92rem;
-   height: 1.92rem;
+   width: 19.2px;
+   height: 19.2px;
    align-self: center;
    color: #4D8399;
  }
@@ -122,12 +122,12 @@
  
  .search-results-list {
    padding-left: 0;
-   margin-bottom: 0.4rem;
+   margin-bottom: 4px;
    list-style: none;
    font-size: 14px !important;
  }
  
- @media (min-width: 31.25rem) {
+ @media (min-width: 312.4px) {
    .search-results-list {
      font-size: 16px !important;
    }
@@ -139,7 +139,7 @@
    }
  }
  
- @media (min-width: 50rem) {
+ @media (min-width: 500px) {
    .search-results-list {
      font-size: 14px !important;
    }
@@ -152,10 +152,10 @@
  
  .search-result {
    display: block;
-   padding-top: 0.4rem;
-   padding-right: 1.2rem;
-   padding-bottom: 0.4rem;
-   padding-left: 1.2rem;
+   padding-top: 4px;
+   padding-right: 12px;
+   padding-bottom: 4px;
+   padding-left: 12px;
  }
  
  .search-result:hover,
@@ -165,15 +165,15 @@
  
  .search-result-title {
    display: block;
-   padding-top: 0.8rem;
-   padding-bottom: 0.8rem;
+   padding-top: 8px;
+   padding-bottom: 8px;
  }
  
- @media (min-width: 31.25rem) {
+ @media (min-width: 312.4px) {
    .search-result-title {
      display: inline-block;
      width: 40%;
-     padding-right: 0.8rem;
+     padding-right: 8px;
      vertical-align: top;
    }
  }
@@ -189,7 +189,7 @@
    font-size: 12px !important;
  }
  
- @media (min-width: 31.25rem) {
+ @media (min-width: 312.4px) {
    .search-result-doc.search-result-doc-parent {
      font-size: 14px !important;
    }
@@ -201,16 +201,16 @@
    }
  }
  
- @media (min-width: 50rem) {
+ @media (min-width: 500px) {
    .search-result-doc.search-result-doc-parent {
      font-size: 12px !important;
    }
  }
  
  .search-result-doc .search-result-icon {
-   width: 1.6rem;
-   height: 1.6rem;
-   margin-right: 0.8rem;
+   width: 16px;
+   height: 16px;
+   margin-right: 8px;
    color: #0055A6;
    flex-shrink: 0;
  }
@@ -220,13 +220,13 @@
  }
  
  .search-result-section {
-   margin-left: 2.4rem;
+   margin-left: 24px;
    word-wrap: break-word;
  }
  
  .search-result-rel-url {
    display: block;
-   margin-left: 2.4rem;
+   margin-left: 24px;
    overflow: hidden;
    color: #959396;
    text-overflow: ellipsis;
@@ -234,7 +234,7 @@
    font-size: 9px !important;
  }
  
- @media (min-width: 31.25rem) {
+ @media (min-width: 312.4px) {
    .search-result-rel-url {
      font-size: 10px !important;
    }
@@ -242,10 +242,10 @@
  
  .search-result-previews {
    display: block;
-   padding-top: 0.8rem;
-   padding-bottom: 0.8rem;
-   padding-left: 1.6rem;
-   margin-left: 0.8rem;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   padding-left: 16px;
+   margin-left: 8px;
    color: #959396;
    word-wrap: break-word;
    border-left: 1px solid;
@@ -253,24 +253,24 @@
    font-size: 11px !important;
  }
  
- @media (min-width: 31.25rem) {
+ @media (min-width: 312.4px) {
    .search-result-previews {
      font-size: 12px !important;
    }
  }
  
- @media (min-width: 31.25rem) {
+ @media (min-width: 312.4px) {
    .search-result-previews {
      display: inline-block;
      width: 60%;
-     padding-left: 0.8rem;
+     padding-left: 8px;
      margin-left: 0;
      vertical-align: top;
    }
  }
  
  .search-result-preview+.search-result-preview {
-   margin-top: 0.4rem;
+   margin-top: 4px;
  }
  
  .search-result-highlight {
@@ -278,14 +278,14 @@
  }
  
  .search-no-result {
-   padding-top: 0.8rem;
-   padding-right: 1.2rem;
-   padding-bottom: 0.8rem;
-   padding-left: 1.2rem;
+   padding-top: 8px;
+   padding-right: 12px;
+   padding-bottom: 8px;
+   padding-left: 12px;
    font-size: 12px !important;
  }
  
- @media (min-width: 31.25rem) {
+ @media (min-width: 312.4px) {
    .search-no-result {
      font-size: 14px !important;
    }
@@ -293,14 +293,14 @@
  
  .search-button {
    position: fixed;
-   right: 1.6rem;
-   bottom: 1.6rem;
+   right: 16px;
+   bottom: 16px;
    display: flex;
-   width: 5.6rem;
-   height: 5.6rem;
+   width: 56px;
+   height: 56px;
    background-color: #fff;
    border: 1px solid rgba(0, 85, 166, 0.3);
-   border-radius: 2.8rem;
+   border-radius: 28px;
    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
    align-items: center;
    justify-content: center;
@@ -333,7 +333,7 @@
  }
  
  .search-active .search-input-wrap {
-   height: 6.4rem;
+   height: 64px;
    border-radius: 0;
  }
  
@@ -367,7 +367,7 @@
  }
  
  .search-active .main-header {
-   padding-top: 6.4rem;
+   padding-top: 64px;
  }
  
  @media (min-width: $header-banner-min-width) {
@@ -379,14 +379,14 @@
  @media (min-width: $header-banner-min-width) {
    .copy-banner .search {
      display: block;
-     height: 4.8rem !important;
-     margin: 1.15rem 0 1.15rem 4.8rem;
+     height: 48px !important;
+     margin: 11.5px 0 11.5px 48px;
    }
  }
  
  @media (min-width: $header-banner-min-width) {
    .copy-banner .search-input-wrap {
-     height: 4.8rem !important;
+     height: 48px !important;
      right: 0;
    }
  }
@@ -408,15 +408,15 @@
  }
  
  .custom-search-results > div {
-   padding: 0 1.6rem;
+   padding: 0 16px;
    @media screen and (min-width: 1019px) {
-     padding: 1.6rem;
+     padding: 16px;
    }
  }
  
  .custom-search-results cite {
    font-size: 12px;
-   font-size: 1.2rem;
+   font-size: 12px;
    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
    color: #002A3A;
    text-decoration: none;
@@ -438,7 +438,7 @@
  
  .custom-search-results a {
    font-size: 20px;
-   font-size: 2rem;
+   font-size: 20px;
    font-family: "Open Sans Condensed", Impact, "Franklin Gothic Bold", sans-serif;
    line-height: 1.6;
    font-weight: bold;
@@ -456,7 +456,7 @@
  
  .custom-search-results span {
    font-size: 14px;
-   font-size: 1.4rem;
+   font-size: 14px;
    color: #1B4859;
    line-height: 1.4;
    display: block;
@@ -465,7 +465,7 @@
  
  .custom-search-results span:only-child {
    text-align: center;
-   padding: 1.6rem;
+   padding: 16px;
  }
  
  .custom-search-results .highlighted {
@@ -481,7 +481,7 @@
  }
  
  .banner-alert~main .custom-search-results {
-   max-height: calc(100vh - 200% - 60px - 5.76rem) !important;
+   max-height: calc(100vh - 200% - 60px - 57.6px) !important;
  }
  
  .search-spinner {
@@ -490,7 +490,7 @@
    outline: 0;
    user-select: none;
    position: absolute;
-   padding-left: 0.96rem;
+   padding-left: 9.6px;
    height: 100%;
  }
  

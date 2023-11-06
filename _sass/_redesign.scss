@@ -1,8 +1,7 @@
-@media screen and (min-width: 46.25rem) {
-    .container {
-        max-width: 1440px;
-    }
+.container {
+    max-width: 1440px;
 }
+
 $resource-grid-3-column-min: 1440px;
 $resource-grid-2-column-max: 1439px;
 $resource-grid-2-column-min: 834px;
@@ -25,8 +24,8 @@ $header-banner-mobile-breakpoint: 1018px;
     align-items: flex-start;
     @media screen and (max-width: $header-banner-mobile-breakpoint) {
         display: flex;
-        width: calc(100% - 40px);
-        padding: 15px 20px;
+        width: calc(100% - 20px);
+        padding: 15px 10px;
         height: 60px;
     }
     >.landing-page-redesign--nav-search--field-with-results {
@@ -56,8 +55,8 @@ $header-banner-mobile-breakpoint: 1018px;
                 > .search {
                     > .search-input-wrap {
                         >.search-input {
-                            padding-left: 0.96rem;
-                            padding-right: 0.6rem;
+                            padding-left: 9.6px;
+                            padding-right: 6px;
                             transition: padding-right linear 200ms;
                             border-radius: 6px;
                             border-color: $primary-pacific-sky-t2;
@@ -87,7 +86,7 @@ $header-banner-mobile-breakpoint: 1018px;
                             outline: 0; 
                             user-select: none; 
                             position: absolute; 
-                            padding-right: 0.96rem; 
+                            padding-right: 9.6px;
                             height: 100%;
                             right: 0;
                             left: auto;
@@ -525,6 +524,15 @@ $header-banner-mobile-breakpoint: 1018px;
                 width: 100%;
                 height: 100%;
                 > .landing-page-hero--images--image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    height: 100%;
                     &.landing-page-hero--images--image__desktop {
                         > img {
                             object-fit: fill;

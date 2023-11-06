@@ -116,13 +116,8 @@ $font-path: "../fonts/fira-mono";
     background-image: linear-gradient(135deg, $warning-light 25%, transparent 25%, transparent 50%, $warning-light 50%, $warning-light 75%, transparent 75%, transparent);
 }
 
-// Font Sizing Mixin (http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/)
 html {
-    font-size: 62.5%;
-}
-@mixin font-size ( $size: 16 ) {
-    font-size: $size + px;
-    font-size: calc($size / 10) + rem;
+    font-size: 18px;
 }
 
 // Boilerplate Helper mixins (https://github.com/h5bp/html5-boilerplate/blob/v4.1.0/doc/css.md)
