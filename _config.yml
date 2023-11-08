@@ -58,6 +58,12 @@ defaults:
       permalink:  events/:title/
 -
     scope:
+      type: calendar
+    values:
+      layout: calendar
+      permalink: /events/calendar/:name.html
+-
+    scope:
       type: versions
     values: 
       layout: versions
@@ -115,6 +121,8 @@ collections:
   javadocs:
     output: true
   events:
+    output: true
+  calendar:
     output: true
   artifacts:
     output: true

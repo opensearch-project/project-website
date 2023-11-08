@@ -1,0 +1,219 @@
+---
+layout: fullwidth-with-breadcrumbs
+---
+<div class="events--calendar">
+    <div class="events--calendar--head">
+        {% comment %} The .events--calendar--head--month-year text will be populated with a localized string at run time. {% endcomment %}
+        <div class="events--calendar--head--month-year"></div>
+        <div class="events--calendar--head--prev-next">
+            <div class="events--calendar--head--prev-next--prev">
+                <a href="#">&lt;&nbsp;Previous</a>
+            </div>
+            <div class="events--calendar--head--prev-next--next">
+                <a href="#">Next&nbsp;&gt;</a>
+            </div>
+        </div>
+    </div>
+    <div class="events--calendar--body">
+        {% comment %} The list of weekday names will be populated with a localized set of elements at run time. {% endcomment %}
+        <div class="events--calendar--body--weekday-names"></div>
+        <div class="events--calendar--body--weeks">
+            {% assign start_date = page.date_of_first_sunday %}
+            {% assign end_date = page.date_of_last_saturday %}
+            {% assign month_number = page.month_number | times: 1 %}
+            {% assign month_index = page.month_index | times: 1 %}
+            {% assign calendar_events = page.events %}
+            {% assign days_in_month = site.data.calendars.days_in_month[month_index].day_count %}
+            {% if page.month_index > 0 %}
+                {% assign previous_month_index = month_index | minus: 1 %}
+                {% assign days_in_previous_month = site.data.calendars.days_in_month[previous_month_index].day_count %}
+            {% else %}
+                {% assign days_in_previous_month = site.data.calendars.days_in_month[11].day_count %}
+            {% endif %}
+            {% if page.month_index == 1 %}
+                {% assign years_mod_4 = page.year | modulo: 4 %}
+                {% if years_mod_4 == 0 %}
+                    {% assign days_in_month = days_in_month | plus: 1 %}
+                {% endif %}
+            {% endif %}
+            {% assign week_offset = 0 %}
+            {% assign day_date = start_date %}
+            {% assign weeks_in_calendar = page.calendar_view_week_count %}
+            {% for calendar_week_number in (1..weeks_in_calendar) %}
+                <div class="events--calendar--body--week">
+                    {% for i in (0..6) %}
+                        {% assign event_date_selection_expression = "event.date == '" | append: day_date | append: "'" %}
+                        {% assign events_for_day = calendar_events | where_exp: "event", event_date_selection_expression %}
+                        {% assign weekday_name = site.data.calendars.weekday_names[i] %}
+                        {% assign weekday_classname = "events--calendar--body--week--day__" | append: weekday_name %}
+                        <div class="events--calendar--body--week--day {{ weekday_classname }}">
+                            <div class="events--calendar--body--week--day--number">
+                                {{ day_date | split: "-" | last }}
+                            </div>
+                            {% if events_for_day -%}
+                                {% for event in events_for_day -%}
+                                    <div class="events--calendar--body--week--day--event">
+                                        <div class="events--calendar--body--week--day--event--name">
+                                            <a href="{{ event.url }}" tile="{{ event.title }}">{{ event.title }}</a>
+                                        </div>
+                                    </div>
+                                {%- endfor %}
+                            {% endif -%}
+                        </div>
+                        {% if day_date != end_date %}
+                            {% assign day_date_parts = day_date | split: "-" %}
+                            {% assign day_date_year = day_date_parts | first %}
+                            {% assign day_date_month_number = day_date_parts[1] %}
+                            {% assign day_date_day_number = day_date_parts | last %}
+                            {% assign day_date_day_number_parts = day_date_day_number | split: "" %}
+                            {% assign day_date_month_number_parts = day_date_month_number | split: "" %}
+                            {% if day_date_day_number_parts[0] == "0" %}
+                                {% assign day_date_day_number = day_date_day_number_parts[1] | times: 1 %}
+                            {% else %}
+                                {% assign day_date_day_number = day_date_day_number | times: 1 %}
+                            {% endif %}
+                            {% if day_date_month_number_parts[0] == "" %}
+                                {% assign day_date_month_number = day_date_month_number_parts[1] | plus: 1 %}
+                            {% else %}
+                                {% assign day_date_month_number = day_date_month_number | times: 1 %}
+                            {% endif %}
+                            
+                            {% if day_date_month_number < month_number %}
+                                {% if day_date_day_number < days_in_previous_month %}
+                                    {% assign day_date_day_number = day_date_day_number | plus: 1 %}
+                                    {% assign day_date = day_date_year | append: "-" | append: day_date_month_number | append: "-" | append: day_date_day_number %}
+                                {% else %}
+                                    {% if day_date_month_number == "12" %}
+                                        {% assign day_date_year = day_date_year | plus: 1 %}
+                                        {% assign day_date_month_number = "01" %}
+                                        {% assign day_date_day_number = "01" %}
+                                        {% assign day_date = day_date_year | append: "-" | append: day_date_month_number | append: "-" | append: day_date_day_number %}
+                                    {% else %}
+                                        {% assign day_date_month_number = day_date_month_number | plus: 1 %}
+                                        {% if day_date_month_number < 10 %}
+                                            {% assign day_date_month_number = day_date_month_number | prepend: "0" %}
+                                        {% endif %}
+                                        {% assign day_date_day_number = "01" %}
+                                        {% assign day_date = day_date_year | append: "-" | append: day_date_month_number | append: "-" | append: day_date_day_number %}
+                                    {% endif %}
+                                {% endif %}
+                            {% elsif day_date_month_number == month_number %}
+                                {% if day_date_day_number < days_in_month %}
+                                    {% assign day_date_day_number = day_date_day_number | plus: 1 %}
+                                    {% if day_date_day_number < 10 %}
+                                        {% assign day_date_day_number = day_date_day_number | prepend: "0" %}
+                                    {% endif %}
+                                    {% assign day_date = day_date_year | append: "-" | append: day_date_month_number | append: "-" | append: day_date_day_number %}
+                                {% else %}
+                                    {% assign day_date_month_number = day_date_parts[1] %}
+                                    {% assign day_date_month_number_parts = day_date_month_number | split: "" %}
+                                    {% if day_date_month_number_parts[0] == "0" %}
+                                        {% assign day_date_month_number = day_date_month_number_parts | last | times: 1 %}
+                                    {% else %}
+                                        {% assign day_date_month_number = day_date_month_number | times: 1 %}
+                                    {% endif %}
+                                    {% if day_date_month_number == '12' %}
+                                        {% assign year = day_date_parts | first | times: 1 %}
+                                        {% assign next_year = year | plus: 1 %}
+                                        {% assign day_date = next_year | append: "-" | append: "01-01" %}
+                                    {% else %}
+                                        {% assign next_month = day_date_month_number | plus: 1 %}
+                                        {% if next_month < 10 %}
+                                            {% assign next_month = next_month | prepend: "0" %}
+                                        {% endif %}
+                                        {% assign year = day_date_parts | first %}
+                                        {% assign day_date = year | append: "-" | append: next_month | append: "-01" %}
+                                    {% endif %}
+                                {% endif %}
+                            {% else %}
+                                {% assign day_date_day_number = day_date_day_number | plus: 1 | prepend: "0" %}
+                                {% assign day_date = day_date_year | append: "-" | append: day_date_month_number | append: "-" | append: day_date_day_number %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script type="module">
+
+    const locale = new Intl.Locale(navigator.language);
+    const calendarData = {{ page | jsonify }};
+    const dateOfFirstSundayParts = calendarData?.date_of_first_sunday?.split?.('-')?.map?.((part, index) => {
+        const numericPart = Number(part);
+        if (index !== 1) {
+            return numericPart;
+        }
+        return numericPart - 1;
+    });
+    const dateOfFirstSunday = new Date(Date.UTC(dateOfFirstSundayParts[0], dateOfFirstSundayParts[1], dateOfFirstSundayParts[2]));
+    
+    document.addEventListener('DOMContentLoaded', () => {
+
+        function writeMonthYear(date) {
+            const formatter = new Intl.DateTimeFormat(locale.baseName, {
+                year: "numeric",
+                month: "long",
+            });
+            const actualUTCDate = new Date(
+                date.getUTCFullYear(),
+                date.getUTCMonth(),
+                date.getUTCDate(),
+                date.getUTCHours(),
+                date.getUTCMinutes(),
+                date.getUTCSeconds(),
+                date.getUTCMilliseconds(),
+            );
+            const formatted = formatter.format(actualUTCDate);
+            const selector = '.events--calendar--head--month-year';
+            const element = document.querySelector(selector);
+            element.textContent = formatted;
+        }
+
+        function createLocalizedWeekdayNames(date, formatter) {
+            const weekdayNames = Array.from(Array(7).keys()).map(i => {
+                const actualUTCDate = new Date(
+                    date.getUTCFullYear(),
+                    date.getUTCMonth(),
+                    date.getUTCDate() + i,
+                    date.getUTCHours(),
+                    date.getUTCMinutes(),
+                    date.getUTCSeconds(),
+                    date.getUTCMilliseconds(),
+                );
+                const weekdayName = formatter.formatToParts(actualUTCDate).find(part => part.type === 'weekday').value;
+                return weekdayName;
+            });
+            return weekdayNames;
+        }
+
+        function writeWeekdayNames(date) {
+            const formatter = new Intl.DateTimeFormat(locale.baseName, {
+                weekday: "short",
+            });
+            const actualUTCDate = new Date(
+                date.getUTCFullYear(),
+                date.getUTCMonth(),
+                date.getUTCDate(),
+                date.getUTCHours(),
+                date.getUTCMinutes(),
+                date.getUTCSeconds(),
+                date.getUTCMilliseconds(),
+            );
+            const names = createLocalizedWeekdayNames(actualUTCDate, formatter);
+            const parentSelector = '.events--calendar--body--weekday-names';
+            const weekdayClassName = 'events--calendar--body--weekday-names--name';
+            const parent = document.querySelector(parentSelector);
+            const nameElements = names.map(name => {
+                const div = document.createElement('div');
+                div.classList.add(weekdayClassName);
+                div.textContent = name;
+                return div;
+            });
+            parent.append(...nameElements);
+        }
+        writeMonthYear(dateOfFirstSunday);
+        writeWeekdayNames(dateOfFirstSunday);
+    });
+</script>

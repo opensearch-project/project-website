@@ -1,0 +1,46 @@
+days_in_month:
+  - name: 'January'
+    number: 1
+    day_count: 31
+  - name: 'February'
+    number: 2
+    day_count: 28
+  - name: 'March'
+    number: 3
+    day_count: 31
+  - name: 'April'
+    number: 4
+    day_count: 30
+  - name: 'May'
+    number: 5
+    day_count: 31
+  - name: 'June'
+    number: 6
+    day_count: 30
+  - name: 'July'
+    number: 7
+    day_count: 31
+  - name: 'August'
+    number: 8
+    day_count: 31
+  - name: 'September'
+    number: 9
+    day_count: 30
+  - name: 'October'
+    number: 10
+    day_count: 31
+  - name: 'November'
+    number: 11
+    day_count: 30
+  - name: 'December'
+    number: 12
+    day_count: 31
+weekday_names: 
+  - sunday
+  - monday
+  - tuesday
+  - wednesday
+  - thursday
+  - friday
+  - saturday
+  
