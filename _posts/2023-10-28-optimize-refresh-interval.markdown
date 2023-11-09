@@ -24,7 +24,8 @@ In OpenSearch, the process of indexing documents initially places them into a me
 The refresh operation, which enables documents to become searchable by moving them into segments, is managed automatically by OpenSearch. By default, OpenSearch refreshes indexes that have received one or more search requests in the past 30 seconds, every 1 second. This means that documents written to an active index should typically become searchable within 1 second of being written to OpenSearch. While the default refresh frequency for an index is set to 1 second, this setting can be adjusted on a per-index basis.
 
 ## Why adjust the default index refresh interval
-Refresh operations are resource intensive. The procedure of transferring data into new segments and rendering them searchable demands CPU, memory, and I/O resources. Consequently, fewer refresh operations can conserve these resources for other tasks.
+Refresh operations are resource intensive. The procedure of transferring data into new segments and rendering them searchable demands CPU, memory, and input/output (I/O) resources. Consequently, fewer refresh operations can conserve these resources for other tasks.
+
 
 However, less frequent refreshes also imply a longer wait for newly indexed documents to become searchable. If your use case necessitates near real-time searching of new data, infrequent refreshes may not be appropriate. On the other hand, if your operations can accommodate a delay between the indexing of data and its searching, reducing the frequency of refreshes can liberate resources. This could potentially lead to increased indexing throughput and faster indexing speeds.
 
