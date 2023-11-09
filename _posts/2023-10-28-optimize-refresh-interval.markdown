@@ -32,7 +32,8 @@ However, less frequent refreshes also imply a longer wait for newly indexed docu
 ## View the refresh interval
 The frequency of refresh operations is dictated by the refresh interval set for an OpenSearch index. By default, the refresh interval for an index is set to 1 second. This implies that a refresh operation will be executed every second, provided the index is active. An index is considered active if it has received one or more search requests within the last 30 seconds.
 
-Assuming we are using an index named ```sample_data``` we can check what the refresh interval is for this index by running the following API command
+Assuming we are using an index named ```sample_data``` we can check what the refresh interval is for this index by running the following API command:
+
 
 ```GET /sample_data/_settings/index.refresh_interval``` 
 
