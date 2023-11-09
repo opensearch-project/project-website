@@ -42,7 +42,8 @@ In this example the refresh interval of the ```sample_data``` index is 1 second.
 
 <img src="/assets/media/blog-images/2023-10-28-optimize-refresh-interval/get_refresh_0.png" alt="get refresh"/>{: .img-fluid }
 
-Note if a refresh interval is not manually set, the API call may not return any results. The default refresh interval is 1 second but this property is not automatically added to the ```_settings``` API response unless it is manually set or adjusted.
+Note that if a refresh interval is not manually set, the API call may not return any results. The default refresh interval is 1 second, but this property is not automatically added to the ```_settings``` API response unless it is manually set or adjusted.
+
 
 ## Change the refresh interval
 You can adjust the refresh interval for an index by using ```_settings API```. In the following example, the refresh interval of the ```sample_data``` is set to 60 seconds:
