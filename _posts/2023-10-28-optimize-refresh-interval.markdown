@@ -37,7 +37,8 @@ Assuming we are using an index named ```sample_data``` we can check what the ref
 
 ```GET /sample_data/_settings/index.refresh_interval``` 
 
-In this example the refresh interval of the ```sample_data``` index is 1 second
+In this example the refresh interval of the ```sample_data``` index is 1 second.
+
 
 <img src="/assets/media/blog-images/2023-10-28-optimize-refresh-interval/get_refresh_0.png" alt="get refresh"/>{: .img-fluid }
 
