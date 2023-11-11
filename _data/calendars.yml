@@ -43,4 +43,10 @@ weekday_names:
   - thursday
   - friday
   - saturday
-  
+filter_categories:
+  - value: 'community'
+    label: 'Community'
+  - value: 'development'
+    label: 'Development/Triage'
+  - value: 'events'
+    label: 'Events'

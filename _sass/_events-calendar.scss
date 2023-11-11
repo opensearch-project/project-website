@@ -1,136 +1,238 @@
+$calendar-week-max-height: 185px;
+$calendar-day-max-width: 180px;
+$calendar-month-default-week-count: 5;
+
 .full-width-layout--content 
 > .full-width-layout--content--body 
-> div.events--calendar {
-    @include page-element-margins;
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
-    background: #FFF;
-    box-sizing: border-box;
+> div.events--calendar--wrapper {
+    @include page-element-left-right-margins;
     padding: 0;
-    > .events--calendar--head {
-        width: 100%;
-        height: 64px;
-        margin-top: 10px;
-        box-sizing: border-box;
+    > .events--calendar--filters {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
-        padding: 16px;
-        > .events--calendar--head--month-year {
-            flex-basis: 50%;
-            flex-shrink: 1;
+        column-gap: 20px;
+        margin: 30px 0;
+        > .events--calendar--filters--view-mode-toggle {
+            flex-basis: 70px;
+            flex-shrink: 0;
             flex-grow: 0;
-            text-align: left;
-            @include header-level2($primary-open-sky-s2);
-        }
-        > .events--calendar--head--prev-next {
-            flex-basis: 50%;
-            flex-shrink: 1;
-            flex-grow: 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
-            > .events--calendar--head--prev-next--prev {
-                margin-right: 20px;
-                > a {
-                    @include header-level6($primary-open-sky-s2);
-                    text-decoration: none;
-                }
-            }
-            > .events--calendar--head--prev-next--next {
-                > a {
-                    @include header-level6($primary-open-sky-s2);
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-    > .events--calendar--body {
-        > .events--calendar--body--weekday-names {
-            border-top: 1px solid rgba(218, 220, 224, 0.60);
-            border-bottom: 1px solid rgba(218, 220, 224, 0.60);
             display: flex;
             flex-direction: row;
             justify-content: start;
             align-items: center;
-            > .events--calendar--body--weekday-names--name {
-                flex-basis: calc(100% / 7);
+            flex-wrap: nowrap;
+            > .events--calendar--filters--view-mode-toggle--item {
+                flex-basis: 35px;
+                flex-shrink: 0;
+                flex-grow: 0;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                @include header-level4(#333);
+                width: 35px;
+                height: 35px;
+                box-sizing: border-box;
+                border: 1px solid $primary-open-sky-s2;
+                &.events--calendar--filters--view-mode-toggle--item__selected {
+                    background: $primary-open-sky-s2;
+                }
+                &:nth-of-type(1) {
+                    border-radius: 3px 0px 0px 3px;
+                }
+                &:nth-of-type(2) {
+                    border-radius: 0px 3px 3px 0px;
+                }
+                > svg {
+                    width: 19px;
+                    height: 20px;
+                }
             }
         }
-        > .events--calendar--body--weeks {
-            flex-basis: 100%;
+        > .events--calendar--filters--category-selector {
+            flex-basis: calc(100% - 100px); //todo
             display: flex;
-            flex-direction: column;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: center;
-            justify-content: flex-start;
-            height: auto;
-            max-height: 925px;
-
-            > .events--calendar--body--week {
-                width: 100%;
+            > .events--calendar--filters--category-selector--dropdown {
+                flex-basis: 200px;
+                flex-shrink: 0;
+                flex-grow: 0;
+                width: 200px;
+            }
+            > .events--calendar--filters--category-selector--filter-chips {
+                flex-basis: calc(100% - 200px);
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
                 justify-content: flex-start;
                 align-items: center;
-                &:not(:first-of-type) {
-                    > .events--calendar--body--week--day {
-                        &:not(:last-of-type) {
-                            border-top: 1px solid rgba(218, 220, 224, 0.60);
-                            border-right: 1px solid rgba(218, 220, 224, 0.60);
-                        }
-                        &:last-of-type {
-                            border-top: 1px solid rgba(218, 220, 224, 0.60);
-                        }
+                column-gap: 20px;
+                > div {
+                    flex-basis: content;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                }
+            }
+        }
+    }
+    > .events--calendar {
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+        background: #FFF;
+        box-sizing: border-box;
+        padding: 0;
+        > .events--calendar--head {
+            width: 100%;
+            height: 64px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            > .events--calendar--head--month-year {
+                flex-basis: 50%;
+                flex-shrink: 1;
+                flex-grow: 0;
+                text-align: left;
+                @include header-level2($primary-open-sky-s2);
+            }
+            > .events--calendar--head--prev-next {
+                flex-basis: 50%;
+                flex-shrink: 1;
+                flex-grow: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                > .events--calendar--head--prev-next--prev {
+                    margin-right: 20px;
+                    > a {
+                        @include header-level6($primary-open-sky-s2);
+                        text-decoration: none;
+                    }
+                    > span {
+                        @include header-level6(#333);
                     }
                 }
-                &:first-of-type {
-                    > .events--calendar--body--week--day {
-                        &:not(:last-of-type) {
-                            border-right: 1px solid rgba(218, 220, 224, 0.60);
-                        }
+                > .events--calendar--head--prev-next--next {
+                    > a {
+                        @include header-level6($primary-open-sky-s2);
+                        text-decoration: none;
+                    }
+                    > span {
+                        @include header-level6(#333);
                     }
                 }
-                > .events--calendar--body--week--day {
-                    width: calc(100% / 7);
-                    aspect-ratio: 180 / 185;
-                    box-sizing: border-box;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    > .events--calendar--body--week--day--number {
-                        width: 100%;
-                        box-sizing: border-box;
-                        padding-left: 10px;
-                        @include header-level5($secondary-sanfrancisco-fog-s3);
-                        
+            }
+        }
+        > .events--calendar--body {
+            > .events--calendar--body--weekday-names {
+                border-top: 1px solid rgba(218, 220, 224, 0.60);
+                border-bottom: 1px solid rgba(218, 220, 224, 0.60);
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                align-items: center;
+                > .events--calendar--body--weekday-names--name {
+                    flex-basis: calc(100% / 7);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    @include header-level4(#333);
+                }
+            }
+            > .events--calendar--body--weeks {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                height: auto;
+                max-height: calc($calendar-month-default-week-count * $calendar-week-max-height);
+                &.events--calendar--body-weeks__4 {
+                    max-height: calc($calendar-week-max-height * 4);
+                }
+                &.events--calendar--body--weeks__5 {
+                    max-height: calc($calendar-week-max-height * 5);
+                }
+                &.events--calendar--body--weeks__6 {
+                    max-height: calc($calendar-week-max-height * 6);
+                }
+                > .events--calendar--body--week {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    &:not(:first-of-type) {
+                        > .events--calendar--body--week--day {
+                            &:not(:last-of-type) {
+                                border-top: 1px solid rgba(218, 220, 224, 0.60);
+                                border-right: 1px solid rgba(218, 220, 224, 0.60);
+                            }
+                            &:last-of-type {
+                                border-top: 1px solid rgba(218, 220, 224, 0.60);
+                            }
+                        }
                     }
-                    > .events--calendar--body--week--day--event {
-                        width: 100%;
+                    &:first-of-type {
+                        > .events--calendar--body--week--day {
+                            &:not(:last-of-type) {
+                                border-right: 1px solid rgba(218, 220, 224, 0.60);
+                            }
+                        }
+                    }
+                    > .events--calendar--body--week--day {
+                        width: calc(100% / 7);
+                        aspect-ratio: 180 / 185;
                         box-sizing: border-box;
-                        border-left: 5px solid $secondary-malibu-sunrise;
-                        margin-top: 10px;
-                        > .events--calendar--body--week--day--event--name {
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        > .events--calendar--body--week--day--number {
                             width: 100%;
                             box-sizing: border-box;
-                            padding-left: 5px;
-                            > a {
-                                @include trim-ellipsis-multiline(2);
-                                overflow: hidden;
-                                color: $secondary-sanfrancisco-fog-s5;
-                                text-overflow: ellipsis;
-                                white-space: normal;
-                                font-size: 12px;
-                                font-style: normal;
-                                font-weight: 600;
-                                line-height: 16px;
-                                text-decoration: none;
+                            padding-left: 10px;
+                            @include header-level5($secondary-sanfrancisco-fog-s3);
+                        }
+                        > .events--calendar--body--week--day--event {
+                            width: 100%;
+                            box-sizing: border-box;
+                            &.events--calendar--body--week--day--event__community {
+                                border-left: 5px solid $event-category-community;
+                            }
+                            &.events--calendar--body--week--day--event__development {
+                                border-left: 5px solid $event-category-development;
+                            }
+                            &.events--calendar--body--week--day--event__events {
+                                border-left: 5px solid $event-category-events;
+                            }
+                            margin-top: 10px;
+                            padding-bottom: 1px;
+                            > .events--calendar--body--week--day--event--name {
+                                width: 100%;
+                                box-sizing: border-box;
+                                padding-left: 5px;
+                                > a {
+                                    @include trim-ellipsis-multiline(2);
+                                    overflow: hidden;
+                                    color: $secondary-sanfrancisco-fog-s5;
+                                    text-overflow: ellipsis;
+                                    white-space: normal;
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: 16px;
+                                    text-decoration: none;
+                                }
                             }
                         }
                     }

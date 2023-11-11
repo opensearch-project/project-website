@@ -1,0 +1,17 @@
+{% assign dropdown_label = include.label | default: "Select a Value" %}
+{% assign dropdown_id = include.id | default: "labeled-dropdown" | append: dropdown_label | replace: " ", "-" %}
+<div class="labeled-dropdown labeled-dropdown__collapsed">
+    <div class="labeled-dropdown--label-arrow">
+        <div>
+            <label class="labeled-dropdown--label" for="{{ dropdown_id }}">{{ dropdown_label }}</label>
+        </div>
+        <div>
+            {% include icons.html type="chevron-down" %}
+        </div>
+    </div>
+    <select class="labeled-dropdown--select" id="{{ dropdown_id }} value="" multiple>
+        {% for item in include.items -%}
+            <option value="{{ item.value }}">{{ item.label }}</option>
+        {%- endfor %}
+    </select>
+</div>

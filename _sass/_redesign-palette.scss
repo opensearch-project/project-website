@@ -93,6 +93,10 @@ $light-theme-category-call-to-action-text: $primary-deep-blue-sea;
 
 $light-theme-navigation-background: rgba(0, 163, 224, 0.05);
 
+$event-category-community: $primary-open-sky;
+$event-category-development: $secondary-malibu-sunrise;
+$event-category-events: $secondary-seafoam-mint;
+
 @mixin thick-edge-bottom {
     border-bottom: $primary-open-sky-s2 10px solid;
 }
