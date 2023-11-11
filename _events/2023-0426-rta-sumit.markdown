@@ -7,7 +7,8 @@ tz: America/Los_Angeles
 signup:
     url: https://www.myeventi.events/rtasummit23/attendee/?code=Stern30
     title: Join RTA-Summit 2023 conference in San Francisco, CA
-
+categories:
+  - events
 ---
 
 ### Join [Amitai Stern](https://opensearch.org/authors/amistrn/) at the Real-Time Analytics Summit for the session "Upgrading Log-Analytics Clusters to OpenSearch"

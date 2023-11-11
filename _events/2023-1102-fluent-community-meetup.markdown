@@ -13,6 +13,8 @@ signup:
     url: https://www.meetup.com/fluent-community-meeting/events/296386228/
     # the button text
     title: Join the meetup
+categories:
+  - community
 
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---

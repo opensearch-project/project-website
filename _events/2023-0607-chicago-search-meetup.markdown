@@ -7,7 +7,8 @@ tz: America/Chicago
 signup:
     url: https://www.meetup.com/opensearch-project-chicago/events/293331344
     title: RSVP on Meetup
-
+categories:
+  - community
 ---
 
 Please join the [Bonsai](http://bonsai.io/) team, hosted by [Spantree](https://spantree.net/) and in partnership with the OpenSearch Project. This will be an in-person event, launching the [Chicago search engineer community](https://www.meetup.com/opensearch-project-chicago/).

@@ -7,7 +7,8 @@ tz: Europe/Prague
 signup:
     url: https://events.canonical.com/event/2/
     title: Meet us there!
-
+categories:
+  - events
 ---
 
 Join the OpenSearch team at [Ubuntu Summit 2022](https://events.canonical.com/event/2/).

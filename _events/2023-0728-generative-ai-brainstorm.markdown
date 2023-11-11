@@ -7,7 +7,8 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/294625118/
     title: Join on Meetup
-
+categories:
+  - events
 ---
 
 Join members of the OpenSearch community interested in the intersection of OpenSearch and generative AI to explore use cases and improvements to the search experience.

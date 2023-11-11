@@ -11,7 +11,8 @@ signup:
     url: https://www.meetup.com/opensearch/events/293312244/
     # the button text
     title: Join on Meetup
-
+categories:
+  - development
 # below this triple dash, describe your event. It should be 1-3 sentences
 ---
 

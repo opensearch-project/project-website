@@ -7,7 +7,8 @@ tz: America/Vancouver
 signup:
     url: https://ossna2023.sched.com/event/1Krni
     title: See you there!
-
+categories:
+  - events
 ---
 Come see Dagney Braun, Principal Product Manager, Amazon give a keynote: 'OpenSearch: One Tool, Five Minutes, Countless Applications' at Open Source Summit
 

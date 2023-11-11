@@ -7,7 +7,8 @@ tz: America/New_York
 signup:
     url: https://opensearchunplugged3923.splashthat.com/
     title: Register Now
-
+categories:
+  - development
 ---
 
 Join this partner event with AWS

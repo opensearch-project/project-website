@@ -5,7 +5,8 @@ online: true
 signup:
     url: https://www.meetup.com/fluent-community-meeting/events/gtnftsyfcgbjb/
     title: Join on Meetup
-
+categories:
+  - development
 ---
 
 The Fluent Community meeting is an online meetup centered around the Fluentd and Fluent Bit open source projects that are part of the Cloud Native Computing Foundation (CNCF). We also sometimes branch off into discussions of observability in general.

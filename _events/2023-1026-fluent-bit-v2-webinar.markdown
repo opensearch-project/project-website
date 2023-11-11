@@ -13,6 +13,8 @@ signup:
     url: https://calyptia.com/events/fluent-bit-v2-new-integrations-for-otel-wasm-logs-to-metrics-more
     # the button text
     title: Lean more and register
+categories:
+  - events
 
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---

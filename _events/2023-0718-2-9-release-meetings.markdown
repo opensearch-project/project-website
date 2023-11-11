@@ -6,7 +6,8 @@ online: true
 signup:
   url: https://us02web.zoom.us/j/83030994833
   title: Join on Meetup
-
+categories:
+  - development
 ---
 
 **NOTE: This is a series, ending on July 18th with the release of 2.9.0 - Please read carefully**

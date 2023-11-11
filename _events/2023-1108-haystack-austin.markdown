@@ -5,7 +5,8 @@ online:
 signup:
     url: https://www.meetup.com/haystack-search-relevance-online/events/296658842/
     title: Register to attend
-
+categories:
+  - community
 ---
 
 <img src="/assets/media/herobanners/2023_11_08-haystack-atx.png" alt="Haystack on Tour in Austin, TX 2023"/>{: .img-fluid}

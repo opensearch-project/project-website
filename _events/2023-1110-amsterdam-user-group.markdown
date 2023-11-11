@@ -7,7 +7,8 @@ online: false
 signup:
     url: https://www.meetup.com/opensearch-project-amsterdam/events/296766223/
     title: Join on Meetup
-
+categories:
+  - community
 ---
 
 [Zeta Alpha](https://www.zeta-alpha.com/) is inviting the OpenSearch community in Amsterdam to join the launch event of the Amsterdam User Group. We start at 18:00, we'll have Pizza, Refreshments, Talks, and Networking (this is an in-person only event).

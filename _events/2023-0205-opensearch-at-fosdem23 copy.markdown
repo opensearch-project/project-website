@@ -11,7 +11,9 @@ signup:
     url: https://fosdem.org/2023/schedule/event/python_logging/
     # the button text
     title: Talk Page
-
+categories:
+  - community
+  
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

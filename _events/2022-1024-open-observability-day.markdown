@@ -7,7 +7,8 @@ tz: America/Detroit
 signup:
     url: https://events.linuxfoundation.org/open-observability-day-north-america/
     title: Meet us there!
-
+categories:
+  - events
 ---
 
 Join the OpenSearch team at [Open Observability Day](https://events.linuxfoundation.org/open-observability-day-north-america/).

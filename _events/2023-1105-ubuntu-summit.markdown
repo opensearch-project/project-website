@@ -7,7 +7,8 @@ online: false
 signup:
     url: https://events.canonical.com/event/31/contributions/238/
     title: Learn more
-
+categories:
+  - events
 ---
 
 [Aparna Sundar](https://opensearch.org/authors/apasun/), Senior Researcher at OpenSearch Project & [Kris Freedain](https://opensearch.org/authors/krisfreedain/), Community Manager at OpenSearch Project will be giving at talk at [Ubuntu Summit](https://events.canonical.com/event/31/) 2023: "Importance of Measuring Trust in Organizations and How Community Presence can Help".
