@@ -5,15 +5,12 @@ authors:
   - ev2900
   - awssamit
 date: 2023-11-01
-
 categories:
   - technical-posts
+excerpt: Learn how to optimize the refresh interval of an OpenSearch index and strike a balance between the speed at which indexed information is available for search with CPU and I/O costs
 meta_description: Learn how to optimize the refresh interval of an OpenSearch index and strike a balance between the speed at which indexed information is available for search with CPU and I/O costs
-
 meta_keywords: OpenSearch refresh interval, refresh interval optimization, optimize OpenSearch index performance
-
 ---
-
 This blog post discusses optimizing the refresh interval of an OpenSearch index and how the optimization enhances OpenSearch performance.
 
 
