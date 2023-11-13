@@ -4,7 +4,7 @@ title:  "Optimize OpenSearch Refresh Interval"
 authors:
   - ev2900
   - awssamit
-date: 2023-11-01
+date: 2023-11-13
 categories:
   - technical-posts
 excerpt: Learn how to optimize the refresh interval of an OpenSearch index and strike a balance between the speed at which indexed information is available for search with CPU and I/O costs
