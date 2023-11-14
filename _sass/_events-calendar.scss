@@ -85,6 +85,23 @@ $calendar-month-default-week-count: 5;
         background: #FFF;
         box-sizing: border-box;
         padding: 0;
+        &.events--calendar__filtered {
+            &:not([data-filtercategory*="community"]) {
+                .events--calendar--body--week--day--event__community {
+                    display: none;
+                }
+            }
+            &:not([data-filtercategory*="development"]) {
+                .events--calendar--body--week--day--event__development {
+                    display: none;
+                }
+            }
+            &:not([data-filtercategory*="events"]) {
+                .events--calendar--body--week--day--event__events {
+                    display: none;
+                }
+            }
+        }
         > .events--calendar--head {
             width: 100%;
             height: 64px;

@@ -557,6 +557,8 @@
     align-items: center;
     padding: 10px;
     box-sizing: border-box;
+    column-gap: 5px;
+    cursor: pointer;
     > div {
         &:nth-of-type(1) {
             @include header-level5($text-color);

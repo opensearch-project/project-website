@@ -51,9 +51,7 @@ layout: fullwidth-with-breadcrumbs
                     id="category-filter-selector" 
                 %}
             </div>
-            <div class="events--calendar--filters--category-selector--filter-chips">
-
-            </div>
+            <div class="events--calendar--filters--category-selector--filter-chips"></div>
         </div>
     </div>
     <div class="events--calendar">
@@ -264,6 +262,19 @@ layout: fullwidth-with-breadcrumbs
         writeMonthYear(new Date(Date.UTC(pageCalendarYear, pageCalendarMonthIndex, 1, 0, 0, 0, 0)));
         writeWeekdayNames(dateOfFirstSunday);
 
+        function hasFilterChip(chipType) {
+            const selector = `.events--calendar--filters--category-selector--filter-chips > [data-category=${chipType}]`;
+            const chipElement = document.querySelector(selector);
+            return chipElement !== null;
+        }
+
+        function hasAnyFilterChips() {
+            const selector = '.events--calendar--filters--category-selector--filter-chips > .filter-chip';
+            const chips = document.querySelectorAll(selector);
+            const chipCount = chips?.length ?? 0;
+            return chipCount > 0;
+        }
+
         function addFilterChip(chipType) {
             const templateId = `${chipType}-filter-chip`;
             const chipTemplate = document.getElementById(templateId);
@@ -273,6 +284,49 @@ layout: fullwidth-with-breadcrumbs
                 filterChipsParent?.appendChild(templateContent);
             }
         }
+    
+        function removeFilterChip(chipType) {
+            const selector = `.events--calendar--filters--category-selector--filter-chips > [data-category=${chipType}]`;
+            const chipElement = document.querySelector(selector);
+            chipElement?.parentElement?.removeChild?.(chipElement);
+        }
+
+        function hideFilterDropdown() {
+            const selector = '.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select';
+            const dropdown = document.querySelector(selector);
+            const parent = dropdown.closest('.labeled-dropdown');
+            if (parent) {
+                const collapsedClassName = 'labeled-dropdown__collapsed';
+                const expandedClassName = 'labeled-dropdown__expanded';
+                parent.classList.replace(expandedClassName, collapsedClassName);
+            }
+        }
+
+        document.querySelector('.events--calendar--filters--category-selector--filter-chips')?.addEventListener?.('click', (e) => {
+            const { target } = e;
+            const clickedChipSelector = '.filter-chip';
+            const clickedChip = target.closest(clickedChipSelector);
+            if (clickedChip) {
+                const category = clickedChip.getAttribute('data-category');
+                const calendarSelector = '.events--calendar';
+                const calendar = document.querySelector(calendarSelector);
+                if (calendar) {
+                    const categoryAttribute = 'data-filtercategory';
+                    const filteredCategory = calendar.getAttribute(categoryAttribute);
+                    if (filteredCategory) {
+                        const updatedFilters = filteredCategory.split(',').filter(value => value !== category).join(',');
+                        if (updatedFilters.length > 0) {
+                            calendar.setAttribute(categoryAttribute, updatedFilters);
+                        } else {
+                            calendar.removeAttribute(categoryAttribute);
+                            calendar.classList.remove('events-calendar__filtered');
+                        }
+                    }
+                }
+                removeFilterChip(category);
+            }
+        });
+
         document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--label-arrow')?.addEventListener?.('click', (e) => {
             const collapsedClassName = 'labeled-dropdown__collapsed';
             const expandedClassName = 'labeled-dropdown__expanded';
@@ -286,12 +340,50 @@ layout: fullwidth-with-breadcrumbs
                 }
             }
         });
+        
         document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select')?.addEventListener?.('change', (e) => {
-            const { target : { value = '' } = {} } = e;
+            const { currentTarget, target : { value = '' } = {} } = e;
             const filterCategories = ['community', 'development', 'events'];
             if (filterCategories.includes(value)) {
-                addFilterChip(value);
+                const calendar = document.querySelector('.events--calendar');
+                const adding = !hasFilterChip(value);
+                const filterAttribute = 'data-filtercategory';
+                if (adding) {
+                    addFilterChip(value);
+                } else {
+                    removeFilterChip(value);
+                }
+                
+                if (hasAnyFilterChips()) {
+                    if (calendar.hasAttribute(filterAttribute)) {
+                        const existingFilters = calendar.getAttribute(filterAttribute);
+                        if (adding) {
+                            const updatedFilters = [...existingFilters.split(','), value].join(',');
+                            calendar.setAttribute(filterAttribute, updatedFilters);
+                        } else {
+                            const updatedFilters = existingFilters.split(',').filter(category => category !== value);
+                            if (updatedFilters.length > 0) {
+                                calendar.setAttribute(filterAttribute, updatedFilters.join(','));
+                                if (!calendar.classList.contains('events--calendar__filtered')) {
+                                    calendar.classList.add('events--calendar__filtered');
+                                }
+                            } else {
+                                calendar.removeAttribute(filterAttribute);
+                                calendar.classList.remove('events--calendar__filtered');
+                            }
+                        }
+                    } else {
+                        calendar.setAttribute(filterAttribute, value);
+                        if (!calendar.classList.contains('events--calendar__filtered')) {
+                            calendar.classList.add('events--calendar__filtered');
+                        }
+                    }
+                } else {
+                    calendar.removeAttribute(filterAttribute);
+                    calendar.classList.remove('events--calendar__filtered');
+                }
             }
+            hideFilterDropdown();
         });
     });
 </script>

@@ -1,12 +1,12 @@
 .filter-chip__community {
     @include filter-chip($event-category-community);
-    max-width: 118px;
+    max-width: 123px;
 }
 .filter-chip__development {
     @include filter-chip($event-category-development);
-    max-width: 182px;
+    max-width: 187px;
 }
 .filter-chip__events {
     @include filter-chip($event-category-events);
-    max-width: 81px;
+    max-width: 86px;
 }
