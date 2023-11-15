@@ -1,7 +1,7 @@
 ---
 layout: fullwidth-with-breadcrumbs
 title: Upcoming Events
-primary_title: Events
+primary_title: Upcoming Events
 breadcrumbs:
   icon: community
   items:
@@ -21,10 +21,14 @@ callouts:
   <div class="events--calendar--filters">
     <div class="events--calendar--filters--view-mode-toggle">
       <div class="events--calendar--filters--view-mode-toggle--item">
-        {% include icons.html type="calendar" %}
+        <a href="{{ site.calendars.first.url }}">
+          {% include icons.html type="calendar" %}
+        </a>
       </div>
       <div class="events--calendar--filters--view-mode-toggle--item events--calendar--filters--view-mode-toggle--item__selected">
-        {% include icons.html type="list" %}
+        <a href="{{ page.url }}">
+          {% include icons.html type="list" %}
+        </a>
       </div>
     </div>
     <div class="events--calendar--filters--category-selector">
@@ -41,28 +45,20 @@ callouts:
   <div class="events--calendar__list-view">
     {% assign now = site.time %}
     {% assign future_events = site.events | where_exp: "event","event.eventdate > now" %}
-    {% assign primary_title = site.headings.events %}
-
     {% assign sorted_events = future_events  | sort: "eventdate" %}
-    {% assign first_event_date_parts = sorted_events.first.eventdate | split: "-" %}
-    {% assign current_month = first_event_date_parts[1] %}
-    {% assign current_year = first_event_date_parts[0] %}
-    {% assign first_pass_month_year_written = false %}
-
+    {% assign current_month = "" %}
+    {% assign current_year = "" %}
     {% for event in sorted_events %}
+      
       {% assign current_event_date_parts = event.eventdate | split: "-" %}
-      {% if first_pass_month_year_written == false %}
+      {% if current_event_date_parts[0] != current_year or current_event_date_parts[1] != current_month %}
+        {% assign current_year = current_event_date_parts[0] %}
+        {% assign current_month = current_event_date_parts[1] %}
         <div class="solutions-card-grid">
           <h2>{{ event.eventdate | date: "%b %Y"}}</h2>
           <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
-        {% assign first_pass_month_year_written = true %}
-      {% else %}
-        {% unless current_event_date_parts[0] == current_year and current_event_date_parts[1] == current_month %}
-          <div class="solutions-card-grid">
-            <h2>{{ event.eventdate | date: "%b %Y"}}</h2>
-            <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
-        {% endunless %}
       {% endif %}
+
       {% assign category = event.categories | first %}
       {% assign event_date = event.eventdate | date: "%a, %b %d, %Y" %}
       {% include tall-card-no-image.html 
@@ -72,17 +68,20 @@ callouts:
         icon="community"
         date=event_date
       %}
-      {% if forloop.index == forloop.length %}
+      {% if forloop.last %}
         </div></div>
       {% else %}
-        {% assign next_event_date_parts = sorted_events[forloop.index].eventdate | split: "-" %}
-        {% if next_event_date_parts[0] != current_year or next_event_date_parts[1] != current_month %}
+        {% assign peak_ahead_index = forloop.index0 | plus: 1%}
+        {% assign peak_ahead_date = sorted_events[peak_ahead_index].eventdate %}
+        {% assign peak_ahead_date_parts = peak_ahead_date | split: "-" %}
+        {% if peak_ahead_date_parts[0] != current_event_date_parts[0] or peak_ahead_date_parts[1] != current_event_date_parts[1] %}
           </div></div>
         {% endif %}
       {% endif %}
     {% endfor %}
   </div>
 </div>
+
 <div class="events--secondary-content">
   {% include callout-cards.html 
     heading="Hosting an OpenSearch event?" 

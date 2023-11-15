@@ -1,20 +1,93 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 title: Past Events
-primary_title: Events
-body_class: events-page
+primary_title: Past Events
+breadcrumbs:
+  icon: community
+  items:
+    - title: Community
+    - title: Past Events
+      url: '/events/past.html'
+callouts:
+  - name: Step One
+    description: 'Write some <a href="https://github.com/opensearch-project/project-website/blob/main/_events/_sample.markdown">yaml/markdown</a>'
+  - name: Step Two
+    description: 'Do a <a href="https://github.com/opensearch-project/project-website/tree/main/_events">pull-request</a> on the events directory'
+  - name: Step Three
+    description: 'We&apos;ll merge qualifying events and they&apos;ll appear on our calendar'
 ---
+<div class="events--calendar--wrapper">
+  <div class="events--calendar--filters">
+    <div class="events--calendar--filters--view-mode-toggle">
+      <div class="events--calendar--filters--view-mode-toggle--item">
+        <a href="{{ site.calendars.first.url }}">
+          {% include icons.html type="calendar" %}
+        </a>
+      </div>
+      <div class="events--calendar--filters--view-mode-toggle--item events--calendar--filters--view-mode-toggle--item__selected">
+        <a href="{{ page.url }}">
+          {% include icons.html type="list" %}
+        </a>
+      </div>
+    </div>
+    <div class="events--calendar--filters--category-selector">
+      <div class="events--calendar--filters--category-selector--dropdown">
+        {% include labeled-dropdown.html
+          items=site.data.calendars.filter_categories
+          label="Filter by Category"
+          id="category-filter-selector"
+        %}
+      </div>
+      <div class="events--calendar--filters--category-selector--filter-chips"></div>
+    </div>
+  </div>
+  <div class="events--calendar__list-view">
+    {% assign now = site.time %}
+    {% assign past_events = site.events | where_exp: "event","event.eventdate < now" %}
+    {% assign sorted_events = past_events  | sort: "eventdate" | reverse %}
+    {% assign current_month = "" %}
+    {% assign current_year = "" %}
+    {% for event in sorted_events %}
+      
+      {% assign current_event_date_parts = event.eventdate | split: "-" %}
+      {% if current_event_date_parts[0] != current_year or current_event_date_parts[1] != current_month %}
+        {% assign current_year = current_event_date_parts[0] %}
+        {% assign current_month = current_event_date_parts[1] %}
+        <div class="solutions-card-grid">
+          <h2>{{ event.eventdate | date: "%b %Y"}}</h2>
+          <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
+      {% endif %}
 
-{% assign now = site.time %}
-{% assign past_events = site.events | where_exp: "event","event.eventdate < now" %}
-{% assign primary_title = site.headings.events %}
-{% assign layout_class = 'sidebar-right events-page' %}
+      {% assign category = event.categories | first %}
+      {% assign event_date = event.eventdate | date: "%a, %b %d, %Y" %}
+      {% include tall-card-no-image.html 
+        category=category
+        title=event.title
+        url=event.url
+        icon="community"
+        date=event_date
+      %}
+      
+      {% if forloop.last %}
+          </div></div>
+      {% else %}
+        {% assign peak_ahead_index = forloop.index0 | plus: 1 %}
+        {% assign peak_ahead_date = sorted_events[peak_ahead_index].eventdate %}
+        {% assign peak_ahead_date_parts = peak_ahead_date | split: "-" %}
+        {% if peak_ahead_date_parts[0] != current_event_date_parts[0] or peak_ahead_date_parts[1] != current_event_date_parts[1] %}
+          </div></div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
 
-<h2>Past</h2>
-
-<ul class="list-events">
-  {% assign sorted_events = past_events | sort: "eventdate" | reverse %}
-  {% for event in sorted_events %}
-    {% include event.html %}
-  {% endfor %}  
-</ul>
+  </div>
+</div>
+    
+<div class="events--secondary-content">
+  {% include callout-cards.html 
+    heading="Hosting an OpenSearch event?" 
+    callouts=page.callouts 
+    subheading='Add it so the community knows! Looking for a past event? Take a look at the <a href="/events/past.html">past events page.</a>'
+  %}
+</div>
+    

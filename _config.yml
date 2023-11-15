@@ -58,7 +58,7 @@ defaults:
       permalink:  events/:title/
 -
     scope:
-      type: calendar
+      type: calendars
     values:
       layout: calendar
       permalink: /events/calendar/:name.html
@@ -122,7 +122,7 @@ collections:
     output: true
   events:
     output: true
-  calendar:
+  calendars:
     output: true
   artifacts:
     output: true

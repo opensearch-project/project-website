@@ -39,9 +39,11 @@ $calendar-month-default-week-count: 5;
                 background: #fff;
                 &.events--calendar--filters--view-mode-toggle--item__selected {
                     background: $primary-open-sky-s2;
-                    > svg {
-                        > path {
-                            fill: #fff;
+                    > a {
+                        > svg {
+                            > path {
+                                fill: #fff;
+                            }
                         }
                     }
                 }
@@ -51,11 +53,14 @@ $calendar-month-default-week-count: 5;
                 &:nth-of-type(2) {
                     border-radius: 0px 3px 3px 0px;
                 }
-                > svg {
-                    width: 19px;
-                    height: 20px;
-                    > path {
-                        fill: $primary-open-sky-s2;
+                > a {
+                    font-size: 0;
+                    > svg {
+                        width: 19px;
+                        height: 20px;
+                        > path {
+                            fill: $primary-open-sky-s2;
+                        }
                     }
                 }
             }
@@ -277,32 +282,36 @@ $calendar-month-default-week-count: 5;
     }
 }
 
-.events--secondary-content {
-    > .solutions-card-grid {
-        > hgroup {
-            > h2 {
-                @include header-level2($primary-pacific-blue-s3);
+.full-width-layout--content 
+> .full-width-layout--content--body {
+    > .events--secondary-content {
+        padding: 0;
+        > .solutions-card-grid {
+            > hgroup {
+                > h2 {
+                    @include header-level2($primary-pacific-blue-s3);
+                }
+                > p {
+                    @include body-text($primary-pacific-blue-s3);
+                }
             }
-            > p {
-                @include body-text($primary-pacific-blue-s3);
-            }
-        }
-        > .solutions-card-grid--card-wrapper  {
-            padding: 0;
-            column-gap: 30px;
-
-            > .solutions-card-grid--card-wrapper--card {
-                min-height: 150px;
-                align-items: flex-start;
-                > .solutions-card-grid--card-wrapper--card--content {
-                    @include body-small;
-                    color: $secondary-sanfrancisco-fog-s3;
-                    > a {
-                        color: $primary-pacific-blue;
-                        font-size: 18px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: 27px;
+            > .solutions-card-grid--card-wrapper  {
+                padding: 0;
+                column-gap: 30px;
+    
+                > .solutions-card-grid--card-wrapper--card {
+                    min-height: 150px;
+                    align-items: flex-start;
+                    > .solutions-card-grid--card-wrapper--card--content {
+                        @include body-small;
+                        color: $secondary-sanfrancisco-fog-s3;
+                        > a {
+                            color: $primary-pacific-blue;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 27px;
+                        }
                     }
                 }
             }
