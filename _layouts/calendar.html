@@ -308,7 +308,9 @@ layout: fullwidth-with-breadcrumbs
             const clickedChip = target.closest(clickedChipSelector);
             if (clickedChip) {
                 const category = clickedChip.getAttribute('data-category');
-                const calendarSelector = '.events--calendar';
+                const calendarClass = 'events--calendar';
+                const calendarSelector = `.${calendarClass}`;
+                const calendarFilteredModifierClass = `${calendarClass}__filtered`;
                 const calendar = document.querySelector(calendarSelector);
                 if (calendar) {
                     const categoryAttribute = 'data-filtercategory';
@@ -319,7 +321,7 @@ layout: fullwidth-with-breadcrumbs
                             calendar.setAttribute(categoryAttribute, updatedFilters);
                         } else {
                             calendar.removeAttribute(categoryAttribute);
-                            calendar.classList.remove('events-calendar__filtered');
+                            calendar.classList.remove(calendarFilteredModifierClass);
                         }
                     }
                 }
@@ -341,11 +343,14 @@ layout: fullwidth-with-breadcrumbs
             }
         });
         
-        document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select')?.addEventListener?.('change', (e) => {
+        document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select')?.addEventListener?.('click', (e) => {
             const { currentTarget, target : { value = '' } = {} } = e;
             const filterCategories = ['community', 'development', 'events'];
             if (filterCategories.includes(value)) {
-                const calendar = document.querySelector('.events--calendar');
+                const calendarClass = 'events--calendar';
+                const calendarSelector = `.${calendarClass}`;
+                const calendarFilteredModifierClass = `${calendarClass}__filtered`;
+                const calendar = document.querySelector(calendarSelector);
                 const adding = !hasFilterChip(value);
                 const filterAttribute = 'data-filtercategory';
                 if (adding) {
@@ -353,7 +358,6 @@ layout: fullwidth-with-breadcrumbs
                 } else {
                     removeFilterChip(value);
                 }
-                
                 if (hasAnyFilterChips()) {
                     if (calendar.hasAttribute(filterAttribute)) {
                         const existingFilters = calendar.getAttribute(filterAttribute);
@@ -364,23 +368,23 @@ layout: fullwidth-with-breadcrumbs
                             const updatedFilters = existingFilters.split(',').filter(category => category !== value);
                             if (updatedFilters.length > 0) {
                                 calendar.setAttribute(filterAttribute, updatedFilters.join(','));
-                                if (!calendar.classList.contains('events--calendar__filtered')) {
-                                    calendar.classList.add('events--calendar__filtered');
+                                if (!calendar.classList.contains(calendarFilteredModifierClass)) {
+                                    calendar.classList.add(calendarFilteredModifierClass);
                                 }
                             } else {
                                 calendar.removeAttribute(filterAttribute);
-                                calendar.classList.remove('events--calendar__filtered');
+                                calendar.classList.remove(calendarFilteredModifierClass);
                             }
                         }
                     } else {
                         calendar.setAttribute(filterAttribute, value);
-                        if (!calendar.classList.contains('events--calendar__filtered')) {
-                            calendar.classList.add('events--calendar__filtered');
+                        if (!calendar.classList.contains(calendarFilteredModifierClass)) {
+                            calendar.classList.add(calendarFilteredModifierClass);
                         }
                     }
                 } else {
                     calendar.removeAttribute(filterAttribute);
-                    calendar.classList.remove('events--calendar__filtered');
+                    calendar.classList.remove(calendarFilteredModifierClass);
                 }
             }
             hideFilterDropdown();

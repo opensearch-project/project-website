@@ -36,8 +36,14 @@ $calendar-month-default-week-count: 5;
                 height: 35px;
                 box-sizing: border-box;
                 border: 1px solid $primary-open-sky-s2;
+                background: #fff;
                 &.events--calendar--filters--view-mode-toggle--item__selected {
                     background: $primary-open-sky-s2;
+                    > svg {
+                        > path {
+                            fill: #fff;
+                        }
+                    }
                 }
                 &:nth-of-type(1) {
                     border-radius: 3px 0px 0px 3px;
@@ -48,6 +54,9 @@ $calendar-month-default-week-count: 5;
                 > svg {
                     width: 19px;
                     height: 20px;
+                    > path {
+                        fill: $primary-open-sky-s2;
+                    }
                 }
             }
         }
@@ -252,6 +261,48 @@ $calendar-month-default-week-count: 5;
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    > .events--calendar__list-view {
+        > .solutions-card-grid {
+            background: unset;
+            padding: 0;
+            > .solutions-card-grid--card-wrapper {
+                padding: 0;
+            }
+        }
+    }
+}
+
+.events--secondary-content {
+    > .solutions-card-grid {
+        > hgroup {
+            > h2 {
+                @include header-level2($primary-pacific-blue-s3);
+            }
+            > p {
+                @include body-text($primary-pacific-blue-s3);
+            }
+        }
+        > .solutions-card-grid--card-wrapper  {
+            padding: 0;
+            column-gap: 30px;
+
+            > .solutions-card-grid--card-wrapper--card {
+                min-height: 150px;
+                align-items: flex-start;
+                > .solutions-card-grid--card-wrapper--card--content {
+                    @include body-small;
+                    color: $secondary-sanfrancisco-fog-s3;
+                    > a {
+                        color: $primary-pacific-blue;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 27px;
                     }
                 }
             }
