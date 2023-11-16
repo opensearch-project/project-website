@@ -74,16 +74,17 @@ items:
         label: Slack
         url: /slack.html
       -
-        label: Events
+        label: Events List
         url: /events
+      - 
+        label: Events Calendar
+        url: /events/calendar/2023-11.html
       -
         label: Partners
         url: /partners
       -
         label: Projects
         url: /community_projects
-      - label: Events Calendar
-        url: /events/calendar/2023-11.html
   -
     label: Documentation
     fragment: docs

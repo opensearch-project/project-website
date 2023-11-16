@@ -109,6 +109,10 @@ layout: fullwidth-with-breadcrumbs
                                     {% for event in events_for_day -%}
                                         {% assign event_category = event.categories | first %}
                                         {% assign event_category_classname = "events--calendar--body--week--day--event__" | append: event_category %}
+                                        {% assign online_event_card_class = "events--calendar--body--week--day--event__online" %}
+                                        {% if event.online %}
+                                            {% assign event_category_classname = event_category_classname | append: " " | append: online_event_card_class %}
+                                        {% endif %}
                                         <div class="events--calendar--body--week--day--event {{ event_category_classname }}">
                                             <div class="events--calendar--body--week--day--event--name">
                                                 <a href="{{ event.url }}" tile="{{ event.title }}">{{ event.title }}</a>
@@ -290,6 +294,20 @@ layout: fullwidth-with-breadcrumbs
             return chipCount > 0;
         }
 
+        function updateFilterByCategoryLabelCount() {
+            const filterChipsParent = document.querySelector('.events--calendar--filters--category-selector--filter-chips');
+            const chipCount = filterChipsParent?.querySelectorAll?.('.filter-chip')?.length ?? 0;
+            const defaultLabelText = 'Filter by Category';
+            const labelSelector = '.events--calendar--filters--category-selector--dropdown .labeled-dropdown--label';
+            const label = document.querySelector(labelSelector);
+            if (chipCount > 0) {    
+                const labelTextWithCount = `${defaultLabelText} (${chipCount})`;
+                label.textContent = labelTextWithCount;
+            } else {
+                label.textContent = defaultLabelText;
+            }
+        }
+
         function addFilterChip(chipType) {
             const templateId = `${chipType}-filter-chip`;
             const chipTemplate = document.getElementById(templateId);
@@ -297,6 +315,7 @@ layout: fullwidth-with-breadcrumbs
                 const templateContent = chipTemplate.content.cloneNode(true);
                 const filterChipsParent = document.querySelector('.events--calendar--filters--category-selector--filter-chips');
                 filterChipsParent?.appendChild(templateContent);
+                updateFilterByCategoryLabelCount();
             }
         }
     
@@ -304,6 +323,7 @@ layout: fullwidth-with-breadcrumbs
             const selector = `.events--calendar--filters--category-selector--filter-chips > [data-category=${chipType}]`;
             const chipElement = document.querySelector(selector);
             chipElement?.parentElement?.removeChild?.(chipElement);
+            updateFilterByCategoryLabelCount();
         }
 
         function hideFilterDropdown() {
@@ -356,6 +376,9 @@ layout: fullwidth-with-breadcrumbs
                     parent.classList.replace(expandedClassName, collapsedClassName);
                 }
             }
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            e.preventDefault();
         });
         
         document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select')?.addEventListener?.('click', (e) => {
@@ -406,7 +429,11 @@ layout: fullwidth-with-breadcrumbs
         });
 
         document.getElementById('in-person-toggle-button')?.addEventListener?.('click', (e) => {
-            console.log('TODO: Implement in person toggle');
+            const { currentTarget } = e;
+            const parent = currentTarget.closest('.events--calendar--filters--in-person-toggle');
+            parent.classList.toggle('events--calendar--filters--in-person-toggle__toggled-off');
+            const calendar = document.querySelector('.events--calendar');
+            calendar?.classList?.toggle?.('events--calendar__online-only');
         });
     });
 </script>

@@ -103,16 +103,15 @@ $calendar-month-default-week-count: 5;
             column-gap: 10px;
             &.events--calendar--filters--in-person-toggle__toggled-off {
                 > div:nth-of-type(1) {
+                    transform: rotateZ(180deg);
+                    position: relative;
+                    top: 2px;
                     > svg {
                         > rect {
-                            > path {
-                                fill: #fff;
-                            }
+                            fill: #fff;
                         }
                         > circle {
-                            > path {
-                                fill: $primary-open-sky-s2;
-                            }
+                            fill: $primary-open-sky-s2;
                         }
                     }
                 }
@@ -126,14 +125,10 @@ $calendar-month-default-week-count: 5;
                 box-sizing: border-box;
                 > svg {
                     > rect {
-                        > path {
-                            fill: $primary-open-sky-s2;
-                        }
+                        fill: $primary-open-sky-s2;
                     }
                     > circle {
-                        > path {
-                            fill: #fff;
-                        }
+                        fill: #fff;
                     }
                 }
             }
@@ -148,12 +143,45 @@ $calendar-month-default-week-count: 5;
             }
         }
     }
+    > .events--calendar__list-view__online-only {
+        .events--calendar__list-view--event-card__online {
+            .tall-card__no-image--grid--card {
+                &:not(.events--calendar__list-view--event-card__online) {
+                    display: none;
+                }
+            }
+        }
+    }
+    > .events--calendar__list-view__filtered {
+        &:not([data-filtercategory*="community"]) {
+            .events--calendar__list-view--event-card__community {
+                display: none;
+            }
+        }
+        &:not([data-filtercategory*="development"]) {
+            .events--calendar__list-view--event-card__development {
+                display: none;
+            }
+        }
+        &:not([data-filtercategory*="events"]) {
+            .events--calendar__list-view--event-card__events {
+                display: none
+            }
+        }
+    }
     > .events--calendar {
         box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
         background: #FFF;
         box-sizing: border-box;
         padding: 0;
         margin-bottom: 30px;
+        &.events--calendar__online-only {
+            .events--calendar--body--week--day--even {
+                &:not(.events--calendar--body--week--day--event__online) {
+                    display: none;
+                }
+            }
+        }
         &.events--calendar__filtered {
             &:not([data-filtercategory*="community"]) {
                 .events--calendar--body--week--day--event__community {
