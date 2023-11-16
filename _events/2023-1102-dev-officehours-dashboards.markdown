@@ -1,5 +1,6 @@
 ---
 # put your event date and time (24 hr) here:
+calendar_date: '2023-11-02'
 eventdate: 2023-11-02 10:00:00 -0700
 # the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
 # the title - this is how it will show up in listing and headings on the site:

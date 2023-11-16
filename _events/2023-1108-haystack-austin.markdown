@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-11-08'
 eventdate: 2023-11-08 12:30:00 -0600
 title: Haystack on Tour 2023 – Austin, Texas - 2023-11-08
 online:

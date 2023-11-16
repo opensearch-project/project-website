@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-11-03'
 eventdate: 2023-11-03 09:00:00 -0700
 
 title: Development Backlog & Triage Meeting - ml-commons - 2023-11-03

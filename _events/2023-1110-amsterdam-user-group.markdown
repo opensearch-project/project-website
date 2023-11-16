@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-11-10'
 eventdate: 2023-11-10 18:00:00 +0200
 
 title: Amsterdam OpenSearch Launch Event with Zeta Alpha
