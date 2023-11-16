@@ -15,7 +15,7 @@ layout: fullwidth-with-breadcrumbs
 {% assign end_date = page.date_of_last_saturday %}
 {% assign month_number = page.month_number | times: 1 %}
 {% assign month_index = page.month_index | times: 1 %}
-{% assign calendar_events = page.events %}
+{% assign calendar_events = site.events %}
 {% assign days_in_month = site.data.calendars.days_in_month[month_index].day_count %}
 {% if page.month_index > 0 %}
     {% assign previous_month_index = month_index | minus: 1 %}
@@ -37,10 +37,14 @@ layout: fullwidth-with-breadcrumbs
     <div class="events--calendar--filters">
         <div class="events--calendar--filters--view-mode-toggle">
             <div class="events--calendar--filters--view-mode-toggle--item events--calendar--filters--view-mode-toggle--item__selected">
-                {% include icons.html type="calendar" %}
+                <a href="{{ page.url }}">
+                    {% include icons.html type="calendar" %}
+                </a>
             </div>
             <div class="events--calendar--filters--view-mode-toggle--item">
-                {% include icons.html type="list" %}
+                <a href="/events/">
+                    {% include icons.html type="list" %}
+                </a>
             </div>
         </div>
         <div class="events--calendar--filters--category-selector">
@@ -52,6 +56,17 @@ layout: fullwidth-with-breadcrumbs
                 %}
             </div>
             <div class="events--calendar--filters--category-selector--filter-chips"></div>
+        </div>
+        <div class="events--calendar--filters--in-person-toggle">
+            <div role="button" id="in-person-toggle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20" fill="none">
+                    <rect x="39.5" y="19.5" width="39" height="19" rx="9.5" transform="rotate(-180 39.5 19.5)" fill="#006D97" stroke="#006D97"/>
+                    <circle cx="30" cy="10" r="9.5" transform="rotate(-180 30 10)" fill="white" stroke="#006D97"/>
+                </svg>
+            </div>
+            <div>
+                <label for="in-person-toggle-button">Include In-Person Events</label>
+            </div>
         </div>
     </div>
     <div class="events--calendar">
@@ -82,7 +97,7 @@ layout: fullwidth-with-breadcrumbs
                 {% for calendar_week_number in (1..weeks_in_calendar) %}
                     <div class="events--calendar--body--week">
                         {% for i in (0..6) %}
-                            {% assign event_date_selection_expression = "event.date == '" | append: day_date | append: "'" %}
+                            {% assign event_date_selection_expression = "event.calendar_date == '" | append: day_date | append: "'" %}
                             {% assign events_for_day = calendar_events | where_exp: "event", event_date_selection_expression %}
                             {% assign weekday_name = site.data.calendars.weekday_names[i] %}
                             {% assign weekday_classname = "events--calendar--body--week--day__" | append: weekday_name %}
@@ -92,7 +107,7 @@ layout: fullwidth-with-breadcrumbs
                                 </div>
                                 {% if events_for_day -%}
                                     {% for event in events_for_day -%}
-                                        {% assign event_category = event.category %}
+                                        {% assign event_category = event.categories | first %}
                                         {% assign event_category_classname = "events--calendar--body--week--day--event__" | append: event_category %}
                                         <div class="events--calendar--body--week--day--event {{ event_category_classname }}">
                                             <div class="events--calendar--body--week--day--event--name">

@@ -93,6 +93,58 @@ $calendar-month-default-week-count: 5;
                 }
             }
         }
+        > .events--calendar--filters--in-person-toggle {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            column-gap: 10px;
+            &.events--calendar--filters--in-person-toggle__toggled-off {
+                > div:nth-of-type(1) {
+                    > svg {
+                        > rect {
+                            > path {
+                                fill: #fff;
+                            }
+                        }
+                        > circle {
+                            > path {
+                                fill: $primary-open-sky-s2;
+                            }
+                        }
+                    }
+                }
+            }
+            > div:nth-of-type(1) {
+                cursor: pointer;
+                flex-basis: 40px;
+                height: 20px;
+                flex-shrink: 0;
+                flex-grow: 0;
+                box-sizing: border-box;
+                > svg {
+                    > rect {
+                        > path {
+                            fill: $primary-open-sky-s2;
+                        }
+                    }
+                    > circle {
+                        > path {
+                            fill: #fff;
+                        }
+                    }
+                }
+            }
+            > div:nth-of-type(2) {
+                flex-basis: content;
+                flex-grow: 0;
+                flex-shrink: 0;
+                > label {
+                    white-space: nowrap;
+                    @include header-level5(#000);
+                }
+            }
+        }
     }
     > .events--calendar {
         box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);

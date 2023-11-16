@@ -40,6 +40,17 @@ callouts:
       </div>
       <div class="events--calendar--filters--category-selector--filter-chips"></div>
     </div>
+    <div class="events--calendar--filters--in-person-toggle">
+      <div role="button" id="in-person-toggle-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20" fill="none">
+          <rect x="39.5" y="19.5" width="39" height="19" rx="9.5" transform="rotate(-180 39.5 19.5)" fill="#006D97" stroke="#006D97"/>
+          <circle cx="30" cy="10" r="9.5" transform="rotate(-180 30 10)" fill="white" stroke="#006D97"/>
+        </svg>
+      </div>
+      <div>
+        <label for="in-person-toggle-button">Include In-Person Events</label>
+      </div>
+    </div>
   </div>
   <div class="events--calendar__list-view">
     {% assign now = site.time %}
