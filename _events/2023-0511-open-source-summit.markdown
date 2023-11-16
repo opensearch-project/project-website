@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-05-11'
 eventdate: 2023-05-11 10:00:00 -0800
 title: Keynote - One Tool, Five Minutes, Countless Applications - Open Source Summit North America 2023
 online: false

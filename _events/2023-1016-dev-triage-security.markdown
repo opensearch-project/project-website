@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-10-16'
 eventdate: 2023-10-16 12:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2023-10-16
 online: true

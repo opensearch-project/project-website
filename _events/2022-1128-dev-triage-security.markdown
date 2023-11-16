@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2022-11-28'
 eventdate: 2022-11-28 12:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2022-11-28
 online: true

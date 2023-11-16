@@ -9,7 +9,7 @@
             {% include icons.html type="chevron-down" %}
         </div>
     </div>
-    <select class="labeled-dropdown--select" id="{{ dropdown_id }} value="" multiple>
+    <select class="labeled-dropdown--select" id="{{ dropdown_id }}" value="" multiple>
         {% for item in include.items -%}
             <option value="{{ item.value }}">{{ item.label }}</option>
         {%- endfor %}

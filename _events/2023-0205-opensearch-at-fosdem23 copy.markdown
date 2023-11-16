@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-02-05'
 # put your event date and time (24 hr) here:
 eventdate: 2023-02-05 16:00:00 +0100
 # the title - this is how it will show up in listing and headings on the site:

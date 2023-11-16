@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-05-10'
 eventdate: 2023-05-10 14:00:00 -0800
 title: Demystifying Anomaly Detection in OpenSearch - Open Source Summit North America 2023
 online: false

@@ -1,4 +1,6 @@
 ---
+# The date of the event, without time, as a string to appear in the calendar view in the format of YYYY-MM-DD.
+calendar_date: '2021-01-01'
 # put your event date and time (24 hr) here (mind the time-zone and daylight saving time!):
 eventdate: 2021-01-01 12:34:00 -0700
 # the title - this is how it will show up in listing and headings on the site:

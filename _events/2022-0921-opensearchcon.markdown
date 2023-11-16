@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2022-09-21'
 eventdate: 2022-09-21 10:00:00 -0700
 title: OpenSearchCon - 2022-09-21
 online: 

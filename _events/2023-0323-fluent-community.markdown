@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-03-23'
 eventdate: 2023-03-23 16:00:00 -0400
 title: Fluent Community Meeting
 online: true

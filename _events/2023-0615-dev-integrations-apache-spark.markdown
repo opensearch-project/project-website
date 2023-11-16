@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-06-15'
 eventdate: 2023-06-15 08:00:00 -0800
 title: Planning for Simple Schema Based Integrations and Apache Spark - 2023-0615
 online: true

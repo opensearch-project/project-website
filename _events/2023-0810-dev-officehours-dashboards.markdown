@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-08-10'
 # put your event date and time (24 hr) here:
 eventdate: 2023-08-10 10:00:00 -0700
 # the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):

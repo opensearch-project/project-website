@@ -82,7 +82,7 @@ items:
       -
         label: Projects
         url: /community_projects
-      - label: November Calendar
+      - label: Events Calendar
         url: /events/calendar/2023-11.html
   -
     label: Documentation

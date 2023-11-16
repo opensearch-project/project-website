@@ -222,5 +222,16 @@
       initializeCustomMenuHeights(button);
       button.addEventListener('click', onToggleButtonClick);
     }
+
+    // Initialize the calendar view menu item to target the current month.
+    const calendarMenuItemSelector = '.nested-nav a[href*="/events/calendar/"]';
+    const calendarMenuItem = document.querySelector(calendarMenuItemSelector);
+    if (calendarMenuItem) {
+      const now = new Date();
+      const monthIndex =  now.getUTCMonth();
+      const year = now.getUTCFullYear();
+      const thisMonthCalendarUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
+      calendarMenuItem.setAttribute('href',  thisMonthCalendarUrl);
+    }
   });
 </script>

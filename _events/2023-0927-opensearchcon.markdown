@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-09-27'
 eventdate: 2023-09-27 08:00:00 -0700
 title: OpenSearchCon - 2023
 online: 

@@ -151,6 +151,7 @@ $calendar-month-default-week-count: 5;
         background: #FFF;
         box-sizing: border-box;
         padding: 0;
+        margin-bottom: 30px;
         &.events--calendar__filtered {
             &:not([data-filtercategory*="community"]) {
                 .events--calendar--body--week--day--event__community {

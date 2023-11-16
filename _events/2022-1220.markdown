@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2022-12-20'
 eventdate: 2022-12-20 08:00:00 -0800
 title: OpenSearch Community Meeting - 2022-12-20
 online: true

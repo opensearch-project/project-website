@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-06-13'
 eventdate: 2023-06-13 09:00:00 -0700
 title: Submitting your first CFP workshop
 online: true

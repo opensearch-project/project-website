@@ -1,4 +1,5 @@
 ---
+calendar_date: '2021-08-09'
 eventdate: 2021-08-09 10:00:00 -0700
 title: OpenSearch Community Meeting - Early August
 online: true

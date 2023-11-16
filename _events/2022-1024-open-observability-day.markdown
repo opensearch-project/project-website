@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2022-10-24'
 eventdate: 2022-10-24 08:00:00 -0400
 title: Kubecon Open Observability Day - 2022-10-24
 online: false

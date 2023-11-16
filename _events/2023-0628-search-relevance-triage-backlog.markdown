@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-06-28'
 eventdate: 2023-06-28 09:00:00 -0800
 title: Search Relevance - Triage & Backlog Review - 2023-06-28
 online: true

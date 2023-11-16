@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-07-28'
 eventdate: 2023-07-28 09:00:00 -0700
 
 title: Brainstorm about OpenSearch and generative AI
