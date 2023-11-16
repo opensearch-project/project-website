@@ -10,7 +10,7 @@ $calendar-month-default-week-count: 5;
     > .events--calendar--filters {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         justify-content: flex-start;
         align-items: center;
         column-gap: 20px;
@@ -66,11 +66,11 @@ $calendar-month-default-week-count: 5;
             }
         }
         > .events--calendar--filters--category-selector {
-            flex-basis: calc(100% - 100px); //todo
+            flex-basis: calc(100% - 100px - 250px); //todo
             display: flex;
             flex-wrap: nowrap;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             > .events--calendar--filters--category-selector--dropdown {
                 flex-basis: 200px;
@@ -79,7 +79,9 @@ $calendar-month-default-week-count: 5;
                 width: 200px;
             }
             > .events--calendar--filters--category-selector--filter-chips {
-                flex-basis: calc(100% - 200px);
+                flex-basis: 250px;
+                flex-shrink: 0;
+                flex-grow: 0;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;

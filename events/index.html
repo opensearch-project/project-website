@@ -100,3 +100,14 @@ callouts:
     subheading='Add it so the community knows! Looking for a past event? Take a look at the <a href="/events/past.html">past events page.</a>'
   %}
 </div>
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const selector = '.events--calendar--filters--view-mode-toggle--item:first-of-type > a';
+    const today = new Date();
+    const monthIndex = today.getUTCMonth();
+    const year = today.getUTCFullYear();
+    const calendarViewUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
+    const toggleButton = document.querySelector(selector);
+    toggleButton?.setAttribute?.('href', calendarViewUrl);
+  });
+</script>
