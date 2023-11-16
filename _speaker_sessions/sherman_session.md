@@ -9,6 +9,7 @@ session_room: "Ballroom CD"
 session_track: "Operating OpenSearch"
 keynote_speaker: false
 permalink: '/events/opensearchcon/sessions/journey-to-a-750-node-cluster-why-mastering-allocation-and-routing-in-opensearch-is-the-key-to-successfully-achieving-massive-scale.html'
+youtube_video_id: 'KeXRZEYvlzs'
 ---
 
 In this talk we will present OCI OpenSearch case study and learnings as we built our biggest cluster to date of 750 nodes and 165,000+ shards. This cluster we assume is one of the largest ever built and hosted by a service, this also means that we had the chance of stretching OpenSearch to it's limit and we would like to share some of our lessons primarily around shards allocations, bottlenecks we encountered and how we overcome them.

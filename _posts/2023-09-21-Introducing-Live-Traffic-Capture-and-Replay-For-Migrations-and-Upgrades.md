@@ -3,7 +3,7 @@ layout: post
 title:  "Introducing a traffic capture and replay solution for OpenSearch migrations and upgrades"
 authors: 
   - setiah
-  - mikaylathompson
+  - Mikayla
 date: 2023-10-26
 categories: 
     - technical-post

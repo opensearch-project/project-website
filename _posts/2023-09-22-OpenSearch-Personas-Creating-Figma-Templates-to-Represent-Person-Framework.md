@@ -3,7 +3,7 @@ layout: post
 title:  "OpenSearch search personas: Creating Figma templates to represent a persona framework"
 authors: 
   - apasun
-  - macrakis
+  - canascar
 date: 2023-09-22 00:00:01 -0700
 categories: 
     - community
