@@ -14,7 +14,7 @@ main_office_location: |
   Linuxfabrik GmbH
   Witikonerstrasse 15
   8032 Zürich
-  Switzerland
+  Switzerland (CH)
 social_links:
   - url: 'https://twitter.com/Linuxfabrikgmbh'
     icon: 'X'
