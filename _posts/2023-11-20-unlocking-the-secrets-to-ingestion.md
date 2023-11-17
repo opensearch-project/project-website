@@ -19,7 +19,7 @@ While most of the secrets I’m sharing with you aren’t intentionally hidden, 
 
 # Client Optimization
 
-First and foremost it’s important to understand our [`_bulk` API](https://opensearch.org/docs/latest/api-reference/document-apis/bulk/). The bulk endpoint allows users to send multiple document actions at once to OpenSearch. This  is much more efficient then sending individual document updates one at a time. This is because the `http` protocol takes a fair bit of time and the more requests you need to make the more you will experience that overhead.
+First and foremost, it’s important to understand our [`_bulk` API](https://opensearch.org/docs/latest/api-reference/document-apis/bulk/). The bulk endpoint allows users to send multiple document actions at once to OpenSearch. This is much more efficient then sending individual document updates one at a time. This is because the `http` protocol takes a fair bit of time, and the more requests you need to make, the more you will experience that overhead.
 
 Below is a sample bulk request. It’s comprised of two parts: the action and the document. The action will include the operation to be performed such as: index, delete, create, update. It also contains additional metadata such as index or document id. The second part is the document you wish to ingest.
 
