@@ -12,7 +12,7 @@ twittercard:
 ingestingToOpenSearch: xXEXnNIcvTg
 meta_keywords: ingestion, opensearch, optimization, cluster tuning, replication strategies
 meta_description: Learn how you can increase your ingestion speed and reduce the size on disk in OpenSearch with these few optomization tips.
-excerpt: While most of the optimization secrets I’m sharing with you aren’t intentionally hidden they sure felt hidden to me when I started with OpenSearch.
+excerpt: While most of the optimization secrets I’m sharing with you aren’t intentionally hidden, they sure felt hidden to me when I started with OpenSearch.
 ---
 
 While most of the secrets I’m sharing with you aren’t intentionally hidden they sure felt hidden to me when I started with OpenSearch. Part of the reason they aren’t as well known is OpenSearch is growing at a rapid pace. Several things we will cover today were only released within the last few versions. Let’s take a look at how you can get the most out of your OpenSearch cluster, covering everything from your client library to how your data is persisted on disk. Using these strategies I was able to ingest data **65% faster** and **decrease the size on disk by 19%** (measured on a 3 node c5.xlarge cluster using the tarball installation).
