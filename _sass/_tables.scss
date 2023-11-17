@@ -53,14 +53,14 @@
   > thead {
     > tr {
       > th {
-        background-color: #fff;
-        border-left: 4px solid $primary-open-sky-s2;
+        border-left: 3px solid $primary-open-sky-s2;
+        background: $primary-pacific-sky-t3;
         font-family: 'Open Sans Condensed';
         font-size: 21px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
-        color: $primary-pacific-blue-s3;
+        color: $primary-open-sky-s3;
         padding: 10px 12px;
       }
     }
@@ -68,8 +68,8 @@
   > tbody {
     > tr {
       > td {
-        background-color: $primary-pacific-sky-t3;
-        border-left: 4px solid $primary-open-sky-s2;
+        background-color: #fff;
+        border-left: 3px solid $primary-open-sky-s2;
         color: $secondary-sanfrancisco-fog-s5;
         font-family: 'Open Sans';
         font-size: 18px;
@@ -77,6 +77,7 @@
         font-weight: 400;
         line-height: 48px;
         padding: 10px 12px;
+        border-bottom: 1px solid $primary-deep-blue-sea-t3;
       }
     }
   }
