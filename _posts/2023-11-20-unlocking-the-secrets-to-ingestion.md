@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Secrets to Improving Ingestion with OpenSearch"
+title:  "Secrets to improving ingestion with OpenSearch"
 authors:
   - dtaivpp
 date: 2023-11-20 01:00:00 -0700
