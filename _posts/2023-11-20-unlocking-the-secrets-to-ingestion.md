@@ -186,6 +186,6 @@ POST index-name/_settings
 
 With all of these settings we were able to see a 65% improvement in ingestion speed and a 19% reduction of the size of our data on disk. These are some pretty serious gains for just doing some straightforward settings updates. While your experience may be different, you now can tune your ingestion to fit the needs of your dataset! Check out [Tuning your cluster for indexing speed](https://opensearch.org/docs/latest/tuning-your-cluster/performance/) for a deeper dive on some of these strategies.
 
-If enjoyed this post and wanted to see it with some more detail you can check out my presentation from OpenSearchCon 2023 that this blog was drawn from:
+If enjoyed this post and want to see it with some more detail, you can check out my presentation from OpenSearchCon 2023 that this blog was drawn from:
 
 {% include youtube-player.html id=page.ingestingToOpenSearch %}
