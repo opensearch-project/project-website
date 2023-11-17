@@ -154,7 +154,7 @@ POST index-name/_settings
 }
 ```
 
-# End to End
+# End to end
 
 Here are the overall settings that I used (excluding the host settings as these aren’t applied through the cluster API’s). On the client side we are using the asynchronous python client to ensure we can saturate our network connection.
 
