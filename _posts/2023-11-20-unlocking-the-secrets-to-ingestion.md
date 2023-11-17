@@ -156,7 +156,7 @@ POST index-name/_settings
 
 # End to end
 
-Here are the overall settings that I used (excluding the host settings as these aren’t applied through the cluster API’s). On the client side we are using the asynchronous python client to ensure we can saturate our network connection.
+Here are the overall settings that I used (excluding the host settings, as these aren’t applied through the cluster APIs). On the client side we are using the asynchronous Python client to ensure we can saturate our network connection.
 
 For cluster settings, we balance the primary shards and enable segment replication back pressure. The back pressure setting prevents us from overwhelming the nodes if they fall behind the primary replica.
 
