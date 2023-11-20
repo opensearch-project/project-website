@@ -40,7 +40,7 @@ Let's consider an example in which you need to monitor audit logs from Microsoft
 
 In this example we will create a detection rule with the criteria as follows:
 
-- Monitor email logs of user sent emails 
+- Monitor email logs of user-sent emails 
 - Include a filter criteria that checks for external recipient email address domain 
 - Exclude a list of users (marketing team) who are known to send emails to external addresses.
 
