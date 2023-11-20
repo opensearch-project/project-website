@@ -65,7 +65,7 @@ The detection rules are stored in [Sigma rule format](https://github.com/SigmaHQ
 
 5. Complete **Selection_1** in the **Detection** section to define the criteria used for the rule.
 
-You can add multiple **Selections** with multiple Maps for the log fields. **Map** is a directory that contains key-value pairs. **Modifiers** transform values and lists or convert them into regular expressions. To learn more about the Sigma rule format, go to [documentation](https://github.com/SigmaHQ/sigma). 
+You can add multiple **Selections** with multiple maps for the log fields. **Map** is a directory that contains key-value pairs. **Modifiers** transform values and lists or convert them into regular expressions. To learn more about the Sigma rule format, go to the [Sigma documentation](https://github.com/SigmaHQ/sigma). 
 
 - Create a Map with **Key**: `UserID`, **Modifier**: `contains`, and **Value**: `<your organization domain name>`.
 - Create a Map with **Key**: `Recipient`, **Modifier**: `endswith`, and **List**: `<values that include the domains to be detected>`. 
