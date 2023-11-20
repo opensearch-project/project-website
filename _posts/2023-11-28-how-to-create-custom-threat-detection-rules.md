@@ -83,7 +83,7 @@ After uploading the list, **Selection_2** will look like this:
 
 7. Enter  `Selection_1 AND NOT include Selection_2` in the **Condition** fields to define how each **Selection** will contribute to the final query . 
 
-The UI allows the combining of multiple selections using operators, including `AND`, `AND NOT`, `OR`, and `OR NOT`. 
+The user interface (UI) allows for the combining of multiple selections using operators, including `AND`, `AND NOT`, `OR`, and `OR NOT`. 
 
 **Pro tip**: If you’re more comfortable using YAML formats, you can switch to the YAML editor on the top of the page under the page title at any point and write a **Condition** as code without losing the context.
 
