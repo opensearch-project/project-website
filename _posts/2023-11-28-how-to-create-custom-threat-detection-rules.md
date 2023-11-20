@@ -44,9 +44,7 @@ In this example we will create a detection rule with the criteria as follows:
 - Include a filter criteria that checks for external recipient email address domain 
 - Exclude a list of users (marketing team) who are known to send emails to external addresses.
 
-
 Following are the step-by-step instructions to create a detection rule to be used as part of a custom detector:
-
 
 1. [To start, log in to OpenSearch Dashboards](https://opensearch.org/docs/latest/quickstart/), navigate to the Security Analytics plugin, and then continue to drill down to the **Detection rules** page. 
 2. Select **Create detection rule** to open a page showing parameters of your custom rule.
@@ -73,7 +71,6 @@ You can add multiple **Selections** with multiple maps for the log fields. **Map
 ![Selection_1 section](/assets/media/blog-images/2023-11-28-how-to-create-custom-threat-detection-rules/selection1.png)
 
 6. Create another **Selection** where **Key**: `UserId` is a list of emails belonging to the marketing team by uploading the list from a .csv (or .txt) file. 
-
 
 ![Upload a file dialog](/assets/media/blog-images/2023-11-28-how-to-create-custom-threat-detection-rules/upload-a-file.png)
 
