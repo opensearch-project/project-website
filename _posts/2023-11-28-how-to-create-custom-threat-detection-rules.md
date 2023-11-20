@@ -51,7 +51,7 @@ Following are the step-by-step instructions to create a detection rule to be use
 1. [To start, log in to OpenSearch Dashboards](https://opensearch.org/docs/latest/quickstart/), navigate to the Security Analytics plugin, and then continue to drill down to the **Detection rules** page. 
 2. Select **Create detection rule** to open a page showing parameters of your custom rule.
 
-To create custom detection rules using the API, refer to the [documentation](https://opensearch.org/docs/latest/security-analytics/api-tools/rule-api/).
+To create custom detection rules using the API, refer to the [Rule APIs documentation](https://opensearch.org/docs/latest/security-analytics/api-tools/rule-api/).
  
 The detection rules are stored in [Sigma rule format](https://github.com/SigmaHQ/sigma/wiki/Rule-Creation-Guide), and the workflow covers the fields that are aligned with the terminology adopted by the Sigma community.
 
