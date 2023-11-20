@@ -10,7 +10,7 @@ categories:
  - feature
  - technical-posts
 meta_keywords: threat detection, security analytics, SIEM, detection rules
-meta_description: Learn how create custom detection rules in OpenSearch Security Analytics for specific use cases or any log sources.
+meta_description: Learn how to create custom detection rules in OpenSearch Security Analytics for specific use cases or any log sources.
 excerpt: The threat detection rules scan log data to produce security findings representing potential threats. Security Analytics provides more than 2,200 pre-packaged, open-source Sigma rules to help you identify potential security threats from a variety of log sources, including Microsoft Windows, AWS CloudTrail, Amazon S3 access logs, and many more. Additionally, you have the flexibility to create new detection rules and customize them for your log sources. In this blog we will show you how to create custom detection rules using an example in which you need to monitor audit logs from Microsoft 365 for contacts with emails belonging to specific domain names and create alerts based on those findings. 
 ---
 
