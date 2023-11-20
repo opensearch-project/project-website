@@ -89,7 +89,7 @@ We talked a little bit about threading earlier and now we will dive a little bit
 
 We want to ensure we prioritize balancing our shards across nodes so the workload is evenly distributed. Without setting this we could end up with a situation like the one below where all our primary shards for end up on the same node. That would cause our Node 1 here to be completely saturated while the other nodes may be underutilized.
 
-![Primary Shard Distribution](assets/media/blog-images/2023-11-20-unlocking-the-secrets-to-ingestion/PrimaryShardDistribution.svg){: .img-fluid }
+![Primary Shard Distribution](/assets/media/blog-images/2023-11-20-unlocking-the-secrets-to-ingestion/PrimaryShardDistribution.svg){: .img-fluid }
 
 ```json
 PUT _cluster/settings
@@ -102,7 +102,7 @@ PUT _cluster/settings
 
 Enabling primary shard distribution ensures primary shards are given the first preference when it comes to spreading them across nodes. When this is enabled replicas may be more likely to end up on the same node however this is okay in an ingestion heavy workload.
 
-![Primary Shard Distribution Enabled](assets/media/blog-images/2023-11-20-unlocking-the-secrets-to-ingestion/PrimaryShardDistributionEnabled.svg){: .img-fluid }
+![Primary Shard Distribution Enabled](/assets/media/blog-images/2023-11-20-unlocking-the-secrets-to-ingestion/PrimaryShardDistributionEnabled.svg){: .img-fluid }
 
 ### Segment Replication
 
@@ -112,7 +112,7 @@ One setting that dramatically impact ingestion is segment replication. Out of th
 
 With segment replication enabled the first two steps remain the same. Once it gets to the third step is where the magic happens. Instead of sending the original unprocessed document into the replicas we send the processed Lucene segment over the network. Now the nodes that the replicas live on will be free to use more of their compute for ingestion. This comes with a few caveats though. The first is you will be using more bandwidth between nodes as the segments are much larger than the initial documents. It’s important to consider your network topology here. Second, this model is an eventually consistent model as the document updates are not available as readily on replicas. The final, is you will want to increase the refresh interval of the nodes so you do not overwhelm the replica nodes with network traffic. We’ll discuss that more in the next section.
 
-![Segment Replication](assets/media/blog-images/2023-11-20-unlocking-the-secrets-to-ingestion/SegmentReplication.svg){: .img-fluid }
+![Segment Replication](/assets/media/blog-images/2023-11-20-unlocking-the-secrets-to-ingestion/SegmentReplication.svg){: .img-fluid }
 
 This setting needs to be applied before the index is created. If you have an index you would like to convert to segment replication you can create a new index and use one of OpenSearch’s reindex api’s to get the data in. Here is how you could configure segment replication for an index.
 
