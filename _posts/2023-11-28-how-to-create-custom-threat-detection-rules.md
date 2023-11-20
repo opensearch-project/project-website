@@ -28,7 +28,7 @@ Prepackaged detection rules are helpful in detecting known threats in real time 
 
 The common use cases for using custom detection rules include: 
 
-1. Monitoring your data against a known  list of values, such as emails, IP address range, that could be "in the list" and "not in list". For example, an alert can be triggered when someone deletes one of 10 different security groups.
+1. Monitoring your data against a known list of values, such as emails or IP address ranges, that could be "in the list" and "not in list". For example, an alert can be triggered when someone deletes one of 10 different security groups.
 2. Reducing false positives in threat detection by using exceptions for a specific field. For example, an alert can be triggered for every user that is not created by a specific person from a specific index.
 3. Generating alerts on the detected threats according to wildcard exceptions. For example, an alert can be triggered only if someone creates a new DNS record with a host name from one particular domain, and not another domain.
 
