@@ -81,7 +81,7 @@ After uploading the list, **Selection_2** will look like this:
 
 ![Selection_2 section](/assets/media/blog-images/2023-11-28-how-to-create-custom-threat-detection-rules/selection2.png)
 
-7. Enter  `Selection_1 AND NOT include Selection_2` in the **Condition** fields to define how each **Selection** will contribute to the final query . 
+7. Enter  `Selection_1 AND NOT include Selection_2` in the **Condition** fields to define how each **Selection** will contribute to the final query. 
 
 The user interface (UI) allows for the combining of multiple selections using operators, including `AND`, `AND NOT`, `OR`, and `OR NOT`. 
 
