@@ -97,7 +97,7 @@ A custom approach to detection rules that are tailored to your unique business c
 
 Integrating custom rules to the threat detection strategies empowers your security teams to enhance coverage for detecting security threats across a variety of log sources. Custom rules can be written with a deep understanding of an organization's infrastructure, making them more precise in identifying specific threats and reducing false positives. Combining custom and prepackaged rules for threat detection strikes a balance between tailored and standardized protection.
 
-To get started on creating a custom detection rule for a custom log source or application log, refer to [documentation](https://opensearch.org/docs/latest/security-analytics/usage/rules/#creating-detection-rules). To learn more about security analytics and its capabilities, see the [documentation](https://opensearch.org/docs/latest/security-analytics/index/).
+To get started on creating a custom detection rule for a custom log source or application log, refer to [documentation](https://opensearch.org/docs/latest/security-analytics/usage/rules/#creating-detection-rules). To learn more about security analytics and its capabilities, see the [Working with detection rules documentation](https://opensearch.org/docs/latest/security-analytics/index/).
 
 
 
