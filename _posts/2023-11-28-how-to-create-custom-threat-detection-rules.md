@@ -24,7 +24,7 @@ Before diving deep, it is essential to understand the basic concepts of security
 
 ### Why use custom detection rules?
 
-Prepackaged detection rules are helpful in detecting known threats in real time, from a diverse set of log sources. Often, users have business-specific applications, such as a fraud detection application, that generate non-standard logs. To address the users need to monitor custom applications, security analytics lets you to create custom detection rules and include them in detectors that monitor custom application logs for malicious attack signatures. Custom detection rules open up possibilities to employ all other security analytics capabilities, including the correlation engine, security findings, and alerts, to detect and investigate threats from virtually any log source.
+Prepackaged detection rules are helpful in detecting known threats in real time from a diverse set of log sources. Often, users have business-specific applications, such as a fraud detection application, that generate nonstandard logs. To address the users' need to monitor custom applications, Security Analytics lets you create custom detection rules and include them in detectors that monitor custom application logs for malicious attack signatures. Custom detection rules open up possibilities to employ all other security analytics capabilities, including the correlation engine, security findings, and alerts, to detect and investigate threats from virtually any log source.
 
 The common use cases for using custom detection rules include: 
 
