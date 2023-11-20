@@ -85,7 +85,7 @@ After uploading the list, **Selection_2** will look like this:
 
 The user interface (UI) allows for the combining of multiple selections using operators, including `AND`, `AND NOT`, `OR`, and `OR NOT`. 
 
-**Pro tip**: If you’re more comfortable using YAML formats, you can switch to the YAML editor on the top of the page under the page title at any point and write a **Condition** as code without losing the context.
+**Pro tip**: If you’re more comfortable using YAML formats, you can switch to the YAML editor at the top of the page under the page title at any point and write a **Condition** as code without losing the context.
 
 ![Condition section](/assets/media/blog-images/2023-11-28-how-to-create-custom-threat-detection-rules/condition.png) 
 
