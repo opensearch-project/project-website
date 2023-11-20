@@ -2,7 +2,7 @@
 name: Sandesh Kumar
 short_name: sandeshkr419
 photo: '/assets/media/authors/sandeshkr419.jpg'
-github: sandeshkr419
+github: 'sandeshkr419'
 linkedin: 'sandeshkr419'
 twitter: 'sandeshkr419'
 ---
