@@ -3,7 +3,7 @@ layout: post
 title:  "Building custom threat detection rules with OpenSearch Security Analytics"
 authors:
 - xeniatup
-- jimishs
+- jimishsh
 - sandeshkr419
 date: 2023-11-21
 categories:
