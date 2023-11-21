@@ -39,7 +39,7 @@ For these sources, we can improve durability by storing data in an external syst
 It is highly durable and can store events for as long as you configure them.
 This makes it a great choice for durable storage of events in Data Prepper.
 
-Data Prepper now has a new `kafka` buffer type which uses Kafka to store data in-flight.
+Data Prepper now has a new `kafka` buffer type that uses Kafka to store data in flight.
 You can use this feature to send data directly to Data Prepper and hold the data in Kafka before Data Prepper saves it to OpenSearch.
 
 Now existing clients such as the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) and [Fluent Bit](https://fluentbit.io/) can send data to Data Prepper just as they do now, but with better durability.
@@ -51,12 +51,12 @@ Additionally, Data Prepper's `kafka` buffer supports per-event encryption so tha
 
 Data Prepper improves integration with [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/features/serverless/) with new options to update the network policy.
 With this feature, you can configure Data Prepper to create an OpenSearch Serverless network policy to your VPC-based collections.
-This simplifies some of the setup for developers that have the necessary permissions to create this policy.
+This simplifies some of the setup for developers who have the necessary permissions to create this policy.
 This new configuration is available for both the OpenSearch sink and source.
 
 ## Other features
 
-* Data Prepper's `s3` source provides duplication protection by extending the visibility timeout for SQS messages. We encourage users to add the necessary permissions and use this feature to avoid data duplication.
+* Data Prepper's `s3` source provides duplication protection by extending the visibility timeout for Amazon Simple Queue Service (SQS) messages. We encourage users to add the necessary permissions and use this feature to avoid data duplication.
 * The `opensearch` source now allows for configuring a `distribution_version` to connect with ElasticSearch 7 clusters.
 
 
