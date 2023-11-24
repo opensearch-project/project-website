@@ -48,7 +48,7 @@ Did you know that OpenSearch is not just a vector database but three vector data
 Time: Nov. 27, 5:30 PM - 5:50 PM (PST)
 <br>Location: [Venetian, Level 2, Hall B, Expo, Booth #1480, Theater 3](https://hub.reinvent.awsevents.com/attendee-portal/catalog/?search=COM310)
 
-As an observability solution, OpenSearch scales! Hear from Neylson Crepalde at A3Data how they are doing observability on a whopping 5Tb per month of logs. He will cover the architecture used and many of their learnings along the way.
+As an observability solution, OpenSearch scales! Hear from Neylson Crepalde at A3Data about how they are doing observability on a whopping 5Tb per month of logs. He'll cover the architecture he used and the many lesson they learned along the way.
 
 # 6. ANT301 - What’s new in Amazon OpenSearch Service
 
