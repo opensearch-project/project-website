@@ -20,7 +20,7 @@ With re:Invent right around the corner, I want to share a few of the OpenSearch 
 Time: Nov. 27, 10:00 AM - 11:00 AM (PST)
 <br>Location: [Wynn, Level 1, Palmer 2](https://hub.reinvent.awsevents.com/attendee-portal/catalog/?search=OPN311)
 
-Stephen Crawford and Daniel Doubrovkine (or DB) will be diving into how you can extend OpenSearch. If you are looking to create an extension, register a step for a search or ingestion pipeline, or building your own plugin you will know where to start after this chalk talk!
+Stephen Crawford and Daniel Doubrovkine (or DB) dive into how you can extend OpenSearch. If you are looking to create an extension, register a step for a search or ingestion pipeline, or are building your own plugin, this chalk talk will help you get started!
 
 # 2. ANT312 - Using Amazon OpenSearch Service as a vector database for gen AI apps
 
