@@ -27,7 +27,7 @@ Stephen Crawford and Daniel Doubrovkine (or DB) dive into how you can extend Ope
 Time: Nov. 30, 11:30 AM - 1:30 PM (PST)
 <br>Location: [Caesars Forum, Level 1, Forum 118](https://hub.reinvent.awsevents.com/attendee-portal/catalog/?search=ANT312)
 
-All anyone wants to discuss anymore is Generative AI. Well we have you covered here as well! In this session Arun Lakshmanan and Jianwei Li will walk you through how to use OpenSearch as a context store for your Generative AI applications! They will walk you through what tools OpenSearch provides to build a comprehensive solution with Generative AI.
+If all you want to talk about is Generative AI, this session has you covered.  Arun Lakshmanan and Jianwei Li walk you through how to use OpenSearch as a context store for your Generative AI applications and what tools OpenSearch provides to build a comprehensive solution with Generative AI.
 
 # 3. OPN202 - Logging with Amazon EKS, Bottlerocket, Fluent Bit, and OpenSearch
 
