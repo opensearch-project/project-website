@@ -95,7 +95,7 @@ We want to ensure we prioritize balancing our shards across nodes so the workloa
 PUT _cluster/settings
 {
 	"persistent": {
-		"cluster.rounting.allocation.balanace.prefer_primary": True
+		"cluster.routing.allocation.balanace.prefer_primary": True
 	}
 }
 ```
