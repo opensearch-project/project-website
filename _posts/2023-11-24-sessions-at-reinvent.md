@@ -13,7 +13,7 @@ excerpt: Wondering what sessions to attend at re:Invent to learn more about Open
 
 <a href="https://hub.reinvent.awsevents.com/attendee-portal/catalog/?search=OpenSearch">![OpenSearch Sessions at re:Invent Banner](/assets/media/blog-images/2023-11-24-sessions-at-reinvent/reInvent_banner.jpg){: .img-fluid }</a>
 
-With re:Invent right around the corner I wanted to share a few of the OpenSearch sessions that are going to be particularly interesting. These are broken up a bit between open-source OpenSearch and the Amazon OpenSearch Service but both should be applicable no matter how you run OpenSearch.
+With re:Invent right around the corner, I want to share a few of the OpenSearch sessions that are going to be particularly interesting. Some sessions pretain to open-source OpenSearch or the Amazon OpenSearch Service, but both should be applicable no matter how you run OpenSearch.
 
 # 1. OPN311 - Extending OpenSearch
 
