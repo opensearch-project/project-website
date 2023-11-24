@@ -41,7 +41,7 @@ I am excited to be running this end-to-end workshop with Kyle Davis, Senior Deve
 Time: Nov. 30, 2:30 PM - 3:30 PM (PST)
 <br>Location: [Caesars Forum, Level 1, Summit 201](https://hub.reinvent.awsevents.com/attendee-portal/catalog/?search=ANT210)
 
-Did you know that OpenSearch is not just a vector database but 3 vector databases in one? With OpenSearch you can leverage vector stores like FAISS, nmslib, and Lucenes Vector Store. In this session Achal Kumar from Intuit along with Aruna Govindaraju and Jon Handler from AWS will talk through how to get more relevant search results with OpenSearch as a vector store. Additionally, you will get to hear first hand how Intuit is using Amazon OpenSearch Service to get more relevant results.
+Did you know that OpenSearch is not just a vector database but three vector databases in one? With OpenSearch, you can leverage vector stores like FAISS, nmslib, and Lucene's Vector Store. In this session, Achal Kumar from Intuit along with Aruna Govindaraju and Jon Handler from AWS talk through how to get more relevant search results with OpenSearch as a vector store. Additionally, you'll hear first hand how Intuit is using Amazon OpenSearch Service to get more relevant results.
 
 # 5. COM310 - Processing over 450 million events per day in real time with AWS
 
