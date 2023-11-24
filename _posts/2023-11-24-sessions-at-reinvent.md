@@ -34,7 +34,7 @@ If all you want to talk about is Generative AI, this session has you covered.  A
 Time: Nov. 29, 3:00 PM - 5:00 PM (PST)
 <br>Location: [Venetian, Level 3, Murano 3203](https://hub.reinvent.awsevents.com/attendee-portal/catalog/?search=OPN202)
 
-I am excited to be running this workshop with Kyle Davis, Senior Developer Advocate for Bottlerocket. We will cover how you can do observability on a shell-less cluster. You will deploy an EKS cluster onto nodes running Bottlerocket, a security hardened container focused operating system. Then we will deploy OpenSearch and Fluent Bit to do observability on our cluster. This is an end to end workshop with no prior experience required so we hope to see you there!
+I am excited to be running this end-to-end workshop with Kyle Davis, Senior Developer Advocate for Bottlerocket. In this workshop, we'll cover how you can perform observability on a shell-less cluster. To start, we'll deploy an EKS cluster onto nodes running Bottlerocket, a security hardened container focused operating system. Then, we'll deploy OpenSearch and Fluent Bit to do observability on our cluster. No prior experience is required so we hope to see you there!
 
 # 4. ANT210 - Improve your search with vector capabilities in OpenSearch Service
 
