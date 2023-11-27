@@ -7,7 +7,7 @@ notice: true
 ---
 
 {% assign now = site.time %}
-{% assign future_events = site.events | where_exp: "event","event.eventdate > now" %}
+{% assign future_events = site.events | where_exp: "event","event.eventdate > now or event.enddate > now" %}
 {% assign primary_title = site.headings.events %}
 {% assign layout_class = 'sidebar-right events-page' %}
 

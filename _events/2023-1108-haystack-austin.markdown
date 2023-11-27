@@ -1,11 +1,14 @@
 ---
 eventdate: 2023-11-08 12:30:00 -0600
 title: Haystack on Tour 2023 – Austin, Texas - 2023-11-08
-online:
+online: false
 signup:
     url: https://www.meetup.com/haystack-search-relevance-online/events/296658842/
     title: Register to attend
-
+tz: America/Chicago
+location:
+  city: Austin
+  country: USA
 ---
 
 <img src="/assets/media/herobanners/2023_11_08-haystack-atx.png" alt="Haystack on Tour in Austin, TX 2023"/>{: .img-fluid}
