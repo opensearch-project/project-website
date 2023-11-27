@@ -6,7 +6,7 @@ body_class: events-page
 ---
 
 {% assign now = site.time %}
-{% assign past_events = site.events | where_exp: "event","event.eventdate < now" %}
+{% assign past_events = site.events | where_exp: "event","event.eventdate < now or event.enddate < now" %}
 {% assign primary_title = site.headings.events %}
 {% assign layout_class = 'sidebar-right events-page' %}
 
