@@ -45,7 +45,7 @@ Dir['_events/*'].each do |filename|
       issues += 1
     end
   else
-    warn "#{filename}: event 'eventdate' (#{start_date}) is not a valid RFC822 date"
+    warn "#{filename}: event 'eventdate' (#{start_date}) is not a valid YAML timestamp"
     issues += 1
   end
 
@@ -56,7 +56,7 @@ Dir['_events/*'].each do |filename|
       issues += 1
     end
   elsif end_date
-    warn "#{filename}: event 'enddate' (#{end_date}) is not a valid RFC822 date"
+    warn "#{filename}: event 'enddate' (#{end_date}) is not a valid YAML timestamp"
     issues += 1
   end
 end
