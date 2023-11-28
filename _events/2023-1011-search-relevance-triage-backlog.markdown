@@ -4,6 +4,7 @@ eventdate: 2023-10-11 09:00:00 -0700
 
 title: Search Relevance - Triage & Backlog Review - 2023-10-11
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/295393200/
     title: Join on Meetup

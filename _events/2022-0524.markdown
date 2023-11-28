@@ -3,6 +3,7 @@ calendar_date: '2022-05-24'
 eventdate: 2022-05-24 07:00:00 -0700
 title: OpenSearch Community Meeting - 2022-05-24
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/OpenSearch/events/285398214
     title: Join on Meetup

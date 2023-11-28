@@ -6,6 +6,7 @@ eventdate: 2023-01-24 13:00:00 -0500
 title: Data Ops Poland - Finding the Right Things with OpenSearch
 # if your event has an online component, put it here:
 online: True
+tz: America/Los_Angeles
 # This is for the sign up button
 signup:
     # the link URL

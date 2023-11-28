@@ -3,6 +3,7 @@ calendar_date: '2023-11-13'
 eventdate: 2023-11-13 09:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2023-11-13
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/297055511/
     title: Join on Meetup

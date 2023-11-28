@@ -3,6 +3,7 @@ calendar_date: '2023-05-01'
 eventdate: 2023-05-01 12:00:00 -0800
 title: Development Backlog & Triage Meeting - Security - 2023-05-01
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/vldpdtyfchbcb/
     title: Join on Meetup

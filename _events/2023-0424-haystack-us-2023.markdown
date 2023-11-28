@@ -6,6 +6,7 @@ eventdate: 2023-04-24 09:00:00 -0500
 title: Haystack US 2023 - The Search Relevance Conference
 # if your event has an online component, put it here:
 online: true
+tz: America/Los_Angeles
 # This is for the sign up button
 signup:
     # the link URL

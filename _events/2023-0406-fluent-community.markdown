@@ -3,6 +3,7 @@ calendar_date: '2023-04-06'
 eventdate: 2023-04-06 16:00:00 -0400
 title: Fluent Community Meeting
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/fluent-community-meeting/events/gtnftsyfcgbjb/
     title: Join on Meetup

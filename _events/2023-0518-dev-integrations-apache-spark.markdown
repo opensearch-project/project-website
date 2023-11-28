@@ -3,6 +3,7 @@ calendar_date: '2023-05-18'
 eventdate: 2023-05-18 08:00:00 -0800
 title: Planning for Simple Schema Based Integrations and Apache Spark - 2023-0518
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/292610052
     title: Join on Meetup

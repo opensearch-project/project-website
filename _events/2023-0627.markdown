@@ -3,6 +3,7 @@ calendar_date: '2023-06-20'
 eventdate: 2023-06-20 15:00:00 -0800
 title: OpenSearch Community Meeting - 2023-06-27
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/293178523
     title: Join on Meetup

@@ -4,6 +4,7 @@ eventdate: 2023-10-31 08:00:00 -0700
 
 title: OpenSearch Community Meeting - 2023-10-31
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/295644302/
     title: Join on Meetup

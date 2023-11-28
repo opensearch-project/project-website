@@ -4,6 +4,7 @@ eventdate: 2024-03-20 10:00:00 -0600
 
 title: OpenSearch Core Triage
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/kvdzjtygcfbbc/
     title: Join on Meetup
