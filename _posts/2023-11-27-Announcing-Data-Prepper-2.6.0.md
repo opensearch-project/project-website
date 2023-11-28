@@ -6,8 +6,8 @@ authors:
 date: 2023-11-28 13:30:00 -0600
 categories:
   - releases
-meta_keywords: Data Prepper DynamoDB source, Kafka buffer, Amazon OpenSearch Serverless network policy
-meta_description: The Data Prepper maintainers launched Data Prepper 2.6.0 with DynamoDB ingestion, improved durability with a Kafka buffer, better support for Amazon OpenSearch Serverless, and more.
+meta_keywords: Data Prepper DynamoDB source, Apache Kafka buffer, OpenSearch Serverless network policy
+meta_description: With Data Prepper 2.6.0 you can ingest data from DynamoDB, improve data durability using the new Apache Kafka buffer, and automatically connect to Amazon OpenSearch Serverless collections.
 ---
 
 Data Prepper 2.6.0 is now available for [download](https://opensearch.org/downloads.html#data-prepper).
