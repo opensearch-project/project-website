@@ -28,7 +28,7 @@ At a high level, the OpenSearch semantic search process includes the following s
 2. **Ingest data**: Ingest your documents using an ingest pipeline set up with the model from the previous step. Using the model, the pipeline will first generate embeddings for the documents and then ingest both the embeddings and the documents into an OpenSearch index.
 3. **Query data**: Query for your search term using the `neural` query clause. The query term is embedded in the vector space at run time, and the documents closest to the query in the vector space are retrieved using approximate k-NN.
 
-Creating a cluster for semantic search is qualitatively different from creating one for keyword search. During the document ingestion phase, semantic search uses a large ML model to create vectors and thus requires far more computational resources than keyword search. At query time, semantic search employs k-NN search, which is fundamentally different from keyword search that uses an inverted index. We can thus no longer rely on our intuition for keyword search to guide cluster configuration for semantic search. Rather, we need to understand the parameters involved in the problem, the intricacies of throughput and latency, and the interplay between them. This post first presents theoretical principles and then provides experiments that you can use to develop semantic search intuition. So let's begin!
+Creating a cluster for semantic search is qualitatively different from creating one for keyword search. During the document ingestion phase, semantic search uses a large ML model to create vectors and thus requires far more computational resources than keyword search. At query time, semantic search employs k-NN search, which is fundamentally different from keyword search using an inverted index. We can thus no longer rely on our intuition for keyword search to guide cluster configuration for semantic search. Rather, we need to understand the parameters involved in the problem, the intricacies of throughput and latency, and the interplay between them. This post first presents theoretical principles and then provides experiments that you can use to develop semantic search intuition. So let's begin!
 
 ## 1. Document ingestion
 
@@ -43,7 +43,7 @@ For this post, we chose an ingestion configuration with 1 data node and 10 ML no
 
 $$
 \begin{align}
-t_{ingest}​= t_{embed} + t_{index} + t_{idle}.
+t_{ingest}​= t_{embed} + t_{index} + t_{idle}
 \end{align}
 $$
 
@@ -58,7 +58,7 @@ Consider a bakery with 5 bakers serving customers concurrently. Let's assume tha
 
 $$
 \begin{align}
-latency=t_{idle}+t_{baker}​=t_{idle}+5\ min.
+latency=t_{idle}+t_{baker}​=t_{idle}+5\ min
 \end{align}
 $$
 
@@ -72,11 +72,11 @@ Now let’s calculate the throughput. The throughput is defined by the number of
 
 Let's assume for a moment that there are many customers arriving at the bakery, so no baker is ever free and every customer has to spend some time waiting, that is, $$t_{idle} \neq 0$$. 
 
-Each baker takes 5 minutes to serve a customer, so a single baker processes 12 customer requests in 1 hour. Thus, 5 bakers can serve 60 customers in 1 hour, or, equivalently, 1 customer in 1 minute. The throughput of the bakery is thus 1 customer per minute. The throughput does not depend on the idle time simply because the rate at which requests are processed is independent of the time a customer has to wait! The throughput is not equal to the inverse of latency. Instead, the throughput is given by the number of customers served by a baker per unit of time multiplied by the number of concurrent bakers:
+Each baker takes 5 minutes to serve a customer, so a single baker processes 12 customer requests in 1 hour. Thus, 5 bakers can serve 60 customers in 1 hour, or, equivalently, 1 customer in 1 minute. The throughput of the bakery is thus 1 customer per minute. The throughput does not depend on the idle time simply because the rate at which requests are processed is independent of the time a customer has to wait. The throughput is not equal to the inverse of latency. Instead, the throughput is given by the number of customers served by a baker per unit of time multiplied by the number of concurrent bakers:
 
 $$
 \begin{align}
-throughput=\frac{1\ customer​}{5\  min}\times5=1\ customer/min.
+throughput=\frac{1\ customer​}{5\  min}\times5=1\ customer/min
 \end{align}
 $$
 
@@ -88,13 +88,13 @@ For document ingestion, throughput is the rate at which documents are processed.
 
 Say that a baker and a cashier take the same amount of time to process a request and that this amount is 5 minutes per customer. The throughput at the bakery counter with 5 bakers, as before, is 1 customer/min. The throughput at the checkout with 5 cashiers is also 1 customer/min. But what is the throughput of the entire bakery? The throughput of the entire system is also 1 customer/min! To understand this, imagine that you are observing the exit door of the bakery. The rate at which customers exit is the rate at which the last step of the sequence (cashiers at the checkout) processes requests. 
 
-But what if a cashier takes far less time than a baker? Say that a cashier takes 2.5 minutes per customer while a baker takes 5 minutes per customer. In this case, the throughput at the bakery counter is, as before, 1 customer/min. But what is the throughput at the checkout? It might seem that because each cashier serves 60 minutes / 2.5 minutes = 24 customers per hour, and because there are 5 cashiers in total, the throughput should be 24 * 5 = 120 customers per hour (or 2 customers per minute). But this calculation is wrong. Do you see why?
+But what if a cashier takes far less time than a baker? Say that a cashier takes 2.5 minutes per customer while a baker takes 5 minutes per customer. In this case, the throughput at the bakery counter is, as before, 1 customer/min. But what is the throughput at the checkout? It might seem that because each cashier serves 60 minutes / 2.5 minutes per customer = 24 customers per hour, and because there are 5 cashiers in total, the throughput should be 24 * 5 = 120 customers per hour (or 2 customers per minute). But this calculation is wrong. Do you see why?
 
 The error comes from assuming that there are always customers that the cashiers can attend to. In fact, this is not the case because for every batch of customers that were just served by the bakers, the cashiers can serve them *before* the next batch of customers are served by the bakers. So there are times when the cashiers are just waiting. The throughput of the cashiers is limited by the throughput of the bakers. In other words, the cashiers can process 2 customers/min, but since they receive only 1 customer/min from the bakers, they can only process 1 customer per minute. More precisely, the throughput $$I$$ is
 
 $$
 \begin{align}
-I_{bakery}​=min(I_{bakers}​,I_{cashiers​}).
+I_{bakery}​=min(I_{bakers}​,I_{cashiers​})
 \end{align}
 $$
 
@@ -102,7 +102,7 @@ Our document ingestion process is identical to the bakery process. Instead of ba
 
 $$
 \begin{align}
-I_{documents}​ = min(I_{ML\ nodes}​,I_{data\ nodes}​).
+I_{documents}​ = min(I_{ML\ nodes}​,I_{data\ nodes}​)
 \end{align}
 $$
 
@@ -119,7 +119,7 @@ To determine which process takes longer, we can look at the nodes' CPU utilizati
 
 $$
 \begin{align}
-I_{documents}​​=min(I_{ML\ nodes}​,I_{data\ nodes}​) = I_{ML\ nodes}.
+I_{documents}​​=min(I_{ML\ nodes}​,I_{data\ nodes}​) = I_{ML\ nodes}
 \end{align}
 $$
 
@@ -127,7 +127,7 @@ Note that this might not be the case for all configurations. For instance, if th
 
 $$
 \begin{align}
-I_{documents}​​=min(I_{ML\ nodes}​,I_{data\ nodes}​) = I_{data\ nodes}.​
+I_{documents}​​=min(I_{ML\ nodes}​,I_{data\ nodes}​) = I_{data\ nodes}
 \end{align}
 $$
 
@@ -141,7 +141,7 @@ number\ of\ workers=Mc_M​k_M​
 \end{align}
 $$
 
-where $$M$$ is the number of ML nodes, $$c_M$$ is the number of cores per node,​ and $$k_M$$​ is the number of threads per core. In other words, each thread working on a CPU core is the equivalent of one baker. Thus, the number of workers is simply the number of threads working concurrently in the cluster. We next need to find the time it takes for one worker to serve one request. This time is almost impossible to estimate theoretically. But thankfully, the OpenSearch [ML Profile API](https://opensearch.org/docs/latest/ml-commons-plugin/api/profile/) can help us here. The Profile API precisely measures the time it takes for the model to create a vector for one document using one thread. Let's call this time $$t_{embed}$$​. Equipped with this information, we can define the following formula for estimating the ingestion throughput:
+where $$M$$ is the number of ML nodes, $$c_M$$ is the number of cores per node,​ and $$k_M$$​ is the number of threads per core. In other words, each thread working on a CPU core is the equivalent of one baker. Thus, the number of workers is simply the number of threads working concurrently in the cluster. We next need to find the time it takes for one worker to serve one request. This time is almost impossible to estimate theoretically. But thankfully, the OpenSearch [Profile API](https://opensearch.org/docs/latest/ml-commons-plugin/api/profile/) can help us here. The Profile API precisely measures the time it takes for the model to create a vector for one document using one thread. Let's call this time $$t_{embed}$$​. Equipped with this information, we can define the following formula for estimating the ingestion throughput:
 
 $$
 \begin{align}
@@ -157,7 +157,7 @@ To use the formula $$(\ref{1})$$, we need to know the four quantities on its rig
 
 The time taken to create a vector $$t_{embed}$$​ depends on factors like the ML embedding model, type of CPU core, and document length. You can estimate $$t_{embed}$$ by loading the ML embedding model of your choice to your OpenSearch cluster, ingesting a few hundred typical documents, and running the Profile API. It is crucial that the documents used are representative of the actual documents in terms of length and that the type of ML node used for this experiment is identical to the node type of the actual production ML node. For instance, do not test ingestion on `r6` and then use it on a `c6` in production.
 
-For our experiment, we found that for the ML node of a `c6g` type, the latency is $$t_{embed}​=3.878\ seconds$$. Using formula $$(\ref{1})$$, we can estimate the ingestion throughput for our cluster as
+For our experiment, we found that for the for a `c6g` ML node, the latency is $$t_{embed}​=3.878\ seconds$$. Using formula $$(\ref{1})$$, we can estimate the ingestion throughput for our cluster as
 
 $$
 \begin{align}
@@ -167,7 +167,7 @@ $$
 
 This estimate is quite close to the actual results of 261 documents/second, which we obtained by ingesting 12M documents of MS Marco into our cluster. Because we used the p50 latency in our formula, we compared the estimated throughput with the p50 value of the actual throughput.
 
-For reference, the same experiment using just the data node and BM25 ingestion achieves a p50 throughput of 7,000 documents/second. This is not surprising because running BM25 is not nearly as compute intensive as creating vectors using a large neural network. We tested our formula using a variety of clusters and instance types and found that our predictions were quite close to the actual throughput. The results are summarized in the following table. 
+For reference, the same experiment run with just the data node and BM25 ingestion achieves a p50 throughput of 7,000 documents/second. This is not surprising because running BM25 is not nearly as compute intensive as creating vectors using a large neural network. We tested our formula using a variety of clusters and instance types and found that our predictions were quite close to the actual throughput. The results are summarized in the following table. 
 
 
 |Data node	|ML node	|p50 -- Profile API latency (seconds)	|p50 -- CPU utilization (data node, ML node)	|Actual throughput (p50)	|Estimated throughput	|
@@ -198,15 +198,15 @@ We can summarize the results as follows:
 
 ![Querying architecture](/assets/media/blog-images/2023-11-22-semantic-search-performance/querying-architecture.png){: .img-fluid}
 
-As before, the total time taken to answer a query is the sum of the time taken to embed a query, the time taken for k-NN search (similar to the indexing time in ingestion), and the time spent idly waiting at the data node or ML node. 
+As before, the total time taken to answer a query is the sum of the time taken to embed a query, the time taken for k-NN search (similar to the indexing time in ingestion), and the time spent idly waiting at the data node or ML node: 
 
 $$
 \begin{align}
-t_{query}​​=t_{embed}​ + t_{k-NN} + t_{idle}​.
+t_{query}​​=t_{embed}​ + t_{k-NN} + t_{idle}​
 \end{align}
 $$
 
-Again, the throughput is not given by the inverse of the latency. As in the case of document ingestion, answering a query consists of two distinct processes: embedding generation and k-NN search. Every query has to finish the two processes one after the other. As before, the two processes can work concurrently on different data. However, there is one difference between ingestion and querying. For ingestion, we imagined that the rate at which documents are sent to the system is far greater than the throughput of the data or ML nodes. In other words, there were always enough customers waiting to be served at the bakery. For querying, this is not the case. 
+Again, the throughput is not given by the inverse of the latency. As in the case of document ingestion, answering a query consists of two distinct processes: embedding generation and k-NN search. Every query has to finish the two processes serially. As before, the two processes can work concurrently on different data. However, there is one difference between ingestion and querying. For ingestion, we imagined that the rate at which documents are sent to the system is far greater than the throughput of the data or ML nodes. In other words, there were always enough customers waiting to be served at the bakery. For querying, this is not the case. 
 
 Typically, query throughput is measured with respect to a fixed number of search clients $$S$$. A single search client sends a query and waits until it obtains the result before sending the next query. How can we model the throughput of an OpenSearch cluster for such a setting? Let's again use the bakery analogy. 
 
@@ -218,7 +218,7 @@ If $$S$$ is very large, we are back to the original scenario where $$I_{bakery}=
 
 $$
 \begin{align}
-I_{bakery}​ = \frac{S}{t_{bakers}​+t_{cashiers}}​=\frac{4\ customers}{5\ min + 3\ min​}= \frac{1}{2}\ ​customer/min.
+I_{bakery}​ = \frac{S}{t_{bakers}​+t_{cashiers}}​=\frac{4\ customers}{5\ min + 3\ min​}= \frac{1}{2}\ ​customer/min
 \end{align}
 $$
 
@@ -226,11 +226,11 @@ But what if the guard allows more customers in the bakery, say $$S=10$$? In that
 
 $$
 \begin{align}
-I_{bakery}​ = min \left(\frac{10}{5+3}​,\frac{10}{5+5}\right)=1\ customer/min.
+I_{bakery}​ = min \left(\frac{10}{5+3}​,\frac{10}{5+5}\right)=1\ customer/min
 \end{align}
 $$
 
-A similar logic applies if we have too many (or fast) bakers but too few (or slow) cashiers. In that case, the checkout would be the bottleneck. Putting everything together, we thus have 
+A similar logic applies if we have too many bakers (or the bakers are too fast) but too few cashiers (or the cashiers are too slow). In that case, the checkout would be the bottleneck. Putting everything together, we thus have 
 
 $$
 \begin{align}
@@ -254,7 +254,7 @@ For an ML node, we have
 
 $$
 \begin{align}
-number\ of\ ML\ node\ workers​ = Mc_M​k_M,
+number\ of\ ML\ node\ workers​ = Mc_M​k_M
 \end{align}
 $$
 
@@ -264,7 +264,7 @@ For data nodes, we have
 
 $$
 \begin{align}
-number\ of\ data\ node\ workers​ = c_D​k_D,
+number\ of\ data\ node\ workers​ = c_D​k_D
 \end{align}
 $$
 
@@ -272,16 +272,16 @@ where $$c_D$$​ is the number of cores per node and $$k_D$$ is the number of th
 
 $$
 \begin{align}
-I_{queries}​ = min \left( \frac{S}{t_{k-NN}​+t_{embed}}​​, \frac{Mc_M​k_M}{t_{embed}}​, \frac{c_D​k_D}{t_{k-NN}}​ \right).
+I_{queries}​ = min \left( \frac{S}{t_{k-NN}​+t_{embed}}​​, \frac{Mc_M​k_M}{t_{embed}}​, \frac{c_D​k_D}{t_{k-NN}}​ \right)
 \end{align}
 $$
 
 
 ### How do I use the query throughput formula?
 
-Now let's briefly discuss how to use this formula. We know the value of every variable on the right-hand side based on our cluster settings, except the times $$t_{k-NN}$$ and $$t_{embed}$$. These times are almost impossible to estimate theoretically. As before, the OpenSearch [ML Profile API](https://opensearch.org/docs/latest/ml-commons-plugin/api/#profile) can help us with this task. The Profile API precisely measures the time it takes for the model to create a vector for one document using one thread. This provides us with $$t_{embed}$$. The API also measures the end-to-end OpenSearch latency. Recall that the total latency is given by $$t_{embed}​+t_{k-NN}​+t_{idle}$$​. If the ML and data node CPU utilization is much less than 100%, most queries do not have to wait to be processed by the data or ML node, that is, $$t_{idle}​ \approx 0$$. In that case, we can simply subtract $$t_{embed}$$ from the end-to-end latency to calculate the $$t_{k-NN}$$​ latency. 
+Now let's briefly discuss how to use this formula. We know the value of every variable on the right-hand side based on our cluster settings, except the times $$t_{k-NN}$$ and $$t_{embed}$$. These times are almost impossible to estimate theoretically. As before, the OpenSearch [Profile API](https://opensearch.org/docs/latest/ml-commons-plugin/api/#profile) can help us with this task. The Profile API precisely measures the time it takes for the model to create a vector for one document using one thread. This provides us with $$t_{embed}$$. The API also measures the end-to-end OpenSearch latency. Recall that the total latency is given by $$t_{embed}​+t_{k-NN}​+t_{idle}$$​. If the ML and data node CPU utilization is much less than 100%, most queries do not have to wait to be processed by the data or ML node, that is, $$t_{idle}​ \approx 0$$. In that case, we can simply subtract $$t_{embed}$$ from the end-to-end latency to calculate the $$t_{k-NN}$$​ latency. 
 
-To obtain these numbers from the ML Profile API, as before, you can send a few hundred queries to your OpenSearch cluster and run the API. Note that the sample queries should be representative of the actual queries in terms of the query length in order to get a fair estimate. We tested our formula using a variety of clusters and instance types and found that our predictions were quite close to the actual throughput. The results are summarized in the following table. 
+To obtain these numbers from the Profile API, as before, you can send a few hundred queries to your OpenSearch cluster and run the API. Note that the sample queries should be representative of the actual queries in terms of the query length in order to get a fair estimate. We tested our formula using a variety of clusters and instance types and found that our predictions were quite close to the actual throughput. The results are summarized in the following table. 
 
 
 | Configuration 	| Search clients: S	| Data nodes: D 	|  ML nodes: M  	| OpenSearch end-to-end latency (p50) in ms 	| Embedding latency: e  (p50) in ms	|Max CPU utilization of (data, ML) node	| Mean throughput (answered search queries/sec)  	|Estimated throughput	|
@@ -293,7 +293,7 @@ To obtain these numbers from the ML Profile API, as before, you can send a few h
 | **C**	|20	|3 r6g.4xlarge, 16 cores	|1 c6g.4xlarge, 16 cores	|108.7	|53.11	|(58,88)	|182.2	|183.9	|
 |	|25	|3 r6g.4xlarge, 16 cores	|1 c6g.4xlarge, 16 cores	|112.9	|54.3	|(63,93)	|218.2	|221.4	|
 
-We used standard OpenSearch settings for deciding the number of threads: $$k_M​=2$$ for an ML node and $$k_D​=1.5$$ for a data node. Note that the number of cores on a data node is always even, so the number of total threads on a data node is a whole number (and not fractional). We also gained some valuable insights from our experiments that corroborate our intuitive understanding. For instance, we noticed that the CPU utilization of ML nodes was well below 90% for configurations A and B, which means that the data nodes are the bottleneck. There is room for decreasing the number of ML nodes without affecting the throughput. **For configuration C, we kept the same data nodes but reduced the number of ML node cores from 48 to 16.** The CPU utilization hit 90+%, while the overall throughput remained unchanged from B. In other words, configuration C made optimal use of data and ML nodes. Thus, ML nodes and data nodes (and shards) should be scaled in tandem to make optimal use of your cluster for increased throughput.
+We used standard OpenSearch settings for deciding the number of threads: $$k_M​=2$$ for an ML node and $$k_D​=1.5$$ for a data node. Note that the number of cores on a data node is always even, so the number of total threads on a data node is a whole number (and not fractional). We also gained some valuable insights from our experiments that corroborate our intuitive understanding. For instance, we noticed that the CPU utilization of ML nodes was well below 90% for configurations A and B, which means that the data nodes are the bottleneck. There is room for decreasing the number of ML nodes without affecting the throughput. **For configuration C, we kept the same data nodes but reduced the number of ML node cores from 48 to 16.** The CPU utilization hit 90+%, while the overall throughput remained unchanged from configuration B. In other words, configuration C made optimal use of data and ML nodes. Thus, ML nodes and data nodes (and shards) should be scaled in tandem to make optimal use of your cluster for increased throughput.
 
 ### Querying results summary
 
@@ -307,7 +307,7 @@ We can summarize the results as follows:
 
 ## Final remarks
 
-Overall, we found that estimating the throughput of an OpenSearch cluster involves several parameters and that it is difficult to make concrete predictions without making a few simplifying assumptions. We discussed the criteria when our assumptions hold true and derived simple formulas that you can use to reliably estimate the throughput under those conditions. While our formulas should be used with caution and only when the assumptions hold true, we identified different parameters of a cluster that can affect the throughput.
+Overall, we found that estimating the throughput of an OpenSearch cluster involves several parameters and that it is difficult to make concrete predictions without making a few simplifying assumptions. We discussed the criteria that must be met for our assumptions to hold true and derived simple formulas that you can use to reliably estimate the throughput under those conditions. While our formulas should be used with caution and only when the assumptions hold true, we identified different parameters of a cluster that can affect the throughput.
 
 This blog post is primarily focused on throughput and not on latency. At query time, latency is a very important criterion, and the time and resources spent on ML inference and k-NN search should be carefully rationed based on the specific latency requirements. Refer to [this AWS blog post](https://aws.amazon.com/blogs/big-data/choose-the-k-nn-algorithm-for-your-billion-scale-use-case-with-opensearch/) for information about k-NN resource estimation.
 
