@@ -1,6 +1,6 @@
 ---
 calendar_date: '2024-01-16'
-eventdate: 2024-01-16 15:00:00 -0700
+eventdate: 2024-01-16 15:00:00 -0800
 
 title: OpenSearch Community Meeting - 2024-01-16
 online: true

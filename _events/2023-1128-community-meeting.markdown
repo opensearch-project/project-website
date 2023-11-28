@@ -1,6 +1,6 @@
 ---
 calendar_date: '2023-11-28'
-eventdate: 2023-11-28 08:00:00 -0700
+eventdate: 2023-11-28 08:00:00 -0800
 
 title: OpenSearch Community Meeting - 2023-11-28
 online: true

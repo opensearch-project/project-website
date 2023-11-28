@@ -1,6 +1,6 @@
 ---
 calendar_date: '2024-02-14'
-eventdate: 2024-02-20 15:00:00 -0700
+eventdate: 2024-02-20 15:00:00 -0800
 title: OpenSearch 2.12.0 Release Meetings
 online: true
 tz: America/Los_Angeles

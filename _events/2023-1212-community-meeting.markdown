@@ -1,7 +1,6 @@
 ---
 calendar_date: '2023-12-12'
-eventdate: 2023-12-12 15:00:00 -0700
-
+eventdate: 2023-12-12 15:00:00 -0800
 title: OpenSearch Community Meeting - 2023-12-12
 online: true
 tz: America/Los_Angeles

@@ -1,6 +1,6 @@
 ---
 calendar_date: '2022-04-11'
-eventdate: 2022-04-11 09:00:00 -0800
+eventdate: 2022-04-11 09:00:00 -0700
 title: OpenSearch Community Meeting - 2022-04-11
 online: true
 tz: America/Los_Angeles

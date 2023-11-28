@@ -1,6 +1,6 @@
 ---
 calendar_date: '2024-02-07'
-eventdate: 2024-02-07 10:00:00 -0600
+eventdate: 2024-02-07 10:00:00 -0800
 
 title: OpenSearch Core Triage
 online: true

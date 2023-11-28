@@ -1,6 +1,6 @@
 ---
 calendar_date: '2024-02-02'
-eventdate: 2024-02-02 09:30:00 -0700
+eventdate: 2024-02-02 09:30:00 -0800
 title: Development Backlog & Triage Meeting - ml-commons - 2024-02-02
 primary_title: Development Backlog & Triage Meeting - ml-commons - 2024-02-02
 online: true

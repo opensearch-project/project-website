@@ -1,6 +1,6 @@
 ---
 calendar_date: '2023-06-28'
-eventdate: 2023-06-28 09:00:00 -0800
+eventdate: 2023-06-28 09:00:00 -0700
 title: Search Relevance - Triage & Backlog Review - 2023-06-28
 online: true
 tz: America/Los_Angeles
