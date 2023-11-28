@@ -39,7 +39,6 @@ layout: default
             <div class="landing-page-solutions--hero-3up--hero">
                 {% assign first_post = site.posts[0] %}
                 {% assign first_post_featured_image = first_post.featured_image %}
-                {% assign first_post_author = site.authors | where: "github", first_post.authors[0] | first %}
                 {% if first_post.categories and first_post.categories.first %}
                     {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
                     {% assign first_post_category = first_post.categories | first %}
@@ -69,11 +68,6 @@ layout: default
                     {% assign new_category_length = category_chars | size | minus: 1 %}
                     {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
                     {% assign first_post_category = new_category_chars | join: "" %}
-                {% endif %}
-                {% if first_post_author %}
-                    {% assign first_post_author_twitter = first_post_author.twitter | default: "OpenSearchProj" %}
-                {% else %}
-                    {% assign first_post_author_twitter = "OpenSearchProj" %}
                 {% endif %}
                 <div class="landing-page-solutions--hero-3up--hero--image">
                     <img src="/assets/img/blog-hero-placeholder.png" 

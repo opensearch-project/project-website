@@ -2,7 +2,7 @@
 
 pre.literal-block,
 .literal-block {
-    @include font-size(14);
+    font-size: 14px;
     border: 1px solid #EAEAEA;
     background: #F4F4F4;
     background: $background-darker; overflow: auto;
@@ -43,7 +43,7 @@ pre.literal-block,
 }
 
 .highlight {
-    @include font-size(14);
+    font-size: 14px;
     border: 1px solid #EAEAEA;
     background: #F4F4F4;
     background: $background-darker; overflow: auto;
