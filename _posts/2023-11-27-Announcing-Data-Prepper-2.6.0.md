@@ -65,3 +65,24 @@ This new configuration is available for both the OpenSearch sink and source.
 * To download Data Prepper, see the [OpenSearch downloads](https://opensearch.org/downloads.html) page.
 * For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/latest/data-prepper/getting-started/).
 * To learn more about the work in progress for Data Prepper 2.7, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
+
+## Thanks to our contributors!
+
+The following people contributed to this release. Thank you!
+
+* [asuresh8](https://github.com/asuresh8) - Adi Suresh
+* [asifsmohammed](https://github.com/asifsmohammed) - Asif Sohail Mohammed
+* [chenqi0805](https://github.com/chenqi0805) - Qi Chen
+* [daixba](https://github.com/daixba) - Aiden Dai
+* [dinujoh](https://github.com/dinujoh) - Dinu John
+* [dlvenable](https://github.com/dlvenable) - David Venable
+* [engechas](https://github.com/engechas) - Chase Engelbrecht
+* [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
+* [hshardeesi](https://github.com/hshardeesi) – Hardeep Singh
+* [KarstenSchnitter](https://github.com/KarstenSchnitter) - Karsten Schnitter
+* [kkondaka](https://github.com/kkondaka) - Krishna Kondaka
+* [mallikagogoi7](https://github.com/mallikagogoi7)
+* [oeyh](https://github.com/oeyh) - Hai Yan
+* [Periecle](https://github.com/Periecle) - Roman Kvasnytskyi
+* [reta](https://github.com/reta) - Andriy Redko
+* [wanghd89](https://github.com/wanghd89)
