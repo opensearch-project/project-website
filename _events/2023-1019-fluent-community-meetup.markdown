@@ -5,9 +5,7 @@ eventdate: 2023-10-19 12:00:00 -0400
 # the title - this is how it will show up in listing and headings on the site:
 title: Fluent Community Meeting
 online: true
-tz: America/Los_Angeles
-# If the event is online, remove the next line, otherwise uncomment and adjust it:
-# tz: Pacific/Tahiti
+tz: America/New_York
 
 # This is for the sign up button
 signup:
