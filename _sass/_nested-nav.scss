@@ -18,6 +18,7 @@ $header-banner-mobile-breakpoint: 1018px;
       a {
         @include body-text;
         color: $primary-open-sky-t3;
+        padding-left: 10px;
       } 
     }
   }
@@ -50,6 +51,7 @@ $header-banner-mobile-breakpoint: 1018px;
           flex-shrink: 1;
           > a {
             @include header-level3($primary-open-sky-t3);
+            padding-left: 10px;
           }
         }
         > .nested-nav--top-menu-item-wrapper--toggle {
@@ -103,6 +105,9 @@ $header-banner-mobile-breakpoint: 1018px;
           height: var(--expanded-height);
           opacity: 1;
         }
+        &.nested-nav--menu__mobile-hidden-collapsed {
+          display: none;
+        }
       }
     }
   }
@@ -120,7 +125,7 @@ $header-banner-mobile-breakpoint: 1018px;
 
       .nested-nav {
         li {
-          font-size: 1.3rem;
+          font-size: 15px;
         }
       }
     }
@@ -228,27 +233,6 @@ $header-banner-mobile-breakpoint: 1018px;
   }
 }
 
-/* This is placed in a media query to prevent the momentary distortion of the page
- * when it is rendered and the browser takes its time to evaluate the @media.
- */
-@media screen and (max-width: $header-banner-min-width) {
-  [role="banner"] .nested-nav {
-    li {
-      ul {
-        margin: 0;
-      }
-
-      a {
-        padding: 0 0 0 20px;
-      }
-    }
-  }
-
-  [role="banner"] [role="navigation"] .nested-nav li:before {
-    display: none;
-  }
-}
-
 [role="banner"] [role="navigation"] {
   .nested-nav {
     > li.landing-page-redesign--nav--search .search > #search-results {
@@ -262,7 +246,7 @@ $header-banner-mobile-breakpoint: 1018px;
           font-size: 20px;
           text-decoration: rgb(0, 85, 166);
           > cite {
-            font-size: 1.2rem;
+            font-size: 12px;
             font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
             color: #002A3A;
             text-decoration: none;
@@ -273,7 +257,7 @@ $header-banner-mobile-breakpoint: 1018px;
           }
         }
         > span {
-          font-size: 1.4rem;
+          font-size: 14px;
           color: #1B4859;
           line-height: 1.4;
           display: block;

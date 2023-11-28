@@ -1,40 +1,9 @@
 $accent-dark-half-opacity: rgba(0, 59, 92, 0.5);
-//$cool-palette-reversed: (#6092c0, #7da3ca, #98b5d5, #b2c7df, #ccd9ea, #e5ecf4);
-$cool-palette-reversed: (
-  #6092c0,
-  #6997c3,
-  #729cc6,
-  #7aa2c9,
-  #82a7cd,
-  #8bacd0,
-  #93b1d3,
-  #9ab7d6,
-  #a2bcd9,
-  #aac2dc,
-  #b2c7df,
-  #bacce3,
-  #c2d2e6,
-  #c9d7e9,
-  #d1ddec,
-  #d9e3ef,
-  #e0e8f2,
-  #e8eef6,
-  #f0f4f9,
-  #f7f9fc
-);
 $max-hero-item-count: 20;
-$carousel-item-background-colors: (
-    #411D52,
-    #FFB81C,
-    #002A3A,
-    #F65275,
-    #2CD5C4,
-    #D9E1E2
-);
 
 .hero-with-headline {
-    margin: 1rem 0;
-    padding: 2rem 0;
+    margin: 10px 0;
+    padding: 20px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -185,7 +154,7 @@ $carousel-item-background-colors: (
             display: block;
             width: 100%;
             box-sizing: content-box;
-            padding: 0.5rem 0;
+            padding: 5px 0;
             text-align: center;
             .hero-with-headline--carousel--pagination--items-wrapper {
                 display: inline-flex;
@@ -197,7 +166,7 @@ $carousel-item-background-colors: (
                     display: inline-block;
                     width: 1em;
                     height: 1em;
-                    margin: 0 0.25rem;
+                    margin: 0 2.5px;
                     border-radius: 50%;
                     opacity: 0.5;
                     transition: opacity 0.25s ease-in-out;
