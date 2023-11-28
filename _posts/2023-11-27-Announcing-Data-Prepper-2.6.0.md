@@ -3,7 +3,7 @@ layout: post
 title:  "Announcing Data Prepper 2.6.0"
 authors:
 - dlv
-date: 2023-11-27 11:30:00 -0600
+date: 2023-11-28 13:30:00 -0600
 categories:
   - releases
 meta_keywords: Data Prepper DynamoDB source, Kafka buffer, Amazon OpenSearch Serverless network policy
