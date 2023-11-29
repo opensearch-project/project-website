@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-12-12'
 eventdate: 2023-12-12 15:00:00 -0700
 
 title: OpenSearch Community Meeting - 2023-12-12
@@ -7,7 +7,8 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/297276382/
     title: Join on Meetup
-
+categories:
+  - community
 ---
 
 Join us for our online community meeting.

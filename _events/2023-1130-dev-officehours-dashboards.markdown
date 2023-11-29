@@ -14,7 +14,7 @@ signup:
     # the button text
     title: Join on Meetup
 categories:
-  - 'development'
+  - development
 
 # below this triple dash, describe your event. It should be 1-3 sentences
 ---
