@@ -81,13 +81,18 @@
 </div>
 {% endif %}
 <div role="banner" id="top">
-  <div class="container">
-    <a class="logo" href="{{ '/' | relative_url }}">
+  <div class="navigation-container">
+    <a class="navigation-container--logo" href="{{ '/' | relative_url }}">
       OpenSearch
       {% include icons.html type='opensearch-logo-default-1' %}          
     </a>
-    <div role="navigation">
-      <ul class="nested-nav">
+    <div class="menu-button">
+      <i class="icon icon-reorder"></i>
+      <i class="icon icon-close"></i>
+      <span>Menu</span>
+    </div>
+    <div role="navigation" class="navigation-container--nested-nav-wrapper nav-menu-on">
+      <ul class="navigation-container--nested-nav-wrapper--nested-nav">
         {% for nav_item in site.data.top_nav.items %}
           <li>
             {%- unless nav_item.children -%}
@@ -159,40 +164,53 @@
             {% endif %}
           </li>
         {% endfor %}
-        <li class="landing-page-redesign--nav--search">
-          <div class="landing-page-redesign--nav-search--field-with-results">
-            <div class="landing-page-redesign--nav-search--field-with-results--field">
-              <div class="landing-page-redesign--nav-search--field-with-results--field--wrapper">
-                <div class="search">
-                  <div class="search-input-wrap">
-                    <input type="text" id="search-input" class="search-input"
+        <li class="top-banner-search">
+          <div class="top-banner-search--field-with-results">
+            <div class="top-banner-search--field-with-results--field">
+              <div class="top-banner-search--field-with-results--field--wrapper">
+                <div class="top-banner-search--field-with-results--field--wrapper--search-component">
+                  <div class="top-banner-search--field-with-results--field--wrapper--search-component--input-wrap">
+                    <input type="text" id="search-input" class="top-banner-search--field-with-results--field--wrapper--search-component--search-input"
                       placeholder="Search for anything" aria-label="Search {{ site.title }}"
                       data-docs-version="latest" autocomplete="off"
                     >
-                    <div class="search-spinner"><i></i></div>
-                    <label for="search-input" class="search-label">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="search-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                    <div class="top-banner-search--field-with-results--field--wrapper--search-component--search-spinner"><i></i></div>
+                    <label for="search-input" class="top-banner-search--field-with-results--field--wrapper--search-component--search-label">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="top-banner-search--field-with-results--field--wrapper--search-component--search-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
                         <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                       </svg>
                     </label>
                   </div>
-                  <div id="search-results" class="search-results custom-search-results"></div>
+                  <div id="search-results" class="top-banner-search--field-with-results--field--wrapper--search-component--search-results">
+                    <div class="top-banner-search--field-with-results--field--wrapper--search-component--search-results-wrapper"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="search-overlay"></div>
+          <div class="top-banner-search--overlay"></div>
         </li>
       </ul>
     </div>
   </div>
 </div>
 <script type="module">
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const menu = document.querySelector('#top .nav-menu-on');
+    const button = document.querySelector('#top .menu-button');
+    button.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        button.classList.toggle('active');
+    });
+  });
+</script>
+<script type="module">
   document.addEventListener('DOMContentLoaded', () => {
     function getSubMenu(button) {
-      const parentLI = button.closest('li');
-      const childUL = parentLI.querySelector('ul');
-      return childUL;
+        const parentLI = button.closest('li');
+        const childUL = parentLI.querySelector('ul');
+        return childUL;
     }
     function initializeCustomMenuHeights(button) {
         const childUL = getSubMenu(button);
@@ -203,38 +221,38 @@
     function onNestedNavMenuTransitionEnd(e) {
         const { target } = e;
         if (!target?.hasAttribute?.('expanded')) {
-          target?.classList.add('nested-nav--menu__mobile-hidden-collapsed');
+            target?.classList.add('nested-nav--menu__mobile-hidden-collapsed');
         }
     }
 
     function onToggleButtonClick(e) {
-      const visibleClassName = 'opensearch-toggle-button-link__visible';
-      const visibleSelector = `.${visibleClassName}`;
-      const invisibleClassName = 'opensearch-toggle-button-link__invisible';
-      const invisibleSelector = `.${invisibleClassName}`;
+        const visibleClassName = 'opensearch-toggle-button-link__visible';
+        const visibleSelector = `.${visibleClassName}`;
+        const invisibleClassName = 'opensearch-toggle-button-link__invisible';
+        const invisibleSelector = `.${invisibleClassName}`;
 
-      const toggle = e.currentTarget;
-      const visibleLink = toggle.querySelector(visibleSelector);
-      const invisibleLink = toggle.querySelector(invisibleSelector);
-      visibleLink.classList.remove(visibleClassName);
-      visibleLink.classList.add(invisibleClassName);
-      invisibleLink.classList.remove(invisibleClassName);
-      invisibleLink.classList.add(visibleClassName);
-      
-      const childUL = getSubMenu(toggle);
-      const isAlreadyExpanded = childUL?.getAttribute?.('expanded') ?? false;
-      if (childUL.classList.contains('nested-nav--menu__mobile-hidden-collapsed')) {
-        childUL?.classList?.remove?.('nested-nav--menu__mobile-hidden-collapsed');
-      }
-      window.setTimeout(() => childUL?.toggleAttribute?.('expanded'), 60);
+        const toggle = e.currentTarget;
+        const visibleLink = toggle.querySelector(visibleSelector);
+        const invisibleLink = toggle.querySelector(invisibleSelector);
+        visibleLink.classList.remove(visibleClassName);
+        visibleLink.classList.add(invisibleClassName);
+        invisibleLink.classList.remove(invisibleClassName);
+        invisibleLink.classList.add(visibleClassName);
+
+        const childUL = getSubMenu(toggle);
+        const isAlreadyExpanded = childUL?.getAttribute?.('expanded') ?? false;
+        if (childUL.classList.contains('nested-nav--menu__mobile-hidden-collapsed')) {
+            childUL?.classList?.remove?.('nested-nav--menu__mobile-hidden-collapsed');
+        }
+        window.setTimeout(() => childUL?.toggleAttribute?.('expanded'), 60);
     }
 
-    document.querySelector('#top .nested-nav')?.addEventListener?.('transitionend', onNestedNavMenuTransitionEnd);
+    document.querySelector('#top .navigation-container--nested-nav-wrapper--nested-nav')?.addEventListener?.('transitionend', onNestedNavMenuTransitionEnd);
     const topNavigationToggleButtons = document.querySelectorAll('#top .opensearch-toggle-button--wrapper');
     for (let i = 0; i < topNavigationToggleButtons.length; ++i) {
-      const button = topNavigationToggleButtons[i];
-      initializeCustomMenuHeights(button);
-      button.addEventListener('click', onToggleButtonClick);
+        const button = topNavigationToggleButtons[i];
+        initializeCustomMenuHeights(button);
+        button.addEventListener('click', onToggleButtonClick);
     }
   });
 </script>
