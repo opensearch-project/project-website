@@ -488,6 +488,20 @@ $header-banner-mobile-breakpoint: 1018px;
                         margin-left: 10px;
                         max-width: calc(100% - 10px);
                     }
+                    > .homepage-hero-banner--text-with-gradient--pre-header {
+                        @include header-level2($primary-pacific-sky);
+                    }
+                    > .homepage-hero-banner--text-with-gradient--text--header__larger {
+                        color: #fff;
+                        font-family: 'Open Sans';
+                        font-size: 60px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal; 
+                        @media screen and (max-width: 490px) {
+                            font-size: 42px;
+                        }
+                    }
                     > .homepage-hero-banner--text-with-gradient--text--header {
                         color: #fff;
                         font-family: 'Open Sans';
@@ -497,6 +511,18 @@ $header-banner-mobile-breakpoint: 1018px;
                         line-height: normal; 
                         @media screen and (max-width: 490px) {
                             font-size: 42px;
+                        }
+                    }
+                    > .homepage-hero-banner--text-with-gradient--text--body__larger {
+                        color: $primary-pacific-sky;
+                        font-family: 'Open Sans';
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 36px; 
+                        @media screen and (max-width: 490px) {
+                            font-size: 18px; 
+                            line-height: 24px;  
                         }
                     }
                     > .homepage-hero-banner--text-with-gradient--text--body {
