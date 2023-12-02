@@ -18,8 +18,8 @@ In our previous [blog post](https://opensearch.org/blog/semantic-science-benchma
 
 In this blog post, we will present Neural Sparse, our sparse semantic retrieval framework that is now the top-performing search method on the latest BEIR benchmark. You will learn about semantic search with sparse encoders as well as how to implement this method in OpenSearch with just a few API calls.
 
-## Sparse vs. Dense Encoders
-When using transformer-based encoders (s.g. BERT) in traditional dense text embedding, the output of each position in the response layer is translated into a vector, projecting the text into a semantic vector space where distance correlates to similarity in meaning. Neural sparse conducts the process in a novel way that makes the encoder “vote” for the most representative BERT tokens. The vocabulary being adopted (WordPiece) contains most daily used words and also various suffixes, including tense suffixes (for example, ##ed, ##ing,) and common word roots (for example, ##ate, ##ion), where the symbol ## represents continuation. The vocabulary itself spans into a semantic space where all the documents can be regarded as sparse vectors.
+## Sparse Encoder is now a better choice
+When using transformer-based encoders (e.g. BERT) in traditional dense text embedding, the output of each position in the response layer is translated into a vector, projecting the text into a semantic vector space where distance correlates to similarity in meaning. Neural sparse conducts the process in a novel way that makes the encoder “vote” for the most representative BERT tokens. The vocabulary being adopted (WordPiece) contains most daily used words and also various suffixes, including tense suffixes (for example, ##ed, ##ing,) and common word roots (for example, ##ate, ##ion), where the symbol ## represents continuation. The vocabulary itself spans into a semantic space where all the documents can be regarded as sparse vectors.
 
 <table style="border:none">
   <tr>
@@ -37,15 +37,14 @@ When using transformer-based encoders (s.g. BERT) in traditional dense text embe
   </tr>
 </table>
 
-Searching with dense embedding will present challenges when facing “unfamiliar” content. In this case, the encoder will produce unpredicatable embeddings, leading to bad relevance. That is also why in some BEIR datasets that contain strong domain knowledge, BM25 is the still best performer. In these cases, sparse encoders will try to degenerate themselves into keyword-based matching, protecting the search result to be no worse than BM25. A relevance comparison is provided in **Table I**.
+Searching with dense embedding will present challenges when facing “unfamiliar” content. In this case, the encoder will produce unpredictable embeddings, leading to bad relevance. That is also why in some BEIR datasets that contain strong domain knowledge, BM25 is the still best performer. In these cases, sparse encoders will try to degenerate themselves into keyword-based matching, protecting the search result to be no worse than BM25. A relevance comparison is provided in **Table I**.
 
 In dense encoding, documents are usually represented as high-dimensional vectors; therefore, k-NN indexes need to be adopted in similarity search. On the contrary, the sparse encoding results are more similar to “term vectors” used by keyword-based matching; therefore, native Lucene indexes can be leveraged. Compared to k-NN indexes, sparse embeddings has the following advantages, leading to reduced costs: 1) Much smaller index size, 2) Reduced runtime RAM cost, and 3) Lower computation cost. The quantized comparison can be found in **Table II**.
 
-### Bi-encoders vs. document-only encoders 
-
+### Try extreme efficiency with document-only encoders 
 There are two modes supported by Neural Sparse: 1) with bi-encoders and 2) with document-only encoders. Bi-encoder mode is outlined above, while document-only mode, wherein the search queries are tokenized instead of being passed to deep encoders. In this mode, the document encoders are trained to learn more synonym association so as to increase the recall. And by eliminating the online inference phase, a few computational resources can be saved while the latency can also be reduced significantly. We can observe this in **Table II** by comparing “Neural Sparse Doc-only” with other solutions.
 
-### Benchmarking
+## Neural Sparse Search outperforms in Benchmarking
 
 We have conducted some benchmarking using a cluster containing 3 r5.8xlarge data nodes and 1 r5.12xlarge leader&ml node. First, all the evaluated methods are compared in terms of NCDG@10. Then we also compare the runtime speed of each method as well as the resource cost. 
 
@@ -280,7 +279,7 @@ The detailed results are presented in the following tables.
     </tr>
 </table>
 
-***BEIR** is short for Bencharmking Information Retrieval, check our its [github](https://github.com/beir-cellar/beir) page.
+***BEIR** is short for Benchmarking Information Retrieval, check our its [Github](https://github.com/beir-cellar/beir) page.
 
 <center><b>Table II.</b>Speed Comparison, in the term of latency and throughput</center>
 
@@ -444,4 +443,4 @@ Congratulations! Now you have your own semantic search engine based on sparse en
 
 Here are two parameters:
 - **“model_id” (string)**: The ID of the model that will be used to generate tokens and weights from the query text. The model must be indexed in OpenSearch before it can be used in neural search. A sparse encoding model will expand the tokens from query text, while the tokenizer model will only generate the token inside the query text.
-- **“max_token_score” (float)**: An extra parameter required for performance optimization. Just like the common procedure of OpenSearch match query, the neural_sparse query is transformed to a Lucene BooleanQuery combining disjunction of term-level sub-queries. The difference is we use FeatureQuery instead of TermQuery for term here. Lucene leverages the WAND (Weak AND) algorithm for dynamic pruning, which skips non-competitive tokens based on their score upper bounds. However, FeatureQuery uses FLOAT.MAX_VALUE as the score upper bound, which makes WAND optimization ineffective. The parameter resets the upper bound of each token in this query, and the  default value is FLOAT.MAX_VALUE, which is consistent with the origin FeatureQuery. Setting the value to “3.5” for the bi-encoder model and “2” for the document-only model can accelerate search without precision loss. After OpenSearch is upgraded to Lucene version 9.8, this parameter will be deprecated.
+- **“max_token_score” (float)**: An extra parameter required for performance optimization. Just like the common procedure of OpenSearch match query, the neural_sparse query is transformed to a Lucene BooleanQuery combining disjunction of term-level sub-queries. The difference is we use FeatureQuery instead of TermQuery for term here. Lucene leverages the WAND (Weak AND) algorithm for dynamic pruning, which skips non-competitive tokens based on their score upper bounds. However, FeatureQuery uses FLOAT.MAX_VALUE as the score upper bound, which makes WAND optimization ineffective. The parameter resets the upper bound of each token in this query, and the default value is FLOAT.MAX_VALUE, which is consistent with the origin FeatureQuery. Setting the value to “3.5” for the bi-encoder model and “2” for the document-only model can accelerate search without precision loss. After OpenSearch is upgraded to Lucene version 9.8, this parameter will be deprecated.
