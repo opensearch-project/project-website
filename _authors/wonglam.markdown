@@ -5,4 +5,4 @@ photo: '/assets/media/authors/wonglam.png'
 github: wanglam
 ---
 
-**Lin Wang** is an AWS web development engineer working on the OpenSearch Project. His interests include machine learning and data visualization.
+**Lin Wang** is an AWS front-end engineer working on the OpenSearch Project. His interests include machine learning and data visualization.
