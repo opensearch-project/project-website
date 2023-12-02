@@ -24,6 +24,9 @@
             min-width: fit-content;
             @include header-level4($secondary-sanfrancisco-fog-s4);
             margin-left: 1em;
+            @media screen and (max-width: 411px) {
+                letter-spacing: 2px;
+            }
             > a {
                 @include header-level4($secondary-sanfrancisco-fog-s4);
                 &:hover {
@@ -32,6 +35,9 @@
                     text-decoration-thickness: 2px;
                 }
                 text-decoration: none;
+                @media screen and (max-width: 411px) {
+                    letter-spacing: 2px;
+                }
             }
             &:last-of-type {
                 > a {
@@ -51,7 +57,6 @@
             padding-left: 0;
             > h1 {
                 @include header-level1-mobile;
-                margin-top: 10px;
             }
         }
     }

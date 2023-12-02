@@ -2,6 +2,13 @@
 layout: platform-category
 title: Security Analytics
 primary_title: Security Analytics
+breadcrumbs:
+  icon: security-shield
+  items:
+    - title: The OpenSearch Platform
+      url: '/platform/index.html'
+    - title: Security Analytics'
+      url: '/platform/security-analytics/index.html'
 categories:
   - security-analytics
 feature_area_icon_type: security-shield
