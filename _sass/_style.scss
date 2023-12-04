@@ -88,13 +88,10 @@ h5,
 h6 {
     @include heading-sans-serif;
     font-weight: 700;
-
     a {
         text-decoration: none;
         @include link-alternate;
     }
-
-
 }
 h1 {
     font-size: 28px;
@@ -411,9 +408,6 @@ ul {
 
 
 //-------------------  Site Chrome (Header/Footer)
-
-// This is the sum of the logo + the navigation menu items + the search field.
-$header-banner-min-width: 1019px;
 
 [role="banner"] {
     // Includes global navigation, logo, and tagline at top of document
