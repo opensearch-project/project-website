@@ -6,15 +6,15 @@ authors:
   - xinyual
   - dagney
   - yych
-date: 2023-12-01 01:00:00 -0700
+date: 2023-12-05 01:00:00 -0700
 categories:
     - technical-posts
-meta_keywords: Improve search relevance, semantic search in OpenSearch 2.11, search with sparse encoders, neural search
-meta_description: Improve search relevance with OpenSearch 2.11 when you build your high relevance & high speed search engine using neural sparse search.
+meta_keywords: search relevance, neural sparse search, semantic search, semantic search with sparse encoders
+meta_description: Learn how the neural sparse framework in OpenSearch 2.11 can help you improve search relevance and optimize semantic searches with spare encoders using just a few APIs.
 has_science_table: true
 ---
 
-In our previous [blog post](https://opensearch.org/blog/semantic-science-benchmarks), one finding shared was that zero-shot semantic search based on dense encoders will have challenges when being applied to scenarios with unfamiliar corpus. This was highlighted with the [BEIR](https://github.com/beir-cellar/beir) benchmark, which consists of diverse retrieval tasks so that the “transferability” of a pretrained embedding model to unseen datasets can be evaluated. 
+In our previous [blog post](https://opensearch.org/blog/semantic-science-benchmarks), one finding shared was that zero-shot semantic search based on dense encoders will have challenges when being applied to scenarios with unfamiliar corpus. This was highlighted with the [BEIR](https://github.com/beir-cellar/beir) benchmark, which consists of diverse retrieval tasks so that the “transferability” of a pretrained embedding model to unseen datasets can be evaluated.
 
 In this blog post, we will present Neural Sparse, our sparse semantic retrieval framework that is now the top-performing search method on the latest BEIR benchmark. You will learn about semantic search with sparse encoders as well as how to implement this method in OpenSearch with just a few API calls.
 
@@ -24,10 +24,10 @@ When using transformer-based encoders (e.g. BERT) in traditional dense text embe
 <table style="border:none">
   <tr>
     <td style="border:none">
-        <img src="/assets/media/blog-images/2023-12-01-improving-document-retrieval-with-spade-semantic-encoders/embedding.png" />
+        <img src="/assets/media/blog-images/2023-12-05-improving-document-retrieval-with-spade-semantic-encoders/embedding.png" />
     </td>
     <td style="border:none">
-        <img src="/assets/media/blog-images/2023-12-01-improving-document-retrieval-with-spade-semantic-encoders/expand.png" />
+        <img src="/assets/media/blog-images/2023-12-05-improving-document-retrieval-with-spade-semantic-encoders/expand.png" />
     </td>
   </tr>
   <tr>
@@ -41,17 +41,17 @@ Searching with dense embedding will present challenges when facing “unfamiliar
 
 In dense encoding, documents are usually represented as high-dimensional vectors; therefore, k-NN indexes need to be adopted in similarity search. On the contrary, the sparse encoding results are more similar to “term vectors” used by keyword-based matching; therefore, native Lucene indexes can be leveraged. Compared to k-NN indexes, sparse embeddings has the following advantages, leading to reduced costs: 1) Much smaller index size, 2) Reduced runtime RAM cost, and 3) Lower computation cost. The quantized comparison can be found in **Table II**.
 
-### Try extreme efficiency with document-only encoders 
+### Try extreme efficiency with document-only encoders
 There are two modes supported by Neural Sparse: 1) with bi-encoders and 2) with document-only encoders. Bi-encoder mode is outlined above, while document-only mode, wherein the search queries are tokenized instead of being passed to deep encoders. In this mode, the document encoders are trained to learn more synonym association so as to increase the recall. And by eliminating the online inference phase, a few computational resources can be saved while the latency can also be reduced significantly. We can observe this in **Table II** by comparing “Neural Sparse Doc-only” with other solutions.
 
 ## Neural Sparse Search outperforms in Benchmarking
 
-We have conducted some benchmarking using a cluster containing 3 r5.8xlarge data nodes and 1 r5.12xlarge leader&ml node. First, all the evaluated methods are compared in terms of NCDG@10. Then we also compare the runtime speed of each method as well as the resource cost. 
+We have conducted some benchmarking using a cluster containing 3 r5.8xlarge data nodes and 1 r5.12xlarge leader&ml node. First, all the evaluated methods are compared in terms of NCDG@10. Then we also compare the runtime speed of each method as well as the resource cost.
 
-Key takeaways: 
+Key takeaways:
 
 * Both bi-encoder and document-only mode generate the highest relevance on the BEIR benchmark, along with the Amazon ESCI dataset.
-* Without online inference, the search latency of document-only mode is comparable to BM25.  
+* Without online inference, the search latency of document-only mode is comparable to BM25.
 * Neural sparse search have much smaller index size than dense encoding. A document-only encoder generates an index with 10.4% of dense encoding’s index size, while the number for a bi-encoder is 7.2%.
 * Dense encoding adopts k-NN retrieval and will have a 7.9% increase in RAM cost when search traffic received. Neural sparse search is based on native Lucene, and the RAM cost will not increase in runtime.
 
@@ -67,7 +67,7 @@ The detailed results are presented in the following tables.
         <td colspan="2">Dense(with TAS-B model)</td>
         <td colspan="2">Hybrid(Dense + BM25)</td>
         <td colspan="2">Neural Sparse Search bi-encoder</td>
-        <td colspan="2">Neural Sparse Search doc-only</td>        
+        <td colspan="2">Neural Sparse Search doc-only</td>
     </tr>
     <tr>
         <td><b>Dataset</b></td>
@@ -309,7 +309,7 @@ The detailed results are presented in the following tables.
 Several pretrained encoder models are published in the OpenSearch model repository. As the state-of-the-art of BEIR benchmark, they are already available for out-of-the-box use, reducing fine-tuning effort. You can follow these three steps to build your search engine:
 
 1. **Prerequisites**: To run the following simple cases in the cluster, change the settings:
-   
+
     ```
     PUT /_cluster/settings
     {
@@ -321,7 +321,7 @@ Several pretrained encoder models are published in the OpenSearch model reposito
     }
     ```
 
-    **allow_registering_model_via_url** is required to be true because you need to register your pretrained model by URL. Set **only_run_on_ml_node** to false if you don’t have a machine learning (ML) node on your cluster. 
+    **allow_registering_model_via_url** is required to be true because you need to register your pretrained model by URL. Set **only_run_on_ml_node** to false if you don’t have a machine learning (ML) node on your cluster.
 2. **Deploy encoders**: The ML Commons plugin supports deploying pretrained models via URL. Taking `opensearch-neural-sparse-encoding` as an example, you can deploy the encoder via this API:
 
     ```
@@ -337,7 +337,7 @@ Several pretrained encoder models are published in the OpenSearch model reposito
         }
     ```
 
-    After that, you will get the task_id in your response: 
+    After that, you will get the task_id in your response:
 
     ```
     {
@@ -424,7 +424,7 @@ Neural sparse has two working modes: bi-encoder and document-only. For bi-encode
 
 ### **Try your engine with a query clause**
 
-Congratulations! Now you have your own semantic search engine based on sparse encoders. To try a sample query, we can invoke the `_search` endpoint using the `neural_sparse` clause in query DSL: 
+Congratulations! Now you have your own semantic search engine based on sparse encoders. To try a sample query, we can invoke the `_search` endpoint using the `neural_sparse` clause in query DSL:
 
 ```
  GET /my-neural-sparse-index/_search/
