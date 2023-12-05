@@ -31,31 +31,33 @@ Before we discuss the options, here are the definitions of some terms we’ll us
 
 OpenSearch provides multiple options for enabling semantic search: 1. Local inference on data nodes, 2. Local inference on ML nodes, 3. Remote inference on data nodes, and 4. Remote inference on ML nodes.
 
-**Option 1: Local inference on data nodes** 
+### Option 1: Local inference on data nodes
 
 With this option, both the Neural Search and ML Commons plugins reside on data nodes, just as any other plugin. Language models are loaded onto local data nodes, and inference is also executed locally. 
 
 Ingestion flow: As illustrated in Figure 1, the Neural Search plugin receives ingestion requests through the ingestion pipeline. It sends the text blob to ML Commons to generate embeddings. ML Commons runs the inference locally and returns the generated embeddings. Neural Search then ingests the generated embeddings into a k-NN index.
 
 Query flow: For query requests, the Neural Search plugin also sends the query to ML Commons, which will inference locally and return an embedding. Upon receiving the embedding, Neural Search will create a vector search request and send it to the k-NN plugin, which will execute the query and return a list of document IDs. These document IDs will then be returned to the user.
+
 ![Figure 1: Local inference on data nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-1.png)
 
-**Option 2: Local inference on ML nodes** 
+### Option 2: Local inference on ML nodes
 
-With this option, dedicated ML nodes are set up to perform all ML-related tasks, including inference for language models. Everything else is identical to option 1. In both the ingestion and query flows, the inference request to generate embeddings will now be sent to the ML Commons plugin, which resides on a dedicated ML node instead of on a data node, as shown in Figure 2.
+With this option, dedicated ML nodes are set up to perform all ML-related tasks, including inference for language models. Everything else is identical to option 1. In both the ingestion and query flows, the inference request to generate embeddings will now be sent to the ML Commons plugin, which resides on a dedicated ML node instead of on a data node, as shown in following figure:
 ![Figure 2: Local inference on ML nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-2.png)
 
-**Option 3: Remote inference on data nodes** 
+### Option 3: Remote inference on data nodes
 
-This option was introduced in OpenSearch 2.9 with the ML extensibility feature. With this option, you use the ML connector to integrate with a remote server (outside of OpenSearch) for model inference (for example, SageMaker). Again, everything else is identical to option 1, except the inference requests are now forwarded by ML Commons to the remote SageMaker endpoint through an ML connector, as shown in Figure 3.
+This option was introduced in OpenSearch 2.9 with the ML extensibility feature. With this option, you use the ML connector to integrate with a remote server (outside of OpenSearch) for model inference (for example, SageMaker). Again, everything else is identical to option 1, except the inference requests are now forwarded by ML Commons to the remote SageMaker endpoint through an ML connector, as shown in following figure:
+
 ![Figure 3: Remote inference on data nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-3.png)
 
 
-**Option 4: Remote inference on ML nodes**
+### Option 4: Remote inference on ML nodes
 
-This option is a combination of options 2 and 3, so it still uses remote inference but also uses a dedicated ML node to host ML Commons, as shown in Figure 4.
+This option is a combination of options 2 and 3, so it still uses remote inference but also uses a dedicated ML node to host ML Commons, as shown in following figure:
+
 ![Figure 4: Remote inference on ML nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-4.png)
-
 
 Each of the four options presents some pros and cons:
 
@@ -71,7 +73,7 @@ To better understand the ingestion/query performance difference between these op
 ### Experiment setup
 
 1. Dataset: We used MS MARCO as the primary dataset for benchmarking. MS MARCO is a collection of datasets focused on deep learning in search. MS MARCO has 12M documents, with an average length of 1,500 words, and is  approximately 100 GB in size. Also note that we have truncation set up in models to only use the first 128 tokens of each document in our experiments. 
-2. Model: We chose sentence-transformers/all-MiniLM-L6-v2 from a list of pretrained models supported by OpenSearch. 
+2. Model: We chose sentence-transformers/all-MiniLM-L6-v2 from a list of [pretrained models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models) supported by OpenSearch. 
     1. All pretrained models support truncation/padding to control the input length; we set both at 128.
 3. Cluster configuration: 
     1. Node type: M5.xlarge (4 core, 16 GB RAM)
@@ -80,35 +82,31 @@ To better understand the ingestion/query performance difference between these op
         2. Option 2: Local inference on ML nodes: 3 data nodes
         3. Option 3: Remote inference on data nodes: 2 data nodes, 1 SageMaker node
         4. Option 4: Remote inference on ML nodes: 1 data node, 1 ML node, 1 SageMaker node
-4. Measurements
-    1. Query latency/throughput
-    2. Ingestion throughput
-    3. CPU/RAM utilization
-    4. Inference latency
-    5. Remote inference overhead
-5. Benchmarking tool: We used Opensearch Benchmark to generate traffic and collect results.
+4. Benchmarking tool: We used [Opensearch Benchmark](https://github.com/opensearch-project/opensearch-benchmark) to generate traffic and collect results.
 
 ### Expriment 1: Ingestion
 
 **Ingestion setup**
 
-Number of clients	8
-Bulk size	200
-Document count	1M
-Local model truncation	128
-SageMaker model truncation	128
-Local model padding	128
-SageMaker model padding	128
-Dataset	MS MARCO
-Dataset link	https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/msmarco.zip
+|Configuration |Value|
+|--- |--- |
+|Number of clients	|8|
+|Bulk size	|200|
+|Document count	|1M|
+|Local model truncation	|128|
+|SageMaker model truncation	|128|
+|Local model padding	|128|
+|SageMaker model padding	|128|
+|Dataset	|	[MSCARCO](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/msmarco.zip)|
 
 **Experiment 1: Results**
 
-Case	Mean throughput (doc/s)	Inference p90 (ms/doc)	SageMaker inference p90 (ms/req)	SageMaker overhead p90 (ms/req)	e2e latency p90 (ms/bulk of 200 docs)
-Option 1: Local inference on data nodes (3 data nodes)	213.13	72.46	N/A	N/A	8944.53
-Option 2: Local inference on ML nodes (2 data nodes + 1 ML node)	72.76	67.79	N/A	N/A	25936.7
-Option 3: Remote inference on data nodes (2 data nodes + 1 remote ML node)	94.41	101.9	97	3.5	17455.9
-Option 4: Remote inference on ML nodes (1 data node + 1 local ML node + 1 remote ML node)	79.79	60.37	54.8	3.5	21714.6
+|Case	|Mean throughput (doc/s)	|Inference p90 (ms/doc)	|SageMaker inference p90 (ms/req)	|SageMaker overhead p90 (ms/req)	|e2e latency p90 (ms/bulk)|
+|---|---|---|---|---|---|
+|Option 1: Local inference on data nodes (3 data nodes)	|213.13|72.46	|N/A	|N/A	|8944.53|
+|Option 2: Local inference on ML nodes (2 data nodes + 1 ML node)	|72.76	|67.79	|N/A	|N/A	|25936.7|
+|Option 3: Remote inference on data nodes (2 data nodes + 1 remote ML node)	|94.41	|101.9	|97	|3.5	|17455.9|
+|Option 4: Remote inference on ML nodes (1 data node + 1 local ML node + 1 remote ML node)	|79.79	|60.37	|54.8	|3.5	|21714.6|
 
 **Experiment 1: Observations**
 
@@ -118,22 +116,26 @@ Option 4: Remote inference on ML nodes (1 data node + 1 local ML node + 1 remote
 
 ### Experiment 2: Query 
 
-Number of clients	50
-Document count	50k/500k
-Local model truncation	128
-SageMaker model truncation	128
-Local model padding	128
-SageMaker model padding	128
-Dataset	MS MARCO
-Dataset link	https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/msmarco.zip
+**Query setup**
+
+|Configuration |Value|
+|--- |--- |
+|Number of clients	|50|
+|Document count	|500k|
+|Local model truncation	|128|
+|SageMaker model truncation	|128|
+|Local model padding	|128|
+|SageMaker model padding	|128|
+|Dataset	|	[MSCARCO](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/msmarco.zip)|
 
 **Experiment 2: Results**
 
-Case	Mean throughput (doc/s)	Inference p90 (ms) (per doc)	SageMaker inference p90	SageMaker overhead p90	e2e latency p90 (ms)
-Option 1: Local inference on data nodes (3 data nodes)	128.49	37.6	N/A	N/A	82.6
-Option 2: Local inference on ML nodes (2 data nodes + 1 ML node)	141.5	29.5	N/A	N/A	72.9
-Option 3: Remote inference on data nodes (2 data nodes + remote ML node)	162.19	26.4	21.5	4.9	72.5
-Option 4: Remote inference on ML nodes (1 data node + 1 local ML node + remote ML node)	136.2	26.6	21.6	5	76.65
+|Case	|Mean throughput (query/s)	|Inference p90 (ms/query)	|SageMaker inference p90 (ms/req)	|SageMaker overhead p90	(ms/req)|e2e latency p90 (ms/query)|
+|---|---|---|---|---|---|
+|Option 1: Local inference on data nodes (3 data nodes)	|128.49	|37.6	|N/A	|N/A	|82.6|
+|Option 2: Local inference on ML nodes (2 data nodes + 1 ML node)	|141.5	|29.5	|N/A	|N/A	|72.9|
+|Option 3: Remote inference on data nodes (2 data nodes + remote ML node)	|162.19	|26.4	|21.5	|4.9	|72.5|
+|Option 4: Remote inference on ML nodes (1 data node + 1 local ML node + remote ML node)	|136.2	|26.6	|21.6	|5	|76.65|
 
 **Experiment 2: Observations**
 
@@ -146,7 +148,7 @@ Option 4: Remote inference on ML nodes (1 data node + 1 local ML node + remote M
 
 In this blog post, we provided multiple options for configuring your OpenSearch cluster for semantic search, including local/remote inference and dedicated ML nodes. You can choose between these options to optimize costs and benefits based on your desired outcome. Based on our benchmarking results and observations, we recommend the following:
 
-* Remotely connected models separate ML workloads from the OpenSearch cluster, with only a small amount of extra latency. This option also provides flexibility in terms of the amount of computation power used for making inferences (for example, leveraging SageMaker GPU instances). This is our recommended option for production-oriented systems. 
+* Remotely connected models separate ML workloads from the OpenSearch cluster, with only a small amount of extra latency. This option also provides flexibility in terms of the amount of computation power used for making inferences (for example, leveraging SageMaker GPU instances). This is our **recommended** option for any production-oriented systems. 
 * Local inference works out of the box on existing clusters without any additional resources. You can use this option to quickly set up a development environment or build PoCs. Because the heavy ML workload could potentially affect cluster query and search performance, we don’t recommend this option for production systems. If you do have to use local inference for your production systems, we strongly recommend to use dedicated ML nodes to separate ML workload from the rest of you cluster.
 * Dedicated ML nodes helps improve query latency for local models (by taking over all ML-related tasks from data nodes), but they don’t help much with remote inference because the heavy lifting is performed outside of the OpenSearch cluster. Also, because ML nodes don’t manage any tasks not related to ML, adding an ML node won’t improve query or ingestion throughput.
 
