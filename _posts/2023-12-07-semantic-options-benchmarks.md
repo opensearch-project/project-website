@@ -4,6 +4,7 @@ title:  "Semantic Search with OpenSearch: Architecture options and Benchmarks"
 authors:
  - sean-zheng-amazon
  - zane-neo
+ - ylwu-amzn
 date: 2023-12-07
 categories:
  - technical-post
@@ -24,7 +25,7 @@ Before we discuss the options, here are the definitions of some terms we’ll us
 
 * **Data node**: Where OpenSearch data is stored. A data node manages a cluster’s search and indexing tasks and is the primary coordinator of an OpenSearch cluster.
 * **ML node**: OpenSearch introduced ML nodes in 2.3. An ML node is dedicated to ML-related tasks, such as inference for language models. You can follow these instructions to set up a dedicated ML node.
-* **ML connector**: Introduced with ML extensibility in 2.4 (experimental, GA in 2.7), an ML connector allows you to connect your preferred inference service (for example, Amazon SageMaker) to OpenSearch. Once created, an ML connector can be used to build an ML model, which is registered just like a local model.
+* **ML connector**: Introduced with ML extensibility in 2.4 (experimental, GA'ed in 2.9), an ML connector allows you to connect your preferred inference service (for example, Amazon SageMaker) to OpenSearch. Once created, an ML connector can be used to build an ML model, which is registered just like a local model.
 * **Local/remote inference**: With the newly introduced ML connector feature, OpenSearch now allows ML models to be hosted either locally on data nodes or ML nodes or remotely on public inference services.
 
 ## Architecture options
