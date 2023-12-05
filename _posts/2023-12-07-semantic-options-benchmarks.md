@@ -26,7 +26,7 @@ Before we discuss the options, here are the definitions of some terms we’ll us
 * **Data node**: Where OpenSearch data is stored. A data node manages a cluster’s search and indexing tasks and is the primary coordinator of an OpenSearch cluster.
 * **ML node**: OpenSearch introduced ML nodes in 2.3. An ML node is dedicated to ML-related tasks, such as inference for language models. You can follow these instructions to set up a dedicated ML node.
 * **ML connector**: Introduced with ML extensibility in 2.4 (experimental, GA'ed in 2.9), an ML connector allows you to connect your preferred inference service (for example, Amazon SageMaker) to OpenSearch. Once created, an ML connector can be used to build an ML model, which is registered just like a local model.
-* **Local/remote inference**: With the newly introduced ML connector feature, OpenSearch now allows ML models to be hosted either locally on data nodes or ML nodes or remotely on public inference services.
+* **Local/remote inference**: With the newly introduced ML connector, OpenSearch allows ML inference to be hosted either locally on data or ML nodes; or remotely on public inference services.
 
 ## Architecture options
 
@@ -49,14 +49,14 @@ With this option, dedicated ML nodes are set up to perform all ML-related tasks,
 
 ### Option 3: Remote inference on data nodes
 
-This option was introduced in OpenSearch 2.9 with the ML extensibility feature. With this option, you use the ML connector to integrate with a remote server (outside of OpenSearch) for model inference (for example, SageMaker). Again, everything else is identical to option 1, except the inference requests are now forwarded by ML Commons to the remote SageMaker endpoint through an ML connector, as shown in following figure:
+This option was introduced in OpenSearch 2.9 with the ML extensibility feature. With this option, you use the ML connector to integrate with a remote server (outside of OpenSearch) for model inference (for example, SageMaker). Again, everything else is identical to option 1, except the inference requests are now forwarded by ML Commons from data nodes to the remote SageMaker endpoint through an ML connector, as shown in following figure:
 
 ![Figure 3: Remote inference on data nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-3.png)
 
 
 ### Option 4: Remote inference on ML nodes
 
-This option is a combination of options 2 and 3, so it still uses remote inference but also uses a dedicated ML node to host ML Commons, as shown in following figure:
+This option is a combination of options 2 and 3. It still uses remote inference from SageMaker but also uses a dedicated ML node to host ML Commons, as shown in following figure:
 
 ![Figure 4: Remote inference on ML nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-4.png)
 
