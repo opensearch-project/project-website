@@ -36,9 +36,9 @@ OpenSearch provides multiple options for enabling semantic search: 1. Local infe
 
 With this option, both the Neural Search and ML Commons plugins reside on data nodes, just as any other plugin. Language models are loaded onto local data nodes, and inference is also executed locally. 
 
-Ingestion flow: As illustrated in Figure 1, the Neural Search plugin receives ingestion requests through the ingestion pipeline. It sends the text blob to ML Commons to generate embeddings. ML Commons runs the inference locally and returns the generated embeddings. Neural Search then ingests the generated embeddings into a k-NN index.
+**Ingest flow**: As illustrated in Figure 1, the Neural Search plugin receives ingestion requests through the ingestion pipeline. It sends the text blob to ML Commons to generate embeddings. ML Commons runs the inference locally and returns the generated embeddings. Neural Search then ingests the generated embeddings into a k-NN index.
 
-Query flow: For query requests, the Neural Search plugin also sends the query to ML Commons, which will inference locally and return an embedding. Upon receiving the embedding, Neural Search will create a vector search request and send it to the k-NN plugin, which will execute the query and return a list of document IDs. These document IDs will then be returned to the user.
+**Query flow**: For query requests, the Neural Search plugin also sends the query to ML Commons, which will inference locally and return an embedding. Upon receiving the embedding, Neural Search will create a vector search request and send it to the k-NN plugin, which will execute the query and return a list of document IDs. These document IDs will then be returned to the user.
 
 ![Figure 1: Local inference on data nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-1.png)
 
@@ -104,9 +104,9 @@ To better understand the ingestion/query performance difference between these op
 
 |Case	|Mean throughput (doc/s)	|Inference p90 (ms/doc)	|SageMaker inference p90 (ms/req)	|SageMaker overhead p90 (ms/req)	|e2e latency p90 (ms/bulk)|
 |---|---|---|---|---|---|
-|Option 1: Local inference on data nodes (3 data nodes)	|213.13|72.46	|N/A	|N/A	|8944.53|
+|Option 1: Local inference on data nodes (3 data nodes)	|**_213.13_**|72.46	|N/A	|N/A	|8944.53|
 |Option 2: Local inference on ML nodes (2 data nodes + 1 ML node)	|72.76	|67.79	|N/A	|N/A	|25936.7|
-|Option 3: Remote inference on data nodes (2 data nodes + 1 remote ML node)	|94.41	|101.9	|97	|3.5	|17455.9|
+|Option 3: Remote inference on data nodes (2 data nodes + 1 remote ML node)	|**_94.41_**	|101.9	|97	|3.5	|17455.9|
 |Option 4: Remote inference on ML nodes (1 data node + 1 local ML node + 1 remote ML node)	|79.79	|60.37	|54.8	|3.5	|21714.6|
 
 **Experiment 1: Observations**
@@ -135,7 +135,7 @@ To better understand the ingestion/query performance difference between these op
 |---|---|---|---|---|---|
 |Option 1: Local inference on data nodes (3 data nodes)	|128.49	|37.6	|N/A	|N/A	|82.6|
 |Option 2: Local inference on ML nodes (2 data nodes + 1 ML node)	|141.5	|29.5	|N/A	|N/A	|72.9|
-|Option 3: Remote inference on data nodes (2 data nodes + remote ML node)	|162.19	|26.4	|21.5	|4.9	|72.5|
+|Option 3: Remote inference on data nodes (2 data nodes + remote ML node)	|**_162.19_**	|26.4	|21.5	|4.9	|72.5|
 |Option 4: Remote inference on ML nodes (1 data node + 1 local ML node + remote ML node)	|136.2	|26.6	|21.6	|5	|76.65|
 
 **Experiment 2: Observations**
