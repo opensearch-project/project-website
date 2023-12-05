@@ -85,7 +85,7 @@ To better understand the ingestion/query performance difference between these op
         4. Option 4: Remote inference on ML nodes: 1 data node, 1 ML node, 1 SageMaker node
 4. Benchmarking tool: We used [Opensearch Benchmark](https://github.com/opensearch-project/opensearch-benchmark) to generate traffic and collect results.
 
-### Expriment 1: Ingestion
+### Experiment 1: Ingestion
 
 **Ingestion setup**
 
