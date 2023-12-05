@@ -25,14 +25,14 @@ Before we discuss the options, here are the definitions of some terms we’ll us
 
 * **Data node**: Where OpenSearch data is stored. A data node manages a cluster’s search and indexing tasks and is the primary coordinator of an OpenSearch cluster.
 * **ML node**: OpenSearch introduced ML nodes in 2.3. An ML node is dedicated to ML-related tasks, such as inference for language models. You can follow these instructions to set up a dedicated ML node.
-* **ML connector**: Introduced with ML extensibility in 2.4 (experimental, GA'ed in 2.9), an ML connector allows you to connect your preferred inference service (for example, Amazon SageMaker) to OpenSearch. Once created, an ML connector can be used to build an ML model, which is registered just like a local model.
+* **ML connector**: Introduced with ML extensibility in 2.9, an ML connector allows you to connect your preferred inference service (for example, Amazon SageMaker) to OpenSearch. Once created, an ML connector can be used to build an ML model, which is registered just like a local model.
 * **Local/remote inference**: With the newly introduced ML connector, OpenSearch allows ML inference to be hosted either locally on data or ML nodes; or remotely on public inference services.
 
 ## Architecture options
 
 OpenSearch provides multiple options for enabling semantic search: 1. Local inference on data nodes, 2. Local inference on ML nodes, 3. Remote inference on data nodes, and 4. Remote inference on ML nodes.
 
-### Option 1: Local inference on data nodes
+**Option 1: Local inference on data nodes**
 
 With this option, both the Neural Search and ML Commons plugins reside on data nodes, just as any other plugin. Language models are loaded onto local data nodes, and inference is also executed locally. 
 
@@ -42,19 +42,19 @@ Query flow: For query requests, the Neural Search plugin also sends the query to
 
 ![Figure 1: Local inference on data nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-1.png)
 
-### Option 2: Local inference on ML nodes
+**Option 2: Local inference on ML nodes**
 
 With this option, dedicated ML nodes are set up to perform all ML-related tasks, including inference for language models. Everything else is identical to option 1. In both the ingestion and query flows, the inference request to generate embeddings will now be sent to the ML Commons plugin, which resides on a dedicated ML node instead of on a data node, as shown in following figure:
 ![Figure 2: Local inference on ML nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-2.png)
 
-### Option 3: Remote inference on data nodes
+**Option 3: Remote inference on data nodes**
 
 This option was introduced in OpenSearch 2.9 with the ML extensibility feature. With this option, you use the ML connector to integrate with a remote server (outside of OpenSearch) for model inference (for example, SageMaker). Again, everything else is identical to option 1, except the inference requests are now forwarded by ML Commons from data nodes to the remote SageMaker endpoint through an ML connector, as shown in following figure:
 
 ![Figure 3: Remote inference on data nodes](/assets/media/blog-images/2023-12-07-semantic-options-benchmarks/semantic-options-3.png)
 
 
-### Option 4: Remote inference on ML nodes
+**Option 4: Remote inference on ML nodes**
 
 This option is a combination of options 2 and 3. It still uses remote inference from SageMaker but also uses a dedicated ML node to host ML Commons, as shown in following figure:
 
@@ -73,7 +73,7 @@ To better understand the ingestion/query performance difference between these op
 
 ### Experiment setup
 
-1. Dataset: We used MS MARCO as the primary dataset for benchmarking. MS MARCO is a collection of datasets focused on deep learning in search. MS MARCO has 12M documents, with an average length of 1,500 words, and is  approximately 100 GB in size. Also note that we have truncation set up in models to only use the first 128 tokens of each document in our experiments. 
+1. Dataset: We used MS MARCO as the primary dataset for benchmarking. MS MARCO is a collection of datasets focused on deep learning in search. MS MARCO has 12M documents, with an average length of 1,500 words, and is approximately 100 GB in size. Also note that we have truncation set up in models to only use the first 128 tokens of each document in our experiments. 
 2. Model: We chose sentence-transformers/all-MiniLM-L6-v2 from a list of [pretrained models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#supported-pretrained-models) supported by OpenSearch. 
     1. All pretrained models support truncation/padding to control the input length; we set both at 128.
 3. Cluster configuration: 
@@ -83,7 +83,7 @@ To better understand the ingestion/query performance difference between these op
         2. Option 2: Local inference on ML nodes: 3 data nodes
         3. Option 3: Remote inference on data nodes: 2 data nodes, 1 SageMaker node
         4. Option 4: Remote inference on ML nodes: 1 data node, 1 ML node, 1 SageMaker node
-4. Benchmarking tool: We used [Opensearch Benchmark](https://github.com/opensearch-project/opensearch-benchmark) to generate traffic and collect results.
+4. Benchmarking tool: We used [OpenSearch Benchmark](https://github.com/opensearch-project/opensearch-benchmark) to generate traffic and collect results.
 
 ### Experiment 1: Ingestion
 
@@ -140,7 +140,7 @@ To better understand the ingestion/query performance difference between these op
 
 **Experiment 2: Observations**
 
-* Inference latency is much lower than in the ingestion experiment (~30 ms vs. 60–100 ms). This is primarily because query terms are usually much shorter than documents.
+* Inference latency is much lower than in the ingestion experiment (~30 ms compared to 60–100 ms). This is primarily because query terms are usually much shorter than documents.
 * Externally hosted models outperformed local models on inference tasks by about 10%, even considering the network overhead. 
 * Unlike with ingestion, inference latency is a considerable part of end-to-end query latency. So the configuration that has the lowest latency achieves higher throughput and lower end-to-end latency.
 * The remote model with a dedicated ML node ranked lowest in throughput, which could be because all remote requests have to pass through the single ML node instead of through multiple data nodes, as in the other configurations.
