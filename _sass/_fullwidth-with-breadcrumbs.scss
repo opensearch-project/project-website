@@ -95,6 +95,21 @@
         }
         > ul {
             @include page-element-left-right-margins;
+            padding-left: 0; // Override global ul rule.
+            &.site-content--blog-list {
+                list-style-type: none;
+                > li {
+                    > h2 {
+                        @include header-level2;
+                        > a { 
+                            text-decoration: none;
+                        }
+                    }
+                    > p {
+                        @include body-small;
+                    }
+                }
+            }
         }
         > p {
             @include page-paragraph-padding;
