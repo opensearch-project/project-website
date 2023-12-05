@@ -108,6 +108,7 @@ OpenID Connect
 OpenSearch
 OpenSearch Benchmark
 OpenSearch Dashboards
+OpenSearch Playground
 OpenSearch Project
 OpenSearch Service
 OpenSearchCon
