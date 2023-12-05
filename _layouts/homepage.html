@@ -54,10 +54,9 @@ layout: default
                 {% endif %}
                 {% assign first_post_icon = site.data.post_category_icons.icon_map | find: "category", first_post_category %}
                 {% if post_icon %}
-                    {% assign first_post_icon = first_post_icon | first %}
                     {% assign first_post_icon_name = post_icon.icon %}
                 {% else %}
-                    {% assign icon_name = site.data.post_category_icons.default_post_icon %}
+                    {% assign first_post_icon_name = site.data.post_category_icons.default_post_icon %}
                 {% endif %}
                 {% assign first_post_date = first_post.date | date: "%a, %b %d, %Y" %}
                 {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
