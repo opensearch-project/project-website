@@ -99,11 +99,11 @@
             &.site-content--blog-list {
                 list-style-type: none;
                 > li {
+                    &:not(:first-of-type) {
+                        border-top: 1px solid #ccd3d6;
+                    }
                     > h2 {
                         @include header-level2;
-                        > a { 
-                            text-decoration: none;
-                        }
                     }
                     > p {
                         @include body-small;
