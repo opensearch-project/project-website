@@ -8,8 +8,8 @@ authors:
 date: 2023-12-07
 categories:
  - technical-post
-meta_keywords: semantic search engine, neural search engine, keyword and natural language search, opensearch architecture, benchmarking tests
-meta_description: In this post, we’ll introduce several different ways of configuring OpenSearch clusters for semantic search, explain in detail how each approach works, and present a set of benchmarks to help you choose one to fit your own use case.
+meta_keywords: semantic search with OpenSearch, semantic search engine, deep neural network, benchmarking tests
+meta_description: Learn several ways to configure your OpenSearch clusters for semantic search along with how each approach works, and benchmarking tests to results to help you select the right use case.
 has_math: false
 has_science_table: false
 ---
