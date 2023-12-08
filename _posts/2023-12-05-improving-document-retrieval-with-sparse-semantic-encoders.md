@@ -66,7 +66,7 @@ In bi-encoder mode, both documents and search queries are passed through deep en
 
 For benchmarking, we used a cluster containing 3 `r5.8xlarge` data nodes and 1 `r5.12xlarge` leader/machine learning (ML) node. We measured search relevance for all evaluated search methods in terms of NCDG@10. Additionally, we compared the runtime speed and the resource cost of each method.
 
-Here are the key takeaways:
+**Here are the key takeaways:**
 
 * Both modes provide the highest relevance on the BEIR and Amazon ESCI datasets.
 * Without online inference, the search latency of document-only mode is comparable to BM25.
