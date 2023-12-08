@@ -28,10 +28,10 @@ The following images show example results of dense and sparse encoding.
 <table style="border:none">
   <tr>
     <td style="border:none">
-        <img height="100%" src="/assets/media/blog-images/2023-12-05-improving-document-retrieval-with-spade-semantic-encoders/embedding.png" />
+        <img height="280px" src="/assets/media/blog-images/2023-12-05-improving-document-retrieval-with-spade-semantic-encoders/embedding.png" />
     </td>
     <td style="border:none">
-        <img height="100%" src="/assets/media/blog-images/2023-12-05-improving-document-retrieval-with-spade-semantic-encoders/expand.png" />
+        <img height="280px" src="/assets/media/blog-images/2023-12-05-improving-document-retrieval-with-spade-semantic-encoders/expand.png" />
     </td>
   </tr>
 </table>
