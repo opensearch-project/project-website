@@ -1,8 +1,13 @@
 ---
 calendar_date: '2023-09-27'
 eventdate: 2023-09-27 08:00:00 -0700
+enddate: 2023-09-29 20:00:00 -0700
 title: OpenSearchCon - 2023
-online: 
+online: false
+tz: America/Los_Angeles
+location:
+    city: Seattle
+    country: USA
 signup:
     url: https://opensearchcon2023.splashthat.com/
     title: Register to attend

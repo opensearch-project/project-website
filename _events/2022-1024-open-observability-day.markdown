@@ -9,6 +9,9 @@ signup:
     title: Meet us there!
 categories:
   - events
+location:
+  city: Detroit
+  country: USA
 ---
 
 Join the OpenSearch team at [Open Observability Day](https://events.linuxfoundation.org/open-observability-day-north-america/).

@@ -1,7 +1,7 @@
 ---
 calendar_date: '2023-12-14'
 # put your event date and time (24 hr) here:
-eventdate: 2023-12-14 10:00:00 -0700
+eventdate: 2023-12-14 10:00:00 -0800
 # the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
 # the title - this is how it will show up in listing and headings on the site:
 title: OpenSearch Dashboards Developer Office Hours - 2023-12-14
@@ -10,11 +10,12 @@ online: true
 # This is for the sign up button
 signup:
     # the link URL
-    url:
+    url: https://forum.opensearch.org/t/opensearch-dashboards-developer-office-hours-2023-12-14/16312
     # the button text
-    title: Join on Meetup
+    title: Join on Zoom
 categories:
   - 'development'
+    
 
 # below this triple dash, describe your event. It should be 1-3 sentences
 ---

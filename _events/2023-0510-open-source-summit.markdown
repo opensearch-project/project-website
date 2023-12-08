@@ -1,6 +1,8 @@
 ---
 calendar_date: '2023-05-10'
 eventdate: 2023-05-10 14:00:00 -0800
+
+eventdate: 2023-05-10 14:00:00 -0700
 title: Demystifying Anomaly Detection in OpenSearch - Open Source Summit North America 2023
 online: false
 tz: America/Vancouver
@@ -9,6 +11,9 @@ signup:
     title: See you there!
 categories:
   - events
+location:
+  city: Seattle
+  country: USA
 ---
 Come see Developer Advocate, Nate Boot give a talk: 'Demystifying Anomaly Detection in OpenSearch' at Open Source Summit
 

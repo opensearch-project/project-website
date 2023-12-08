@@ -5,7 +5,7 @@ eventdate: 2023-02-05 16:00:00 +0100
 # the title - this is how it will show up in listing and headings on the site:
 title: FOSDEM - Python Logging Like Your Job Depends on It
 # if your event has an online component, put it here:
-online: False
+online: false
 # This is for the sign up button
 signup:
     # the link URL
@@ -15,6 +15,10 @@ signup:
 categories:
   - community
   
+tz: Europe/Brussels
+location:
+  city: Brussels
+  country: Belgium
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

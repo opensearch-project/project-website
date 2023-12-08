@@ -11,7 +11,7 @@ breadcrumbs:
       url: '/releases.html'
 ---
 
-##### Updated November 13, 2023
+##### Updated November 20, 2023
 
 * [Release Schedule](#release-schedule)
 * [Maintenance Policy](#maintenance-policy)
@@ -28,10 +28,9 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 | 2.10.0        | September 07th   | September 25th |
 | 1.3.13        | September 14th   | September 21st |
 | 2.11.0        | October 4th      | October 18th   |
-| 2.11.1        | November 14th    | November 21st  |
+| 2.11.1        | November 14th    | November 27th  |
 | 1.3.14        | December 5th     | December 12th  |
 | 2.12.0        | January 9th, 2024    | January 23rd, 2024  |
-{: .data-table__bold-first-column}
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
 
@@ -60,7 +59,6 @@ The software maintainers will not back-port fixes or features to versions outsid
 |:--------------|:---------------------|:------------|:----------------|:-------------------------|:-----------------------            |
 | 1             | 1.3.x                | Maintenance |  July 12, 2021  | May 26, 2022             | GA release of 3.0.                 |
 | 2             | 2.0.0                | Current     |  May 26, 2022   | N/A                      | N/A                                |
-{: .data-table__bold-first-two-columns}
 
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date
 
@@ -107,4 +105,3 @@ The software maintainers will not back-port fixes or features to versions outsid
 | September 6th, 2023 | Updated 2.10 date  |  8 hour github outage last night - moving to accomodate a few final fixes |
 | September 11th, 2023 | Link to RELEASING.md  |  updated link from proposal to releasing documentation |
 | September 29th, 2023 | Updated 2.11 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/3955) |
-{: .data-table__use-case-styles}

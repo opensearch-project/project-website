@@ -135,6 +135,12 @@
         > ol {
             padding-left: 0;
         }
+        table {
+            @extend .basic-data-table;
+            &.data-table__half-width {
+                @extend .data-table__half-width;
+            }
+        }
         > .principles-for-development {
             @include page-element-padding;
             > div {

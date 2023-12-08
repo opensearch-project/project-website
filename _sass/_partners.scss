@@ -178,13 +178,13 @@
         @include respond-min(1221px) {
             max-width: 75%;
         }
-        @include respond-min(46.25rem) {
+        @include respond-min(462.5px) {
             margin: 0 auto;
             box-shadow: none;
         }
         flex-grow: 2;
         > h1 {
-            margin: 2rem 0;
+            margin: 20px 0;
         }
         .partner-page--layout--details--description {
             padding: 0;
@@ -269,7 +269,7 @@
         }
     }
 }
-@media screen and (min-width: 46.25rem) {
+@media screen and (min-width: 462.5px) {
     .partner-page--layout--meta.sidebar[role="complementary"] {
         width: unset;
         margin-right: 0;

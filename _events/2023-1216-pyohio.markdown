@@ -1,0 +1,20 @@
+---
+
+eventdate: 2023-12-16 10:00:00 -0500
+title: PyOhio 2023 - 2023-12-16
+online: true
+signup:
+    url: https://www.pyohio.org/2023/
+    title: Join the conference
+
+---
+
+Join Yuliia Barabash and Laysa Uchoa talk on [PyOhio 2023](https://www.pyohio.org/2023/).
+
+**Exploring OpenSearch, Python, and Serverless: Crafting Efficient and Modern Search Applications**
+
+OpenSearch, a community-driven, open-source project, offers a robust alternative for search and analytics needs. When coupled with Python's flexibility and the efficiency of serverless architecture, it transforms into a dynamic trio that empowers developers to create efficient and modern search applications.
+
+Join us on a journey as we explore the synergy between OpenSearch, Python, and serverless architecture. In this talk, we'll provide an overview of OpenSearch and demonstrate how to utilize Python with serverless architecture to power your search engine. Additionally, we will delve into best practices and challenges that arise when employing this combination in production.
+
+Feel free to connect with [Laysa](https://www.linkedin.com/in/laysauchoa/) and [Yuliia](https://www.linkedin.com/in/yuliia-barabash/) on LinkedIn to further discuss these exciting topics.

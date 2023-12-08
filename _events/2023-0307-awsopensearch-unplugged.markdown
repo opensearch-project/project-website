@@ -9,6 +9,9 @@ signup:
     title: Register Now
 categories:
   - development
+location:
+  city: New York
+  country: USA
 ---
 
 Join this partner event with AWS

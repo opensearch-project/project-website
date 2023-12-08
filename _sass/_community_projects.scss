@@ -23,7 +23,7 @@
     
     .community_project {
         text-align: left;
-        margin: 0 -1.8rem;
+        margin: 0 -18px;
 
         // Card view on larger screens
         @include respond-min(860px) {
@@ -52,7 +52,7 @@
         }
 
         .project-info {
-            padding: 0 1.8rem;
+            padding: 0 18px;
             margin-bottom: auto;
         }
 
@@ -80,19 +80,19 @@
             }
         }
         .description {
-            font-size: 1.6rem; //reset to 16px;
+            font-size: 16px; //reset to 16px;
             margin-top: .5em;
             margin-bottom: .5em;
         }
 
         .extras-group {
-            font-size: 1.4rem;
-            padding: 0 1.8rem;
+            font-size: 14px;
+            padding: 0 18px;
 
             @include respond-min(860px) {
                 border-top: 1px solid $line;
                 margin-top: 1em;
-                padding: 1.8rem 1.8rem 0;
+                padding: 18px 18px 0;
                 display: flex;
                 justify-content: flex-start;
                 flex-direction: column;
@@ -115,19 +115,19 @@
 
                 // Adds a bit of margin between items
                 & + .extra {
-                    margin-top: .8rem;
+                    margin-top: 8px;
                 }
             }
 
             .download {
                 display: inline-block;
-                font-size: 1.6rem;
-                border-radius: .8rem;
+                font-size: 16px;
+                border-radius: 8px;
                 margin-top: 1em;
                 background-color: $core;
                 color: $highlight-lightest;
                 text-decoration: none;
-                padding: 1.2rem 2.4rem;
+                padding: 12px 24px;
                 transition: all .125s ease-out;
             
                 @include sans-serif;
