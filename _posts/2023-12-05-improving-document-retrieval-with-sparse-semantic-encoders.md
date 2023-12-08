@@ -40,13 +40,13 @@ _**Left**: Dense vector semantic space. **Right**: Sparse vector semantic space.
 
 ## Sparse encoders use more efficient data structures
 
-In dense encoding, documents are represented as high-dimensional vectors. To search these documents, you need to use a k-NN index as an underlying data structure. On the other hand, sparse search can use a native Lucene index because sparse encodings are similar to term vectors used by keyword-based matching. 
+In dense encoding, documents are represented as high-dimensional vectors. To search these documents, you need to use a k-NN index as an underlying data structure. In contrast, sparse search can use a native Lucene index because sparse encodings are similar to term vectors used by keyword-based matching. 
 
 Compared to k-NN indexes, **sparse embeddings have the following cost-reducing advantages**: 
 
-1. Much smaller index size.
-1. Reduced runtime RAM cost.
-1. Lower computational cost. 
+1. Much smaller index size
+1. Reduced runtime RAM cost
+1. Lower computational cost
 
 For a detailed comparison, see [Table II](#table-ii-speed-comparison-in-terms-of-latency-and-throughput).
 
