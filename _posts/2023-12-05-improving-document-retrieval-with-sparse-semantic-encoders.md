@@ -325,8 +325,6 @@ The benchmarking results are presented in the following tables.
 
 ## Build your search engine in five steps
 
-OpenSearch provides several pretrained encoder models that you can use out-of-the-box without fine-tuning. For more information about sparse encoding models provided by OpenSearch, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models).
-
 Follow these steps to build your search engine:
 
 1. **Prerequisites**: For this simple setup, update the following cluster settings:
@@ -467,13 +465,14 @@ The `neural_sparse` query supports two parameters:
 
 ## Selecting a model
 
+OpenSearch provides several pretrained encoder models that you can use out-of-the-box without fine-tuning. For a list of sparse encoding models provided by OpenSearch, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models).
+
 Use the following recommendations to help you select a sparse encoder model:
 
 - For **bi-encoder** mode, we recommend using the `opensearch-neural-sparse-encoding-v1` pretrained model. For this model, both online search and offline ingestion share the same model file. 
 
 - For **document-only** mode, we recommended using the `opensearch-neural-sparse-encoding-doc-v1` pretrained model for ingestion and the `opensearch-neural-sparse-tokenizer-v1` model at search time to implement online query tokenization. This model does not employ model inference and only translates the query into tokens. 
 
-For more information, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models).
 
 ## Next steps
 
