@@ -6,8 +6,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/294042369/
     title: Join on Meetup
-categories:
-  - events
+category: events
 ---
 
 Have you thought about submitting a talk to a conference but didn't know where to get started? Join us to go through the process of creating and submitting your first talk! We will be using the OpenSearchCon CFP as a demo. 

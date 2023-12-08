@@ -6,6 +6,7 @@ online: true
 signup:
    url: https://www.meetup.com/OpenSearch/events/279756656/
    title: Join on Meetup
+category: community
 ---
 
 Join us for our our biweekly online community meeting. 

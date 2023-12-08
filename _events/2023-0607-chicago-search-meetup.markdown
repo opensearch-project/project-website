@@ -7,8 +7,7 @@ tz: America/Chicago
 signup:
     url: https://www.meetup.com/opensearch-project-chicago/events/293331344
     title: RSVP on Meetup
-categories:
-  - community
+category: community
 location:
   city: Chicago
   country: USA

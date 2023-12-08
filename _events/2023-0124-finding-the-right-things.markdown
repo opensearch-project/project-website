@@ -12,8 +12,7 @@ signup:
     url: https://www.meetup.com/dataops-poland/events/290421010/
     # the button text
     title: Join on Meetup
-categories:
-  - community
+category: events
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

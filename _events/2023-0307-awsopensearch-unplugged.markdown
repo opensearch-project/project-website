@@ -7,8 +7,7 @@ tz: America/New_York
 signup:
     url: https://opensearchunplugged3923.splashthat.com/
     title: Register Now
-categories:
-  - development
+category: events
 location:
   city: New York
   country: USA

@@ -7,8 +7,7 @@ tz: Europe/London
 signup:
     url: https://www.devoxx.co.uk/
     title: Join Devoxx UK 2023 conference in London
-categories:
-  - events
+category: events
 location:
   city: London
   country: United Kingdom

@@ -7,8 +7,7 @@ online: false
 signup:
     url: https://events.canonical.com/event/31/contributions/238/
     title: Learn more
-categories:
-  - events
+category: events
 tz: Europe/Riga
 location:
   city: Riga

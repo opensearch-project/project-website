@@ -7,8 +7,7 @@ tz: America/Detroit
 signup:
     url: https://events.linuxfoundation.org/open-observability-day-north-america/
     title: Meet us there!
-categories:
-  - events
+category: events
 location:
   city: Detroit
   country: USA

@@ -7,8 +7,7 @@ online: false
 signup:
     url: https://www.meetup.com/opensearch-project-amsterdam/events/296766223/
     title: Join on Meetup
-categories:
-  - community
+category: community
 tz: Europe/Amsterdam
 location:
   city: Amsterdam

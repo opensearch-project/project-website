@@ -6,6 +6,7 @@ online: true
 signup:
     url: https://www.meetup.com/OpenSearch/events/thmcwrycckbqb/
     title: Join on Meetup
+category: community
 ---
 
 Join us for our our biweekly online community meeting. Agenda TBD.

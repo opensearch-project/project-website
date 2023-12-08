@@ -22,6 +22,14 @@ signup:
     # the button text
     title: Join on Meetup
 
+# Define a category for the event. This is used for filtering behaviors and styling on the events pages.
+# This is limited to the following values: "community", "development", "user-group", "events".
+# Un-comment the line that defines the category for this event.
+category: community
+# category: development
+# category: user-group
+# category: events
+
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

@@ -13,8 +13,7 @@ signup:
     url: https://bigdataboutique.com/blog/webinar-efficient-vector-search-with-opensearch-5482ac
     # the button text
     title: Join us on this webinar
-categories:
-  - community
+category: community
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

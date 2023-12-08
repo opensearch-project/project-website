@@ -6,8 +6,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/xkggbtyfccbmb
     title: Join on Meetup
-categories:
-  - development
+category: development
 ---
 **PLEASE NOTE** - This was originally scheduled for Monday the 16th, but that is a US Holiday so we are moving this to Tuesday the 17th. Thank you for your understanding.
 

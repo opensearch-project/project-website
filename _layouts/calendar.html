@@ -107,7 +107,7 @@ layout: fullwidth-with-breadcrumbs
                                 </div>
                                 {% if events_for_day -%}
                                     {% for event in events_for_day -%}
-                                        {% assign event_category = event.categories | first %}
+                                        {% assign event_category = event.category | default: "community" %}
                                         {% assign event_category_classname = "events--calendar--body--week--day--event__" | append: event_category %}
                                         {% assign online_event_card_class = "events--calendar--body--week--day--event__online" %}
                                         {% if event.online %}
@@ -383,7 +383,7 @@ layout: fullwidth-with-breadcrumbs
         
         document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select')?.addEventListener?.('click', (e) => {
             const { currentTarget, target : { value = '' } = {} } = e;
-            const filterCategories = ['community', 'development', 'events'];
+            const filterCategories = {{ site.data.calendars.filter_categories | map: "value" | jsonify }};
             if (filterCategories.includes(value)) {
                 const calendarClass = 'events--calendar';
                 const calendarSelector = `.${calendarClass}`;

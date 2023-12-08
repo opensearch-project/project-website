@@ -7,8 +7,7 @@ tz: America/Los_Angeles
 signup:
     url: https://www.myeventi.events/rtasummit23/attendee/?code=Stern30
     title: Join RTA-Summit 2023 conference in San Francisco, CA
-categories:
-  - events
+category: events
 location:
   city: San Francisco
   country: USA

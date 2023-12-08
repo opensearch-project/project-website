@@ -7,8 +7,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/tvcvftyfclbsb/
     title: Join on Meetup
-categories:
-  - development
+category: development
 ---
 
 Join the OpenSearch Security team for their next backlog & triage planning meeting.

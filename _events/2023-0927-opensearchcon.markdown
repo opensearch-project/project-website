@@ -11,8 +11,7 @@ location:
 signup:
     url: https://opensearchcon2023.splashthat.com/
     title: Register to attend
-categories:
-  - events
+category: events
 ---
 
 <img src="/assets/media/herobanners/register-opensearchcon2023.png" alt="OpenSearchCon 2023"/>{: .img-fluid}

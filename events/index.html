@@ -79,7 +79,7 @@ callouts:
           <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
       {% endif %}
 
-      {% assign category = event.categories | first %}
+      {% assign category = event.category | default: "community" %}
       {% assign event_date = event.eventdate | date: "%a, %b %d, %Y" %}
       {% assign category_card_class = "events--calendar__list-view--event-card__" | append: category %}
       {% assign online_event_card_class = "events--calendar__list-view--event-card__online" %}
@@ -230,7 +230,7 @@ callouts:
 
     function toggleCategoryFilterSelection(e) {
         const { currentTarget, target : { value = '' } = {} } = e;
-        const filterCategories = ['community', 'development', 'events'];
+        const filterCategories = {{ site.data.calendars.filter_categories | map: "value" | jsonify }};
         if (filterCategories.includes(value)) {
             const calendarClass = 'events--calendar__list-view';
             const calendarSelector = `.${calendarClass}`;

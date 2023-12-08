@@ -6,7 +6,7 @@ online: true
 signup:
     url: https://www.meetup.com/OpenSearch/events/285398325/
     title: Join on Meetup
-
+category: community
 ---
 
 Join us for Q&A at an open office community meeting.

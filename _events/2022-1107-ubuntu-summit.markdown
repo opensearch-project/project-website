@@ -7,8 +7,7 @@ tz: Europe/Prague
 signup:
     url: https://events.canonical.com/event/2/
     title: Meet us there!
-categories:
-  - events
+category: events
 location:
   city: Prague
   country: Czech Republic

@@ -9,8 +9,7 @@ tz: America/Vancouver
 signup:
     url: https://ossna2023.sched.com/event/4a16eb089ae3231cf5c2bb76e087b6fb
     title: See you there!
-categories:
-  - events
+category: events
 location:
   city: Seattle
   country: USA

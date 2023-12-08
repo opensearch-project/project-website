@@ -6,8 +6,7 @@ online: false
 signup:
     url: https://www.meetup.com/haystack-search-relevance-online/events/296658842/
     title: Register to attend
-categories:
-  - community
+category: community
 tz: America/Chicago
 location:
   city: Austin

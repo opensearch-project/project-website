@@ -14,8 +14,7 @@ signup:
     url: https://calyptia.com/events/fluent-community-meeting-december-14-2023
     # the button text
     title: Learn more and join
-categories:
-  - community
+category: community
 
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---

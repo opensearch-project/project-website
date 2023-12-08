@@ -6,8 +6,7 @@ online: true
 signup:
   url: https://chime.aws/5359048054
   title: Join on Chime
-categories:
-  - development
+category: development
 ---
 
 **NOTE: This is a series, ending with the release of 2.10.0 - Please read carefully**

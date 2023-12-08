@@ -7,8 +7,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/296823928
     title: Join on Meetup
-categories:
-  - development
+category: development
 ---
 
 Join the OpenSearch ml-commons team for their next backlog & triage planning meeting.

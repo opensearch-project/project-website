@@ -6,8 +6,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/293180024/
     title: Join on Meetup
-categories:
-  - development
+category: development
 ---
 
 Join the OpenSearch team for their Integrations and Apache Spark planning meeting.

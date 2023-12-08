@@ -13,8 +13,7 @@ signup:
     url: https://forum.opensearch.org/t/opensearch-dashboards-developer-office-hours-2023-12-14/16312
     # the button text
     title: Join on Zoom
-categories:
-  - 'development'
+category: development
     
 
 # below this triple dash, describe your event. It should be 1-3 sentences

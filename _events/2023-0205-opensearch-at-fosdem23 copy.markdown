@@ -12,8 +12,7 @@ signup:
     url: https://fosdem.org/2023/schedule/event/python_logging/
     # the button text
     title: Talk Page
-categories:
-  - community
+category: events
   
 tz: Europe/Brussels
 location:

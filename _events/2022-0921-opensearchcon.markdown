@@ -10,6 +10,7 @@ tz: America/Los_Angeles
 location:
   city: Seattle
   country: USA
+category: events
 ---
 
 OpenSearchCon - A one-day conference for the community!
