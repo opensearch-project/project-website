@@ -5,4 +5,4 @@ photo: '/assets/media/authors/zhichaog.png'
 github: zhichao-aws
 ---
 
-**Zhichao Geng** is a machine learning engineer working on the OpenSearch Project. His interests include improving search relevance using machine learning.
+**Zhichao Geng** is a machine learning engineer with the OpenSearch Project. His interests include improving search relevance using machine learning.
