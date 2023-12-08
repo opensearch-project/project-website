@@ -298,7 +298,7 @@ The benchmarking results are presented in the following tables.
     </tr>
 </table>
 
-For more information about Benchmarking Information Retrieval (BEIR), see [the BEIR GitHub page](https://github.com/beir-cellar/beir).
+<sup>*</sup> For more information about Benchmarking Information Retrieval (BEIR), see [the BEIR GitHub page](https://github.com/beir-cellar/beir).
 
 ### Table II. Speed comparison in terms of latency and throughput
 
