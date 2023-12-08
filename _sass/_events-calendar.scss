@@ -360,6 +360,17 @@ $calendar-month-default-week-count: 5;
             padding: 0;
             > .solutions-card-grid--card-wrapper {
                 padding: 0;
+                > .solutions-card-grid--card-wrapper--card.tall-card__no-image--grid--card {
+                    &.events--calendar__list-view--event-card__community {
+                        border-bottom: $event-category-community 10px solid;
+                    }
+                    &.events--calendar__list-view--event-card__development {
+                        border-bottom: $event-category-development 10px solid;
+                    }
+                    &.events--calendar__list-view--event-card__events {
+                        border-bottom: $event-category-events 10px solid;
+                    }
+                }
             }
         }
     }
