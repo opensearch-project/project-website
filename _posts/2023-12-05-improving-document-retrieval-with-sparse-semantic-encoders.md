@@ -77,7 +77,7 @@ Here are the key takeaways:
 
 The benchmarking results are presented in the following tables.
 
-### Table I. Relevance comparison on BEIR<sup>*</sup> benchmark and Amazon ESCI, in terms of NDCG@10 and  rank
+### Table I. Relevance comparison on BEIR<sup>*</sup> benchmark and Amazon ESCI, in terms of NDCG@10 and rank
 
 <table>
     <tr style="text\-align:center;">
