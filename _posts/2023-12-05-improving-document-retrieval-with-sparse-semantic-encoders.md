@@ -15,7 +15,7 @@ meta_description: Learn how the neural sparse framework in OpenSearch 2.11 can h
 has_science_table: true
 ---
 
-OpenSearch 2.11 introduced neural sparse search---a new, efficient way of semantic retrieval. In this blog post, you'll learn about using sparse encoders for semantic search. You'll find that neural sparse search reduces costs, performs faster, and improves search relevance. We're excited to share benchmarking results that show why neural sparse search is now the top-performing search method. You can even try it out by building your own search engine in just five steps. For a TLDR on benchmarking learnings, see [Key takeaways](#here-are-the-key-takeaways).
+OpenSearch 2.11 introduced neural sparse search---a new efficient method of semantic retrieval. In this blog post, you'll learn about using sparse encoders for semantic search. You'll find that neural sparse search reduces costs, performs faster, and improves search relevance. We're excited to share benchmarking results that show why neural sparse search is now the top-performing search method. You can even try it out by building your own search engine in just five steps. For a TLDR on benchmarking learnings, see [Key takeaways](#here-are-the-key-takeaways).
 
 ## What are dense and sparse vector embeddings?
 
@@ -68,9 +68,9 @@ For benchmarking, we used a cluster containing 3 `r5.8xlarge` data nodes and 1 `
 
 ### Here are the key takeaways:
 
-* Both bi-encoder and document-only modes provide the highest relevance on the BEIR and Amazon ESCI datasets.
+* Both modes provide the highest relevance on the BEIR and Amazon ESCI datasets.
 * Without online inference, the search latency of document-only mode is comparable to BM25.
-* Sparse encoding results in a much smaller index size than dense encoding. The size of an index a document-only sparse encoder generates is **10.4%** of a dense encoding index size. For a bi-encoder, the index size is **7.2%** of a dense encoding index size.
+* Sparse encoding results in a much smaller index size than dense encoding. A document-only sparse encoder generates an index that is **10.4%** of the size of a dense encoding index. For a bi-encoder, the index size is **7.2%** of the size of a dense encoding index.
 * Dense encoding uses k-NN retrieval and incurs a 7.9% increase in RAM cost at search time. Neural sparse search uses a native Lucene index, so the RAM cost does not increase at search time.
 
 ## Benchmarking results
@@ -83,10 +83,10 @@ The benchmarking results are presented in the following tables.
     <tr style="text\-align:center;">
         <td></td>
         <td colspan="2">BM25</td>
-        <td colspan="2">Dense(with TAS-B model)</td>
-        <td colspan="2">Hybrid(Dense + BM25)</td>
+        <td colspan="2">Dense (with TAS-B model)</td>
+        <td colspan="2">Hybrid (Dense + BM25)</td>
         <td colspan="2">Neural sparse search bi-encoder</td>
-        <td colspan="2">Neural sparse search doc-only</td>
+        <td colspan="2">Neural sparse search document-only</td>
     </tr>
     <tr>
         <td><b>Dataset</b></td>
@@ -298,11 +298,11 @@ The benchmarking results are presented in the following tables.
     </tr>
 </table>
 
-<sup>*</sup> BEIR is short for Benchmarking Information Retrieval. For more information, see [the BEIR GitHub page](https://github.com/beir-cellar/beir).
+<sup>*</sup> BEIR stands for Benchmarking Information Retrieval. For more information, see [the BEIR GitHub page](https://github.com/beir-cellar/beir).
 
-### Table II. Speed comparison, in terms of latency and throughput.
+### Table II. Speed comparison in terms of latency and throughput
 
-|	                        | BM25          | Dense (with TAS-B model)  | Neural sparse search bi-encoder | Neural sparse search doc-only  |
+|	                        | BM25          | Dense (with TAS-B model)  | Neural sparse search bi-encoder | Neural sparse search document-only  |
 |---------------------------|---------------|---------------------------| ------------------------------- | ------------------------------ |
 | P50 latency (ms)          | 8 ms	        | 56.6 ms	                |176.3 ms	                      | 10.2ms	|
 | P90 latency (ms)          | 12.4 ms	    | 71.12 ms	                |267.3 ms	                      | 15.2ms	|
@@ -311,17 +311,17 @@ The benchmarking results are presented in the following tables.
 | Mean throughput (op/s)	| 2214.6 op/s	| 298.2 op/s	                |106.3 op/s	                      | 1790.2 op/s	|
 
 
-<sup>*</sup> We tested latency on a subset of MSMARCO v2, with 1M documents in total. To obtain latency data, we used 20 clients to loop search requests.
+<sup>*</sup> We tested latency on a subset of MS MARCO v2 containing 1M documents in total. To obtain latency data, we used 20 clients to loop search requests.
 
 ### Table III. Capacity consumption comparison
 
-|	|BM25	|Dense (with TAS-B model)	|Neural sparse search bi-encoder	| Neural sparse search doc-only	|
+|	|BM25	|Dense (with TAS-B model)	|Neural sparse search bi-encoder	| Neural sparse search document-only	|
 |-|-|-|-|-|
 |Index size	|1 GB	|65.4 GB	|4.7 GB	|6.8 GB	|
 |RAM usage	|480.74 GB	|675.36 GB	|480.64 GB	|494.25 GB	|
 |Runtime RAM delta	|+0.01 GB	|+53.34 GB	|+0.06 GB	|+0.03 GB	|
 
-<sup>*</sup> We performed this experiment using the full MSMARCO v2 dataset, with 8.8M passages. For all methods, we excluded the `_source` fields and force merged the index before measuring index size. We set the heap size of the OpenSearch JVM to half of the node RAM, so an empty OpenSearch cluster still consumed close to 480 GB of memory.
+<sup>*</sup> We performed this experiment using the full MS MARCO v2 dataset, containing 8.8M passages. For all methods, we excluded the `_source` fields and force merged the index before measuring index size. We set the heap size of the OpenSearch JVM to half of the node RAM, so an empty OpenSearch cluster still consumed close to 480 GB of memory.
 
 ## Build your search engine in five steps
 
@@ -371,7 +371,7 @@ Follow these steps to build your search engine:
     GET /_plugins/_ml/tasks/<task_id>
     ```
 
-    Once the task is complete, the task state changes `COMPLETED` and OpenSearch returns the `model_id` for the deployed model:
+    Once the task is complete, the task state changes to `COMPLETED` and OpenSearch returns the `model_id` for the deployed model:
 
     ```json
     {
@@ -456,7 +456,7 @@ Congratulations! You've now created your own semantic search engine based on spa
 }
 ```
 
-### The neural sparse query parameters
+### Neural sparse query parameters
 
 The `neural_sparse` query supports two parameters:
 
@@ -465,9 +465,9 @@ The `neural_sparse` query supports two parameters:
 
 ## Selecting a model
 
-OpenSearch provides several pretrained encoder models that you can use out-of-the-box without fine-tuning. For a list of sparse encoding models provided by OpenSearch, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models).
+OpenSearch provides several pretrained encoder models that you can use out of the box without fine-tuning. For a list of sparse encoding models provided by OpenSearch, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models).
 
-Use the following recommendations to help you select a sparse encoder model:
+Use the following recommendations to select a sparse encoder model:
 
 - For **bi-encoder** mode, we recommend using the `opensearch-neural-sparse-encoding-v1` pretrained model. For this model, both online search and offline ingestion share the same model file. 
 
@@ -477,6 +477,6 @@ Use the following recommendations to help you select a sparse encoder model:
 ## Next steps
 
 - For more information about neural sparse search, see [Neural sparse search](https://opensearch.org/docs/latest/search-plugins/neural-sparse-search/). 
-- For an OpenSearch end-to-end neural search tutorial, see [Neural search tutorial](https://opensearch.org/docs/latest/search-plugins/neural-search-tutorial/). 
+- For an end-to-end neural search tutorial, see [Neural search tutorial](https://opensearch.org/docs/latest/search-plugins/neural-search-tutorial/). 
 - For a list of all search methods OpenSearch supports, see [Search methods](https://opensearch.org/docs/latest/search-plugins/index/#search-methods).
-- Give us your feedback on the [OpenSearch Forum](https://forum.opensearch.org/).
+- Provide your feedback on the [OpenSearch Forum](https://forum.opensearch.org/).
