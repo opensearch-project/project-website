@@ -77,7 +77,7 @@ Here are the key takeaways:
 
 The benchmarking results are presented in the following tables.
 
-### Table I. Relevance comparison on BEIR<sup>*</sup> benchmark and Amazon ESCI, in terms of NDCG@10 and  rank.
+### Table I. Relevance comparison on BEIR<sup>*</sup> benchmark and Amazon ESCI, in terms of NDCG@10 and  rank
 
 <table>
     <tr style="text\-align:center;">
@@ -102,7 +102,7 @@ The benchmarking results are presented in the following tables.
         <td><b>Rank</b></td>
     </tr>
     <tr>
-        <td>Trec Covid</td>
+        <td>Trec-Covid</td>
         <td>0.688</td>
         <td>4</td>
         <td>0.481</td>
@@ -206,7 +206,7 @@ The benchmarking results are presented in the following tables.
         <td>2</td>
     </tr>
     <tr>
-        <td>SCIDOCS</td>
+        <td>SciDocs</td>
         <td>0.165</td>
         <td>2</td>
         <td>0.149</td>
