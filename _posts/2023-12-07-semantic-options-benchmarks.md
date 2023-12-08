@@ -2,9 +2,9 @@
 layout: post
 title:  "Semantic Search with OpenSearch: Architecture options and Benchmarks"
 authors:
- - sean-zheng-amazon
- - zane-neo
- - ylwu-amzn
+ - seanzheng
+ - zanniu
+ - ylwu
 date: 2023-12-07
 categories:
  - technical-post
