@@ -313,7 +313,7 @@ The benchmarking results are presented in the following tables.
 
 <sup>*</sup> We tested latency on a subset of MS MARCO v2 containing 1M documents in total. To obtain latency data, we used 20 clients to loop search requests.
 
-### Table III. Capacity consumption comparison
+### Table III. Resource consumption comparison
 
 |	|BM25	|Dense (with TAS-B model)	|Neural sparse search bi-encoder	| Neural sparse search document-only	|
 |-|-|-|-|-|
