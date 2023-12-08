@@ -15,7 +15,7 @@ meta_description: Learn how the neural sparse framework in OpenSearch 2.11 can h
 has_science_table: true
 ---
 
-OpenSearch 2.11 introduced neural sparse search---a new efficient method of semantic retrieval. In this blog post, you'll learn about using sparse encoders for semantic search. You'll find that neural sparse search reduces costs, performs faster, and improves search relevance. We're excited to share benchmarking results and show how neural sparse search outperforms other search methods. You can even try it out by building your own search engine in just five steps. 
+OpenSearch 2.11 introduced neural sparse search---a new efficient method of semantic retrieval. In this blog post, you'll learn about using sparse encoders for semantic search. You'll find that neural sparse search reduces costs, performs faster, and improves search relevance. We're excited to share benchmarking results and show how neural sparse search outperforms other search methods. You can even try it out by building your own search engine in just five steps. To skip straight to the results, see [Benchmarking results](#benchmarking-results).
 
 ## What are dense and sparse vector embeddings?
 
@@ -54,7 +54,7 @@ For a detailed comparison, see [Table II](#table-ii-speed-comparison-in-terms-of
 
 In our previous [blog post](https://opensearch.org/blog/semantic-science-benchmarks), we mentioned that searching with dense embeddings presents challenges when encoders encounter unfamiliar content. When an encoder trained on one dataset is used on a different dataset, the encoder often produces unpredictable embeddings, resulting in poor search result relevance. 
 
-Often, BM25 performs better than dense encoders on BEIR datasets that incorporate strong domain knowledge. In these cases, sparse encoders can fall back on keyword-based matching, ensuring that their search results are no worse than those produced by BM25. For a comparison of search result relevance benchmarks, see [Table I](#benchmarking-results).
+Often, BM25 performs better than dense encoders on BEIR datasets that incorporate strong domain knowledge. In these cases, sparse encoders can fall back on keyword-based matching, ensuring that their search results are no worse than those produced by BM25. For a comparison of search result relevance benchmarks, see [Table I](#table-i-relevance-comparison-on-beir-benchmark-and-amazon-esci-in-terms-of-ndcg10-and-rank).
 
 ## Among sparse encoders, document-only encoders are the most efficient
 
@@ -77,7 +77,7 @@ Here are the key takeaways:
 
 The benchmarking results are presented in the following tables.
 
-### Table I. Relevance comparison on BEIR<sup>*</sup> benchmark and Amazon ESCI, in terms of NDCG@10 and rank
+### Table I. Relevance comparison on BEIR benchmark and Amazon ESCI in terms of NDCG@10 and rank
 
 <table>
     <tr style="text\-align:center;">
@@ -298,7 +298,7 @@ The benchmarking results are presented in the following tables.
     </tr>
 </table>
 
-<sup>*</sup> BEIR stands for Benchmarking Information Retrieval. For more information, see [the BEIR GitHub page](https://github.com/beir-cellar/beir).
+For more information about Benchmarking Information Retrieval (BEIR), see [the BEIR GitHub page](https://github.com/beir-cellar/beir).
 
 ### Table II. Speed comparison in terms of latency and throughput
 
@@ -461,13 +461,13 @@ Congratulations! You've now created your own semantic search engine based on spa
 The `neural_sparse` query supports two parameters:
 
 - `model_id` (String): The ID of the model that is used to generate tokens and weights from the query text. A sparse encoding model will expand the tokens from query text, while the tokenizer model will only tokenize the query text itself.
-- `max_token_score` (Float): An extra parameter required for performance optimization. Just like the OpenSearch `match` query, the `neural_sparse` query is transformed to a Lucene BooleanQuery, combining term-level subqueries using disjunction. The difference is that neural sparse query uses FeatureQuery instead of TermQuery to match the terms. Lucene employs the Weak AND (WAND) algorithm for dynamic pruning, which skips non-competitive tokens based on their score upper bounds. However, FeatureQuery uses `FLOAT.MAX_VALUE` as the score upper bound, which makes the WAND optimization ineffective. The `max_token_score` parameter resets the score upper bound for each token in a query, which is consistent with the original FeatureQuery. Thus, setting the value to 3.5 for the bi-encoder model and to 2 for the document-only model can accelerate search without precision loss. After OpenSearch is upgraded to Lucene version 9.8, this parameter will be deprecated.
+- `max_token_score` (Float): An extra parameter required for performance optimization. Just like a `match` query, a `neural_sparse` query is transformed to a Lucene BooleanQuery, combining term-level subqueries using disjunction. The difference is that a `neural_sparse` query uses FeatureQuery instead of TermQuery to match the terms. Lucene employs the Weak AND (WAND) algorithm for dynamic pruning, which skips non-competitive tokens based on their score upper bounds. However, FeatureQuery uses `FLOAT.MAX_VALUE` as the score upper bound, which makes the WAND optimization ineffective. The `max_token_score` parameter resets the score upper bound for each token in a query, which is consistent with the original FeatureQuery. Thus, setting the value to 3.5 for the bi-encoder model and to 2 for the document-only model can accelerate search without precision loss. After OpenSearch is upgraded to Lucene version 9.8, this parameter will be deprecated.
 
 ## Selecting a model
 
 OpenSearch provides several pretrained encoder models that you can use out of the box without fine-tuning. For a list of sparse encoding models provided by OpenSearch, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models).
 
-Use the following recommendations to select a sparse encoder model:
+Use the following recommendations to select a sparse encoding model:
 
 - For **bi-encoder** mode, we recommend using the `opensearch-neural-sparse-encoding-v1` pretrained model. For this model, both online search and offline ingestion share the same model file. 
 
