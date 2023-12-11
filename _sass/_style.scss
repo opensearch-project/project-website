@@ -711,8 +711,6 @@ ul {
     @include link-alternate;
 }
 .link-readmore {
-    // Read More links. Should exist outside of <p> tag, and include the '&rsaquo;' arrow after the text.
-    @include link-alternate;
     @include sans-serif;
     font-size: 14px;
     display: inline-block;

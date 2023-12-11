@@ -105,24 +105,18 @@ $content-panel-expand-breakpoint: 1019px;
 }
 
 .conference-speaker-session-page--view-all {
+    @include page-element-padding;
     display: flex;
     @media screen and (max-width: $content-panel-collapse-breakpoint) {
         flex-direction: column;
         align-items: center;
-        padding-left: 20px;
-        padding-right: 20px;
         row-gap: 2em;
     }
     @media screen and (min-width: 834px) {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        padding-left: 80px;
-        padding-right: 40px;
     }
-    
-    padding-top: 20px;
-    padding-bottom: 80px;
     .conference-speaker-session-page--view-all--link-button {
         flex-basis: unset;
         max-width: unset;

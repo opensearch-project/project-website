@@ -31,43 +31,6 @@ dl.list-features {
     }
 }
 
-// This is the sum of the logo + the navigation menu items + the search field.
-$header-banner-min-width: 1019px;
-$header-logo-max-left: 80px;
-$header-navigation-max-right: 40px;
-$max-container: 1440px;
-
-[role="banner"] [role="navigation"] {
-    margin-top: 17px;
-    margin-right: 40px;
-    @media screen and (max-width: 1339px) {
-        margin-right: 0;
-    }
-    li {
-        color: $primary-open-sky-s3;
-        text-transform: none;
-        @media screen and (min-width: 1250px) {
-            margin-right: 2em;
-        }
-        @media screen and (min-width: 1150px) and (max-width: 1249px) {
-            margin-right: 1em;
-        }
-        margin-right: 5px;
-    }
-    li a {
-        display: inline;
-        @include header-level6($primary-open-sky-s3);
-    }
-    .nested-nav a.in-category,
-    .nested-nav a:hover {
-        color: $primary-open-sky-s2;
-        text-decoration: underline;
-        text-decoration-color: $primary-open-sky-s2;
-        text-decoration-thickness: 2px;
-        text-underline-offset: 6px;
-    }
-}
-
 .whats-new {
     .whats-new-post {
         h4 {
@@ -149,26 +112,6 @@ $max-container: 1440px;
         display: inline-block;
         margin-right: 1.5em;
     }
-}
-
-.homepage .sidebar .cta + .link-readmore {
-    margin-bottom: 0;
-}
-.homepage .latest-version {
-    color: $text-light;
-    text-align: center;
-    font-size: 12.5px;
-}
-.homepage .list-features p {
-    margin-bottom: 0;
-}
-
-.homepage .list-features dt {
-    @include sans-serif;
-}
-
-.homepage .list-features p + dt {
-    padding-top: 0.5em;
 }
 
 .author-photo {

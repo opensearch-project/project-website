@@ -91,11 +91,23 @@ defaults:
       type: speakers
     values:
       layout: speaker
+      breadcrumbs:
+        icon: community
+        items:
+          - title: OpenSearchCon 2023
+          - title: Speaker Bios
+            url: '/events/opensearchcon/speakers/'
 -
     scope:
       type: speaker_sessions
     values:
       layout: speaker_session
+      breadcrumbs:
+        icon: community
+        items:
+          - title: OpenSearchCon 2023
+          - title: Session Summaries
+            url: '/events/opensearchcon/sessions/'
 -
     scope:
       type: platforms

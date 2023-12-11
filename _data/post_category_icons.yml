@@ -1,3 +1,4 @@
+default_post_icon: "search-magnifying-glass"
 icon_map:
   - category: "announcements"
     icon: "marketing-content"
@@ -22,6 +23,8 @@ icon_map:
   - catgory: "partner-highlight"
     icon: "creator-data-producer"
   - category: "releases"
+    icon: "opensearch-admin"
+  - category: "release"
     icon: "opensearch-admin"
   - category: "search"
     icon: "search-magnifying-glass"
