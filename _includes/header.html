@@ -203,7 +203,23 @@
         menu.classList.toggle('active');
         button.classList.toggle('active');
     });
+
+    const isMobile = window.matchMedia('only screen and (max-width: 834px)').matches;
+
+    // Initialize the calendar view menu item to target the current month.
+    const calendarMenuItemSelector = '#top a[href*="/events/calendar/"]';
+    const calendarMenuItem = document.querySelector(calendarMenuItemSelector);
+    if (calendarMenuItem && !isMobile) {
+      const now = new Date();
+      const monthNumber = now.getUTCMonth() + 1;
+      const year = now.getFullYear();
+      const thisMonthCalendarUrl = `/events/calendar/${year}-${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`;
+      calendarMenuItem.setAttribute('href',  thisMonthCalendarUrl);
+    } else if (calendarMenuItem) {
+      calendarMenuItem.setAttribute('href', '/events/index.html');
+    }
   });
+
 </script>
 <script type="module">
   document.addEventListener('DOMContentLoaded', () => {

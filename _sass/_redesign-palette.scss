@@ -97,8 +97,8 @@ $event-category-community: $primary-open-sky;
 $event-category-development: $secondary-malibu-sunrise;
 $event-category-events: $secondary-seafoam-mint;
 
-@mixin thick-edge-bottom {
-    border-bottom: $primary-open-sky-s2 10px solid;
+@mixin thick-edge-bottom($color: $primary-open-sky-s2) {
+    border-bottom: $color 10px solid;
 }
 @mixin thick-edge-top {
     border-top: $primary-open-sky-s2 10px solid;

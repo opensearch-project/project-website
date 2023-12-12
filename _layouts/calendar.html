@@ -117,6 +117,28 @@ layout: fullwidth-with-breadcrumbs
                                             <div class="events--calendar--body--week--day--event--name">
                                                 <a href="{{ event.url }}" tile="{{ event.title }}">{{ event.title }}</a>
                                             </div>
+                                            <div class="events--calendar--body--week--day--event--details">
+                                                <h4 class="events--calendar--body--week--day--event--details--category">
+                                                    {{ event_category }}
+                                                </h4>
+                                                <h3 class="events--calendar--body--week--day--event--details--name">
+                                                    {{ event.title }}
+                                                </h3>
+                                                <h6 class="events--calendar--body--week--day--event--details--date">
+                                                    {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
+                                                </h6>
+                                                {% if event.excerpt %}
+                                                    {{ event.excerpt }}
+                                                {% else %}
+                                                    {{ event.content }}
+                                                {% endif %}
+                                                {% if event.group %}
+                                                    <h5 class="events--calendar--body--week--day--event--details--host">
+                                                        Hosted by <a href="{{ event.group.url }}">{{ event.group.name }}</a>
+                                                    </h5>
+                                                {% endif %}
+                                                <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
+                                            </div>
                                         </div>
                                     {%- endfor %}
                                 {% endif -%}
@@ -447,6 +469,69 @@ layout: fullwidth-with-breadcrumbs
             parent.classList.toggle('events--calendar--filters--in-person-toggle__toggled-off');
             const calendar = document.querySelector('.events--calendar');
             calendar?.classList?.toggle?.('events--calendar__online-only');
+        });
+
+        let eventDetailsAction = null;
+        let showHideTimerId = 0;
+        const showDetailsDelay = 500;
+
+        function showEventDetails(element) {
+            element?.closest?.('.events--calendar--body--week--day--event')?.classList?.add?.('events--calendar--body--week--day--event__visible-details');
+            element?.classList?.add?.('events--calendar--body--week--day--event--details__show');
+            eventDetailsAction = null;
+            showHideTimerId = 0;
+        }
+
+        function hideEventDetails(element) {
+            element?.classList?.remove?.('events--calendar--body--week--day--event--details__show');
+            element?.closest?.('.events--calendar--body--week--day--event__visible-details')?.classList?.remove?.('events--calendar--body--week--day--event__visible-details');
+            eventDetailsAction = null;
+            showHideTimerId = 0;
+        }
+
+        function isWaitingToShow() {
+            return eventDetailsAction?.name === 'showEventDetails';
+        }
+
+        function isWaitingToHide() {
+            return eventDetailsAction?.name === 'hideEventDetails';
+        }
+
+        function getVisibleDetails() {
+            return document.querySelector('.events--calendar--body--week--day--event--details__show');
+        }
+
+        function onEventMouseOver(e) {
+            if (showHideTimerId) {
+                window.clearTimeout(showHideTimerId);
+                showHideTimerId = 0;
+            }
+            if (eventDetailsAction && isWaitingToHide()) {
+                eventDetailsAction();
+            }
+            const currentlyVisibleDetails = getVisibleDetails();
+            if (currentlyVisibleDetails) {
+                hideEventDetails(currentlyVisibleDetails);
+            }
+            eventDetailsAction = showEventDetails.bind(null, e.currentTarget.querySelector('.events--calendar--body--week--day--event--details'));
+            showHideTimerId = window.setTimeout(eventDetailsAction, showDetailsDelay);
+        }
+
+        function onEventMouseOut(e) {
+            if (showHideTimerId) {
+                window.clearTimeout(showHideTimerId);
+                showHideTimerId = 0;
+            }
+            if (eventDetailsAction && isWaitingToHide()) {
+                eventDetailsAction();
+            }
+            eventDetailsAction = hideEventDetails.bind(null, e.currentTarget.querySelector('.events--calendar--body--week--day--event--details'));
+            showHideTimerId = window.setTimeout(eventDetailsAction, showDetailsDelay);
+        }
+
+        document.querySelectorAll('.events--calendar--body--week--day--event').forEach(eventElement => {
+            eventElement.addEventListener('mouseover', onEventMouseOver);
+            eventElement.addEventListener('mouseout', onEventMouseOut);
         });
     });
 </script>

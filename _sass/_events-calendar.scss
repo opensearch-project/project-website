@@ -176,7 +176,7 @@ $calendar-month-default-week-count: 5;
         padding: 0;
         margin-bottom: 30px;
         &.events--calendar__online-only {
-            .events--calendar--body--week--day--even {
+            .events--calendar--body--week--day--event {
                 &:not(.events--calendar--body--week--day--event__online) {
                     display: none;
                 }
@@ -320,14 +320,26 @@ $calendar-month-default-week-count: 5;
                         > .events--calendar--body--week--day--event {
                             width: 100%;
                             box-sizing: border-box;
+                            &.events--calendar--body--week--day--event__visible-details {
+                                position: relative;
+                            }
                             &.events--calendar--body--week--day--event__community {
                                 border-left: 5px solid $event-category-community;
+                                > .events--calendar--body--week--day--event--details {
+                                    border-bottom-color: $event-category-community;
+                                }
                             }
                             &.events--calendar--body--week--day--event__development {
                                 border-left: 5px solid $event-category-development;
+                                > .events--calendar--body--week--day--event--details {
+                                    border-bottom-color: $event-category-development;
+                                }
                             }
                             &.events--calendar--body--week--day--event__events {
                                 border-left: 5px solid $event-category-events;
+                                > .events--calendar--body--week--day--event--details {
+                                    border-bottom-color: $event-category-events;
+                                }
                             }
                             margin-top: 10px;
                             padding-bottom: 1px;
@@ -346,6 +358,74 @@ $calendar-month-default-week-count: 5;
                                     font-weight: 600;
                                     line-height: 16px;
                                     text-decoration: none;
+                                }
+                            }
+                            > .events--calendar--body--week--day--event--details {
+                                display: none;
+                                opacity: 0;
+                                transition-property: opacity;
+                                transition-duration: 0.5s;
+                                transition-timing-function: ease-in;
+                                &.events--calendar--body--week--day--event--details__show {
+                                    display: block;
+                                    opacity: 1;
+                                }
+                                position: absolute;
+                                top: 0;
+                                left: 100%;
+                                right: auto;
+                                bottom: auto;
+                                box-sizing: border-box;
+                                width: 350px;
+                                height: 340px;
+                                padding: 30px;
+                                @include thick-edge-bottom;
+                                @include card-shadow;
+                                background-color: #fff;
+                                > h4.events--calendar--body--week--day--event--details--category {
+                                    margin-top: 0;
+                                    margin-bottom: 10px;
+                                }
+                                > h3.events--calendar--body--week--day--event--details--name {
+                                    @include header-level3($primary-open-sky-s2);
+                                    margin-top: 0;
+                                    margin-bottom: 0;
+                                }
+                                > h6.events--calendar--body--week--day--event--details--date {
+                                    margin-top: 10px;
+                                    margin-bottom: 0;
+                                }
+                                > p,
+                                .events--calendar--body--week--day--event--details--description {
+                                    @include body-small;
+                                    color: #000;
+                                    @include trim-ellipsis-multiline;
+                                    margin: 10px 0;
+                                }
+                                > h5.events--calendar--body--week--day--event--details--host {
+                                    margin-top: 0;
+                                    margin-bottom: 0;
+                                    > a {
+                                        color: $primary-pacific-blue;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &:nth-of-type(4) {
+                        > .events--calendar--body--week--day {
+                            > .events--calendar--body--week--day--event {
+                                > .events--calendar--body--week--day--event--details {
+                                    top: -100px;
+                                }
+                            }
+                        }
+                    }
+                    &:nth-of-type(5) {
+                        > .events--calendar--body--week--day {
+                            > .events--calendar--body--week--day--event {
+                                > .events--calendar--body--week--day--event--details {
+                                    top: -200px;
                                 }
                             }
                         }
