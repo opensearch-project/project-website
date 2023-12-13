@@ -117,24 +117,33 @@ layout: fullwidth-with-breadcrumbs
                                             <div class="events--calendar--body--week--day--event--name">
                                                 <a href="{{ event.url }}" tile="{{ event.title }}">{{ event.title }}</a>
                                             </div>
-                                            <div class="events--calendar--body--week--day--event--details">
+                                            <div class="events--calendar--body--week--day--event--details" data-eventurl="{{ event.url }}">
+                                                <div class="events--calendar--body--week--day--event--details--close-button">
+                                                    <a href="#" class="events--calendar--body--week--day--event--details--close-button--anchor">
+                                                        {% include icons.html type="close-x" %}
+                                                    </a>
+                                                </div>
                                                 <h4 class="events--calendar--body--week--day--event--details--category">
                                                     {{ event_category }}
                                                 </h4>
                                                 <h3 class="events--calendar--body--week--day--event--details--name">
-                                                    {{ event.title }}
+                                                    <a href="{{ event.url }}">{{- event.title | strip -}}</a>
                                                 </h3>
                                                 <h6 class="events--calendar--body--week--day--event--details--date">
                                                     {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
                                                 </h6>
                                                 {% if event.excerpt %}
-                                                    {{ event.excerpt }}
+                                                    <p>{{ event.excerpt }}</p>
                                                 {% else %}
                                                     {{ event.content }}
                                                 {% endif %}
                                                 {% if event.group %}
                                                     <h5 class="events--calendar--body--week--day--event--details--host">
-                                                        Hosted by <a href="{{ event.group.url }}">{{ event.group.name }}</a>
+                                                        {% if event.online -%}
+                                                            Online event hosted by a href="{{ event.group.url }}">{{ event.group.name }}</a>
+                                                        {%- else -%}
+                                                            Hosted by <a href="{{ event.group.url }}">{{ event.group.name }}</a>
+                                                        {%- endif %}
                                                     </h5>
                                                 {% endif %}
                                                 <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
@@ -232,6 +241,28 @@ layout: fullwidth-with-breadcrumbs
             </div>
         </div>
     </div>
+</div>
+<div class="events--secondary-content">
+  {% include callout-cards.html 
+    heading="Hosting an OpenSearch event?" 
+    callouts=page.callouts 
+    subheading='Add it so the community knows! Looking for a past event? Take a look at the <a href="/events/past.html">past events page.</a>'
+  %}
+  <div class="landing-page-content__right-panel">
+    <div class="landing-page-content__right-panel--content">
+      <hgroup class="landing-page-content__right-panel--content--body">
+        <h2 class="platform-page--solution--header">Connect with the community</h2>
+        <p>To learn more or start a discussion, join the <a href="/slack.html">Slack channel</a> or check out the <a href="https://forum.opensearch.org/">user forum</a> and follow <a href="/blog">our blog</a> for the latest on OpenSearch search tools.</p>
+      </hgroup>
+      <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__without-card-grid">
+        <div class="draft-3-landing-page--button-stack">
+          <div class="draft-3-landing-page--button-stack--button">
+            {% include redesign_buttons.html name="project" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="module">
@@ -501,6 +532,37 @@ layout: fullwidth-with-breadcrumbs
             return document.querySelector('.events--calendar--body--week--day--event--details__show');
         }
 
+        function onClickAwayCloseDetails(e) {
+            const currentlyVisibleDetails = getVisibleDetails();
+            if (currentlyVisibleDetails) {
+                const closeAnchorClass = 'events--calendar--body--week--day--event--details--close-button--anchor';
+                const findAnchor = (element) => {
+                    if (!element) {
+                        return null;
+                    }
+                    if (element.tagName === 'A' && element.classList.contains(closeAnchorClass)) {
+                        return element;
+                    }
+                    if (element.classList.contains('events--calendar--body--week--day--event--details')) {
+                        return null;
+                    }
+                    return findAnchor(element.parentElement);
+                };
+                const closeButtonClicked = findAnchor(e.target);
+                if (closeButtonClicked) {
+                    hideEventDetails(currentlyVisibleDetails);
+                    event.preventDefault();
+                } else {
+                    const detailsCard = e.target.closest('.events--calendar--body--week--day--event--details');
+                    const clickWasInsideCard = detailsCard !== null;
+                    if (!clickWasInsideCard) {
+                        hideEventDetails(currentlyVisibleDetails);
+                        event.preventDefault();
+                    }
+                }
+            }
+        }
+
         function onEventMouseOver(e) {
             if (showHideTimerId) {
                 window.clearTimeout(showHideTimerId);
@@ -509,9 +571,14 @@ layout: fullwidth-with-breadcrumbs
             if (eventDetailsAction && isWaitingToHide()) {
                 eventDetailsAction();
             }
+            const targetEventDetails = e.currentTarget.querySelector('.events--calendar--body--week--day--event--details');
+            const targetEventUrl = targetEventDetails.getAttribute('data-eventurl');
             const currentlyVisibleDetails = getVisibleDetails();
-            if (currentlyVisibleDetails) {
+            if (currentlyVisibleDetails && targetEventUrl && (targetEventUrl !== currentlyVisibleDetails.getAttribute('data-eventurl'))) {
                 hideEventDetails(currentlyVisibleDetails);
+            } else if (e.target.closest('.events--calendar--body--week--day--event--details')) {
+                // Do nothing if the event occurs within a details card.
+                return;
             }
             eventDetailsAction = showEventDetails.bind(null, e.currentTarget.querySelector('.events--calendar--body--week--day--event--details'));
             showHideTimerId = window.setTimeout(eventDetailsAction, showDetailsDelay);
@@ -531,7 +598,8 @@ layout: fullwidth-with-breadcrumbs
 
         document.querySelectorAll('.events--calendar--body--week--day--event').forEach(eventElement => {
             eventElement.addEventListener('mouseover', onEventMouseOver);
-            eventElement.addEventListener('mouseout', onEventMouseOut);
+            //eventElement.addEventListener('mouseout', onEventMouseOut);
         });
+        document.body.addEventListener('click', onClickAwayCloseDetails);
     });
 </script>

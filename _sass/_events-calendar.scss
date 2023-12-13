@@ -5,8 +5,8 @@ $calendar-month-default-week-count: 5;
 .events--calendar--details--card {
     box-sizing: border-box;
     width: 350px;
-    height: 340px;
-    padding: 30px;
+    height: 347px;
+    padding: 45px 30px 10px 30px;
     @include thick-edge-bottom;
     @include card-shadow;
     background-color: #fff;
@@ -16,31 +16,69 @@ $calendar-month-default-week-count: 5;
     > h4.events--calendar--body--week--day--event--details--category {
         margin-top: 0;
         margin-bottom: 10px;
+        color: #000;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 21px;
+        letter-spacing: 3.6px;
+        text-transform: uppercase;
     }
     > h3.events--calendar--body--week--day--event--details--name {
-        @include header-level3($primary-open-sky-s2);
+        color: $primary-open-sky-s2;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 27px;
         margin-top: 0;
         margin-bottom: 0;
         > a {
-            @include header-level3($primary-open-sky-s2);
+            color: $primary-open-sky-s2;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 27px;
         }
     }
     > h6.events--calendar--body--week--day--event--details--date {
         margin-top: 10px;
         margin-bottom: 0;
+        color: #000;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 14px;
     }
     > p,
     .events--calendar--body--week--day--event--details--description {
-        @include body-small;
-        color: #000;
         @include trim-ellipsis-multiline;
+        color: #000;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
         margin: 10px 0;
+        & * {
+            font-weight: normal;
+            font-style: normal;
+
+        }
     }
     > h5.events--calendar--body--week--day--event--details--host {
         margin-top: 0;
         margin-bottom: 0;
+        color: #000;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
         > a {
             color: $primary-pacific-blue;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+            text-decoration: underline;
         }
     }
 }
@@ -217,7 +255,7 @@ $calendar-month-default-week-count: 5;
         background: #FFF;
         box-sizing: border-box;
         padding: 0;
-        margin-bottom: 30px;
+        margin-bottom: 80px;
         &.events--calendar__online-only {
             .events--calendar--body--week--day--event {
                 &:not(.events--calendar--body--week--day--event__online) {
@@ -419,6 +457,17 @@ $calendar-month-default-week-count: 5;
                                 right: auto;
                                 bottom: auto;
                                 @extend .events--calendar--details--card;
+                                padding-top: 0px;
+                                height: 400px;
+                                > .events--calendar--body--week--day--event--details--close-button {
+                                    box-sizing: border-box;
+                                    width: 100%;
+                                    padding-top: 7px;
+                                    height: 30px;
+                                    text-align: right;
+                                    position: relative;
+                                    left: 20px;
+                                }
                             }
                         }
                     }
@@ -448,6 +497,12 @@ $calendar-month-default-week-count: 5;
         > .solutions-card-grid {
             background: unset;
             padding: 0;
+            &:not(:first-of-type) {
+                margin-top: 100px;
+            }
+            > h2 {
+                @include header-level2($primary-open-sky-s2);
+            }
             > .events--calendar__list-view--card-wrapper {
                 display: grid;
                 @media screen and (min-width: 1460px) {
@@ -536,6 +591,16 @@ $calendar-month-default-week-count: 5;
                 > .solutions-card-grid--card-wrapper--card {
                     min-height: 150px;
                     align-items: flex-start;
+                    > .solutions-card-grid--card-wrapper--card--label__no-icon {
+                        color: $primary-pacific-blue-s3;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 21px;
+                        letter-spacing: 4.5px;
+                        text-transform: uppercase;
+                        padding-bottom: 15px;
+                    }
                     > .solutions-card-grid--card-wrapper--card--content {
                         @include body-small;
                         color: $secondary-sanfrancisco-fog-s3;
