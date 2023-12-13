@@ -2,6 +2,49 @@ $calendar-week-max-height: 185px;
 $calendar-day-max-width: 180px;
 $calendar-month-default-week-count: 5;
 
+.events--calendar--details--card {
+    box-sizing: border-box;
+    width: 350px;
+    height: 340px;
+    padding: 30px;
+    @include thick-edge-bottom;
+    @include card-shadow;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    > h4.events--calendar--body--week--day--event--details--category {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    > h3.events--calendar--body--week--day--event--details--name {
+        @include header-level3($primary-open-sky-s2);
+        margin-top: 0;
+        margin-bottom: 0;
+        > a {
+            @include header-level3($primary-open-sky-s2);
+        }
+    }
+    > h6.events--calendar--body--week--day--event--details--date {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    > p,
+    .events--calendar--body--week--day--event--details--description {
+        @include body-small;
+        color: #000;
+        @include trim-ellipsis-multiline;
+        margin: 10px 0;
+    }
+    > h5.events--calendar--body--week--day--event--details--host {
+        margin-top: 0;
+        margin-bottom: 0;
+        > a {
+            color: $primary-pacific-blue;
+        }
+    }
+}
+
 .full-width-layout--content 
 > .full-width-layout--content--body 
 > div.events--calendar--wrapper {
@@ -375,40 +418,7 @@ $calendar-month-default-week-count: 5;
                                 left: 100%;
                                 right: auto;
                                 bottom: auto;
-                                box-sizing: border-box;
-                                width: 350px;
-                                height: 340px;
-                                padding: 30px;
-                                @include thick-edge-bottom;
-                                @include card-shadow;
-                                background-color: #fff;
-                                > h4.events--calendar--body--week--day--event--details--category {
-                                    margin-top: 0;
-                                    margin-bottom: 10px;
-                                }
-                                > h3.events--calendar--body--week--day--event--details--name {
-                                    @include header-level3($primary-open-sky-s2);
-                                    margin-top: 0;
-                                    margin-bottom: 0;
-                                }
-                                > h6.events--calendar--body--week--day--event--details--date {
-                                    margin-top: 10px;
-                                    margin-bottom: 0;
-                                }
-                                > p,
-                                .events--calendar--body--week--day--event--details--description {
-                                    @include body-small;
-                                    color: #000;
-                                    @include trim-ellipsis-multiline;
-                                    margin: 10px 0;
-                                }
-                                > h5.events--calendar--body--week--day--event--details--host {
-                                    margin-top: 0;
-                                    margin-bottom: 0;
-                                    > a {
-                                        color: $primary-pacific-blue;
-                                    }
-                                }
+                                @extend .events--calendar--details--card;
                             }
                         }
                     }
@@ -438,9 +448,31 @@ $calendar-month-default-week-count: 5;
         > .solutions-card-grid {
             background: unset;
             padding: 0;
-            > .solutions-card-grid--card-wrapper {
-                padding: 0;
-                > .solutions-card-grid--card-wrapper--card.tall-card__no-image--grid--card {
+            > .events--calendar__list-view--card-wrapper {
+                display: grid;
+                @media screen and (min-width: 1460px) {
+                    grid-template-columns: 1fr 1fr 1fr;
+                    column-gap: 100px;
+                    row-gap: 100px;
+                }
+                @media screen and (min-width: 1401px) and (max-width: 1459px) {
+                    grid-template-columns: 1fr 1fr 1fr;
+                    column-gap: 25px;
+                    row-gap: 25px;
+                }
+                @media screen and (min-width: 835px) and (max-width: 1400px) {
+                    grid-template-columns: 1fr 1fr;
+                    column-gap: 50px;
+                    row-gap: 50px;
+                }
+                @media screen and (max-width: 834px) {
+                    padding: 0;
+                    grid-template-columns: 1fr;
+                    row-gap: 50px;
+                }
+                > .events--calendar--details--card {
+                    width: auto;
+                    min-width: 350px;
                     &.events--calendar__list-view--event-card__community {
                         border-bottom: $event-category-community 10px solid;
                     }
@@ -450,9 +482,36 @@ $calendar-month-default-week-count: 5;
                     &.events--calendar__list-view--event-card__events {
                         border-bottom: $event-category-events 10px solid;
                     }
+                    &:has(a[href]) {
+                        cursor: pointer;
+                    }
+                    &:hover {
+                        > h3 {
+                            a {
+                                border-bottom: 2px solid $primary-pacific-blue;
+                                color: $primary-open-sky;
+                            }
+                        }
+                    }
+                    &:has(a:focus) {
+                        box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+                    }
+                    &:has(a:active) {
+                        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+                    }
+                    &.events--calendar--details--card__focused {
+                        box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+                    }
+                    &.events--calendar--details--card__active {
+                        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+                    }
                 }
             }
         }
+    }
+    > .events--calendar--more {
+        @extend .conference-speakers--session-speakers--more;
+        margin-top: 80px;
     }
 }
 
@@ -461,6 +520,7 @@ $calendar-month-default-week-count: 5;
     > .events--secondary-content {
         padding: 0;
         > .solutions-card-grid {
+            @include page-element-padding;
             > hgroup {
                 > h2 {
                     @include header-level2($primary-pacific-blue-s3);
@@ -486,6 +546,53 @@ $calendar-month-default-week-count: 5;
                             font-weight: 600;
                             line-height: 27px;
                         }
+                    }
+                }
+            }
+        }
+        > .landing-page-content__right-panel {
+            @include page-element-padding;
+            > .landing-page-content__right-panel--content {
+                > .landing-page-content__right-panel--content--body {
+                    box-sizing: border-box;
+                    @media screen and (min-width: $content-with-panel-wide-screen-width) {
+                        padding: 0;
+                    }
+                    @media screen and (max-width: $content-with-panel-reduce-padding-width) {
+                        padding: 0;
+                    }
+                    @media screen and (max-width: $content-with-panel-collapsed-max) {
+                        padding: 0;
+                    }
+                }
+                .draft-3-landing-page--button-stack {
+                    box-sizing: border-box;
+                    @media screen and (max-width: $content-with-panel-collapsed-max)
+                    and (min-width: $min-past-iphone-width) {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-gap: 2em;
+                        padding: 0 0 0 20px;
+                        width: calc(100% - 4em);
+                    }
+                    @media screen and (min-width: $content-with-panel-expanded-min), 
+                    screen and (max-width: $max-iphone-width) {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        row-gap: 30px;
+                    }
+                    @media screen and (max-width: $content-with-panel-collapsed-max) {
+                        width: 100%;
+                    }
+                    @media screen and (min-width: $content-with-panel-expanded-min) {
+                        padding-top: 40px;
+                    }
+                    @media screen and (max-width: $max-iphone-width) {
+                        padding-left: 10px;
+                        padding-right: 10px;
                     }
                 }
             }

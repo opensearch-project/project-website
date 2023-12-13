@@ -76,7 +76,7 @@ callouts:
         {% assign current_month = current_event_date_parts[1] %}
         <div class="solutions-card-grid">
           <h2>{{ event.eventdate | date: "%b %Y"}}</h2>
-          <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
+          <div class="events--calendar__list-view--card-wrapper">
       {% endif %}
 
       {% assign category = event.category | default: "community" %}
@@ -86,14 +86,28 @@ callouts:
       {% if event.online %}
         {% assign category_card_class = category_card_class | append: " " | append: online_event_card_class %}
       {% endif %}
-      {% include tall-card-no-image.html 
-        category=category
-        title=event.title
-        url=event.url
-        icon="community"
-        date=event_date
-        additional_card_class=category_card_class
-      %}
+      <div class="events--calendar--details--card {{ category_card_class }} solutions-card-grid--card-wrapper--card">
+        <h4 class="events--calendar--body--week--day--event--details--category">
+            {{ category }}
+        </h4>
+        <h3 class="events--calendar--body--week--day--event--details--name">
+            {{ event.title }}
+        </h3>
+        <h6 class="events--calendar--body--week--day--event--details--date">
+            {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
+        </h6>
+        {% if event.excerpt %}
+            {{ event.excerpt }}
+        {% else %}
+            {{ event.content }}
+        {% endif %}
+        {% if event.group %}
+            <h5 class="events--calendar--body--week--day--event--details--host">
+                Hosted by <a href="{{ event.group.url }}">{{ event.group.name }}</a>
+            </h5>
+        {% endif %}
+        <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
+      </div>
       {% if forloop.last %}
         </div></div>
       {% else %}
@@ -105,6 +119,11 @@ callouts:
         {% endif %}
       {% endif %}
     {% endfor %}
+  </div>
+  <div class="events--calendar--more">
+    <div class="conference-speakers--session-speakers--more--link-button">
+      <a href="/events/past.html">View Past Events</a>
+    </div>
   </div>
 </div>
 
@@ -299,6 +318,6 @@ callouts:
   });
 </script>
 {% include card-clickability.html 
-  card_classname="tall-card__no-image--grid--card" 
+  card_classname="events--calendar--details--card" 
   card_container_selector=".events--calendar__list-view"
 %}
