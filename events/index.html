@@ -3,10 +3,9 @@ layout: fullwidth-with-breadcrumbs
 title: Upcoming Events
 primary_title: Upcoming Events
 breadcrumbs:
-  icon: community
+  icon: meetings-and-events
   items:
-    - title: Community
-    - title: Upcoming Events
+    - title: Events
       url: '/events/'
 notice: true
 callouts:
@@ -80,7 +79,7 @@ callouts:
       {% endif %}
 
       {% assign category = event.category | default: "community" %}
-      {% assign event_date = event.eventdate | date: "%a, %b %d, %Y" %}
+      {% assign event_date = event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" %}
       {% assign category_card_class = "events--calendar__list-view--event-card__" | append: category %}
       {% assign online_event_card_class = "events--calendar__list-view--event-card__online" %}
       {% if event.online %}

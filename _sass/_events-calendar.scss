@@ -5,7 +5,7 @@ $calendar-month-default-week-count: 5;
 .events--calendar--details--card {
     box-sizing: border-box;
     width: 350px;
-    height: 347px;
+    height: 350px;
     padding: 45px 30px 10px 30px;
     @include thick-edge-bottom;
     @include card-shadow;
@@ -13,6 +13,9 @@ $calendar-month-default-week-count: 5;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    &.events--calendar--details--card__events-page {
+        justify-content: start;
+    }
     > h4.events--calendar--body--week--day--event--details--category {
         margin-top: 0;
         margin-bottom: 10px;
@@ -63,6 +66,9 @@ $calendar-month-default-week-count: 5;
             font-style: normal;
 
         }
+    }
+    > p.events--calendar--details--card--hosts {
+        @include body-small;
     }
     > h5.events--calendar--body--week--day--event--details--host {
         margin-top: 0;

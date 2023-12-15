@@ -1,13 +1,24 @@
 ---
 calendar_date: '2023-12-01'
 eventdate: 2023-12-01 09:00:00 -0700
-
 title: Development Backlog & Triage Meeting - ml-commons - 2023-12-01
+primary_title: Development Backlog & Triage Meeting - ml-commons - 2023-12-01
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/296823978
     title: Join on Meetup
 category: development
+hosts:
+  - name: Yaliang Wu
+    github: https://github.com/ylwu-amzn
+    short_name: ylwu
+  - name: Jing Zhang
+    github: https://github.com/jngz-es
+  - name: Dhrubo Saha
+    github: https://github.com/dhrubo-os
+    short_name: dhrubo
+  - name: Xun Zhang
+    github: https://github.com/Zhangxunmt
 ---
 
 Join the OpenSearch ml-commons team for their next backlog & triage planning meeting.
