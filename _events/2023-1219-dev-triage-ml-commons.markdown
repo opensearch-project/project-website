@@ -18,7 +18,7 @@ Join the OpenSearch ml-commons team for their next backlog & triage planning mee
 
 **Join Zoom Meeting**
 ```json
-https://us02web.zoom.us/j/82164218920?pwd=ZHpSaEdZeURXaHI1ZjQ2bVQ0Vit4Zz09
+https://us02web.zoom.us/j/82164218920
 
 Meeting ID: 821 6421 8920
 Passcode: 259735
