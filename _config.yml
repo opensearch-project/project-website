@@ -56,6 +56,11 @@ defaults:
     values:
       layout: event
       permalink:  events/:title/
+      breadcrumbs:
+        icon: meetings-and-events
+        items:
+          - title: Events
+            url: /events/calendar/
 -
     scope:
       type: calendars
