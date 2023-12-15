@@ -7,6 +7,15 @@ signup:
   url: https://chime.aws/4325833489
   title: Join on Chime
 category: development
+hosts:
+  - name: Barani Bikshandi
+    github: https://github.com/bbarani
+  - name: Charlotte Henkle
+    short_name: henkle
+  - name: Rishabh Singh
+    github: https://github.com/rishabh6788
+  - name: Kris Freedain
+    short_name: krisfreedain
 ---
 
 **NOTE: This is a series, ending with the release of 2.11.0 - Please read carefully**

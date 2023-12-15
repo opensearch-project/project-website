@@ -7,6 +7,9 @@ signup:
     url: https://ocs2023.sched.com/event/1Ttz9
     title: Learn more
 category: events
+hosts:
+  - name: Aparna Sundar
+    short_name: apasun
 ---
 
 **Security Analytics: From Use Cases and User Needs to Innovation - Aparna Sundar, OpenSearch Project**  [Open Compliance Summit](https://ocs2023.sched.com/event/1Ttz9).

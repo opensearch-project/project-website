@@ -14,6 +14,9 @@ signup:
     # the button text
     title: Join us on this webinar
 category: community
+hosts:
+  - name: Matan Kollnescher
+    linkedin: https://www.linkedin.com/in/matan-kollnescher-32016453/
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

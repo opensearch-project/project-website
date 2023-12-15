@@ -8,6 +8,11 @@ signup:
     url: https://www.meetup.com/opensearch/events/295393200/
     title: Join on Meetup
 category: development
+hosts:
+  - name: Mark Cohen
+    short_name: markcohen
+  - name: Michael Froh
+    github: https://github.com/msfroh
 
 ---
 

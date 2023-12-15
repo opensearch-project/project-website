@@ -35,7 +35,11 @@ layout: default
                 </div>
             {% endif %}
             <div class="full-width-layout--header--title">
-                <h1>{{ page.primary_title }}</h1>
+                {% if page.primary_title %}
+                    <h1>{{ page.primary_title }}</h1>
+                {% elsif page.title %}
+                    <h1>{{ page.title }}</h1>
+                {% endif %}
             </div>
         </div>
         <div class="full-width-layout--content">

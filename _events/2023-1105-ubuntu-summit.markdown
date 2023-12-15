@@ -12,6 +12,11 @@ tz: Europe/Riga
 location:
   city: Riga
   country: Latvia
+hosts:
+  - name: Aparna Sundar
+    short_name: apasun
+  - name: Kris Freedain
+    short_name: krisfreedain
 ---
 
 [Aparna Sundar](https://opensearch.org/authors/apasun/), Senior Researcher at OpenSearch Project & [Kris Freedain](https://opensearch.org/authors/krisfreedain/), Community Manager at OpenSearch Project will be giving at talk at [Ubuntu Summit](https://events.canonical.com/event/31/) 2023: "Importance of Measuring Trust in Organizations and How Community Presence can Help".

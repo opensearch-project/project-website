@@ -15,7 +15,9 @@ signup:
     # the button text
     title: Lean more and register
 category: events
-
+hosts:
+  - name: Eduardo Silva
+  
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

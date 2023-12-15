@@ -7,6 +7,13 @@ signup:
   url: https://us02web.zoom.us/j/83030994833
   title: Join on Meetup
 category: development
+hosts:
+  - name: Barani Bikshandi
+    github: https://github.com/bbarani
+  - name: Prudhvi Godithi
+    short_name: prudhvigodithi
+  - name: Kris Freedain
+    short_name: krisfreedain
 ---
 
 **NOTE: This is a series, ending on July 18th with the release of 2.9.0 - Please read carefully**

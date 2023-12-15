@@ -8,6 +8,13 @@ signup:
     url: https://www.meetup.com/opensearch/events/tvcvftyfclblc/
     title: Join on Meetup
 category: development
+hosts:
+  - name: Dave Lago
+    short_name: davidlago
+  - name: Peter Nied
+    short_name: peternied
+  - name: Stephen Crawford
+    github: https://github.com/scrawfor99
 ---
 
 Join the OpenSearch Security team for their next backlog & triage planning meeting.

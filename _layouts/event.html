@@ -46,7 +46,11 @@ breadcrumbs:
                             {% if host.short_name %}
                                 {% assign host_url = "/authors/" | append: host.short_name | append: "/" %}
                             {% else %}
-                                {% assign host_url = host.github %}
+                                {% if host.github %}
+                                    {% assign host_url = host.github %}
+                                {% elsif host.linkedin %}
+                                    {% assign host_url = host.linkedin %}
+                                {% endif %}
                             {% endif %}
                             {% if forloop.last %} &amp; {% endif %}<a href="{{ host_url }}">{{ host.name }}</a>{% unless forloop.last %}, {% endunless %}
                         {% endfor %}
@@ -61,38 +65,40 @@ breadcrumbs:
     </div>
 </div>
 
-<h2 class="conference-speaker-session-page">Hosted By</h2>
-<div class="speaker-session--speaker-cards">
-    {% for host in page.hosts %}
-        {% if host.short_name %}
-            {% assign host_site_author = site.authors | find: "short_name", host.short_name %}
-            {% if host_site_author %}
-                {% assign host_photo = host_site_author.photo | default: "/assets/media/opensearchcon/speakers/no-image-available.svg" %}
-                {% assign host_details = host_site_author.job_title | append: " at " | append: host_site_author.company_name %}
+{% if page.hosts %}
+    <h2 class="conference-speaker-session-page">Hosted By</h2>
+    <div class="speaker-session--speaker-cards">
+        {% for host in page.hosts %}
+            {% if host.short_name %}
+                {% assign host_site_author = site.authors | find: "short_name", host.short_name %}
+                {% if host_site_author %}
+                    {% assign host_photo = host_site_author.photo | default: "/assets/media/opensearchcon/speakers/no-image-available.svg" %}
+                    {% assign host_details = host_site_author.job_title | append: " at " | append: host_site_author.company_name %}
+                {% else %}
+                    {% assign host_photo = "/assets/media/opensearchcon/speakers/no-image-available.svg" %}
+                    {% assign host_details = "" %}
+                {% endif %}
             {% else %}
                 {% assign host_photo = "/assets/media/opensearchcon/speakers/no-image-available.svg" %}
                 {% assign host_details = "" %}
             {% endif %}
-        {% else %}
-            {% assign host_photo = "/assets/media/opensearchcon/speakers/no-image-available.svg" %}
-            {% assign host_details = "" %}
-        {% endif %}
-        <div class="speaker-session--speaker-cards--card">
-            <div class="speaker-session--speaker-cards--card--image">
-                <img src="{{ host_photo }}" alt="Host photograph">
+            <div class="speaker-session--speaker-cards--card">
+                <div class="speaker-session--speaker-cards--card--image">
+                    <img src="{{ host_photo }}" alt="Host photograph">
+                </div>
+                <div class="speaker-session--speaker-cards--card--content">
+                    <div class="keynote-speaker-label">Event Organizer</div>
+                    <h3><a href="{{ speaker.permalink }}">{{ host.name }}</a></h3>
+                    <div class="speaker-session--speaker-cards--card--content--job-title">{{ host_details }}</div>
+                </div>
             </div>
-            <div class="speaker-session--speaker-cards--card--content">
-                <div class="keynote-speaker-label">Event Organizer</div>
-                <h3><a href="{{ speaker.permalink }}">{{ host.name }}</a></h3>
-                <div class="speaker-session--speaker-cards--card--content--job-title">{{ host_details }}</div>
-            </div>
-        </div>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
+{% endif %}
 
 <div class="conference-speaker-session-page--view-all">
     <div class="conference-speaker-session-page--view-all--link-button">
-        {% assign year_month = site.date | date: "%Y-%m" %}
+        {% assign year_month = site.time | date: "%Y-%m" %}
         <a href="/events/calendar/{{ year_month }}.html">View All Events</a>
     </div>
 </div>

@@ -7,6 +7,15 @@ signup:
   url: https://chime.aws/5359048054
   title: Join on Chime
 category: development
+hosts:
+  - name: Barani Bikshandi
+    github: https://github.com/bbarani
+  - name: Sayali Gaikawad
+    short_name: sayaligaikawad
+  - name: Prudhvi Godithi
+    short_name: prudhvigodithi
+  - name: Kris Freedain
+    short_name: krisfreedain
 ---
 
 **NOTE: This is a series, ending with the release of 2.10.0 - Please read carefully**

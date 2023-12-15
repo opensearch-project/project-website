@@ -6,6 +6,11 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/292610052
     title: Join on Meetup
+hosts:
+  - name: Joshua Bright
+    short_name: jdbright
+  - name: Ani Jadhav
+    github: https://github.com/anirudha
 category: development
 ---
 
