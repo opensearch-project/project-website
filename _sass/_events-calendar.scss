@@ -393,15 +393,14 @@ $calendar-month-default-week-count: 5;
                         }
                     }
                     > .events--calendar--body--week--day {
-                        width: calc(100% / 7);
+                        width: calc(calc(100% / 7) - 10px);
                         aspect-ratio: 180 / 185;
-                        box-sizing: border-box;
                         padding-left: 5px;
                         padding-right: 5px;
+                        overflow: auto;
                         > .events--calendar--body--week--day--number {
                             width: 100%;
                             box-sizing: border-box;
-                            padding-left: 10px;
                             @include header-level5($secondary-sanfrancisco-fog-s3);
                         }
                         > .events--calendar--body--week--day--event {
