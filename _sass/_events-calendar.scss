@@ -16,6 +16,27 @@ $calendar-month-default-week-count: 5;
     &.events--calendar--details--card__events-page {
         justify-content: start;
     }
+    &:hover {
+        svg {
+            > rect {
+                fill: #94A1A8;
+            }
+        }
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    &:has(a:active),
+    &:has(a:visited),
+    &.events--calendar--details--card__visited,
+    &.events--calendar--details--card__active {
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+        svg {
+            > rect {
+                fill: #415662;
+            }
+        }
+    }
     > h4.events--calendar--body--week--day--event--details--category {
         margin-top: 0;
         margin-bottom: 10px;
@@ -135,10 +156,10 @@ $calendar-month-default-week-count: 5;
                     }
                 }
                 &:nth-of-type(1) {
-                    border-radius: 3px 0px 0px 3px;
+                    border-radius: 6px 0px 0px 6px;
                 }
                 &:nth-of-type(2) {
-                    border-radius: 0px 3px 3px 0px;
+                    border-radius: 0px 6px 6px 0px;
                 }
                 > a {
                     font-size: 0;
@@ -435,14 +456,18 @@ $calendar-month-default-week-count: 5;
                                 > a {
                                     @include trim-ellipsis-multiline(2);
                                     overflow: hidden;
-                                    color: $secondary-sanfrancisco-fog-s5;
+                                    color: #000;
                                     text-overflow: ellipsis;
                                     white-space: normal;
                                     font-size: 12px;
                                     font-style: normal;
-                                    font-weight: 600;
+                                    font-weight: 400;
                                     line-height: 16px;
                                     text-decoration: none;
+                                    &:hover,
+                                    &:active {
+                                        font-weight: 600;
+                                    }
                                 }
                             }
                             > .events--calendar--body--week--day--event--details {
@@ -462,7 +487,7 @@ $calendar-month-default-week-count: 5;
                                 bottom: auto;
                                 @extend .events--calendar--details--card;
                                 padding-top: 0px;
-                                height: 370px;
+                                height: 400px;
                                 > .events--calendar--body--week--day--event--details--close-button {
                                     box-sizing: border-box;
                                     width: 100%;

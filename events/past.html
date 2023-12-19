@@ -100,10 +100,12 @@ callouts:
         {% else %}
             {{ event.content }}
         {% endif %}
-        {% if event.group %}
-            <h5 class="events--calendar--body--week--day--event--details--host">
-                Hosted by <a href="{{ event.group.url }}">{{ event.group.name }}</a>
-            </h5>
+        {% if event.hosts %}
+          <h5 class="events--calendar--body--week--day--event--details--host">Hosted by 
+            {% for host in event.hosts %}
+              <a href="{{ host.url }}">{{ host.name }}</a>
+            {% endfor %}
+          </h5>
         {% endif %}
         <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
       </div>

@@ -127,9 +127,9 @@ layout: fullwidth-with-breadcrumbs
                                                     {{ event_category }}
                                                 </h4>
                                                 <h3 class="events--calendar--body--week--day--event--details--name">
-                                                    <a href="{{ event.url }}">{{- event.title | strip -}}</a>
+                                                    <a href="{{ event.url }}">{{ event.title }}</a>
                                                 </h3>
-                                                <h6 class="events--calendar--body--week--day--event--details--date">
+                                                <h6 class="events--calendar--body--week--day--event--details--date" data-eventdate="{{ event.eventdate }}">
                                                     {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
                                                 </h6>
                                                 {% if event.excerpt %}
@@ -137,15 +137,13 @@ layout: fullwidth-with-breadcrumbs
                                                 {% else %}
                                                     {{ event.content }}
                                                 {% endif %}
-                                                {% if event.group %}
-                                                    <h5 class="events--calendar--body--week--day--event--details--host">
-                                                        {% if event.online -%}
-                                                            Online event hosted by a href="{{ event.group.url }}">{{ event.group.name }}</a>
-                                                        {%- else -%}
-                                                            Hosted by <a href="{{ event.group.url }}">{{ event.group.name }}</a>
-                                                        {%- endif %}
+                                                {% if event.hosts %}
+                                                    <h5 class="events--calendar--body--week--day--event--details--host">Hosted by 
+                                                      {% for host in event.hosts %}
+                                                        <a href="{{ host.url }}">{{ host.name }}</a>
+                                                      {% endfor %}
                                                     </h5>
-                                                {% endif %}
+                                                  {% endif %}
                                                 <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
                                             </div>
                                         </div>
@@ -504,7 +502,7 @@ layout: fullwidth-with-breadcrumbs
 
         let eventDetailsAction = null;
         let showHideTimerId = 0;
-        const showDetailsDelay = 500;
+        const showDetailsDelay = 250;
 
         function showEventDetails(element) {
             element?.closest?.('.events--calendar--body--week--day--event')?.classList?.add?.('events--calendar--body--week--day--event__visible-details');
@@ -535,6 +533,7 @@ layout: fullwidth-with-breadcrumbs
         function onClickAwayCloseDetails(e) {
             const currentlyVisibleDetails = getVisibleDetails();
             if (currentlyVisibleDetails) {
+                // There is a visible event details card.
                 const closeAnchorClass = 'events--calendar--body--week--day--event--details--close-button--anchor';
                 const findAnchor = (element) => {
                     if (!element) {
@@ -550,15 +549,28 @@ layout: fullwidth-with-breadcrumbs
                 };
                 const closeButtonClicked = findAnchor(e.target);
                 if (closeButtonClicked) {
+                    // The close icon (X in the top right corner) was clicked.
+                    // Hide the event details card.
                     hideEventDetails(currentlyVisibleDetails);
                     event.preventDefault();
                 } else {
+                    // Determine if the click did NOT occur within the card iteself (say for example in a link).
+                    // Hide it if there was a a "click-away" event.
                     const detailsCard = e.target.closest('.events--calendar--body--week--day--event--details');
                     const clickWasInsideCard = detailsCard !== null;
                     if (!clickWasInsideCard) {
                         hideEventDetails(currentlyVisibleDetails);
                         event.preventDefault();
                     }
+                }
+            } else {
+                // Determine if the category dropdown was visible and
+                // if the event occurred outside of it somewhere, and then close it.
+                const expandedCategoryFilterSelector = '.labeled-dropdown.labeled-dropdown__expanded';
+                const expandedCategoryFilter = document.querySelector(expandedCategoryFilterSelector);
+                if (expandedCategoryFilter) {
+                    hideFilterDropdown();
+                    event.preventDefault();
                 }
             }
         }
@@ -584,21 +596,8 @@ layout: fullwidth-with-breadcrumbs
             showHideTimerId = window.setTimeout(eventDetailsAction, showDetailsDelay);
         }
 
-        function onEventMouseOut(e) {
-            if (showHideTimerId) {
-                window.clearTimeout(showHideTimerId);
-                showHideTimerId = 0;
-            }
-            if (eventDetailsAction && isWaitingToHide()) {
-                eventDetailsAction();
-            }
-            eventDetailsAction = hideEventDetails.bind(null, e.currentTarget.querySelector('.events--calendar--body--week--day--event--details'));
-            showHideTimerId = window.setTimeout(eventDetailsAction, showDetailsDelay);
-        }
-
         document.querySelectorAll('.events--calendar--body--week--day--event').forEach(eventElement => {
             eventElement.addEventListener('mouseover', onEventMouseOver);
-            //eventElement.addEventListener('mouseout', onEventMouseOut);
         });
         document.body.addEventListener('click', onClickAwayCloseDetails);
     });
