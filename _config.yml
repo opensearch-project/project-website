@@ -56,17 +56,6 @@ defaults:
     values:
       layout: event
       permalink:  events/:title/
-      breadcrumbs:
-        icon: meetings-and-events
-        items:
-          - title: Events
-            url: /events/calendar/
--
-    scope:
-      type: calendars
-    values:
-      layout: calendar
-      permalink: /events/calendar/:name.html
 -
     scope:
       type: versions
@@ -138,8 +127,6 @@ collections:
   javadocs:
     output: true
   events:
-    output: true
-  calendars:
     output: true
   artifacts:
     output: true
