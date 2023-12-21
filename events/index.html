@@ -92,7 +92,7 @@ callouts:
         <h3 class="events--calendar--body--week--day--event--details--name">
           <a href="{{ event.url }}">{{ event.title }}</a>
         </h3>
-        <h6 class="events--calendar--body--week--day--event--details--date">
+        <h6 class="events--calendar--body--week--day--event--details--date" data-eventdate="{{ event.eventdate }}">
             {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
         </h6>
         {% if event.excerpt %}
@@ -104,7 +104,16 @@ callouts:
           <h5 class="events--calendar--body--week--day--event--details--host">
           {% if event.online %}Online event{% else %} In-person event {% endif %}hosted by 
             {% for host in event.hosts %}
-              <a href="{{ host.url }}">{{ host.name }}</a>
+              {% if host.short_name %}
+                {% assign host_url = "/authors/" | append: host.short_name | append: "/" %}
+              {% elsif host.github %}
+                {% assign host_url = host.github %}
+              {% elsif host.linkedin %}
+                {% assign host_url = host.linkedin %}
+              {% else %}
+                {% assign host_url = "#" %}
+              {% endif %}
+              {% unless page.hosts.size == 1 or forloop.first %} &amp; {% endunless %}<a href="{{ host_url }}">{{ host.name }}</a>{% unless forloop.last %}, {% endunless %}
             {% endfor %}
           </h5>
         {% endif %}
@@ -155,16 +164,26 @@ callouts:
 <script type="module">
   document.addEventListener('DOMContentLoaded', () => {
 
-    function setCalendarViewToggleUrlToThisMonth() {
+    function setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl) {
+      const selector = '.full-width-layout--header--breadcrumbs--item > a[href*="/events/calendar/"]';
+      const link = document.querySelector(selector);
+      link?.setAttribute?.('href', calendarViewUrl);
+    }
+
+    function setCalendarViewToggleUrlToThisMonth(calendarViewUrl) {
       const selector = '.events--calendar--filters--view-mode-toggle--item:first-of-type > a';
+      const toggleButton = document.querySelector(selector);
+      toggleButton?.setAttribute?.('href', calendarViewUrl);
+    }
+    
+    function setEventsPageLinksToThisMonthCalendar() {
       const today = new Date();
       const monthIndex = today.getUTCMonth();
       const year = today.getUTCFullYear();
       const calendarViewUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
-      const toggleButton = document.querySelector(selector);
-      toggleButton?.setAttribute?.('href', calendarViewUrl);
+      setCalendarViewToggleUrlToThisMonth(calendarViewUrl);
+      setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl);
     }
-
     function hasFilterChip(chipType) {
         const selector = `.events--calendar--filters--category-selector--filter-chips > [data-category=${chipType}]`;
         const chipElement = document.querySelector(selector);
@@ -312,6 +331,67 @@ callouts:
         hideFilterDropdown();
     }
 
+    function localizeEventDates() {
+      const eventDateAttributeName = 'data-eventdate';
+      const selector = `[${eventDateAttributeName}]`;
+      const eventDateElements = document.querySelectorAll(selector);
+      if (eventDateElements?.length) {
+        eventDateElements.forEach(dateElement => {
+          const eventDateValue = dateElement.getAttribute(eventDateAttributeName);
+          // example 2023-12-28 12:00:00 -0500
+          const datePartsPattern = /^(\d{4}-\d{1,2}-\d{1,2})\s+(\d{1,2}:\d{1,2}:\d{1,2})\s+(\+|-)(\d{2}:?\d{2}?)$/;
+          //const datePartsPattern = /^(\d{4}-\d{1,2}-\d{1,2})\s+(\d{1,2}:\d{1,2}:\d{1,2})$/;
+          const datePartsPatternMatches = datePartsPattern.exec(eventDateValue);
+          if (datePartsPatternMatches) {
+            const [ , datePartMatch, timePartMatch, utcOffsetOperatorMatch, utcOffsetMatch] = datePartsPatternMatches;
+            const [year, monthNumber, day] = datePartMatch.split('-').map(part => Number.parseInt(part, 10));
+            const monthIndex = monthNumber - 1;
+            const [hour, minute, second] = timePartMatch.split(':').map(part => Number.parseInt(part, 10));
+            const eventUtcTimestamp = Date.UTC(year, monthIndex, day, hour, minute, second);
+
+            let utcHoursOffset = 0, utcMinutesOffset = 0;
+            if (utcOffsetMatch.indexOf(':') > -1) {
+              const splitUtcOffsetMatch = utcOffsetMatch.split(':').map(part => {
+                return Number.parseInt(part.replace(/^0+/, ''), 10);
+              });
+              utcHoursOffset = splitUtcOffsetMatch[0];
+              utcMinutesOffset = splitUtcOffsetMatch[1];
+            } else {
+              const splitUtcOffsetPattern = /^(\d{2})(\d{2}?)$/;
+              const splitUtcOffsetMatches = splitUtcOffsetPattern.exec(utcOffsetMatch);
+              if (splitUtcOffsetMatches?.length) {
+                const utcOffsetsNumbers = splitUtcOffsetMatches.slice(1).map(part => {
+                  return Number.parseInt(part.replace(/^0+/, ''), 10);
+                });
+                utcHoursOffset = utcOffsetsNumbers[0];
+                utcMinutesOffset = utcOffsetsNumbers[1] || 0;
+              }
+            }
+            const timezoneOffset = (
+              1000 * 60 * 60 * utcHoursOffset
+            ) + (
+              1000 * 60 * utcMinutesOffset
+            ) * (
+              utcOffsetOperatorMatch === '-' ? -1 : 1
+            );
+            const eventUtcDate = new Date(eventUtcTimestamp + timezoneOffset);
+            const formatter = new Intl.DateTimeFormat(navigator.language, {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              dayPeriod: 'long',
+              hour: 'numeric',
+              hourCycle: 'h12'
+              minute: 'numeric',
+              timeZoneName: 'short',
+            });
+            dateElement.textContent = formatter.format(eventUtcDate);
+          }
+        });
+      }
+    }
+
     document.querySelector(
         '.events--calendar--filters--category-selector--filter-chips'
     )?.addEventListener?.('click', removeClickedFilterChip);
@@ -331,8 +411,8 @@ callouts:
         const calendar = document.querySelector('.events--calendar__list-view');
         calendar?.classList?.toggle?.('events--calendar__list-view__online-only');
     });
-    setCalendarViewToggleUrlToThisMonth();
-
+    setEventsPageLinksToThisMonthCalendar();
+    localizeEventDates();
   });
 </script>
 {% include card-clickability.html 

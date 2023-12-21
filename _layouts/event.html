@@ -45,14 +45,14 @@ breadcrumbs:
                         {% for host in page.hosts %}
                             {% if host.short_name %}
                                 {% assign host_url = "/authors/" | append: host.short_name | append: "/" %}
-                            {% else %}
-                                {% if host.github %}
-                                    {% assign host_url = host.github %}
-                                {% elsif host.linkedin %}
-                                    {% assign host_url = host.linkedin %}
-                                {% endif %}
-                            {% endif %}
-                            {% if forloop.last %} &amp; {% endif %}<a href="{{ host_url }}">{{ host.name }}</a>{% unless forloop.last %}, {% endunless %}
+                              {% elsif host.github %}
+                                {% assign host_url = host.github %}
+                              {% elsif host.linkedin %}
+                                {% assign host_url = host.linkedin %}
+                              {% else %}
+                                {% assign host_url = "#" %}
+                              {% endif %}
+                            {% unless page.hosts.size == 1 or forloop.first %} &amp; {% endunless %}<a href="{{ host_url }}">{{ host.name }}</a>{% unless forloop.last %}, {% endunless %}
                         {% endfor %}
                     </p>
                 {% endif %}
@@ -104,3 +104,28 @@ breadcrumbs:
 </div>
 {% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
 {% include interactive-states.html element_classname="conference-speaker-session-page--view-all--link-button" container_selector=".conference-speaker-session-page--view-all" %}
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        function setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl) {
+            const selector = '.full-width-layout--header--breadcrumbs--item > a[href*="/events/calendar/"]';
+            const link = document.querySelector(selector);
+            link?.setAttribute?.('href', calendarViewUrl);
+        }
+
+        function setCalendarViewToggleUrlToThisMonth(calendarViewUrl) {
+            const selector = '.events--calendar--filters--view-mode-toggle--item:first-of-type > a';
+            const toggleButton = document.querySelector(selector);
+            toggleButton?.setAttribute?.('href', calendarViewUrl);
+        }
+            
+        function setEventsPageLinksToThisMonthCalendar() {
+            const today = new Date();
+            const monthIndex = today.getUTCMonth();
+            const year = today.getUTCFullYear();
+            const calendarViewUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
+            setCalendarViewToggleUrlToThisMonth(calendarViewUrl);
+            setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl);
+        }
+        setEventsPageLinksToThisMonthCalendar();
+    });
+</script>
