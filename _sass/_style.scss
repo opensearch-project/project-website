@@ -394,18 +394,6 @@ ul {
         }
     }
 }
-.container--flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.container--flex--wrap--mobile {
-    flex-wrap: wrap;
-    @include respond-min(462.5px) {
-        flex-wrap: no-wrap;
-    }
-}
-
 
 //-------------------  Site Chrome (Header/Footer)
 

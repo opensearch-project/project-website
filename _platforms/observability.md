@@ -7,7 +7,7 @@ breadcrumbs:
   items:
     - title: The OpenSearch Platform
       url: '/platform/index.html'
-    - title:
+    - title: Observability
       url: '/platform/observability/index.html'
 categories:
   - observability
