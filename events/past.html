@@ -29,7 +29,7 @@ callouts:
   <div class="events--calendar--filters">
     <div class="events--calendar--filters--view-mode-toggle">
       <div class="events--calendar--filters--view-mode-toggle--item">
-        <a href="{{ site.calendars.first.url }}">
+        <a href="{{ site.calendars.last.url }}" data-eventscalendarlink="true">
           {% include icons.html type="calendar" %}
         </a>
       </div>
@@ -176,7 +176,17 @@ callouts:
       const toggleButton = document.querySelector(selector);
       toggleButton?.setAttribute?.('href', calendarViewUrl);
     }
-    
+    function setCalendarLinkToThisMonth(calendarViewUrl) {
+      const attributeName = 'data-eventscalendarlink';
+      const attributeSelector = `[${attributeName}="true"]`;
+      const elements = document.querySelectorAll(attributeSelector);
+      if (elements?.length) {
+        elements.forEach(element => {
+          element.setAttribute('href', calendarViewUrl);
+        });
+      }
+    }
+
     function setEventsPageLinksToThisMonthCalendar() {
       const today = new Date();
       const monthIndex = today.getUTCMonth();
@@ -184,6 +194,7 @@ callouts:
       const calendarViewUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
       setCalendarViewToggleUrlToThisMonth(calendarViewUrl);
       setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl);
+      setCalendarLinkToThisMonth(calendarViewUrl);
     }
 
     function hasFilterChip(chipType) {
