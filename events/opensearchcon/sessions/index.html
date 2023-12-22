@@ -30,7 +30,7 @@ breadcrumbs:
         </div>
         <div class="speaker-session--speaker-cards">
             {% for session in site.speaker_sessions %}
-                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__categorized session-card">
+                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized session-card">
                     <div class="speaker-session--speaker-cards--card--content">
                         <h3><a href="{{ session.permalink }}">{{ session.speaker_talk_title }}</a></h3>
                         {% assign session_date_time = session.session_time | split: " - " %}
