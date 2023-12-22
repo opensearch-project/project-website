@@ -172,6 +172,10 @@ $content-panel-expand-breakpoint: 1019px;
     > .speaker-session--speaker-cards--card {
         cursor: pointer;
         background-color: white;
+        &.speaker-session--speaker-cards--card__left-edge {
+            @include thick-edge-left;
+            border-bottom: unset;
+        }
         &.speaker-session--speaker-cards--card__bottom-edge {
             @include thick-edge-bottom;
             border-left: unset;
@@ -340,7 +344,10 @@ $content-panel-expand-breakpoint: 1019px;
         > .speaker-session--speaker-cards--card--content {
             padding-left: 15px;
             padding-top: 20px;
-            @include thick-edge-bottom;
+            &.speaker-session--speaker-cards--card--content__bottom-edge {
+                @include thick-edge-bottom;
+                border-left: unset;
+            }
             box-sizing: border-box;
             @media screen and (max-width: 380px) {
                 padding-left: 5px;
