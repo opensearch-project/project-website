@@ -46,7 +46,8 @@ Frameworks like LangChain have helped builders alleviate some of these challenge
 
 Generally available since OpenSearch 2.9, [neural search](https://opensearch.org/docs/latest/search-plugins/neural-search/) enables builders to create semantic search applications by running human language queries instead of vector-based ones. You can run semantic search pipelines on-cluster instead of on custom middleware. These pipelines are integrated with ML models that are hosted on-cluster or externally managed by providers like Cohere, OpenAI, Amazon Bedrock and Amazon SageMaker.
 
-[Image: image.png]*Fig 1. Search Relevance: Lexical vs. Semantic Search using Neural Search on [Flickr30k](https://paperswithcode.com/dataset/flickr30k)*
+
+![semantic-search-demo](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/semantic-search-flickr30k.gif)*Search Relevance: Lexical vs. Semantic Search using Neural Search on [Flickr30k](https://paperswithcode.com/dataset/flickr30k)*
 
 
 #### Machine Learning Framework 
@@ -95,7 +96,7 @@ In order to provide the flexibility to support the many AI use cases and variati
 
 We plan to provide templates for precomposed flows to quick-start builders on popular use cases, but leave them with the flexibility to alter and evolve these flows. These templates will capture the OpenSearch resources and configurations required to provision components like search pipelines and AI connectors to power specific use cases like multimodal search. We aim to simplify the backend plumbing required by AI-enhanced search solutions to uplift ease-of-use with minimal flexibility trade-offs.
 
-[Image: image.png]Build AI apps faster by composing AI flows through OpenSearch’s no-code experience ([RFC](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/4755))
+![flow-designer](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/flow-designer.png)*Build AI apps faster by composing AI flows through OpenSearch’s no-code experience*([RFC](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/4755))
 
 
 ### **New AI Use Case Support**
@@ -158,7 +159,7 @@ Additionally, we plan to implement a process for certifying connectors to establ
 
 Furthermore, certified connectors will qualify for listings on our integrations catalog where Amazon OpenSearch Service customers can automate infrastructure and OpenSearch resource creation for these integrations. Currently, you have to download and copy community connector blueprints to provision connectors. Then, you have to manually create OpenSearch and AWS resources like AI connectors and IAM policies to manage secure communication. By adhering to quality standards, certified connector authors will earn additional benefits like such which will facilitate their go-to-market objectives
 
-[Image: image.png]Integrations catalog within the Amazon OpenSearch Service console
+![aos-integrations-catalog](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/aos-integrations-catalog.png)*Integrations catalog within the Amazon OpenSearch Service console*
 
 
 #### Model Management 
@@ -167,14 +168,14 @@ The initial release of our framework included a [UI for administrators](https://
 
 Next, we aim to help developers, data scientists, and MLOps engineers to more easily manage integrated models by providing a model registry UI within OpenSearch Dashboards. The dashboards will enable users to register and deploy models that are hosted on-cluster or externally. Teams will be provided with controls to easily share, secure, and discover available ML models while governing model deployment processes, versioning, and more.
 
-[Image: Screenshot 2023-12-22 at 3.45.55 PM.png]Managing integrated models within OpenSearch dashboards using the model registry 
+![model-registry](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/model-registry.png)*Managing integrated models within OpenSearch dashboards using the model registry*
 
 
 ### Forecasting
 
 Lastly, in the similar vein as our [Anomaly Detection](https://opensearch.org/docs/2.11/observing-your-data/ad/index/) capabilities, we want to provide non-ML experts with the ability to generate forecasts on their OpenSearch managed data. For instance, we want to enable operations teams with proactive monitoring, so that they can automatically detect trends over a sea of time-series metrics. We want to empower them to proactively prevent issues by providing visibility into resource over-utilization forecasts. Within OpenSearch Dashboards, non ML-experts will be able to configure forecasters that continually train and generate forecasts on configured OpenSearch data sources.
 
-[Image: image.png]Forecasting cpu usage across a global server fleet ([RFC](https://github.com/opensearch-project/ux/issues/70))
+![forecasting](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/forecasting.png)*Forecasting cpu usage across a global server fleet*([RFC](https://github.com/opensearch-project/ux/issues/70))
 
 
 
