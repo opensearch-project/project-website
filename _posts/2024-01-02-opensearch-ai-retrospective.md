@@ -46,8 +46,10 @@ Frameworks like LangChain have helped builders alleviate some of these challenge
 
 Generally available since OpenSearch 2.9, [neural search](https://opensearch.org/docs/latest/search-plugins/neural-search/) enables builders to create semantic search applications by running human language queries instead of vector-based ones. You can run semantic search pipelines on-cluster instead of on custom middleware. These pipelines are integrated with ML models that are hosted on-cluster or externally managed by providers like Cohere, OpenAI, Amazon Bedrock and Amazon SageMaker.
 
-
-![semantic-search-demo](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/semantic-search-flickr30k.gif)*Search Relevance: Lexical vs. Semantic Search using Neural Search on [Flickr30k](https://paperswithcode.com/dataset/flickr30k)*
+<p align="center" text-align="center">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/semantic-search-flickr30k.gif"/>
+ <i>Lexical vs. Semantic Search Comparison on Flickr30k dataset</i>
+</p>
 
 
 #### Machine Learning Framework 
@@ -65,10 +67,12 @@ In 2.11, we introduced numerous features including support for  [neural sparse e
 
 Beyond text-based search, we added support for text and image [multimodal search](https://opensearch.org/docs/latest/search-plugins/multimodal-search/), which enables you to find images using combinations of text and visual inputs. Unlike traditional image search, which searches on image metadata, multimodal search allows users to describe the visual characteristics like “shirt with abstract pattern” without requiring manual labor to produce high-quality and granular metadata for images. You can also find visually similar images by searching on an image—an ideal approach when visual characteristics like stylistic patterns can’t be easily articulated. Lastly, you can query using a combination of text and image. For instance, you maybe looking for a similar variation of a blue shirt—a reference image—but you want it with “desert colors and long sleeves”.
 
-<p align="center">
- <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/multimodal-text-image-search.gif")
- *Better product discovery with multimodal text and image search*
+
+<p align="center" text-align="center">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/multimodal-text-image-search.gif")/>
+ <i>Better product discovery with multimodal text and image search</i>
 </p>
+
 
 Lastly, [conversational search](https://opensearch.org/docs/latest/search-plugins/conversational-search/), a contribution from [Aryn.ai](https://www.aryn.ai/), was released as an experimental feature. Conversational search transforms OpenSearch’s lexical, vector, and hybrid search features into conversational experiences without requiring custom middleware. It enables search through a series of interactions like “what is OpenSearch” and “how do I use it with GenAI.” It includes a [RAG search pipeline](https://opensearch.org/docs/latest/search-plugins/conversational-search/#setting-up-the-pipeline) that uses [AI connectors](https://github.com/opensearch-project/ml-commons/blob/2.x/docs/remote_inference_blueprints/open_ai_connector_chat_blueprint.md) to send information to generative LLMs like ChatGPT and Claude2. The RAG pipeline processes a query by retrieving knowledge articles from your indexes and sends them to a generative LLM to generate a conversational response. This method grounds the generative LLM on facts to minimize [hallucinations](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)), which can cause unintended misinformation. Conversation history is also tracked and included in the request context to generative LLMs, providing them with long-term memory for ongoing conversations.
 
