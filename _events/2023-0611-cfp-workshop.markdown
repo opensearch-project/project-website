@@ -7,9 +7,7 @@ signup:
     url: https://www.meetup.com/opensearch/events/294042369/
     title: Join on Meetup
 category: events
-hosts:
-  - name: David Tippett
-    short_name: dtaivpp
+
 ---
 
 Have you thought about submitting a talk to a conference but didn't know where to get started? Join us to go through the process of creating and submitting your first talk! We will be using the OpenSearchCon CFP as a demo. 

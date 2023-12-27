@@ -8,11 +8,7 @@ signup:
     url: https://www.meetup.com/opensearch/events/293180050/
     title: Join on Meetup
 category: development
-hosts:
-  - name: Joshua Bright
-    short_name: jdbright
-  - name: Ani Jadhav
-    github: https://github.com/anirudha
+
 ---
 
 Join the OpenSearch team for their Integrations and Apache Spark planning meeting.

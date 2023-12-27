@@ -11,9 +11,6 @@ category: events
 location:
   city: San Francisco
   country: USA
-hosts:
-  - name: Amitai Stern
-    short_name: amistrn
 ---
 
 ### Join [Amitai Stern](https://opensearch.org/authors/amistrn/) at the Real-Time Analytics Summit for the session "Upgrading Log-Analytics Clusters to OpenSearch"

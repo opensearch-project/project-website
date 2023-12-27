@@ -100,23 +100,6 @@ callouts:
         {% else %}
             {{ event.content }}
         {% endif %}
-        {% if event.hosts %}
-          <h5 class="events--calendar--body--week--day--event--details--host">
-          {% if event.online %}Online event{% else %} In-person event {% endif %}hosted by 
-            {% for host in event.hosts %}
-              {% if host.short_name %}
-                {% assign host_url = "/authors/" | append: host.short_name | append: "/" %}
-              {% elsif host.github %}
-                {% assign host_url = host.github %}
-              {% elsif host.linkedin %}
-                {% assign host_url = host.linkedin %}
-              {% else %}
-                {% assign host_url = "#" %}
-              {% endif %}
-              {% unless page.hosts.size == 1 or forloop.first %} &amp; {% endunless %}<a href="{{ host_url }}">{{ host.name }}</a>{% unless forloop.last %}, {% endunless %}
-            {% endfor %}
-          </h5>
-        {% endif %}
         <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
       </div>
       

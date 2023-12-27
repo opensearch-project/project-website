@@ -11,11 +11,6 @@ category: events
 location:
   city: Detroit
   country: USA
-hosts:
-  - name: David Tippett
-    short_name: dtaivpp
-  - name: Prudhvi Godithi
-    short_name: prudhvigodithi
 ---
 
 Join the OpenSearch team at [Open Observability Day](https://events.linuxfoundation.org/open-observability-day-north-america/).

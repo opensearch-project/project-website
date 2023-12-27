@@ -7,13 +7,6 @@ signup:
     url: https://www.meetup.com/opensearch/events/xkggbtyfccbmb
     title: Join on Meetup
 category: development
-hosts:
-  - name: Dave Lago
-    short_name: davidlago
-  - name: Peter Nied
-    short_name: peternied
-  - name: Stephen Crawford
-    github: https://github.com/scrawfor99
 ---
 **PLEASE NOTE** - This was originally scheduled for Monday the 16th, but that is a US Holiday so we are moving this to Tuesday the 17th. Thank you for your understanding.
 

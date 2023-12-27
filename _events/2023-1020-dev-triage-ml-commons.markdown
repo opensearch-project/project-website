@@ -8,17 +8,6 @@ signup:
     url: https://www.meetup.com/opensearch/events/296823928
     title: Join on Meetup
 category: development
-hosts:
-  - name: Yaliang Wu
-    github: https://github.com/ylwu-amzn
-    short_name: ylwu
-  - name: Jing Zhang
-    github: https://github.com/jngz-es
-  - name: Dhrubo Saha
-    github: https://github.com/dhrubo-os
-    short_name: dhrubo
-  - name: Xun Zhang
-    github: https://github.com/Zhangxunmt
 ---
 
 Join the OpenSearch ml-commons team for their next backlog & triage planning meeting.
