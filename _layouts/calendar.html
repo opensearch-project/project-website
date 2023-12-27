@@ -115,7 +115,10 @@ layout: fullwidth-with-breadcrumbs
                                         {% endif %}
                                         <div class="events--calendar--body--week--day--event {{ event_category_classname }}">
                                             <div class="events--calendar--body--week--day--event--name">
-                                                <a href="{{ event.url }}" tile="{{ event.title }}">{{ event.title }}</a>
+                                                <a class="events--calendar--body--week--day--event--name--anchor"
+                                                    href="{{ event.url }}" 
+                                                    title="{{ event.title }}"
+                                                >{{ event.title }}</a>
                                             </div>
                                             <div class="events--calendar--body--week--day--event--details" data-eventurl="{{ event.url }}">
                                                 <div class="events--calendar--body--week--day--event--details--close-button">
@@ -548,12 +551,17 @@ layout: fullwidth-with-breadcrumbs
                     event.preventDefault();
                 } else {
                     // Determine if the click did NOT occur within the card iteself (say for example in a link).
-                    // Hide it if there was a a "click-away" event.
+                    // Hide it if there was a "click-away" event.
                     const detailsCard = e.target.closest('.events--calendar--body--week--day--event--details');
                     const clickWasInsideCard = detailsCard !== null;
                     if (!clickWasInsideCard) {
                         hideEventDetails(currentlyVisibleDetails);
-                        event.preventDefault();
+                        const eventNameLinkClassName = 'events--calendar--body--week--day--event--name--anchor';
+                        if (!e.target.classList.contains(eventNameLinkClassName)) {
+                            // If an event name was NOT clicked then prevent the default action.
+                            // Otherwise allow the navigation to the clicked event to be performed.
+                            event.preventDefault();
+                        }
                     }
                 }
             } else {
