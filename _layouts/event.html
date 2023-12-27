@@ -1,32 +1,83 @@
 ---
-layout: default
-body_class: events-page
+layout: fullwidth-with-breadcrumbs
+breadcrumbs:
+  icon: meetings-and-events
+  items: 
+    - title: Events
+      url: /events/calendar/2023-12.html
 ---
-{% assign primary_title = site.headings.events %}
-{% assign layout_class = 'sidebar-right' %}
-{% capture content %}
-    <h1>{{page.title}}</h1>
-    <h4> 
-        {% if page.online %} Online {% endif %} 
-        {% if page.location %} {{page.location.city}} ({{page.location.country}}) {% endif %}
-        {% if page.cost %} &middot; {{page.cost}} {%endif%}
-    </h4>
-    {% if page.image %}
-    <img src="{{page.image}}" class="img-fluid">
-    {%endif%}
-    {{ content }}
-    {% include share-buttons.html %}
 
-{% endcapture %}
-
-{% capture content_related %}
-<div role="complementary">
-    <p>
-        <strong>Date:</strong> <span class="locale-datetime" data-tz="{{page.tz}}">{{page.eventdate | date_to_rfc822}}</span>
-    </p>
-    <a href="{{page.signup.url}}" class="cta" target="_blank">{{page.signup.title}}</a>
+{% if page.hero_banner_image %}
+    <div class="hero-banner__fullwidth__responsive">
+        <div>
+            <img src="{{ page.hero_banner_image }}" alt="{{ page.title }}">
+        </div>
+    </div>
+{% endif %}
+<div class="landing-page-content__right-panel conference-speaker-session-page">
+    {% if page.youtube_video_id %}
+        <div class="conference-speaker-session-page--embedded-video">
+            {% include youtube-player.html id=page.youtube_video_id width="100%" height="" %}
+        </div>
+    {% endif %}
+    <div class="landing-page-content__right-panel--content">
+        <div class="landing-page-content__right-panel--content--body">
+            {{ content }}
+        </div>
+        <div class="landing-page-content__right-panel--content--side-panel">
+            {% assign category = page.category | default: "community" %}
+            {% assign event_date = page.eventdate | date: "%A %e %B %Y %l%P %Z" %}
+            {% assign category_card_class = "events--calendar__list-view--event-card__" | append: category %}
+            {% assign online_event_card_class = "events--calendar__list-view--event-card__online" %}
+            {% if page.online %}
+                {% assign category_card_class = category_card_class | append: " " | append: online_event_card_class %}
+            {% endif %}
+            <div class="events--calendar--details--card {{ category_card_class }} events--calendar--details--card__events-page">
+                <h4 class="events--calendar--body--week--day--event--details--category">
+                    {{ category }}
+                </h4>
+                <h3 class="events--calendar--body--week--day--event--details--name">
+                    {{ event_date }}
+                </h3>
+                <p class="events--calendar--details--card--hosts">
+                    {% assign meeting_link_title = page.signup.title | default: "Join the meeting" %}
+                    <a href="{{ page.signup.url }}">{{ meeting_link_title }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-{% endcapture %}
 
-{% include copy_banner.html %}
-{% include base_3col.html %}
+<div class="conference-speaker-session-page--view-all">
+    <div class="conference-speaker-session-page--view-all--link-button">
+        {% assign year_month = site.time | date: "%Y-%m" %}
+        <a href="/events/calendar/{{ year_month }}.html">View All Events</a>
+    </div>
+</div>
+{% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
+{% include interactive-states.html element_classname="conference-speaker-session-page--view-all--link-button" container_selector=".conference-speaker-session-page--view-all" %}
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        function setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl) {
+            const selector = '.full-width-layout--header--breadcrumbs--item > a[href*="/events/calendar/"]';
+            const link = document.querySelector(selector);
+            link?.setAttribute?.('href', calendarViewUrl);
+        }
+
+        function setCalendarViewToggleUrlToThisMonth(calendarViewUrl) {
+            const selector = '.events--calendar--filters--view-mode-toggle--item:first-of-type > a';
+            const toggleButton = document.querySelector(selector);
+            toggleButton?.setAttribute?.('href', calendarViewUrl);
+        }
+            
+        function setEventsPageLinksToThisMonthCalendar() {
+            const today = new Date();
+            const monthIndex = today.getUTCMonth();
+            const year = today.getUTCFullYear();
+            const calendarViewUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
+            setCalendarViewToggleUrlToThisMonth(calendarViewUrl);
+            setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl);
+        }
+        setEventsPageLinksToThisMonthCalendar();
+    });
+</script>

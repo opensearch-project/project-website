@@ -1,12 +1,12 @@
 ---
-
+calendar_date: '2023-06-15'
 eventdate: 2023-06-15 08:00:00 -0800
 title: Planning for Simple Schema Based Integrations and Apache Spark - 2023-0615
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/293180024/
     title: Join on Meetup
-
+category: development
 ---
 
 Join the OpenSearch team for their Integrations and Apache Spark planning meeting.

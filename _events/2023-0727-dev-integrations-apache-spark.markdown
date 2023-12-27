@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-07-27'
 eventdate: 2023-07-27 08:00:00 -0700
 
 title: Planning for Simple Schema Based Integrations and Apache Spark - 2023-0727
@@ -7,6 +7,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/293180050/
     title: Join on Meetup
+category: development
 
 ---
 

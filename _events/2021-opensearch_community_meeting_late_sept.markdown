@@ -1,10 +1,12 @@
 ---
+calendar_date: '2021-09-21'
 eventdate: 2021-09-21 09:00:00 -0700
 title: OpenSearch Community Meeting - Late Sept
 online: true
 signup:
    url: https://www.meetup.com/OpenSearch/events/279756774/
    title: Join on Meetup
+category: community
 ---
 
 Join us for our our biweekly online community meeting.

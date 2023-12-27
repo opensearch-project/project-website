@@ -1,10 +1,12 @@
 ---
+calendar_date: '2021-06-29'
 eventdate: 2021-06-29 09:00:00 -0700
 title: OpenSearch Community Meeting - Late June
 online: true
 signup:
     url: https://www.meetup.com/OpenSearch/events/thmcwryccjblc/
     title: Join on Meetup
+category: community
 ---
 
 Join us for our our biweekly online community meeting. 

@@ -52,23 +52,24 @@ layout: default
                     {% comment %} If no category is defined apply a generic default. {% endcomment %}
                     {% assign first_post_category = "post" %}
                 {% endif %}
-                {% assign first_post_icon = site.data.post_category_icons.icon_map | where: "category", first_post_category %}
+                {% assign first_post_icon = site.data.post_category_icons.icon_map | find: "category", first_post_category %}
                 {% if post_icon %}
-                    {% assign first_post_icon = first_post_icon | first %}
                     {% assign first_post_icon_name = post_icon.icon %}
                 {% else %}
-                    {% assign first_post_icon_name = "search-magnifying-glass" %}
+                    {% assign first_post_icon_name = site.data.post_category_icons.default_post_icon %}
                 {% endif %}
                 {% assign first_post_date = first_post.date | date: "%a, %b %d, %Y" %}
                 {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
                 {% assign first_post_category = first_post_category | replace: "-", " " %}
-                {% assign category_chars = first_post_category | split: "" %}
-                {% assign last_category_char = category_chars | last %}
-                {% if last_category_char == "s" %}
-                    {% assign new_category_length = category_chars | size | minus: 1 %}
-                    {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
-                    {% assign first_post_category = new_category_chars | join: "" %}
-                {% endif %}
+                {% unless first_post_category == 'news' or first_post_category == 'releases' %}
+                    {% assign category_chars = first_post_category | split: "" %}
+                    {% assign last_category_char = category_chars | last %}
+                    {% if last_category_char == "s" %}
+                        {% assign new_category_length = category_chars | size | minus: 1 %}
+                        {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
+                        {% assign first_post_category = new_category_chars | join: "" %}
+                    {% endif %}
+                {% endunless %}
                 <div class="landing-page-solutions--hero-3up--hero--image">
                     <img src="/assets/img/blog-hero-placeholder.png" 
                         alt="Featured Image for {{ first_post.title }}">
@@ -114,23 +115,24 @@ layout: default
                             {% comment %} If no category is defined apply a generic default. {% endcomment %}
                             {% assign category = "post" %}
                         {% endif %}
-                        {% assign post_icon = site.data.post_category_icons.icon_map | where: "category", category %}
+                        {% assign post_icon = site.data.post_category_icons.icon_map | find: "category", category %}
                         {% if post_icon %}
-                            {% assign post_icon = post_icon | first %}
                             {% assign icon_name = post_icon.icon %}
                         {% else %}
-                            {% assign icon_name = "search-magnifying-glass" %}
+                            {% assign icon_name = site.data.post_category_icons.default_post_icon %}
                         {% endif %}
                         {% assign post_date = post.date | date: "%a, %b %d, %Y" %}
                         {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
                         {% assign category = category | replace: "-", " " %}
-                        {% assign category_chars = category | split: "" %}
-                        {% assign last_category_char = category_chars | last %}
-                        {% if last_category_char == "s" %}
-                            {% assign new_category_length = category_chars | size | minus: 1 %}
-                            {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
-                            {% assign category = new_category_chars | join: "" %}
-                        {% endif %}
+                        {% unless category == 'news' or category == 'releases' %}
+                            {% assign category_chars = category | split: "" %}
+                            {% assign last_category_char = category_chars | last %}
+                            {% if last_category_char == "s" %}
+                                {% assign new_category_length = category_chars | size | minus: 1 %}
+                                {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
+                                {% assign category = new_category_chars | join: "" %}
+                            {% endif %}
+                        {% endunless %}
                         {% include tall-card-no-image.html
                             category=category
                             title=post.title

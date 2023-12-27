@@ -1,10 +1,12 @@
 ---
+calendar_date: '2021-10-04'
 eventdate: 2021-10-04 10:00:00 -0700
 title: OpenSearch Community Meeting - Early Oct
 online: true
 signup:
    url: https://www.meetup.com/OpenSearch/events/279756846/
    title: Join on Meetup
+category: community
 ---
 
 Join us for our our biweekly online community meeting. 

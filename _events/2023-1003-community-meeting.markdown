@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-10-03'
 eventdate: 2023-10-03 08:00:00 -0700
 
 title: OpenSearch Community Meeting - 2023-10-03
@@ -7,7 +7,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/295644289/
     title: Join on Meetup
-
+category: community
 ---
 
 Join us for our online community meeting.

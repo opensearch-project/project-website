@@ -1,10 +1,12 @@
 ---
+calendar_date: '2021-11-01'
 eventdate: 2021-11-01 10:00:00 -0700
 title: OpenSearch Community Meeting - Early Nov
 online: true
 signup:
    url: https://www.meetup.com/OpenSearch/events/279756926/
    title: Join on Meetup
+category: community
 ---
 
 Join us for our our biweekly online community meeting. 

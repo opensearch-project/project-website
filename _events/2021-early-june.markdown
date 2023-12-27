@@ -1,10 +1,12 @@
 ---
+calendar_date: '2021-06-01'
 eventdate: 2021-06-01 09:00:00 -0700
 title: OpenSearch Community Meeting - Early June
 online: true
 signup:
     url: https://www.meetup.com/OpenSearch/events/thmcwrycchbpc/
     title: Join on Meetup
+category: community
 ---
 
 Join us for our our biweekly online community meeting. Agenda:

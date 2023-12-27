@@ -27,6 +27,12 @@ resources:
       category: 'Amazon Web Services'
       icon: 'platform'
       date: 'Mon, Mar 11, 2019'
+content_reposition_rules:
+  source_selector: '.solutions-card-grid'
+  insert_before_selector: '.full-width-layout--content--body > h2:last-of-type'
+card_clickability_rules:
+  card_container_selector: '.solutions-card-grid > .solutions-card-grid--card-wrapper'
+  card_classname: 'solutions-card-grid--card-wrapper--card'
 ---
 
 ##### Updated December 20, 2022

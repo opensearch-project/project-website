@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-11-10'
 eventdate: 2023-11-10 18:00:00 +0100
 
 title: Amsterdam OpenSearch Launch Event with Zeta Alpha
@@ -7,6 +7,7 @@ online: false
 signup:
     url: https://www.meetup.com/opensearch-project-amsterdam/events/296766223/
     title: Join on Meetup
+category: community
 tz: Europe/Amsterdam
 location:
   city: Amsterdam

@@ -2,6 +2,13 @@
 layout: platform-category
 title: Observability
 primary_title: Observability
+breadcrumbs:
+  icon: observability
+  items:
+    - title: The OpenSearch Platform
+      url: '/platform/index.html'
+    - title: Observability
+      url: '/platform/observability/index.html'
 categories:
   - observability
 feature_area_icon_type: observability

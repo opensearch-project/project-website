@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-09-21'
 # put your event date and time (24 hr) here:
 eventdate: 2023-09-21 10:00:00 -0700
 # the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
@@ -12,6 +13,7 @@ signup:
     url: https://www.meetup.com/opensearch/events/294620430/
     # the button text
     title: Join on Meetup
+category: development
 
 # below this triple dash, describe your event. It should be 1-3 sentences
 ---

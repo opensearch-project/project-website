@@ -1,12 +1,19 @@
 ---
-
+calendar_date: '2022-10-31'
 eventdate: 2022-10-31 12:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2022-10-31
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/289215860/
     title: Join on Meetup
-
+category: development
+hosts:
+  - name: Dave Lago
+    short_name: davidlago
+  - name: Peter Nied
+    short_name: peternied
+  - name: Stephen Crawford
+    github: https://github.com/scrawfor99
 ---
 
 Join the OpenSearch Security team for their next backlog & triage planning meeting.

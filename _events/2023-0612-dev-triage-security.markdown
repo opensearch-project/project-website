@@ -1,12 +1,12 @@
 ---
-
+calendar_date: '2023-06-12'
 eventdate: 2023-06-12 12:00:00 -0800
 title: Development Backlog & Triage Meeting - Security - 2023-06-12
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/vldpdtyfcjbqb/
     title: Join on Meetup
-
+category: development
 ---
 
 Join the OpenSearch Security team for their next backlog & triage planning meeting.

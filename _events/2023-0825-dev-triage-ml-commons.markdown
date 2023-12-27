@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-08-25'
 eventdate: 2023-08-25 09:00:00 -0700
 
 title: Development Backlog & Triage Meeting - ml-commons - 2023-08-25
@@ -7,7 +7,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/295655379/
     title: Join on Meetup
-
+category: development
 ---
 
 Join the OpenSearch ml-commons team for their next backlog & triage planning meeting.
