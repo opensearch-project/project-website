@@ -144,6 +144,9 @@ $calendar-month-default-week-count: 5;
             justify-content: start;
             align-items: center;
             flex-wrap: nowrap;
+            @media screen and (max-width: 834px) {
+                display: none;
+            }
             > .events--calendar--filters--view-mode-toggle--item {
                 flex-basis: 35px;
                 flex-shrink: 0;
@@ -191,11 +194,9 @@ $calendar-month-default-week-count: 5;
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
-            @media screen and (min-width: 835px) {
-                flex-wrap: nowrap;
-            }
+            flex-wrap: nowrap;
             @media screen and (max-width: 834px) {
-                flex-wrap: wrap;
+                display: none;
             }
             > .events--calendar--filters--category-selector--dropdown {
                 flex-basis: 200px;
@@ -583,29 +584,6 @@ $calendar-month-default-week-count: 5;
                     &.events--calendar__list-view--event-card__events {
                         border-bottom: $event-category-events 10px solid;
                     }
-                    // &:has(a[href]) {
-                    //     cursor: pointer;
-                    // }
-                    // &:hover {
-                    //     > h3 {
-                    //         a {
-                    //             border-bottom: 2px solid $primary-pacific-blue;
-                    //             color: $primary-open-sky;
-                    //         }
-                    //     }
-                    // }
-                    // &:has(a:focus) {
-                    //     box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
-                    // }
-                    // &:has(a:active) {
-                    //     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
-                    // }
-                    // &.events--calendar--details--card__focused {
-                    //     box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
-                    // }
-                    // &.events--calendar--details--card__active {
-                    //     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
-                    // }
                 }
             }
         }
