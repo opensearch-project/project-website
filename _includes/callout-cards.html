@@ -1,5 +1,10 @@
 <div class="solutions-card-grid">
-    {% if include.heading %}
+    {% if include.heading and include.subheading %}
+        <hgroup>
+            <h2>{{ include.heading }}</h2>
+            <p>{{ include.subheading }}</p>
+        </hgroup>
+    {% elsif include.heading %}
         <h2 class="solutions-card-grid--header">{{ include.heading }}</h2>
     {% endif %}
     <div class="solutions-card-grid--card-wrapper">

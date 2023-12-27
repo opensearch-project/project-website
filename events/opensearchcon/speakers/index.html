@@ -2,8 +2,10 @@
 layout: redesign-fullwidth
 primary_title: "Meet the OpenSearchCon 2023 Speakers"
 title: "Meet the OpenSearchCon 2023 Speakers"
-feature_area_icon_type: community
-feature_area_category_name: OpenSearchCon 2023
+breadcrumbs:
+  icon: community
+  items:
+    - title: OpenSearchCon 2023
 ---
 
 {% assign keynote_speakers = site.speakers | where: "keynote_speaker", true %}
@@ -19,11 +21,11 @@ feature_area_category_name: OpenSearchCon 2023
             {%- assign thumbnail = speaker.speaker_image | default: default_thumbnail -%}
             {%- assign aspect_ratio = "100%" -%}
             {%- assign speaker_url = speaker.permalink -%}
-            <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__bottom-edge">
+            <div class="speaker-session--speaker-cards--card">
                 <div class="speaker-session--speaker-cards--card--image">
                     <img src="{{ thumbnail }}" alt="{{ speaker_name }}">
                 </div>
-                <div class="speaker-session--speaker-cards--card--content">
+                <div class="speaker-session--speaker-cards--card--content speaker-session--speaker-cards--card--content__bottom-edge">
                     {% if speaker.keynote_speaker %}
                         <div class="keynote-speaker-label">Keynote Speaker</div>
                     {% endif %}
@@ -56,7 +58,7 @@ feature_area_category_name: OpenSearchCon 2023
     </div>
     <div class="speaker-session--speaker-cards">
         {% for speaker in not_keynote_speakers %}
-            <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__categorized speaker-card">
+            <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized speaker-card">
                 <div class="speaker-session--speaker-cards--card--content">
                     {% if speaker.keynote_speaker %}
                         <div class="keynote-speaker-label">Keynote Speaker</div>

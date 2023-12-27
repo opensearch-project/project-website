@@ -7,7 +7,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/297276340/
     title: Join on Meetup
-
+category: community
 ---
 
 Join us for our online community meeting.

@@ -6,7 +6,7 @@ online: true
 signup:
     url: https://www.pyohio.org/2023/
     title: Join the conference
-
+category: events
 ---
 
 Join Yuliia Barabash and Laysa Uchoa talk on [PyOhio 2023](https://www.pyohio.org/2023/).

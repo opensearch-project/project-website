@@ -2,6 +2,13 @@
 layout: platform-category
 title: Search
 primary_title: Search
+breadcrumbs:
+  icon: search-magnifying-glass
+  items:
+    - title: The OpenSearch Platform
+      url: '/platform/index.html'
+    - title: Search
+      url: '/platform/search/index.html'
 categories:
   - search
 feature_area_icon_type: search-magnifying-glass

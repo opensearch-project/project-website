@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-11-05'
 eventdate: 2023-11-05 10:00:00 +0200
 
 title: Importance of Measuring Trust in Organizations and How Community Presence can Help
@@ -7,6 +7,7 @@ online: false
 signup:
     url: https://events.canonical.com/event/31/contributions/238/
     title: Learn more
+category: events
 tz: Europe/Riga
 location:
   city: Riga

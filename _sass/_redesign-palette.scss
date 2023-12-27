@@ -91,10 +91,14 @@ $light-theme-category-card-edge: $primary-open-sky-s2;
 $light-theme-category-call-to-action-background: $primary-pacific-sky-t3;
 $light-theme-category-call-to-action-text: $primary-deep-blue-sea;
 
-$light-theme-navigation-background: rgba(0, 163, 224, 0.05);
+$light-theme-navigation-background: #F1FBFF;
 
-@mixin thick-edge-bottom {
-    border-bottom: $primary-open-sky-s2 10px solid;
+$event-category-community: $primary-open-sky;
+$event-category-development: $secondary-malibu-sunrise;
+$event-category-events: $secondary-seafoam-mint;
+
+@mixin thick-edge-bottom($color: $primary-open-sky-s2) {
+    border-bottom: $color 10px solid;
 }
 @mixin thick-edge-top {
     border-top: $primary-open-sky-s2 10px solid;

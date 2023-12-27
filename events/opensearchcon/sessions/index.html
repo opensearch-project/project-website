@@ -2,8 +2,10 @@
 layout: redesign-fullwidth
 primary_title: "OpenSearchCon 2023 Session Lineup"
 title: "OpenSearchCon 2023 Session Lineup"
-feature_area_icon_type: community
-feature_area_category_name: OpenSearchCon 2023
+breadcrumbs:
+  icon: community
+  items:
+    - title: OpenSearchCon 2023
 ---
 <div class="conference-speaker-session-page">
     <div class="conference-speakers--session-speakers">
@@ -28,7 +30,7 @@ feature_area_category_name: OpenSearchCon 2023
         </div>
         <div class="speaker-session--speaker-cards">
             {% for session in site.speaker_sessions %}
-                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__categorized session-card">
+                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized session-card">
                     <div class="speaker-session--speaker-cards--card--content">
                         <h3><a href="{{ session.permalink }}">{{ session.speaker_talk_title }}</a></h3>
                         {% assign session_date_time = session.session_time | split: " - " %}

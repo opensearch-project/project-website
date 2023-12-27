@@ -56,6 +56,17 @@ defaults:
     values:
       layout: event
       permalink:  events/:title/
+      breadcrumbs:
+        icon: meetings-and-events
+        items:
+          - title: Events
+            url: /events/calendar/
+-
+    scope:
+      type: calendars
+    values:
+      layout: calendar
+      permalink: /events/calendar/:name.html
 -
     scope:
       type: versions
@@ -85,11 +96,23 @@ defaults:
       type: speakers
     values:
       layout: speaker
+      breadcrumbs:
+        icon: community
+        items:
+          - title: OpenSearchCon 2023
+          - title: Speaker Bios
+            url: '/events/opensearchcon/speakers/'
 -
     scope:
       type: speaker_sessions
     values:
       layout: speaker_session
+      breadcrumbs:
+        icon: community
+        items:
+          - title: OpenSearchCon 2023
+          - title: Session Summaries
+            url: '/events/opensearchcon/sessions/'
 -
     scope:
       type: platforms
@@ -116,6 +139,8 @@ collections:
     output: true
   events:
     output: true
+  calendars:
+    output: true
   artifacts:
     output: true
   versions:
@@ -134,9 +159,9 @@ collections:
   speaker_sessions:
     output: true
   redesign_use_cases:
-    output: true
+    output: false
   redesign_resources:
-    output: true
+    output: false
   platforms:
     output: true
   exhibitors:
@@ -144,11 +169,11 @@ collections:
   conference_workshops:
     output: true
   platform_products:
-    output: true
+    output: false
   redesign_testimonials:
-    output: true
+    output: false
   redesign_heros:
-    output: true
+    output: false
     
 paginate: 5
 paginate_path: "/blog/page:num/"

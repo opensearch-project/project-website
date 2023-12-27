@@ -13,6 +13,7 @@ signup:
     url: https://us02web.zoom.us/webinar/register/5917014473433/WN_XDVWiFyYS5um9pWeoDOFVg
     # the button text
     title: Register now
+category: community
 
 # below this triple dash, describe your event. It should be 1-3 sentences
 ---

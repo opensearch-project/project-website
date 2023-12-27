@@ -1,12 +1,12 @@
 ---
-
+calendar_date: '2023-12-08'
 eventdate: 2023-12-08 00:00:00 +0900
 title: Open Compliance Summit 2023 - 2023-12-08
 online: true
 signup:
     url: https://ocs2023.sched.com/event/1Ttz9
     title: Learn more
-
+category: events
 ---
 
 **Security Analytics: From Use Cases and User Needs to Innovation - Aparna Sundar, OpenSearch Project**  [Open Compliance Summit](https://ocs2023.sched.com/event/1Ttz9).

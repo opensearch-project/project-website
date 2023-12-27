@@ -1,12 +1,12 @@
 ---
-
+calendar_date: '2023-10-18'
 eventdate: 2023-11-07 11:00:00 -0700
 title: OpenSearch 2.11.0 Release Meetings
 online: true
 signup:
   url: https://chime.aws/4325833489
   title: Join on Chime
-
+category: development
 ---
 
 **NOTE: This is a series, ending with the release of 2.11.0 - Please read carefully**

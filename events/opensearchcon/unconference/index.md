@@ -4,6 +4,12 @@ feature_area_category_name: OpenSearchCon 2023
 feature_area_solution_name: Unconference
 title: 'OpenSearchCon 2023 Session: Unconference'
 primary_title: Unconference
+breadcrumbs:
+  icon: community
+  items:
+    - title: OpenSearchCon 2023
+    - title: Unconference
+      url: '/events/opensearchcon/unconference/'
 speaker_talk_title: Unconference
 session_time: '2023-09-27 - 1:00pm-5:30pm'
 session_room: 'Grand Sheraton Seattle Willow Room'

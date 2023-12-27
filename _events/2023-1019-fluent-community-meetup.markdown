@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-10-19'
 # put your event date and time (24 hr) here (mind the time-zone and daylight saving time!):
 eventdate: 2023-10-19 12:00:00 -0400
 # the title - this is how it will show up in listing and headings on the site:
@@ -13,6 +14,7 @@ signup:
     url: https://www.meetup.com/fluent-community-meeting/events/296386218/
     # the button text
     title: Join the meetup
+category: community
 
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
