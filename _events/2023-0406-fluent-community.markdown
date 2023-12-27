@@ -1,11 +1,12 @@
 ---
+calendar_date: '2023-04-06'
 eventdate: 2023-04-06 16:00:00 -0400
 title: Fluent Community Meeting
 online: true
 signup:
     url: https://www.meetup.com/fluent-community-meeting/events/gtnftsyfcgbjb/
     title: Join on Meetup
-
+category: development
 ---
 
 The Fluent Community meeting is an online meetup centered around the Fluentd and Fluent Bit open source projects that are part of the Cloud Native Computing Foundation (CNCF). We also sometimes branch off into discussions of observability in general.

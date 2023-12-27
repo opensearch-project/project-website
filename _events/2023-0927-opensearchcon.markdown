@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-09-27'
 eventdate: 2023-09-27 08:00:00 -0700
 enddate: 2023-09-29 20:00:00 -0700
 title: OpenSearchCon - 2023
@@ -11,7 +11,7 @@ location:
 signup:
     url: https://opensearchcon2023.splashthat.com/
     title: Register to attend
-
+category: events
 ---
 
 <img src="/assets/media/herobanners/register-opensearchcon2023.png" alt="OpenSearchCon 2023"/>{: .img-fluid}

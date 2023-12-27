@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-09-20'
 eventdate: 2023-09-20 09:00:00 -0700
 
 title: Search Relevance - Triage & Backlog Review - 2023-09-20
@@ -7,7 +7,7 @@ online: true
 signup:
     url: https://www.meetup.com/opensearch/events/295393186/
     title: Join on Meetup
-
+category: development
 ---
 
 Join the OpenSearch Search Relevance team for their next triage & backlog meeting.

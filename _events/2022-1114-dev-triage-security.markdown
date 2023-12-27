@@ -1,12 +1,12 @@
 ---
-
+calendar_date: '2022-11-14'
 eventdate: 2022-11-14 12:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2022-11-14
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/bbrkzsydcpbkb/
     title: Join on Meetup
-
+category: development
 ---
 
 Join the OpenSearch Security team for their next backlog & triage planning meeting.

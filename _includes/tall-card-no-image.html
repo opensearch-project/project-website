@@ -1,4 +1,5 @@
-<div class="tall-card__no-image--grid--card solutions-card-grid--card-wrapper--card">
+{% assign additional_card_class = include.additional_card_class |  default: "" %}
+<div class="tall-card__no-image--grid--card solutions-card-grid--card-wrapper--card {{ additional_card_class -}}">
     {% if include.category %}<h4 class="tall-card__no-image--grid--card--category">{{ include.category }}</h4>{% endif %}
     {% if include.title %}
         <h3 class="tall-card__no-image--grid--card--title">
