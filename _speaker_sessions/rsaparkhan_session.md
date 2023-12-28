@@ -14,6 +14,7 @@ presenters:
   - rsaparkhan
   - sturan
 permalink: '/events/opensearchcon/sessions/getting-started-as-a-contributor-unleashing-your-potential-in-the-opensearch-community.html'
+youtube_video_id: '9UU4eHO7GaQ'
 ---
 
 Join this session to uncover the secrets of successfully starting your journey as a contributor to the OpenSearch project. Drawing from personal experience and sharing insightful anecdotes, the speaker will provide practical insights, best practices, and "cheat codes" to accelerate your engagement and make your contributions worthwhile. Learn how to overcome challenges and fast-track your involvement in the OpenSearch community while fostering meaningful connections and driving the growth and sustainability of the project.
