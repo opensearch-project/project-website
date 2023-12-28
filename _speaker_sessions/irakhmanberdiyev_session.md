@@ -15,6 +15,7 @@ presenters:
   - smyssak
   - amyssak
 permalink: '/events/opensearchcon/sessions/how-we-jump-started-community-growth-in-opensearch.html'
+youtube_video_id: 'LMKEJKJZOww'
 ---
 
 This two-part talk first covers an OpenSearch SDM's journey to boost community growth in OpenSearch via a pilot, resulting in 500 participants, 300+ PRs, and 100+ issues in 12 weeks, and discusses organizational changes implemented. The second part features a key contributor sharing her experience participating in the program, forming professional relationships, learning from Amazon engineers, mentoring peers, and starting a business with newly made friends. A success story in all aspects.

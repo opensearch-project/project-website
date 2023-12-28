@@ -15,6 +15,7 @@ presenters:
   - aflynn
   - pcruz
 permalink: '/events/opensearchcon/sessions/infra-opensearch-in-your-laptop-under-5-minutes.html'
+youtube_video_id: 'zOc3L2sbMOw'
 ---
 
 Setting up virtual machines and clusters can be complicated. To attract new contributors, OpenSearch testing needs to be simplified. Sometimes, local testing is preferred for accuracy in replicating production deployment. This talk covers ways to provision VMs or a cloud in under 5 minutes. It also explores the advantages of local deployment, testing, and evaluation of OpenSearch, emphasizing the insights into the needs of enterprise-grade deployment.

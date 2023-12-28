@@ -14,6 +14,7 @@ presenters:
   - dvenable
   - kkondaka
 permalink: '/events/opensearchcon/sessions/now-is-the-time-to-start-using-data-prepper.html'
+youtube_video_id: 'kxZR0pCQbbo'
 ---
 
 Data Prepper is an open-source last-mile data collector. We will show you how how to get actionable data about your applications into OpenSearch. We will discuss how Amazon is using Data Prepper at scale for the new OpenSearch Ingestion product. And we will describe some of the powerful new capabilities Data Prepper offers for improved trace analytics and metrics generation. Whether you are using Data Prepper, another pipeline technology, or have no pipelines, you can benefit from this talk.
