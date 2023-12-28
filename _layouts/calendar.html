@@ -76,14 +76,14 @@ layout: fullwidth-with-breadcrumbs
             <div class="events--calendar--head--prev-next">
                 <div class="events--calendar--head--prev-next--prev">
                     {% if page.previous %}
-                        <a href="{{ page.previous.url }}">&lt;&nbsp;Previous</a>
+                        <a class="events--calendar--head--prev-next--anchor" href="{{ page.previous.url }}">&lt;&nbsp;Previous</a>
                     {% else %}
                         <span>Previous</span>
                     {% endif %}
                 </div>
                 <div class="events--calendar--head--prev-next--next">
                     {% if page.next %}
-                        <a href="{{ page.next.url }}">Next&nbsp;&gt;</a>
+                        <a class="events--calendar--head--prev-next--anchor" href="{{ page.next.url }}">Next&nbsp;&gt;</a>
                     {% else %}
                         <span>Next&nbsp;&gt;</span>
                     {% endif %}
@@ -115,7 +115,10 @@ layout: fullwidth-with-breadcrumbs
                                         {% endif %}
                                         <div class="events--calendar--body--week--day--event {{ event_category_classname }}">
                                             <div class="events--calendar--body--week--day--event--name">
-                                                <a href="{{ event.url }}" tile="{{ event.title }}">{{ event.title }}</a>
+                                                <a class="events--calendar--body--week--day--event--name--anchor"
+                                                    href="{{ event.url }}" 
+                                                    title="{{ event.title }}"
+                                                >{{ event.title }}</a>
                                             </div>
                                             <div class="events--calendar--body--week--day--event--details" data-eventurl="{{ event.url }}">
                                                 <div class="events--calendar--body--week--day--event--details--close-button">
@@ -548,12 +551,20 @@ layout: fullwidth-with-breadcrumbs
                     event.preventDefault();
                 } else {
                     // Determine if the click did NOT occur within the card iteself (say for example in a link).
-                    // Hide it if there was a a "click-away" event.
+                    // Hide it if there was a "click-away" event.
                     const detailsCard = e.target.closest('.events--calendar--body--week--day--event--details');
                     const clickWasInsideCard = detailsCard !== null;
                     if (!clickWasInsideCard) {
                         hideEventDetails(currentlyVisibleDetails);
-                        event.preventDefault();
+                        const allowableAnchorClassNames = [
+                            'events--calendar--head--prev-next--anchor',
+                            'events--calendar--body--week--day--event--name--anchor',
+                        ];
+                        if (!allowableAnchorClassNames.some(className => e.target.classList.contains(className))) {
+                            // If an event name was NOT clicked then prevent the default action.
+                            // Otherwise allow the navigation to the clicked event to be performed.
+                            event.preventDefault();
+                        }
                     }
                 }
             } else {
@@ -667,7 +678,89 @@ layout: fullwidth-with-breadcrumbs
                 });
             }
         }
+
+        const filterStateStorageName = 'events--calendar--filters';
+        function readFilterState() {
+            const filterStateJson = window.sessionStorage.getItem(filterStateStorageName);
+            if (filterStateJson) {
+                const parsedFilterState = JSON.parse(filterStateJson);
+                return parsedFilterState;
+            }
+            return null;
+        }
+
+        function writeFilterState() {
+            const defaultFilterState = {
+                categories: [],
+                showInPersonEvents: true,
+            };
+            const filteredCategoriesSelector = '.events--calendar.events--calendar__filtered';
+            const selectedCategoriesAttributeName = 'data-filtercategory';
+            const filteredCategories = (
+                document.querySelector(
+                    filteredCategoriesSelector
+                )?.getAttribute?.(
+                    selectedCategoriesAttributeName
+                ) ?? ''
+            ).split(',').filter(category => category !== '');
+            const onlineOnlySelector = '.events--calendar.events--calendar__filtered.events--calendar__online-only';
+            const onlineOnly = !!document.querySelector(onlineOnlySelector);
+            const filterState = {
+                ...defaultFilterState,
+                categories: [...filteredCategories],
+                showInPersonEvents: !onlineOnly,
+            };
+            const filterStateJson = JSON.stringify(filterState, null, 2);
+            window.sessionStorage.setItem(filterStateStorageName, filterStateJson);
+        }
+
+        function initializeFilterStateDOM(filterState) {
+            if (!filterState) {
+                return;
+            }
+            const { 
+                categories = [], 
+                showInPersonEvents = true
+            } = filterState;
+            const calendarSelector = '.events--calendar';
+            const eventsCalendarElement = document.querySelector(calendarSelector);
+            const selectedCategoriesAttributeName = 'data-filtercategory';
+            const selectedCategoryCount = categories?.length ?? 0;
+            if (!showInPersonEvents) {
+                const inPersonToggleSelector = '.events--calendar--filters--in-person-toggle';
+                const onlineOnlyClass = 'events--calendar--filters--in-person-toggle__toggled-off';
+                const onlineOnlyCalendarClass = 'events--calendar__online-only';
+                eventsCalendarElement?.classList?.add?.(onlineOnlyCalendarClass);
+                document.querySelector(inPersonToggleSelector)?.classList?.add?.(onlineOnlyClass);
+            }
+
+            if (selectedCategoryCount > 0) {
+                const categoryList = categories.join(',');
+                const calendarFilteredClassName = 'events--calendar__filtered';
+                eventsCalendarElement?.setAttribute?.(selectedCategoriesAttributeName, categoryList);
+                eventsCalendarElement?.classList?.add?.(calendarFilteredClassName);
+
+                const categorySelectElementId = 'category-filter-selectorFilter-by-Category';
+                const categorySelectElement = document.getElementById(categorySelectElementId);
+                const labelSelector = `label[for="${categorySelectElementId}"]`;
+                const labelText = `Filter by Category (${selectedCategoryCount})`;
+                const labelElement = document.querySelector(labelSelector);
+
+                categories.forEach(category => {
+                    categorySelectElement?.querySelector?.(`option[value="${category}"]`)?.setAttribute?.('selected', '');
+                    addFilterChip(category);
+                });
+                if (labelElement) {
+                    labelElement.textContent = labelText;
+                }
+            }
+        }
+
         setEventsPageLinksToThisMonthCalendar();
         localizeEventDates();
+        initializeFilterStateDOM(readFilterState());
+        window.addEventListener('beforeunload', () => {
+            writeFilterState();
+        });
     });
 </script>
