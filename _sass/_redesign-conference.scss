@@ -10,6 +10,9 @@ $content-panel-expand-breakpoint: 1019px;
 
 .landing-page-content__right-panel.conference-speaker-session-page {
     background: unset;
+    > .conference-speaker-session-page--embedded-video {
+        padding: 40px 40px 80px 80px;
+    }
     .landing-page-content__right-panel--content--body {
         @media screen and (max-width: $content-panel-collapse-breakpoint) {
             padding: 20px 0 0 20px;
