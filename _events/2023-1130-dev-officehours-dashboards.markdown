@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-11-20'
 # put your event date and time (24 hr) here:
 eventdate: 2023-11-30 10:00:00 -0800
 # the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
@@ -12,6 +13,11 @@ signup:
     url: https://forum.opensearch.org/t/opensearch-dashboards-developer-office-hours-2023-11-30/16311
     # the button text
     title: Join on Zoom
+category: development
+host:
+  - name: Josh Romero
+    short_name: joshuarrrr
+    
 
 # below this triple dash, describe your event. It should be 1-3 sentences
 ---

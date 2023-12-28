@@ -1,11 +1,12 @@
 ---
-
+calendar_date: '2023-07-10'
 eventdate: 2023-07-10 12:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2023-07-10
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/tvcvftyfckbnb/
     title: Join on Meetup
+category: development
 
 ---
 

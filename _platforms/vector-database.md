@@ -4,6 +4,16 @@ title: Using OpenSearch as a Vector Database
 categories:
   - search
 primary_title: Using OpenSearch as a Vector Database
+
+breadcrumbs:
+  icon: search-magnifying-glass
+  items:
+    - title: The OpenSearch Platform
+      url: '/platform/index.html'
+    - title: Search
+      url: '/platform/search/index.html'
+    - title: Vector Database
+      url: '/platform/search/vector-database.html'
 feature_area_icon_type: search-magnifying-glass
 feature_area_category_name: Search
 feature_area_solution_name: Vector Database

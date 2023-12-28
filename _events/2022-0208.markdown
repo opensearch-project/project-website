@@ -1,12 +1,12 @@
 ---
-
+calendar_date: '2022-02-08'
 eventdate: 2022-02-08 07:00:00 -0800
 title: OpenSearch Community Meeting - 2022-02-08 - open office hour
 online: true
 signup:
     url: https://www.meetup.com/OpenSearch/events/283124167
     title: Join on Meetup
-
+category: community
 ---
 
 Join us for our weekly online community meeting.

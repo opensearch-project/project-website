@@ -1,12 +1,12 @@
 ---
-
+calendar_date: '2022-04-26'
 eventdate: 2022-04-26 15:00:00 -0800
 title: OpenSearch Community Meeting - 2022-04-26
 online: true
 signup:
     url: https://www.meetup.com/OpenSearch/events/284560738/
     title: Join on Meetup
-
+category: community
 ---
 
 Join us for our weekly online community meeting.

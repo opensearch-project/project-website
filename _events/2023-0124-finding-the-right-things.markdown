@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-01-24'
 # put your event date and time (24 hr) here:
 eventdate: 2023-01-24 13:00:00 -0500
 # the title - this is how it will show up in listing and headings on the site:
@@ -11,7 +12,7 @@ signup:
     url: https://www.meetup.com/dataops-poland/events/290421010/
     # the button text
     title: Join on Meetup
-
+category: events
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

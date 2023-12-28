@@ -1,4 +1,5 @@
 ---
+calendar_date: '2023-07-25'
 # put your event date and time (24 hr) here:
 eventdate: 2023-07-25 10:00:00 -0700
 # the UTC offset (https://en.wikipedia.org/wiki/UTC_offset):
@@ -12,7 +13,7 @@ signup:
     url: https://bigdataboutique.com/blog/webinar-efficient-vector-search-with-opensearch-5482ac
     # the button text
     title: Join us on this webinar
-
+category: community
 # below this tripple dash, describe your event. It should be 1-3 sentences
 ---
 

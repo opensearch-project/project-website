@@ -1,0 +1,431 @@
+<template id="opensearch_dropdown_element_tpl">
+    <style>
+        :host,
+        :host([orientation="vertical"]) {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: stretch;
+            position: relative;
+        }
+        :host([orientation="horizontal"]) {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        :host > opensearch-collapsible-panel {
+            width: 100%;
+        }
+        :host > opensearch-collapsible-panel[expanded] > .list-items {
+            border-style: ridge;
+            border-radius: 4px;
+            border-color: #b9d9eb;
+        }
+        :host > opensearch-collapsible-panel > opensearch-toggle-button {
+            width: 100%;
+        }
+        :host > opensearch-collapsible-panel > opensearch-toggle-button > opensearch-button {
+            width: 100%;
+        }
+
+        opensearch-dropdown-item,
+        opensearch-dropdown-checkbox-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            height: max-content;
+        }
+        
+        opensearch-collapsible-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: stretch;
+            width: 100%;
+            height: max-content;
+        }
+        opensearch-collapsible-panel > opensearch-toggle-button > opensearch-button > span.toggle-icon {
+            padding-top: 8px;
+        }
+        .list-items {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+            width: 100%;
+            height: max-content;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%
+        }
+    </style>
+    <opensearch-collapsible-panel toggle-button-position="right">
+        <opensearch-toggle-button slot="toggle-slot">
+            <opensearch-button slot="toggled" icon-position="right" size="normal" class="example-toggle">
+                <span slot="icon-slot" class="toggle-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="ouiIcon ouiIcon--medium ouiIcon-isLoaded oui-alignMiddle" focusable="false" role="img" aria-hidden="true"><path fill-rule="non-zero" d="M13.069 5.157L8.384 9.768a.546.546 0 01-.768 0L2.93 5.158a.552.552 0 00-.771 0 .53.53 0 000 .759l4.684 4.61c.641.631 1.672.63 2.312 0l4.684-4.61a.53.53 0 000-.76.552.552 0 00-.771 0z"></path></svg>
+                </span>
+                <span slot="text-slot" class="selected-item-label">Select an item</span>
+            </opensearch-button>   
+            <opensearch-button slot="untoggled" icon-position="right" size="normal" class="example-toggle">
+                <span slot="icon-slot" class="toggle-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="ouiIcon ouiIcon--medium ouiIcon-isLoaded oui-alignMiddle" focusable="false" role="img" aria-hidden="true"><path fill-rule="nonzero" d="M5.157 13.069l4.611-4.685a.546.546 0 000-.768L5.158 2.93a.552.552 0 010-.771.53.53 0 01.759 0l4.61 4.684c.631.641.63 1.672 0 2.312l-4.61 4.684a.53.53 0 01-.76 0 .552.552 0 010-.771z"></path></svg>
+                </span>
+                <span slot="text-slot" class="selected-item-label">Select an item</span>
+            </opensearch-button>
+        </opensearch-toggle-button>
+        <div slot="content-slot" class="list-items">
+            <slot></slot>
+        </div>
+    </opensearch-collapsible-panel>
+</template>
+<template id="opensearch_dropdown_item_element_tpl">
+    <style>
+        :host {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        :host([selected]) {
+            background-color: #ccd3d6;
+        }
+        :host([disabled]) {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .value {
+            display: none;
+        }
+        opensearch-button {
+            border: none;
+        }
+        opensearch-button:hover {
+            background-color: #ccd3d6;
+        }
+    </style>
+    <span class="value">
+        <slot name="value-slot"></slot>
+    </span>
+    <opensearch-button text-only label-text=" ">
+        <span slot="text-slot">
+            <slot name="label-slot"></slot>
+        </span>
+    </opensearch-button>
+</template>
+<template id="opensearch_dropdown_checkbox_item_element_tpl">
+    <style>
+        :host {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        :host([selected]) {
+            background-color: #ccd3d6;
+        }
+        :host([disabled]) {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        :host > opensearch-toggle-button {
+            width: 100%;
+        }
+        :host > opensearch-toggle-button > opensearch-button {
+            border: none;
+            width: 100%;
+        }
+        :host > opensearch-toggle-button > opensearch-button:hover {
+            background-color: #ccd3d6;
+        }
+    </style>
+    <opensearch-toggle-button>
+        <opensearch-button slot="toggled" icon-position="left">
+            <span slot="icon-slot">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="ouiIcon ouiIcon--medium ouiIcon-isLoaded oui-alignMiddle" focusable="false" role="img" aria-hidden="true"><path fill-rule="nonzero" d="M2.5 3.5h11a1 1 0 011 1v9a1 1 0 01-1 1h-11a1 1 0 01-1-1v-9a1 1 0 011-1zm0-1a2 2 0 00-2 2v9a2 2 0 002 2h11a2 2 0 002-2v-9a2 2 0 00-2-2h-11z"></path><path fill-rule="nonzero" d="M4.5 8.5l2 2 5-5"></path></svg>
+            </span>
+            <span slot="text-slot">
+                <slot name="label-slot"></slot>
+            </span>
+        </opensearch-button>
+        <opensearch-button slot="untoggled" icon-position="left">
+            <span slot="icon-slot">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="ouiIcon ouiIcon--medium ouiIcon-isLoaded oui-alignMiddle" focusable="false" role="img" aria-hidden="true"><path fill-rule="nonzero" d="M2.5 3.5h11a1 1 0 011 1v9a1 1 0 01-1 1h-11a1 1 0 01-1-1v-9a1 1 0 011-1zm0-1a2 2 0 00-2 2v9a2 2 0 002 2h11a2 2 0 002-2v-9a2 2 0 00-2-2h-11z"></path></svg>
+            </span>
+            <span slot="text-slot">
+                <slot name="label-slot"></slot>
+            </span>
+        </opensearch-button>
+    </opensearch-toggle-button>
+</template>
+<script type="module">
+    class OpenSearchDropdownElement extends HTMLElement {
+
+        static get observedAttributes() {
+            return [
+                'orientation',
+                'expanded',
+                'unselected-label'
+            ];
+        }
+
+        get selected() {
+            return this._selectedItem;
+        }
+
+        constructor() {
+            super();
+            this.attachShadow({mode: 'open'});
+            this.shadowRoot.appendChild(document.getElementById('opensearch_dropdown_element_tpl').content.cloneNode(true));
+            this.onItemSelect = this.onItemSelect.bind(this);
+        }
+
+        connectedCallback() {
+            const selectedItemLabel = this.getAttribute('unselected-label')?.trim?.() ?? 'Select an item';
+            if (!this.hasAttribute('unselected-label')) {
+                this.setAttribute('unselected-label', selectedItemLabel);
+            }
+            this.shadowRoot.querySelectorAll('.selected-item-label').forEach(label => label.textContent = selectedItemLabel);
+            this.setAttribute('role', 'listbox');
+            this.setAttribute('aria-role', 'list');
+            this.shadowRoot.querySelector('.list-items').addEventListener('click', this.onItemSelect);
+        }
+
+        disconnectCallback() {
+            this.shadowRoot.querySelector('.list-items').removeEventListener('click', this.onItemSelect);
+        }
+
+        onItemSelect(event) {
+            event.stopPropagation();
+            const findItemElement = (element) => {
+                if (!element) {
+                    return null;
+                }
+                if (element instanceof OpenSearchDropdownItemElement) {
+                    return element;
+                }
+                return findItemElement(element.parentElement);
+            };
+            const removeSelectedAttributeFromOtherItems = () => {
+                const items = this.shadowRoot.querySelector(
+                    'opensearch-collapsible-panel'
+                )?.shadowRoot?.querySelector?.(
+                    'slot[name="content-slot"]'
+                )?.assignedElements?.()?.[0]?.querySelector?.('slot')?.assignedElements?.()?.filter?.(
+                    element => element instanceof OpenSearchDropdownItemElement
+                ) ?? [];
+                items.forEach(item => {
+                    if (item !== target) {
+                        item.removeAttribute('selected');
+                        item.removeAttribute('aria-selected');
+                    }
+                });
+            };
+            const target = findItemElement(event.target);
+            if (!target) {
+                this.shadowRoot.querySelector('opensearch-collapsible-panel').removeAttribute('expanded');
+                return;
+            }
+            target.setAttribute('selected', true);
+            target.setAttribute('aria-selected', true);
+            removeSelectedAttributeFromOtherItems();
+            const selectedItemLabel = target.getAttribute('label');
+            const selectedItemValue = target.getAttribute('value');
+            const selectedItem = {
+                label: selectedItemLabel,
+                value: selectedItemValue,
+            };
+            this._selectedItem = selectedItem;
+            this.shadowRoot.querySelectorAll('.selected-item-label').forEach(label => label.textContent = selectedItemLabel);
+            this.dispatchEvent(new CustomEvent('item-select', {
+                detail: {
+                    ...selectedItem,
+                },
+            }));
+            this.shadowRoot.querySelector('opensearch-collapsible-panel').removeAttribute('expanded');
+        }
+    }
+
+    class OpenSearchDropdownItemElement extends HTMLElement {
+    
+        static get observedAttributes() {
+            return ['value', 'label', 'selected', 'disabled', 'exclude-list'];
+        }
+
+        constructor(itemTemplate = 'opensearch_dropdown_item_element_tpl') {
+            super();
+            this.attachShadow({mode: 'open'});
+            this.shadowRoot.appendChild(document.getElementById(itemTemplate).content.cloneNode(true));
+        }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+            if (name === 'label') {
+                this.applyLabelToButton();
+            }
+            if (name === 'selected') {
+                if (newValue === null) {
+                    this.removeAttribute('aria-selected');
+                } else {
+                    this.setAttribute('aria-selected', 'true');
+                }
+            }
+            if (name === 'disabled') {
+                if (newValue === null) {
+                    this.removeAttribute('aria-disabled');
+                    this.shadowRoot.querySelector('opensearch-button').removeAttribute('disabled');
+                } else {
+                    this.setAttribute('aria-disabled', 'true');
+                    this.shadowRoot.querySelector('opensearch-button').setAttribute('disabled', true);
+                }
+            }
+        }
+
+        connectedCallback() {
+            this.setAttribute('role', 'listitem');
+            this.setAttribute('aria-role', 'listitem');
+            if (this.hasAttribute('selected')) {
+                this.setAttribute('aria-selected', 'true');
+            }
+            if (this.hasAttribute('disabled')) {
+                this.setAttribute('aria-disabled', 'true');
+                this.shadowRoot.querySelector('opensearch-button').setAttribute('disabled', true);
+            }
+            this.applyLabelToButton();
+        }
+
+        applyLabelToButton() {
+            const label = this.getAttribute('label')?.trim?.() ?? '';
+            this.shadowRoot.querySelector('opensearch-button').setAttribute('label-text', label);
+        }
+    }
+
+    class OpenSearchDropdownCheckboxItemElement extends OpenSearchDropdownItemElement {
+        
+        constructor() {
+            super('opensearch_dropdown_checkbox_item_element_tpl');
+        }
+
+        connectedCallback() {
+            super.connectedCallback();
+        }
+
+        disconnectCallback() {
+            super.disconnectCallback();
+        }
+
+        applyLabelToButton() {
+            const label = this.getAttribute('label')?.trim?.() ?? '';
+            this.shadowRoot.querySelectorAll('opensearch-button').forEach(button => button.setAttribute('label-text', label));
+        }
+    }
+
+    class OpenSearchMultiSelectDropdownElement extends OpenSearchDropdownElement {
+        
+        constructor() {
+            super();
+            this.onItemSelect = this.onItemSelect.bind(this);
+        }
+
+        get selected() {
+            return this._selectedItems;
+        }
+
+        connectedCallback() {
+            super.connectedCallback();
+            this.setAttribute('aria-multiselectable', true);
+            this._selectedItems = [];
+            this.shadowRoot.querySelector('.list-items').addEventListener('click', this.onItemSelect);
+        }
+
+        disconnectCallback() {
+            super.disconnectCallback();
+            this.shadowRoot.querySelector('.list-items').removeEventListener('click', this.onItemSelect);
+        }
+
+        onItemSelect(event) {
+            event.stopPropagation();
+            const findItemElement = (element) => {
+                if (!element) {
+                    return null;
+                }
+                if (element instanceof OpenSearchDropdownItemElement) {
+                    return element;
+                }
+                return findItemElement(element.parentElement);
+            };
+            const target = findItemElement(event.target);
+            if (!target) {
+                this.shadowRoot.querySelector('opensearch-collapsible-panel').removeAttribute('expanded');
+                return;
+            }
+            const excludeList = target.getAttribute('exclude-list')?.split?.(',') ?? [];
+            const isSelected = target.toggleAttribute('selected');
+            excludeList.forEach((excludedValue) => {
+                const excludedItem = this.querySelector(`[value="${excludedValue}"]`);
+                if (excludedItem) {
+                    if (isSelected) {
+                        excludedItem.setAttribute('disabled', true);
+                        excludedItem.setAttribute('aria-disabled', true);
+                        if (excludedItem.hasAttribute('selected')) {
+                            excludedItem.removeAttribute('selected');
+                            excludedItem.removeAttribute('aria-selected');
+                            const index = this._selectedItems.findIndex(item => item.value === excludedValue);
+                            if (index !== -1) {
+                                this._selectedItems.splice(index, 1);
+                            }
+                            // create the difference set between the excludeList and the exclude-list values of the excludedItem attribute value.
+                            // Reenable the items in the difference set.
+                            const excludedItemExcludeList = excludedItem.getAttribute('exclude-list').split(',');
+                            const differenceSet = excludedItemExcludeList.filter(value => !excludeList.includes(value));
+                            differenceSet.forEach((value) => {
+                                const item = this.querySelector(`[value="${value}"]`);
+                                if (item) {
+                                    item.removeAttribute('disabled');
+                                    item.removeAttribute('aria-disabled');
+                                }
+                            });
+                        }
+                    } else {
+                        excludedItem.removeAttribute('disabled');
+                        excludedItem.removeAttribute('aria-disabled');
+                    }
+                }
+            });
+            target.toggleAttribute('aria-selected');
+            const selectedItemLabel = target.getAttribute('label');
+            const selectedItemValue = target.getAttribute('value');
+            const selectedItem = {
+                label: selectedItemLabel,
+                value: selectedItemValue,
+            };
+            const index = this._selectedItems.findIndex(item => item.value === selectedItemValue);
+            if (index === -1) {
+                this._selectedItems.push(selectedItem);
+            } else {
+                this._selectedItems.splice(index, 1);
+            }
+            const selectedItemsLabel = this._selectedItems.length > 0 ?
+                this._selectedItems.map(item => item.label).join(', ')
+                : this.getAttribute('unselected-label');
+            this.shadowRoot.querySelectorAll('.selected-item-label').forEach(
+                label => label.textContent = selectedItemsLabel
+            );
+            this.dispatchEvent(new CustomEvent('item-select', {
+                detail: {
+                    ...selectedItem,
+                    selectedItems: this._selectedItems,
+                },
+            }));
+        }
+    }
+
+    customElements.define('opensearch-dropdown', OpenSearchDropdownElement);
+    customElements.define('opensearch-dropdown-item', OpenSearchDropdownItemElement);
+    customElements.define('opensearch-multi-select-dropdown', OpenSearchMultiSelectDropdownElement);
+    customElements.define('opensearch-dropdown-checkbox-item', OpenSearchDropdownCheckboxItemElement);
+</script>

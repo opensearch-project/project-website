@@ -1,6 +1,14 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 primary_title: 'OpenSearch Performance Benchmarks'
+title: 'OpenSearch Performance Benchmarks'
+breadcrumbs:
+  icon: platform
+  items:
+    - title: The OpenSearch Platform
+      url: '/platform/'
+    - title: Performance Benchmarks
+      url: '/benchmarks/'
 omit_from_search: true
 
 benchmark_domain: 'benchmarks.opensearch.org'

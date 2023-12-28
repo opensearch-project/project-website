@@ -1,0 +1,138 @@
+<template id="opensearch_collapsible_panel_tpl">
+    <style>
+        :host {
+            background: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            display: block;
+        }
+        .collapsible-toggle {
+            background: inherit;
+            font-weight: inherit;
+            line-height: 1.3;
+            font-size: inherit;
+            display: flex;
+            min-height: 1.3em;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            height: auto;
+            width: auto;
+        }
+        :host([toggle-button-position="left"]) > .collapsible-toggle {
+            flex-direction: row-reverse;
+        }
+        .collapsible-content {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            overflow-x: hidden;
+            height: 0;
+            transition-property: all;
+            transition-duration: 0.3s;
+            transition-delay: 0.1s;
+            transition-timing-function: ease-out;
+            opacity: 0.3;
+
+        }
+        :host([expanded]) .collapsible-content {
+            height: var(--expanded-height, fit-content);
+            opacity: 1;
+        }
+    </style>
+    <div class="collapsible-toggle">
+        <slot name="toggle-slot"></slot>
+    </div>
+    <div class="collapsible-content" aria-expanded="false">
+        <slot name="content-slot"></slot>
+    </div>
+</template>
+<script type="module">
+
+    class OpenSearchCollapsiblePanel extends HTMLElement {
+
+        static get observedAttributes() {
+            return [
+                'expanded-height', 
+                'transition-delay', 
+                'transition-duration', 
+                'transition-timing-function',
+                'toggle-button-position',
+                'expanded'
+            ];
+        }
+
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+            this.shadowRoot.appendChild(document.getElementById('opensearch_collapsible_panel_tpl').content.cloneNode(true));
+            this.toggle = this.toggle.bind(this);
+        }
+
+        fireExpandStateChangeEvent(panelHeight) {
+            const collapsibleContent = this.shadowRoot.querySelector('.collapsible-content');
+            const isExpanded = this.toggleAttribute('expanded');
+            collapsibleContent.setAttribute('aria-expanded', isExpanded);
+            this.dispatchEvent(new CustomEvent('expand-state-change', { 
+                bubbles: true,
+                composed: true,
+                detail: { 
+                    isExpanded,
+                    panelHeight,
+                },
+            }));
+        }
+        
+        toggle(event) {
+            event.preventDefault();
+            const nestedCollapsiblePanels = this.findNestedCollapsiblePanels();
+            if (nestedCollapsiblePanels?.length > 0) {
+                const panelHeights = nestedCollapsiblePanels.map(
+                    panel => panel.hasAttribute('expanded') && panel.getAttribute('expanded') !== 'false' ? 
+                        parseInt(panel.getAttribute('expanded-height'), 10) :
+                        0
+                    );
+                const sumOfNestedCollapsiblePanels = panelHeights.reduce((carry, current) => carry + current, 0);
+                this.fireExpandStateChangeEvent(sumOfNestedCollapsiblePanels);
+            } else {
+                const expandedHeight = this.getAttribute('expanded-height');
+                this.style.setProperty('--expanded-height', expandedHeight);
+                this.fireExpandStateChangeEvent(expandedHeight);
+            }
+        }
+
+        connectedCallback() {
+            const expandedHeight = this.getAttribute('expanded-height');
+            if (expandedHeight) {
+                this.style.setProperty('--expanded-height', expandedHeight);
+            } else {
+                const collapsibleContent = this.shadowRoot.querySelector('.collapsible-content');
+                const contentHeight = collapsibleContent.scrollHeight;
+                if (Number(contentHeight) > 0) {
+                    const heightProp = `${contentHeight}px`;
+                    this.style.setProperty('--expanded-height', heightProp);
+                    this.setAttribute('expanded-height', heightProp);
+                }
+            }
+            this.shadowRoot.querySelector('.collapsible-toggle').addEventListener('click', this.toggle);
+        }
+
+        disconnectedCallback() {
+            this.shadowRoot.querySelector('.collapsible-toggle').removeEventListener('click', this.toggle);
+        }
+
+        findNestedCollapsiblePanels() {
+            const nestedCollapsiblePanels = this.querySelector(
+                'slot'
+            )?.assignedElements?.()?.map?.(
+                element => element.shadowRoot.querySelectorAll(
+                    'opensearch-collapsible-panel'
+                )
+            )?.filter?.(panels => (panels?.length ?? 0) > 0)
+            ?.reduce?.((carry, current) => [...carry, ...current], []);
+            return nestedCollapsiblePanels;
+        }
+    }
+    
+    customElements.define('opensearch-collapsible-panel', OpenSearchCollapsiblePanel);
+</script>

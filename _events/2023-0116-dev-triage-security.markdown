@@ -1,12 +1,12 @@
 ---
-
+calendar_date: '2023-01-17'
 eventdate: 2023-01-17 12:00:00 -0800
 title: Development Backlog & Triage Meeting - Security - 2023-01-17
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/xkggbtyfccbmb
     title: Join on Meetup
-
+category: development
 ---
 **PLEASE NOTE** - This was originally scheduled for Monday the 16th, but that is a US Holiday so we are moving this to Tuesday the 17th. Thank you for your understanding.
 
