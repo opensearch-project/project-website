@@ -76,14 +76,14 @@ layout: fullwidth-with-breadcrumbs
             <div class="events--calendar--head--prev-next">
                 <div class="events--calendar--head--prev-next--prev">
                     {% if page.previous %}
-                        <a href="{{ page.previous.url }}">&lt;&nbsp;Previous</a>
+                        <a class="events--calendar--head--prev-next--anchor" href="{{ page.previous.url }}">&lt;&nbsp;Previous</a>
                     {% else %}
                         <span>Previous</span>
                     {% endif %}
                 </div>
                 <div class="events--calendar--head--prev-next--next">
                     {% if page.next %}
-                        <a href="{{ page.next.url }}">Next&nbsp;&gt;</a>
+                        <a class="events--calendar--head--prev-next--anchor" href="{{ page.next.url }}">Next&nbsp;&gt;</a>
                     {% else %}
                         <span>Next&nbsp;&gt;</span>
                     {% endif %}
@@ -556,8 +556,11 @@ layout: fullwidth-with-breadcrumbs
                     const clickWasInsideCard = detailsCard !== null;
                     if (!clickWasInsideCard) {
                         hideEventDetails(currentlyVisibleDetails);
-                        const eventNameLinkClassName = 'events--calendar--body--week--day--event--name--anchor';
-                        if (!e.target.classList.contains(eventNameLinkClassName)) {
+                        const allowableAnchorClassNames = [
+                            'events--calendar--head--prev-next--anchor',
+                            'events--calendar--body--week--day--event--name--anchor',
+                        ];
+                        if (!allowableAnchorClassNames.some(className => e.target.classList.contains(className))) {
                             // If an event name was NOT clicked then prevent the default action.
                             // Otherwise allow the navigation to the clicked event to be performed.
                             event.preventDefault();
