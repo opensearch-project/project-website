@@ -36,18 +36,18 @@ We also started adding vector quantization support. Instead of operating on vect
 
 Open source frameworks for building large language models (LLMs) based applications like LangChain and LlamaIndex flourished this year. Builders have been using these frameworks with OpenSearch to create generative chatbots and conversational search experiences. We were pleased to support the LangChain project and our community by contributing features such as the OpenSearch [vector store](https://python.langchain.com/docs/integrations/vectorstores/opensearch) and [RAG](https://python.langchain.com/docs/templates/rag-opensearch) template. With these features, builders can create RAG-powered chatbots like the solution described in this [blog](https://aws.amazon.com/blogs/machine-learning/build-a-powerful-question-answering-bot-with-amazon-sagemaker-amazon-opensearch-service-streamlit-and-langchain/).
 
-### **AI-powered Search Innovations**
+### AI-powered Search Innovations
 
 As our users increasingly build AI features into their OpenSearch applications, we’ve observed their pain around managing and integrating Machine Learning (ML) models with OpenSearch—such as having to build custom middleware to mediate communication between ML models and OpenSearch. For example, when you build a semantic search application on an OpenSearch [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/index/), you have to integrate text embeddings, a type of ML model, into your ingest pipelines to encode your text corpus into vectors. Then, you have to implement middleware to integrate ML models to help translate user queries like "what is OpenSearch" into a [vector query](https://opensearch.org/docs/latest/search-plugins/knn/approximate-knn/) and perform a vector similarity search. Moreover, to keep pace with AI innovations, your application has to adapt to frequent change as you re-evaluate and re-integrate new AI technologies.
 
 Frameworks like LangChain have helped builders alleviate some of these challenges, but we still see an opportunity for complementary features that deliver further simplification. OpenSearch builders often have basic requirements—they simply want to infuse vector search into their OpenSearch-powered applications. For instance, they don’t need to dynamically retrieve information from multiple data stores and run complex pipelines, which is sometimes required by generative agent applications. Thus, we launched [neural search](https://opensearch.org/docs/latest/search-plugins/neural-search/) and the [ML framework](https://opensearch.org/docs/2.11/ml-commons-plugin/integrating-ml-models/) for OpenSearch to simplify the AI application building experience.
 
-#### N**eural Search**
+#### Neural Search
 
 Generally available since OpenSearch 2.9, [neural search](https://opensearch.org/docs/latest/search-plugins/neural-search/) enables builders to create semantic search applications by running human language queries instead of vector-based ones. You can run semantic search pipelines on-cluster instead of on custom middleware. These pipelines are integrated with ML models that are hosted on-cluster or externally managed by providers like Cohere, OpenAI, Amazon Bedrock and Amazon SageMaker.
 
 
-![multimodal-demo](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/semantic-search-flickr30k.gif)
+![semantic-search-demo](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/semantic-search-flickr30k.gif)
 
 
 #### Machine Learning Framework 
@@ -55,6 +55,11 @@ Generally available since OpenSearch 2.9, [neural search](https://opensearch.org
 The ML models that power neural search are integrated and managed by OpenSearch’s [ML framework](https://opensearch.org/docs/2.11/ml-commons-plugin/integrating-ml-models/). Integrated models share a [unified API](https://opensearch.org/docs/2.11/ml-commons-plugin/api/index/) whether they run on-cluster or externally. This enables you to manage the model registration to deployment lifecycle such as managing versions, facilitating model search and discovery, configuring resource-level access controls, and more. 
 
 In addition to the first wave of [AI connectors](https://opensearch.org/docs/2.11/ml-commons-plugin/remote-models/connectors/#supported-connectors), we’ve created an extensible ML framework. We wanted to empower contributors to create OpenSearch AI integrations with little effort and a lot to gain from joining our open community. As a technology integrator, you can simply define JSON-based [blueprints](https://opensearch.org/docs/2.11/ml-commons-plugin/integrating-ml-models/) that describe a secure RESTful protocol between OpenSearch and your technology. You can then use these blueprints to provision connectors. This approach has enabled us to run third-party integrations like the [Cohere Embed connector](https://github.com/opensearch-project/ml-commons/blob/2.x/docs/remote_inference_blueprints/cohere_v3_connector_embedding_blueprint.md) on the Amazon OpenSearch Service (AOS) without delay. It has enabled Cohere to author new versions of their connector so customers can immediately use it on AOS without dependencies on our release schedule. Historically, this has been challenging to accomplish on managed services due to security and business risks. Partners can now benefit from a fast path from open source to commercial offerings.
+
+
+
+![ai-powered-search-architectures](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/ai-powered-search-architectures.png)*Different architecture options to best suit your needs*
+
 
 
 #### Use Case Support for Neural Search and ML Framework
@@ -79,7 +84,7 @@ Lastly, [conversational search](https://opensearch.org/docs/latest/search-plugin
 Our roadmap will continue to be driven by our customers and community. Since there’s no sign of slowing interest in where search meets AI/ML, we plan to continually iterate on what we’ve delivered in the past year. Furthermore, expect more AI-powered features in our domain applications like the [OpenSearch Assistant](https://www.youtube.com/watch?v=9r0RyB_oHKk) and [Anomaly Detection](https://opensearch.org/docs/2.11/observing-your-data/ad/index/) for Observability.
 
 
-### **Vector Search Engine Roadmap**
+### Vector Search Engine Roadmap
 
 Our vector search engine will continue to be a priority. Firstly, we will continue delivering price-performance improvements. Our ongoing activities include evaluation of alternative k-NN libraries and algorithms. We’re looking for algorithms that add a new dimension—like an edge on cost optimization or ultra-low latency—to our current selection of engines and k-NN index types. Specifically, we’re planning to add a disked-based approximate nearest neighbor search algorithm as we’ve observed a good trade-off between cost and latency. We’ve also observed opportunities to improve query latency, index build times, and price performance using hardware accelerated algorithms beyond our current SIMD support. At last, we’re exploring caching techniques specialized for vector search workloads to bolster general vector query performance.
 
