@@ -10,6 +10,9 @@ layout: fullwidth-with-breadcrumbs
 <template id="events-filter-chip">
     {% include filter-chips.html type="events" %}
 </template>
+<template id="empty-calendar-message">
+    <p class="events--calendar--no-events-message">No events scheduled at this time.</p>
+</template>
 
 {% assign start_date = page.date_of_first_sunday %}
 {% assign end_date = page.date_of_last_saturday %}
@@ -52,7 +55,7 @@ layout: fullwidth-with-breadcrumbs
                 {% include labeled-dropdown.html 
                     items=site.data.calendars.filter_categories 
                     label="Filter by Category" 
-                    id="category-filter-selector" 
+                    id="category-filter-selector"
                 %}
             </div>
             <div class="events--calendar--filters--category-selector--filter-chips"></div>
@@ -429,6 +432,13 @@ layout: fullwidth-with-breadcrumbs
             const expandedClassName = 'labeled-dropdown__expanded';
             const { currentTarget } = e;
             const parent = currentTarget.closest('.labeled-dropdown');
+            const selectElement = parent.querySelector('select');
+            if (selectElement?.hasAttribute?.('disabled')) {
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                e.preventDefault();
+                return;
+            }
             if (parent) {
                 if (parent.classList.contains(collapsedClassName)) {
                     parent.classList.replace(collapsedClassName, expandedClassName);
@@ -443,6 +453,10 @@ layout: fullwidth-with-breadcrumbs
         
         document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select')?.addEventListener?.('click', (e) => {
             const { currentTarget, target : { value = '' } = {} } = e;
+            if (currentTarget.hasAttribute('disabled')) {
+                e.preventDefault();
+                return;
+            }
             const filterCategories = {{ site.data.calendars.filter_categories | map: "value" | jsonify }};
             if (filterCategories.includes(value)) {
                 const calendarClass = 'events--calendar';
@@ -491,6 +505,11 @@ layout: fullwidth-with-breadcrumbs
         document.getElementById('in-person-toggle-button')?.addEventListener?.('click', (e) => {
             const { currentTarget } = e;
             const parent = currentTarget.closest('.events--calendar--filters--in-person-toggle');
+            const disabledClassName = 'events--calendar--filters--in-person-toggle__disabled';
+            if (parent.classList.contains(disabledClassName)) {
+                e.preventDefault();
+                return;
+            }
             parent.classList.toggle('events--calendar--filters--in-person-toggle__toggled-off');
             const calendar = document.querySelector('.events--calendar');
             calendar?.classList?.toggle?.('events--calendar__online-only');
@@ -756,9 +775,30 @@ layout: fullwidth-with-breadcrumbs
             }
         }
 
+        function conditionallyShowNoEventsMessage() {
+            const eventSelector = '.events--calendar--body--week--day--event';
+            const count = document.querySelectorAll(eventSelector).length;
+            if (count === 0) {
+                const emptyCalendarTemplate = document.getElementById('empty-calendar-message');
+                const templateContent = emptyCalendarTemplate.content.cloneNode(true);
+                const messageParentSelector = '.events--calendar--filters--category-selector--filter-chips';
+                const messageParentElement = document.querySelector(messageParentSelector);
+                messageParentElement?.appendChild?.(templateContent);
+                const categoryFilterDropdownId = 'category-filter-selectorFilter-by-Category';
+                const categoryFilterDropdownElement = document.getElementById(categoryFilterDropdownId);
+                categoryFilterDropdownElement?.setAttribute?.('disabled', '');
+                categoryFilterDropdownElement?.closest?.('.labeled-dropdown')?.classList?.add?.('labeled-dropdown__disabled');
+                const inPersonToggleClass = 'events--calendar--filters--in-person-toggle';
+                const inPersonToggleDisabledClass = `${inPersonToggleClass}__disabled`;
+                const inPersonToggleSelector = `.${inPersonToggleClass}`;
+                const inPersonToggleElement = document.querySelector(inPersonToggleSelector);
+                inPersonToggleElement?.classList?.add?.(inPersonToggleDisabledClass);
+            }
+        }
         setEventsPageLinksToThisMonthCalendar();
         localizeEventDates();
         initializeFilterStateDOM(readFilterState());
+        conditionallyShowNoEventsMessage();
         window.addEventListener('beforeunload', () => {
             writeFilterState();
         });

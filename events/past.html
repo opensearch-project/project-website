@@ -67,53 +67,58 @@ callouts:
     {% assign sorted_events = past_events  | sort: "eventdate" | reverse %}
     {% assign current_month = "" %}
     {% assign current_year = "" %}
-    {% for event in sorted_events %}
-      
-      {% assign current_event_date_parts = event.eventdate | split: "-" %}
-      {% if current_event_date_parts[0] != current_year or current_event_date_parts[1] != current_month %}
-        {% assign current_year = current_event_date_parts[0] %}
-        {% assign current_month = current_event_date_parts[1] %}
-        <div class="solutions-card-grid">
-          <h2>{{ event.eventdate | date: "%b %Y"}}</h2>
-          <div class="events--calendar__list-view--card-wrapper">
-      {% endif %}
+    {% assign sorted_events_count = sorted_events | size %}
+    {% if sorted_events_count == 0 %}
+      <p class="events--calendar--no-events-message">No events scheduled at this time.</p>
+    {% else %}
+      {% for event in sorted_events %}
+        
+        {% assign current_event_date_parts = event.eventdate | split: "-" %}
+        {% if current_event_date_parts[0] != current_year or current_event_date_parts[1] != current_month %}
+          {% assign current_year = current_event_date_parts[0] %}
+          {% assign current_month = current_event_date_parts[1] %}
+          <div class="solutions-card-grid">
+            <h2>{{ event.eventdate | date: "%b %Y"}}</h2>
+            <div class="events--calendar__list-view--card-wrapper">
+        {% endif %}
 
-      {% assign category = event.category | default: "community" %}
-      {% assign event_date = event.eventdate | date: "%a, %b %d, %Y" %}
-      {% assign category_card_class = "events--calendar__list-view--event-card__" | append: category %}
-      {% assign online_event_card_class = "events--calendar__list-view--event-card__online" %}
-      {% if event.online %}
-        {% assign category_card_class = category_card_class | append: " " | append: online_event_card_class %}
-      {% endif %}
-      <div class="events--calendar--details--card {{ category_card_class }} solutions-card-grid--card-wrapper--card">
-        <h4 class="events--calendar--body--week--day--event--details--category">
-            {{ category }}
-        </h4>
-        <h3 class="events--calendar--body--week--day--event--details--name">
-            <a href="{{ event.url }}">{{ event.title }}</a>
-        </h3>
-        <h6 class="events--calendar--body--week--day--event--details--date" data-eventdate="{{ event.eventdate }}">
-            {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
-        </h6>
-        {% if event.excerpt %}
-            {{ event.excerpt }}
+        {% assign category = event.category | default: "community" %}
+        {% assign event_date = event.eventdate | date: "%a, %b %d, %Y" %}
+        {% assign category_card_class = "events--calendar__list-view--event-card__" | append: category %}
+        {% assign online_event_card_class = "events--calendar__list-view--event-card__online" %}
+        {% if event.online %}
+          {% assign category_card_class = category_card_class | append: " " | append: online_event_card_class %}
+        {% endif %}
+        <div class="events--calendar--details--card {{ category_card_class }} solutions-card-grid--card-wrapper--card">
+          <h4 class="events--calendar--body--week--day--event--details--category">
+              {{ category }}
+          </h4>
+          <h3 class="events--calendar--body--week--day--event--details--name">
+              <a href="{{ event.url }}">{{ event.title }}</a>
+          </h3>
+          <h6 class="events--calendar--body--week--day--event--details--date" data-eventdate="{{ event.eventdate }}">
+              {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
+          </h6>
+          {% if event.excerpt %}
+              {{ event.excerpt }}
+          {% else %}
+              {{ event.content }}
+          {% endif %}
+          <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
+        </div>
+        
+        {% if forloop.last %}
+            </div></div>
         {% else %}
-            {{ event.content }}
+          {% assign peak_ahead_index = forloop.index0 | plus: 1 %}
+          {% assign peak_ahead_date = sorted_events[peak_ahead_index].eventdate %}
+          {% assign peak_ahead_date_parts = peak_ahead_date | split: "-" %}
+          {% if peak_ahead_date_parts[0] != current_event_date_parts[0] or peak_ahead_date_parts[1] != current_event_date_parts[1] %}
+            </div></div>
+          {% endif %}
         {% endif %}
-        <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
-      </div>
-      
-      {% if forloop.last %}
-          </div></div>
-      {% else %}
-        {% assign peak_ahead_index = forloop.index0 | plus: 1 %}
-        {% assign peak_ahead_date = sorted_events[peak_ahead_index].eventdate %}
-        {% assign peak_ahead_date_parts = peak_ahead_date | split: "-" %}
-        {% if peak_ahead_date_parts[0] != current_event_date_parts[0] or peak_ahead_date_parts[1] != current_event_date_parts[1] %}
-          </div></div>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
+      {% endfor %}
+    {% endif %}
   </div>
   <div class="events--calendar--more">
     <div class="conference-speakers--session-speakers--more--link-button">
@@ -143,12 +148,9 @@ callouts:
     </div>
   </div>
 </div>
-
-
 <script type="module">
   document.addEventListener('DOMContentLoaded', () => {
 
-    
     function setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl) {
       const selector = '.full-width-layout--header--breadcrumbs--item > a[href*="/events/calendar/"]';
       const link = document.querySelector(selector);
@@ -160,6 +162,7 @@ callouts:
       const toggleButton = document.querySelector(selector);
       toggleButton?.setAttribute?.('href', calendarViewUrl);
     }
+
     function setCalendarLinkToThisMonth(calendarViewUrl) {
       const attributeName = 'data-eventscalendarlink';
       const attributeSelector = `[${attributeName}="true"]`;
@@ -388,6 +391,7 @@ callouts:
         });
       }
     }
+
     document.querySelector(
         '.events--calendar--filters--category-selector--filter-chips'
     )?.addEventListener?.('click', removeClickedFilterChip);
@@ -407,7 +411,7 @@ callouts:
         const calendar = document.querySelector('.events--calendar__list-view');
         calendar?.classList?.toggle?.('events--calendar__list-view__online-only');
     });
-    
+
     setEventsPageLinksToThisMonthCalendar();
     localizeEventDates();
   });

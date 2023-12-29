@@ -7,6 +7,18 @@
     height: 35px;
     position: relative;
     box-sizing: border-box;
+    &.labeled-dropdown__disabled {
+        cursor: not-allowed;
+        > .labeled-dropdown--label-arrow {
+            > div:nth-of-type(1) > label {
+                cursor: not-allowed;
+                color: $secondary-sanfrancisco-fog-s1;
+            }
+            > div:nth-of-type(2) > svg > path {
+                fill: $secondary-sanfrancisco-fog-s1;
+            }
+        }
+    }
     > .labeled-dropdown--select {
         position: absolute;
         top: 33px;
