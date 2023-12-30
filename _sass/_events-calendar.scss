@@ -73,7 +73,23 @@ $calendar-month-default-week-count: 5;
         font-weight: 600;
         line-height: 14px;
     }
+    // NOTE: The selectors for the headers with the id's defined
+    //       is used as it has been observed that event authors are
+    //       free to use whatever HTML or Kramdown in the content, and
+    //       Jekyll will provide whatever is there lexicographicaly first
+    //       as an excerpt which can break the design. Jekyll creates id 
+    //       attributes for headers using a formatted version of the text of
+    //       the header. The card styles do not use id attributes. So, if there
+    //       is an id attribute then it is coming from the Jekyll excerpt.
+    //       Normalizing the presentation of the excerpts helps to keep the
+    //       design consistent.
     > p,
+    > h6[id],
+    > h5[id],
+    > h4[id],
+    > h3[id],
+    > h2[id],
+    > h1[id],
     .events--calendar--body--week--day--event--details--description {
         @include trim-ellipsis-multiline;
         color: #000;
@@ -241,6 +257,7 @@ $calendar-month-default-week-count: 5;
             column-gap: 10px;
             &.events--calendar--filters--in-person-toggle__disabled {
                 > div:nth-of-type(1) {
+                    cursor: not-allowed;
                     > svg {
                         > rect {
                             fill: $secondary-sanfrancisco-fog-s1;

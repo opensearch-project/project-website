@@ -25,6 +25,10 @@ callouts:
 <template id="events-filter-chip">
   {% include filter-chips.html type="events" %}
 </template>
+<template id="empty-filter-results-message">
+    <p class="events--calendar--empty-filter-results-message">No events found, try adjusting your filters.</p>
+</template>
+
 <div class="events--calendar--wrapper">
   <div class="events--calendar--filters">
     <div class="events--calendar--filters--view-mode-toggle">
@@ -265,6 +269,7 @@ callouts:
             }
             removeFilterChip(category);
         }
+        setTimeout(showEmptyMonthMessages, 60);
     }
 
     function toggleCategoryDropdown(e) {
@@ -272,6 +277,13 @@ callouts:
         const expandedClassName = 'labeled-dropdown__expanded';
         const { currentTarget } = e;
         const parent = currentTarget.closest('.labeled-dropdown');
+        const selectElement = parent?.querySelector('select');
+        if (selectElement?.hasAttribute?.('disabled')) {
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            e.preventDefault();
+            return;
+        }
         if (parent) {
             if (parent.classList.contains(collapsedClassName)) {
                 parent.classList.replace(collapsedClassName, expandedClassName);
@@ -286,6 +298,10 @@ callouts:
 
     function toggleCategoryFilterSelection(e) {
         const { currentTarget, target : { value = '' } = {} } = e;
+        if (currentTarget.hasAttribute('disabled')) {
+            e.preventDefault();
+            return;
+        }
         const filterCategories = {{ site.data.calendars.filter_categories | map: "value" | jsonify }};
         if (filterCategories.includes(value)) {
             const calendarClass = 'events--calendar__list-view';
@@ -329,6 +345,7 @@ callouts:
             }
         }
         hideFilterDropdown();
+        setTimeout(showEmptyMonthMessages, 60);
     }
 
     function localizeEventDates() {
@@ -392,6 +409,47 @@ callouts:
       }
     }
 
+    function showEmptyMonthMessages() {
+      const monthContainerSelector = '.events--calendar__list-view .solutions-card-grid';
+      const eventsCardMonthWrapperSelector = '.events--calendar__list-view--card-wrapper';
+      const monthContainerElements = document.querySelectorAll(monthContainerSelector);
+      monthContainerElements.forEach(monthContainerElement => {
+        const cardWrapper = monthContainerElement.querySelector(eventsCardMonthWrapperSelector);
+        const eventCardSelector = '.events--calendar--details--card';
+        const eventCardElements = Array.from(cardWrapper?.querySelectorAll?.(eventCardSelector) ?? []);
+        const monthIsEmpty = eventCardElements.every(monthCardElement => {
+          const { clientHeight } = monthCardElement;
+          return clientHeight === 0;
+        });
+        if (monthIsEmpty) {
+          const emptyFilterResultsMessage = monthContainerElement.querySelector('p.events--calendar--empty-filter-results-message');
+          if (emptyFilterResultsMessage) {
+            emptyFilterResultsMessage.style.display = 'block';
+          } else {
+            const emptyFilterResultsMessageTemplate = document.getElementById('empty-filter-results-message');
+            monthContainerElement.appendChild(emptyFilterResultsMessageTemplate.content.cloneNode(true));
+          }
+        } else {
+          const emptyFilterResultsMessage = monthContainerElement.querySelector('p.events--calendar--empty-filter-results-message');
+          if (emptyFilterResultsMessage) {
+            emptyFilterResultsMessage.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    function disableFilterControls() {
+      const categoryFilterDropdownId = 'category-filter-selectorFilter-by-Category';
+      const categoryFilterDropdownElement = document.getElementById(categoryFilterDropdownId);
+      categoryFilterDropdownElement?.setAttribute?.('disabled', '');
+      categoryFilterDropdownElement?.closest?.('.labeled-dropdown')?.classList?.add?.('labeled-dropdown__disabled');
+      const inPersonToggleClass = 'events--calendar--filters--in-person-toggle';
+      const inPersonToggleDisabledClass = `${inPersonToggleClass}__disabled`;
+      const inPersonToggleSelector = `.${inPersonToggleClass}`;
+      const inPersonToggleElement = document.querySelector(inPersonToggleSelector);
+      inPersonToggleElement?.classList?.add?.(inPersonToggleDisabledClass);
+    }
+
     document.querySelector(
         '.events--calendar--filters--category-selector--filter-chips'
     )?.addEventListener?.('click', removeClickedFilterChip);
@@ -407,13 +465,23 @@ callouts:
     document.getElementById('in-person-toggle-button')?.addEventListener?.('click', (e) => {
         const { currentTarget } = e;
         const parent = currentTarget.closest('.events--calendar--filters--in-person-toggle');
+        const disabledClassName = 'events--calendar--filters--in-person-toggle__disabled';
+        if (parent.classList.contains(disabledClassName)) {
+            e.preventDefault();
+            return;
+        }
         parent.classList.toggle('events--calendar--filters--in-person-toggle__toggled-off');
         const calendar = document.querySelector('.events--calendar__list-view');
         calendar?.classList?.toggle?.('events--calendar__list-view__online-only');
+        setTimeout(showEmptyMonthMessages, 60);
     });
 
+    const sortedEventsCount = {{ sorted_events_count }};
     setEventsPageLinksToThisMonthCalendar();
     localizeEventDates();
+    if (sortedEventsCount == 0) {
+      disableFilterControls();
+    }
   });
 </script>
 {% include card-clickability.html 

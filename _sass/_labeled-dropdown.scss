@@ -7,6 +7,7 @@
     height: 35px;
     position: relative;
     box-sizing: border-box;
+    cursor: pointer;
     &.labeled-dropdown__disabled {
         cursor: not-allowed;
         > .labeled-dropdown--label-arrow {
@@ -62,6 +63,7 @@
                 > label {
                     @include header-level5($primary-open-sky-s2);
                     padding-left: 10px;
+                    cursor: pointer;
                 }
             }
             &:nth-of-type(2) {
@@ -73,6 +75,7 @@
                 flex-direction: column;
                 box-sizing: border-box;
                 padding-right: 5px;
+                cursor: pointer;
                 > svg {
                     > path {
                         fill: $primary-open-sky-s2;

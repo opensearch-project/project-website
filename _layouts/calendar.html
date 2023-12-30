@@ -13,6 +13,9 @@ layout: fullwidth-with-breadcrumbs
 <template id="empty-calendar-message">
     <p class="events--calendar--no-events-message">No events scheduled at this time.</p>
 </template>
+<template id="empty-filter-results-message">
+    <p class="events--calendar--empty-filter-results-message">No events found, try adjusting your filters.</p>
+</template>
 
 {% assign start_date = page.date_of_first_sunday %}
 {% assign end_date = page.date_of_last_saturday %}
@@ -432,7 +435,7 @@ layout: fullwidth-with-breadcrumbs
             const expandedClassName = 'labeled-dropdown__expanded';
             const { currentTarget } = e;
             const parent = currentTarget.closest('.labeled-dropdown');
-            const selectElement = parent.querySelector('select');
+            const selectElement = parent?.querySelector('select');
             if (selectElement?.hasAttribute?.('disabled')) {
                 e.stopImmediatePropagation();
                 e.stopPropagation();
@@ -775,6 +778,18 @@ layout: fullwidth-with-breadcrumbs
             }
         }
 
+        function disableFilterControls() {
+            const categoryFilterDropdownId = 'category-filter-selectorFilter-by-Category';
+            const categoryFilterDropdownElement = document.getElementById(categoryFilterDropdownId);
+            categoryFilterDropdownElement?.setAttribute?.('disabled', '');
+            categoryFilterDropdownElement?.closest?.('.labeled-dropdown')?.classList?.add?.('labeled-dropdown__disabled');
+            const inPersonToggleClass = 'events--calendar--filters--in-person-toggle';
+            const inPersonToggleDisabledClass = `${inPersonToggleClass}__disabled`;
+            const inPersonToggleSelector = `.${inPersonToggleClass}`;
+            const inPersonToggleElement = document.querySelector(inPersonToggleSelector);
+            inPersonToggleElement?.classList?.add?.(inPersonToggleDisabledClass);
+        }
+
         function conditionallyShowNoEventsMessage() {
             const eventSelector = '.events--calendar--body--week--day--event';
             const count = document.querySelectorAll(eventSelector).length;
@@ -784,15 +799,7 @@ layout: fullwidth-with-breadcrumbs
                 const messageParentSelector = '.events--calendar--filters--category-selector--filter-chips';
                 const messageParentElement = document.querySelector(messageParentSelector);
                 messageParentElement?.appendChild?.(templateContent);
-                const categoryFilterDropdownId = 'category-filter-selectorFilter-by-Category';
-                const categoryFilterDropdownElement = document.getElementById(categoryFilterDropdownId);
-                categoryFilterDropdownElement?.setAttribute?.('disabled', '');
-                categoryFilterDropdownElement?.closest?.('.labeled-dropdown')?.classList?.add?.('labeled-dropdown__disabled');
-                const inPersonToggleClass = 'events--calendar--filters--in-person-toggle';
-                const inPersonToggleDisabledClass = `${inPersonToggleClass}__disabled`;
-                const inPersonToggleSelector = `.${inPersonToggleClass}`;
-                const inPersonToggleElement = document.querySelector(inPersonToggleSelector);
-                inPersonToggleElement?.classList?.add?.(inPersonToggleDisabledClass);
+                disableFilterControls();
             }
         }
         setEventsPageLinksToThisMonthCalendar();
