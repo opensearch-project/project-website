@@ -181,8 +181,9 @@ callouts:
     function setEventsPageLinksToThisMonthCalendar() {
       const today = new Date();
       const monthIndex = today.getUTCMonth();
+      const monthNumber = monthIndex + 1;
       const year = today.getUTCFullYear();
-      const calendarViewUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
+      const calendarViewUrl = `/events/calendar/${year}-${monthNumber < 10 ? `0${monthNumber}` : monthNumber}.html`;
       setCalendarViewToggleUrlToThisMonth(calendarViewUrl);
       setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl);
       setCalendarLinkToThisMonth(calendarViewUrl);
