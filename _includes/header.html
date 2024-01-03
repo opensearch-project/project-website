@@ -150,12 +150,19 @@
                       {% endif %}
                     {% endif %}
                   {%- endif -%}
+                  {% if nav_child.class_name %}
+                    {% assign nav_child_configured_class_name = nav_child.class_name %}
+                  {% else %}
+                    {% assign nav_child_configured_class_name = "" %}
+                  {% endif %}
                   <li>
                     <a href="{{ nav_child.url }}"
                       {% if page.url == nav_child.url -%}
-                        class="in-category"
+                        class="in-category {{ nav_child_configured_class_name }}"
                       {%- elsif child_url_fragment == url_fragment -%}
-                        class="in-category"
+                        class="in-category {{ nav_child_configured_class_name }}"
+                      {%- elsif nav_child_configured_class_name != "" -%}
+                        class="{{ nav_child_configured_class_name }}"
                       {%- endif %}
                     >{{ nav_child.label }}</a>
                   </li>
@@ -207,13 +214,13 @@
     const isMobile = window.matchMedia('only screen and (max-width: 834px)').matches;
 
     // Initialize the calendar view menu item to target the current month.
-    const calendarMenuItemSelector = '#top a[href*="/events/calendar/"]';
+    const calendarMenuItemSelector = '#top a.events-page-menu-link__device-based';
     const calendarMenuItem = document.querySelector(calendarMenuItemSelector);
     if (calendarMenuItem && !isMobile) {
       const now = new Date();
       const monthNumber = now.getUTCMonth() + 1;
       const year = now.getFullYear();
-      const thisMonthCalendarUrl = `/events/calendar/${year}-${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`;
+      const thisMonthCalendarUrl = `/events/calendar/${year}-${monthNumber < 10 ? `0${monthNumber}` : monthNumber}.html`;
       calendarMenuItem.setAttribute('href',  thisMonthCalendarUrl);
     } else if (calendarMenuItem) {
       calendarMenuItem.setAttribute('href', '/events/index.html');

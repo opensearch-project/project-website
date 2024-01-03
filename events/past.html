@@ -25,6 +25,10 @@ callouts:
 <template id="events-filter-chip">
   {% include filter-chips.html type="events" %}
 </template>
+<template id="empty-filter-results-message">
+    <p class="events--calendar--empty-filter-results-message">No events found, try adjusting your filters.</p>
+</template>
+
 <div class="events--calendar--wrapper">
   <div class="events--calendar--filters">
     <div class="events--calendar--filters--view-mode-toggle">
@@ -67,53 +71,58 @@ callouts:
     {% assign sorted_events = past_events  | sort: "eventdate" | reverse %}
     {% assign current_month = "" %}
     {% assign current_year = "" %}
-    {% for event in sorted_events %}
-      
-      {% assign current_event_date_parts = event.eventdate | split: "-" %}
-      {% if current_event_date_parts[0] != current_year or current_event_date_parts[1] != current_month %}
-        {% assign current_year = current_event_date_parts[0] %}
-        {% assign current_month = current_event_date_parts[1] %}
-        <div class="solutions-card-grid">
-          <h2>{{ event.eventdate | date: "%b %Y"}}</h2>
-          <div class="events--calendar__list-view--card-wrapper">
-      {% endif %}
+    {% assign sorted_events_count = sorted_events | size %}
+    {% if sorted_events_count == 0 %}
+      <p class="events--calendar--no-events-message">No events scheduled at this time.</p>
+    {% else %}
+      {% for event in sorted_events %}
+        
+        {% assign current_event_date_parts = event.eventdate | split: "-" %}
+        {% if current_event_date_parts[0] != current_year or current_event_date_parts[1] != current_month %}
+          {% assign current_year = current_event_date_parts[0] %}
+          {% assign current_month = current_event_date_parts[1] %}
+          <div class="solutions-card-grid">
+            <h2>{{ event.eventdate | date: "%b %Y"}}</h2>
+            <div class="events--calendar__list-view--card-wrapper">
+        {% endif %}
 
-      {% assign category = event.category | default: "community" %}
-      {% assign event_date = event.eventdate | date: "%a, %b %d, %Y" %}
-      {% assign category_card_class = "events--calendar__list-view--event-card__" | append: category %}
-      {% assign online_event_card_class = "events--calendar__list-view--event-card__online" %}
-      {% if event.online %}
-        {% assign category_card_class = category_card_class | append: " " | append: online_event_card_class %}
-      {% endif %}
-      <div class="events--calendar--details--card {{ category_card_class }} solutions-card-grid--card-wrapper--card">
-        <h4 class="events--calendar--body--week--day--event--details--category">
-            {{ category }}
-        </h4>
-        <h3 class="events--calendar--body--week--day--event--details--name">
-            <a href="{{ event.url }}">{{ event.title }}</a>
-        </h3>
-        <h6 class="events--calendar--body--week--day--event--details--date" data-eventdate="{{ event.eventdate }}">
-            {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
-        </h6>
-        {% if event.excerpt %}
-            {{ event.excerpt }}
+        {% assign category = event.category | default: "community" %}
+        {% assign event_date = event.eventdate | date: "%a, %b %d, %Y" %}
+        {% assign category_card_class = "events--calendar__list-view--event-card__" | append: category %}
+        {% assign online_event_card_class = "events--calendar__list-view--event-card__online" %}
+        {% if event.online %}
+          {% assign category_card_class = category_card_class | append: " " | append: online_event_card_class %}
+        {% endif %}
+        <div class="events--calendar--details--card {{ category_card_class }} solutions-card-grid--card-wrapper--card">
+          <h4 class="events--calendar--body--week--day--event--details--category">
+              {{ category }}
+          </h4>
+          <h3 class="events--calendar--body--week--day--event--details--name">
+              <a href="{{ event.url }}">{{ event.title }}</a>
+          </h3>
+          <h6 class="events--calendar--body--week--day--event--details--date" data-eventdate="{{ event.eventdate }}">
+              {{ event.eventdate | date: "%a %d %b %Y at %I:%M %p %Z" }}
+          </h6>
+          {% if event.excerpt %}
+              {{ event.excerpt }}
+          {% else %}
+              {{ event.content }}
+          {% endif %}
+          <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
+        </div>
+        
+        {% if forloop.last %}
+            </div></div>
         {% else %}
-            {{ event.content }}
+          {% assign peak_ahead_index = forloop.index0 | plus: 1 %}
+          {% assign peak_ahead_date = sorted_events[peak_ahead_index].eventdate %}
+          {% assign peak_ahead_date_parts = peak_ahead_date | split: "-" %}
+          {% if peak_ahead_date_parts[0] != current_event_date_parts[0] or peak_ahead_date_parts[1] != current_event_date_parts[1] %}
+            </div></div>
+          {% endif %}
         {% endif %}
-        <h5 class="events--calendar--body--week--day--event--details--host"><a href="{{ event.url }}">Learn more</a></h5>
-      </div>
-      
-      {% if forloop.last %}
-          </div></div>
-      {% else %}
-        {% assign peak_ahead_index = forloop.index0 | plus: 1 %}
-        {% assign peak_ahead_date = sorted_events[peak_ahead_index].eventdate %}
-        {% assign peak_ahead_date_parts = peak_ahead_date | split: "-" %}
-        {% if peak_ahead_date_parts[0] != current_event_date_parts[0] or peak_ahead_date_parts[1] != current_event_date_parts[1] %}
-          </div></div>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
+      {% endfor %}
+    {% endif %}
   </div>
   <div class="events--calendar--more">
     <div class="conference-speakers--session-speakers--more--link-button">
@@ -143,12 +152,9 @@ callouts:
     </div>
   </div>
 </div>
-
-
 <script type="module">
   document.addEventListener('DOMContentLoaded', () => {
 
-    
     function setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl) {
       const selector = '.full-width-layout--header--breadcrumbs--item > a[href*="/events/calendar/"]';
       const link = document.querySelector(selector);
@@ -160,6 +166,7 @@ callouts:
       const toggleButton = document.querySelector(selector);
       toggleButton?.setAttribute?.('href', calendarViewUrl);
     }
+
     function setCalendarLinkToThisMonth(calendarViewUrl) {
       const attributeName = 'data-eventscalendarlink';
       const attributeSelector = `[${attributeName}="true"]`;
@@ -174,8 +181,9 @@ callouts:
     function setEventsPageLinksToThisMonthCalendar() {
       const today = new Date();
       const monthIndex = today.getUTCMonth();
+      const monthNumber = monthIndex + 1;
       const year = today.getUTCFullYear();
-      const calendarViewUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
+      const calendarViewUrl = `/events/calendar/${year}-${monthNumber < 10 ? `0${monthNumber}` : monthNumber}.html`;
       setCalendarViewToggleUrlToThisMonth(calendarViewUrl);
       setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl);
       setCalendarLinkToThisMonth(calendarViewUrl);
@@ -262,6 +270,7 @@ callouts:
             }
             removeFilterChip(category);
         }
+        setTimeout(showEmptyMonthMessages, 60);
     }
 
     function toggleCategoryDropdown(e) {
@@ -269,6 +278,13 @@ callouts:
         const expandedClassName = 'labeled-dropdown__expanded';
         const { currentTarget } = e;
         const parent = currentTarget.closest('.labeled-dropdown');
+        const selectElement = parent?.querySelector('select');
+        if (selectElement?.hasAttribute?.('disabled')) {
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            e.preventDefault();
+            return;
+        }
         if (parent) {
             if (parent.classList.contains(collapsedClassName)) {
                 parent.classList.replace(collapsedClassName, expandedClassName);
@@ -283,6 +299,10 @@ callouts:
 
     function toggleCategoryFilterSelection(e) {
         const { currentTarget, target : { value = '' } = {} } = e;
+        if (currentTarget.hasAttribute('disabled')) {
+            e.preventDefault();
+            return;
+        }
         const filterCategories = {{ site.data.calendars.filter_categories | map: "value" | jsonify }};
         if (filterCategories.includes(value)) {
             const calendarClass = 'events--calendar__list-view';
@@ -326,6 +346,7 @@ callouts:
             }
         }
         hideFilterDropdown();
+        setTimeout(showEmptyMonthMessages, 60);
     }
 
     function localizeEventDates() {
@@ -388,6 +409,48 @@ callouts:
         });
       }
     }
+
+    function showEmptyMonthMessages() {
+      const monthContainerSelector = '.events--calendar__list-view .solutions-card-grid';
+      const eventsCardMonthWrapperSelector = '.events--calendar__list-view--card-wrapper';
+      const monthContainerElements = document.querySelectorAll(monthContainerSelector);
+      monthContainerElements.forEach(monthContainerElement => {
+        const cardWrapper = monthContainerElement.querySelector(eventsCardMonthWrapperSelector);
+        const eventCardSelector = '.events--calendar--details--card';
+        const eventCardElements = Array.from(cardWrapper?.querySelectorAll?.(eventCardSelector) ?? []);
+        const monthIsEmpty = eventCardElements.every(monthCardElement => {
+          const { clientHeight } = monthCardElement;
+          return clientHeight === 0;
+        });
+        if (monthIsEmpty) {
+          const emptyFilterResultsMessage = monthContainerElement.querySelector('p.events--calendar--empty-filter-results-message');
+          if (emptyFilterResultsMessage) {
+            emptyFilterResultsMessage.style.display = 'block';
+          } else {
+            const emptyFilterResultsMessageTemplate = document.getElementById('empty-filter-results-message');
+            monthContainerElement.appendChild(emptyFilterResultsMessageTemplate.content.cloneNode(true));
+          }
+        } else {
+          const emptyFilterResultsMessage = monthContainerElement.querySelector('p.events--calendar--empty-filter-results-message');
+          if (emptyFilterResultsMessage) {
+            emptyFilterResultsMessage.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    function disableFilterControls() {
+      const categoryFilterDropdownId = 'category-filter-selectorFilter-by-Category';
+      const categoryFilterDropdownElement = document.getElementById(categoryFilterDropdownId);
+      categoryFilterDropdownElement?.setAttribute?.('disabled', '');
+      categoryFilterDropdownElement?.closest?.('.labeled-dropdown')?.classList?.add?.('labeled-dropdown__disabled');
+      const inPersonToggleClass = 'events--calendar--filters--in-person-toggle';
+      const inPersonToggleDisabledClass = `${inPersonToggleClass}__disabled`;
+      const inPersonToggleSelector = `.${inPersonToggleClass}`;
+      const inPersonToggleElement = document.querySelector(inPersonToggleSelector);
+      inPersonToggleElement?.classList?.add?.(inPersonToggleDisabledClass);
+    }
+
     document.querySelector(
         '.events--calendar--filters--category-selector--filter-chips'
     )?.addEventListener?.('click', removeClickedFilterChip);
@@ -403,13 +466,23 @@ callouts:
     document.getElementById('in-person-toggle-button')?.addEventListener?.('click', (e) => {
         const { currentTarget } = e;
         const parent = currentTarget.closest('.events--calendar--filters--in-person-toggle');
+        const disabledClassName = 'events--calendar--filters--in-person-toggle__disabled';
+        if (parent.classList.contains(disabledClassName)) {
+            e.preventDefault();
+            return;
+        }
         parent.classList.toggle('events--calendar--filters--in-person-toggle__toggled-off');
         const calendar = document.querySelector('.events--calendar__list-view');
         calendar?.classList?.toggle?.('events--calendar__list-view__online-only');
+        setTimeout(showEmptyMonthMessages, 60);
     });
-    
+
+    const sortedEventsCount = {{ sorted_events_count }};
     setEventsPageLinksToThisMonthCalendar();
     localizeEventDates();
+    if (sortedEventsCount == 0) {
+      disableFilterControls();
+    }
   });
 </script>
 {% include card-clickability.html 
