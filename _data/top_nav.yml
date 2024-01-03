@@ -76,6 +76,7 @@ items:
       -
         label: Events
         url: /events
+        class_name: 'events-page-menu-link__device-based'
       -
         label: Partners
         url: /partners
