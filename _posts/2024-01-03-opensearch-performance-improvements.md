@@ -21,44 +21,46 @@ In this blog, we'll share a comprehensive view of strategic enhancements and fea
 
 
 <style>
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 20px;
-    }
 
-    td {
-        text-align: right;
-    }
+.ylw-clr {
+    background-color: #FFEFCC;
+}
 
-    td:first-child {
-        text-align: left;
-    }
-    
-    th {
-        background-color: #f5f7f7;
-    }​
+.orange-clr {
+    background-color: #FCE2CF;
+}
 
-    .yellow-clr {
-        background-color: #FFEFCC;
-    }
+.light-orange-clr {
+    background-color: #FDEFE5;
+}
 
-    .orange-clr {
-        background-color: #FCE2CF;
-    }
+.green-clr {
+    background-color: #c1f0c1;
+}
 
-    .light-orange-clr {
-        background-color: #FDEFE5;
-    }
+.light-green-clr {
+    background-color: #e3f8e3;
+}
 
-    .green-clr {
-        background-color: #c1f0c1;
-    }
+h3 {
+    font-size: 22px;
+}
+h4 {
+    font-size: 20px;
+}
 
-    .light-green-clr {
-        background-color: #e3f8e3;
-    }
+td {
+    text-align: right;
+}
+
+td:first-child {
+    text-align: left;
+}
+
+th {
+    background-color: #f5f7f7;
+}​
+
 </style>
 
 ## Performance improvements to date
@@ -1012,7 +1014,7 @@ Here are the key highlights:
         <td>-1%</td>
         <td>-1%</td>
     </tr>
-    <tr class="yellow-clr">
+    <tr class="ylw-clr">
         <td><code>asc_sort_size</code></td>
         <td>3</td>
         <td>5</td>
@@ -1060,7 +1062,7 @@ Here are the key highlights:
         <td>1%</td>
         <td>-1%</td>
     </tr>
-    <tr class="yellow-clr">
+    <tr class="ylw-clr">
         <td><code>desc_sort_size</code></td>
         <td>6</td>
         <td>91</td>
@@ -1068,7 +1070,7 @@ Here are the key highlights:
         <td>-1417%</td>
         <td>-50%</td>
     </tr>
-    <tr class="yellow-clr">
+    <tr class="ylw-clr">
         <td><code>desc_sort_timestamp</code></td>
         <td>26</td>
         <td>34</td>
