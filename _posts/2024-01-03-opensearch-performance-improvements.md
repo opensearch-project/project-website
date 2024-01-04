@@ -42,6 +42,14 @@ In this blog, we'll share a comprehensive view of strategic enhancements and fea
     background-color: #e3f8e3;
 }
 
+.infographic {
+    padding: 1rem;
+}
+
+table { 
+    font-size: 16px; 
+}
+
 h3 {
     font-size: 22px;
 }
@@ -73,7 +81,7 @@ There are many dimensions to the performance improvements made in OpenSearch to 
 
 The following image summarizes OpenSearch performance improvements.
 
-![OpenSearch performance improvements since launch](/assets/media/blog-images/2024-01-03-opensearch-performance-improvements/opensearch-performance.png)
+<img src="/assets/media/blog-images/2024-01-03-opensearch-performance-improvements/opensearch-performance.png" alt="OpenSearch performance improvements since launch" class="infographic"/>
 
 Log analytics workloads are typically indexing heavy, often relying on specific resource-intensive queries. In contrast, search workloads have a more balanced distribution between indexing and query operations. Based on the analysis we’ll detail below, comparing Elasticsearch 7.10.2 to OpenSearch 2.11, we have seen a 25% improvement in indexing throughput, a 15--98% decrease in query latencies among some of the most popular query types, and now, with Zstandard compression, a 15--30% reduction in on-disk data size.
 
