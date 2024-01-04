@@ -404,7 +404,7 @@ We compared the performance of Elasticsearch 7.10.2 (pre-fork), OpenSearch 2.3 (
 
 **Objective**: To introduce the coordination layer with parallel search operations extending across multiple nodes with primary shards.
 
-**Setup:** 3 data nodes(r5.xlarge) with 32 GB RAM and 16 GB heap. 3 cluster manager nodes (c5.xlarge) with 8 GB RAM and 4 GB heap. Index settings: 3 Shards and 0 replicass.
+**Setup:** 3 data nodes(r5.xlarge) with 32 GB RAM and 16 GB heap. 3 cluster manager nodes (c5.xlarge) with 8 GB RAM and 4 GB heap. Index settings: 3 Shards and 0 replicas.
 
 **`http_logs` workload results:** The following table illustrates a benchmark comparison for the `http_logs` workload between Elasticsearch 7.10.2, OpenSearch 2.3, and OpenSearch 2.11. It includes the 90th percentile of `took` time latency measurements for each (p90) and the observed percentage improvements.
 
@@ -660,7 +660,7 @@ The following are the key findings from this exercise.
 * Use cases around ascending and descending sort with_after_timestamp saw regression which is a known case for smaller workload with this merge policy.
 * Other common use cases for log analytics, such as Multi-term aggregation, hourly_agg, range, and scroll queries exhibited comparable performance, with a subtle improvement of less than 5% attributed to the new segment merge policy.
 
-#### Detailed Results: OS 2.11 Tiered merge policy vs OS 2.11 LogByteSize merge policy
+#### Detailed results: OS 2.11 Tiered merge policy vs OS 2.11 LogByteSize merge policy
 
 **Setup**: 3 data nodes (r5.xlarge) with 32 GB RAM and 16 GB heap. 3 cluster manager nodes (c5.xlarge) with 8 GB RAM and 4 GB heap. Index settings: 3 Shards and 0 replicas, `max_segment_size`: 500 MB, `refresh_interval`: 1 s.
 
