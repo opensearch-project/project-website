@@ -5,4 +5,4 @@ photo: '/assets/media/authors/pallp.png'
 github: Pallavi-AWS
 ---
 
-**Pallavi Priyadarshini** is an Engineering Manager at Amazon Web Services, leading the design and development of high-performing and at-scale analytics technologies.
+**Pallavi Priyadarshini** is a Senior Engineering Manager at Amazon, leading the development of high-performing and at-scale search and security technologies in open source OpenSearch and the Amazon OpenSearch Service.
