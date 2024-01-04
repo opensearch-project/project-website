@@ -11,7 +11,7 @@ breadcrumbs:
       url: '/releases.html'
 ---
 
-##### Updated November 20, 2023
+##### Updated January 4, 2024
 
 * [Release Schedule](#release-schedule)
 * [Maintenance Policy](#maintenance-policy)
@@ -30,7 +30,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 | 2.11.0        | October 4th      | October 18th   |
 | 2.11.1        | November 14th    | November 27th  |
 | 1.3.14        | December 5th     | December 12th  |
-| 2.12.0        | January 9th, 2024    | January 23rd, 2024  |
+| 2.12.0        | February 6th, 2024    | February 20th, 2024  |
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
 
@@ -105,3 +105,5 @@ The software maintainers will not back-port fixes or features to versions outsid
 | September 6th, 2023 | Updated 2.10 date  |  8 hour github outage last night - moving to accomodate a few final fixes |
 | September 11th, 2023 | Link to RELEASING.md  |  updated link from proposal to releasing documentation |
 | September 29th, 2023 | Updated 2.11 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/3955) |
+| January 4th, 2024 | Updated 2.12 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/4290) |
+
