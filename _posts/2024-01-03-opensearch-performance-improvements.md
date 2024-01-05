@@ -42,8 +42,16 @@ In this blog, we'll share a comprehensive view of strategic enhancements and fea
     background-color: #e3f8e3;
 }
 
-.infographic {
-    padding: 1rem;
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#infographic {
+    border: none;  
+    box-shadow: none;
+    text-align: center;
 }
 
 table { 
@@ -79,9 +87,9 @@ There are many dimensions to the performance improvements made in OpenSearch to 
 1. **Query performance**
 1. **Storage**
 
-The following image summarizes OpenSearch performance improvements.
+The following image summarizes OpenSearch performance improvements since launch.
 
-<img src="/assets/media/blog-images/2024-01-03-opensearch-performance-improvements/opensearch-performance.png" alt="OpenSearch performance improvements since launch" class="infographic"/>
+<img src="/assets/media/blog-images/2024-01-03-opensearch-performance-improvements/opensearch-performance.png" alt="OpenSearch performance improvements since launch" class="center" id="infographic"/>{:style="width: 100%; max-width: 750px; height: auto;"}
 
 Log analytics workloads are typically indexing heavy, often relying on specific resource-intensive queries. In contrast, search workloads have a more balanced distribution between indexing and query operations. Based on the analysis we’ll detail below, comparing Elasticsearch 7.10.2 to OpenSearch 2.11, we have seen a 25% improvement in indexing throughput, a 15--98% decrease in query latencies among some of the most popular query types, and now, with Zstandard compression, a 15--30% reduction in on-disk data size.
 
@@ -117,6 +125,7 @@ For log analytics use cases, we used the `http_logs` workload from the [OpenSear
 
 * Other popular queries such as `search_after` saw an about 60x reduction in latency, attributed to the improvements made in the area involving optimally skipping segments during search (see [#7453](https://github.com/opensearch-project/OpenSearch/pull/7453)). The `search_after` queries can be used as the recommended alternative to scroll queries for a better search experience.
 
+* Implementation support for `match_only_text` field to optimize on storage and indexing/search latency for text queries is in progress (see [#11039](https://github.com/opensearch-project/OpenSearch/pull/11039)).
 
 ### Time series
 
@@ -127,6 +136,8 @@ In the context of aggregations over range and time-series data, we used the `nyc
 * Hourly aggregations and multi-term aggregations also demonstrated improvement, varying from 5% to 35%, attributed to similar time-series improvements discussed previously.
 
 * `date_histograms` and `date_histogram_agg` queries exhibited either comparable or slightly decreased performance, ranging from 5% to around 20% in multi-node environments. These issues are actively being addressed as part of the ongoing project efforts (see [#11083](https://github.com/opensearch-project/OpenSearch/pull/11083)).
+
+* For date histogram aggregations, there are upcoming changes aiming to improve the performance by rounding down dates to the nearest interval (such as year, quarter, month, week, or day) using SIMD (see [#11194](https://github.com/opensearch-project/OpenSearch/pull/11194)).
 
 ### Search
 
@@ -1138,4 +1149,4 @@ Here are the key highlights:
 
 * * *
 
-*We would like to take this opportunity to thank the OpenSearch core developers for their contributions to the technical roadmap. We sincerely appreciate all the suggestions from Michael Froh, Jon Handler, Prabhakar Sithanandam, Mike McCandles, Anandhi Bumstead, Eli Fisher, Carl Meadows, and Mukul Karnik towards writing this blog. Credits to Fanit Kolchina and Nathan Bower for editing and Carlos Canas for creating the graphics.*
+*We would like to take this opportunity to thank the OpenSearch core developers for their contributions to the technical roadmap. We sincerely appreciate all the suggestions from Michael Froh, Jon Handler, Prabhakar Sithanandam, Mike McCandles, Anandhi Bumstead, Eli Fisher, Carl Meadows, Mukul Karnik, and Andriy Redko towards writing this blog. Credits to Fanit Kolchina and Nathan Bower for editing and Carlos Canas for creating the graphics.*
