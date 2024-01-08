@@ -1148,4 +1148,4 @@ Here are the key highlights:
 
 * * *
 
-*We would like to take this opportunity to thank the OpenSearch core developers for their contributions to the technical roadmap. We sincerely appreciate all the suggestions from Michael Froh, Jon Handler, Prabhakar Sithanandam, Mike McCandles, Anandhi Bumstead, Eli Fisher, Carl Meadows, Mukul Karnik, and Andriy Redko towards writing this blog. Credits to Fanit Kolchina and Nathan Bower for editing and Carlos Canas for creating the graphics.*
+*We would like to take this opportunity to thank the OpenSearch core developers for their contributions to the technical roadmap. We sincerely appreciate all the suggestions from Michael Froh, Andriy Redko, Jonah Kowall, Amitai Stern, Jon Handler, Prabhakar Sithanandam, Mike McCandles, Anandhi Bumstead, Eli Fisher, Carl Meadows, and Mukul Karnik towards writing this blog. Credits to Fanit Kolchina and Nathan Bower for editing and Carlos Canas for creating the graphics.*
