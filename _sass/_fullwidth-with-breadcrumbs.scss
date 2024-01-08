@@ -181,6 +181,15 @@
                 }
             }
         }
+        > .content-body--cta-button {
+            &.content-body--cta-button__centered {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 0 0 42px;
+            }
+        }
     }
     > .solutions-card-grid {
         @include page-element-padding;

@@ -123,4 +123,17 @@
                 {% include icons.html type='minus' %}
             </a>
         </div>
+    {% when 'opensearchcon-stay-informed' %}
+        <div class="redesign-button--wrapper redesign-button--wrapper__text-with-icon">
+            <a href="https://opensearchcon2024interest.splashthat.com/" class="redesign-button--anchor" id="opensearchcon-stay-informed-button">
+                <div class="redesign-button--contents redesign-buttons--opensearchcon-stay-informed__large">
+                    <div class="redesign-button--contents--icon-slot">
+                        <span class="opensearchcon-stay-informed-button--mouseout-logo redesign-button--contents__mouseout">
+                            {%- include icons.html type='opensearch-mark-darkmode' -%}
+                        </span>
+                    </div>
+                    <div class="redesign-button--contents--text-slot">Stay Informed</div>
+                </div>
+            </a>
+        </div>
 {% endcase %}
