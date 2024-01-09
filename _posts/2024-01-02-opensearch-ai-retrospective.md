@@ -3,12 +3,16 @@ layout: post
 title:  "OpenSearch AI and machine learning: Recapping 2023 and what’s next"
 authors:
  - dylatong
+ - xiaoyu
+ - vamshin
+ - minalsha
+ - ylwu
+ - yych
 date: 2024-01-02
 categories:
  - community-updates, technical-posts, roadmap
-meta_keywords: vector database, vector search, ai, artificial intelligence, machine learning, neural-search, ml-commons, k-nn, ml-framework
-meta_description: Recapping OpenSearch AI and machine learning in 2023 and what's next in 2024.
-excerpt: GenAI—it captured the imagination of the mainstream, and it drove widespread AI interest and initiatives in 2023. Vector database technology like OpenSearch got a share of the limelight, alleviating GenAI challenges like hallucinations and lack of persistent conversation memory. Builders created GenAI-powered chatbots designed around retrieval augmented generation (RAG) and OpenSearch. In the process, our users discovered new possibilities with vector search and infused semantic and multimodal search experiences into their OpenSearch-powered applications. Thus, we, the maintainers of the OpenSearch project, focused on delivering features to fuel vector search and GenAI innovations. 
+meta_keywords: OpenSearch strategic enhancements, OpenSearch core engine, vector search engine, OpenSearch GenAI, machine learning framework
+meta_description: Learn about strategic enhancements to the OpenSearch core engine since the Elasticsearch 7.10.2. fork and how they have improved analytics and search use cases.
 has_math: false
 has_science_table: false
 ---
