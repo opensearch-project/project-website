@@ -819,7 +819,7 @@ Here are the key highlights:
 
 **Setup**: 3 data nodes (r5.xlarge) with 32 GB RAM and 16 GB heap. 3 cluster manager nodes (c5.xlarge) with 8 GB RAM and 4 G heap. Index settings: 3 shards and 0 replicas.
 
-**Indexing throughput results (docs/sec)**: The following table presents the indexing throughput comparison of the `http_logs` and `nyc_taxis` workloads for OpenSearch 2.11 with default vs. `zstd` codec enabled, including its percentage improvement.
+**Indexing throughput results (docs/sec)**: The following table provides an indexing throughput comparison of the `http_logs` and `nyc_taxis` workloads for OpenSearch 2.11 with the default codec vs. the `zstd` codec enabled and includes the percentage improvement observed when using `zstd`.
 
 <table>
     <tr>
