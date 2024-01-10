@@ -21,7 +21,7 @@ has_science_table: false
 
 In 2023, generative artificial intelligence (generative AI) captured the mainstream imagination and drove widespread AI-related initiatives. Vector database technology like OpenSearch got a share of the limelight, alleviating generative AI challenges like [hallucinations](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)) and lack of persistent conversation memory. Builders created AI-powered chatbots designed around retrieval augmented generation (RAG) and OpenSearch. In the process, our users discovered new capabilities with vector search and infused semantic and multimodal search experiences into their OpenSearch-powered applications. Thus, we, the maintainers of the OpenSearch Project, focused on delivering features to fuel vector search and generative AI innovations.
 
-I like to recap the key advancements in OpenSearch AI and machine learning in 2023 and provide our community with a glimpse into our 2024 roadmap.
+In this blog post, we recap the key 2023 advancements in OpenSearch AI and machine learning (ML) and provide a glimpse into our 2024 roadmap.
 
 
 ## **Powering Vector Search**
