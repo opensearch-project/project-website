@@ -30,7 +30,7 @@ In February 2020, we released OpenSearch k-NN, our foundational vector database 
 
 In 2023, we continued to improve our engine’s performance and economics while delivering differentiated value through ease-of-use and developer productivity enhancements.
 
-### **Vector Search Engine Improvements**
+### **Vector search engine improvements**
 
 In OpenSearch 2.9, we added [efficient filtering](https://opensearch.org/blog/efficient-filters-in-knn/)for our FAISS engine which was previously exclusive to our Lucene k-NN engine. With this feature, you can benefit from the scalability of FAISS and run more performant filtered queries. With efficient filtering, our engine intelligently evaluates strategies like pre-filtering versus exact k-NN matching to optimize on recall and latency tradeoffs. 
 
