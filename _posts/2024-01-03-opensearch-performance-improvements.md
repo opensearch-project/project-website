@@ -96,7 +96,7 @@ Log analytics workloads are typically indexing heavy, often relying on specific 
 
 Some of the key OpenSearch features launched this year delivered efficiency improvements in indexing performance. OpenSearch rearchitected the way indexing operations are performed in order to deliver **segment replication**---a physical replication method that replicates index segments rather than source documents. Segment replication, a new replication strategy built on Lucene’s [Near-Real-Time (NRT) Segment Index Replication API](https://blog.mikemccandless.com/2017/09/lucenes-near-real-time-segment-index.html), was released as generally available in OpenSearch 2.7. Segment replication showed increased ingestion rate throughput of up to 25% when compared to default document replication. You can find a more detailed look at segment replication in [this blog post](https://opensearch.org/blog/segment-replication/). 
 
-In version 2.10, OpenSearch introduced **remote-backed storage**, allowing users to directly write segments to object storage, such as Amazon Simple Storage Service (Amazon S3) or Oracle BLOB Storage, to improve data durability. With remote-backed storage, in addition to storing data on a local disk, all the ingested data is stored in the configured remote store. At every refresh, the remote store also automatically becomes a point-in-time recovery point, helping users achieve a recovery point objective (RPO) of zero with the same durability properties of the configured remote store. To learn more, see [this blog post](https://opensearch.org/blog/remote-backed-storage/). 
+In version 2.10, OpenSearch introduced **remote-backed storage**, allowing users to directly write segments to object storage, such as Amazon Simple Storage Service (Amazon S3) or Oracle Cloud Infrastructure (OCI) Object Storage, to improve data durability. With remote-backed storage, in addition to storing data on a local disk, all the ingested data is stored in the configured remote store. At every refresh, the remote store also automatically becomes a point-in-time recovery point, helping users achieve a recovery point objective (RPO) of zero with the same durability properties of the configured remote store. To learn more, see [this blog post](https://opensearch.org/blog/remote-backed-storage/). 
 
 ### Query performance investments
 
@@ -928,7 +928,7 @@ Here are the key highlights:
 
 * An increase in performance with aggregate queries on workloads such as the `nyc_taxis` workload, showcasing an improvement ranging between 50% and 70% over the default configuration.
 * The log analytics use cases for range queries demonstrated an improvement of around 65%.
-* Aggregation queries with hourly data aggregations, such as those for the `http_logs` `hourly_agg` workload, demonstrated a boost of up to 50% in performance.
+* Aggregation queries with hourly data aggregations, such as those for the `http_logs` workload, demonstrated a boost of up to 50% in performance.
 * Comparable latencies for auto or date histogram queries, with no noteworthy improvement or regression in performance.
 * `multi_term_agg`, `asc_sort_size`, `dec_sort_size`, and `scroll` queries showed regression. To delve deeper into the intricacies, the concurrent search contributors are proactively addressing this in the upcoming OpenSearch 2.12 GA release.
 
