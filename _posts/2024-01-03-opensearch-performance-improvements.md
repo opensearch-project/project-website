@@ -697,8 +697,8 @@ The following are the key findings from this exercise.
 
 * Timestamp queries with ascending sort had an improvement of over 75%. This transformation is attributable to the impactful contribution of enhancement [#9241](https://github.com/opensearch-project/OpenSearch/issues/9241).
 * About a 40% enhancement in descending sort timestamp queries, surpassing the Tiered merge policy.
-* Use cases around ascending and descending sort with _after_ timestamp saw regression, which is a known case for smaller workloads with this merge policy.
-* Other common use cases for log analytics, such as multi-term aggregation, hourly_agg, range, and scroll queries exhibited comparable performance, with a subtle improvement of less than 5% attributed to the new segment merge policy.
+* Use cases around ascending and descending sort with an _after_ timestamp saw regression, which is a known case for smaller workloads with this merge policy.
+* Other common use cases for log analytics, such as multi-term aggregation, `hourly_agg`, range, and scroll queries exhibited comparable performance, with a subtle improvement of less than 5% attributed to the new segment merge policy.
 
 #### Detailed results: OS 2.11 Tiered merge policy vs OS 2.11 LogByteSize merge policy
 
