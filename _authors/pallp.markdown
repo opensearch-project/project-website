@@ -6,4 +6,4 @@ github: Pallavi-AWS
 linkedin: pallavipr
 ---
 
-**Pallavi Priyadarshini** is a Senior Engineering Manager at Amazon, leading the development of high-performing and at-scale search and security technologies in open source OpenSearch and the Amazon OpenSearch Service.
+**Pallavi Priyadarshini** is a Senior Engineering Manager at AWS leading the development of high-performing and scalable search and security technologies for the OpenSearch Project and Amazon OpenSearch Service.
