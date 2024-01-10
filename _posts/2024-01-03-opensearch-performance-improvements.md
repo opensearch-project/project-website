@@ -10,8 +10,8 @@ date: 2024-01-03
 categories:
     - technical-posts
     - community
-meta_keywords: 
-meta_description: 
+meta_keywords: OpenSearch performance improvements, OpenSearch roadmap, high volume indexing, low latency search
+meta_description: Learn more about the OpenSearch Project roadmap and how the project improved the performance of its core open source engine to drive down latency and improve efficiency.
 has_science_table: true
 ---
 
@@ -181,7 +181,7 @@ If you're interested in the details of the performance benchmarks we used, explo
 
 The [**OpenSearch Benchmark workloads**](https://github.com/opensearch-project/opensearch-benchmark-workloads) are comprised of one or multiple benchmarking scenarios. A workload typically includes the ingestion of one or more data corpora into indexes and a collection of queries and operations that are executed as a part of the benchmark.
 
-We used the following workloads for performance evaluation, encompassing aspects such as text/term queries, sorting, aggregations, histogram, and ranges:
+We used the following workloads for performance evaluation, encompassing aspects such as text/term queries, sorting, aggregations, histograms, and ranges:
 
 * [HTTP logs workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/http_logs#http-logs-workload): This workload is based on [web server logs from the 1998 Football World Cup](http://ita.ee.lbl.gov/html/contrib/WorldCup.html). It is used for evaluating the performance of (web) server logs, which is most in line with the OpenSearch log analytics use case.
 
@@ -1148,4 +1148,4 @@ Here are the key highlights:
 
 * * *
 
-*We would like to take this opportunity to thank the OpenSearch core developers for their contributions to the technical roadmap. We sincerely appreciate all the suggestions from Michael Froh, Andriy Redko, Jonah Kowall, Amitai Stern, Jon Handler, Prabhakar Sithanandam, Mike McCandles, Anandhi Bumstead, Eli Fisher, Carl Meadows, and Mukul Karnik in writing this blog post. Credits to Fanit Kolchina and Nathan Bower for editing and Carlos Canas for creating the graphics.*
+*We would like to take this opportunity to thank the OpenSearch core developers for their contributions to the technical roadmap. We sincerely appreciate all the suggestions from Michael Froh, Andriy Redko, Jonah Kowall, Amitai Stern, Jon Handler, Prabhakar Sithanandam, Mike McCandless, Anandhi Bumstead, Eli Fisher, Carl Meadows, and Mukul Karnik in writing this blog post. Credits to Fanit Kolchina and Nathan Bower for editing and Carlos Canas for creating the graphics.*
