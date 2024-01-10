@@ -200,6 +200,5 @@ Additionally, if you like to learn more about the 2023 AI/ML features that were 
 * [Byte-quantized vectors in OpenSearch](https://opensearch.org/blog/byte-quantized-vectors-in-opensearch/)
 * [Improve search relevance with hybrid search, generally available in OpenSearch 2.10](https://opensearch.org/blog/hybrid-search/)
 * [Improving document retrieval with sparse semantic encoders](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/)
-* Multi-modal search for neural search (in progress)
 
 
