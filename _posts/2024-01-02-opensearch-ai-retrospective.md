@@ -24,7 +24,7 @@ In 2023, generative artificial intelligence (generative AI) captured the mainstr
 In this blog post, we recap the key 2023 advancements in OpenSearch AI and machine learning (ML) and provide a glimpse into our 2024 roadmap.
 
 
-## **Powering Vector Search**
+## **Powering vector search**
 
 We released OpenSearch k-NN, our foundational vector database capabilities, in February 2020 to empower innovators to create scalable vector search applications. Today, builders are successfully operating high-scale, mission-critical vector search solutions on OpenSearch. As shared in [this blog](https://aws.amazon.com/blogs/big-data/amazon-opensearch-services-vector-database-capabilities-explained/), “...OpenSearch currently manages 1.05 billion vectors and supports a peak load of 7,100 vector queries per second to power Amazon Music recommendations.” Another deployment at Amazon “...has indexed a total of 68 billion, 128- and 1024-dimension vectors into OpenSearch Service to enable brands and automated systems to conduct infringement detection, in real-time, through a highly available and fast (sub-second) search API.”  
 
