@@ -199,7 +199,7 @@ Additionally, if you like to learn more about the 2023 AI/ML features that were 
 * [Efficient filtering for vector search](https://opensearch.org/blog/efficient-filters-in-knn/#:~:text=Efficient%20filters%20are%20supported%20in,and%20were%20called%20Lucene%20Filters.)
 * [Byte-quantized vectors in OpenSearch](https://opensearch.org/blog/byte-quantized-vectors-in-opensearch/)
 * [Improve search relevance with hybrid search, generally available in OpenSearch 2.10](https://opensearch.org/blog/hybrid-search/)
-* [Sparse encoding based semantic search](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/)
+* [Improving document retrieval with sparse semantic encoders](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/)
 * Multi-modal search for neural search (in progress)
 
 
