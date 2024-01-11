@@ -799,7 +799,7 @@ The following are the key findings from this exercise.
     </tr>
 </table>
 
-### Zsandard codec compression
+### Zstandard codec compression
 
 This addition empowers OpenSearch users with the new Zstandard compression codecs for their data. Users can specify `zstd` or `zstd_no_dict` in the `index.codec` setting during index creation or [modify the codecs for existing indexes](https://opensearch.org/docs/latest/im-plugin/index-codecs/#changing-an-index-codec). OpenSearch will continue to support the existing `zlib` and `lz4` codecs, with the default as `lz4`.
 
