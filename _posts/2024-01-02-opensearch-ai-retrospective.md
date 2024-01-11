@@ -156,7 +156,7 @@ We created an extensible ML Framework for OpenSearch that enables technology pro
 *Blueprint for provisioning Cohere Embed V3 Connectors to power Neural Search*
 
 
-In the fullness of time, we envision a framework that integrates with AI services to deliver functionality beyond inference, like model training and deployment. We envision having OpenSearch tightly integrated into ML lifecycles, seamlessly interoperating with incumbent ML technologies. We want to facilitate end-to-end automation and to continuously improve models to elevate search relevance and predictive insights.![image](https://github.com/dylan-tong-aws/opensearch-project-website/assets/30326366/977acfcb-89e1-4eae-b699-8e8081c44fce)
+In the fullness of time, we envision a framework that integrates with AI services to deliver functionality beyond inference, like model training and deployment. We envision having OpenSearch tightly integrated into ML lifecycles, seamlessly interoperating with incumbent ML technologies. We want to facilitate end-to-end automation and to continuously improve models to elevate search relevance and predictive insights.
 
 
 #### Batch Optimized Inference
