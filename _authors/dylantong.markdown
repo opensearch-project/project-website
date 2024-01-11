@@ -1,5 +1,5 @@
 ---
-short_name: dylatong
+short_name: dylantong
 name: Dylan Tong
 photo: '/assets/media/authors/dylantong.jpg'
 github: dylan-tong-aws
