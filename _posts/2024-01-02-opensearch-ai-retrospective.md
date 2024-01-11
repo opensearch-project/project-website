@@ -51,10 +51,12 @@ Frameworks like LangChain have helped builders alleviate some of these challenge
 #### Neural Search
 
 Generally available since OpenSearch 2.9, [neural search](https://opensearch.org/docs/latest/search-plugins/neural-search/) enables builders to create semantic search applications by running human language queries instead of vector-based ones. You can run semantic search pipelines on-cluster instead of on custom middleware. These pipelines are integrated with ML models that are hosted on-cluster or externally managed by providers like Cohere, OpenAI, Amazon Bedrock and Amazon SageMaker.
-
-
-<img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/semantic-search-flickr30k.gif" alt="semantic vs. lexical search" style="object-fit:contain"/>
-
+</br></br></br>
+<figure class="img-centered">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/semantic-search-flickr30k.gif" alt="semantic vs. lexical search" class="img-centered" style="width:1000px; height:auto"/>
+<figcaption class="img-centered"><i>Comparing lexical (left) and semantic (right) search on Flickr30k dataset</i></figcaption>
+</figure>
+</br></br></br>
 
 #### Machine Learning Framework 
 
@@ -62,9 +64,12 @@ The ML models that power neural search are integrated and managed by OpenSearchâ
 
 In addition to the first wave of [AI connectors](https://opensearch.org/docs/2.11/ml-commons-plugin/remote-models/connectors/#supported-connectors), weâ€™ve created an extensible ML framework. We want to empower contributors to create OpenSearch AI integrations with minimal effort with much to gain from joining our open community. As a technology integrator, you can simply define JSON-based [blueprints](https://opensearch.org/docs/2.11/ml-commons-plugin/integrating-ml-models/) that describe a secure RESTful protocol between OpenSearch and your technology. You can then use these blueprints to provision connectors. This approach has enabled us to run third-party integrations like the [Cohere Embed connector](https://github.com/opensearch-project/ml-commons/blob/2.x/docs/remote_inference_blueprints/cohere_v3_connector_embedding_blueprint.md) on the Amazon OpenSearch Service (AOS) without delay. It has enabled Cohere to author new versions of their connector so customers can immediately use it on AOS without dependencies on our release schedule. Historically, this has been challenging to accomplish on managed services due to security and business risks. Partners can now benefit from a fast path from open source to commercial offerings.
 
-
-![ai-powered-search-architectures](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/ai-powered-search-architectures.png)*Different architecture options to best suit your needs*
-
+</br>
+<figure class="img-centered">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/ai-powered-search-architectures.png" alt="architecture options" class="img-centered" style="width:1000px; height:auto"/>
+<figcaption class="img-centered"><i>Different architecture options to best suit your needs</i></figcaption>
+</figure>
+</br>
 
 
 #### Use Case Support for Neural Search and ML Framework
