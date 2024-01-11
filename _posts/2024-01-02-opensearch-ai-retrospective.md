@@ -2,7 +2,7 @@
 layout: post
 title:  "OpenSearch AI and machine learning: Recapping 2023 and what’s next"
 authors:
- - dylatong
+ - dylantong
  - xiaoyu
  - vamshin
  - minalsha
