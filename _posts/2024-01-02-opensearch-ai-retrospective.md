@@ -51,6 +51,7 @@ Frameworks like LangChain have helped builders alleviate some of these challenge
 #### Neural Search
 
 Generally available since OpenSearch 2.9, [neural search](https://opensearch.org/docs/latest/search-plugins/neural-search/) enables builders to create semantic search applications by running human language queries instead of vector-based ones. You can run semantic search pipelines on-cluster instead of on custom middleware. These pipelines are integrated with ML models that are hosted on-cluster or externally managed by providers like Cohere, OpenAI, Amazon Bedrock and Amazon SageMaker.
+
 </br></br></br>
 <figure class="img-centered">
  <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/semantic-search-flickr30k.gif" alt="semantic vs. lexical search" class="img-centered" style="width:1000px; height:auto"/>
@@ -64,12 +65,13 @@ The ML models that power neural search are integrated and managed by OpenSearch�
 
 In addition to the first wave of [AI connectors](https://opensearch.org/docs/2.11/ml-commons-plugin/remote-models/connectors/#supported-connectors), we’ve created an extensible ML framework. We want to empower contributors to create OpenSearch AI integrations with minimal effort with much to gain from joining our open community. As a technology integrator, you can simply define JSON-based [blueprints](https://opensearch.org/docs/2.11/ml-commons-plugin/integrating-ml-models/) that describe a secure RESTful protocol between OpenSearch and your technology. You can then use these blueprints to provision connectors. This approach has enabled us to run third-party integrations like the [Cohere Embed connector](https://github.com/opensearch-project/ml-commons/blob/2.x/docs/remote_inference_blueprints/cohere_v3_connector_embedding_blueprint.md) on the Amazon OpenSearch Service (AOS) without delay. It has enabled Cohere to author new versions of their connector so customers can immediately use it on AOS without dependencies on our release schedule. Historically, this has been challenging to accomplish on managed services due to security and business risks. Partners can now benefit from a fast path from open source to commercial offerings.
 
-</br>
+
+</br></br>
 <figure class="img-centered">
- <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/ai-powered-search-architectures.png" alt="architecture options" class="img-centered" style="width:1000px; height:auto"/>
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/ai-powered-search-architectures.png" alt="architecture options" class="img-centered"/>
 <figcaption class="img-centered"><i>Different architecture options to best suit your needs</i></figcaption>
 </figure>
-</br>
+</br></br>
 
 
 #### Use Case Support for Neural Search and ML Framework
@@ -81,7 +83,12 @@ In 2.11, we introduced numerous features including support for  [neural sparse e
 Beyond text-based search, we added support for text and image [multimodal search](https://opensearch.org/docs/latest/search-plugins/multimodal-search/), which enables you to find images using combinations of text and visual inputs. Unlike traditional image search, which searches on image metadata, multimodal search allows users to describe the visual characteristics like “shirt with abstract pattern” without requiring manual labor to produce high-quality and granular metadata for images. You can also find visually similar images by searching on an image—an ideal approach when visual characteristics like stylistic patterns can’t be easily articulated. Lastly, you can query using a combination of text and image. For instance, you maybe looking for a similar variation of a blue shirt—a reference image—but you want it with “desert colors and long sleeves”.
 
 
-![multimodal-demo](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/multimodal-text-image-search.gif)
+</br></br>
+<figure class="img-centered">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/multi-modal-text-image-search.gif" alt="multi-modal search" class="img-centered" style="width:1000px; height:auto"/>
+<figcaption class="img-centered"><i>Improving product discoverability with multi-modal search</i></figcaption>
+</figure>
+</br></br>
 
 
 Lastly, [conversational search](https://opensearch.org/docs/latest/search-plugins/conversational-search/), a contribution from [Aryn.ai](https://www.aryn.ai/), was released as an experimental feature. Conversational search transforms OpenSearch’s lexical, vector, and hybrid search features into conversational experiences without requiring custom middleware. It enables search through a series of interactions like “what is OpenSearch” and “how do I use it with GenAI.” It includes a [RAG search pipeline](https://opensearch.org/docs/latest/search-plugins/conversational-search/#setting-up-the-pipeline) that uses [AI connectors](https://github.com/opensearch-project/ml-commons/blob/2.x/docs/remote_inference_blueprints/open_ai_connector_chat_blueprint.md) to send information to generative LLMs like ChatGPT and Claude2. The RAG pipeline processes a query by retrieving knowledge articles from your indexes and sends them to a generative LLM to generate a conversational response. This method grounds the generative LLM on facts to minimize [hallucinations](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)), which can cause unintended misinformation. Conversation history is also tracked and included in the request context to generative LLMs, providing them with long-term memory for ongoing conversations.
@@ -114,7 +121,12 @@ In order to provide the flexibility to support the many AI use cases and variati
 We plan to provide templates for precomposed flows to quick-start builders on popular use cases, but leave them with the flexibility to alter and evolve these flows. These templates will capture the OpenSearch resources and configurations required to provision components like search pipelines and AI connectors to power specific use cases like multimodal search. We aim to simplify the backend plumbing required by AI-enhanced search solutions to uplift ease-of-use with minimal flexibility trade-offs.
 
 
-![flow-designer](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/flow-designer.png)*Build AI apps faster by composing AI flows through OpenSearch’s no-code experience*([RFC](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/4755))
+</br></br>
+<figure class="img-centered">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/flow-designer.png" alt="architecture options" class="img-centered"/>
+<figcaption class="img-centered"><i>Build AI apps faster by composing AI flows through OpenSearch’s no-code experience (<a href="https://github.com/opensearch-project/OpenSearch-Dashboards/issues/4755">RFC</a>)</i></figcaption>
+</figure>
+</br></br>
 
 
 ### **New AI Use Case Support**
@@ -130,6 +142,7 @@ As well, the ability to use the generic ML processor within last-mile ingestion 
 
 We created an extensible ML Framework for OpenSearch that enables technology providers to integrate AI technologies without having to write code. In our first release, we built connectors to Amazon SageMaker and Amazon Bedrock, and we partnered with Cohere who authored a blueprint for their [Embed API](https://docs.cohere.com/reference/embed). These connectors provide you with choice on how you manage models and power neural search. We’re delighted to have a steady contribution of community [AI connectors](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/) since our launch on OpenSearch 2.9.
 
+</br></br>
 ```
 {
   "name": "cohere-embed-v3",
@@ -160,6 +173,7 @@ We created an extensible ML Framework for OpenSearch that enables technology pro
 }
 ```
 *Blueprint for provisioning Cohere Embed V3 Connectors to power Neural Search*
+</br></br>
 
 
 In the fullness of time, we envision a framework that integrates with AI services to deliver functionality beyond inference, like model training and deployment. We envision having OpenSearch tightly integrated into ML lifecycles, seamlessly interoperating with incumbent ML technologies. We want to facilitate end-to-end automation and to continuously improve models to elevate search relevance and predictive insights.
@@ -175,7 +189,14 @@ Additionally, we plan to implement a process for certifying connectors to mainta
 
 Connector authors that acquire certification will qualify for additional benefits. For instance, they could qualify for publishing their connectors in the Amazon OpenSearch Services integration catalog, which enable AWS customers to automate infrastructure and OpenSearch resource creation to install connectors on managed clusters. Currently, to install a connector, you have to copy connector blueprints from our documentation. Then, you have to manually create OpenSearch and AWS resources like OpenSearch model abstractions and IAM policies. These automations make it easier for customers to use our AI integrations, and certified connector authors will have privileged access to mechanisms that facilitate go-to-market objectives.
 
-![aos-integrations-catalog](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/aos-integrations-catalog.png)*Integrations catalog within the Amazon OpenSearch Service console*
+
+</br></br>
+<figure class="img-centered">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/aos-integrations-catalog.png" alt="integrations catalog" class="img-centered"/>
+<figcaption class="img-centered"><i>Integrations catalog within the Amazon OpenSearch Service console</i></figcaption>
+</figure>
+</br></br>
+
 
 
 #### Model Management 
@@ -184,15 +205,26 @@ The initial release of our framework included a [UI for administrators](https://
 
 Next, we aim to help developers, data scientists, and MLOps engineers to more easily manage integrated models by providing a model registry UI within OpenSearch Dashboards. The dashboards will enable users to register and deploy models that are hosted on-cluster or externally. Teams will be provided with controls to easily share, secure, and discover available ML models while governing model deployment processes, versioning, and more.
 
-![model-registry](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/model-registry.png)*Managing integrated models within OpenSearch dashboards using the model registry*
+
+</br></br>
+<figure class="img-centered">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/model-registry.png" alt="model registry" class="img-centered"/>
+<figcaption class="img-centered"><i>Managing integrated models within OpenSearch dashboards using the model registry</i></figcaption>
+</figure>
+</br></br>
 
 
 ### Forecasting
 
 Lastly, in the similar vein as our [Anomaly Detection](https://opensearch.org/docs/2.11/observing-your-data/ad/index/) capabilities, we want to provide non-ML experts with the ability to generate forecasts on their OpenSearch managed data. For instance, we want to enable operations teams with proactive monitoring, so that they can automatically detect trends over a sea of time-series metrics. We want to empower them to proactively prevent issues by providing visibility into resource over-utilization forecasts. Within OpenSearch Dashboards, non ML-experts will be able to configure forecasters that continually train and generate forecasts on configured OpenSearch data sources.
 
-![forecasting](/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/forecasting.png)*Forecasting cpu usage across a global server fleet*([RFC](https://github.com/opensearch-project/ux/issues/70))
 
+</br></br>
+<figure class="img-centered">
+ <img src="/assets/media/blog-images/2024-01-02-opensearch-ai-retrospective/forecasting.png" alt="time-series forecasting" class="img-centered"/>
+<figcaption class="img-centered"><i>Forecasting cpu usage across a global server fleet (<a href="https://github.com/opensearch-project/ux/issues/70">RFC</a>)</i></figcaption>
+</figure>
+</br></br>
 
 
 ### Shape the Future of OpenSearch AI and Machine Learning
