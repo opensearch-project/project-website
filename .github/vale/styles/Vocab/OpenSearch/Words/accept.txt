@@ -11,6 +11,7 @@
 [Bb]igram
 Boolean
 [Cc]allout
+[Cc]hatbots?
 [Cc]lasspath
 [Cc]odec
 [Cc]omposable
