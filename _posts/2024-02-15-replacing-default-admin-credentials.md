@@ -1,33 +1,31 @@
 ---
 layout: post
-title:  ""
+title:  "Enhancing Security in OpenSearch 2.12.0: The End of Default Admin Password"
 authors:
  - dchanp
 date: 2024-02-15
 categories:
  - community-updates
  - technical-posts
-meta_keywords: OpenSearch Security
-meta_description: 
+meta_keywords: "OpenSearch Security, Security Demo Configuration"
+meta_description: Learn about the changes to Security plugin's demo configuration setup
 has_math: false
 has_science_table: false
 ---
 
-### Enhancing Security in OpenSearch 2.12.0: The End of Default Admin Passwords
-
-**Introduction**
-
-In the realm of data management and search engines, OpenSearch has been a key player, offering robust features and a flexible platform for users worldwide. However, with the release of OpenSearch 2.12.0, a significant security upgrade is set to transform how administrators initially set up their clusters, particularly concerning the security plugin.
+In the realm of data management and search engines, OpenSearch has been a key player, offering robust features and a flexible platform for users worldwide. With the release of OpenSearch 2.12.0, a significant security upgrade is set to transform how administrators initially set up their clusters using the security plugin's demo configuration tool.
 
 **The Vulnerability of Default Passwords**
 
-Until OpenSearch version 2.11.x, the security plugin shipped with a default admin password, 'admin'. While this facilitated ease of use during initial setup, it posed a significant security risk, especially if the cluster is left publicly reachable. Despite warnings from the demo configuration tool against using this default password in production, the risk of leaving clusters vulnerable was a pressing concern.
+Until OpenSearch version 2.11.x, the security plugin shipped with a default admin password, 'admin'. While this facilitated ease of use during initial setup, it posed a significant security risk. Despite warnings from the demo configuration tool against using this default password in production, the risk of leaving clusters vulnerable was a pressing concern.
 
 **A Shift to Mandatory Strong Passwords**
 
 Addressing this issue, OpenSearch 2.12.0 introduces a critical change: the requirement to set a strong, custom password for the admin user during the security plugin's demo configuration setup. This requirement applies to all versions starting from 2.12.0 and ensures a more secure initial setup.
 
-**Implementation in Different Environments**
+**Implementation in Different Distributions**
+
+Let's take a look at couple of different distributions and how to setup a custom admin password with each of these:
 
 - **TARball Distribution:**
   - *Before*: Run `./opensearch-tar-install`.
