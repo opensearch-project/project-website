@@ -1,0 +1,738 @@
+[
+    {
+      "cursor": "Mjk3MzM2MjAxOjE2OTk4ODA0MDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297336201",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2023-11-13T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2023-11-13T09:00-08:00",
+        "going": 1,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3Mzc4NDA3OjE3MDAwNTY4MDAwMDA=",
+      "node": {
+        "title": "Search Relevance Backlog & Triage Meeting ",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297378407",
+        "description": "**Standing Topics**\n\n* Brief intro - 2 minutes (hopefully)\n* Triage New Issues - [https://github.com/orgs/opensearch-project/projects/45](https://github.com/orgs/opensearch-project/projects/45)\n* New Contributors Can Pick Up Issues Here: [https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g](https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g). Comment on an issue you want to work on and ask to be assigned.\n\n**Weekly Topics**\n\n* Put your name next to a topic in the Google Doc or add your own topic: [https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing](https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing)\n\nJoin Zoom Meeting\n**[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)**\n**Meeting ID: 834 6107 5100**\n**Passcode: 352301**\n\\-\\-\\-\nOne tap mobile\n+16699009128,,83461075100# US (San Jose)\n+17193594580,,83461075100# US\n\\-\\-\\-\nDial by your location\n• +1 669 900 9128 US (San Jose)\n• +1 719 359 4580 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 669 444 9171 US\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 689 278 1000 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 312 626 6799 US (Chicago)\n• 877 853 5247 US Toll-free\n• 888 788 0099 US Toll-free\nMeeting ID: 834 6107 5100\nFind your local number: [https://us02web.zoom.us/u/kecm4g4G4R](https://us02web.zoom.us/u/kecm4g4G4R)\n**Join the meeting**\n[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)\nPass code: 352301",
+        "dateTime": "2023-11-15T09:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2023-11-15T10:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Mark Cohen",
+            "username": "user 3854402",
+            "bio": ""
+          },
+          {
+            "name": "Michael Froh",
+            "username": "user 378275769",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3OTk1MjQyOjE3MDQ3MTg4MDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297995242",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2024-01-08T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-08T09:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk4MjgyNjc2OjE3MDQ3MjI0MDAwMDA=",
+      "node": {
+        "title": "OpenSearch Lucene Study Group",
+        "eventUrl": "https://www.meetup.com/opensearch/events/298282676",
+        "description": "Welcome to the OpenSearch Lucene Study Group!\n\n[Apache Lucene](https://lucene.apache.org/) is the open-sourced search library that powers OpenSearch and many search applications large and small.\n\nWe start each meeting with a learning series, where folks can present topics and lessons on Lucene. If nobody has a topic to present, we'll do general Lucene Q&A.\n\nIn the second half of the meeting, we will review recent developments in Apache Lucene and discuss their potential impact to OpenSearch, with a particular focus on new and exciting Lucene features that we can (and should) expose through OpenSearch. Since some changes require a deep dive to fully understand, we will ask participants to volunteer for “homework” to dig deeper into changes and report back for the next meeting.\n\nStanding Agenda:\n\n* Welcome / introduction (5 minutes)\n* Lucene learning series - someone will either present a Lucene-related talk or we will do Lucene Q&A (20 minutes, recorded)\n* Review [assigned issues from last time](https://forum.opensearch.org/t/opensearch-lucene-study-group-meeting-monday-november-27th/16783) (10 minutes)\n* Review new Lucene changes and assign homework (20 minutes)\n\n*By joining the OpenSearch Lucene Study Group Meeting, you grant OpenSearch, and our affiliates the right to record, film, photograph, and capture your voice and image during the OpenSearch Community Meeting (the “Recordings”). You grant to us an irrevocable, nonexclusive, perpetual, worldwide, royalty-free right and license to use, reproduce, modify, distribute, and translate, for any purpose, all or any part of the Recordings and Your Materials. For example, we may distribute Recordings or snippets of Recordings via our social media outlets.*\n\n**[https://us02web.zoom.us/j/84685686865](https://us02web.zoom.us/j/84685686865?pwd=NHZXdnZLVmNQL25sRzJPMEloVnpIQT09)**\n\n**Meeting ID: 846 8568 6865**\n**Passcode: 661028**\n\nNotes will be shared at [https://forum.opensearch.org/t/opensearch-lucene-study-group-meeting-monday-january-8th-2024/17305](https://forum.opensearch.org/t/opensearch-lucene-study-group-meeting-monday-january-8th-2024/17305)",
+        "dateTime": "2024-01-08T09:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-08T10:00-08:00",
+        "going": 9,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Michael Froh",
+            "username": "user 378275769",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3MTc2MzQ1OjE3MDQ4OTUyMDAwMDA=",
+      "node": {
+        "title": "Search Relevance Backlog & Triage Meeting ",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297176345",
+        "description": "**Standing Topics**\n\n* Brief intro - 2 minutes (hopefully)\n* Triage New Issues - [https://github.com/orgs/opensearch-project/projects/45](https://github.com/orgs/opensearch-project/projects/45)\n* New Contributors Can Pick Up Issues Here: [https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g](https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g). Comment on an issue you want to work on and ask to be assigned.\n\n**Weekly Topics**\n\n* Put your name next to a topic in the Google Doc or add your own topic: [https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing](https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing)\n\nJoin Zoom Meeting\n**[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)**\n**Meeting ID: 834 6107 5100**\n**Passcode: 352301**\n\\-\\-\\-\nOne tap mobile\n+16699009128,,83461075100# US (San Jose)\n+17193594580,,83461075100# US\n\\-\\-\\-\nDial by your location\n• +1 669 900 9128 US (San Jose)\n• +1 719 359 4580 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 669 444 9171 US\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 689 278 1000 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 312 626 6799 US (Chicago)\n• 877 853 5247 US Toll-free\n• 888 788 0099 US Toll-free\nMeeting ID: 834 6107 5100\nFind your local number: [https://us02web.zoom.us/u/kecm4g4G4R](https://us02web.zoom.us/u/kecm4g4G4R)\n**Join the meeting**\n[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)\nPass code: 352301",
+        "dateTime": "2024-01-10T09:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-10T10:00-08:00",
+        "going": 3,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Mark Cohen",
+            "username": "user 3854402",
+            "bio": ""
+          },
+          {
+            "name": "Michael Froh",
+            "username": "user 378275769",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3OTk1MjQ2OjE3MDUzMjM2MDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297995246",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2024-01-15T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-15T09:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk4MjEwOTA2OjE3MDU0MzUyMDAwMDA=",
+      "node": {
+        "title": "OpenSearch Community Meeting - 2024-0116",
+        "eventUrl": "https://www.meetup.com/opensearch/events/298210906",
+        "description": "OpenSearch Community Meeting\n\nJoin Zoom Meeting\n\nhttps://us02web.zoom.us/j/89425352972\n\nMeeting ID: 894 2535 2972\n\n[Please see this week's Agenda for the required passcode](https://forum.opensearch.org/t/opensearch-community-meeting-2024-0116/17281)\n\nOne tap mobile\n\n+12532050468,,89425352972# US\n+12532158782,,89425352972# US (Tacoma)\n\nDial by your location\n\n+1 253 205 0468 US\n+1 253 215 8782 US (Tacoma)\n+1 346 248 7799 US (Houston)\n+1 669 444 9171 US\n+1 669 900 9128 US (San Jose)\n+1 719 359 4580 US\n+1 305 224 1968 US\n+1 309 205 3325 US\n+1 312 626 6799 US (Chicago)\n+1 360 209 5623 US\n+1 386 347 5053 US\n+1 507 473 4847 US\n+1 564 217 2000 US\n+1 646 558 8656 US (New York)\n+1 646 931 3860 US\n+1 689 278 1000 US\n+1 301 715 8592 US (Washington DC)\n877 853 5247 US Toll-free\n888 788 0099 US Toll-free\nMeeting ID: 894 2535 2972\n\nFind your local number: https://us02web.zoom.us/u/keblR3KqwH\n\n========\n\n\\*By joining the OpenSearch Community Meeting, you grant OpenSearch, and our affiliates the right to record, film, photograph, and capture your voice and image during the OpenSearch Community Meeting (the “Recordings”). You grant to us an irrevocable, nonexclusive, perpetual, worldwide, royalty-free right and license to use, reproduce, modify, distribute, and translate, for any purpose, all or any part of the Recordings and Your Materials. For example, we may distribute Recordings or snippets of Recordings via our social media outlets.\\*",
+        "dateTime": "2024-01-16T15:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-16T16:00-08:00",
+        "going": 1,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Kris Freedain",
+            "username": "user 232609318",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk4MTg4Mzg2OjE3MDU1MDAwMDAwMDA=",
+      "node": {
+        "title": "Search Relevance Backlog & Triage Meeting ",
+        "eventUrl": "https://www.meetup.com/opensearch/events/298188386",
+        "description": "**Standing Topics**\n\n* Brief intro - 2 minutes (hopefully)\n* Triage New Issues - [https://github.com/orgs/opensearch-project/projects/45](https://github.com/orgs/opensearch-project/projects/45)\n* New Contributors Can Pick Up Issues Here: [https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g](https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g). Comment on an issue you want to work on and ask to be assigned.\n\n**Weekly Topics**\n\n* Put your name next to a topic in the Google Doc or add your own topic: [https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing](https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing)\n\nJoin Zoom Meeting\n**[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)**\n**Meeting ID: 834 6107 5100**\n**Passcode: 352301**\n\\-\\-\\-\nOne tap mobile\n+16699009128,,83461075100# US (San Jose)\n+17193594580,,83461075100# US\n\\-\\-\\-\nDial by your location\n• +1 669 900 9128 US (San Jose)\n• +1 719 359 4580 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 669 444 9171 US\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 689 278 1000 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 312 626 6799 US (Chicago)\n• 877 853 5247 US Toll-free\n• 888 788 0099 US Toll-free\nMeeting ID: 834 6107 5100\nFind your local number: [https://us02web.zoom.us/u/kecm4g4G4R](https://us02web.zoom.us/u/kecm4g4G4R)\n**Join the meeting**\n[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)\nPass code: 352301",
+        "dateTime": "2024-01-17T09:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-17T10:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Mark Cohen",
+            "username": "user 3854402",
+            "bio": ""
+          },
+          {
+            "name": "Michael Froh",
+            "username": "user 378275769",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3OTk1MjQ4OjE3MDU5Mjg0MDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297995248",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2024-01-22T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-22T09:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "ZGtjYmp0eWdjY2JnYzoxNzA2MTA0ODAwMDAw",
+      "node": {
+        "title": "Search Relevance Backlog & Triage Meeting ",
+        "eventUrl": "https://www.meetup.com/opensearch/events/dkcbjtygccbgc",
+        "description": "**Standing Topics**\n\n* Brief intro - 2 minutes (hopefully)\n* Triage New Issues - [https://github.com/orgs/opensearch-project/projects/45](https://github.com/orgs/opensearch-project/projects/45)\n* New Contributors Can Pick Up Issues Here: [https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g](https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g). Comment on an issue you want to work on and ask to be assigned.\n\n**Weekly Topics**\n\n* Put your name next to a topic in the Google Doc or add your own topic: [https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing](https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing)\n\nJoin Zoom Meeting\n**[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)**\n**Meeting ID: 834 6107 5100**\n**Passcode: 352301**\n\\-\\-\\-\nOne tap mobile\n+16699009128,,83461075100# US (San Jose)\n+17193594580,,83461075100# US\n\\-\\-\\-\nDial by your location\n• +1 669 900 9128 US (San Jose)\n• +1 719 359 4580 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 669 444 9171 US\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 689 278 1000 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 312 626 6799 US (Chicago)\n• 877 853 5247 US Toll-free\n• 888 788 0099 US Toll-free\nMeeting ID: 834 6107 5100\nFind your local number: [https://us02web.zoom.us/u/kecm4g4G4R](https://us02web.zoom.us/u/kecm4g4G4R)\n**Join the meeting**\n[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)\nPass code: 352301",
+        "dateTime": "2024-01-24T09:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-24T10:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Mark Cohen",
+            "username": "user 3854402",
+            "bio": ""
+          },
+          {
+            "name": "Michael Froh",
+            "username": "user 378275769",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3OTk1MjQ5OjE3MDY1MzMyMDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297995249",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2024-01-29T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-29T09:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk4MjEwOTY3OjE3MDY2MTk2MDAwMDA=",
+      "node": {
+        "title": "OpenSearch Community Meeting - 2024-0130",
+        "eventUrl": "https://www.meetup.com/opensearch/events/298210967",
+        "description": "OpenSearch Community Meeting\n\nJoin Zoom Meeting\n\nhttps://us02web.zoom.us/j/89425352972\n\nMeeting ID: 894 2535 2972\n\n[Please see this week's Agenda for the required passcode](https://forum.opensearch.org/t/opensearch-community-meeting-2024-0130/17282)\n\nOne tap mobile\n\n+12532050468,,89425352972# US\n+12532158782,,89425352972# US (Tacoma)\n\nDial by your location\n\n+1 253 205 0468 US\n+1 253 215 8782 US (Tacoma)\n+1 346 248 7799 US (Houston)\n+1 669 444 9171 US\n+1 669 900 9128 US (San Jose)\n+1 719 359 4580 US\n+1 305 224 1968 US\n+1 309 205 3325 US\n+1 312 626 6799 US (Chicago)\n+1 360 209 5623 US\n+1 386 347 5053 US\n+1 507 473 4847 US\n+1 564 217 2000 US\n+1 646 558 8656 US (New York)\n+1 646 931 3860 US\n+1 689 278 1000 US\n+1 301 715 8592 US (Washington DC)\n877 853 5247 US Toll-free\n888 788 0099 US Toll-free\nMeeting ID: 894 2535 2972\n\nFind your local number: https://us02web.zoom.us/u/keblR3KqwH\n\n========\n\n\\*By joining the OpenSearch Community Meeting, you grant OpenSearch, and our affiliates the right to record, film, photograph, and capture your voice and image during the OpenSearch Community Meeting (the “Recordings”). You grant to us an irrevocable, nonexclusive, perpetual, worldwide, royalty-free right and license to use, reproduce, modify, distribute, and translate, for any purpose, all or any part of the Recordings and Your Materials. For example, we may distribute Recordings or snippets of Recordings via our social media outlets.\\*",
+        "dateTime": "2024-01-30T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-30T09:00-08:00",
+        "going": 1,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Kris Freedain",
+            "username": "user 232609318",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "ZGtjYmp0eWdjY2JwYzoxNzA2NzA5NjAwMDAw",
+      "node": {
+        "title": "Search Relevance Backlog & Triage Meeting ",
+        "eventUrl": "https://www.meetup.com/opensearch/events/dkcbjtygccbpc",
+        "description": "**Standing Topics**\n\n* Brief intro - 2 minutes (hopefully)\n* Triage New Issues - [https://github.com/orgs/opensearch-project/projects/45](https://github.com/orgs/opensearch-project/projects/45)\n* New Contributors Can Pick Up Issues Here: [https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g](https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g). Comment on an issue you want to work on and ask to be assigned.\n\n**Weekly Topics**\n\n* Put your name next to a topic in the Google Doc or add your own topic: [https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing](https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing)\n\nJoin Zoom Meeting\n**[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)**\n**Meeting ID: 834 6107 5100**\n**Passcode: 352301**\n\\-\\-\\-\nOne tap mobile\n+16699009128,,83461075100# US (San Jose)\n+17193594580,,83461075100# US\n\\-\\-\\-\nDial by your location\n• +1 669 900 9128 US (San Jose)\n• +1 719 359 4580 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 669 444 9171 US\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 689 278 1000 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 312 626 6799 US (Chicago)\n• 877 853 5247 US Toll-free\n• 888 788 0099 US Toll-free\nMeeting ID: 834 6107 5100\nFind your local number: [https://us02web.zoom.us/u/kecm4g4G4R](https://us02web.zoom.us/u/kecm4g4G4R)\n**Join the meeting**\n[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)\nPass code: 352301",
+        "dateTime": "2024-01-31T09:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-01-31T10:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Mark Cohen",
+            "username": "user 3854402",
+            "bio": ""
+          },
+          {
+            "name": "Michael Froh",
+            "username": "user 378275769",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3OTk1MjUwOjE3MDcxMzgwMDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297995250",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2024-02-05T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-02-05T09:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "ZGtjYmp0eWdjZGJrYjoxNzA3MzE0NDAwMDAw",
+      "node": {
+        "title": "Search Relevance Backlog & Triage Meeting ",
+        "eventUrl": "https://www.meetup.com/opensearch/events/dkcbjtygcdbkb",
+        "description": "**Standing Topics**\n\n* Brief intro - 2 minutes (hopefully)\n* Triage New Issues - [https://github.com/orgs/opensearch-project/projects/45](https://github.com/orgs/opensearch-project/projects/45)\n* New Contributors Can Pick Up Issues Here: [https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g](https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g). Comment on an issue you want to work on and ask to be assigned.\n\n**Weekly Topics**\n\n* Put your name next to a topic in the Google Doc or add your own topic: [https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing](https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing)\n\nJoin Zoom Meeting\n**[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)**\n**Meeting ID: 834 6107 5100**\n**Passcode: 352301**\n\\-\\-\\-\nOne tap mobile\n+16699009128,,83461075100# US (San Jose)\n+17193594580,,83461075100# US\n\\-\\-\\-\nDial by your location\n• +1 669 900 9128 US (San Jose)\n• +1 719 359 4580 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 669 444 9171 US\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 689 278 1000 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 312 626 6799 US (Chicago)\n• 877 853 5247 US Toll-free\n• 888 788 0099 US Toll-free\nMeeting ID: 834 6107 5100\nFind your local number: [https://us02web.zoom.us/u/kecm4g4G4R](https://us02web.zoom.us/u/kecm4g4G4R)\n**Join the meeting**\n[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)\nPass code: 352301",
+        "dateTime": "2024-02-07T09:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-02-07T10:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Mark Cohen",
+            "username": "user 3854402",
+            "bio": ""
+          },
+          {
+            "name": "Michael Froh",
+            "username": "user 378275769",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3OTk1MjUxOjE3MDc3NDI4MDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297995251",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2024-02-12T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-02-12T09:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk4MjExMDg2OjE3MDc4NTQ0MDAwMDA=",
+      "node": {
+        "title": "OpenSearch Community Meeting - 2024-0213",
+        "eventUrl": "https://www.meetup.com/opensearch/events/298211086",
+        "description": "OpenSearch Community Meeting\n\nJoin Zoom Meeting\n\nhttps://us02web.zoom.us/j/89425352972\n\nMeeting ID: 894 2535 2972\n\n[Please see this week's Agenda for the required passcode](https://forum.opensearch.org/t/opensearch-community-meeting-2024-0213/17284)\n\nOne tap mobile\n\n+12532050468,,89425352972# US\n+12532158782,,89425352972# US (Tacoma)\n\nDial by your location\n\n+1 253 205 0468 US\n+1 253 215 8782 US (Tacoma)\n+1 346 248 7799 US (Houston)\n+1 669 444 9171 US\n+1 669 900 9128 US (San Jose)\n+1 719 359 4580 US\n+1 305 224 1968 US\n+1 309 205 3325 US\n+1 312 626 6799 US (Chicago)\n+1 360 209 5623 US\n+1 386 347 5053 US\n+1 507 473 4847 US\n+1 564 217 2000 US\n+1 646 558 8656 US (New York)\n+1 646 931 3860 US\n+1 689 278 1000 US\n+1 301 715 8592 US (Washington DC)\n877 853 5247 US Toll-free\n888 788 0099 US Toll-free\nMeeting ID: 894 2535 2972\n\nFind your local number: https://us02web.zoom.us/u/keblR3KqwH\n\n========\n\n\\*By joining the OpenSearch Community Meeting, you grant OpenSearch, and our affiliates the right to record, film, photograph, and capture your voice and image during the OpenSearch Community Meeting (the “Recordings”). You grant to us an irrevocable, nonexclusive, perpetual, worldwide, royalty-free right and license to use, reproduce, modify, distribute, and translate, for any purpose, all or any part of the Recordings and Your Materials. For example, we may distribute Recordings or snippets of Recordings via our social media outlets.\\*",
+        "dateTime": "2024-02-13T15:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-02-13T16:00-08:00",
+        "going": 1,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Kris Freedain",
+            "username": "user 232609318",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "ZGtjYmp0eWdjZGJzYjoxNzA3OTE5MjAwMDAw",
+      "node": {
+        "title": "Search Relevance Backlog & Triage Meeting ",
+        "eventUrl": "https://www.meetup.com/opensearch/events/dkcbjtygcdbsb",
+        "description": "**Standing Topics**\n\n* Brief intro - 2 minutes (hopefully)\n* Triage New Issues - [https://github.com/orgs/opensearch-project/projects/45](https://github.com/orgs/opensearch-project/projects/45)\n* New Contributors Can Pick Up Issues Here: [https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g](https://github.com/orgs/opensearch-project/projects/45/views/1?filterQuery=label%3A%22g). Comment on an issue you want to work on and ask to be assigned.\n\n**Weekly Topics**\n\n* Put your name next to a topic in the Google Doc or add your own topic: [https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing](https://docs.google.com/document/d/1cpGSlQVnzd_J6NoFcBbGf4ykGK31l3h59toZmbxUezw/edit?usp=sharing)\n\nJoin Zoom Meeting\n**[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)**\n**Meeting ID: 834 6107 5100**\n**Passcode: 352301**\n\\-\\-\\-\nOne tap mobile\n+16699009128,,83461075100# US (San Jose)\n+17193594580,,83461075100# US\n\\-\\-\\-\nDial by your location\n• +1 669 900 9128 US (San Jose)\n• +1 719 359 4580 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 669 444 9171 US\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 689 278 1000 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 312 626 6799 US (Chicago)\n• 877 853 5247 US Toll-free\n• 888 788 0099 US Toll-free\nMeeting ID: 834 6107 5100\nFind your local number: [https://us02web.zoom.us/u/kecm4g4G4R](https://us02web.zoom.us/u/kecm4g4G4R)\n**Join the meeting**\n[https://us02web.zoom.us/j/83461075100](https://us02web.zoom.us/j/83461075100)\nPass code: 352301",
+        "dateTime": "2024-02-14T09:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-02-14T10:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Mark Cohen",
+            "username": "user 3854402",
+            "bio": ""
+          },
+          {
+            "name": "Michael Froh",
+            "username": "user 378275769",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3OTk1MjUyOjE3MDgzNDc2MDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297995252",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2024-02-19T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-02-19T09:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    },
+    {
+      "cursor": "Mjk3OTk1MjUzOjE3MDg5NTI0MDAwMDA=",
+      "node": {
+        "title": "Development Backlog & Triage Meeting - Security",
+        "eventUrl": "https://www.meetup.com/opensearch/events/297995253",
+        "description": "**Development Backlog & Triage Meeting - Security (Weekly)**\n\n**Agenda**:\n**Triage issues** in both repos, add the triaged label once reviewed/ready. They can be also labelled as sprint backlog if we are looking to queueing them up next, or good first issue / help wanted if appropriate.\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3Atriaged+)\n\n**Sprint backlog** (Examine if it still reflects the work that we are committing to doing and is it in the right priority order)\n\n* Sprint backlog has all we are committing to doing in the next few weeks. If we have more than 2x the SDEs in the team, push cards back to the regular backlog\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+label%3A%22sprint+backlog%22+)\n\n**Backlog** (anything we should move to sprint backlog? anything we should tag asking for help from the community?)\n\n* [Backend security](https://github.com/opensearch-project/security/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22+)\n* [Dashboards security](https://github.com/opensearch-project/security-dashboards-plugin/issues?q=is%3Aopen+is%3Aissue+-label%3A%22sprint+backlog%22+-label%3A%22WIP%22+label%3A%22triaged%22)\n\nStephen Crawford is inviting you to a scheduled Zoom meeting.\nJoin Zoom Meeting\n[https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09](https://us02web.zoom.us/j/89618742609?pwd=ZE9ZRGpiZmF1amdLY0djK3VhZG10UT09)\nMeeting ID: 896 1874 2609\nPasscode: 873422\n\\-\\-\\-\nOne tap mobile\n+13126266799,,89618742609# US (Chicago)\n+16465588656,,89618742609# US (New York)\n\\-\\-\\-\nDial by your location\n• +1 312 626 6799 US (Chicago)\n• +1 646 558 8656 US (New York)\n• +1 646 931 3860 US\n• +1 301 715 8592 US (Washington DC)\n• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 253 205 0468 US\n• +1 253 215 8782 US (Tacoma)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 386 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 669 444 9171 US\n• +1 669 900 9128 US (San Jose)\n• +1 689 278 1000 US\n• +1 719 359 4580 US\n• 888 788 0099 US Toll-free\n• 877 853 5247 US Toll-free\nMeeting ID: 896 1874 2609\nFind your local number: [https://us02web.zoom.us/u/kdod0sJXqA](https://us02web.zoom.us/u/kdod0sJXqA)",
+        "dateTime": "2024-02-26T08:00-08:00",
+        "duration": "PT1H",
+        "timezone": "America/Los_Angeles",
+        "endTime": "2024-02-26T09:00-08:00",
+        "going": 2,
+        "isOnline": true,
+        "eventType": "ONLINE",
+        "hosts": [
+          {
+            "name": "Stephen",
+            "username": "user 405502376",
+            "bio": ""
+          }
+        ],
+        "venue": {
+          "id": "26906060",
+          "name": "Online event",
+          "venueType": "online",
+          "address": "",
+          "city": "",
+          "state": "",
+          "postalCode": ""
+        },
+        "onlineVenue": {
+          "type": "zoom",
+          "url": null
+        }
+      }
+    }
+  ]
+  
