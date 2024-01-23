@@ -143,22 +143,34 @@ function transformMeetupEventDateTimeToCalendarDate(dateTime) {
     return datePart;
 }
 
+function timeHasSeconds(time) {
+    const timeWithSecondsPattern = /\d{2}:\d{2}:\d{2}/;
+    const patternMatches = timeWithSecondsPattern.test(time);
+    return patternMatches;
+}
+
 /**
- * 
+ * Transforms the ISO8601 format date-time string into the format that Jekyl expects.
  * @param {string} dateTime 
  * @returns {string}
  */
 function transformMeetupEventDateTimeToOpenSearchEventDate(dateTime) {
 
     // Example meetup date time: "2023-11-13T08:00-08:00"
-    // Example desired output for Jekyll: 2023-11-13 08:00 -0800
+    // Example desired output for Jekyll: 2023-11-13 08:00:00 -0800
+    // NOTE: Jekyll needs the additional seconds otherwise the Liquid templates
+    // throw an exception.
     const splitDateTime = dateTime.split('T');
     const plusOrMinusPattern = /\+|\-/;
     const plusOrMinusMatches = plusOrMinusPattern.exec(splitDateTime[1]);
     const timeZoneOffsetPlusOrMinus = plusOrMinusMatches[0];
     const splitTime = splitDateTime[1].split(timeZoneOffsetPlusOrMinus);
+    let timePart = splitTime[0];
+    if (!timeHasSeconds(timePart)) {
+        timePart += ':00';
+    }
     const formattedTimeZoneOffset = splitTime[1].replace(':', '');
-    const openSearchEventDate = `${splitDateTime[0]} ${splitTime[0]} ${timeZoneOffsetPlusOrMinus}${formattedTimeZoneOffset}`;
+    const openSearchEventDate = `${splitDateTime[0]} ${timePart} ${timeZoneOffsetPlusOrMinus}${formattedTimeZoneOffset}`;
     return openSearchEventDate;
 }
 
@@ -182,7 +194,7 @@ function transformMeetupEventToOpenSearchEvent(meetupEventEdge) {
         eventdate,
         enddate,
         title: meetupEventEdge.title,
-        online: meetupEventEdge ? 'true' : 'false',
+        online: meetupEventEdge.isOnline,
         tz: meetupEventEdge.timezone,
         location,
         signup: {
@@ -236,7 +248,7 @@ function createEventCollectionEntryFileName(openSearchEvent) {
     const datePart = dateTimeParts[0];
     const yearMonthDay = datePart.split('-');
     const dateFormattedForFileName = `${yearMonthDay[0]}-${yearMonthDay[1]}${yearMonthDay[2]}`;
-    const titleFormattedForFileName = title.replace(/[^\w]+g/, '-');
+    const titleFormattedForFileName = title.toLowerCase().replace(/[^\w]+/g, '-');
     const fileName = `${dateFormattedForFileName}-${titleFormattedForFileName}.md`;
     return fileName;
 }
@@ -260,14 +272,14 @@ async function requestEventsFromMeetupAPI() {
     return mockMeetupEvents;
 }
 
-const meetupClientId = process.env.MEETUP_API_CLIENT_KEY;
-const meetupMemberId = process.env.MEETUP_API_AUTHORIZED_MEMBER_ID;
-const meetupKeyId = process.env.MEETUP_API_SIGNING_KEY_ID;
-const meetupPrivateKey = process.env.MEETUP_API_PRIVATE_KEY;
+// const meetupClientId = process.env.MEETUP_API_CLIENT_KEY;
+// const meetupMemberId = process.env.MEETUP_API_AUTHORIZED_MEMBER_ID;
+// const meetupKeyId = process.env.MEETUP_API_SIGNING_KEY_ID;
+// const meetupPrivateKey = process.env.MEETUP_API_PRIVATE_KEY;
 
-const jwt = signJWT(meetupClientId, meetupMemberId, meetupKeyId, meetupPrivateKey);
+// const jwt = signJWT(meetupClientId, meetupMemberId, meetupKeyId, meetupPrivateKey);
 
 requestEventsFromMeetupAPI().then(meetupEvents => {
-    const openSearchEvents = meetupEvents.map(transformMeetupEventToOpenSearchEvent);
+    const openSearchEvents = meetupEvents.map(meetupEvent => transformMeetupEventToOpenSearchEvent(meetupEvent.node));
     openSearchEvents.forEach(writeEventCollectionFile);
 }).catch(console.error);
