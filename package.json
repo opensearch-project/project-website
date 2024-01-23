@@ -2,9 +2,12 @@
   "name": "opensearchwebsite",
   "private": true,
   "dependencies": {
-    "bower": "^1.4.1"
+    "bower": "^1.4.1",
+    "dotenv": "^16.3.2",
+    "jsonwebtoken": "^9.0.2"
   },
   "scripts": {
-    "bower": "bower"
+    "bower": "bower",
+    "meetup:fetch": "meetup-fetch.js"
   }
 }
