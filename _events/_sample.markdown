@@ -27,7 +27,6 @@ signup:
 # Un-comment the line that defines the category for this event.
 category: community
 # category: development
-# category: user-group
 # category: events
 
 # Array of event host identifiers.
