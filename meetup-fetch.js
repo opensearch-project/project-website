@@ -1,5 +1,6 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const { existsSync } = require('node:fs');
 const fs = require('node:fs/promises');
 const path = require('path');
 const https = require('node:https');
@@ -550,7 +551,7 @@ function createEventCollectionEntryFileName(openSearchEvent) {
 async function writeEventCollectionFile(openSearchEvent) {
     const fileName = createEventCollectionEntryFileName(openSearchEvent);
     const filePath = path.join(__dirname, '_events', fileName);
-    const fileAlreadyExists = fs.existsSync(filePath);
+    const fileAlreadyExists = existsSync(filePath);
     if (fileAlreadyExists) {
         return filePath;
     }
