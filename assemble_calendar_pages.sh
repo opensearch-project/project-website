@@ -2,7 +2,7 @@
 
 startYear=2021
 startMonth=6
-endYear=2024
+endYear=2025
 endMonth=12
 currentDir=$(pwd)
 calendarDir="$currentDir/_calendars"
