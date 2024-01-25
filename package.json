@@ -8,6 +8,7 @@
   },
   "scripts": {
     "bower": "bower",
-    "meetup:fetch": "meetup-fetch.js"
+    "meetup:fetch": "node meetup-fetch.js",
+    "calendars:create": "node create-calendar-collection.js"
   }
 }
