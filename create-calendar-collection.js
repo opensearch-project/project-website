@@ -263,7 +263,7 @@ getEventsCollectionFileNames(eventsPath).then(async (eventsFileNames) => {
     for (let i = 0; i < yearMonthPairs.length; ++i) {
         const yearMonth = yearMonthPairs[i];
         const calendarData = createCalendarCollectionEntryData(yearMonth);
-        const calendarPath = createCalendarCollectionEntryPath(yearMonth, '_calendars_TEST');
+        const calendarPath = createCalendarCollectionEntryPath(yearMonth);
         try {
             await writeCalendarCollectionEntryFile(calendarPath, calendarData);
         } catch (error) {
