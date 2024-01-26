@@ -24,18 +24,13 @@ class EventCategory {
     }
 }
 
+/**
+ * @property {string} city The name of the location city.
+ * @property {string} country The name of the location country.
+ */
 class EventPhysicalLocation {
 
-    /**
-     * The name of the location city.
-     * @property {string} city
-     */
     city = '';
-
-    /**
-     * The name of the location country.
-     * @property {string} country
-     */
     country = '';
 
     constructor(city, country) {
@@ -44,106 +39,57 @@ class EventPhysicalLocation {
     }
 }
 
+/**
+ * @property {string} url URL of the event signup page.
+ * @property {string} title Title of the event signup button / link.
+ */
 class EventSignupLinkDetails {
-
-    /**
-     * URL of the event signup page.
-     * @property {string} url
-     */
     url = '';
-
-    /**
-     * Title of the event signup button / link.
-     */
     title = '';
 }
 
+/**
+ * Definition of the properties required by Event Jekyll collection entries.
+ * The property names - excluding the content property - match those of the 
+ * Front Matter properties for an Event collection item. This includes maintaining
+ * the mixed name casing FYI.
+ * @class 
+ * @property {string} calendar_date The date of the event, without time, as a string to appear in the calendar view in the format of YYYY-MM-DD.
+ * @property {string} eventdate  Event date and time (24 hr) here (mind the time-zone and daylight saving time!).
+ * @property {string} enddate Optional end date if the event last multiple days.
+ * @property {string} title The title - this is how it will show up in listing and headings on the site
+ * @property {boolean} online Whether or not the event is online.
+ * @property {string} tz The location timezone.
+ * @property {EventPhysicalLocation} location The physical event location for non-online events.
+ * @property {EventSignupLinkDetails} signup Event signup link / button details to render in the template.
+ * @property {string} category Event category name. Valid values are defined as static properties of the EventCategory class.
+ *      @see {EventCategory} 
+ *      @default 'community'
+ * @property {string} content The markdown content of the event after the Front Matter.
+ */
 class OpenSearchEvent {
-
-    /**
-     * The date of the event, without time, as a string to appear in the calendar view in the format of YYYY-MM-DD.
-     * @property {string} calendar_date
-     */
     calendar_date = '';
-
-    /**
-     * Event date and time (24 hr) here (mind the time-zone and daylight saving time!).
-     * @property {string} eventdate 
-     */
     eventdate = '';
-
-    /**
-     * Optional end date if the event last multiple days.
-     * @propety {string} enddate
-     */
     enddate = '';
-
-    /**
-     * The title - this is how it will show up in listing and headings on the site
-     * @property {string} title
-     */
     title = '';
-
-    /**
-     * Whether or not the event is online.
-     * @property {boolean} online
-     */
     online = true;
-
-    /**
-     * The location timezone.
-     * @property {string} tz
-     */
     tz = '';
-
-    /**
-     * The physical event location for non-online events.
-     * @property {EventPhysicalLocation} location
-     */
     location = null;
-
-    /**
-     * Event signup link / button details to render in the template.
-     * @property {EventSignupLinkDetails} signup
-     */
     signup = null;
-
-    /**
-     * Event category name. Valid values are defined as static properties of the EventCategory class.
-     * @see {EventCategory} 
-     * @property {string} category
-     * @default 'community'
-     */
-    category = 'community';
-
-    /**
-     * The markdown content of the event after the Front Matter.
-     * @property {string} content
-     */ 
+    category = 'community'; 
     content = '';
 }
 
+/**
+ * @property {string} access_token Access token.
+ * @property {string} token_type Token type; default 'bearer'.
+ * @property {number} expires_in Token expiration time; default 120.
+ * @property {string} refresh_token Access refresh token.
+ */
 class MeetupJWTSuccessResponse {
-
-    /**
-     * Access token to store.
-     * @property {string} access_token 
-     */
     access_token = '';
-
-    /**
-     * @property {string} token_type
-     */
     token_type = 'bearer';
-
-    /**
-     * @property {number} expires_in
-     */
-    expires_in = 3600;
-
-    /**
-     * @property {string} refresh_token
-     */
+    expires_in = 120;
     refresh_token = ''
 }
 
@@ -167,12 +113,13 @@ class MeetupJWTErrorResponse {
 
 
 /**
- * Return a Promise resolved with a JSON Web Token signed for a Meetup API request.
+ * Return a Promise resolved with a JSON Web Token signed for a Meetup API request payload.
  * @param {string} clientKey Meetup API client key
  * @param {string} memberId Meetup API member ID
  * @param {string} signingKeyId Meetup API private signing key ID
  * @param {string} privateKey Private signing key.
- * @param {object} payload Data to sign.
+ * @param {object} payload Request data to sign.
+ * @param {number} expiresInSeconds Token expiration time in seconds.
  * @returns {Promise<MeetupJWTSuccessResponse>}
  */
 function signJWT(
@@ -218,13 +165,13 @@ function signJWT(
  * @returns {Promise<object>}
  */
 function performApiRequest(postBody, hostname = process.env.MEETUP_API_BASE_URL) {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         const meetupClientId = process.env.MEETUP_API_CLIENT_KEY;
         const meetupMemberId = process.env.MEETUP_API_AUTHORIZED_MEMBER_ID;
         const meetupKeyId = process.env.MEETUP_API_SIGNING_KEY_ID;
         const meetupPrivateKey = process.env.MEETUP_API_PRIVATE_KEY;
         const expiresInSeconds = parseInt(process.env.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS, 10);
-        const signedPostBody = signJWT(
+        const signedPostBody = await signJWT(
             meetupClientId, 
             meetupMemberId, 
             meetupKeyId, 
@@ -236,6 +183,9 @@ function performApiRequest(postBody, hostname = process.env.MEETUP_API_BASE_URL)
             hostname,
             path: '/gql',
             method: 'POST',
+            headers: {
+                Authorization: `Bearer: ${signedPostBody.access_token}`,
+            },
         };
         const request = https.request(options, (response) => {
             const chunks = [];
@@ -252,11 +202,22 @@ function performApiRequest(postBody, hostname = process.env.MEETUP_API_BASE_URL)
                 reject(error);
             })
         });
-        request.write(signedPostBody);
+        const jsonPostBody = JSON.stringify(postBody);
+        request.write(jsonPostBody);
         request.end();
     });
 }
 
+/**
+ * TODO: The Meetup API Documentation GraphQL Playground does not permit my user account to
+ * query the groupsSearch field, nor the eventsSearch field on the proNetworkByUrlname schema.
+ * I suspect that this would be a more future proof way to aggregate all events from all groups
+ * that are associated with the OpenSearch Project instead of relying on maintaining a list
+ * of hardcoded values in an environment variable observed by actually looking at the OpenSearch Project
+ * Meetup page, and collecting those group url names. 
+ * @param {string} openSearchUrlName 
+ * @param {string} eventsCursor 
+ */
 async function queryForOpenSearchProNetwork(
     openSearchUrlName = 'opensearchproject',
     eventsCursor = '',
@@ -281,6 +242,16 @@ async function queryForOpenSearchProNetwork(
     }
 }
 
+/**
+ * Returns a Promise resolved with the results of a query for a list of events for a specifed group.
+ * The "groupByUrlname" query is used to query for the group's "unifiedEvents" field.
+ * Paged results can be retrieved via follow up calls by providing a non-empty value the eventsCursor parameter
+ * which will be used as the "after" property value for the "input" variable for the "unifiedEvents" field
+ * @param {string} groupUrlName URL name of a Meetup Group associated with the OpenSearch Project for whose events are being queried.
+ * @param {string} eventsCursor Events list results paging cursor for making round trips for additional paged results.
+ * @returns {Promise<obejct>} 
+ * @see {@link "https://www.meetup.com/api/schema/#groupByUrlname"}
+ */
 async function queryForGroupEvents(
     groupUrlName,
     eventsCursor = '',
@@ -332,6 +303,19 @@ async function queryForGroupEvents(
     return response;
 }
 
+/**
+ * Mock implementation of the queryForGroupEvents function using data that had been previously fetched
+ * using the Meetup API Documentation GraphQL Playground. This includes the paged results for the "opensearch" group
+ * which at the time of querying all 7 known OpenSearch Project associated groups was the only group to
+ * have any scheduled events.
+ * This function is useful for testing the business logic of this script until API credentials are available,
+ * with secrets management in place, and the JWT client logic can be worked out. 
+ * @param {string} groupUrlName URL name of a Meetup Group associated with the OpenSearch Project for whose events are being queried.
+ * @param {string} eventsCursor Events list results paging cursor for making round trips for additional paged results.
+ * @returns {Promise<obejct>} 
+ * @see {queryForGroupEvents}
+ * @see {@link "https://www.meetup.com/api/schema/#groupByUrlname"}
+ */
 async function mock__queryForGroupEvents(
     groupUrlName,
     eventsCursor = '',
@@ -429,8 +413,8 @@ function timeHasSeconds(time) {
  * Transforms the ISO8601 format date-time string into the format that Jekyll expects.
  * It is worth noting that the ISO8601 format dates retrieved from Meetup do not include
  * the seconds component of the event time. This is reasonable given that it would be surprising
- * for any event to be scheduled with such granularity. However, Jekyll would not build without
- * the seconds being included for whatever reason. So, this function ensures that zero seconds (:00)
+ * for any event to be scheduled with such granularity. However, Jekyll does not build without
+ * the seconds being included. So, this function ensures that zero seconds (:00)
  * is appended if it is not already present.
  * @param {string} dateTime 
  * @returns {string}
@@ -545,6 +529,7 @@ function createEventCollectionEntryFileName(openSearchEvent) {
  * Adds an Event Jekyll collection entry by writing a new Markdown file into the _events directory
  * with data created by transforming an OpenSearchEvent shaped object into the required
  * Front Matter + Markdown.
+ * Note that if a file already exists at the desired path then it is not overwritten.
  * @param {OpenSearchEvent} openSearchEvent 
  * @returns {Promise<string>} Returns a Promise resolved with the event file path.
  */
@@ -577,7 +562,7 @@ async function requestEventsFromMeetupAPI() {
     // GraphQL Playground responds with an error message that says:
     //      "User must be logged-in or must be an admin of a network."
     // Given that I am logged-in, I assume that the correct conjuction in the error message
-    // should actuall be "and", and not "or". As in "User must be logged-in AND an admin of a network".
+    // should actually be "and", and not "or". As in "User must be logged-in AND an admin of a network".
     //
     // Observing the OpenSearch Project Pro Network Meetup page there
     // is 7 groups currently associated with the project. Only one has scheduled
@@ -590,6 +575,11 @@ async function requestEventsFromMeetupAPI() {
     let aggregatedEvents = [];
     for (let i = 0; i < groupCount; ++i) {
         const groupName = openSearchGroupNames[i];
+
+        //
+        // TODO: Replace the calls to mock__queryForGroupEvents with calls to queryForGroupEvents
+        //       once API access is granted.
+        //
         const groupEventsResponse = await mock__queryForGroupEvents(groupName);
         const firstPageOfGroupEvents = groupEventsResponse?.data?.groupByUrlname?.unifiedEvents?.edges ?? [];
         if (firstPageOfGroupEvents.length > 0) {
