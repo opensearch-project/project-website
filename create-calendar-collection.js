@@ -2,17 +2,20 @@ const { existsSync } = require('node:fs');
 const fs = require('node:fs/promises');
 const path = require('path');
 
-// The oldest event in the system is in May 2021.
-// This pre-dates the file naming convention of the 'YYYY-MMDD' prefix.
-// The calendar collection will begin from May 2021, and will extend until
-// whatever is the latest month indicated by files in the Events Collection.
+/**
+ * The oldest event in the system is in May 2021.
+ * This pre-dates the file naming convention of the 'YYYY-MMDD' prefix.
+ * The calendar collection will begin from May 2021, and will extend until
+ * whatever is the latest month indicated by files in the Events Collection.
+ * @constant {number[]}
+ */
 const HARD_START_DATE = [2021, 5];
 
 /**
  * Return the filenames within the specified directory treated as a list of entries of a Jekyll collection.
  * This means that file names with an underscore prefix are omitted from the returned array.
  * @param {string} eventsCollectionPath Path to the Events collection directory.
- * @returns {string[]}
+ * @returns {Promise<string[]>}
  */
 async function getEventsCollectionFileNames(eventsCollectionPath) {
     const fileNames = await fs.readdir(eventsCollectionPath);
@@ -24,7 +27,7 @@ async function getEventsCollectionFileNames(eventsCollectionPath) {
 }
 
 /**
- * Returns a sorted, deduplicated array of the Event collection filenames mapped to an array in the format of [year, month].
+ * Returns a deduplicated array of the Event collection filenames mapped to an array in the format of [year, month].
  * Any filename that does not conform to the naming convention of beginning with the event date as YYYY-MMDD will be omitted.
  * @param {string[]} fileNames Array of Event collection filenames.
  * @returns {number[]}
@@ -82,7 +85,7 @@ function parseYearMonthPairsFromFileNames(fileNames) {
  * Note that months are treated as a zero-based index like the JavaScript Date type.
  * @param {number} year 
  * @param {number} monthIndex 
- * @returns number
+ * @returns {number}
  */
 function getDaysInMonth(year, monthIndex) {
     const daysInMonth = [
@@ -144,8 +147,9 @@ function getCountOfDaysToSaturday(dayName) {
 }
 
 /**
- * Returns a Calendar collection entry file data formatted according to what is expected by the Calendar layout template.
+ * Returns a Calendar collection entry file data string that is formatted according to what is expected by the Calendar layout template.
  * The Calendar collection folder contains a _sample.md file that details the expected Front Matter.
+ * Also the template logic in the calendar layout template may be useful (_layouts/calendar.html).
  * @param {number[]} yearMonth Array of numbers defining [year, month].
  * @returns {string}
  */
@@ -232,7 +236,9 @@ redirect_from: '/events/calendar/${year}-${formattedMonthNumber}.html'
 
 /**
  * Returns the full path to a Calendar collection entry for the specified year and month pair.
+ * Note: Parametrizing the directory name was useful during testing.
  * @param {number[]} yearMonth Array of numbers definining [year, month]
+ * @param {string} dirName Name of the destination subdirectory to place the file; defaults to '_calendars'.
  * @returns {string}
  */
 function createCalendarCollectionEntryPath(yearMonth, dirName = '_calendars') {
@@ -244,6 +250,7 @@ function createCalendarCollectionEntryPath(yearMonth, dirName = '_calendars') {
 
 /**
  * Write the file data to the specified path.
+ * If a file at the specified path already exists then it is not overwritten.
  * @param {string} path Calendar collection entry destination path.
  * @param {string} data Calendar collection entry file data.
  * @returns {Promise<string>} Returns a Promise resolved with the file path.
