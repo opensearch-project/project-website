@@ -4,6 +4,7 @@
   "dependencies": {
     "bower": "^1.4.1",
     "dotenv": "^16.3.2",
+    "gray-matter": "^4.0.3",
     "jsonwebtoken": "^9.0.2"
   },
   "scripts": {

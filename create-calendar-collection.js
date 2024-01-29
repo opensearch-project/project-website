@@ -1,6 +1,7 @@
 const { existsSync } = require('node:fs');
 const fs = require('node:fs/promises');
 const path = require('path');
+const matter = require('gray-matter');
 
 /**
  * The oldest event in the system is in May 2021.
@@ -27,57 +28,55 @@ async function getEventsCollectionFileNames(eventsCollectionPath) {
 }
 
 /**
- * Returns a deduplicated array of the Event collection filenames mapped to an array in the format of [year, month].
- * Any filename that does not conform to the naming convention of beginning with the event date as YYYY-MMDD will be omitted.
- * @param {string[]} fileNames Array of Event collection filenames.
- * @returns {number[]}
+ * Returns an array of number arrays that represent [year, month] pairs extracted from event collection entries.
+ * @param {object[]} openSearchEvents Array of event collection data.
+ * @returns {number[]} Array of number arrays representing [year, month] pairs.
  */
-function parseYearMonthPairsFromFileNames(fileNames) {
-    const parsedFileNames = fileNames.map(fileName => {
-        const pattern = /^(\d{4})-(\d{2})/;
-        const matches = pattern.exec(fileName);
-        if (matches) {
-            const parsedYear = Number.parseInt(matches[1], 10);
-            const parsedMonth = matches[2].startsWith('0') ?
-                Number.parseInt(matches[2].charAt(1), 10) :
-                Number.parseInt(matches[2], 10);
-            return [parsedYear, parsedMonth];
-        }
-        return null;
-    });
-    const filteredParsedFileNames = parsedFileNames.filter(parsedData => !!parsedData);
-
-    // Since only the year and month, and not the day in the filename is of concern then
-    // it is reasonable to deduplicate the array.
-    const deDuplicatedFileNames = Object.values(filteredParsedFileNames.reduce((carry, current) => {
-        const joinedPair = current.join('-');
-        if (typeof carry[joinedPair] === 'undefined') {
-            carry[joinedPair] = current;
+function aggregateDeduplicatedYearMonthPairs(openSearchEvents) {
+    const yearMonthPairs = openSearchEvents.reduce((carry, current) => {
+        const { calendar_date } = current;
+        const datePartsPattern = /^(20\d{2})-(\d{2})/;
+        const datePartsMatches = datePartsPattern.exec(calendar_date);
+        if (datePartsMatches) {
+            const year = Number.parseInt(datePartsMatches[1], 10);
+            const month = Number.parseInt(datePartsMatches[2], 10);
+            if (!Number.isNaN(year) && !Number.isNaN(month) && month >= 1 && month && month <= 12) {
+                const pairAlreadyExists = carry.findIndex(([y, m]) => y === year && m === month);
+                if (pairAlreadyExists === -1) {
+                    return [...carry, [year, month]];
+                }
+            }
         }
         return carry;
-    }, {}));
+    }, []);
+    return yearMonthPairs;
+}
 
-    // Fill in the gap from HARD_START_DATE up to the [year, month]
-    // before the first entry. 
-    const [firstYear, firstMonth] = deDuplicatedFileNames[0];
-    const numberOfYearsGreaterThanHardStart = firstYear - HARD_START_DATE[0];
-    let numberOfMonthsToPrepend = (numberOfYearsGreaterThanHardStart * 12) - (HARD_START_DATE[1] + firstMonth - 1);
-    let currentMonthToPrepend = firstMonth > 1 ? firstMonth - 1 : 12;
-    let currentYearToPrepend = currentMonthToPrepend !== 12 ? firstYear : firstYear - 1;
-    while (numberOfMonthsToPrepend >= 0) {
-        const monthYearPairToPrepend = [currentYearToPrepend, currentMonthToPrepend];
-        deDuplicatedFileNames.unshift(monthYearPairToPrepend);
-        if (currentMonthToPrepend > 1) {
-            currentMonthToPrepend -= 1;
-        } else {
-            currentMonthToPrepend = 12;
-        }
-        if (currentMonthToPrepend === 12) {
-            currentYearToPrepend -= 1;
-        }
-        --numberOfMonthsToPrepend;
+/**
+ * Returns a Promise resolved with an object matching shape of OpenSearchEvent containing the data parsed from the specfied Events collection file.
+ * @param {string} eventFilePath Fully qualified path to an Events collection file.
+ * @returns {Promise<OpenSearchEvent>}
+ * @throws {Error}
+ */
+async function readOpenSearchEvent(eventFilePath) {
+    try {
+        const eventFileData = await fs.readFile(eventFilePath, { encoding: 'utf8' });
+        const parsedEventData = matter(eventFileData);
+        const parsedFrontMatter = Object.entries(parsedEventData.data);
+        const openSearchEvent = parsedFrontMatter.reduce((event, parsedEntryData) => {
+            const [key, value] = parsedEntryData;
+            return {
+                [key]: value,
+                ...event,
+            };
+        }, {});
+        openSearchEvent.content = parsedEventData.content;
+        return openSearchEvent;
+    } catch (error) {
+        console.error(`Unable to read events collection file ${eventFilePath}`);
+        console.error(error.message);
+        return null;
     }
-    return deDuplicatedFileNames;
 }
 
 /**
@@ -266,7 +265,27 @@ async function writeCalendarCollectionEntryFile(path, data) {
 
 const eventsPath = path.join(__dirname, '_events');
 getEventsCollectionFileNames(eventsPath).then(async (eventsFileNames) => {
-    const yearMonthPairs = parseYearMonthPairsFromFileNames(eventsFileNames);
+    const openSearchEvents = [];
+    for (let i = 0; i < eventsFileNames.length; ++i) {
+        const fileName = eventsFileNames[i];
+        const fullEventPath = path.join(eventsPath, fileName);
+        const openSearchEvent = await readOpenSearchEvent(fullEventPath);
+        if (openSearchEvent) {
+            openSearchEvents.push(openSearchEvent);
+        }
+    }
+    openSearchEvents.sort((a, b) => {
+        const aEventDate = Date.parse(a.eventdate);
+        const bEventDate = Date.parse(b.eventdate);
+
+        if (aEventDate < bEventDate) {
+            return -1;
+        } else if (aEventDate > bEventDate) {
+            return 1;
+        }
+        return 0;
+    });
+    const yearMonthPairs = aggregateDeduplicatedYearMonthPairs(openSearchEvents);
     for (let i = 0; i < yearMonthPairs.length; ++i) {
         const yearMonth = yearMonthPairs[i];
         const calendarData = createCalendarCollectionEntryData(yearMonth);
