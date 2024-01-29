@@ -74,6 +74,7 @@ items:
       - blog
       - partners
       - slack
+      - members
     children:
       -
         label: Blog
@@ -94,6 +95,9 @@ items:
       -
         label: Projects
         url: /community_projects
+      - 
+        label: Members
+        url: /community/members/index.html
   -
     label: Documentation
     fragments: 
