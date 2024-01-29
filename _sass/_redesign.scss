@@ -289,6 +289,182 @@ $header-banner-mobile-breakpoint: 1018px;
     }
 }
 
+.landing-page-content__left-panel {
+    @include page-element-padding;
+    background: transparent;
+    margin-bottom: 0;
+    > .landing-page-content__left-panel--content {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: stretch;
+        @media screen and (min-width: 835px) {
+            flex-wrap: nowrap;
+            column-gap: 40px;
+            padding-right: 20px;
+        }
+        @media screen and (max-width: 834px) {
+            flex-wrap: wrap;
+            padding-right: 0;
+            column-gap: 0;
+        }
+        flex-wrap: nowrap;
+        
+        padding-bottom: 80px;
+        h2 {
+            @include header-level2($primary-open-sky-s3);
+        }
+        > .landing-page-content__left-panel--content--body {
+            padding: 0;
+            @media screen and (min-widtH: 835px) {
+                max-width: auto;
+                flex-basis: 71.5%;
+            }
+            @media screen and (max-width: 834px) {
+                max-width: 100%;
+            }
+        }
+        > .landing-page-content__left-panel--content--side-panel {
+            background: #fff;
+            &.landing-page-content__left-panel--content--side-panel__vertical-gradient {
+                @include gradient-open-sky;
+            }
+            @media screen and (min-width: 835px) {
+                display: block;
+                flex-basis: 28.5%;
+                padding: 30px;
+            }
+            @media screen and (max-width: 834px) {
+                width: 100%;
+                display: block;
+                padding: 0 20px;
+            }
+            box-sizing: border-box;
+            > .draft-3-landing-page--button-stack__with-label {
+                @media screen and (min-width: 835px) {
+                    width: 100%;
+                    max-width: unset;
+                    &:not(:first-of-type) {
+                        margin-top: 60px;
+                    }
+                }
+                @media screen and (max-width: 834px) {
+                    max-width: 100%;
+                    padding-top: 0;
+                    margin-bottom: 20px;
+                }
+                &:nth-of-type(1),
+                &:nth-of-type(2) {
+                    > .draft-3-landing-page--button-stack {
+                        @media screen and (max-width: 650px) {
+                            flex-wrap: wrap;
+                            row-gap: 20px;
+                            justify-content: flex-start;
+                            > .draft-3-landing-page--button-stack--button {
+                                min-width: 285px;
+                                max-width: 285px;
+                            }
+                        }
+                    }
+                }
+                box-sizing: border-box;
+                > .draft-3-landing-page--button-stack__with-label--label {
+                    > .h2 {
+                        margin-top: 0;
+                    }
+                }
+                > .draft-3-landing-page--button-stack {
+                    background: transparent;
+                    box-sizing: border-box;
+                    
+                    @media screen and (max-width: $content-with-panel-collapsed-max)
+                    and (min-width: $min-past-iphone-width) {
+                        display: flex;
+                        justify-content: space-around;
+                        column-gap: 20px;
+                    }
+                    @media screen and (min-width: $content-with-panel-expanded-min), 
+                    screen and (max-width: $max-iphone-width) {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    @media screen and (max-width: $content-with-panel-collapsed-max) {
+                        width: 100%;
+                    }
+                    @media screen and (max-width: $max-iphone-width) {
+                        padding-left: 10px;
+                        padding-right: 10px;
+                    }
+                    @media screen and (min-width: 835px) {
+                        max-width: 350px;
+                        min-width: 280px;
+                        margin-top: 40px;
+                        row-gap: 30px;
+                        &:nth-of-type(2) {
+                            row-gap: 40px;
+                        }
+                    }
+                    @media screen and (max-width: 834px) {
+                        width: 100%;
+                        padding: 0;
+                    }
+                    
+                    .draft-3-landing-page--button-stack--button {
+                        &.draft-3-landing-page--button-stack--button__hide-labels {
+                            > label {
+                                display: none;
+                            }
+                        }
+                        @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
+                            flex-basis: 50%;
+                            flex-grow: 1;
+                            flex-shrink: 1;
+                            width: auto;
+                        }
+                        @media screen and (max-width: $content-with-panel-collapsed-max) {
+                            flex-basis: 50%;
+                            flex-shrink: 0;
+                            flex-grow: 0;
+                        }
+                        > .redesign-button--wrapper {
+                            @media screen and (max-width: 834px) {
+                                width: 100%;
+                            }
+                            &.redesign-button--wrapper__text-only,
+                            &.redesign-button--wrapper__text-only__dark {
+                                height: 60px;
+                                > a {
+                                    line-height: 60px;
+                                }
+                            }
+                        }
+                        > .redesign-button-pair--wrapper {
+                            @media screen and (max-width: 834px) {
+                                flex-wrap: wrap;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: center;
+                                column-gap: 10px;
+                                width: 100%;
+                                box-sizing: border-box;
+                            }
+                            > .redesign-button--wrapper {
+                                @media screen and (max-width: 834px) { 
+                                    flex-basis: calc(50% - 5px);
+                                    flex-shrink: 0;
+                                    flex-grow: 0;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .homepage-wrapper {
     width: 100%;
     padding: 0;

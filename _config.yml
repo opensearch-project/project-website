@@ -128,7 +128,26 @@ defaults:
       type: conference_workshops
     values:
       layout: speaker_session
-
+-
+    scope:
+      type: community_members
+    values:
+      layout: speaker
+-
+    scope:
+      type: opensearchcon_archive_sessions
+    values:
+      layout: speaker_session
+-
+    scope:
+      type: opensearchcon_archive_exhibitors
+    values:
+      layout: exhibitor
+-
+    scope:
+      type: opensearchcon_archive_workshops
+    values:
+      layout: speaker_session
 collections:
   authors:
     output: true
@@ -174,7 +193,14 @@ collections:
     output: false
   redesign_heros:
     output: false
-    
+  community_members:
+    output: true
+  opensearchcon_archive_sessions:
+    output: true
+  opensearchcon_archive_exhibitors:
+    output: true
+  opensearchcon_archive_workshops:
+    output: true
 paginate: 5
 paginate_path: "/blog/page:num/"
 
