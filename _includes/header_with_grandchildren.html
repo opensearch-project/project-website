@@ -26,7 +26,7 @@
         <div role="navigation" class="navigation-container--nested-nav-wrapper nav-menu-on">
             <ul class="navigation-container--nested-nav-wrapper--nested-nav">
                 {% for nav_item in site.data.top_nav.items %}
-                    <li>
+                    <li data-istoplevel="true">
                         {%- unless nav_item.children -%}
                             {%- assign nested_nav_item_wrapper_classname = "nested-nav--top-menu-item--wrapper__without-children" -%}
                         {%- else -%}
@@ -34,7 +34,7 @@
                         {%- endunless -%}
                         <div class="nested-nav--top-menu-item-wrapper {{nested_nav_item_wrapper_classname}}">
                             <div class="nested-nav--top-menu-item-wrapper--link">
-                                <a {% if nav_item.url %} href="{{ nav_item.url }}" {% else %} href="#" {% endif %}>{{ nav_item.label }}</a>
+                                <a data-isparent="true" {% if nav_item.url %} href="{{ nav_item.url }}" {% else %} href="#" {% endif %}>{{ nav_item.label }}</a>
                             </div>
                             {%- if nav_item.children -%}
                                 <div class="nested-nav--top-menu-item-wrapper--toggle">
@@ -53,18 +53,18 @@
                                     <li class="{{ li_classname }}">
                                         {%- unless nav_child.children -%}
                                             {% if nav_child.class_name %}
-                                                <a href="{{ nav_child.url }}" class="{{ nav_child.class_name }}">{{ nav_child.label }}</a>
+                                                <a href="{{ nav_child.url }}" data-ischild="true" class="{{ nav_child.class_name }}">{{ nav_child.label }}</a>
                                             {% else %}
-                                                <a href="{{ nav_child.url }}">{{ nav_child.label }}</a>
+                                                <a href="{{ nav_child.url }}" data-ischild="true">{{ nav_child.label }}</a>
                                             {% endif %}
                                         {%- else -%}
                                             {%- assign nested_nav_item_child_wrapper_classname = "nested-nav--top-menu-item--wrapper__has-children__has-grandchildren" -%}
                                             <div class="nested-nav--top-menu-item-wrapper__has-grandchildren--wrapper {{ nested_nav_item_child_wrapper_classname }}">
                                                 <div class="nested-nav--top-menu-item-wrapper__has-grandchildren--wrapper--link">
                                                     {% if nav_child.class_name %}
-                                                        <a href="{{ nav_child.url }}" class="{{ nav_child.class_name }}">{{ nav_child.label }}</a>
+                                                        <a href="{{ nav_child.url }}" data-ischild="true" class="{{ nav_child.class_name }}">{{ nav_child.label }}</a>
                                                     {% else %}
-                                                        <a href="{{ nav_child.url }}">{{ nav_child.label }}</a>
+                                                        <a href="{{ nav_child.url }}" data-ischild="true">{{ nav_child.label }}</a>
                                                     {% endif %}
                                                 </div>
                                                 {%- if nav_child.children -%}
@@ -77,7 +77,7 @@
                                                 <ul>
                                                     {%- for nav_grand_child in nav_child.children -%}
                                                         <li>
-                                                            <a href="{{ nav_grand_child.url }}">{{ nav_grand_child.label }}</a>
+                                                            <a href="{{ nav_grand_child.url }}" data-isgrandchild="true">{{ nav_grand_child.label }}</a>
                                                         </li>
                                                     {%- endfor -%}
                                                 </ul>
@@ -148,6 +148,66 @@
             eventsLink.setAttribute('href', upcomingEventsListViewUrl);
         });
     }
+
+    // Add the in-category class to the navigation menu items that the current page belongs to.
+    function highlightTopNavigationItems() {
+        const highlightElement = (element) => {
+            const HIGHLIGHT_CLASS_NAME = 'in-category';
+            element?.classList?.add?.(HIGHLIGHT_CLASS_NAME);
+        };
+        const highlightParentOfChild = (childLink) => {
+            const parentOfChild = childLink.parentElement.closest('li[data-istoplevel]');
+            const topLevelLinkSelector = 'a[data-isparent]';
+            const topLevelLink = parentOfChild.querySelector(topLevelLinkSelector);
+            highlightElement(topLevelLink);
+        };
+        const highlightChildFromGrandchild = (grandChildLink) => {
+            highlightElement(grandChildLink);
+            const parentMenuItemSelector = 'li.nested-nav--top-menu-item__has-grandchildren';
+            const parentMenuItem = grandChildLink.closest(parentMenuItemSelector);
+            const parentMenuItemLink = parentMenuItem.querySelector('.nested-nav--top-menu-item-wrapper__has-grandchildren--wrapper--link > a');
+            highlightElement(parentMenuItemLink);
+            highlightParentOfChild(parentMenuItem);
+        };
+
+        const highlightChildWithoutGrandChildren = (childLink) => {
+            highlightElement(childLink);
+            highlightParentOfChild(childLink.parentElement);
+        };
+
+        const matchAndHighlight = (topElement, hrefSelector) => {
+            const matchingElement = topElement.querySelector(hrefSelector);
+            if (matchingElement) {
+                if (matchingElement.hasAttribute('data-isgrandchild')) {
+                    highlightChildFromGrandchild(matchingElement);
+                } else if (matchingElement.hasAttribute('data-ischild')) {
+                    highlightElement(matchingElement);
+                    highlightParentOfChild(matchingElement);
+                } else if (matchingElement.hasAttribute('data-isparent')) {
+                    highlightElement(matchingElement);
+                }
+                return true;
+            }
+            return false;
+        };
+
+        const thisPagePath = window.location.pathname;
+        const topElement = document.getElementById('top');
+        const exactMatchingMenuItemSelector = `a[href*="${thisPagePath}"]`;
+        const exactMatchHighlighted = matchAndHighlight(topElement, exactMatchingMenuItemSelector);
+        if (!exactMatchHighlighted) {
+            const thisPagePathParts = thisPagePath.split('/');
+            while ((typeof thisPagePathParts.pop()) !== 'undefined') {
+                const pathOfRemainingParts = thisPagePathParts.join('/');
+                const urlPathSelector = `a[href*="${pathOfRemainingParts}"]`;
+                const matched = matchAndHighlight(topElement, urlPathSelector);
+                if (matched) {
+                    break;
+                }
+            }
+        }
+    }
+    highlightTopNavigationItems();
   });
 
 </script>
