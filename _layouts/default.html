@@ -12,7 +12,7 @@
   {% endif %}
 
   <body id="{{ page.sectionid }}" class="{{ page.body_class }} {{ page_type_class }}">
-    {%- include header.html -%}
+    {%- include header_with_grandchildren.html -%}
     
     {{ content }}
 
