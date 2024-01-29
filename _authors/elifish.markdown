@@ -6,4 +6,4 @@ twitter: 'EliRFisher'
 github: elfisher
 ---
 
-Eli Fisher is a Senior Technical Product Manager at AWS. Eli focuses on OpenSearch and OpenSearch Dashboards. 
+**Eli Fisher** leads the product and design team at Amazon working on the open-source OpenSearch Project.
