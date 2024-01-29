@@ -374,9 +374,11 @@ $max-container: 1440px;
                                 > a {
                                     padding-bottom: 18px;
                                 }
-                                @media screen and (min-width: $header-banner-min-width) {
-                                    margin-bottom: 15px;
-                                    margin-top: 15px;
+                                &.nested-nav--top-menu-item__has-grandchildren {
+                                    @media screen and (min-width: $header-banner-min-width) {
+                                        margin-bottom: 15px;
+                                        margin-top: 15px;
+                                    }
                                 }
                             }
                             > .nested-nav--top-menu-item-wrapper__has-grandchildren--wrapper {
