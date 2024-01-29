@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Trust in open source software"
+title:  "Trust in open-source software"
 authors:
   - apasun
   - krisfreedain
