@@ -784,3 +784,128 @@ h2.conference-speaker-session-page {
         background: $secondary-purple-sage-t3;
     }
 }
+
+.conference-archive-landing {
+    &.landing-page-content__left-panel {
+        > .landing-page-content__left-panel--content {
+            > .landing-page-content__left-panel--content--body {
+                > h2 {
+                    @include header-level2($primary-open-sky-s3);
+                }
+                > .conference-archive--featured-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 80px;
+                    > .conference-archive--featured-grid--item {
+                        @include thick-edge-bottom;
+                        background-color: #fff;
+                        width: 350px;
+                        height: 450px;
+                        > .conference-archive--featured-grid--item--thumbnail {
+                            width: 350px;
+                            height: 200px;
+                            overflow-y: hidden;
+                            img {
+                                object-fit: cover;
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                        > .conference-archive--featured-grid--item--date {
+                            width: 100%;
+                            margin-top: 25px;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            box-sizing: border-box;
+                            > h6 {
+                                @include header-level6($primary-open-sky-s3);
+                                margin-bottom: 20px;
+                            }
+                        }
+                        > .conference-archive--featured-grid--item--title {
+                            height: 128px;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            box-sizing: border-box;
+                            > h2 {
+                                @include header-level2($primary-open-sky);
+                                margin-top: 0;
+                            }
+                        }
+                        > .conference-archive--featured-grid--item--category {
+                            width: 100%;
+                            box-sizing: border-box;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: space-between;
+                            align-items: center;
+                            column-gap: 10px;
+                            > div {
+                                box-sizing: border-box;
+                                padding: 0;
+                                flex-shrink: 0;
+                                flex-grow: 0;
+                            }
+                            > div:nth-of-type(1) {
+                                flex-basis: 20px;
+                                height: 24px;
+                            }
+                            > div:nth-of-type(2) {
+                                flex-basis: calc(100% - 20px);
+                                @include header-level5($primary-open-sky-s3);
+                            }
+                        }
+                    }
+                }
+            }
+            > .landing-page-content__left-panel--content--side-panel {
+                > .draft-3-landing-page--button-stack__with-label {
+                    > .draft-3-landing-page--button-stack__with-label--label {
+                        > h2 {
+                            @include header-level2(#000);
+                        }
+                        > h3 {
+                            @include header-level3(#000);
+                            text-transform: uppercase;
+                        }
+                    }
+                    > .draft-3-landing-page--button-stack {
+                        @media screen and (max-width: 834px) {
+                            
+                        }
+                        @media screen and (min-width: 835px) {
+                            &:nth-of-type(2) {
+                                row-gap: 30px;
+                            }
+                        }
+                    }
+                }
+                > .draft-3-landing-page--button-stack {
+                    margin-top: 70px;
+                    margin-bottom: 40px;
+                }
+                > .solutions-card-grid {
+                    background: unset;
+                    padding: 0;
+                    > .solutions-card-grid--card-wrapper {
+                        @media screen and (min-width: 1401px) and (max-width: 1459px),
+                        screen and (min-width: 1460px),
+                        screen and (min-width: 835px) and (max-width: 1400px)
+                        {
+                            grid-template-columns: 1fr;
+                            padding: 0;
+                        }
+                        @media screen and (min-width: 740px) and (max-width: 834px) {
+                            grid-template-columns: 1fr 1fr;
+                            column-gap: 20px;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

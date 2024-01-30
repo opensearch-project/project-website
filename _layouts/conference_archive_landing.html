@@ -1,0 +1,103 @@
+---
+layout: fullwidth-with-breadcrumbs
+---
+{% assign conference_id = page.conference_id |  replace_first: "-", " " %}
+{% assign conference_id_parts = page.conference_id | split: "-" %}
+<div class="page-with-hero platform-landing-page platform-page--content">
+    <div class="landing-page-hero-wrapper">
+        <div class="platform-category-page--hero">
+            <div class="landing-page-hero--images">
+                <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
+                        <img src="{{ page.hero_image }}" alt="Conference archive hero image">
+                    </div>
+                    <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
+                        <img src="{{ page.hero_image }}" alt="Conference archive hero image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="landing-page-content__left-panel conference-archive-landing">
+    <div class="landing-page-content__left-panel--content">
+        <div class="landing-page-content__left-panel--content--body">
+            <h2>Find past sessions and speakers from OpenSearchCon {{ conference_id_parts[0] }}</h2>
+            <p>Donec quam donec rhoncus tristique odio. Commodo eu amet blandit nullam sem vestibulum in purus. Id ut dui enim odio magnis sollicitudin sed tristique amet. Pharetra condimentum mi dictum.</p>
+            <h2>Featured Videos</h2>
+            <div class="conference-archive--featured-grid">
+                {% for featured in page.featured_sessions %}
+                    <div class="conference-archive--featured-grid--item">
+                        <div class="conference-archive--featured-grid--item--thumbnail">
+                            <a href="{{ featured.url }}">
+                                <img src="{{ featured.thumbnail }}" alt="Thumbnail for conference session video">
+                            </a>
+                        </div>
+                        <div class="conference-archive--featured-grid--item--date">
+                            <h6>{{ featured.date }}</h6>
+                        </div>
+                        <div class="conference-archive--featured-grid--item--title">
+                            <h2>{{ featured.title }}</h2>
+                        </div>
+                        <div class="conference-archive--featured-grid--item--category">
+                            {% include platform-category-icons.html name=featured.category include_label=true %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="landing-page-content__left-panel--content--side-panel landing-page-content__left-panel--content--side-panel__vertical-gradient">
+            <div class="draft-3-landing-page--button-stack__with-label">
+                <div class="draft-3-landing-page--button-stack__with-label--label">
+                    <h2>OpenSearchCon Archive</h2>
+                    <h3>{{ conference_id }}</h3>
+                </div>
+                <div class="draft-3-landing-page--button-stack">
+                    {% for button in page.conference_sections_button_stack %}
+                        <div class="draft-3-landing-page--button-stack--button">
+                            <div class="redesign-button--wrapper redesign-button--wrapper__text-only">
+                                <a href="{{ button.url }}" class="redesign-button--anchor">{{ button.label }}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="draft-3-landing-page--button-stack">
+                {% include redesign_buttons.html name="opensearchcons-2024" %}
+            </div>
+            <div class="solutions-card-grid">
+                <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper solutions-card-grid--card-wrapper__2-col-max ">
+                    {% for article in page.related_articles %}
+                        {% assign category = article.category %}
+                        {% assign post_icon = site.data.post_category_icons.icon_map | find: "category", category %}
+                        {% if post_icon %}
+                            {% assign icon_name = post_icon.icon %}
+                        {% else %}
+                            {% assign icon_name = site.data.post_category_icons.default_post_icon %}
+                        {% endif %}
+                        {% include tall-card-no-image.html
+                            category=category
+                            title=article.title
+                            url=article.url
+                            icon=icon_name
+                            date=article.date
+                            additional_card_class="featured-conference-session"
+                        %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="draft-3-landing-page--button-stack__with-label">
+                <div class="draft-3-landing-page--button-stack__with-label--label">
+                    <h2>Get Involved</h2>
+                </div>
+                <div class="draft-3-landing-page--button-stack">
+                    <div class="draft-3-landing-page--button-stack--button draft-3-landing-page--button-stack--button__hide-labels">
+                        {% include redesign_buttons.html name="upcoming-events-dark" %}
+                    </div>
+                    <div class="draft-3-landing-page--button-stack--button draft-3-landing-page--button-stack--button__hide-labels">
+                        {% include redesign_buttons.html name="community-dark" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
