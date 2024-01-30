@@ -39,12 +39,92 @@ layout: redesign-fullwidth
     <h2>About {{ first_name }}</h2>
     {{ content  }}
 </hgroup>
+{% if page.conference_id %}
+    {% assign sorted_conference_ids = page.conference_id | sort %}
+    {% assign default_conference_id = sorted_conference_ids | last %}
+    {% assign formatted_conference_id = default_conference_id |  replace_first: "-", "/" %}
+    {% assign url_path_prefix = "/events/opensearchcon/archive/" | append: formatted_conference_id %}
+{% else %}
+    {% assign url_path_prefix = "/events/opensearchcon" %}
+{% endif %}
 <div class="conference-speaker-session-page--view-all">
     <div class="conference-speaker-session-page--view-all--link-button">
-        <a href="/events/opensearchcon/sessions/index.html">View All Sessions</a>
+        <a href="{{ url_path_prefix }}/sessions/index.html" id="view-all-sessions">View All Sessions</a>
     </div>
     <div class="conference-speaker-session-page--view-all--link-button">
-        <a href="/events/opensearchcon/speakers/index.html">View All Speakers</a>
+        <a href="{{ url_path_prefix }}/speakers/index.html" id="view-all-speakers">View All Speakers</a>
     </div>
 </div>
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        function extractConferenceArchiveUrlParts(url) {
+            const archivePattern = /\/events\/opensearchcon\/archive\/(\d{4})\/([^\/]+)\//i;
+            const archiveMatches = archivePattern.exec(url);
+            if (archiveMatches) {
+                const archiveYear = archiveMatches[1];
+                const archiveLocation = archiveMatches[2];
+                return {
+                    archiveYear,
+                    archiveLocation,
+                };
+            }
+            return null;
+        }
+        
+        function extractConferenceArchiveIdParts(id) {
+            const conferenceIdParts = id.split('-');
+            const [archiveYear, archiveLocation] = conferenceIdParts;
+            return {
+                archiveYear,
+                archiveLocation,
+            };
+        }
+
+        function updateViewAllUrls({ archiveYear, archiveLocation }) {
+            const sessionsUrl = `/events/opensearchcon/archive/${archiveYear}/${archiveLocation}/sessions/index.html`;
+            const speakersUrl = `/events/opensearchcon/archive/${archiveYear}/${archiveLocation}/speakers/index.html`;
+            const viewAllSessionsLinkId = 'view-all-sessions';
+            const viewAllSpeakersLinkId = 'view-all-speakers';
+            const viewAllSessionsLink = document.getElementById(viewAllSessionsLinkId);
+            const viewAllSpeakersLink = document.getElementById(viewAllSpeakersLinkId);
+            if (viewAllSpeakersLink && viewAllSpeakersLink.getAttribute('href') !== speakersUrl) {
+                viewAllSpeakersLink.setAttribute('href', speakersUrl);
+            }
+            if (viewAllSessionsLink && viewAllSessionsLink.getAttribute('href') !== sessionsUrl) {
+                viewAllSessionsLink.setAttribute('href', sessionsUrl);
+            }
+        }
+
+        try {
+            {% if page.conference_id -%}
+                const archiveConferenceIds = [
+                    {%- for conference_id in sorted_conference_ids -%}
+                        '{{ conference_id -}}'
+                        {%- unless forloop.last -%},{%- endunless %}
+                    {%- endfor %}
+                ];
+            {%- else -%}
+                const archiveConferenceIds = [];
+            {%- endif %}
+
+            const { referrer } = document;
+            if (!referrer && archiveConferenceIds.length === 0) {
+                return;
+            }
+
+            const archiveUrlParts = extractConferenceArchiveUrlParts(referrer);
+            if (archiveUrlParts) {
+                updateViewAllUrls(archiveUrlParts);
+            } else if (archiveConferenceIds.length > 0) {
+                const lastConferenceId = archiveConferenceIds[archiveConferenceIds.length - 1];
+                const archiveIdParts = extractConferenceArchiveIdParts(lastConferenceId);
+                updateViewAllUrls(archiveIdParts);
+            }
+            
+        } catch (error) {
+            console.error(`Error processing conference page referrer check: ${error.message}`);
+        }
+    });
+</script>
 {% include interactive-states.html element_classname="conference-speaker-session-page--view-all--link-button" container_selector=".conference-speaker-session-page--view-all" %}
