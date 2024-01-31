@@ -25,6 +25,19 @@
 {% if include.author.linkedin %}
     <li><a target="_blank" href="https://www.linkedin.com/in/{{include.author.linkedin}}"><i class="icon icon-linkedin-square"></i> {{include.author.name }}</a></li>
 {% endif %}
-
+{% if include.author.mastodon %}
+    <li class="author-social-media--mastodon">
+      <div class="author-social-media--mastodon--icon">
+        <a target="_blnak" href="{{ include.author.mastodon.url }}">
+          {% include icons.html type="mastodon-social" %}
+        </a>
+      </div>
+      <div class="author-social-media--mastodon--name">
+        <a target="_blank" href="{{ include.author.mastodon.url }}">
+          {{include.author.mastodon.name}}
+        </a>
+      </div>
+    </li>
+{% endif %}
   </ul>
 </div>
