@@ -4,15 +4,6 @@ const path = require('path');
 const matter = require('gray-matter');
 
 /**
- * The oldest event in the system is in May 2021.
- * This pre-dates the file naming convention of the 'YYYY-MMDD' prefix.
- * The calendar collection will begin from May 2021, and will extend until
- * whatever is the latest month indicated by files in the Events Collection.
- * @constant {number[]}
- */
-const HARD_START_DATE = [2021, 5];
-
-/**
  * Return the filenames within the specified directory treated as a list of entries of a Jekyll collection.
  * This means that file names with an underscore prefix are omitted from the returned array.
  * @param {string} eventsCollectionPath Path to the Events collection directory.
