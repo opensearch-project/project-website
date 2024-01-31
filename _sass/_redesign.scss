@@ -317,7 +317,7 @@ $header-banner-mobile-breakpoint: 1018px;
         > .landing-page-content__left-panel--content--body {
             padding: 0;
             @media screen and (min-widtH: 835px) {
-                max-width: auto;
+                max-width: unset;
                 flex-basis: 71.5%;
             }
             @media screen and (max-width: 834px) {
@@ -360,9 +360,12 @@ $header-banner-mobile-breakpoint: 1018px;
                             flex-wrap: wrap;
                             row-gap: 20px;
                             justify-content: flex-start;
-                            > .draft-3-landing-page--button-stack--button {
-                                min-width: 285px;
-                                max-width: 285px;
+                        }
+                        &.draft-3-landing-page--button-stack__tablet-2column {
+                            @media screen and (min-width: 480px) and (max-width: 834px) {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 20px;
                             }
                         }
                     }
@@ -379,14 +382,15 @@ $header-banner-mobile-breakpoint: 1018px;
                     
                     @media screen and (max-width: $content-with-panel-collapsed-max)
                     and (min-width: $min-past-iphone-width) {
-                        display: flex;
-                        justify-content: space-around;
-                        column-gap: 20px;
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 20px;
                     }
                     @media screen and (min-width: $content-with-panel-expanded-min), 
                     screen and (max-width: $max-iphone-width) {
                         display: flex;
                         flex-direction: column;
+                        row-gap: 20px;
                     }
                     @media screen and (max-width: $content-with-panel-collapsed-max) {
                         width: 100%;

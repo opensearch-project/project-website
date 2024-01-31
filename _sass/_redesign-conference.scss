@@ -795,15 +795,36 @@ h2.conference-speaker-session-page {
                 > .conference-archive--featured-grid {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 80px;
+                    @media screen and (min-width: 1600px) {
+                        gap: 80px;
+                    }
+                    @media screen and (min-width: 1440px) and (max-width: 1599px) {
+                        gap: 40px;
+                    }
+                    @media screen and (min-width: 1300px) and (max-width: 1439px) {
+                        gap: 20px;
+                    }
+                    @media screen and (max-width: 1299px) {
+                        grid-template-columns: 1fr;
+                        gap: 20px;
+                    }
                     > .conference-archive--featured-grid--item {
                         @include thick-edge-bottom;
                         background-color: #fff;
-                        width: 350px;
-                        height: 450px;
-                        > .conference-archive--featured-grid--item--thumbnail {
+                        padding: 0;
+                        @media screen and (min-width: 1300px) {
                             width: 350px;
-                            height: 200px;
+                            aspect-ratio: 350 / 450;
+                        }
+                        @media screen and (max-width: 1299px) {
+                            width: 100%;
+                            aspect-ratio: 1;
+                        }
+                        
+                        > .conference-archive--featured-grid--item--thumbnail {
+                            width: 100%;
+                            aspect-ratio: 350 / 200;
+                            height: auto;
                             overflow-y: hidden;
                             img {
                                 object-fit: cover;
@@ -837,6 +858,7 @@ h2.conference-speaker-session-page {
                             box-sizing: border-box;
                             padding-left: 20px;
                             padding-right: 20px;
+                            padding-bottom: 20px;
                             display: flex;
                             flex-direction: row;
                             flex-wrap: nowrap;
@@ -886,6 +908,8 @@ h2.conference-speaker-session-page {
                 > .draft-3-landing-page--button-stack {
                     margin-top: 70px;
                     margin-bottom: 40px;
+                    flex-wrap: wrap;
+                    row-gap: 30px;
                 }
                 > .solutions-card-grid {
                     background: unset;
