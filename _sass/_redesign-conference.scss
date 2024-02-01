@@ -891,19 +891,20 @@ h2.conference-speaker-session-page {
             }
             > .landing-page-content__left-panel--content--side-panel {
                 > .draft-3-landing-page--button-stack__with-label {
+                    &:not(:first-of-type) {
+                        margin-top: 20px;
+                    }
                     > .draft-3-landing-page--button-stack__with-label--label {
                         > h2 {
                             @include header-level2(#000);
+                            margin-bottom: 0;
                         }
                         > h3 {
                             @include header-level3(#000);
-                            text-transform: uppercase;
+                            margin-top: 24px;
                         }
                     }
                     > .draft-3-landing-page--button-stack {
-                        @media screen and (max-width: 834px) {
-                            
-                        }
                         @media screen and (min-width: 835px) {
                             &:nth-of-type(2) {
                                 row-gap: 30px;
@@ -920,6 +921,9 @@ h2.conference-speaker-session-page {
                 > .solutions-card-grid {
                     background: unset;
                     padding: 0;
+                    > h2 {
+                        @include header-level2(#000);
+                    }
                     > .solutions-card-grid--card-wrapper {
                         @media screen and (min-width: 1401px) and (max-width: 1459px),
                         screen and (min-width: 1460px),

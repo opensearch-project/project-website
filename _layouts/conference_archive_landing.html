@@ -1,8 +1,17 @@
 ---
 layout: fullwidth-with-breadcrumbs
 ---
-{% assign conference_id = page.conference_id |  replace_first: "-", " " %}
-{% assign conference_id_parts = page.conference_id | split: "-" %}
+{% assign conference_id = page.conference_id | replace_first: "-", " " %}
+{% assign conference_id_parts = conference_id | split: " " %}
+{% assign conference_year = conference_id_parts[0] %}
+{% if conference_id_parts[1] == 'us' %}
+    {% assign conference_location = "United States" %}
+{% elsif conference_id_parts[1] == 'eu' %}
+    {% assign conference_location = "Europe" %}
+{% else %}
+    {% comment %}If this happens then there's likely a new location or malformed data.{% endcomment %}
+    {% assign conference_location = conference_id_parts[1] %}
+{% endif %}
 {% if page.has_hero and page.hero_image %}
     <div class="page-with-hero platform-landing-page platform-page--content">
         <div class="landing-page-hero-wrapper">
@@ -23,7 +32,7 @@ layout: fullwidth-with-breadcrumbs
 <div class="landing-page-content__left-panel conference-archive-landing">
     <div class="landing-page-content__left-panel--content">
         <div class="landing-page-content__left-panel--content--body">
-            <h2>Find past sessions and speakers from OpenSearchCon {{ conference_id_parts[0] }}</h2>
+            <h2>Find past sessions and speakers from OpenSearchCon {{ conference_year }}</h2>
             <p>Donec quam donec rhoncus tristique odio. Commodo eu amet blandit nullam sem vestibulum in purus. Id ut dui enim odio magnis sollicitudin sed tristique amet. Pharetra condimentum mi dictum.</p>
             <h2>Featured Videos</h2>
             <div class="conference-archive--featured-grid">
@@ -50,7 +59,7 @@ layout: fullwidth-with-breadcrumbs
             <div class="draft-3-landing-page--button-stack__with-label">
                 <div class="draft-3-landing-page--button-stack__with-label--label">
                     <h2>OpenSearchCon Archive</h2>
-                    <h3>{{ conference_id }}</h3>
+                    <h3>{{ conference_year }} {{ conference_location }}</h3>
                 </div>
                 <div class="draft-3-landing-page--button-stack draft-3-landing-page--button-stack__tablet-2column">
                     {% for button in page.conference_sections_button_stack %}
@@ -65,28 +74,31 @@ layout: fullwidth-with-breadcrumbs
             <div class="draft-3-landing-page--button-stack">
                 {% include redesign_buttons.html name="opensearchcons-2024" %}
             </div>
-            <div class="solutions-card-grid">
-                <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper solutions-card-grid--card-wrapper__2-col-max ">
-                    {% for article in page.related_articles %}
-                        {% assign category = article.category %}
-                        {% assign post_icon = site.data.post_category_icons.icon_map | find: "category", category %}
-                        {% if post_icon %}
-                            {% assign icon_name = post_icon.icon %}
-                        {% else %}
-                            {% assign icon_name = site.data.post_category_icons.default_post_icon %}
-                        {% endif %}
-                        {% include tall-card-no-image.html
-                            category=category
-                            title=article.title
-                            url=article.url
-                            icon=icon_name
-                            date=article.date
-                            additional_card_class="featured-conference-session"
-                        %}
-                    {% endfor %}
+            {% if page.related_articles %}
+                <div class="solutions-card-grid">
+                    <h2>Related Articles</h2>
+                    <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper solutions-card-grid--card-wrapper__2-col-max ">
+                        {% for article in page.related_articles %}
+                            {% assign category = article.category %}
+                            {% assign post_icon = site.data.post_category_icons.icon_map | find: "category", category %}
+                            {% if post_icon %}
+                                {% assign icon_name = post_icon.icon %}
+                            {% else %}
+                                {% assign icon_name = site.data.post_category_icons.default_post_icon %}
+                            {% endif %}
+                            {% include tall-card-no-image.html
+                                category=category
+                                title=article.title
+                                url=article.url
+                                icon=icon_name
+                                date=article.date
+                                additional_card_class="featured-conference-session"
+                            %}
+                        {% endfor %}
+                    </div>
+                    {% include card-clickability.html card_classname="tall-card__no-image--grid--card" card_container_selector=".solutions-card-grid > .solutions-card-grid--card-wrapper" %}
                 </div>
-                {% include card-clickability.html card_classname="tall-card__no-image--grid--card" card_container_selector=".solutions-card-grid > .solutions-card-grid--card-wrapper" %}
-            </div>
+            {% endif %}
             <div class="draft-3-landing-page--button-stack__with-label">
                 <div class="draft-3-landing-page--button-stack__with-label--label">
                     <h2>Get Involved</h2>
