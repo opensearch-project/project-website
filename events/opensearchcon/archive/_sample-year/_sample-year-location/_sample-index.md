@@ -1,15 +1,18 @@
 ---
+# The conference_archive_landing template is required.
 layout: conference_archive_landing
 
-# Document title in the form of OpenSearchCon + the year of the conference + the location
-# For example: "OpenSearchCon 2022 - US.
+# Document title in the form of "OpenSearchCon the year of the conference: + the location
+# For example: "OpenSearchCon 2022: United States.
 # This value is used in the <title> element and shown in the browser title bar.
-title: OpenSearchCon __YEAR__ - __LOCATION__
+# Replace the substring placeholders __YEAR__ and __LOCATION__ appropriately 
+# with the conference year and location respectively.
+title: "OpenSearchCon 2022:  United States"
 
 # Can be the same as title. Will be used as the page title in the top level <h1> element
 # below the breadcrumbs.
 # If this is not provided the title value from above will be used.
-primary_title: OpenSearchCon 2022 - US
+primary_title: "OpenSearchCon 2022:  United States"
 
 # Page breadcrumbs area configuration.
 # See the _layouts/fullwidth-with-breadcrumbs.html for more information on how this is used.
@@ -25,7 +28,7 @@ breadcrumbs:
       url: /events/opensearchcon/archive/index.html
     - title: 2022
       url: /events/opensearchcon/archive/2022/index.html
-    - title: US
+    - title: United States
       url: /events/opensearchcon/archive/2022/us/index.html
 
 # The conference ID. This is used by the conference content templates
@@ -40,7 +43,7 @@ conference_id: "2022-us"
 # /events/opensearchcon/archive/__YEAR__/__LOCATION__/index.html.
 premalink: /events/opensearchcon/archive/2022/us/index.html
 
-# For the years 2022, and 2023 there were only a single conference.
+# For the years 2022, and 2023 there were only a single conference each year.
 # So this redirect from .../archive/__YEAR__/index.html is used to redirect
 # from that URL to this page instead of a list of conferences for that year.
 redirect_from: /events/opensearchcon/archive/2022/index.html

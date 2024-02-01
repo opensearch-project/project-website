@@ -2,15 +2,15 @@
 # The conference_exhibitors layout is what is required.
 layout: conference_exhibitors
 
-# Document title in the form of OpenSearchCon + the year of the conference + the location
-# For example: "OpenSearchCon 2022 - US.
+# Document title in the form of OpenSearchCon + the year of the conference: + the location + Exhibitors
+# For example: "OpenSearchCon 2022: United States Exhibitors".
 # This value is used in the <title> element and shown in the browser title bar.
-title: "OpenSearchCon 2022 Exhibitors"
+title: "OpenSearchCon 2022: United States Exhibitors"
 
 # Can be the same as title. Will be used as the page title in the top level <h1> element
 # below the breadcrumbs.
 # If this is not provided the title value from above will be used.
-primary_title: "OpenSearchCon 2022 Exhibitors"
+primary_title: "OpenSearchCon 2022: United States Exhibitors"
 
 # Page breadcrumbs area configuration.
 # See the _layouts/fullwidth-with-breadcrumbs.html for more information on how this is used.
@@ -26,7 +26,7 @@ breadcrumbs:
       url: /events/opensearchcon/archive/index.html
     - title: 2022
       url: /events/opensearchcon/archive/2022/us/index.html
-    - title: US
+    - title: United States
       url: /events/2022-0921-opensearchcon/
     - title: Exhibitors
       url: /events/opensearchcon/archive/2022/us/exhibitors/index.html

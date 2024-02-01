@@ -2,9 +2,7 @@
 # The conference_sessions template is required.
 layout: conference_speakers
 
-# Document title in the form of OpenSearchCon + the year of the conference [+ the location (If there is was more than one for the year)] + Session Lineup
-# For example: "OpenSearchCon 2022 Session Lineup.
-# This value is used in the <title> element and shown in the browser title bar.
+# Document title displyed in the browser title bar.
 title: "Meet the OpenSearchCon 2022 Speakers"
 
 # Can be the same as title. Will be used as the page title in the top level <h1> element
@@ -26,7 +24,7 @@ breadcrumbs:
       url: /events/opensearchcon/archive/index.html
     - title: 2022
       url: /events/opensearchcon/archive/2022/index.html
-    - title: US
+    - title: United States
       url: /events/2022-0921-opensearchcon/
     - title: Speakers
       url: /events/opensearchcon/archive/2022/us/speakers/index.html
