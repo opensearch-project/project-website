@@ -35,12 +35,12 @@ items:
         label: Archive
         url: /events/opensearchcon/archive/index.html
         children:
-          - 
-            label: 2022 US
-            url: /events/opensearchcon/archive/2022/us/index.html
           -
             label: 2023 US
             url: /events/opensearchcon/archive/2023/us/index.html
+          - 
+            label: 2022 US
+            url: /events/opensearchcon/archive/2022/us/index.html
 
   -
     label: Download
