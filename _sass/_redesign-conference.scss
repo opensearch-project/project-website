@@ -810,6 +810,8 @@ h2.conference-speaker-session-page {
                     }
                     > .conference-archive--featured-grid--item {
                         @include thick-edge-bottom;
+                        @include card-shadow;
+                        @include clickable-card-interactive-states("conference-archive--featured-grid--item", $primary-open-sky);
                         background-color: #fff;
                         padding: 0;
                         @media screen and (min-width: 1300px) {
@@ -851,6 +853,10 @@ h2.conference-speaker-session-page {
                             > h2 {
                                 @include header-level2($primary-open-sky);
                                 margin-top: 0;
+                                > a {
+                                    color: $primary-open-sky;
+                                    text-decoration: none;
+                                }
                             }
                         }
                         > .conference-archive--featured-grid--item--category {

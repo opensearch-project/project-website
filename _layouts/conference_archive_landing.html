@@ -30,15 +30,13 @@ layout: fullwidth-with-breadcrumbs
                 {% for featured in page.featured_sessions %}
                     <div class="conference-archive--featured-grid--item">
                         <div class="conference-archive--featured-grid--item--thumbnail">
-                            <a href="{{ featured.url }}">
-                                <img src="{{ featured.thumbnail }}" alt="Thumbnail for conference session video">
-                            </a>
+                            <img src="{{ featured.thumbnail }}" alt="Thumbnail for conference session video">
                         </div>
                         <div class="conference-archive--featured-grid--item--date">
                             <h6>{{ featured.date }}</h6>
                         </div>
                         <div class="conference-archive--featured-grid--item--title">
-                            <h2>{{ featured.title }}</h2>
+                            <h2><a href="{{ featured.url }}">{{ featured.title }}</a></h2>
                         </div>
                         <div class="conference-archive--featured-grid--item--category">
                             {% include platform-category-icons.html name=featured.category include_label=true %}
@@ -46,6 +44,7 @@ layout: fullwidth-with-breadcrumbs
                     </div>
                 {% endfor %}
             </div>
+            {% include card-clickability.html card_classname="conference-archive--featured-grid--item" card_container_selector=".conference-archive--featured-grid" %}
         </div>
         <div class="landing-page-content__left-panel--content--side-panel landing-page-content__left-panel--content--side-panel__vertical-gradient">
             <div class="draft-3-landing-page--button-stack__with-label">
@@ -86,6 +85,7 @@ layout: fullwidth-with-breadcrumbs
                         %}
                     {% endfor %}
                 </div>
+                {% include card-clickability.html card_classname="tall-card__no-image--grid--card" card_container_selector=".solutions-card-grid > .solutions-card-grid--card-wrapper" %}
             </div>
             <div class="draft-3-landing-page--button-stack__with-label">
                 <div class="draft-3-landing-page--button-stack__with-label--label">
