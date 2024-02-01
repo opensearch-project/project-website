@@ -39,6 +39,19 @@ layout: redesign-fullwidth
     <h2>About {{ first_name }}</h2>
     {{ content  }}
 </hgroup>
+
+{% comment %} 
+    Create a base URL path prefix based on whatever is the ID of the latest
+    (sorted lexicographically) conference listed in the array of conference IDs
+    in the page Front Matter.
+    Note: There is a runtime check performed in JavaScript below where the URL
+    of the referring page is evaluated to correct this URL if necessary.
+    For example, if this template logic produces a base URL path for /2023/us
+    when the speaker meta data is listed for both the 2023-us and 2022-us conferences
+    but the user actually navigated to this page from a /2022/us page then
+    the URLs for the View All Speakers and  View All Sessions buttons 
+    will be updated to navigate to the session/speaker pages of the appropriate conference.
+{% endcomment %}
 {% if page.conference_id %}
     {% assign sorted_conference_ids = page.conference_id | sort %}
     {% assign default_conference_id = sorted_conference_ids | last %}

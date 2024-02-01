@@ -62,12 +62,24 @@ layout: redesign-fullwidth
     {%- endfor -%}
 </div>
 
+{% comment %} 
+    Create a base URL path prefix based on the ID of the conference in the page Front Matter.
+    Individul session pages are associated with only a single conference identifier.
+    That makes this logic different from the similar logic in the _layouts/speaker.html 
+    template. FYI.
+{% endcomment %}
+{% if page.conference_id %}
+    {% assign formatted_conference_id = page.conference_id | replace_first: "-", "/" %}
+    {% assign url_path_prefix = "/events/opensearchcon/archive/" | append: formatted_conference_id %}
+{% else %}
+    {% assign url_path_prefix = "/events/opensearchcon" %}
+{% endif %}
 <div class="conference-speaker-session-page--view-all">
     <div class="conference-speaker-session-page--view-all--link-button">
-        <a href="/events/opensearchcon/sessions/index.html">View All Sessions</a>
+        <a href="{{ url_path_prefix }}/sessions/index.html">View All Sessions</a>
     </div>
     <div class="conference-speaker-session-page--view-all--link-button">
-        <a href="/events/opensearchcon/speakers/index.html">View All Speakers</a>
+        <a href="{{ url_path_prefix }}/speakers/index.html">View All Speakers</a>
     </div>
 </div>
 {% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
