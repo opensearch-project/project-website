@@ -13,7 +13,7 @@ breadcrumbs:
       url: /events/opensearchcon/archive/index.html
     - title: 2022
       url: /events/opensearchcon/archive/2022/index.html
-    - title: US
+    - title: United States
       url: /events/opensearchcon/archive/2022/us/index.html
     - title: Session Summaries
       url: /events/opensearchcon/archive/2022/us/sessions/index.html
