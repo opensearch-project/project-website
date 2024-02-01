@@ -1,7 +1,7 @@
 ---
 layout: conference_archive_landing
-title: OpenSearchCon 2022 - US
-primary_title: OpenSearchCon 2022 - US
+title: "OpenSearchCon 2022: United States"
+primary_title: "OpenSearchCon 2022: United States"
 breadcrumbs:
   icon: community
   items:
@@ -11,10 +11,12 @@ breadcrumbs:
       url: /events/opensearchcon/archive/index.html
     - title: 2022
       url: /events/opensearchcon/archive/2022/index.html
-    - title: US
+    - title: United states
       url: /events/opensearchcon/archive/2022/us/index.html
 conference_id: "2022-us"
 premalink: /events/opensearchcon/archive/2022/us/index.html
+# Since this is the only conference in 2022 a redirection directly to this one from the /../2022/
+# URL is reasonable.
 redirect_from: /events/opensearchcon/archive/2022/index.html
 has_hero: false
 conference_sections_button_stack:
@@ -45,7 +47,7 @@ featured_sessions:
     thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
 
-## September 21, 2022 Fremont Studios Seattle, USA
+## September 21, 2022 Fremont Studios Seattle, United States
 
 * [Sessions](/events/opensearchcon/archive/2022/us/sessions/index.html)
 * [Speakers](/events/opensearchcon/archive/2022/us/speakers/index.html)

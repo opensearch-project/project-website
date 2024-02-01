@@ -14,6 +14,6 @@ breadcrumbs:
 conference_id: "2023-us"
 ---
 
-## USA
+## United States
 
 * [Seattle, September 27 - 29, 2023](/events/opensearchcon/archive/2023/us/index.html)

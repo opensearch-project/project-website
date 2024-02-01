@@ -13,7 +13,7 @@ breadcrumbs:
       url: /events/opensearchcon/archive/index.html
     - title: 2023
       url: /events/opensearchcon/archive/2023/index.html
-    - title: US
+    - title: United States
       url: /events/2023-0927-opensearchcon/
     - title: Unconference
       url: '/events/opensearchcon/archive/2023/us/unconference/index.html'

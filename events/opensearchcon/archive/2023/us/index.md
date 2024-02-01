@@ -1,7 +1,7 @@
 ---
 layout: conference_archive_landing
-title: OpenSearchCon 2023 - US - Conference Details
-primary_title: OpenSearchCon 2023 - US - Conference Details
+title: "OpenSearchCon 2023: United States"
+primary_title: "OpenSearchCon 2023: United States"
 breadcrumbs:
   icon: community
   items:
@@ -11,7 +11,7 @@ breadcrumbs:
       url: /events/opensearchcon/archive/index.html
     - title: 2023
       url: /events/opensearchcon/archive/2023/index.html
-    - title: US
+    - title: United States
       url: /events/opensearchcon/archive/2023/us/index.html
 conference_id: "2023-us"
 hero_image: '/assets/media/opensearchcon/osc-2023.png'
@@ -48,4 +48,8 @@ featured_sessions:
     date: 'Wednesday 09/27/2023'
     thumbnail: '/assets/media/opensearchcon/Uncon_web-1083x640.png'
     category: Community
+permalink: /events/opensearchcon/archive/2023/us/index.html
+# Since this is the only conference in 2023 a redirection directly to this one from the /../2023/
+# URL is reasonable.
+redirect_from: /events/opensearchcon/archive/2023/index.html
 ---
