@@ -22,7 +22,7 @@ twitter: twitterusername
 
 # Optional Mastodon server url, and username / handle.
 mastodon:
-  url: https://mastodon.social
+  url: https://mastodon.social/@mastodonusername
   name: mastodonusername
 ---
 
