@@ -917,6 +917,26 @@ h2.conference-speaker-session-page {
                     margin-bottom: 40px;
                     flex-wrap: wrap;
                     row-gap: 30px;
+                    > .redesign-button--wrapper {
+                        @media screen and (max-width: 420px) {
+                            width: calc(100vw - 70px);
+                            > a.redesign-button--anchor {
+                                width: calc(100vw - 70px);
+                                height: 60px;
+                                > .redesign-button--contents {
+                                    justify-content: space-evenly;
+                                    align-items: center;
+                                    > .redesign-button--contents--icon-slot {
+                                        padding: 18px 0 10px 0px;
+                                    }
+                                    > .redesign-button--contents--text-slot {
+                                        font-size: 24px;
+                                        padding-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 > .solutions-card-grid {
                     background: unset;
