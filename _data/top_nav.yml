@@ -13,34 +13,16 @@ items:
       -
         label: 2024 - Stay Informed
         url: /events/opensearchcon/
-      -
-        label: Sessions
-        url: /events/opensearchcon/sessions/
-      -
-        label: Speakers
-        url: /events/opensearchcon/speakers/
-      -
-        label: Exhibitors
-        url: /events/opensearchcon/exhibitors/
-      -
-        label: Workshops
-        url: /events/opensearchcon/workshops/
-      -
-        label: Unconference
-        url: /events/opensearchcon/unconference/
-      -
-        label: CFP is closed
-        url: /opensearchcon2023-cfp.html
-      -
+-
         label: Archive
-        url: /events/opensearchcon/archive/index.html
+        url: /events/opensearchcon/index.html
         children:
           -
-            label: 2023 US
-            url: /events/opensearchcon/archive/2023/us/index.html
+            label: 2023 North America
+            url: /events/opensearchcon/2023/north-america/index.html
           - 
-            label: 2022 US
-            url: /events/opensearchcon/archive/2022/us/index.html
+            label: 2022 North America
+            url: /events/opensearchcon/2022/north-america/index.html
 
   -
     label: Download
