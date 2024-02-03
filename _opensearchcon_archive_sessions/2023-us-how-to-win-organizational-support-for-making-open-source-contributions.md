@@ -9,23 +9,21 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
+      url: /events/opensearchcon/2023/index.html
     - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/kmw_technology"
 speaker_linkedin: "https://www.linkedin.com/in/bnauheimer/"
 session_time: "2023-09-28 - 2:45pm-3:25pm"
 session_room: "Ballroom CD"
 session_track: "Community"
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/how-to-win-organizational-support-for-making-open-source-contributions.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/how-to-win-organizational-support-for-making-open-source-contributions.html'
 youtube_video_id: 'S1C6usA2xt8'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   - bnauheimer
 ---

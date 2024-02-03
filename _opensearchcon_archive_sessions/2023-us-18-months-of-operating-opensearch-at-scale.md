@@ -9,14 +9,12 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/jkowall"
 speaker_github: "https://github.com/jkowall"
@@ -24,9 +22,9 @@ speaker_linkedin: "https://linkedin.com/in/jkowall"
 session_time: "2023-09-28 - 11:30am - 12:10pm"
 session_room: "Ballroom CD"
 session_track: "Operating OpenSearch"
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/18-months-of-operating-opensearch-at-scale.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/18-months-of-operating-opensearch-at-scale.html'
 youtube_video_id: 'VYL69m82fDY'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   - jkowall
 ---

@@ -9,20 +9,18 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 session_time: "2023-09-27 - 4:30pm-5:10pm"
 session_room: "Redwood"
 session_track: "Community"
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/community-inclusion.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/community-inclusion.html'
 youtube_video_id: 'V_TtC02kjOc'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   - abrown
 ---

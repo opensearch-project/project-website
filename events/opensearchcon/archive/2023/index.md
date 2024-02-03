@@ -7,13 +7,11 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-conference_id: "2023-us"
+      url: /events/opensearchcon/north-america/2023/index.html
+conference_id: "2023-north-america"
 ---
 
 ## United States
 
-* [Seattle, September 27 - 29, 2023](/events/opensearchcon/archive/2023/us/index.html)
+* [Seattle, September 27 - 29, 2023](/events/opensearchcon/2023/north-america/index.html)

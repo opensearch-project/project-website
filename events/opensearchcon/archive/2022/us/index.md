@@ -1,31 +1,29 @@
 ---
 layout: conference_archive_landing
-title: "OpenSearchCon 2022: United States"
-primary_title: "OpenSearchCon 2022: United States"
+title: "OpenSearchCon 2022: North America"
+primary_title: "OpenSearchCon 2022: North America"
 breadcrumbs:
   icon: community
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2022
-      url: /events/opensearchcon/archive/2022/index.html
+      url: /events/opensearchcon/2022/index.html
     - title: United states
-      url: /events/opensearchcon/archive/2022/us/index.html
-conference_id: "2022-us"
-premalink: /events/opensearchcon/archive/2022/us/index.html
+      url: /events/opensearchcon/2022/north-america/index.html
+conference_id: "2022-north-america"
+premalink: /events/opensearchcon/2022/north-america/index.html
 # Since this is the only conference in 2022 a redirection directly to this one from the /../2022/
 # URL is reasonable.
-redirect_from: /events/opensearchcon/archive/2022/index.html
+redirect_from: /events/opensearchcon/2022/index.html
 has_hero: false
 conference_sections_button_stack:
   - label: Sessions
-    url: /events/opensearchcon/archive/2022/us/sessions/index.html
+    url: /events/opensearchcon/2022/north-america/sessions/index.html
   - label: Speakers
-    url: /events/opensearchcon/archive/2022/us/speakers/index.html
+    url: /events/opensearchcon/2022/north-america/speakers/index.html
   - label: Exhibitors
-    url: /events/opensearchcon/archive/2022/us/exhibitors/index.html
+    url: /events/opensearchcon/2022/north-america/exhibitors/index.html
 related_articles:
   - title: Using Fluent Bit and OpenSearch with Bottlerocket and Kubelet logs
     url: /blog/bottlerocket-k8s-fluent-bit/
@@ -33,22 +31,22 @@ related_articles:
     date: Wed, Jul 20, 2022
 featured_sessions:
   - title: Opening Keynote
-    url: /events/opensearchcon/archive/2022/united-states/sessions/keynote.html
+    url: /events/opensearchcon/2022/north-america/sessions/keynote.html
     date: Wednesday 09/21/2022
     thumbnail: /assets/media/opensearchcon/2022-keynote-thumbnail.png
     category: Community
   - title: Getting Started with the OpenSearch Core Codebase
-    url: /events/opensearchcon/archive/2022/united-states/sessions/getting-started-with-opensearch-core-codebase.html
+    url: /events/opensearchcon/2022/north-america/sessions/getting-started-with-opensearch-core-codebase.html
     date: Wednesday 9/21/2022
     thumbnail: /assets/media/opensearchcon/2022-getting-started.png
   - title: OpenSearch Project Roadmap 2022 and Beyond
-    url: /events/opensearchcon/archive/2022/united-states/sessions/opensearch-project-roadmap-2022-and-beyond.html
+    url: /events/opensearchcon/2022/north-america/sessions/opensearch-project-roadmap-2022-and-beyond.html
     date: Wednesday 09/21/2022
     thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
 
 ## September 21, 2022 Fremont Studios Seattle, United States
 
-* [Sessions](/events/opensearchcon/archive/2022/us/sessions/index.html)
-* [Speakers](/events/opensearchcon/archive/2022/us/speakers/index.html)
-* [Exhibitors](/events/opensearchcon/archive/2022/us/exhibitors/index.html)
+* [Sessions](/events/opensearchcon/2022/north-america/sessions/index.html)
+* [Speakers](/events/opensearchcon/2022/north-america/speakers/index.html)
+* [Exhibitors](/events/opensearchcon/2022/north-america/exhibitors/index.html)

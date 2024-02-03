@@ -9,20 +9,18 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2022
-      url: /events/opensearchcon/archive/2022/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2022/us/index.html
+      url: /events/opensearchcon/2022/index.html
+    - title: North America
+      url: /events/opensearchcon/2022/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2022/us/sessions/index.html
+      url: /events/opensearchcon/2022/north-america/sessions/index.html
 keynote_speaker: false
 session_time: "2022-09-21 - 11:00am-11:30am"
 session_room: "Fremont Studio"
-permalink: '/events/opensearchcon/archive/2022/united-states/sessions/the-art-of-the-possible-with-opensearch-anomaly-detection-and-ueba.html'
+permalink: '/events/opensearchcon/2022/north-america/sessions/the-art-of-the-possible-with-opensearch-anomaly-detection-and-ueba.html'
 youtube_video_id: 'Be1FAcDHNO4'
-conference_id: '2022-us'
+conference_id: '2022-north-america'
 presenters:
   - lkoopmann
   - ncarstensen

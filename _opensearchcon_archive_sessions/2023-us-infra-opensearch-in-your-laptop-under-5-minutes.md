@@ -9,14 +9,12 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 speaker_github: 'github.com/Aflynn50'
 speaker_facebook: ""
 keynote_speaker: false
@@ -26,9 +24,9 @@ session_track: "Community"
 presenters: 
   - aflynn
   - pcruz
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/infra-opensearch-in-your-laptop-under-5-minutes.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/infra-opensearch-in-your-laptop-under-5-minutes.html'
 youtube_video_id: 'zOc3L2sbMOw'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 ---
 
 Setting up virtual machines and clusters can be complicated. To attract new contributors, OpenSearch testing needs to be simplified. Sometimes, local testing is preferred for accuracy in replicating production deployment. This talk covers ways to provision VMs or a cloud in under 5 minutes. It also explores the advantages of local deployment, testing, and evaluation of OpenSearch, emphasizing the insights into the needs of enterprise-grade deployment.

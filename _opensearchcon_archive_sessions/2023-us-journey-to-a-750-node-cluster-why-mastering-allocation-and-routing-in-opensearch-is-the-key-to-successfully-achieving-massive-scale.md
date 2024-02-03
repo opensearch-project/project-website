@@ -9,21 +9,19 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 session_time: "2023-09-28 - 10:00-10:40am"
 session_room: "Ballroom CD"
 session_track: "Operating OpenSearch"
 keynote_speaker: false
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/journey-to-a-750-node-cluster-why-mastering-allocation-and-routing-in-opensearch-is-the-key-to-successfully-achieving-massive-scale.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/journey-to-a-750-node-cluster-why-mastering-allocation-and-routing-in-opensearch-is-the-key-to-successfully-achieving-massive-scale.html'
 youtube_video_id: 'KeXRZEYvlzs'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   -sherman
 ---

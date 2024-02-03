@@ -9,23 +9,21 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 keynote_speaker: false
 speaker_twitter: "https://twitter.com/eliatra_ire"
 speaker_linkedin: "https://www.linkedin.com/in/jkressin/"
 session_time: "2023-09-28 - 10:45-11:25am"
 session_room: "Willow"
 session_track: "Operating OpenSearch"
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/harnessing-the-power-of-opensearch-performance-optimization-techniques-for-high-performing-clusters.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/harnessing-the-power-of-opensearch-performance-optimization-techniques-for-high-performing-clusters.html'
 youtube_video_id: '3kcRrHBw0Rk'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   - jkressin
 ---

@@ -11,5 +11,5 @@ breadcrumbs:
       url: /events/opensearchcon/archive/index.html
 ---
 
-* [United States 2023](/events/opensearchcon/archive/2023/us/sessions/index.html)
-* [United States 2022](/events/opensearchcon/archive/2022/us/sessions/index.html)
+* [United States 2023](/events/opensearchcon/archive/2023/north-america/sessions/index.html)
+* [United States 2022](/events/opensearchcon/archive/2022/north-america/sessions/index.html)

@@ -9,23 +9,21 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 speaker_twitter: "https://twitter.com/amitaistern"
 speaker_github: "https://github.com/AmiStrn"
 keynote_speaker: false
 session_time: "2023-09-28 - 3:30pm-4:10pm"
 session_room: "Willow"
 session_track: "Operating OpenSearch"
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/4-very-different-ways-to-migrate-your-data-from-one-cluster-to-another.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/4-very-different-ways-to-migrate-your-data-from-one-cluster-to-another.html'
 youtube_video_id: 'SWjCq0xTN7w'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   - astern
 ---

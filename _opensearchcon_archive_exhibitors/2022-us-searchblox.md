@@ -1,5 +1,5 @@
 ---
-conference_id: '2022-us'
+conference_id: '2022-north-america'
 name: Searchblox
 logo: '/assets/media/partners/searchblox.png'
 link: '/partners/searchblox.html'

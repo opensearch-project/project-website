@@ -9,14 +9,12 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2022
-      url: /events/opensearchcon/archive/2022/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2022/us/index.html
+      url: /events/opensearchcon/2022/index.html
+    - title: North America
+      url: /events/opensearchcon/2022/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2022/us/sessions/index.html
+      url: /events/opensearchcon/2022/north-america/sessions/index.html
 keynote_speaker: false
 speaker_github: "https://github.com/noamschwartz"
 speaker_linkedin: "https://www.linkedin.com/in/noam-schwartz-ba5466185/"
@@ -26,9 +24,9 @@ session_track: "Search"
 presenters: 
   - nschwartz
   - yvaknin
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/building-a-powerful-hybrid-search-system-combining-text-and-vector-search-for-enhanced-opensearch-performance.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/building-a-powerful-hybrid-search-system-combining-text-and-vector-search-for-enhanced-opensearch-performance.html'
 youtube_video_id: 'ydVfgITN8g4'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 ---
 
 Discover the advantages of combining text search and vector search in a hybrid setup using OpenSearch. In this session, we explore how you can leverage both methods to enhance search accuracy and deliver comprehensive results. You'll walk away with practical techniques for setting up a hybrid search system using OpenSearch and insights on optimizing search results.

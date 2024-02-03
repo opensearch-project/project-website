@@ -9,14 +9,12 @@ breadcrumbs:
   items:
     - title: OpenSearchCon 
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
       url: /events/2023-0927-opensearchcon/
     - title: Unconference
-      url: '/events/opensearchcon/archive/2023/us/unconference/index.html'
+      url: '/events/opensearchcon/2023/north-america/unconference/index.html'
 speaker_talk_title: Unconference
 session_time: '2023-09-27 - 1:00pm-5:30pm'
 session_room: 'Grand Sheraton Seattle Willow Room'
@@ -27,8 +25,8 @@ presenters:
   - nknize
   - kfreedain
   - chenkle
-conference_id: '2023-us'
-permalink: /events/opensearchcon/archive/2023/us/unconference/index.html
+conference_id: '2023-north-america'
+permalink: /events/opensearchcon/2023/north-america/unconference/index.html
 ---
 
 Make plans to join the first-ever Unconference and come ready to pitch 

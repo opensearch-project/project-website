@@ -9,14 +9,12 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 keynote_speaker: false
 speaker_github: "https://github.com/rednaksi91"
 speaker_linkedin: "https://www.linkedin.com/in/irakhman/"
@@ -27,9 +25,9 @@ presenters:
   - irakhmanberdiyev
   - smyssak
   - amyssak
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/how-we-jump-started-community-growth-in-opensearch.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/how-we-jump-started-community-growth-in-opensearch.html'
 youtube_video_id: 'LMKEJKJZOww'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 ---
 
 This two-part talk first covers an OpenSearch SDM's journey to boost community growth in OpenSearch via a pilot, resulting in 500 participants, 300+ PRs, and 100+ issues in 12 weeks, and discusses organizational changes implemented. The second part features a key contributor sharing her experience participating in the program, forming professional relationships, learning from Amazon engineers, mentoring peers, and starting a business with newly made friends. A success story in all aspects.

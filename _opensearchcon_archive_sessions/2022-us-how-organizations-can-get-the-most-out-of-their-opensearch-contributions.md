@@ -9,20 +9,18 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2022
-      url: /events/opensearchcon/archive/2022/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2022/us/index.html
+      url: /events/opensearchcon/2022/index.html
+    - title: North America
+      url: /events/opensearchcon/2022/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2022/us/sessions/index.html
+      url: /events/opensearchcon/2022/north-america/sessions/index.html
 keynote_speaker: false
 session_time: "2022-09-21 - 2:00pm-2:30pm"
 session_room: "Fremont Studios"
-permalink: '/events/opensearchcon/archive/2022/united-states/sessions/how-organizations-can-get-the-most-out-of-their-opensearch-contributions.html'
+permalink: '/events/opensearchcon/2022/north-america/sessions/how-organizations-can-get-the-most-out-of-their-opensearch-contributions.html'
 youtube_video_id: '3j3IA546JQ8'
-conference_id: '2022-us'
+conference_id: '2022-north-america'
 presenters:
   - jzemerick
 ---

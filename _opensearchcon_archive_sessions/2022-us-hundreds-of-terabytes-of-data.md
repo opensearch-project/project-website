@@ -9,20 +9,18 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2022
-      url: /events/opensearchcon/archive/2022/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2022/us/index.html
+      url: /events/opensearchcon/north-america/2022/index.html
+    - title: North America
+      url: /events/opensearchcon/north-america/2022/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2022/us/sessions/index.html
+      url: /events/opensearchcon/north-america/2022/north-america/sessions/index.html
 keynote_speaker: false
 session_time: "2022-09-21 - 1:30pm-2:00pm"
 session_room: "Fremont Studios"
-permalink: '/events/opensearchcon/archive/2022/united-states/sessions/hundreds-of-terabytes-of-data.html'
+permalink: '/events/opensearchcon/north-america/2022/north-america/sessions/hundreds-of-terabytes-of-data.html'
 youtube_video_id: 'IKiJHgM9tko'
-conference_id: '2022-us'
+conference_id: '2022-north-america'
 presenters:
   - ddoubrovkine
   - psithanandam

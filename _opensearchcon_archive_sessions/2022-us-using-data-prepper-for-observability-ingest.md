@@ -9,20 +9,18 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2022
-      url: /events/opensearchcon/archive/2022/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2022/us/index.html
+      url: /events/opensearchcon/2022/index.html
+    - title: North America
+      url: /events/opensearchcon/2022/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2022/us/sessions/index.html
+      url: /events/opensearchcon/2022/north-america/sessions/index.html
 keynote_speaker: false
 session_time: "2022-09-21 - 4:00pm-4:30pm"
 session_room: "Fremont Studios"
-permalink: '/events/opensearchcon/archive/2022/united-states/sessions/using-data-prepper-for-observability-ingest.html'
+permalink: '/events/opensearchcon/2022/north-america/sessions/using-data-prepper-for-observability-ingest.html'
 youtube_video_id: 'M3Ffpg_1nBE'
-conference_id: '2022-us'
+conference_id: '2022-north-america'
 presenters:
   - dvenable
   - rtaori

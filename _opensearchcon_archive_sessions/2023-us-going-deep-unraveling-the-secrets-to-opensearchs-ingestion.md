@@ -9,14 +9,12 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 speaker_twitter: "https://twitter.com/dtaivpp"
 speaker_github: "https://github.com/dtaivpp"
 speaker_linkedin: "https://www.linkedin.com/in/david-tippett/"
@@ -24,9 +22,9 @@ session_time: "2023-09-27 - 11:30am-12:10pm"
 session_room: "Redwood"
 keynote_speaker: false
 session_track: "Operating OpenSearch"
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/going-deep-unraveling-the-secrets-to-opensearchs-ingestion.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/going-deep-unraveling-the-secrets-to-opensearchs-ingestion.html'
 youtube_video_id: 'xXEXnNIcvTg'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   - dtippett
 ---

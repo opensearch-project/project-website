@@ -1,5 +1,5 @@
 ---
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 speaker_name: 'jhandler'
 speaker_name_full: 'Jon Handler'
 speaker_talk_title: 'When Life Hands You Data, Grab OpenSearch!'

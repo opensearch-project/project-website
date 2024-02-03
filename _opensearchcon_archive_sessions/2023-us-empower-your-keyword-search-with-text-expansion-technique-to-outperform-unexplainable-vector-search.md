@@ -9,21 +9,19 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/us/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/us/sessions/index.html
 keynote_speaker: false
 session_time: "2023-09-28 - 11:30am - 12:10pm"
 session_room: "Willow"
 session_track: "Search"
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/empower-your-keyword-search-with-text-expansion-technique-to-outperform-unexplainable-vector-search.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/empower-your-keyword-search-with-text-expansion-technique-to-outperform-unexplainable-vector-search.html'
 youtube_video_id: '_ipMfd7RuNk'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   - pmprasad
 ---

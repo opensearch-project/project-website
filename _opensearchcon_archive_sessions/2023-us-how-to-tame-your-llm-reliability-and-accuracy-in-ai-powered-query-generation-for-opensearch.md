@@ -9,23 +9,21 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/archive/index.html
     - title: 2023
-      url: /events/opensearchcon/archive/2023/index.html
-    - title: United States
-      url: /events/opensearchcon/archive/2023/us/index.html
+      url: /events/opensearchcon/2023/index.html
+    - title: North America
+      url: /events/opensearchcon/2023/north-america/index.html
     - title: Session Summaries
-      url: /events/opensearchcon/archive/2023/us/sessions/index.html
+      url: /events/opensearchcon/2023/north-america/sessions/index.html
 speaker_github: "https://github.com/greaa-aws"
 speaker_linkedin: "https://www.linkedin.com/in/alecgreavestunnell/"
 keynote_speaker: false
 session_time: "2023-09-28 - 2:00pm-2:40pm"
 session_room: "Willow"
 session_track: "Search"
-permalink: '/events/opensearchcon/archive/2023/united-states/sessions/how-to-tame-your-llm-reliability-and-accuracy-in-ai-powered-query-generation-for-opensearch.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/how-to-tame-your-llm-reliability-and-accuracy-in-ai-powered-query-generation-for-opensearch.html'
 youtube_video_id: 'wqX9rYIV69I'
-conference_id: '2023-us'
+conference_id: '2023-north-america'
 presenters:
   - agtunnell
 ---
