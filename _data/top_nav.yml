@@ -13,7 +13,7 @@ items:
       -
         label: 2024 - Stay Informed
         url: /events/opensearchcon/
--
+      -
         label: Archive
         url: /events/opensearchcon/index.html
         children:
