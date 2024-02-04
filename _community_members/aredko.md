@@ -19,6 +19,6 @@ permalink: '/community/members/andriy-redko.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2022-us"
+  - "2022-north-america"
 ---
 Andriy is a seasoned software developer and opensource believer with a great passion to code.

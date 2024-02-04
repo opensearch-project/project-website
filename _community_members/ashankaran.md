@@ -20,6 +20,6 @@ permalink: '/community/members/akash-shankaran.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 Akash is a lead software architect at Intel working on the Opensearch project. He works across various open source initiatives at Intel, and is very enthusiastic about problems in distributed systems, databases and data analytics. He works with customers on optimizing their workloads with hardware/software guidance to meet their needs. Prior to his current role, Akash worked as a software engineer at Intel and Microsoft Azure CosmosDB.9

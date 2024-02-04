@@ -20,7 +20,7 @@ permalink: '/community/members/praveen-mohan-prasad.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 A search specialist working closely with Amazon OpenSearch service users. I actively research and experiment on using Artificial Intelligence for Search and help OpenSearch users adopt machine learning in OpenSearch and improve search relevance.

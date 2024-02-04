@@ -4,9 +4,7 @@ speaker_name_full: 'Alastair Flynn'
 speaker_talk_title: 'Infra+OpenSearch in Your Laptop Under 5 Minutes'
 primary_title: 'Infra+OpenSearch in Your Laptop Under 5 minutes'
 title: 'OpenSearchCon 2023 Session: Infra+OpenSearch in Your Laptop Under 5 Minutes'
-speaker_twitter: ""
 speaker_github: 'github.com/Aflynn50'
-speaker_facebook: ""
 keynote_speaker: false
 session_time: "2023-09-27 - 2:00pm-2:40pm"
 session_room: "Redwood"

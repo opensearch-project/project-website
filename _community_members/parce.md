@@ -21,7 +21,7 @@ permalink: '/community/members/pablo-arce.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Pablo has over 15 years of experience in software development for search-related applications. Prior to joining Pureinsights, he worked for Accenture as a Data Science Manager and Industry Analytics consultant. He also previously worked for Search Technologies and also been a Professor at the esteemed Universidad de Costa Rica.

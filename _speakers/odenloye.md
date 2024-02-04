@@ -6,8 +6,6 @@ primary_title: 'Speaker: Olasoji Denloye'
 title: 'OpenSearchCon 2023 Speaker: Olasoji Denloye'
 speaker_title_and_company: 'Software Engineer at Intel Corp.'
 keynote_speaker: false
-speaker_github:
-speaker_linkedin:
 session_track: "Community"
 permalink: '/events/opensearchcon/speakers/olasoji-denloye.html'
 ---

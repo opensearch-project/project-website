@@ -22,7 +22,7 @@ permalink: '/community/members/olasoji-denloye.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Olasoji Denloye has been a software engineer at Intel for 12 years in the open-source databases team. I was born and raised in Lagos, Nigeria. I earned a master’s degree in electrical engineering and computer engineering from the Illinois Institute of Technology in Chicago. I have worked on performance characterization of open-source, big-data frameworks such as Hadoop, Spark, Cassandra and OpenSearch. I have developed java libraries for persistent memory and most recently compression acceleration.

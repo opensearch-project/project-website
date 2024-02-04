@@ -23,8 +23,8 @@ permalink: '/community/members/jonah-kowall.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
-  - "2022-us"
+  - "2023-north-america"
+  - "2022-north-america"
 ---
 
 Jonah Kowall, computer scientist and open-source contributor to OpenSearch, Jaeger, OpenTelemetry. A technical leader across startups to large enterprises specialized in operations, security, and performance. Led Gartner research on monitoring. Product leadership at AppDynamics, Cisco (post-acquisition), Kentik, Logz.io, and is current the head of product management at Aiven building tomorrow’s open source data platform for everyone.

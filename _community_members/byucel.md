@@ -23,7 +23,7 @@ permalink: '/community/members/bilge-yucel.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Bilge is a Developer Advocate at deepset, working with Haystack, an open source NLP framework. With over two years of experience as a Software Engineer, she developed a strong interest in NLP and pursued a master's degree in Artificial Intelligence at KU Leuven with a focus on NLP. Now, she enjoys working with Haystack, creating tutorials, and helping the community build NLP applications.

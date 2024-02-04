@@ -22,7 +22,7 @@ permalink: '/community/members/brian-nauheimer.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Brian Nauheimer is Co-Founder and COO of KMW Technology. He has been solving hard search problems and managing search projects since 2010. Brian is passionate about open source software, mind-bending science fiction and building amazing teams.

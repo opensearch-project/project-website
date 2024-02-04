@@ -21,7 +21,7 @@ permalink: '/community/members/gaurav-bafna.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 Gaurav Bafna is a Senior Engineer with Amazon OpenSearch Service. He is excited about scaling challenges with distributed systems. He has been with OpenSearch team for 6.5 years and has a good operating experience with OpenSearch clusters.
 

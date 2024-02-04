@@ -20,6 +20,6 @@ permalink: '/community/members/subhobrata-dey.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 Subhobrata Dey is a Software Development Engineer at AWS focusing on OpenSearch and primarily works on the Security Analytics and Alerting plugins. He developed the Security Analytics plugin from scratch.

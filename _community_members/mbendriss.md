@@ -19,6 +19,6 @@ permalink: '/community/members/mehdi-bendriss.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2022-us"
+  - "2022-north-america"
 ---
 Mehdi is a Senior Software Engineer working on the Data Platform team at Canonical. His current focus is on creating charmed operators for data products, namely, OpenSearch. He has experience designing and building data platforms on the cloud. Prior to joining Canonical, he was a Senior Data Platform engineer at Scout24 SE.

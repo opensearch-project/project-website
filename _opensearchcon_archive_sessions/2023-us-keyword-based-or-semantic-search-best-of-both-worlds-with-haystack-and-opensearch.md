@@ -25,7 +25,7 @@ session_track: "Search"
 presenters: 
   - byucel
   - tcelik
-permalink: '/events/opensearchcon/archive/2023/north-america/sessions/keyword-based-or-semantic-search-best-of-both-worlds-with-haystack-and-opensearch.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/keyword-based-or-semantic-search-best-of-both-worlds-with-haystack-and-opensearch.html'
 youtube_video_id: 'jM8EyhG6Nck'
 conference_id: '2023-north-america'
 presenters:

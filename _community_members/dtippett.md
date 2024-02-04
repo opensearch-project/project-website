@@ -23,8 +23,8 @@ permalink: '/community/members/david-tippett.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
-  - "2022-us"
+  - "2023-north-america"
+  - "2022-north-america"
 ---
 
 David is a Senior Developer Advocate for the open-source OpenSearch project. He works on every area from search to observability. Before working on OpenSearch he worked in network automation, devops, data engineering, web development, and the list goes on.

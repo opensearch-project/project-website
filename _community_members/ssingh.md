@@ -22,7 +22,7 @@ permalink: '/community/members/saurabh-singh.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Saurabh, a Senior Software Engineer, is currently dedicated to the OpenSearch project at Amazon Web Services. His passion lies in finding solutions for intricate challenges within large-scale distributed systems, with a particular focus on leading the engineering efforts for the Security Analytics vertical. Saurabh actively contributes to the OpenSearch project, making contributions to its ongoing development and growth.

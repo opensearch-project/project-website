@@ -9,8 +9,6 @@ breadcrumbs:
   items:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
-    - title: Archive
-      url: /events/opensearchcon/index.html
     - title: 2022
       url: /events/opensearchcon/2022/index.html
     - title: North America

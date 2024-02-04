@@ -22,7 +22,7 @@ permalink: '/community/members/noam-schwartz.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Noam is an experienced software engineer specializing in building search applications designed for vector search workloads.

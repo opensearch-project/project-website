@@ -18,7 +18,7 @@ permalink: '/community/members/nick-knize.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Nick Knize is a Principal Engineer at AWS, and a committer and PMC member for the Apache Lucene project. He is a core maintainer for OpenSearch and OpenSearch Dashboards.

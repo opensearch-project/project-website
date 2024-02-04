@@ -6,9 +6,6 @@ primary_title: 'Speaker: Tuana Celik'
 title: 'OpenSearchCon 2023 Speaker: Tuana Celik'
 speaker_title_and_company: 'Lead Developer Advocate at deepset'
 keynote_speaker: false
-speaker_twitter: ""
-speaker_github: ""
-speaker_linkedin: ""
 session_track: "Search"
 permalink: '/events/opensearchcon/speakers/tuana-celik.html'
 ---

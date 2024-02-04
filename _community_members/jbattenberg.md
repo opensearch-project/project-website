@@ -21,7 +21,7 @@ permalink: '/community/members/jim-battenberg.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 Jim Battenberg.
 

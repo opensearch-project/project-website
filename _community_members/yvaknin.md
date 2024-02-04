@@ -20,7 +20,7 @@ permalink: '/community/members/yaniv-vaknin.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 Yaniv is a software and machine learning leader specializing in vector search and Generative AI applications.
 

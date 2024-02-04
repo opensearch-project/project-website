@@ -18,7 +18,7 @@ permalink: '/community/members/charlotte-henkle.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Charlotte is a Senior Manager at AWS working on the OpenSearch Project.

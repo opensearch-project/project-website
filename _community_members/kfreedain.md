@@ -18,7 +18,7 @@ permalink: '/community/members/kris-freedain.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Kris Freedain is the OpenSearch Project Community Manager; his hobbies include gardening, garage gym powerlifting, and meditation. If you're interested in starting a local User Group, find Kris at the conference!

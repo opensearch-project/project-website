@@ -4,9 +4,6 @@ speaker_name_full: 'Keynote Speakers'
 speaker_talk_title: 'Opening Keynote'
 primary_title: 'Opening Keynote'
 title: 'OpenSearchCon 2023 Session: Opening Keynote'
-speaker_twitter: ""
-speaker_github: ""
-speaker_facebook: ""
 session_time: "2023-09-28 - 9:00am-9:50am"
 session_room: "Grand Ballroom CD"
 session_track: "Community"

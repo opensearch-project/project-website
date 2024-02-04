@@ -12,6 +12,6 @@ breadcrumbs:
 conference_id: "2022-north-america"
 ---
 
-## United States
+## North America
 
 * [Seattle, September 21, 2022](/events/opensearchcon/2022/north-america/index.html)

@@ -21,7 +21,7 @@ permalink: '/community/members/stephen-crawford.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Stephen is a software development engineer for the OpenSearch open source project. He was responsible for the movement of the triaging meetings into the public and has led the meetings since they became public.

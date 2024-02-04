@@ -6,7 +6,6 @@ primary_title: 'Speaker: Eli Fisher'
 title: 'OpenSearchCon 2023 Speaker: Eli Fisher'
 speaker_title_and_company: 'Senior Technical Product Manager at AWS'
 keynote_speaker: true
-speaker_linkedin: ""
 session_track: "keynote"
 permalink: '/events/opensearchcon/speakers/eli-fisher.html'
 ---

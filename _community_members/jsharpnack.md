@@ -19,6 +19,6 @@ permalink: '/community/members/james-sharpnack.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 James received his PhD from Carnegie Mellon University in the joint program in Statistics and Machine Learning. He was a postdoctoral researcher in the Mathematics department at UC San Diego before he joined the Statistics department at UC Davis as an Assistant Professor.His research spans the topics of graph signal processing, anomaly detection, scan statistics, point processes, recommender systems, contextual bandits, trend filtering, nearest neighbors, epidemic forecasting and data analysis, and transportation data analysis.

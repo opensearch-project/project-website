@@ -22,8 +22,8 @@ permalink: '/community/members/david-venable.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
-  - "2022-us"
+  - "2023-north-america"
+  - "2022-north-america"
 ---
 
 David is a senior software engineer working on observability in OpenSearch at Amazon Web Services. He is a maintainer on the Data Prepper project. Prior to working at Amazon, he was the CTO at Allogy Interactive - a start-up creating mobile-learning solutions for healthcare.

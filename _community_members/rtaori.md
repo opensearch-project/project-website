@@ -19,6 +19,6 @@ permalink: '/community/members/rajiv-taori.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2022-us"
+  - "2022-north-america"
 ---
 Rajiv is Principal Product Manager - Technical at Amazon Web Services working on OpenSearch with a focus on observability, security, data ingestion, and OpenTelemetry. Before joining AWS, Rajiv served as an Operating Executive at Silver Lake, VP & GM for Citrix Mobile products group, and Founder/CEO of MobileOps.

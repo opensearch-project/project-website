@@ -22,7 +22,7 @@ permalink: '/community/members/sayali-gaikawad.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 I am a software development engineer at OpenSearch (Amazon). I work with Engineering Effectiveness team at OpenSearch that concentrates on release processes, build and test tools, and re-usable infrastructure for the OpenSearch project making life of developers a little bit easier.

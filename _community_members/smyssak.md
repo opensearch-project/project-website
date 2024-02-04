@@ -20,7 +20,7 @@ permalink: '/community/members/smyssak.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 Sergey Myssak is a Senior Software Engineer at EPAM Systems. In addition to his day job and master's studies, he actively participated in the Amazon College Contributor Initiative (CCI), where he demonstrated his expertise and collaborative spirit. Sergey has helped a lot with the OpenSearch UI (OUI) project, and because of his contribution, he's been nominated as a co-maintainer. He is always eager for new challenges and excited about the breadth of potential opportunities.
 

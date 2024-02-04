@@ -4,9 +4,6 @@ speaker_name_full: 'Alfonso Brown'
 speaker_talk_title: 'Community Inclusion'
 primary_title: 'Community Inclusion'
 title: 'OpenSearchCon 2023 Session: Community Inclusion'
-speaker_twitter: ""
-speaker_github: ""
-speaker_facebook: ""
 session_time: "2023-09-27 - 4:30pm-5:10pm"
 session_room: "Redwood"
 session_track: "Community"

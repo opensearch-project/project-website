@@ -6,7 +6,6 @@ primary_title: 'Speaker: Grant Ingersoll'
 title: 'OpenSearchCon 2023 Speaker: Grant Ingersoll'
 speaker_title_and_company: ''
 keynote_speaker: true
-speaker_linkedin: ""
 session_track: "keynote"
 permalink: '/events/opensearchcon/speakers/grant-ingersoll.html'
 ---

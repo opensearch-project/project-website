@@ -23,7 +23,7 @@ permalink: '/community/members/bob-wall.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Bob Wall is the CTO and Co-founder at IronCore Labs, a company that empowers cloud software companies with advanced encryption to keep data useful while meeting data privacy regulations, addressing international transfer limitations, and fulfilling hold your own key requests. Bob was previously Chief Architect for Oracle Service Cloud.

@@ -20,7 +20,7 @@ permalink: '/community/members/alfonso-brown.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 A researcher and writer, Al Brown is a man with unflinching determination. He has fought and overcome homelessness to graduate from the City University School of Education in Seattle, WA. This future New York Times best-selling author is working on getting his first professional journal published and co-writing a separate research article with Dr. Christine Gehrke. In the meantime, he has a story to tell.

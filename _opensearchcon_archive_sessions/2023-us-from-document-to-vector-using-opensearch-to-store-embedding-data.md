@@ -22,7 +22,7 @@ session_track: "Search"
 presenters:
   - pcruz
   - aflynn
-permalink: '/events/opensearchcon/2023/united-states/sessions/from-document-to-vector-using-opensearch-to-store-embedding-data.html'
+permalink: '/events/opensearchcon/2023/north-america/sessions/from-document-to-vector-using-opensearch-to-store-embedding-data.html'
 youtube_video_id: '5p93QX7Ocrw'
 conference_id: '2023-north-america'
 ---

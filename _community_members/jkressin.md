@@ -22,7 +22,7 @@ permalink: '/community/members/jochen-kressin.html'
 personas:
   - conference_speaker
 conference_id:
-  - "2023-us"
+  - "2023-north-america"
 ---
 
 Jochen Kressin is the Co-Founder of Eliatra and Search Guard. Search Guard was one of the first security plugins for Elasticsearch and Kibana, so he has year-long experience providing security solutions for this ecosystem. With the advent of ODFE and, finally, OpenSearch, Jochen Co-founded Eliatra. Eliatra specializes in support, services, products and solutions for OpenSearch and is an official partner and contributor to the project.
