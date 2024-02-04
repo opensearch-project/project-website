@@ -4,14 +4,7 @@ layout: fullwidth-with-breadcrumbs
 {% assign conference_id = page.conference_id | replace_first: "-", " " %}
 {% assign conference_id_parts = conference_id | split: " " %}
 {% assign conference_year = conference_id_parts[0] %}
-{% if conference_id_parts[1] == 'us' %}
-    {% assign conference_location = "United States" %}
-{% elsif conference_id_parts[1] == 'eu' %}
-    {% assign conference_location = "Europe" %}
-{% else %}
-    {% comment %}If this happens then there's likely a new location or malformed data.{% endcomment %}
-    {% assign conference_location = conference_id_parts[1] %}
-{% endif %}
+{% assign conference_location = conference_id_parts[1] | replace: "-", " " %}
 {% if page.has_hero and page.hero_image %}
     <div class="page-with-hero platform-landing-page platform-page--content">
         <div class="landing-page-hero-wrapper">

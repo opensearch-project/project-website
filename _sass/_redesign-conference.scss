@@ -902,6 +902,7 @@ h2.conference-speaker-session-page {
                         > h3 {
                             @include header-level3(#000);
                             margin-top: 24px;
+                            text-transform: capitalize;
                         }
                     }
                     > .draft-3-landing-page--button-stack {
