@@ -1,7 +1,9 @@
 ---
 title: KubeCon / CloudNativeCon Europe 2024
-calendar_date: 2024-03-19
-eventdate: 2024-03-19
+calendar_date: "2024-03-19"
+eventdate: 2024-03-19 08:00:00 +0100
+online: false
+
 tz: Europe/Paris
 signup:
   url: https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/
