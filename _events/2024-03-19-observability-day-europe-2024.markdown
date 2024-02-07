@@ -1,6 +1,6 @@
 ---
 title: Observability Day Europe 2024
-calendar_date: 2024-03-19
+calendar_date: \"2024-03-19\"
 eventdate: 2024-03-19 10:00:00 +0100
 tz: Europe/Paris
 signup:
