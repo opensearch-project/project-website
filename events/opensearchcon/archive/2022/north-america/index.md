@@ -9,10 +9,10 @@ breadcrumbs:
       url: /events/opensearchcon/index.html
     - title: 2022
       url: /events/opensearchcon/2022/index.html
-    - title: United states
+    - title: North America
       url: /events/opensearchcon/2022/north-america/index.html
 conference_id: "2022-north-america"
-premalink: /events/opensearchcon/2022/north-america/index.html
+permalink: /events/opensearchcon/2022/north-america/index.html
 # Since this is the only conference in 2022 a redirection directly to this one from the /../2022/
 # URL is reasonable.
 redirect_from: /events/opensearchcon/2022/index.html
@@ -44,9 +44,3 @@ featured_sessions:
     date: Wednesday 09/21/2022
     thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
-
-## September 21, 2022 Fremont Studios Seattle, United States
-
-* [Sessions](/events/opensearchcon/2022/north-america/sessions/index.html)
-* [Speakers](/events/opensearchcon/2022/north-america/speakers/index.html)
-* [Exhibitors](/events/opensearchcon/2022/north-america/exhibitors/index.html)

@@ -14,7 +14,8 @@ breadcrumbs:
     - title: "Grant Ingersoll&apos;s Profile"
       url: '/community/members/grant-ingersoll.html'
 speaker_title_and_company: ''
-keynote_speaker: true
+keynote_speaker:
+  - "2023-north-america"
 session_track: "keynote"
 permalink: '/community/members/grant-ingersoll.html'
 personas:

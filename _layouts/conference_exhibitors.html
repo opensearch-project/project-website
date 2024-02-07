@@ -1,14 +1,10 @@
 ---
 layout: redesign-fullwidth
 ---
-{% unless page.conference_id %}
-    {% assign exhibitors = site.exhibitors %}
-    {% assign conference_link_base_url = '/events/opensearchcon' %}
-{% else %}
-    {% assign exhibitors = site.opensearchcon_archive_exhibitors | where: "conference_id", page.conference_id %}
-    {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
-    {% assign conference_link_base_url = '/events/opensearchcon/archive/' | append: conference_url_path_segment %}
-{% endunless %}
+{% assign exhibitors = site.opensearchcon_exhibitors | where: "conference_id", page.conference_id %}
+{% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
+{% assign conference_link_base_url = '/events/opensearchcon/' | append: conference_url_path_segment %}
+
 <div class="conference-exhibitors">
     <div class="conference-exhibitors--grid resource-grid">
         {% for exhibitor in exhibitors %}

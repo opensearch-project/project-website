@@ -14,7 +14,8 @@ breadcrumbs:
     - title: "Mehul Shah&apos;s Profile"
       url: '/community/members/mehul-shah.html'
 speaker_title_and_company: 'Co-Founder of Aryn.ai'
-keynote_speaker: true
+keynote_speaker:
+  - "2023-north-america"
 speaker_linkedin: "https://www.linkedin.com/in/mehulashah/"
 session_track: "Search"
 permalink: '/community/members/mehul-shah.html'

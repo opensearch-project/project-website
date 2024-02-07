@@ -14,7 +14,7 @@ breadcrumbs:
     - title: "Andriy Redko&apos;s Profile"
       url: '/community/members/andriy-redko.html'
 speaker_title_and_company: 'Staff Software Developer, Aiven Oy'
-keynote_speaker: true
+keynote_speaker: false
 permalink: '/community/members/andriy-redko.html'
 personas:
   - conference_speaker

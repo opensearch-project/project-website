@@ -14,7 +14,9 @@ breadcrumbs:
     - title: "Eli Fisher&apos;s Profile"
       url: '/community/members/eli-fisher.html'
 speaker_title_and_company: 'Senior Technical Product Manager at AWS'
-keynote_speaker: true
+keynote_speaker:
+  - "2023-north-america"
+  - "2022-north-america"
 session_track: "keynote"
 permalink: '/community/members/eli-fisher.html'
 personas:

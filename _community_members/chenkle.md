@@ -19,6 +19,7 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+  - "2022-north-america"
 ---
 
 Charlotte is a Senior Manager at AWS working on the OpenSearch Project.

@@ -23,15 +23,9 @@ layout: redesign-fullwidth
             </div>
         </div>
         <div class="speaker-session--speaker-cards">
-            {% unless page.conference_id %}
-                {% assign sessions = site.speaker_sessions %}
-                {% assign conference_link_base_url = '/events/opensearchcon' %}
-            {% else %}
-                {% assign sessions = site.opensearchcon_archive_sessions | where: "conference_id", page.conference_id %}
-                {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
-                {% assign conference_link_base_url = '/events/opensearchcon/archive/' | append: conference_url_path_segment %}
-            {% endunless %}
-            
+            {% assign sessions = site.opensearchcon_sessions | where: "conference_id", page.conference_id %}
+            {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
+            {% assign conference_link_base_url = '/events/opensearchcon/' | append: conference_url_path_segment %}
             {% for session in sessions %}
                 <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized session-card">
                     <div class="speaker-session--speaker-cards--card--content">

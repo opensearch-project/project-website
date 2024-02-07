@@ -93,28 +93,6 @@ defaults:
       permalink: :collection/:slug.html
 -
     scope:
-      type: speakers
-    values:
-      layout: speaker
-      breadcrumbs:
-        icon: community
-        items:
-          - title: OpenSearchCon 2023
-          - title: Speaker Bios
-            url: '/events/opensearchcon/speakers/'
--
-    scope:
-      type: speaker_sessions
-    values:
-      layout: speaker_session
-      breadcrumbs:
-        icon: community
-        items:
-          - title: OpenSearchCon 2023
-          - title: Session Summaries
-            url: '/events/opensearchcon/sessions/'
--
-    scope:
       type: platforms
     values:
       permalink: platform/:categories/:name.html
@@ -122,32 +100,27 @@ defaults:
     scope:
       type: exhibitors
     values:
-      layout: exhibitor
--
-    scope:
-      type: conference_workshops
-    values:
-      layout: speaker_session
+      layout: opensearchcon_exhibitor
 -
     scope:
       type: community_members
     values:
-      layout: speaker
+      layout: opensearchcon_speaker
 -
     scope:
-      type: opensearchcon_archive_sessions
+      type: opensearchcon_sessions
     values:
-      layout: speaker_session
+      layout: opensearchcon_session
 -
     scope:
-      type: opensearchcon_archive_exhibitors
+      type: opensearchcon_exhibitors
     values:
-      layout: exhibitor
+      layout: opensearchcon_exhibitor
 -
     scope:
-      type: opensearchcon_archive_workshops
+      type: opensearchcon_workshops
     values:
-      layout: speaker_session
+      layout: opensearchcon_session
 collections:
   authors:
     output: true
@@ -173,19 +146,13 @@ collections:
     output: true
   lines:
     output: true
-  speakers:
-    output: true
-  speaker_sessions:
+  conference_sessions:
     output: true
   redesign_use_cases:
     output: false
   redesign_resources:
     output: false
   platforms:
-    output: true
-  exhibitors:
-    output: true
-  conference_workshops:
     output: true
   platform_products:
     output: false
@@ -195,11 +162,11 @@ collections:
     output: false
   community_members:
     output: true
-  opensearchcon_archive_sessions:
+  opensearchcon_exhibitors:
     output: true
-  opensearchcon_archive_exhibitors:
+  opensearchcon_sessions:
     output: true
-  opensearchcon_archive_workshops:
+  opensearchcon_workshops:
     output: true
 paginate: 5
 paginate_path: "/blog/page:num/"

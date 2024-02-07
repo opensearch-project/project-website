@@ -1,0 +1,76 @@
+---
+layout: redesign-fullwidth
+---
+
+{%- if page.presenters -%}
+    {%- assign session_speaker_names = page.presenters -%}
+    {%- assign primary_speaker_name = page.speaker_name -%}
+    {%- assign copresenter_names = session_speaker_names | join: " " | remove: primary_speaker_name -%}
+    {%- assign primary_speaker_name_to_prepend = primary_speaker_name | append: " " -%}
+    {%- assign ordered_speaker_names = copresenter_names | prepend: primary_speaker_name_to_prepend | split: " " -%}
+{%- else -%}
+    {%- assign ordered_speaker_names = page.speaker_name | split: " " -%}
+{%- endif -%}
+{%- if page.hero_banner_image -%}
+<div class="hero-banner__fullwidth__responsive">
+    <div>
+        <img src="{{ page.hero_banner_image }}" alt="{{ page.title }}">
+    </div>
+</div>
+{%- endif -%}
+<div class="landing-page-content__right-panel conference-speaker-session-page">
+    {%- if page.youtube_video_id -%}
+        <div class="conference-speaker-session-page--embedded-video">
+            {% include youtube-player.html id=page.youtube_video_id width="100%" height="" %}
+        </div>
+    {%- endif -%}
+    <div class="landing-page-content__right-panel--content">
+        <div class="landing-page-content__right-panel--content--body">
+            {{ content }}
+        </div>
+        <div class="landing-page-content__right-panel--content--side-panel">
+            <div class="speaker-session--details-card">
+                <h4>Details</h4>
+                {%- assign session_date_time = page.session_time | split: " - " -%}
+                {%- assign session_date = session_date_time[0] | date: "%A, %B %e" -%}
+                <h2 class="speaker-session--details-card--date">{{ session_date }} {{ session_date_time[1] }} in {{ page.session_room }}</h2>
+                <h3>Track: {{ page.session_track }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="conference-speaker-session-page">Speakers</h2>
+<div class="speaker-session--speaker-cards">
+    {%- for speaker_name in ordered_speaker_names -%}
+        {%- assign speaker = site.community_members | find: "speaker_name", speaker_name -%}
+        {%- if speaker -%}
+            <div class="speaker-session--speaker-cards--card">
+                <div class="speaker-session--speaker-cards--card--image">
+                    {%- assign speaker_image = speaker.speaker_image | default: "/assets/media/opensearchcon/speakers/no-image-available.svg" -%}
+                    <img src="{{ speaker_image }}" alt="{{ speaker.speaker_name_full }} photograph">
+                </div>
+                <div class="speaker-session--speaker-cards--card--content speaker-session--speaker-cards--card--content__bottom-edge">
+                    {%- if speaker.keynote_speaker contains page.conference_id -%}
+                        <div class="keynote-speaker-label">Keynote Speaker</div>
+                    {%- endif -%}
+                    <h3><a href="{{ speaker.permalink }}">{{ speaker.speaker_name_full }}</a></h3>
+                    <div class="speaker-session--speaker-cards--card--content--job-title">{{ speaker.speaker_title_and_company }}</div>
+                </div>
+            </div>
+        {%- endif -%}
+    {%- endfor -%}
+</div>
+
+{%- assign formatted_conference_id = page.conference_id | replace_first: "-", "/" -%}
+{%- assign url_path_prefix = "/events/opensearchcon/" | append: formatted_conference_id -%}
+<div class="conference-speaker-session-page--view-all">
+    <div class="conference-speaker-session-page--view-all--link-button">
+        <a href="{{ url_path_prefix }}/sessions/index.html">View All Sessions</a>
+    </div>
+    <div class="conference-speaker-session-page--view-all--link-button">
+        <a href="{{ url_path_prefix }}/speakers/index.html">View All Speakers</a>
+    </div>
+</div>
+{% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
+{% include interactive-states.html element_classname="conference-speaker-session-page--view-all--link-button" container_selector=".conference-speaker-session-page--view-all" %}

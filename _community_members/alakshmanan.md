@@ -15,7 +15,7 @@ breadcrumbs:
       url: '/community/members/arun-lakshmanan.html'
 speaker_title_and_company: 'Senior OpenSearch Specialist Solutions Architect, AWS'
 keynote_speaker: false
-session_track: "Workshop"
+session_track: "Operating OpenSearch"
 permalink: '/community/members/arun-lakshmanan.html'
 personas:
   - conference_speaker

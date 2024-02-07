@@ -1,5 +1,5 @@
 ---
-layout: speaker_session
+layout: opensearchcon_session
 feature_area_category_name: OpenSearchCon 2023
 feature_area_solution_name: Unconference
 title: 'OpenSearchCon 2023 Session: Unconference'

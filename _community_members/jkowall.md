@@ -14,7 +14,8 @@ breadcrumbs:
     - title: "Jonah Kowall&apos;s Profile"
       url: '/community/members/jonah-kowall.html'
 speaker_title_and_company: 'VP Product Management / Aiven'
-keynote_speaker: false
+keynote_speaker:
+  - '2022-north-america'
 speaker_twitter: "https://twitter.com/jkowall"
 speaker_github: "https://github.com/jkowall"
 speaker_linkedin: "https://linkedin.com/in/jkowall"

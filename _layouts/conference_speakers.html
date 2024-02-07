@@ -1,19 +1,16 @@
 ---
 layout: redesign-fullwidth
 ---
-{% unless page.conference_id %}
-    {% assign speakers = site.speakers %}
-    {% assign conference_link_base_url = '/events/opensearchcon' %}
-{% else %}
-    {% assign conference_id_selector = "speaker.conference_id contains '" | append: page.conference_id | append: "'" %}
-    {% assign conference_speakers = site.community_members | where_exp: "member", "member.personas contains 'conference_speaker'" %}
-    {% assign speakers = conference_speakers | where_exp: "speaker", conference_id_selector %}
-    {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
-    {% assign conference_link_base_url = '/events/opensearchcon/archive/' | append: conference_url_path_segment %}
-{% endunless %}
+{%- assign conference_id_selector = "speaker.conference_id contains '" | append: page.conference_id | append: "'" -%}
+{%- assign conference_speakers = site.community_members | where_exp: "member", "member.personas contains 'conference_speaker'" -%}
+{%- assign speakers = conference_speakers | where_exp: "speaker", conference_id_selector -%}
 
-{% assign keynote_speakers = speakers | where: "keynote_speaker", true %}
-{% assign not_keynote_speakers = speakers | where: "keynote_speaker", false %}
+{%- assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" -%}
+{%- assign conference_link_base_url = '/events/opensearchcon/' | append: conference_url_path_segment -%}
+
+{%- assign keynote_speaker_conference_id_selector = "speaker.keynote_speaker contains '" | append: page.conference_id | append: "'" -%}
+{%- assign keynote_speakers = speakers | where_exp: "speaker", keynote_speaker_conference_id_selector -%}
+
 <div class="conference-speakers--featured">
     <h2 class="conference-speaker-session-page">Featured Speakers</h2>
     <div class="speaker-session--speaker-cards">
@@ -61,19 +58,18 @@ layout: redesign-fullwidth
         </div>
     </div>
     <div class="speaker-session--speaker-cards">
-        {% for speaker in not_keynote_speakers %}
-            <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized speaker-card">
-                <div class="speaker-session--speaker-cards--card--content">
-                    {% if speaker.keynote_speaker %}
-                        <div class="keynote-speaker-label">Keynote Speaker</div>
-                    {% endif %}
-                    <h3><a href="{{ speaker.permalink }}">{{ speaker.speaker_name_full }}</a></h3>
-                    <div class="speaker-session--speaker-cards--card--content--job-title">{{- speaker.speaker_title_and_company -}}</div>
+        {% for speaker in speakers %}
+            {% unless speaker.keynote_speaker contains page.conference_id %}
+                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized speaker-card">
+                    <div class="speaker-session--speaker-cards--card--content">
+                        <h3><a href="{{ speaker.permalink }}">{{ speaker.speaker_name_full }}</a></h3>
+                        <div class="speaker-session--speaker-cards--card--content--job-title">{{- speaker.speaker_title_and_company -}}</div>
+                    </div>
+                    <div class="speaker-session--speaker-cards--card__categorized--categories">
+                        {% include platform-category-icons.html name=speaker.session_track include_label=false %}
+                    </div>
                 </div>
-                <div class="speaker-session--speaker-cards--card__categorized--categories">
-                    {% include platform-category-icons.html name=speaker.session_track include_label=false %}
-                </div>
-            </div>
+            {% endunless %}
         {% endfor %}
     </div>
     <div class="conference-speakers--session-speakers--more">

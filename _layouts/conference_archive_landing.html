@@ -54,7 +54,7 @@ layout: fullwidth-with-breadcrumbs
                     <h2>OpenSearchCon Archive</h2>
                     <h3>{{ conference_year }} {{ conference_location }}</h3>
                 </div>
-                <div class="draft-3-landing-page--button-stack draft-3-landing-page--button-stack__tablet-2column">
+                <div id="conference-archive-section-buttons" class="draft-3-landing-page--button-stack draft-3-landing-page--button-stack__tablet-2column">
                     {% for button in page.conference_sections_button_stack %}
                         <div class="draft-3-landing-page--button-stack--button">
                             <div class="redesign-button--wrapper redesign-button--wrapper__text-only">
@@ -63,10 +63,18 @@ layout: fullwidth-with-breadcrumbs
                         </div>
                     {% endfor %}
                 </div>
+                {% include interactive-states.html 
+                    element_classname="redesign-button--wrapper__text-only" 
+                    container_selector="#conference-archive-section-buttons" 
+                %}
             </div>
-            <div class="draft-3-landing-page--button-stack">
-                {% include redesign_buttons.html name="opensearchcons-2024" %}
+            <div id="upcoming-conferences-buttons" class="draft-3-landing-page--button-stack">
+                {% include redesign_buttons.html name="opensearchcons" %}
             </div>
+            {% include interactive-states.html
+                element_classname="redesign-button--wrapper__text-with-icon"
+                container_selector="#upcoming-conferences-buttons"
+            %}
             {% if page.related_articles %}
                 <div class="solutions-card-grid">
                     <h2>Related Articles</h2>
@@ -96,7 +104,7 @@ layout: fullwidth-with-breadcrumbs
                 <div class="draft-3-landing-page--button-stack__with-label--label">
                     <h2>Get Involved</h2>
                 </div>
-                <div class="draft-3-landing-page--button-stack">
+                <div id="community-buttons" class="draft-3-landing-page--button-stack">
                     <div class="draft-3-landing-page--button-stack--button draft-3-landing-page--button-stack--button__hide-labels">
                         {% include redesign_buttons.html name="upcoming-events-dark" %}
                     </div>
@@ -105,6 +113,10 @@ layout: fullwidth-with-breadcrumbs
                     </div>
                 </div>
             </div>
+            {% include interactive-states.html
+                element_classname="redesign-button--wrapper__text-only__dark"
+                container_selector="#community-buttons"
+            %}
         </div>
     </div>
 </div>

@@ -15,7 +15,7 @@ breadcrumbs:
       url: '/community/members/jon-handler.html'
 speaker_title_and_company: 'Senior Principal Solutions Architect, AWS'
 keynote_speaker: false
-session_track: "Workshop"
+session_track: "Operating OpenSearch"
 permalink: '/community/members/jon-handler.html'
 personas:
   - conference_speaker

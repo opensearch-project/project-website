@@ -14,8 +14,8 @@ breadcrumbs:
       url: /community/members/index.html
     - title: "Jim Battenberg&apos;s Profile"
       url: '/community/members/jim-battenberg.html'
-keynote_speaker: true
-speaker_linkedin: ""
+keynote_speaker:
+  - "2023-north-america"
 session_track: "keynote"
 permalink: '/community/members/jim-battenberg.html'
 personas:

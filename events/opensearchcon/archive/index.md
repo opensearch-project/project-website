@@ -8,8 +8,8 @@ breadcrumbs:
     - title: OpenSearchCon
       url: /events/opensearchcon/index.html
     - title: Archive
-      url: /events/opensearchcon/archive/index.html
+      url: /events/opensearchcon/index.html
 ---
 
-* [United States 2023](/events/opensearchcon/archive/2023/north-america/sessions/index.html)
-* [United States 2022](/events/opensearchcon/archive/2022/north-america/sessions/index.html)
+* [North America 2023](/events/opensearchcon/2023/north-america/sessions/index.html)
+* [North America 2022](/events/opensearchcon/2022/north-america/sessions/index.html)

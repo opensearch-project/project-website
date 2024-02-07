@@ -14,7 +14,8 @@ breadcrumbs:
     - title: "Maria Hatfield&apos;s Profile"
       url: '/community/members/maria-hatfield.html'
 speaker_title_and_company: 'Co-Founder of Dattell'
-keynote_speaker: true
+keynote_speaker:
+  - "2022-north-america"
 permalink: '/community/members/maria-hatfield.html'
 personas:
   - conference_speaker

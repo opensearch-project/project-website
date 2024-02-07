@@ -14,7 +14,8 @@ breadcrumbs:
     - title: "Laysa Uchoa&apos;s Profile"
       url: '/community/members/laysa-uchoa.html'
 speaker_title_and_company: 'PyLadies Munich Leader, and Developer Advocate, Aiven Oy'
-keynote_speaker: true
+keynote_speaker:
+  - "2022-north-america"
 permalink: '/community/members/laysa-uchoa.html'
 personas:
   - conference_speaker
