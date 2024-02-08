@@ -34,3 +34,8 @@ Follow these steps to import saved objects from a connected data source:
 ## Use cases
 The following demos provide examples of different use cases for using saved objects with multiple data sources.
 
+
+<img src="/assets/media/blog-images/2024-02-08-enhancement-multiple-data-source-import-saved-object/test2_create_new.gif" alt="Create New Copy">
+
+<img src="/assets/media/blog-images/2024-02-08-enhancement-multiple-data-source-import-saved-object/test2_check_conflict_auto_override_ds_conflict.gif" alt="Check existing objects">
+
