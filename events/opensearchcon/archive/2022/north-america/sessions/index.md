@@ -15,4 +15,5 @@ breadcrumbs:
       url: /events/opensearchcon/2022/north-america/sessions/index.html
 conference_id: '2022-north-america'
 permalink: /events/opensearchcon/2022/north-america/sessions/index.html
+hide_categorization: true
 ---

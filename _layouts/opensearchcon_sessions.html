@@ -7,20 +7,22 @@ layout: redesign-fullwidth
             <div class="conference-speakers--session-speakers__categorized--header">
                 <h2>Session Details</h2>
             </div>
-            <div class="conference-speakers--session-speakers__categorized--list">
-                <div>
-                    {% include platform-category-icons.html name="Search" include_label=true %}
+            {%- unless page.hide_categorization -%}
+                <div class="conference-speakers--session-speakers__categorized--list">
+                    <div>
+                        {% include platform-category-icons.html name="Search" include_label=true %}
+                    </div>
+                    <div>
+                        {% include platform-category-icons.html name="Analytics, Observability, and Security" include_label=true %}
+                    </div>
+                    <div>
+                        {% include platform-category-icons.html name="Community" include_label=true %}
+                    </div>
+                    <div>
+                        {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
+                    </div>
                 </div>
-                <div>
-                    {% include platform-category-icons.html name="Analytics, Observability, and Security" include_label=true %}
-                </div>
-                <div>
-                    {% include platform-category-icons.html name="Community" include_label=true %}
-                </div>
-                <div>
-                    {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
-                </div>
-            </div>
+            {%- endunless -%}
         </div>
         <div class="speaker-session--speaker-cards">
             {% assign sessions = site.opensearchcon_sessions | where: "conference_id", page.conference_id %}
