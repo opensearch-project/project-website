@@ -30,7 +30,18 @@ layout: redesign-fullwidth
                 {%- else -%}
                     {%- assign conference_sessions_size = 0 -%}
                 {%- endif -%}
-                {%- if conference_sessions_size > 0 -%}
+                {%- if site.opensearchcon_workshops -%}
+                    {%- assign workshops_count = site.opensearchcon_workshops.size -%}
+                    {%- if workshops_count > 0 -%}
+                        {%- assign workshop_selector = "workshop.presenters contains '" | append: page.speaker_name | append: "'" -%}
+                        {%- assign conference_workshops = site.opensearchcon_workshops | where_exp: "workshop", workshop_selector -%}
+                        {%- assign workshops_count = conference_workshops.size -%}
+                    {%- endif -%}
+                {%- else -%}
+                    {%- assign workshops_count = 0 -%}
+                {%- endif -%}
+                <script>console.log("Workshops count {{ workshops_count }}");</script>
+                {%- if conference_sessions_size > 0 or workshops_count > 0-%}
                     <div class="speaker-session--details-card--related">
                         {%- if conference_sessions_size > 0 -%}
                             {%- assign first_session = conference_sessions | first -%}
@@ -42,12 +53,32 @@ layout: redesign-fullwidth
                                 {%- assign conference_id = session.conference_id -%}
                                 {%- assign conference_id_year = conference_id | split: "-" | first -%}
                                 {%- if conference_id_year != conference_year -%}
+                                    {%- assign conference_year = conference_id_year -%}
                                     <h4>{{ conference_id_year }} Sessions</h4>
                                 {%- endif -%}
                                 <h3><a href="{{ session.permalink }}">{{ session.speaker_talk_title }}</a></h3>
                                 {%- assign session_date_time = session.session_time | split: " - " -%}
                                 {%- assign session_date = session_date_time[0] | date: "%A, %B %e" -%}
                                 <h5>{{ session_date }} {{ session_date_time[1] }} | {{ session.session_room }}</h5>
+                            {%- endfor -%}
+                        {%- endif -%}
+                        {%- if workshops_count > 0 -%}
+                            {%- assign first_workshop = conference_workshops | first -%}
+                            {%- assign workshop_conference_id = first_workshop.conference_id -%}
+                            {%- assign workshop_conference_id_parts = workshop_conference_id | split: "-" -%}
+                            {%- assign workshop_year = workshop_conference_id_parts | first -%}
+                            <h4>{{ workshop_year }} Workshops</h4>
+                            {%- for workshop in conference_workshops -%}
+                                {%- assign conference_id = workshop.conference_id -%}
+                                {%- assign conference_id_year = conference_id | split: "-" | first -%}
+                                {%- if conference_id_year != workshop_year -%}
+                                    {%- assign workshop_year = conference_id_year -%}
+                                    <h4>{{ conference_id_year }} Workshops</h4>
+                                {%- endif -%}
+                                <h3><a href="{{ workshop.permalink }}">{{ workshop.speaker_talk_title }}</a></h3>
+                                {%- assign workshop_date_time = workshop.session_time | split: " - " -%}
+                                {%- assign workshop_date = workshop_date_time[0] | date: "%A, %B %e" -%}
+                                <h5>{{ workshop_date }} {{ workshop_date_time[1] }} | {{ workshop.session_room }}</h5>
                             {%- endfor -%}
                         {%- endif -%}
                     </div>

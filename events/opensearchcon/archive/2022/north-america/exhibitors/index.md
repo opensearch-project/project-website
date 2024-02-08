@@ -1,5 +1,5 @@
 ---
-layout: conference_exhibitors
+layout: opensearchcon_exhibitors
 primary_title: "OpenSearchCon 2022: North America Exhibitors"
 title: "OpenSearchCon 2022: North America Exhibitors"
 breadcrumbs:

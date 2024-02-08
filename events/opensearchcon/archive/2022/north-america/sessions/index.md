@@ -1,5 +1,5 @@
 ---
-layout: conference_sessions
+layout: opensearchcon_sessions
 primary_title: "OpenSearchCon 2022 Session Lineup"
 title: "OpenSearchCon 2022 Session Lineup"
 breadcrumbs:

@@ -98,29 +98,24 @@ defaults:
       permalink: platform/:categories/:name.html
 -
     scope:
-      type: exhibitors
-    values:
-      layout: opensearchcon_exhibitor
--
-    scope:
       type: community_members
     values:
-      layout: opensearchcon_speaker
+      layout: opensearchcon_individual_speaker
 -
     scope:
       type: opensearchcon_sessions
     values:
-      layout: opensearchcon_session
+      layout: opensearchcon_individual_session
 -
     scope:
       type: opensearchcon_exhibitors
     values:
-      layout: opensearchcon_exhibitor
+      layout: opensearchcon_individual_exhibitor
 -
     scope:
       type: opensearchcon_workshops
     values:
-      layout: opensearchcon_session
+      layout: opensearchcon_individual_session
 collections:
   authors:
     output: true

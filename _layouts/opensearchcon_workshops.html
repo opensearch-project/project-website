@@ -1,17 +1,12 @@
 ---
 layout: redesign-fullwidth
-primary_title: "OpenSearchCon 2023 Workshops"
-title: "OpenSearchCon 2023 Workshops"
-breadcrumbs:
-  icon: community
-  items:
-    - title: OpenSearchCon 2023
 ---
+{% assign workshops = site.opensearchcon_workshops | where: "conference_id", page.conference_id %}
 <div class="conference-speaker-session-page">
     <h2>Workshop Details</h2>
     <div class="conference-speakers--session-speakers">
         <div class="speaker-session--speaker-cards">
-            {% for workshop in site.conference_workshops %}
+            {% for workshop in workshops %}
                 <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge">
                     <div class="speaker-session--speaker-cards--card--content speaker-session--speaker-cards--card--content__fullwidth">
                         <h3><a href="{{ workshop.permalink }}">{{ workshop.speaker_talk_title }}</a></h3>
@@ -23,12 +18,13 @@ breadcrumbs:
             {% endfor %}
         </div>
     </div>
+    {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
     <div class="conference-speaker-session-page--view-all">
         <div class="conference-speaker-session-page--view-all--link-button">
-            <a href="/events/opensearchcon/sessions/index.html">View All Sessions</a>
+            <a href="/events/opensearchcon/{{ conference_url_path_segment }}/sessions/index.html">View All Sessions</a>
         </div>
         <div class="conference-speaker-session-page--view-all--link-button">
-            <a href="/events/opensearchcon/speakers/index.html">View All Speakers</a>
+            <a href="/events/opensearchcon/{{ conference_url_path_segment }}/speakers/index.html">View All Speakers</a>
         </div>
     </div>
 </div>

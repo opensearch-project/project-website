@@ -1,5 +1,5 @@
 ---
-layout: conference_speakers
+layout: opensearchcon_speakers
 primary_title: "Meet the OpenSearchCon 2022 Speakers"
 title: "Meet the OpenSearchCon 2022 Speakers"
 breadcrumbs:

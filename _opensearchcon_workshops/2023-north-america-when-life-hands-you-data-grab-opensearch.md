@@ -22,7 +22,7 @@ session_track: 'Workshop'
 presenters:
   - jhandler
   - alakshmanan
-permalink: '/events/opensearchcon/2023/united-states/workshops/when-life-hands-you-data-grab-opensearch.html'
+permalink: '/events/opensearchcon/2023/north-america/workshops/when-life-hands-you-data-grab-opensearch.html'
 ---
 
 In this free-to-attend workshop, you’ll learn how to use OpenSearch for searching data and for analyzing log data. You will deploy an OpenSearch cluster on Kubernetes, and a simple container application for searching. Experiment with search and search relevance. Try out the neural plugin to generate and search with kNN. Pull log and metric data, send it to OpenSearch to visualize the performance of the application, and use OpenSearch’s observability capabilities to debug issues.
