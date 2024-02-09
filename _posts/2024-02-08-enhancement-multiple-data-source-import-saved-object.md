@@ -9,7 +9,7 @@ categories:
  - feature
 ---
 
-OpenSearch Dashboards launched multiple data sources functionality in OpenSearch 2.4, empowering Dashboards to retrieve data from various compatible OpenSearch endpoints. With this feature enabled, you gain the ability to connect multiple data sources while adding sample data or querying data through the OpenSearch Dashboards Dev Tools console. However, a limitation arises when attempting to import saved objects by uploading a local file. This blog describes how the OpenSearch Project has solved that challenge.
+OpenSearch Dashboards launched support for multiple data sources in OpenSearch 2.4, empowering Dashboards to retrieve data from various compatible OpenSearch endpoints. With this feature enabled, you gain the ability to connect multiple data sources while adding sample data or querying data through the OpenSearch Dashboards Dev Tools console. However, a limitation arises when attempting to import saved objects by uploading a local file. This blog post describes how the OpenSearch Project has solved that challenge.
 
 When `data_source.enabled` is `true`, multiple data sources is active and exported objects include data source information. Consequently, when visualizing these objects in a dashboard, the visualization tool seamlessly recognizes their origins. Conversely, importing saved objects without enabling multiple data sources or from dashboards lacking data source information results in imported objects missing crucial data source details. This omission poses challenges for accurate visualization within dashboards using the multiple data sources functionality.  
 
