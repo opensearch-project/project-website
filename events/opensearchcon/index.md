@@ -18,10 +18,12 @@ content_with_side_button_stack:
       - "Users, administrators, and developers come to OpenSearchCon to explore solutions to real-world problems, network with their peers, and take a look into the future of search, analytics, and observability applications."
     button_stacks:
       - heading: OpenSearchCon Archive
+        interactive_button_class: "redesign-button--wrapper__text-only"
         buttons:
           - opensearchcon-archive-2023
           - opensearchcon-archive-2022
       - heading: Get Involved
+        interactive_button_class: "redesign-button--wrapper__text-only__dark"
         buttons:
           - upcoming-events-dark
           - community-dark

@@ -57,14 +57,14 @@ layout: fullwidth-with-breadcrumbs
                 <div id="conference-archive-section-buttons" class="draft-3-landing-page--button-stack draft-3-landing-page--button-stack__tablet-2column">
                     {% for button in page.conference_sections_button_stack %}
                         <div class="draft-3-landing-page--button-stack--button">
-                            <div class="redesign-button--wrapper redesign-button--wrapper__text-only">
+                            <div class="conference-archive-section-buttons--link-button conference-archive-section-buttons--link-button__light">
                                 <a href="{{ button.url }}" class="redesign-button--anchor">{{ button.label }}</a>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
                 {% include interactive-states.html 
-                    element_classname="redesign-button--wrapper__text-only" 
+                    element_classname="conference-archive-section-buttons--link-button__light"
                     container_selector="#conference-archive-section-buttons" 
                 %}
             </div>

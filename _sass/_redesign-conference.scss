@@ -124,29 +124,9 @@ $content-panel-expand-breakpoint: 1019px;
         flex-basis: unset;
         max-width: unset;
         flex-grow: 0;
-        @include link-button($primary-open-sky-s1);
+        @include interactive-link-button-dark-mode("conference-speaker-session-page--view-all--link-button", 50px);
         > a {
-            color: $secondary-sanfrancisco-fog-t1;
-            padding: 10px 50px;
-            font-size: 18px;
-            line-height: 2.8;
-            text-decoration: none;
-            font-weight: 700;
-            &:hover {
-                background: unset;
-            }
-        }
-        &:hover {
-            @include hover-button-dark-mode;
-        }
-        &.conference-speaker-session-page--view-all--link-button__focus {
-            @include focused-button-dark-mode;
-        }
-        &.conference-speaker-session-page--view-all--link-button__active {
-            @include active-button-dark-mode;
-        }
-        &.conference-speaker-session-page--view-all--link-button__disabled {
-            @include disabled-button-dark-mode;
+            padding: 0 50px;
         }
     }
 }

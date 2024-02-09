@@ -430,16 +430,16 @@ $header-banner-mobile-breakpoint: 1018px;
                             flex-shrink: 0;
                             flex-grow: 0;
                         }
-                        > .redesign-button--wrapper {
+                        > .conference-archive-section-buttons--link-button {
+                            &.conference-archive-section-buttons--link-button__light {
+                                @include interactive-link-button-light-mode("conference-archive-section-buttons--link-button__light", 60px);
+                            }
+                            &.conference-archive-section-buttons--link-button__dark {
+                                @include interactive-link-button-dark-mode("conference-archive-section-buttons--link-button__dark", 50px);
+                            }
+                            
                             @media screen and (max-width: 834px) {
                                 width: 100%;
-                            }
-                            &.redesign-button--wrapper__text-only,
-                            &.redesign-button--wrapper__text-only__dark {
-                                height: 60px;
-                                > a {
-                                    line-height: 60px;
-                                }
                             }
                         }
                         > .redesign-button-pair--wrapper {
@@ -1206,23 +1206,6 @@ $header-banner-mobile-breakpoint: 1018px;
                         }
                     }
                 }
-                .resource-grid--more {
-                    > .link-button {
-                        @include link-button-light-mode;
-                        &:hover {
-                            @include hover-button-light-mode;
-                        }
-                        &.link-button__focus {
-                            @include focused-button-light-mode;
-                        }
-                        &.link-button__active {
-                            @include active-button-light-mode;
-                        }
-                        &.link-button__disabled {
-                            @include disabled-button-light-mode;
-                        }
-                    }
-                }
             }
             > .resource-grid {
                 min-height: 550px;
@@ -1329,34 +1312,10 @@ $header-banner-mobile-breakpoint: 1018px;
         }
     }
     &.redesign-button--wrapper__text-only {
-        @include link-button-light-mode;
-        &:hover {
-            @include hover-button-light-mode;
-        }
-        &.redesign-button--wrapper__text-only__focus {
-            @include focused-button-light-mode;
-        }
-        &.redesign-button--wrapper__text-only__active {
-            @include active-button-light-mode;
-        }
-        &.redesign-button--wrapper__text-only__disabled {
-            @include disabled-button-light-mode;
-        }
+        @include interactive-link-button-light-mode("redesign-button--wrapper__text-only", 60px);
     }
     &.redesign-button--wrapper__text-only__dark {
-        @include link-button-dark-mode($primary-open-sky-s2);
-        &:hover {
-            @include hover-button-dark-mode;
-        }
-        &.redesign-button--wrapper__text-only__dark__focus {
-            @include focused-button-dark-mode;
-        }
-        &.redesign-button--wrapper__text-only__active {
-            @include active-button-dark-mode;
-        }
-        &.redesign-button--wrapper__text-only__disabled {
-            @include disabled-button-dark-mode;
-        }
+        @include interactive-link-button-dark-mode("redesign-button--wrapper__text-only__dark", 50px);
     }
     &.redesign-button--wrapper__text-with-icon {
         > .redesign-button--anchor {
@@ -1513,10 +1472,9 @@ $header-banner-mobile-breakpoint: 1018px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    > div {
+    > .link-button {
         flex-basis: 268px;
-        height: 50px;
-        @include link-button-light-mode;   
+        @include interactive-link-button-light-mode("link-button", 50px);
     }
 }
 
