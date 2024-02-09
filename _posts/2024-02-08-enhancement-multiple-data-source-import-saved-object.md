@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Launch Highlight: The Saved Objects import feature improves multiple data sources information transfer"
+title:  "Launch highlight: The Saved Objects import feature improves information transfer for multiple data sources"
 authors:
  - nluyu
  - amznyja
