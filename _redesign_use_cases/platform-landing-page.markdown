@@ -60,10 +60,10 @@ button_stack:
 
 ## Community Partners
 
-The OpenSearch Project includes a [network of partners]("/partners") who provide hosted solutions, offer help with technical challenges, or build tools to extend the suite’s capabilities. Interested in becoming a project partner? [Here’s how]("/new-partner.html").
+The OpenSearch Project includes a [network of partners](/partners) who provide hosted solutions, offer help with technical challenges, or build tools to extend the suite’s capabilities. Interested in becoming a project partner? [Here’s how](/new-partner.html).
 
 ## Licensing
 
-When you [download OpenSearch]("/downloads"), what happens next is up to you. As fully open-source software licensed under Apache 2.0, OpenSearch offers you the freedom to modify, extend, monetize, or resell the software and the flexibility to deploy it on a variety of infrastructures.
+When you [download OpenSearch](/downloads), what happens next is up to you. As fully open-source software licensed under Apache 2.0, OpenSearch offers you the freedom to modify, extend, monetize, or resell the software and the flexibility to deploy it on a variety of infrastructures.
 
 </div>
