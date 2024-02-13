@@ -1,11 +1,11 @@
 ---
-
+calendar_date: '2024-02-13'
 eventdate: 2024-02-13 10:30:00 -0800
-
+primary_title: Development Backlog & Triage Meeting - ml-commons - 2024-02-13
 title: Development Backlog & Triage Meeting - ml-commons - 2024-02-13
 online: true
 signup:
-    url: https://www.meetup.com/opensearch/events/296823978
+    url: https://www.meetup.com/opensearch/events/299165833
     title: Join on Meetup
 
 ---
