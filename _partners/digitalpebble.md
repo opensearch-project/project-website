@@ -4,7 +4,7 @@ name_long: 'DigitalPebble Ltd'
 logo: '/assets/media/partners/digitalpebble.png'
 link: 'https://digitalpebble.com/'
 logo_large: '/assets/media/partners/digitalpebble/digitalpebble-logo.png'
-description: 'DigitalPebble&apos;s unique expertise covers all aspects of a document&apos;s life cycle, from web-wide crawling and collection, content analysis, filtering and categorization to indexing. DigitalPebble can help your organisation by advising on best practice and identifying suitable resources, designing scalable solutions as well as implementing them.'
+description: "DigitalPebble's unique expertise covers all aspects of a document's life cycle, from web-wide crawling and collection, content analysis, filtering and categorization to indexing. DigitalPebble can help your organisation by advising on best practice and identifying suitable resources, designing scalable solutions as well as implementing them."
 business_type: 'Consultancy'
 contact: 'contact@digitalpebble.com'
 opensearch_tech: 'Search, analytics and observability'
