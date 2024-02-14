@@ -3,7 +3,7 @@ layout: post
 title:  "Enhancing Security in OpenSearch 2.12.0: The End of Default Admin Password"
 authors:
  - dchanp
-date: 2024-01-21
+date: 2024-02-21
 categories:
  - community-updates
  - technical-posts
