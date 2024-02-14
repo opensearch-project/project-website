@@ -1,7 +1,7 @@
 ---
 name: Darshit Chanpura
 short_name: dchanp
-photo: '/assets/media/authors/dchanp.png'
+photo: '/assets/media/authors/dchanp.jpg'
 github: DarshitChanpura
 ---
 
