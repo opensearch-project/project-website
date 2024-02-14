@@ -6,8 +6,8 @@ authors:
 date: 2024-02-14
 categories:
   - community
-meta_keywords: OpenSearch 2023, year in review, new in opensearch, observability features, 2023 recap, 2024 plan
-meta_description: OpenSearch had a great year in 2023! Lets take a look over what released last year. Afterwards we will take a look over what is currently planned for OpenSearch in 2024.
+meta_keywords: OpenSearch Project year in review, OpenSearch user experience, OpenSearch Project roadmap
+meta_description: Discover how the OpenSearch Project plans to collaborate, innovate, and drive the project forward in 2024 while taking a look back project growth and releases in 2023.
 excerpt: You did it! You have all helped the OpenSearch Project to have a phenomenal year. Let’s take a look at what we accomplished together in 2023, because it was truly something special.
 opensearchAssistant: VTiJtGI2Sr4
 ---
@@ -68,4 +68,4 @@ We also introduced a new log data ingestion schema that is compliant with the Op
 
 ## Looking ahead to 2024
 
-Given a remarkable 2023, it's clear that the journey ahead in 2024 is full of exciting opportunities. With seven major versions released last year, covering areas from search and analytics to observability, the OpenSearch Project has shown tremendous growth. It's clear we couldn't have gotten here without our amazing community. Whether it's enhancing the UX, contributing to the ever-expanding documentation, or engaging with the latest features, we need your help to make 2024 as successful as last year. Let's continue to collaborate, innovate, and drive the OpenSearch Project forward together!
+Given a remarkable 2023, it's clear that the journey ahead in 2024 is full of exciting opportunities. With seven major versions released last year, covering areas from search and analytics to observability, the OpenSearch Project has shown tremendous growth. It's clear we couldn't have gotten here without our amazing community. Whether it's enhancing the UX, contributing to the ever-expanding documentation, or engaging with the latest features, we need your help to make 2024 as successful as last year. Let's continue to collaborate, innovate, and drive the OpenSearch Project forward together! Finally, make sure to check out our [project roadmap](https://github.com/orgs/opensearch-project/projects/1) to see what's coming soon!
