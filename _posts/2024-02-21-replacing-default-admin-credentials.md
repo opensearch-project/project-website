@@ -3,7 +3,7 @@ layout: post
 title:  "Enhancing Security in OpenSearch 2.12.0: The End of Default Admin Password"
 authors:
  - dchanp
-date: 2024-02-21
+date: 2024-01-21
 categories:
  - community-updates
  - technical-posts
@@ -63,5 +63,5 @@ We recommend all users to implement this update to better protect their data and
 
 **Learn More**
 
-For additional information on setting up and managing the security features in OpenSearch, a detailed guide is available [here]({{site.url}}/docs/latest/security/configuration/demo-configuration/).
+For additional information on setting up and managing the security features in OpenSearch, a detailed guide is available [here]({{site.baseUrl}}/docs/latest/security/configuration/demo-configuration/).
 
