@@ -21,7 +21,7 @@ breadcrumbs:
 For more information on the changes planned for each release, please see the [Project Roadmap](https://github.com/orgs/opensearch-project/projects/1)
 
 Note:  We have not added a major release to the 2023 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
-
+  
 
 | Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Manager                                     | Tracking Issue |
 |:--------------|:------------------------------------------|:---------------|:----------------------------------------------------|:---------------|
@@ -103,21 +103,21 @@ The software maintainers will not back-port fixes or features to versions outsid
 ## Change Log ##
 
 
-| Date                 | Change                                             | Reason                                                                                                                                                      |
-|:---------------------|:---------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| July 1, 2022         |                                                    | Initial Version                                                                                                                                             |
-| October 20,2022      | Increased time between 2.5 code freeze and release | 7 days is standard, and there were only 2 days for 2.5                                                                                                      |
-| October 20,2022      | Added Initial 2023 schedule                        | Current schedule was running out                                                                                                                            |
-| January 13, 2023     | Update to 2.5.0 release date                       | Maps team found last minute issue, moving to accommodate resolution                                                                                         |
-| January 19, 2023     | Update to 2.5.0 release date                       | Docs team due diligence, moving to accommodate                                                                                                              |
-| April 26, 2023       | Update to 2.7.0 release date                       | Found CVE to resolve, fix issues found in regression tests                                                                                                  |
-| July 17, 2023        | Update to 2.9.0 release date                       | No-Go on the release meeting call - build issues                                                                                                            |
-| July 20, 2023        | Update to 2.9.0 release date                       | No-Go on the release meeting call - build issues                                                                                                            |
-| August 14, 2023      | Updated release table to reflect release windows   | per adoption of <https://github.com/opensearch-project/project-website/pull/1866>                                                                           |
-| September 5th, 2023  | Updated 2.10 date                                  | Original release date was too close to US Labor Day Holiday                                                                                                 |
-| September 6th, 2023  | Updated 2.10 date                                  | 8 hour github outage last night - moving to accomodate a few final fixes                                                                                    |
-| September 11th, 2023 | Link to RELEASING.md                               | updated link from proposal to releasing documentation                                                                                                       |
-| September 29th, 2023 | Updated 2.11 date                                  | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/3955)                                                          |
-| January 4th, 2024    | Updated 2.12 date                                  | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/4290)                                                          |
-| February 2nd, 2024   | Enhancement                                        | Added Release Manager & Tracking issue for each release back through 2023 to add clarity for the community. Reversed release history - latest is at the top |
+| Date         | Change | Reason          |
+|:-------------|:-------|:----------------|
+| July 1, 2022 |        | Initial Version |
+|October 20,2022 |   Increased time between 2.5 code freeze and release | 7 days is standard, and there were only 2 days for 2.5 |
+|October 20,2022 | Added Initial 2023 schedule|Current schedule was running out|
+| January 13, 2023  | Update to 2.5.0 release date  | Maps team found last minute issue, moving to accommodate resolution  |
+| January 19, 2023  | Update to 2.5.0 release date  | Docs team due diligence, moving to accommodate  |
+| April 26, 2023  | Update to 2.7.0 release date  | Found CVE to resolve, fix issues found in regression tests  |
+| July 17, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
+| July 20, 2023  | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
+| August 14, 2023 | Updated release table to reflect release windows | per adoption of <https://github.com/opensearch-project/project-website/pull/1866> |
+| September 5th, 2023 | Updated 2.10 date  |  Original release date was too close to US Labor Day Holiday |
+| September 6th, 2023 | Updated 2.10 date  |  8 hour github outage last night - moving to accomodate a few final fixes |
+| September 11th, 2023 | Link to RELEASING.md  |  updated link from proposal to releasing documentation |
+| September 29th, 2023 | Updated 2.11 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/3955) |
+| January 4th, 2024 | Updated 2.12 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/4290) |
+| February 2nd, 2024 | Enhancement | Added Release Manager & Tracking issue for each release back through 2023 to add clarity for the community. Reversed release history - latest is at the top |
 | February 15th, 2024  | Updated 2024 release schedule                  | Per [Proposal - 186](https://github.com/opensearch-project/.github/issues/186)                                                                              |
