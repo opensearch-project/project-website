@@ -7,7 +7,7 @@ link: 'https://eliatra.com/'
 product_image: '/assets/media/partners/eliatra/eliatra-product.png'
 description: 'Eliatra provides Enterprise Solutions for OpenSearch, including support with guaranteed SLAs, professional services, and custom development. Our Eliatra Suite plugins for OpenSearch and Dashboards make it easy to set up and run OpenSearch for Mission-critical systems.'
 business_type: 'We are a product and services company'
-region: Worldwide
+region: 'Worldwide'
 contact: 'info@eliatra.com, https://eliatra.com/contact/'
 opensearch_tech: 'We specialize in Security and Alerting and are your trusted partner for planning, implementing, and running OpenSearch projects. We have extensive knowledge in migrating clusters from the Elastic Stack to OpenSearch.'
 industries: All
