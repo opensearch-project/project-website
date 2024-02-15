@@ -33,6 +33,5 @@ resources:
 products:
   - url: 'https://eliatra.com/eliatrasuite/'
     name: 'Eliatra Suite'
-    description: 'Explore Eliatra Suite Security Plus, Eliatra Suite Alerting Plus, and Kubernetes Support.
-Our OpenSearch solutions for the modern enterprise can be configured with ease.'
+    description: 'Explore Eliatra Suite Security Plus, Eliatra Suite Alerting Plus, and Kubernetes Support. Our OpenSearch solutions for the modern enterprise can be configured with ease.'
 ---
