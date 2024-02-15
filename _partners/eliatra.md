@@ -1,6 +1,6 @@
 ---
 name: Eliatra
-name_long: Eliatra
+name_long: 'Eliatra'
 logo: '/assets/media/partners/eliatra.png'
 logo_large: '/assets/media/partners/eliatra/eliatra-logo.png'
 link: 'https://eliatra.com/'
