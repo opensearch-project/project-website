@@ -10,7 +10,7 @@ business_type: 'We are a product and services company'
 region: 'Worldwide'
 contact: 'info@eliatra.com, https://eliatra.com/contact/'
 opensearch_tech: 'We specialize in Security and Alerting and are your trusted partner for planning, implementing, and running OpenSearch projects. We have extensive knowledge in migrating clusters from the Elastic Stack to OpenSearch.'
-industries: All
+industries: 'All'
 main_office_location: |
   77 Lower Camden Street
   Dublin, D02 XE80, Ireland
