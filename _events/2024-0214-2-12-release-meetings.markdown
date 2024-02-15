@@ -25,6 +25,10 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 * Go / No-Go voting
 
+**[Placeholder] Feburary 19th 2024 - 9AM PDT**
+
+* Go / No-Go voting
+
 **Feburary 20th 2024 - 2:00PM PDT**
 
 * [Release / Post release](https://github.com/opensearch-project/opensearch-build/wiki/Releasing-the-Distribution#release) (Release day!) [Release manager, leadership team, Repository owners ]
