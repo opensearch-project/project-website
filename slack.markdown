@@ -10,7 +10,7 @@ breadcrumbs:
       url: '/slack.html'
 ---
 
-##### Updated Oct 17, 2023
+##### Updated Jan 30, 2024
 
 The OpenSearch Project has a public Slack to enable brainstorming, code reviews, and other ad hoc collaboration discussions with the community.
 
@@ -22,7 +22,7 @@ In addition to the [OpenSearch Code of Conduct](https://opensearch.org/codeofcon
 * Full Transparency – All project maintainers are encouraged to use the Slack workspace along with the [discussion forums](https://forum.opensearch.org/) and [GitHub project](http://github.com/opensearch-project) repositories for all communication in order to discourage any closed-source discussions or development decisions.
 * No Sales Pitches – The OpenSearch Project Slack workspace is a place to discuss development of the project—not a place to sell things.
 
-<p><a href="https://join.slack.com/t/opensearch/shared_invite/zt-256d4yu2e-TvgKRoYD23vlUpKXFA1Wpw"><center><img src="/assets/media/community/slack-joinetheconvo.png" alt="Come join the conversation"></center></a></p> {: .img-fluid }
+<p><a href="https://join.slack.com/t/opensearch/shared_invite/zt-2bh052go7-1s_~5G1_alt9aLPmoRAINQ"><center><img src="/assets/media/community/slack-joinetheconvo.png" alt="Come join the conversation"></center></a></p> {: .img-fluid }
 
 
 Contributors, maintainers, and community members can use this communication channel to collaborate.

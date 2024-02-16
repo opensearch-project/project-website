@@ -45,6 +45,11 @@ layout: default
         <div class="full-width-layout--content">
             <div class="full-width-layout--content--body">
                 {{ content }}
+                {% if page.content_cta_button %}
+                    <div class="content-body--cta-button content-body--cta-button__centered">
+                        {% include redesign_buttons.html name=page.content_cta_button %}
+                    </div>
+                {% endif  %}
             </div>
             {% if page.resources %}
                 <div class="solutions-card-grid">

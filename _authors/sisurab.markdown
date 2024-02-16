@@ -6,4 +6,4 @@ github: getsaurabh02
 linkedin: getsaurabh02
 ---
 
-**Saurabh** is a Senior Software Engineer working on OpenSearch at Amazon Web Services. He is passionate about solving problems in the large-scale distributed systems. He is an active contributor to OpenSearch.
+**Saurabh Singh** is an Engineering Lead at AWS leading the core search performance space for the OpenSearch Project. He is passionate about solving problems in large-scale distributed systems.

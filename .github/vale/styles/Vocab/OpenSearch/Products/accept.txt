@@ -166,3 +166,4 @@ Winlogbeat
 WorldTech
 Xplore
 Zipkin
+Zstandard
