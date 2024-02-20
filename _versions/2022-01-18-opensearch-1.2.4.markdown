@@ -39,7 +39,7 @@ components:
     version: 1.1.0.1
 sections:
   docker-compose:
-    explanation: "downloads/opensearch-docker.markdown"
+    explanation: "downloads/opensearch-docker-1.x.markdown"
   opensearch:
     role: daemon
     artifacts:
