@@ -4,9 +4,11 @@ title:  "Launch highlight: The Saved Objects import feature improves information
 authors:
  - nluyu
  - amznyja
-date: 2024-02-08
+date: 2024-02-22
 categories:
  - feature
+meta_keywords: OpenSearch data source information, OpenSearch saved objects, OpenSearch multiple data sources, OpenSearch Dashboards
+meta_description: Unlock seamless dashboard migration with OpenSearch. Its enhanced data source information ensures accurate visualizations across clusters and eliminates transfer errors between dashboards.
 ---
 
 OpenSearch Dashboards launched support for multiple data sources in OpenSearch 2.4, empowering Dashboards to retrieve data from various compatible OpenSearch endpoints. With this feature enabled, you gain the ability to connect multiple data sources while adding sample data or querying data through the OpenSearch Dashboards Dev Tools console. However, a limitation arises when attempting to import saved objects by uploading a local file. This blog post describes how the OpenSearch Project has solved that challenge.
