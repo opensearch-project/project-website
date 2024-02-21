@@ -18,7 +18,7 @@ components:
     version: 1.2.0
   - role: ingest
     artifact: data-prepper
-    version: data-prepper-2.6.1
+    version: data-prepper-2.6.2
     platform_order:
       - docker
       - linux
@@ -39,7 +39,7 @@ components:
     version: 1.1.0.1
 sections:
   docker-compose:
-    explanation: "downloads/opensearch-docker.markdown"
+    explanation: "downloads/opensearch-docker-1.x.markdown"
   opensearch:
     role: daemon
     artifacts:

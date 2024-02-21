@@ -29,7 +29,7 @@ sections:
       opensearch-dashboards:
         explanation: "downloads/opensearch-ui.markdown"
   docker-compose:
-    explanation: "downloads/opensearch-docker.markdown"
+    explanation: "downloads/opensearch-docker-1.x.markdown"
 
 #  -
 #    role: dashboards-plugin
