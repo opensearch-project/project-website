@@ -16,7 +16,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          files: '["_posts", "_authors"]'
+          files: '["_posts", "_community_members"]'
           fail_on_error: false
           reporter: github-pr-check
           filter_mode: added

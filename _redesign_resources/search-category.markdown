@@ -28,6 +28,7 @@ resources:
     author: 'Martin Gaievski, Navneet Verma, Vamshi Vijay Nakkirtha, Fanit Kolchina'
     date: 'Wed, Oct 04, 2023'
     icon: 'search-magnifying-glass'
+button_stack_container_id: "search-platform-category-page-related-resources-button-stack"
 button_stack:
   - documentation-dark
   - community-dark

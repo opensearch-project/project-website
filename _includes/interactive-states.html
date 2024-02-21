@@ -37,7 +37,7 @@
         function onElementFocusIn(e) {
             if (e.target.tagName === 'A') {
                 const element = e.target.closest(elementClassBasedSelector);
-                if (!hasFocusClass(element)) {
+                if (!hasFocusClass(element) && !hasActiveClass(element)) {
                     const elements = container.querySelectorAll(elementClassBasedSelector);
                     clearFocusClasses(elements);
                     addFocusClass(element);
@@ -60,15 +60,18 @@
                     clearActiveClasses(elements);
                     addActiveClass(element);
                 }
+                if (hasFocusClass(element)) {
+                    clearFocusClasses([element]);
+                }
             }
         }
 
         if (container) {
             const elements = container.querySelectorAll(elementClassBasedSelector);
             elements.forEach(element => {
+                element.addEventListener('click', onElementClick);
                 element.addEventListener('focusin', onElementFocusIn);
                 element.addEventListener('focusout', onElementFocusOut);
-                element.addEventListener('click', onElementClick);
             });
         }
     });

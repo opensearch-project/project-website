@@ -1,5 +1,5 @@
 ---
-# List of one or more author names that map to the value of short_name in site.authors. See the content in the _authors collection for reference.
+# List of one or more author names that map to the value of short_name in site.community_members. See the content in the _community_members collection for reference.
 authors: 
     - shreeyasharma
 

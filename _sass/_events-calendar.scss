@@ -620,7 +620,12 @@ $calendar-month-default-week-count: 5;
                 }
                 > .events--calendar--details--card {
                     width: auto;
-                    min-width: 350px;
+                    @media screen and (min-width: 370px) {
+                        min-width: 350px;
+                    }
+                    @media screen and (max-width: 369px) {
+                        min-width: unset;
+                    }
                     &.events--calendar__list-view--event-card__community {
                         border-bottom: $event-category-community 10px solid;
                     }

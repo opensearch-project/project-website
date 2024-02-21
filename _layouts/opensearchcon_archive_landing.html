@@ -1,0 +1,122 @@
+---
+layout: fullwidth-with-breadcrumbs
+---
+{% assign conference_id = page.conference_id | replace_first: "-", " " %}
+{% assign conference_id_parts = conference_id | split: " " %}
+{% assign conference_year = conference_id_parts[0] %}
+{% assign conference_location = conference_id_parts[1] | replace: "-", " " %}
+{% if page.has_hero and page.hero_image %}
+    <div class="page-with-hero platform-landing-page platform-page--content">
+        <div class="landing-page-hero-wrapper">
+            <div class="platform-category-page--hero">
+                <div class="landing-page-hero--images">
+                    <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
+                            <img src="{{ page.hero_image }}" alt="Conference archive hero image">
+                        </div>
+                        <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
+                            <img src="{{ page.hero_image }}" alt="Conference archive hero image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+<div class="landing-page-content__left-panel conference-archive-landing">
+    <div class="landing-page-content__left-panel--content">
+        <div class="landing-page-content__left-panel--content--body">
+            <h2>Find past sessions and speakers from OpenSearchCon {{ conference_year }}</h2>
+            <p>Donec quam donec rhoncus tristique odio. Commodo eu amet blandit nullam sem vestibulum in purus. Id ut dui enim odio magnis sollicitudin sed tristique amet. Pharetra condimentum mi dictum.</p>
+            <h2>Featured Videos</h2>
+            <div class="conference-archive--featured-grid">
+                {% for featured in page.featured_sessions %}
+                    <div class="conference-archive--featured-grid--item">
+                        <div class="conference-archive--featured-grid--item--thumbnail">
+                            <img src="{{ featured.thumbnail }}" alt="Thumbnail for conference session video">
+                        </div>
+                        <div class="conference-archive--featured-grid--item--date">
+                            <h6>{{ featured.date }}</h6>
+                        </div>
+                        <div class="conference-archive--featured-grid--item--title">
+                            <h2><a href="{{ featured.url }}">{{ featured.title }}</a></h2>
+                        </div>
+                        <div class="conference-archive--featured-grid--item--category">
+                            {% include platform-category-icons.html name=featured.category include_label=true %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% include card-clickability.html card_classname="conference-archive--featured-grid--item" card_container_selector=".conference-archive--featured-grid" %}
+        </div>
+        <div class="landing-page-content__left-panel--content--side-panel landing-page-content__left-panel--content--side-panel__vertical-gradient">
+            <div class="draft-3-landing-page--button-stack__with-label">
+                <div class="draft-3-landing-page--button-stack__with-label--label">
+                    <h2>OpenSearchCon Archive</h2>
+                    <h3>{{ conference_year }} {{ conference_location }}</h3>
+                </div>
+                <div id="conference-archive-section-buttons" class="draft-3-landing-page--button-stack draft-3-landing-page--button-stack__tablet-2column">
+                    {% for button in page.conference_sections_button_stack %}
+                        <div class="draft-3-landing-page--button-stack--button">
+                            <div class="conference-archive-section-buttons--link-button conference-archive-section-buttons--link-button__light">
+                                <a href="{{ button.url }}" class="redesign-button--anchor">{{ button.label }}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% include interactive-states.html 
+                    element_classname="conference-archive-section-buttons--link-button__light"
+                    container_selector="#conference-archive-section-buttons" 
+                %}
+            </div>
+            <div id="upcoming-conferences-buttons" class="draft-3-landing-page--button-stack">
+                {% include redesign_buttons.html name="opensearchcons" %}
+            </div>
+            {% include interactive-states.html
+                element_classname="redesign-button--wrapper__text-with-icon"
+                container_selector="#upcoming-conferences-buttons"
+            %}
+            {% if page.related_articles %}
+                <div class="solutions-card-grid">
+                    <h2>Related Articles</h2>
+                    <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper solutions-card-grid--card-wrapper__2-col-max ">
+                        {% for article in page.related_articles %}
+                            {% assign category = article.category %}
+                            {% assign post_icon = site.data.post_category_icons.icon_map | find: "category", category %}
+                            {% if post_icon %}
+                                {% assign icon_name = post_icon.icon %}
+                            {% else %}
+                                {% assign icon_name = site.data.post_category_icons.default_post_icon %}
+                            {% endif %}
+                            {% include tall-card-no-image.html
+                                category=category
+                                title=article.title
+                                url=article.url
+                                icon=icon_name
+                                date=article.date
+                                additional_card_class="featured-conference-session"
+                            %}
+                        {% endfor %}
+                    </div>
+                    {% include card-clickability.html card_classname="tall-card__no-image--grid--card" card_container_selector=".solutions-card-grid > .solutions-card-grid--card-wrapper" %}
+                </div>
+            {% endif %}
+            <div class="draft-3-landing-page--button-stack__with-label">
+                <div class="draft-3-landing-page--button-stack__with-label--label">
+                    <h2>Get Involved</h2>
+                </div>
+                <div id="community-buttons" class="draft-3-landing-page--button-stack">
+                    <div class="draft-3-landing-page--button-stack--button draft-3-landing-page--button-stack--button__hide-labels">
+                        {% include redesign_buttons.html name="upcoming-events-dark" %}
+                    </div>
+                    <div class="draft-3-landing-page--button-stack--button draft-3-landing-page--button-stack--button__hide-labels">
+                        {% include redesign_buttons.html name="community-dark" %}
+                    </div>
+                </div>
+            </div>
+            {% include interactive-states.html
+                element_classname="redesign-button--wrapper__text-only__dark"
+                container_selector="#community-buttons"
+            %}
+        </div>
+    </div>
+</div>

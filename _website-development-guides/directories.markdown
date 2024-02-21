@@ -4,8 +4,8 @@
 https://github.com/opensearch-project/project-website
 ├── _artifacts 
 |   (Artifact files for each downloadable, seperated by product)
-├── _authors
-|   (Author bios)
+├── _community_members
+|   (Author, and conference speaker bios)
 ├── _community_projects
 |   (Community project tiles)
 ├── _data
@@ -54,8 +54,8 @@ https://github.com/opensearch-project/project-website
 |   |   (Client-side JavaScript)
 │   └── media
 |       (Images to support blog posts)
-├── authors
-|   (Source for https://opensearch.org/authors)
+├── community/members/
+|   (Source for https://opensearch.org/community/members/)
 ├── blog
 |   (Source for blog listing: https://opensearch.org/blog/ )
 ├── community_projects

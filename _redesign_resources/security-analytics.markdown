@@ -15,6 +15,7 @@ resources:
     author: ' Kevin Fallis and Jimish Shah'
     date: 'Tue, Mar 14, 2023'
     icon: security-shield
+button_stack_container_id: "security-analytics-platform-category-page-related-resources-button-stack"
 button_stack:
   - documentation-dark
   - community-dark

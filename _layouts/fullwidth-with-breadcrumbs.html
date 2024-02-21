@@ -8,40 +8,11 @@ layout: default
 {% endif %}
 <main class="container">
     <div class="{{ page_type_class }}">
-        <div class="full-width-layout--header">
-            {% if page.breadcrumbs %}
-                <div class="full-width-layout--header--category-area">
-                    {% assign icon_type = page.breadcrumbs.icon %}
-                    {% assign breadcrumb_items = page.breadcrumbs.items %}
-                    {% if icon_type %}
-                        <div class="full-width-layout--header--icon">
-                            {% include icons.html type=icon_type %}
-                        </div>
-                        {% if breadcrumb_items %}
-                            {% for item in breadcrumb_items %}
-                                <div class="full-width-layout--header--breadcrumbs--item">
-                                    {% if item.url -%}
-                                        <a href="{{ item.url }}">{{ item.title }}</a>
-                                    {%- else -%}
-                                        {{- item.title -}}
-                                    {%- endif %}
-                                </div>
-                                {% unless forloop.last %}
-                                    <div class="full-width-layout--header--breadcrumbs--item-separator">&gt;</div>
-                                {% endunless %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endif %}
-                </div>
-            {% endif %}
-            <div class="full-width-layout--header--title">
-                {% if page.primary_title %}
-                    <h1>{{ page.primary_title }}</h1>
-                {% elsif page.title %}
-                    <h1>{{ page.title }}</h1>
-                {% endif %}
-            </div>
-        </div>
+        {% include page-breadcrumbs-and-title.html 
+            breadcrumbs=page.breadcrumbs
+            primary_title=page.primary_title
+            title=page.title
+        %}
         <div class="full-width-layout--content">
             <div class="full-width-layout--content--body">
                 {{ content }}
@@ -51,13 +22,51 @@ layout: default
                     </div>
                 {% endif  %}
             </div>
-            {% if page.resources %}
+            {%- if page.content_with_side_button_stack -%}
+                {%- for additional_content in page.content_with_side_button_stack -%}
+                    {%- assign side_panel_location = additional_content.side_panel_location | default: "left" -%}
+                    <div class="landing-page-content__{{side_panel_location}}-panel">
+                        <div class="landing-page-content__{{side_panel_location}}-panel--content">
+                            <div class="landing-page-content__{{side_panel_location}}-panel--content--body">
+                                {% if additional_content.heading %}
+                                    <h2 class="platform-page--solution--header">{{ additional_content.heading }}</h2>
+                                {% endif %}
+                                {% for paragraph in additional_content.paragraphs %}
+                                    <p>{{ paragraph }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="landing-page-content__{{side_panel_location}}-panel--content--side-panel landing-page-content__{{side_panel_location}}-panel--content--side-panel__without-card-grid landing-page-content__left-panel--content--side-panel__vertical-gradient">
+                                {%- for button_stack in additional_content.button_stacks -%}
+                                    <div class="draft-3-landing-page--button-stack__with-label">
+                                        <div class="draft-3-landing-page--button-stack__with-label--label">
+                                            <h2>{{ button_stack.heading }}</h2>
+                                        </div>
+                                        <div class="draft-3-landing-page--button-stack">
+                                            {%- for button in button_stack.buttons -%}
+                                                <div class="draft-3-landing-page--button-stack--button draft-3-landing-page--button-stack--button__hide-labels">
+                                                    {% include redesign_buttons.html name=button %}
+                                                </div>
+                                            {%- endfor -%}
+                                        </div>
+                                    </div>
+                                    {%- assign button_stack_container_selector = ".landing-page-content__" | append: side_panel_location | append: "-panel--content--side-panel > .draft-3-landing-page--button-stack__with-label:nth-of-type(" | append: forloop.index | append: ") .draft-3-landing-page--button-stack" -%}
+                                    {% include interactive-states.html 
+                                        element_classname=button_stack.interactive_button_class 
+                                        container_selector=button_stack_container_selector
+                                    %}
+                                {%- endfor -%}
+                            </div>
+                        </div>
+                    </div>
+                {%- endfor -%}
+            {%- endif -%}
+            {%- if page.resources -%}
                 <div class="solutions-card-grid">
-                    {% if page.resources.heading -%}
+                    {%- if page.resources.heading -%}
                         <h2 {% if page.resources.heading_id %}id="{{ page.resources.heading_id }}{% endif %}">{{ page.resources.heading }}</h2>
                     {%- endif %}
                     <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
-                        {% for item in page.resources.items %}
+                        {%- for item in page.resources.items -%}
                             {% include tall-card-no-image.html
                                 title=item.title
                                 url=item.url
@@ -65,10 +74,10 @@ layout: default
                                 icon=item.icon
                                 date=item.date
                             %}
-                        {% endfor %}
+                        {%- endfor -%}
                     </div>
                 </div>
-            {% endif %}
+            {%- endif -%}
         </div>
     </div>
 </main>

@@ -1,50 +1,26 @@
 items:
   -
     label: OpenSearchCon
-    fragments: 
-      - opensearchcon
-      - sessions
-      - speakers
-      - exhibitors
-      - workshops
-      - unconference
-      - opensearchcon2023-cfp
     children:
       -
         label: 2024 - Stay Informed
         url: /events/opensearchcon/
       -
-        label: Sessions
-        url: /events/opensearchcon/sessions/
-      -
-        label: Speakers
-        url: /events/opensearchcon/speakers/
-      -
-        label: Exhibitors
-        url: /events/opensearchcon/exhibitors/
-      -
-        label: Workshops
-        url: /events/opensearchcon/workshops/
-      -
-        label: Unconference
-        url: /events/opensearchcon/unconference/
-      -
-        label: CFP is closed
-        url: /opensearchcon2023-cfp.html
+        label: Archive
+        url: /events/opensearchcon/index.html
+        children:
+          -
+            label: 2023 North America
+            url: /events/opensearchcon/2023/north-america/index.html
+          - 
+            label: 2022 North America
+            url: /events/opensearchcon/2022/north-america/index.html
   -
     label: Download
-    fragments:
-      - downloads
-      - versions
     url: /downloads.html
   -
     label: About
     url: /about.html
-    fragments:
-      - about
-      - releases
-      - roadmap
-      - faq
     children:
       -
        label: Releases
@@ -54,19 +30,13 @@ items:
        url: https://github.com/orgs/opensearch-project/projects/1
       -
        label: FAQ
-       url: /faq
+       url: /faq/
   -
     label: Community
-    fragments:
-      - events
-      - community_projects
-      - blog
-      - partners
-      - slack
     children:
       -
         label: Blog
-        url: /blog
+        url: /blog/
       -
         label: Forum
         url: https://forum.opensearch.org/
@@ -79,18 +49,15 @@ items:
         class_name: 'events-page-menu-link__device-based'
       -
         label: Partners
-        url: /partners
+        url: /partners/
       -
         label: Projects
-        url: /community_projects
+        url: /community_projects/
+      - 
+        label: Members
+        url: /community/members/index.html
   -
     label: Documentation
-    fragments: 
-      - docs
-      - opensearch
-      - data-prepper
-      - clients
-      - benchmark
     url: /docs/latest/
     children:
       -
@@ -108,13 +75,6 @@ items:
   -
     label: Platform
     url: /platform/index.html
-    fragments: 
-      - platform
-      - search
-      - observability
-      - security-analytics
-      - vector-database
-      - benchmarks
     children:
       - label: Search
         url: /platform/search/index.html
@@ -131,4 +91,4 @@ items:
         url: https://playground.opensearch.org/
       -
         label: Performance Benchmarks
-        url: /benchmarks
+        url: /benchmarks/
