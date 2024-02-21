@@ -74,22 +74,22 @@ The software maintainers will not back-port fixes or features to versions outsid
 ## Release History ##
 
 
-| Release Number |  Release Date      | Release Manager | Tracking Issue |
-|:---------------|:-------------------|:-------------------|:-------------------|
-| 2.12.0        | February 20th 2024 | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [4115](https://github.com/opensearch-project/opensearch-build/issues/4115) |
-| 1.3.14         | December 12th 2023 | [Zelin Hao](https://github.com/zelinh) | [4069](https://github.com/opensearch-project/opensearch-build/issues/4069) |
-| 2.11.1         | November 30th       | [Divya Madala](https://github.com/Divyaasm) | [4161](https://github.com/opensearch-project/opensearch-build/issues/4161) |
-| 2.11.0         | October 16th        | [Rashabh Singh](https://github.com/rishabh6788) & [Peter Zhu](https://github.com/peterzhuamazon) | [3998](https://github.com/opensearch-project/opensearch-build/issues/3998) |
-| 1.3.13         | September 21st      | [Zelin Hao](https://github.com/zelinh) | [3878](https://github.com/opensearch-project/opensearch-build/issues/3878) |
-| 2.10.0         | September 25th      | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [3777](https://github.com/opensearch-project/opensearch-build/issues/3777) |
-| 1.3.11         | June 29th, 2023     | [Jeff Lu](https://github.com/jordarlu) | [3630](https://github.com/opensearch-project/opensearch-build/issues/3630) |
-| 2.9.0          | July 24th, 2023     | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [3762](https://github.com/opensearch-project/opensearch-build/issues/3762) |
-| 2.8.0          | June 6th, 2023      | [Rashabh Singh](https://github.com/rishabh6788) & [Peter Zhu](https://github.com/peterzhuamazon) | [3434](https://github.com/opensearch-project/opensearch-build/issues/3434) |
-| 1.3.10         | May 11th, 2023      | [Prudhvi Godithi](https://github.com/prudhvigodithi) & [Peter Zhu](https://github.com/peterzhuamazon) | [3331](https://github.com/opensearch-project/opensearch-build/issues/3331) |
-| 2.7.0          | April 17th, 2023    | [Peter Zhu](https://github.com/peterzhuamazon) & [Zelin Hao](https://github.com/zelinh) | [3230](https://github.com/opensearch-project/opensearch-build/issues/3230) |
-| 1.3.9          | March 9th, 2023     | [Jeff Lu](https://github.com/jordarlu) | [3195](https://github.com/opensearch-project/opensearch-build/issues/3195) |
-| 2.6.0          | February 28th, 2023 | [Sayali Gaikawad](https://github.com/gaiksaya) | [3081](https://github.com/opensearch-project/opensearch-build/issues/3081) |
-| 1.3.8          | February 2nd, 2023  | [Rashabh Singh](https://github.com/rishabh6788) & [Divya Madala](https://github.com/Divyaasm) | [3012](https://github.com/opensearch-project/opensearch-build/issues/3012) |
+| Release Number |  Release Date      | Release Manager                                                                                                                          | Tracking Issue |
+|:---------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+| 2.12.0        | February 20th 2024 | [Prudhvi Godithi](https://github.com/prudhvigodithi)                                                                                     | [4115](https://github.com/opensearch-project/opensearch-build/issues/4115) |
+| 1.3.14         | December 12th 2023 | [Zelin Hao](https://github.com/zelinh)                                                                                                   | [4069](https://github.com/opensearch-project/opensearch-build/issues/4069) |
+| 2.11.1         | November 30th       | [Divya Madala](https://github.com/Divyaasm)                                                                                              | [4161](https://github.com/opensearch-project/opensearch-build/issues/4161) |
+| 2.11.0         | October 16th        | [Rishabh Singh](https://github.com/rishabh6788) & [Peter Zhu](https://github.com/peterzhuamazon)                                         | [3998](https://github.com/opensearch-project/opensearch-build/issues/3998) |
+| 1.3.13         | September 21st      | [Zelin Hao](https://github.com/zelinh)                                                                                                   | [3878](https://github.com/opensearch-project/opensearch-build/issues/3878) |
+| 2.10.0         | September 25th      | [Prudhvi Godithi](https://github.com/prudhvigodithi)                                                                                     | [3777](https://github.com/opensearch-project/opensearch-build/issues/3777) |
+| 1.3.11         | June 29th, 2023     | [Jeff Lu](https://github.com/jordarlu)                                                                                                   | [3630](https://github.com/opensearch-project/opensearch-build/issues/3630) |
+| 2.9.0          | July 24th, 2023     | [Prudhvi Godithi](https://github.com/prudhvigodithi)                                                                                     | [3762](https://github.com/opensearch-project/opensearch-build/issues/3762) |
+| 2.8.0          | June 6th, 2023      | [Rishabh Singh](https://github.com/rishabh6788) & [Peter Zhu](https://github.com/peterzhuamazon)                                         | [3434](https://github.com/opensearch-project/opensearch-build/issues/3434) |
+| 1.3.10         | May 11th, 2023      | [Prudhvi Godithi](https://github.com/prudhvigodithi) & [Peter Zhu](https://github.com/peterzhuamazon)                                    | [3331](https://github.com/opensearch-project/opensearch-build/issues/3331) |
+| 2.7.0          | April 17th, 2023    | [Peter Zhu](https://github.com/peterzhuamazon) & [Zelin Hao](https://github.com/zelinh)                                                  | [3230](https://github.com/opensearch-project/opensearch-build/issues/3230) |
+| 1.3.9          | March 9th, 2023     | [Jeff Lu](https://github.com/jordarlu)                                                                                                   | [3195](https://github.com/opensearch-project/opensearch-build/issues/3195) |
+| 2.6.0          | February 28th, 2023 | [Sayali Gaikawad](https://github.com/gaiksaya)                                                                                           | [3081](https://github.com/opensearch-project/opensearch-build/issues/3081) |
+| 1.3.8          | February 2nd, 2023  | [Rishabh Singh](https://github.com/rishabh6788) & [Divya Madala](https://github.com/Divyaasm)                                            | [3012](https://github.com/opensearch-project/opensearch-build/issues/3012) |
 | 2.5.0          | January 24th, 2023  | [Rishabh Singh](https://github.com/rishabh6788), [Peter Zhu](https://github.com/peterzhuamazon) & [Zelin Hao](https://github.com/zelinh) | [2908](https://github.com/opensearch-project/opensearch-build/issues/2908) |
 | 1.3.7          | December 13, 2022  |
 | 2.4            | November 15, 2022  |
