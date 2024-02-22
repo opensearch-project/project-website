@@ -1,5 +1,6 @@
 ---
-short_name: 'kfreedain'
+# short_name: 'kfreedain'
+short_name: krisfreedain
 name: 'Kris Freedain'
 photo: '/assets/media/community/members/krisfreedain.jpg'
 job_title_and_company: 'Community Manager - OpenSearch Project'

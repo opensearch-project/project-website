@@ -1,5 +1,6 @@
 ---
-short_name: 'asundar'
+# short_name: 'asundar'
+short_name: apasun
 name: 'Aparna Sundar'
 photo: '/assets/media/community/members/asundar.jpg'
 job_title_and_company: 'Lead UX Research at AWS - OpenSearch'

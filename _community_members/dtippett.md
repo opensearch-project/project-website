@@ -1,5 +1,5 @@
 ---
-short_name: 'dtippett'
+short_name: dtaivpp
 name: 'David Tippett'
 photo: '/assets/media/community/members/dtippett.jpg'
 job_title_and_company: 'Senior Developer Advocate / AWS - OpenSearch'

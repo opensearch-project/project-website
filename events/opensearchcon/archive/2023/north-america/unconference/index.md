@@ -23,7 +23,7 @@ primary_speaker_name: 'nknize'
 hero_banner_image: '/assets/media/opensearchcon/Uncon_web-1399x627.png'
 presenters:
   - nknize
-  - kfreedain
+  - krisfreedain
   - chenkle
 conference_id: '2023-north-america'
 permalink: /events/opensearchcon/2023/north-america/unconference/index.html

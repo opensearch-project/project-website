@@ -1,5 +1,5 @@
 ---
-primary_presenterspeaker_name : 'asundar'
+primary_presenterspeaker_name : 'apasun'
 speaker_talk_title : 'Determining the User Flows in UX: Search Relevance Engineer'
 primary_title : 'Determining the User Flows in UX: Search Relevance Engineer'
 title: 'OpenSearchCon 2023 Session: Determining User Flows in UX: Search Relevance Engineer'
@@ -21,7 +21,7 @@ session_time: "2023-09-28 - 4:15-4:55pm"
 session_room: "Willow"
 session_track: "Search"
 presenters:
-  - asundar
+  - apasun
   - lpavlov
 permalink : '/events/opensearchcon/2023/north-america/sessions/determining-the-user-flows-in-ux-search-relevance-engineer.html'
 youtube_video_id: 'seINti01ECM'

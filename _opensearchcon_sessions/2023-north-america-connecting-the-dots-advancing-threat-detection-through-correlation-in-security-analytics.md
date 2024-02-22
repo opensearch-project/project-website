@@ -1,5 +1,5 @@
 ---
-primary_presenter: 'ssingh'
+primary_presenter: 'sisurab'
 speaker_talk_title: 'Connecting the Dots: Advancing Threat Detection Through Correlation in Security Analytics'
 primary_title: 'Connecting the Dots: Advancing Threat Detection Through Correlation in Security Analytics'
 title: 'OpenSearchCon 2023 Session: Advancing Threat Detection Through Correlation in Security Analytics'
@@ -20,7 +20,7 @@ session_time: "2023-09-27 - 2:50pm-3:30pm"
 session_room: "Redwood"
 session_track: "Analytics, Observability, and Security"
 presenters:
-  - ssingh
+  - sisurab
   - deysubho
 permalink: '/events/opensearchcon/2023/north-america/sessions/connecting-the-dots-advancing-threat-detection-through-correlation-in-security-analytics.html'
 youtube_video_id: 'Jld33LPB6MM'

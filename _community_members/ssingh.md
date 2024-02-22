@@ -1,5 +1,5 @@
 ---
-short_name: 'ssingh'
+short_name: 'sisurab'
 name: 'Saurabh Singh'
 photo: '/assets/media/community/members/ssingh.jpg'
 job_title_and_company: 'Senior Software Development Engineer at AWS - OpenSearch'

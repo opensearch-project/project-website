@@ -1,5 +1,5 @@
 ---
-primary_presenter: 'dtippett'
+primary_presenter: 'dtaivpp'
 speaker_talk_title: 'Going Deep: Unraveling the Secrets to OpenSearch&apos;s Ingestion'
 primary_title: 'Going Deep: Unraveling the Secrets to OpenSearch&apos;s Ingestion'
 title: 'OpenSearchCon 2023 Session: Going Deep: Unraveling the Secrets to Ingestion'
@@ -24,7 +24,7 @@ permalink: '/events/opensearchcon/2023/north-america/sessions/going-deep-unravel
 youtube_video_id: 'xXEXnNIcvTg'
 conference_id: '2023-north-america'
 presenters:
-  - dtippett
+  - dtaivpp
 ---
 
 Ingestion in OpenSearch can be a bit of a mystery. Lets take a look behind the curtain and understand exactly how ingestion works in OpenSearch. We will go from client connection to the data being persisted on disk. By the end you will know how you can get more from OpenSearch using some of the new features like Segment Replication, ZSTD compression, and many more!
