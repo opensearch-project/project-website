@@ -70,9 +70,13 @@ layout: default
                     <div class="community-member--blog-posts solutions-card-grid">
                         <h2>Blog Posts &amp; Articles by {{ page.name }}</h2>
                         <h3>Most Recent Blog Posts</h3>
-                        
+                        {%- if member_blog_posts.size > 1 -%}
+                            {%- assign most_recent_blog_posts = member_blog_posts | slice: 0, 2 -%}
+                        {%- else -%}
+                            {%- assign most_recent_blog_posts = member_blog_posts | slice: 0, 1 -%}
+                        {%- endif -%}
                         <div class="community-member--blog-posts--cards tall-card__no-image--grid solutions-card-grid--card-wrapper">
-                            {% for post in member_blog_posts -%}
+                            {% for post in most_recent_blog_posts -%}
                                 {% if post.categories and post.categories.first %}
                                     {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
                                     {% assign category = post.categories | first %}
@@ -121,7 +125,7 @@ layout: default
                                         {% assign last_blog_post_index = member_blog_posts.size | minus: 1 %}
                                         {% for i in (2..last_blog_post_index) %}
                                             <tr>
-                                                <td><a href="{{ member_blog_posts[i].url }}">{{ member_blog_posts[i].date }}</a></td>
+                                                <td><a href="{{ member_blog_posts[i].url }}">{{ member_blog_posts[i].date | date: "%d %b %Y" }}</a></td>
                                                 <td><a href="{{ member_blog_posts[i].url }}">{{ member_blog_posts[i].title }}</a></td>
                                             </tr>
                                         {% endfor %}

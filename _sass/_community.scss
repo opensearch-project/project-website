@@ -390,6 +390,33 @@
                         grid-template-columns: 1fr 1fr;
                     }
                 }
+                > .community-member--blog-posts--table {
+                    margin-bottom: 80px;
+                    > table {
+                        @extend .data-table__bold-first-column;
+                        margin: 0;
+                        width: 100%;
+                        > tbody {
+                            > tr {
+                                > td {
+                                    line-height: unset;
+                                    border-left: unset;
+                                    > a {
+                                        text-decoration: none;
+                                    }
+                                }
+                                > td:nth-of-type(1) {
+                                    width: 25%;
+                                    white-space: nowrap;
+                                    min-width: fit-content;
+                                }
+                                > td:nth-of-type(2) {
+                                    width: 75%;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             > .community-member--conference-sessions {
                 > h3.community-member--conference-sessions--conference-id {
@@ -457,5 +484,8 @@
     }
     &.community-member--persona-tag__conference_speaker {
         background: $primary-open-sky-s2;
+    }
+    &.community-member--persona-tag__osci {
+        background: $primary-pacific-sky-s1;
     }
 }
