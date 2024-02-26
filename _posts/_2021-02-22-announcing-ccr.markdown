@@ -3,7 +3,7 @@ layout: post
 authors: 
   - pallp
   - gopalak
-  - karanas
+  - sai
 comments: true
 title: "Announcing the experimental release of Cross-Cluster Replication"
 category:

@@ -323,10 +323,77 @@
 @mixin active-button-light-mode {
     background: $primary-pacific-sky-t3;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
 }
 
 @mixin disabled-button-light-mode {
     background: $secondary-sanfrancisco-fog-s1;
+}
+
+@mixin interactive-link-button-dark-mode($button-class, $button-height) {
+    background: $primary-open-sky-s2;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: $button-height;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    > a {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 100%;
+        line-height: $button-height;
+        color: $secondary-sanfrancisco-fog-t1;
+        text-decoration: none;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    &:hover {
+        @include hover-button-dark-mode;
+    }
+    &.#{$button-class}__focused {
+        @include focused-button-dark-mode;
+    }
+    &.#{$button-class}__active {
+        @include active-button-dark-mode;
+    }
+    &.#{$button-class}__disabled {
+        @include disabled-button-dark-mode;
+    }
+}
+
+@mixin interactive-link-button-light-mode($button-class, $button-height) {
+    background: $primary-pacific-sky-t3;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    height: $button-height;
+    padding: 0;
+    white-space: nowrap;
+    > a {
+        display: inline-block;
+        box-sizing: border-box;
+        line-height: $button-height;
+        width: 100%;
+        color: $primary-deep-blue-sea;
+        text-decoration: none;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    &:hover {
+        @include hover-button-light-mode;
+    }
+    &.#{$button-class}__focused {
+        @include focused-button-light-mode;
+    }
+    &.#{$button-class}__active {
+        @include active-button-light-mode;
+    }
+    &.#{$button-class}__disabled {
+        @include disabled-button-light-mode;
+    }
 }
 
 @mixin link-button-light-mode($fill-color: $primary-pacific-sky-t3) {
@@ -344,6 +411,7 @@
     }
     &:has(a:active) {
         @include active-button-light-mode;
+        border: none;
     }
     &:has(a[disabled]) {
         @include disabled-button-light-mode;
@@ -428,6 +496,7 @@
     }
     &:has(a:active) {
         @include active-button-dark-mode;
+        border: none;
     }
     &:has(a[disabled]) {
         @include disabled-button-dark-mode;
@@ -462,6 +531,7 @@
     }
     &:has(a:active) {
         @include active-button-dark-mode;
+        border: none;
     }
     &:has(a[disabled]) {
         @include disabled-button-dark-mode;

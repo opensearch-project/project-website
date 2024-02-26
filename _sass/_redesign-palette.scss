@@ -97,6 +97,10 @@ $event-category-community: $primary-open-sky;
 $event-category-development: $secondary-malibu-sunrise;
 $event-category-events: $secondary-seafoam-mint;
 
+$community-member-author-persona: $primary-deep-blue-sea-t2;
+$community-member-conference_speaker-persona: $primary-deep-blue-sea-t1;
+$community-member-osci-persona: $primary-open-sky-s3;
+
 @mixin thick-edge-bottom($color: $primary-open-sky-s2) {
     border-bottom: $color 10px solid;
 }
@@ -193,4 +197,39 @@ $event-category-events: $secondary-seafoam-mint;
 
 @mixin gradient-vallarta-sunset {
     background: linear-gradient(180deg, #FFB81C 0%, #F65275 49.48%, #6FC5E9 100%);
+}
+
+@mixin clickable-card-interactive-states($card-class, $link-underline-color) {
+    a {
+        text-decoration: none;
+    }
+    &:has(a[href]) {
+        cursor: pointer;
+    }
+    &:hover {
+        a {
+            border-bottom: 2px solid $link-underline-color;
+            outline: none;
+        }
+    }
+    &:has(a:focus) {
+        box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+        a {
+            border-bottom: 2px solid $link-underline-color;
+            outline: none;
+        }
+    }
+    &:has(a:active) {
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+    }
+    &.#{$card-class}__focused {
+        box-shadow: 0px 4px 12px 8px rgba(0, 99, 184, 0.50);
+        a {
+            border-bottom: 2px solid $link-underline-color;
+            outline: none;
+        }
+    }
+    &.#{$card-class}__active {
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25) inset;
+    }
 }

@@ -1,0 +1,181 @@
+---
+layout: default
+---
+<main class="container">
+    <div class="page-without-hero">
+        {% include page-breadcrumbs-and-title.html 
+            breadcrumbs=page.breadcrumbs 
+            primary_title=page.primary_title 
+            title=page.title 
+        %}
+        <div class="two-column-layout two-column-layout__left-sidebar two-column-layout__community-member">
+            <div class="two-column-layout--sidebar">
+                <div class="community-member--photo">
+                    <img src="{{ page.photo }}" alt="Community member photo">
+                </div>
+                <div class="community-member--description">
+                    {{ page.content | markdownify }}
+                </div>
+                <div class="community-member--personas">
+                    <h3>{{ page.name }}&apos;s Roles</h3>
+                    {% for persona in page.personas -%}
+                        {%- assign configured_persona = site.data.community_members.personas | find: "value", persona -%}
+                        {%- if configured_persona -%}
+                            {%- assign persona_tag_classname = "community-member--persona-tag__" | append: persona -%}
+                            <div class="community-member--persona-tag {{ persona_tag_classname }}">{{ configured_persona.label }}</div>
+                        {%- endif -%}
+                    {%- endfor %}
+                </div>
+                {%- if page.github or page.linkedin or page.twitter or page.mastodon -%}
+                    <div class="community-member--social-links">
+                        <h3>{{ page.name }}&apos;s Social Spaces</h3>
+                        <ul>
+                            {% if page.linkedin -%}
+                                <li><a target="_blank" href="https://www.linkedin.com/in/{{page.linkedin}}"><i class="icon icon-linkedin-square"></i> {{page.name}}</a></li>
+                            {%- endif -%}
+                            {% if page.github -%}
+                                <li><a target="_blank" href="https://github.com/{{page.github}}"><i class="icon icon-github-square"></i> {{page.github}}</a></li>
+                            {%- endif -%}
+                            {% if page.mastodon %}
+                                <li class="author-social-media--mastodon">
+                                  <div class="author-social-media--mastodon--icon">
+                                    <a target="_blnak" href="{{ page.mastodon.url }}">
+                                      {% include icons.html type="mastodon-social" %}
+                                    </a>
+                                  </div>
+                                  <div class="author-social-media--mastodon--name">
+                                    <a target="_blank" href="{{ page.mastodon.url }}">
+                                      {{page.mastodon.name}}
+                                    </a>
+                                  </div>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {%- endif -%}
+                <div class="two-column-layout--sidebar--navigation">
+                    <div class="community-member--back-to-directory">
+                        <a href="/community/members/index.html">Back to Member Directory</a>
+                    </div>
+                    {% include interactive-states.html 
+                        element_classname="community-member--back-to-directory"
+                        container_selector=".two-column-layout--sidebar--navigation"
+                    %}
+                </div>
+            </div>
+            <div class="two-column-layout--body">
+                {% assign blog_author_selector = 'blog.authors contains "' | append: page.short_name | append: '"' %}
+                {% assign member_blog_posts = site.posts | where_exp: "blog", blog_author_selector %}
+                {% if member_blog_posts and member_blog_posts.size > 0 %}
+                    <div class="community-member--blog-posts solutions-card-grid">
+                        <h2>Blog Posts &amp; Articles by {{ page.name }}</h2>
+                        <h3>Most Recent Blog Posts</h3>
+                        {%- if member_blog_posts.size > 1 -%}
+                            {%- assign most_recent_blog_posts = member_blog_posts | slice: 0, 2 -%}
+                        {%- else -%}
+                            {%- assign most_recent_blog_posts = member_blog_posts | slice: 0, 1 -%}
+                        {%- endif -%}
+                        <div class="community-member--blog-posts--cards tall-card__no-image--grid solutions-card-grid--card-wrapper">
+                            {% for post in most_recent_blog_posts -%}
+                                {% if post.categories and post.categories.first %}
+                                    {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
+                                    {% assign category = post.categories | first %}
+                                {% elsif post.categories %}
+                                    {% comment %} Sometimes posts have a categories property that is only a single string. {% endcomment %}
+                                    {% assign category = post.categories %}
+                                {% elsif post.category %}
+                                    {% comment %} Sometimes posts have a category property, and at this time all 11 of them are arrays. {% endcomment %}
+                                    {% assign category = post.category | first %}
+                                {% else %}
+                                    {% comment %} If no category is defined apply a generic default. {% endcomment %}
+                                    {% assign category = "post" %}
+                                {% endif %}
+                                {% assign post_icon = site.data.post_category_icons.icon_map | find: "category", category %}
+                                {% if post_icon %}
+                                    {% assign icon_name = post_icon.icon %}
+                                {% else %}
+                                    {% assign icon_name = site.data.post_category_icons.default_post_icon %}
+                                {% endif %}
+                                {% assign post_date = post.date | date: "%a, %b %d, %Y" %}
+                                {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
+                                {% assign category = category | replace: "-", " " %}
+                                {% unless category == 'news' or category == 'releases' %}
+                                    {% assign category_chars = category | split: "" %}
+                                    {% assign last_category_char = category_chars | last %}
+                                    {% if last_category_char == "s" %}
+                                        {% assign new_category_length = category_chars | size | minus: 1 %}
+                                        {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
+                                        {% assign category = new_category_chars | join: "" %}
+                                    {% endif %}
+                                {% endunless %}
+                                {% include tall-card-no-image.html 
+                                    category=category 
+                                    title=post.title 
+                                    url=post.url 
+                                    date=post_date 
+                                    icon=icon_name 
+                                %}
+                            {%- endfor %}
+                        </div>
+                        {% if member_blog_posts.size > 2 %}
+                            <h3>Other Blog Posts</h3>
+                            <div class="community-member--blog-posts--table">
+                                <table>
+                                    <tbody>
+                                        {% assign last_blog_post_index = member_blog_posts.size | minus: 1 %}
+                                        {% for i in (2..last_blog_post_index) %}
+                                            <tr>
+                                                <td><a href="{{ member_blog_posts[i].url }}">{{ member_blog_posts[i].date | date: "%d %b %Y" }}</a></td>
+                                                <td><a href="{{ member_blog_posts[i].url }}">{{ member_blog_posts[i].title }}</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% endif %}
+                    </div>
+                    {% include card-clickability.html 
+                        card_classname="tall-card__no-image--grid--card"
+                        card_container_selector=".community-member--blog-posts > .community-member--blog-posts--cards"
+                    %}
+                {% endif %}
+                {% if page.personas contains "conference_speaker" %}
+                    <script>console.log("The community member is a conference speaker");</script>
+                    {% assign session_presenter_selector = 'session.presenters contains "' | append: page.short_name | append: '"' %}
+                    {% assign conference_sessions = site.opensearchcon_sessions | where_exp: "session", session_presenter_selector %}
+                    {% if conference_sessions and conference_sessions.size > 0 %}
+                        <div class="community-member--conference-sessions">
+                            <h2>OpenSearch Con</h2>
+
+                            {% assign sessions_grouped_by_id = conference_sessions | group_by: "conference_id" %}
+                            {% for sessions in sessions_grouped_by_id %}
+                                {% assign conference_id = sessions.name %}
+                                {% assign session_items = sessions.items %}
+                                {% assign formatted_conference_id = conference_id | replace: "-", " " %}
+                                <h3 class="community-member--conference-sessions--conference-id">{{ formatted_conference_id }}</h3>
+                                <div class="speaker-session--speaker-cards">
+                                    {% for item in session_items %}
+                                        <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge">
+                                            <div class="speaker-session--speaker-cards--card--content">
+                                                <h3><a href="{{ item.url }}">{{ item.speaker_talk_title }}</a></h3>
+                                                <div class="speaker-session--speaker-cards--card--content--job-title">
+                                                    {% assign session_date_time = item.session_time | split: " - " %}
+                                                    {% assign session_date = session_date_time[0] | date: "%A, %B %e" %}
+                                                    {{- session_date -}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% include card-clickability.html 
+                            card_classname="speaker-session--speaker-cards--card"
+                            card_container_selector=".community-member--conference-sessions > .speaker-session--speaker-cards"
+                        %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>

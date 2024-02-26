@@ -13,7 +13,7 @@ location:
   country: USA
 ---
 
-### Join [Amitai Stern](https://opensearch.org/authors/amistrn/) at the Real-Time Analytics Summit for the session "Upgrading Log-Analytics Clusters to OpenSearch"
+### Join [Amitai Stern](https://opensearch.org/community/members/amitai-stern.html) at the Real-Time Analytics Summit for the session "Upgrading Log-Analytics Clusters to OpenSearch"
 
 Here at [Logz.io](https://logz.io/), the open-source observability and security company, we manage observability data for over 1300 companies in highly scalable multi-cloud deployments. With the Elasticsearch license changes of 2021 we needed to migrate to an open-source platform, and OpenSearch was where we were going to contribute and what we wanted to run in production.
 

@@ -1,0 +1,93 @@
+---
+layout: redesign-fullwidth
+---
+{%- assign conference_id_selector = "speaker.conference_id contains '" | append: page.conference_id | append: "'" -%}
+{%- assign conference_speakers = site.community_members | where_exp: "member", "member.personas contains 'conference_speaker'" -%}
+{%- assign speakers = conference_speakers | where_exp: "speaker", conference_id_selector -%}
+
+{%- assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" -%}
+{%- assign conference_link_base_url = '/events/opensearchcon/' | append: conference_url_path_segment -%}
+
+{%- assign keynote_speaker_conference_id_selector = "speaker.keynote_speaker contains '" | append: page.conference_id | append: "'" -%}
+{%- assign keynote_speakers = speakers | where_exp: "speaker", keynote_speaker_conference_id_selector -%}
+
+<div class="conference-speakers--featured">
+    <h2 class="conference-speaker-session-page">Featured Speakers</h2>
+    <div class="speaker-session--speaker-cards">
+        {%- for speaker in keynote_speakers -%}
+            {%- assign short_name = speaker.name -%}
+            {%- assign speaker_title = speaker.job_title_and_company -%}
+            {%- assign default_thumbnail_ordinal = forloop.index0 | modulo: 3 | plus: 1 -%}
+            {%- assign default_thumbnail = "/assets/img/default-3up-thumbnail-" | append: default_thumbnail_ordinal | append: ".png" -%}
+            {%- assign thumbnail = speaker.photo | default: default_thumbnail -%}
+            {%- assign aspect_ratio = "100%" -%}
+            {%- assign speaker_url = speaker.permalink -%}
+            <div class="speaker-session--speaker-cards--card">
+                <div class="speaker-session--speaker-cards--card--image">
+                    <img src="{{ thumbnail }}" alt="{{ short_name }}">
+                </div>
+                <div class="speaker-session--speaker-cards--card--content speaker-session--speaker-cards--card--content__bottom-edge">
+                    {% if speaker.keynote_speaker %}
+                        <div class="keynote-speaker-label">Keynote Speaker</div>
+                    {% endif %}
+                    <h3><a href="{{ speaker_url }}">{{ short_name }}</a></h3>
+                    <div class="speaker-session--speaker-cards--card--content--job-title">{{ speaker_title }}</div>
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>
+</div>
+<div class="conference-speakers--session-speakers">
+    <div class="conference-speakers--session-speakers__categorized">
+        <div class="conference-speakers--session-speakers__categorized--header">
+            <h2>Session Speakers</h2>
+        </div>
+        <div class="conference-speakers--session-speakers__categorized--list">
+            <div>
+                {% include platform-category-icons.html name="Search" include_label=true %}
+            </div>
+            <div>
+                {% include platform-category-icons.html name="Analytics, Observability, and Security" include_label=true %}
+            </div>
+            <div>
+                {% include platform-category-icons.html name="Community" include_label=true %}
+            </div>
+            <div>
+                {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
+            </div>            
+        </div>
+    </div>
+    <div class="speaker-session--speaker-cards">
+        {% for speaker in speakers %}
+            {% unless speaker.keynote_speaker contains page.conference_id %}
+                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized speaker-card">
+                    <div class="speaker-session--speaker-cards--card--content">
+                        <h3><a href="{{ speaker.permalink }}">{{ speaker.name }}</a></h3>
+                        <div class="speaker-session--speaker-cards--card--content--job-title">{{- speaker.job_title_and_company -}}</div>
+                    </div>
+                    <div class="speaker-session--speaker-cards--card__categorized--categories">
+                        {%- assign session_track_for_conference = speaker.session_track | find: "conference_id", page.conference_id -%}
+                        {%- if session_track_for_conference -%}
+                            {%- assign session_track_name = session_track_for_conference.name -%}
+                            {% include platform-category-icons.html name=session_track_name include_label=false %}
+                        {%- endif -%}
+                    </div>
+                </div>
+            {% endunless %}
+        {% endfor %}
+    </div>
+    <div class="conference-speakers--session-speakers--more">
+        <div class="conference-speakers--session-speakers--more--link-button">
+            <a href="{{ conference_link_base_url }}/sessions/index.html">View All Sessions</a>
+        </div>
+    </div>
+</div>
+{% include card-clickability.html 
+    card_classname="speaker-session--speaker-cards--card" 
+    card_container_selector=".speaker-session--speaker-cards" 
+%}
+{% include interactive-states.html 
+    element_classname="conference-speakers--session-speakers--more--link-button" 
+    container_selector=".conference-speakers--session-speakers--more" 
+%}
+    

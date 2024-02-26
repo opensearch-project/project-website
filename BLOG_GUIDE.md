@@ -99,7 +99,7 @@ For each author, add an author [bio](#author-bio) and [picture](#author-picture)
 
 ### Author bio
 
-For an author bio, create an author file in the `_authors` directory. The name the author file must be the same as the variable you are referencing in the `authors` list of the blog front matter. For example, suppose your front matter contains the following author list:
+For an author bio, create an author file in the `_community_members` directory with the value of 'author' in its `personas` array. The name the author file must be the same as the variable you are referencing in the `authors` list of the blog front matter. For example, suppose your front matter contains the following author list:
 
 ```
 authors:
@@ -112,7 +112,7 @@ In this example, the file name is `krisfreedain.markdown`. The author file conta
 ---
 short_name: krisfreedain
 name: Kris Freedain
-photo: '/assets/media/authors/krisfreedain.jpg'
+photo: '/assets/media/community/memberes/krisfreedain.jpg'
 twitter: 'KrisFreedain'
 github: krisfreedain
 linkedin: 'krisfreedain'
@@ -124,4 +124,4 @@ The Twitter, GitHub, and LinkedIn profile names are optional.
 
 ### Author picture
 
-Add an author picture file in the `assets/media/authors` directory. The name of the file must be the same as the `short_name` variable in the author file front matter. Common image file extensions are `.png` and `.jpg`. In this example, the file name is `krisfreedain.jpg`.
+Add an author picture file in the `assets/media/community/members/` directory. The name of the file must be the same as the `short_name` variable in the author file front matter. Common image file extensions are `.png` and `.jpg`. In this example, the file name is `krisfreedain.jpg`.

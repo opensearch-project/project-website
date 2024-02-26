@@ -1,0 +1,34 @@
+<div class="full-width-layout--header">
+    {% if include.breadcrumbs %}
+        <div class="full-width-layout--header--category-area">
+            {% assign icon_type = include.breadcrumbs.icon %}
+            {% assign breadcrumb_items = include.breadcrumbs.items %}
+            {% if icon_type %}
+                <div class="full-width-layout--header--icon">
+                    {% include icons.html type=icon_type %}
+                </div>
+                {% if breadcrumb_items %}
+                    {% for item in breadcrumb_items %}
+                        <div class="full-width-layout--header--breadcrumbs--item">
+                            {% if item.url -%}
+                                <a href="{{ item.url }}">{{ item.title }}</a>
+                            {%- else -%}
+                                {{- item.title -}}
+                            {%- endif %}
+                        </div>
+                        {% unless forloop.last %}
+                            <div class="full-width-layout--header--breadcrumbs--item-separator">&gt;</div>
+                        {% endunless %}
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endif %}
+    <div class="full-width-layout--header--title">
+        {% if include.primary_title %}
+            <h1>{{ include.primary_title }}</h1>
+        {% elsif include.title %}
+            <h1>{{ include.title }}</h1>
+        {% endif %}
+    </div>
+</div>
