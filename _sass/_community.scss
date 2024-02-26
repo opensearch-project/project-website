@@ -151,14 +151,12 @@
         }
     }
     &.community-members--member-cards__filtered {
-        &[data-filtercategory*="author"] {
-            .community-members-member-cards--card__author {
-                display: flex;
-            }
+        > .community-members--member-cards--card {
+            display: none;
         }
-        &:not([data-filtercategory*="author"]) {
+        &[data-filtercategory*="author"] {
             .community-members--member-cards--card__author {
-                display: none;
+                display: flex;
             }
         }
         &[data-filtercategory*="conference_speaker"] {
@@ -166,19 +164,9 @@
                 display: flex;
             }
         }
-        &:not([data-filtercategory*="conference_speaker"]) {
-            .community-members--member-cards--card__conference_speaker {
-                display: none;
-            }
-        }
         &[data-filtercategory*="osci"] {
             .community-members--member-cards--card__osci {
                 display: flex;
-            }
-        }
-        &:not([data-filtercategory*="osci"]) {
-            .community-members--member-cards--card__osci {
-                display: none;
             }
         }
     }
