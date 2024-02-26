@@ -3,8 +3,6 @@ personas:
     label: Author
   - value: conference_speaker
     label: Conference Speaker
-  - value: osci
-    label: OSCI
 sort_options:
   - value: name_ascending
     label: "Sort by Name (A-Z)"
