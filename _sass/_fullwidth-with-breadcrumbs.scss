@@ -46,6 +46,17 @@
                     text-decoration-thickness: 2px;
                 }
             }
+            @media screen and (max-width: 834px) {
+                display: none;
+            }
+        }
+        > .full-width-layout--header--icon + .full-width-layout--header--breadcrumbs--item {
+            @media screen and (max-width: 834px) {
+                &::before {
+                    content: "\003C"
+                }
+                display: block;
+            }
         }
     }
     > .full-width-layout--header--title {
