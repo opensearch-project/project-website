@@ -172,6 +172,100 @@
                 @extend .data-table__half-width;
             }
         }
+        .desktop-change-log-table,
+        .desktop-release-history-table,
+        .desktop-maintenance-policy-table,
+        .desktop-release-schedule-table {
+            @media screen and (max-width: 834px) {
+                display: none;
+            }
+        }
+        .change-log-mobile-table,
+        .release-history-mobile-table,
+        .maintenance-policy-mobile-table,
+        .release-schedule-mobile-table {
+            @media screen and (min-width: 835px) {
+                display: none;
+            }
+            > thead {
+                > tr {
+                    > th[colspan] {
+                        font-family: 'Open Sans Condensed';
+                        font-size: 21px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 28px;
+                        color: $primary-open-sky-s2;
+                        padding: 10px 12px;
+                        text-align: left;
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                        border-left: none;
+                    }
+                }
+            }
+            > tbody {
+                > tr {
+                    > td.mobile-table-row--heading-cell {
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 27px;
+                        color: $primary-open-sky-s3;
+                        padding: 10px 12px;
+                        border-left: none;
+                    }
+                    > td.mobile-table-row--value-cell {
+                        color: $secondary-sanfrancisco-fog-s5;
+                        font-family: 'Open Sans';
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 27px;
+                        padding: 10px 12px;
+                        border-left: none;
+                        a {
+                            overflow-wrap: anywhere;
+                        }
+                    }
+                }
+                > tr.mobile-table-row__end-of-record {
+                    > td {
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                    }
+                }
+            }
+        }
+        .maintenance-policy-mobile-table {
+            > tbody {
+                > tr:nth-of-type(1),
+                > tr:nth-of-type(7n) {
+                    > td {
+                        font-family: 'Open Sans Condensed';
+                        font-size: 21px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 28px;
+                        color: $primary-open-sky-s2;
+                        padding: 10px 12px;
+                        text-align: left;
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                        border-left: none;
+                        background: $primary-pacific-sky-t3;
+                    }
+                }
+            }
+        }
+        .release-schedule-mobile-table {
+            > tbody {
+                > tr {
+                    > td {
+                        width: 50%;
+                        box-sizing: border-box;
+                        overflow-wrap: break-word;
+                    }
+                }
+            }
+        }
         > .principles-for-development {
             @include page-element-padding;
             > div {

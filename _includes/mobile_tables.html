@@ -1,15 +1,153 @@
+<template id="change-log-mobile-table-template">
+    <table class="change-log-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Change Log</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="mobile-table-row--heading-cell">Date</td>
+                <td class="mobile-table-row--value-cell">July 1, 2022</td>
+            </tr>
+            <tr class="mobile-table-row__end-of-record">
+                <td class="mobile-table-row--heading-cell">Reason</td>
+                <td class="mobile-table-row--value-cell">Initial Version</td>
+            </tr>
+        </tbody>
+    </table>
+</template>
+<template id="release-history-mobile-table-template">
+    <table class="release-history-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Relase History</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</template>
+<template id="release-schedule-mobile-table-template">
+    <table class="release-schedule-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Release Schedule</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</template>
+<template id="mobile-table-heading-value-pair-row">
+    <tr>
+        <td class="mobile-table-row--heading-cell"></td>
+        <td class="mobile-table-row--value-cell"></td>
+    </tr>
+</template>
+<template id="mobile-table-heading-value-pair-end-of-record-row">
+    <tr class="mobile-table-row__end-of-record">
+        <td class="mobile-table-row--heading-cell"></td>
+        <td class="mobile-table-row--value-cell"></td>
+    </tr>
+</template>
+<template id="mobile-table-double-heading-cell-row">
+    <tr class="mobile-table-row__end-of-record">
+        <td class="mobile-table-double-heading"></td>
+        <td class="mobile-table-double-heading"></td>
+    </tr>
+</template>
+<template id="maintenance-policy-mobile-table-template">
+    <table class="maintenance-policy-mobile-table">
+        <tbody></tbody>
+    </table>
+</template>
 <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
-        const tables = document.querySelectorAll('table');
-        tables.forEach(table => {
-            const rowCount = table.querySelectorAll('tbody > tr').length;
-            if (rowCount > 0) {
-                const headerRow = table.querySelector('thead > tr');
-                const mobileHeaders = Array.from(Array(rowCount - 1).keys()).map(() => {
-                    return headerRow.cloneNode(true);
-                });
-                headerRow.parentElement.append(...mobileHeaders);
+
+        function createRotatedTableRows(tableRows, tableHeaders) {
+            const rowTemplate = document.getElementById('mobile-table-heading-value-pair-row');
+            const endOfRowTemplate = document.getElementById('mobile-table-heading-value-pair-end-of-record-row');
+            const mobileTableBodyRows = tableRows.reduce((newTableRows, tableRow) => {
+                const tableRowDataCells = tableRow.querySelectorAll('td');
+                return [...newTableRows, ...Array.from(tableRowDataCells).reduce((carry, current, index) => {
+                    const isEndOfRecord = (index + 1) % tableHeaders.length === 0;
+                    const newTableRow = isEndOfRecord ? 
+                        endOfRowTemplate.content.cloneNode(true) : 
+                        rowTemplate.content.cloneNode(true);
+                    const headingCell = newTableRow.querySelector('.mobile-table-row--heading-cell');
+                    const valueCell = newTableRow.querySelector('.mobile-table-row--value-cell');
+                    const headingText = tableHeaders.item(index).textContent;
+                    const valueHtml = current.innerHTML;
+                    headingCell.textContent = headingText;
+                    valueCell.innerHTML = valueHtml;
+                    carry.push(newTableRow);
+                    return carry;
+                }, [])];
+            }, []);
+            return mobileTableBodyRows;
+        }
+
+        const changeLogTable = document.querySelector('.desktop-change-log-table');
+        if (changeLogTable) {
+            const changeLogMobileTableTemplate = document.getElementById('change-log-mobile-table-template')?.content?.cloneNode?.(true) ?? null;
+            if (changeLogMobileTableTemplate) {
+                const changeLogTableHeaders = changeLogTable.querySelectorAll('thead > tr > th');
+                const changeLogTableRows = changeLogTable.querySelectorAll('tbody > tr');
+                if (changeLogTableRows.length > 1) {
+                    const mobileTableBodyRows = createRotatedTableRows(
+                        Array.from(changeLogTableRows).slice(1),
+                        changeLogTableHeaders
+                    );
+                    changeLogMobileTableTemplate.querySelector('tbody')?.append?.(...mobileTableBodyRows);
+                    changeLogTable.after(changeLogMobileTableTemplate);
+                }
             }
-        });
+
+        }
+        const releaseHistoryTable = document.querySelector('.desktop-release-history-table');
+        if (releaseHistoryTable) {
+            const releaseHistoryMobileTableTemplate = document.getElementById('release-history-mobile-table-template')?.content?.cloneNode?.(true) ?? null;
+            if (releaseHistoryMobileTableTemplate) {
+                const releaseHistoryTableHeaders = releaseHistoryTable.querySelectorAll('thead > tr > th');
+                const releaseHistoryTableRows = releaseHistoryTable.querySelectorAll('tbody > tr');
+                if (releaseHistoryTableRows.length > 1) {
+                    const mobileTableBodyRows = createRotatedTableRows(
+                        Array.from(releaseHistoryTableRows),
+                        releaseHistoryTableHeaders
+                    );
+                    releaseHistoryMobileTableTemplate.querySelector('tbody')?.append?.(...mobileTableBodyRows);
+                    releaseHistoryTable.after(releaseHistoryMobileTableTemplate);
+                }
+            }
+        }
+
+        const maintenancePolicyTable = document.querySelector('.desktop-maintenance-policy-table');
+        if (maintenancePolicyTable) {
+            const maintenancePolicyMobileTableTemplate = document.getElementById('maintenance-policy-mobile-table-template')?.content?.cloneNode?.(true) ?? null;
+            if (maintenancePolicyMobileTableTemplate) {
+                const maintenancePolicyTableRows = maintenancePolicyTable.querySelectorAll('tbody > tr');
+                const maintenancePolicyTableHeaders = maintenancePolicyTable.querySelectorAll('thead > tr > th');
+                const mobileTableBodyRows = createRotatedTableRows(
+                    Array.from(maintenancePolicyTableRows),
+                    maintenancePolicyTableHeaders
+                );
+                maintenancePolicyMobileTableTemplate.querySelector('tbody')?.append?.(...mobileTableBodyRows);
+                maintenancePolicyTable.after(maintenancePolicyMobileTableTemplate);
+            }
+        }
+
+        const releaseScheduleTable = document.querySelector('.desktop-release-schedule-table');
+        if (releaseScheduleTable) {
+            const releaseScheduleMobileTableTemplate = document.getElementById('release-schedule-mobile-table-template')?.content?.cloneNode(true);
+            if (releaseScheduleMobileTableTemplate) {
+                const releaseScheduleTableRows = releaseScheduleTable.querySelectorAll('tbody > tr');
+                const releaseScheduleTableHeaders = releaseScheduleTable.querySelectorAll('thead > tr > th');
+                const mobileTableBodyRows = createRotatedTableRows(
+                    Array.from(releaseScheduleTableRows),
+                    releaseScheduleTableHeaders
+                );
+                releaseScheduleMobileTableTemplate.querySelector('tbody')?.append?.(...mobileTableBodyRows);
+                releaseScheduleTable.after(releaseScheduleMobileTableTemplate);
+            }
+        }
     });
 </script>

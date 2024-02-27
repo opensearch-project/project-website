@@ -40,6 +40,7 @@ Note:  We have not added a major release to the 2023 schedule yet.  If/when we a
 2.18.0 | October 22nd, 2024                        | November 05th, 2024
 1.3.20 | December 03rd, 2024                       | December 10th, 2024
 2.19.0 | January 28th, 2025                        | Feb 11th, 2025
+{: .desktop-release-schedule-table}
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
 
@@ -68,7 +69,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 |:--------------|:---------------------|:------------|:----------------|:-------------------------|:-----------------------            |
 | 1             | 1.3.x                | Maintenance |  July 12, 2021  | May 26, 2022             | GA release of 3.0.                 |
 | 2             | 2.0.0                | Current     |  May 26, 2022   | N/A                      | N/A                                |
-
+{: .desktop-maintenance-policy-table}
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date
 
 ## Release History ##
@@ -99,7 +100,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 | 2.2            | August 11, 2022    |
 | 1.3.4          | July 14, 2022      |
 | 2.1            | July 7, 2022       |
-{: .data-table__half-width}
+{: .data-table__half-width .desktop-release-history-table}
 
 ## Change Log ##
 
@@ -122,3 +123,4 @@ The software maintainers will not back-port fixes or features to versions outsid
 | January 4th, 2024 | Updated 2.12 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/4290) |
 | February 2nd, 2024 | Enhancement | Added Release Manager & Tracking issue for each release back through 2023 to add clarity for the community. Reversed release history - latest is at the top |
 | February 15th, 2024  | Updated 2024 release schedule                  | Per [Proposal - 186](https://github.com/opensearch-project/.github/issues/186)                                                                              |
+{: .desktop-change-log-table}
