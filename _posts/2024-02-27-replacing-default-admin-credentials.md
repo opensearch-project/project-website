@@ -7,8 +7,8 @@ date: 2024-02-27
 categories:
  - community-updates
  - technical-posts
-meta_keywords: "OpenSearch Security, Security Demo Configuration"
-meta_description: Learn about the changes to Security plugin's demo configuration setup
+meta_keywords: OpenSearch security plugin, OpenSearch security, OpenSearch 2.12.0, security configuration
+meta_description: Learn how OpenSearch 2.12.0 improves and secures the initial admin user setup processes using the demo configuration tool in the OpenSearch security plugin.
 has_math: false
 has_science_table: false
 ---
@@ -22,7 +22,7 @@ Until the release of OpenSearch 2.11.1, a default "admin" password was included 
 
 **Introducing a mandatory strong password for the admin**
 
-A notable change in OpenSearch 2.12.0 is the introduction of a requirement for a strong, custom password for the admin user during the demo configuration setup of the Security plugin. This measure is designed to enhance security from the start and applies solely to the admin user in version 2.12.0 and later.
+A notable change in [OpenSearch 2.12.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.12.0.md) is the introduction of a requirement for a strong, custom password for the admin user during the demo configuration setup of the Security plugin. This measure is designed to enhance security from the start and applies solely to the admin user in version 2.12.0 and later.
 
 **Custom admin password setup across distributions**
 
