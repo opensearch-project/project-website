@@ -14,10 +14,10 @@ name: ""
 photo: "/assets/media/..."
 
 # Used as the level 1 page header text.
-primary_title: 'Speaker: First Last'
+primary_title: 'First Last'
 
 # Used as the document title displayed in the browser title bar.
-title: 'OpenSearchCon 2023 Speaker: First Last'
+title: 'OpenSearch Project Community Member: First Last'
 
 # Breadcrumbs specification.
 # The community icon is expected.
