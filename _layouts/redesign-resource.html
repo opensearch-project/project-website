@@ -17,11 +17,16 @@
                 {% include tall-card-no-image.html category=category title=resource.title url=resource.url date=date icon=icon %}
             {% endfor %}
         </div>
-        <div class="resource-grid--more">
+        <div id="{{ page.resources_view_all_container_id }}" class="resource-grid--more">
             <div class="link-button">
                 <a href="/blog">View All Blog Posts</a>
             </div>
         </div>
         {% include card-clickability.html card_container_selector=".platform-page--resources .tall-card__no-image--grid" card_classname="tall-card__no-image--grid--card" %}
+        {%- assign interactive_state_button_container_selector = "#" | append: page.resources_view_all_container_id -%}
+        {% include interactive-states.html 
+            element_classname="link-button"
+            container_selector=interactive_state_button_container_selector
+        %}
     {% endif %}
 </div>

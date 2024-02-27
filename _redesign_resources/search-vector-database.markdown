@@ -3,6 +3,7 @@ layout: redesign-resource
 description: 'Following are links to documents from users, application developers, and other members of the OpenSearch community that explore the ways OpenSearch can be deployed as a vector database solution.'
 feature_area_category_name: Search
 feature_area_solution_name: Vector Database
+resources_view_all_container_id: "search-vector-database-page-related-resources-view-all"
 resources:
   - title: 'Augmenting Large Language Models with Verified Information Sources'
     url: 'https://medium.com/@shankar.arunp/augmenting-large-language-models-with-verified-information-sources-leveraging-aws-sagemaker-and-f6be17fb10a8'

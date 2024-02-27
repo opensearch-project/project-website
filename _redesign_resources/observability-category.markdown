@@ -20,6 +20,7 @@ resources:
     url: 'https://www.youtube.com/watch?v=87jNfhbBKng'
     date: 'Thu, Sep 21, 2023'
     icon: 'search-magnifying-glass'
+button_stack_container_id: "observability-platform-category-page-related-resources-button-stack"
 button_stack:
   - documentation-dark
   - community-dark

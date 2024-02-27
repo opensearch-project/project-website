@@ -1,0 +1,220 @@
+{%- assign default_component_classname = "content-list--filters--category-selector" -%}
+{%- assign default_labeled_dropdown_id = "category-filter-selectore" -%}
+{%- assign default_labeled_dropdown_text = "Filter by Category" -%}
+{%- assign component_classname = include.component_classname | default: default_component_classname -%}
+{%- assign dropdown_component_classname = component_classname | append: "--dropdown" -%}
+{%- assign labeled_dropdown_text = include.labeled_dropdown_text | default: default_labeled_dropdown_text -%}
+{%- assign labeled_dropdown_component_id = include.labeled_dropdown_component_id | default: default_labeled_dropdown_id -%}
+{%- assign filter_chips_container_classname = component_classname | append: "--filter-chips" -%}
+{%- assign filterable_content_block_element_classname = include.filterable_content_block_element_classname | default: "" -%}
+{%- assign filter_categories_label_value_pairs = include.filter_categories -%}
+{%- if filter_categories_label_value_pairs -%}
+    {%- assign filter_categories_count = filter_categories_label_value_pairs.size -%}
+{%- else -%}
+    {%- assign filter_categories_count = 0 -%}
+{%- endif -%}
+
+<template id="community-filter-chip">
+    {% include filter-chips.html type="community" %}
+</template>
+<template id="development-filter-chip">
+    {% include filter-chips.html type="development" %}
+</template>
+<template id="events-filter-chip">
+    {% include filter-chips.html type="events" %}
+</template>
+<template id="author-filter-chip">
+    {% include filter-chips.html type="author" %}
+</template>
+<template id="conference_speaker-filter-chip">
+    {% include filter-chips.html type="conference_speaker" %}
+</template>
+<template id="osci-filter-chip">
+    {% include filter-chips.html type="osci" %}
+</template>
+
+{%- unless filterable_content_block_element_classname == "" or filter_categories_count == 0 -%}
+    <div class="{{ component_classname }}">
+        <div class="{{ dropdown_component_classname }}">
+            {% include labeled-dropdown.html
+                items=filter_categories_label_value_pairs
+                label=labeled_dropdown_text 
+                id=labeled_dropdown_component_id
+            %}
+        </div>
+        <div class="{{ filter_chips_container_classname }}"></div>
+    </div>
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', () => {
+
+            function hasFilterChip(chipType) {
+                const selector = `.{{ filter_chips_container_classname }} > [data-category=${chipType}]`;
+                const chipElement = document.querySelector(selector);
+                return chipElement !== null;
+            }
+
+            function hasAnyFilterChips() {
+                const selector = '.{{ filter_chips_container_classname }} > .filter-chip';
+                const chips = document.querySelectorAll(selector);
+                const chipCount = chips?.length ?? 0;
+                return chipCount > 0;
+            }
+
+            function updateFilterByCategoryLabelCount() {
+                const filterChipsParent = document.querySelector('.{{ filter_chips_container_classname }}');
+                const chipCount = filterChipsParent?.querySelectorAll?.('.filter-chip')?.length ?? 0;
+                const defaultLabelText = '{{ labeled_dropdown_text }}';
+                const labelSelector = '.{{ dropdown_component_classname }} .labeled-dropdown--label';
+                const label = document.querySelector(labelSelector);
+                if (chipCount > 0) {    
+                    const labelTextWithCount = `${defaultLabelText} (${chipCount})`;
+                    label.textContent = labelTextWithCount;
+                } else {
+                    label.textContent = defaultLabelText;
+                }
+            }
+
+            function addFilterChip(chipType) {
+                const templateId = `${chipType}-filter-chip`;
+                const chipTemplate = document.getElementById(templateId);
+                if (chipTemplate) {
+                    const templateContent = chipTemplate.content.cloneNode(true);
+                    const filterChipsParent = document.querySelector('.{{ filter_chips_container_classname }}');
+                    filterChipsParent?.appendChild(templateContent);
+                    updateFilterByCategoryLabelCount();
+                }
+            }
+
+            function removeFilterChip(chipType) {
+                const selector = `.{{ filter_chips_container_classname }} > [data-category=${chipType}]`;
+                const chipElement = document.querySelector(selector);
+                chipElement?.parentElement?.removeChild?.(chipElement);
+                updateFilterByCategoryLabelCount();
+            }
+
+            function hideFilterDropdown() {
+                const selector = '.{{ dropdown_component_classname }} .labeled-dropdown--select';
+                const dropdown = document.querySelector(selector);
+                const parent = dropdown.closest('.labeled-dropdown');
+                if (parent) {
+                    const collapsedClassName = 'labeled-dropdown__collapsed';
+                    const expandedClassName = 'labeled-dropdown__expanded';
+                    parent.classList.replace(expandedClassName, collapsedClassName);
+                }
+            }
+
+            function onClickAwayCloseDropdown(e) {
+                const expandedCategoryFilterSelector = '.labeled-dropdown.labeled-dropdown__expanded';
+                const expandedCategoryFilter = document.querySelector(expandedCategoryFilterSelector);
+                if (expandedCategoryFilter) {
+                    hideFilterDropdown();
+                    event.preventDefault();
+                }    
+            }
+
+            document.querySelector('.{{ filter_chips_container_classname }}')?.addEventListener?.('click', (e) => {
+                const { target } = e;
+                const clickedChipSelector = '.filter-chip';
+                const clickedChip = target.closest(clickedChipSelector);
+                if (clickedChip) {
+                    const category = clickedChip.getAttribute('data-category');
+                    const calendarClass = '{{ filterable_content_block_element_classname }}';
+                    const calendarSelector = `.${calendarClass}`;
+                    const calendarFilteredModifierClass = `${calendarClass}__filtered`;
+                    const calendar = document.querySelector(calendarSelector);
+                    if (calendar) {
+                        const categoryAttribute = 'data-filtercategory';
+                        const filteredCategory = calendar.getAttribute(categoryAttribute);
+                        if (filteredCategory) {
+                            const updatedFilters = filteredCategory.split(',').filter(value => value !== category).join(',');
+                            if (updatedFilters.length > 0) {
+                                calendar.setAttribute(categoryAttribute, updatedFilters);
+                            } else {
+                                calendar.removeAttribute(categoryAttribute);
+                                calendar.classList.remove(calendarFilteredModifierClass);
+                            }
+                        }
+                    }
+                    removeFilterChip(category);
+                }
+            });
+
+            document.querySelector('.{{ dropdown_component_classname }} .labeled-dropdown--label-arrow')?.addEventListener?.('click', (e) => {
+                const collapsedClassName = 'labeled-dropdown__collapsed';
+                const expandedClassName = 'labeled-dropdown__expanded';
+                const { currentTarget } = e;
+                const parent = currentTarget.closest('.labeled-dropdown');
+                const selectElement = parent?.querySelector('select');
+                if (selectElement?.hasAttribute?.('disabled')) {
+                    e.stopImmediatePropagation();
+                    e.stopPropagation();
+                    e.preventDefault();
+                    return;
+                }
+                if (parent) {
+                    if (parent.classList.contains(collapsedClassName)) {
+                        parent.classList.replace(collapsedClassName, expandedClassName);
+                    } else {
+                        parent.classList.replace(expandedClassName, collapsedClassName);
+                    }
+                }
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                e.preventDefault();
+            });
+
+            document.querySelector('.{{ dropdown_component_classname }} .labeled-dropdown--select')?.addEventListener?.('click', (e) => {
+                const { currentTarget, target : { value = '' } = {} } = e;
+                if (currentTarget.hasAttribute('disabled')) {
+                    e.preventDefault();
+                    return;
+                }
+                const filterCategories = {{ filter_categories_label_value_pairs | map: "value" | jsonify }};
+                if (filterCategories.includes(value)) {
+                    const contentBlockElementClass = '{{ filterable_content_block_element_classname }}';
+                    const contentBlockElementSelector = `.${contentBlockElementClass}`;
+                    const contentBlockElementFilteredModifierClass = `${contentBlockElementClass}__filtered`;
+                    const contentBlockElement = document.querySelector(contentBlockElementSelector);
+                    const adding = !hasFilterChip(value);
+                    const filterAttribute = 'data-filtercategory';
+                    if (adding) {
+                        addFilterChip(value);
+                    } else {
+                        removeFilterChip(value);
+                    }
+                    if (hasAnyFilterChips()) {
+                        if (contentBlockElement.hasAttribute(filterAttribute)) {
+                            const existingFilters = contentBlockElement.getAttribute(filterAttribute);
+                            if (adding) {
+                                const updatedFilters = [...existingFilters.split(','), value].join(',');
+                                contentBlockElement.setAttribute(filterAttribute, updatedFilters);
+                            } else {
+                                const updatedFilters = existingFilters.split(',').filter(category => category !== value);
+                                if (updatedFilters.length > 0) {
+                                    contentBlockElement.setAttribute(filterAttribute, updatedFilters.join(','));
+                                    if (!contentBlockElement.classList.contains(contentBlockElementFilteredModifierClass)) {
+                                        contentBlockElement.classList.add(contentBlockElementFilteredModifierClass);
+                                    }
+                                } else {
+                                    contentBlockElement.removeAttribute(filterAttribute);
+                                    contentBlockElement.classList.remove(contentBlockElementFilteredModifierClass);
+                                }
+                            }
+                        } else {
+                            contentBlockElement.setAttribute(filterAttribute, value);
+                            if (!contentBlockElement.classList.contains(contentBlockElementFilteredModifierClass)) {
+                                contentBlockElement.classList.add(contentBlockElementFilteredModifierClass);
+                            }
+                        }
+                    } else {
+                        contentBlockElement.removeAttribute(filterAttribute);
+                        contentBlockElement.classList.remove(contentBlockElementFilteredModifierClass);
+                    }
+                }
+                hideFilterDropdown();
+            });
+
+            document.body.addEventListener('click', onClickAwayCloseDropdown);
+        });
+    </script>
+{%- endunless -%}

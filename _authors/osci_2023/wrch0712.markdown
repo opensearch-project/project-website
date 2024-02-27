@@ -1,7 +1,0 @@
----
-name: Ruochen Wang
-short_name: Ruochen
-github: wrch0712
----
-
-**Ruochen Wang** is a CS graduate student at University of Chicago.
