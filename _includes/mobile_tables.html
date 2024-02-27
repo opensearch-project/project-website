@@ -1,0 +1,15 @@
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        const tables = document.querySelectorAll('table');
+        tables.forEach(table => {
+            const rowCount = table.querySelectorAll('tbody > tr').length;
+            if (rowCount > 0) {
+                const headerRow = table.querySelector('thead > tr');
+                const mobileHeaders = Array.from(Array(rowCount - 1).keys()).map(() => {
+                    return headerRow.cloneNode(true);
+                });
+                headerRow.parentElement.append(...mobileHeaders);
+            }
+        });
+    });
+</script>

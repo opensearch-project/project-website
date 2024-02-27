@@ -9,6 +9,7 @@ breadcrumbs:
       url: '/about.html'
     - title: Releases
       url: '/releases.html'
+include_mobile_tables: true
 ---
 
 ##### Updated February 2, 2024
