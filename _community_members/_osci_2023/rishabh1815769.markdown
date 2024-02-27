@@ -1,0 +1,24 @@
+---
+name: Rishabh Bhardwaj
+short_name: Rishabh
+twitter: Rishabh22409994
+github: rishabh1815769
+photo: '/assets/media/community/members/no-image-available.svg'
+title: 'OpenSearch Community Member: Rishabh Bhardwaj'
+primary_title: Rishabh Bhardwaj
+personas:
+  - osci
+job_title_and_company: "A data engineer at HRS Group"
+breadcrumbs:
+  icon: community
+  items:
+    - title: Community
+      url: /community/index.html
+    - title: Members
+      url: /community/members/index.html
+    - title: 'Rishabh Bhardwaj&apos;s Profile'
+      url: '/community/members/rishabh-bhardwaj.html'
+permalink: '/community/members/rishabh-bhardwaj.html'
+---
+
+**Rishabh** is a data engineer at HRS Group and he is interested in LLMs, Vector Databases and distributed computing.

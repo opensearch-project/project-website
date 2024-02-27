@@ -112,6 +112,20 @@ module Jekyll::ContentIndexer
       when 'tutorials'
         type = 'Tutorials'
         #url << '.html'    # Add .html to URLs of author pages to correct the url
+      when 'redesign_use_cases'
+        type = 'Platform Use Cases'
+      when 'redesign_resources'
+        type = 'Related Content Resources'
+      when 'platforms'
+        type = 'OpenSearch Project Platforms'
+      when 'platform_products'
+        type = 'OpenSearch Platform Products'
+      when 'redesign_testimonials'
+        type = 'Testimonials'
+      when 'redesign_heros'
+        type = 'Hero Images'
+      when 'community_members'
+        type = 'Community Members'
       else
         puts 'Unknown type: ' + page.collection&.label
       end

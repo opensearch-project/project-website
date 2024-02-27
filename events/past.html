@@ -16,15 +16,6 @@ callouts:
   - name: Step Three
     description: 'We&apos;ll merge qualifying events and they&apos;ll appear on our calendar'
 ---
-<template id="community-filter-chip">
-  {% include filter-chips.html type="community" %}
-</template>
-<template id="development-filter-chip">
-  {% include filter-chips.html type="development" %}
-</template>
-<template id="events-filter-chip">
-  {% include filter-chips.html type="events" %}
-</template>
 <template id="empty-filter-results-message">
     <p class="events--calendar--empty-filter-results-message">No events found, try adjusting your filters.</p>
 </template>
@@ -43,16 +34,11 @@ callouts:
         </a>
       </div>
     </div>
-    <div class="events--calendar--filters--category-selector">
-      <div class="events--calendar--filters--category-selector--dropdown">
-        {% include labeled-dropdown.html
-          items=site.data.calendars.filter_categories
-          label="Filter by Category"
-          id="category-filter-selector"
-        %}
-      </div>
-      <div class="events--calendar--filters--category-selector--filter-chips"></div>
-    </div>
+    {% include content-filter-dropdown.html 
+      component_classname="events--calendar--filters--category-selector"
+      filterable_content_block_element_classname="events--calendar__list-view"
+      filter_categories=site.data.calendars.filter_categories
+    %}
     <div class="events--calendar--filters--in-person-toggle">
       <div role="button" id="in-person-toggle-button">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20" fill="none">
@@ -189,166 +175,6 @@ callouts:
       setCalendarLinkToThisMonth(calendarViewUrl);
     }
 
-    function hasFilterChip(chipType) {
-        const selector = `.events--calendar--filters--category-selector--filter-chips > [data-category=${chipType}]`;
-        const chipElement = document.querySelector(selector);
-        return chipElement !== null;
-    }
-
-    function hasAnyFilterChips() {
-        const selector = '.events--calendar--filters--category-selector--filter-chips > .filter-chip';
-        const chips = document.querySelectorAll(selector);
-        const chipCount = chips?.length ?? 0;
-        return chipCount > 0;
-    }
-
-    function updateFilterByCategoryLabelCount() {
-        const filterChipsParent = document.querySelector('.events--calendar--filters--category-selector--filter-chips');
-        const chipCount = filterChipsParent?.querySelectorAll?.('.filter-chip')?.length ?? 0;
-        const defaultLabelText = 'Filter by Category';
-        const labelSelector = '.events--calendar--filters--category-selector--dropdown .labeled-dropdown--label';
-        const label = document.querySelector(labelSelector);
-        if (chipCount > 0) {    
-            const labelTextWithCount = `${defaultLabelText} (${chipCount})`;
-            label.textContent = labelTextWithCount;
-        } else {
-            label.textContent = defaultLabelText;
-        }
-    }
-
-    function removeFilterChip(chipType) {
-        const selector = `.events--calendar--filters--category-selector--filter-chips > [data-category=${chipType}]`;
-        const chipElement = document.querySelector(selector);
-        chipElement?.parentElement?.removeChild?.(chipElement);
-        updateFilterByCategoryLabelCount();
-    }
-
-    function hideFilterDropdown() {
-        const selector = '.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select';
-        const dropdown = document.querySelector(selector);
-        const parent = dropdown.closest('.labeled-dropdown');
-        if (parent) {
-            const collapsedClassName = 'labeled-dropdown__collapsed';
-            const expandedClassName = 'labeled-dropdown__expanded';
-            parent.classList.replace(expandedClassName, collapsedClassName);
-        }
-    }
-    
-    function addFilterChip(chipType) {
-        const templateId = `${chipType}-filter-chip`;
-        const chipTemplate = document.getElementById(templateId);
-        if (chipTemplate) {
-            const templateContent = chipTemplate.content.cloneNode(true);
-            const filterChipsParent = document.querySelector('.events--calendar--filters--category-selector--filter-chips');
-            filterChipsParent?.appendChild(templateContent);
-            updateFilterByCategoryLabelCount();
-        }
-    }
-
-    function removeClickedFilterChip(e) {
-        const { target } = e;
-        const clickedChipSelector = '.filter-chip';
-        const clickedChip = target.closest(clickedChipSelector);
-        if (clickedChip) {
-            const category = clickedChip.getAttribute('data-category');
-            const calendarClass = 'events--calendar__list-view';
-            const calendarSelector = `.${calendarClass}`;
-            const calendarFilteredModifierClass = `${calendarClass}__filtered`;
-            const calendar = document.querySelector(calendarSelector);
-            if (calendar) {
-                const categoryAttribute = 'data-filtercategory';
-                const filteredCategory = calendar.getAttribute(categoryAttribute);
-                if (filteredCategory) {
-                    const updatedFilters = filteredCategory.split(',').filter(value => value !== category).join(',');
-                    if (updatedFilters.length > 0) {
-                        calendar.setAttribute(categoryAttribute, updatedFilters);
-                    } else {
-                        calendar.removeAttribute(categoryAttribute);
-                        calendar.classList.remove(calendarFilteredModifierClass);
-                    }
-                }
-            }
-            removeFilterChip(category);
-        }
-        setTimeout(showEmptyMonthMessages, 60);
-    }
-
-    function toggleCategoryDropdown(e) {
-        const collapsedClassName = 'labeled-dropdown__collapsed';
-        const expandedClassName = 'labeled-dropdown__expanded';
-        const { currentTarget } = e;
-        const parent = currentTarget.closest('.labeled-dropdown');
-        const selectElement = parent?.querySelector('select');
-        if (selectElement?.hasAttribute?.('disabled')) {
-            e.stopImmediatePropagation();
-            e.stopPropagation();
-            e.preventDefault();
-            return;
-        }
-        if (parent) {
-            if (parent.classList.contains(collapsedClassName)) {
-                parent.classList.replace(collapsedClassName, expandedClassName);
-            } else {
-                parent.classList.replace(expandedClassName, collapsedClassName);
-            }
-        }
-        e.stopImmediatePropagation();
-        e.stopPropagation();
-        e.preventDefault();
-    }
-
-    function toggleCategoryFilterSelection(e) {
-        const { currentTarget, target : { value = '' } = {} } = e;
-        if (currentTarget.hasAttribute('disabled')) {
-            e.preventDefault();
-            return;
-        }
-        const filterCategories = {{ site.data.calendars.filter_categories | map: "value" | jsonify }};
-        if (filterCategories.includes(value)) {
-            const calendarClass = 'events--calendar__list-view';
-            const calendarSelector = `.${calendarClass}`;
-            const calendarFilteredModifierClass = `${calendarClass}__filtered`;
-            const calendar = document.querySelector(calendarSelector);
-            const adding = !hasFilterChip(value);
-            const filterAttribute = 'data-filtercategory';
-            if (adding) {
-                addFilterChip(value);
-            } else {
-                removeFilterChip(value);
-            }
-            if (hasAnyFilterChips()) {
-                if (calendar.hasAttribute(filterAttribute)) {
-                    const existingFilters = calendar.getAttribute(filterAttribute);
-                    if (adding) {
-                        const updatedFilters = [...existingFilters.split(','), value].join(',');
-                        calendar.setAttribute(filterAttribute, updatedFilters);
-                    } else {
-                        const updatedFilters = existingFilters.split(',').filter(category => category !== value);
-                        if (updatedFilters.length > 0) {
-                            calendar.setAttribute(filterAttribute, updatedFilters.join(','));
-                            if (!calendar.classList.contains(calendarFilteredModifierClass)) {
-                                calendar.classList.add(calendarFilteredModifierClass);
-                            }
-                        } else {
-                            calendar.removeAttribute(filterAttribute);
-                            calendar.classList.remove(calendarFilteredModifierClass);
-                        }
-                    }
-                } else {
-                    calendar.setAttribute(filterAttribute, value);
-                    if (!calendar.classList.contains(calendarFilteredModifierClass)) {
-                        calendar.classList.add(calendarFilteredModifierClass);
-                    }
-                }
-            } else {
-                calendar.removeAttribute(filterAttribute);
-                calendar.classList.remove(calendarFilteredModifierClass);
-            }
-        }
-        hideFilterDropdown();
-        setTimeout(showEmptyMonthMessages, 60);
-    }
-
     function localizeEventDates() {
       const eventDateAttributeName = 'data-eventdate';
       const selector = `[${eventDateAttributeName}]`;
@@ -450,18 +276,6 @@ callouts:
       const inPersonToggleElement = document.querySelector(inPersonToggleSelector);
       inPersonToggleElement?.classList?.add?.(inPersonToggleDisabledClass);
     }
-
-    document.querySelector(
-        '.events--calendar--filters--category-selector--filter-chips'
-    )?.addEventListener?.('click', removeClickedFilterChip);
-
-    document.querySelector(
-        '.events--calendar--filters--category-selector--dropdown .labeled-dropdown--label-arrow'
-    )?.addEventListener?.('click', toggleCategoryDropdown);
-
-    document.querySelector(
-        '.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select'
-    )?.addEventListener?.('click', toggleCategoryFilterSelection);
 
     document.getElementById('in-person-toggle-button')?.addEventListener?.('click', (e) => {
         const { currentTarget } = e;

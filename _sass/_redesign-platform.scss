@@ -407,9 +407,6 @@ $solutions-card-bottom-margin: 36px;
         @media screen and (max-width: $community-voices-vert-view-max) {
             height: 900px;
         }
-        // @media screen and (min-width: $community-voices-horz-view-min) {
-        //     height: 750px;
-        // }
         margin-bottom: 0;
         background-color: white;
         .hero-with-headline {
@@ -943,9 +940,6 @@ $solutions-card-bottom-margin: 36px;
             flex-basis: 1265px;
             justify-content: center;
             padding: 80px 0;
-            > div {
-                line-height: 2.7;
-            }
         }
     }
     .landing-page-content__right-panel--content--side-panel {
@@ -1028,30 +1022,9 @@ $solutions-card-bottom-margin: 36px;
     align-items: center;
     padding: 0 0 42px;
     > .conference-speakers--session-speakers--more--link-button {
-        @include link-button($primary-open-sky-s1);
-        padding: 0;
+        @include interactive-link-button-dark-mode("conference-speakers--session-speakers--more--link-button", 50px);
         > a {
-            padding: 10px 50px;
-            color: $secondary-sanfrancisco-fog-t1;
-            font-size: 18px;
-            line-height: 2.8;
-            text-decoration: none;
-            font-weight: 700;
-            &:hover {
-                background: unset;
-            }
-        }
-        &:hover {
-            @include hover-button-dark-mode;
-        }
-        &.conference-speakers--session-speakers--more--link-button__focus {
-            @include focused-button-dark-mode;
-        }
-        &.conference-speakers--session-speakers--more--link-button__active {
-            @include active-button-dark-mode;
-        }
-        &.conference-speakers--session-speakers--more--link-button__disabled {
-            @include disabled-button-dark-mode;
+            padding: 0 50px;
         }
     }
 }
