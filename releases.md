@@ -100,10 +100,10 @@ The software maintainers will not back-port fixes or features to versions outsid
 | 2.2            | August 11, 2022    |
 | 1.3.4          | July 14, 2022      |
 | 2.1            | July 7, 2022       |
-
 {: .data-table__half-width}
 
 ## Change Log ##
+
 | Date                 | Change | Reason          |
 |:---------------------|:-------|:----------------|
 | July 1, 2022         |        | Initial Version |

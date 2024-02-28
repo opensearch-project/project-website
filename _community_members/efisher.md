@@ -1,10 +1,12 @@
 ---
-short_name: 'efisher'
+short_name: elifish
 name: 'Eli Fisher'
 photo: '/assets/media/community/members/efisher.jpg'
 job_title_and_company: 'Senior Technical Product Manager at AWS'
 primary_title: 'Eli Fisher'
 title: 'OpenSearch Community Member: Eli Fisher'
+twitter: 'EliRFisher'
+github: elfisher
 breadcrumbs:
   icon: community
   items:
@@ -28,5 +30,5 @@ conference_id:
   - "2023-north-america"
   - "2022-north-america"
 ---
-Eli Fisher is a Senior Technical Product Manager at AWS. Eli focuses on OpenSearch and OpenSearch Dashboards.
+**Eli Fisher** is a Senior Technical Product Manager at AWS. Eli focuses on OpenSearch and OpenSearch Dashboards.
 

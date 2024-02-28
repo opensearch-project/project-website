@@ -30,6 +30,9 @@ layout: default
                     <div class="community-member--social-links">
                         <h3>{{ page.name }}&apos;s Social Spaces</h3>
                         <ul>
+                            {% if page.twitter %}
+                                <li><a target="_blank" href="https://twitter.com/{{page.twitter}}"><i class="icon icon-twitter-square"></i> {{page.twitter}}</a></li>
+                            {%- endif -%}
                             {% if page.linkedin -%}
                                 <li><a target="_blank" href="https://www.linkedin.com/in/{{page.linkedin}}"><i class="icon icon-linkedin-square"></i> {{page.name}}</a></li>
                             {%- endif -%}

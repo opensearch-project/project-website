@@ -18,10 +18,10 @@ session_time: "2023-09-28 - 9:00am-9:50am"
 session_room: "Grand Ballroom CD"
 session_track: "Community"
 presenters:
-  - efisher
-  - mshah
+  - elifish
+  - mehulshah
   - jbattenberg
-  - gingersoll
+  - grantingersoll
 permalink: '/events/opensearchcon/2023/north-america/sessions/keynote.html'
 youtube_video_id: '6n2D76YNri0'
 conference_id: '2023-north-america'
