@@ -17,6 +17,12 @@ layout: fullwidth-with-breadcrumbs
 {% if page.month_index > 0 %}
     {% assign previous_month_index = month_index | minus: 1 %}
     {% assign days_in_previous_month = site.data.calendars.days_in_month[previous_month_index].day_count %}
+    {% if month_number == 3 %}
+        {% assign years_mod_4 = page.year | modulo: 4 %}
+        {% if years_mod_4 == 0 %}
+            {% assign days_in_previous_month = days_in_previous_month | plus: 1 %}
+        {% endif %}
+    {% endif %}
 {% else %}
     {% assign days_in_previous_month = site.data.calendars.days_in_month[11].day_count %}
 {% endif %}
