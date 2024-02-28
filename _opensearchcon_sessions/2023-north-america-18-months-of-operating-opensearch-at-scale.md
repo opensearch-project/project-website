@@ -1,5 +1,5 @@
 ---
-primary_presenter: 'jkowall'
+primary_presenter: 'jonahkowall'
 speaker_talk_title: '18 Months of Operating OpenSearch at Scale'
 primary_title: '18 Months of Operating OpenSearch at Scale'
 title: 'OpenSearchCon 2023 Session: 18 Months of Operating OpenSearch at Scale'
@@ -24,7 +24,7 @@ permalink: '/events/opensearchcon/2023/north-america/sessions/18-months-of-opera
 youtube_video_id: 'VYL69m82fDY'
 conference_id: '2023-north-america'
 presenters:
-  - jkowall
+  - jonahkowall
 ---
 
 Running an OpenSearch cluster in production presents unique challenges. At Aiven, we manage thousands of OpenSearch nodes for numerous customers across multiple clouds and regions. We'll share our experiences, discussing monitoring, resiliency, scaling, optimization, handling upgrades, and enabling customers to navigate releases. We'll also reveal the most adopted service integrations, versions, preferred clouds, and instance sizes. This session provides insights into managing OpenSearch at scale, useful for those running stable systems or looking to expand their OpenSearch usage.

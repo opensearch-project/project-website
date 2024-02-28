@@ -1,5 +1,5 @@
 ---
-primary_presenter: 'chenkle'
+primary_presenter: 'henkle'
 speaker_talk_title: 'OpenSearch Project Roadmap 2022 and Beyond'
 primary_title: 'OpenSearch Project Roadmap 2022 and Beyond'
 title: 'OpenSearchCon 2022 Session: OpenSearch Project Roadmap 2022 and Beyond'
@@ -20,6 +20,6 @@ permalink: '/events/opensearchcon/2022/north-america/sessions/opensearch-project
 youtube_video_id: 'IG16SNiIS0g'
 conference_id: '2022-north-america'
 presenters:
-  - chenkle
+  - henkle
 ---
 We’ve talked a lot about how much the OpenSearch project has grown over the last year. In this session, we’ll take a look ahead at the OpenSearch roadmap and share more with you about what we have planned for the next release, the far-off foggy future, and everything in between.

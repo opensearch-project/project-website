@@ -1,5 +1,5 @@
 ---
-short_name: 'chenkle'
+short_name: henkle
 name: 'Charlotte Henkle'
 photo: '/assets/media/community/members/henkle.jpeg'
 job_title_and_company: 'Senior Manager Software Development - OpenSearch Project'
@@ -24,6 +24,7 @@ personas:
 conference_id:
   - "2023-north-america"
   - "2022-north-america"
+twitter: CharlotteHenkle
 ---
 
-Charlotte is a Senior Manager at AWS working on the OpenSearch Project.
+**Charlotte** is a Senior Manager at AWS working on the OpenSearch Project.
