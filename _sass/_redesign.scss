@@ -343,7 +343,7 @@ $header-banner-mobile-breakpoint: 1018px;
     }
     .landing-page-hero-wrapper {
         @media screen and (min-width: 834px) {
-            height: 800px;
+            height: 440px;
         }
         @media screen and (max-width: 833px) {
             height: 460px;
@@ -855,11 +855,13 @@ $header-banner-mobile-breakpoint: 1018px;
                         align-items: center;
                         width: 100%;
                         row-gap: 10px;
+                        padding: 0;
                     }
+                    
                     @media screen and (max-width: 428px) {
                         padding-left: 0;
                         padding-right: 0;
-                        width: calc(100% - 10px);
+                        width: 100%;
                     }
                     .draft-3-landing-page--button-stack--button {
                         @media screen and (min-width: 1440px) {
@@ -867,7 +869,7 @@ $header-banner-mobile-breakpoint: 1018px;
                         }
                         > .redesign-button--wrapper {
                             @media screen and (max-width: 428px) {
-                                width: calc(100% - 30px);
+                                width: 100%;
                                 box-sizing: border-box;
                             }
                             &.redesign-button--wrapper__complex-content {
@@ -1266,21 +1268,38 @@ $header-banner-mobile-breakpoint: 1018px;
     .redesign-button--contents--text-slot {
         flex-basis: 95%;
         padding: 18px 0 0 20px;
+        @media screen and (max-width: 380px) {
+            padding: 18px 0 0 5px;
+        }
     }
     .redesign-button--contents--icon-slot {
         flex-basis: 5%;
-        padding: 25px 20px 13px;
+        padding: 25px 20px 13px; // what was this before???
+        @media screen and (max-width: 412px) {
+            padding: 25px 5px 13px 0;
+            flex-shrink: 1;
+        }
+        @media screen and (max-width: 380px) {
+
+        }
     }
 }
 .redesign-buttons--download__large,
 .redesign-buttons--opensearchcon-stay-informed__large {
     .redesign-button--contents--text-slot {
         padding: 18px 0 0 20px;
-        flex-basis: 90%;        
+        flex-basis: 90%;       
+        @media screen and (max-width: 380px) {
+            padding: 18x 0 0 8px;
+        } 
     }
     .redesign-button--contents--icon-slot {
-        padding: 22px 20px 16px;
+        padding: 22px 20px 16px; // what was this before???
         flex-basis: 10%;
+        @media screen and (max-width: 412px) {
+            padding: 22px 5px 16px 0;
+            flex-shrink: 1;
+        }
     }
 }
 .redesign-buttons--opensearchcon-stay-informed__large {
