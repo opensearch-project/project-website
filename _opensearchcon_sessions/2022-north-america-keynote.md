@@ -17,10 +17,10 @@ title: 'OpenSearchCon 2022 Session: Opening Keynote'
 session_time: "2022-09-21 - 10:00am-11:00am"
 session_room: "Fremont Studios"
 presenters:
-  - efisher
+  - elifish
   - mhatfield
   - luchoa
-  - jkowall
+  - jonahkowall
 permalink: '/events/opensearchcon/2022/north-america/sessions/keynote.html'
 youtube_video_id: 'nmmZlCkUd3o'
 conference_id: '2022-north-america'

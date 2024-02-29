@@ -1,5 +1,5 @@
 ---
-primary_presenter: 'mshah'
+primary_presenter: 'mehulshah'
 speaker_talk_title: 'Generative AI and Search: What’s Your Plan?'
 primary_title: 'Generative AI and Search: What’s Your Plan?'
 title: 'OpenSearchCon 2023 Session: Generative AI and Search: What’s Your Plan?'
@@ -19,7 +19,7 @@ session_time: "2023-09-28 - 10:45-11:25am"
 session_room: "Ballroom CD"
 session_track: "Search"
 presenters:
-  - mshah
+  - mehulshah
   - jfritz
 permalink: '/events/opensearchcon/2023/north-america/sessions/generative-ai-and-search-whats-your-plan.html'
 youtube_video_id: '8875QSsVj1c'

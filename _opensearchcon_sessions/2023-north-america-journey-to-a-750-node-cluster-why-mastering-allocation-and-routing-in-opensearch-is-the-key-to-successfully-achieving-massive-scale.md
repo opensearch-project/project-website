@@ -1,5 +1,5 @@
 ---
-primary_presenter: 'sherman'
+primary_presenter: 'samuelherman'
 speaker_talk_title: 'Journey to a 750-Node Cluster: Why Mastering Allocation and Routing in OpenSearch is the Key to Successfully Achieving Massive Scale'
 primary_title: 'Journey to a 750-Node Cluster: Why Mastering Allocation and Routing in OpenSearch is the Key to Successfully Achieving Massive Scale'
 title: 'OpenSearchCon 2023 Session: Journey to a 750-Node Cluster'
@@ -21,7 +21,7 @@ permalink: '/events/opensearchcon/2023/north-america/sessions/journey-to-a-750-n
 youtube_video_id: 'KeXRZEYvlzs'
 conference_id: '2023-north-america'
 presenters:
-  -sherman
+  - samuelherman
 ---
 
 In this talk we will present OCI OpenSearch case study and learnings as we built our biggest cluster to date of 750 nodes and 165,000+ shards. This cluster we assume is one of the largest ever built and hosted by a service, this also means that we had the chance of stretching OpenSearch to it's limit and we would like to share some of our lessons primarily around shards allocations, bottlenecks we encountered and how we overcome them.

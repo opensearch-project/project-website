@@ -20,7 +20,7 @@ breadcrumbs:
 
 For more information on the changes planned for each release, please see the [Project Roadmap](https://github.com/orgs/opensearch-project/projects/1)
 
-Note:  We have not added a major release to the 2023 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
+Note:  We have not added a major release to the 2024 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
 
 
 | Release Number| First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Manager                                      | Tracking Issue |
@@ -100,10 +100,10 @@ The software maintainers will not back-port fixes or features to versions outsid
 | 2.2            | August 11, 2022    |
 | 1.3.4          | July 14, 2022      |
 | 2.1            | July 7, 2022       |
-
 {: .data-table__half-width}
 
 ## Change Log ##
+
 | Date                 | Change | Reason          |
 |:---------------------|:-------|:----------------|
 | July 1, 2022         |        | Initial Version |
