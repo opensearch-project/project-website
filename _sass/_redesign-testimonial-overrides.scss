@@ -27,23 +27,23 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                             flex-basis: 75%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 120px);
-                            > blockquote {
-                                > p {
-                                    @include body-text;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 120px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-text;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
                         @media screen and (max-width: $community-voices-smallest-max-size) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 75px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 75px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                         }
                     }
                 }
@@ -76,23 +76,23 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                             flex-basis: 70%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 120px);
-                            > blockquote {
-                                > p {
-                                    @include body-text;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 120px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-text;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
                         @media screen and (max-width: $community-voices-smallest-max-size) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 75px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 75px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                         }
                     }
                 }
@@ -116,22 +116,22 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                             flex-basis: 80%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 265px);
-                            > blockquote {
-                                > p {
-                                    @include body-text;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 265px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-text;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
                         @media screen and (max-width: $community-voices-smallest-max-size) {
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                         }
                     }
                 }
@@ -159,30 +159,30 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                     > .landing-page-community-voices--testimonial--citation {
                         @media screen and (min-width: $community-voices-horz-view-min) {
                             flex-basis: 70%;
-                            > blockquote {
-                                > p {
-                                    @include body-small;
-                                }
-                            }
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-small;
+                            //     }
+                            // }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 110px);
-                            > blockquote {
-                                > p {
-                                    @include body-text;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 110px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-text;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
                         @media screen and (max-width: $community-voices-smallest-max-size) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 100px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 100px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                         }
                     }
                 }
@@ -210,30 +210,30 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                     > .landing-page-community-voices--testimonial--citation {
                         @media screen and (min-width: $community-voices-horz-view-min) {
                             flex-basis: 80%;
-                            > blockquote {
-                                > p {
-                                    @include body-small;
-                                }
-                            }
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-small;
+                            //     }
+                            // }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 195px);
-                            > blockquote {
-                                > p {
-                                    @include body-text;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 195px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-text;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
                         @media screen and (max-width: $community-voices-smallest-max-size) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 175px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 175px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                         }
                     }
                 }
@@ -268,26 +268,26 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                     > .landing-page-community-voices--testimonial--citation {
                         @media screen and (min-width: $community-voices-horz-view-min) {
                             flex-basis: 80%;
-                            > blockquote {
-                                > p {
-                                    @include body-small;
-                                }
-                            }
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-small;
+                            //     }
+                            // }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 125px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 125px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
-                        @media screen and (max-width: $community-voices-smallest-max-size) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 90px - 30px);
-                        }
+                        // @media screen and (max-width: $community-voices-smallest-max-size) {
+                        //     flex-basis: calc($community-voices-testimonial-overrides-citation-height - 90px - 30px);
+                        // }
                     }
                 }
             }
@@ -314,26 +314,26 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                     > .landing-page-community-voices--testimonial--citation {
                         @media screen and (min-width: $community-voices-horz-view-min) {
                             flex-basis: 80%;
-                            > blockquote {
-                                > p {
-                                    @include body-small;
-                                }
-                            }
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-small;
+                            //     }
+                            // }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 110px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 110px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
-                        @media screen and (max-width: $community-voices-smallest-max-size) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 100px);
-                        }
+                        // @media screen and (max-width: $community-voices-smallest-max-size) {
+                        //     flex-basis: calc($community-voices-testimonial-overrides-citation-height - 100px);
+                        // }
                     }
                 }
             }
@@ -362,23 +362,23 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                             flex-basis: 75%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 195px);
-                            > blockquote {
-                                > p {
-                                    @include body-text;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 195px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-text;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
                         @media screen and (max-width: $community-voices-smallest-max-size) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 160px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 160px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                         }
                     }
                 }
@@ -406,26 +406,26 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                     > .landing-page-community-voices--testimonial--citation {
                         @media screen and (min-width: $community-voices-horz-view-min) {
                             flex-basis: 80%;
-                            > blockquote {
-                                > p {
-                                    @include body-small;
-                                }
-                            }
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-small;
+                            //     }
+                            // }
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 195px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 195px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
-                        @media screen and (max-width: $community-voices-smallest-max-size) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 190px);
-                        }
+                        // @media screen and (max-width: $community-voices-smallest-max-size) {
+                        //     flex-basis: calc($community-voices-testimonial-overrides-citation-height - 190px);
+                        // }
                     }
                 }
             }
@@ -454,23 +454,23 @@ $community-voices-testimonial-overrides-citation-height: 790px;
                             flex-basis: 75%;
                         }
                         @media screen and (max-width: $community-voices-vert-view-max) {
-                            flex-basis: calc($community-voices-testimonial-overrides-citation-height - 100px);
-                            > blockquote {
-                                > p {
-                                    @include body-text;
-                                }
-                            }
+                            // flex-basis: calc($community-voices-testimonial-overrides-citation-height - 100px);
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-text;
+                            //     }
+                            // }
                             > cite {
                                 margin-top: 20px;
                             }
                         }
                         @media screen and (max-width: $community-voices-smallest-max-size) {
                             flex-basis: calc($community-voices-testimonial-overrides-citation-height - 85px);
-                            > blockquote {
-                                > p {
-                                    @include body-medium;
-                                }
-                            }
+                            // > blockquote {
+                            //     > p {
+                            //         @include body-medium;
+                            //     }
+                            // }
                         }
                     }
                 }

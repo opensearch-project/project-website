@@ -237,7 +237,7 @@ $max-container: 1440px;
                                 }
                                 @media screen and (max-width: $header-banner-mobile-breakpoint) {
                                     @include header-level3($primary-open-sky-t3);
-                                    padding-left: 10px;
+                                    padding-left: 30px;
                                     text-decoration: none;
                                     &:active {
                                         color: $primary-open-sky;
@@ -259,7 +259,7 @@ $max-container: 1440px;
                                 flex-basis: 30px;
                                 width: 30px;
                                 height: 30px;
-                                padding: 0 20px 0 0;
+                                padding: 0 30px 0 0;
                                 flex-shrink: 0;
                                 flex-grow: 0;
                                 box-sizing: content-box;
