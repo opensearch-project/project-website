@@ -584,16 +584,20 @@ $header-banner-mobile-breakpoint: 1018px;
                             flex-basis: 88px;
                             flex-grow: 0;
                             flex-shrink: 0;
-                            > svg {
-                                width: 88px;
-                                height: 88px;
-                                @media screen and (max-width: 580px) {
-                                    width: 75px;
-                                    height: 75px;
-                                }
-                                @media screen and (max-width: 399px) {
-                                    width: 58px;
-                                    height: 58px;    
+                            > a {
+                                color: #fff;
+                                text-decoration: none;
+                                > svg {
+                                    width: 88px;
+                                    height: 88px;
+                                    @media screen and (max-width: 580px) {
+                                        width: 75px;
+                                        height: 75px;
+                                    }
+                                    @media screen and (max-width: 399px) {
+                                        width: 58px;
+                                        height: 58px;    
+                                    }
                                 }
                             }
                             @media screen and (max-width: 580px) {
@@ -617,6 +621,10 @@ $header-banner-mobile-breakpoint: 1018px;
                             line-height: normal;
                             padding-left: 17px;
                             box-sizing: border-box;
+                            > a {
+                                color: #fff;
+                                text-decoration: none;
+                            }
                             @media screen and (max-width: 580px) {
                                 font-size: 51px;
                                 padding-left: 0;
@@ -635,6 +643,10 @@ $header-banner-mobile-breakpoint: 1018px;
                         font-style: normal;
                         font-weight: 300;
                         line-height: normal;
+                        > a {
+                            color: #fff;
+                            text-decoration: none;
+                        }
                         @media screen and (max-width: 580px) {
                             font-size: 51px;
                         }

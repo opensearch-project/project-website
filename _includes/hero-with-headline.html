@@ -152,7 +152,7 @@
         // DEBUGGING!!! DO NOT MERGE WITHOUT THIS BEING REMOVED
         //  It's annoyting to troubleshoot styles with the thing running.
         //
-            return;
+            // return;
 
             if (carouselState.timer !== 0) {
                 // Already running.
@@ -196,7 +196,6 @@
         });
         {% endif %}
 
-        {% if show_hero_carousel_arrows %}
         function moveLeftRight(direction) {
             if (direction === 'left') {
                 if (carouselState.currentFrame === 1) {
@@ -221,6 +220,93 @@
             carouselState.nextFrame = carouselState.nextFrame + 1;
             startCarousel();
         }
+
+        const initializeSwipeState = (startingPoint) => {
+            return {
+                start: { ...startingPoint },
+                movementSteps: [],
+                end: null,
+                direction: '',
+            };
+        };
+
+        const setEndingSwipeState = (endingPoint) => {
+            const distanceX = endingPoint.x - swipeState.start.x;
+            const direction = distanceX < 0 ? 'right' : distanceX > 0 ? 'left' : '';
+            return {
+                ...swipeState,
+                end: endingPoint,
+                direction,
+            };
+        };
+
+        const resetSwipeState = () => {
+            return {
+                start: null,
+                movementSteps: null,
+                end: null,
+                direction: 0,
+            };
+        }
+
+        const getTouchMouseEventCoordinates = (e) => {
+            if (e.changedTouches) {
+                return {
+                    x: e.changedTouches[0].clientX,
+                    y: e.changedTouches[0].clientY,
+                };
+            }
+            return {
+                x: e.clientX,
+                y: e.clientY,
+            };
+        };
+
+        let swipeState = resetSwipeState();
+        
+        const onTouchStart = (e) => {
+            stopCarousel();
+            e.preventDefault();
+            const startingPoint = getTouchMouseEventCoordinates(e);
+            swipeState = initializeSwipeState(startingPoint);
+            console.log('Touch start...');
+            console.log(swipeState);
+            console.log(e.target);
+        };
+        
+        const onTouchEnd = (e) => {
+            const endingPoint = getTouchMouseEventCoordinates(e);
+            swipeState = setEndingSwipeState(endingPoint);
+            console.log('Touch end...');
+            console.log(swipeState);
+            if (['left', 'right'].includes(swipeState.direction)) {
+                moveLeftRight(swipeState.direction);
+                console.log('Swiped to the ', swipeState.direction);
+            } else {
+                startCarousel();
+            }
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log(e.target);
+        };
+
+        const onTouchCancel = (e) => {
+            swipeState = resetSwipeState();
+            startCarousel();
+        };
+
+        const viewportClassSelector = '.hero-with-headline--carousel--viewport';
+        const carouselViewport = carousel.querySelector(viewportClassSelector);
+        if (carouselViewport) {
+            carouselViewport.addEventListener('touchstart', onTouchStart, true);
+            carouselViewport.addEventListener('touchend', onTouchEnd, true);
+            carouselViewport.addEventListener('touchcancel', onTouchCancel);
+            carouselViewport.addEventListener('mousedown', onTouchStart, true);
+            carouselViewport.addEventListener('mouseup', onTouchEnd, true);
+        }
+
+        {% if show_hero_carousel_arrows %}
         carousel.querySelector('.landing-page-hero--arrows--arrow__left > opensearch-button').addEventListener('click', (event) => {
             moveLeftRight('left');
         });
