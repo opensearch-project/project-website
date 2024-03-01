@@ -436,15 +436,21 @@ $max-container: 1440px;
                                     > a {
                                         &.in-category,
                                         &:hover {
-                                            color: $primary-open-sky-s2;
+                                            @media screen and (min-width: $header-banner-min-width) {
+                                                color: $primary-open-sky-s2;
+                                                text-decoration-color: $primary-open-sky-s2;
+                                            }
+                                            @media screen and (max-width: $header-banner-mobile-breakpoint) {
+                                                color: $primary-open-sky-t2;
+                                                text-decoration-color: $primary-open-sky-t2;
+                                            }
                                             text-decoration: underline;
-                                            text-decoration-color: $primary-open-sky-s2;
                                             text-decoration-thickness: 2px;
                                             text-underline-offset: 6px;
                                         }
                                         @media screen and (max-width: $header-banner-mobile-breakpoint) {
                                             @include header-level3($primary-open-sky-t3);
-                                            padding-left: 10px;
+                                            padding-left: 30px;
                                             text-decoration: none;
                                         }
                                         @media screen and (min-width: $header-banner-min-width) {
@@ -465,7 +471,7 @@ $max-container: 1440px;
                                         flex-basis: 30px;
                                         width: 30px;
                                         height: 30px;
-                                        padding: 0 20px 0 0;
+                                        padding: 0 30px 0 0;
                                         flex-shrink: 0;
                                         flex-grow: 0;
                                         box-sizing: content-box;
@@ -573,13 +579,17 @@ $max-container: 1440px;
                                         @media screen and (max-width: $header-banner-mobile-breakpoint) {
                                             @include body-text;
                                             color: $primary-open-sky-t3;
-                                            padding-left: 10px;
+                                            padding-left: 30px;
                                             &.in-category {
-                                                color: #006D97;
+                                                color: $primary-open-sky-t2;
                                                 text-decoration: underline;
-                                                text-decoration-color: #006D97;
+                                                text-decoration-color: $primary-open-sky-t2;
                                                 text-decoration-thickness: 2px;
                                                 text-underline-offset: 6px;
+                                            }
+                                            &:active {
+                                                color: $primary-open-sky;
+                                                text-decoration-color: $primary-open-sky;
                                             }
                                         }
                                     }
