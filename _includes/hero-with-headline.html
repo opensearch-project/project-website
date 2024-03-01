@@ -232,11 +232,18 @@
 
         const setEndingSwipeState = (endingPoint) => {
             const distanceX = endingPoint.x - swipeState.start.x;
-            const direction = distanceX < 0 ? 'right' : distanceX > 0 ? 'left' : '';
+            if (Math.abs(distanceX) >= SWIPE_MIN_DISTANCE_THRESHOLD) {
+                const direction = distanceX < 0 ? 'right' : distanceX > 0 ? 'left' : '';
+                return {
+                    ...swipeState,
+                    end: endingPoint,
+                    direction,
+                };
+            }
             return {
                 ...swipeState,
                 end: endingPoint,
-                direction,
+                direction: '',
             };
         };
 
@@ -263,15 +270,14 @@
         };
 
         let swipeState = resetSwipeState();
-        
+        const SWIPE_MIN_DISTANCE_THRESHOLD = 60;
+
         const onTouchStart = (e) => {
             stopCarousel();
-            e.preventDefault();
             const startingPoint = getTouchMouseEventCoordinates(e);
             swipeState = initializeSwipeState(startingPoint);
             console.log('Touch start...');
             console.log(swipeState);
-            console.log(e.target);
         };
         
         const onTouchEnd = (e) => {
@@ -282,13 +288,11 @@
             if (['left', 'right'].includes(swipeState.direction)) {
                 moveLeftRight(swipeState.direction);
                 console.log('Swiped to the ', swipeState.direction);
+                e.stopPropagation();
+                e.stopImmediatePropagation();
             } else {
                 startCarousel();
             }
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            console.log(e.target);
         };
 
         const onTouchCancel = (e) => {
@@ -299,11 +303,23 @@
         const viewportClassSelector = '.hero-with-headline--carousel--viewport';
         const carouselViewport = carousel.querySelector(viewportClassSelector);
         if (carouselViewport) {
-            carouselViewport.addEventListener('touchstart', onTouchStart, true);
-            carouselViewport.addEventListener('touchend', onTouchEnd, true);
+            carouselViewport.addEventListener('touchstart', onTouchStart, {
+                capture: true,
+                passive: true,
+            });
+            carouselViewport.addEventListener('touchend', onTouchEnd, {
+                capture: true,
+                passive: true,
+            });
             carouselViewport.addEventListener('touchcancel', onTouchCancel);
-            carouselViewport.addEventListener('mousedown', onTouchStart, true);
-            carouselViewport.addEventListener('mouseup', onTouchEnd, true);
+            carouselViewport.addEventListener('mousedown', onTouchStart, {
+                capture: true,
+                passive: true,
+            });
+            carouselViewport.addEventListener('mouseup', onTouchEnd, {
+                capture: true,
+                passive: true,
+            });
         }
 
         {% if show_hero_carousel_arrows %}
