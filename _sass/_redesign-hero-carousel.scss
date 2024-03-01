@@ -164,6 +164,7 @@ $max-hero-item-count: 20;
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
+                column-gap: 10px;
                 .hero-with-headline--carousel--pagination--item {
                     flex: 1;
                     display: inline-block;
