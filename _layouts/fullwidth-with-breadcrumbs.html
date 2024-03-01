@@ -13,8 +13,16 @@ layout: default
             primary_title=page.primary_title
             title=page.title
         %}
-        <div class="full-width-layout--content">
-            <div class="full-width-layout--content--body">
+        {%- if layout.content_body_class -%}
+            {%- assign content_body_class = layout.content_body_class -%}
+            {%- if page.has_hero -%}
+                {%- assign content_body_class = content_body_class | append: " " | append: layout.content_body_class | append: "__has-hero" -%}
+            {%- endif -%}
+        {%- else -%}
+            {%- assign content_body_class = "" -%}
+        {%- endif -%}
+        <div class="full-width-layout--content {{ content_body_class }}">
+            <div class="full-width-layout--content--body {{ content_body_class }}">
                 {{ content }}
                 {% if page.content_cta_button %}
                     <div class="content-body--cta-button content-body--cta-button__centered">

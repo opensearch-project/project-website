@@ -1,20 +1,21 @@
 ---
 layout: fullwidth-with-breadcrumbs
+content_body_class: conference-archive-landing
 ---
 {% assign conference_id = page.conference_id | replace_first: "-", " " %}
 {% assign conference_id_parts = conference_id | split: " " %}
 {% assign conference_year = conference_id_parts[0] %}
 {% assign conference_location = conference_id_parts[1] | replace: "-", " " %}
-{% if page.has_hero and page.hero_image %}
+{% if page.has_hero and page.hero_images %}
     <div class="page-with-hero platform-landing-page platform-page--content">
         <div class="landing-page-hero-wrapper">
             <div class="platform-category-page--hero">
                 <div class="landing-page-hero--images">
                     <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
-                            <img src="{{ page.hero_image }}" alt="Conference archive hero image">
+                            <img src="{{ page.hero_images.mobile.path }}" alt="{{ page.hero_images.mobile.alt }}">
                         </div>
                         <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
-                            <img src="{{ page.hero_image }}" alt="Conference archive hero image">
+                            <img src="{{ page.hero_images.desktop.path }}" alt="{{ page.hero_images.desktop.alt }}">
                         </div>
                     </div>
                 </div>
