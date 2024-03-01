@@ -1,8 +1,0 @@
----
-name: Rishabh Bhardwaj
-short_name: Rishabh
-twitter: Rishabh22409994
-github: rishabh1815769
----
-
-**Rishabh** is a data engineer at HRS Group and he is interested in LLMs, Vector Databases and distributed computing.

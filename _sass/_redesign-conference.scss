@@ -124,29 +124,9 @@ $content-panel-expand-breakpoint: 1019px;
         flex-basis: unset;
         max-width: unset;
         flex-grow: 0;
-        @include link-button($primary-open-sky-s1);
+        @include interactive-link-button-dark-mode("conference-speaker-session-page--view-all--link-button", 50px);
         > a {
-            color: $secondary-sanfrancisco-fog-t1;
-            padding: 10px 50px;
-            font-size: 18px;
-            line-height: 2.8;
-            text-decoration: none;
-            font-weight: 700;
-            &:hover {
-                background: unset;
-            }
-        }
-        &:hover {
-            @include hover-button-dark-mode;
-        }
-        &.conference-speaker-session-page--view-all--link-button__focus {
-            @include focused-button-dark-mode;
-        }
-        &.conference-speaker-session-page--view-all--link-button__active {
-            @include active-button-dark-mode;
-        }
-        &.conference-speaker-session-page--view-all--link-button__disabled {
-            @include disabled-button-dark-mode;
+            padding: 0 50px;
         }
     }
 }
@@ -782,5 +762,194 @@ h2.conference-speaker-session-page {
 
     .analytics {
         background: $secondary-purple-sage-t3;
+    }
+}
+
+.conference-archive-landing {
+    &.landing-page-content__left-panel {
+        > .landing-page-content__left-panel--content {
+            > .landing-page-content__left-panel--content--body {
+                > h2 {
+                    @include header-level2($primary-open-sky-s3);
+                }
+                > .conference-archive--featured-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    @media screen and (min-width: 1600px) {
+                        gap: 80px;
+                    }
+                    @media screen and (min-width: 1440px) and (max-width: 1599px) {
+                        gap: 40px;
+                    }
+                    @media screen and (min-width: 1300px) and (max-width: 1439px) {
+                        gap: 20px;
+                    }
+                    @media screen and (max-width: 1299px) {
+                        grid-template-columns: 1fr;
+                        gap: 20px;
+                    }
+                    > .conference-archive--featured-grid--item {
+                        @include thick-edge-bottom;
+                        @include card-shadow;
+                        @include clickable-card-interactive-states("conference-archive--featured-grid--item", $primary-open-sky);
+                        background-color: #fff;
+                        padding: 0;
+                        @media screen and (min-width: 1300px) {
+                            width: 350px;
+                            aspect-ratio: 350 / 450;
+                        }
+                        @media screen and (max-width: 1299px) {
+                            width: 100%;
+                            aspect-ratio: 1;
+                        }
+                        
+                        > .conference-archive--featured-grid--item--thumbnail {
+                            width: 100%;
+                            aspect-ratio: 350 / 200;
+                            height: auto;
+                            overflow-y: hidden;
+                            img {
+                                object-fit: cover;
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                        > .conference-archive--featured-grid--item--date {
+                            width: 100%;
+                            margin-top: 25px;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            box-sizing: border-box;
+                            > h6 {
+                                @include header-level6($primary-open-sky-s3);
+                                margin-bottom: 20px;
+                            }
+                        }
+                        > .conference-archive--featured-grid--item--title {
+                            height: 128px;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            box-sizing: border-box;
+                            > h2 {
+                                @include header-level2($primary-open-sky);
+                                margin-top: 0;
+                                > a {
+                                    color: $primary-open-sky;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                        > .conference-archive--featured-grid--item--category {
+                            width: 100%;
+                            box-sizing: border-box;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            padding-bottom: 20px;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: space-between;
+                            align-items: center;
+                            column-gap: 10px;
+                            > div {
+                                box-sizing: border-box;
+                                padding: 0;
+                                flex-shrink: 0;
+                                flex-grow: 0;
+                            }
+                            > div:nth-of-type(1) {
+                                flex-basis: 20px;
+                                height: 24px;
+                            }
+                            > div:nth-of-type(2) {
+                                flex-basis: calc(100% - 20px);
+                                @include header-level5($primary-open-sky-s3);
+                            }
+                        }
+                    }
+                }
+            }
+            > .landing-page-content__left-panel--content--side-panel {
+                > .draft-3-landing-page--button-stack__with-label {
+                    &:not(:first-of-type) {
+                        margin-top: 20px;
+                    }
+                    > .draft-3-landing-page--button-stack__with-label--label {
+                        > h2 {
+                            @include header-level2(#000);
+                            margin-bottom: 0;
+                        }
+                        > h3 {
+                            @include header-level3(#000);
+                            margin-top: 24px;
+                            text-transform: capitalize;
+                        }
+                    }
+                    > .draft-3-landing-page--button-stack {
+                        @media screen and (min-width: 835px) {
+                            &:nth-of-type(2) {
+                                row-gap: 30px;
+                            }
+                        }
+                        @media screen and (max-width: 428px) {
+                            &:nth-of-type(2) {
+                                > .draft-3-landing-page--button-stack--button {
+                                    > .redesign-button--wrapper {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                > .draft-3-landing-page--button-stack {
+                    margin-top: 70px;
+                    margin-bottom: 40px;
+                    flex-wrap: wrap;
+                    row-gap: 30px;
+                    > .redesign-button--wrapper {
+                        @media screen and (max-width: 420px) {
+                            width: calc(100vw - 70px);
+                            > a.redesign-button--anchor {
+                                width: calc(100vw - 70px);
+                                height: 60px;
+                                > .redesign-button--contents {
+                                    justify-content: space-evenly;
+                                    align-items: center;
+                                    > .redesign-button--contents--icon-slot {
+                                        padding: 18px 0 10px 0px;
+                                    }
+                                    > .redesign-button--contents--text-slot {
+                                        font-size: 24px;
+                                        padding-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                > .solutions-card-grid {
+                    background: unset;
+                    padding: 0;
+                    > h2 {
+                        @include header-level2(#000);
+                    }
+                    > .solutions-card-grid--card-wrapper {
+                        @media screen and (min-width: 1401px) and (max-width: 1459px),
+                        screen and (min-width: 1460px),
+                        screen and (min-width: 835px) and (max-width: 1400px)
+                        {
+                            grid-template-columns: 1fr;
+                            padding: 0;
+                        }
+                        @media screen and (min-width: 740px) and (max-width: 834px) {
+                            grid-template-columns: 1fr 1fr;
+                            column-gap: 20px;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -10,3 +10,17 @@
     @include filter-chip($event-category-events);
     max-width: 86px;
 }
+.filter-chip__author-persona {
+    @include filter-chip($community-member-author-persona);
+    max-width: 90px;
+}
+
+.filter-chip__conference_speaker-persona {
+    @include filter-chip($community-member-conference_speaker-persona);
+    max-width: 200px;
+}
+
+.filter-chip__osci-persona {
+    @include filter-chip($community-member-osci-persona);
+    max-width: 200px;
+}

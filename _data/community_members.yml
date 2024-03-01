@@ -1,0 +1,11 @@
+personas:
+  - value: author
+    label: Author
+  - value: conference_speaker
+    label: Conference Speaker
+sort_options:
+  - value: name_ascending
+    label: "Sort by Name (A-Z)"
+  - value: name_descending
+    label: "Sort by Name (Z-A)"
+

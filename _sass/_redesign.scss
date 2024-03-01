@@ -293,6 +293,186 @@ $header-banner-mobile-breakpoint: 1018px;
     }
 }
 
+.landing-page-content__left-panel {
+    @include page-element-padding;
+    background: transparent;
+    margin-bottom: 0;
+    > .landing-page-content__left-panel--content {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: stretch;
+        @media screen and (min-width: 835px) {
+            flex-wrap: nowrap;
+            column-gap: 40px;
+            padding-right: 20px;
+        }
+        @media screen and (max-width: 834px) {
+            flex-wrap: wrap;
+            padding-right: 0;
+            column-gap: 0;
+        }
+        flex-wrap: nowrap;
+        
+        padding-bottom: 80px;
+        h2 {
+            @include header-level2($primary-open-sky-s3);
+        }
+        > .landing-page-content__left-panel--content--body {
+            padding: 0;
+            @media screen and (min-widtH: 835px) {
+                max-width: unset;
+                flex-basis: 71.5%;
+            }
+            @media screen and (max-width: 834px) {
+                max-width: 100%;
+            }
+        }
+        > .landing-page-content__left-panel--content--side-panel {
+            background: #fff;
+            &.landing-page-content__left-panel--content--side-panel__vertical-gradient {
+                @include gradient-open-sky;
+            }
+            @media screen and (min-width: 835px) {
+                display: block;
+                flex-basis: 28.5%;
+                padding: 30px;
+            }
+            @media screen and (max-width: 834px) {
+                width: 100%;
+                display: block;
+                padding: 0 20px;
+            }
+            box-sizing: border-box;
+            > .draft-3-landing-page--button-stack__with-label {
+                @media screen and (min-width: 835px) {
+                    width: 100%;
+                    max-width: unset;
+                    &:not(:first-of-type) {
+                        margin-top: 60px;
+                    }
+                }
+                @media screen and (max-width: 834px) {
+                    max-width: 100%;
+                    padding-top: 0;
+                    margin-bottom: 20px;
+                }
+                &:nth-of-type(1),
+                &:nth-of-type(2) {
+                    > .draft-3-landing-page--button-stack {
+                        @media screen and (max-width: 650px) {
+                            flex-wrap: wrap;
+                            row-gap: 20px;
+                            justify-content: flex-start;
+                        }
+                        &.draft-3-landing-page--button-stack__tablet-2column {
+                            @media screen and (min-width: 480px) and (max-width: 834px) {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 20px;
+                            }
+                        }
+                    }
+                }
+                box-sizing: border-box;
+                > .draft-3-landing-page--button-stack__with-label--label {
+                    > .h2 {
+                        margin-top: 0;
+                    }
+                }
+                > .draft-3-landing-page--button-stack {
+                    background: transparent;
+                    box-sizing: border-box;
+                    
+                    @media screen and (max-width: $content-with-panel-collapsed-max)
+                    and (min-width: $min-past-iphone-width) {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 20px;
+                    }
+                    @media screen and (min-width: $content-with-panel-expanded-min), 
+                    screen and (max-width: $max-iphone-width) {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 20px;
+                    }
+                    @media screen and (max-width: $content-with-panel-collapsed-max) {
+                        width: 100%;
+                    }
+                    @media screen and (max-width: $max-iphone-width) {
+                        padding-left: 10px;
+                        padding-right: 10px;
+                    }
+                    @media screen and (min-width: 835px) {
+                        max-width: 350px;
+                        min-width: 280px;
+                        margin-top: 40px;
+                        row-gap: 30px;
+                        &:nth-of-type(2) {
+                            row-gap: 40px;
+                        }
+                    }
+                    @media screen and (max-width: 834px) {
+                        width: 100%;
+                        padding: 0;
+                    }
+                    
+                    .draft-3-landing-page--button-stack--button {
+                        &.draft-3-landing-page--button-stack--button__hide-labels {
+                            > label {
+                                display: none;
+                            }
+                        }
+                        @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
+                            flex-basis: 50%;
+                            flex-grow: 1;
+                            flex-shrink: 1;
+                            width: auto;
+                        }
+                        @media screen and (max-width: $content-with-panel-collapsed-max) {
+                            flex-basis: 50%;
+                            flex-shrink: 0;
+                            flex-grow: 0;
+                        }
+                        > .conference-archive-section-buttons--link-button {
+                            &.conference-archive-section-buttons--link-button__light {
+                                @include interactive-link-button-light-mode("conference-archive-section-buttons--link-button__light", 60px);
+                            }
+                            &.conference-archive-section-buttons--link-button__dark {
+                                @include interactive-link-button-dark-mode("conference-archive-section-buttons--link-button__dark", 50px);
+                            }
+                            
+                            @media screen and (max-width: 834px) {
+                                width: 100%;
+                            }
+                        }
+                        > .redesign-button-pair--wrapper {
+                            @media screen and (max-width: 834px) {
+                                flex-wrap: wrap;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: center;
+                                column-gap: 10px;
+                                width: 100%;
+                                box-sizing: border-box;
+                            }
+                            > .redesign-button--wrapper {
+                                @media screen and (max-width: 834px) { 
+                                    flex-basis: calc(50% - 5px);
+                                    flex-shrink: 0;
+                                    flex-grow: 0;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .homepage-wrapper {
     width: 100%;
     padding: 0;
@@ -1046,23 +1226,6 @@ $header-banner-mobile-breakpoint: 1018px;
                         }
                     }
                 }
-                .resource-grid--more {
-                    > .link-button {
-                        @include link-button-light-mode;
-                        &:hover {
-                            @include hover-button-light-mode;
-                        }
-                        &.link-button__focus {
-                            @include focused-button-light-mode;
-                        }
-                        &.link-button__active {
-                            @include active-button-light-mode;
-                        }
-                        &.link-button__disabled {
-                            @include disabled-button-light-mode;
-                        }
-                    }
-                }
             }
             > .resource-grid {
                 min-height: 550px;
@@ -1169,34 +1332,10 @@ $header-banner-mobile-breakpoint: 1018px;
         }
     }
     &.redesign-button--wrapper__text-only {
-        @include link-button-light-mode;
-        &:hover {
-            @include hover-button-light-mode;
-        }
-        &.redesign-button--wrapper__text-only__focus {
-            @include focused-button-light-mode;
-        }
-        &.redesign-button--wrapper__text-only__active {
-            @include active-button-light-mode;
-        }
-        &.redesign-button--wrapper__text-only__disabled {
-            @include disabled-button-light-mode;
-        }
+        @include interactive-link-button-light-mode("redesign-button--wrapper__text-only", 60px);
     }
     &.redesign-button--wrapper__text-only__dark {
-        @include link-button-dark-mode($primary-open-sky-s2);
-        &:hover {
-            @include hover-button-dark-mode;
-        }
-        &.redesign-button--wrapper__text-only__dark__focus {
-            @include focused-button-dark-mode;
-        }
-        &.redesign-button--wrapper__text-only__active {
-            @include active-button-dark-mode;
-        }
-        &.redesign-button--wrapper__text-only__disabled {
-            @include disabled-button-dark-mode;
-        }
+        @include interactive-link-button-dark-mode("redesign-button--wrapper__text-only__dark", 50px);
     }
     &.redesign-button--wrapper__text-with-icon {
         > .redesign-button--anchor {
@@ -1376,10 +1515,9 @@ $header-banner-mobile-breakpoint: 1018px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    > div {
+    > .link-button {
         flex-basis: 268px;
-        height: 50px;
-        @include link-button-light-mode;   
+        @include interactive-link-button-light-mode("link-button", 50px);
     }
 }
 
@@ -2144,6 +2282,7 @@ $community-voices-smallest-max-size: 739px;
                 width: 15px;
                 height: 16px;
                 flex-shrink: 0;
+                padding-right: 8px;
             }
         }
     }

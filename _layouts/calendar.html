@@ -1,15 +1,6 @@
 ---
 layout: fullwidth-with-breadcrumbs
 ---
-<template id="community-filter-chip">
-    {% include filter-chips.html type="community" %}
-</template>
-<template id="development-filter-chip">
-    {% include filter-chips.html type="development" %}
-</template>
-<template id="events-filter-chip">
-    {% include filter-chips.html type="events" %}
-</template>
 <template id="empty-calendar-message">
     <p class="events--calendar--no-events-message">No events scheduled at this time.</p>
 </template>
@@ -26,6 +17,12 @@ layout: fullwidth-with-breadcrumbs
 {% if page.month_index > 0 %}
     {% assign previous_month_index = month_index | minus: 1 %}
     {% assign days_in_previous_month = site.data.calendars.days_in_month[previous_month_index].day_count %}
+    {% if month_number == 3 %}
+        {% assign years_mod_4 = page.year | modulo: 4 %}
+        {% if years_mod_4 == 0 %}
+            {% assign days_in_previous_month = days_in_previous_month | plus: 1 %}
+        {% endif %}
+    {% endif %}
 {% else %}
     {% assign days_in_previous_month = site.data.calendars.days_in_month[11].day_count %}
 {% endif %}
@@ -53,16 +50,11 @@ layout: fullwidth-with-breadcrumbs
                 </a>
             </div>
         </div>
-        <div class="events--calendar--filters--category-selector">
-            <div class="events--calendar--filters--category-selector--dropdown">
-                {% include labeled-dropdown.html 
-                    items=site.data.calendars.filter_categories 
-                    label="Filter by Category" 
-                    id="category-filter-selector"
-                %}
-            </div>
-            <div class="events--calendar--filters--category-selector--filter-chips"></div>
-        </div>
+        {% include content-filter-dropdown.html
+            component_classname="events--calendar--filters--category-selector"
+            filterable_content_block_element_classname="events--calendar"
+            filter_categories=site.data.calendars.filter_categories
+        %}
         <div class="events--calendar--filters--in-person-toggle">
             <div role="button" id="in-person-toggle-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20" fill="none">
@@ -347,19 +339,7 @@ layout: fullwidth-with-breadcrumbs
         writeMonthYear(new Date(Date.UTC(pageCalendarYear, pageCalendarMonthIndex, 1, 0, 0, 0, 0)));
         writeWeekdayNames(dateOfFirstSunday);
 
-        function hasFilterChip(chipType) {
-            const selector = `.events--calendar--filters--category-selector--filter-chips > [data-category=${chipType}]`;
-            const chipElement = document.querySelector(selector);
-            return chipElement !== null;
-        }
-
-        function hasAnyFilterChips() {
-            const selector = '.events--calendar--filters--category-selector--filter-chips > .filter-chip';
-            const chips = document.querySelectorAll(selector);
-            const chipCount = chips?.length ?? 0;
-            return chipCount > 0;
-        }
-
+        
         function updateFilterByCategoryLabelCount() {
             const filterChipsParent = document.querySelector('.events--calendar--filters--category-selector--filter-chips');
             const chipCount = filterChipsParent?.querySelectorAll?.('.filter-chip')?.length ?? 0;
@@ -384,126 +364,6 @@ layout: fullwidth-with-breadcrumbs
                 updateFilterByCategoryLabelCount();
             }
         }
-    
-        function removeFilterChip(chipType) {
-            const selector = `.events--calendar--filters--category-selector--filter-chips > [data-category=${chipType}]`;
-            const chipElement = document.querySelector(selector);
-            chipElement?.parentElement?.removeChild?.(chipElement);
-            updateFilterByCategoryLabelCount();
-        }
-
-        function hideFilterDropdown() {
-            const selector = '.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select';
-            const dropdown = document.querySelector(selector);
-            const parent = dropdown.closest('.labeled-dropdown');
-            if (parent) {
-                const collapsedClassName = 'labeled-dropdown__collapsed';
-                const expandedClassName = 'labeled-dropdown__expanded';
-                parent.classList.replace(expandedClassName, collapsedClassName);
-            }
-        }
-
-        document.querySelector('.events--calendar--filters--category-selector--filter-chips')?.addEventListener?.('click', (e) => {
-            const { target } = e;
-            const clickedChipSelector = '.filter-chip';
-            const clickedChip = target.closest(clickedChipSelector);
-            if (clickedChip) {
-                const category = clickedChip.getAttribute('data-category');
-                const calendarClass = 'events--calendar';
-                const calendarSelector = `.${calendarClass}`;
-                const calendarFilteredModifierClass = `${calendarClass}__filtered`;
-                const calendar = document.querySelector(calendarSelector);
-                if (calendar) {
-                    const categoryAttribute = 'data-filtercategory';
-                    const filteredCategory = calendar.getAttribute(categoryAttribute);
-                    if (filteredCategory) {
-                        const updatedFilters = filteredCategory.split(',').filter(value => value !== category).join(',');
-                        if (updatedFilters.length > 0) {
-                            calendar.setAttribute(categoryAttribute, updatedFilters);
-                        } else {
-                            calendar.removeAttribute(categoryAttribute);
-                            calendar.classList.remove(calendarFilteredModifierClass);
-                        }
-                    }
-                }
-                removeFilterChip(category);
-            }
-        });
-
-        document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--label-arrow')?.addEventListener?.('click', (e) => {
-            const collapsedClassName = 'labeled-dropdown__collapsed';
-            const expandedClassName = 'labeled-dropdown__expanded';
-            const { currentTarget } = e;
-            const parent = currentTarget.closest('.labeled-dropdown');
-            const selectElement = parent?.querySelector('select');
-            if (selectElement?.hasAttribute?.('disabled')) {
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-                e.preventDefault();
-                return;
-            }
-            if (parent) {
-                if (parent.classList.contains(collapsedClassName)) {
-                    parent.classList.replace(collapsedClassName, expandedClassName);
-                } else {
-                    parent.classList.replace(expandedClassName, collapsedClassName);
-                }
-            }
-            e.stopImmediatePropagation();
-            e.stopPropagation();
-            e.preventDefault();
-        });
-        
-        document.querySelector('.events--calendar--filters--category-selector--dropdown .labeled-dropdown--select')?.addEventListener?.('click', (e) => {
-            const { currentTarget, target : { value = '' } = {} } = e;
-            if (currentTarget.hasAttribute('disabled')) {
-                e.preventDefault();
-                return;
-            }
-            const filterCategories = {{ site.data.calendars.filter_categories | map: "value" | jsonify }};
-            if (filterCategories.includes(value)) {
-                const calendarClass = 'events--calendar';
-                const calendarSelector = `.${calendarClass}`;
-                const calendarFilteredModifierClass = `${calendarClass}__filtered`;
-                const calendar = document.querySelector(calendarSelector);
-                const adding = !hasFilterChip(value);
-                const filterAttribute = 'data-filtercategory';
-                if (adding) {
-                    addFilterChip(value);
-                } else {
-                    removeFilterChip(value);
-                }
-                if (hasAnyFilterChips()) {
-                    if (calendar.hasAttribute(filterAttribute)) {
-                        const existingFilters = calendar.getAttribute(filterAttribute);
-                        if (adding) {
-                            const updatedFilters = [...existingFilters.split(','), value].join(',');
-                            calendar.setAttribute(filterAttribute, updatedFilters);
-                        } else {
-                            const updatedFilters = existingFilters.split(',').filter(category => category !== value);
-                            if (updatedFilters.length > 0) {
-                                calendar.setAttribute(filterAttribute, updatedFilters.join(','));
-                                if (!calendar.classList.contains(calendarFilteredModifierClass)) {
-                                    calendar.classList.add(calendarFilteredModifierClass);
-                                }
-                            } else {
-                                calendar.removeAttribute(filterAttribute);
-                                calendar.classList.remove(calendarFilteredModifierClass);
-                            }
-                        }
-                    } else {
-                        calendar.setAttribute(filterAttribute, value);
-                        if (!calendar.classList.contains(calendarFilteredModifierClass)) {
-                            calendar.classList.add(calendarFilteredModifierClass);
-                        }
-                    }
-                } else {
-                    calendar.removeAttribute(filterAttribute);
-                    calendar.classList.remove(calendarFilteredModifierClass);
-                }
-            }
-            hideFilterDropdown();
-        });
 
         document.getElementById('in-person-toggle-button')?.addEventListener?.('click', (e) => {
             const { currentTarget } = e;
@@ -588,15 +448,6 @@ layout: fullwidth-with-breadcrumbs
                             event.preventDefault();
                         }
                     }
-                }
-            } else {
-                // Determine if the category dropdown was visible and
-                // if the event occurred outside of it somewhere, and then close it.
-                const expandedCategoryFilterSelector = '.labeled-dropdown.labeled-dropdown__expanded';
-                const expandedCategoryFilter = document.querySelector(expandedCategoryFilterSelector);
-                if (expandedCategoryFilter) {
-                    hideFilterDropdown();
-                    event.preventDefault();
                 }
             }
         }
