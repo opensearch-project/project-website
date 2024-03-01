@@ -48,7 +48,7 @@ redirect_from: /events/opensearchcon/2022/index.html
 
 # Whether or not there is a hero image. This has an impact on the base CSS class of the
 # document. See _sass/_redesign-typography.scss for how .page-with-hero, and .page-without-hero
-# affects page typography.
+# affects page typography, and some styling matters at the top of the page.
 has_hero: false
 
 # IF there is a page hero image this is where the path will be defined.
@@ -92,3 +92,9 @@ featured_sessions:
     date: Wednesday 09/21/2022
     thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
+
+OpenSearchCon is the annual conference for the OpenSearch Project community. OpenSearchCon brings the community together to learn, connect, and collaborate.
+
+This annual event aims to educate and inspire with presentation sessions, participant-driven meetings, and exhibits and demonstrations from OpenSearch Project partners.
+
+Users, administrators, and developers come to OpenSearchCon to explore solutions to real-world problems, network with their peers, and take a look into the future of search, analytics, and observability applications.
