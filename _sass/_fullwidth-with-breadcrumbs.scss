@@ -122,6 +122,14 @@
                 }
             }
         }
+        &.join-slack {
+            > ul > li {
+                @include body-medium;
+            }
+            > .content-body--cta-button.content-body--cta-button__centered {
+                padding-bottom: 0;
+            }
+        }
         > p {
             @include page-paragraph-padding;
             margin: 0;
@@ -293,6 +301,11 @@
                 justify-content: center;
                 align-items: center;
                 padding: 0 0 42px;
+            }
+            > .redesign-button--wrapper {
+                @media screen and (max-width: 410px) {
+                    width: calc(100% - 60px);
+                }
             }
         }
     }
