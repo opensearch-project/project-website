@@ -621,6 +621,9 @@ $calendar-month-default-week-count: 5;
                 > .events--calendar--details--card {
                     width: auto;
                     min-width: 350px;
+                    @media screen and (max-width: 410px) {
+                        min-width: calc(100% - 60px);
+                    }
                     &.events--calendar__list-view--event-card__community {
                         border-bottom: $event-category-community 10px solid;
                     }
@@ -728,6 +731,14 @@ $calendar-month-default-week-count: 5;
                     @media screen and (max-width: $max-iphone-width) {
                         padding-left: 10px;
                         padding-right: 10px;
+                    }
+                    @media screen and (max-width: 410px) {
+                        .redesign-button--wrapper {
+                            width: calc(100% - 60px);
+                        }
+                        .redesign-button--wrapper.redesign-button--wrapper__complex-content > .redesign-button--anchor {
+                            width: unset;
+                        }
                     }
                 }
             }

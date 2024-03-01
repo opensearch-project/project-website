@@ -368,7 +368,7 @@ $max-container: 1440px;
                                 @media screen and (max-width: $header-banner-mobile-breakpoint) {
                                     @include body-text;
                                     color: $primary-open-sky-t3;
-                                    padding-left: 10px;
+                                    padding-left: 30px;
                                     &.in-category {
                                         color: #006D97;
                                         text-decoration: underline;
@@ -415,8 +415,7 @@ $max-container: 1440px;
                     align-items: flex-start;
                     @media screen and (max-width: $header-banner-mobile-breakpoint) {
                         display: flex;
-                        width: calc(100% - 20px);
-                        padding: 15px 10px;
+                        padding: 15px 30px;
                         height: 60px;
                         box-sizing: content-box;
                     }
