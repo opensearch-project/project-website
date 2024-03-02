@@ -90,8 +90,7 @@ async function writeObjectAsFrontMatter(frontMatterData, filePath) {
 }
 
 function createSectionCollectionsPaths(sections, baseDir) {
-    const splitSections = sections.split(',');
-    const collectionsPaths = splitSections.reduce((carry, current) => {
+    const collectionsPaths = sections.reduce((carry, current) => {
         const collectionPath = current !== 'speakers' ? 
             path.join(baseDir, `_opensearchcon_${current}`) : 
             path.join(baseDir, '_community_members');
@@ -104,10 +103,9 @@ function createSectionCollectionsPaths(sections, baseDir) {
 }
 
 function createEventPagesPaths(sections, conferenceBaseDir, sampleBaseDir) {
-    const splitSections = sections.split(',');
     const landingPagePath = conferenceBaseDir;
     const landingSamplePath = path.join(sampleBaseDir, '_sample-index.md');
-    const pagesPaths = splitSections.reduce((carry, current) => {
+    const pagesPaths = sections.reduce((carry, current) => {
         const pagePath = path.join(conferenceBaseDir, current);
         const sampleDataPath = path.join(sampleBaseDir, `_sample-year-location-${current}`, '_sample-index.md');
         return {
@@ -217,8 +215,7 @@ function createBreadcrumbItemsOverride(year, location, readableLocation, additio
 }
 
 function createSectionsButtonStackOverrides(sections, year, location) {
-    const splitSections = sections.split(',');
-    const buttonStackConfig = splitSections.reduce((carry, current) => {
+    const buttonStackConfig = sections.reduce((carry, current) => {
         const url = `/events/opensearchcon/${year}/${location}/${current}/index.html`;
         const label = upperCaseFirstChar(current);
         carry.push({
@@ -232,12 +229,17 @@ function createSectionsButtonStackOverrides(sections, year, location) {
 
 async function run(inputArgs, baseDir) {
     const {conferenceYear, conferenceLocation, sections } = inputArgs;
+    const splitSections = sections.split(',');
     const conferenceId = `${conferenceYear}-${conferenceLocation}`;
     const readableLocationName = getReadableLocationName(conferenceLocation);
     const conferenceBaseDir = path.join(baseDir, 'events', 'opensearchcon', conferenceYear, conferenceLocation);
     const samplePagesBaseDir = path.join(baseDir, 'events', 'opensearchcon', 'archive', '_sample-year', '_sample-year-location');
-    const pagesPaths = createEventPagesPaths(sections, conferenceBaseDir, samplePagesBaseDir);
-    const collectionsPaths = createSectionCollectionsPaths(sections, baseDir);
+    const pagesPaths = createEventPagesPaths(splitSections, conferenceBaseDir, samplePagesBaseDir);
+    const collectionsPaths = createSectionCollectionsPaths(
+        splitSections.filter(
+            section => section !== 'unconference' // There is no collection for the unconference
+        ), baseDir
+    );
     const placeholderSpeakers = [{
         short_name: `placeholder-speaker-${conferenceId}-1`,
         name: `Placeholder Speaker ${conferenceYear} ${readableLocationName} 1`,
@@ -290,7 +292,7 @@ async function run(inputArgs, baseDir) {
                 conference_id: conferenceId,
                 permalink: `/events/opensearchcon/${conferenceYear}/${conferenceLocation}/index.html`,
                 redirect_from: `/events/opensearchcon/${conferenceYear}/index.html`,
-                conference_sections_button_stack: createSectionsButtonStackOverrides(sections, conferenceYear, conferenceLocation),
+                conference_sections_button_stack: createSectionsButtonStackOverrides(splitSections, conferenceYear, conferenceLocation),
             },
         },
         exhibitors: {
@@ -374,7 +376,7 @@ async function run(inputArgs, baseDir) {
             },
         },
     };
-    const configuredPagesOverrides = sections.split(',').reduce((carry, current) => {
+    const configuredPagesOverrides = ['landingPage', ...splitSections].reduce((carry, current) => {
         return {
             ...carry,
             [current]: sectionPagesOverrides[current],
@@ -435,7 +437,7 @@ async function run(inputArgs, baseDir) {
             },
         },
     };
-    const configuredCollectionOverrides = sections.split(',').reduce((carry, current) => {
+    const configuredCollectionOverrides = splitSections.split(',').reduce((carry, current) => {
         if (!sectionCollectionOverrides.hasOwnProperty(current)) {
             return carry;
         }
