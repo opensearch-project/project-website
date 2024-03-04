@@ -60,6 +60,18 @@ layout: default
                     <div class="community-member--back-to-directory">
                         <a href="/community/members/index.html">Back to Member Directory</a>
                     </div>
+                    {%- if page.conference_id -%}
+                        {%- assign sorted_conference_ids = page.conference_id | sort -%}
+                        {%- assign default_conference_id = sorted_conference_ids | last -%}
+                        {%- assign formatted_conference_id = default_conference_id |  replace_first: "-", "/" -%}
+                        {%- assign url_path_prefix = "/events/opensearchcon/" | append: formatted_conference_id -%}
+                        <div class="community-member--back-to-directory community-member--back-to-directory__conference community-member--back-to-directory__hidden">
+                            <a href="{{ url_prefix }}/sessions/index.html" id="view-all-sessions">View All Sessions</a>
+                        </div>
+                        <div class="community-member--back-to-directory community-member--back-to-directory__conference community-member--back-to-directory__hidden">
+                            <a href="{{ url_prefix }}/speakers/index.html" id="view-all-speakers">View All Speakers</a>
+                        </div>
+                    {%- endif -%}
                     {% include interactive-states.html 
                         element_classname="community-member--back-to-directory"
                         container_selector=".two-column-layout--sidebar--navigation"
@@ -182,3 +194,125 @@ layout: default
         </div>
     </div>
 </main>
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        function extractConferenceUrlParts(url) {
+            const archivePattern = /\/events\/opensearchcon\/(\d{4})\/([^\/]+)\//i;
+            const archiveMatches = archivePattern.exec(url);
+            if (archiveMatches) {
+                const archiveYear = archiveMatches[1];
+                const archiveLocation = archiveMatches[2];
+                return {
+                    archiveYear,
+                    archiveLocation,
+                };
+            }
+            return null;
+        }
+
+        function useConferenceReferralBreadcrumbs({ archiveYear, archiveLocation }) {
+            const breadcrumbItemsWrapperClassname = 'full-width-layout--header--category-area';
+            const breadcrumbItemClassname = 'full-width-layout--header--breadcrumbs--item';
+            const breadcrumbItemsWrapperSelector = `.full-width-layout--header > .${breadcrumbItemsWrapperClassname}`;
+            const breadcrumbItemsWrapper = document.querySelector(breadcrumbItemsWrapperSelector);
+            if (breadcrumbItemsWrapper) {
+                const breadcrumbItemsSelector = `:scope > .${breadcrumbItemClassname}`;
+                const breadcrumbItems = breadcrumbItemsWrapper.querySelectorAll(breadcrumbItemsSelector);
+                if (!breadcrumbItems.length) {
+                    return;
+                }
+                const conferenceBaseUrl = `/events/opensearchcon`;
+                const conferenceBreadcrumbsUrls = [{
+                    url: `${conferenceBaseUrl}/index.html`,
+                    label: 'OpenSearchCon',
+                }, {
+                    url: `${conferenceBaseUrl}/${archiveYear}/index.html`,
+                    label: archiveYear,
+                }, {
+                    url: `${conferenceBaseUrl}/${archiveYear}/${archiveLocation}/index.html`,
+                    label: archiveLocation,
+                }, {
+                    url: `${conferenceBaseUrl}/${archiveYear}/${archiveLocation}/speakers/index.html`,
+                    label: 'Speakers',
+                }];
+                const lastBreadcrumbItem = breadcrumbItems.item(breadcrumbItems.length - 1);
+                const speakerNameBreadcrumbClone = lastBreadcrumbItem.cloneNode(true);
+                const speakersListingBreadcrumbItem = lastBreadcrumbItem.cloneNode(true);
+
+                const breadcrumbSeparatorSelector = ':scope > .full-width-layout--header--breadcrumbs--item-separator';
+                const breadcrumbSeparators = breadcrumbItemsWrapper.querySelectorAll(breadcrumbSeparatorSelector);
+                if (!breadcrumbSeparators.length) {
+                    return;
+                }
+                const lastBreadcrumbSeparator = breadcrumbSeparators.item(breadcrumbSeparators.length - 1);
+                const locationAndSpeakerListSeparator = lastBreadcrumbSeparator.cloneNode(true);
+                const speakerListAndNameSeparator = lastBreadcrumbSeparator.cloneNode(true);
+                
+                lastBreadcrumbItem.after(locationAndSpeakerListSeparator);
+                locationAndSpeakerListSeparator.after(speakersListingBreadcrumbItem);
+                speakersListingBreadcrumbItem.after(speakerListAndNameSeparator);
+                speakerListAndNameSeparator.after(speakerNameBreadcrumbClone);
+
+                const restructuredBreadcrumbItems = breadcrumbItemsWrapper.querySelectorAll(breadcrumbItemsSelector);
+                conferenceBreadcrumbsUrls.forEach((breadcrumbConfig, index) => {
+                    const itemAnchor = restructuredBreadcrumbItems.item(index).querySelector(':scope > a');
+                    itemAnchor.setAttribute('href', breadcrumbConfig.url);
+                    itemAnchor.textContent = breadcrumbConfig.label;
+                });
+            }
+        }
+
+        function updateViewAllUrls({ archiveYear, archiveLocation }) {
+            const sessionsUrl = `/events/opensearchcon/${archiveYear}/${archiveLocation}/sessions/index.html`;
+            const speakersUrl = `/events/opensearchcon/${archiveYear}/${archiveLocation}/speakers/index.html`;
+            const viewAllSessionsLinkId = 'view-all-sessions';
+            const viewAllSpeakersLinkId = 'view-all-speakers';
+            const viewAllSessionsLink = document.getElementById(viewAllSessionsLinkId);
+            const viewAllSpeakersLink = document.getElementById(viewAllSpeakersLinkId);
+            if (viewAllSpeakersLink && viewAllSpeakersLink.getAttribute('href') !== speakersUrl) {
+                viewAllSpeakersLink.setAttribute('href', speakersUrl);
+            }
+            if (viewAllSessionsLink && viewAllSessionsLink.getAttribute('href') !== sessionsUrl) {
+                viewAllSessionsLink.setAttribute('href', sessionsUrl);
+            }
+        }
+
+        function showViewAllButtons() {
+            const hiddenClassname = 'community-member--back-to-directory__hidden';
+            const sidebarClassname = 'two-column-layout--sidebar--navigation';
+            const conferenceSectionButtonClassname = 'community-member--back-to-directory__conference';
+            const sidebar = document.querySelector(`.${sidebarClassname}`);
+            if (!sidebar) {
+                return;
+            }
+            const conferenceSectionButtons = sidebar.querySelectorAll(`:scope > .${conferenceSectionButtonClassname}`);
+            if (!conferenceSectionButtons.length) {
+                return;
+            }
+            conferenceSectionButtons.forEach(button => {
+                if (button.classList.contains(hiddenClassname)) {
+                    button.classList.remove(hiddenClassname);
+                }
+            });
+        }
+
+        try {
+            const { referrer } = document;
+            if (!referrer) {
+                return;
+            }
+
+            const conferenceReferrerParts = extractConferenceUrlParts(referrer);
+            if (conferenceReferrerParts) {
+                useConferenceReferralBreadcrumbs(conferenceReferrerParts);
+                updateViewAllUrls(conferenceReferrerParts);
+                showViewAllButtons();
+            } 
+            
+        } catch (error) {
+            console.error(`Error processing conference page referrer check: ${error.message}`);
+        }
+    });
+</script>
+

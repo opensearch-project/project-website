@@ -327,6 +327,12 @@
                 padding-top: 40px;
                 > .community-member--back-to-directory {
                     @include interactive-link-button-dark-mode("community-member--back-to-directory", 50px);
+                    &.community-member--back-to-directory__hidden {
+                        display: none;
+                    }
+                    &.community-member--back-to-directory__conference {
+                        margin-top: 20px;
+                    }
                 }
             }
         }
