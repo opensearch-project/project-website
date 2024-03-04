@@ -144,8 +144,7 @@ async function writeEventPagesBoilerplate(pagesPathsConfig, boilerplateOverrides
                 content: boilerplateOverrides[section].hasOwnProperty('content') ? boilerplateOverrides[section].content : sectionSampleData.content,
             };
             const pageFilePath = path.join(pagePath, 'index.md');
-            console.log(`Writing events section page: ${pageFilePath}`);
-            console.dir(boilerplateData);
+            console.log(`Writing events section page: ${pageFilePath}`);;
             return await writeObjectAsFrontMatter(boilerplateData, pageFilePath);
         })
     );
@@ -162,7 +161,6 @@ async function writeCollectionPagesBoilerplate(collectionPathsConfig, boilerplat
                 const sampleDataPath = path.join(sectionPath, '_sample.md');
                 console.log(`Loading sample collection data from ${sampleDataPath}`);
                 const sampleData = await loadFrontMatterData(sampleDataPath);
-                console.dir(sampleData);
                 const boilerplateData = {
                     data: {
                         ...sampleData.data,
@@ -171,7 +169,6 @@ async function writeCollectionPagesBoilerplate(collectionPathsConfig, boilerplat
                     content: overrides.hasOwnProperty('content') ? overrides.content : sampleData.content,
                 };
                 console.log(`Writing placeholder collection entry at ${placeholderEntryPath}`);
-                console.dir(boilerplateData);
                 return await writeObjectAsFrontMatter(boilerplateData, placeholderEntryPath);
             } else {
                 return Promise.all(overrides.map(async (speakerOverride) => {
@@ -181,7 +178,6 @@ async function writeCollectionPagesBoilerplate(collectionPathsConfig, boilerplat
                     const sampleDataPath = path.join(sectionPath, '_sample.md');
                     console.log(`Loading sample collection data from ${sampleDataPath}`);
                     const sampleData= await loadFrontMatterData(sampleDataPath);
-                    console.dir(sampleData);
                     const boilerplateData = {
                         data: {
                             ...sampleData.data,
@@ -190,7 +186,6 @@ async function writeCollectionPagesBoilerplate(collectionPathsConfig, boilerplat
                         content: speakerOverride.hasOwnProperty('content') ? speakerOverride.content : sampleData.content,
                     };
                     console.log(`Writing placeholder collection entry at ${placeholderEntryPath}`);
-                    console.dir(boilerplateData);
                     return await writeObjectAsFrontMatter(boilerplateData, placeholderEntryPath);
                 }));
             }
