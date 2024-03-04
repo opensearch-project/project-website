@@ -49,10 +49,17 @@ redirect_from: /events/opensearchcon/2022/index.html
 # Whether or not there is a hero image. This has an impact on the base CSS class of the
 # document. See _sass/_redesign-typography.scss for how .page-with-hero, and .page-without-hero
 # affects page typography, and some styling matters at the top of the page.
-has_hero: false
+# For reference, observe the differences between the 2022-north-america conference landing page, and the 2023-north-america landing page.
+has_hero: true
 
-# IF there is a page hero image this is where the path will be defined.
-hero_image: '/assets/media/opensearchcon/osc-2023.png'
+# IF there is a page hero image this is where the paths will be defined for both the desktop version and the mobile version as well as the alt text for the <img> elements.
+hero_images:
+  mobile: 
+    path: '/assets/media/herobanners/mobile-register-opensearchcon2023-1.png'
+    alt: 'OpenSearchCon 2023 hero banner image.'
+  desktop: 
+    path: '/assets/media/herobanners/register-opensearchcon2023-1.png'
+    alt: 'OpenSearchCon 2023 hero banner image.'
 
 # Configration for the conference sections that are available
 # and shown in the left sidebar. They are defined as an array
