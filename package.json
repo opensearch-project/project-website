@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "bower": "^1.4.1",
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "yaml": "^2.4.0"
   },
   "scripts": {
     "bower": "bower",

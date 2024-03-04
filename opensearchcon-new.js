@@ -4,6 +4,7 @@ const {
 const fs = require('node:fs/promises');
 const path = require('path');
 const matter = require('gray-matter');
+const YAML = require('yaml');
 
 function exitWithUsage(warnMessage = '', exitCode = 0) {
     if (warnMessage !== '') {
@@ -227,6 +228,58 @@ function createSectionsButtonStackOverrides(sections, year, location) {
     return buttonStackConfig;
 }
 
+function createNavigationMenuItems(year, location, readableLocation, sections) {
+    const parentLabelText = `${year} ${readableLocation}`;
+    const conferenceBaseUrl = `/events/opensearchcon/${year}/${location}`;
+    const menuItems = {
+        label: parentLabelText,
+        url: `${conferenceBaseUrl}/index.html`,
+        children: sections.map(sectionName => ({
+            label: `${upperCaseFirstChar(sectionName)}`,
+            url: `${conferenceBaseUrl}/index.html`,
+        })),
+    };
+    return menuItems;
+}
+
+async function loadYamlDataAsJSObject(yamlPath) {
+    const yamlData = await fs.readFile(yamlPath, 'utf8');
+    const jsonData = YAML.parse(yamlData);
+    return jsonData;
+}
+
+async function writeJsonDataAsYaml(jsonData, yamlPath) {
+    const yamlData = YAML.stringify(jsonData);
+    return await fs.writeFile(yamlPath, yamlData, 'utf8');
+}
+
+async function getSiteTopNavMenu(baseDir) {
+    const topNavConfigPath = path.join(baseDir, '_data', 'top_nav.yml');
+    const topNavMenuItems = await loadYamlDataAsJSObject(topNavConfigPath);
+    return topNavMenuItems;
+}
+
+function insertConferenceMenuItems(topNavMenuItems, conferenceMenu, parentIndex, insertionIndex) {
+    const parentMenuItem = topNavMenuItems.items[parentIndex];
+    const parentChildren = parentMenuItem.children;
+    parentChildren.splice(insertionIndex, 0, conferenceMenu);
+    return topNavMenuItems;
+}
+
+async function updateTopNavMenu(baseDir, year, location, readableLocation, sectionNames) {
+    const conferenceMenu = createNavigationMenuItems(year, location, readableLocation, sectionNames);
+    const currentSiteNavMenu = await getSiteTopNavMenu(baseDir);
+    const OPENSEARCHCON_TOP_MENU_INDEX = 0;
+    const OPENSEARCHCON_ARCHIVE_MENU_INDEX = 1;
+    const modifiedSiteNavMenu = insertConferenceMenuItems(
+        currentSiteNavMenu,
+        conferenceMenu,
+        OPENSEARCHCON_TOP_MENU_INDEX,
+        OPENSEARCHCON_ARCHIVE_MENU_INDEX
+    );
+    return modifiedSiteNavMenu;
+}
+
 async function run(inputArgs, baseDir) {
     const {conferenceYear, conferenceLocation, sections } = inputArgs;
     const splitSections = sections.split(',');
@@ -437,7 +490,7 @@ async function run(inputArgs, baseDir) {
             },
         },
     };
-    const configuredCollectionOverrides = splitSections.split(',').reduce((carry, current) => {
+    const configuredCollectionOverrides = splitSections.reduce((carry, current) => {
         if (!sectionCollectionOverrides.hasOwnProperty(current)) {
             return carry;
         }
@@ -446,7 +499,9 @@ async function run(inputArgs, baseDir) {
             [current]: sectionCollectionOverrides[current],
         };
     }, {});
-    return await writeCollectionPagesBoilerplate(collectionsPaths, configuredCollectionOverrides);
+    await writeCollectionPagesBoilerplate(collectionsPaths, configuredCollectionOverrides);
+    await updateTopNavMenu(baseDir, conferenceYear, conferenceLocation, readableLocationName, splitSections);
+    return 'done';
 }
 
 if (process.argv.length === 2) {
