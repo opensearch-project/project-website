@@ -8,4 +8,3 @@ sort_options:
     label: "Sort by Name (A-Z)"
   - value: name_descending
     label: "Sort by Name (Z-A)"
-
