@@ -1,7 +1,7 @@
 ---
 layout: fullwidth-with-breadcrumbs
-title: Stay informed about OpenSearchCon 2024!
-primary_title: Stay informed about OpenSearchCon 2024!
+title: Join us for OpenSearchCon Europe 2024!
+primary_title: Join us for OpenSearchCon Europe 2024!
 breadcrumbs:
   icon: community
   items:
@@ -28,13 +28,23 @@ content_with_side_button_stack:
           - upcoming-events-dark
           - community-dark
 ---
-![Stay informed about OpenSearchCon 2024](/assets/media/community/OpenSearchCon2024/20230928_OpenSearch_349crop.jpg){:.img-fluid}
+![Stay informed about OpenSearchCon 2024](/assets/media/blog-images/2024-02-29-announcing-opensearchcon-europe-2024/OSC_Berlin_BlogBanner-01.png){:.img-fluid}
 
-## Join us for OpenSearchCon 2024! 
+## Join us in Berlin for OpenSearchCon Europe 2024! 
 {: style="margin-top: 0"}
 
-### Dates and location(s) TBD
+### Date: May 6 & 7
+### Location: Berlin, Germany - Cafe Moskau
 {: style="padding-top: 7px"}
 
-Planning for OpenSearchCon 2024 is now underway! We’ll share details about next year’s conference as they are available. If you would like to receive updates on OpenSearchCon 2024 via email, please select the button below.
+### [Call for Presentations now open](https://pretalx.com/opensearchcon-europe-24/cfp)
+{: style="padding-top: 7px"}
+
+### [Register Now](https://tickets.plainschwarz.com/opensearchconeu/)
+{: style="padding-top: 7px"}
+
+### [Learn More](https://opensearch.org/blog/announcing-opensearchcon-europe-2024/)
+{: style="padding-top: 7px"}
+
+Planning for OpenSearchCon North America 2024 is also underway! We’ll share details about as they are available. If you would like to receive updates on OpenSearchCon North America 2024 via email, please select the button below.
 {: style="padding-top: 10px"}
