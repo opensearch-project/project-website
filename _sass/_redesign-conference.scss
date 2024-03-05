@@ -523,12 +523,21 @@ h2.conference-speaker-session-page {
         .conference-speakers--session-speakers__categorized--header {
             max-width: 600px;
             min-width: 400px;
-            > h2 {
-                color: $primary-open-sky-s3;
-                margin-top: 0;
-                @media screen and (max-width: $single-column-max-width) {
-                    margin-bottom: 0;
+            display: block;
+            > .conference-speakers--session-speakers__categorized--header--text {
+                box-sizing: border-box;
+                width: 100%;
+                > h2 {
+                    color: $primary-open-sky-s3;
+                    margin-top: 0;
+                    @media screen and (max-width: $single-column-max-width) {
+                        margin-bottom: 0;
+                    }
                 }
+            }
+            > .conference-speaker--session-speakers__categorized--header--filters {
+                box-sizing: border-box;
+                width: 100%;
             }
         }
         .conference-speakers--session-speakers__categorized--list {

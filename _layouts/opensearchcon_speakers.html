@@ -39,9 +39,21 @@ layout: redesign-fullwidth
 </div>
 <div class="conference-speakers--session-speakers">
     <div class="conference-speakers--session-speakers__categorized">
-        <div class="conference-speakers--session-speakers__categorized--header">
-            <h2>Session Speakers</h2>
+        <div class="conference-speakers--session-speakers__categorized--header-filters">
+            <div class="conference-speakers--session-speakers__categorized--header">
+                <div class="conference-speakers--session-speakers__categorized--header--text">
+                    <h2>Session Speakers</h2>
+                </div>
+                <div class="conference-speaker--session-speakers__categorized--header--filters">
+                    {% include content-filter-dropdown.html
+                        component_classname="conference-speakers--session-speakers--filters--category-selector"
+                        filterable_content_block_element_classname="speaker-session--speaker-cards"
+                        filter_categories=site.data.opensearchcon.session_track_filter_category
+                    %}
+                </div>
+            </div>
         </div>
+        
         <div class="conference-speakers--session-speakers__categorized--list">
             <div>
                 {% include platform-category-icons.html name="Search" include_label=true %}
