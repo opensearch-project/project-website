@@ -25,10 +25,10 @@ components:
     version: 8.6.1
   - role: minimal-artifacts
     artifact: opensearch-min
-    version: 1.3.14
+    version: 1.3.15
   - role: minimal-artifacts
     artifact: opensearch-dashboards-min
-    version: 1.3.14
+    version: 1.3.15
   - role: drivers
     artifact: opensearch-sql-odbc
     version: 1.1.0.1
