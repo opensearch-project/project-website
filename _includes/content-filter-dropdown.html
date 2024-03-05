@@ -32,6 +32,15 @@
 <template id="osci-filter-chip">
     {% include filter-chips.html type="osci" %}
 </template>
+<template id="search-filter-chip">
+    {% include filter-chips.html type="search" %}
+</template>
+<template id="analytics-observability-security-filter-chip">
+    {% include filter-chips.html type="analytics-observability-security" %}
+</template>
+<template id="operating-opensearch-filter-chip">
+    {% include filter-chips.html type="operating-opensearch" %}
+</template>
 
 {%- unless filterable_content_block_element_classname == "" or filter_categories_count == 0 -%}
     <div class="{{ component_classname }}">

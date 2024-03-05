@@ -24,3 +24,18 @@
     @include filter-chip($community-member-osci-persona);
     max-width: 200px;
 }
+
+.filter-chip__search {
+    @include filter-chip($session-track-search-category);
+    max-width: 60px;
+}
+
+.filter-chip__analytics-observability-security {
+    @include filter-chip($session-track-analytics-observability-security);
+    max-width: 300px;
+}
+
+.filter-chip__operating-opensearch {
+    @include filter-chip($session-track-operating-opensearch);
+    max-width: 200px;
+}
