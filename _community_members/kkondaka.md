@@ -15,9 +15,9 @@ breadcrumbs:
     - title: "Krishna Kondaka&apos;s Profile"
       url: '/community/members/krishna-kondaka.html'
 keynote_speaker: false
-session_track: 
+session_track:
   - conference_id: "2023-north-america"
-    name: "Analytics, Observability, and  Security"
+    name: "Analytics, Observability, and Security"
 permalink: '/community/members/krishna-kondaka.html'
 personas:
   - conference_speaker
