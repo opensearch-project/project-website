@@ -132,15 +132,17 @@ $content-panel-expand-breakpoint: 1019px;
 }
 
 .speaker-session--speaker-cards {
+    @include page-element-padding;
     display: grid;
+    @media screen and (min-width: 1200px) {
+        column-gap: 66px;
+    }
     @media screen and (min-width: $two-column-min-width) {
         grid-template-columns: 1fr 1fr;
-        padding: 40px 40px 40px 80px;
         row-gap: 60px;
     }
     @media screen and (max-width: $single-column-max-width) {
         grid-template-columns: 1fr;
-        padding: 0 20px 40px;
         row-gap: 20px;
     }
     margin-bottom: 0;
@@ -502,6 +504,90 @@ h2.conference-speaker-session-page {
 }
 
 .conference-speakers--session-speakers {
+    > .conference-feature--categorization {
+        @include page-element-left-right-padding;
+        > .conference-feature--categorization--header-filters {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            > .conference-feature--categorization--header {
+                flex-basis: 220px;
+                flex-shrink: 0;
+                flex-grow: 0;
+                box-sizing: border-box;
+                > h2 {
+                    color: $primary-open-sky-s3;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+            > .conference-feature--categorization--filters {
+                box-sizing: border-box;
+                flex-basis: calc(100% - 220px);
+                flex-shrink: 0;
+                flex-grow: 0;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                align-items: center;
+                column-gap: 20px;
+                > .content-filter-dropdown-component {
+                    width: 100%;
+                    column-gap: 20px;
+                    flex-wrap: nowrap;
+                    > .content-filter-dropdown-component--dropdown {
+                        flex-basis: 280px;
+                        > .labeled-dropdown {
+                            width: 280px;
+                            > .labeled-dropdown--select {
+                                width: 280px;
+                            }
+                        }
+                    }
+                    > .conference-speakers--session-speakers--filters--category-selector--filter-chips {
+                        flex-basis: calc(100% - 260px);
+                    }
+                }
+            }
+        }
+        > .conference-feature--categoriziation--list {
+            @media screen and (max-width: $single-column-max-width) {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding-bottom: 20px;
+            }
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            > div {
+                flex-basis: content;
+                display: inline-flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                white-space: nowrap;
+                flex-wrap: nowrap;
+                column-gap: 8px;
+                > div:nth-of-type(1) {
+                    flex-basis: 20px;
+                    flex-shrink: 0;
+                    flex-grow: 0;
+                    width: 20px;
+                    height: 20px;
+                }
+                > div:nth-of-type(2) {
+                    @include header-level5($primary-open-sky-s3);
+                }
+            }
+        }
+    }
     .conference-speakers--session-speakers__categorized {
         display: grid;
         @media screen and (min-width: $two-column-min-width) {
@@ -554,10 +640,6 @@ h2.conference-speaker-session-page {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 row-gap: 20px;
-                // flex-direction: row;
-                // justify-content: space-between;
-                // align-items: center;
-                // flex-wrap: nowrap;
             }
             
             > div {
@@ -582,6 +664,28 @@ h2.conference-speaker-session-page {
         }
     }
     .speaker-session--speaker-cards {
+        &.speaker-session--speaker-cards__unfeatured__filtered {
+            &:not([data-filtercategory*="analytics-observability-security"]) {
+                .speaker-session--speaker-cards--card__categorized__analytics-observability-security {
+                    display: none;
+                }
+            }
+            &:not([data-filtercategory*="search"]) {
+                .speaker-session--speaker-cards--card__categorized__search {
+                    display: none;
+                }
+            }
+            &:not([data-filtercategory*="community"]) {
+                .speaker-session--speaker-cards--card__categorized__community {
+                    display: none;
+                }
+            }
+            &:not([data-filtercategory*="operating-opensearch"]) {
+                .speaker-session--speaker-cards--card__categorized__operating-opensearch {
+                    display: none;
+                }
+            }
+        }
         > .speaker-session--speaker-cards--card.speaker-session--speaker-cards--card__categorized {
             display: flex;
             flex-direction: row;

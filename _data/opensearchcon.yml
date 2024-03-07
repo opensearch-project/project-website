@@ -1,9 +1,9 @@
-session_track_filter_category:
-  - value: search
-    label: Search
-  - value: community
-    label: Community
+session_track_filter_categories:
   - value: analytics-observability-security
     label: Analytics, Observability, and Security
+  - value: community
+    label: Community
   - value: operating-opensearch
     label: Operating OpenSearch
+  - value: search
+    label: Search
