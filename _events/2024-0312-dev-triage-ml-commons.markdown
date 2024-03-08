@@ -5,7 +5,7 @@ primary_title: Development Backlog & Triage Meeting - ml-commons - 2024-03-12
 title: Development Backlog & Triage Meeting - ml-commons - 2024-03-12
 online: true
 signup:
-    url: https://www.meetup.com/opensearch/events/299165833
+    url: https://www.meetup.com/opensearch/events/299663373
     title: Join on Meetup
 
 ---
