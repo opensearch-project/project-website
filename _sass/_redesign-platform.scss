@@ -525,8 +525,8 @@ $solutions-card-bottom-margin: 36px;
                 @media screen and (max-width: 834px) {
                     flex-basis: unset;
                     max-width: 100%;
-                    padding-left: 15px;
-                    padding-right: 15px;
+                    padding-left: 0;
+                    padding-right: 0;
                 }
                 @media screen and (min-width: 835px) {
                     padding-left: 20px;
@@ -958,6 +958,8 @@ $solutions-card-bottom-margin: 36px;
                             @media screen and (max-width: 834px) {
                                 width: 100%;
                                 box-sizing: border-box;
+                                padding-left: 15px;
+                                padding-right: 15px;
                             }
                             height: 245px;
                         }

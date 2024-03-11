@@ -74,10 +74,11 @@ $header-banner-mobile-breakpoint: 1018px;
                     padding-bottom: 20px;
                 }
                 @media screen and (max-width: $max-iphone-width) {
-                    padding-left: 0;
-                    padding-right: 0;
+                    padding-left: 30px;
+                    padding-right: 30px;
                     flex-basis: 100%;
                     padding-bottom: 20px;
+                    box-sizing: border-box;
                 }
             }
             > .solutions-card-grid {
@@ -1211,10 +1212,16 @@ $header-banner-mobile-breakpoint: 1018px;
 
 .redesign-button--wrapper {
     width: 350px;
+    @media screen and (max-width: 410px) {
+        width: 100%;
+    }
     &.redesign-button--wrapper__complex-content {
         > .redesign-button--anchor {
             display: inline-block;
             width: 350px;
+            @media screen and (max-width: 410px) {
+                width: 100%;
+            }
             height: 70px;
             padding: 0px;
             &:focus {
