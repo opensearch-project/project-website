@@ -805,10 +805,11 @@ h2.conference-speaker-session-page {
     }
 }
 .conference-exhibitors {
-    padding: 40px 80px;
-    @media screen and (max-width: 834px) {
-        padding: 40px 20px;
-    }
+    // padding: 40px 80px;
+    // @media screen and (max-width: 834px) {
+    //     padding: 40px 20px;
+    // }
+    @include page-element-padding;
     .conference-exhibitors--grid.resource-grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
