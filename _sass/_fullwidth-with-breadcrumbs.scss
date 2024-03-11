@@ -7,6 +7,9 @@
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
+        @media screen and (max-width: 460px) {
+            flex-wrap: nowrap;
+        }
         > .full-width-layout--header--icon {
             flex-basis: 40px;
             flex-grow: 0;
@@ -35,7 +38,7 @@
                     text-decoration-thickness: 2px;
                 }
                 text-decoration: none;
-                @media screen and (max-width: 411px) {
+                @media screen and (max-width: 429px) {
                     letter-spacing: 2px;
                 }
             }
