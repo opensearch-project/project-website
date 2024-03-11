@@ -43,28 +43,32 @@ layout: redesign-fullwidth
             <div class="conference-feature--categorization--header">
                 <h2>Session Speakers</h2>
             </div>
-            <div class="conference-feature--categorization--filters">
-                {% include content-filter-dropdown.html
-                    component_classname="conference-speakers--session-speakers--filters--category-selector"
-                    filterable_content_block_element_classname="speaker-session--speaker-cards__unfeatured"
-                    filter_categories=site.data.opensearchcon.session_track_filter_categories
-                %}
-            </div>
+            {%- unless page.hide_categorization -%}
+                <div class="conference-feature--categorization--filters">
+                    {% include content-filter-dropdown.html
+                        component_classname="conference-speakers--session-speakers--filters--category-selector"
+                        filterable_content_block_element_classname="speaker-session--speaker-cards__unfeatured"
+                        filter_categories=site.data.opensearchcon.session_track_filter_categories
+                    %}
+                </div>
+            {%- endunless -%}
         </div>
-        <div class="conference-feature--categoriziation--list">
-            <div>
-                {% include platform-category-icons.html name="Search" include_label=true %}
+        {%- unless page.hide_categorization -%}
+            <div class="conference-feature--categoriziation--list">
+                <div>
+                    {% include platform-category-icons.html name="Search" include_label=true %}
+                </div>
+                <div>
+                    {% include platform-category-icons.html name="Analytics, Observability, and Security" include_label=true %}
+                </div>
+                <div>
+                    {% include platform-category-icons.html name="Community" include_label=true %}
+                </div>
+                <div>
+                    {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
+                </div>            
             </div>
-            <div>
-                {% include platform-category-icons.html name="Analytics, Observability, and Security" include_label=true %}
-            </div>
-            <div>
-                {% include platform-category-icons.html name="Community" include_label=true %}
-            </div>
-            <div>
-                {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
-            </div>            
-        </div>
+        {%- endunless -%}
     </div>
     <div class="speaker-session--speaker-cards speaker-session--speaker-cards__unfeatured">
         {% for speaker in speakers %}

@@ -502,7 +502,34 @@ h2.conference-speaker-session-page {
         margin-left: 20px;
     }
 }
-
+.conference-speaker-session-page {
+    .conference-speakers--session-speakers {
+        .speaker-session--speaker-cards {
+            &.speaker-session--speaker-cards__filtered {
+                &:not([data-filtercategory*="analytics-observability-security"]) {
+                    .speaker-session--speaker-cards--card__categorized__analytics-observability-security {
+                        display: none;
+                    }
+                }
+                &:not([data-filtercategory*="search"]) {
+                    .speaker-session--speaker-cards--card__categorized__search {
+                        display: none;
+                    }
+                }
+                &:not([data-filtercategory*="community"]) {
+                    .speaker-session--speaker-cards--card__categorized__community {
+                        display: none;
+                    }
+                }
+                &:not([data-filtercategory*="operating-opensearch"]) {
+                    .speaker-session--speaker-cards--card__categorized__operating-opensearch {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
 .conference-speakers--session-speakers {
     > .conference-feature--categorization {
         @include page-element-left-right-padding;
