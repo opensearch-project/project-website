@@ -11,7 +11,12 @@ $content-panel-expand-breakpoint: 1019px;
 .landing-page-content__right-panel.conference-speaker-session-page {
     background: unset;
     > .conference-speaker-session-page--embedded-video {
-        padding: 40px 40px 80px 80px;
+        @media screen and (max-width: 835px) {
+            padding: 40px 40px 80px 80px;
+        }
+        @media screen and (min-width: 834px) {
+            padding: 40px 0;
+        }
     }
     .landing-page-content__right-panel--content--body {
         @media screen and (max-width: $content-panel-collapse-breakpoint) {
@@ -540,6 +545,9 @@ h2.conference-speaker-session-page {
             align-items: center;
             box-sizing: border-box;
             margin-bottom: 20px;
+            @media screen and (max-width: 834px) {
+                flex-wrap: wrap;
+            }
             > .conference-feature--categorization--header {
                 flex-basis: 220px;
                 flex-shrink: 0;
@@ -565,7 +573,12 @@ h2.conference-speaker-session-page {
                 > .content-filter-dropdown-component {
                     width: 100%;
                     column-gap: 20px;
-                    flex-wrap: nowrap;
+                    @media screen and (min-width: 835px) {
+                        flex-wrap: nowrap;
+                    }
+                    @media screen and (max-width: 834px) {
+                        flex-wrap: wrap;
+                    }
                     > .content-filter-dropdown-component--dropdown {
                         flex-basis: 280px;
                         > .labeled-dropdown {
@@ -1023,7 +1036,9 @@ h2.conference-speaker-session-page {
                     > .draft-3-landing-page--button-stack__with-label--label {
                         > h2 {
                             @include header-level2(#000);
-                            margin-bottom: 0;
+                            @media screen and (min-width: 835px) {
+                                margin-bottom: 0;
+                            }
                         }
                         > h3 {
                             @include header-level3(#000);
@@ -1070,6 +1085,12 @@ h2.conference-speaker-session-page {
                                         padding-top: 0;
                                     }
                                 }
+                            }
+                        }
+                        @media screen and (max-width: 410px) {
+                            width: 100%;
+                            > a.redesign-button--anchor {
+                                width: 100%;
                             }
                         }
                     }
