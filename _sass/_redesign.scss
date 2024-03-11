@@ -610,6 +610,12 @@ $header-banner-mobile-breakpoint: 1018px;
                         margin-right: 30px;
                         max-width: calc(100% - 60px);
                     }
+                    &.homepage-hero-banner--text-with-gradient--text__assistant-toolkit {
+                        @media screen and (max-width: 430px) {
+                            position: relative;
+                            top: -40px;
+                        }
+                    }
                     > .homepage-hero-banner--text-with-gradient--pre-header {
                         @include header-level2($primary-pacific-sky);
                     }
