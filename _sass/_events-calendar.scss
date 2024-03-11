@@ -219,9 +219,11 @@ $calendar-month-default-week-count: 5;
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
-            flex-wrap: nowrap;
+            @media screen and (min-width: 835px) {
+                flex-wrap: nowrap;
+            }
             @media screen and (max-width: 834px) {
-                display: none;
+                flex-wrap: wrap;
             }
             > .events--calendar--filters--category-selector--dropdown {
                 flex-basis: 200px;
@@ -235,10 +237,8 @@ $calendar-month-default-week-count: 5;
                 flex-grow: 0;
                 display: flex;
                 flex-direction: row;
-                flex-wrap: nowrap;
                 justify-content: flex-start;
                 align-items: center;
-                column-gap: 20px;
                 > div {
                     flex-basis: content;
                     flex-grow: 1;
