@@ -376,6 +376,11 @@ $header-banner-mobile-breakpoint: 1018px;
                                 }
                             }
                         }
+                        .redesign-button--wrapper {
+                            @media screen and (max-width: 410px) {
+                                width: 100%;
+                            }
+                        }
                     }
                 }
             }
