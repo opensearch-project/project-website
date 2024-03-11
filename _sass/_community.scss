@@ -381,7 +381,12 @@
                     padding-left: 0;
                     padding-right: 0;
                     &.solutions-card-grid--card-wrapper {
-                        grid-template-columns: 1fr 1fr;
+                        @media screen and (min-width: 835px) {
+                            grid-template-columns: 1fr 1fr;
+                        }
+                        @media screen and (max-width: 834px) {
+                            grid-template-columns: 1fr;
+                        }
                     }
                 }
                 > .community-member--blog-posts--table {
