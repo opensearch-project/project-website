@@ -2,7 +2,6 @@
 name: Rupa Lahiri
 short_name: rblcoder
 github: rblcoder
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Rupa Lahiri'
 primary_title: Rupa Lahiri
 personas:

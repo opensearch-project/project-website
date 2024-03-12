@@ -2,7 +2,6 @@
 name: Rohan Agrawal
 short_name: Rohan
 github: rohan19a
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Rohan Agrawal'
 primary_title: Rohan Agrawal
 personas:

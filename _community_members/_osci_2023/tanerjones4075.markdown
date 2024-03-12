@@ -3,7 +3,6 @@ name: Tanner Jones
 short_name: tjones
 linkedin: https://www.linkedin.com/in/tanner-jones-3a53b015b/
 github: tanerjones4075
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Tanner Jones'
 primary_title: Tanner Jones
 personas:

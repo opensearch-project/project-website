@@ -2,7 +2,6 @@
 name: Arnav Grover
 short_name: agrover
 github: Arnav-Gr0ver
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Arnav Grover'
 primary_title: Arnav Grover
 personas:

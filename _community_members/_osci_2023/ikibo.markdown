@@ -3,7 +3,6 @@ name: Oleg Kravchuk
 short_name: ikibo
 github: ikibo
 linkedin: olegkravchuk
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Oleg Kravchuk'
 primary_title: Oleg Kravchuk
 personas:

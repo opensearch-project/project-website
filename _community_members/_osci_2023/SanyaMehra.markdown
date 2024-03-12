@@ -2,7 +2,6 @@
 name: Sanya Mehra
 short_name: Sanya
 github: SanyaMehra
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sanya Mehra'
 primary_title: Sanya Mehra
 personas:

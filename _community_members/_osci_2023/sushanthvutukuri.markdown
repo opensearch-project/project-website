@@ -2,7 +2,6 @@
 name: Sushanth Kumar Vutukuri
 short_name: Sushi
 github: sushanthvutukuri
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sushanth Kumar Vutukuri'
 primary_title: Sushanth Kumar Vutukuri
 personas:

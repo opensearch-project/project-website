@@ -2,7 +2,6 @@
 name: Divit Rawal
 short_name: divitrawal
 github: divitr
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Divit Rawal'
 primary_title: Divit Rawal
 personas:

@@ -2,7 +2,6 @@
 short_name: laneholl
 name: Lane Holloway
 github: laneholloway
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Lane Holloway'
 primary_title: Lane Holloway
 breadcrumbs:

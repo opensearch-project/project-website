@@ -2,7 +2,6 @@
 short_name: bigsamu
 name: Samuel Valdes Gutierrez
 github: bigsamu
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Samuel Valdes Gutierrez'
 primary_title: Samuel Valdes Gutierrez
 personas:

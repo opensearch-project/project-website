@@ -2,7 +2,6 @@
 name: Hongyuan Kang
 short_name: Wendell
 github: SpecialAir123
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Hongyuan Kang'
 primary_title: Hongyuan Kang
 personas:

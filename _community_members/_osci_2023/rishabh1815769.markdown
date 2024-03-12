@@ -3,7 +3,6 @@ name: Rishabh Bhardwaj
 short_name: Rishabh
 twitter: Rishabh22409994
 github: rishabh1815769
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Rishabh Bhardwaj'
 primary_title: Rishabh Bhardwaj
 personas:

@@ -3,7 +3,6 @@ short_name: dldisha
 name: Disha Lamba
 github: dldisha
 linkedin: dldisha
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Disha Lamba'
 primary_title: Disha Lamba
 personas:

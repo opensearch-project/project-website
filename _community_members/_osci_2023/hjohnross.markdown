@@ -3,7 +3,6 @@ name: John Ross
 short_name: John
 twitter: femet
 github: HJohnRoss
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: John Ross'
 primary_title: John Ross
 personas:

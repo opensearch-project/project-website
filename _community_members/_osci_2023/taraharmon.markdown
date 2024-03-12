@@ -1,7 +1,6 @@
 ---
 name: Tara harmon
 github: taraharmon
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Tara harmon'
 primary_title: Tara harmon
 personas:

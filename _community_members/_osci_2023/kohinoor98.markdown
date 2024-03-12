@@ -3,7 +3,6 @@ short_name: KC
 name: Kohinoor Chatterjee
 github: kohinoor98
 linkedin: kohinoor-chatterjee
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kohinoor Chatterjee'
 primary_title: Kohinoor Chatterjee
 personas:

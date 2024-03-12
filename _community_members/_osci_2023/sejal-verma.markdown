@@ -2,7 +2,6 @@
 name: Sejal Verma
 short_name: sejal
 github: sejal-verma
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sejal Verma'
 primary_title: Sejal Verma
 personas:

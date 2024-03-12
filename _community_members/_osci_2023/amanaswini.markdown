@@ -2,7 +2,6 @@
 short_name: amanaswini
 name: Manaswini Aitha
 github: AManaswini
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Manaswini Aitha'
 primary_title: Manaswini Aitha
 personas:

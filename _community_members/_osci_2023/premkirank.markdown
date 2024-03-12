@@ -2,7 +2,6 @@
 name: Prem Kiran K
 short_name: Prem
 github: premkirank
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Prem Kiran K'
 primary_title: Prem Kiran K
 personas:

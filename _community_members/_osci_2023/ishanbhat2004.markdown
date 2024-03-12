@@ -2,7 +2,6 @@
 name: Ishan Bhat
 short_name: Ishan
 github: ishanbhat2004
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Ishan Bhat'
 primary_title: Ishan Bhat
 personas:

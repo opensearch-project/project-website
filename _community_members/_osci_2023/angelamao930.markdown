@@ -2,7 +2,6 @@
 name: Angela Mao
 short_name: Angela
 github: angelamao930
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Angela Mao'
 primary_title: Angela Mao
 personas:

@@ -3,7 +3,6 @@ name: Rakshit Joshi
 short_name: rakshit
 twitter: spuckhafte
 github: spuckhafte
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Rakshit Joshi'
 primary_title: Rakshit Joshi
 personas:

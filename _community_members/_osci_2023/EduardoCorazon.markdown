@@ -2,7 +2,6 @@
 name: Eduardo Corazon
 short_name: ecorazon
 github: EduardoCorazon
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Eduardo Corazon'
 primary_title: Eduardo Corazon
 personas:

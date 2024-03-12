@@ -2,7 +2,6 @@
 name: Di Zhang
 short_name: D
 github: pea586
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Di Zhang'
 primary_title: Di Zhang
 personas:

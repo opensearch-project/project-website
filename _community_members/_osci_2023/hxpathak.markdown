@@ -2,7 +2,6 @@
 name: Hemal Pathak
 short_name: Hemal
 github: hxpathak
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Hemal Pathak'
 primary_title: Hemal Pathak
 personas:

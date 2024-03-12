@@ -2,7 +2,6 @@
 name: Shinde Lee
 short_name: Shinde
 github: shindelee
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Shinde Lee'
 primary_title: Shinde Lee
 personas:

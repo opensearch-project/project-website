@@ -2,7 +2,6 @@
 name: Kuba Bal
 short_name: kubabal
 github: kubabal
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kuba Bal'
 primary_title: Kuba Bal
 personas:

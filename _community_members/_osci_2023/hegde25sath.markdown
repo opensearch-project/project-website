@@ -3,7 +3,6 @@ name: Sathvik Hegde
 short_name: Sathvik
 linkedin: sathvik-hegde-525380289
 github: hegde25sath
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sathvik Hegde'
 primary_title: Sathvik Hegde
 personas:

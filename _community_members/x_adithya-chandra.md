@@ -1,7 +1,6 @@
 ---
 short_name: x_adithya-chandra
 name: Adithya Chandra
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Adithya Chandra'
 primary_title: Adithya Chandra
 breadcrumbs:

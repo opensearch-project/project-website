@@ -3,7 +3,6 @@ name: Yiming
 short_name: yyiming
 twitter: Yiming28576933
 github: plzdoo
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Yiming'
 primary_title: Yiming
 personas:

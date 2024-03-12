@@ -1,7 +1,6 @@
 ---
 name: Maddox Schmidlkofer
 github: maddox05
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Maddox Schmidlkofer'
 primary_title: Maddox Schmidlkofer
 personas:

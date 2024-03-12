@@ -3,7 +3,6 @@ name: Sharvil Trifale
 short_name: Sharvil
 github: strifale
 linkedin: strifale
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sharvil Trifale'
 primary_title: Sharvil Trifale
 personas:

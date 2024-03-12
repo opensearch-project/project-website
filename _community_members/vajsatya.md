@@ -1,7 +1,6 @@
 ---
 short_name: vajsatya
 name: Satya Vajrapu
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Satya Vajrapu'
 primary_title: Satya Vajrapu
 breadcrumbs:

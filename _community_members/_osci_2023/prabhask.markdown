@@ -2,7 +2,6 @@
 name: Prabhas Kurapati
 short_name: prabhask
 github: prabhask5
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Prabhas Kurapati'
 primary_title: Prabhas Kurapati
 personas:

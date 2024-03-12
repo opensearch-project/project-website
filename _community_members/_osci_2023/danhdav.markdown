@@ -2,7 +2,6 @@
 name: Daniel Hori Davila
 short_name: Daniel 
 github: danhdav
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Daniel Hori Davila'
 primary_title: Daniel Hori Davila
 personas:

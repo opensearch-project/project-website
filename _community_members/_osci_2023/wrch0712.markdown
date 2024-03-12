@@ -2,7 +2,6 @@
 name: Ruochen Wang
 short_name: Ruochen
 github: wrch0712
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Ruochen Wang'
 primary_title: Ruochen Wang
 personas:

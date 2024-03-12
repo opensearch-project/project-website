@@ -2,7 +2,6 @@
 name: Will Yang
 short_name: Will
 github: CMDWillYang
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Will Yang'
 primary_title: Will Yang
 personas:

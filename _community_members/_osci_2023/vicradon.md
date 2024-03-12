@@ -3,7 +3,6 @@ name: Osinachi Chukwujama
 short_name: Osi
 twitter: vicradon
 github: vicradon
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Osinachi Chukwujama'
 primary_title: Osinachi Chukwujama
 personas:

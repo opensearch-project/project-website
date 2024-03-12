@@ -3,7 +3,6 @@ name: Daniel Wang
 short_name: d-wwwang
 linkedin: daniel-r-wang
 github: d-wwwang
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Daniel Wang'
 primary_title: Daniel Wang
 personas:

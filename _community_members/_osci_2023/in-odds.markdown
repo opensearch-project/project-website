@@ -2,7 +2,6 @@
 name: Idris Yalaletdinov
 twitter: Idryska
 github: in-odds
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Idris Yalaletdinov'
 primary_title: Idris Yalaletdinov
 personas:

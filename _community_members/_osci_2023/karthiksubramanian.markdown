@@ -2,7 +2,6 @@
 name: Karthik Subramanian
 short_name: Karthik
 github: karthiks3000
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Karthik Subramanian'
 primary_title: Karthik Subramanian
 personas:

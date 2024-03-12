@@ -40,9 +40,11 @@ redirect_from: "/community/index.html"
                 {%- endif -%}
             {%- endfor -%}
             <div class="community-members--member-cards--card {{ persona_classname }}">
-                <div class="community-members--member-cards--card--image">
-                    <img src="{{ member.photo }}" alt="{{ member.name }} photo">
-                </div>
+                {%- if member.photo -%}
+                    <div class="community-members--member-cards--card--image">
+                        <img src="{{ member.photo }}" alt="{{ member.name }} photo">
+                    </div>
+                {%- endif -%}
                 <div class="community-members--member-cards--card--content community-members--member-cards--card--content__bottom-edge">
                     <div class="community-member--member-cards--card--content--persona-label">
                         {% for persona in member.personas -%}

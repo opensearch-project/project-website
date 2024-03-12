@@ -2,7 +2,6 @@
 name: Yvonne Wang
 short_name: Yvonne
 github: yvonnewangg
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Yvonne Wang'
 primary_title: Yvonne Wang
 personas:

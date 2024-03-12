@@ -2,7 +2,6 @@
 name: Thanh Le
 short_name: Thanh
 github: thanhinhchtom
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Thanh Le'
 primary_title: Thanh Le
 personas:

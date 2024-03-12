@@ -2,7 +2,6 @@
 name: Arturo Ortega
 short_name: Arturo
 github: ortegaa32
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Arturo Ortega'
 primary_title: Arturo Ortega
 personas:

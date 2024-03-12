@@ -2,7 +2,6 @@
 name: Chenxi Wang
 short_name: Chenxi
 github: wang-chenxi
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Chenxi Wang'
 primary_title: Chenxi Wang
 personas:

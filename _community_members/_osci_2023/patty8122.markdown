@@ -2,7 +2,6 @@
 name: Divya Pattisapu
 short_name: Patty
 github: Patty8122
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Divya Pattisapu'
 primary_title: Divya Pattisapu
 personas:

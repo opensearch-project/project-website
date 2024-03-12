@@ -4,7 +4,6 @@ short_name: nancyjlau
 twitter: nachoyawn
 github: nancyjlau
 linkedin: nancyjlau
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Nancy Lau'
 primary_title: Nancy Lau
 personas:

@@ -4,7 +4,6 @@ short_name: Samiullah
 twitter: samipak458
 github: samipak458
 linkedin: https://www.linkedin.com/in/msamiullah-dev/
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Muhammad Samiullah'
 primary_title: Muhammad Samiullah
 personas:

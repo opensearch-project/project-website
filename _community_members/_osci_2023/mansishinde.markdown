@@ -3,7 +3,6 @@ name: Mansi Shinde
 short_name: mansi
 email: mshinde@purdue.edu
 github: MansiShinde
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Mansi Shinde'
 primary_title: Mansi Shinde
 personas:

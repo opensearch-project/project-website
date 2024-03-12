@@ -2,7 +2,6 @@
 short_name: sudershan
 name: Sudershan Sridhar
 github: Sudershan29
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sudershan Sridhar'
 primary_title: Sudershan Sridhar
 personas:

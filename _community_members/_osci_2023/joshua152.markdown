@@ -3,7 +3,6 @@ name: Joshua Au
 linkedin: joshuahau
 short_name: Joshua
 github: joshua152
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Joshua Au'
 primary_title: Joshua Au
 personas:

@@ -2,7 +2,6 @@
 name: Walker Gollapudi
 short_name: wgolla
 github: wgollapudi
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Walker Gollapudi'
 primary_title: Walker Gollapudi
 personas:

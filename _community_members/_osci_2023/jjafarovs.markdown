@@ -2,7 +2,6 @@
 name: Javad Jafarov
 short_name: Javad
 github: jjafarovs
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Javad Jafarov'
 primary_title: Javad Jafarov
 personas:

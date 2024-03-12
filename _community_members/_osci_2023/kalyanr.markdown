@@ -3,7 +3,6 @@ name: Kalyan Reddy Kasireddy
 short_name: Kalyan
 twitter: Ben10Kkr
 github: rawwar
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kalyan Reddy Kasireddy'
 primary_title: Kalyan Reddy Kasireddy
 personas:

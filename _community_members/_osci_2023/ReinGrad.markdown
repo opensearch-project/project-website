@@ -3,7 +3,6 @@ name: Shyngys Beket
 short_name: Shyngys
 github: ReinGrad
 linkdin: shyngys-beket
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Shyngys Beket'
 primary_title: Shyngys Beket
 personas:

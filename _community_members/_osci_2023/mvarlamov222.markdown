@@ -2,7 +2,6 @@
 name: Mikhail Varlamov
 short_name: Misha
 github: mvarlamov222
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Mikhail Varlamov'
 primary_title: Mikhail Varlamov
 personas:

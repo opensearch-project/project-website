@@ -10,9 +10,11 @@ layout: default
         %}
         <div class="two-column-layout two-column-layout__left-sidebar two-column-layout__community-member">
             <div class="two-column-layout--sidebar">
-                <div class="community-member--photo">
-                    <img src="{{ page.photo }}" alt="Community member photo">
-                </div>
+                {%- if page.photo -%}
+                    <div class="community-member--photo">
+                        <img src="{{ page.photo }}" alt="Community member photo">
+                    </div>
+                {%- endif -%}
                 <div class="community-member--description">
                     {{ page.content | markdownify }}
                 </div>

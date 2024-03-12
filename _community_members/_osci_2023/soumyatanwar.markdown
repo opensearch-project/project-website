@@ -3,7 +3,6 @@ short_name: soumyatanwar
 name: Soumya Tanwar
 github: soumyatanwar
 linkedin: soumya-tanwar
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Soumya Tanwar'
 primary_title: Soumya Tanwar
 personas:

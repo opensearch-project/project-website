@@ -2,7 +2,6 @@
 name: Yash Sinhal
 short_name: Yash
 github: yash1506
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Yash Sinhal'
 primary_title: Yash Sinhal
 personas:

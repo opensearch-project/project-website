@@ -2,7 +2,6 @@
 name: Rajat Gupta
 short_name: Rajat
 github: rajat-gupta1
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Rajat Gupta'
 primary_title: Rajat Gupta
 personas:

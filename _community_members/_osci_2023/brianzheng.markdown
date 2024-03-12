@@ -3,7 +3,6 @@ name: Brian Zheng
 short_name: brianzheng
 twitter: Brian48763045
 github: Frederic-Chopin
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Brian Zheng'
 primary_title: Brian Zheng
 personas:

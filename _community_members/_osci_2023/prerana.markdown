@@ -2,7 +2,6 @@
 name: Prerana Sapkota
 short_name: Prerana
 github: prerana30
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Prerana Sapkota'
 primary_title: Prerana Sapkota
 personas:

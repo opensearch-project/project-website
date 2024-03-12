@@ -2,7 +2,6 @@
 name: Sanjana Nandi
 short_name: Sanjana
 github: Sanjana679
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sanjana Nandi'
 primary_title: Sanjana Nandi
 personas:

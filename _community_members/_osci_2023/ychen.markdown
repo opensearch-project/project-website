@@ -2,7 +2,6 @@
 name: Yan Chen
 short_name: Yan
 github: chen2055
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Yan Chen'
 primary_title: Yan Chen
 personas:

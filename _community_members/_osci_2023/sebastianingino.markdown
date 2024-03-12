@@ -2,7 +2,6 @@
 name: Sebastian Ingino
 short_name: Sebastian
 github: sebastianingino
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sebastian Ingino'
 primary_title: Sebastian Ingino
 personas:

@@ -1,7 +1,6 @@
 ---
 short_name: laijiang
 name: Lai Jiang
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Lai Jiang'
 primary_title: Lai Jiang
 breadcrumbs:

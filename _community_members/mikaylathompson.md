@@ -1,7 +1,6 @@
 ---
 name: Mikayla Thompson
 short_name: Mikayla
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Mikayla Thompson'
 primary_title: Mikayla Thompson
 breadcrumbs:

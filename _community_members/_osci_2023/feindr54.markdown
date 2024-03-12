@@ -2,7 +2,6 @@
 name: Changxiang Gao
 short_name: changie
 github: feindr54
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Changxiang Gao'
 primary_title: Changxiang Gao
 personas:

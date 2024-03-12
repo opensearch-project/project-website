@@ -2,7 +2,6 @@
 name: Vijay Vavdiya
 short_name: Vavdiya
 github: vvavdiya
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Vijay Vavdiya'
 primary_title: Vijay Vavdiya
 personas:
