@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "bower": "^1.4.1",
+    "fs-extra": "^11.2.0",
     "gray-matter": "^4.0.3",
     "yaml": "^2.4.0"
   },
