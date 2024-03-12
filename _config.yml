@@ -39,12 +39,6 @@ defaults:
       permalink: partners/:name.html
 -
     scope:
-      type: javadocs
-    values:
-      layout: javadocs
-      permalink: /:collection/:name.html
--
-    scope:
       type: events
     values:
       layout: event
@@ -113,8 +107,6 @@ collections:
   partners:
     output: true
   community_projects:
-  javadocs:
-    output: true
   events:
     output: true
   calendars:
