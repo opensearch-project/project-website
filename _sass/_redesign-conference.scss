@@ -874,6 +874,9 @@ h2.conference-speaker-session-page {
     grid-template-columns: 1fr;
     
     .schedule-table {
+        @media screen and (max-width: 834px) {
+            display: none;
+        }
         background: #FFF;
         box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
         border: 12px solid white;
@@ -903,10 +906,70 @@ h2.conference-speaker-session-page {
             }
         }
     }
-
+    .conference-schedule-mobile-table {
+        @extend .basic-data-table;
+        @media screen and (min-width: 835px) {
+            display: none;
+        }
+        > thead {
+            > tr {
+                > th[colspan] {
+                    font-family: 'Open Sans Condensed';
+                    font-size: 21px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 28px;
+                    color: $primary-open-sky-s2;
+                    padding: 10px 12px;
+                    text-align: left;
+                    border-bottom: 3px solid $primary-open-sky-s2;
+                    border-left: none;
+                }
+            }
+        }
+        > tbody {
+            > tr {
+                > td.mobile-table-row--heading-cell {
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 27px;
+                    color: $primary-open-sky-s3;
+                    padding: 10px 12px;
+                    border-left: none;
+                }
+                > td.mobile-table-row--value-cell {
+                    color: $secondary-sanfrancisco-fog-s5;
+                    font-family: 'Open Sans';
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 27px;
+                    padding: 10px 12px;
+                    border-left: none;
+                    a {
+                        overflow-wrap: anywhere;
+                    }
+                }
+            }
+            > tr.mobile-table-row__end-of-record {
+                > td {
+                    border-bottom: 3px solid $primary-open-sky-s2;
+                }
+            }
+        }
+    }
     .card {
         background-color: white;
-        padding:  30px 28px 54px 33px;
+        @media screen and (min-width: 835px) {
+            padding:  30px 28px 54px 33px;
+        }
+        @media screen and (max-width: 834px) {
+            padding: 0;
+            > h3 {
+                display: none;
+            }
+        }
         @include thick-edge-left;
         @include card-shadow;
     }

@@ -60,6 +60,26 @@
         <tbody></tbody>
     </table>
 </template>
+<template id="wednesday-27-2023-conference-schedule-mobile-table-template">
+    <table class="conference-schedule-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Wednesday, September 27, 2023</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</template>
+<template id="thursday-28-2023-conference-schedule-mobile-table-template">
+    <table class="conference-schedule-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Thursday, September 28, 2023</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</template>
 <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -86,68 +106,70 @@
             return mobileTableBodyRows;
         }
 
-        const changeLogTable = document.querySelector('.desktop-change-log-table');
-        if (changeLogTable) {
-            const changeLogMobileTableTemplate = document.getElementById('change-log-mobile-table-template')?.content?.cloneNode?.(true) ?? null;
-            if (changeLogMobileTableTemplate) {
-                const changeLogTableHeaders = changeLogTable.querySelectorAll('thead > tr > th');
-                const changeLogTableRows = changeLogTable.querySelectorAll('tbody > tr');
-                if (changeLogTableRows.length > 1) {
-                    const mobileTableBodyRows = createRotatedTableRows(
-                        Array.from(changeLogTableRows).slice(1),
-                        changeLogTableHeaders
-                    );
-                    changeLogMobileTableTemplate.querySelector('tbody')?.append?.(...mobileTableBodyRows);
-                    changeLogTable.after(changeLogMobileTableTemplate);
-                }
-            }
-
+        function transformNodeListToArray(nodeList) {
+            const nodeArray = Array.from(nodeList);
+            return nodeArray;
         }
-        const releaseHistoryTable = document.querySelector('.desktop-release-history-table');
-        if (releaseHistoryTable) {
-            const releaseHistoryMobileTableTemplate = document.getElementById('release-history-mobile-table-template')?.content?.cloneNode?.(true) ?? null;
-            if (releaseHistoryMobileTableTemplate) {
-                const releaseHistoryTableHeaders = releaseHistoryTable.querySelectorAll('thead > tr > th');
-                const releaseHistoryTableRows = releaseHistoryTable.querySelectorAll('tbody > tr');
-                if (releaseHistoryTableRows.length > 1) {
-                    const mobileTableBodyRows = createRotatedTableRows(
-                        Array.from(releaseHistoryTableRows),
-                        releaseHistoryTableHeaders
-                    );
-                    releaseHistoryMobileTableTemplate.querySelector('tbody')?.append?.(...mobileTableBodyRows);
-                    releaseHistoryTable.after(releaseHistoryMobileTableTemplate);
+
+        function transformDesktopTableToMobile(
+            desktopTableSelector,
+            mobileTableTemplateId,
+            tableRowPreProcessor = transformNodeListToArray,
+        ) {
+            const desktopTable = document.querySelector(desktopTableSelector);
+            if (desktopTable) {
+                const mobileTable = document.getElementById(mobileTableTemplateId)?.content?.cloneNode?.(true) ?? null;
+                if (mobileTable) {
+                    const tableHeaderCells = desktopTable.querySelectorAll(':scope > thead > tr > th');
+                    const tableRows = desktopTable.querySelectorAll(':scope > tbody > tr');
+                    const tableRowArray = tableRowPreProcessor(tableRows);
+                    const mobileTableBodyRows = createRotatedTableRows(tableRowArray, tableHeaderCells);
+                    mobileTable.querySelector('tbody')?.append?.(...mobileTableBodyRows);
+                    desktopTable.after(mobileTable);
                 }
             }
         }
 
-        const maintenancePolicyTable = document.querySelector('.desktop-maintenance-policy-table');
-        if (maintenancePolicyTable) {
-            const maintenancePolicyMobileTableTemplate = document.getElementById('maintenance-policy-mobile-table-template')?.content?.cloneNode?.(true) ?? null;
-            if (maintenancePolicyMobileTableTemplate) {
-                const maintenancePolicyTableRows = maintenancePolicyTable.querySelectorAll('tbody > tr');
-                const maintenancePolicyTableHeaders = maintenancePolicyTable.querySelectorAll('thead > tr > th');
-                const mobileTableBodyRows = createRotatedTableRows(
-                    Array.from(maintenancePolicyTableRows),
-                    maintenancePolicyTableHeaders
-                );
-                maintenancePolicyMobileTableTemplate.querySelector('tbody')?.append?.(...mobileTableBodyRows);
-                maintenancePolicyTable.after(maintenancePolicyMobileTableTemplate);
-            }
-        }
-
-        const releaseScheduleTable = document.querySelector('.desktop-release-schedule-table');
-        if (releaseScheduleTable) {
-            const releaseScheduleMobileTableTemplate = document.getElementById('release-schedule-mobile-table-template')?.content?.cloneNode(true);
-            if (releaseScheduleMobileTableTemplate) {
-                const releaseScheduleTableRows = releaseScheduleTable.querySelectorAll('tbody > tr');
-                const releaseScheduleTableHeaders = releaseScheduleTable.querySelectorAll('thead > tr > th');
-                const mobileTableBodyRows = createRotatedTableRows(
-                    Array.from(releaseScheduleTableRows),
-                    releaseScheduleTableHeaders
-                );
-                releaseScheduleMobileTableTemplate.querySelector('tbody')?.append?.(...mobileTableBodyRows);
-                releaseScheduleTable.after(releaseScheduleMobileTableTemplate);
-            }
-        }
+        const transformChangeLogTable = transformDesktopTableToMobile.bind(
+            null,
+            '.desktop-change-log-table',
+            'change-log-mobile-table-template',
+            (rows) => {
+                const rowArray = transformNodeListToArray(rows);
+                const withoutFirstRow = rowArray.slice(1);
+                return withoutFirstRow;
+            },
+        );
+        const transformReleaseHistoryTable = transformDesktopTableToMobile.bind(
+            null,
+            '.desktop-release-history-table',
+            'release-history-mobile-table-template'
+        );
+        const transformMaintenancePolicyTable = transformDesktopTableToMobile.bind(
+            null,
+            '.desktop-maintenance-policy-table',
+            'maintenance-policy-mobile-table-template',
+        );
+        const transformReleaseScheduleTable = transformDesktopTableToMobile.bind(
+            null,
+            '.desktop-release-schedule-table',
+            'release-schedule-mobile-table-template',
+        );
+        const transform2023ConferenceScheduleTableWednesday = transformDesktopTableToMobile.bind(
+            null,
+            '.schedule-table__wednesday-september-27-2023',
+            'wednesday-27-2023-conference-schedule-mobile-table-template'
+        );
+        const transform2023ConferenceScheduleTableThursday = transformDesktopTableToMobile.bind(
+            null,
+            '.schedule-table__thursday-september-28-2023',
+            'thursday-28-2023-conference-schedule-mobile-table-template',
+        );
+        transformChangeLogTable();
+        transformReleaseHistoryTable();
+        transformMaintenancePolicyTable();
+        transformReleaseScheduleTable();
+        transform2023ConferenceScheduleTableWednesday();
+        transform2023ConferenceScheduleTableThursday();
     });
 </script>
