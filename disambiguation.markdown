@@ -1,8 +1,15 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 primary_title: OpenSearch Disambiguation 
+title: OpenSearch Disambiguation
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Home
+      url: /
+    - title: Disambiguation
+      url: /disambiguation.html
 ---
-
 
 OpenSearch has a long history at Amazon. The trademark for OpenSearch is held by Amazon.
 
