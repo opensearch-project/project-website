@@ -78,8 +78,8 @@ human readable setup - pretty.html will get the most specific override in the fr
   3. fall back to the key
 {%endcomment%}
 {% capture guide_pretty %}{% include downloads/pretty.html key="guide" %}{% endcapture %}
-{% capture sha_pretty%}{% include downloads/pretty.html key="sha" %}{% endcapture %}
-{% capture signature_pretty%}{% include downloads/pretty.html key="signature" %}{% endcapture %}
+{% capture sha_pretty %}{% include downloads/pretty.html key="sha" %}{% endcapture %}
+{% capture signature_pretty %}{% include downloads/pretty.html key="signature" %}{% endcapture %}
 
 
 {% comment %} 
@@ -90,7 +90,7 @@ this is the built-in error checking for the version definition having missing ar
   {% assign number_of_artifacts = component_details | size %}
   {% if number_of_artifacts == 0  %} 
     {% capture artifact_error %}ERROR: "{{component.artifact}}" defined in version but artifact definition missing in collection.
-{%endcapture%}
+{% endcapture %}
     {% assign error_block = error_block | append: artifact_error %}
   {% endif %}
 {% endfor %}
@@ -108,9 +108,9 @@ this is the built-in error checking for the version definition having missing ar
 {% endif %}
 
 {% for section in page.sections %}
-  {% capture role %}{{section[1].role}}{%endcapture%}
-  {% capture section_id%}{{section[0]}}{%endcapture%}
-  {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id%}{%endcapture%}
+  {% capture role %}{{section[1].role}}{% endcapture %}
+  {% capture section_id%}{{section[0]}}{% endcapture %}
+  {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id %}{% endcapture %}
   
   {% assign include_url = section[1].explanation %}
   <div class="artifact-group" id="{{section_id}}">   
@@ -125,7 +125,7 @@ this is the built-in error checking for the version definition having missing ar
       {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact | sort: "architecture" %}
       
      
-      {% capture name_pretty %}{% include downloads/pretty-group.html group="artifacts" key=component.artifact%}{%endcapture%}
+      {% capture name_pretty %}{% include downloads/pretty-group.html group="artifacts" key=component.artifact %}{% endcapture %}
       {% assign number_of_artifacts = component_details | size %}
       {% if number_of_artifacts == 0  %} [Artifacts Missing] {% endif %}
       {% assign number_of_components = components | size %}
@@ -157,15 +157,15 @@ this is the built-in error checking for the version definition having missing ar
       {% else %}
         {% assign specified_platform_order = layout.platform_order %}
       {% endif %}
-      {% assign platform_list = ""%}
-      {% assign artifact_list = ""%}
+      {% assign platform_list = "" %}
+      {% assign artifact_list = "" %}
       {% for platform in specified_platform_order %}
         {% assign count =  component_details | where: "platform", platform | size  %}
         {% if count > 0 %}
-          {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}{%endcapture%}
+          {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {% else %} {{platform}} {% endif %}{% endcapture %}
           {% capture platform_option %}<option value="{{platform}}">{{platform_pretty}}</option>{% endcapture %}
           {% capture platform_list %}{{ platform_list | append: platform_option}}{% endcapture %}
-        {%endif%}
+        {% endif %}
       {% endfor %}
 
     
@@ -272,7 +272,7 @@ this is the built-in error checking for the version definition having missing ar
             {% endif %}
             {% assign artifact_extra = nil %}
           {% endfor %}
-        {%endfor%}
+        {% endfor %}
       {% endfor %}
       
         <div class="download-panel">
@@ -333,7 +333,7 @@ Release sequence (all release lines): <br />
 <hr />
 
 
-{%endcapture%}
+{% endcapture %}
 
 {% capture content_related %}
 <div role="complementary">
@@ -347,14 +347,14 @@ Release sequence (all release lines): <br />
   <ul>
   {% assign lines = site.lines | reverse %}
   {% for line in lines %}
-    <li><a href="{{ line.url }}">{{line.pretty_version}}{% if line.deprecated == true %} (Deprecated){%endif%}</li>
+    <li><a href="{{ line.url }}">{{line.pretty_version}}{% if line.deprecated == true %} (Deprecated){% endif %}</li>
   {% endfor %}
   </ul>
   <hr />
   <ul>
   {% for section in page.sections %}
-    {% capture section_id%}{{section[0]}}{%endcapture%}
-    {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id%}{%endcapture%}
+    {% capture section_id%}{{section[0]}}{% endcapture %}
+    {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id %}{% endcapture %}
     <li><a href="#{{section_id}}">{{section_heading_pretty}}</a></li>
   {% endfor %}
   </ul>

@@ -1,5 +1,14 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
+title: Versions
+primary_title: Versions
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Downloads
+      url: /downloads.html
+    - title: Versions
+      url: /versions/index.html
 omit_from_search: true
 notice: true
 ---
@@ -7,7 +16,7 @@ notice: true
   {% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
   {% for version in versions %}
     <li><a href="{{ version.url }}">
-      {% if version.product == 'odfe' %} Open Distro for Elasticsearch {% else %} OpenSearch {%endif%} {{ version.version }}</a>
+      {% if version.product == 'odfe' %} Open Distro for Elasticsearch {% else %} OpenSearch {% endif %} {{ version.version }}</a>
     </li>
   {% endfor %}
 </ul>

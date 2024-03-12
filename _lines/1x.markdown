@@ -1,5 +1,16 @@
 ---
+layout: lines
+title: Versions in the 1.x release line
+primary_title: Versions in the 1.x release line
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Download
+      url: /downloads.html
+    - title: Release Lines
+      url: /lines/index.html
+    - title: 1.x
+      url: /lines/1x.html
 major_version: "1"
 pretty_version: "1.x"
-# deprecated: true
 ---
