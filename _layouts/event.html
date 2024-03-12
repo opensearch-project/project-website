@@ -65,6 +65,12 @@ breadcrumbs:
             link?.setAttribute?.('href', calendarViewUrl);
         }
 
+        function setViewAllEventsButtonUrl(url) {
+            const selector = '.conference-speaker-session-page--view-all--link-button > a';
+            const button = document.querySelector(selector);
+            button?.setAttribute?.('href', url);
+        }
+
         function setCalendarViewToggleUrlToThisMonth(calendarViewUrl) {
             const selector = '.events--calendar--filters--view-mode-toggle--item:first-of-type > a';
             const toggleButton = document.querySelector(selector);
@@ -77,7 +83,15 @@ breadcrumbs:
             const year = today.getUTCFullYear();
             const calendarViewUrl = `/events/calendar/${year}-${monthIndex + 1}.html`;
             setCalendarViewToggleUrlToThisMonth(calendarViewUrl);
-            setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl);
+            const isMobile = window.matchMedia('only screen and (max-width: 834px)').matches; 
+            if (!isMobile) {
+                setEventsBreadcrumbsUrlToThisMonth(calendarViewUrl);
+                setViewAllEventsButtonUrl(calendarViewUrl);
+            } else {
+                const listViewUrl = '/events/index.html';
+                setEventsBreadcrumbsUrlToThisMonth(listViewUrl);
+                setViewAllEventsButtonUrl(listViewUrl);
+            }
         }
         setEventsPageLinksToThisMonthCalendar();
     });
