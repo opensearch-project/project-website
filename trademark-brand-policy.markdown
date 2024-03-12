@@ -1,7 +1,12 @@
 ---
-layout: fullwidth
-primary_title: 
+layout: fullwidth-with-breadcrumbs
+primary_title: Trademark and Brand Policy
 title: Trademark and Brand Policy
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Home
+      url: /
 ---
 
 ## Trademark and Brand Policy
