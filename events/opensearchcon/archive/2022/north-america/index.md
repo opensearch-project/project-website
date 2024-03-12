@@ -1,5 +1,5 @@
 ---
-layout: opensearchcon_archive_landing
+layout: opensearchcon_landing
 title: "OpenSearchCon 2022: North America"
 primary_title: "OpenSearchCon 2022: North America"
 breadcrumbs:

@@ -1,6 +1,6 @@
 ---
-# The opensearchcon_archive_landing template is required.
-layout: opensearchcon_archive_landing
+# The opensearchcon_landing template is required.
+layout: opensearchcon_landing
 
 # Document title in the form of "OpenSearchCon the year of the conference: + the location
 # For example: "OpenSearchCon 2022: North America.

@@ -557,13 +557,13 @@ function createPlaceholderSpeakersOverrides(conferenceId, conferenceYear, confer
             url: `/events/opensearchcon/${conferenceYear}/${conferenceLocation}/placeholder-speaker-1.html`,
         }]),
         job_title_and_company: 'Job title at Company',
-        keynote_speaker: conferenceId,
-        session_track: {
+        keynote_speaker: [conferenceId],
+        session_track: [{
             conference_id: conferenceId,
             name: 'Community',
-        },
+        }],
         permalink: `/events/opensearchcon/${conferenceYear}/${conferenceLocation}/placeholder-speaker-1.html`,
-        conference_id: conferenceId,
+        conference_id: [conferenceId],
     }, {
         short_name: `placeholder-speaker-${conferenceId}-2`,
         name: `Placeholder Speaker ${conferenceYear} ${readableLocationName} 2`,
@@ -579,12 +579,12 @@ function createPlaceholderSpeakersOverrides(conferenceId, conferenceYear, confer
         }]),
         job_title_and_company: 'Job title at Company',
         keynote_speaker: false,
-        session_track: {
+        session_track: [{
             conference_id: conferenceId,
             name: 'Community',
-        },
+        }],
         permalink: `/events/opensearchcon/${conferenceYear}/${conferenceLocation}/placeholder-speaker-2.html`,
-        conference_id: conferenceId,
+        conference_id: [conferenceId],
     }];
     return placeholderSpeakers;
 }

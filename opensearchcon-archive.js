@@ -183,7 +183,7 @@ async function updateTopNavMenu(baseDir, readableLocation) {
     const conferenceMenu = currentSiteNavMenu.items[OPENSEARCHCON_TOP_MENU_INDEX].children[unarchivedConferenceMenuIndex];
     const topOpenSearchMenuSliced = [
         ...currentSiteNavMenu.items[OPENSEARCHCON_TOP_MENU_INDEX].children.slice(0, unarchivedConferenceMenuIndex),
-        ...currentSiteNavMenu.items[OPENSEARCHCON_TOP_MENU_INDEX].children.slice(unarchivedConferenceMenuIndex),
+        ...currentSiteNavMenu.items[OPENSEARCHCON_TOP_MENU_INDEX].children.slice(unarchivedConferenceMenuIndex + 1),
     ];
     const archiveMenuIndex = topOpenSearchMenuSliced.findIndex(
         child => child.label.toLowerCase() === 'archive'
@@ -219,13 +219,14 @@ async function run(inputArgs, baseDir) {
     const {conferenceYear, conferenceLocation } = inputArgs;
     const conferenceBaseDir = path.join(baseDir, 'events', 'opensearchcon', conferenceYear, conferenceLocation);
     const readableLocationName = getReadableLocationName(conferenceLocation);
+    const conferenceMenuLabel = `${conferenceYear} ${readableLocationName}`;
     const conferenceArchiveDir = path.join(baseDir, 'events', 'opensearchcon', 'archive', conferenceYear);
     if (!existsSync(conferenceArchiveDir)) {
         await fs.mkdir(conferenceArchiveDir, { recursive: true });
     }
     const archiveDestinationDir = path.join(conferenceArchiveDir, conferenceLocation);
     await move(conferenceBaseDir, archiveDestinationDir, { overwrite: false });
-    await updateTopNavMenu(baseDir, readableLocationName);
+    await updateTopNavMenu(baseDir, conferenceMenuLabel);
     return 'done';
 }
 
