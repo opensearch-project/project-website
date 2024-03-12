@@ -1,9 +1,16 @@
 ---
+layout: fullwidth-with-breadcrumbs
+title: 🙅‍♀️ 404
+primary_title: 🙅‍♀️ 404
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Home
+      url: /
+    - title: Page Not Found
 permalink: /404.html
-layout: error
-errormessage: 🙅‍♀️ 404
-body_class: homepage
-errorhuman: "OpenSearch can't find that page. Ironic." 
 ---
+
+## OpenSearch can't find that page. Ironic.
 
 Perhaps you mistyped the URL or we've moved something around. Sorry 'bout that.
