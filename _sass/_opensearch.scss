@@ -260,10 +260,18 @@
   }
 
 .artifact-download-tree {
-    margin: 1em;
     padding: 1em;
     background-color: #fff;
     @include sans-serif;
+
+    ul.tree {
+        li {
+            overflow-wrap: anywhere;
+            a {
+                overflow-wrap: anywhere;
+            }
+        }
+    }
 }
 .artifact-name {
     margin-bottom:0;
