@@ -20,6 +20,7 @@ $header-banner-min-width: 1019px;
 $header-banner-mobile-breakpoint: 1018px;
 
 .landing-page-content__right-panel {
+    @include page-element-padding;
     background: #fff;
     > .landing-page-content__right-panel--content {
         display: flex;
@@ -27,22 +28,22 @@ $header-banner-mobile-breakpoint: 1018px;
         flex-wrap: wrap;
         > .landing-page-content__right-panel--content--body {
             @media screen and (min-width: $content-with-panel-wide-screen-width) {
-                padding: 40px 40px 40px 80px;
-                flex-basis: calc(100% - $content-with-panel-right-side-width - $content-with-panel-wide-screen-padding);
+                padding: 0;
+                flex-basis: calc(100% - $content-with-panel-right-side-width);
                 flex-grow: 1;
                 flex-shrink: 1;
             }
             @media screen and (max-width: $content-with-panel-reduce-padding-width) {
-                padding: 40px 20px 40px 20px;
-                flex-basis: calc(100% - $content-with-panel-right-side-width - $content-with-panel-reduced-padding);
+                padding: 0;
+                flex-basis: calc(100% - $content-with-panel-right-side-width);
                 flex-grow: 1;
                 flex-shrink: 1;
             }
             @media screen and (max-width: $content-with-panel-collapsed-max) {
                 flex-shrink: 0;
                 flex-grow: 0;
-                padding: 20px 30px 0 30px;
-                flex-basis: calc(100% - 60px);
+                padding: 0;
+                flex-basis: 100%;
             }
             
             background: #fff;
@@ -72,13 +73,6 @@ $header-banner-mobile-breakpoint: 1018px;
                 @media screen and (min-width: $min-past-iphone-width) and (max-width: $content-with-panel-collapsed-max) {
                     flex-basis: calc(100% - 80px);
                     padding-bottom: 20px;
-                }
-                @media screen and (max-width: $max-iphone-width) {
-                    padding-left: 30px;
-                    padding-right: 30px;
-                    flex-basis: 100%;
-                    padding-bottom: 20px;
-                    box-sizing: border-box;
                 }
             }
             > .solutions-card-grid {
@@ -1363,7 +1357,7 @@ $header-banner-mobile-breakpoint: 1018px;
     }
     .redesign-button--contents--icon-slot {
         flex-basis: 5%;
-        padding: 25px 20px 13px; // what was this before???
+        padding: 25px 20px 13px;
         @media screen and (max-width: 412px) {
             padding: 25px 5px 13px 0;
             flex-shrink: 1;
@@ -1386,7 +1380,7 @@ $header-banner-mobile-breakpoint: 1018px;
         }
     }
     .redesign-button--contents--icon-slot {
-        padding: 22px 20px 16px; // what was this before???
+        padding: 22px 20px 16px;
         flex-basis: 10%;
         @media screen and (max-width: 412px) {
             padding: 22px 5px 16px 0;
@@ -1957,17 +1951,6 @@ $community-voices-smallest-max-size: 739px;
                         > p {
                             @include body-text;
                             color: $secondary-sanfrancisco-fog-s4;
-                            // @media screen and (min-width: $community-voices-increase-size) {
-                            //     @include body-text;
-                            //     line-height: 32px;
-                            // }
-                            // @media screen and (max-width: $community-voices-vert-view-max)  {
-                            //     @include body-text;
-                            // }
-                            // @media screen and (min-width: $community-voices-horz-view-min) 
-                            // and (max-width: $community-voices-reduce-size) {
-                            //     @include body-small;
-                            // }
                             padding-top: 0;
                             padding-bottom: 0;
                             margin-top: 0;

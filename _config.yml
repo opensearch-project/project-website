@@ -117,9 +117,7 @@ collections:
     sort_by: version
     output: true
   faqs:
-  testimonials:
-  herobanners:
-    output: true    
+  testimonials:  
   tutorials:
     output: true
   lines:
