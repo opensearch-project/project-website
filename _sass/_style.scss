@@ -408,33 +408,6 @@ ul {
         }
     }
 
-    .homepage & {
-        p {
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            margin: 1em auto .5em;
-            color: $text;
-            font-size: 36px;
-            &.small {
-                color: $text-light;
-                margin: 2em auto 1em;
-                font-size: 14px;
-            }
-            em {
-                color: $text;
-            }
-        }
-        a.cta, .cta {
-            display: inline-block;
-            padding: 1em 50px 1.1em;
-            margin-bottom: 40px;
-            background: $attention;
-            color: white;
-            border: 0;
-        }
-    }
-
     .container {
         display: flex;
         flex-flow: column nowrap;
@@ -780,15 +753,5 @@ table.opensearch-supported-versions {
     }
     tr.unsupported {
         background-color: $alert-light;
-    }
-}
-
-.homepage {
-    .section.headline {
-        padding-bottom: 0;
-        h1 {
-            margin: 2em 1em;
-            text-align: center;
-        }
     }
 }
