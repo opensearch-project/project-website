@@ -1,7 +1,6 @@
 ---
 short_name: joydees
 name: Joydeep Sinha
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Joydeep Sinha'
 primary_title: Joydeep Sinha
 breadcrumbs:

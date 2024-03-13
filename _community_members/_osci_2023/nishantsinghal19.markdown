@@ -3,7 +3,6 @@ name: Nishant Singhal
 short_name: Nishant
 twitter: _NishantSinghal
 github: NishantSinghal19
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Nishant Singhal'
 primary_title: Nishant Singhal
 personas:

@@ -2,7 +2,6 @@
 name: Chawinphat Tankuranand
 short name: Teddy
 github: chawinphat
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Chawinphat Tankuranand'
 primary_title: Chawinphat Tankuranand
 personas:

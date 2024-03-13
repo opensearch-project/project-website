@@ -79,7 +79,7 @@ $secondary-sanfrancisco-fog-s4: #415662;
 $secondary-sanfrancisco-fog-s5: #193442;
 
 
-$light-theme-hero-control-active: $secondary-sanfrancisco-fog;
+$light-theme-hero-control-active: $secondary-sanfrancisco-fog-s2;
 $light-theme-hero-control-inactive: #fff;
 $light-theme-hero-call-to-action-background: $secondary-malibu-sunrise;
 $light-theme-hero-call-to-action-text: $secondary-malibu-sunrise-t3;
@@ -100,6 +100,10 @@ $event-category-events: $secondary-seafoam-mint;
 $community-member-author-persona: $primary-deep-blue-sea-t2;
 $community-member-conference_speaker-persona: $primary-deep-blue-sea-t1;
 $community-member-osci-persona: $primary-open-sky-s3;
+
+$session-track-search-category: $primary-deep-blue-sea;
+$session-track-analytics-observability-security: $secondary-purple-sage;
+$session-track-operating-opensearch: $secondary-golden-poppy;
 
 @mixin thick-edge-bottom($color: $primary-open-sky-s2) {
     border-bottom: $color 10px solid;

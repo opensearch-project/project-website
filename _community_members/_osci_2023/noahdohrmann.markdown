@@ -2,7 +2,6 @@
 name: Noah Dohrmann
 linkedin: noah-dohrmann
 github: n-dohrmann
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Noah Dohrmann'
 primary_title: Noah Dohrmann
 personas:

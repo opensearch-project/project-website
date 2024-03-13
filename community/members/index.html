@@ -9,6 +9,7 @@ breadcrumbs:
       url: /community/index.html
     - title: Members
       url: /community/members/index.html
+redirect_from: "/community/index.html"
 ---
 <div class="community-member--listing">
     <h2>Find a Member</h2>
@@ -39,9 +40,11 @@ breadcrumbs:
                 {%- endif -%}
             {%- endfor -%}
             <div class="community-members--member-cards--card {{ persona_classname }}">
-                <div class="community-members--member-cards--card--image">
-                    <img src="{{ member.photo }}" alt="{{ member.name }} photo">
-                </div>
+                {%- if member.photo -%}
+                    <div class="community-members--member-cards--card--image">
+                        <img src="{{ member.photo }}" alt="{{ member.name }} photo">
+                    </div>
+                {%- endif -%}
                 <div class="community-members--member-cards--card--content community-members--member-cards--card--content__bottom-edge">
                     <div class="community-member--member-cards--card--content--persona-label">
                         {% for persona in member.personas -%}

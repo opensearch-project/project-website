@@ -2,7 +2,6 @@
 name: Qiana Thornton
 short_name: qthornton9
 github: qthornton9
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Qiana Thornton'
 primary_title: Qiana Thornton
 personas:

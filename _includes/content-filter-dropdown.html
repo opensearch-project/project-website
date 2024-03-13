@@ -32,17 +32,26 @@
 <template id="osci-filter-chip">
     {% include filter-chips.html type="osci" %}
 </template>
+<template id="search-filter-chip">
+    {% include filter-chips.html type="search" %}
+</template>
+<template id="analytics-observability-security-filter-chip">
+    {% include filter-chips.html type="analytics-observability-security" %}
+</template>
+<template id="operating-opensearch-filter-chip">
+    {% include filter-chips.html type="operating-opensearch" %}
+</template>
 
 {%- unless filterable_content_block_element_classname == "" or filter_categories_count == 0 -%}
-    <div class="{{ component_classname }}">
-        <div class="{{ dropdown_component_classname }}">
+    <div class="content-filter-dropdown-component {{ component_classname }}">
+        <div class="content-filter-dropdown-component--dropdown {{ dropdown_component_classname }}">
             {% include labeled-dropdown.html
                 items=filter_categories_label_value_pairs
                 label=labeled_dropdown_text 
                 id=labeled_dropdown_component_id
             %}
         </div>
-        <div class="{{ filter_chips_container_classname }}"></div>
+        <div class="content-filter-dropdown-component--filter-chips {{ filter_chips_container_classname }}"></div>
     </div>
     <script type="module">
         document.addEventListener('DOMContentLoaded', () => {
@@ -62,7 +71,7 @@
 
             function updateFilterByCategoryLabelCount() {
                 const filterChipsParent = document.querySelector('.{{ filter_chips_container_classname }}');
-                const chipCount = filterChipsParent?.querySelectorAll?.('.filter-chip')?.length ?? 0;
+                const chipCount = filterChipsParent?.querySelectorAll?.(':scope > .filter-chip')?.length ?? 0;
                 const defaultLabelText = '{{ labeled_dropdown_text }}';
                 const labelSelector = '.{{ dropdown_component_classname }} .labeled-dropdown--label';
                 const label = document.querySelector(labelSelector);
@@ -118,20 +127,20 @@
                 const clickedChip = target.closest(clickedChipSelector);
                 if (clickedChip) {
                     const category = clickedChip.getAttribute('data-category');
-                    const calendarClass = '{{ filterable_content_block_element_classname }}';
-                    const calendarSelector = `.${calendarClass}`;
-                    const calendarFilteredModifierClass = `${calendarClass}__filtered`;
-                    const calendar = document.querySelector(calendarSelector);
-                    if (calendar) {
+                    const filterableElementClass = '{{ filterable_content_block_element_classname }}';
+                    const filterableElementSelector = `.${filterableElementClass}`;
+                    const filterableElementFilteredModifierClass = `${filterableElementClass}__filtered`;
+                    const filterableElement = document.querySelector(filterableElementSelector);
+                    if (filterableElement) {
                         const categoryAttribute = 'data-filtercategory';
-                        const filteredCategory = calendar.getAttribute(categoryAttribute);
+                        const filteredCategory = filterableElement.getAttribute(categoryAttribute);
                         if (filteredCategory) {
                             const updatedFilters = filteredCategory.split(',').filter(value => value !== category).join(',');
                             if (updatedFilters.length > 0) {
-                                calendar.setAttribute(categoryAttribute, updatedFilters);
+                                filterableElement.setAttribute(categoryAttribute, updatedFilters);
                             } else {
-                                calendar.removeAttribute(categoryAttribute);
-                                calendar.classList.remove(calendarFilteredModifierClass);
+                                filterableElement.removeAttribute(categoryAttribute);
+                                filterableElement.classList.remove(filterableElementFilteredModifierClass);
                             }
                         }
                     }
@@ -144,7 +153,7 @@
                 const expandedClassName = 'labeled-dropdown__expanded';
                 const { currentTarget } = e;
                 const parent = currentTarget.closest('.labeled-dropdown');
-                const selectElement = parent?.querySelector('select');
+                const selectElement = parent?.querySelector(':scope select');
                 if (selectElement?.hasAttribute?.('disabled')) {
                     e.stopImmediatePropagation();
                     e.stopPropagation();

@@ -2,7 +2,6 @@
 name: Abhinav Garg
 short_name: Abhinav
 github: AbhinavGarg90
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Abhinav Garg'
 primary_title: Abhinav Garg
 personas:

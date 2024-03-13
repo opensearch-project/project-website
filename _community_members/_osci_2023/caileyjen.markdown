@@ -3,7 +3,6 @@ name: Cailey Jen
 short_name: caileyjen
 twitter: caijen27
 github: caileyjen
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Cailey Jen'
 primary_title: Cailey Jen
 personas:

@@ -2,7 +2,6 @@
 name: Germaine Lee
 short_name: germainelee02
 github: germainelee02
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Germaine Lee'
 primary_title: Germaine Lee
 personas:

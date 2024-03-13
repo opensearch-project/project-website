@@ -3,7 +3,6 @@ name: T Vishnuvardhan Reddy
 short_name: Vishnu
 twitter: iamvishnuv7
 github: vishnu2411
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: T Vishnuvardhan Reddy'
 primary_title: T Vishnuvardhan Reddy
 personas:

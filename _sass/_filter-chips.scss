@@ -1,26 +1,84 @@
-.filter-chip__community {
-    @include filter-chip($event-category-community);
-    max-width: 123px;
-}
-.filter-chip__development {
-    @include filter-chip($event-category-development);
-    max-width: 187px;
-}
-.filter-chip__events {
-    @include filter-chip($event-category-events);
-    max-width: 86px;
-}
-.filter-chip__author-persona {
-    @include filter-chip($community-member-author-persona);
-    max-width: 90px;
+.filter-chip {
+    flex-basis: content;
+    flex-grow: 1;
+    flex-shrink: 1;
+    > div {
+        white-space: nowrap;
+    }
+    &.filter-chip__community {
+        @include filter-chip($event-category-community);
+        max-width: 123px;
+    }
+    &.filter-chip__development {
+        @include filter-chip($event-category-development);
+        max-width: 187px;
+    }
+    &.filter-chip__events {
+        @include filter-chip($event-category-events);
+        max-width: 86px;
+    }
+    &.filter-chip__author-persona {
+        @include filter-chip($community-member-author-persona);
+        max-width: 90px;
+    }
+    
+    &.filter-chip__conference_speaker-persona {
+        @include filter-chip($community-member-conference_speaker-persona);
+        max-width: 200px;
+    }
+    
+    &.filter-chip__osci-persona {
+        @include filter-chip($community-member-osci-persona);
+        max-width: 200px;
+    }
+    
+    &.filter-chip__search {
+        @include filter-chip($session-track-search-category);
+        max-width: 90px;
+    }
+    
+    &.filter-chip__analytics-observability-security {
+        @include filter-chip($session-track-analytics-observability-security);
+        max-width: 300px;
+        white-space: nowrap;
+    }
+    
+    &.filter-chip__operating-opensearch {
+        @include filter-chip($session-track-operating-opensearch);
+        max-width: 200px;
+    }    
 }
 
-.filter-chip__conference_speaker-persona {
-    @include filter-chip($community-member-conference_speaker-persona);
-    max-width: 200px;
-}
-
-.filter-chip__osci-persona {
-    @include filter-chip($community-member-osci-persona);
-    max-width: 200px;
+.content-filter-dropdown-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    > .content-filter-dropdown-component--dropdown {
+        flex-basis: 50%;
+        flex-shrink: 0;
+        flex-grow: 0;
+        min-width: max-content;
+        box-sizing: border-box;
+    }
+    > .content-filter-dropdown-component--filter-chips {
+        box-sizing: border-box;
+        flex-basis: 50%;
+        flex-shrink: 1;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        @media screen and (min-width: 835px) {
+            column-gap: 20px;
+            flex-wrap: nowrap;
+        }
+        @media screen and (max-width: 834px) {
+            row-gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+    }
 }

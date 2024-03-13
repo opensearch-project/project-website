@@ -2,7 +2,6 @@
 name: Adrian Mendoza Perez
 short_name: adrianmp
 github: AdrianMPCodes
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Adrian Mendoza Perez'
 primary_title: Adrian Mendoza Perez
 personas:

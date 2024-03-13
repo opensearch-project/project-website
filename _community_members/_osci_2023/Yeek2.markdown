@@ -3,7 +3,6 @@ name: Kevin Yee
 short_name: Yeek
 twitter: N/A
 github: Yeek2
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kevin Yee'
 primary_title: Kevin Yee
 personas:

@@ -2,7 +2,6 @@
 name: Pranish Dahal
 short_name: Pranish
 github: pranishd1
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Pranish Dahal'
 primary_title: Pranish Dahal
 personas:

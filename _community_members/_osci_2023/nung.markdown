@@ -2,7 +2,6 @@
 name: Nicholas Ung
 short_name: nung
 github: nung22
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Nicholas Ung'
 primary_title: Nicholas Ung
 personas:

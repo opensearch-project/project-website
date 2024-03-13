@@ -3,7 +3,6 @@ name: Arnold Su
 short_name: Arnold
 twitter: arnoldtoken
 github: arnoldtingsu
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Arnold Su'
 primary_title: Arnold Su
 personas:

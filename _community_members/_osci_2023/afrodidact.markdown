@@ -2,7 +2,6 @@
 name: Aaron Miller
 short_name: Aaron
 github: afrodidact
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Aaron Miller'
 primary_title: Aaron Miller
 personas:

@@ -1,7 +1,6 @@
 ---
 name: Vedang Joshi 
 github: VJoshi380
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Vedang Joshi'
 primary_title: Vedang Joshi
 personas:

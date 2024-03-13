@@ -2,7 +2,6 @@
 name: David Osorno
 short_name: daosgu
 github: davidosorno
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: David Osorno'
 primary_title: David Osorno
 personas:

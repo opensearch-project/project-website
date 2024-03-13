@@ -3,7 +3,6 @@ name: Michael Akinosho
 short_name: michaelakinosho
 twitter: MoaAdvisory
 github: michaelakinosho
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Michael Akinosho'
 primary_title: Michael Akinosho
 personas:

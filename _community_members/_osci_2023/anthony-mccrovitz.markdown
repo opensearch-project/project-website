@@ -3,7 +3,6 @@ name: Anthony McCrovitz
 short_name: Tony
 twitter: anthonymccrovi2
 github: anthony-mccrovitz
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Anthony McCrovitz'
 primary_title: Anthony McCrovitz
 personas:

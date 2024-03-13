@@ -3,7 +3,6 @@ name: Vinay Vinod
 short_name:
 twitter: Tree77279695
 github: Vinay-Vinod
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Vinay Vinod'
 primary_title: Vinay Vinod
 personas:

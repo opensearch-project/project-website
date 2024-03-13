@@ -2,7 +2,6 @@
 name: Truc Tran
 short_name: tranngocsongtruc
 github: tranngocsongtruc
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Truc Tran'
 primary_title: Truc Tran
 personas:

@@ -2,7 +2,6 @@
 name: Katina Carranza
 short_name: Katina
 github: kmcarranza
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Katina Carranza'
 primary_title: Katina Carranza
 personas:

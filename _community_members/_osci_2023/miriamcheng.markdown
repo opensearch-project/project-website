@@ -2,7 +2,6 @@
 name: Miriam Cheng
 short_name: Mir
 github: miriamcheng
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Miriam Cheng'
 primary_title: Miriam Cheng
 personas:

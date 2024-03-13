@@ -2,7 +2,6 @@
 name: Brian Park
 short_name: Brian 
 github: brian-jw-park
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Brian Park'
 primary_title: Brian Park
 personas:

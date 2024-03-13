@@ -2,7 +2,6 @@
 name: Innocent Mambo
 short_name: KakaInnocent
 github: KakaInnocent
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Innocent Mambo'
 primary_title: Innocent Mambo
 personas:

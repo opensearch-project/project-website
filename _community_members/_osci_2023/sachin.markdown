@@ -3,7 +3,6 @@ name: Sachin Kumar Sahu
 short_name: sachin
 twitter: sachinsahu431
 github: SachinSahu431
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sachin Kumar Sahu'
 primary_title: Sachin Kumar Sahu
 personas:

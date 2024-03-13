@@ -3,7 +3,6 @@ name: Shashwat Prakash
 short_name: Shash
 twitter: Awesome01768974
 github: AwesomeSauce42
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Shashwat Prakash'
 primary_title: Shashwat Prakash
 personas:

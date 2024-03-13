@@ -2,7 +2,6 @@
 name: Arnav Mehra
 short_name: Arnav
 github: arnav-mehra
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Arnav Mehra'
 primary_title: Arnav Mehra
 personas:

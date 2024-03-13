@@ -1,5 +1,5 @@
 ---
-layout: opensearchcon_archive_landing
+layout: opensearchcon_landing
 title: "OpenSearchCon 2023: North America"
 primary_title: "OpenSearchCon 2023: North America"
 breadcrumbs:
@@ -12,8 +12,14 @@ breadcrumbs:
     - title: North America
       url: /events/opensearchcon/2023/north-america/index.html
 conference_id: "2023-north-america"
-hero_image: '/assets/media/opensearchcon/osc-2023.png'
 has_hero: true
+hero_images:
+  mobile: 
+    path: '/assets/media/herobanners/mobile-register-opensearchcon2023-1.png'
+    alt: 'OpenSearchCon 2023 hero banner image.'
+  desktop: 
+    path: '/assets/media/herobanners/register-opensearchcon2023-1.png'
+    alt: 'OpenSearchCon 2023 hero banner image.'
 conference_sections_button_stack:
   - label: Sessions
     url: /events/opensearchcon/2023/north-america/sessions/index.html

@@ -38,29 +38,50 @@ layout: redesign-fullwidth
     </div>
 </div>
 <div class="conference-speakers--session-speakers">
-    <div class="conference-speakers--session-speakers__categorized">
-        <div class="conference-speakers--session-speakers__categorized--header">
-            <h2>Session Speakers</h2>
+    <div class="conference-feature--categorization">
+        <div class="conference-feature--categorization--header-filters">
+            <div class="conference-feature--categorization--header">
+                <h2>Session Speakers</h2>
+            </div>
+            {%- unless page.hide_categorization -%}
+                <div class="conference-feature--categorization--filters">
+                    {% include content-filter-dropdown.html
+                        component_classname="conference-speakers--session-speakers--filters--category-selector"
+                        filterable_content_block_element_classname="speaker-session--speaker-cards__unfeatured"
+                        filter_categories=site.data.opensearchcon.session_track_filter_categories
+                    %}
+                </div>
+            {%- endunless -%}
         </div>
-        <div class="conference-speakers--session-speakers__categorized--list">
-            <div>
-                {% include platform-category-icons.html name="Search" include_label=true %}
+        {%- unless page.hide_categorization -%}
+            <div class="conference-feature--categoriziation--list">
+                <div>
+                    {% include platform-category-icons.html name="Search" include_label=true %}
+                </div>
+                <div>
+                    {% include platform-category-icons.html name="Analytics, Observability, and Security" include_label=true %}
+                </div>
+                <div>
+                    {% include platform-category-icons.html name="Community" include_label=true %}
+                </div>
+                <div>
+                    {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
+                </div>            
             </div>
-            <div>
-                {% include platform-category-icons.html name="Analytics, Observability, and Security" include_label=true %}
-            </div>
-            <div>
-                {% include platform-category-icons.html name="Community" include_label=true %}
-            </div>
-            <div>
-                {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
-            </div>            
-        </div>
+        {%- endunless -%}
     </div>
-    <div class="speaker-session--speaker-cards">
+    <div class="speaker-session--speaker-cards speaker-session--speaker-cards__unfeatured">
         {% for speaker in speakers %}
             {% unless speaker.keynote_speaker contains page.conference_id %}
-                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized speaker-card">
+                {%- assign session_track_for_conference = speaker.session_track | find: "conference_id", page.conference_id -%}
+                {%- if session_track_for_conference -%}
+                    {%- assign session_track_name = session_track_for_conference.name -%}
+                    {%- assign session_track_value = site.data.opensearchcon.session_track_filter_categories | find: "label", session_track_name -%}
+                    {%- assign session_track_classname = "speaker-session--speaker-cards--card__categorized__" | append: session_track_value.value -%}
+                {%- else -%}
+                    {%- assign session_track_classname = "" -%}
+                {%- endif -%}
+                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized speaker-card {{ session_track_classname }}">
                     <div class="speaker-session--speaker-cards--card--content">
                         <h3><a href="{{ speaker.permalink }}">{{ speaker.name }}</a></h3>
                         <div class="speaker-session--speaker-cards--card--content--job-title">{{- speaker.job_title_and_company -}}</div>

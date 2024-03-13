@@ -3,7 +3,6 @@ name: Venu Vardhan Reddy Tekula
 short_name: vchrombie
 twitter: vchrombie
 github: vchrombie
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Venu Vardhan Reddy Tekula'
 primary_title: Venu Vardhan Reddy Tekula
 personas:

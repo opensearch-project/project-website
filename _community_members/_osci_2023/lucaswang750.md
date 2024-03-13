@@ -2,7 +2,6 @@
 name: Lucas Wang
 short_name: lucaswang750
 github: lucaswang750
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Lucas Wang'
 primary_title: Lucas Wang
 personas:

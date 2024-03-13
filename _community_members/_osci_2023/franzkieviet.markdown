@@ -1,7 +1,6 @@
 ---
 name: Franz Kieviet
 github: FranzKieviet
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Franz Kieviet'
 primary_title: Franz Kieviet
 personas:

@@ -2,7 +2,6 @@
 name: Aitu Sadyk
 short_name: Aya
 github: AyaSadyk
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Aitu Sadyk'
 primary_title: Aitu Sadyk
 personas:

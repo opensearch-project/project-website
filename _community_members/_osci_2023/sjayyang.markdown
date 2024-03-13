@@ -3,7 +3,6 @@ name: Stanley Yang
 short_name: sjayyang
 twitter: StanleyYang89
 github: sjayyang
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Stanley Yang'
 primary_title: Stanley Yang
 personas:

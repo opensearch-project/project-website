@@ -3,7 +3,6 @@ name: Andrew Chen
 short_name: andrewchen
 github: achen1210
 linkedin: andrewchenuc2024
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Andrew Chen'
 primary_title: Andrew Chen
 personas:

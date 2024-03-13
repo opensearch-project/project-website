@@ -3,7 +3,6 @@ name: David Carrillo Jr.
 short_name: DJ
 twitter: Djcarrillo6
 github: Djcarrillo6
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: David Carrillo Jr'
 primary_title: David Carrillo Jr
 personas:

@@ -155,20 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
   eventsLinkElements.forEach(eventsLink => {
       eventsLink.setAttribute('href', getDeviceAndLocationBasedEventsMenuItemURL());
   });
-  // if (eventsLinkElements.length > 0 && !isMobile && !currentPageIsEventsList) {
-  //     const now = new Date();
-  //     const monthNumber = now.getUTCMonth() + 1;
-  //     const year = now.getFullYear();
-  //     const thisMonthCalendarUrl = `/events/calendar/${year}-${monthNumber < 10 ? `0${monthNumber}` : monthNumber}.html`;
-  //     eventsLinkElements.forEach(eventsLink => {
-  //         eventsLink.setAttribute('href',  thisMonthCalendarUrl);
-  //     });
-  // } else if (eventsLinkElements.length > 0) {
-  //     eventsLinkElements.forEach(eventsLink => {
-  //         const upcomingEventsListViewUrl = '/events/';
-  //         eventsLink.setAttribute('href', upcomingEventsListViewUrl);
-  //     });
-  // }
 
   // Add the in-category class to the navigation menu items that the current page belongs to.
   function highlightTopNavigationItems() {
@@ -277,26 +263,30 @@ document.addEventListener('DOMContentLoaded', () => {
       childUL?.classList?.add?.('nested-nav--menu__mobile-hidden-collapsed');
   }
   function onNestedNavMenuTransitionEnd(e) {
+      const collapsedClass = 'nested-nav--menu__mobile-hidden-collapsed';
       const { target } = e;
       if (!target?.hasAttribute?.('expanded')) {
-          target?.classList.add('nested-nav--menu__mobile-hidden-collapsed');
+          target?.classList?.add?.(collapsedClass);
       }
   }
 
-  function onToggleButtonClick(e) {
+  function swapToggleButtonState(toggle) {
       const visibleClassName = 'opensearch-toggle-button-link__visible';
       const visibleSelector = `.${visibleClassName}`;
       const invisibleClassName = 'opensearch-toggle-button-link__invisible';
       const invisibleSelector = `.${invisibleClassName}`;
-
-      const toggle = e.currentTarget;
       const visibleLink = toggle.querySelector(visibleSelector);
       const invisibleLink = toggle.querySelector(invisibleSelector);
       visibleLink.classList.remove(visibleClassName);
       visibleLink.classList.add(invisibleClassName);
       invisibleLink.classList.remove(invisibleClassName);
       invisibleLink.classList.add(visibleClassName);
+  }
 
+  function onToggleButtonClick(e) {
+
+      const toggle = e.currentTarget;
+      swapToggleButtonState(toggle);
       const childUL = getSubMenu(toggle);
       const isAlreadyExpanded = childUL?.hasAttribute?.('expanded') ?? false;
       if (childUL.classList.contains('nested-nav--menu__mobile-hidden-collapsed')) {
@@ -312,9 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
               const expandedSubMenu = childUL?.querySelectorAll('ul[expanded]');
               const expandedHeight = Number.parseInt(childUL.style.getPropertyValue(EXPANDED_HEIGHT_PROPERTY), 10);
               if (expandedSubMenu.length > 0) {
-                  
                   let reducedExpandedHeight = expandedHeight;
                   expandedSubMenu.forEach(subMenu => {
+                      const subMenuToggle = subMenu.parentElement.querySelector('.opensearch-toggle-button--wrapper');
+                      swapToggleButtonState(subMenuToggle);
                       subMenu.toggleAttribute('expanded');
                       const subMenuExpandedHeightPropertyValue = subMenu.style.getPropertyValue(EXPANDED_HEIGHT_PROPERTY);
                       const numericSubMenuExpandedHeight = Number.parseInt(subMenuExpandedHeightPropertyValue, 10);

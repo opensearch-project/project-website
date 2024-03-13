@@ -2,7 +2,6 @@
 name: Samarth Ghai
 short_name: Sam
 github: samarthg1705
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Samarth Ghai'
 primary_title: Samarth Ghai
 personas:

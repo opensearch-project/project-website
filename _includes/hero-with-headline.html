@@ -189,7 +189,6 @@
         });
         {% endif %}
 
-        {% if show_hero_carousel_arrows %}
         function moveLeftRight(direction) {
             if (direction === 'left') {
                 if (carouselState.currentFrame === 1) {
@@ -214,6 +213,109 @@
             carouselState.nextFrame = carouselState.nextFrame + 1;
             startCarousel();
         }
+
+        const initializeSwipeState = (startingPoint) => {
+            return {
+                start: { ...startingPoint },
+                movementSteps: [],
+                end: null,
+                direction: '',
+            };
+        };
+
+        const setEndingSwipeState = (endingPoint) => {
+            const distanceX = endingPoint.x - swipeState.start.x;
+            if (Math.abs(distanceX) >= SWIPE_MIN_DISTANCE_THRESHOLD) {
+                const direction = distanceX < 0 ? 'right' : distanceX > 0 ? 'left' : '';
+                return {
+                    ...swipeState,
+                    end: endingPoint,
+                    direction,
+                };
+            }
+            return {
+                ...swipeState,
+                end: endingPoint,
+                direction: '',
+            };
+        };
+
+        const resetSwipeState = () => {
+            return {
+                start: null,
+                movementSteps: null,
+                end: null,
+                direction: 0,
+            };
+        }
+
+        const getTouchMouseEventCoordinates = (e) => {
+            if (e.changedTouches) {
+                return {
+                    x: e.changedTouches[0].clientX,
+                    y: e.changedTouches[0].clientY,
+                };
+            }
+            return {
+                x: e.clientX,
+                y: e.clientY,
+            };
+        };
+
+        let swipeState = resetSwipeState();
+        const SWIPE_MIN_DISTANCE_THRESHOLD = 30;
+
+        const onTouchStart = (e) => {
+            stopCarousel();
+            const startingPoint = getTouchMouseEventCoordinates(e);
+            swipeState = initializeSwipeState(startingPoint);
+            console.log('Touch start...');
+            console.log(swipeState);
+        };
+        
+        const onTouchEnd = (e) => {
+            const endingPoint = getTouchMouseEventCoordinates(e);
+            swipeState = setEndingSwipeState(endingPoint);
+            console.log('Touch end...');
+            console.log(swipeState);
+            if (['left', 'right'].includes(swipeState.direction)) {
+                moveLeftRight(swipeState.direction);
+                console.log('Swiped to the ', swipeState.direction);
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            } else {
+                startCarousel();
+            }
+        };
+
+        const onTouchCancel = (e) => {
+            swipeState = resetSwipeState();
+            startCarousel();
+        };
+
+        const viewportClassSelector = '.hero-with-headline--carousel--viewport';
+        const carouselViewport = carousel.querySelector(viewportClassSelector);
+        if (carouselViewport) {
+            carouselViewport.addEventListener('touchstart', onTouchStart, {
+                capture: true,
+                passive: true,
+            });
+            carouselViewport.addEventListener('touchend', onTouchEnd, {
+                capture: true,
+                passive: true,
+            });
+            carouselViewport.addEventListener('touchcancel', onTouchCancel);
+            carouselViewport.addEventListener('mousedown', onTouchStart, {
+                capture: true,
+                passive: true,
+            });
+            carouselViewport.addEventListener('mouseup', onTouchEnd, {
+                capture: true,
+                passive: true,
+            });
+        }
+
+        {% if show_hero_carousel_arrows %}
         carousel.querySelector('.landing-page-hero--arrows--arrow__left > opensearch-button').addEventListener('click', (event) => {
             moveLeftRight('left');
         });

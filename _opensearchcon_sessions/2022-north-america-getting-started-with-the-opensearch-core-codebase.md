@@ -21,5 +21,6 @@ youtube_video_id: 'OG2HTQq5wuM'
 conference_id: '2022-north-america'
 presenters:
   - nknize
+session_track: 'Operating OpenSearch'
 ---
 Interested in contributing to OpenSearch? Curious how to get started? This session will answer some of these questions and more by raising the hood and exploring the code base. We hope you will walk away with a better understanding of the architecture and implementation so you can begin contributing today.

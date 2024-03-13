@@ -51,10 +51,10 @@ $max-hero-item-count: 20;
                 display: block;
                 width: 100%;
                 height: auto;
-                @include respond-min(834px) {
+                @include respond-min(835px) {
                     height: 370px;
                 }
-                @include respond-max(833px) {
+                @include respond-max(834px) {
                     height: 430px;
                     font-size: 0; // mobile-extra height fix.
                 }
@@ -62,6 +62,9 @@ $max-hero-item-count: 20;
                 $arrow-button-width-height: 60px;
                 $arrow-button-half-height: 30px;
                 .landing-page-hero--arrows--arrow {
+                    @include respond-max(834px) {
+                        display: none;
+                    }
                     position: absolute;
                     top: calc(50% - $arrow-button-half-height);
                     margin: auto;
@@ -161,6 +164,7 @@ $max-hero-item-count: 20;
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
+                column-gap: 10px;
                 .hero-with-headline--carousel--pagination--item {
                     flex: 1;
                     display: inline-block;

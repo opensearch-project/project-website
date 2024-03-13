@@ -2,7 +2,6 @@
 name: Shreya Venkat
 short_name: Shreya
 github: shreya-venkat26
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Shreya Venkat'
 primary_title: Shreya Venkat
 personas:

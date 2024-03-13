@@ -2,7 +2,6 @@
 name: Tiffany Lam 
 short_name: tifflam
 github: tiffanylamm
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Tiffany Lam'
 primary_title: Tiffany Lam
 personas:

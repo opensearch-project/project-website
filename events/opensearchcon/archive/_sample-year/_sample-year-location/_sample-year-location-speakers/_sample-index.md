@@ -1,6 +1,6 @@
 ---
-# The conference_sessions template is required.
-layout: conference_speakers
+# The opensearchcon_speakers template is required.
+layout: opensearchcon_speakers
 
 # Document title displyed in the browser title bar.
 title: "Meet the OpenSearchCon 2022 Speakers"

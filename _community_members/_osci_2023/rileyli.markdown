@@ -2,7 +2,6 @@
 name: Riley Li
 short_name: Riley
 github: MadaniKK
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Riley Li'
 primary_title: Riley Li
 personas:

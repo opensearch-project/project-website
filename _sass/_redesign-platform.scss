@@ -68,21 +68,7 @@ $platform-page-content-reduce-padding-width: 1199px;
         }
     }
     .platform-page--solution--use-cases {
-        @media screen and (min-width: $platform-page-content-wide-screen-width) {
-            padding-left: 80px;
-            padding-right: 40px;
-            width: calc(100% - 80px - 40px);
-        }
-        @media screen and (max-width: $platform-page-content-reduce-padding-width) {
-            padding-left: 20px;
-            padding-right: 20px;
-            width: calc(100% - 20px - 20px);
-        }
-        @media screen and (max-width: 390px) {
-            padding-left: 5px;
-            padding-right: 5px;
-            width: calc(100% - 5px - 5px);
-        }
+        @include page-element-left-right-padding;
         background: linear-gradient(180deg, #E1FAFF 0%, #98E3F4 48.15%, #00B7E0 100%);
         padding-top: 40px;
         padding-bottom: 66px;
@@ -220,11 +206,11 @@ $solutions-card-bottom-margin: 36px;
             }
             @media screen and (max-width: 739px) {
                 top: 34px;
-                left: 20px;
+                left: 30px;
             }
             @media screen and (max-width: 420px) {
                 top: 0;
-                left: 10px;
+                left: 30px;
             }
 
             >.landing-page-hero--header {
@@ -349,43 +335,15 @@ $solutions-card-bottom-margin: 36px;
             width: 100%;
             margin-bottom: 66px;
             padding-bottom: 0;
+
             > hgroup {
                 > p {
                     margin-bottom: 60px;
                 }
             }
-            @media screen and (min-width: $platform-page-content-wide-screen-width) {
-                > hgroup,
-                > table {
-                    margin-left: 80px;
-                    margin-right: 80px;
-                    width: calc(100% - 160px);
-                }
-                > table {
-                    margin-bottom: 70px;
-                }
-            }
-            @media screen and (max-width: $platform-page-content-reduce-padding-width) {
-                > hgroup,
-                > table {
-                    margin-left: 20px;
-                    margin-right: 20px;
-                    width: calc(100% - 40px);
-                }
-                > table {
-                    margin-bottom: 35px;
-                }
-            }
-            @media screen and (max-width: 390px) {
-                > hgroup,
-                > table {
-                    margin-left: 5px;
-                    margin-right: 5px;
-                    width: calc(100% - 5px - 5px);
-                }
-                > table {
-                    margin-bottom: 20px;
-                }
+            > hgroup,
+            > table {
+                @include page-element-left-right-margins;
             }
             .platform-page--solution--use-cases__fog-background {
                 background: $secondary-sanfrancisco-fog-t1;
@@ -404,27 +362,108 @@ $solutions-card-bottom-margin: 36px;
         }
     }
     .platform-landing-page--community-voices-wrapper {
-        @media screen and (max-width: $community-voices-vert-view-max) {
-            height: 900px;
-        }
         margin-bottom: 0;
         background-color: white;
-        .hero-with-headline {
-            margin: 0;
-            padding: 0;
-            .hero-with-headline--wrapper {
-                .hero-with-headline--carousel {
-                    .hero-with-headline--carousel--viewport {
-                        @media screen and (min-width: $community-voices-horz-view-min) {
-                            height: 350px;
-                        }
-                        @media screen and (max-width: $community-voices-vert-view-max) {
-                            height: 600px;
+
+        .landing-page-solutions-community-voices {
+            @media screen and (max-width: $community-voices-vert-view-max) {
+                .hero-with-headline {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+            // NOTE: The seemingly absurd granularity of the following media query height adjustments
+            //       is due to the great dispairity between the logo geometry, the length of
+            //       testimonial text, and the length of name, job titles and companies, and also
+            //       the immense difference between the longest testimonial
+            //       (which at this time is from quantiphi), and the rest of them.
+            //       Since every one needs to fit within the same height of the viewport
+            //       of the carousel, and where text is going to wrap being completely unpredictable,
+            //       well, we do what we have to do.
+            &.landing-page-hero-wrapper {
+                @media screen and (min-width: 360px) and (max-width: 369px) {
+                    height: 2000px;
+                }
+                @media screen and (min-width: 370px) and (max-width: 389px) {
+                    height: 1950px;
+                }
+                @media screen and (min-width: 390px) and (max-width: 409px) {
+                    height: 1900px;
+                }
+                @media screen and (min-width: 410px) and (max-width: 430px) {
+                    height: 1750px;
+                }
+                @media screen and (min-width: 431px) and (max-width: 480px) {
+                    height: 1650px;
+                }
+                @media screen and (min-width: 481px) and (max-width: 539px) {
+                    height: 1350px;
+                }
+                @media screen and (min-width: 540px) and (max-width: 599px) {
+                    height: 1250px;
+                }
+                @media screen and (min-width: 600px) and (max-width: 679px) {
+                    height: 1150px;
+                }
+                @media screen and (min-width: 680px) and (max-width: 739px) {
+                    height: 1050px;
+                }
+                @media screen and (min-width: 740px) and (max-width: 979px) {
+                    height: 950px;
+                }
+                @media screen and (min-width: 980px) {
+                    height: 800px;
+                }
+            }
+
+            .hero-with-headline {
+                margin: 0;
+                padding: 0;
+                .hero-with-headline--wrapper {
+                    .hero-with-headline--carousel {
+                        .hero-with-headline--carousel--viewport {
+                            @media screen and (min-width: $community-voices-horz-view-min) {
+                                height: 800px;
+                            }
+                            @media screen and (min-width: 360px) and (max-width: 369px) {
+                                height: 1900px;
+                            }
+                            @media screen and (min-width: 370px) and (max-width: 389px) {
+                                height: 1850px;
+                            }
+                            @media screen and (min-width: 390px) and (max-width: 409px) {
+                                height: 1800px;
+                            }
+                            @media screen and (min-width: 410px) and (max-width: 430px) {
+                                height: 1700px;
+                            }
+                            @media screen and (min-width: 431px) and (max-width: 480px) {
+                                height: 1600px;
+                            }
+                            @media screen and (min-width: 481px) and (max-width: 539px) {
+                                height: 1300px;
+                            }
+                            @media screen and (min-width: 540px) and (max-width: 599px) {
+                                height: 1200px;
+                            }
+                            @media screen and (min-width: 600px) and (max-width: 679px) {
+                                height: 1100px;
+                            }
+                            @media screen and (min-width: 680px) and (max-width: 739px) {
+                                height: 1000px;
+                            }
+                            @media screen and (min-width: 740px) and (max-width: 979px) {
+                                height: 900px;
+                            }
+                            @media screen and (min-width: 980px) {
+                                height: 800px;
+                            }
                         }
                     }
                 }
             }
         }
+        
         .landing-page-solutions-community-voices--header {
             padding: 80px 0 0 80px;
             @media screen and (max-width: $community-voices-smallest-max-size) {
@@ -475,6 +514,7 @@ $solutions-card-bottom-margin: 36px;
                 @media screen and (max-width: 834px) {
                     flex-basis: unset;
                     max-width: 100%;
+                    padding-top: 0;
                 }
             }
             > .landing-page-content__right-panel--content--side-panel {
@@ -680,6 +720,9 @@ $solutions-card-bottom-margin: 36px;
             @include card-shadow;
             @include thick-edge-bottom;
             padding: 25px 50px;
+            @media screen and (max-width: 834px) {
+                padding: 25px 10px;
+            }
             > hgroup {
                 > h2 {
                     @include header-level2($primary-open-sky-s2);
@@ -746,7 +789,7 @@ $solutions-card-bottom-margin: 36px;
             h2 {
                 margin-top: 0;
                 @media screen and (max-width: 375px) {
-                    padding-left: 10px;
+                    padding-left: 0;
                 }
             }
             > .landing-page-content__right-panel--content {
@@ -889,6 +932,10 @@ $solutions-card-bottom-margin: 36px;
                             width: auto;
                             max-width: 350px;
                         }
+                        @media screen and (max-width: 410px) {
+                            width: auto;
+                            max-width: 100%;
+                        }
                         
                         box-sizing: border-box;
                         @media screen and (max-width: 834px) {
@@ -910,6 +957,9 @@ $solutions-card-bottom-margin: 36px;
                             }
                             @media screen and (max-width: 834px) {
                                 width: 100%;
+                                box-sizing: border-box;
+                                padding-left: 15px;
+                                padding-right: 15px;
                             }
                             height: 245px;
                         }
@@ -1046,7 +1096,7 @@ $solutions-card-bottom-margin: 36px;
         padding: 40px 40px 15px;
     }
     @media screen and (max-width: 834px) {
-        padding: 40px 20px 15px;
+        padding: 40px 30px 15px;
     }
     > h2 {
         margin-top: 10px;

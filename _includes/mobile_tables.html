@@ -1,0 +1,175 @@
+<template id="change-log-mobile-table-template">
+    <table class="change-log-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Change Log</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="mobile-table-row--heading-cell">Date</td>
+                <td class="mobile-table-row--value-cell">July 1, 2022</td>
+            </tr>
+            <tr class="mobile-table-row__end-of-record">
+                <td class="mobile-table-row--heading-cell">Reason</td>
+                <td class="mobile-table-row--value-cell">Initial Version</td>
+            </tr>
+        </tbody>
+    </table>
+</template>
+<template id="release-history-mobile-table-template">
+    <table class="release-history-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Relase History</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</template>
+<template id="release-schedule-mobile-table-template">
+    <table class="release-schedule-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Release Schedule</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</template>
+<template id="mobile-table-heading-value-pair-row">
+    <tr>
+        <td class="mobile-table-row--heading-cell"></td>
+        <td class="mobile-table-row--value-cell"></td>
+    </tr>
+</template>
+<template id="mobile-table-heading-value-pair-end-of-record-row">
+    <tr class="mobile-table-row__end-of-record">
+        <td class="mobile-table-row--heading-cell"></td>
+        <td class="mobile-table-row--value-cell"></td>
+    </tr>
+</template>
+<template id="mobile-table-double-heading-cell-row">
+    <tr class="mobile-table-row__end-of-record">
+        <td class="mobile-table-double-heading"></td>
+        <td class="mobile-table-double-heading"></td>
+    </tr>
+</template>
+<template id="maintenance-policy-mobile-table-template">
+    <table class="maintenance-policy-mobile-table">
+        <tbody></tbody>
+    </table>
+</template>
+<template id="wednesday-27-2023-conference-schedule-mobile-table-template">
+    <table class="conference-schedule-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Wednesday, September 27, 2023</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</template>
+<template id="thursday-28-2023-conference-schedule-mobile-table-template">
+    <table class="conference-schedule-mobile-table">
+        <thead>
+            <tr>
+                <th colspan="2">Thursday, September 28, 2023</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</template>
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+
+        function createRotatedTableRows(tableRows, tableHeaders) {
+            const rowTemplate = document.getElementById('mobile-table-heading-value-pair-row');
+            const endOfRowTemplate = document.getElementById('mobile-table-heading-value-pair-end-of-record-row');
+            const mobileTableBodyRows = tableRows.reduce((newTableRows, tableRow) => {
+                const tableRowDataCells = tableRow.querySelectorAll('td');
+                return [...newTableRows, ...Array.from(tableRowDataCells).reduce((carry, current, index) => {
+                    const isEndOfRecord = (index + 1) % tableHeaders.length === 0;
+                    const newTableRow = isEndOfRecord ? 
+                        endOfRowTemplate.content.cloneNode(true) : 
+                        rowTemplate.content.cloneNode(true);
+                    const headingCell = newTableRow.querySelector('.mobile-table-row--heading-cell');
+                    const valueCell = newTableRow.querySelector('.mobile-table-row--value-cell');
+                    const headingText = tableHeaders.item(index).textContent;
+                    const valueHtml = current.innerHTML;
+                    headingCell.textContent = headingText;
+                    valueCell.innerHTML = valueHtml;
+                    carry.push(newTableRow);
+                    return carry;
+                }, [])];
+            }, []);
+            return mobileTableBodyRows;
+        }
+
+        function transformNodeListToArray(nodeList) {
+            const nodeArray = Array.from(nodeList);
+            return nodeArray;
+        }
+
+        function transformDesktopTableToMobile(
+            desktopTableSelector,
+            mobileTableTemplateId,
+            tableRowPreProcessor = transformNodeListToArray,
+        ) {
+            const desktopTable = document.querySelector(desktopTableSelector);
+            if (desktopTable) {
+                const mobileTable = document.getElementById(mobileTableTemplateId)?.content?.cloneNode?.(true) ?? null;
+                if (mobileTable) {
+                    const tableHeaderCells = desktopTable.querySelectorAll(':scope > thead > tr > th');
+                    const tableRows = desktopTable.querySelectorAll(':scope > tbody > tr');
+                    const tableRowArray = tableRowPreProcessor(tableRows);
+                    const mobileTableBodyRows = createRotatedTableRows(tableRowArray, tableHeaderCells);
+                    mobileTable.querySelector('tbody')?.append?.(...mobileTableBodyRows);
+                    desktopTable.after(mobileTable);
+                }
+            }
+        }
+
+        const transformChangeLogTable = transformDesktopTableToMobile.bind(
+            null,
+            '.desktop-change-log-table',
+            'change-log-mobile-table-template',
+            (rows) => {
+                const rowArray = transformNodeListToArray(rows);
+                const withoutFirstRow = rowArray.slice(1);
+                return withoutFirstRow;
+            },
+        );
+        const transformReleaseHistoryTable = transformDesktopTableToMobile.bind(
+            null,
+            '.desktop-release-history-table',
+            'release-history-mobile-table-template'
+        );
+        const transformMaintenancePolicyTable = transformDesktopTableToMobile.bind(
+            null,
+            '.desktop-maintenance-policy-table',
+            'maintenance-policy-mobile-table-template',
+        );
+        const transformReleaseScheduleTable = transformDesktopTableToMobile.bind(
+            null,
+            '.desktop-release-schedule-table',
+            'release-schedule-mobile-table-template',
+        );
+        const transform2023ConferenceScheduleTableWednesday = transformDesktopTableToMobile.bind(
+            null,
+            '.schedule-table__wednesday-september-27-2023',
+            'wednesday-27-2023-conference-schedule-mobile-table-template'
+        );
+        const transform2023ConferenceScheduleTableThursday = transformDesktopTableToMobile.bind(
+            null,
+            '.schedule-table__thursday-september-28-2023',
+            'thursday-28-2023-conference-schedule-mobile-table-template',
+        );
+        transformChangeLogTable();
+        transformReleaseHistoryTable();
+        transformMaintenancePolicyTable();
+        transformReleaseScheduleTable();
+        transform2023ConferenceScheduleTableWednesday();
+        transform2023ConferenceScheduleTableThursday();
+    });
+</script>

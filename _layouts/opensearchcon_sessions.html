@@ -3,12 +3,23 @@ layout: redesign-fullwidth
 ---
 <div class="conference-speaker-session-page">
     <div class="conference-speakers--session-speakers">
-        <div class="conference-speakers--session-speakers__categorized">
-            <div class="conference-speakers--session-speakers__categorized--header">
-                <h2>Session Details</h2>
+        <div class="conference-feature--categorization">
+            <div class="conference-feature--categorization--header-filters">
+                <div class="conference-feature--categorization--header">
+                    <h2>Session Speakers</h2>
+                </div>
+                {%- unless page.hide_categorization -%}
+                    <div class="conference-feature--categorization--filters">
+                        {% include content-filter-dropdown.html
+                            component_classname="conference-speakers--session-speakers--filters--category-selector"
+                            filterable_content_block_element_classname="speaker-session--speaker-cards"
+                            filter_categories=site.data.opensearchcon.session_track_filter_categories
+                        %}
+                    </div>
+                {%- endunless -%}
             </div>
             {%- unless page.hide_categorization -%}
-                <div class="conference-speakers--session-speakers__categorized--list">
+                <div class="conference-feature--categoriziation--list">
                     <div>
                         {% include platform-category-icons.html name="Search" include_label=true %}
                     </div>
@@ -20,7 +31,7 @@ layout: redesign-fullwidth
                     </div>
                     <div>
                         {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
-                    </div>
+                    </div>            
                 </div>
             {%- endunless -%}
         </div>
@@ -29,7 +40,14 @@ layout: redesign-fullwidth
             {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
             {% assign conference_link_base_url = '/events/opensearchcon/' | append: conference_url_path_segment %}
             {% for session in sessions %}
-                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized session-card">
+                {%- assign session_track_name = session.session_track -%}
+                {%- if session_track_name -%}
+                    {%- assign session_track_value = site.data.opensearchcon.session_track_filter_categories | find: "label", session_track_name -%}
+                    {%- assign session_track_classname = "speaker-session--speaker-cards--card__categorized__" | append: session_track_value.value -%}
+                {%- else -%}
+                    {%- assign session_track_classname = "" -%}
+                {%- endif -%}
+                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized session-card {{ session_track_classname }}">
                     <div class="speaker-session--speaker-cards--card--content">
                         <h3><a href="{{ session.permalink }}">{{ session.speaker_talk_title }}</a></h3>
                         {% assign session_date_time = session.session_time | split: " - " %}

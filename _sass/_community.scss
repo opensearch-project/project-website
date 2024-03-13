@@ -327,6 +327,12 @@
                 padding-top: 40px;
                 > .community-member--back-to-directory {
                     @include interactive-link-button-dark-mode("community-member--back-to-directory", 50px);
+                    &.community-member--back-to-directory__hidden {
+                        display: none;
+                    }
+                    &.community-member--back-to-directory__conference {
+                        margin-top: 20px;
+                    }
                 }
             }
         }
@@ -343,17 +349,9 @@
             @media screen and (min-width: 835px) and (max-width: 959px) {
                 padding-right: 20px;
             }
-            @media screen and (min-width: 740px) and (max-width: 834px) {
-                padding-right: 20px;
-                padding-left: 20px;
-            }
-            @media screen and (min-width: 431px) and (max-width: 739px) {
-                padding-right: 10px;
-                padding-left: 10px;
-            }
-            @media screen and (max-width: 430px) {
-                padding-right: 5px;
-                padding-left: 5px;
+            @media screen and (max-width: 834px) {
+                padding-left: 30px;
+                padding-right: 30px;
             }
             > .community-member--blog-posts,
             > .community-member--conference-sessions {
@@ -375,7 +373,12 @@
                     padding-left: 0;
                     padding-right: 0;
                     &.solutions-card-grid--card-wrapper {
-                        grid-template-columns: 1fr 1fr;
+                        @media screen and (min-width: 835px) {
+                            grid-template-columns: 1fr 1fr;
+                        }
+                        @media screen and (max-width: 834px) {
+                            grid-template-columns: 1fr;
+                        }
                     }
                 }
                 > .community-member--blog-posts--table {
