@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Customer Experience Outcomes to Focused User Centered Product Design Improvements"
+title:  "Customer experience outcomes of focused, user-centered product design improvements"
 authors:
   - apasun
 date:   2024-03-15 0:00:10 -0700
