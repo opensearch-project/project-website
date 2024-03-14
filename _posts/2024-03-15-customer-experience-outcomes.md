@@ -56,7 +56,7 @@ While these findings will help us to improve known experiences, we are always lo
 
 - [https://www.forrester.com/research/cx-index/](https://www.forrester.com/research/cx-index/)
 
-[https://testscience.org/measuring-usability/#UMUX](https://testscience.org/measuring-usability/#UMUX)
+- [https://testscience.org/measuring-usability/#UMUX](https://testscience.org/measuring-usability/#UMUX)
 
 [https://testscience.org/measuring-usability/#UMUX-LITE](https://testscience.org/measuring-usability/#UMUX-LITE)
 
