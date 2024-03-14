@@ -106,6 +106,15 @@ layout: default
     {% include reposition-content.html 
         source_selector=page.content_reposition_rules.source_selector 
         insert_before_selector=page.content_reposition_rules.insert_before_selector 
+        insert_after_selector=page.insert_after_selector
+    %}
+{%- endif -%}
+{%- if layout.content_reposition_rules -%}
+    <script>console.log("Reposition rules here");</script>
+    {% include reposition-content.html 
+        source_selector=layout.content_reposition_rules.source_selector 
+        insert_before_selector=layout.content_reposition_rules.insert_before_selector 
+        insert_after_selector=layout.content_reposition_rules.insert_after_selector
     %}
 {%- endif -%}
 {%- if page.card_clickability_rules -%}

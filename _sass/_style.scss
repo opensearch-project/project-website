@@ -536,10 +536,10 @@ ul {
 .meta {
     // Re-usable meta class for alternate-style content.
     @include sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     display: block;
     line-height: 1.3;
-    margin: 25px 0 20px;
+    margin: 25px 0 0;
 
     a {
         @include link-alternate;
