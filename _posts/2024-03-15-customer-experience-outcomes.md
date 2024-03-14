@@ -50,7 +50,7 @@ While these findings will help us to improve known experiences, we are always lo
 
 ### References
 
-[https://lithespeed.com/drive-input-customer-experience-outcomes/](https://lithespeed.com/drive-input-customer-experience-outcomes/#:~:text=What%20is%20a%20Customer%20Experience%20Outcome%20or,a%20plan%20for%20success:%20%E2%80%9CIf%20we%20do)
+- [https://lithespeed.com/drive-input-customer-experience-outcomes/](https://lithespeed.com/drive-input-customer-experience-outcomes/#:~:text=What%20is%20a%20Customer%20Experience%20Outcome%20or,a%20plan%20for%20success:%20%E2%80%9CIf%20we%20do)
 
 [https://productmanagementuniversity.com/launches-customer-outcome-framework/](https://productmanagementuniversity.com/launches-customer-outcome-framework/)
 
