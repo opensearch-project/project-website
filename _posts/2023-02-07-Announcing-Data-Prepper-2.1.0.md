@@ -4,7 +4,7 @@ title:  "Announcing Data Prepper 2.1.0"
 authors:
 - kkondaka
 - nsifmoh
-- dlv
+- dvenable
 date: 2023-03-02 14:30:00 -0500
 categories:
   - releases

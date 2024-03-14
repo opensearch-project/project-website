@@ -4,7 +4,7 @@ title:  "Introducing Data Prepper 1.3.0 with New Aggregation Processor"
 authors:
 - tylgry
 - ddpowers
-- dlv
+- dvenable
 date: 2022-03-21 10:00:00 -0500
 categories:
   - technical-post

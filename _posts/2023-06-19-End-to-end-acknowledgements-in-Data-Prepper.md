@@ -3,7 +3,7 @@ layout: post
 title:  "End-to-end acknowledgments in Data Prepper"
 authors:
 - kkondaka
-- dlv
+- dvenable
 date: 2023-06-19 10:00:00 -0700
 categories:
   - technical-post
