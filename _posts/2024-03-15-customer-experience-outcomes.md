@@ -54,7 +54,7 @@ While these findings will help us to improve known experiences, we are always lo
 
 - [https://productmanagementuniversity.com/launches-customer-outcome-framework/](https://productmanagementuniversity.com/launches-customer-outcome-framework/)
 
-[https://www.forrester.com/research/cx-index/](https://www.forrester.com/research/cx-index/)
+- [https://www.forrester.com/research/cx-index/](https://www.forrester.com/research/cx-index/)
 
 [https://testscience.org/measuring-usability/#UMUX](https://testscience.org/measuring-usability/#UMUX)
 
