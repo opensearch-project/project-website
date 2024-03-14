@@ -58,7 +58,7 @@ While these findings will help us to improve known experiences, we are always lo
 
 - [https://testscience.org/measuring-usability/#UMUX](https://testscience.org/measuring-usability/#UMUX)
 
-[https://testscience.org/measuring-usability/#UMUX-LITE](https://testscience.org/measuring-usability/#UMUX-LITE)
+- [https://testscience.org/measuring-usability/#UMUX-LITE](https://testscience.org/measuring-usability/#UMUX-LITE)
 
 - [https://testscience.org/measuring-usability/#SUS](https://testscience.org/measuring-usability/#SUS)
 
