@@ -8,10 +8,18 @@ layout: default
 {% endif %}
 <main class="container">
     <div class="{{ page_type_class }}">
+        {%- if page.breadcrumbs -%}
+            {%- assign breadcrumbs_config = page.breadcrumbs -%}
+            {%- assign is_breadcrumbs_from_layout = false -%}
+        {%- elsif layout.breadcrumbs -%}
+            {%- assign breadcrumbs_config = layout.breadcrumbs -%}
+            {%- assign is_breadcrumbs_from_layout = true -%}
+        {%- endif -%}
         {% include page-breadcrumbs-and-title.html 
-            breadcrumbs=page.breadcrumbs
+            breadcrumbs=breadcrumbs_config
             primary_title=page.primary_title
             title=page.title
+            is_breadcrumbs_from_layout=is_breadcrumbs_from_layout
         %}
         {%- if layout.content_body_class -%}
             {%- assign content_body_class = layout.content_body_class -%}

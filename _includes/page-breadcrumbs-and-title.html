@@ -32,3 +32,39 @@
         {% endif %}
     </div>
 </div>
+{%- if include.is_breadcrumbs_from_layout -%}
+    <template id="last-breadcrumb-from-layout-template">
+        <div class="full-width-layout--header--breadcrumbs--item-separator">&gt;</div>
+        <div class="full-width-layout--header--breadcrumbs--item">
+            <a></a>
+        </div>
+    </template>
+    <script type="module">
+        {%- if include.primary_title -%}
+            const lastBreadcrumbTitle = "{{ include.primary_title }}";
+        {%- elsif include.title -%}
+            const lastBreadcrumbTitle = "{{ include.title }}";
+        {%- else -%}
+            const lastBreadcrumbTitle = '';
+        {%- endif -%}
+        
+        if (lastBreadcrumbTitle !== '') {
+            const lastBreadcrumbTemplate = document.getElementById('last-breadcrumb-from-layout-template')?.content?.cloneNode?.(true);
+            if (lastBreadcrumbTemplate) {
+                const breadcrumbUrl = `${window.location}`;
+                const breadcrumbLink = lastBreadcrumbTemplate.querySelector('a');
+                if (breadcrumbLink) {
+                    breadcrumbLink.setAttribute('href', breadcrumbUrl);
+                    breadcrumbLink.textContent = lastBreadcrumbTitle;
+                    const breadcrumbItemsSelector = '.full-width-layout--header > .full-width-layout--header--category-area > .full-width-layout--header--breadcrumbs--item';
+                    const breadcrumbItems = document.querySelectorAll(breadcrumbItemsSelector);
+                    const breadcrumbItemsLength = breadcrumbItems.length;
+                    if (breadcrumbItemsLength > 0) {
+                        const insertionPoint = breadcrumbItems.item(breadcrumbItemsLength - 1);
+                        insertionPoint.after(lastBreadcrumbTemplate);
+                    }
+                }
+            }
+        }
+    </script>
+{%- endif - %}
