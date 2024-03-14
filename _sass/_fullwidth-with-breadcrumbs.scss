@@ -311,6 +311,9 @@
                 }
             }
         }
+        > .artifacts-by-version--trees {
+            background-color: #fff;
+        }
     }
     > .solutions-card-grid {
         @include page-element-padding;
