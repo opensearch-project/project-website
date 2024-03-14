@@ -1,7 +1,6 @@
 ---
 name: Johnathon Bowers
 github: johnathonbowers
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Johnathon Bowers'
 primary_title: Johnathon Bowers
 personas:

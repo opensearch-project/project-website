@@ -2,7 +2,6 @@
 name: Sung-Jie Hung
 short_name: Willie
 github: Willie-The-Lord
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sung-Jie Hung'
 primary_title: Sung-Jie Hung
 personas:

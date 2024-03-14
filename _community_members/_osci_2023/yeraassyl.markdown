@@ -2,7 +2,6 @@
 name: Yerassyl Bakytnuruly
 short_name: Yera
 github: yeraassyl
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Yerassyl Bakytnuruly'
 primary_title: Yerassyl Bakytnuruly
 personas:

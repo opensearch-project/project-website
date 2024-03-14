@@ -1,6 +1,6 @@
 ---
-# The conference_archive_landing template is required.
-layout: conference_archive_landing
+# The opensearchcon_landing template is required.
+layout: opensearchcon_landing
 
 # Document title in the form of "OpenSearchCon the year of the conference: + the location
 # For example: "OpenSearchCon 2022: North America.
@@ -48,11 +48,18 @@ redirect_from: /events/opensearchcon/2022/index.html
 
 # Whether or not there is a hero image. This has an impact on the base CSS class of the
 # document. See _sass/_redesign-typography.scss for how .page-with-hero, and .page-without-hero
-# affects page typography.
-has_hero: false
+# affects page typography, and some styling matters at the top of the page.
+# For reference, observe the differences between the 2022-north-america conference landing page, and the 2023-north-america landing page.
+has_hero: true
 
-# IF there is a page hero image this is where the path will be defined.
-hero_image: '/assets/media/opensearchcon/osc-2023.png'
+# IF there is a page hero image this is where the paths will be defined for both the desktop version and the mobile version as well as the alt text for the <img> elements.
+hero_images:
+  mobile: 
+    path: '/assets/media/herobanners/mobile-register-opensearchcon2023-1.png'
+    alt: 'OpenSearchCon 2023 hero banner image.'
+  desktop: 
+    path: '/assets/media/herobanners/register-opensearchcon2023-1.png'
+    alt: 'OpenSearchCon 2023 hero banner image.'
 
 # Configration for the conference sections that are available
 # and shown in the left sidebar. They are defined as an array
@@ -92,3 +99,9 @@ featured_sessions:
     date: Wednesday 09/21/2022
     thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
+
+OpenSearchCon is the annual conference for the OpenSearch Project community. OpenSearchCon brings the community together to learn, connect, and collaborate.
+
+This annual event aims to educate and inspire with presentation sessions, participant-driven meetings, and exhibits and demonstrations from OpenSearch Project partners.
+
+Users, administrators, and developers come to OpenSearchCon to explore solutions to real-world problems, network with their peers, and take a look into the future of search, analytics, and observability applications.

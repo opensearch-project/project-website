@@ -3,7 +3,6 @@ name: Chinmay Gadgil
 short_name: cgchinmay
 twitter: cgchinmay92
 github: cgchinmay
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Chinmay Gadgil'
 primary_title: Chinmay Gadgil
 personas:

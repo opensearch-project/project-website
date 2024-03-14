@@ -3,7 +3,6 @@ name: Faradawn Yang
 short_name: Fara
 linkedin: faradawn
 github: faradawn
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Faradawn Yang'
 primary_title: Faradawn Yang
 personas:

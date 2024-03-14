@@ -2,7 +2,6 @@
 name: Hitensh Kharva
 short_name: Hit
 github: hitenshkharva
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Hitensh Kharva'
 primary_title: Hitensh Kharva
 personas:

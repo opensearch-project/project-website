@@ -3,7 +3,6 @@ name: Shahriar Shatil
 short_name: shatil
 twitter: ShatilKhan2077
 github: ShatilKhan
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Shahriar Shatil'
 primary_title: Shahriar Shatil
 personas:

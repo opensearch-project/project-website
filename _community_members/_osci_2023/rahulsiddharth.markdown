@@ -1,7 +1,6 @@
 ---
 name: Rahul Siddharth
 github: 908rahul
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Rahul Siddharth'
 primary_title: Rahul Siddharth
 personas:

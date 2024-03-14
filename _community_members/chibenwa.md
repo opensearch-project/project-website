@@ -1,7 +1,6 @@
 ---
 name: Benoit TELLIER
 short_name: chibenwa
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Benoit TELLIER'
 primary_title: Benoit TELLIER
 breadcrumbs:

@@ -3,7 +3,6 @@ name: Ryan Walters
 short_name: Xevion
 twitter: xevioni
 github: Xevion
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Ryan Walters'
 primary_title: Ryan Walters
 personas:

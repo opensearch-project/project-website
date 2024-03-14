@@ -2,7 +2,6 @@
 name: Will Ma
 short_name: Will
 github: WillMa-318
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Will Ma'
 primary_title: Will Ma
 personas:

@@ -2,7 +2,6 @@
 name: Cho Tsai
 short_name: ctsai
 github: ctsai21
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Cho Tsai'
 primary_title: Cho Tsai
 personas:

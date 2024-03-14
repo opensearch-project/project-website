@@ -2,7 +2,6 @@
 name: Aigerim
 short_name: Rin
 github: rin216a
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Aigerim'
 primary_title: Aigerim
 personas:

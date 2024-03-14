@@ -2,7 +2,6 @@
 name: tanupa 
 short_name: tanupa
 github: tanupa 
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: tanupa'
 primary_title: tanupa
 personas:

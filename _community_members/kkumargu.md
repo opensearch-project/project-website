@@ -1,7 +1,6 @@
 ---
 short_name: kkumargu
 name: Karthik Kumarguru
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Memebr: Karthik Kumarguru'
 primary_title: Karthik Kumarguru
 breadcrumbs:

@@ -1,7 +1,6 @@
 ---
 short_name: khushbr
 name: Khushboo Rajput
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Khushboo Rajput'
 primary_title: Khushboo Rajput
 breadcrumbs:

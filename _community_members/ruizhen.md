@@ -1,7 +1,6 @@
 ---
 short_name: ruizhen
 name: Ruizhen Guo
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Ruizhen Guo'
 primary_title: Ruizhen Guo
 breadcrumbs:

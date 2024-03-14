@@ -3,7 +3,6 @@ name: Samuel Orji
 short_name: Samuel
 twitter:
 github: samuelorji
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Samuel Orji'
 primary_title: Samuel Orji
 personas:

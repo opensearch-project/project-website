@@ -3,7 +3,6 @@ name: Kyochul Jang
 short_name: Kyo
 twitter: TigerKyo
 github: OfficerChul
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kyochul Jang'
 primary_title: Kyochul Jang
 personas:

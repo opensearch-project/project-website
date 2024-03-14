@@ -2,7 +2,6 @@
 name: Zach Jones
 short_name: zachj
 github: Captain-Zach
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Zach Jones'
 primary_title: Zach Jones
 personas:

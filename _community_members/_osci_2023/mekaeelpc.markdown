@@ -2,7 +2,6 @@
 name: Mekaeel
 short_name: mekaeelahmad
 github: mekaeelahmad
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Mekaeel'
 primary_title: Mekaeel
 personas:

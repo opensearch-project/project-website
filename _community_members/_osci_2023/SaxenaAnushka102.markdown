@@ -3,7 +3,6 @@ name: Anushka Saxena
 short_name: Anushka
 twitter: Anushka__Saxena
 github: SaxenaAnushka102
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Anushka Saxena'
 primary_title: Anushka Saxena
 personas:

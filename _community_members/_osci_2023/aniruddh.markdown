@@ -2,7 +2,6 @@
 name: Aniruddh Srivastava
 short_name: Ani
 github: Noir01
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Aniruddh Srivastava'
 primary_title: Aniruddh Srivastava
 personas:

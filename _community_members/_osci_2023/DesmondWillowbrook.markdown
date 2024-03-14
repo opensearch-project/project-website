@@ -1,7 +1,6 @@
 ---
 name: Kartavya Vashishtha
 github: DesmondWillowbrook
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kartavya Vashishtha'
 primary_title: Kartavya Vashishtha
 personas:

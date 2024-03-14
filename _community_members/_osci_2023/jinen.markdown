@@ -3,7 +3,6 @@ name: Jinen Setpal
 short_name: Jinen
 twitter: 48bitmachine
 github: jinensetpal
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Jinen Setpal'
 primary_title: Jinen Setpal
 personas:

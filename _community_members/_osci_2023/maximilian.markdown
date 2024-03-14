@@ -3,7 +3,6 @@ name: Maximilian Meiler
 short_name: Max
 twitter: 
 github: MaximilianMeiler
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Maximilian Meiler'
 primary_title: Maximilian Meiler
 personas:

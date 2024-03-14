@@ -3,7 +3,6 @@ name: Alex Deja
 short_name: deja
 linkedin: alex-deja
 github: dejaa1
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Alex Deja'
 primary_title: Alex Deja
 personas:

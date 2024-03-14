@@ -2,7 +2,6 @@
 name: Snekha Senthilkumar
 short_name: snekha
 github: ssnekha
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Snekha Senthilkumar'
 primary_title: Snekha Senthilkumar
 personas:

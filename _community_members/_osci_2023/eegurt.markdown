@@ -2,7 +2,6 @@
 name: Alikhan
 short_name: Alikhan
 github: eegurt
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Alikhan'
 primary_title: Alikhan
 personas:

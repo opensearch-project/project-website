@@ -1,7 +1,6 @@
 ---
 short_name: bpavani
 name: Pavani Baddepudi
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Pavani Baddepudi'
 primary_title: Pavani Baddepudi
 breadcrumbs:

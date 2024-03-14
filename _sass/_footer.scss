@@ -76,7 +76,7 @@ $footer-1-column-max:700px;
                         }
                         @media screen and (max-width: $footer-1-column-max) {
                             flex-basis: 100%;
-                            padding-left: 10px;
+                            padding-left: 30px;
                             padding-bottom: 80px;
                         }
                         > h4 {
@@ -163,7 +163,8 @@ $footer-1-column-max:700px;
                         padding-left: 40px;
                     }
                     @media screen and (max-width: $footer-1-column-max) {
-                        padding-left: 20px;
+                        padding-left: 30px;
+                        padding-right: 30px;
                     }
                     > .footer--legal-rows-wrapper--row {
                         flex-basis: 60px;
@@ -194,6 +195,7 @@ $footer-1-column-max:700px;
                                 justify-content: center;
                                 > svg {
                                     height: auto;
+                                    box-sizing: border-box;
                                 }
                             }
                         }

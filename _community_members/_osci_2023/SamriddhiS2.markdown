@@ -2,7 +2,6 @@
 name: Samriddhi Sivakumar
 short_name: Samriddhi
 github: SamriddhiS2
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Samriddhi Sivakumar'
 primary_title: Samriddhi Sivakumar
 personas:

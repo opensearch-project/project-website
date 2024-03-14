@@ -2,7 +2,6 @@
 name: Junhyung Choi
 short_name: Jacob
 github: JacobCho-i
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Junhyung Choi'
 primary_title: Junhyung Choi
 personas:

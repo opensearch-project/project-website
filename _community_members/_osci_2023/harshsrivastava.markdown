@@ -3,7 +3,6 @@ name: Harsh Srivastava
 short_name: Harsh
 twitter: dizzyspeeed
 github: speedhs
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Harsh Srivastava'
 primary_title: Harsh Srivastava
 personas:

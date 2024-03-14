@@ -2,7 +2,6 @@
 name: Zhijing Wu
 short_name: Jimmy
 github: wuzhijing0127
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Zhijing Wu'
 primary_title: Zhijing Wu
 personas:

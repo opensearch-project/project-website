@@ -2,7 +2,6 @@
 name: Pranav Jadhav
 short_name: pranavjad
 github: pranavjad
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Pranav Jadhav'
 primary_title: Pranav Jadhav
 personas:

@@ -2,7 +2,6 @@
 name: Kenny Zhang
 short_name: Kenny
 github: kennyzhang0819
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kenny Zhang'
 primary_title: Kenny Zhang
 personas:

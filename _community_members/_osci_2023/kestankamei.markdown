@@ -2,7 +2,6 @@
 name: Kestan Kamei
 short name: Kestan
 github: keskami
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kestan Kamei'
 primary_title: Kestan Kamei
 personas:

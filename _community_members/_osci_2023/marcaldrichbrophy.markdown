@@ -2,7 +2,6 @@
 name: Marc Brophy
 short_name: marcaldrichbrophy
 github: marcaldrichbrophy
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Marc Brophy'
 primary_title: Marc Brophy
 personas:

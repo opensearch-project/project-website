@@ -1,7 +1,6 @@
 ---
 short_name: x_partha-kanuparthy
 name: Partha Kanuparthy
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Sid Narayan'
 primary_title: Sid Narayan
 breadcrumbs:

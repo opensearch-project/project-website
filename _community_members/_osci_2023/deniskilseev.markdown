@@ -2,7 +2,6 @@
 name: Denis Kilseev
 short_name: deniskilseev
 github: deniskilseev
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Denis Kilseev'
 primary_title: Denis Kilseev
 personas:

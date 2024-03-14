@@ -2,7 +2,6 @@
 name: John Hurst
 short_name: John
 github: hurstjohn
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: John Hurst'
 primary_title: John Hurst
 personas:

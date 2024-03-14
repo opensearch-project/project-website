@@ -3,7 +3,6 @@ name: Akshath Raghav Ravikiran
 short_name: Akshath
 github: AkshathRaghav
 linkedin: akshathrr
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Akshath Raghav Ravikiran'
 primary_title: Akshath Raghav Ravikiran
 personas:

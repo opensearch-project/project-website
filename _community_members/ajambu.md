@@ -1,7 +1,6 @@
 ---
 short_name: 'ajambu'
 name: 'AJ Jambu'
-photo: '/assets/media/community/members/no-image-available.svg'
 job_title_and_company: 'Developer Evangelist at MinIO'
 primary_title: 'AJ Jambu'
 title: 'OpenSearch Community Member: AJ Jambu'

@@ -2,7 +2,6 @@
 name: Oluwadamiloju Yusuf
 short_name: Dami
 github: Damiloju
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Oluwadamiloju Yusuf'
 primary_title: Oluwadamiloju Yusuf
 personas:

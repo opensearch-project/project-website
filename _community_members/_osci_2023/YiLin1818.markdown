@@ -2,7 +2,6 @@
 name: Yi Lin Yang
 short_name: Yi Lin 
 github: YiLin1818
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Yi Lin Yang'
 primary_title: Yi Lin Yang
 personas:

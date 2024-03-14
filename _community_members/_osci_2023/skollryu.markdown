@@ -3,7 +3,6 @@ name: Ryu Wong
 short_name: Ryu
 twitter: RyuWong01
 github: SkollRyu
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Ryu Wong'
 primary_title: Ryu Wong
 personas:

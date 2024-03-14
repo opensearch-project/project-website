@@ -2,7 +2,6 @@
 short_name: Robert
 name: Robert Kilkenny
 github: RobertKilkenny
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Robert Kilkenny'
 primary_title: Robert Kilkenny
 personas:

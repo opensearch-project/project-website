@@ -2,7 +2,6 @@
 name: Arnav Arora
 short_name: arnav_arora
 github: arnavarora1710
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Arnav Arora'
 primary_title: Arnav Arora
 personas:

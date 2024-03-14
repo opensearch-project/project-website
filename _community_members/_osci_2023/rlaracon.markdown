@@ -2,7 +2,6 @@
 short_name: rlaracon
 name: Raul Lara-Concha
 github: rlaracon
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Raul Lara-Concha'
 primary_title: Raul Lara-Concha
 personas:

@@ -1,6 +1,6 @@
 ---
-# The conference_exhibitors layout is what is required.
-layout: conference_exhibitors
+# The opensearchcon_exhibitors layout is what is required.
+layout: opensearchcon_exhibitors
 
 # Document title in the form of OpenSearchCon + the year of the conference: + the location + Exhibitors
 # For example: "OpenSearchCon 2022: North America Exhibitors".

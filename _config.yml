@@ -132,8 +132,6 @@ collections:
     output: true
   lines:
     output: true
-  conference_sessions:
-    output: true
   redesign_use_cases:
     output: false
   redesign_resources:

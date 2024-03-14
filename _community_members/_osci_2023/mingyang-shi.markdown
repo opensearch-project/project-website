@@ -3,7 +3,6 @@ name: Mingyang Shi
 short_name: Will
 linkedin: mingyangshi
 github: beaioun
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Mingyang Shi'
 primary_title: Mingyang Shi
 personas:

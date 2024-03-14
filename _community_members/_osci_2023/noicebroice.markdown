@@ -2,7 +2,6 @@
 name: Brice Sanford
 short_name: noicebroice
 github: noicebroice
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Brice Sanford'
 primary_title: Brice Sanford
 personas:

@@ -1,13 +1,11 @@
-<a href="{{ page.link_url }}">
-    <div class="landing-page-hero">
-        <div class="landing-page-hero--images">
-            <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
-                <img src="{{ page.images.mobile.path }}" alt="{{ page.images.mobile.alt }}">
-            </div>
-            <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
-                <img src="{{ page.images.desktop.path }}" alt="{{ page.images.desktop.alt }}">
-            </div>
+<div class="landing-page-hero">
+    <div class="landing-page-hero--images">
+        <div class="landing-page-hero--images--image landing-page-hero--images--image__mobile">
+            <img src="{{ page.images.mobile.path }}" alt="{{ page.images.mobile.alt }}">
         </div>
-    {{ content }}
+        <div class="landing-page-hero--images--image landing-page-hero--images--image__desktop">
+            <img src="{{ page.images.desktop.path }}" alt="{{ page.images.desktop.alt }}">
+        </div>
     </div>
-</a>
+{{ content }}
+</div>

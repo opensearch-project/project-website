@@ -1,6 +1,6 @@
 ---
-# The conference_sessions template is required.
-layout: conference_sessions
+# The opensearchcon_sessions template is required.
+layout: opensearchcon_sessions
 
 # Document title in the form of OpenSearchCon + the year of the conference: + the location + Session Lineup
 # For example: "OpenSearchCon 2022: North America Session Lineup.

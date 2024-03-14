@@ -3,7 +3,6 @@ name: Bhavani Ravi
 short_name: Bhavani
 twitter: BhavaniRavi_
 github: bhavaniravi
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Bhavani Ravi'
 primary_title: Bhavani Ravi
 personas:

@@ -2,7 +2,6 @@
 short_name: kumarj
 name: Kumar Jana
 github: kumarjana
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Kumar Jana'
 primary_title: Kumar Jana
 personas:

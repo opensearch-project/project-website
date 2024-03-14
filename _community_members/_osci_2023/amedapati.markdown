@@ -3,7 +3,6 @@ name: Arya Medapati
 short_name: Arya
 twitter: 'arya_medapati'
 github: AryaMedapati
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Arya Medapati'
 primary_title: Arya Medapati
 personas:

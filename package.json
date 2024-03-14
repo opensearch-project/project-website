@@ -2,9 +2,14 @@
   "name": "opensearchwebsite",
   "private": true,
   "dependencies": {
-    "bower": "^1.4.1"
+    "bower": "^1.4.1",
+    "fs-extra": "^11.2.0",
+    "gray-matter": "^4.0.3",
+    "yaml": "^2.4.0"
   },
   "scripts": {
-    "bower": "bower"
+    "bower": "bower",
+    "opensearchcon:new": "node opensearchcon-new.js",
+    "opensearchcon:archive": "node opensearchcon-archive.js"
   }
 }

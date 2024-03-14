@@ -2,7 +2,6 @@
 name: Alexander Konnaris
 short_name: Alex
 github: alexkonnaris
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Alexander Konnaris'
 primary_title: Alexander Konnaris
 personas:

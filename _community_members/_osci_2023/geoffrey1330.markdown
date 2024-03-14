@@ -3,7 +3,6 @@ name: Israel Geoffrey
 short_name: Israel
 twitter: IsraelGeoffrey1
 github: geoffrey1330
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Israel Geoffrey'
 primary_title: Israel Geoffrey
 personas:

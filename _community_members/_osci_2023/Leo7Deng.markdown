@@ -2,7 +2,6 @@
 name: Leo Deng
 short_name: Leo
 github: Leo7Deng
-photo: '/assets/media/community/members/no-image-available.svg'
 title: 'OpenSearch Community Member: Leo Deng'
 primary_title: Leo Deng
 personas:
