@@ -14,8 +14,10 @@ include_mobile_tables: true
 
 ##### Updated February 2, 2024
 
-* [Release Schedule](#release-schedule)
-* [Maintenance Policy](#maintenance-policy)
+- [Release Schedule](#release-schedule)
+- [Maintenance Policy](#maintenance-policy)
+- [Release History](#release-history)
+- [Change Log](#change-log)
 
 ## Release Schedule ##
 
@@ -28,7 +30,7 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 |:--------------|:------------------------------------------|:---------------|:-----------------------------------------------------|:---------------|
 | 2.12.0        | February 6th, 2024                          | February 20th, 2024  | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [4115](https://github.com/opensearch-project/opensearch-build/issues/4115) |
 | 1.3.15         | Feb 27 2024                                | March 05 2024| [Jeff Lu](https://github.com/jordarlu)               |[4294](https://github.com/opensearch-project/opensearch-build/issues/4294) |
-| 2.13.0          | March 19th, 2024                          | April 2nd, 2024 |                                                      | |
+| 2.13.0          | March 19th, 2024                          | April 2nd, 2024 | [Sayali Gaikawad](https://github.com/gaiksaya)  | [4433](https://github.com/opensearch-project/opensearch-build/issues/4433) |
 | 1.3.16          | April 16th, 2024                          | April 23rd, 2024 |                                                      | |
 | 2.14.0          | April 30th, 2024                          | May 14th, 2024 |                                                      | |
 | 1.3.17          | May 28th, 2024                            | June 06th, 2024 |                                                      | |

@@ -465,7 +465,7 @@ The `neural_sparse` query supports two parameters:
 
 ## Selecting a model
 
-OpenSearch provides several pretrained encoder models that you can use out of the box without fine-tuning. For a list of sparse encoding models provided by OpenSearch, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models).
+OpenSearch provides several pretrained encoder models that you can use out of the box without fine-tuning. For a list of sparse encoding models provided by OpenSearch, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models). We have also released the [models](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-v1) in Hugging Face model hub. 
 
 Use the following recommendations to select a sparse encoding model:
 
