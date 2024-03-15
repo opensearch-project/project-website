@@ -13,7 +13,7 @@ meta_description:
 
 ## User experience challenges
 
-A large proportion of software improvements focus on features and functionality. It is common practice for product managers and developers to incrementally add engineering capabilities. When the implementation of a seamless experience is not taken into account, the result can be a fragmented user experience. While these changes may not affect the perceived experience of a high-code user, low-code users report excess frustration and a lack of satisfaction with an experience when changes to software do not aid in accomplishing set outcomes that a software experience intends to deliver.
+Software improvements often prioritize adding new features and functionality. Product managers and developers often adopt an agile approach, adding engineering capabilities in iterative steps. Neglecting seamless user experience can lead to a fragmented journey, especially for low-code users. While high-code users might adapt, low-code users often report frustration and dissatisfaction when software updates don't actually help them achieve their goals.
 
 When navigating software, users utilize two types of memory: episodic and semantic. Episodic memory is grounded in the sequence of time, while semantic memory is conceptual. We, as humans, are capable of experiencing our online environment in both ways and often switch between the two types of memory as we navigate software. When functionality is enhanced incrementally, however, navigation that fails to account for the logical buildup of user tasks in a software workflow can quickly degrade the experience. Such product experiences end up ill designed and requiring ongoing customer support to help coach, train, and assist the user.
 
