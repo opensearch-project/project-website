@@ -32,7 +32,6 @@ To measure OpenSearch CXOs, we first defined [distinct users](https://opensearch
 ![](/assets/media/blog-images/2024-03-15-customer-experience-outcomes/Security_Analytics_6.2.png){: .img-fluid width="30%"}
 
 
-
 ## Findings and areas of improvement 
 
 Of the rated experiences, the *Security Analytics Producer* experience was best rated overall (82.58%). The *Dashboards* *Consumer* (68.98%) and *Infra Admin* experiences (69.13%) indicated opportunities for improvement. The results of this survey indicated that *Infra User* experiences such as *Deployment* (63.95%) and *Migration* (69.53%) could be improved and that *Dashboards* *Consumer* experiences such as *Root Cause Analysis* (65.28%) and *Ad Hoc Analysis* (67.83%) could be improved.
