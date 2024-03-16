@@ -2,7 +2,7 @@
 layout: post
 title:  "Discontinuing the custom Logstash distribution"
 authors:
-- dlv
+- dvenable
 date: 2023-05-16 10:00:00 -0500
 meta_keywords: OpenSearch distribution of Logstash, Apache-licensed Logstash distribution, Logstash plugins for OpenSearch, Logstash distribution
 meta_description: Discover why OpenSearch will discontinue custom Logstash distributions by October 2023 while continuing to provide Logstash plugins for OpenSearch.

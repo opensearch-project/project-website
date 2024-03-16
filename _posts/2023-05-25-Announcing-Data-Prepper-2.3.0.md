@@ -3,7 +3,7 @@ layout: post
 title:  "Announcing Data Prepper 2.3.0"
 authors:
 - kkondaka
-- dlv
+- dvenable
 date: 2023-06-06 10:00:00 -0700
 categories:
   - releases

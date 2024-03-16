@@ -2,7 +2,7 @@ items:
   - label: OpenSearchCon
     children:
       - label: 2024 Europe
-        url: /events/opensearchcon/2024/Europe/index.html
+        url: /events/opensearchcon/2024/europe/index.html
       - label: Archive
         url: /events/opensearchcon/index.html
         children:

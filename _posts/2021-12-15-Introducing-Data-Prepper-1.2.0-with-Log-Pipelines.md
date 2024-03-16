@@ -2,7 +2,7 @@
 layout: post
 title:  "Introducing Data Prepper 1.2.0 with Log Pipelines"
 authors:
-- dlv
+- dvenable
 date: 2021-12-15 14:00:00 -0500
 categories:
   - technical-post
