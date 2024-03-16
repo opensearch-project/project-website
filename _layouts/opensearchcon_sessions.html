@@ -61,13 +61,15 @@ layout: redesign-fullwidth
             {% endfor %}
         </div>
     </div>
-    {% if page.content %}{{ page.content }}{% endif %}
     {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
     <div class="conference-speakers--session-speakers--more">
         <div class="conference-speakers--session-speakers--more--link-button">
             <a href="{{ conference_link_base_url }}/speakers/index.html">View All Speakers</a>
         </div>
     </div>
+
+    {% if page.content %}{{ page.content | markdownify }}{% endif %}
+
 </div>
 {% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
 {% include interactive-states.html element_classname="conference-speakers--session-speakers--more--link-button" container_selector=".conference-speakers--session-speakers--more" %}
