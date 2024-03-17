@@ -28,6 +28,7 @@ content_with_side_button_stack:
           - upcoming-events-dark
           - community-dark
 ---
+
 ![Stay informed about OpenSearchCon 2024](/assets/media/blog-images/2024-02-29-announcing-opensearchcon-europe-2024/OSC_Berlin_BlogBanner-01.png){:.img-fluid}
 
 ## Join us in Berlin for OpenSearchCon Europe 2024! 

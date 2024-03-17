@@ -386,15 +386,23 @@ $max-container: 1440px;
                                     }
                                 }
                             }
+                            &.nested-nav--top-menu-item__without-grandchildren ~ .nested-nav--top-menu-item__has-grandchildren {
+                                @media screen and (min-width: $header-banner-min-width) {
+                                    margin-bottom: 15px;
+                                    & + .nested-nav--top-menu-item__has-grandchildren {
+                                        margin-top: -15px;
+                                        margin-bottom: 3px;
+                                    }
+                                }
+                            }
+                            &.nested-nav--top-menu-item__has-grandchildren + .nested-nav--top-menu-item__has-grandchildren {
+                                &:last-of-type {
+                                    padding-bottom: 15px;
+                                }
+                            }
                             &:last-of-type {
                                 > a {
                                     padding-bottom: 18px;
-                                }
-                                &.nested-nav--top-menu-item__has-grandchildren {
-                                    @media screen and (min-width: $header-banner-min-width) {
-                                        margin-bottom: 15px;
-                                        margin-top: 15px;
-                                    }
                                 }
                             }
                             > .nested-nav--top-menu-item-wrapper__has-grandchildren--wrapper {
@@ -454,7 +462,8 @@ $max-container: 1440px;
                                             text-decoration: none;
                                         }
                                         @media screen and (min-width: $header-banner-min-width) {
-                                            display: inline;
+                                            display: block;
+                                            width: max-content;
                                             @include header-level6($primary-open-sky-s3);
                                             text-decoration: none;
                                             padding: 18px 0 0 0;

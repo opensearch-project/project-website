@@ -97,11 +97,15 @@ layout: redesign-fullwidth
             {% endunless %}
         {% endfor %}
     </div>
+
     <div class="conference-speakers--session-speakers--more">
         <div class="conference-speakers--session-speakers--more--link-button">
             <a href="{{ conference_link_base_url }}/sessions/index.html">View All Sessions</a>
         </div>
     </div>
+
+    {% if page.content %}{{ page.content | markdownify }}{% endif %}
+
 </div>
 {% include card-clickability.html 
     card_classname="speaker-session--speaker-cards--card" 
