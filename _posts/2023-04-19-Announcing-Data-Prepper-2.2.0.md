@@ -2,7 +2,7 @@
 layout: post
 title:  "Announcing Data Prepper 2.2.0"
 authors:
-- dlv
+- dvenable
 date: 2023-04-19 14:30:00 -0500
 categories:
   - releases

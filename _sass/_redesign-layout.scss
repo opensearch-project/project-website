@@ -17,10 +17,10 @@
         padding: 30px 20px;
     }
     @media screen and (min-width: 431px) and (max-width: 739px) {
-        padding: 30px 10px;
+        padding: 30px;
     }
     @media screen and (max-width: 430px) {
-        padding: 30px 5px;
+        padding: 30px;
     }
     box-sizing: border-box;
     width: 100%;
@@ -40,12 +40,12 @@
         padding-right: 20px;
     }
     @media screen and (min-width: 431px) and (max-width: 739px) {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
     @media screen and (max-width: 430px) {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
     box-sizing: border-box;
     width: 100%;
@@ -61,10 +61,10 @@
         padding: 1em 20px 0;
     }
     @media screen and (min-width: 431px) and (max-width: 739px) {
-        padding: 1em 10px 0;
+        padding: 1em 30px 0;
     }
     @media screen and (max-width: 430px) {
-        padding: 1em 5px 0;
+        padding: 1em 30px 0;
     }
     box-sizing: border-box;
     width: 100%;
@@ -81,10 +81,10 @@
         padding: 30px 15px;
     }
     @media screen and (min-width: 431px) and (max-width: 739px) {
-        padding: 30px 10px;
+        padding: 30px;
     }
     @media screen and (max-width: 430px) {
-        padding: 30px 5px;
+        padding: 30px;
     }
     box-sizing: border-box;
     width: 100%;
@@ -104,12 +104,12 @@
         width: calc(100% - 40px);
     }
     @media screen and (min-width: 431px) and (max-width: 739px) {
-        margin: 30px 10px;
-        width: calc(100% - 20px);
+        margin: 30px;
+        width: calc(100% - 60px);
     }
     @media screen and (max-width: 430px) {
-        margin: 30px 5px;
-        width: calc(100% - 10px);
+        margin: 30px;
+        width: calc(100% - 60px);
     }
 }
 
@@ -130,13 +130,13 @@
         width: calc(100% - 40px);
     }
     @media screen and (min-width: 431px) and (max-width: 739px) {
-        margin-left: 10px;
-        margin-right: 10px;
-        width: calc(100% - 20px);
+        margin-left: 30px;
+        margin-right: 30px;
+        width: calc(100% - 60px);
     }
     @media screen and (max-width: 430px) {
-        margin-left: 5px;
-        margin-right: 5px;
-        width: calc(100% - 10px);
+        margin-left: 30px;
+        margin-right: 30px;
+        width: calc(100% - 60px);
     }
 }

@@ -7,6 +7,9 @@
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
+        @media screen and (max-width: 460px) {
+            flex-wrap: nowrap;
+        }
         > .full-width-layout--header--icon {
             flex-basis: 40px;
             flex-grow: 0;
@@ -35,7 +38,7 @@
                     text-decoration-thickness: 2px;
                 }
                 text-decoration: none;
-                @media screen and (max-width: 411px) {
+                @media screen and (max-width: 429px) {
                     letter-spacing: 2px;
                 }
             }
@@ -45,6 +48,17 @@
                     text-decoration-color: $primary-pacific-blue;
                     text-decoration-thickness: 2px;
                 }
+            }
+            @media screen and (max-width: 834px) {
+                display: none;
+            }
+        }
+        > .full-width-layout--header--icon + .full-width-layout--header--breadcrumbs--item {
+            @media screen and (max-width: 834px) {
+                &::before {
+                    content: "\003C"
+                }
+                display: block;
             }
         }
     }
@@ -111,6 +125,14 @@
                 }
             }
         }
+        &.join-slack {
+            > ul > li {
+                @include body-medium;
+            }
+            > .content-body--cta-button.content-body--cta-button__centered {
+                padding-bottom: 0;
+            }
+        }
         > p {
             @include page-paragraph-padding;
             margin: 0;
@@ -161,6 +183,100 @@
                 @extend .data-table__half-width;
             }
         }
+        .desktop-change-log-table,
+        .desktop-release-history-table,
+        .desktop-maintenance-policy-table,
+        .desktop-release-schedule-table {
+            @media screen and (max-width: 834px) {
+                display: none;
+            }
+        }
+        .change-log-mobile-table,
+        .release-history-mobile-table,
+        .maintenance-policy-mobile-table,
+        .release-schedule-mobile-table {
+            @media screen and (min-width: 835px) {
+                display: none;
+            }
+            > thead {
+                > tr {
+                    > th[colspan] {
+                        font-family: 'Open Sans Condensed';
+                        font-size: 21px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 28px;
+                        color: $primary-open-sky-s2;
+                        padding: 10px 12px;
+                        text-align: left;
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                        border-left: none;
+                    }
+                }
+            }
+            > tbody {
+                > tr {
+                    > td.mobile-table-row--heading-cell {
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 27px;
+                        color: $primary-open-sky-s3;
+                        padding: 10px 12px;
+                        border-left: none;
+                    }
+                    > td.mobile-table-row--value-cell {
+                        color: $secondary-sanfrancisco-fog-s5;
+                        font-family: 'Open Sans';
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 27px;
+                        padding: 10px 12px;
+                        border-left: none;
+                        a {
+                            overflow-wrap: anywhere;
+                        }
+                    }
+                }
+                > tr.mobile-table-row__end-of-record {
+                    > td {
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                    }
+                }
+            }
+        }
+        .maintenance-policy-mobile-table {
+            > tbody {
+                > tr:nth-of-type(1),
+                > tr:nth-of-type(7n) {
+                    > td {
+                        font-family: 'Open Sans Condensed';
+                        font-size: 21px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 28px;
+                        color: $primary-open-sky-s2;
+                        padding: 10px 12px;
+                        text-align: left;
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                        border-left: none;
+                        background: $primary-pacific-sky-t3;
+                    }
+                }
+            }
+        }
+        .release-schedule-mobile-table {
+            > tbody {
+                > tr {
+                    > td {
+                        width: 50%;
+                        box-sizing: border-box;
+                        overflow-wrap: break-word;
+                    }
+                }
+            }
+        }
         > .principles-for-development {
             @include page-element-padding;
             > div {
@@ -188,6 +304,11 @@
                 justify-content: center;
                 align-items: center;
                 padding: 0 0 42px;
+            }
+            > .redesign-button--wrapper {
+                @media screen and (max-width: 410px) {
+                    width: calc(100% - 60px);
+                }
             }
         }
     }

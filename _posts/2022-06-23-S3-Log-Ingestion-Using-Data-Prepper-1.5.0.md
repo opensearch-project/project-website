@@ -2,7 +2,7 @@
 layout: post
 title:  "S3 log ingestion using Data Prepper 1.5.0"
 authors:
-- dlv
+- dvenable
 date: 2022-06-23 12:00:00 -0500
 categories:
   - technical-post

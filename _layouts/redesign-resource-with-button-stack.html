@@ -28,7 +28,7 @@
                         <div class="draft-3-landing-page--button-stack__with-label--label">
                             <h2>Resources</h2>
                         </div>
-                        <div class="draft-3-landing-page--button-stack">
+                        <div id="{{ page.button_stack_container_id }}" class="draft-3-landing-page--button-stack">
                             {% for button in page.button_stack %}
                                 <div class="draft-3-landing-page--button-stack--button">
                                     {% include redesign_buttons.html name=button %}
@@ -41,5 +41,12 @@
         </div>
     </div>
 </div>
-{% include card-clickability.html card_container_selector=".platform-page--resources .tall-card__no-image--grid" card_classname="tall-card__no-image--grid--card" %}
-{% include interactive-states.html element_classname="redesign-button--wrapper" container_selector=".draft-3-landing-page--button-stack" %}
+{% include card-clickability.html 
+    card_container_selector=".platform-page--resources .tall-card__no-image--grid" 
+    card_classname="tall-card__no-image--grid--card"
+%}
+{% assign button_stack_interactive_container_selector = "#" | append: page.button_stack_container_id %}
+{% include interactive-states.html
+    element_classname="redesign-button--wrapper__text-only__dark"
+    container_selector=button_stack_interactive_container_selector
+%}

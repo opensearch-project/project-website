@@ -1,0 +1,76 @@
+---
+layout: redesign-fullwidth
+---
+<div class="conference-speaker-session-page">
+    <div class="conference-speakers--session-speakers">
+        <div class="conference-feature--categorization">
+            <div class="conference-feature--categorization--header-filters">
+                <div class="conference-feature--categorization--header">
+                    <h2>Session Speakers</h2>
+                </div>
+                {%- unless page.hide_categorization -%}
+                    <div class="conference-feature--categorization--filters">
+                        {% include content-filter-dropdown.html
+                            component_classname="conference-speakers--session-speakers--filters--category-selector"
+                            filterable_content_block_element_classname="speaker-session--speaker-cards"
+                            filter_categories=site.data.opensearchcon.session_track_filter_categories
+                        %}
+                    </div>
+                {%- endunless -%}
+            </div>
+            {%- unless page.hide_categorization -%}
+                <div class="conference-feature--categoriziation--list">
+                    <div>
+                        {% include platform-category-icons.html name="Search" include_label=true %}
+                    </div>
+                    <div>
+                        {% include platform-category-icons.html name="Analytics, Observability, and Security" include_label=true %}
+                    </div>
+                    <div>
+                        {% include platform-category-icons.html name="Community" include_label=true %}
+                    </div>
+                    <div>
+                        {% include platform-category-icons.html name="Operating OpenSearch" include_label=true %}
+                    </div>            
+                </div>
+            {%- endunless -%}
+        </div>
+        <div class="speaker-session--speaker-cards">
+            {% assign sessions = site.opensearchcon_sessions | where: "conference_id", page.conference_id %}
+            {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
+            {% assign conference_link_base_url = '/events/opensearchcon/' | append: conference_url_path_segment %}
+            {% for session in sessions %}
+                {%- assign session_track_name = session.session_track -%}
+                {%- if session_track_name -%}
+                    {%- assign session_track_value = site.data.opensearchcon.session_track_filter_categories | find: "label", session_track_name -%}
+                    {%- assign session_track_classname = "speaker-session--speaker-cards--card__categorized__" | append: session_track_value.value -%}
+                {%- else -%}
+                    {%- assign session_track_classname = "" -%}
+                {%- endif -%}
+                <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized session-card {{ session_track_classname }}">
+                    <div class="speaker-session--speaker-cards--card--content">
+                        <h3><a href="{{ session.permalink }}">{{ session.speaker_talk_title }}</a></h3>
+                        {% assign session_date_time = session.session_time | split: " - " %}
+                        {% assign session_date = session_date_time[0] | date: "%A, %B %e" %}
+                        <div class="speaker-session--speaker-cards--card--content--job-title">{{ session_date }} {{ session_date_time[1] }} | {{ session.session_room }}</div>
+                    </div>
+                    <div class="speaker-session--speaker-cards--card__categorized--categories">
+                        {% include platform-category-icons.html name=session.session_track include_label=false %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
+    <div class="conference-speakers--session-speakers--more">
+        <div class="conference-speakers--session-speakers--more--link-button">
+            <a href="{{ conference_link_base_url }}/speakers/index.html">View All Speakers</a>
+        </div>
+    </div>
+
+    {% if page.content %}{{ page.content | markdownify }}{% endif %}
+
+</div>
+{% include card-clickability.html card_classname="speaker-session--speaker-cards--card" card_container_selector=".speaker-session--speaker-cards" %}
+{% include interactive-states.html element_classname="conference-speakers--session-speakers--more--link-button" container_selector=".conference-speakers--session-speakers--more" %}
+    

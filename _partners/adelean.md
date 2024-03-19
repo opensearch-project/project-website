@@ -28,11 +28,7 @@ social_links:
 products:
   - url: 'https://adelean.com/en/services/'
     name: 'Integration, development, consultancy'
-    description: 'Implementation of OpenSearch: installation, configuration, and customization to meet your specific needs, 
-Audit, security setup. Assistance with Open Distro to OpenSearch migration, comparative studies.
-Performance optimization: troubleshooting, performance improvement and query optimization.
-Training and support: we can train your teams and also provide ongoing support to answer questions, resolve issues, and help keep the system up to date.
-Design and development of solutions.'
+    description: "Implementation of OpenSearch: installation, configuration, and customization to meet your specific needs, audit, security setup. Assistance with Open Distro to OpenSearch migration, comparative studies. Performance optimization: troubleshooting, performance improvement and query optimization. Training and support: we can train your teams and also provide ongoing support to answer questions, resolve issues, and help keep the system up to date. Design and development of solutions."
   - url: 'https://www.adelean.com/formations/'
     name: 'Training'
     description: 'We propose several training courses for developers, technical leaders, architects, product owners.'

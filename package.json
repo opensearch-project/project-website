@@ -5,12 +5,15 @@
     "bower": "^1.4.1",
     "dotenv": "^16.3.2",
     "gray-matter": "^4.0.3",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "fs-extra": "^11.2.0",
+    "yaml": "^2.4.0"
   },
   "scripts": {
     "bower": "bower",
     "meetup:fetch": "node meetup-fetch.js",
-    "calendars:create": "node create-calendar-collection.js"
+    "calendars:create": "node create-calendar-collection.js",
+    "opensearchcon:new": "node opensearchcon-new.js",
+    "opensearchcon:archive": "node opensearchcon-archive.js"
   }
 }
-

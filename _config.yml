@@ -37,13 +37,6 @@ defaults:
     values:
       layout: "partner"
       permalink: partners/:name.html
-- 
-    scope:
-      path: ""
-      type: "authors"
-    values:
-      layout: "author"
-      permalink: /:collection/:name/
 -
     scope:
       type: javadocs
@@ -93,45 +86,30 @@ defaults:
       permalink: :collection/:slug.html
 -
     scope:
-      type: speakers
-    values:
-      layout: speaker
-      breadcrumbs:
-        icon: community
-        items:
-          - title: OpenSearchCon 2023
-          - title: Speaker Bios
-            url: '/events/opensearchcon/speakers/'
--
-    scope:
-      type: speaker_sessions
-    values:
-      layout: speaker_session
-      breadcrumbs:
-        icon: community
-        items:
-          - title: OpenSearchCon 2023
-          - title: Session Summaries
-            url: '/events/opensearchcon/sessions/'
--
-    scope:
       type: platforms
     values:
       permalink: platform/:categories/:name.html
 -
     scope:
-      type: exhibitors
+      type: community_members
     values:
-      layout: exhibitor
+      layout: community_member
 -
     scope:
-      type: conference_workshops
+      type: opensearchcon_sessions
     values:
-      layout: speaker_session
-
+      layout: opensearchcon_individual_session
+-
+    scope:
+      type: opensearchcon_exhibitors
+    values:
+      layout: opensearchcon_individual_exhibitor
+-
+    scope:
+      type: opensearchcon_workshops
+    values:
+      layout: opensearchcon_individual_session
 collections:
-  authors:
-    output: true
   partners:
     output: true
   community_projects:
@@ -154,19 +132,11 @@ collections:
     output: true
   lines:
     output: true
-  speakers:
-    output: true
-  speaker_sessions:
-    output: true
   redesign_use_cases:
     output: false
   redesign_resources:
     output: false
   platforms:
-    output: true
-  exhibitors:
-    output: true
-  conference_workshops:
     output: true
   platform_products:
     output: false
@@ -174,7 +144,15 @@ collections:
     output: false
   redesign_heros:
     output: false
-    
+  community_members:
+    output: true
+    sort_by: name
+  opensearchcon_exhibitors:
+    output: true
+  opensearchcon_sessions:
+    output: true
+  opensearchcon_workshops:
+    output: true
 paginate: 5
 paginate_path: "/blog/page:num/"
 

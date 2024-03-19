@@ -1,0 +1,157 @@
+---
+layout: fullwidth-with-breadcrumbs
+title: Member Directory
+primary_title: Member Directory
+breadcrumbs:
+  icon: community
+  items:
+    - title: Community
+      url: /community/index.html
+    - title: Members
+      url: /community/members/index.html
+redirect_from: "/community/index.html"
+---
+<div class="community-member--listing">
+    <h2>Find a Member</h2>
+    <div class="community-member--filters">
+        {% include content-filter-dropdown.html 
+            component_classname="community-member--filters--category-selector"
+            filterable_content_block_element_classname="community-members--member-cards"
+            filter_categories=site.data.community_members.personas
+        %}
+        <div class="community-member--filters--sort-by-name-selector">
+            <div class="community-member--filters--sort-by-name-selector--dropdown">
+                {% include labeled-dropdown.html 
+                    label="Sort by Name (A-Z)"
+                    id="sort-direction-selector"
+                    items=site.data.community_members.sort_options
+                %}
+            </div>
+        </div>
+    </div>
+    <div class="community-members--member-cards" data-sortdirection="name_ascending">
+        {% for member in site.community_members -%}
+            {%- assign persona_classname = "" -%}
+            {%- for persona in member.personas -%}
+                {%- if forloop.first -%}
+                    {%- assign persona_classname = "community-members--member-cards--card__" | append: persona -%}
+                {%- else -%}
+                    {%- assign persona_classname = persona_classname | append: " " | append: "community-members--member-cards--card__" | append: persona -%}
+                {%- endif -%}
+            {%- endfor -%}
+            <div class="community-members--member-cards--card {{ persona_classname }}">
+                {%- if member.photo -%}
+                    <div class="community-members--member-cards--card--image">
+                        <img src="{{ member.photo }}" alt="{{ member.name }} photo">
+                    </div>
+                {%- endif -%}
+                <div class="community-members--member-cards--card--content community-members--member-cards--card--content__bottom-edge">
+                    <div class="community-member--member-cards--card--content--persona-label">
+                        {% for persona in member.personas -%}
+                            {%- assign site_persona = site.data.community_members.personas | find: "value", persona -%}
+                            {%- if site_persona -%}
+                                {{ site_persona.label }}
+                                {%- unless forloop.last -%} | {%- endunless -%}
+                            {%- endif -%}
+                        {%- endfor %}
+                    </div>
+                    <h3><a href="{{ member.url }}">{{ member.name }}</a></h3>
+                    <div class="community-members--member-cards--card--content--job-title">
+                        {{ member.job_title_and_company }}
+                    </div>
+                </div>
+            </div>
+        {%- endfor %}
+    </div>
+    {% include card-clickability.html 
+        card_classname="community-members--member-cards--card"
+        card_container_selector=".community-member--listing > .community-members--member-cards"
+    %}
+</div>
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+
+        function insertReversedClones(containerElement, nodeList) {
+            const clones = Array.from(nodeList).map(node => node.cloneNode(true));
+            clones.reverse();
+            containerElement.replaceChildren(...clones);
+        }
+        
+        function sortByName() {
+            const containerSelector = '.community-members--member-cards';
+            const memberCardsSelector = '.community-members--member-cards--card';
+            const container = document.querySelector(containerSelector);
+            const cardsSet = container.querySelectorAll(memberCardsSelector);
+            insertReversedClones(container, cardsSet);
+        }
+
+        function updateSortByNameLabel(sortOption) {
+            const sortingLabels = {
+                name_ascending: 'Sort by Name (A-Z)',
+                name_descending: 'Sort by Name (Z-A)',
+            };
+            const sortOptionLabel = sortingLabels[sortOption];
+            const labelSelector = '.community-member--filters--sort-by-name-selector .labeled-dropdown--label';
+            const labelElement = document.querySelector(labelSelector);
+            if (labelElement) {
+                labelElement.textContent = sortOptionLabel;
+            }
+        }
+
+        function hideFilterDropdown(dropdownSelect) {
+            const parent = dropdownSelect?.closest?.('.labeled-dropdown');
+            if (parent) {
+                const collapsedClassName = 'labeled-dropdown__collapsed';
+                const expandedClassName = 'labeled-dropdown__expanded';
+                parent.classList.replace(expandedClassName, collapsedClassName);
+            }
+        }
+
+        function onLabeledDropDownExpandCollapse(e) {
+            const collapsedClassName = 'labeled-dropdown__collapsed';
+            const expandedClassName = 'labeled-dropdown__expanded';
+            const { currentTarget } = e;
+            const parent = currentTarget.closest('.labeled-dropdown');
+            const selectElement = parent?.querySelector('select');
+            if (selectElement?.hasAttribute?.('disabled')) {
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                e.preventDefault();
+                return;
+            }
+            if (parent) {
+                if (parent.classList.contains(collapsedClassName)) {
+                    parent.classList.replace(collapsedClassName, expandedClassName);
+                } else {
+                    parent.classList.replace(expandedClassName, collapsedClassName);
+                }
+            }
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            e.preventDefault();
+        }
+
+        document.querySelector('.community-member--filters--sort-by-name-selector .labeled-dropdown--label-arrow')?.addEventListener?.('click', onLabeledDropDownExpandCollapse);
+        document.querySelector('.community-member--filters--sort-by-name-selector .labeled-dropdown--select')?.addEventListener?.('click', (e) => {
+            const { currentTarget, target : { value = '' } = {} } = e;
+            if (currentTarget.hasAttribute('disabled')) {
+                e.preventDefault();
+                return;
+            }
+            const filterCategories = {{ site.data.community_members.sort_options | map: "value" | jsonify }};
+            if (filterCategories.includes(value)) {
+                const cardSetClass = 'community-members--member-cards';
+                const cardSetSelector = `.${cardSetClass}`;
+                const cardSet = document.querySelector(cardSetSelector);
+                const sortDirectionAttributeName = 'data-sortdirection';
+                const currentSortDirection = cardSet.getAttribute(sortDirectionAttributeName);
+                if (value !== currentSortDirection) {
+                    cardSet.setAttribute(sortDirectionAttributeName, value);
+                    sortByName();
+                    updateSortByNameLabel(value);
+                }
+            }
+            hideFilterDropdown(currentTarget);
+        });
+    });
+</script>

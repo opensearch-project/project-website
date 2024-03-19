@@ -2,7 +2,7 @@
 layout: post
 title:  "Announcing Data Prepper 2.0.0"
 authors:
-- dlv
+- dvenable
 - oeyh
 date: 2022-10-10 15:00:00 -0500
 categories:

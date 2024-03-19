@@ -26,7 +26,7 @@
     <meta name="twitter:site" content="{{ page.twittercard.account }}" />
     {% elsif page.authors %}
       {% assign author_short_name = page.authors | first  %}
-      {% assign author = site.authors | where: 'short_name', author_short_name | first %}
+      {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
       {% if author.twitter %}
         <meta name="twitter:site" content="@{{ author.twitter }}" />
       {% endif %} 
