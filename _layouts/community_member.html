@@ -372,7 +372,7 @@ layout: default
          * @returns {object}
          */
         function findExternalContentDelimiterComments() {
-            const iteratorRootSelector = '.two-column-layout';
+            const iteratorRootSelector = '.two-column-layout > .two-column-layout--sidebar > .community-member--description';
             const startingDelimiterText = 'external content start';
             const endingDelimiterText = 'external content end';
             const iteratorRootElement = document.querySelector(iteratorRootSelector);
@@ -401,17 +401,6 @@ layout: default
         }
 
         /**
-         * Returns true if the element is one of any of the level 1 - level 6 header elements.
-         * @param {HTMLElement} element
-         * @returms {boolean}
-         */ 
-        function isHeaderElement(element) {
-            const headerTagNames = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'];
-            const { tagName } = element;
-            return headerTagNames.includes(tagName);
-        }
-
-        /**
          * Returns a boolean indicating whether or not the element is a reference to a table element.
          * @param {HTMLElement} element A DOM element to evaluate.
          * @returns {boolean}
@@ -419,53 +408,6 @@ layout: default
         function isTableElement(element) {
             const { tagName } = element;
             return tagName === 'TABLE';
-        }
-
-        /**
-         * Returns the first sibling HTMLDListElement following the provided element; if any.
-         * If no <dl> is found before iteration reaches the provided Node as the stoppingPoint Node
-         * then null is returned.
-         * @param {HTMLElement} element HTMLElement from where to start node iteration for a <dl> element as a sibling.
-         * @param {Node} stoppingPoint Document Node indicating where to stop searching, and return null.
-         * @returns {HTMLDListElement|null}
-         */
-        function findSiblingDefinitionList(element, stoppingPoint) {
-            let nextSibling = element;
-            while ((nextSibling = (nextSibling?.nextSibling ?? null))) {
-                if (nextSibling === stoppingPoint) {
-                    return null;
-                }
-                if (nextSibling.nodeType === Node.ELEMENT_NODE) {
-                    if (nextSibling.tagName === 'DL') {
-                        return nextSibling;
-                    }
-                }
-            }
-            return null;
-        }
-
-        /**
-         * Returns the text content of a <dd> element that relates to a <dt> element identified by a given term.
-         * If no <dt> element with the given text value identified by termName is found, or if there is no subsequent <dd>
-         * element is found then an empty string is returned.
-         * @param {NodeList} termsElements NodeList collection of <dt> elemenets from which to find the requested <dd> text value.
-         * @param {string} termName Name of the term whose description / definition element value is requested.
-         * @returns {string}
-         */
-        function findTermDefinition(termsElements, termName) {
-            const term = Array.from(termsElements).find(term => term.textContent.toLowerCase().trim() === termName);
-            if (term) {
-                let node = term;
-                while ((node = node.nextSibling)) {
-                    if (node.nodeType === Node.ELEMENT_NODE) {
-                        if (node.tagName === 'DD') {
-                            const { textContent } = node;
-                            return textContent;
-                        }
-                    }
-                }
-            }
-            return '';
         }
 
         /**
@@ -657,70 +599,18 @@ layout: default
             return externalContentCardGridTemplate;
         }
 
-        function getInternalBlogCardGrid(documentScope) {
-            const blogCardGridSelector =  ':scope > .community-member--blog-posts.solutions-card-grid';
-            const blogCardGridElement = documentScope.querySelector(blogCardGridSelector);
-            return blogCardGridElement;
-
-        }
-
-        function getInternalBlogTable(documentScope) {
-            const blogTableSelector = ':scope > .community-member--blog-posts--table';
-            const blogTableElement = documentScope.querySelector(blogTableSelector);
-        }
-
-        function getConferenceSessions(documentScope) {
-            const conferenceSessionsSelector = ':scope > .community-member--conference-sessions';
-            const conferenceSessionsElement = documentScope.querySelector(conferenceSessionsSelector);
-            return conferenceSessionsElement;
-        }
-
-
         /**
-         * Inserts a runtime created content card grid into the DOM positioned after the build time created card grid (and table if present) of blog posts.
-         * TODO: It needs to be decided upon whether or not these cards should be inserted depending on what content the member has.
-         * The possible states are as follows:
-         * * 1 or more blog cards on top.
-         * * 1 or more blog cards on top followed by a table of additional blog posts.
-         * * Some combination of the former states plus the addition of conference sessions below.
-         * * No blog post cards or table and only conference sessions.
-         * * Nothing at all.
-         * 
-         * @param {HTMLElement} cardGridElement
+         * Inserts a runtime created content card grid into the DOM positioned after all of the member's contributions
+         * defined internally (blogs, and conference sessions).
+         * @param {HTMLElement} cardGridElement External content card grid with heading to insert into the document.
          * @returns {undefined}
          */ 
         function insertExternalContentCardGrid(cardGridElement) {
             const contentParentSelector = '.two-column-layout > .two-column-layout--body';
             const contentParentElement = document.querySelector(contentParentSelector);
-            const internalBlogCardGrid = getInternalBlogCardGrid(contentParentElement);
-            const internalBlogTable = internalBlogCardGrid ? getInternalBlogTable(internalBlogCardGrid) : null;
-            const conferenceSessions = getConferenceSessions(contentParentElement);
-            const hasConferenceSessions = !!conferenceSessions;
-            const hasInternalBlogCards = !!internalBlogCardGrid;
-            const hasInternalBlogTable = !!internalBlogTable;
-
-            // TBD: There may need to be some template modifications, depending on where we land on where to insert this
-            // content. For now, if there's any blog content, then maybe I'll just put it above it so we can all take a look at
-            // it, and start from there. 
-            // 
-            if (hasInternalBlogCards) {
-                internalBlogCardGrid.before(cardGridElement);
-            } else if (hasConferenceSessions) {
-                conferenceSessions.before(cardGridElement);
-            } else {
+            if (contentParentElement) {
                 contentParentElement.appendChild(cardGridElement);
             }
-            // const externalContentPrecendingElementSelector = '.two-column-layout--body > .community-member--blog-posts.solutions-card-grid';
-            // const externalContentPrecedingElement = document.querySelector(externalContentPrecendingElementSelector);
-            // if (externalContentPrecedingElement) {
-            //     externalContentPrecedingElement.after(cardGridElement);
-            // } else {
-            //     // TODO: If there is no build-time blog cards then also
-            //     // need to check if there is conference content.
-            //     const bodySelector = '.two-column-layout--body';
-            //     const bodyElement = document.querySelector(bodySelector);
-            //     bodyElement.appendChild(cardGridElement);
-            // }
         }
 
         /**
@@ -729,33 +619,11 @@ layout: default
          * Jekyll Collection entry.
          * 
          * The expectation for defining external content to be included on a member's page is that in between two
-         * XML / HTML type comments containing the appropriate comment text there will be one or more patterns of
-         * a heading followed by a description list (AKA definition list). The heading text indicates the external
-         * content title, and the pairs of <dt>/<dd> elements will define the category name, the date, and the URL
-         * of the external content. This information will be used along with the corresponding HTML <template> 
-         * elements in the community_member.html laytout template to generate a Card Grid similar to that of 
-         * the community member's blog post listing, or conference speaker sessions.
-         * 
-         * Consider the following example which defines a block of external content definitions with one article
-         * with the title "External Article Title", in the category "Search", published on "January 31, 2024",
-         * and with a URL of http://fake-domain-name.fake-tld/posts/2024-01-31/external-article-title.html.
-         * 
-         * @example
-         * ```
-         * # External Article Title
-         * 
-         * Category
-         * : Search
-         * Date
-         * : 2024-01-31
-         * URL
-         * : http://fake-domain-name.fake-tld/posts/2024-01-31/external-article-title.html
-         * 
-         * ```
-         * 
-         * Property names are evalated case-insensitive, and can appear in the <dl> in any order.
-         * Also, any headling (1-6) can be used.
-         * 
+         * HTML comments containing the appropriate comment text there will be one or more tables that contain
+         * columns named "Title", "URL", "Category", and "Date" in the table header. Each row of the table body
+         * will contain the corresponding values for an external content to format into a responsive card grid.
+         * An icon will be included that is appropriate for the category. The date will be locale formatted.
+         
          * @param {Node} startingDelimiter Comment node delimiting where external content definitions subsequently begin.
          * @param {Node} endingDelimiter Comment node delimiting where external content definitions end.
          * @returns {obejct[]}
@@ -770,48 +638,13 @@ layout: default
                     break;
                 }
                 if (currentNode.nodeType === Node.ELEMENT_NODE) {
-                    if (isHeaderElement(currentNode)) {
-                        const externalCardConfig = {
-                            title: '',
-                            category: '',
-                            date: '',
-                            url: '',
-                            titleElement: null,
-                            definitionListElement: null,
-                        };
-                        const externalItemTitle = currentNode.textContent;
-                        externalCardConfig.title = externalItemTitle;
-                        externalCardConfig.titleElement = currentNode;
-
-                        const externalItemData = findSiblingDefinitionList(currentNode, endingDelimiter);
-                        if (externalItemData) {
-                            externalCardConfig.definitionListElement = externalItemData;
-                            const terms = externalItemData.querySelectorAll(':scope > dt');
-                            const category = findTermDefinition(terms, 'category');
-                            const date = findTermDefinition(terms, 'date');
-                            const url = findTermDefinition(terms, 'url');
-                            externalCardConfig.category = category;
-                            externalCardConfig.date = date;
-                            externalCardConfig.url = url;
-                            cardConfigs.push(externalCardConfig);
-                            currentNode = externalItemData;
-                        }
-                    } else if (isTableElement(currentNode)) {
-                        const externalCardConfig = {
-                            title: '',
-                            category: '',
-                            date: '',
-                            titleElement: null,
-                            definitionListElement: null,
-                            tableElement: currentNode,
-                        };
+                    if (isTableElement(currentNode)) {
                         const tableRowLookupConfig = parseTableHeaderLookupConfig(currentNode);
                         const parsedCardConfigs = parseCardConfigsFromTable(currentNode, tableRowLookupConfig);
                         cardConfigs.splice(cardConfigs.length, 0, ...parsedCardConfigs);
                     }
                 }
             } while (currentNode && currentNode !== endingDelimiter);
-
             return cardConfigs;
         }
 
@@ -829,23 +662,12 @@ layout: default
         const cardDocFragments = [];
         const tablesToRemove = new Set();
         cardConfigs.forEach(cardConfig => {
-            if (cardConfig.hasOwnProperty('titleElement')) {
-                if (cardConfig.titleElement) {
-                    cardConfig.titleElement.remove();
-                    cardConfig.titleElement = null;
-                }
-            }
-            if (cardConfig.hasOwnProperty('definitionListElement')) {
-                if (cardConfig.definitionListElement) {
-                    cardConfig.definitionListElement.remove();
-                    cardConfig.definitionListElement = null;
-                }    
-            }
             if (cardConfig.hasOwnProperty('tableElement')) {
                 if (cardConfig.tableElement) {
                     if (!tablesToRemove.has(cardConfig.tableElement)) {
                         tablesToRemove.add(cardConfig.tableElement);
                     }
+                    delete cardConfig.tableElement;
                 }
             }
             const contentCard = createExternalContentCard(cardConfig);

@@ -304,6 +304,21 @@
                     height: auto;
                 }
             }
+            > .community-member--description {
+                // Note: sets of key value pairs that define links to external
+                // content that community members want to include on their pages
+                // can be defined within the Markdown content of their *.md file
+                // in the _community_members collection. These tables are parsed
+                // for their data points, and used to create a responsive card grid
+                // that is appended to the two-column-layout--body element below
+                // any internal content. After the data is extracted these tables
+                // are removed from the DOM. Using display: none prevents any jank
+                // that might allow them to be visible for a fraction of a second
+                // before discarding them.
+                > table {
+                    display: none;
+                }
+            }
             > .community-member--personas,
             > .community-member--social-links {
                 > h3 {
