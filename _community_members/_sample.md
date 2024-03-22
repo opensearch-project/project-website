@@ -77,3 +77,30 @@ mastodon:
 ---
 
 Markdown or HTML content providing a user bio, or whatever is desired to describe their involvement in open source technology in general, and specifically how their work relates to the OpenSearch Project.
+
+
+<!-- external content start -->
+
+# External Article About Search
+
+URL
+: https://duckduckgo.com
+
+Category
+: Search
+
+Date
+: 2023-12-01
+
+# External Article About Security
+
+URL
+: https://duckduckgo.com
+
+Category
+: Security
+
+Date
+: 2023-03-14
+
+<!-- external content end -->

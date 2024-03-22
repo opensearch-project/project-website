@@ -317,4 +317,550 @@ layout: default
         }
     });
 </script>
+<template id="community-member-external-content-container-template">
+    <div class="community-member--blog-posts solutions-card-grid">
+        <h2>External Blog Posts &amp; Articles by {{ page.name }}</h2>
+        <div class="community-member--blog-posts--cards tall-card__no-image--grid solutions-card-grid--card-wrapper"></div>
+    </div>
+</template>
+<template id="community-member-external-content-card-template">
+    <div class="tall-card__no-image--grid--card solutions-card-grid--card-wrapper--card">
+        <h4 class="tall-card__no-image--grid--card--category"></h4>
+        <h3 class="tall-card__no-image--grid--card--title">
+            <a target="_blank"></a>
+        </h3>
+        <div class="tall-card__no-image--grid--card--footer">
+            <div class="tall-card__no-image--grid--card--footer--icon"></div>
+            <div class="tall-card__no-image--grid--card--footer--date"></div>
+        </div>
+    </div>
+</template>
+<template id="community-icon-content-category-template">
+    <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36.98 72.9099C56.8622 72.9099 72.98 56.7922 72.98 36.9099C72.98 17.0277 56.8622 0.909912 36.98 0.909912C17.0977 0.909912 0.97998 17.0277 0.97998 36.9099C0.97998 56.7922 17.0977 72.9099 36.98 72.9099Z" fill="#EAF6F4"/>
+        <path d="M62.43 62.3699C48.37 76.4299 25.58 76.4299 11.52 62.3699L18.59 55.2999L19.44 54.45L21.42 52.4699L23.7 50.1899L25 48.9L27.28 46.6099L29.56 44.33L31.6 42.2899L31.84 42.0499L36.41 37.4799L38.68 35.2L40.97 32.9199L42.06 31.83L43.21 30.6799L43.37 30.52L45.65 28.2299L51.67 22.2199L52.38 21.5099L54.66 19.2299L58.19 15.7L62.43 11.46C76.49 25.52 76.49 48.3099 62.43 62.3699Z" fill="#9AD7D4"/>
+        <path d="M34.8999 26.4199C38.2136 26.4199 40.8999 23.7336 40.8999 20.4199C40.8999 17.1062 38.2136 14.4199 34.8999 14.4199C31.5862 14.4199 28.8999 17.1062 28.8999 20.4199C28.8999 23.7336 31.5862 26.4199 34.8999 26.4199Z" fill="#003A5D"/>
+        <path d="M42.79 33.8798C40.06 35.3298 38.2 38.2098 38.2 41.5098V48.1098H31.61V41.5098C31.61 38.2098 29.75 35.3298 27.02 33.8798C27.62 30.5898 30.51 28.0898 33.98 28.0898H35.84C39.3 28.0898 42.18 30.5898 42.79 33.8798Z" fill="#003A5D"/>
+        <path d="M47.75 32.76C51.0637 32.76 53.75 30.0737 53.75 26.76C53.75 23.4463 51.0637 20.76 47.75 20.76C44.4363 20.76 41.75 23.4463 41.75 26.76C41.75 30.0737 44.4363 32.76 47.75 32.76Z" fill="#7B418A"/>
+        <path d="M48.69 34.4302H46.83C45.38 34.4302 44.03 34.8702 42.91 35.6102C41.01 36.8802 39.75 39.0402 39.75 41.5002V53.0302C39.75 53.5102 39.99 53.9302 40.35 54.1802C47.29 51.4302 52.75 45.7202 55.15 38.6002C54.04 36.1502 51.56 34.4302 48.69 34.4302Z" fill="#7B418A"/>
+        <path d="M59.91 30.4301C59.91 35.9001 58.39 41.0201 55.76 45.3801C53.58 48.9901 50.64 52.0801 47.16 54.4401C42.53 57.5701 36.94 59.4101 30.93 59.4101C29.98 59.4101 29.22 58.6401 29.22 57.7001C29.22 56.7501 29.99 55.9901 30.93 55.9901C34.26 55.9901 37.43 55.3501 40.35 54.2001C47.29 51.4501 52.75 45.7401 55.15 38.6201C56.02 36.0501 56.49 33.3001 56.49 30.4401C56.49 29.4901 57.26 28.7301 58.2 28.7301C59.15 28.7201 59.91 29.4901 59.91 30.4301Z" fill="#0072BC"/>
+        <path d="M22.04 32.76C25.3537 32.76 28.04 30.0737 28.04 26.76C28.04 23.4463 25.3537 20.76 22.04 20.76C18.7263 20.76 16.04 23.4463 16.04 26.76C16.04 30.0737 18.7263 32.76 22.04 32.76Z" fill="#0072BC"/>
+        <path d="M30.05 53.0399C30.05 53.8199 29.4201 54.45 28.6401 54.45H15.4501C14.6701 54.45 14.04 53.8199 14.04 53.0399V41.5099C14.04 37.5999 17.2101 34.4299 21.1201 34.4299H22.98C24.43 34.4299 25.7801 34.8699 26.9001 35.6199C28.8001 36.8899 30.0601 39.0499 30.0601 41.5099V53.0399H30.05Z" fill="#0072BC"/>
+        <path d="M34.8999 26.4199C38.2136 26.4199 40.8999 23.7336 40.8999 20.4199C40.8999 17.1062 38.2136 14.4199 34.8999 14.4199C31.5862 14.4199 28.8999 17.1062 28.8999 20.4199C28.8999 23.7336 31.5862 26.4199 34.8999 26.4199Z" fill="#955EA7"/>
+        <path d="M42.06 31.8298L40.97 32.9198L38.68 35.1998L36.41 37.4798L31.84 42.0498L31.6 42.2898V41.5098C31.6 38.2098 29.74 35.3298 27.01 33.8798C27.61 30.5898 30.5 28.0898 33.97 28.0898H35.83C38.52 28.0898 40.87 29.5998 42.06 31.8298Z" fill="#955EA7"/>
+        <path d="M42.7901 33.8801C40.0501 35.3301 38.1901 38.2101 38.1901 41.5101V48.11H31.6001V42.29L31.8401 42.05L36.4101 37.48L38.6801 35.2001L40.9701 32.92L42.0601 31.8301C42.4101 32.4601 42.6601 33.1501 42.7901 33.8801Z" fill="#7B418A"/>
+        <path d="M51.67 22.22L45.65 28.23L43.37 30.52L43.21 30.68C42.3 29.63 41.75 28.26 41.75 26.76C41.75 23.44 44.44 20.76 47.75 20.76C49.25 20.76 50.62 21.31 51.67 22.22Z" fill="#955EA7"/>
+        <path d="M53.7599 26.76C53.7599 30.08 51.0699 32.76 47.7499 32.76C45.9399 32.76 44.31 31.96 43.21 30.68L43.3699 30.52L45.65 28.23L51.6699 22.22C52.9499 23.31 53.7599 24.94 53.7599 26.76Z" fill="#7B418A"/>
+        <path d="M48.69 34.4302H46.83C45.38 34.4302 44.03 34.8702 42.91 35.6102C41.01 36.8802 39.75 39.0402 39.75 41.5002V53.0302C39.75 53.5102 39.99 53.9302 40.35 54.1802C47.29 51.4302 52.75 45.7202 55.15 38.6002C54.04 36.1502 51.56 34.4302 48.69 34.4302Z" fill="#7B418A"/>
+        <path d="M59.91 30.4301C59.91 35.9001 58.39 41.0201 55.76 45.3801C53.58 48.9901 50.64 52.0801 47.16 54.4401C42.53 57.5701 36.94 59.4101 30.93 59.4101C29.98 59.4101 29.22 58.6401 29.22 57.7001C29.22 56.7501 29.99 55.9901 30.93 55.9901C34.26 55.9901 37.43 55.3501 40.35 54.2001C47.29 51.4501 52.75 45.7401 55.15 38.6201C56.02 36.0501 56.49 33.3001 56.49 30.4401C56.49 29.4901 57.26 28.7301 58.2 28.7301C59.15 28.7201 59.91 29.4901 59.91 30.4301Z" fill="#0072BC"/>
+        <path d="M28.05 26.76C28.05 30.08 25.36 32.76 22.04 32.76C18.73 32.76 16.04 30.08 16.04 26.76C16.04 23.44 18.73 20.76 22.04 20.76C25.36 20.76 28.05 23.44 28.05 26.76Z" fill="#955EA7"/>
+        <path d="M29.5599 44.3298L27.28 46.6098L24.9999 48.8998L23.7 50.1898L21.4199 52.4698L19.4399 54.4498H28.64C29.42 54.4498 30.0499 53.8198 30.0499 53.0398V43.8398L29.5599 44.3298Z" fill="#7B418A"/>
+        <path d="M30.05 41.5099V43.84L29.5601 44.33L27.2801 46.6099L25.0001 48.9L23.7001 50.1899L21.42 52.4699L19.4401 54.45H15.4401C14.6701 54.45 14.04 53.8199 14.04 53.0399V41.5099C14.04 37.5999 17.2 34.4299 21.11 34.4299H22.97C24.42 34.4299 25.7701 34.8699 26.8901 35.6199C28.7901 36.8899 30.05 39.0499 30.05 41.5099Z" fill="#955EA7"/>
+    </svg>
+</template>
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        /**
+         * Searches the document for user-defined external content starting and ending delimiter comment nodes.
+         * The returned object defines two properties:
+         * 
+         * * startingDelimiter
+         * * endingDelimiter
+         * 
+         * Each is a Node reference to the corresponding element in the DOM, or null if not found.
+         * @returns {object}
+         */
+        function findExternalContentDelimiterComments() {
+            const iteratorRootSelector = '.two-column-layout';
+            const startingDelimiterText = 'external content start';
+            const endingDelimiterText = 'external content end';
+            const iteratorRootElement = document.querySelector(iteratorRootSelector);
+            const commentIterator = document.createNodeIterator(iteratorRootElement, NodeFilter.SHOW_COMMENT);
 
+            let startingDelimiter = null;
+            let endingDelimiter = null;
+            let currentNode = null;
+
+            while ((currentNode = commentIterator.nextNode())) {
+                const { textContent } = currentNode;
+                if (textContent.trim().toLowerCase() === startingDelimiterText && !startingDelimiter) {
+                    startingDelimiter = currentNode;
+                } else if (textContent.trim().toLowerCase() === endingDelimiterText && !endingDelimiter) {
+                    endingDelimiter = currentNode;
+                }
+                if (startingDelimiter && endingDelimiter) {
+                    break;
+                }
+            }
+
+            return {
+                startingDelimiter,
+                endingDelimiter,
+            };
+        }
+
+        /**
+         * Returns true if the element is one of any of the level 1 - level 6 header elements.
+         * @param {HTMLElement} element
+         * @returms {boolean}
+         */ 
+        function isHeaderElement(element) {
+            const headerTagNames = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'];
+            const { tagName } = element;
+            return headerTagNames.includes(tagName);
+        }
+
+        /**
+         * Returns a boolean indicating whether or not the element is a reference to a table element.
+         * @param {HTMLElement} element A DOM element to evaluate.
+         * @returns {boolean}
+         */
+        function isTableElement(element) {
+            const { tagName } = element;
+            return tagName === 'TABLE';
+        }
+
+        /**
+         * Returns the first sibling HTMLDListElement following the provided element; if any.
+         * If no <dl> is found before iteration reaches the provided Node as the stoppingPoint Node
+         * then null is returned.
+         * @param {HTMLElement} element HTMLElement from where to start node iteration for a <dl> element as a sibling.
+         * @param {Node} stoppingPoint Document Node indicating where to stop searching, and return null.
+         * @returns {HTMLDListElement|null}
+         */
+        function findSiblingDefinitionList(element, stoppingPoint) {
+            let nextSibling = element;
+            while ((nextSibling = (nextSibling?.nextSibling ?? null))) {
+                if (nextSibling === stoppingPoint) {
+                    return null;
+                }
+                if (nextSibling.nodeType === Node.ELEMENT_NODE) {
+                    if (nextSibling.tagName === 'DL') {
+                        return nextSibling;
+                    }
+                }
+            }
+            return null;
+        }
+
+        /**
+         * Returns the text content of a <dd> element that relates to a <dt> element identified by a given term.
+         * If no <dt> element with the given text value identified by termName is found, or if there is no subsequent <dd>
+         * element is found then an empty string is returned.
+         * @param {NodeList} termsElements NodeList collection of <dt> elemenets from which to find the requested <dd> text value.
+         * @param {string} termName Name of the term whose description / definition element value is requested.
+         * @returns {string}
+         */
+        function findTermDefinition(termsElements, termName) {
+            const term = Array.from(termsElements).find(term => term.textContent.toLowerCase().trim() === termName);
+            if (term) {
+                let node = term;
+                while ((node = node.nextSibling)) {
+                    if (node.nodeType === Node.ELEMENT_NODE) {
+                        if (node.tagName === 'DD') {
+                            const { textContent } = node;
+                            return textContent;
+                        }
+                    }
+                }
+            }
+            return '';
+        }
+
+        /**
+         * Returns an object that maps the indices for each property to be extracted from table rows.
+         * The returned object contains the following properties:
+         * 
+         * * title
+         * * url
+         * * category
+         * * date
+         * 
+         * Where each property value is the zero-based index of the cell that the corresponding property value
+         * can be selected in each table row. If the value of a property is -1 then there is no corresponding
+         * value in the table, or its header text could be misspelled. When performing the parsing the header
+         * cell text is trimmed of whitespace, and converted to lower case.
+         * @param {HTMLTableElement} tableElement
+         * @returns {object}
+         */
+        function parseTableHeaderLookupConfig(tableElement) {
+            const headerCells = Array.from(tableElement.querySelectorAll(':scope > thead > tr > th'));
+            const propertyIndexConfig = headerCells.reduce((carry, current, index) => {
+                const headerCellText = current.textContent.trim().toLowerCase();
+                if (carry.hasOwnProperty(headerCellText)) {
+                    carry[headerCellText] = index;
+                }
+                return carry;
+            }, {
+                title: -1,
+                url: -1,
+                category: -1,
+                date: -1,
+            });
+            return propertyIndexConfig;
+        }
+
+        /**
+         * Returns an array of objects that define the external content cards defined in the provided HTML table.
+         * Each object in the array will contain the following properties:
+         * 
+         * * title
+         * * url
+         * * category
+         * * date
+         * 
+         * The lookupConfig object is expected to be an object with the same properties whos corresponding value 
+         * indicate the zero-based index in each row to find that corresponding property value.
+         * 
+         * @param {HTMLTableElement} tableElement
+         * @param {object} lookupConfig
+         * @returns {object[]}
+         * @see {parseTableHeaderLookupConfig}
+         */
+        function parseCardConfigsFromTable(tableElement, lookupConfig) {
+            const tableRows = tableElement.querySelectorAll(':scope > tbody > tr');
+            const cardConfigs = Array.from(tableRows).map(tableRow => {
+                const tableRowCells = tableRow.querySelectorAll(':scope > td');
+                const cardConfig = Object.entries(lookupConfig).reduce((carry, current) => {
+                    const [propertyName, columnIndex] = current;
+                    if (columnIndex > -1) {
+                        const propertyCell = tableRowCells.item(columnIndex);
+                        const propertyValue = propertyCell?.textContent ?? '';
+                        carry[propertyName] = propertyValue.trim();
+                    }
+                    return carry;
+                }, {
+                    title: '',
+                    url: '',
+                    category: '',
+                    date: '',
+                    tableElement,
+                });
+                return cardConfig;
+            });
+            return cardConfigs;
+        }
+
+        /**
+         * Returns a localized content date.
+         * The function is created with partial application with the formatter as to limit
+         * the subset of the localization string database to that which is required by
+         * the browser language configuration.
+         * @param {string} dateString Content date string expected to be formatted as 'YYYY-MM-DD'.
+         * @returns {string}
+         */
+        const getLocaleDateFormat = ((formatter) => {
+            return (dateString) => {
+                const parts = dateString.split('-');
+                const year = parseInt(parts[0], 10);
+                const monthIndex = parseInt(parts[1], 10) - 1;
+                const day = parseInt(parts[2]);
+                const utc = Date.UTC(year, monthIndex, day);
+                const date = new Date(utc);
+                return formatter.format(date);
+            };
+        })(new Intl.DateTimeFormat(navigator.language, {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            timeZone: 'UTC',
+        }));
+
+        /**
+         * Returns a date string formatted appropriately according to the style guid.
+         * Specifically, this will be the 'SHORT-DAY-NAME, SHORT-MONTH-NAME TWO-DIGIT-DAY-OF-MONTH, FOUR-DIGIT-YEAR'.
+         * For example, for a dateString value of '2024-04-18' the return value would be 'Mon, Mar 18, 2024'.
+         * @param {string} dateString A date specified in the format 'YYYY-MM-DD' from which to create a formatted string.
+         * @returns {string}
+         */
+        function formatContentCardDate(dateString) {
+            return getLocaleDateFormat(dateString);
+        }
+
+        /**
+         * Return a <svg> icon identified by the content category name indicated by the value
+         * of the categoryName argument.
+         * NOTE: At this moment it only returns the 'community' icon as there needs to be buiilt
+         * a runtime lookup table for category icons.
+         * @param {string} categoryName A string defining the name of the content category.
+         * @returns {SVGSVGElement}
+         */
+        function createCategoryIcon(categoryName) {
+            // TODO figure out a reasonable way, to create a lookup table for 
+            // getting icons at run time through JS similar to how we do
+            // with the _includes/icons.html Liquid templates at build time.
+            const communityIconTemplateId = 'community-icon-content-category-template';
+            const communityIconTemplate = document.getElementById(communityIconTemplateId)?.content?.cloneNode(true);
+            return communityIconTemplate;
+        }
+
+        /**
+         * Returns a content card by populating a clone of the "#community-member-external-content-card-template"
+         * with the properties defined in the cardConfig object.
+         * @param {object} cardConfig
+         * @returns {HTMLElement}
+         */ 
+        function createExternalContentCard(cardConfig) {
+            const externalContentCardTemplateId = 'community-member-external-content-card-template';
+            const externalContentCardTemplate = document.getElementById(externalContentCardTemplateId)?.content?.cloneNode?.(true);
+            if (!externalContentCardTemplate) {
+                return null;
+            }
+            
+            const categoryElementSelctor = '.tall-card__no-image--grid--card--category';
+            const titleElementSelector = '.tall-card__no-image--grid--card--title > a';
+            const iconElementSelector = '.tall-card__no-image--grid--card--footer--icon';
+            const dateElementSelector = '.tall-card__no-image--grid--card--footer--date';
+
+            // TODO: FIGURE OUT HOW WE'RE DOING THE ICON LOOKUP, AND DO THAT CLIENT SIDE.
+            const categoryElement = externalContentCardTemplate.querySelector(categoryElementSelctor);
+            if (categoryElement) {
+                categoryElement.textContent = cardConfig.category;
+            }
+            const titleElement = externalContentCardTemplate.querySelector(titleElementSelector);
+            if (titleElement) {
+                titleElement.textContent = cardConfig.title;
+                titleElement.setAttribute('href', cardConfig.url);
+            }
+            const iconElement = externalContentCardTemplate.querySelector(iconElementSelector);
+            if (iconElement) {
+                iconElement.appendChild(createCategoryIcon(cardConfig.category));
+            }
+            const dateElement = externalContentCardTemplate.querySelector(dateElementSelector);
+            if (dateElement) {
+                dateElement.textContent = formatContentCardDate(cardConfig.date);
+            }
+            return externalContentCardTemplate;
+        }
+
+        /**
+         * Returns a content card grid by populating a clone of the "#community-member-external-content-container-template"
+         * HTML template, and inserting the collection of content cards in the cardsContent collection.
+         * @param {HTMLElement[]} cardsContent
+         * @returns {HTMLElement}
+         */
+        function createExternalContentCardGrid(cardsContent) {
+            const externalContentCardGridTemplateId = 'community-member-external-content-container-template';
+            const externalContentCardGridTemplate = document.getElementById(externalContentCardGridTemplateId)?.content?.cloneNode?.(true);
+            if (!externalContentCardGridTemplate) {
+                return null;
+            }
+
+            const cardGridWrapperSelector = '.community-member--blog-posts--cards.tall-card__no-image--grid.solutions-card-grid--card-wrapper';
+            const cardGridWrapperElement = externalContentCardGridTemplate.querySelector(cardGridWrapperSelector);
+            if (!cardGridWrapperElement) {
+                return null;
+            }
+            cardGridWrapperElement.append(...cardsContent);
+            return externalContentCardGridTemplate;
+        }
+
+        function getInternalBlogCardGrid(documentScope) {
+            const blogCardGridSelector =  ':scope > .community-member--blog-posts.solutions-card-grid';
+            const blogCardGridElement = documentScope.querySelector(blogCardGridSelector);
+            return blogCardGridElement;
+
+        }
+
+        function getInternalBlogTable(documentScope) {
+            const blogTableSelector = ':scope > .community-member--blog-posts--table';
+            const blogTableElement = documentScope.querySelector(blogTableSelector);
+        }
+
+        function getConferenceSessions(documentScope) {
+            const conferenceSessionsSelector = ':scope > .community-member--conference-sessions';
+            const conferenceSessionsElement = documentScope.querySelector(conferenceSessionsSelector);
+            return conferenceSessionsElement;
+        }
+
+
+        /**
+         * Inserts a runtime created content card grid into the DOM positioned after the build time created card grid (and table if present) of blog posts.
+         * TODO: It needs to be decided upon whether or not these cards should be inserted depending on what content the member has.
+         * The possible states are as follows:
+         * * 1 or more blog cards on top.
+         * * 1 or more blog cards on top followed by a table of additional blog posts.
+         * * Some combination of the former states plus the addition of conference sessions below.
+         * * No blog post cards or table and only conference sessions.
+         * * Nothing at all.
+         * 
+         * @param {HTMLElement} cardGridElement
+         * @returns {undefined}
+         */ 
+        function insertExternalContentCardGrid(cardGridElement) {
+            const contentParentSelector = '.two-column-layout > .two-column-layout--body';
+            const contentParentElement = document.querySelector(contentParentSelector);
+            const internalBlogCardGrid = getInternalBlogCardGrid(contentParentElement);
+            const internalBlogTable = internalBlogCardGrid ? getInternalBlogTable(internalBlogCardGrid) : null;
+            const conferenceSessions = getConferenceSessions(contentParentElement);
+            const hasConferenceSessions = !!conferenceSessions;
+            const hasInternalBlogCards = !!internalBlogCardGrid;
+            const hasInternalBlogTable = !!internalBlogTable;
+
+            // TBD: There may need to be some template modifications, depending on where we land on where to insert this
+            // content. For now, if there's any blog content, then maybe I'll just put it above it so we can all take a look at
+            // it, and start from there. 
+            // 
+            if (hasInternalBlogCards) {
+                internalBlogCardGrid.before(cardGridElement);
+            } else if (hasConferenceSessions) {
+                conferenceSessions.before(cardGridElement);
+            } else {
+                contentParentElement.appendChild(cardGridElement);
+            }
+            // const externalContentPrecendingElementSelector = '.two-column-layout--body > .community-member--blog-posts.solutions-card-grid';
+            // const externalContentPrecedingElement = document.querySelector(externalContentPrecendingElementSelector);
+            // if (externalContentPrecedingElement) {
+            //     externalContentPrecedingElement.after(cardGridElement);
+            // } else {
+            //     // TODO: If there is no build-time blog cards then also
+            //     // need to check if there is conference content.
+            //     const bodySelector = '.two-column-layout--body';
+            //     const bodyElement = document.querySelector(bodySelector);
+            //     bodyElement.appendChild(cardGridElement);
+            // }
+        }
+
+        /**
+         * Returns an array of objects that define the data points needed to construct content cards
+         * that are included in the page content between two starting and ending comments in a _community_member
+         * Jekyll Collection entry.
+         * 
+         * The expectation for defining external content to be included on a member's page is that in between two
+         * XML / HTML type comments containing the appropriate comment text there will be one or more patterns of
+         * a heading followed by a description list (AKA definition list). The heading text indicates the external
+         * content title, and the pairs of <dt>/<dd> elements will define the category name, the date, and the URL
+         * of the external content. This information will be used along with the corresponding HTML <template> 
+         * elements in the community_member.html laytout template to generate a Card Grid similar to that of 
+         * the community member's blog post listing, or conference speaker sessions.
+         * 
+         * Consider the following example which defines a block of external content definitions with one article
+         * with the title "External Article Title", in the category "Search", published on "January 31, 2024",
+         * and with a URL of http://fake-domain-name.fake-tld/posts/2024-01-31/external-article-title.html.
+         * 
+         * @example
+         * ```
+         * # External Article Title
+         * 
+         * Category
+         * : Search
+         * Date
+         * : 2024-01-31
+         * URL
+         * : http://fake-domain-name.fake-tld/posts/2024-01-31/external-article-title.html
+         * 
+         * ```
+         * 
+         * Property names are evalated case-insensitive, and can appear in the <dl> in any order.
+         * Also, any headling (1-6) can be used.
+         * 
+         * @param {Node} startingDelimiter Comment node delimiting where external content definitions subsequently begin.
+         * @param {Node} endingDelimiter Comment node delimiting where external content definitions end.
+         * @returns {obejct[]}
+         */
+        function extractCustomContentConfigurationData(startingDelimiter, endingDelimiter) {
+            let currentNode = startingDelimiter;
+            const cardConfigs = [];
+
+            do {
+                currentNode = currentNode.nextSibling;
+                if (currentNode === endingDelimiter) {
+                    break;
+                }
+                if (currentNode.nodeType === Node.ELEMENT_NODE) {
+                    if (isHeaderElement(currentNode)) {
+                        const externalCardConfig = {
+                            title: '',
+                            category: '',
+                            date: '',
+                            url: '',
+                            titleElement: null,
+                            definitionListElement: null,
+                        };
+                        const externalItemTitle = currentNode.textContent;
+                        externalCardConfig.title = externalItemTitle;
+                        externalCardConfig.titleElement = currentNode;
+
+                        const externalItemData = findSiblingDefinitionList(currentNode, endingDelimiter);
+                        if (externalItemData) {
+                            externalCardConfig.definitionListElement = externalItemData;
+                            const terms = externalItemData.querySelectorAll(':scope > dt');
+                            const category = findTermDefinition(terms, 'category');
+                            const date = findTermDefinition(terms, 'date');
+                            const url = findTermDefinition(terms, 'url');
+                            externalCardConfig.category = category;
+                            externalCardConfig.date = date;
+                            externalCardConfig.url = url;
+                            cardConfigs.push(externalCardConfig);
+                            currentNode = externalItemData;
+                        }
+                    } else if (isTableElement(currentNode)) {
+                        const externalCardConfig = {
+                            title: '',
+                            category: '',
+                            date: '',
+                            titleElement: null,
+                            definitionListElement: null,
+                            tableElement: currentNode,
+                        };
+                        const tableRowLookupConfig = parseTableHeaderLookupConfig(currentNode);
+                        const parsedCardConfigs = parseCardConfigsFromTable(currentNode, tableRowLookupConfig);
+                        cardConfigs.splice(cardConfigs.length, 0, ...parsedCardConfigs);
+                    }
+                }
+            } while (currentNode && currentNode !== endingDelimiter);
+
+            return cardConfigs;
+        }
+
+        const {
+            startingDelimiter,
+            endingDelimiter
+        } = findExternalContentDelimiterComments();
+
+        if (!startingDelimiter || !endingDelimiter) {
+            console.log('No external content found for processing');
+            return;
+        }
+
+        const cardConfigs = extractCustomContentConfigurationData(startingDelimiter, endingDelimiter);
+        const cardDocFragments = [];
+        const tablesToRemove = new Set();
+        cardConfigs.forEach(cardConfig => {
+            if (cardConfig.hasOwnProperty('titleElement')) {
+                if (cardConfig.titleElement) {
+                    cardConfig.titleElement.remove();
+                    cardConfig.titleElement = null;
+                }
+            }
+            if (cardConfig.hasOwnProperty('definitionListElement')) {
+                if (cardConfig.definitionListElement) {
+                    cardConfig.definitionListElement.remove();
+                    cardConfig.definitionListElement = null;
+                }    
+            }
+            if (cardConfig.hasOwnProperty('tableElement')) {
+                if (cardConfig.tableElement) {
+                    if (!tablesToRemove.has(cardConfig.tableElement)) {
+                        tablesToRemove.add(cardConfig.tableElement);
+                    }
+                }
+            }
+            const contentCard = createExternalContentCard(cardConfig);
+            if (contentCard) {
+                cardDocFragments.push(contentCard);
+            }
+        });
+        if (tablesToRemove.size > 0) {
+            tablesToRemove.forEach(table => table.remove());
+            tablesToRemove.clear();
+        }
+
+        if (cardDocFragments.length > 0) {
+            const externalContentCardGrid = createExternalContentCardGrid(cardDocFragments);
+            insertExternalContentCardGrid(externalContentCardGrid);
+        }
+    });
+</script>
