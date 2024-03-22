@@ -125,6 +125,7 @@ stdout
 [Ss]ubvector
 [Ss]ubwords?
 [Ss]uperset
+[Ss]yslog
 tebibyte
 [Tt]emplated
 [Tt]okenization
