@@ -25,7 +25,7 @@ There are a number of reasons this data can be valuable.
 Some examples include customer analytics, looking for anomalies in network access, understanding load across geographies, and more.
 An industry solution for determining a geographical location is through the use of IP addresses.
 
-One example scenario is locating users to a web server.
+One example scenario is locating users of a web server.
 Data Prepper already supports parsing Apache Common Log Format for Apache HTTP servers in the `grok` processor.
 The following example shows how you can now locate the client making requests using the `clientip` property extracted from the `grok` processor:
 
@@ -49,7 +49,7 @@ Additionally, you can configure template mappings in OpenSearch so that you can 
 ## AWS Secrets Manager support
 
 Data Prepper now supports [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) as an extension plugin applicable to pipeline plugins (source, buffer, processor, sink).
-Users are allowed to configure the AWS secrets extension through extensions in data-prepper-config.yaml.
+Users are allowed to configure the AWS Secrets Manager extension through `extensions` in `data-prepper-config.yaml`.
 
 The following example shows how you can configure your secrets:
 
@@ -69,7 +69,7 @@ extensions:
         refresh_interval: <YOUR_REFRESH_INTERVAL_2>
 ```
 
-Users can also configure this in the `pipeline_configurations` section of a pipeline YAML file.
+Users can also configure secrets in the `pipeline_configurations` section of a pipeline YAML file.
 
 The `credential-secret-config` is a user-supplied secret configuration ID.
 Pipeline authors can reference secrets within pipeline plugin settings using the pattern `$aws_secrets:<<my-defined-secret>>``.
@@ -97,7 +97,7 @@ In this example, secrets under `credential-secret-config` are assumed to be stor
 The secret under `host-secret-config` is assumed to be stored as plaintext.
 To support [secret rotation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) for OpenSearch, the `opensearch` source automatically refreshes its basic credentials, (username/password) according to the `refresh_interval` by polling the latest secret values.
 
-For more details, please reference our [aws extension plugins](https://opensearch.org/docs/latest/data-prepper/managing-data-prepper/configuring-data-prepper/#aws-extension-plugins) document.
+For more information, please see the [`aws` extension](https://opensearch.org/docs/latest/data-prepper/managing-data-prepper/configuring-data-prepper/#aws-extension-plugins) documentation.
 
 ## Other features
 
