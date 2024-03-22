@@ -118,3 +118,23 @@ For more information, please see the [`aws` extension](https://opensearch.org/do
 
 The following people contributed to this release. Thank you!
 
+* [asifsmohammed](https://github.com/asifsmohammed) - Asif Sohail Mohammed
+* [asuresh8](https://github.com/asuresh8) - Adi Suresh
+* [chenqi0805](https://github.com/chenqi0805) - Qi Chen
+* [derek-ho](https://github.com/derek-ho) - Derek Ho
+* [dinujoh](https://github.com/dinujoh) - Dinu John
+* [dlvenable](https://github.com/dlvenable) - David Venable
+* [emmachase](https://github.com/emmachase) - Emma
+* [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
+* [GumpacG](https://github.com/GumpacG) - Guian Gumpac
+* [kkondaka](https://github.com/kkondaka) - None
+* [mallikagogoi7](https://github.com/mallikagogoi7) - None
+* [oeyh](https://github.com/oeyh) - Hai Yan
+* [rajeshLovesToCode](https://github.com/rajeshLovesToCode) - None
+* [shaavanga](https://github.com/shaavanga) - Prathyusha Vangala
+* [srikanthjg](https://github.com/srikanthjg) - Srikanth Govindarajan
+* [travisbenedict](https://github.com/travisbenedict) - Travis Benedict
+* [Utkarsh-Aga](https://github.com/Utkarsh-Aga) - None
+* [venkataraopasyavula](https://github.com/venkataraopasyavula) - venkataraopasyavula
+* [wanghd89](https://github.com/wanghd89) - None
+
