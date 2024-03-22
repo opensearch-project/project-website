@@ -71,7 +71,7 @@ extensions:
 
 Users can also configure secrets in the `pipeline_configurations` section of a pipeline YAML file.
 
-The `credential-secret-config` is a user-supplied secret configuration ID.
+The `credential-secret-config` term in the example above is a user-supplied secret configuration ID.
 Pipeline authors can reference secrets within pipeline plugin settings using the pattern `$aws_secrets:<<my-defined-secret>>``.
 The following example shows how to configure an OpenSearch sink with secret values:
 
@@ -103,7 +103,7 @@ For more information, please see the [`aws` extension](https://opensearch.org/do
 
 * Data Prepper can now parse XML data in fields using the `parse_xml` processor.
 * The new `parse_ion` processor can parse fields in the [Amazon Ion format](https://amazon-ion.github.io/ion-docs/).
-* Some users have fields that are gzip-compressed at the field level. These users can decompress that data using the `decompress` processor.
+* Some users have fields that are gzip-compressed at the field level. These users can decompress those fields using the `decompress` processor.
 * Data Prepper can now join strings from multiple strings, including with a delimiter.
 * The new `select_entries` processor allows users to select only the necessary fields from events. This can simplify how users filter unnecessary data.
 * The `file` source now supports codecs. This can help you test a pipeline locally before using the `s3` source.
