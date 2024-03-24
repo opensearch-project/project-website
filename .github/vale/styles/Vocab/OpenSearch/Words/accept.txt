@@ -29,6 +29,7 @@ Boolean
 Dev
 [Dd]iscoverability
 Distro
+[Dd]ownvote(s|d)?
 [Dd]uplicative
 [Ee]gress
 [Ee]num
@@ -124,6 +125,7 @@ stdout
 [Ss]ubvector
 [Ss]ubwords?
 [Ss]uperset
+[Ss]yslog
 tebibyte
 [Tt]emplated
 [Tt]okenization
@@ -139,6 +141,7 @@ tebibyte
 [Uu]nrecovered
 [Uu]pdatable
 [Uu]psert
+[Uu]pvote(s|d)?
 [Vv]ectorize
 [Ww]alkthrough
 [Ww]ebpage
