@@ -127,7 +127,7 @@ The following people contributed to this release. Thank you!
 * [emmachase](https://github.com/emmachase) - Emma
 * [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
 * [GumpacG](https://github.com/GumpacG) - Guian Gumpac
-* [kkondaka](https://github.com/kkondaka) - None
+* [kkondaka](https://github.com/kkondaka) - Krishna Kondaka
 * [mallikagogoi7](https://github.com/mallikagogoi7) - None
 * [oeyh](https://github.com/oeyh) - Hai Yan
 * [rajeshLovesToCode](https://github.com/rajeshLovesToCode) - None
