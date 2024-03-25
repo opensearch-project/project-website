@@ -4,7 +4,7 @@ title:  "Announcing Data Prepper 2.7.0"
 authors:
 - dvenable
 - qichen
-date: 2024-03-25 13:30:00 -0600
+date: 2024-03-26 13:30:00 -0600
 categories:
   - releases
 meta_keywords: GeoIP enrichment, AWS Secrets Manager Support, XML parsing, ION parsing, decompression
