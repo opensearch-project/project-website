@@ -2233,3 +2233,35 @@ $community-voices-smallest-max-size: 739px;
         flex-basis: auto;
     }
 }
+
+.author-social-media--community-forum {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    > div {
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
+    > .author-social-media--community-forum--icon {
+        flex-basis: 20px;
+        height: 20px;
+        position: relative;
+        left: -2px;
+        > a {
+            > svg {
+                width: 20px;
+                height: 20px;
+                flex-shrink: 0;
+                padding-right: 8px;
+            }
+        }
+    }
+    > .author-social-media--community-forum--name {
+        flex-basis: auto;
+        position: relative;
+        left: -1px;
+    }
+}

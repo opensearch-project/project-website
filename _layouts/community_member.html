@@ -55,6 +55,20 @@ layout: default
                                   </div>
                                 </li>
                             {% endif %}
+                            {% if page.opensearch_forum_username -%}
+                                <li class="author-social-media--community-forum">
+                                    <div class="author-social-media--community-forum--icon">
+                                        <a target="_blank" href="https://forum.opensearch.org/u/{{ page.opensearch_forum_username }}/summary">
+                                            {% include icons.html type="community" %}
+                                        </a>
+                                    </div>
+                                    <div class="author-social-media--community-forum--name">
+                                        <a target="_blank" href="https://forum.opensearch.org/u/{{ page.opensearch_forum_username }}/summary">
+                                            {{ page.opensearch_forum_username }}
+                                        </a>
+                                    </div>
+                                </li>
+                            {%- endif %}
                         </ul>
                     </div>
                 {%- endif -%}

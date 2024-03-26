@@ -74,6 +74,9 @@ twitter: twitterusername
 mastodon:
   url: https://mastodon.social/@mastodonusername
   name: mastodonusername
+
+# Optional OpenSearch Forum username
+opensearch_forum_username: forumusername
 ---
 
 Markdown or HTML content providing a user bio, or whatever is desired to describe their involvement in open source technology in general, and specifically how their work relates to the OpenSearch Project.
