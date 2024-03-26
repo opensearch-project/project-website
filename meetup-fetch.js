@@ -5,6 +5,27 @@ const fs = require('node:fs/promises');
 const path = require('path');
 const https = require('node:https');
 
+class MeetupAPISecrets {
+    memberId = '';
+    clientKey = '';
+    clientSecret = '';
+    tokenExpirationInSeconds = 120;
+    signingKeyId = '';
+    privateKey = '';
+    proNetworkName = 'opensearchproject';
+    graphQlBaseUrl = 'api.meetup.com';
+
+    // TODO / TBD
+    // Hoping to be able to eliminate the maintenance risk by being able 
+    // to query for this list from the pro network query
+    // I am speaking with less than 100% certainty here, because of the problem
+    // I encountered using that query in the Meetup API docs GraphQL Playground.
+    // The error message indcated failure, because "I need to be an admin OR I need to be logged in".
+    // I think what the message really indicated was that I need to be logged in AS AN admin.
+    // The usee of the "or" conjunction seemed like a poor grammatical choice.
+    groupNames = 'pensearch-project-austin,opensearch-project-chicago,opensearch,opensearch-project-seattle,new-york-city-opensearch-user-group,opensearch-project-bristol,opensearch-project-amsterdam';
+}
+
 class EventCategory {
     
     static COMMUNITY = 'community';
@@ -128,7 +149,7 @@ function signJWT(
     signingKeyId, 
     privateKey, 
     payload = {},
-    expiresInSeconds = process.env.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS,
+    expiresInSeconds,
 ) {
     return new Promise((resolve, reject) => {
         jwt.sign(
@@ -144,14 +165,56 @@ function signJWT(
             },
             (error, token) => {
                 if (error) {
-                    const parsedErrorResponse = JSON.parse(error);
-                    reject(parsedErrorResponse);
+                    reject(error);
                 } else {
-                    const parsedTokenResponse = JSON.parse(token);
-                    resolve(parsedTokenResponse);
+                    resolve(token);
                 }
             },
         );
+    });
+}
+
+/**
+ * Invoke a HTTP POST request to the identified host, for the identified resource path with the provided body, and headers.
+ * At a minimum the 'content-type' request header must be defined.
+ * The returned Promise is resolved with either a string, or an object in the case that the POST response headers include a
+ * value of 'application/json' for the 'content-type'.
+ * Note: All response data is processed with a UTF8 encoding.
+ * @param {string} hostname Hostname of the server to call.
+ * @param {string} path URL path string
+ * @param {string} postBodyString POST body as a string.
+ * @param {object} headers HTTP request header tuples; at a minimum the 'content-type' header should be defined to match what is in the POST body.
+ * @returns {Promise<string|object>}
+ */
+function invokePostRequest(hostname, path, postBodyString, headers) {
+    return new Promise((resolve, reject) => {
+        const options = {
+            hostname,
+            path,
+            port: 443,
+            method: 'POST',
+            headers,
+        };
+        const request = https.request(options, (response) => {
+            const responseDataChunkStack = [];
+            response.setEncoding('utf8');
+            response.on('data', (responseDataChunk) => {
+                responseDataChunkStack.push(responseDataChunk);
+            });
+            response.on('end', () => {
+                const accumulatedResponse = responseDataChunkStack.join('');
+                if (response.headers['content-type'] === 'application/json') {
+                    const parsedResponse = JSON.parse(accumulatedResponse);
+                    resolve(parsedResponse);
+                } else {
+                    resolve(accumulatedResponse);
+                }
+            });
+            response.on('error', reject);
+        });
+        request.on('error', reject);
+        request.write(postBodyString);
+        request.end();
     });
 }
 
@@ -164,48 +227,32 @@ function signJWT(
  * @param {string} hostname Meetup API hostname
  * @returns {Promise<object>}
  */
-function performApiRequest(postBody, hostname = process.env.MEETUP_API_BASE_URL) {
-    return new Promise(async (resolve, reject) => {
-        const meetupClientId = process.env.MEETUP_API_CLIENT_KEY;
-        const meetupMemberId = process.env.MEETUP_API_AUTHORIZED_MEMBER_ID;
-        const meetupKeyId = process.env.MEETUP_API_SIGNING_KEY_ID;
-        const meetupPrivateKey = process.env.MEETUP_API_PRIVATE_KEY;
-        const expiresInSeconds = parseInt(process.env.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS, 10);
-        const signedPostBody = await signJWT(
-            meetupClientId, 
-            meetupMemberId, 
-            meetupKeyId, 
-            meetupPrivateKey, 
-            postBody,
-            expiresInSeconds
-        );
-        const options = {
-            hostname,
-            path: '/gql',
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer: ${signedPostBody.access_token}`,
-            },
-        };
-        const request = https.request(options, (response) => {
-            const chunks = [];
-            response.setEncoding('utf8');
-            response.on('data', (chunk) => {
-                chunk.push(chunk);
-            });
-            response.on('end', () => {
-                const body = Buffer.concat(chunks).toString();
-                const parsedBody = JSON.parse(body);
-                resolve(parsedBody);
-            });
-            response.on('error', (error) => {
-                reject(error);
-            })
-        });
-        const jsonPostBody = JSON.stringify(postBody);
-        request.write(jsonPostBody);
-        request.end();
-    });
+async function performApiRequest(postBody, hostname = process.env.MEETUP_API_BASE_URL) {
+    const meetupClientId = process.env.MEETUP_API_CLIENT_KEY;
+    const meetupMemberId = process.env.MEETUP_API_AUTHORIZED_MEMBER_ID;
+    const meetupKeyId = process.env.MEETUP_API_SIGNING_KEY_ID;
+    const meetupPrivateKey = process.env.MEETUP_API_PRIVATE_KEY;
+    const expiresInSeconds = parseInt(process.env.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS, 10) + Math.floor(Date.now() / 1000);
+    const stringifiedPostBody = JSON.stringify(postBody);
+    const signedJwt = await signJWT(
+        meetupClientId, 
+        meetupMemberId, 
+        meetupKeyId, 
+        meetupPrivateKey, 
+        postBody,
+        expiresInSeconds
+    );
+    const queryByteLength = Buffer.byteLength(stringifiedPostBody);
+    const requestHeaders = {
+        Authorization: `Bearer: ${signedJwt}`,
+        ['Content-Type']: 'application/json',
+        ['Content-Length']: queryByteLength,
+        timeout: parseInt(process.env.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS, 10) * 1000,
+    };
+
+    // TODO: Implement a retry count on timeout.
+    const apiResponse = await invokePostRequest(hostname, '/gql', stringifiedPostBody, requestHeaders);
+    return apiResponse;
 }
 
 /**
@@ -288,7 +335,7 @@ async function queryForGroupEvents(
     }
     `;
     const variables = {
-        urlname: "${groupUrlName}",
+        urlname: `${groupUrlName}`,
     };
     if (eventsCursor !== '') {
         variables.input = {
@@ -302,87 +349,6 @@ async function queryForGroupEvents(
     const response = await performApiRequest(postBody);
     return response;
 }
-
-/**
- * Mock implementation of the queryForGroupEvents function using data that had been previously fetched
- * using the Meetup API Documentation GraphQL Playground. This includes the paged results for the "opensearch" group
- * which at the time of querying all 7 known OpenSearch Project associated groups was the only group to
- * have any scheduled events.
- * This function is useful for testing the business logic of this script until API credentials are available,
- * with secrets management in place, and the JWT client logic can be worked out. 
- * @param {string} groupUrlName URL name of a Meetup Group associated with the OpenSearch Project for whose events are being queried.
- * @param {string} eventsCursor Events list results paging cursor for making round trips for additional paged results.
- * @returns {Promise<obejct>} 
- * @see {queryForGroupEvents}
- * @see {@link "https://www.meetup.com/api/schema/#groupByUrlname"}
- */
-async function mock__queryForGroupEvents(
-    groupUrlName,
-    eventsCursor = '',
-) {
-    return new Promise((resolve, reject) => {
-        switch (groupUrlName) {
-            case 'opensearch-project-austin':
-                resolve(require('./meetup-api-mocks/opensearch-project-austin-groupByUrlname.json'));
-                break;
-            case 'opensearch-project-chicago':
-                resolve(require('./meetup-api-mocks/opensearch-project-chicago-groupByUrlname.json'));
-                break;
-            case 'opensearch':
-                switch (eventsCursor) {
-                    case '':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-1.json'));
-                        break;
-                    case 'Mjk4MjExMTIzOjE3MDkwMzg4MDAwMDA=':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-2.json'));
-                        break;
-                    case 'bmdsY2t0eWdjZ2JuYjoxNzEyNzU0MDAwMDAw':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-3.json'));
-                        break;
-                    case 'a3Zkemp0eWdjaGJtYzoxNzE2OTg0MDAwMDAw':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-4.json'));
-                        break;
-                    case 'a3hsemh0eWdja2J0YjoxNzIxMDQ0ODAwMDAw':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-5.json'));
-                        break;
-                    case 'bmdsY2t0eWdjbGJsYzoxNzI0ODUwMDAwMDAw':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-6.json'));
-                        break;
-                    case 'a3Zkemp0eWdjbmJ2YjoxNzI5MDgwMDAwMDAw':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-7.json'));
-                        break;
-                    case 'a3hsemh0eWdjcWJkYjoxNzMzMTQ0NDAwMDAw':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-8.json'));
-                        break;
-                    case 'bmdsY2t0eWhjY2J0YjoxNzM2OTQ5NjAwMDAw':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-9.json'));
-                        break;
-                    case 'bmdsY2t0eWhjY2JkYzoxNzM3NTU0NDAwMDAw':
-                        resolve(require('./meetup-api-mocks/opensearch-groupByUrlname-response-10.json'));
-                        break;
-                    default:
-                        reject('Unrecognized events cursor');
-                        break;
-                }
-                break;
-            case 'opensearch-project-seattle':
-                resolve(require('./meetup-api-mocks/opensearch-project-seattle-groupByUrlname.json'));
-                break;
-            case 'new-york-city-opensearch-user-group':
-                resolve(require('./meetup-api-mocks/new-york-city-opensearch-user-group-groupByUrlname.json'));
-                break;
-            case 'opensearch-project-bristol':
-                resolve(require('./meetup-api-mocks/opensearch-project-bristol-groupByUrlname.json'));
-                break;
-            case 'opensearch-project-amsterdam':
-                resolve(require('./meetup-api-mocks/opensearch-project-amsterdam-groupByUrlname.json'));
-                break;
-            default:
-                reject('Unrecognized group name');
-        }
-    });
-}
-
 
 /**
  * Returns a string containing the date from a date time as required by the
@@ -548,9 +514,10 @@ async function writeEventCollectionFile(openSearchEvent) {
 /**
  * Returns an aggregated array of Meetup API GraphQL Schema Event objects
  * for all Meetup Groups associated with the OpenSearch Project Pro Meetup Network.
+ * @param {MeetupAPISecrets} meetupSecrets
  * @returns {Promise<object>}
  */
-async function requestEventsFromMeetupAPI() {
+async function requestEventsFromMeetupAPI(meetupSecrets) {
 
     // TODO
     // Figure out if its possible to use the proNetworkByUrlname,
@@ -563,35 +530,31 @@ async function requestEventsFromMeetupAPI() {
     //      "User must be logged-in or must be an admin of a network."
     // Given that I am logged-in, I assume that the correct conjuction in the error message
     // should actually be "and", and not "or". As in "User must be logged-in AND an admin of a network".
-    //
-    // Observing the OpenSearch Project Pro Network Meetup page there
-    // is 7 groups currently associated with the project. Only one has scheduled
-    // events at this time. The names have been placed in the .env file, and a mock
-    // implementation is provided that uses the data retrieved from the groupByUrlname
-    // query in the Meetup GraphQL Playground.
 
-    const openSearchGroupNames = process.env.MEETUP_OPENSEARCH_GROUP_NAMES.split(',');
+    const openSearchGroupNames = meetupSecrets.groupNames.split(',');
     const groupCount = openSearchGroupNames.length;
     let aggregatedEvents = [];
     for (let i = 0; i < groupCount; ++i) {
         const groupName = openSearchGroupNames[i];
-
-        //
-        // TODO: Replace the calls to mock__queryForGroupEvents with calls to queryForGroupEvents
-        //       once API access is granted.
-        //
-        const groupEventsResponse = await mock__queryForGroupEvents(groupName);
+        const groupEventsResponse = await queryForGroupEvents(groupName);
+        const totalGroupEventCount = groupEventsResponse?.data?.groupByUrlname?.unifiedEvents?.count ?? 0;
+        let accumulatedGroupEventCount = 0;
         const firstPageOfGroupEvents = groupEventsResponse?.data?.groupByUrlname?.unifiedEvents?.edges ?? [];
         if (firstPageOfGroupEvents.length > 0) {
             aggregatedEvents = [...aggregatedEvents, ...firstPageOfGroupEvents];
+            accumulatedGroupEventCount += firstPageOfGroupEvents.length;
             let eventsCursor = firstPageOfGroupEvents[firstPageOfGroupEvents.length - 1].cursor;
-            while (eventsCursor !== '') {
-                const nextPageOfGroupEvents = await mock__queryForGroupEvents(groupName, eventsCursor);
+            while (eventsCursor !== '' && accumulatedGroupEventCount < totalGroupEventCount) {
+                const nextPageOfGroupEvents = await queryForGroupEvents(groupName, eventsCursor);
                 const nextEvents = nextPageOfGroupEvents?.data?.groupByUrlname?.unifiedEvents?.edges ?? [];
                 if (nextEvents.length > 0) {
                     aggregatedEvents = [...aggregatedEvents, ...nextEvents];
+                    accumulatedGroupEventCount += nextEvents.length;
                     eventsCursor = nextEvents[nextEvents.length - 1].cursor;
                 } else {
+                    if (nextPageOfGroupEvents.error) {
+                        console.dir(nextPageOfGroupEvents.error);
+                    }
                     eventsCursor = '';
                 }
             }
@@ -600,7 +563,36 @@ async function requestEventsFromMeetupAPI() {
     return aggregatedEvents;
 }
 
-requestEventsFromMeetupAPI().then(meetupEvents => {
+/**
+ * 
+ * @param {object} env Process environment variables or some sort of object with the required values.
+ * @returns {MeetupAPISecrets}
+ */
+function getMeetupAPISecrets(env = process.env) {
+    const meetupSecrets = {
+        memberId: env?.MEETUP_API_AUTHORIZED_MEMBER_ID,
+        clientKey: env?.MEETUP_API_CLIENT_KEY,
+        clientSecret: env?.MEETUP_API_CLIENT_SECRET,
+        tokenExpirationInSeconds: env?.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS ?? 120,
+        signingKeyId: env?.MEETUP_API_SIGNING_KEY_ID,
+        privateKey: env?.MEETUP_API_PRIVATE_KEY,
+        proNetworkName: env?.MEETUP_OPENSEARCH_PROJECT_PRO_NETWORK_NAME ?? 'opensearchproject',
+        graphQlBaseUrl: env?.MEETUP_API_BASE_URL ?? 'api.meetup.com',
+        groupNames: env?.MEETUP_OPENSEARCH_GROUP_NAMES ?? 'opensearch',
+    };
+    if (!Object.entries(meetupSecrets).every(([k, v]) => {
+        const hasValue = !!v;
+        if (!hasValue) {
+            throw new TypeError(`Missing Meetup configuration data value for ${k}`);
+        }
+        return true;
+    })) {
+        console.error('Invalid Meetup API Configuration. Cannot pull events.');
+        return null;
+    }
+}
+
+requestEventsFromMeetupAPI(getMeetupAPISecrets()).then(meetupEvents => {
     const openSearchEvents = meetupEvents.map(meetupEvent => transformMeetupEventToOpenSearchEvent(meetupEvent.node));
     openSearchEvents.forEach(writeEventCollectionFile);
 }).catch(console.error);
