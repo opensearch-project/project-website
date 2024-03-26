@@ -318,7 +318,7 @@ layout: default
     });
 </script>
 <template id="community-member-external-content-container-template">
-    <div class="community-member--blog-posts solutions-card-grid">
+    <div class="community-member--blog-posts solutions-card-grid community-member--external-content-posts">
         <h2>External Blog Posts &amp; Articles by {{ page.name }}</h2>
         <div class="community-member--blog-posts--cards tall-card__no-image--grid solutions-card-grid--card-wrapper"></div>
     </div>
@@ -763,6 +763,40 @@ layout: default
 <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
         
+        const EXTERNAL_CONTENT_CARD_GRID_TEMPLATE_ID = 'community-member-external-content-container-template';
+        const EXTERNAL_CONTENT_CARD_TEMPLATE_ID = 'community-member-external-content-card-template';
+        const EXTERNAL_CONTENT_CARD_CONTAINER_CLASSNAME = 'community-member--external-content-posts';
+        const CARD_CATEGORY_ELEMENT_CLASSNAME = 'tall-card__no-image--grid--card--category';
+        const CARD_TITLE_ELEMENT_CLASSNAME = 'tall-card__no-image--grid--card--title';
+        const CARD_ICON_ELEMENT_CLASSNAME = 'tall-card__no-image--grid--card--footer--icon';
+        const CARD_DATE_ELEMENT_CLASSNAME = 'tall-card__no-image--grid--card--footer--date';
+        const BLOG_POSTS_CARDS_CLASSNAME = 'community-member--blog-posts--cards';
+        const TALL_CARD_NO_IMAGE_GRID_CLASSNAME = 'tall-card__no-image--grid';
+        const SOLUTIONS_CARD_GRID_CARD_WRAPPER_CLASSNAME = 'solutions-card-grid--card-wrapper';
+        const CARD_GRID_WRAPPER_SELECTOR = `.${[
+            BLOG_POSTS_CARDS_CLASSNAME,
+            TALL_CARD_NO_IMAGE_GRID_CLASSNAME,
+            SOLUTIONS_CARD_GRID_CARD_WRAPPER_CLASSNAME
+        ].join('.')}`;
+        const CONTENT_LAYOUT_CLASSNAME = 'two-column-layout';
+        const CONTENT_LAYOUT_SIDEBAR_CLASSNAME = 'two-column-layout--sidebar';
+        const CONTENT_LAYOUT_SIDEBAR_DESCRIPTION_CLASSNAME = 'community-member--description';
+        const CONTENT_LAYOUT_MEMBER_DESCRIPTION_SELECTOR = `${[
+            `.${CONTENT_LAYOUT_CLASSNAME}`,
+            `.${CONTENT_LAYOUT_SIDEBAR_CLASSNAME}`,
+            `.${CONTENT_LAYOUT_SIDEBAR_DESCRIPTION_CLASSNAME}`,
+        ].join(' > ')}`;
+        const CONTENT_LAYOUT_BODY_CLASSNAME = 'two-column-layout--body';
+        const CONTENT_LAYOUT_PARENT_SELECTOR = `${[
+            `.${CONTENT_LAYOUT_CLASSNAME}`,
+            `.${CONTENT_LAYOUT_BODY_CLASSNAME}`,
+        ].join(' > ')}`;
+        const DEFAULT_CATEGORY_ICON_NAME = 'community';
+        const CATEGORY_ICON_TEMPLATE_ID_BASE = 'content-category-icon-template-';
+        const DEFAULT_CATEGORY_ICON_TEMPLATE_ID = `${CATEGORY_ICON_TEMPLATE_ID_BASE}${DEFAULT_CATEGORY_ICON_NAME}`;
+        const EXTERNAL_CONTENT_START_DELIMITER_COMMENT_TEXT = 'external content start';
+        const EXTERNAL_CONTENT_END_DELIMITER_COMMENT_TEXT = 'external content end';
+
         /**
          * Searches the document for user-defined external content starting and ending delimiter comment nodes.
          * The returned object defines two properties:
@@ -771,12 +805,16 @@ layout: default
          * * endingDelimiter
          * 
          * Each is a Node reference to the corresponding element in the DOM, or null if not found.
+         * @param {string} iteratorRootSelector A string defining the DOM query selector for the element within the node iteration search for the external content comment delimiters will be performed.
+         * @param {string} startingDelimiterText A string defining the text that will be used to identify the comment node that defines the start of the external content definition block.
+         * @param {string} endingDelimiterText A string defining the text that will be used to identify the comment node that defines the end of the external content definition block.
          * @returns {object}
          */
-        function findExternalContentDelimiterComments() {
-            const iteratorRootSelector = '.two-column-layout > .two-column-layout--sidebar > .community-member--description';
-            const startingDelimiterText = 'external content start';
-            const endingDelimiterText = 'external content end';
+        function findExternalContentDelimiterComments(
+            iteratorRootSelector,
+            startingDelimiterText,
+            endingDelimiterText
+        ) {
             const iteratorRootElement = document.querySelector(iteratorRootSelector);
             const commentIterator = document.createNodeIterator(iteratorRootElement, NodeFilter.SHOW_COMMENT);
 
@@ -846,7 +884,8 @@ layout: default
         }
 
         /**
-         * Returns an array of objects that define the external content cards defined in the provided HTML table.
+         * Returns an array of objects that define the data which will be included in the external content cards 
+         * that is defined in the  HTML table element referenced by the value of the tableElement argument.
          * Each object in the array will contain the following properties:
          * 
          * * title
@@ -888,9 +927,10 @@ layout: default
 
         /**
          * Returns a localized content date.
-         * The function is created with partial application with the formatter as to limit
-         * the subset of the localization string database to that which is required by
-         * the browser language configuration.
+         * The function is created with an IIFE as to define the function with partial application of an instance
+         * of Intl.DateTimeFormat appropriate for the Card UX specification and the localization configured
+         * by the user agent to provide a reusable date formatter as to limit the subset of the localization 
+         * string database to that which is required by the browser language configuration.
          * @param {string} dateString Content date string expected to be formatted as 'YYYY-MM-DD'.
          * @returns {string}
          */
@@ -913,9 +953,10 @@ layout: default
         }));
 
         /**
-         * Returns a date string formatted appropriately according to the style guid.
+         * Returns a date string formatted appropriately according to the style guide.
          * Specifically, this will be the 'SHORT-DAY-NAME, SHORT-MONTH-NAME TWO-DIGIT-DAY-OF-MONTH, FOUR-DIGIT-YEAR'.
-         * For example, for a dateString value of '2024-04-18' the return value would be 'Mon, Mar 18, 2024'.
+         * For example, for a dateString value of '2024-04-18' the return value would be 'Mon, Mar 18, 2024'
+         * if the user agent locale is configured with 'en-US'.
          * @param {string} dateString A date specified in the format 'YYYY-MM-DD' from which to create a formatted string.
          * @returns {string}
          */
@@ -925,13 +966,15 @@ layout: default
 
         /**
          * Return a <svg> icon identified by the content category name indicated by the value
-         * of the categoryName argument.
+         * of the categoryName argument. If the `categoryName` value is not recognized then the icon identified
+         * by the defaultCategoryTemplateId will be returned as a fallback.
          * @param {string} categoryName A string defining the name of the content category.
+         * @param {string} defaultCategoryTemplateId A string defining the template ID of the default / fallback category icon.
+         * @param {string} templateIdBase A string defining the base of the category icon template ID to which the category name will be appended.
          * @returns {SVGSVGElement}
          */
-        function createCategoryIcon(categoryName) {
-            const defaultCategoryTemplateId = 'content-category-icon-template-community';
-            const templateId = `content-category-icon-template-${categoryName.toLowerCase()}`;
+        function createCategoryIcon(categoryName, defaultCategoryTemplateId, templateIdBase) {
+            const templateId = `${templateIdBase}${categoryName.toLowerCase()}`;
             const templateElement = document.getElementById(templateId);
             if (templateElement) {
                 const templateContent = templateElement.content.cloneNode(true);
@@ -945,21 +988,32 @@ layout: default
          * Returns a content card by populating a clone of the "#community-member-external-content-card-template"
          * with the properties defined in the cardConfig object.
          * @param {object} cardConfig
+         * @param {string} externalContentCardTemplateId A string defining the template ID for an external content Card component.
+         * @param {string} categoryElementClass A string defining the classname of the element that is to contain the content category name in the Card component template.
+         * @param {string} titleElementClass A string defining the classname of the element that is to contain the content title text in the Card component template.
+         * @param {string} iconElementClass A string defining the classname of the element that is to contain the category icon within the Card component template.
+         * @param {string} dateElementClass A string defining the classname of the element that is to contain the content create / publish / update date within the Card component template.
          * @returns {HTMLElement}
          */ 
-        function createExternalContentCard(cardConfig) {
-            const externalContentCardTemplateId = 'community-member-external-content-card-template';
+        function createExternalContentCard(
+            cardConfig,
+            externalContentCardTemplateId,
+            categoryElementClass,
+            titleElementClass,
+            iconElementClass,
+            dateElementClass
+
+        ) {
             const externalContentCardTemplate = document.getElementById(externalContentCardTemplateId)?.content?.cloneNode?.(true);
             if (!externalContentCardTemplate) {
                 return null;
             }
             
-            const categoryElementSelctor = '.tall-card__no-image--grid--card--category';
-            const titleElementSelector = '.tall-card__no-image--grid--card--title > a';
-            const iconElementSelector = '.tall-card__no-image--grid--card--footer--icon';
-            const dateElementSelector = '.tall-card__no-image--grid--card--footer--date';
+            const categoryElementSelctor = `.${categoryElementClass}`;
+            const titleElementSelector = `.${titleElementClass} > a`;
+            const iconElementSelector = `.${iconElementClass}`;
+            const dateElementSelector = `.${dateElementClass}`;
 
-            // TODO: FIGURE OUT HOW WE'RE DOING THE ICON LOOKUP, AND DO THAT CLIENT SIDE.
             const categoryElement = externalContentCardTemplate.querySelector(categoryElementSelctor);
             if (categoryElement) {
                 categoryElement.textContent = cardConfig.category;
@@ -971,7 +1025,13 @@ layout: default
             }
             const iconElement = externalContentCardTemplate.querySelector(iconElementSelector);
             if (iconElement) {
-                iconElement.appendChild(createCategoryIcon(cardConfig.category));
+                iconElement.appendChild(
+                    createCategoryIcon(
+                        cardConfig.category,
+                        DEFAULT_CATEGORY_ICON_TEMPLATE_ID,
+                        CATEGORY_ICON_TEMPLATE_ID_BASE
+                    )
+                );
             }
             const dateElement = externalContentCardTemplate.querySelector(dateElementSelector);
             if (dateElement) {
@@ -981,19 +1041,24 @@ layout: default
         }
 
         /**
-         * Returns a content card grid by populating a clone of the "#community-member-external-content-container-template"
-         * HTML template, and inserting the collection of content cards in the cardsContent collection.
+         * Returns a content card grid by populating a clone of the content of the template identified by the
+         * externalContentCardGridTemplateId parameter's argument value, and inserting the collection of 
+         * content cards in the cardsContent collection.
          * @param {HTMLElement[]} cardsContent
+         * @param {string} externalContentCardGridTemplateId A string defining the template ID of the external content Card Grid component.
+         * @param {string} cardGridWrapperSelector A string defining the element within the Card Grid component template that is the container of the Card components themselves.
          * @returns {HTMLElement}
          */
-        function createExternalContentCardGrid(cardsContent) {
-            const externalContentCardGridTemplateId = 'community-member-external-content-container-template';
+        function createExternalContentCardGrid(
+            cardsContent,
+            externalContentCardGridTemplateId,
+            cardGridWrapperSelector,
+        ) {
             const externalContentCardGridTemplate = document.getElementById(externalContentCardGridTemplateId)?.content?.cloneNode?.(true);
             if (!externalContentCardGridTemplate) {
                 return null;
             }
 
-            const cardGridWrapperSelector = '.community-member--blog-posts--cards.tall-card__no-image--grid.solutions-card-grid--card-wrapper';
             const cardGridWrapperElement = externalContentCardGridTemplate.querySelector(cardGridWrapperSelector);
             if (!cardGridWrapperElement) {
                 return null;
@@ -1006,14 +1071,35 @@ layout: default
          * Inserts a runtime created content card grid into the DOM positioned after all of the member's contributions
          * defined internally (blogs, and conference sessions).
          * @param {HTMLElement} cardGridElement External content card grid with heading to insert into the document.
+         * @param {string} contentParentSelector A string defining the DOM selector for the element to which the external content Card Grid component will be appended.
          * @returns {undefined}
          */ 
-        function insertExternalContentCardGrid(cardGridElement) {
-            const contentParentSelector = '.two-column-layout > .two-column-layout--body';
+        function insertExternalContentCardGrid(cardGridElement, contentParentSelector) {
             const contentParentElement = document.querySelector(contentParentSelector);
             if (contentParentElement) {
                 contentParentElement.appendChild(cardGridElement);
             }
+        }
+
+        /**
+         * Attaches event handlers to provide interactivity states to a contained set of Card components.
+         * The returned Promise is resolved with an informative string indicating that the required
+         * event handlers have been attached.
+         * The global JavaScript namespace `opensearch` attached to the `window` object defines a set of 
+         * functions in a module defined in the "card-clickability.js" asset.
+         * @param {string} cardContainerSelector A string defining the DOM query selector that will be used to identify the DOM element that contains the Card component set.
+         * @param {string} cardClassName A string defining the classname of the Card components that are contained within the containing element.
+         * @returns {Promise<string>}
+         * @see {window.opensearch.makeCardsClickable}
+         */
+        function attachCardInteractivityStateHandling(
+            cardContainerSelector,
+            cardClassName,
+        ) {
+            return window.opensearch.makeCardsClickable(
+                cardContainerSelector,
+                cardClassName,
+            );
         }
 
         /**
@@ -1026,7 +1112,7 @@ layout: default
          * columns named "Title", "URL", "Category", and "Date" in the table header. Each row of the table body
          * will contain the corresponding values for an external content to format into a responsive card grid.
          * An icon will be included that is appropriate for the category. The date will be locale formatted.
-         
+         * 
          * @param {Node} startingDelimiter Comment node delimiting where external content definitions subsequently begin.
          * @param {Node} endingDelimiter Comment node delimiting where external content definitions end.
          * @returns {obejct[]}
@@ -1054,7 +1140,11 @@ layout: default
         const {
             startingDelimiter,
             endingDelimiter
-        } = findExternalContentDelimiterComments();
+        } = findExternalContentDelimiterComments(
+            CONTENT_LAYOUT_MEMBER_DESCRIPTION_SELECTOR,
+            EXTERNAL_CONTENT_START_DELIMITER_COMMENT_TEXT,
+            EXTERNAL_CONTENT_END_DELIMITER_COMMENT_TEXT
+        );
 
         if (!startingDelimiter || !endingDelimiter) {
             console.log('No external content found for processing');
@@ -1073,7 +1163,14 @@ layout: default
                     delete cardConfig.tableElement;
                 }
             }
-            const contentCard = createExternalContentCard(cardConfig);
+            const contentCard = createExternalContentCard(
+                cardConfig,
+                EXTERNAL_CONTENT_CARD_TEMPLATE_ID,
+                CARD_CATEGORY_ELEMENT_CLASSNAME,
+                CARD_TITLE_ELEMENT_CLASSNAME,
+                CARD_ICON_ELEMENT_CLASSNAME,
+                CARD_DATE_ELEMENT_CLASSNAME
+            );
             if (contentCard) {
                 cardDocFragments.push(contentCard);
             }
@@ -1084,8 +1181,21 @@ layout: default
         }
 
         if (cardDocFragments.length > 0) {
-            const externalContentCardGrid = createExternalContentCardGrid(cardDocFragments);
-            insertExternalContentCardGrid(externalContentCardGrid);
+            const externalContentCardGrid = createExternalContentCardGrid(
+                cardDocFragments,
+                EXTERNAL_CONTENT_CARD_GRID_TEMPLATE_ID,
+                CARD_GRID_WRAPPER_SELECTOR
+            );
+            insertExternalContentCardGrid(
+                externalContentCardGrid,
+                CONTENT_LAYOUT_PARENT_SELECTOR
+            );
+            attachCardInteractivityStateHandling(
+                EXTERNAL_CONTENT_CARD_CONTAINER_CLASSNAME,
+                BLOG_POSTS_CARDS_CLASSNAME,
+            ).then(noticeText => {
+                console.log(noticeText);
+            });
         }
     });
 </script>
