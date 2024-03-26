@@ -79,28 +79,18 @@ mastodon:
 Markdown or HTML content providing a user bio, or whatever is desired to describe their involvement in open source technology in general, and specifically how their work relates to the OpenSearch Project.
 
 
+If there is content external to the opensearch.org site that the user would like to share on their community member page
+it can be defined in a table with four columns - Title, URL, Category, Date - where each row of the table defines the 
+corresponding data points labeled by the column header, and wrap the table (or multiple tables) in between two
+HTML comment delimiters. The comments require specific text. The text of the starting delimiter must be the string "external content start" (without double quotes).
+The text of the ending delimiter must be the string "external content end" (without the double quotes).
+
 <!-- external content start -->
 
-# External Article About Search
-
-URL
-: https://duckduckgo.com
-
-Category
-: Search
-
-Date
-: 2023-12-01
-
-# External Article About Security
-
-URL
-: https://duckduckgo.com
-
-Category
-: Security
-
-Date
-: 2023-03-14
+| Title | URL | Category | Date |
+| ----- | --- | -------- | ---- |
+| This is a fake title | https://duckduckgo.com?q=observability+category | Observability | 2024-03-01 |
+| Another fake title   | https://duckduckgo.com?q=search+category | Search | 2022-11-11 |
+| Lorem ipsum or whatever | https://duckduckgo.com?q=security+category | Security | 2021-05-05 |
 
 <!-- external content end -->
