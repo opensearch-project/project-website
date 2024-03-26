@@ -99,7 +99,7 @@ To support [secret rotation](https://docs.aws.amazon.com/secretsmanager/latest/u
 
 For more information, please see the [`aws` extension](https://opensearch.org/docs/latest/data-prepper/managing-data-prepper/configuring-data-prepper/#aws-extension-plugins) documentation.
 
-This feature is experimental while we work to add more support for refreshing certain fields and dynamically updating those fields.
+Note that this feature is currently experimental, and we are working to add support for refreshing and dynamically updating certain fields.
 In particular, the `opensearch` sink and the `kafka` plugins do not automatically refresh secrets.
 
 
@@ -110,7 +110,7 @@ In particular, the `opensearch` sink and the `kafka` plugins do not automaticall
 * Some users have fields that are gzip-compressed at the field level. These users can decompress those fields using the `decompress` processor.
 * Data Prepper can now join strings from multiple strings, including with a delimiter.
 * The new `select_entries` processor allows users to select only the necessary fields from events. This can simplify how users filter unnecessary data.
-* Users who wish to reduce the size of fields in OpenSearch can use the `truncate` processor which truncates strings to a configurable maximum length.
+* Users who wish to reduce the size of fields in OpenSearch can use the `truncate` processor, which truncates strings to a configurable maximum length.
 * The `file` source now supports codecs. This can help you test a pipeline locally before using the `s3` source.
 
 ## Getting started
