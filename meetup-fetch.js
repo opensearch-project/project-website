@@ -14,15 +14,6 @@ class MeetupAPISecrets {
     privateKey = '';
     proNetworkName = 'opensearchproject';
     graphQlBaseUrl = 'api.meetup.com';
-
-    // TODO / TBD
-    // Hoping to be able to eliminate the maintenance risk by being able 
-    // to query for this list from the pro network query
-    // I am speaking with less than 100% certainty here, because of the problem
-    // I encountered using that query in the Meetup API docs GraphQL Playground.
-    // The error message indcated failure, because "I need to be an admin OR I need to be logged in".
-    // I think what the message really indicated was that I need to be logged in AS AN admin.
-    // The usee of the "or" conjunction seemed like a poor grammatical choice.
     groupNames = 'pensearch-project-austin,opensearch-project-chicago,opensearch,opensearch-project-seattle,new-york-city-opensearch-user-group,opensearch-project-bristol,opensearch-project-amsterdam';
 }
 
@@ -113,25 +104,6 @@ class MeetupJWTSuccessResponse {
     expires_in = 120;
     refresh_token = ''
 }
-
-class MeetupJWTErrorResponse {
-
-    static invalid_request = 'The request was malformed or missing parameters';
-
-    static invalid_client = 'Client authentication failed';
-
-    static unauthorized_client = 'The client is not authorized';
-
-    static invalid_grant = 'The provided code was invalid';
-
-    static unsupported_grant_type = 'Meetup does not support the provided grant type';
-
-    /**
-     * @property {string} error
-     */
-    error = '';
-}
-
 
 /**
  * Return a Promise resolved with a JSON Web Token signed for a Meetup API request payload.
@@ -262,40 +234,6 @@ async function performApiRequest(postBody, meetupSecrets) {
         requestHeaders
     );
     return apiResponse;
-}
-
-/**
- * TODO: The Meetup API Documentation GraphQL Playground does not permit my user account to
- * query the groupsSearch field, nor the eventsSearch field on the proNetworkByUrlname schema.
- * I suspect that this would be a more future proof way to aggregate all events from all groups
- * that are associated with the OpenSearch Project instead of relying on maintaining a list
- * of hardcoded values in an environment variable observed by actually looking at the OpenSearch Project
- * Meetup page, and collecting those group url names. 
- * @param {string} openSearchUrlName 
- * @param {string} eventsCursor 
- */
-async function queryForOpenSearchProNetwork(
-    openSearchUrlName = 'opensearchproject',
-    eventsCursor = '',
-) {
-    const query = `
-    query($urlname: String!) {
-        proNetworkByUrlname(urlname: $urlname) {
-            id
-            groupsSearch {
-                count
-            }
-            eventsSearch {
-                count
-            }
-        }
-    }
-    `;
-    try {
-        const queryResponse = await performApiRequest();
-    } catch (error) {
-
-    }
 }
 
 /**
@@ -529,19 +467,6 @@ async function writeEventCollectionFile(openSearchEvent) {
  * @returns {Promise<object>}
  */
 async function requestEventsFromMeetupAPI(meetupSecrets) {
-
-    // TODO
-    // Figure out if its possible to use the proNetworkByUrlname,
-    // or the proNetwork query to do one of the following:
-    // * Use the eventsSearch field to retrieve all events associated with the pro network.
-    // * Use the groupsSearch field to retrieve all associated groups, and then use each group
-    //      to retrieve all associated events.
-    // The expression "figure out" is used above, because the Meetup API
-    // GraphQL Playground responds with an error message that says:
-    //      "User must be logged-in or must be an admin of a network."
-    // Given that I am logged-in, I assume that the correct conjuction in the error message
-    // should actually be "and", and not "or". As in "User must be logged-in AND an admin of a network".
-
     const openSearchGroupNames = meetupSecrets.groupNames.split(',');
     const groupCount = openSearchGroupNames.length;
     let aggregatedEvents = [];
