@@ -224,24 +224,30 @@ function invokePostRequest(hostname, path, postBodyString, headers) {
  * If an error occurs in the HTTPS library then the Promise is rejected with an error object
  * describing the error.
  * @param {string} postBody GraphQL query
- * @param {string} hostname Meetup API hostname
+ * @param {MeetupAPISecrets} meetupSecrets Meetup API secrets from the environment.
  * @returns {Promise<object>}
  */
-async function performApiRequest(postBody, hostname = process.env.MEETUP_API_BASE_URL) {
-    const meetupClientId = process.env.MEETUP_API_CLIENT_KEY;
-    const meetupMemberId = process.env.MEETUP_API_AUTHORIZED_MEMBER_ID;
-    const meetupKeyId = process.env.MEETUP_API_SIGNING_KEY_ID;
-    const meetupPrivateKey = process.env.MEETUP_API_PRIVATE_KEY;
-    const expiresInSeconds = parseInt(process.env.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS, 10) + Math.floor(Date.now() / 1000);
+async function performApiRequest(postBody, meetupSecrets) {
+
+    const {
+        clientKey,
+        graphQlBaseUrl,
+        memberId,
+        privateKey,
+        signingKeyId,
+        tokenExpirationInSeconds,
+    } = meetupSecrets;
+    const expiresInSeconds = parseInt(tokenExpirationInSeconds, 10) + Math.floor(Date.now() / 1000);
     const stringifiedPostBody = JSON.stringify(postBody);
     const signedJwt = await signJWT(
-        meetupClientId, 
-        meetupMemberId, 
-        meetupKeyId, 
-        meetupPrivateKey, 
+        clientKey,
+        memberId,
+        signingKeyId,
+        privateKey,
         postBody,
         expiresInSeconds
     );
+    const graphQLUrlPath = '/gql';
     const queryByteLength = Buffer.byteLength(stringifiedPostBody);
     const requestHeaders = {
         Authorization: `Bearer: ${signedJwt}`,
@@ -249,9 +255,12 @@ async function performApiRequest(postBody, hostname = process.env.MEETUP_API_BAS
         ['Content-Length']: queryByteLength,
         timeout: parseInt(process.env.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS, 10) * 1000,
     };
-
-    // TODO: Implement a retry count on timeout.
-    const apiResponse = await invokePostRequest(hostname, '/gql', stringifiedPostBody, requestHeaders);
+    const apiResponse = await invokePostRequest(
+        graphQlBaseUrl,
+        graphQLUrlPath,
+        stringifiedPostBody,
+        requestHeaders
+    );
     return apiResponse;
 }
 
@@ -294,12 +303,14 @@ async function queryForOpenSearchProNetwork(
  * The "groupByUrlname" query is used to query for the group's "unifiedEvents" field.
  * Paged results can be retrieved via follow up calls by providing a non-empty value the eventsCursor parameter
  * which will be used as the "after" property value for the "input" variable for the "unifiedEvents" field
+ * @param {MeetupAPISecrets} meetupSecrets
  * @param {string} groupUrlName URL name of a Meetup Group associated with the OpenSearch Project for whose events are being queried.
  * @param {string} eventsCursor Events list results paging cursor for making round trips for additional paged results.
  * @returns {Promise<obejct>} 
  * @see {@link "https://www.meetup.com/api/schema/#groupByUrlname"}
  */
 async function queryForGroupEvents(
+    meetupSecrets,
     groupUrlName,
     eventsCursor = '',
 ) {
@@ -346,7 +357,7 @@ async function queryForGroupEvents(
         query,
         variables,
     };
-    const response = await performApiRequest(postBody);
+    const response = await performApiRequest(postBody, meetupSecrets);
     return response;
 }
 
@@ -536,7 +547,7 @@ async function requestEventsFromMeetupAPI(meetupSecrets) {
     let aggregatedEvents = [];
     for (let i = 0; i < groupCount; ++i) {
         const groupName = openSearchGroupNames[i];
-        const groupEventsResponse = await queryForGroupEvents(groupName);
+        const groupEventsResponse = await queryForGroupEvents(meetupSecrets, groupName);
         const totalGroupEventCount = groupEventsResponse?.data?.groupByUrlname?.unifiedEvents?.count ?? 0;
         let accumulatedGroupEventCount = 0;
         const firstPageOfGroupEvents = groupEventsResponse?.data?.groupByUrlname?.unifiedEvents?.edges ?? [];
@@ -545,7 +556,7 @@ async function requestEventsFromMeetupAPI(meetupSecrets) {
             accumulatedGroupEventCount += firstPageOfGroupEvents.length;
             let eventsCursor = firstPageOfGroupEvents[firstPageOfGroupEvents.length - 1].cursor;
             while (eventsCursor !== '' && accumulatedGroupEventCount < totalGroupEventCount) {
-                const nextPageOfGroupEvents = await queryForGroupEvents(groupName, eventsCursor);
+                const nextPageOfGroupEvents = await queryForGroupEvents(meetupSecrets, groupName, eventsCursor);
                 const nextEvents = nextPageOfGroupEvents?.data?.groupByUrlname?.unifiedEvents?.edges ?? [];
                 if (nextEvents.length > 0) {
                     aggregatedEvents = [...aggregatedEvents, ...nextEvents];
@@ -590,6 +601,7 @@ function getMeetupAPISecrets(env = process.env) {
         console.error('Invalid Meetup API Configuration. Cannot pull events.');
         return null;
     }
+    return meetupSecrets;
 }
 
 requestEventsFromMeetupAPI(getMeetupAPISecrets()).then(meetupEvents => {
