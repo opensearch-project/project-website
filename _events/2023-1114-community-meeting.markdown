@@ -1,5 +1,5 @@
 ---
-
+calendar_date: '2023-11-14'
 eventdate: 2023-11-14 15:00:00 -0800
 
 title: OpenSearch Community Meeting - 2023-11-14
