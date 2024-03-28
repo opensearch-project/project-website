@@ -6,7 +6,7 @@ authors:
 date:   2024-03-15 0:00:10 -0700
 categories:
   - community
-excerpt: The OpenSearch Project invites the OpenSearch community to explore the future of search, analytics, and generative AI at the first OpenSearch user conference in Europe. Join us in Berlin on May 6 & 7 and learn how to build powerful applications and get the most out of your OpenSearch deployments.
+excerpt: Software improvements often prioritize adding new features and functionality. Product managers and developers often adopt an agile approach, adding engineering capabilities in iterative steps. Neglecting seamless user experience can lead to a fragmented journey, especially for low-code users. While high-code users might adapt, low-code users often report frustration and dissatisfaction when software updates don't actually help them achieve their goals.
 meta_keywords: 
 meta_description: 
 ---
