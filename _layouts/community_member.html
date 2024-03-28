@@ -780,12 +780,14 @@ layout: default
         const EXTERNAL_CONTENT_CARD_GRID_TEMPLATE_ID = 'community-member-external-content-container-template';
         const EXTERNAL_CONTENT_CARD_TEMPLATE_ID = 'community-member-external-content-card-template';
         const EXTERNAL_CONTENT_CARD_CONTAINER_CLASSNAME = 'community-member--external-content-posts';
+        const EXTERNAL_CONTENT_CARD_CONTAINER_SELECTOR = `.${EXTERNAL_CONTENT_CARD_CONTAINER_CLASSNAME}`;
         const CARD_CATEGORY_ELEMENT_CLASSNAME = 'tall-card__no-image--grid--card--category';
         const CARD_TITLE_ELEMENT_CLASSNAME = 'tall-card__no-image--grid--card--title';
         const CARD_ICON_ELEMENT_CLASSNAME = 'tall-card__no-image--grid--card--footer--icon';
         const CARD_DATE_ELEMENT_CLASSNAME = 'tall-card__no-image--grid--card--footer--date';
         const BLOG_POSTS_CARDS_CLASSNAME = 'community-member--blog-posts--cards';
         const TALL_CARD_NO_IMAGE_GRID_CLASSNAME = 'tall-card__no-image--grid';
+        const TALL_CARD_NO_IMAGE_GRID_CARD_CLASSNAME = 'tall-card__no-image--grid--card';
         const SOLUTIONS_CARD_GRID_CARD_WRAPPER_CLASSNAME = 'solutions-card-grid--card-wrapper';
         const CARD_GRID_WRAPPER_SELECTOR = `.${[
             BLOG_POSTS_CARDS_CLASSNAME,
@@ -1205,8 +1207,8 @@ layout: default
                 CONTENT_LAYOUT_PARENT_SELECTOR
             );
             attachCardInteractivityStateHandling(
-                EXTERNAL_CONTENT_CARD_CONTAINER_CLASSNAME,
-                BLOG_POSTS_CARDS_CLASSNAME,
+                EXTERNAL_CONTENT_CARD_CONTAINER_SELECTOR,
+                TALL_CARD_NO_IMAGE_GRID_CARD_CLASSNAME,
             ).then(noticeText => {
                 console.log(noticeText);
             });
