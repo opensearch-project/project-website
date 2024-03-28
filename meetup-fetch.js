@@ -8,7 +8,6 @@ const https = require('node:https');
 class MeetupAPISecrets {
     memberId = '';
     clientKey = '';
-    clientSecret = '';
     tokenExpirationInSeconds = 120;
     signingKeyId = '';
     privateKey = '';
@@ -508,7 +507,6 @@ function getMeetupAPISecrets(env = process.env) {
     const meetupSecrets = {
         memberId: env?.MEETUP_API_AUTHORIZED_MEMBER_ID,
         clientKey: env?.MEETUP_API_CLIENT_KEY,
-        clientSecret: env?.MEETUP_API_CLIENT_SECRET,
         tokenExpirationInSeconds: env?.MEETUP_API_JWT_EXPIRATION_TIME_IN_SECONDS ?? 120,
         signingKeyId: env?.MEETUP_API_SIGNING_KEY_ID,
         privateKey: env?.MEETUP_API_PRIVATE_KEY,
@@ -516,16 +514,13 @@ function getMeetupAPISecrets(env = process.env) {
         graphQlBaseUrl: env?.MEETUP_API_BASE_URL ?? 'api.meetup.com',
         groupNames: env?.MEETUP_OPENSEARCH_GROUP_NAMES ?? 'opensearch',
     };
-    if (!Object.entries(meetupSecrets).every(([k, v]) => {
+    Object.entries(meetupSecrets).forEach(([k, v]) => {
         const hasValue = !!v;
         if (!hasValue) {
             throw new TypeError(`Missing Meetup configuration data value for ${k}`);
         }
         return true;
-    })) {
-        console.error('Invalid Meetup API Configuration. Cannot pull events.');
-        return null;
-    }
+    });
     return meetupSecrets;
 }
 
