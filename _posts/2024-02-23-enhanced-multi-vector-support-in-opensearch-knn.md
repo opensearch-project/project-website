@@ -5,12 +5,12 @@ authors:
 - heemin
 - vamshin
 - dylantong
-date: 2024-02-23 00:00:00 -0700
+date: 2024-03-28 00:00:00 -0700
 categories:
 - technical-posts
 meta_keywords: OpenSearch multi vector, OpenSearch k-NN nested field
 meta_description: Improvement in OpenSearch k-NN with Nested Field, specifically focusing on multi-vector support
-  excerpt: In OpenSearch 2.12, users can now obtain diverse search results from a k-NN index, even when multiple nearest vectors belong to just a few documents. This is expected to enhance both the efficiency and quality of search outcomes.
+excerpt: In OpenSearch 2.12, users can now obtain diverse search results from a k-NN index, even when multiple nearest vectors belong to just a few documents. This is expected to enhance both the efficiency and quality of search outcomes.
 ---
 
 OpenSearch 2.12 significantly enhances k-NN indexes that use the HNSW algorithm and Faiss or Lucene engines, boosting result diversity by intelligently handling multi-vector support. This improvement ensures better search outcomes by effectively eliminating duplicate vectors from the same document during k-NN searches.
