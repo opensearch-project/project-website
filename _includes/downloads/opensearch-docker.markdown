@@ -5,7 +5,7 @@ The best way to try out OpenSearch is to use [Docker Compose](https://docs.docke
   - **Linux**: Ensure `vm.max_map_count` is set to at least 262144 as per the [documentation](/docs/opensearch/install/important-settings/).
 2. Download [docker-compose.yml](/samples/docker-compose.yml) into your desired directory
   - **Note for OpenSearch 2.12 or later:**
-    When setting up the security demo configuration, set the initial admin password using the `OPENSEARCH_INITIAL_ADMIN_PASSWORD` environment variable. For more information, see [Setting up a demo configuration](https://opensearch.org/docs/latest//security/configuration/demo-configuration/).
+    When setting up the security demo configuration, set the initial admin password using the `OPENSEARCH_INITIAL_ADMIN_PASSWORD` environment variable. For more information, see [Setting up a demo configuration](https://opensearch.org/docs/latest/security/configuration/demo-configuration/).
 3. Run `docker-compose up`
 4. Have a nice coffee while everything is downloading and starting up
 5. Navigate to [http://localhost:5601/](http://localhost:5601) for OpenSearch Dashboards
