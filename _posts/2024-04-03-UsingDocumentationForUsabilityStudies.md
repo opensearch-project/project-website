@@ -104,4 +104,4 @@ This video walks you through the [usability study toolkit](https://www.figma.com
 
 Sundar, A. (2023, Aug 04). *Using community insights to create a persona framework to improve search experiences.* [https://opensearch.org/blog/personas-framework/](https://opensearch.org/blog/personas-framework/)
 
-Sundar, A. and Canas, C. (2023, Sept 22). *OpenSearch search personas: Creating Figma templates to represent a persona framework.* [https://opensearch.org/blog/OpenSearch-Personas-Creating-Figma-Templates-to-Represent-Person-Framework/] (https://opensearch.org/blog/OpenSearch-Personas-Creating-Figma-Templates-to-Represent-Person-Framework/) 
+Sundar, A. and Canas, C. (2023, Sept 22). *OpenSearch search personas: Creating Figma templates to represent a persona framework.* [https://opensearch.org/blog/OpenSearch-Personas-Creating-Figma-Templates-to-Represent-Person-Framework/](https://opensearch.org/blog/OpenSearch-Personas-Creating-Figma-Templates-to-Represent-Person-Framework/) 
