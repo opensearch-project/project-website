@@ -72,7 +72,7 @@ Trust in technology was a key theme for users of all types. Users communicated a
 We presented the findings of this research at the Graylog GO 2023 user conference.
 
 
-{%include youtube-player.html id="zBmEkTN7Jb8" %}
+{%include youtube-player.html id="aJawKuFl7PU" %}
 
 
 **References**
