@@ -78,7 +78,7 @@ When you run your study, sample considerations are important. Use you persona de
 ### Reporting results
 
 Once you have taken time to conduct the studies and obtain usage data, it is time to analyze and report results. The most important aspect to report is task pass or fails. A color coded table summarizing this is very informative. See an example below. In the table, the participant qualification as expert or proficient, other tooling proficiency and the result is called out to give the reader a context on the overall findings. 
-[Image: image.png]
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/image (3).png)
 In addition to tables, a good written report will include a write up of details on repetitive usage patterns, anomalies in user flows (i.e. the participant clicking around in areas that may not correct), or interpretations of icons and other design patterns. Embedding the report with user videos on points of failure or the user struggling to accomplish the task humanizes user experience research to your audience. 
 
 You can also Figma to visually depict the effectiveness and time on task across participants or fragments of the usability study report as needed:
