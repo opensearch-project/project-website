@@ -59,10 +59,10 @@ User testing is extremely useful in influencing design decisions as it validates
 Once you determine you are ready to conduct a usability study, it helps to plan the study. You need to determine the sample characteristics that will take the study. Essentially this needs to be similar to the actual user profile or the persona that you have designed the experience for. Then you need to plan out questions you will ask them either to validate the sample or for the study participant’s use case. Then determine the number of tasks and what the participants need to perform for each task. When framing questions for tasks refrain from tell the study participant what to do. Instead, frame the question with the task end-goal in mind. As an example, instead of telling the user to “find File on the menu bar and click on Open File,” frame the task question as “navigate around to show us how you would open a file”. 
 
 *“Tasks” page is intended to capture details of each task to create a sequential scenario:*
-[Image: Screenshot 2024-03-26 at 10.44.05 AM.png]*Example of “Tasks” based on OpenSearch usability study:*
-[Image: Screenshot 2024-03-26 at 10.44.20 AM.png]
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.05 AM.png)*Example of “Tasks” based on OpenSearch usability study:*
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.20 AM.png)
 In your instructions make sure to remind the participant to talk out loud and tell you what they are thinking. This is very effective in reviewing usage behavior as it is very difficult to discern what a user is thinking if they do not talk out loud. After the study participant has attempted to accomplish the task, add follow up questions on the experience that they just went through. These questions can range from whether the participant thought they were successful, to suggestions for improvements in the task that they just accomplished. Given the time it takes to do a usability study, it is recommended that each study entails 4-6 complex tasks or 8-10 simple tasks. More tasks will make the study too long to complete. Once you are satisfied with the task that you will want your study participant to complete, think through any final questions that you will want to ask the participant regarding the entire experience or the software as a whole. See this template and example of a usability study plan including a recruitment email.
-[Image: Screenshot 2024-03-26 at 10.42.52 AM.png]
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.42.52 AM.png)
 
 ### What do you need to start a usability study?
 
@@ -74,7 +74,7 @@ There are some convenient tooling such as UserZoom (now UserTesting) or Lookback
 When you run your study, sample considerations are important. Use you persona definitions to guide sample specifications for recruitment. For larger samples and basic usability concerns, consider obtaining a paid sample. Use your screener to qualify or disqualify participants for your study. If your experience is for a niche set of users, it will make sense to recruit them by leveraging your B2B sales and services partners. For open source projects consider blogging, dropping links on GitHub, your community forum, announcing on community meetings etc. Always validate your sample with the screening questions either to 
 
 *On the “Questionnaire” page you can organize the questions for screening the participants, and also all other questions that accompany the tasks in your study:*
-[Image: Screenshot 2024-03-26 at 10.44.52 AM.png]
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.52 AM.png)
 ### Reporting results
 
 Once you have taken time to conduct the studies and obtain usage data, it is time to analyze and report results. The most important aspect to report is task pass or fails. A color coded table summarizing this is very informative. See an example below. In the table, the participant qualification as expert or proficient, other tooling proficiency and the result is called out to give the reader a context on the overall findings. 
@@ -83,7 +83,7 @@ In addition to tables, a good written report will include a write up of details 
 
 You can also Figma to visually depict the effectiveness and time on task across participants or fragments of the usability study report as needed:
 
-[Image: Screenshot 2024-03-26 at 10.45.21 AM.png][Image: Screenshot 2024-03-26 at 10.45.57 AM.png]
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.45.21 AM.png)![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.45.57 AM.png)
 
 ### Automation of a usability study
 
@@ -93,9 +93,9 @@ If you have predictable user flows that you are improving the UX on etc., it may
 ### Usability Study Toolkit
 
 The illustrations above are offered to the open source community as a [usability study toolkit](https://www.figma.com/community/file/1354537053014589491). The toolkit includes essential set of components to plan and run the study including a questionnaire template and a task board to track the responses from participants. Organizing the assets in Figma will simplify the process of presenting your study to the stakeholders and reporting. The Usability study toolkit is available on [OpenSearch page on Figma community](https://www.figma.com/@OpenSearch), and it is available to all Figma users to share and adapt in their work for any purpose. 
-[Image: Screenshot 2024-03-26 at 10.40.43 AM.png]
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.40.43 AM.png)
 *How to use the Figma file (Instructions):*
-[Image: Screenshot 2024-03-26 at 10.41.39 AM.png]
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.41.39 AM.png)
 
 This video walks you through the [usability study toolkit](https://www.figma.com/community/file/1354537053014589491) that we have created for open source consumption.
 [Embed https://youtu.be/06o1yActr7M]
