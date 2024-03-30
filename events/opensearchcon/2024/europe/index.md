@@ -29,8 +29,8 @@ conference_sections_button_stack:
     url: /events/opensearchcon/2024/europe/speakers/index.html
   - label: Sessions
     url: /events/opensearchcon/2024/europe/sessions/index.html
-#  - label: Unconference
-#    url: /events/opensearchcon/2024/europe/unconference/index.html
+  - label: Unconference
+    url: /events/opensearchcon/2024/europe/unconference/index.html
   - label: Workshops
     url: /events/opensearchcon/2024/europe/workshops/index.html
 related_articles:
