@@ -42,7 +42,7 @@ layout: post
 #redirect_from: /blog/odfe-updates/2019/09/Check-out-earlier-blogposts-on-Open-Distro-for-Elasticsearch/
 
 # The title of the post.
-title: "Using Documentation for Usability Studies"
+title: "Using documentation for usability studies"
 
 # Meta data for the twitter card. The twitter card is used when a link to the blog post is shared on twitter. The twitter card is also used by other social media sites when a link to the blog post is shared on those sites. The twitter card is also used by search engines when a link to the blog post is shared on those sites.
 
