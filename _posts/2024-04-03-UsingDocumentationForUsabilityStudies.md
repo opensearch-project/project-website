@@ -90,7 +90,7 @@ You can also Figma to visually depict the effectiveness and time on task across 
 If you have predictable user flows for which you are improving the UX, it may make sense to automate the study. Consider using the same study setup and the same required tasks. Only your backend endpoint or the link to the clickable prototype would need to be changed. 
 
 
-### Usability Study Toolkit
+### Usability study toolkit
 
 The preceding examples are offered to the open-source community as a [usability study toolkit](https://www.figma.com/community/file/1354537053014589491). The toolkit includes an essential set of components for planning and running a usability study, including a questionnaire template and a task board for tracking participant responses. Organizing your assets in Figma can simplify the process of presenting your study to stakeholders. The usability study toolkit is available on the [OpenSearch Project community Figma page](https://www.figma.com/@OpenSearch). 
 ![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.40.43 AM.png)
