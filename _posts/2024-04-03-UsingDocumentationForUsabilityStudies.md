@@ -97,7 +97,7 @@ The preceding examples are offered to the open-source community as a [usability 
 The following image shows instructions on how to use the toolkit.
 ![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.41.39 AM.png)
 
-This video walks you through the [usability study toolkit](https://www.figma.com/community/file/1354537053014589491) that we have created for open source consumption.
+Additionally, the following video walks you through the toolkit.
 [Embed https://youtu.be/06o1yActr7M]
 
 ## References
