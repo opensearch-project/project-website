@@ -48,7 +48,7 @@ title: "Using documentation for usability studies"
 
 ---
 
-Is your product usable? Are your users able to navigate seamlessly? Do they find options on the UX intuitive? This is what a usability study is designed to evaluate. A usability study is a technique used to determine if users are able to use what you have elaborately conceptualized. In this blog, we offer some best practices on how to run a usability study, including tools that are essential to help you run a study. We also offer [Figma templates](https://www.figma.com/community/file/1354537053014589491/opensearch-uxr-usability-study-kit)to the open source community to help think through a usability study.
+Is your product usable? Are your users able to navigate it seamlessly? Do they find your UX options intuitive? This is what a usability study is designed to evaluate. In this blog post, we offer some best practices for running a usability study, including some essential tools. We also provide [Figma templates](https://www.figma.com/community/file/1354537053014589491/opensearch-uxr-usability-study-kit) that can help you conceptualize a usability study.
 
 ### When do you need a usability study?
 
