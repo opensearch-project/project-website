@@ -12,7 +12,7 @@ category:
 date: 2024-04-03 01:01:01 -0700
 
 # An excerpt of the blog post. It is used in the blog post list view, and in the home page what's new list of N most recent blog posts. It is also used as a fallback value for the twittercard:description field if not explictly defined in the front matter.
-excerpt: Is your product usable? Are your users able to navigate seamlessly? Do they find options on the UX intuitive? This is what a usability study is designed to evaluate. A usability study is a technique used to determine if users are able to use what you have elaborately conceptualized. In this blog, we offer some best practices on how to run a usability study, including tools that are essential to help you run a study. 
+excerpt: Is your product usable? Are your users able to navigate it seamlessly? Do they find your UX options intuitive? This is what a usability study is designed to evaluate. In this blog post, we offer some best practices for running a usability study, including some essential tools. 
 
 # Used as a fallback for the Twitter Card image, otherwise not currently used. Is only present in content up to June 3, 2021.
 #feature_image: /assets/path/to/image/asset.ext
