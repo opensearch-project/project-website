@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    box-sizing: border-box;
+    padding-right: 10px;
+    
     .next, .prev {
         display: block;
         flex: 1;
