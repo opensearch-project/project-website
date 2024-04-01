@@ -71,17 +71,17 @@ There are some convenient tooling such as UserZoom (now UserTesting) or Lookback
 
 ### Sample considerations
 
-When you run your study, sample considerations are important. Use you persona definitions to guide sample specifications for recruitment. For larger samples and basic usability concerns, consider obtaining a paid sample. Use your screener to qualify or disqualify participants for your study. If your experience is for a niche set of users, it will make sense to recruit them by leveraging your B2B sales and services partners. For open source projects consider blogging, dropping links on GitHub, your community forum, announcing on community meetings etc. Always validate your sample with the screening questions either to 
+When you run your study, sample considerations are important. Use your persona definitions to guide sample specifications for recruitment. For larger samples and basic usability concerns, consider obtaining a paid sample. Use your screener to qualify or disqualify participants for your study. If your experience is for a niche set of users, it will make sense to recruit them by leveraging your B2B sales and services partners.
 
-*On the “Questionnaire” page you can organize the questions for screening the participants, and also all other questions that accompany the tasks in your study:*
+On the **Questionnaire** page, shown in the following image, you can organize both the screening and task questions for your study.
 ![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.52 AM.png)
 ### Reporting results
 
-Once you have taken time to conduct the studies and obtain usage data, it is time to analyze and report results. The most important aspect to report is task pass or fails. A color coded table summarizing this is very informative. See an example below. In the table, the participant qualification as expert or proficient, other tooling proficiency and the result is called out to give the reader a context on the overall findings. 
+Once you have conducted your study and obtained usage data, you are ready to analyze that data and report the results. The most important data to report is whether or not the user successfully accomplished a given task. A color-coded table summarizing this information, shown in the following image, can be very helpful. 
 ![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/image (3).png)
-In addition to tables, a good written report will include a write up of details on repetitive usage patterns, anomalies in user flows (i.e. the participant clicking around in areas that may not correct), or interpretations of icons and other design patterns. Embedding the report with user videos on points of failure or the user struggling to accomplish the task humanizes user experience research to your audience. 
+In addition to tables, a good written report will include details about repetitive usage patterns, anomalies in user flows, or interpretations of icons and other design patterns. Embedding the report with videos showing points of failure or the user struggling to accomplish a task can humanize user experience research for your audience. 
 
-You can also Figma to visually depict the effectiveness and time on task across participants or fragments of the usability study report as needed:
+You can also use Figma to visually depict participant task completion and time on task, as shown in the following image.
 
 ![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.45.21 AM.png)![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.45.57 AM.png)
 
