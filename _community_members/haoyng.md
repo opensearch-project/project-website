@@ -1,6 +1,6 @@
 ---
-name: Hao Yang
 short_name: haoyng
+name: Hao Yang
 title: 'OpenSearch Community Member: Hao Yang'
 primary_title: Hao Yang
 breadcrumbs:
@@ -18,5 +18,4 @@ personas:
   - author
 permalink: '/community/members/hao-yang.html'
 ---
-
 **Hao Yang** is a Principal Scientist at Amazon Artificial General Intelligence, working on multiple aspects in multi-modal generative models. His own research interests lie in how to efficient and effectively train and adapt large scale computer vision and multi-modal models.
