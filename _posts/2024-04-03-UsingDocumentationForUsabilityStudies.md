@@ -92,7 +92,7 @@ If you have predictable user flows for which you are improving the UX, it may ma
 
 ### Usability Study Toolkit
 
-The illustrations above are offered to the open source community as a [usability study toolkit](https://www.figma.com/community/file/1354537053014589491). The toolkit includes essential set of components to plan and run the study including a questionnaire template and a task board to track the responses from participants. Organizing the assets in Figma will simplify the process of presenting your study to the stakeholders and reporting. The Usability study toolkit is available on [OpenSearch page on Figma community](https://www.figma.com/@OpenSearch), and it is available to all Figma users to share and adapt in their work for any purpose. 
+The preceding examples are offered to the open-source community as a [usability study toolkit](https://www.figma.com/community/file/1354537053014589491). The toolkit includes an essential set of components for planning and running a usability study, including a questionnaire template and a task board for tracking participant responses. Organizing your assets in Figma can simplify the process of presenting your study to stakeholders. The usability study toolkit is available on the [OpenSearch Project community Figma page](https://www.figma.com/@OpenSearch). 
 ![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.40.43 AM.png)
 *How to use the Figma file (Instructions):*
 ![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.41.39 AM.png)
