@@ -186,7 +186,8 @@
         .desktop-change-log-table,
         .desktop-release-history-table,
         .desktop-maintenance-policy-table,
-        .desktop-release-schedule-table {
+        .desktop-release-schedule-table,
+        .general-blog-post-desktop-table {
             @media screen and (max-width: 834px) {
                 display: none;
             }
@@ -194,7 +195,8 @@
         .change-log-mobile-table,
         .release-history-mobile-table,
         .maintenance-policy-mobile-table,
-        .release-schedule-mobile-table {
+        .release-schedule-mobile-table,
+        .general-blog-post-mobile-table {
             @media screen and (min-width: 835px) {
                 display: none;
             }
@@ -234,6 +236,7 @@
                         line-height: 27px;
                         padding: 10px 12px;
                         border-left: none;
+                        overflow-wrap: anywhere;
                         a {
                             overflow-wrap: anywhere;
                         }
@@ -276,6 +279,10 @@
                     }
                 }
             }
+        }
+        table.general-blog-post-mobile-table {
+            margin: 0;
+            width: 100%;
         }
         > .principles-for-development {
             @include page-element-padding;

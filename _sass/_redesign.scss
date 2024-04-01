@@ -22,6 +22,15 @@ $header-banner-mobile-breakpoint: 1018px;
 .landing-page-content__right-panel {
     @include page-element-padding;
     background: #fff;
+    &:not(.landing-page-content__right-panel__blog-post-page) {
+        > .landing-page-content__right-panel {
+            > .landing-page-content__right-panel--content--body {
+                table {
+                    @extend .platform-page--solutions--use-cases--table;
+                }
+            }
+        }
+    }
     > .landing-page-content__right-panel--content {
         display: flex;
         flex-direction: row;
@@ -49,9 +58,6 @@ $header-banner-mobile-breakpoint: 1018px;
             background: #fff;
             > h2 {
                 @include header-level2($primary-open-sky-s3);
-            }
-            table {
-                @extend .platform-page--solutions--use-cases--table;
             }
         }
         > .landing-page-content__right-panel--content--side-panel {
@@ -2189,16 +2195,107 @@ $community-voices-smallest-max-size: 739px;
 }
 
 .landing-page-content__right-panel {
-    &.landing-page-content__right-panel__blog-post-page {
+    &.landing-page-content__right-panel__source-code-page {
         > .landing-page-content__right-panel--content {
             > .landing-page-content__right-panel--content--body {
+                dl {
+                    margin: 20px 20px 10px 0;
+                    dt {
+                        a {
+                            text-decoration: none;
+                            display: inline-block;
+                            color: $core;
+                            background-color: $secondary-sanfrancisco-fog-t1;
+                            padding: 0.25em 1em 0 1em;
+                            border-top-right-radius: 5px;
+                            border-top-left-radius: 5px;
+                        }
+                    }
+                    dd {
+                        padding: 0.5em 1em;
+                        
+                        background-color: $background-darker;
+                        margin-bottom: 1em;
+                        border-bottom-right-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                    }
+                    dd p {
+                        margin-top: 0;
+                        margin-bottom: 0.5em;
+                    }
+                }
+                .link-readmore {
+                    display: inline-block;
+                    margin-right: 1.5em;
+                }
+            }
+            > .landing-page-content__right-panel--content--side-panel {
+                background: $secondary-sanfrancisco-fog-t1;
+                > div {
+                    box-sizing: border-box;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    > h3 {
+                        border-bottom: 1px solid $secondary-sanfrancisco-fog-s2;
+                    }
+                }
+            }
+        }
+    }
+    &.landing-page-content__right-panel__blog-post-page {
+        > .landing-page-content__right-panel--content {
+            @media screen and (min-width: 1200px) {
+                flex-wrap: nowrap;
+            }
+            > .landing-page-content__right-panel--content--body {
+                @media screen and (min-width: 1200px) {
+                    flex-shrink: 0;
+                    flex-grow: 0;
+                    table {
+                        margin: 0;
+                        width: 100%;
+                    }
+                }
+                // This might require some iteration as problems are found.
+                // It has been observed that there are tables in some blog
+                // posts that written in HTML and not Kramdown. However,
+                // the tables are not well formed. They are missing the
+                // necessary <thead>, and <tbody>, and both <th>, and <td>
+                // elements have been observed in use as intended table header cells.
+                // Keep an eye out for where this causes problems.
+                // It is also worth noting that it is observed that HTML rendering engines
+                // on Mac Chromium, Firefox, and Safari will automatically introduce
+                // the <tbody> element around the <tr> set even if the <tbody> is explicitly
+                // omitted in the HTML in the blog post; also the <tbody> is explicitly
+                // NOT PRESENT in the processed *.html files in the _site output folder.
+                // Therefore, rewriting this selector as table > tbody > tr ... would work
+                // the same. It is not known if that behavior is reliable, normative, 
+                // cross-platform, etc.
+                table {
+                    tr {
+                        > td,
+                        > th {
+                            overflow-wrap: break-word;
+                        }
+                    }
+                }
+                
+                
                 > p:nth-of-type(1) {
                     margin-top: 0;
                 }
                 > p {
                     img {
+                        @extend .img__outlined;
                         max-width: 100%;
                     }
+                    padding-right: 10px;
+                }
+            }
+            > .landing-page-content__right-panel--content--side-panel {
+                @media screen and (min-width: 1200px) {
+                    flex-shrink: 0;
+                    flex-grow: 0;
                 }
             }
             > .landing-page-content__right-panel--content--side-panel.landing-page-content__right-panel--content--side-panel__has-card-grid {
