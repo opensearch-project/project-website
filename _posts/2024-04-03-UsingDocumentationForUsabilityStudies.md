@@ -28,10 +28,10 @@ excerpt: Is your product usable? Are your users able to navigate it seamlessly? 
 layout: post
 
 # Value used for the meta description tag. Also used as a final fallback value for the Twitter Card description field after the excerpt property.
-#meta_description: "Learn how the OpenSearch approximate k-NN search solution enables you to build a scalable, reliable, and distributed framework for similarity searches" 
+meta_description: "Learn how the OpenSearch Project evaluates best practices from its recent usability study to implement more intuitive UX options like seamless navigation" 
 
 # Value used for the meta keywords tag.
-#meta_keywords: "approximate k-NN search, k-nearest neighbor plugin, k-NN plugin, ANN similarity search solution"
+meta_keywords: "OpenSearch usability studies, OpenSearch UX research, OpenSearch documentation"
 
 # Set to true to indicate content that was imported from the Open Distro For Elasticsearch blog.
 #odfeimport: true
