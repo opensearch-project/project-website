@@ -87,7 +87,7 @@ You can also Figma to visually depict the effectiveness and time on task across 
 
 ### Automation of a usability study
 
-If you have predictable user flows that you are improving the UX on etc., it may make sense to automate the study. Consider using the same usability study set up, and the same required tasks. The only thing that you would update is your end point on the back end or the link the clickable prototype. 
+If you have predictable user flows for which you are improving the UX, it may make sense to automate the study. Consider using the same study setup and the same required tasks. Only your backend endpoint or the link to the clickable prototype would need to be changed. 
 
 
 ### Usability Study Toolkit
