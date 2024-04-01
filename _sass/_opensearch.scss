@@ -430,4 +430,21 @@
             padding-right: 10px;
         }
     }
+    @media screen and (min-width: 1200px) {
+        .landing-page-content__right-panel > .landing-page-content__right-panel--content {
+            flex-wrap: nowrap;
+            > .landing-page-content__right-panel--content--body {
+                flex-shrink: 0;
+                flex-grow: 0;
+            }
+            > .landing-page-content__right-panel--content--side-panel {
+                flex-shrink: 0;
+                flex-grow: 0;
+            }
+        }
+        .full-width-layout--content > .full-width-layout--content--body table {
+            margin: 0;
+            width: 100%;
+        }
+    }
 }
