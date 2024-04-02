@@ -11,6 +11,6 @@ Or, try one of these popular pages.
 
 
 * Read the [blog](https://www.opensearch.org/blog)
-* Find out about upcoming [events](https://www.opensearch.org/events/calendar/2024-04.html)
+* Find out about upcoming [events](https://opensearch.org/events/)
 * Join the conversation on the [forum](https://forum.opensearch.org/)
 * Join [Slack](https://opensearch.org/slack.html)
