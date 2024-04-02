@@ -1,9 +1,16 @@
 ---
 permalink: /404.html
 layout: error
-errormessage: 🙅‍♀️ 404
+errormessage: "404 Page Not Found"
 body_class: homepage
-errorhuman: "OpenSearch can't find that page. Ironic." 
+errorhuman: "" 
 ---
 
-Perhaps you mistyped the URL or we've moved something around. Sorry 'bout that.
+Sorry, that page doesn't exist. Perhaps you'd like to visit our [homepage](https://www.opensearch.org).
+Or, try one of these popular pages.
+
+
+* Read the [blog](https://www.opensearch.org/blog)
+* Find out about upcoming [events](https://opensearch.org/events/)
+* Join the conversation on the [forum](https://forum.opensearch.org/)
+* Join [Slack](https://opensearch.org/slack.html)
