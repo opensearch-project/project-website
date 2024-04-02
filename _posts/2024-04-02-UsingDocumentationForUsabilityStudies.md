@@ -56,13 +56,13 @@ User testing can be extremely helpful in influencing design decisions because it
 
 ### Planning your study
 
-To plan your study, you first need to choose participants, who should resemble the actual user profile or persona for which you have designed the experience. Then you need to draft questions either to validate the sample or for the study participant’s use case. When framing questions for tasks, refrain from telling the study participant what to do. Instead, frame the question with the task end goal in mind. As an example, instead of telling the user to “Find **File** on the menu bar and click on **Open file**”, frame the task question as “Navigate around to show us how you would open a file”. 
+To plan your study, you first need to choose participants, who should resemble the actual user profile or persona for which you have designed the experience. Then you need to draft questions either to validate the sample or for the study participant's use case. When framing questions for tasks, refrain from telling the study participant what to do. Instead, frame the question with the task end goal in mind. As an example, instead of telling the user to "Find **File** on the menu bar and click on **Open file**", frame the task question as "Navigate around to show us how you would open a file". 
 
 The **Tasks** page, shown in the following image, is intended to capture the details of each task sequentially.
-![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.05 AM.png)*Example of “Tasks” based on OpenSearch usability study:*
-![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.20 AM.png)
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.05_AM.png)*Example of "Tasks" based on OpenSearch usability study:*
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.20_AM.png)
 In your instructions, make sure to remind the participant to talk out loud and tell you what they are thinking---this is critical to evaluating user behavior. After the study participant has attempted to accomplish the task, ask follow-up questions regarding the experience. These questions can address things like improvements to the UX or whether the participant thought they were successful. Given the amount of time required to perform a usability study, it is recommended that each study include 4--6 complex tasks or 8--10 simple tasks. Finally, ask any questions regarding the experience or the software as a whole. The following image shows a usability study plan template, including a recruitment email.
-![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.42.52 AM.png)
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.42.52_AM.png)
 
 ### What do you need to start a usability study?
 
@@ -74,7 +74,7 @@ Tools such as [UserZoom](https://www.usertesting.com/platform/userzoom) (now Use
 When you run your study, sample considerations are important. Use your persona definitions to guide sample specifications for recruitment. For larger samples and basic usability concerns, consider obtaining a paid sample. Use your screener to qualify or disqualify participants for your study. If your experience is for a niche set of users, it will make sense to recruit them by leveraging your B2B sales and services partners.
 
 On the **Questionnaire** page, shown in the following image, you can organize both the screening and task questions for your study.
-![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.52 AM.png)
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.44.52_AM.png)
 ### Reporting results
 
 Once you have conducted your study and obtained usage data, you are ready to analyze that data and report the results. The most important data to report is whether or not the user successfully accomplished a given task. A color-coded table summarizing this information, shown in the following image, can be very helpful. 
@@ -83,7 +83,7 @@ In addition to tables, a good written report will include details about repetiti
 
 You can also use Figma to visually depict participant task completion and time on task, as shown in the following image.
 
-![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.45.21 AM.png)![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.45.57 AM.png)
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.45.21_AM.png)![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.45.57_AM.png)
 
 ### Automation of a usability study
 
@@ -93,9 +93,9 @@ If you have predictable user flows for which you are improving the UX, it may ma
 ### Usability study toolkit
 
 The preceding examples are offered to the open-source community as a [usability study toolkit](https://www.figma.com/community/file/1354537053014589491). The toolkit includes an essential set of components for planning and running a usability study, including a questionnaire template and a task board for tracking participant responses. Organizing your assets in Figma can simplify the process of presenting your study to stakeholders. The usability study toolkit is available on the [OpenSearch Project community Figma page](https://www.figma.com/@OpenSearch). 
-![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.40.43 AM.png)
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.40.43_AM.png)
 The following image shows instructions on how to use the toolkit.
-![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.41.39 AM.png)
+![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.41.39_AM.png)
 
 Additionally, the following video walks you through the toolkit.
 [Embed https://youtu.be/06o1yActr7M]
