@@ -98,7 +98,9 @@ The following image shows instructions on how to use the toolkit.
 ![](/assets/media/blog-images/2024-04-03-UsingDocumentationForUsabilityStudies/Screenshot 2024-03-26 at 10.41.39_AM.png)
 
 Additionally, the following video walks you through the toolkit.
-[Embed https://youtu.be/06o1yActr7M]
+
+{% include youtube-player.html id="06o1yActr7M?si" %}
+
 
 ## References
 
