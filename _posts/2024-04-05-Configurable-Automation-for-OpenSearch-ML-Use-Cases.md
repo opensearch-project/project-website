@@ -18,7 +18,7 @@ meta_description: Explore the simplicity of integrating Machine Learning capabil
 
 In OpenSearch, to use ML offerings, such as semantic, hybrid, and multimodal search, you often have to grapple with complex setup and preprocessing tasks. Additionally, you must write verbose queries, which can be time-consuming and error-prone.
 
-In this blog post, we introduce the OpenSearch Flow Framework plugin, released in version 2.13, designed to streamline this cumbersome process. By using this plugin, you can simplify complex setups with just one click. We've provided automated templates, enabling you to create connectors, register models, deploy them, and register agents and tools through a single API call. This eliminates the complexity of calling multiple APIs and orchestrating setups based on the responses.
+In this blog post, we introduce the OpenSearch Flow Framework plugin, [released in version 2.13](https://opensearch.org/blog/2.13-is-ready-for-download/), designed to streamline this cumbersome process. By using this plugin, you can simplify complex setups with just one click. We've provided automated templates, enabling you to create connectors, register models, deploy them, and register agents and tools through a single API call. This eliminates the complexity of calling multiple APIs and orchestrating setups based on the responses.
 
 ## Before Flow Framework
 
