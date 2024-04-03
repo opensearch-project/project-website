@@ -49,6 +49,13 @@ main_office_location: |-
   +1 408 743 4400
 
 # Collection of social links that the partner wishes to promote on their extended partner details page. Supported types are 'twitter', 'linkedin', 'facebook', and 'github'.
+social_links:
+  - url: 'https://twitter.com/xoriant'
+    icon: 'twitter'
+  - url: 'https://www.linkedin.com/company/xoriant'
+    icon: 'linkedin'
+  - url: 'https://facebook.com/Xoriant'
+    icon: 'facebook'
 
 
 # Collection of products that the partner wishes to promote on their extended partner details page. Each product should have a url, name, and description.
