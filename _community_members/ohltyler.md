@@ -20,4 +20,4 @@ personas:
 permalink: '/community/members/tyler-ohlsen.html'
 ---
 
-**Tyler Ohlsen** is a Software Engineer at AWS, focusing on anomaly detection in OpenSearch.
+**Tyler Ohlsen** is a Software Engineer at AWS, focusing on anomaly detection and flow framework in OpenSearch.
