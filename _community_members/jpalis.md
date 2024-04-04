@@ -20,4 +20,4 @@ personas:
 permalink: '/community/members/josh-palis.html'
 ---
 
-**Josh Palis** is a software engineer at Amazon Web Services. He focuses mostly on the Flow Framework plugin for OpenSearch.
+**Josh Palis** is a software engineer at Amazon Web Services focusing mostly on the OpenSearch Flow Framework plugin.

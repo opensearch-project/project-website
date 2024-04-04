@@ -20,4 +20,4 @@ personas:
 permalink: '/community/members/amit-galitzky.html'
 ---
 
-**Amit Galitzky** is a software engineer at Amazon Web Services. He focuses mostly on the Anomaly Detection and Flow Framework plugins for OpenSearch.
+**Amit Galitzky** is a software engineer at Amazon Web Services focusing mostly on the OpenSearch Anomaly Detection and Flow Framework plugins.

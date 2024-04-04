@@ -20,4 +20,4 @@ personas:
 permalink: '/community/members/jackie-han.html'
 ---
 
-Jackie Han is a software engineer at AWS. focusing mostly on anomaly detection and flow framework in OpenSearch.
+Jackie Han is a software engineer at Amazon Web Services focusing mostly on the OpenSearch Anomaly Detection and Flow Framework plugins.

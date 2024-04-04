@@ -16,22 +16,22 @@ meta_keywords: Flow Framework, OpenSearch plugins, Machine Learning
 meta_description: Explore the simplicity of integrating Machine Learning capabilities within OpenSearch through an innovative and groundbreaking framework designed to simplify complex setup tasks.
 ---
 
-In OpenSearch, to use ML offerings, such as semantic, hybrid, and multimodal search, you often have to grapple with complex setup and preprocessing tasks. Additionally, you must write verbose queries, which can be time-consuming and error-prone.
+In OpenSearch, to use machine learning (ML) offerings, such as semantic, hybrid, and multimodal search, you often have to grapple with complex setup and preprocessing tasks. Additionally, you must write verbose queries, which can be a time-consuming and error-prone process.
 
-In this blog post, we introduce the OpenSearch Flow Framework plugin, [released in version 2.13](https://opensearch.org/blog/2.13-is-ready-for-download/), designed to streamline this cumbersome process. By using this plugin, you can simplify complex setups with just one click. We've provided automated templates, enabling you to create connectors, register models, deploy them, and register agents and tools through a single API call. This eliminates the complexity of calling multiple APIs and orchestrating setups based on the responses.
+In this blog post, we introduce the OpenSearch Flow Framework plugin, [released in version 2.13](https://opensearch.org/blog/2.13-is-ready-for-download/) and designed to streamline this cumbersome process. By using this plugin, you can simplify complex setups with just one click. We've provided automated templates, enabling you to create connectors, register models, deploy them, and register agents and tools through a single API call. This eliminates the complexity of calling multiple APIs and orchestrating setups based on the responses.
 
-## Before Flow Framework
+## Before the Flow Framework plugin
 
-In the past, setting up semantic search involved the steps outlined in the [Semantic search documentation](https://opensearch.org/docs/latest/search-plugins/semantic-search/):
+Previously, setting up semantic search involved the steps outlined in the [semantic search documentation](https://opensearch.org/docs/latest/search-plugins/semantic-search/):
 
 1. Create a connector for a remote model, specifying pre- and post-processing functions.
-1. Register an embedding model using the connector ID obtained from the previous step.
+1. Register an embedding model using the connector ID obtained in the previous step.
 1. Configure an ingest pipeline to generate vector embeddings using the model ID of the registered model.
 1. Create a k-NN index and add the pipeline created in the previous step.
 
-This complex setup typically required you to be familiar with the OpenSearch ML Commons APIs. However, we are simplifying this experience through the Flow Framework. Let's demonstrate how the Flow Framework simplifies this process using the preceding semantic search example.
+This complex setup typically required you to be familiar with the OpenSearch ML Commons APIs. However, we are simplifying this experience through the Flow Framework plugin. Let's demonstrate how the plugin simplifies this process using the preceding semantic search example.
 
-## With Flow Framework
+## With the Flow Framework plugin
 
 In this example, you will configure the `semantic_search_with_cohere_embedding_query_enricher` workflow template. The workflow created using this template performs the following configuration steps:
 
@@ -103,7 +103,7 @@ GET /my-nlp-index/_search
 }
 ```
 
-With Flow Framework, we've simplified this complex setup process, enabling you to focus on your tasks without the burden of navigating complex APIs. Our goal is for you to use OpenSearch seamlessly, unlocking new possibilities in your projects.
+With the Flow Framework plugin, we've simplified this complex setup process, enabling you to focus on your tasks without the burden of navigating complex APIs. Our goal is for you to use OpenSearch seamlessly, uncovering new possibilities in your projects.
 
 ## Viewing workflow resources
 
@@ -115,17 +115,17 @@ GET /_plugins/_flow_framework/workflow/8xL8bowB8y25Tqfenm50/_status
 
 ## Additional default use cases
 
-You can explore more default use cases by viewing [substitution templates](https://github.com/opensearch-project/flow-framework/tree/2.13/src/main/resources/substitutionTemplates) with their corresponding [defaults](https://github.com/opensearch-project/flow-framework/tree/2.13/src/main/resources/defaults).
+You can explore more default use cases by viewing [substitution templates](https://github.com/opensearch-project/flow-framework/tree/2.13/src/main/resources/substitutionTemplates) and their corresponding [defaults](https://github.com/opensearch-project/flow-framework/tree/2.13/src/main/resources/defaults).
 
 ## Creating custom use cases
 
-You can tailor templates according to your requirements. For more information, see [sample templates](https://github.com/opensearch-project/flow-framework/tree/main/sample-templates) and the [documentation](https://opensearch.org/docs/latest/automating-configurations/index/).
+You can tailor templates according to your requirements. For more information, see [these sample templates](https://github.com/opensearch-project/flow-framework/tree/main/sample-templates) and the [Automating configurations](https://opensearch.org/docs/latest/automating-configurations/index/) documentation.
 
 ## Next steps
 
-In our ongoing efforts to enhance user experience and streamline the process of provisioning the ML offerings of OpenSearch, we have an exciting plan in the pipeline. We aim to develop a user-friendly drag-and-drop frontend interface. This interface will simplify complex steps involved in provisioning ML features, thereby allowing you to seamlessly configure and deploy your workflows. Stay tuned for updates on this exciting development!
+In our ongoing efforts to enhance the user experience and streamline the process of provisioning OpenSearch ML offerings, we have some exciting plans on our roadmap. We aim to develop a user-friendly drag-and-drop frontend interface. This interface will simplify the complex steps involved in provisioning ML features, thereby allowing you to seamlessly configure and deploy your workflows. Stay tuned for updates on this exciting development!
 
-If you have any comments or suggestions, please comment on the RFCs:
+If you have any comments or suggestions, you can comment on the following RFCs:
 
 - [Backend RFC](https://github.com/opensearch-project/OpenSearch/issues/9213)
 - [Frontend RFC](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/4755)
