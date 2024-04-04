@@ -18,7 +18,7 @@ link: 'https://www.xoriant.com'
 logo_large: '/assets/media/partners/xoriant/xoriant.png'
 
 # Large image displayed in the top right of the extended partner details page.
-product_image: '/assets/media/partners/xoriant/xoriant.png'
+# product_image: '/assets/media/partners/xoriant/xoriant.png'
 # Partner company description used on the extended partner details page.
 description: Xoriant is a global digital engineering services company, enabling innovation & accelerating time to market for clients by building digital products and platforms. We are driven by our product engineering DNA, culture of innovation, and technology capabilities in Cloud, Security, Data & AI.
 
@@ -56,15 +56,9 @@ social_links:
     icon: 'linkedin'
   - url: 'https://facebook.com/Xoriant'
     icon: 'facebook'
-  
+
 
 # Collection of products that the partner wishes to promote on their extended partner details page. Each product should have a url, name, and description.
 # The product listing is rendered below the partner description on the extended partner details page and above the resources.
-products:
-  - url: 'https://example-product.example'
-    name: 'Example Product Name'
-    description: 'Example Product Description'
-  - url: 'https://another-example-product.example'
-    name: 'Another Example Product Name'
-    description: 'Another example product description.'
+
 ---
