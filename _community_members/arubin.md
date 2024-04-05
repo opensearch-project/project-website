@@ -1,9 +1,11 @@
 ---
-name: Anton Rubin
-short_name: arubin
+short_name: "arubin"
+name: "Anton Rubin"
 photo: '/assets/media/community/members/arubin.jpg'
+primary_title: "Anton Rubin"
 title: 'OpenSearch Community Member: Anton Rubin'
-primary_title: Anton Rubin
+
+
 breadcrumbs:
   icon: community
   items:
@@ -15,10 +17,16 @@ breadcrumbs:
       url: '/community/members/anton-rubin.html'
 github: 'eliatra'
 linkedin: 'anton-rubin-89a186150'
-job_title_and_company: 'technical support engineer at Eliatra'
+job_title_and_company: 'Technical Support Engineer at Eliatra'
 personas:
   - author
-permalink: '/community/members/anton-rubin.html'
+  - conference_speaker
+permalink: '/community/members/arubin.html'
+keynote_speaker: false
+conference_id: 
+  - "2024-europe"
+session_track: 
+  - conference_id: "2024-europe"
+  - name: "OpenSearch in Kubernetes: Helm Charts and Operator"
 ---
-
-Anton Rubin is a technical support engineer at [Eliatra](https://eliatra.com/){:target="_blank"}. Having worked on the front lines of Symantec and other large companies, Anton has developed a passion for security in distributed systems and search engines. Combined with strong desire to share knowledge, he is eager to make security simple to follow and implement across any OpenSearch environment 
+Anton Rubin is a distinguished cybersecurity expert known for his proficiency in navigating intricate organizational frameworks and driving technological advancement. Graduating with a Class 1 Honours degree in Cyber Security and Digital Forensics, Anton embarked on his professional journey. He began by ensuring the quality of security content production, working with security giants like Symantec, where he honed his skills and expertise. Anton's journey further evolved as he transitioned into technical support roles across diverse environments, including his notable tenure as a Technical Support Engineer at Eliatra, where he is focusing on supporting OpenSearch project users. In this pivotal role, he provided crucial assistance to clients, troubleshooting complex issues and ensuring seamless operation of OpenSearch. Certified as a Kubernetes Administrator & Application Developer, he continually pursues excellence and innovation in the field, staying abreast of the latest technological trends and advancements. Passionate about continuous learning, Anton is dedicated to shaping the future of technology with his ingenuity and commitment.
