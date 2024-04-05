@@ -18,11 +18,11 @@ meta_description: Explore the simplicity of integrating Machine Learning capabil
 
 In OpenSearch, to use machine learning (ML) offerings, such as semantic, hybrid, and multimodal search, you often have to grapple with complex setup and preprocessing tasks. Additionally, you must write verbose queries, which can be a time-consuming and error-prone process.
 
-In this blog post, we introduce the OpenSearch Flow Framework plugin, [released in version 2.13](https://opensearch.org/blog/2.13-is-ready-for-download/) and designed to streamline this cumbersome process. By using this plugin, you can simplify complex setups with just one click. We've provided automated templates, enabling you to create connectors, register models, deploy them, and register agents and tools through a single API call. This eliminates the complexity of calling multiple APIs and orchestrating setups based on the responses.
+In this blog post, we introduce the OpenSearch Flow Framework plugin, [released in version 2.13](https://opensearch.org/blog/2.13-is-ready-for-download/) and designed to streamline this cumbersome process. By using this plugin, you can simplify complex setups with just one simple API call. We've provided automated templates, enabling you to create connectors, register models, deploy them, and register agents and tools through a single API call. This eliminates the complexity of calling multiple APIs and orchestrating setups based on the responses.
 
 ## Before the Flow Framework plugin
 
-Previously, setting up semantic search involves *4 separate API* calls outlined in the [semantic search documentation](https://opensearch.org/docs/latest/search-plugins/semantic-search/):
+Previously, setting up semantic search involves *4 separate API calls* outlined in the [semantic search documentation](https://opensearch.org/docs/latest/search-plugins/semantic-search/):
 
 1. Create a connector for a remote model, specifying pre- and post-processing functions.
 2. Register an embedding model using the connector ID obtained in the previous step.
@@ -90,7 +90,7 @@ GET /my-nlp-index/_search
     "neural": {
       "passage_embedding": {
         "query_text": "Hi world",
-        "k": 100
+        "k": 10
       }
     }
   }
