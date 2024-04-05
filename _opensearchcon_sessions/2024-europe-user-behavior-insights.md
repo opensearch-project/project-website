@@ -37,8 +37,7 @@ permalink: '/events/opensearchcon/2024/europe/sessions/user-behavior-insights.ht
 
 # Conference ID.
 # It is normative to use the format of 'YYYY-location-name', eg. '2023-north-america'.
-conference_id: 
-  - "2024-europe"
+conference_id: "2024-europe"
 
 # Array of short_name values for the Community Members with the conference_speaker persona whom are presenting the session. This includes the primary_speaker indicated above and any other presenters (if any).
 presenters:
@@ -52,6 +51,6 @@ But until now, collecting user behavior data has been haphazard. Proprietary Saa
 
 Our open-source User Behavior Insights (UBI) system provides a client-side library for instrumenting web pages, a server-side library for collecting data, and analytical tools for understanding it. Critically, it defines a standard schema for behavior data so that the community can contribute additional analytical tools. We have also demonstrated its integration with personalization software.
 
-With the emergence of even more ways of generating and ranking search results -- neural dense search, neural sparse search, model fine-tuning, hybrid search, RAG, ... -- choosing the best mix of approaches for your search application becomes even more critical.
+With the emergence of even more ways of generating and ranking search results -- neural dense search, neural sparse search, model fine-tuning, hybrid search, RAG. Choosing the best mix of approaches for your search application becomes even more critical.
 
-[//]: # (UBI is a call to action to the Search Relevance community to make it simpler to seamlessly track, in an ethical and safe manner, the steps of a user’s search journey in order to build the experiences that the future requires.)
+UBI is a call to action to the Search Relevance community to make it simpler to seamlessly track, in an ethical and safe manner, the steps of a user’s search journey in order to build the experiences that the future requires.
