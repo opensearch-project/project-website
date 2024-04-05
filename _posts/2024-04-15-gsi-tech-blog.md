@@ -27,10 +27,10 @@ excerpt:
 layout: post
 
 # Value used for the meta description tag. Also used as a final fallback value for the Twitter Card description field after the excerpt property.
-meta_description: "Learn how the OpenSearch Project is applying best practices to help designers conduct basic usability studies for their design flows using Figma templates and essential tools." 
+meta_description: "" 
 
 # Value used for the meta keywords tag.
-meta_keywords: "OpenSearch usability studies, OpenSearch UX research, OpenSearch documentation"
+meta_keywords: ""
 
 # Set to true to indicate content that was imported from the Open Distro For Elasticsearch blog.
 #odfeimport: true
