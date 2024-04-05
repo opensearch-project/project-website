@@ -20,7 +20,6 @@ main_office_location:  |
    Unit 4-250
    Rehoboth Beach, DE 19971
 products:
-products:
   - url: 'https://infino.ai'
     name: 'Infino AI'
     description: 'Serverless, Schemaless OpenSearch for Observability'
