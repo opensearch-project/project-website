@@ -76,293 +76,260 @@ The overall run of show schedule is now available. See below:
   overflow:hidden;padding:0px 1px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:0px 1px;word-break:normal;}
-.tg .tg-cly1{text-align:left;vertical-align:middle}
-.tg .tg-x26q{background-color:#FAC49E;text-align:center;vertical-align:middle}
-.tg .tg-hs6x{background-color:#3D87F5;text-align:center;vertical-align:middle}
-.tg .tg-mwxe{text-align:right;vertical-align:middle;white-space:nowrap}
-.tg .tg-wa1i{font-weight:bold;text-align:center;vertical-align:middle}
-.tg .tg-lavl{background-color:#9EC3FA;text-align:center;vertical-align:middle}
-.tg .tg-bsu7{background-color:#E6E6E6;text-align:left;vertical-align:middle}
+.tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
+.tg .tg-jt6a{background-color:#F13DF5;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-66oz{background-color:#C69EFA;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-9wq8{border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-uzvj{border-color:inherit;font-weight:bold;text-align:center;vertical-align:middle}
+.tg .tg-yz93{border-color:inherit;text-align:right;vertical-align:middle;white-space:nowrap}
 .tg .tg-nrix{text-align:center;vertical-align:middle}
-.tg .tg-vz1h{background-color:#FFCDCC;text-align:center;vertical-align:middle}
-.tg .tg-j9ac{background-color:#FFDF99;text-align:center;vertical-align:middle}
-.tg .tg-youq{background-color:#D7F7D4;text-align:center;vertical-align:middle}
-.tg .tg-qewc{background-color:#C69EFA;text-align:center;vertical-align:middle}
-.tg .tg-3mnf{background-color:#9EE9FA;text-align:center;vertical-align:middle}
-.tg .tg-vgmr{background-color:#E6E6E6;text-align:center;vertical-align:middle}
-.tg .tg-fk63{background-color:#F13DF5;text-align:center;vertical-align:middle}
-.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-j123{background-color:#FAC49E;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-ea4l{background-color:#FFDF99;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-n8c7{background-color:#D7F7D4;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-kb5w{background-color:#E6E6E6;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-v7sq{background-color:#9EC3FA;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-bw1q{background-color:#9EE9FA;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-cmeu{background-color:#E6E6E6;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-min6{background-color:#3D87F5;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-cly1"></th>
-    <th class="tg-wa1i" colspan="4"><span style="font-weight:bold">May 6</span></th>
-    <th class="tg-wa1i" colspan="3"><span style="font-weight:bold">May 7</span></th>
+    <th class="tg-lboi"></th>
+    <th class="tg-uzvj" colspan="4"><span style="font-weight:bold">May 6</span></th>
+    <th class="tg-uzvj" colspan="3"><span style="font-weight:bold">May 7</span></th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-mwxe">7:00 a.m.</td>
+    <td class="tg-yz93">8:00 a.m.</td>
+    <td class="tg-9wq8"></td>
     <td class="tg-nrix"></td>
-    <td class="tg-vz1h" rowspan="8"><span style="background-color:#FFCDCC">Exhibitor Setup</span></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-j123" rowspan="36"><span style="background-color:#FAC49E">Registration Open</span></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">7:15 a.m.</td>
+    <td class="tg-yz93">8:15 a.m.</td>
+    <td class="tg-9wq8"></td>
     <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">7:30 a.m.</td>
+    <td class="tg-yz93">8:30 a.m.</td>
+    <td class="tg-j123" rowspan="34"><span style="background-color:#FAC49E">Registration Open</span></td>
     <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">7:45 a.m.</td>
+    <td class="tg-yz93">8:45 a.m.</td>
     <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">8:00 a.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-x26q" rowspan="36"><span style="background-color:#FAC49E">Registration Open</span></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-yz93">9:00 a.m.</td>
+    <td class="tg-ea4l" rowspan="32"><span style="background-color:#FFDF99">OpenSource Connections Training</span></td>
+    <td class="tg-n8c7" rowspan="4"><span style="background-color:#D7F7D4">Breakfast</span></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-n8c7" rowspan="4"><span style="background-color:#D7F7D4">Breakfast</span></td>
+    <td class="tg-kb5w" rowspan="32"><span style="background-color:#E6E6E6">Partner Exhibitions</span></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">8:15 a.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-yz93">9:15 a.m.</td>
+    <td class="tg-9wq8"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">8:30 a.m.</td>
-    <td class="tg-x26q" rowspan="34"><span style="background-color:#FAC49E">Registration Open</span></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-yz93">9:30 a.m.</td>
+    <td class="tg-9wq8"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">8:45 a.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-yz93">9:45 a.m.</td>
+    <td class="tg-9wq8"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">9:00 a.m.</td>
-    <td class="tg-j9ac" rowspan="32"><span style="background-color:#FFDF99">OpenSource Connections Training</span></td>
-    <td class="tg-youq" rowspan="4"><span style="background-color:#D7F7D4">Breakfast</span></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-youq" rowspan="4"><span style="background-color:#D7F7D4">Breakfast</span></td>
-    <td class="tg-bsu7" rowspan="32"><span style="background-color:#E6E6E6">Partner Exhibitions</span></td>
+    <td class="tg-yz93">10:00 a.m.</td>
+    <td class="tg-66oz"><span style="background-color:#C69EFA">Impulse Keynote</span></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-66oz" rowspan="4"><span style="background-color:#C69EFA">Conference Keynote</span></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">9:15 a.m.</td>
-    <td class="tg-nrix"></td>
+    <td class="tg-yz93">10:15 a.m.</td>
+    <td class="tg-v7sq" rowspan="9"><span style="background-color:#9EC3FA">Conference Sessions</span></td>
+    <td class="tg-bw1q" rowspan="9"><span style="background-color:#9EE9FA">Partner Roundtable</span></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">9:30 a.m.</td>
-    <td class="tg-nrix"></td>
+    <td class="tg-yz93">10:30 a.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">9:45 a.m.</td>
-    <td class="tg-nrix"></td>
+    <td class="tg-yz93">10:45 a.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">10:00 a.m.</td>
-    <td class="tg-qewc"><span style="background-color:#C69EFA">Impulse Keynote</span></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-qewc" rowspan="4"><span style="background-color:#C69EFA">Conference Keynote</span></td>
+    <td class="tg-yz93">11:00 a.m.</td>
+    <td class="tg-v7sq" rowspan="6"><span style="background-color:#9EC3FA">Conference Sessions</span></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">10:15 a.m.</td>
-    <td class="tg-lavl" rowspan="9"><span style="background-color:#9EC3FA">Conference Sessions</span></td>
-    <td class="tg-3mnf" rowspan="9"><span style="background-color:#9EE9FA">Partner Roundtable</span></td>
+    <td class="tg-yz93">11:15 a.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">10:30 a.m.</td>
+    <td class="tg-yz93">11:30 a.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">10:45 a.m.</td>
+    <td class="tg-yz93">11:45 a.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">11:00 a.m.</td>
-    <td class="tg-lavl" rowspan="6"><span style="background-color:#9EC3FA">Conference Sessions</span></td>
+    <td class="tg-yz93">12:00 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">11:15 a.m.</td>
+    <td class="tg-yz93">12:15 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">11:30 a.m.</td>
+    <td class="tg-yz93">12:30 p.m.</td>
+    <td class="tg-n8c7" rowspan="5"><span style="background-color:#D7F7D4">Lunch</span></td>
+    <td class="tg-cmeu" rowspan="18"><span style="background-color:#E6E6E6">Partner Exhibitions</span></td>
+    <td class="tg-n8c7" rowspan="4"><span style="background-color:#D7F7D4">Lunch</span></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">11:45 a.m.</td>
+    <td class="tg-yz93">12:45 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">12:00 p.m.</td>
+    <td class="tg-yz93">1:00 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">12:15 p.m.</td>
+    <td class="tg-yz93">1:15 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">12:30 p.m.</td>
-    <td class="tg-youq" rowspan="5"><span style="background-color:#D7F7D4">Lunch</span></td>
-    <td class="tg-vgmr" rowspan="18"><span style="background-color:#E6E6E6">Partner Exhibitions</span></td>
-    <td class="tg-youq" rowspan="4"><span style="background-color:#D7F7D4">Lunch</span></td>
+    <td class="tg-yz93">1:30 p.m.</td>
+    <td class="tg-v7sq" rowspan="17"><span style="background-color:#9EC3FA">Conference Sessions</span></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">12:45 p.m.</td>
+    <td class="tg-yz93">1:45 p.m.</td>
+    <td class="tg-min6" rowspan="13"><span style="background-color:#3D87F5">Unconference</span></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">1:00 p.m.</td>
+    <td class="tg-yz93">2:00 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">1:15 p.m.</td>
+    <td class="tg-yz93">2:15 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">1:30 p.m.</td>
-    <td class="tg-lavl" rowspan="17"><span style="background-color:#9EC3FA">Conference Sessions</span></td>
+    <td class="tg-yz93">2:30 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">1:45 p.m.</td>
-    <td class="tg-hs6x" rowspan="13"><span style="background-color:#3D87F5">Unconference</span></td>
+    <td class="tg-yz93">2:45 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">2:00 p.m.</td>
+    <td class="tg-yz93">3:00 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">2:15 p.m.</td>
+    <td class="tg-yz93">3:15 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">2:30 p.m.</td>
+    <td class="tg-yz93">3:30 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">2:45 p.m.</td>
+    <td class="tg-yz93">3:45 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">3:00 p.m.</td>
+    <td class="tg-yz93">4:00 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">3:15 p.m.</td>
+    <td class="tg-yz93">4:15 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">3:30 p.m.</td>
+    <td class="tg-yz93">4:30 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">3:45 p.m.</td>
+    <td class="tg-yz93">4:45 p.m.</td>
   </tr>
   <tr>
-    <td class="tg-mwxe">4:00 p.m.</td>
+    <td class="tg-yz93">5:00 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-jt6a" rowspan="9"><span style="background-color:#F13DF5">Cocktail Reception</span></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">4:15 p.m.</td>
+    <td class="tg-yz93">5:15 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">4:30 p.m.</td>
+    <td class="tg-yz93">5:30 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">4:45 p.m.</td>
+    <td class="tg-yz93">5:45 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-66oz" rowspan="2"><span style="background-color:#C69EFA">Closing Remarks</span></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">5:00 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-fk63" rowspan="9"><span style="background-color:#F13DF5">Cocktail Reception</span></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-yz93">6:00 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-lboi"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">5:15 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-yz93">6:15 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">5:30 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-yz93">6:30 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">5:45 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-qewc" rowspan="2"><span style="background-color:#C69EFA">Closing Remarks</span></td>
-    <td class="tg-cly1"></td>
+    <td class="tg-yz93">6:45 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
   </tr>
   <tr>
-    <td class="tg-mwxe">6:00 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-cly1"></td>
-  </tr>
-  <tr>
-    <td class="tg-mwxe">6:15 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-mwxe">6:30 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-mwxe">6:45 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-mwxe">7:00 p.m.</td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-nrix"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-yz93">7:00 p.m.</td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-9wq8"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
   </tr>
 </tbody>
 </table>
