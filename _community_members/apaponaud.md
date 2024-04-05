@@ -26,7 +26,7 @@ session_track:
 linkedin: "paponaud"
 twitter: "bootis"
 mastodon:
-  url: https://fosstodon.org/@paponaud
-  name: bootis
+  url: https://fosstodon.org/@bootis
+  name: "@bootis"
 ---
 Works with many customers into implementing search engines, helping them improve efficiency and use it for various use cases from search to observability. CTO of [Adelean](https://adelean.com)
