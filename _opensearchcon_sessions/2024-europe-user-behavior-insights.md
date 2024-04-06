@@ -1,5 +1,5 @@
 ---
-primary_presenter: eric-pugh
+primary_presenter: epugh
 speaker_name_full: Eric Pugh
 conference_id: '2024-europe'
 speaker_talk_title: 'User Behavior Insights'
