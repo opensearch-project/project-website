@@ -17,5 +17,3 @@ conference_id: 2024-europe
 permalink: /events/opensearchcon/2024/europe/sessions/index.html
 ---
 
-The [Call for Presentations](https://pretalx.com/opensearchcon-europe-24/cfp) (CfP) for OpenSearchCon Europe is now open—go [here](https://pretalx.com/opensearchcon-europe-24/cfp) to learn more and propose your ideas. We’ll close the CfP on March 25, so be sure to submit your proposals by this date.
-
