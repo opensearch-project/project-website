@@ -27,7 +27,7 @@ breadcrumbs:
         </div>
         <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__events-page">
             {% assign category = page.category | default: "community" %}
-            {% assign event_date = page.eventdate | date: "%A %e %B %Y %l%P %Z" %}
+            {% assign event_date = page.eventdate | date: "%A %e %B %Y %l:%M%P  %Z" %}
             {% assign category_card_class = "events--calendar__list-view--event-card__" | append: category %}
             {% assign online_event_card_class = "events--calendar__list-view--event-card__online" %}
             {% if page.online %}

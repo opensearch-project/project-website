@@ -135,6 +135,7 @@ tebibyte
 [Tt]ooltip
 [Tt]riage
 [Tt]ranslog
+[Tt]ruststore
 [Uu]nary
 [Uu]ncheck
 [Uu]ncomment
