@@ -66,4 +66,60 @@ As always, what makes OpenSearchCon a success are the compelling stories and edu
 
 Read more in the [announcement post](https://opensearch.org/blog/announcing-opensearchcon-europe-2024/)
 
+# May 6, 2024
+
+
+<style type="text/css">
+
+.oscon2024-europe tr { border-bottom: 1px solid black }
+.oscon2024-europe tr td { text-align: left; padding: 3px; }
+</style>
+<html>
+<table class="oscon2024-europe" style="border: 1px solid black; width: 100%" width="100%">
+<tr>
+    <td>07:00AM to 09:00AM</td>
+    <td>Exhibitor Setup</td>
+</tr>
+<tr>
+    <td>08:30AM to 05:00PM</td>
+    <td>Registration Open</td>
+</tr>
+<tr>
+    <td>09:00AM to 05:00PM</td>
+    <td>Open Source Connections Training</td>
+</tr>
+<tr>
+    <td>09:00AM to 10:00AM</td>
+    <td>Breakfast</td>
+</tr>
+<tr>
+    <td>10:00AM to 10:15AM</td>
+    <td>Impulse Keynote</td>
+</tr>
+<tr>
+    <td>10:15AM to 12:15PM</td>
+    <td>Conference Sessions</td>
+</tr>
+<tr>
+    <td>10:15AM to 12:15PM</td>
+    <td>Partner Roundtable</td>
+</tr>
+<tr>
+    <td>12:30PM to 01:30PM</td>
+    <td>Lunch</td>
+</tr>
+<tr>
+    <td>12:30PM to 05:00PM</td>
+    <td>Partner Exhibitions</td>
+</tr>
+<tr>
+    <td>01:30PM to 05:00PM</td>
+    <td>Unconference</td>
+</tr>
+<tr>
+    <td>05:00PM to 07:00PM</td>
+    <td>Cocktail Reception</td>
+</tr>
+</table>
+</html>
 
