@@ -22,7 +22,7 @@ In this blog post, we introduce the OpenSearch Flow Framework plugin, [released 
 
 ## Before the Flow Framework plugin
 
-Previously, setting up semantic search involves *4 separate API calls* outlined in the [semantic search documentation](https://opensearch.org/docs/latest/search-plugins/semantic-search/):
+Previously, setting up semantic search involves *four separate API calls*, outlined in the [semantic search documentation](https://opensearch.org/docs/latest/search-plugins/semantic-search/):
 
 1. Create a connector for a remote model, specifying pre- and post-processing functions.
 2. Register an embedding model using the connector ID obtained in the previous step.
@@ -58,7 +58,7 @@ OpenSearch responds with a unique workflow ID, simplifying the tracking and mana
 }
 ```
 
-Note: The workflow in the previous step creates a default k-NN index. The default index name is `my-nlp-index`
+Note: The workflow in the previous step creates a default k-NN index. The default index name is `my-nlp-index`.
 
 You can customize the template default values by providing the new values in the request body. For a comprehensive list of default parameter values for this workflow template, see [Cohere Embed semantic search defaults](https://github.com/opensearch-project/flow-framework/blob/2.13/src/main/resources/defaults/cohere-embedding-semantic-search-defaults.json).
 
