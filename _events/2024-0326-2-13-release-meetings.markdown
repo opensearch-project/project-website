@@ -35,6 +35,10 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 * Last possible date 04/02/2024 per the [Releases schedule](https://opensearch.org/releases.html).
 
+**April 11th 2024 - 9:00AM PDT**
+
+* [Retrospective](https://github.com/opensearch-project/opensearch-build/issues/4602) - Let's do a retro on the 2.13.0 release as a community.
+  
 
 **Dial in information - valid for each meeting:**
 
