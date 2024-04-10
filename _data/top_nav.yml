@@ -3,6 +3,17 @@ items:
     children:
       - label: 2024 Europe
         url: /events/opensearchcon/2024/europe/index.html
+      - label: 2024 India
+        url: /events/opensearchcon/2024/india/index.html
+        children:
+          - label: Exhibitors
+            url: /events/opensearchcon/2024/india/exhibitors/index.html
+          - label: Speakers
+            url: /events/opensearchcon/2024/india/speakers/index.html
+          - label: Sessions
+            url: /events/opensearchcon/2024/india/sessions/index.html
+          - label: Workshops
+            url: /events/opensearchcon/2024/india/workshops/index.html
       - label: Archive
         url: /events/opensearchcon/index.html
         children:
