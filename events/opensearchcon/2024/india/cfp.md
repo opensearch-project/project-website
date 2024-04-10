@@ -1,7 +1,7 @@
 ---
 layout: opensearchcon_landing
 title: 'OpenSearchCon 2024: India - Submit your paper'
-primary_title: 'OpenSearchCon 2024: India'
+primary_title: 'OpenSearchCon 2024: India CFP'
 breadcrumbs:
   icon: community
   items:
@@ -13,7 +13,7 @@ breadcrumbs:
       url: /events/opensearchcon/2024/india/index.html
 conference_id: 2024-india
 permalink: /events/opensearchcon/2024/india/cfp.html
-has_hero: true
+#has_hero: true
 hero_images:
   mobile:
     path: /assets/media/opensearchcon/2024/OpenSearchCon_India_Banner.png
