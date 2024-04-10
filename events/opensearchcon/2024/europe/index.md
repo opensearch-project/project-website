@@ -56,7 +56,7 @@ related_articles:
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
 
-Join us in Berlin on May 6 & 7 for OpenSearchCon Europe 2024!
+## Join us in Berlin on May 6 & 7 for OpenSearchCon Europe 2024!
 
 The OpenSearch community continues to expand, always welcoming new individuals, organizations, and partners into the fold, and OpenSearchCon is where the community comes together.
 
@@ -66,30 +66,28 @@ As always, what makes OpenSearchCon a success are the compelling stories and edu
 
 Read more in the [announcement post](https://opensearch.org/blog/announcing-opensearchcon-europe-2024/)
 
-# May 6, 2024
-
+## May 6, 2024 Schedule
 
 <style type="text/css">
 
-.oscon2024-europe tr { border-bottom: 1px solid black }
-.oscon2024-europe tr td { text-align: left; padding: 3px; }
+.oscon2024-europe tr { border-bottom: 1px solid black; background: lightgray;}
+.oscon2024-europe tr:nth-child(odd) { border-bottom: 1ps solid black; background: lightblue;}
+.oscon2024-europe tr td:nth-child(even) { text-align: right; padding: 5px; }
+.oscon2024-europe tr td:nth-child(odd) { text-align: left; padding: 5px; }
+
 </style>
 <html>
 <table class="oscon2024-europe" style="border: 1px solid black; width: 100%" width="100%">
 <tr>
-    <td>07:00AM to 09:00AM</td>
-    <td>Exhibitor Setup</td>
-</tr>
-<tr>
-    <td>08:30AM to 05:00PM</td>
+    <td>8:30AM to 5:00PM</td>
     <td>Registration Open</td>
 </tr>
 <tr>
-    <td>09:00AM to 05:00PM</td>
+    <td>9:00AM to 5:00PM</td>
     <td>Open Source Connections Training</td>
 </tr>
 <tr>
-    <td>09:00AM to 10:00AM</td>
+    <td>9:00AM to 10:00AM</td>
     <td>Breakfast</td>
 </tr>
 <tr>
@@ -105,21 +103,58 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
     <td>Partner Roundtable</td>
 </tr>
 <tr>
-    <td>12:30PM to 01:30PM</td>
+    <td>12:30PM to 1:30PM</td>
     <td>Lunch</td>
 </tr>
 <tr>
-    <td>12:30PM to 05:00PM</td>
+    <td>12:30PM to 5:00PM</td>
     <td>Partner Exhibitions</td>
 </tr>
 <tr>
-    <td>01:30PM to 05:00PM</td>
+    <td>1:30PM to 5:00PM</td>
     <td>Unconference</td>
 </tr>
 <tr>
-    <td>05:00PM to 07:00PM</td>
+    <td>5:00PM to 7:00PM</td>
     <td>Cocktail Reception</td>
 </tr>
 </table>
 </html>
 
+## May 7, 2024 Schedule
+<html>
+<table class="oscon2024-europe" style="border: 1px solid black; width: 100%" width="100%">
+<tr>
+    <td>8:00AM to 5:00PM</td>
+    <td>Registration Open</td>
+</tr>
+<tr>
+    <td>9:00AM to 10:00AM</td>
+    <td>Breakfast</td>
+</tr>
+<tr>
+    <td>9:00AM to 5:00PM</td>
+    <td>Partner Exhibitions</td>
+</tr>
+<tr>
+    <td>9:00AM to 10:00AM</td>
+    <td>Breakfast</td>
+</tr>
+<tr>
+    <td>10:00AM to 11:00AM</td>
+    <td>Conference Keynote</td>
+</tr>
+<tr>
+    <td>11:00AM to 12:30PM</td>
+    <td>Lunch</td>
+</tr>
+<tr>
+    <td>1:30PM to 5:45PM</td>
+    <td>Conference Sessions</td>
+</tr>
+<tr>
+    <td>5:45PM to 6:15PM</td>
+    <td>Closing Remarks</td>
+</tr>
+</table>
+</html>
