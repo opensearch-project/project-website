@@ -22,7 +22,7 @@ conference_id:
   - "2024-europe"
 session_track: 
   - conference_id: "2024-europe"
-  - name: "Search"
+    name: "Search"
 #linkedin: 
 #twitter: 
 #mastodon:

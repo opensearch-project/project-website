@@ -14,6 +14,9 @@ breadcrumbs:
       url: /community/members/index.html
     - title: "Laysa Uchoa&apos;s Profile"
       url: '/community/members/laysa-uchoa.html'
+session_track:
+  - conference_id: "2024-europe"
+    name: "Search"
 keynote_speaker:
   - "2022-north-america"
 permalink: '/community/members/laysa-uchoa.html'
