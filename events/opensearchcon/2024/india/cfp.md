@@ -16,10 +16,10 @@ permalink: /events/opensearchcon/2024/india/cfp.html
 #has_hero: true
 hero_images:
   mobile:
-    path: /assets/media/opensearchcon/2024/OpenSearchCon_India_Banner.png
+    path: /assets/media/opensearchcon/2024/OpenSearchCon_India_CFP_Banner.png
     alt: OpenSearchCon 2024 hero banner image.
   desktop:
-    path: /assets/media/opensearchcon/2024/OpenSearchCon_India_Banner.png
+    path: /assets/media/opensearchcon/2024/OpenSearchCon_India_CFP_Banner.png
     alt: OpenSearchCon 2024 hero banner image.
 conference_sections_button_stack:
   - label: CFP
@@ -54,7 +54,7 @@ conference_sections_button_stack:
 #    date: Wednesday 09/21/2022
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
-![CFP Banner](/assets/media/opensearchcon/2024/OSC_India_CFP_Presentations_banner.png){: width="100%" }
+![CFP Banner](/assets/media/opensearchcon/2024/OpenSearchCon_India_CFP_Banner.png){: width="100%" }
 OpenSearchCon India 2024 welcomes ideas for presentations on topics the OpenSearch community cares about. We invite the community to submit your best ideas and join us for a great conference in Bangalore on June 26th, 2024. We are actively seeking a diverse set of developers/community members and encourage everyone to send in their ideas.
 
 ## What the OpenSearch community is interested in
@@ -80,7 +80,7 @@ This information will help the reviewers to get a good impression of your sessio
 
 ## When does it close
 
-CfP ends on **May 5th, 2024 at 23:59 IST**.
+CfP ends on **May 12th, 2024 at 23:59 IST**.
 
 ## View previous presentations
 

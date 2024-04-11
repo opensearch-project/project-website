@@ -56,6 +56,7 @@ conference_sections_button_stack:
 #    date: Wednesday 09/21/2022
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
+![CFP Banner](/assets/media/opensearchcon/2024/OpenSearchCon_India_Banner.png){: width="100%" }
 
 ## Join us in Bengaluru on June 26th 2024 for OpenSearchCon 2024 India.
 
