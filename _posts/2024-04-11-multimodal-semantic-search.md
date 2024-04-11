@@ -5,11 +5,11 @@ authors:
   - gaievski
   - haoyng
   - dylantong
-date: 2024-03-24
+date: 2024-04-11
 categories:
   - technical-posts
-meta_keywords: Multimodal search, searching with semantic and visual understanding, improve search relevance, hybrid search in OpenSearch 2.10, keyword and image search
-meta_description: Enhance neural query by adding search by image capabilities in OpenSearch 2.11.
+meta_keywords: neural query, multimodal search, search technology, search relevancy, OpenSearch 2.11
+meta_description: Learn about the enhancements to OpenSearch 2.11's neural query search by image capabilities, and dive deeper by exploring how multimodal models generate embeddings.
 has_science_table: true
 ---
 
