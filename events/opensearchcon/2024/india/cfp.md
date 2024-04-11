@@ -75,7 +75,7 @@ It is expected that your submission and presentation follow the OpenSearch [Code
 <label class="redesign-buttons--label">Submit Presentations</label>
 <div class="redesign-button-pair--wrapper">
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
-                <a href="/events/opensearchcon/2024/india/submit.html" class="redesign-button--anchor">
+                <a href="https://airtable.com/embed/apppC3Z0EqIapqw70/pag4PgrY0cf1zrCqa/form" class="redesign-button--anchor">
                     Submit Presentations
                 </a>
             </div>
