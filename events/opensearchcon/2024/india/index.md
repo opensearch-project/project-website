@@ -13,27 +13,27 @@ breadcrumbs:
       url: /events/opensearchcon/2024/india/index.html
 conference_id: 2024-india
 permalink: /events/opensearchcon/2024/india/index.html
-#has_hero: false
+#has_hero: true
 hero_images:
   mobile:
     path: /assets/media/opensearchcon/2024/OpenSearchCon_India_Banner.png
-    alt: OpenSearchCon 2024 hero banner image.
+    alt: OpenSearchCon 2024 India hero banner image.
   desktop:
     path: /assets/media/opensearchcon/2024/OpenSearchCon_India_Banner.png
-    alt: OpenSearchCon 2024 hero banner image.
+    alt: OpenSearchCon 2024 India hero banner image.
 conference_sections_button_stack:
   - label: CFP
     url: /events/opensearchcon/2024/india/cfp.html
   - label: Exhibitors (TBD)
-    url: /events/opensearchcon/2024/india/exhibitors/index.html
+#    url: /events/opensearchcon/2024/india/exhibitors/index.html
   - label: Speakers (TBD)
-    url: /events/opensearchcon/2024/india/speakers/index.html
+#    url: /events/opensearchcon/2024/india/speakers/index.html
   - label: Sessions (TBD)
-    url: /events/opensearchcon/2024/india/sessions/index.html
-  - label: Unconference
-    url: /events/opensearchcon/2024/india/unconference/index.html
+#    url: /events/opensearchcon/2024/india/sessions/index.html
+#  - label: Unconference
+#    url: /events/opensearchcon/2024/india/unconference/index.html
   - label: Workshops (TBD)
-    url: /events/opensearchcon/2024/india/workshops/index.html
+#    url: /events/opensearchcon/2024/india/workshops/index.html
 #related_articles:
 #  - title: Using Fluent Bit and OpenSearch with Bottlerocket and Kubelet logs
 #    url: /blog/bottlerocket-k8s-fluent-bit/

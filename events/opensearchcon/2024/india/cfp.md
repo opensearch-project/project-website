@@ -1,5 +1,5 @@
 ---
-layout: opensearchcon_landing
+layout: redesign-fullwidth
 title: 'OpenSearchCon 2024: India - Submit your paper'
 primary_title: 'OpenSearchCon 2024: India CFP'
 breadcrumbs:
@@ -98,4 +98,7 @@ It is expected that your submission and presentation follow the OpenSearch [Code
                 </a>
             </div>
 </div>
+
+<br/>
+
 
