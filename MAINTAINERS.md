@@ -8,11 +8,11 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | ---------------- | --------------------------------------------------- | ----------- |
 | Eli Fisher       | [elfisher](https://github.com/elfisher)             | Amazon      |
 | Miki Barahmand   | [AMoo-Miki](https://github.com/AMoo-Miki)           | Amazon      |
-| Nick Knize       | [nknize](https://github.com/nknize)                 | Amazon      |
+| Nick Knize       | [nknize](https://github.com/nknize)                 | Lucenia     |
 | Kris Freedain    | [krisfreedain](https://github.com/krisfreedain)     | Amazon      |
 | Peter Zhu        | [peterzhuamazon](https://github.com/peterzhuamazon) | Amazon      |
 | Charlotte Henkle | [CEHENKLE](https://github.com/CEHENKLE)             | Amazon      |
-| David Tippett    | [dtaivpp](https://github.com/dtaivpp)               | Amazon      |
+| David Tippett    | [dtaivpp](https://github.com/dtaivpp)               | Independent Consultant |
 | Fanit Kolchina   | [kolchfa-aws](https://github.com/kolchfa-aws)       | Amazon      |
 | Nate Boot        | [nateynateynate](https://github.com/nateynateynate) | Amazon      |
 

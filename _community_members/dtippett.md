@@ -2,7 +2,7 @@
 short_name: dtaivpp
 name: 'David Tippett'
 photo: '/assets/media/community/members/dtippett.jpg'
-job_title_and_company: 'Senior Developer Advocate / AWS - OpenSearch'
+job_title_and_company: 'Independent Consultant'
 primary_title: 'David Tippett'
 title: 'OpenSearch Community Member: David Tippett'
 breadcrumbs:
@@ -30,5 +30,4 @@ conference_id:
   - "2022-north-america"
 ---
 
-David is a Senior Developer Advocate for the open-source OpenSearch project. He works on every area from search to observability. Before working on OpenSearch he worked in network automation, devops, data engineering, web development, and the list goes on.
-
+David is a independent consultant working on open source software related to search and data infrastructure.

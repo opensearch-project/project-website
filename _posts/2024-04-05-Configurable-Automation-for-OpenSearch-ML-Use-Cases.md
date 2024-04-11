@@ -4,9 +4,9 @@ title: "Configurable automation for OpenSearch ML use cases"
 authors:
     - kazabdu
     - amitgalitz
-    - dwiddis
+    - widdisd
     - jpalis
-    - hnyng
+    - jackiehanyang
     - ohltyler
     - minalsha
 date: 2024-04-08
