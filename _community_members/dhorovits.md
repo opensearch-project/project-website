@@ -25,7 +25,7 @@ conference_id:
   - "2024-europe"
 session_track: 
   - conference_id: "2024-europe"
-  - name: "Analytics, Observability, and Security"
+    name: "Analytics, Observability, and Security"
 
 # Optional GitHub username
 #github: githubusername
@@ -41,8 +41,6 @@ mastodon:
   url: https://fosstodon.org/@horovits
   name: horovits
 ---
-Dotan Horovits
-
 Horovits lives at the intersection of technology, product and innovation. With over 20 years in the hi-tech industry as a software developer, a solutions architect and a product manager, he brings a wealth of knowledge in cloud and cloud-native solutions, DevOps practices and more.
 
 Horovits is an international speaker and thought leader, as well as an Ambassador of the Cloud Native Computing Foundation (CNCF). Horovits is an avid advocate of open source and communities, an organizer of the CNCF Tel-Aviv meetup group and of Kubernetes Community Days and DevOpsDays local events, a podcaster at OpenObservability Talks, and a blogger, among others.
