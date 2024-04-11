@@ -5,5 +5,5 @@ owner: Gekatateam
 link: https://github.com/gekatateam/neptunus
 license: Apache 2.0
 license_link: https://github.com/gekatateam/neptunus/blob/main/LICENCE
-owner_link: https://github.com/organizations/gekatateam
+owner_link: https://github.com/gekatateam
 ---
