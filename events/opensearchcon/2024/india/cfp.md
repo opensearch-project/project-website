@@ -13,25 +13,7 @@ breadcrumbs:
       url: /events/opensearchcon/2024/india/index.html
 conference_id: 2024-india
 permalink: /events/opensearchcon/2024/india/cfp.html
-#has_hero: true
-hero_images:
-  mobile:
-    path: /assets/media/opensearchcon/2024/OpenSearchCon_India_CFP_Banner.png
-    alt: OpenSearchCon 2024 hero banner image.
-  desktop:
-    path: /assets/media/opensearchcon/2024/OpenSearchCon_India_CFP_Banner.png
-    alt: OpenSearchCon 2024 hero banner image.
-conference_sections_button_stack:
-  - label: CFP
-    url: /events/opensearchcon/2024/india/cfp.html
-  - label: Exhibitors
-    url: /events/opensearchcon/2024/india/exhibitors/index.html
-  - label: Speakers
-    url: /events/opensearchcon/2024/india/speakers/index.html
-  - label: Sessions
-    url: /events/opensearchcon/2024/india/sessions/index.html
-  - label: Workshops
-    url: /events/opensearchcon/2024/india/workshops/index.html
+
 #related_articles:
 #  - title: Using Fluent Bit and OpenSearch with Bottlerocket and Kubelet logs
 #    url: /blog/bottlerocket-k8s-fluent-bit/
