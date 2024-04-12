@@ -1,100 +1,21 @@
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-
-        /**
-         * Add pointer cursor to all elements with the given selector.
-         * This is used as a workaround for the fact that Firefox does
-         * not support the :has() selector which is used to set the 
-         * cursor on the card container in CSS. So, by including this function
-         * the `cursor: pointer` style will be set on contained cards which
-         * do not already have the rule set.
-         */
-        function addPointerCursor(elementSelector) {
-            const elements = document.querySelectorAll(elementSelector);
-            elements.forEach((element) => {
-                if (element.style.cursor !== 'pointer') {
-                    element.style.cursor = 'pointer';
-                }
-            });
+((opensearch) => {
+    const cardContainerSelector = '{{ include.card_container_selector }}';
+    const cardClassName = '{{ include.card_classname }}';
+    
+    if (document.readyState === 'loading') {
+        if (!opensearch.cardClickabilityIncludeConfigStack) {
+            opensearch.cardClickabilityIncludeConfigStack = [];
         }
-        function findParentCardBoundary(element) {
-            const cardClassName = '{{ include.card_classname }}';
-            if (element === null) {
-                return null;
-            } else if (element.classList.contains(cardClassName)) {
-                return element;
-            } else {
-                return findParentCardBoundary(element.parentElement);
-            }
-        }
-        function findCardLink(cardElement) {
-            const link = cardElement.querySelector('a');
-            return link;
-        }
-        function clearFocusClassFromCards(cardSelector) {
-            const cardList = document.querySelectorAll(cardSelector);
-            const focusClassName = '{{include.card_classname}}__focused';
-            cardList.forEach((card) => {
-                if (card.classList.contains(focusClassName)) {
-                    card.classList.remove(focusClassName);
-                }
-            });
-        }
-        function addFocusClassToCard(cardElement) {
-            const focusClassName = '{{include.card_classname}}__focused';
-            cardElement?.classList?.add?.(focusClassName);
-        }
-        function clearActiveClassFromCards(cardSelector) {
-            const cardList = document.querySelectorAll(cardSelector);
-            const activeClassName = '{{include.card_classname}}__active';
-            cardList.forEach((card) => {
-                if (card.classList.contains(activeClassName)) {
-                    card.classList.remove(activeClassName);
-                }
-            });
-        }
-        function addActiveClassToCard(cardElement) {
-            const activeClassName = '{{include.card_classname}}__active';
-            cardElement?.classList?.add?.(activeClassName);
-        }
-        function onCardClick(e) {
-            const card = findParentCardBoundary(e.target);
-            const cardSelector = '{{ include.card_container_selector }} .{{ include.card_classname }}__active';
-            clearActiveClassFromCards(cardSelector);
-            addActiveClassToCard(card);
-            if (e.target.tagName === 'A') {
-                e.stopImmediatePropagation();
-                return;
-            }
-            if (card) {
-                const link = findCardLink(card);
-                link.click();
-                event.stopPropagation();
-            }
-        }
-        function onLinkFocus(e) {
-            const card = findParentCardBoundary(e.target);
-            if (card?.classList?.contains?.('{{include.card_classname}}__focused')) {
-                return;
-            }
-            const cardSelector = '{{ include.card_container_selector }} .{{ include.card_classname }}';
-            clearFocusClassFromCards(cardSelector);
-            addFocusClassToCard(card);
-        }
-        function onLinkUnFocus(e) {
-            const card = findParentCardBoundary(e.target);
-            const focusClassName = '{{include.card_classname}}__focused';
-            if (!card?.classList?.contains?.(focusClassName)) {
-                return;
-            }
-            card.classList.remove(focusClassName);
-        }
-        const cardSelector = '{{ include.card_container_selector }} .{{ include.card_classname }}';
-        addPointerCursor(cardSelector);
-        document.querySelectorAll('{{ include.card_container_selector }}').forEach((cardList) => {
-            cardList.addEventListener('click', onCardClick);
-            cardList.addEventListener('focusin', onLinkFocus);
-            cardList.addEventListener('focusout', onLinkUnFocus);
+        opensearch.cardClickabilityIncludeConfigStack.push({
+            cardContainerSelector,
+            cardClassName,
         });
-    });
+    } else {
+        window.opensearch.makeCardsClickable(
+            cardContainerSelector, 
+            cardClassName
+        ).then(console.log);
+    }
+})(window.opensearch || (window.opensearch = {}));
 </script>
