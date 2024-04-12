@@ -25,11 +25,23 @@ We’ve listened, and we’re extraordinarily happy to announce the launch of a 
 
 We hope this is welcome news for community members across the EMEA region. We invite you to join us May 6 and 7 at Cafe Moskau in Berlin for OpenSearchCon Europe 2024. You can reserve your seat here: 
 
-**[Register Now](https://tickets.plainschwarz.com/opensearchconeu/c/PjtYoMWc8/)**. 
+<div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+                <a href="https://tickets.plainschwarz.com/opensearchconeu/c/PjtYoMWc8/" class="redesign-button--anchor">
+                    Register Now!
+                </a>
+            </div>
+</div>
 
 Open Source Connections will be offering a one-day intensive course based on Think Like a Relevance Engineer (TLRE)! [Learn more](https://opensearch.org/events/opensearchcon/2024/europe/workshops/think-like-a-relevance-engineer-training.html).
 
-**[Get Training](https://www.eventbee.com/v/opensearch-tlre-intensive-at-opensearchcon-eu-24/event?eid=276614264#/tickets)**
+<div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+                <a href="https://www.eventbee.com/v/opensearch-tlre-intensive-at-opensearchcon-eu-24/event?eid=276614264#/tickets" class="redesign-button--anchor">
+                    Get Training!
+                </a>
+            </div>
+</div>
 
 As always, what makes OpenSearchCon a success are the compelling stories and educational insights shared by our community. ~~The **[Call for Presentations](https://pretalx.com/opensearchcon-europe-24/cfp)** (CfP) for OpenSearchCon Europe is now open—go **[here](https://pretalx.com/opensearchcon-europe-24/cfp)** to learn more and propose your ideas. We’ll close the CfP on **March 25**, so be sure to submit your proposals by this date.~~ CfP is now closed - thank you to everyone who sent in your proposals! 
 
