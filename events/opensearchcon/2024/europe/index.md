@@ -97,7 +97,7 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
 <html>
 <table class="oscon2024-europe" style="border: 1px solid black; width: 100%" width="100%">
 <tr>
-    <td>8:30AM to 5:00PM</td>
+    <td>9:00AM to 5:00PM</td>
     <td>Registration Open</td>
 </tr>
 <tr>
@@ -155,23 +155,23 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
     <td>Partner Exhibitions</td>
 </tr>
 <tr>
-    <td>10:00AM to 11:00AM</td>
+    <td>10:00AM to 10:50AM</td>
     <td>Conference Keynote</td>
 </tr>
 <tr>
-    <td>11:00AM to 12:30PM</td>
+    <td>10:55AM to 12:20PM</td>
     <td>Conference Sessions</td>
 </tr>
 <tr>
-    <td>12:30PM to 1:30PM</td>
+    <td>12:20PM to 1:30PM</td>
     <td>Lunch</td>
 </tr>
 <tr>
-    <td>1:30PM to 5:45PM</td>
+    <td>1:30PM to 6:10PM</td>
     <td>Conference Sessions</td>
 </tr>
 <tr>
-    <td>5:45PM to 6:15PM</td>
+    <td>6:10PM to 6:30PM</td>
     <td>Closing Remarks</td>
 </tr>
 </table>
