@@ -21,6 +21,10 @@ job_title_and_company: 'Co-founder and CEO of Open Source Connections'
 personas:
   - conference_speaker
   - author
+
+conference_id:
+  - "2024-europe"
+
 session_track:
   - conference_id: "2024-europe"
     name: "Search"

@@ -38,6 +38,7 @@ related_articles:
       url: /blog/announcing-opensearchcon-europe-2024/
       category: community
       date: 'Thu, Feb 29, 2024'
+redirect_from: "/events/opensearchcon/index.html"
 # featured_sessions:
 #  - title: Opening Keynote
 #    url: /events/opensearchcon/2022/north-america/sessions/keynote.html
@@ -60,7 +61,24 @@ related_articles:
 
 The OpenSearch community continues to expand, always welcoming new individuals, organizations, and partners into the fold, and OpenSearchCon is where the community comes together.
 
-Join us May 6 and 7 at Cafe Moskau in Berlin for OpenSearchCon Europe 2024. You can reserve your seat here: [Register Now](https://tickets.plainschwarz.com/opensearchconeu/).
+Join us May 6 and 7 at Cafe Moskau in Berlin for OpenSearchCon Europe 2024. You can reserve your seat here: 
+<div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+                <a href="https://tickets.plainschwarz.com/opensearchconeu/c/PjtYoMWc8/" class="redesign-button--anchor">
+                    Register Now!
+                </a>
+            </div>
+</div>
+
+Open Source Connections will be offering a one-day intensive course based on Think Like a Relevance Engineer (TLRE)! [Learn more](https://opensearch.org/events/opensearchcon/2024/europe/workshops/think-like-a-relevance-engineer-training.html).
+
+<div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+                <a href="https://www.eventbee.com/v/opensearch-tlre-intensive-at-opensearchcon-eu-24/event?eid=276614264#/tickets" class="redesign-button--anchor">
+                    Get Training!
+                </a>
+            </div>
+</div>
 
 As always, what makes OpenSearchCon a success are the compelling stories and educational insights shared by our community. The Call for Presentations (CfP) for OpenSearchCon Europe is now closed. 
 
