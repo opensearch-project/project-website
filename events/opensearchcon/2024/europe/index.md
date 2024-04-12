@@ -14,7 +14,7 @@ breadcrumbs:
 conference_id: 2024-europe
 permalink: /events/opensearchcon/2024/europe/index.html
 redirect_from: /events/opensearchcon/2024/index.html
-has_hero: true
+#has_hero: false
 hero_images:
   mobile:
     path: /assets/media/opensearchcon/2024/OSC_Berlin_Banner_1440x360.png
@@ -56,7 +56,7 @@ redirect_from: "/events/opensearchcon/index.html"
 #    date: Wednesday 09/21/2022
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
-
+![](/assets/media/opensearchcon/2024/OSC_Berlin_Banner_1440x360.png){: width="100%" }
 Join us in Berlin on May 6 & 7 for OpenSearchCon Europe 2024!
 
 The OpenSearch community continues to expand, always welcoming new individuals, organizations, and partners into the fold, and OpenSearchCon is where the community comes together.
