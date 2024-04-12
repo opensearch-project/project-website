@@ -53,7 +53,7 @@ conference_id: '2024-europe'
 
 # Array of short_name values for the Community Members with the conference_speaker persona whom are presenting the session. This includes the primary_speaker indicated above and any other presenters (if any).
 presenters:
-  - jhandler
+  - plynch
   - acharalambous
 ---
 Join us to find out how OpenSearch fuels a cutting-edge, data-driven approach to security automation, exploring how the data-generated can be used to enhance security use-cases resulting in increased visibility and insights.
