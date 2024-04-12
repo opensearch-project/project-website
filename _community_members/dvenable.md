@@ -18,6 +18,8 @@ keynote_speaker: false
 session_track: 
   - conference_id: "2023-north-america"
     name: "Analytics, Observability, and Security"
+  - conference_id: "2024-europe"
+    name: "Analytics, Observability, and Security"
 linkedin: 'venabledavid'
 github: 'dlvenable'
 permalink: '/community/members/david-venable.html'
@@ -25,6 +27,7 @@ personas:
   - conference_speaker
   - author
 conference_id:
+  - "2024-europe"
   - "2023-north-america"
   - "2022-north-america"
 ---
