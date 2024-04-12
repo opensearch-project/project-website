@@ -23,11 +23,10 @@ github: flaxsearch
 linkedin: 'charliehullsearch'
 session_track:
   - conference_id: "2024-europe"
-    name: "Workshops"
+    name: "Search"
 permalink: '/community/members/charlie-hull.html'
 personas:
   - conference_speaker
-  - author
 conference_id:
   - "2024-europe"
 ---

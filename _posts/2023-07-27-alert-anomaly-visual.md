@@ -5,8 +5,8 @@ authors:
   - jdbright
   - ashiasgr
   - ohltyler
+  - jackiehanyang
   - amitgalitz
-  - hnyng
 date: 2023-08-02
 categories:
   - technical-posts
