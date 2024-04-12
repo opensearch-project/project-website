@@ -58,7 +58,7 @@ redirect_from: "/events/opensearchcon/index.html"
 ---
 ![](/assets/media/opensearchcon/2024/OSC_Berlin_Banner_1440x360.png){: width="100%" }
 
-## Join us in Berlin on May 6 & 7 for OpenSearchCon Europe 2024!
+Join us in Berlin on May 6 & 7 for OpenSearchCon Europe 2024!
 
 The OpenSearch community continues to expand, always welcoming new individuals, organizations, and partners into the fold, and OpenSearchCon is where the community comes together.
 
@@ -91,11 +91,12 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
 
 .oscon2024-europe tr { border-bottom: 1px solid black; background: lightgray;}
 .oscon2024-europe tr:nth-child(odd) { border-bottom: 1ps solid black; background: lightblue;}
-.oscon2024-europe tr td:nth-child(even) { text-align: right; padding: 5px; }
-.oscon2024-europe tr td:nth-child(odd) { text-align: left; padding: 5px; }
+.oscon2024-europe tr td:nth-child(even) { width: 100%; text-align: right; padding: 5px; }
+.oscon2024-europe tr td:nth-child(odd) { white-space: nowrap; text-align: left; padding: 5px; }
 
 </style>
 <html>
+
 <table class="oscon2024-europe" style="border: 1px solid black; width: 100%" width="100%">
 <tr>
     <td>9:00AM to 5:00PM</td>
