@@ -24,6 +24,10 @@ exclude:
   - node_modules
   - bower.json
   - package.json
+  - package-lock.json
+  - meetup-fetch.js
+  - opensearchcon-new.js
+  - opensearchcon-archive.js
 
 defaults:
 -

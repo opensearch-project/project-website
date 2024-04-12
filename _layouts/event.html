@@ -37,7 +37,7 @@ breadcrumbs:
                 <h4 class="events--calendar--body--week--day--event--details--category">
                     {{ category }}
                 </h4>
-                <h3 class="events--calendar--body--week--day--event--details--name">
+                <h3 class="events--calendar--body--week--day--event--details--name" data-eventdate="{{ page.eventdate }}">
                     {{ event_date }}
                 </h3>
                 <p class="events--calendar--details--card--hosts">
@@ -93,6 +93,67 @@ breadcrumbs:
                 setViewAllEventsButtonUrl(listViewUrl);
             }
         }
+
+        function localizeEventDates() {
+            const eventDateAttributeName = 'data-eventdate';
+            const selector = `[${eventDateAttributeName}]`;
+            const eventDateElements = document.querySelectorAll(selector);
+            if (eventDateElements?.length) {
+            eventDateElements.forEach(dateElement => {
+                const eventDateValue = dateElement.getAttribute(eventDateAttributeName);
+                // example 2023-12-28 12:00:00 -0500
+                const datePartsPattern = /^(\d{4}-\d{1,2}-\d{1,2})\s+(\d{1,2}:\d{1,2}:\d{1,2})\s+(\+|-)(\d{2}:?\d{2}?)$/;
+                const datePartsPatternMatches = datePartsPattern.exec(eventDateValue);
+                if (datePartsPatternMatches) {
+                const [ , datePartMatch, timePartMatch, utcOffsetOperatorMatch, utcOffsetMatch] = datePartsPatternMatches;
+                const [year, monthNumber, day] = datePartMatch.split('-').map(part => Number.parseInt(part, 10));
+                const monthIndex = monthNumber - 1;
+                const [hour, minute, second] = timePartMatch.split(':').map(part => Number.parseInt(part, 10));
+                const eventUtcTimestamp = Date.UTC(year, monthIndex, day, hour, minute, second);
+
+                let utcHoursOffset = 0, utcMinutesOffset = 0;
+                if (utcOffsetMatch.indexOf(':') > -1) {
+                    const splitUtcOffsetMatch = utcOffsetMatch.split(':').map(part => {
+                        return Number.parseInt(part.replace(/^0+/, ''), 10);
+                    });
+                    utcHoursOffset = splitUtcOffsetMatch[0];
+                    utcMinutesOffset = splitUtcOffsetMatch[1];
+                } else {
+                    const splitUtcOffsetPattern = /^(\d{2})(\d{2}?)$/;
+                    const splitUtcOffsetMatches = splitUtcOffsetPattern.exec(utcOffsetMatch);
+                    if (splitUtcOffsetMatches?.length) {
+                        const utcOffsetsNumbers = splitUtcOffsetMatches.slice(1).map(part => {
+                        return Number.parseInt(part.replace(/^0+/, ''), 10);
+                        });
+                        utcHoursOffset = utcOffsetsNumbers[0];
+                        utcMinutesOffset = utcOffsetsNumbers[1] || 0;
+                    }
+                }
+                const timezoneOffset = (
+                    1000 * 60 * 60 * utcHoursOffset
+                ) + (
+                    1000 * 60 * utcMinutesOffset
+                ) * (
+                    utcOffsetOperatorMatch === '-' ? -1 : 1
+                );
+                const eventUtcDate = new Date(eventUtcTimestamp + timezoneOffset);
+                const formatter = new Intl.DateTimeFormat(navigator.language, {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    dayPeriod: 'long',
+                    hour: 'numeric',
+                    hourCycle: 'h12',
+                    minute: 'numeric',
+                    timeZoneName: 'short',
+                });
+                dateElement.textContent = formatter.format(eventUtcDate);
+                }
+            });
+            }
+        }
         setEventsPageLinksToThisMonthCalendar();
+        localizeEventDates();
     });
 </script>
