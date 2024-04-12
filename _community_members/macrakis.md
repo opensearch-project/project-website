@@ -17,8 +17,9 @@ github: macrakis
 linkedin: macrakis
 job_title_and_company: 'The senior technical product manager for OpenSearch'
 personas:
+  - conference_speaker
   - author
+ 
 permalink: '/community/members/stavros-macrakis.html'
 ---
-
-**Stavros Macrakis** is the senior technical product manager for OpenSearch focusing on document and e-commerce search. He has worked on search for almost 20 years and is passionate about search relevance.
+Stavros Macrakis is the senior technical product manager for OpenSearch focusing on document and e-commerce search. He has worked on search for almost 20 years and is passionate about search relevance.

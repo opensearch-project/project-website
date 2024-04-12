@@ -1,35 +1,33 @@
 ---
-# short_name: 'epugh'
-short_name: ericpugh
-name: 'Eric Pugh'
+name: "Eric Pugh"
+short_name: epugh
 photo: '/assets/media/community/members/ericpugh.jpg'
-job_title_and_company: 'Co-founder and CEO of Open Source Connections'
-primary_title: 'Eric Pugh'
 title: 'OpenSearch Community Member: Eric Pugh'
+primary_title: 'Eric Pugh'
 breadcrumbs:
   icon: community
   items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: "Eric Pugh Profile"
-      url: '/community/members/eric-pugh.html'
-# mastodon:
-#  url: https://hachyderm.io/@flaxsearch
-#  name: flaxsearch
+  - title: Community
+    url: /community/index.html
+  - title: Members
+    url: /community/members/index.html
+  - title: "Eric Pugh&apos;s Profile"
+    url: '/community/members/eric-pugh.html'
 twitter: 'dep4b'
 github: epugh
 linkedin: 'epugh'
-session_track:
-  - conference_id: "2024-europe"
-    name: "Workshops"
 permalink: '/community/members/eric-pugh.html'
+job_title_and_company: 'Co-founder and CEO of Open Source Connections'
 personas:
   - conference_speaker
   - author
+
 conference_id:
   - "2024-europe"
----
 
-**Eric Pugh** is the co-founder and CEO of OpenSource Connections. Today he helps OSC’s clients, especially those in the ecommerce space, build their own search teams and improve their search maturity, both by leading projects and by acting as a trusted advisor.
+session_track:
+  - conference_id: "2024-europe"
+    name: "Search"
+
+---
+Eric Pugh is the co-founder of OpenSource Connections. Today he helps OSC’s clients, especially those in the ecommerce space, build their own search teams and improve their search maturity, both by leading projects and by acting as a trusted advisor.Fascinated by the craft of software development, Eric Pugh has been involved in the open source world as a tester, developer, committer and user for the past twenty years. He is a member of the Apache Software Foundation and co-authored the book Apache Solr Enterprise Search Server, now on its third edition. He stewards Quepid, an open source platform for assessing and improving your search relevance.OpenSource Connections mission to empower the world's search teams comes directly from Eric’s belief in the open source software movement, and the importance of educating people to succeed with it, so that people own their technology.When not thinking about search, Eric likes to get his hands dirty by building furniture. His next project is a reproduction Danish modern couch, using just hand tools!
