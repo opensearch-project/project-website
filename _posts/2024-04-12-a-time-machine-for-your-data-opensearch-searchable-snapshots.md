@@ -3,13 +3,13 @@ layout: post
 title:  "A time machine for your data: OpenSearch searchable snapshots"
 authors:
   - abunday
-date: 2024-04-10
+date: 2024-04-15
 categories:
   - technical-post
   - feature
   - partners
-meta_keywords:
-meta_description:
+meta_keywords: searchable snapshots, OpenSearch searchable snapshots, Instaclustr Managed Platform, remote snapshot index, Instaclustr OpenSearch clusters
+meta_description: Learn how Instaclustr by NetApp implemented searchable snapshots to efficiently store and search massive amounts of data and why they believe it can help organizations using OpenSearch do the same.
 ---
 
 Many organizations scaling up open-source databases such as OpenSearch are currently grappling with how to most efficiently store and search massive amounts of data. As a leading managed service provider for OpenSearch, this is something Instaclustr by NetApp is only too familiar with. We also utilize OpenSearch internally as a way of organizing, storing, and retrieving the massive amounts of logging data our applications generate every day. But how do you store all of that data without breaking the bank or spending hours of precious time managing it? You could store all of your data on disk, but the cost of doing so quickly adds up. Alternatively, you could ship it all off to cheaper remote data storage, such as Amazon Simple Storage Service (Amazon S3) or Azure Blob Storage, but then it becomes difficult to access again. If only there was some kind of time machine that allowed us to bring past data into the present without the cost or hassle.
