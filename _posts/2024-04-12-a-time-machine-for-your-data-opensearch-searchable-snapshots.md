@@ -144,4 +144,4 @@ We hope you can see the numerous benefits of using OpenSearch searchable snapsho
 
 But perhaps the biggest benefit of searchable snapshots is that they give your historical data a portal back into the present day, making it suddenly accessible again. Like a time machine, they bring your data to you from the past, instantly making it more useful and valuable. If you’re looking for the ability to easily and instantly travel into the past to find the data you need, searchable snapshots is the ideal solution.
 
-If you would like to find out more about searchable snapshots, read our release blog post or contact our friendly support team at support@instaclustr.com.
+If you would like to find out more about searchable snapshots, read our [release blog post](https://www.instaclustr.com/blog/searchable-snapshots-now-available-for-opensearch-on-the-instaclustr-managed-platform/) or contact our friendly support team at [support@instaclustr.com](mailto:support@instaclustr.com).
