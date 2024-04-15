@@ -17,7 +17,7 @@ breadcrumbs:
       url: /events/opensearchcon/index.html
     - title: 2024
       url: /events/opensearchcon/2024/index.html
-    - title: North America
+    - title: Europe
       url: /events/opensearchcon/2024/europe/index.html
     - title: Session Summaries
       url: /events/opensearchcon/2024/europe/sessions/index.html
