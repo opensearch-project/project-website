@@ -1,7 +1,7 @@
 ---
 #
 # The expected filename format is ${conference_id}-${url-encoded-session-title}.md
-# For example the "Community Inclusion" session from the 2023 conference in North America the title is "2023-europe-community-inclusion.html"
+# For example the "Community Inclusion" session from the 2023 conference in Europe the title is "2023-europe-community-inclusion.html"
 #
 
 # Conference session speaker short name that maps to a short_name value
@@ -27,7 +27,7 @@ breadcrumbs:
       url: /events/opensearchcon/index.html
     - title: 2024
       url: /events/opensearchcon/2024/index.html
-    - title: North America
+    - title: Europe
       url: /events/opensearchcon/2024/europe/index.html
     - title: Session Summaries
       url: /events/opensearchcon/2024/europe/sessions/index.html
