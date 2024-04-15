@@ -11,7 +11,7 @@ short_name: "gkamat"
 name: "Govind Kamat"
 
 # The path to the community member's photo.
-photo: "/assets/media/community/members/no=image-available.svg"
+photo: '/assets/media/community/members/no-image-available.svg'
 
 # Used as the level 1 page header text.
 primary_title: 'Govind Kamat'
