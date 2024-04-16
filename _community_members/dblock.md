@@ -24,6 +24,7 @@ personas:
   - author
 conference_id:
   - "2023-north-america"
+  - "2024-europe"
 ---
 
 Daniel Doubrovkine (aka dB.) is a Principal Engineer at AWS in New York, working on OpenSearch. He is a seasoned entrepreneur, technologist and former CTO at Artsy.net. Daniel graduated from University of Geneva in late 90s with a degree in Computer Science. Daniel is the creator and maintainer of many popular open-source projects and a lifetime artist, currently serving as a Principal Engineer, working on the OpenSearch Project at AWS.
