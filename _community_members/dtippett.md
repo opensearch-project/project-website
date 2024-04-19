@@ -30,4 +30,4 @@ conference_id:
   - "2022-north-america"
 ---
 
-David is an [independent consultant](https://tippybits.com/consulting) working on open source software related to search and data infrastructure.
+David is an [independent consultant](https://tippybits.com/services) working on open source software related to search and data infrastructure.
