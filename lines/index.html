@@ -1,7 +1,15 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 omit_from_search: true
 primary_title: Release lines
+title: Release lines
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Home
+      url: /
+    - title: Release Lines
+      url: /lines/index.html
 ---
 <ul>
   {% assign lines = site.lines | reverse %}
@@ -9,7 +17,7 @@ primary_title: Release lines
     <li><a href="{{ line.url }}">{{line.pretty_version}}
       {% if line.deprecated == true %} 
         (Deprecated) 
-      {%endif%}
+      {% endif %}
   </li> 
   {% endfor %}
 </ul>

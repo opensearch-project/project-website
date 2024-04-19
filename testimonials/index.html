@@ -1,19 +1,23 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 title: Testimonials
 primary_title: Testimonials
-body_class: testimonials-page
-intro: OpenSearch is helping developers solve a range of problems. This page highlights what people are saying about OpenSearch and how they are participating in the project.
-conclusion: "Interested in sharing your OpenSearch story? To add your testimonial to this page, please create a fork the [project website](https://github.com/opensearch-project/project-website), add a markdown file for your project under `/_testimonials/your-testimonial.md` , and submit a pull request."
+breadcrumbs:
+  icon: community
+  items:
+    - title: Community
+      url: /community/index.html
+    - title: Testimonials
+      url: /testimonials/index.html
 ---
 
-{{page.intro | markdownify }}
+<p>OpenSearch is helping developers solve a range of problems. This page highlights what people are saying about OpenSearch and how they are participating in the project.</p>
 
 <div class="testimonials">
-    {% assign filter_testimonial = site.testimonials | where: "featured","true" %}
+    {% assign filter_testimonial = site.redesign_testimonials | where: "featured","true" %}
     {% for testimonial in filter_testimonial %}
         {% include testimonial.html testimonial=testimonial %}
     {% endfor %}
 </div>
 
-{{page.conclusion | markdownify }}
+<p>Interested in sharing your OpenSearch story? To add your testimonial to this page, please create a fork the <a href="https://github.com/opensearch-project/project-website">project website</a>, add a markdown file for your project under <code class="language-plaintext highlighter-rouge">/_testimonials/your-testimonial.md</code> , and submit a pull request.</p>

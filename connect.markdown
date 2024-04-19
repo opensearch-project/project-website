@@ -1,7 +1,14 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 primary_title: Connect
 title: Connect with the Community
+breadcrumbs:
+  icon: community
+  items:
+    - title: Community
+      url: /community/
+    - title: Connect
+      url: /connect.html
 ---
 
 ## Connect with the Community

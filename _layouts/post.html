@@ -1,54 +1,76 @@
 ---
-layout: default
+layout: fullwidth-with-breadcrumbs
+breadcrumbs:
+  icon: community
+  items:
+    - title: Community
+      url: /community/index.html
+    - title: Blog
+      url: /blog/index.html
 has_math: false
 has_science_table: false
 primary_link_url: /blog
+content_reposition_rules:
+  source_selector: '.blog-post--by-line'
+  insert_after_selector: '.full-width-layout--header > .full-width-layout--header--title'
+
+# There is only a limited design specification for mobile tables.
+# Specifically for a subset that appears on the releases page.
+# The majority of the tables in blog posts are far more complex than
+# the tables on the releases page. Furthermore to the complexity - number of cells,
+# length of values, multi-column spans, etc -  is that it has been observed that 
+# many are hardcoded as HTML, but are not valid, well formed HTML. There are at this time
+# 231 blog posts. Utilizing the runtime features activated when using the "include_mobile_tables: true"
+# property (see _include/mobile_tables.html; also observe what it does on the Releases page, and
+# the 2023 OpenSearchCon Sessions listing page where there is a session schedule table) which 
+# automate the creation, showing/hiding of desktop tables vs mobile optimized versions of those 
+# tables is unfortunately not as reliable with nearly all of the tables in the blog posts where
+# this has been attempted. Adapting data tables for mobile optimization is a larger consideration,
+# and one which will likely require detailed considerations for each and every table in each and
+# every blog post that uses them. 
+# include_mobile_tables: true
 ---
 {% assign primary_title = site.headings.news %}
-{% assign layout_class = 'sidebar-right' %}
-{% capture content %}
-    <h1>{{page.title}}</h1>
-    
-    <div class="meta">
-        {{ page.date | date: "%a, %b %d, %Y" }} 
-        
-        {% if page.authors %}
-            &middot; {% for author_short_name in page.authors %}
-                {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
-                <em>{{ author.name }}</em>{% if forloop.length > 1 and forloop.last != true %}, {% endif %}
-            {% endfor %}
-        {% endif %}
+
+<div class="landing-page-content__right-panel landing-page-content__right-panel__blog-post-page">
+    <div class="landing-page-content__right-panel--content">
+        <div class="landing-page-content__right-panel--content--body">
+            <div class="meta blog-post--by-line">
+                {{ page.date | date: "%a, %b %d, %Y" }}
+                {% if page.authors %}
+                    &middot; {% for author_short_name in page.authors %}
+                        {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
+                        <em>{{ author.name }}</em>{% if forloop.length > 1 and forloop.last != true %}, {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% include post_import.html %}
+            {{ content }}
+            <hr>
+            {% include share-buttons.html %}
+            <div class="blog-nav">
+
+                {% if page.next.url %}
+                    <a class="next" href="{{page.next.url}}">&laquo; {{page.next.title}} </a>
+                {% endif %}
+                {% if page.previous.url %}
+                    <a class="prev" href="{{page.previous.url}}">{{page.previous.title}} &raquo; </a>
+                {% endif %}
+            
+            </div>
+        </div>
+        <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__has-card-grid">
+            <div class="solutions-card-grid">
+                <div class="solutions-card-grid--card-wrapper">
+                    {% for author_short_name in page.authors %}
+                        {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
+                        {%- include author_panel.html author=author linked="true" -%}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
-
-    {% include post_import.html %}
-    {{ content }}
-    <hr />
-    {% include share-buttons.html %}
-    <div class="blog-nav">
-
-        {% if page.next.url %}
-            <a class="next" href="{{page.next.url}}">&laquo; {{page.next.title}} </a>
-        {% endif %}
-        {% if page.previous.url %}
-            <a class="prev" href="{{page.previous.url}}">{{page.previous.title}} &raquo; </a>
-        {% endif %}
-    
-    </div>
-      
-{% endcapture %}
-
-{% capture content_related %} 
-<div role="complementary">
-    {% for author_short_name in page.authors %}
-        {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
-        
-        {%- include author_panel.html author=author linked="true" -%}
-    {% endfor %}
 </div>
-{% endcapture %}
-
-{% include copy_banner.html %}
-{% include base_3col.html %}
 {% if page.has_math == true %}
     {%- include include-mathjax.html -%}
 {% endif %}

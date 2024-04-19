@@ -1,40 +1,45 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 title: Project Artifacts by Version
 primary_title: Artifacts by Version
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Home
+      url: /
+    - title: Artifacts
+      url: /artifacts/index.html
+    - title: By Version
+      url: /artifacts/by-version/index.html
 ---
-{% assign sorted_versions = site.versions | sort: "date" | reverse %}
-{% for version in sorted_versions %}
-<h2 id="v{{ version.version | replace: ".", "-" }}">Release {{ version.version }}</h2>
-    <div class="artifact-download-tree">
-        <ul class="tree">
-    {% for component in version.components %}
-
-                <li>{{ component.artifact }} {{ component.version }}<br />
-                {% assign artifact_by_arch = site.artifacts | where_exp: "artifact", "artifact.artifact_id == component.artifact and artifact.version == component.version" | group_by: "architecture"  %}
-                    <ul class="tree">
-                    {% for artifact_in_version in artifact_by_arch %}
-                        <li>{{artifact_in_version.name }}<br />
-                            <ul class="tree">
-                            {% for artifact in artifact_in_version.items %}
-                                <li>
-                                {% if artifact.link %}{{ artifact.link }}{% endif %}
-                                {% if artifact.artifact_url %}{{ artifact.artifact_url }}
-                                    {% if artifact.signature %}<br/><small>(sig: {{artifact.signature}})</small>{% endif %}
-                                {% endif %}
-                                </li>
-                            {% endfor %}
-                            </ul>
-                        </li>
+<div class="artifacts-by-version--trees">
+    {% assign sorted_versions = site.versions | sort: "date" | reverse %}
+    {% for version in sorted_versions %}
+    <h2 id="v{{ version.version | replace: ".", "-" }}">Release {{ version.version }}</h2>
+        <div class="artifact-download-tree">
+            <ul class="tree">
+                {% for component in version.components %}
+                    <li>{{ component.artifact }} {{ component.version }}<br />
+                    {% assign artifact_by_arch = site.artifacts | where_exp: "artifact", "artifact.artifact_id == component.artifact and artifact.version == component.version" | group_by: "architecture"  %}
+                        <ul class="tree">
+                        {% for artifact_in_version in artifact_by_arch %}
+                            <li>{{artifact_in_version.name }}<br />
+                                <ul class="tree">
+                                {% for artifact in artifact_in_version.items %}
+                                    <li>
+                                    {% if artifact.link %}{{ artifact.link }}{% endif %}
+                                    {% if artifact.artifact_url %}{{ artifact.artifact_url }}
+                                        {% if artifact.signature %}<br/><small>(sig: {{artifact.signature}})</small>{% endif %}
+                                    {% endif %}
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                        </ul>
                     {% endfor %}
-                    </ul>
-
+                </li>
+            </ul>
+        </div>
     {% endfor %}
-            </li>
-        </ul>
-    </div>
-{% endfor %}
-
-
-{% comment %}{% assign artifacts_by_id = site.artifacts | sort: "artifact_id" | group_by: "artifact_id" %}
- {% include artifact_tree.html artifact_list=artifacts_by_id %} {% endcomment %}
+</div>

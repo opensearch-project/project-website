@@ -1,7 +1,14 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 title: Project Artifacts
 primary_title: Artifacts
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Home
+      url: /
+    - title: Artifacts
+      url: /artifacts/index.html
 ---
 {% assign artifacts_by_id = site.artifacts | sort: "artifact_id" | group_by: "artifact_id" %}
 {% include artifact_tree.html artifact_list=artifacts_by_id %}

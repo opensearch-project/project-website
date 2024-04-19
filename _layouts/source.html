@@ -1,49 +1,46 @@
 ---
-layout: default
+layout: fullwidth-with-breadcrumbs
 ---
 {% assign primary_title = site.headings.source %}
-{% assign layout_class = 'sidebar-right' %}
 
-{% capture content %}
-    {{ content }}
-    <dl class="pinned-repos">
-    {% assign pinned =  site.data.repos | where_exp:"repo", "repo.pinned == true" %}
-    {% for repo in pinned %}
-        {%- include repo.html repo=repo %}
-    {% endfor %}
-    </dl>
-    <dl class="repos">
-    {% assign unpinned =  site.data.repos | where_exp:"repo", "repo.pinned != true" %}
-    {% for repo in unpinned %}
-        {%- include repo.html repo=repo %}
-    {% endfor %}
-    </dl>
-{% endcapture %}
-
-{% capture content_related %}
-<div role="complementary">
-  {% assign tags = '' | split: '' %}
-
-  {% for repo in site.data.repos %}
-    {% for category in repo.categories %}
-        {% unless tags contains category %}
-            {% assign tags =  tags | push: category %}
-        {% endunless %}
-    {% endfor %}
-  {% endfor %}
-  <div>
-    <h3>Filter</h3>
-    <div class="feature-content">
-        <div class="tag-picker">
-            {% for tag in tags %}
-                <span class="tag-pick" data-show-tag="repo-category-{{tag}}" data-toggled-off="tag-off">{{ tag }}</span>
+<div class="landing-page-content__right-panel landing-page-content__right-panel__source-code-page">
+    <div class="landing-page-content__right-panel--content">
+        <div class="landing-page-content__right-panel--content--body">
+            {{ content }}
+            <dl class="pinned-repos">
+                {% assign pinned =  site.data.repos | where_exp:"repo", "repo.pinned == true" %}
+                {% for repo in pinned %}
+                    {%- include repo.html repo=repo %}
+                {% endfor %}
+                </dl>
+                <dl class="repos">
+                {% assign unpinned =  site.data.repos | where_exp:"repo", "repo.pinned != true" %}
+                {% for repo in unpinned %}
+                    {%- include repo.html repo=repo %}
+                {% endfor %}
+            </dl>
+        </div>
+        <div class="landing-page-content__right-panel--content--side-panel">
+            {% assign tags = '' | split: '' %}
+            {% for repo in site.data.repos %}
+                {% for category in repo.categories %}
+                    {% unless tags contains category %}
+                        {% assign tags =  tags | push: category %}
+                    {% endunless %}
+                {% endfor %}
             {% endfor %}
+
+            <div>
+                <h3>Filter</h3>
+                <div class="feature-content">
+                    <div class="tag-picker">
+                        {% for tag in tags %}
+                            <span class="tag-pick" data-show-tag="repo-category-{{tag}}" data-toggled-off="tag-off">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% include beta_feedback.html %}
         </div>
     </div>
-  </div>
-  {% include beta_feedback.html %}
 </div>
-{% endcapture %}
-
-{% include copy_banner.html %}
-{% include base_3col.html %}

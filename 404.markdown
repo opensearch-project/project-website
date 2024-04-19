@@ -1,16 +1,22 @@
 ---
+layout: fullwidth-with-breadcrumbs
+title: 404
+primary_title: 404
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Home
+      url: /
+    - title: Page Not Found
 permalink: /404.html
-layout: error
-errormessage: "404 Page Not Found"
-body_class: homepage
-errorhuman: "" 
 ---
+## Sorry, that page doesn’t exist. Perhaps you’d like to visit our homepage. Or, try one of these popular pages. 
 
-Sorry, that page doesn't exist. Perhaps you'd like to visit our [homepage](https://www.opensearch.org).
-Or, try one of these popular pages.
+Read the [blog](https://www.opensearch.org/blog).
 
+Find out about upcoming [events](https://opensearch.org/events/).
 
-* Read the [blog](https://www.opensearch.org/blog)
-* Find out about upcoming [events](https://opensearch.org/events/)
-* Join the conversation on the [forum](https://forum.opensearch.org/)
-* Join [Slack](https://opensearch.org/slack.html)
+Join the conversation on the [forum](https://forum.opensearch.org/).
+
+Join [Slack](https://opensearch.org/slack.html).
+

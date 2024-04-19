@@ -1,6 +1,12 @@
 ---
-layout: default
-
+layout: fullwidth-with-breadcrumbs
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Download
+      url: /downloads.html
+    - title: Artifacts
+      url: /artifacts/index.html
 pretty:
   download: 'Download'
   sig_verify: 'Signature verification how to'
@@ -8,9 +14,6 @@ pretty:
 ---
 
 {% assign primary_title = 'Artifacts'%}
-{% assign layout_class = 'sidebar-right' %}
-{% capture content %}
-
 
 {% if page.security_warning %}
   {% capture warning %}
@@ -22,26 +25,19 @@ pretty:
 <h2>{{page.slug}}</h2>
 
 <div class="artifact-standalone">
-<strong>Version:</strong> {{page.version}} <br />
-{% if page.architecture %}
-<strong>Architecture:</strong> {{page.architecture}}<br />
-{% endif %}
-{% if page.platform %}
-<strong>Platform:</strong> {{page.platform}}<br />
-{% endif %}
+  <strong>Version:</strong> {{page.version}} <br />
+  {% if page.architecture -%}
+    <strong>Architecture:</strong> {{page.architecture}}<br />
+  {%- endif %}
+  {% if page.platform -%}
+    <strong>Platform:</strong> {{page.platform}}<br />
+  {%- endif %}
 
-{% if page.artifact_url %}
-<br /><a class="cta" href="{{page.artifact_url}}">{{layout.pretty.download}}</a><br />
-{% endif %}
-
-
-{% if page.signature %}
+  {% if page.artifact_url -%}
+    <br /><a class="cta" href="{{page.artifact_url}}">{{layout.pretty.download}}</a><br />
+  {%- endif %}
+  {% if page.signature -%}
     <a href="{{page.signature}}"> {{layout.pretty.sig_link}} </a>
     (<a href="/verify-signatures.html">{{layout.pretty.sig_verify}}</a>)<br />
-{% endif %}
+  {%- endif %}
 </div>
-{% endcapture %}
-
-
-{% include copy_banner.html %}
-{% include base_3col.html %}

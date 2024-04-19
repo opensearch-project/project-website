@@ -1,5 +1,12 @@
 ---
-layout: default
+layout: fullwidth-with-breadcrumbs
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Downloads
+      url: /downloads.html
+    - title: Versions
+      url: /versions/index.html
 notice: true
 highlighter: rouge
 
@@ -78,8 +85,8 @@ human readable setup - pretty.html will get the most specific override in the fr
   3. fall back to the key
 {%endcomment%}
 {% capture guide_pretty %}{% include downloads/pretty.html key="guide" %}{% endcapture %}
-{% capture sha_pretty%}{% include downloads/pretty.html key="sha" %}{% endcapture %}
-{% capture signature_pretty%}{% include downloads/pretty.html key="signature" %}{% endcapture %}
+{% capture sha_pretty %}{% include downloads/pretty.html key="sha" %}{% endcapture %}
+{% capture signature_pretty %}{% include downloads/pretty.html key="signature" %}{% endcapture %}
 
 
 {% comment %} 
@@ -90,277 +97,260 @@ this is the built-in error checking for the version definition having missing ar
   {% assign number_of_artifacts = component_details | size %}
   {% if number_of_artifacts == 0  %} 
     {% capture artifact_error %}ERROR: "{{component.artifact}}" defined in version but artifact definition missing in collection.
-{%endcapture%}
+    {% endcapture %}
     {% assign error_block = error_block | append: artifact_error %}
   {% endif %}
 {% endfor %}
 
 
-{% capture content %}
-
-{% if error_block %}
-  <h2>Errors:</h2>
-  <pre>{{error_block}}</pre>
-{% endif %}
-
-{% if page.version_note %}
-<div class="version-alert">{{ page.version_note | markdownify }}</div>
-{% endif %}
-
-{% for section in page.sections %}
-  {% capture role %}{{section[1].role}}{%endcapture%}
-  {% capture section_id%}{{section[0]}}{%endcapture%}
-  {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id%}{%endcapture%}
-  
-  {% assign include_url = section[1].explanation %}
-  <div class="artifact-group" id="{{section_id}}">   
-  <h2 >{{ section_heading_pretty }}</h2>
-  {% if include_url %}{%capture explanation %}{% include {{include_url}} %}{% endcapture %}{{ explanation | markdownify }}{% endif %}
-  {% if role %}
-    {% assign components = page.components | where: "role", role %}
-    {% assign artifact_selects = "" %}
-
-    {% for component in components %}
+<div class="landing-page-content__right-panel landing-page-content__right-panel__download-version-page">
+  <div class="landing-page-content__right-panel--content">
+    <div class="landing-page-content__right-panel--content--body">
+      {% if error_block %}
+        <h2>Errors:</h2>
+        <pre>{{error_block}}</pre>
+      {% endif %}
       
-      {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact | sort: "architecture" %}
+      {% if page.version_note %}
+        <div class="version-alert">{{ page.version_note | markdownify }}</div>
+      {% endif %}
       
-     
-      {% capture name_pretty %}{% include downloads/pretty-group.html group="artifacts" key=component.artifact%}{%endcapture%}
-      {% assign number_of_artifacts = component_details | size %}
-      {% if number_of_artifacts == 0  %} [Artifacts Missing] {% endif %}
-      {% assign number_of_components = components | size %}
-      <div class="artifact-and-heading">
-      {% if number_of_components > 1 %} 
-        {% assign name_pretty = name_pretty | strip %}
-        {% if name_pretty.size > 0  %}
-          <h3 class="artifact-name" id="{{component.artifact}}">{{ name_pretty }}</h3>
-        {% endif %}
-      {% endif %}
-
-      <div class="artifact-container">
-        <div class="artifact-explain">
-        {% if section[1].artifacts[component.artifact].explanation %} 
-          {% assign artifact_explain_path = section[1].artifacts[component.artifact].explanation%}
-          {% capture explanation %}{% include {{artifact_explain_path}} %}{% endcapture %}
-          {{ explanation | markdownify }}
-        {% endif %}
-        </div>
-
-      {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
-      {% if component.architecture_order %}
-        {% assign specified_architecture_order = component.architecture_order %}
-      {% else %}
-        {% assign specified_architecture_order = layout.architecture_order %}
-      {% endif %}
-      {% if component.platform_order %}
-        {% assign specified_platform_order = component.platform_order %}
-      {% else %}
-        {% assign specified_platform_order = layout.platform_order %}
-      {% endif %}
-      {% assign platform_list = ""%}
-      {% assign artifact_list = ""%}
-      {% for platform in specified_platform_order %}
-        {% assign count =  component_details | where: "platform", platform | size  %}
-        {% if count > 0 %}
-          {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}{%endcapture%}
-          {% capture platform_option %}<option value="{{platform}}">{{platform_pretty}}</option>{% endcapture %}
-          {% capture platform_list %}{{ platform_list | append: platform_option}}{% endcapture %}
-        {%endif%}
-      {% endfor %}
-
-    
-      {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
-      {% if component.architecture_order %}
-        {% assign specified_architecture_order = component.architecture_order %}
-      {% else %}
-        {% assign specified_architecture_order = layout.architecture_order %}
-      {% endif %}
-      {% if component.platform_order %}
-        {% assign specified_platform_order = component.platform_order %}
-      {% else %}
-        {% assign specified_platform_order = layout.platform_order %}
-      {% endif %}
-
-
-
-      {% for platform in specified_platform_order %}
-        {% assign platform_components = component_details | where: "platform", platform %} 
+      {% for section in page.sections %}
+        {% capture role %}{{section[1].role}}{% endcapture %}
+        {% capture section_id%}{{section[0]}}{% endcapture %}
+        {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id %}{% endcapture %}
         
-        {% for architecture in specified_architecture_order %}
-          {% assign architecture_components = platform_components | where: "architecture", architecture | sort: "slug"  %}
-          {% for details in architecture_components %}
-
-            {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {%else%} {{platform}} {%endif%}{%endcapture%}
-
-            {% capture extension_pretty %}{% include downloads/pretty-group.html group="extensions" key=details.type %}{% endcapture %}
-            {% capture architecture_pretty %}{% include downloads/pretty-group.html group="architectures" key=details.architecture %}{% endcapture %}
-            
-            {% capture artifact_id %}{{details.platform}}-{{details.architecture}}-{{details.type}}{% endcapture %}
-            {% capture artifact_option %}<option class="platform_{{platform}}" value="{{artifact_id}}">{{ architecture_pretty }} / {{ extension_pretty }}</option>{%endcapture%}
-            {% assign artifact_options = artifact_options | append: artifact_option %}
-            {% if details.artifact_url %}
-              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> 
-                <a href="{% if details.indirect %}{{details.url}}{% else %}{{details.artifact_url}}{% endif %}"
-                class="cta">Download</a> </div>{% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.freebsd_package_name %}
-              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
-                <p>Install from FreeBSD packages:</p>
-                <pre># pkg install {{details.freebsd_package_name}}</pre>
-                </div>{% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.link %}
-              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
-                <a href="{{details.link}}" target="_blank" class="cta">Get it</a>
-              </div>{% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.inline_instructions %}
-              {% capture artifact_instructions %}
-                {{artifact_instructions}}
-                <div class="extra_instructions extra_{{artifact_id}}">
-                {% for instruction in details.inline_instructions %}
-                  <h4 class="instruction-label">
-                    {% if instruction.link %}
-                      <a href="{{instruction.link.url}}" target="_blank">{{instruction.link.label}}</a>
+        {% assign include_url = section[1].explanation %}
+        <div class="artifact-group opensearch-download-artifact" id="{{section_id}}">   
+          <h2 >{{ section_heading_pretty }}</h2>
+          {% if include_url %}{%capture explanation %}{% include {{include_url}} %}{% endcapture %}{{ explanation | markdownify }}{% endif %}
+          {% if role %}
+            {% assign components = page.components | where: "role", role %}
+            {% assign artifact_selects = "" %}
+        
+            {% for component in components %}
+              {% assign component_details = site.artifacts | where: "version", component.version | where: "artifact_id", component.artifact | sort: "architecture" %}
+              {% capture name_pretty %}{% include downloads/pretty-group.html group="artifacts" key=component.artifact %}{% endcapture %}
+              {% assign number_of_artifacts = component_details | size %}
+              {% if number_of_artifacts == 0  %} [Artifacts Missing] {% endif %}
+              {% assign number_of_components = components | size %}
+              <div class="artifact-and-heading">
+                {% if number_of_components > 1 %} 
+                  {% assign name_pretty = name_pretty | strip %}
+                  {% if name_pretty.size > 0  %}
+                    <h3 class="artifact-name" id="{{component.artifact}}">{{ name_pretty }}</h3>
+                  {% endif %}
+                {% endif %}
+          
+                <div class="artifact-container">
+                  <div class="artifact-explain">
+                    {% if section[1].artifacts[component.artifact].explanation %} 
+                      {% assign artifact_explain_path = section[1].artifacts[component.artifact].explanation%}
+                      {% capture explanation %}{% include {{artifact_explain_path}} %}{% endcapture %}
+                      {{ explanation | markdownify }}
                     {% endif %}
-                    {{instruction.label}}
-                  </h4>
-                  {% highlight bash %}{{instruction.code}}{% endhighlight %}
-                {% endfor %}
+                  </div>
+        
+                  {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
+                  {% if component.architecture_order %}
+                    {% assign specified_architecture_order = component.architecture_order %}
+                  {% else %}
+                    {% assign specified_architecture_order = layout.architecture_order %}
+                  {% endif %}
+                  {% if component.platform_order %}
+                    {% assign specified_platform_order = component.platform_order %}
+                  {% else %}
+                    {% assign specified_platform_order = layout.platform_order %}
+                  {% endif %}
+                  {% assign platform_list = "" %}
+                  {% assign artifact_list = "" %}
+                  {% for platform in specified_platform_order %}
+                    {% assign count =  component_details | where: "platform", platform | size  %}
+                    {% if count > 0 %}
+                      {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {% else %} {{platform}} {% endif %}{% endcapture %}
+                      {% capture platform_option %}<option value="{{platform}}">{{platform_pretty}}</option>{% endcapture %}
+                      {% capture platform_list %}{{ platform_list | append: platform_option}}{% endcapture %}
+                    {% endif %}
+                  {% endfor %}
+            
+                  {% comment %} preference the order specified in the component - default to the layout order {%endcomment%}
+                  {% if component.architecture_order %}
+                    {% assign specified_architecture_order = component.architecture_order %}
+                  {% else %}
+                    {% assign specified_architecture_order = layout.architecture_order %}
+                  {% endif %}
+                  {% if component.platform_order %}
+                    {% assign specified_platform_order = component.platform_order %}
+                  {% else %}
+                    {% assign specified_platform_order = layout.platform_order %}
+                  {% endif %}
+            
+                  {% for platform in specified_platform_order %}
+                    {% assign platform_components = component_details | where: "platform", platform %}
+                    
+                    {% for architecture in specified_architecture_order %}
+                      {% assign architecture_components = platform_components | where: "architecture", architecture | sort: "slug"  %}
+                      {% for details in architecture_components %}
+            
+                        {% capture platform_pretty %}{% if layout.pretty.platforms[platform] %}{{layout.pretty.platforms[platform]}} {% else %} {{platform}} {% endif %}{% endcapture %}
+            
+                        {% capture extension_pretty %}{% include downloads/pretty-group.html group="extensions" key=details.type %}{% endcapture %}
+                        {% capture architecture_pretty %}{% include downloads/pretty-group.html group="architectures" key=details.architecture %}{% endcapture %}
+                        
+                        {% capture artifact_id %}{{details.platform}}-{{details.architecture}}-{{details.type}}{% endcapture %}
+                        {% capture artifact_option %}<option class="platform_{{platform}}" value="{{artifact_id}}">{{ architecture_pretty }} / {{ extension_pretty }}</option>{% endcapture %}
+                        {% assign artifact_options = artifact_options | append: artifact_option %}
+                        {% if details.artifact_url %}
+                          {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> 
+                            <a href="{% if details.indirect %}{{details.url}}{% else %}{{details.artifact_url}}{% endif %}"
+                            class="cta">Download</a> </div>{% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.freebsd_package_name %}
+                          {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
+                            <p>Install from FreeBSD packages:</p>
+                            <pre># pkg install {{details.freebsd_package_name}}</pre>
+                            </div>{% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.link %}
+                          {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
+                            <a href="{{details.link}}" target="_blank" class="cta">Get it</a>
+                          </div>{% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.inline_instructions %}
+                          {% capture artifact_instructions %}
+                            {{artifact_instructions}}
+                            <div class="extra_instructions extra_{{artifact_id}}">
+                            {% for instruction in details.inline_instructions %}
+                              <h4 class="instruction-label">
+                                {% if instruction.link %}
+                                  <a href="{{instruction.link.url}}" target="_blank">{{instruction.link.label}}</a>
+                                {% endif %}
+                                {{instruction.label}}
+                              </h4>
+                              {% highlight bash %}{{instruction.code}}{% endhighlight %}
+                            {% endfor %}
+                          </div>
+                          {% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.guide %}
+                          {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.guide}}"> {{guide_pretty}} </a> </div>{% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.sha %}
+                          {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.sha}}"> {{sha_pretty}} </a> </div>{% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.signature %}
+                          {% capture artifact_extra %}
+                            <div class="extra_links extra_{{artifact_id}}"> <a href="{{details.signature}}"> {{signature_pretty}} </a>
+                            <a href="/verify-signatures.html#Pgp">Signature verification how to</a></div>
+                          {% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.jarsigner %}
+                          {% capture artifact_extra %}
+                            <div class="extra_links extra_{{artifact_id}}">
+                            <a href="/verify-signatures.html#JarSigner">Signature verification how to</a></div>
+                          {% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.code_signer %}
+                          {% capture artifact_extra %}
+                            <div class="extra_links extra_{{artifact_id}}">
+                              <a href="/verify-signatures.html#CodeSigner">Signature verification how to</a></div>
+                          {% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% if details.windows_signer %}
+                          {% capture artifact_extra %}
+                            <div class="extra_links extra_{{artifact_id}}">
+                              <a href="/verify-signatures.html#WindowsSigner">Signature verification how to</a></div>
+                          {% endcapture %}
+                          {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+                        {% endif %}
+                        {% assign artifact_extra = nil %}
+                      {% endfor %}
+                    {% endfor %}
+                  {% endfor %}
+              
+                  <div class="download-panel">
+                    {% if platform_list %}
+                      <label for="platform_select_{{artifact_id}}">Platform:</label>
+                      <select id="platform_select_{{artifact_id}}" class="dl-platform-select">{{ platform_list }}</select>
+                    {% endif %}
+                    {% if artifact_option %}
+                      <label for="package_select_{{artifact_id}}">Package:</label>
+                      <select id="package_select_{{artifact_id}}" class="dl-artifact-select">{{ artifact_options }}</select>
+                      {% assign artifact_options = "" %}
+                    {% endif %}
+                    <div class="extra-links-group">{{artifact_extras}}</div>
+                    {% assign artifact_extras = "" %}
+                  </div>
+                  <div class="extra-instructions-group">{{artifact_instructions}}</div>
+                  {% assign artifact_instructions = "" %}
+                </div>
               </div>
-              {% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.guide %}
-              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.guide}}"> {{guide_pretty}} </a> </div>{% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.sha %}
-              {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}"> <a href="{{details.sha}}"> {{sha_pretty}} </a> </div>{% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.signature %}
-              {% capture artifact_extra %}
-                <div class="extra_links extra_{{artifact_id}}"> <a href="{{details.signature}}"> {{signature_pretty}} </a>
-                <a href="/verify-signatures.html#Pgp">Signature verification how to</a></div>
-              {% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.jarsigner %}
-              {% capture artifact_extra %}
-                <div class="extra_links extra_{{artifact_id}}">
-                <a href="/verify-signatures.html#JarSigner">Signature verification how to</a></div>
-              {% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.code_signer %}
-              {% capture artifact_extra %}
-                <div class="extra_links extra_{{artifact_id}}">
-                  <a href="/verify-signatures.html#CodeSigner">Signature verification how to</a></div>
-              {% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% if details.windows_signer %}
-              {% capture artifact_extra %}
-                <div class="extra_links extra_{{artifact_id}}">
-                  <a href="/verify-signatures.html#WindowsSigner">Signature verification how to</a></div>
-              {% endcapture %}
-              {% assign artifact_extras = artifact_extras | append: artifact_extra %}
-            {% endif %}
-            {% assign artifact_extra = nil %}
-          {% endfor %}
-        {%endfor%}
-      {% endfor %}
-      
-        <div class="download-panel">
-        {% if platform_list %}
-            <label for="platform_select_{{artifact_id}}">Platform:</label>
-            <select id="platform_select_{{artifact_id}}" class="dl-platform-select">{{ platform_list }}</select>
-        {% endif %}
-        {% if artifact_option %}
-            <label for="package_select_{{artifact_id}}">Package:</label>
-            <select id="package_select_{{artifact_id}}" class="dl-artifact-select">{{ artifact_options }}</select>
-          {% assign artifact_options = "" %}
-        {% endif %}
-        <div class="extra-links-group">{{artifact_extras}}</div>
-        {% assign artifact_extras = "" %}
+            {% endfor %}
+          {% endif %}
         </div>
-
-        <div class="extra-instructions-group">{{artifact_instructions}}</div>
-        {% assign artifact_instructions = "" %}
-
-      </div>
+      {% endfor %}
+      {% include downloads/final-section.html %}
+      <hr>
+      {% assign major_version =  page.version | split: "." | first %}
+      Releases in the {{major_version}}.x line: <br>
+      {% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
+      {% assign first_version_in_line = true %}
+      {% for version in versions %}
+          {% assign this_major_version =  version.version | split: "." | first %}
+          {% if this_major_version == major_version %}
+            {% if first_version_in_line == true %} 
+              {% assign first_version_in_line = false %}
+            {% else %}
+              /
+            {% endif %}
+            {% if version.version == page.version %} 
+              {{version.version}} 
+            {% else %}
+              <a href="{{version.url}}">{{version.version}}</a> 
+            {% endif %}
+          {% endif %}
+      {% endfor %}
+      <hr>
+      Release sequence (all release lines): <br>
+      {% if page.next.url %}
+        <a href="{{page.next.url }}">Next Release</a>
+      {% endif %}
+      {% if page.previous.url %}
+        <a href="{{page.previous.url }}">Previous Release</a>
+      {% endif %}
+      <hr>
     </div>
-   
-    {% endfor %}
-
-  {% endif %}
+    <div class="landing-page-content__right-panel--content--side-panel landing-page-content__right-panel--content--side-panel__has-card-grid">
+      {{ page.content }}
+      <strong>Version:</strong> {{page.version}} {% if page.product == 'odfe' %}(Open Distro for Elasticsearch){% endif %}<br>
+      <strong>Release Date:</strong> {{ page.date | date: "%b %d, %Y" }}<br>
+      <a href="{{page.release_notes}}">Release Notes</a><br>
+      <a href="{{page.url}}">Version Permalink</a>
+      <hr>
+      This is a release in the <a href="/lines/{{major_version}}x.html">{{major_version}}.x</a> line. Available release lines:
+      <ul>
+      {% assign lines = site.lines | reverse %}
+      {% for line in lines %}
+        <li><a href="{{ line.url }}">{{line.pretty_version}}{% if line.deprecated == true %} (Deprecated){% endif %}</li>
+      {% endfor %}
+      </ul>
+      <hr>
+      <ul>
+      {% for section in page.sections %}
+        {% capture section_id%}{{section[0]}}{% endcapture %}
+        {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id %}{% endcapture %}
+        <li><a href="#{{section_id}}">{{section_heading_pretty}}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
   </div>
-{% endfor %}
-{% include downloads/final-section.html %}
-<hr />
-{% assign major_version =  page.version | split: "." | first %}
-Releases in the {{major_version}}.x line: <br />
-{% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
-{% assign first_version_in_line = true %}
-{% for version in versions %}
-    {% assign this_major_version =  version.version | split: "." | first %}
-    {% if this_major_version == major_version %}
-      {% if first_version_in_line == true %} 
-        {% assign first_version_in_line = false %}
-      {% else %}
-        /
-      {% endif %}
-      {% if version.version == page.version %} 
-        {{version.version}} 
-      {% else %}
-        <a href="{{version.url}}">{{version.version}}</a> 
-      {% endif %}
-      
-    {%endif%}
-{% endfor %}
-<hr />
-Release sequence (all release lines): <br />
-{% if page.next.url %}
-  <a href="{{page.next.url }}">Next Release</a>
-{% endif %}
-{% if page.previous.url %}
-  <a href="{{page.previous.url }}">Previous Release</a>
-{% endif %}
-<hr />
-
-
-{%endcapture%}
-
-{% capture content_related %}
-<div role="complementary">
-  {{ page.content }}
-  <strong>Version:</strong> {{page.version}} {% if page.product == 'odfe' %}(Open Distro for Elasticsearch){% endif %}<br />
-  <strong>Release Date:</strong> {{ page.date | date: "%b %d, %Y" }}<br />
-  <a href="{{page.release_notes}}">Release Notes</a><br />
-  <a href="{{page.url}}">Version Permalink</a>
-  <hr />
-  This is a release in the <a href="/lines/{{major_version}}x.html">{{major_version}}.x</a> line. Available release lines:
-  <ul>
-  {% assign lines = site.lines | reverse %}
-  {% for line in lines %}
-    <li><a href="{{ line.url }}">{{line.pretty_version}}{% if line.deprecated == true %} (Deprecated){%endif%}</li>
-  {% endfor %}
-  </ul>
-  <hr />
-  <ul>
-  {% for section in page.sections %}
-    {% capture section_id%}{{section[0]}}{%endcapture%}
-    {% capture section_heading_pretty %} {% include downloads/pretty-group.html group="sections" key=section_id%}{%endcapture%}
-    <li><a href="#{{section_id}}">{{section_heading_pretty}}</a></li>
-  {% endfor %}
-  </ul>
-
 </div>
-{% endcapture %}
-
-{% include copy_banner.html %}
-{% include base_3col.html %}

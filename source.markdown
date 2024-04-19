@@ -1,5 +1,12 @@
 ---
 layout: source
+breadcrumbs:
+  icon: opensearch-admin
+  items: 
+    - title: Home
+      url: /
+    - title: Source Code
+      url: /source.html
 body_class: source-page
 primary_title: 'Source Code'
 notice: true

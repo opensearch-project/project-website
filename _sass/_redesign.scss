@@ -20,37 +20,44 @@ $header-banner-min-width: 1019px;
 $header-banner-mobile-breakpoint: 1018px;
 
 .landing-page-content__right-panel {
+    @include page-element-padding;
     background: #fff;
+    &:not(.landing-page-content__right-panel__blog-post-page) {
+        > .landing-page-content__right-panel {
+            > .landing-page-content__right-panel--content--body {
+                table {
+                    @extend .platform-page--solutions--use-cases--table;
+                }
+            }
+        }
+    }
     > .landing-page-content__right-panel--content {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         > .landing-page-content__right-panel--content--body {
             @media screen and (min-width: $content-with-panel-wide-screen-width) {
-                padding: 40px 40px 40px 80px;
-                flex-basis: calc(100% - $content-with-panel-right-side-width - $content-with-panel-wide-screen-padding);
+                padding: 0;
+                flex-basis: calc(100% - $content-with-panel-right-side-width);
                 flex-grow: 1;
                 flex-shrink: 1;
             }
             @media screen and (max-width: $content-with-panel-reduce-padding-width) {
-                padding: 40px 20px 40px 20px;
-                flex-basis: calc(100% - $content-with-panel-right-side-width - $content-with-panel-reduced-padding);
+                padding: 0;
+                flex-basis: calc(100% - $content-with-panel-right-side-width);
                 flex-grow: 1;
                 flex-shrink: 1;
             }
             @media screen and (max-width: $content-with-panel-collapsed-max) {
                 flex-shrink: 0;
                 flex-grow: 0;
-                padding: 20px 30px 0 30px;
-                flex-basis: calc(100% - 60px);
+                padding: 0;
+                flex-basis: 100%;
             }
             
             background: #fff;
             > h2 {
                 @include header-level2($primary-open-sky-s3);
-            }
-            table {
-                @extend .platform-page--solutions--use-cases--table;
             }
         }
         > .landing-page-content__right-panel--content--side-panel {
@@ -72,13 +79,6 @@ $header-banner-mobile-breakpoint: 1018px;
                 @media screen and (min-width: $min-past-iphone-width) and (max-width: $content-with-panel-collapsed-max) {
                     flex-basis: calc(100% - 80px);
                     padding-bottom: 20px;
-                }
-                @media screen and (max-width: $max-iphone-width) {
-                    padding-left: 30px;
-                    padding-right: 30px;
-                    flex-basis: 100%;
-                    padding-bottom: 20px;
-                    box-sizing: border-box;
                 }
             }
             > .solutions-card-grid {
@@ -1363,7 +1363,7 @@ $header-banner-mobile-breakpoint: 1018px;
     }
     .redesign-button--contents--icon-slot {
         flex-basis: 5%;
-        padding: 25px 20px 13px; // what was this before???
+        padding: 25px 20px 13px;
         @media screen and (max-width: 412px) {
             padding: 25px 5px 13px 0;
             flex-shrink: 1;
@@ -1386,7 +1386,7 @@ $header-banner-mobile-breakpoint: 1018px;
         }
     }
     .redesign-button--contents--icon-slot {
-        padding: 22px 20px 16px; // what was this before???
+        padding: 22px 20px 16px;
         flex-basis: 10%;
         @media screen and (max-width: 412px) {
             padding: 22px 5px 16px 0;
@@ -1957,17 +1957,6 @@ $community-voices-smallest-max-size: 739px;
                         > p {
                             @include body-text;
                             color: $secondary-sanfrancisco-fog-s4;
-                            // @media screen and (min-width: $community-voices-increase-size) {
-                            //     @include body-text;
-                            //     line-height: 32px;
-                            // }
-                            // @media screen and (max-width: $community-voices-vert-view-max)  {
-                            //     @include body-text;
-                            // }
-                            // @media screen and (min-width: $community-voices-horz-view-min) 
-                            // and (max-width: $community-voices-reduce-size) {
-                            //     @include body-small;
-                            // }
                             padding-top: 0;
                             padding-bottom: 0;
                             margin-top: 0;
@@ -2205,31 +2194,204 @@ $community-voices-smallest-max-size: 739px;
     }
 }
 
-.author-social-media--mastodon {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    column-gap: 3px;
-    > div {
-        flex-shrink: 0;
-        flex-grow: 0;
-    }
-    > .author-social-media--mastodon--icon {
-        flex-basis: 15px;
-        height: 16px;
-        > a {
-            > svg {
-                width: 15px;
-                height: 16px;
-                flex-shrink: 0;
-                padding-right: 8px;
+.landing-page-content__right-panel {
+    &.landing-page-content__right-panel__source-code-page {
+        > .landing-page-content__right-panel--content {
+            > .landing-page-content__right-panel--content--body {
+                dl {
+                    margin: 20px 20px 10px 0;
+                    dt {
+                        a {
+                            text-decoration: none;
+                            display: inline-block;
+                            color: $core;
+                            background-color: $secondary-sanfrancisco-fog-t1;
+                            padding: 0.25em 1em 0 1em;
+                            border-top-right-radius: 5px;
+                            border-top-left-radius: 5px;
+                        }
+                    }
+                    dd {
+                        padding: 0.5em 1em;
+                        
+                        background-color: $background-darker;
+                        margin-bottom: 1em;
+                        border-bottom-right-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                    }
+                    dd p {
+                        margin-top: 0;
+                        margin-bottom: 0.5em;
+                    }
+                }
+                .link-readmore {
+                    display: inline-block;
+                    margin-right: 1.5em;
+                }
+            }
+            > .landing-page-content__right-panel--content--side-panel {
+                background: $secondary-sanfrancisco-fog-t1;
+                > div {
+                    box-sizing: border-box;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    > h3 {
+                        border-bottom: 1px solid $secondary-sanfrancisco-fog-s2;
+                    }
+                }
             }
         }
     }
-    > .author-social-media--mastodon--name {
-        flex-basis: auto;
+    &.landing-page-content__right-panel__blog-post-page {
+        > .landing-page-content__right-panel--content {
+            @media screen and (min-width: 1200px) {
+                flex-wrap: nowrap;
+            }
+            > .landing-page-content__right-panel--content--body {
+                @media screen and (min-width: 1200px) {
+                    flex-shrink: 0;
+                    flex-grow: 0;
+                    table {
+                        margin: 0;
+                        width: 100%;
+                    }
+                }
+                // This might require some iteration as problems are found.
+                // It has been observed that there are tables in some blog
+                // posts that written in HTML and not Kramdown. However,
+                // the tables are not well formed. They are missing the
+                // necessary <thead>, and <tbody>, and both <th>, and <td>
+                // elements have been observed in use as intended table header cells.
+                // Keep an eye out for where this causes problems.
+                // It is also worth noting that it is observed that HTML rendering engines
+                // on Mac Chromium, Firefox, and Safari will automatically introduce
+                // the <tbody> element around the <tr> set even if the <tbody> is explicitly
+                // omitted in the HTML in the blog post; also the <tbody> is explicitly
+                // NOT PRESENT in the processed *.html files in the _site output folder.
+                // Therefore, rewriting this selector as table > tbody > tr ... would work
+                // the same. It is not known if that behavior is reliable, normative, 
+                // cross-platform, etc.
+                table {
+                    tr {
+                        > td,
+                        > th {
+                            overflow-wrap: break-word;
+                        }
+                    }
+                }
+                
+                
+                > p:nth-of-type(1) {
+                    margin-top: 0;
+                }
+                > p {
+                    img {
+                        @extend .img__outlined;
+                        max-width: 100%;
+                    }
+                    padding-right: 10px;
+                }
+            }
+            > .landing-page-content__right-panel--content--side-panel {
+                @media screen and (min-width: 1200px) {
+                    flex-shrink: 0;
+                    flex-grow: 0;
+                }
+            }
+            > .landing-page-content__right-panel--content--side-panel.landing-page-content__right-panel--content--side-panel__has-card-grid {
+                padding-top: 0;
+                > .solutions-card-grid {
+                    @media screen and (max-width: 834px) {
+                        padding-left: 15px;
+                        padding-right: 15px;
+                    }
+                    > .solutions-card-grid--card-wrapper {
+                        > .solutions-card-grid--card-wrapper--card {
+                            align-items: flex-start;
+                            &.author-panel--card {
+                                > h2 {
+                                    @include header-level2;
+                                    > a {
+                                        text-decoration: none;
+                                    }
+                                }
+                                > .author-panel {
+                                    // @media screen and (min-width: 835px) {
+                                        display: block;
+                                        padding-left: 0;
+                                        box-sizing: border-box;
+                                    // }
+                                    // @media screen and (max-width: 834px) {
+                                    //     display: flex;
+                                    //     flex-direction: row;
+                                    //     justify-content: space-between;
+                                    //     align-items: center;
+                                    // }
+                                    > p {
+                                        @include body-small;
+                                    }
+                                    > .author-panel--photo {
+                                        max-width: 180px;
+                                        > img {
+                                            object-fit: cover;
+                                            width: 100%;
+                                            height: auto;
+                                        }
+                                    }
+                                    > .author-panel--social-links {
+                                        > ul {
+                                            list-style-type: none;
+                                            padding-left: 0;
+                                            > li {
+                                                box-sizing: border-box;
+                                                display: flex;
+                                                flex-direction: row;
+                                                flex-wrap: nowrap;
+                                                column-gap: 5px;
+                                                > div {
+                                                    flex-shrink: 0;
+                                                    flex-grow: 0;
+                                                    height: 30px;
+                                                    box-sizing: border-box;
+                                                }
+                                                > .author-panel--social-links--icon {
+                                                    > a {
+                                                        text-decoration: none;
+                                                        > i {
+                                                            width: 15px;
+                                                            height: 16px;
+                                                            padding-right: 8px;
+                                                        }
+                                                        > svg {
+                                                            width: 15px;
+                                                            height: 16px;
+                                                            flex-shrink: 0;
+                                                            padding-right: 8px;
+                                                        }
+                                                    }
+                                                }
+                                                > .author-panel--social-links--name {
+                                                    flex-basis: auto;
+                                                    > a {
+                                                        text-decoration: none;
+                                                    }
+                                                }
+                                                &.author-social-media--mastodon {
+                                                    position: relative;
+                                                    > .author-panel--social-links--name {
+                                                        top: -3px;
+                                                        position: relative;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }     
+                            }       
+                        }
+                    }
+                }           
+            }
+        }
     }
 }

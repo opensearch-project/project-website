@@ -80,6 +80,11 @@
         <tbody></tbody>
     </table>
 </template>
+<template id="general-blog-post-mobile-table-template">
+    <table class="general-blog-post-mobile-table">
+        <tbody></tbody>
+    </table>
+</template>
 <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -95,7 +100,7 @@
                         rowTemplate.content.cloneNode(true);
                     const headingCell = newTableRow.querySelector('.mobile-table-row--heading-cell');
                     const valueCell = newTableRow.querySelector('.mobile-table-row--value-cell');
-                    const headingText = tableHeaders.item(index).textContent;
+                    const headingText = tableHeaders[index].textContent;
                     const valueHtml = current.innerHTML;
                     headingCell.textContent = headingText;
                     valueCell.innerHTML = valueHtml;
@@ -111,6 +116,59 @@
             return nodeArray;
         }
 
+        function sliceOffFirstRow(rows) {
+            const rowArray = transformNodeListToArray(rows);
+            const withoutFirstRow = rowArray.slice(1);
+            return withoutFirstRow;
+        }
+
+        function getTheadHeaderCells(tableElement) {
+            const tableHeaderCells = tableElement.querySelectorAll(':scope > thead > tr > th');
+            return tableHeaderCells;
+        }
+
+        function getHeaderCellsFallback(tableElement) {
+            const tableHeaderCells = tableElement.querySelectorAll(':scope tr:nth-of-type(1) > th');
+            if (!tableHeaderCells.length) {
+                // Malformed hardcoded HTML tables have been observed in some of the blog posts
+                // not only without a <thead>, but also without the use of <th> at all, but
+                // rather using <td> cells in the top row which appear to perhaps be intended
+                // to be column headers.
+                const tableDataCellsAsHeaders = tableElement.querySelectorAll(':scope tr:nth-of-type(1) > td');
+                return tableDataCellsAsHeaders;
+            }
+            return tableHeaderCells;
+        }
+
+        function getTbodyRows(tableElement) {
+            const tableRows = tableElement.querySelectorAll(':scope > tbody > tr');
+            return tableRows;
+        }
+
+        function getTableRowsFallback(tableElement) {
+            const tableRows = tableElement.querySelectorAll(':scope > tr');
+            return tableRows;
+        }
+
+        function normalizeHeaderCellCountFromColspan(headerCells) {
+            const expandedHeaderCells = Array.from(headerCells).reduce((carry, current) => {
+                if (current?.hasAttribute('colspan')) {
+                    const colspan = Math.abs(Number.parseInt(current.getAttribute('colspan'), 10));
+                    if (!Number.isNaN(colspan)) {
+                        for (let i = 0; i < colspan; ++i) {
+                            const clonedCurrentCell = current.cloneNode(true);
+                            clonedCurrentCell.removeAttribute('colspan');
+                            carry.push(clonedCurrentCell);
+                        }
+                    }
+                } else {
+                    carry.push(current);
+                }
+                return carry;
+            }, []);
+            return expandedHeaderCells;
+        }
+
         function transformDesktopTableToMobile(
             desktopTableSelector,
             mobileTableTemplateId,
@@ -120,8 +178,36 @@
             if (desktopTable) {
                 const mobileTable = document.getElementById(mobileTableTemplateId)?.content?.cloneNode?.(true) ?? null;
                 if (mobileTable) {
-                    const tableHeaderCells = desktopTable.querySelectorAll(':scope > thead > tr > th');
-                    const tableRows = desktopTable.querySelectorAll(':scope > tbody > tr');
+                    let tableHeaderCells = getTheadHeaderCells(desktopTable);
+                    if (!tableHeaderCells.length) {
+                        // Sometimes tables in blog posts are not well formed.
+                        // This is to account for the possibility that there may
+                        // be a row of header cells as the first row of the table.
+                        // If this doesn't work, then bail on it.
+                        // Similarly when selecting the table body rows below.
+                        tableHeaderCells = getHeaderCellsFallback(desktopTable);
+                        if (!tableHeaderCells.length) {
+                            return;
+                        }
+                    }
+
+                    // There is no design spec for mobile tables with header cells that use colspan attributes
+                    // and how they are expected to behave in the mobile-optimized "rotated state.
+                    // Using the normalizeHeaderCellCountFromColspan function will result in a set
+                    // of header cells where the colspan="N" have been duplicated in the set N times.
+                    // This will result in the rotated mobile view as each row to not be missing any labels,
+                    // but will rather have a duplicate label in such cases.
+                    // This is a last minute decision that has been made in haste, and in general 
+                    // another detail that suggests that deliberate considerations should be made
+                    // about how to utilize tables on mobile. Most likely, on a case by case basis.
+                    tableHeaderCells = normalizeHeaderCellCountFromColspan(tableHeaderCells);
+                    let tableRows = getTbodyRows(desktopTable);
+                    if (!tableRows.length) {
+                        tableRows = getTableRowsFallback(desktopTable);
+                        if (!tableRows.length) {
+                            return;
+                        }
+                    }
                     const tableRowArray = tableRowPreProcessor(tableRows);
                     const mobileTableBodyRows = createRotatedTableRows(tableRowArray, tableHeaderCells);
                     mobileTable.querySelector('tbody')?.append?.(...mobileTableBodyRows);
@@ -134,11 +220,7 @@
             null,
             '.desktop-change-log-table',
             'change-log-mobile-table-template',
-            (rows) => {
-                const rowArray = transformNodeListToArray(rows);
-                const withoutFirstRow = rowArray.slice(1);
-                return withoutFirstRow;
-            },
+            sliceOffFirstRow,
         );
         const transformReleaseHistoryTable = transformDesktopTableToMobile.bind(
             null,
@@ -165,11 +247,45 @@
             '.schedule-table__thursday-september-28-2023',
             'thursday-28-2023-conference-schedule-mobile-table-template',
         );
+        const transformBlogPostTables = () => {
+            const blogTableSelectorParts = [
+                '.landing-page-content__right-panel__blog-post-page',
+                '.landing-page-content__right-panel--content',
+                '.landing-page-content__right-panel--content--body', 
+                'table'
+            ];
+            const blogTablesSelector = blogTableSelectorParts.join(' > ');
+            const blogPostTables = document.querySelectorAll(blogTablesSelector);
+            if (!blogPostTables.length) {
+                return;
+            }
+            const desktopTableSelectors = transformNodeListToArray(blogPostTables).map((tableElement, index) => {
+                const desktopTableClass = 'general-blog-post-desktop-table';
+                const desktopTableClassForSelection = `blog-post-table--${index}__mobile-transformable`;
+                const desktopTableSelector = `.${desktopTableClassForSelection}`;
+                tableElement.classList.add(desktopTableClass);
+                tableElement.classList.add(desktopTableClassForSelection);
+                return desktopTableSelector;
+            });
+            const mobileTableTemplateId = 'general-blog-post-mobile-table-template';
+            desktopTableSelectors.forEach(tableSelector => {
+                // It has been observed that tables are written in a variety of ways,
+                // unpredictably, and therefore may need to be processed in ways that account
+                // for tables that are not well formed with <thead>, and <tbody>.
+                const tableHasWellformedHeader = document.querySelector(tableSelector)?.querySelector?.(':scope > thead');
+                let tableRowPreProcessor = transformNodeListToArray;
+                if (!tableHasWellformedHeader) {
+                    tableRowPreProcessor = sliceOffFirstRow;
+                }
+                transformDesktopTableToMobile(tableSelector, mobileTableTemplateId, tableRowPreProcessor);
+            });
+        };
         transformChangeLogTable();
         transformReleaseHistoryTable();
         transformMaintenancePolicyTable();
         transformReleaseScheduleTable();
         transform2023ConferenceScheduleTableWednesday();
         transform2023ConferenceScheduleTableThursday();
+        transformBlogPostTables();
     });
 </script>

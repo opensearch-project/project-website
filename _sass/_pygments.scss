@@ -42,13 +42,15 @@ pre.literal-block,
     }
 }
 
-.highlight {
+div.highlight {
     font-size: 14px;
     border: 1px solid #EAEAEA;
     background: #F4F4F4;
-    background: $background-darker; overflow: auto;
+    background: $background-darker;
     border-radius: 4px;
     margin: 25px 0;
+    width: 100%;
+    overflow-x: scroll;
 
     pre {
         margin: 15px 20px;

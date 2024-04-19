@@ -46,7 +46,7 @@
     <script data-main="{{ 'assets/js/main.js' | relative_url }}" src="{{'assets/js/lib/require.js' | relative_url }}"></script>
     <script src="{{'assets/js/search.js' | relative_url }}"></script>
     {{ page.body_extra }}
-    {%- if page.include_mobile_tables %}
+    {%- if page.include_mobile_tables or layout.include_mobile_tables %}
       {% include mobile_tables.html %}
     {% endif -%}
   </body>

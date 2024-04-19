@@ -1,0 +1,93 @@
+.landing-page-content__right-panel {
+    &.landing-page-content__right-panel__download-version-page {
+        > .landing-page-content__right-panel--content {
+            > .landing-page-content__right-panel--content--body {
+                flex-basis: 75%;
+                width: auto;
+                padding-right: 4%;
+                box-sizing: border-box;
+                > .opensearch-download-artifact {
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 0;
+                    > h2 {
+                        @include header-level2;
+                    }
+                    &:not(:nth-of-type(1)) {
+                       > h2 {
+                            border-top: 1px solid $secondary-sanfrancisco-fog-s2;
+                            padding-top: 30px;
+                        }
+                    }
+                    > .artifact-and-heading {
+                        margin: 0;
+                        padding: 0;
+                        > .artifact-container {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-start;
+                            flex-wrap: wrap;
+                            > .artifact-explain {
+                                flex-basis: 66%;
+                                
+                                > p {
+                                    @include body-medium;
+                                    margin: 0;
+                                }
+                            }
+                            > .download-panel {
+                                flex-basis: 34%;
+                                @include sans-serif;
+
+                                select {
+                                    width: 100%;
+                                }
+                                label, 
+                                .extra_links a {
+                                    font-size: 12px;
+                                    display: block;
+                                }
+                                .extra_links .cta {
+                                    font-size: 15px;
+                                    max-width: none;
+                                }
+                            }
+                            .extra-instructions-group {
+                                width: 100%;
+                                flex-shrink: 0;
+                        
+                                .highlight {
+                                    margin: 0 0 15px;
+                                }
+                            }
+                        
+                            .instruction-label {
+                                margin: 0 0 2px;
+                        
+                                a {
+                                    @include sans-serif;
+                                    font-weight: 400;
+                                    font-size: 12px;
+                                    float: right;
+                                    margin-top: 6px;
+                                    line-height: 1;
+                        
+                                    &:visited {
+                                        color: inherit;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            > .landing-page-content__right-panel--content--side-panel {
+                flex-basis: 25%;
+                width: auto;
+                > p {
+                    @include body-small;
+                }
+            }
+        }
+    }
+}

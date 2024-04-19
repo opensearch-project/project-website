@@ -728,18 +728,6 @@ $calendar-month-default-week-count: 5;
                     @media screen and (min-width: $content-with-panel-expanded-min) {
                         padding-top: 40px;
                     }
-                    @media screen and (max-width: $max-iphone-width) {
-                        padding-left: 10px;
-                        padding-right: 10px;
-                    }
-                    @media screen and (max-width: 410px) {
-                        .redesign-button--wrapper {
-                            width: calc(100% - 60px);
-                        }
-                        .redesign-button--wrapper.redesign-button--wrapper__complex-content > .redesign-button--anchor {
-                            width: unset;
-                        }
-                    }
                 }
             }
         }

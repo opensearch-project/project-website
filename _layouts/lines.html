@@ -1,26 +1,15 @@
 ---
-layout: default
+layout: fullwidth-with-breadcrumbs
 ---
-{% assign primary_title = "Versions in the " | append: page.pretty_version | append: " release line" %}
-{% assign layout_class = 'sidebar-right' %}
-{% capture content %}
 
 <ul>
-{% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
+    {% assign versions = site.versions | sort_versions: 'version_sort' | reverse %}
     {% for version in versions %}
         {% assign major_version =  version.version | split: "." | first %}
         {% if major_version == page.major_version %}
             <li><a href="{{version.url}}">OpenSearch {{version.version}}</a> <br /><small>(Released on {{version.date  | date_to_string: "ordinal", "US"}})</small> </li>
-        {%endif%}
+        {% endif %}
     {% endfor %}
-{% endcapture %}
 </ul>
 
-{% capture content_related %}
-<div role="complementary">
-  {{ page.content }}
-</div>
-{% endcapture %}
-
-{% include copy_banner.html %}
-{% include base_3col.html %}
+{{ page.content }}

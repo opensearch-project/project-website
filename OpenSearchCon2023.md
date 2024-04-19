@@ -1,10 +1,17 @@
 ---
-
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 title: Save The Date for OpenSearchCon 2023!
+primary_title: Save The Date for OpenSearchCon 2023!
 meta_description: "Save the date for OpenSearchCon 2023!"
 meta_keywords: "save the date, opensearch, open search, opensearchcon, opensearch con, opensearchcon 2023"
 permalink: "/OpenSearchCon2023"
+breadcrumbs:
+  icon: community
+  items:
+    - title: OpenSearchCon
+      url: /events/opensearchcon/
+    - title: 2023
+      url: /events/opensearchcon/2023/
 ---
 
 <div style="text-align: center">

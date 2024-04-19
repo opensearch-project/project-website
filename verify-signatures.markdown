@@ -1,7 +1,14 @@
 ---
-layout: fullwidth
+layout: fullwidth-with-breadcrumbs
 primary_title: Resources
 title: How to verify signatures
+breadcrumbs:
+  icon: opensearch-admin
+  items:
+    - title: Downloads
+      url: /downloads.html
+    - title: Verify Signatures
+      url: /verify-signatures.html
 ---
 
 ## How to verify signatures for downloadable artifacts

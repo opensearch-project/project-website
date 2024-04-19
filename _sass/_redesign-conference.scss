@@ -6,33 +6,20 @@ $two-column-min-width: 1020px;
 $single-column-max-width: 1019px;
 $shrink-card-images-breakpoint: 660px;
 $content-panel-collapse-breakpoint: 834px;
+$content-panel-expand-breapoint: 835px;
 $content-panel-expand-breakpoint: 1019px;
 
 .landing-page-content__right-panel.conference-speaker-session-page {
     background: unset;
     > .conference-speaker-session-page--embedded-video {
-        @media screen and (min-width: 835px) {
-            padding: 40px 40px 80px 80px;
-        }
-        @media screen and (max-width: 834px) {
-            padding: 40px 0;
-        }
+        padding: 0 0 30px 0;
     }
     .landing-page-content__right-panel--content--body {
-        @media screen and (max-width: $content-panel-collapse-breakpoint) {
-            padding: 20px 0 0 0;
-            flex-basis: 100%;
-        }
-        @media screen and (min-width: $content-panel-expand-breakpoint) {
-            padding: 40px 0 40px 80px;
-            flex-basis: calc(63% - 80px);
-        }
-        
         background: unset;
         > p {
             margin-top: 0;
             padding-right: 20px;
-            @media screen and (max-width: 834px) {
+            @media screen and (max-width: $content-panel-collapse-breakpoint) {
                 padding-right: 0;
                 overflow-wrap: anywhere;
             }
@@ -46,21 +33,8 @@ $content-panel-expand-breakpoint: 1019px;
     }
     > .landing-page-content__right-panel--content {
         > .landing-page-content__right-panel--content--side-panel {
-            @media screen and (max-width: $content-panel-collapse-breakpoint) {
-                flex-basis: calc(100% - 40px);
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 20px;
-                padding-bottom: 20px;
-            }
-            @media screen and (min-width: $content-panel-expand-breakpoint) {
-                flex-basis: calc(37% - 63px);
-                padding-left: 23px;
-                padding-right: 40px;
-                padding-top: 55px;
-            }
             &.landing-page-content__right-panel--content--side-panel__events-page {
-                @media screen and (max-width: 834px) {
+                @media screen and (max-width: $content-panel-collapse-breakpoint) {
                     padding-left: 0;
                     padding-right: 0;
                     flex-basis: 100%;
@@ -805,10 +779,6 @@ h2.conference-speaker-session-page {
     }
 }
 .conference-exhibitors {
-    // padding: 40px 80px;
-    // @media screen and (max-width: 834px) {
-    //     padding: 40px 20px;
-    // }
     @include page-element-padding;
     .conference-exhibitors--grid.resource-grid {
         display: grid;

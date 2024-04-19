@@ -1,43 +1,84 @@
-
-<h2>
-  {% if include.linked %} 
-    <a href="{{ include.author.url }}">
-  {% endif %}
-  {{ include.author.name }} 
-  {% if include.linked %} 
-  </a>
-  {% endif %}
-</h2>
-
-
-{% if include.author.photo  %} <img class="author-photo" src="{{ include.author.photo }}" alt="photo of {{include.author.name}}" /> {% endif %}
-
-<p>{{ include.author.content | markdownify }}</p>
-
-<div class="author-social-media">
-  <ul>
-{% if include.author.twitter %}
-    <li><a target="_blank" href="https://twitter.com/{{include.author.twitter}}"><i class="icon icon-twitter-square"></i> {{include.author.twitter}}</a></li>
-{% endif %}
-{% if include.author.github %}
-    <li><a target="_blank" href="https://github.com/{{include.author.github}}"><i class="icon icon-github-square"></i> {{include.author.github}}</a></li>
-{% endif %}
-{% if include.author.linkedin %}
-    <li><a target="_blank" href="https://www.linkedin.com/in/{{include.author.linkedin}}"><i class="icon icon-linkedin-square"></i> {{include.author.linkedin }}</a></li>
-{% endif %}
-{% if include.author.mastodon %}
-    <li class="author-social-media--mastodon">
-      <div class="author-social-media--mastodon--icon">
-        <a target="_blnak" href="{{ include.author.mastodon.url }}">
-          {% include icons.html type="mastodon-social" %}
-        </a>
+<div class="solutions-card-grid--card-wrapper--card author-panel--card">
+  <h2>
+    {%- if include.linked -%} 
+      <a href="{{ include.author.url }}">
+    {%- endif -%}
+    {{ include.author.name }} 
+    {%- if include.linked -%}
+      </a>
+    {%- endif -%}
+  </h2>
+  <div class="author-panel">
+    {% if include.author.photo  %} 
+      <div class="author-panel--photo">
+        <img
+          src="{{ include.author.photo }}" 
+          alt="photo of {{include.author.name}}"
+        >
       </div>
-      <div class="author-social-media--mastodon--name">
-        <a target="_blank" href="{{ include.author.mastodon.url }}">
-          {{include.author.mastodon.name}}
-        </a>
-      </div>
-    </li>
-{% endif %}
-  </ul>
+    {% endif %}
+    {%- if include.author.content -%}
+      {{ include.author.content | markdownify }}
+    {%- endif -%}
+    <div class="author-panel--social-links">
+      <ul>
+        {% if include.author.twitter %}
+          <li>
+            <div class="author-panel--social-links--icon">
+              <a target="_blank" href="https://twitter.com/{{include.author.twitter}}">
+                <i class="icon icon-twitter-square"></i>
+              </a>
+            </div>
+            <div class="author-panel--social-links--name">
+              <a target="_blank" href="https://twitter.com/{{include.author.twitter}}">
+                {{include.author.twitter}}
+              </a>
+            </div>
+          </li>
+        {% endif %}
+        {% if include.author.github %}
+          <li>
+            <div class="author-panel--social-links--icon">
+              <a target="_blank" href="https://github.com/{{include.author.github}}">
+                <i class="icon icon-github-square"></i>
+              </a>
+            </div>
+            <div class="author-panel--social-links--name">
+              <a target="_blank" href="https://github.com/{{include.author.github}}">
+                {{include.author.github}}
+              </a>
+            </div>
+          </li>
+        {% endif %}
+        {% if include.author.linkedin %}
+          <li>
+            <div class="author-panel--social-links--icon">
+              <a target="_blank" href="https://www.linkedin.com/in/{{include.author.linkedin}}">
+                <i class="icon icon-linkedin-square"></i>
+              </a>
+            </div>
+            <div class="author-panel--social-links--name">
+              <a target="_blank" href="https://www.linkedin.com/in/{{include.author.linkedin}}">
+                {{include.author.linkedin }}
+              </a>
+            </div>
+          </li>
+        {% endif %}
+        {% if include.author.mastodon %}
+          <li class="author-social-media--mastodon">
+            <div class="author-panel--social-links--icon">
+              <a target="_blnak" href="{{ include.author.mastodon.url }}">
+                {% include icons.html type="mastodon-social" %}
+              </a>
+            </div>
+            <div class="author-panel--social-links--name">
+              <a target="_blank" href="{{ include.author.mastodon.url }}">
+                {{include.author.mastodon.name}}
+              </a>
+            </div>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
 </div>
