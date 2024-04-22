@@ -5,23 +5,23 @@
 
 # The short name is used to identify related pieces of content in the site. For example it is used in the "authors" array of blog posts, and it is used in the "presenters" array for OpenSearch Conference sessions to identify who is speaking.
 # The format for existing values is not normalized. In some cases it is "first-initial-of-first-name" + "last-name", or matching a GitHub username, or something all together random. What is important is that it is unique within the system.
-short_name: "llusim"
+short_name: "liusim"
 
 # The member's full name, or otherwise meaningful preferred name. It is used in the templates for presenting content authors as well as the name of conference speakers.
-name: "Liat Lusim"
+name: "Liat Iusim"
 
 # The path to the community member's photo.
 photo: "/assets/media/community/members/no-image-available.svg"
 
 # Used as the level 1 page header text.
-primary_title: 'Liat Lusim'
+primary_title: 'Liat Iusim'
 
 # Used as the document title displayed in the browser title bar.
-title: 'OpenSearch Project Community Member: Liat Lusim'
+title: 'OpenSearch Project Community Member: Liat Iusim'
 
 # Breadcrumbs specification.
 # The community icon is expected.
-# The breadcrumbs path structure is Communit -> Members -> Liat Lusim's Profile.
+# The breadcrumbs path structure is Communit -> Members -> Liat Iusim's Profile.
 breadcrumbs:
   icon: community
   items:
@@ -29,7 +29,7 @@ breadcrumbs:
       url: /community/index.html
     - title: Members
       url: /community/members/index.html
-    - title: "Liat Lusim&apos;s Profile"
+    - title: "Liat Iusim&apos;s Profile"
       url: '/community/members/first-last.html'
 
 # Community member job title and company where they work.
@@ -48,7 +48,7 @@ session_track:
     name: "Operating OpenSearch"
 
 # URL for the community member profile.
-permalink: '/community/members/liat-lusim.html'
+permalink: '/community/members/liat-iusim.html'
 
 # Array of community member user personas.
 # At this time, only conference_speaker, and author are defined.

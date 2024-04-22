@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Discussing open source innovation at Open Source Summit North America"
+title: "Discussing open-source innovation at Open Source Summit North America"
 authors:
 - anandhi
 date: 2024-04-18
