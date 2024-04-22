@@ -48,7 +48,7 @@ title: "What if satellites spoke in vector?"
 ---
 Every once in a while I come across a use case that gets me really excited, not just because it aligns with my personal interests but also because I never would have thought that open-source tools would find their way into certain use cases. Recently I was lucky enough to learn about some very complicated real-world problems that could be improved by using OpenSearch, AI, and machine learning (ML). Those problems just happen to involve the realm of observability and, in particular, things that observe our planet.
 
-## What is the actual problem to solve?
+## What is the problem to be solved?
 
 There’s a handful. Here on earth we’re starting to see more and more cars that can drive themselves, illustrating the need for collision avoidance. It’s pretty easy to simplify the problem statement here. It’s just making sure that stuff doesn’t smash into each other. Compared to our roads, space really is big, but the space where satellites orbit around the earth isn’t quite as big. So, we have a common problem of avoiding collisions, whether it’s a satellite or a car. It is very easy for a small piece of debris, even as small as a fleck of paint, to cause significant damage to orbiting vehicles. For things that can’t move themselves, there are only passive things that can be done. Orbital altitudes, graveyard orbits, etc, are options, but these are passive solutions that help segregate orbits for things that can’t move themselves. Once one of these is used for a launched, there’s not much you can do to move it.
 
