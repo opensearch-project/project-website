@@ -20,6 +20,6 @@ personas:
   - author
 permalink: '/community/members/nate-boot.html'
 ---
-I'm hardcore, but approachable. 
+I'm hardcore but approachable. 
 I love tech, video games, bad jokes and my padawan youngling. 
 I'm at your service. 
