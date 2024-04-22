@@ -70,6 +70,6 @@ Many organizations use technology like synthetic aperture radar (SAR) to monitor
 
 If you want to learn more about GSI Technology solutions, you should check out [their website](https://gsitechnology.com). They’re applying AI and ML to a variety of modern problems. There are many potential applications, including aerospace, genomics, computer vision, cybersecurity in space, vector search in space, data centers in space for the purposes of computing large volumes of data, and more.
 
-## Parting food for thought
+## Parting thoughts
 
 Satellites and space sure sound cool, but there may be many other places in which the observability of our own Earth can be improved. Not only on a cosmic scale, but any place in which we collect large amounts of data. Imagine a microscope with a bit of computational memory, equivalent to RAM and a CPU that could supplement the years and years of experience doctors and scientists have accumulated. Not replace, but supplement. Imagine an MRI machine equipped with a model to recognize brain scan anomalies. As a long time sufferer of epilepsy, a condition for which only three out of ten cases ever have a root cause determined, I sure wouldn’t mind donating the vector of my brain scans to science. With an open source license, of course.
