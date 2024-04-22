@@ -66,7 +66,7 @@ The APU technology family is a Compute-in-memory (CiM) architecture seeking to e
 
 ## Several applications
 
-Many institutions often use things like SAR (synthetic aperture radar) to monitor landscapes to check for things like the progress of deforestation, forest fires, as well as the erosion of coastal areas. Even corporations use this tech to count the number of cars in their stores’ parking lots to help forecast business decisions. We can even use this tech to predict and detect ships adrift at sea for the purposes of rescue. The same advantage is available here. Instead of sending entire collections of satellite data, we now have the potential to send results that represent those changes instead.
+Many organizations use technology like synthetic aperture radar (SAR) to monitor landscapes to check for things like deforestation progress, forest fires, or erosion of coastal areas. Even corporations use this technology to count the number of cars in their stores’ parking lots to help forecast business decisions. We can even use it to predict and detect ships adrift at sea for the purposes of rescue. The same advantage is available here. Instead of sending entire collections of satellite data, we now have the potential to send results that represent those changes instead.
 
 If you’re curious about what GSI Technology works on you should definitely head over to their [website](https://gsitechnology.com). They’re applying AI and ML to a variety of modern problems. There are many potential applications that are up to their imagination - aerospace, genomics, computer vision, cyber security for space, vector search in space, data centers in space for the purposes of computing large volumes of data and more.
 
