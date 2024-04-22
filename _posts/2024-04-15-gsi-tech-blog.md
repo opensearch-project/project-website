@@ -54,7 +54,7 @@ Here on Earth we’re starting to see more and more cars that can drive themselv
 
 Communications satellites are great at talking to each other, but Earth observation satellites don’t always have this strength. They have large arrays of sensors and collect large quantities of data. However, they still need to send their data to the ground for processing. That is to say, these observational satellites don’t really compute their own sensor data. To further complicate this issue, sending sensor data to Earth has to happen during small windows of time due to satellites only being able to transmit to ground stations during small windows in their orbit. This means that not all of the data is sure to make it to the ground. Even after all of this happens, a human still has to review the results.
 
-The number of satellites is increasing. We have five times more satellites in space than we did ten years ago. The proportional amount of humans we have to do this processing is decreasing. Humans have become a bottleneck.
+The number of satellites is ever increasing. We have 5 times more satellites in space than we did 10 years ago. In contrast, the number of humans with the skills to perform this type of processing is decreasing. Humans have become a bottleneck.
 
 ![](/assets/media/blog-images/2024-04-15-gsi-tech-blog/objects-launched-annual.jpg)
 
