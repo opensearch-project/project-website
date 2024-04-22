@@ -6,10 +6,10 @@
 
 # Conference session speaker short name that maps to a short_name value
 # in the community members collection.
-primary_presenter: 'llusim'
+primary_presenter: 'liusim'
 
 # Conference session speaker full name.
-speaker_name_full: 'Liat Lusim'
+speaker_name_full: 'Liat Iusim'
 
 # Conference session title.
 speaker_talk_title: 'Migrating from Self-Managed ElasticSearch to OpenSearch'
@@ -27,7 +27,7 @@ breadcrumbs:
       url: /events/opensearchcon/index.html
     - title: 2024
       url: /events/opensearchcon/2024/index.html
-    - title: North America
+    - title: Europe
       url: /events/opensearchcon/2024/europe/index.html
     - title: Session Summaries
       url: /events/opensearchcon/2024/europe/sessions/index.html
@@ -55,7 +55,7 @@ conference_id: '2024-europe'
 
 # Array of short_name values for the Community Members with the conference_speaker persona whom are presenting the session. This includes the primary_speaker indicated above and any other presenters (if any).
 presenters:
-  - llusim
+  - liusim
 
 ---
 This session will delve into the intricacies of migrating a large, mission-critical production Elasticsearch cluster to Amazon OpenSearch. The migration aimed to enhance the cluster's stability and increase the team's and DevOps's velocity by avoiding manual configuration changes. 
