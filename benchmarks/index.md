@@ -73,6 +73,10 @@ benchmark_height_mobile: 6000
 </li>
 
 <li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/56b9d060-f8f8-11ee-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'PMC%20Nightly%20Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">PMC</a>
+</li>
+
+<li>
     <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/d67264e0-f5aa-11ed-aff5-859eb6ed880f?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Segment%20Replication%20Benchmark',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Segment Replication</a>
 </li>
 </ul>
