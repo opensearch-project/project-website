@@ -1,6 +1,6 @@
 #/bin/sh
 
-if ! yq -V | grep -q 'version 4.';  then
+if ! yq -V | grep -q 'version v4.';  then
     echo "ERROR - This script needs yq (https://mikefarah.gitbook.io/yq/) version 4"
     exit 2
 fi 
