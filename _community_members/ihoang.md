@@ -45,7 +45,7 @@ job_title_and_company: 'Software Engineer, AWS'
 # For example for the North American conference for the year 2023, and the "Community" track:
 session_track: 
   - conference_id: "2024-europe"
-    name: "Community"
+    name: "Operating OpenSearch"
 
 # URL for the community member profile.
 permalink: '/community/members/ian-hoang.html'
