@@ -11,45 +11,45 @@ meta_description: Learn how to use OpenSearch to conduct multilingual search wit
 ---
 
 In traditional lexical search we often use text analysis to improve search results. 
-OpenSearch uses [analyzers](https://opensearch.org/docs/latest/analyzers/) to refine, tokenize and convert text fields before storing them in an index. 
-As an example, indexing `<p><b>Actions</b> speak louder than <em>words</em></p>` can result in the following tokens indexed: [`action`, `speak`, `loud`, `word`]. 
-The behaviour depends on the analyzers you defined for your text fields.
+OpenSearch uses [analyzers](https://opensearch.org/docs/latest/analyzers/) to refine, tokenize, and convert text fields before storing them in an index. 
+As an example, indexing `<p><b>Actions</b> speak louder than <em>words</em></p>` can result in the following indexed tokens: [`action`, `speak`, `loud`, `word`]. 
+The behavior depends on the analyzers you define for your text fields.
 
-In recent years other approaches besides lexical search arose. Semantic search considers the context and intent of a search query. It does so by converting text to vectors in a process called `embeddings`. 
-This allows finding documents that are semantically similar and don't necessarily match word by word.  
+In recent years, additional approaches have emerged. Semantic search considers the context and intent of a search query. It does so by converting text to vectors through `embeddings`. 
+This allows you to find documents that are semantically similar and don't necessarily match word for word.  
 
-How can semantic search help us not only with understanding an intent of a search query, but also with multilingual search? 
-Imagine you have an e-commerce site, and a product catalog. Using traditional lexical search brings several challenges:
-* What happens if the catalog is in one language, and my users search in other languages?
+How can semantic search help not only with understanding the intent of a search query but also with multilingual search? 
+Imagine you have an e-commerce site and a product catalog. Traditional lexical search presents several challenges:
+* What happens if the catalog is in one language and my users search in other languages?
 * What if my catalog items are defined in different languages?
-* How can I handle search requests or catalog items in languages that are not supported out-of-the-box in [OpenSearch language analyzers](https://opensearch.org/docs/latest/analyzers/language-analyzers/) (e.g., Hebrew)? 
+* How can I handle search requests or catalog items in languages that are not supported out-of-the-box by [OpenSearch language analyzers](https://opensearch.org/docs/latest/analyzers/language-analyzers/) (for example, Hebrew)? 
 
-Some of the above challenges could be solved using schema changes, custom code and ETL pipelines, but would greatly complicate the code base, require maintenance and labor time.
-In this blog post we discuss how can we use semantic search with multilingual embedding models to overcome the challenges above. 
+Some of these challenges could be solved using schema changes, custom code, and extract, transform, and load (ETL) pipelines, but these solutions would greatly complicate the code base and require labor and maintenance.
+In this blog post we discuss how you can use semantic search with multilingual embedding models to overcome these challenges. 
 
 
 ## Multilingual models
-Transforming text into a vector is in the heart of semantic search. 
-Embedding models are trained on vast amounts of data and are able to convert text into vectors in a way that capture inherent properties and relationships in real-world data.
-Some embedding models are trained on more than one language and therefore can be used to search within a language or across languages. 
-Examples for such models are [Cohere’s multilingual embedding model](https://docs.cohere.com/docs/multilingual-language-models) and [Amazon Titan Embeddings G1 - Text G1](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html)
+Transforming text into a vector is at the heart of semantic search. 
+Embedding models are trained on vast amounts of data and are able to convert text into vectors in a way that captures inherent properties and relationships in real-world data.
+Some embedding models are trained on more than one language and therefore can be used to search across multiple languages. 
+Examples of such models are [Cohere’s multilingual embedding model](https://docs.cohere.com/docs/multilingual-language-models) and [Amazon Titan Embeddings G1 - Text G1](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html).
 
-OpenSearch allows you to integrate multilingual embedding models into your search workflow with the following approaches:
+OpenSearch allows you to integrate multilingual embedding models into your search workflow using the following approaches:
 * Local models that are uploaded to your cluster locally, such as `huggingface/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
-* Externally hosted models on third-party platform such as [Cohere](https://cohere.com/) and [Amazon Bedrock](https://aws.amazon.com/bedrock/).
+* Externally hosted models on third-party platforms such as [Cohere](https://cohere.com/) or [Amazon Bedrock](https://aws.amazon.com/bedrock/).
 
-For an explanation on the tradeoffs between the approaches see [choosing a model](https://opensearch.org/docs/latest/ml-commons-plugin/integrating-ml-models/#choosing-a-model)
+For an explanation of the tradeoffs between these approaches, see [Choosing a model](https://opensearch.org/docs/latest/ml-commons-plugin/integrating-ml-models/#choosing-a-model).
 
 ## Using multilingual embedding models in OpenSearch
-We will now go over the steps required to allow multilingual search using an externally hosted model on Cohere. 
-For a tutorial showing how to use a local model please follow [this guide](https://repost.aws/articles/ARwaKLdzGDShq-O2OMU2Nnhg/multilingual-search-with-amazon-opensearch).
+We will now go over the steps required to allow multilingual search using a model externally hosted on Cohere. 
+For a tutorial showing how to use a local model, please see [this guide](https://repost.aws/articles/ARwaKLdzGDShq-O2OMU2Nnhg/multilingual-search-with-amazon-opensearch).
 
-Connecting to externally hosted models is done through [Connectors](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/). 
+You can connect to externally hosted models through [connectors](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/). 
 OpenSearch provides [connector blueprints](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/#supported-connectors) for various third-party platforms.
 
-### Creating the Cohere Connector
-We will start by following the instructions for [Cohere Embedding Connector Blueprint](https://github.com/opensearch-project/ml-commons/blob/2.x/docs/remote_inference_blueprints/cohere_connector_embedding_blueprint.md#cohere-embedding-connector-blueprint).
-Make sure you pass one of Cohere's [multilingual embedding models](https://docs.cohere.com/reference/embed) such as `embed-multilingual-v3.0` when creating your connector:
+### Creating the Cohere connector
+Start by following the instructions in the [Cohere Embedding Connector Blueprint](https://github.com/opensearch-project/ml-commons/blob/2.x/docs/remote_inference_blueprints/cohere_connector_embedding_blueprint.md#cohere-embedding-connector-blueprint).
+Make sure you pass one of Cohere's [multilingual embedding models](https://docs.cohere.com/reference/embed), such as `embed-multilingual-v3.0`, when creating your connector:
 ```json
 POST /_plugins/_ml/connectors/_create
 {
@@ -81,10 +81,10 @@ POST /_plugins/_ml/connectors/_create
   ]
 }
 ```
-### Creating an ingestion pipeline
-Once we created the connector and model, we now create an [ingest pipeline](https://opensearch.org/docs/latest/api-reference/ingest-apis/index/). 
-This pipeline will convert the text in a document field to embeddings. 
-In the following example we create a pipeline named `cohere_multilingual_pipeline`. We also specify that the text from `description` will be converted into text embeddings and the embeddings will be stored in `description_vector`
+### Creating an ingest pipeline
+Once you have created the connector and model, you can now create an [ingest pipeline](https://opensearch.org/docs/latest/api-reference/ingest-apis/index/). 
+This pipeline will convert the text in a document field into embeddings. 
+The following example creates a pipeline named `cohere_multilingual_pipeline`. It also specifies that the text from `description` will be converted into text embeddings and that the embeddings will be stored in `description_vector`:
 ```json
 PUT _ingest/pipeline/cohere_multilingual_pipeline
 {
@@ -103,7 +103,7 @@ PUT _ingest/pipeline/cohere_multilingual_pipeline
 ```
 
 ### Creating an index
-We now create a k-NN index with the pipeline created in the previous step. Note the `dimension` for `description_vector` must match the model dimension you use.
+You can now create a k-NN index with the pipeline created in the previous step. Note that the `dimension` for `description_vector` must match the model dimension:
 ```json
 PUT /cohere_multilingual_english_catalog
 {
@@ -137,10 +137,10 @@ PUT /cohere_multilingual_english_catalog
 }
 ```
 
-More information on creating a k-NN index can be found [here](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/).
+For more information on creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/).
 
 ### Ingesting data 
-We are ready to ingest our catalog. In the example below we will use the `_bulk` API, and show just a sub set of the data. Note that the full corpus of data holds 2000 documents.
+You are now ready to ingest your catalog. The following example uses the `_bulk` API and shows only a subset of the data. Note that the full data corpus holds 2,000 documents.
 ```json
 POST cohere_multilingual_english_catalog/_bulk/
 {"index": {"_index": "cohere_multilingual_english_catalog", "_id": 0}}
@@ -165,13 +165,13 @@ POST cohere_multilingual_english_catalog/_bulk/
 {"gender": "Men", "masterCategory": "Accessories", "subCategory": "Watches", "articleType": "Watches", "baseColour": "Black", "season": "Winter", "year": "2016", "usage": "Casual", "productDisplayName": "Skagen Men Black Watch", "description": "Men Accessories Watches Watches Black Winter 2016 Casual Skagen Men Black Watch"}
 ...
 ```
-Once the data is ingested, the `description` field is converted into text embeddings and the embeddings are stored in `description_vector` using the ingestion pipeline and connector we created in earlier stages.
+Once the data is ingested, the `description` field is converted into text embeddings and the embeddings are stored in `description_vector` using the ingest pipeline and connector created in the previous steps.
 
 ### Performing multilingual search requests
-We can now search our catalog. Semantic search can be done in English, or all languages the [model supports](https://docs.cohere.com/docs/supported-languages).  
+You can now search your catalog. Semantic search can be performed in English or in any of the model's [supported languages](https://docs.cohere.com/docs/supported-languages).  
 
 #### Searching in English
-We can still run a semantic search in the English.
+The following is an example semantic search in English:
 ```json
 GET /cohere_multilingual_english_catalog/_search
 {
@@ -188,7 +188,7 @@ GET /cohere_multilingual_english_catalog/_search
   }
 }
 ```
-Our search query is `man birthday gift`, and notice that the results do not necessarily match the words `birthday` or `gift`:
+The search query is `man birthday gift`, but notice that the results do not necessarily match the words `birthday` or `gift`:
 ```json
 {
   ...
@@ -237,8 +237,8 @@ Our search query is `man birthday gift`, and notice that the results do not nece
 }
 ```
 #### Searching in other languages
-Since the embedding was done using a multilingual embedding model, we can search in any of the languages supported by said model. 
-As an example, this includes Hebrew that is not supported out-of-the-box in OpenSearch:
+Because the embedding was performed using a multilingual embedding model, you can search in any of the languages supported by the model. 
+As an example, this includes Hebrew, which is not supported out-of-the-box in OpenSearch:
 ```json
 GET /cohere_multilingual_english_catalog/_search
 {
@@ -256,7 +256,7 @@ GET /cohere_multilingual_english_catalog/_search
 }
 ```
 
-Our search query is `נעלי גבר לקיץ`, which translates to `man summer shoes`. Note the results includes the sandal category and not only the shoes category:
+The search query is `נעלי גבר לקיץ`, which translates to `man summer shoes`. Note that the results include the "Sandal" category in addition to the "Shoes" category:
 ```json
 {
   ...
@@ -305,17 +305,16 @@ Our search query is `נעלי גבר לקיץ`, which translates to `man summer 
 }
 ```
 
-The same approach as above can be used if the catalog itself was in Hebrew, or the items in the catalog where in different languages. 
-Important to note that lexical search can still be done on the index, and OpenSearch also allows us to combine lexical and semantic search with [hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/)
+The same approach could be used if the catalog itself were in Hebrew or if the items in the catalog were described in different languages. 
+It is important to note that lexical search can still be performed on the index, and OpenSearch also allows you to combine lexical and semantic search by using [hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/).
 
 ## Summary
-Multilingual embedding models have opened a new door for multilingual search. 
-Using connectors, connectors blueprints, and ingest pipelines simplifies the ingestion and query process in OpenSearch.
-There are more considerations to be taken that we have not covered in this blog, such as the quality of the embedding model and the ability to fine tune it, the k-NN engine used, and hybrid search approaches. 
-I have added a section below for further reading.
+Multilingual embedding models have presented new capabilities for multilingual search. 
+Connectors, connectors blueprints, and ingest pipelines simplify the ingestion and query process in OpenSearch.
+Additional considerations that were not covered in this blog post include the quality of the embedding model and the ability to fine-tune it, the k-NN engine used, and hybrid search approaches. You can find more information about these subjects in the resources provided in the following section.
 
 ## Further reading
 * [k-NN search](https://opensearch.org/docs/latest/search-plugins/knn/index/)
 * [Building a semantic search engine in OpenSearch](https://opensearch.org/blog/semantic-search-solutions/)
 * [The ABCs of semantic search in OpenSearch: Architectures, benchmarks, and combination strategies](https://opensearch.org/blog/semantic-science-benchmarks/)
-* [Natural Language and Search - Large Language Models (LLMs) for Semantic Search and Generative AI](https://d1.awsstatic.com/aws-analytics-content/OReilly_book_Natural-Language-and-Search_web.pdf)
+* [Natural Language and Search: Large Language Models (LLMs) for Semantic Search and Generative AI](https://d1.awsstatic.com/aws-analytics-content/OReilly_book_Natural-Language-and-Search_web.pdf)

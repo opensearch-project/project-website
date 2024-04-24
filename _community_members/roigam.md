@@ -21,4 +21,4 @@ personas:
 permalink: '/community/members/roi-gamliel.html'
 ---
 
-**Roi Gamliel** is a Senior Solutions Architect at Amazon Web Services (AWS), helping startups to build on AWS. He is passionate about the OpenSearch project, helping customers to fine tune their workloads and maximize results.
+**Roi Gamliel** is a Senior Solutions Architect helping startups to build on AWS. He is passionate about the OpenSearch Project, helping customers to fine-tune their workloads and maximize results.
