@@ -5,23 +5,23 @@
 
 # The short name is used to identify related pieces of content in the site. For example it is used in the "authors" array of blog posts, and it is used in the "presenters" array for OpenSearch Conference sessions to identify who is speaking.
 # The format for existing values is not normalized. In some cases it is "first-initial-of-first-name" + "last-name", or matching a GitHub username, or something all together random. What is important is that it is unique within the system.
-short_name: "gkamat"
+short_name: "ihoang"
 
 # The member's full name, or otherwise meaningful preferred name. It is used in the templates for presenting content authors as well as the name of conference speakers.
-name: "Govind Kamat"
+name: "Ian Hoang"
 
 # The path to the community member's photo.
-photo: '/assets/media/community/members/govkamat.jpg'
+photo: "/assets/media/community/members/ianhoang.jpg"
 
 # Used as the level 1 page header text.
-primary_title: 'Govind Kamat'
+primary_title: 'Ian Hoang'
 
 # Used as the document title displayed in the browser title bar.
-title: 'OpenSearch Project Community Member: Govind Kamat'
+title: 'OpenSearch Project Community Member: Ian Hoang'
 
 # Breadcrumbs specification.
 # The community icon is expected.
-# The breadcrumbs path structure is Communit -> Members -> First Last's Profile.
+# The breadcrumbs path structure is Communit -> Members -> Ian Hoang's Profile.
 breadcrumbs:
   icon: community
   items:
@@ -29,11 +29,11 @@ breadcrumbs:
       url: /community/index.html
     - title: Members
       url: /community/members/index.html
-    - title: "Govind Kamat&apos;s Profile"
-      url: '/community/members/govind-kamat.html'
+    - title: "Ian Hoang&apos;s Profile"
+      url: '/community/members/ian-hoang.html'
 
 # Community member job title and company where they work.
-job_title_and_company: 'Database Engineer III - AWS OpenSearch'
+job_title_and_company: 'Software Engineer, AWS'
 
 # Array of conference IDs for which the community member is a keynote speaker, if any, or boolean false otherwise.
 # This value is only relevant for member's with the "conference_speaker" user persona.
@@ -48,7 +48,7 @@ session_track:
     name: "Operating OpenSearch"
 
 # URL for the community member profile.
-permalink: '/community/members/govind-kamat.html'
+permalink: '/community/members/ian-hoang.html'
 
 # Array of community member user personas.
 # At this time, only conference_speaker, and author are defined.
@@ -61,10 +61,10 @@ conference_id:
 
 
 # Optional GitHub username
-github: gkamat
+github: IanHoang
 
 # Optional LinkedIn username
-#linkedin: linkedinusername
+linkedin: ianhoang
 
 # Optional Twitter username
 #twitter: twitterusername
@@ -75,4 +75,4 @@ github: gkamat
 #  name: mastodonusername
 ---
 
-Govind Kamat is a Database Engineer at AWS, working on performance and benchmark tools for OpenSearch.  He is a maintainer on the OpenSearch Benchmark project.  His background is in the area of distributed systems performance and he has prior experience in the development of large-scale software systems, cycle-accurate microprocessor simulators, language compilers and electronic design automation software.
+Ian Hoang is a software engineer at AWS working on performance tools for OpenSearch and is a maintainer for the OpenSearch Benchmark project. Outside of work, he enjoys photography, playing tennis, and spending time with his dog. 

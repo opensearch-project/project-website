@@ -15,7 +15,7 @@ breadcrumbs:
       url: /events/opensearchcon/2024/europe/unconference/index.html
 speaker_talk_title: Unconference
 session_time: '2024-05-06 - 1:45pm-5:00pm'
-session_room: Asgabat - Second Stage
+session_room: Mosaku room
 session_track: Unconference
 primary_speaker_name: krisfreedain
 hero_banner_image: /assets/media/opensearchcon/2024/OSC_Berlin_Unconf.png
