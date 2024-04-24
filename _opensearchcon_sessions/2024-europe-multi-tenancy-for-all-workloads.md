@@ -40,7 +40,7 @@ session_room: "a room yet to be determined."
 session_track: "Community"
 
 # URL permalink for the session.
-permalink: '/events/opensearchcon/sessions/multi-tenancy-for-all-workloadshtml'
+permalink: '/events/opensearchcon/sessions/multi-tenancy-for-all-workloads.html'
 
 # ID of the YouTube video of the session to embed in the page.
 # This is to be added after the conference and after the session recordings
