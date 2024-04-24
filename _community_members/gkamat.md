@@ -61,7 +61,7 @@ conference_id:
 
 
 # Optional GitHub username
-#github: githubusername
+github: gkamat
 
 # Optional LinkedIn username
 #linkedin: linkedinusername
@@ -75,4 +75,4 @@ conference_id:
 #  name: mastodonusername
 ---
 
-Database Engineer III - AWS OpenSearch
+Govind Kamat is a Database Engineer at AWS, working on performance and benchmark tools for OpenSearch.  He is a maintainer on the OpenSearch Benchmark project.  His background is in the area of distributed systems performance and he has prior experience in the development of large-scale software systems, cycle-accurate microprocessor simulators, language compilers and electronic design automation software.
