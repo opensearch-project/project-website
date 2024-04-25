@@ -18,6 +18,7 @@ job_title_and_company: 'UX designer at AWS'
 personas:
   - author
 permalink: '/community/members/carlos-canas.html'
+redirect_from: '/authors/canascar/'
 ---
 
 **Carlos Cañas** is a UX designer at AWS supporting the OpenSearch Design System and Core Experiences teams.

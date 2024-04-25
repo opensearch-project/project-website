@@ -73,5 +73,6 @@ linkedin: fernando-rejon-barrera
 #mastodon:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
+redirect_from: '/authors/fbarrera/'
 ---
 CTO at Zeta Alpha

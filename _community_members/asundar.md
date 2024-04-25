@@ -27,6 +27,7 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/apasun/'
 ---
 
 Aparna Sundar is a Lead UX Researcher at OpenSearch Project. She has over 20 years of experience in the field of research and design and actively publishes in the cognitive science domain.

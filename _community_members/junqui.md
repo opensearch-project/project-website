@@ -18,6 +18,7 @@ job_title_and_company: 'Software development engineer at AWS'
 personas:
   - author
 permalink: '/community/members/junqiu-lei.html'
+redirect_from: '/authors/junqiu/'
 ---
 
 **Junqiu Lei** is a software development engineer at AWS specializing in the development of OpenSearch map visualizations and backend map services.

@@ -19,5 +19,6 @@ job_title_and_company: 'Principal Product Marketer for the OpenSearch Project'
 personas:
   - author
 permalink: '/community/members/daryll-swager.html'
+redirect_from: '/authors/daryllswager/'
 ---
 **Daryll Swager** is the Principal Product Marketer for the OpenSearch Project; his hobbies include farming, fishing, and developing his skills as a chef.

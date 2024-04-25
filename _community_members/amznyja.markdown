@@ -17,6 +17,7 @@ job_title_and_company: "Software Engineer at Amazon Web Services"
 permalink: '/community/members/emma-jin.html'
 personas:
   - author
+redirect_from: '/authors/amznyja/'
 ---
 
 `Emma Jin` is a Software Engineer at Amazon Web Services working on the OpenSearch Project.

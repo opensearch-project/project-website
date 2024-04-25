@@ -18,6 +18,7 @@ job_title_and_company: 'Senior Technical Product Manager at AWS'
 personas:
   - author
 permalink: '/community/members/monica-kugler.html'
+redirect_from: '/authors/mnkugler/'
 ---
 
 **Monica Kugler** is a Senior Technical Product Manager at AWS working on OpenSearch.

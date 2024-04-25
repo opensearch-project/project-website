@@ -18,6 +18,7 @@ job_title_and_company: 'Senior technical editor for the OpenSearch Project'
 personas:
   - author
 permalink: '/community/members/nathan-bower.html'
+redirect_from: '/authors/nbower/'
 ---
 
 **Nathan Bower** is the senior technical editor for the OpenSearch Project.

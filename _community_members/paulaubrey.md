@@ -17,6 +17,7 @@ job_title_and_company: 'VP of Product Management at Instaclustr'
 personas:
   - author
 permalink: '/community/members/paul-aubrey.html'
+redirect_from: '/authors/paulaubrey/'
 ---
 
 Paul Aubrey is an VP of Product Management at Instaclustr and Product Manager for OpenSearch.

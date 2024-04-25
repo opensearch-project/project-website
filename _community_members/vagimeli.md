@@ -18,6 +18,7 @@ job_title_and_company: 'AWS Technical Writer'
 personas:
   - author
 permalink: '/community/members/melissa-vagi.html'
+redirect_from: '/authors/vagimeli/'
 ---
 
 Melissa Vagi is an AWS Technical Writer working on the OpenSearch Project documentation.

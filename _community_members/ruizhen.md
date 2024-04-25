@@ -16,6 +16,7 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/ruizhen-guo.html'
+redirect_from: '/authors/ruizhen/'
 ---
 
 **Ruizhen Guo** is a Software engineer working on search services at Amazon Web Services. His primary interests are distributed systems and low level database primitives. He is an active contributor to Open Distro for Elasticsearch.

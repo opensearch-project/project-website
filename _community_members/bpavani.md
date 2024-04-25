@@ -16,6 +16,7 @@ job_title_and_company: 'Senior product manager at AWS'
 personas:
   - author
 permalink: '/community/members/pavani-baddepudi.html'
+redirect_from: '/authors/bpavani/'
 ---
 
 **Pavani Baddepudi** is a senior product manager working on search services at AWS. Her interests are distributed systems, networking and security.

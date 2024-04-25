@@ -19,6 +19,7 @@ job_title_and_company: 'Software development manager at AWS'
 personas:
   - author
 permalink: '/community/members/anas-alkouz.html'
+redirect_from: '/authors/aalkouz/'
 ---
 
 **Anas Alkouz** is a software development manager at AWS working on OpenSearch.

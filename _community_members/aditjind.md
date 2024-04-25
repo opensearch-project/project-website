@@ -16,6 +16,7 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/aditya-jindal.html'
+redirect_from: '/authors/aditjind/'
 ---
 
 **Aditya Jindal** is a Software engineer working on search services at Amazon Web Services. His primary interests are distributed systems, deep learning and networking. He is an active contributor to Open Distro for Elasticsearch.

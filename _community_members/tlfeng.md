@@ -18,6 +18,7 @@ job_title_and_company: 'Software Development Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/tianli-feng.html'
+redirect_from: '/authors/tlfeng/'
 ---
 
 **Tianli Feng** is a Software Development Engineer at AWS working on the OpenSearch project.

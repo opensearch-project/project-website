@@ -18,6 +18,7 @@ job_title_and_company: 'AWS software development engineer'
 personas:
   - author
 permalink: '/community/members/rupal-mahajan.html'
+redirect_from: '/authors/maharup/'
 ---
 
 Rupal Mahajan is an AWS software development engineer working on the OpenSearch Project.

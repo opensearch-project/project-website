@@ -17,6 +17,7 @@ job_title_and_company: 'Software Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/tao-liu.html'
+redirect_from: '/authors/liutaoaz/'
 ---
 
 **Tao Liu** is a Software Engineer at Amazon Web Services, working on the OpenSearch project.

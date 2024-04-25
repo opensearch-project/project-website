@@ -16,6 +16,7 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/sid-narayan.html'
+redirect_from: '/authors/x_sid_narayan/'
 ---
 
 **Sid Narayan** is a Software engineer working on search services at Amazon Web Services. His primary interests are distributed systems and observability frameworks. He is an active contributor to Open Distro for Elasticsearch.

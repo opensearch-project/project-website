@@ -18,6 +18,7 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/saikumar-karanam.html'
+redirect_from: '/authors/sai/'
 ---
 
 **Saikumar Karanam** is a Software engineer working on Search Services at Amazon Web Services. His interests are distributed systems, networking and machine learning. He is an active contributor to OpenSearch.

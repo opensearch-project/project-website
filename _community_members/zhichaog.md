@@ -18,6 +18,7 @@ job_title_and_company: 'Machine learning engineer with the OpenSearch Project'
 personas:
   - author
 permalink: '/community/members/zhichao-geng.html'
+redirect_from: '/authors/zhichaog/'
 ---
 
 **Zhichao Geng** is a machine learning engineer with the OpenSearch Project. His interests include improving search relevance using machine learning.

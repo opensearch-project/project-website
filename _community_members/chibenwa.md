@@ -17,6 +17,7 @@ job_title_and_company: 'Coordinates efforts around a distributed email server at
 personas:
   - author
 permalink: '/community/members/benoit-tellier.html'
+redirect_from: '/authors/chibenwa/'
 ---
 
 **Benoit Tellier** coordinates efforts around a distributed email server at Linagora, is passionate about distributed computing and eventual consistency, and is an Apache James PMC.

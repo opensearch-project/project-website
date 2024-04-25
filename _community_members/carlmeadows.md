@@ -19,6 +19,7 @@ job_title_and_company: 'Director, Product Management at AWS '
 personas:
   - author
 permalink: '/community/members/carl-meadows.html'
+redirect_from: '/authors/carlmeadows/'
 ---
 
 **Carl Meadows** is Director, Product Management at AWS 

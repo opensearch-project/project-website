@@ -18,6 +18,7 @@ job_title_and_company: 'Software Engineer at OpenSearch'
 personas:
   - author
 permalink: '/community/members/tushar-kharbanda.html'
+redirect_from: '/authors/tkharban/'
 ---
 
 **Tushar** is Software Engineer at OpenSearch. He is an active contributor to OpenSearch.

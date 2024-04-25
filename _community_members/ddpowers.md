@@ -18,6 +18,7 @@ job_title_and_company: 'Software Development Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/david-powers.html'
+redirect_from: '/authors/ddpowers/'
 ---
 
 David Powers is a Software Development Engineer at AWS working in search services. He is a maintainer on the Data Prepper project.

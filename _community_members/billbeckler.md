@@ -19,5 +19,6 @@ job_title_and_company: 'Sr. Software Manager at the OpenSearch Project'
 personas:
   - author
 permalink: '/community/members/bill-beckler.html'
+redirect_from: '/authors/billbeckler/'
 ---
 **Bill Beckler** is a Sr. Software Manager at the OpenSearch Project.

@@ -21,5 +21,6 @@ personas:
   - author
  
 permalink: '/community/members/stavros-macrakis.html'
+redirect_from: '/authors/macrakis/'
 ---
 Stavros Macrakis is the senior technical product manager for OpenSearch focusing on document and e-commerce search. He has worked on search for almost 20 years and is passionate about search relevance.

@@ -18,6 +18,7 @@ job_title_and_company: 'AWS front-end engineer'
 personas:
   - author
 permalink: '/community/members/lin-wang.html'
+redirect_from: '/authors/wonglam/'
 ---
 
 **Lin Wang** is an AWS front-end engineer working on the OpenSearch Project. His interests include machine learning and data visualization.

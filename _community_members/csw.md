@@ -17,6 +17,7 @@ job_title_and_company: 'Applied scientist at AWS'
 personas:
   - author
 permalink: '/community/members/chris-swierczewski.html'
+redirect_from: '/authors/csw/'
 ---
 
 

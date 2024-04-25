@@ -25,6 +25,7 @@ personas:
   - author
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/bukhtawa/'
 ---
 
 Bukhtawar Khan is a Principal Engineer working on Amazon OpenSearch Service. He is interested in building distributed and autonomous systems. He is an active contributor and a maintainer of OpenSearch.

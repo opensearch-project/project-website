@@ -19,6 +19,7 @@ job_title_and_company: 'Senior Principal Software Engineer at Tripadvisor'
 personas:
   - author
 permalink: '/community/members/matt-timmermans.html'
+redirect_from: '/authors/mtimmerm/'
 ---
 
 **Matt Timmermans** was a Senior Principal Software Engineer at Tripadvisor, integrating OpenSearch into a low-latency CQRS backend. He currently is a Principle Engineer at Amazon.

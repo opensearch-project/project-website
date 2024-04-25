@@ -19,6 +19,7 @@ job_title_and_company: 'Sr. Product Manager at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/rohin-bhargava.html'
+redirect_from: '/authors/rohin/'
 ---
 
 **Rohin Bhargava** is a Sr. Product Manager at Amazon Web Services for Search Services.  Rohin’s focus is on Cross-domain experience for OpenSearch, search improvements and performance.

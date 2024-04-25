@@ -73,6 +73,7 @@ github: gkamat
 #mastodon:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
+redirect_from: '/authors/gkamat/'
 ---
 
 Govind Kamat is a Database Engineer at AWS, working on performance and benchmark tools for OpenSearch.  He is a maintainer on the OpenSearch Benchmark project.  His background is in the area of distributed systems performance and he has prior experience in the development of large-scale software systems, cycle-accurate microprocessor simulators, language compilers and electronic design automation software.

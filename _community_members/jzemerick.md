@@ -20,5 +20,6 @@ personas:
   - conference_speaker
 conference_id:
   - "2022-north-america"
+redirect_from: '/authors/jzemerick/'
 ---
 Jeff is a Search Relevance Engineer and current chair of the Apache OpenNLP project. He holds multiple AWS certifications and has experience building scalable and highly-available solutions. He is active in open source communities and enjoys working with search, NLP, and cloud technologies.

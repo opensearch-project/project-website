@@ -74,6 +74,7 @@ conference_id:
 #mastodon:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
+redirect_from: '/authors/mkarnik/'
 ---
 
 Mukul Karnik is General Manager for OpenSearch at Amazon Web Services, where he helps steward the open-source OpenSearch Project and is responsible for large-scale cloud-native search, log, and security analytics platforms. Mukul has held several roles since joining Amazon in 2005, including serving as engineering director for Amazon QuickSight at the time the service was launched and leading the service and caching infrastructure org that powers Amazon and AWS services. Mukul earned his Master’s degree from the University of Maryland, College Park. He holds more than 30 patents and has authored several journals and conference papers.

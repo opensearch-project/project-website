@@ -72,4 +72,5 @@ conference_id:
 #mastodon:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
+redirect_from: '/authors/jzavrel/'
 ---

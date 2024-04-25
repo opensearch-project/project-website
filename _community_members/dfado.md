@@ -25,6 +25,7 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/dfado/'
 ---
 
 David Fado utilizes Open Search for enterprise information fusion in high-speed business processes. With a background in financial services, IT Standards, and U.S. Government programs, Dr. Fado brings vast experience to Open Search. He's the author of the initial UML profile specification for the DoD Architecture Framework and has worked as lead architect on a variety of data fusion projects. His leadership spans projects from DNA matching to Bond Trading and large government systems, addressing information fusion challenges.

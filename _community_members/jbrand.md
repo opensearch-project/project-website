@@ -23,6 +23,7 @@ conference_id:
 session_track: 
   - conference_id: "2024-europe"
     name: "Search"
+redirect_from: '/authors/jbrand/'
 linkedin: jannik-brand
 ---
 

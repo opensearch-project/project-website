@@ -17,6 +17,7 @@ job_title_and_company: 'Head of Developer Relations at Aiven'
 personas:
   - author
 permalink: '/community/members/lorna-mitchell.html'
+redirect_from: '/authors/lornajane/'
 ---
 
 Lorna Mitchell is Head of Developer Relations at Aiven as well as a software developer, published author, and open source enthusiast.

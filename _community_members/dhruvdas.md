@@ -18,6 +18,7 @@ job_title_and_company: 'Engineering Manager at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/dhrubajyoti-das.html'
+redirect_from: '/authors/dhruvdas/'
 ---
 
 Dhrubajyoti Das is an Engineering Manager working on OpenSearch at Amazon Web Services.

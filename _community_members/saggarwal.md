@@ -23,5 +23,6 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/saggarwal/'
 ---
 Sarthak is a software engineer at AWS. He has been contributing towards OpenSearch's open-source and serverless offering with indexing as a primary area of interest. He is passionate about large-scale distributed systems and gets excited about associated aspects of performance.

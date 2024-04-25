@@ -17,6 +17,7 @@ job_title_and_company: 'Scientist at Amazon'
 personas:
   - author
 permalink: '/community/members/nina-mishra.html'
+redirect_from: '/authors/nmishra/'
 ---
 
 **Nina Mishra** is a scientist at Amazon interested in machine learning algorithms and healthcare.

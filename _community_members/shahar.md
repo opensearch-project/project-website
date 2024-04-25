@@ -18,5 +18,6 @@ job_title_and_company: 'VP R&amp;D and Co-Founder at Opster'
 personas:
   - author
 permalink: '/community/members/shahar-shaked.html'
+redirect_from: '/authors/shahar/'
 ---
 **Shahar Shaked** - is the VP R&D and Co-Founder at Opster.

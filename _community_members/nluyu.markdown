@@ -17,6 +17,7 @@ job_title_and_company: "Software Engineer at Amazon Web Services"
 permalink: '/community/members/lu-yu.html'
 personas:
   - author
+redirect_from: '/authors/nluyu/'
 ---
 
 `Lu Yu` is a Software Engineer at Amazon Web Services working on the OpenSearch Project.

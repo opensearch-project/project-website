@@ -18,6 +18,7 @@ job_title_and_company: 'Documentation Manager for OpenSearch Project'
 personas:
   - author
 permalink: '/community/members/heather-halter.html'
+redirect_from: '/authors/hdhalter/'
 ---
 
 **Heather Halter** is the Documentation Manager for OpenSearch Project. She is passionate about creating great content that contributes to a great user experience.

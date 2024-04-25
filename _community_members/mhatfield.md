@@ -21,5 +21,6 @@ personas:
   - conference_speaker
 conference_id:
   - "2022-north-america"
+redirect_from: '/authors/mhatfield/'
 ---
 Maria is the co-founder of Dattell, a consulting and managed services company. Dattell supports OpenSearch, Elasticsearch, Kafka, and Pulsar on client environments.  Maria is dedicated to making the complex topic of open-source data architecture approachable.

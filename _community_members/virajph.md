@@ -19,6 +19,7 @@ job_title_and_company: 'Senior Product Manager at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/viraj-phanse.html'
+redirect_from: '/authors/virajph/'
 ---
 
 **Viraj Phanse** is a Senior Product Manager at Amazon Web Services for Search Services. 
