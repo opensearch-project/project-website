@@ -3,11 +3,11 @@ layout: post
 title:  "Multilingual search with OpenSearch"
 authors:
 - roigam
-date: 2024-04-01 13:30:00 -0600
+date: 2024-04-25
 categories:
   - technical-post
-meta_keywords: semantic search engine, multilingual search, keyword and natural language search, search relevance, embeddings
-meta_description: Learn how to use OpenSearch to conduct multilingual search with models that support multilingual embeddings.
+meta_keywords: OpenSearch semantic search, multilingual search, multilingual embedding models, natural language and search
+meta_description: Learn how OpenSearch semantic search can help you understand the intent of a search query and conduct multilingual search with models that support multilingual embeddings.
 ---
 
 In traditional lexical search we often use text analysis to improve search results. 
