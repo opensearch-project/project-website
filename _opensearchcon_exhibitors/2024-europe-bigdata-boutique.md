@@ -1,5 +1,5 @@
 ---
-conference_id: '2023-north-america'
+conference_id: '2024-europe'
 name: BigData Boutique
 logo: '/assets/media/partners/bigdataboutique.png'
 link: '/partners/bigdataboutique.html'
