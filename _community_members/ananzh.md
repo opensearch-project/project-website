@@ -18,6 +18,7 @@ job_title_and_company: 'Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/anan-zhuang.html'
+redirect_from: '/authors/ananzh/'
 ---
 
 Anan is an engineer at AWS working on the OpenSearch Dashboards and OpenSearch-js project.

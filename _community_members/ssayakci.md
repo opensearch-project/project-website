@@ -19,6 +19,7 @@ job_title_and_company: 'Technical Specialist at Shopware AG'
 personas:
   - author
 permalink: '/community/members/soner-sayakci.html'
+redirect_from: '/authors/ssayakci/'
 ---
 
 Soner Sayakci is working as Technical Specialist at Shopware AG and maintains the OpenSearch PHP SDK amongst other projects.

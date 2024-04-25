@@ -18,6 +18,7 @@ job_title_and_company: 'Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/thomas-hurney.html'
+redirect_from: '/authors/hurneyt/'
 ---
 
 **Thomas Hurney** is a Software Engineer at AWS focusing on OpenSearch plugins.

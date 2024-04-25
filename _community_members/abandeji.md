@@ -19,6 +19,7 @@ job_title_and_company: 'Software Engineer working on OpenSearch'
 personas:
   - author
 permalink: '/community/members/arpit-bandejiya.html'
+redirect_from: '/authors/abandeji/'
 ---
 
 Arpit Bandejiya is a Software Engineer working on OpenSearch. He is interested in solving problems related to large-scale systems and is an active contributor to the OpenSearch Project.

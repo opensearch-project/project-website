@@ -19,6 +19,7 @@ job_title_and_company: 'Solutions Architect in the New York City area'
 personas:
   - author
 permalink: '/community/members/samit-kumbhani.html'
+redirect_from: '/authors/awssamit/'
 ---
 
 Samit is an AWS Sr. Solutions Architect in the New York City area. He has 18 years of experience building applications and focuses on Analytics, Business Intelligence, and Databases. He enjoys working with customers to understand and solve their challenges by creating innovative solutions using AWS services. Outside of work Samit loves playing cricket, traveling and biking. 

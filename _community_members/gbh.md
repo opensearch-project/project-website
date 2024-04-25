@@ -19,6 +19,7 @@ job_title_and_company: 'Software Engineer working on OpenSearch'
 personas:
   - author
 permalink: '/community/members/bharathwaj-g.html'
+redirect_from: '/authors/gbh/'
 ---
 
 Bharathwaj is a Software Engineer working on OpenSearch. He is interested in distributed systems and is an active contributor to OpenSearch.

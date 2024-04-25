@@ -19,5 +19,6 @@ job_title_and_company: 'CEO of IronCore Labs'
 personas:
   - author
 permalink: '/community/members/patrick-walsh.html'
+redirect_from: '/authors/zmre/'
 ---
 **Patrick Walsh** is the CEO of IronCore Labs, a data privacy platform for protecting data that lives in the cloud. The platform secures data stored in OpenSearch and other services without sacrificing the ability to use that data. Patrick has more than 20 years of experience building security products and enterprise SaaS solutions. Prior to IronCore Labs, Patrick ran an engineering division in the Oracle Cloud.

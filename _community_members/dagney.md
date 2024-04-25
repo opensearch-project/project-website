@@ -19,6 +19,7 @@ job_title_and_company: 'Principal Product Manager at AWS'
 personas:
   - author
 permalink: '/community/members/dagney-braun.html'
+redirect_from: '/authors/dagney/'
 ---
 
 **Dagney Braun** is a Principal Product Manager at AWS working on the OpenSearch Project.

@@ -17,6 +17,7 @@ job_title_and_company: 'Senior Technical Product Manager'
 personas:
   - author
 permalink: '/community/members/shreeya-sharma.html'
+redirect_from: '/authors/shreeyasharma/'
 ---
 
 **Bio:** Shreeya Sharma is a Senior Technical Product Manager working with AWS AI/ML on Amazon Personalize.

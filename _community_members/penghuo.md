@@ -18,6 +18,7 @@ job_title_and_company: 'Senior Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/peng-huo.html'
+redirect_from: '/authors/penghuo/'
 ---
 
 **Peng Huo** is a Senior Engineer at Amazon Web Services working on OpenSearch focusing on Query and Observability.

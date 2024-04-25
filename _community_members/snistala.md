@@ -18,6 +18,7 @@ job_title_and_company: 'Software Engineer working on OpenSearch'
 personas:
   - author
 permalink: '/community/members/surya-sashank-nistala.html'
+redirect_from: '/authors/snistala/'
 ---
 
 Surya is a Software Engineer working on OpenSearch. His primary interests are distributed systems and cloud computing.

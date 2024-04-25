@@ -17,6 +17,7 @@ job_title_and_company: 'Software Development Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/lane-holloway.html'
+redirect_from: '/authors/laneholl/'
 ---
 
 Lane Holloway is a Software Development Engineer at Amazon Web Services and enjoys discussing the two hardest things in Computer Science: naming, cache invalidation, and off-by-one errors.

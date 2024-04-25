@@ -19,6 +19,7 @@ job_title_and_company: 'Software development engineer at AWS'
 personas:
   - author
 permalink: '/community/members/mingshi-liu.html'
+redirect_from: '/authors/mingshl/'
 ---
 
 **Mingshi Liu** is a software development engineer at AWS working on OpenSearch.

@@ -18,6 +18,7 @@ job_title_and_company: 'Software Development Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/george-chen.html'
+redirect_from: '/authors/qichen/'
 ---
 
 George is a Software Development Engineer at Amazon Web Services working on Observability. He is a maintainer of the Data Prepper project.

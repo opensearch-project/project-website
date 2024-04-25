@@ -17,5 +17,6 @@ job_title_and_company: 'Principal Scientist at Amazon Artificial General Intelli
 personas:
   - author
 permalink: '/community/members/hao-yang.html'
+redirect_from: '/authors/haoyng/'
 ---
 **Hao Yang** is a Principal Scientist at Amazon Artificial General Intelligence, working on multiple aspects in multi-modal generative models. His own research interests lie in how to efficient and effectively train and adapt large scale computer vision and multi-modal models.

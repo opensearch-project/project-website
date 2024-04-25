@@ -17,6 +17,8 @@ job_title_and_company: 'Engineering Manager at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/balaji-kannan.html'
+redirect_from: '/authors/kbalaji/'
+
 ---
 
 **Balaji Kannan** is an Engineering Manager working on search services at Amazon Web Services. He spent most of his career building vertical search engine and big data platforms.

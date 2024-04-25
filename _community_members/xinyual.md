@@ -18,6 +18,7 @@ job_title_and_company: 'Machine learning engineer with the OpenSearch Project'
 personas:
   - author
 permalink: '/community/members/xinyuan-lu.html'
+redirect_from: '/authors/xinyual/'
 ---
 
 **Xinyuan Lu** is a machine learning engineer with the OpenSearch Project. He works on large language model (LLM)-related applications and search relevance.

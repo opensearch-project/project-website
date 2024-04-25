@@ -17,6 +17,7 @@ job_title_and_company: 'UX Manager at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/kevin-garcia.html'
+redirect_from: '/authors/kvngar/'
 ---
 
 **Kevin Garcia** is a UX Manager at Amazon Web Services working on the OpenSearch Project.

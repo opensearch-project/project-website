@@ -27,6 +27,7 @@ personas:
   - author
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/zhujiaxiang/'
 ---
 Jiaxiang (Peter) Zhu is a Sr. System Development Engineer at Amazon Web Services. He mainly works on infrastructure, automation, and release of the OpenSearch Project. He likes ’80s books, ’70s music, and ’60s movies.
 

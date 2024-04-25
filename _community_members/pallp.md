@@ -19,6 +19,7 @@ job_title_and_company: 'Senior Engineering Manager at AWS'
 personas:
   - author
 permalink: '/community/members/pallavi-priyadarshini.html'
+redirect_from: '/authors/pallp/'
 ---
 
 **Pallavi Priyadarshini** is a Senior Engineering Manager at AWS leading the development of high-performing and scalable search and security technologies for the OpenSearch Project and Amazon OpenSearch Service.

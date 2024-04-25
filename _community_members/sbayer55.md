@@ -18,6 +18,7 @@ job_title_and_company: 'Software Development Engineer at AWS working in search s
 personas:
   - author
 permalink: '/community/members/steven-bayer.html'
+redirect_from: '/authors/sbayer/'
 ---
 
 Steven Bayer is a Software Development Engineer at AWS working in search services. He is a maintainer on the Data Prepper project.

@@ -19,6 +19,7 @@ job_title_and_company: 'Distinguished Software Engineer at Dow Jones'
 personas:
   - author
 permalink: '/community/members/kuber-kaul.html'
+redirect_from: '/authors/kuberkaul/'
 ---
 
 **Kuber Kaul** is a Distinguished Software Engineer in the Engineering Productivity team at Dow Jones. His primary interests are automation, continuous delivery pipelines, docker, k8s, service meshes, observability, large scale distributed systems, and cloud infrastructure. Kuber holds a Master of Science in Computer Science from Columbia University.

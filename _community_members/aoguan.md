@@ -17,6 +17,7 @@ job_title_and_company: 'Software Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/aozixuan-guan.html'
+redirect_from: '/authors/aoguan/'
 ---
 
 **Aozixuan Guan** is a Software Engineer at Amazon Web Services working on the OpenSearch Project.

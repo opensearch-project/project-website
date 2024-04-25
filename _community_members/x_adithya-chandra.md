@@ -16,5 +16,6 @@ job_title_and_company: 'Senior Software Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/adithya-chandra.html'
+redirect_from: '/authors/x_adithya-chandra/'
 ---
 **Adithya Chandra** is a Senior Software Engineer working on search services at Amazon Web Services. He actively presents his work on root cause analysis and performance engineering most recently at Devoxx and is also an  active contributor to Open Distro for Elasticsearch.

@@ -18,6 +18,7 @@ job_title_and_company: 'Software Development Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/eugene-lee.html'
+redirect_from: '/authors/eugenesk/'
 ---
 
 **Eugene Lee** is a Software Development Engineer at Amazon Web Services working on OpenSearch focusing on Observability. 

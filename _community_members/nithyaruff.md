@@ -20,5 +20,6 @@ job_title_and_company: 'Leads the open source program office at Amazon'
 personas:
   - author
 permalink: '/community/members/nithya-ruff.html'
+redirect_from: '/authors/nithyaruff/'
 ---
 **Nithya Ruff** leads the open source program office at Amazon. On the board of the Linux Foundation.

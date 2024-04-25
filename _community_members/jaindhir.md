@@ -19,6 +19,7 @@ job_title_and_company: 'Software Development Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/dhiraj-kumar-jain.html'
+redirect_from: '/authors/jaindhir/'
 ---
 
 **Dhiraj** is a Software Development Engineer at Amazon Web Services. He is a Kubernetes enthusiast and his primary interests includes distributed systems and blockchain. Outside work he likes sketching and playing badminton.

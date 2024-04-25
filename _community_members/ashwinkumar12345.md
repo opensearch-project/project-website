@@ -19,6 +19,7 @@ job_title_and_company: 'Senior Technical Writer at AWS'
 personas:
   - author
 permalink: '/community/members/ashwin-kumar.html'
+redirect_from: '/authors/ashwinkumar12345/'
 ---
 
 

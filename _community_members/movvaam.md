@@ -19,6 +19,7 @@ job_title_and_company: 'Software Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/ajay-kumar-movva.html'
+redirect_from: '/authors/movvaam/'
 ---
 
 Ajay is a Software Engineer working on OpenSearch at Amazon Web Services. He is passionate about solving problems in large-scale distributed systems.

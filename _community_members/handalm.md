@@ -18,6 +18,7 @@ job_title_and_company: 'Senior software development engineer at AWS'
 personas:
   - author
 permalink: '/community/members/marc-handalian.html'
+redirect_from: '/authors/handalm/'
 ---
 
 **Marc Handalian** is a senior software development engineer at AWS working on OpenSearch.

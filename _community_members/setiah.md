@@ -18,5 +18,6 @@ job_title_and_company: 'Passionate about distributed systems'
 personas:
   - author
 permalink: '/community/members/himanshu-setia.html'
+redirect_from: '/authors/setiah/'
 ---
 Himanshu Setia is passionate about distributed systems and building innovative products that solve technically complex problems at scale. 

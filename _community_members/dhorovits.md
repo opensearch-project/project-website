@@ -40,6 +40,7 @@ twitter: horovits
 mastodon:
   url: https://fosstodon.org/@horovits
   name: horovits
+redirect_from: '/authors/dhorovits/'
 ---
 Horovits lives at the intersection of technology, product and innovation. With over 20 years in the hi-tech industry as a software developer, a solutions architect and a product manager, he brings a wealth of knowledge in cloud and cloud-native solutions, DevOps practices and more.
 

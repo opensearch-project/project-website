@@ -19,6 +19,7 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/achit-ojha.html'
+redirect_from: '/authors/achitojha/'
 ---
 
 **Achit Ojha** is a Software engineer working on search services at Amazon Web Services. His primary interests are distributed systems, performance and data processing. He is an active contributor to OpenSearch Benchmark. 

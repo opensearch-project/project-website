@@ -28,6 +28,7 @@ personas:
 conference_id:
   - "2023-north-america"
   - "2022-north-america"
+redirect_from: '/authors/dtaivpp/'
 ---
 
 David is an [independent consultant](https://tippybits.com/services) working on open source software related to search and data infrastructure.

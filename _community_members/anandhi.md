@@ -18,5 +18,6 @@ job_title_and_company: 'Director of Software Development at the OpenSearch Proje
 personas:
   - author
 permalink: '/community/members/anandhi-bumstead.html'
+redirect_from: '/authors/anandhi/'
 ---
 **Anandhi Bumstead** is the Director of Software Development at the OpenSearch Project

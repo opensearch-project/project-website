@@ -18,6 +18,7 @@ job_title_and_company: 'AWS software development enginee'
 personas:
   - author
 permalink: '/community/members/hailong-cui.html'
+redirect_from: '/authors/ihailong/'
 ---
 
 **Hailong Cui** is an AWS software development engineer working on the OpenSearch Project.

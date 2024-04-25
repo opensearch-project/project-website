@@ -18,6 +18,7 @@ job_title_and_company: 'Senior Technical Product Manager for OpenSearch'
 personas:
   - author
 permalink: '/community/members/andrew-hopp.html'
+redirect_from: '/authors/andhopp/'
 ---
 
 Andrew Hopp is the Senior Technical Product Manager for OpenSearch and OpenSearch Dashboards. 

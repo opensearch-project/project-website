@@ -73,6 +73,7 @@ conference_id:
 #mastodon:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
+redirect_from: '/authors/ncosta/'
 ---
 
 Nilushan is a part of the Choreo team at WSO2 and works on Observability features. When not working, he can be found flying planes or going on adrenaline-fuelled adventures

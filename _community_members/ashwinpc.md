@@ -18,6 +18,8 @@ job_title_and_company: 'Frontend Enginner at AWS'
 personas:
   - author
 permalink: '/community/members/ashwin-pc.html'
+redirect_from: '/authors/ashwinpc/'
+
 ---
 
 Ashwin Pc is a Frontend Enginner at AWS. Ashwin focuses on OpenSearch Dashboards Visualizations.

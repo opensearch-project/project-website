@@ -18,6 +18,7 @@ job_title_and_company: 'Technical Writer at AWS'
 personas:
   - author
 permalink: '/community/members/nate-archer.html'
+redirect_from: '/authors/naarcha/'
 ---
 
 **Nate Archer** is a Technical Writer at AWS focusing on the OpenSearch project.

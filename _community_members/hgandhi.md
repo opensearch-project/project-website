@@ -74,6 +74,7 @@ conference_id:
 #mastodon:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
+redirect_from: '/authors/hgandhi/'
 ---
 
 Hariharan Gandhi is a Distributed Systems engineer. Currently serving as the Product Owner for Logging Services at SAP's Business Technology Platform, Hariharan brings over 11 years of experience in the Software Industry, with a steadfast focus on SAP’s logging/observability needs for the past 8 years. In his previous role as an Architect, Hariharan spearheaded the replatforming of OpenSearch-based logging services to Kubernetes at scale. He holds a Master’s degree in Distributed Software Systems from the Technical University of Darmstadt. He is motivated to share his learnings and insights on leveraging OpenSearch for scalable logging services.

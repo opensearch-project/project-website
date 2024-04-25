@@ -18,5 +18,6 @@ job_title_and_company: 'AWS Software Engineer'
 personas:
   - author
 permalink: '/community/members/shivam-dhar.html'
+redirect_from: '/authors/shivamdhar/'
 ---
 Shivam Dhar is an AWS Software Engineer working on OpenSearch and geospatial (UI) visualizations.

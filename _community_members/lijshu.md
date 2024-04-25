@@ -19,6 +19,7 @@ job_title_and_company: 'AWS software development engineer'
 personas:
   - author
 permalink: '/community/members/joshua-li.html'
+redirect_from: '/authors/lijshu/'
 ---
 
 Joshua Li is an AWS software development engineer working on the OpenSearch Project.

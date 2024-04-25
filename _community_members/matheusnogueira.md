@@ -18,6 +18,7 @@ job_title_and_company: 'Senior software engineer at Kubeshop'
 personas:
   - author
 permalink: '/community/members/matheus-nogueira.html'
+redirect_from: '/authors/mathnogueira/'
 ---
 
 **Matheus Nogueira** is a senior software engineer at Kubeshop and is one the maintainers of Tracetest. Prior to joining the Tracetest team, Matheus helped companies to improve automated tests and tooling to improve developer experience.

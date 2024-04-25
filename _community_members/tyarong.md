@@ -17,6 +17,7 @@ job_title_and_company: 'Software Engineer at Amazon Web Services working'
 personas:
   - author
 permalink: '/community/members/kristen-tian.html'
+redirect_from: '/authors/tyarong/'
 ---
 
 **Kristen Tian** is a Software Engineer at Amazon Web Services working on the OpenSearch Project.
