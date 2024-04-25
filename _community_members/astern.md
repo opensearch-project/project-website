@@ -26,6 +26,7 @@ personas:
   - author
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/amistrn/'
 ---
 
 **Amitai Stern** is a software engineer & manager of the Telemetry Storage Team at Logz.io. Amitai works on Big data, SaaS projects, leading feature development from design to production, and monitoring. He is a contributor to the OpenSearch open-source project, and has led the successful initiative at Logz.io to upgrade to OpenSearch.

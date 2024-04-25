@@ -18,6 +18,7 @@ job_title_and_company: 'technical writer at AWS focusing on OpenSearch'
 personas:
   - author
 permalink: '/community/members/fanit-kolchina.html'
+redirect_from: '/authors/kolchfa/'
 ---
 
 **Fanit Kolchina** is a technical writer at AWS focusing on OpenSearch.

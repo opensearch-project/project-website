@@ -18,6 +18,7 @@ job_title_and_company: 'Software engineering manager'
 personas:
   - author
 permalink: '/community/members/vamshi-vijay-nakkirtha.html'
+redirect_from: '/authors/vamshin/'
 ---
 **Vamshi Vijay Nakkirtha** is a software engineering manager working on the OpenSearch Project and Amazon OpenSearch Service. His primary interests include distributed systems. He is an active contributor to various plugins, like k-NN, GeoSpatial, and dashboard-maps.
  

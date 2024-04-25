@@ -19,6 +19,7 @@ job_title_and_company: 'Director of Global Product Marketing at Virtuozzo'
 personas:
   - author
 permalink: '/community/members/tetiana-fydorenchyk.html'
+redirect_from: '/authors/tetianaftv/'
 ---
 
 **Tetiana Fydorenchyk** is a Director of Global Product Marketing at Virtuozzo, an author of technical and business articles, speaker, and developers community enthusiast.

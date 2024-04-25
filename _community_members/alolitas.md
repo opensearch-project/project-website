@@ -18,6 +18,7 @@ job_title_and_company: 'Principal Technologist at AWS'
 personas:
   - author
 permalink: '/community/members/alolita-sharma.html'
+redirect_from: '/authors/alolitas/'
 ---
 
 

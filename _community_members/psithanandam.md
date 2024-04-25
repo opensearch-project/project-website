@@ -21,5 +21,6 @@ personas:
   - author
 conference_id:
   - "2022-north-america"
+redirect_from: '/authors/psithanandam/'
 ---
 Prabhakar is a Principal Engineer with Amazon OpenSearch Service. He is excited about hunting down scaling challenges with distributed systems and gets more excited if the scaling problem is around search systems and even more excited if it involves performance

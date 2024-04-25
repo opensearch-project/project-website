@@ -17,6 +17,7 @@ job_title_and_company: 'Senior Software Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/yan-zeng.html'
+redirect_from: '/authors/zengyan/'
 ---
 
 **Yan Zeng** is a Senior Software Engineer at Amazon Web Services working on the OpenSearch Project.

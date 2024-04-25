@@ -18,6 +18,7 @@ job_title_and_company: 'Front-End Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/josh-romero.html'
+redirect_from: '/authors/joshuarrrr/'
 ---
 
 Josh Romero is a Front-End Engineer at AWS. Josh focuses on OpenSearch Dashboards visualizations.

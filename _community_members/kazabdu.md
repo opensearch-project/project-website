@@ -19,6 +19,7 @@ job_title_and_company: 'Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/owais-kazi.html'
+redirect_from: '/authors/kazabdu/'
 ---
 
 **Owais Kazi** is a Software Engineer at AWS, focusing on OpenSearch and OpenSearch plugins. 

@@ -18,6 +18,7 @@ job_title_and_company: 'Frontend Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/amardeepsingh-siglani.html'
+redirect_from: '/authors/amsiglan/'
 ---
 
 **Amardeepsingh Siglani** is a Frontend Engineer at AWS focusing on OpenSearch. He focuses on user experience development for the Security Analytics and Alerting plugins.

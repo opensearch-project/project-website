@@ -19,6 +19,7 @@ job_title_and_company: 'Software engineer at AWS'
 personas:
   - author
 permalink: '/community/members/naveen-tatikonda.html'
+redirect_from: '/authors/naveen/'
 ---
 
 **Naveen Tatikonda** is a software engineer at AWS working on the OpenSearch Project and Amazon OpenSearch Service. His interests include distributed systems and vector search. He is an active contributor to various plugins like k-NN, GeoSpatial.

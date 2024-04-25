@@ -18,6 +18,7 @@ job_title_and_company: 'Senior Software Developer at AWS'
 personas:
   - author
 permalink: '/community/members/andrew-ross.html'
+redirect_from: '/authors/andrross/'
 ---
 
 **Andrew Ross** is a Senior Software Developer at AWS working on the OpenSearch project.

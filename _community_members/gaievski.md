@@ -19,6 +19,7 @@ job_title_and_company: 'Software engineer at AWS'
 personas:
   - author
 permalink: '/community/members/martin-gaievski.html'
+redirect_from: '/authors/gaievski/'
 ---
 
 **Martin Gaievski** is a software engineer at AWS working on the OpenSearch Project and Amazon OpenSearch Service. His primary interests include machine learning, vector search, and semantic search. Outside of work, he enjoys running and listening to music.

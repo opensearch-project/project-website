@@ -19,6 +19,7 @@ job_title_and_company: 'Senior software engineer at AWS'
 personas:
   - author
 permalink: '/community/members/navneet-verma.html'
+redirect_from: '/authors/navneev/'
 ---
 
 **Navneet Verma** is a senior software engineer at AWS working on geospatial and vector search in OpenSearch.

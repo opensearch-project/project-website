@@ -20,7 +20,7 @@ personas:
   - author
 github: abunday
 linkedin: alex-bunday
-
+redirect_from: "/authors/abunday/"
 ---
 
 **Alex Bunday** oversees Instaclustr's managed OpenSearch service as a Product Manager at Netapp.

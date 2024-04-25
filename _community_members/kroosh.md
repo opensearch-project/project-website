@@ -17,6 +17,7 @@ job_title_and_company: 'Sr. UX Designer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/kroosh.html'
+redirect_from: '/authors/kroosh/'
 ---
 
 **Kroosh**  is a Sr. UX Designer at Amazon Web Services working on the OpenSearch Project.

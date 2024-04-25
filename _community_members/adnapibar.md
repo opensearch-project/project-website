@@ -18,6 +18,7 @@ job_title_and_company: 'Software Engineer at AWS working on the OpenSearch proje
 personas:
   - author
 permalink: '/community/members/rabi-panda.html'
+redirect_from: '/authors/adnapibar/'
 ---
 
 **Rabi Panda** is a Software Engineer at AWS working on the OpenSearch project.

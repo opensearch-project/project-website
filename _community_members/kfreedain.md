@@ -30,6 +30,7 @@ personas:
   - author
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/krisfreedain/'
 ---
 
 **Kris Freedain** is the Community Manager & a member of the Leadership Committee for the OpenSearch Project; his hobbies include gardening, garage gym powerlifting, and meditation.

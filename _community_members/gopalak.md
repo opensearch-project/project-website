@@ -19,6 +19,7 @@ job_title_and_company: 'Senior Software Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/gopala-krishna.html'
+redirect_from: '/authors/gopalak/'
 ---
 
 *Gopala Krishna* is a Senior Software Engineer working on Search Services at Amazon Web Services. He is passionate about solving problems in the large-scale distributed systems’ space. He is an active contributor to OpenSearch.

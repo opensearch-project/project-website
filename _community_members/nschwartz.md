@@ -25,6 +25,7 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/nschwartz/'
 ---
 
 Noam is an experienced software engineer specializing in building search applications designed for vector search workloads.

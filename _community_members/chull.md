@@ -29,6 +29,7 @@ personas:
   - conference_speaker
 conference_id:
   - "2024-europe"
+redirect_from: '/authors/charliehull/'
 ---
 
 **Charlie Hull** is the Marketing Director at OSC and also leads client projects. He keeps a strategic view on developments in the search industry and is in demand as a speaker at conferences across the world.

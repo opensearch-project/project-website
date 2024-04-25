@@ -19,5 +19,6 @@ job_title_and_company: 'Software Development Manager at AWS'
 personas:
   - author
 permalink: '/community/members/mark-cohen.html'
+redirect_from: '/authors/markcohen/'
 ---
 **Mark Cohen** is a Software Development Manager at AWS working on the OpenSearch Project.

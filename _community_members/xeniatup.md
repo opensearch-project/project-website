@@ -19,6 +19,7 @@ job_title_and_company: 'UX Designer at OpenSearch'
 personas:
   - author
 permalink: '/community/members/xenia-tupitsyna.html'
+redirect_from: '/authors/xeniatup/'
 ---
 
 **Xenia Tupitsyna** is a UX Designer at OpenSearch. She is working on user experiences across Machine Learning (ML), Alerting, and Security Analytics solutions.

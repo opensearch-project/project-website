@@ -19,6 +19,7 @@ job_title_and_company: 'Senior technical product manager for OpenSearch'
 personas:
   - author
 permalink: '/community/members/satish-nandi.html'
+redirect_from: '/authors/satnandi/'
 ---
 
 **Satish Nandi** is a senior technical product manager for OpenSearch.

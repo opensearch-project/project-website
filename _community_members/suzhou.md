@@ -19,6 +19,7 @@ job_title_and_company: 'AWS frontend engineer'
 personas:
   - author
 permalink: '/community/members/zhou-su.html'
+redirect_from: '/authors/suzhou/'
 ---
 
 **Zhou Su** is an AWS frontend engineer working on the Index Management plugin.

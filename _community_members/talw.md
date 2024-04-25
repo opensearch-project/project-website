@@ -18,6 +18,7 @@ job_title_and_company: 'Senior applied scientist at AWS'
 personas:
   - author
 permalink: '/community/members/tal-wagner.html'
+redirect_from: '/authors/tal/'
 ---
 
 **Tal Wagner** is a senior applied scientist at AWS working on the OpenSearch Project and Amazon OpenSearch Service. He obtained his PhD in Computer Science at CSAIL, MIT in 2020. His interests include designing algorithms for massive datasets and large-scale machine learning.

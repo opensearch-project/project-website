@@ -18,5 +18,6 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/mohammad-qureshi.html'
+redirect_from: '/authors/mqureshi/'
 ---
 **Mohammad Qureshi** is a software engineer at Amazon Web Services working on OpenSearch. Mohammad has worked on OpenSearch Alerting, Index State Management, Rollups, and Notifications.

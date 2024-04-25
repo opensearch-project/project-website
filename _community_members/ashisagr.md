@@ -18,5 +18,6 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/ashish-agrawal.html'
+redirect_from: '/authors/ashiasgr/'
 ---
 **Ashish Agrawal** is a software engineer at Amazon Web Services working on OpenSearch. Ashish has worked on OpenSearch Alerting and Notifications.

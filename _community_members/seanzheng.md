@@ -18,6 +18,7 @@ job_title_and_company: 'Engineering manager at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/sean-zheng.html'
+redirect_from: '/authors/seanzheng/'
 ---
 
 **Sean Zheng** is an engineering manager at Amazon Web Services working on OpenSearch, with a focus on machine-learning-based plugins, including Anomaly Detection, k-NN, and ML Commons.

@@ -25,5 +25,6 @@ personas:
 conference_id:
   - "2022-north-america"
   - "2024-europe"
+redirect_from: '/authors/luchoa/'
 ---
 Laysa is a software developer and advocate, Head of Fullstack Events Association, and the Leader of PyLadies Munich. She is also an OSS contributor, organizer of OCPP communities, and a contributor to the OCPP Python package.

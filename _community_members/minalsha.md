@@ -17,6 +17,7 @@ job_title_and_company: 'Software Engineering Manager at AWS'
 personas:
   - author
 permalink: '/community/members/minal-shah.html'
+redirect_from: '/authors/minalsha/'
 ---
 
 **Minal Shah** is a Software Engineering Manager at AWS with focus on OpenSearch, OpenSearch plugins, and Generative AI applications. 

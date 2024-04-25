@@ -23,6 +23,7 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/kkondaka/'
 ---
 Krishna is a senior software engineer working on observability in OpenSearch at Amazon Web Services. He is also a contributor to the Data Prepper project. Prior to joining AWS, Krishna worked on development of AI infrastructure and caching services at Facebook. In addition, he has significant experience in developing networking products from his time at Cisco Systems and VMWare.
 

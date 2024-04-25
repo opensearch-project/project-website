@@ -19,6 +19,7 @@ job_title_and_company: 'AWS technical writer'
 personas:
   - author
 permalink: '/community/members/ariana-marble.html'
+redirect_from: '/authors/armarble/'
 ---
 
 **Ariana Marble** is an AWS technical writer focusing on OpenSearch.

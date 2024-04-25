@@ -19,6 +19,7 @@ job_title_and_company: 'Senior Developer Advocate for Bottlerocket and Amazon Li
 personas:
   - author
 permalink: '/community/members/kyle-davis.html'
+redirect_from: '/authors/kyledvs/'
 ---
 
 Kyle Davis is the Senior Developer Advocate for Bottlerocket and Amazon Linux. Previously, Kyle was the Senior Developer Advocate for OpenSearch and Open Distro for Elasticsearch. 

@@ -17,6 +17,7 @@ job_title_and_company: 'Senior Engineering Manager at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/ranjith-ramachandra.html'
+redirect_from: '/authors/ramaran/'
 ---
 
 **Ranjith** is a Senior Engineering Manager working on OpenSearch at Amazon Web Services.

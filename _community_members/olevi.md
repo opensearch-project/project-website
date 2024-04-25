@@ -71,8 +71,9 @@ linkedin: ohad-levi
 #twitter: twitterusername
 
 # Optional Mastodon server url, and username / handle.
-mastodon:
-  url: https://mastodon.social/@mastodonusername
-  name: mastodonusername
+#mastodon:
+#  url: https://mastodon.social/@mastodonusername
+#  name: mastodonusername
+redirect_from: '/authors/olevi/'
 ---
 A product and business expert, Ohad is a visionary product leader with over 15 years of experience in driving product strategies for disruptive technologies, building strong teams and engaging people around ideas. After leading product teams at Intel, HP and Click Software and launching enterprise-grade products in new markets, Ohad set out on a new journey. He’s now introducing an enterprise-grade, AI-search acceleration engine for companies making real-time predictions and facing performance and scalability challenges.Today, Ohad is the CEO and Co-Founder at Hyperspace.

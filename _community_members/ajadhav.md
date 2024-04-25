@@ -26,6 +26,7 @@ personas:
   - author
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/jadhanir/'
 ---
 
 Anirudha Jadhav, an expert in distributed database systems, data analytics, and search technologies, currently leads development of insight engines and visualization platforms at Amazon Web Services (AWS) OpenSearch as Engineering Manager. His significant contributions to big data search, retrieval, and analytics include architecting one of the largest Lucene-based search deployments, managing over 86 billion documents. Prior to AWS, Anirudha spent 11 years at Bloomberg LP, where he played a key role in building the Consume/ETL MDM platform and founding the company's Search as a Service platform.

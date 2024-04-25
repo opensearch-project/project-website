@@ -22,6 +22,7 @@ personas:
   - author
 conference_id:
   - "2022-north-america"
+redirect_from: '/authors/reta/'
 ---
 
 **Andriy Redko** is a seasoned software developer with a great passion to code, extensively working with JVM platform using Java, Groovy, Scala as well as other languages and technologies (Ruby, Grails, Play!, Akka, MySQL, PostreSQL, MongoDB, Redis, JUnit, etc.).

@@ -28,7 +28,7 @@ breadcrumbs:
       url: /events/opensearchcon/index.html
     - title: 2024
       url: /events/opensearchcon/2024/index.html
-    - title: North America
+    - title: Europe
       url: /events/opensearchcon/2024/europe/index.html
     - title: Session Summaries
       url: /events/opensearchcon/2024/europe/sessions/index.html
@@ -60,6 +60,7 @@ conference_id: '2024-europe'
 # Array of short_name values for the Community Members with the conference_speaker persona whom are presenting the session. This includes the primary_speaker indicated above and any other presenters (if any).
 presenters:
   - gkamat
+  - ihoang
 
 ---
 Are you confused about sizing your OpenSearch cluster? Worried whether it will scale to handle your workload? Curious if it's performing at its best? Unsure whether an upgrade will help? If so, this talk is tailored for you!

@@ -19,6 +19,7 @@ job_title_and_company: 'Software Development Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/thomas-farr.html'
+redirect_from: '/authors/xtansia/'
 ---
 
 **Thomas Farr** is a Software Development Engineer at AWS working on the OpenSearch Clients team, with a primary focus on the .NET and Rust clients.

@@ -17,6 +17,7 @@ job_title_and_company: 'Senior product manager with Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/nitin-chandra.html'
+redirect_from: '/authors/nitincd/'
 ---
 
 **Nitin Chandra** is a senior product manager with Amazon Web Services.

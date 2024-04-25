@@ -17,6 +17,7 @@ job_title_and_company: 'Director of Observability at WorldTech IT'
 personas:
   - author
 permalink: '/community/members/ryan-paras.html'
+redirect_from: '/authors/ryanparas/'
 ---
 
 Director of Observability at WorldTech IT

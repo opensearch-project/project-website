@@ -18,5 +18,6 @@ job_title_and_company: 'Hacker, FLOSS Mercenary, FreeBSD developer'
 personas:
   - author
 permalink: '/community/members/romain-tartiere.html'
+redirect_from: '/authors/smortex/'
 ---
 **Romain Tartière** is a Hacker, FLOSS Mercenary, FreeBSD developer (romain@), BOFH; he loves stuff from the 70's (e.g. UNIX, Japanese hard-rock) and Ruby.

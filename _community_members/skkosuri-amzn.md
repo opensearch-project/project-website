@@ -18,6 +18,7 @@ job_title_and_company: 'Senior Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/sriram-kosuri.html'
+redirect_from: '/authors/skkosuri-amzn/'
 ---
 
 Sriram Kosuri is a Senior Software Engineer at AWS. Sriram focuses on OpenSearch alerting, security and distributed systems. 

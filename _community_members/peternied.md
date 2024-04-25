@@ -18,6 +18,7 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/peter-nied.html'
+redirect_from: '/authors/peternied/'
 ---
 
 **Peter Nied** is a software engineer at Amazon Web Services focusing on OpenSearch security.

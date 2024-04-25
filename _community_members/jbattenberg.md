@@ -24,6 +24,7 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/jbattenberg/'
 ---
 Jim Battenberg.
 

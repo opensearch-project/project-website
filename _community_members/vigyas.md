@@ -16,6 +16,7 @@ job_title_and_company: 'Senior Software Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/vigya-sharma.html'
+redirect_from: '/authors/vigyas/'
 ---
 
 **Vigya Sharma** is a Senior Software Engineer at Amazon Web Services. His projects focus on providing a managed service experience to Amazon Elasticsearch Service customers. Vigya is passionate about distributed systems and likes to solve problems around large scale systems. Vigya holds a Masters degree in Computer Science from IIT Delhi.

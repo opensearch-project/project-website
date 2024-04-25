@@ -25,6 +25,7 @@ conference_id:
   - "2023-north-america"
   - "2022-north-america"
 twitter: CharlotteHenkle
+redirect_from: '/authors/henkle/'
 ---
 
 **Charlotte** is a Senior Manager at AWS working on the OpenSearch Project.

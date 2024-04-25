@@ -13,7 +13,7 @@ meta_description: Improvement in OpenSearch k-NN with Nested Field, specifically
 excerpt: In OpenSearch 2.12, users can now obtain diverse search results from a k-NN index, even when multiple nearest vectors belong to just a few documents. This is expected to enhance both the efficiency and quality of search outcomes.
 ---
 
-OpenSearch 2.12 significantly enhances k-NN indexes that use the HNSW algorithm and Faiss or Lucene engines, boosting result diversity by intelligently handling multi-vector support. This improvement ensures better search outcomes by effectively eliminating duplicate vectors from the same document during k-NN searches.
+OpenSearch 2.12 significantly enhances k-NN indexes that use the HNSW algorithm with Faiss or Lucene engines, boosting result diversity by intelligently handling multi-vector support. OpenSearch has integrated Lucene's [Parent Block Join implementation](https://github.com/apache/lucene/pull/12434) for the enhancement with the Lucene engine. This improvement ensures better search outcomes by effectively eliminating duplicate vectors from the same document during k-NN searches.
 
 ## Why is this important?
 

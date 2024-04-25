@@ -20,5 +20,6 @@ personas:
   - conference_speaker
 conference_id:
   - "2022-north-america"
+redirect_from: '/authors/rgumiero/'
 ---
 Rafael is a Sr. Analytics Specialist Solutions Architect at Amazon Web Services. Enthusiastic in open source and distributed systems, he provides guidance to customers who develop their solutions with AWS Analytics services, helping them to optimize the value of their solutions.

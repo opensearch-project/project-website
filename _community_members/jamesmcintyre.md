@@ -18,5 +18,6 @@ job_title_and_company: 'Senior product marketing manager with AWS'
 personas:
   - author
 permalink: '/community/members/james-mcintyre.html'
+redirect_from: '/authors/jamesmcintyre/'
 ---
 **James McIntyre** is a senior product marketing manager with AWS serving the OpenSearch Project.

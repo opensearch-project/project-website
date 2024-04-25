@@ -19,6 +19,7 @@ job_title_and_company: 'CTO and co-founder of Pureinsights'
 personas:
   - author
 permalink: '/community/members/phil-lewis.html'
+redirect_from: '/authors/plewis/'
 ---
 
 **Phil Lewis** is CTO and co-founder of Pureinsights. He is a search industry veteran with extensive experience in the design and implementation of open source search projects.
