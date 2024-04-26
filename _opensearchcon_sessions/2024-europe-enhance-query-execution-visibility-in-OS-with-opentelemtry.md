@@ -34,10 +34,10 @@ breadcrumbs:
 # Session date / time
 # The template logic expects the following format: YYYY-MM-DD - h:m(am|pm)-(h:m(am|pm))
 # The template logic expects the following format: YYYY-MM-DD - h:m(am|pm)-(h:m(am|pm))
-session_time: "time TBD"
+session_time: "2024-05-06 - 11:45am-12:05pm"
 
 # Room of location where the talk will occur.
-session_room: "a room yet to be determined."
+session_room: "Moskau"
 
 # Session topic track.
 session_track: "Search"

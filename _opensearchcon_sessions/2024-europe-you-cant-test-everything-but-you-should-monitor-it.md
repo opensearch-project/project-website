@@ -32,9 +32,9 @@ breadcrumbs:
     - title: Session Summaries
       url: /events/opensearchcon/2024/europe/sessions/index.html
       
-session_time: "time TBD"
+session_time: "2024-05-07 4:45pm-5:05pm"
 
-session_room: "a room yet to be determined."
+session_room: "Asgabat"
 
 # Session topic track.
 session_track: "Community"
