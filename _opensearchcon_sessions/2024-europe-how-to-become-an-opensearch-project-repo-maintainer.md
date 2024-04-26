@@ -3,9 +3,9 @@
 # The expected filename format is ${conference_id}-${url-encoded-session-title}.md
 # For example the "Community Inclusion" session from the 2023 conference in North America the title is "2023-north-america-community-inclusion.html"
 #
-session_time: "time TBD"
+session_time: "2024-05-07 - 11:40am-12:20pm"
 
-session_room: "a room yet to be determined."
+session_room: "Asgabat"
 
 # Conference session speaker short name that maps to a short_name value
 # in the community members collection.
