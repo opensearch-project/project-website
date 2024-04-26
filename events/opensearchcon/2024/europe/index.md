@@ -131,7 +131,7 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
     <td>Partner Exhibitions</td>
 </tr>
 <tr>
-    <td>1:45PM to 5:00PM</td>
+    <td>3:15PM to 5:00PM</td>
     <td>Unconference</td>
 </tr>
 <tr>
