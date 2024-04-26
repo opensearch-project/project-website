@@ -10,29 +10,33 @@ breadcrumbs:
     - title: '2024'
       url: /events/opensearchcon/2024/index.html
     - title: North America
-      url: /events/opensearchcon/2024/north-america/inde.html
+      url: /events/opensearchcon/2024/north-america/index.html
 conference_id: 2024-north-america
 permalink: /events/opensearchcon/2024/north-america/index.html
 redirect_from: /events/opensearchcon/2024/index.html
 has_hero: true
 hero_images:
   mobile:
-    path: /assets/media/herobanners/mobile-register-opensearchcon2023-1.png
+    path: /assets/media/community/members/no-image-available.svg
     alt: OpenSearchCon 2023 hero banner image.
   desktop:
-    path: /assets/media/herobanners/register-opensearchcon2023-1.png
+    path: /assets/media/community/members/no-image-available.svg
     alt: OpenSearchCon 2023 hero banner image.
 conference_sections_button_stack:
-  - label: Speakers
-    url: /events/opensearchcon/2024/north-america/speakers/index.html
-  - label: Sessions 
-    url: /events/opensearchcon/2024/north-america/sessions/index.html
-  - label: Exhibitors
-    url: /events/opensearchcon/2024/north-america/exhibitors/index.html
-  - label: Workshops
-    url: /events/opensearchcon/2024/north-america/workshops/index.html
-  - label: Unconference
-    url: /events/opensearchcon/2024/north-america/unconference/index.html
+  - label: CFP
+    url: /events/opensearchcon/2024/north-america/cfp.html
+  - label: Register
+    url: /events/opensearchcon/2024/north-america/register.html
+#  - label: Speakers
+#    url: /events/opensearchcon/2024/north-america/speakers/index.html
+#  - label: Sessions 
+#    url: /events/opensearchcon/2024/north-america/sessions/index.html
+#  - label: Exhibitors
+#    url: /events/opensearchcon/2024/north-america/exhibitors/index.html
+#  - label: Workshops
+#    url: /events/opensearchcon/2024/north-america/workshops/index.html
+#  - label: Unconference
+#    url: /events/opensearchcon/2024/north-america/unconference/index.html
 #related_articles:
 #  - title: Using Fluent Bit and OpenSearch with Bottlerocket and Kubelet logs
 #    url: /blog/bottlerocket-k8s-fluent-bit/
