@@ -18,10 +18,10 @@ has_hero: true
 hero_images:
   mobile:
     path: /assets/media/community/members/no-image-available.svg
-    alt: OpenSearchCon 2023 hero banner image.
+    alt: OpenSearchCon 2024 hero banner image.
   desktop:
     path: /assets/media/community/members/no-image-available.svg
-    alt: OpenSearchCon 2023 hero banner image.
+    alt: OpenSearchCon 2024 hero banner image.
 conference_sections_button_stack:
   - label: CFP
     url: /events/opensearchcon/2024/north-america/cfp.html
@@ -59,29 +59,40 @@ conference_sections_button_stack:
 #    date: Wednesday 09/21/2022
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
-# OpenSearchCon North America 2024
-
-
-
 ### **Join us in San Francisco, September 24-26, 2024 for OpenSearchCon North America!**
 
 
 The OpenSearch user community continues to grow and expand with the addition of new contributors, maintainers, organizations, partners, who directly impact the success of the project. It’s all of you who make OpenSearchCon the place where the open source community comes together, which is why we’re happy to be back for the third consecutive year!
 
-Join us  September 24 to September 26, 2024 at the Hilton Union Square in San Francisco for OpenSearchCon North America 2024:
+Join us  _September 24 to September 26, 2024_ at the Hilton Union Square in San Francisco for OpenSearchCon North America 2024:
 
-`**You can reserve your spot here**`
+<label class="redesign-buttons--label">Register Now!</label>
+<div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+                <a href="/events/opensearchcon/2024/north-america/register.html" class="redesign-button--anchor">
+                    Register Now!
+                </a>
+            </div>
+</div>
 
-What makes the community want to attend OpenSearchCon? Beyond the opportunity to network with peers and commune with passionate open sourcers, OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. If you have a story to tell or an idea you’d like to present to the community, our Call for Presentations (CfP) for OpenSearchCon North American is now open—go[here](https://airtable.com/appWltifOss0C1Ze3/paghymzSgP6jpreTz/form)by May XX, 2024 to submit your abstract.
+What makes the community want to attend OpenSearchCon? Beyond the opportunity to network with peers and commune with passionate open sourcers, OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. If you have a story to tell or an idea you’d like to present to the community, our Call for Presentations (CfP) for OpenSearchCon North American is now open—go [here](/events/opensearchcon/2024/north-america/cfp.html) by May XX, 2024 to submit your abstract.
 
-**`Submit the call for presentations`**
+<label class="redesign-buttons--label">Submit Presentations</label>
+<div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+                <a href="/events/opensearchcon/2024/north-america/cfp.html" class="redesign-button--anchor">
+                    Submit Presentations
+                </a>
+            </div>
+</div>
+
 
 
 ### Book your hotel for OpenSearchCon
 
 The OpenSearchCon North America 2024 has a [room block set aside for attendees at the Hilton Union Square in San Francisco](https://book.passkey.com/e/50823627) between September 23-26, 2024 at $239 a night, single occupancy. If you prefer to book using central reservations (1-800-HILTONS), please use the group code: AOS so the reservation agent will be able to assist and to expedite the booking process. *Please note, rooms will most likely sell out in advance of the room block close dates listed below. We encourage you to book your room by September 1, 2024 to secure a room at the conference rate.*
 
-**`[Book your room](https://book.passkey.com/e/50823627)`**
+**[Book your room](https://book.passkey.com/e/50823627)**
 
 
 ### What is OpenSearchCon?
@@ -91,32 +102,3 @@ OpenSearchCon is the annual conference that brings the community together to lea
 With this being our third consecutive event in North America, we have watched this event grow from its humble beginnings as a single-track, one-day event, into a three-day, multi-track open source community experience that includes an unconference, training and workshops, a partner round table, and other exciting networking and partner events.
 
 We look forward to seeing you in San Francisco!
-
-
-____________________________________________
-
-**Exhibitors (TBD)**
-
-**Speakers (TBD)**
-
-**Sessions (TBD)**
-
-**Unconference (TBD)**
-
-**Workshops (TBD)**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
