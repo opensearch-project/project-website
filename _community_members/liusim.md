@@ -30,7 +30,7 @@ breadcrumbs:
     - title: Members
       url: /community/members/index.html
     - title: "Liat Iusim&apos;s Profile"
-      url: '/community/members/first-last.html'
+      url: '/community/members/liat-iusim.html'
 
 # Community member job title and company where they work.
 job_title_and_company: 'Tech Lead - Yotpo'
