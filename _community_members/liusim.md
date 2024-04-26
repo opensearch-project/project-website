@@ -11,7 +11,7 @@ short_name: "liusim"
 name: "Liat Iusim"
 
 # The path to the community member's photo.
-photo: "/assets/media/community/members/no-image-available.svg"
+photo: "/assets/media/community/members/liusim.jpg"
 
 # Used as the level 1 page header text.
 primary_title: 'Liat Iusim'
