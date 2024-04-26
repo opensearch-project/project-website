@@ -2,26 +2,17 @@
 layout: opensearchcon_landing
 title: 'OpenSearchCon 2024: North America'
 primary_title: 'OpenSearchCon 2024: North America'
-breadcrumbs:
-  icon: community
-  items:
-    - title: OpenSearchCon
-      url: /events/opensearchcon/index.html
-    - title: '2024'
-      url: /events/opensearchcon/2024/index.html
-    - title: North America
-      url: /events/opensearchcon/2024/north-america/index.html
 conference_id: 2024-north-america
 permalink: /events/opensearchcon/2024/north-america/index.html
 redirect_from: /events/opensearchcon/2024/index.html
 has_hero: true
-hero_images:
-  mobile:
-    path: /assets/media/community/members/no-image-available.svg
-    alt: OpenSearchCon 2024 hero banner image.
-  desktop:
-    path: /assets/media/community/members/no-image-available.svg
-    alt: OpenSearchCon 2024 hero banner image.
+#hero_images:
+#  mobile:
+#    path: /assets/media/community/members/no-image-available.svg
+#    alt: OpenSearchCon 2024 hero banner image.
+#  desktop:
+#    path: /assets/media/community/members/no-image-available.svg
+#    alt: OpenSearchCon 2024 hero banner image.
 conference_sections_button_stack:
   - label: CFP
     url: /events/opensearchcon/2024/north-america/cfp.html
@@ -62,43 +53,52 @@ conference_sections_button_stack:
 ### **Join us in San Francisco, September 24-26, 2024 for OpenSearchCon North America!**
 
 
-The OpenSearch user community continues to grow and expand with the addition of new contributors, maintainers, organizations, partners, who directly impact the success of the project. It’s all of you who make OpenSearchCon the place where the open source community comes together, which is why we’re happy to be back for the third consecutive year!
+The OpenSearch user community continues to expand with new contributors, maintainers, organizations, and partners who are dedicated to make the project a success. It’s all of you who make OpenSearchCon the place where the open source community comes together. That’s why we’re delighted to host the third OpenSearchCon North America, this year in San Francisco!
 
-Join us  _September 24 to September 26, 2024_ at the Hilton Union Square in San Francisco for OpenSearchCon North America 2024:
+Join us  September 24 through  September 26, 2024 at the [Hilton Union Square in San Francisco](https://www.hilton.com/en/hotels/sfofhhh-hilton-san-francisco-union-square/) for OpenSearchCon North America 2024:
 
-<label class="redesign-buttons--label">Register Now!</label>
 <div class="redesign-button-pair--wrapper">
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
                 <a href="/events/opensearchcon/2024/north-america/register.html" class="redesign-button--anchor">
-                    Register Now!
+                    Reserve your spot here
                 </a>
             </div>
 </div>
+What makes the community want to attend OpenSearchCon? Beyond the opportunity to network with peers and commune with passionate open sourcers, OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. If you have a story to tell or an idea you’d like to present to the community, our Call for Presentations (CfP) for OpenSearchCon North America is now open—go [here](/events/opensearchcon/2024/north-america/cfp.html) and submit by June 7, 2024 at 11:59 p.m. EST to submit your abstract.
 
-What makes the community want to attend OpenSearchCon? Beyond the opportunity to network with peers and commune with passionate open sourcers, OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. If you have a story to tell or an idea you’d like to present to the community, our Call for Presentations (CfP) for OpenSearchCon North American is now open—go [here](/events/opensearchcon/2024/north-america/cfp.html) by May XX, 2024 to submit your abstract.
-
-<label class="redesign-buttons--label">Submit Presentations</label>
 <div class="redesign-button-pair--wrapper">
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
                 <a href="/events/opensearchcon/2024/north-america/cfp.html" class="redesign-button--anchor">
-                    Submit Presentations
+                    Submit a Presentation
                 </a>
             </div>
 </div>
-
 
 
 ### Book your hotel for OpenSearchCon
 
-The OpenSearchCon North America 2024 has a [room block set aside for attendees at the Hilton Union Square in San Francisco](https://book.passkey.com/e/50823627) between September 23-26, 2024 at $239 a night, single occupancy. If you prefer to book using central reservations (1-800-HILTONS), please use the group code: AOS so the reservation agent will be able to assist and to expedite the booking process. *Please note, rooms will most likely sell out in advance of the room block close dates listed below. We encourage you to book your room by September 1, 2024 to secure a room at the conference rate.*
+OpenSearchCon North America 2024 has a [room block set aside for attendees at the Hilton Union Square in San Francisco](https://book.passkey.com/e/50823627) September 23 through 26, 2024 at $239 a night plus taxes, single occupancy. If you prefer to book by phone, you can contact 1-800-HILTONS and use the group code: AOS and the reservation agent will be able to expedite the booking process. *Please note, rooms will most likely sell out in advance of the room block close dates. We encourage you to book your room by September 1, 2024 to secure a room at the conference rate.*
 
-**[Book your room](https://book.passkey.com/e/50823627)**
+**[Book your discounted hotel room](https://book.passkey.com/e/50823627)**
 
 
 ### What is OpenSearchCon?
 
-OpenSearchCon is the annual conference that brings the community together to learn, connect, and collaborate. This year, we expand our popular user conference beyond North America with the addition of events in [Europe](https://opensearch.org/events/opensearchcon/2024/europe/index.html) and [India](https://opensearch.org/events/opensearchcon/2024/india/index.html). OpenSearchCon aims to educate and inspire with presented sessions, participant-driven meetings, and exhibits and demonstrations from OpenSearch Project partners. Users, administrators, and developers come to OpenSearchCon to explore solutions to real-world problems, network with their peers, and take a look into the future of search, analytics, and observability applications.
+OpenSearchCon is the annual conference that brings the OpenSearch community together to learn, connect, and collaborate. This year, we expanded OpenSearchCon beyond North America with the addition of events in [Europe](https://opensearch.org/events/opensearchcon/2024/europe/index.html) and [India](https://opensearch.org/events/opensearchcon/2024/india/index.html). OpenSearchCon aims to educate and inspire with presented sessions, participant-driven meetings, and exhibits and demonstrations from OpenSearch Project partners. Users, administrators, and developers come to OpenSearchCon to explore solutions to real-world problems, network with their peers, and take a look into the future of search, observability, and security applications.
 
-With this being our third consecutive event in North America, we have watched this event grow from its humble beginnings as a single-track, one-day event, into a three-day, multi-track open source community experience that includes an unconference, training and workshops, a partner round table, and other exciting networking and partner events.
+We have watched OpenSearchCon North America grow from its humble beginnings as a single-track, one-day event to a three-day, multi-track open source community experience that includes an unconference, training and workshops, a partner round table, and other exciting networking and partner opportunities.
 
-We look forward to seeing you in San Francisco!
+We hope to see  you in San Francisco!
+
+
+
+
+
+
+
+
+
+
+
+
+
