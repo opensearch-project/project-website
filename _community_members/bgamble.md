@@ -37,8 +37,8 @@ job_title_and_company: 'Enterprise & Solutions Marketing Lead at Aiven'
 
 # Array of conference IDs for which the community member is a keynote speaker, if any, or boolean false otherwise.
 # This value is only relevant for member's with the "conference_speaker" user persona.
-keynote_speaker:
-  - '2024-europe'
+#keynote_speaker:
+#  - '2024-europe'
 # keynote_speaker: false
 
 # The conference topic track for the conference sessions that the user is a speaker. These are shaped as an array of value pairs mapping conference ID and name. 
