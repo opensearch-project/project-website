@@ -55,14 +55,14 @@ This year’s conference dedicates three tracks to topics the OpenSearch communi
 * **Short-presentation**: 20 minutes.
 
 
-## Abstract, Title, & Description
+## Abstract, title, & description
 
 
 Please submit both an abstract, title, and description for your talk.
 
 * **Title**: What is going on the front of your presentation? Something informative to ensure the audience knows what they will be learning about.
 * **Abstract**: The abstract is a short summary of the topic of your talk, and essentially serves as a tl;dr for your presentation. It will be displayed on our session list, and is a first introduction of your session to the audience.
-* **Description**:The session description is a detailed outline of your talk, explaining why your topic is relevant, what you will be talking about and what the audience will learn.
+* **Description**: The session description is a detailed outline of your talk, explaining why your topic is relevant, what you will be talking about and what the audience will learn.
 
 This information will help the reviewers to get a good impression of your session and judge it accordingly, and both will be publicly visible when your talk is accepted.
 
