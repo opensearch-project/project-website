@@ -31,8 +31,9 @@ breadcrumbs:
       url: /events/opensearchcon/2024/europe/index.html
     - title: Session Summaries
       url: /events/opensearchcon/2024/europe/sessions/index.html
-      
-session_time: "2024-05-07 4:45pm-5:05pm"
+# Session date / time
+# The template logic expects the following format: YYYY-MM-DD - h:m(am|pm)-(h:m(am|pm))
+session_time: "2024-05-07 - 4:45pm-5:05pm"
 
 session_room: "Asgabat"
 
