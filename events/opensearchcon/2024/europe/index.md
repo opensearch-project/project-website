@@ -123,7 +123,7 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
     <td>Partner Roundtable</td>
 </tr>
 <tr>
-    <td>12:30PM to 1:45PM</td>
+    <td>12:30PM to 1:40PM</td>
     <td>Lunch</td>
 </tr>
 <tr>
@@ -131,12 +131,16 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
     <td>Partner Exhibitions</td>
 </tr>
 <tr>
-    <td>3:15PM to 5:00PM</td>
+    <td>1:40PM to 3:10PM</td>
+    <td>Conference Sessions</td>
+</tr>
+<tr>
+    <td>3:15PM to 5:15PM</td>
     <td>Unconference</td>
 </tr>
 <tr>
-    <td>5:00PM to 7:15PM</td>
-    <td>Cocktail Reception</td>
+    <td>5:15PM to 7:00PM</td>
+    <td>Welcome Reception</td>
 </tr>
 </table>
 </html>
@@ -169,11 +173,11 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
     <td>Lunch</td>
 </tr>
 <tr>
-    <td>1:30PM to 6:10PM</td>
+    <td>1:30PM to 5:25PM</td>
     <td>Conference Sessions</td>
 </tr>
 <tr>
-    <td>6:10PM to 6:30PM</td>
+    <td>5:30PM to 5:50PM</td>
     <td>Closing Remarks</td>
 </tr>
 </table>
