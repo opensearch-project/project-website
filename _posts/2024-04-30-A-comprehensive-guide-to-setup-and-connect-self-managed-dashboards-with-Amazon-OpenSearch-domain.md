@@ -83,7 +83,7 @@ services:
 networks:
   opensearch-net:
 ```
-7. The new `docker-compose-no-security.yml` file is now created which looks like the below. Now run the `docker-compose up` command to run the containers with new image. Now customer can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port `5601`. By doing so, you can conveniently view and interact with all the saved objects
+6. The new `docker-compose-no-security.yml` file is now created which looks like the below. Now run the `docker-compose up` command to run the containers with new image. Now customer can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port `5601`. By doing so, you can conveniently view and interact with all the saved objects
 ```yml
 version: '3'
 services:
@@ -158,8 +158,27 @@ An AWS managed OpenSearch domain must incorporate Fine-Grained Access Control (F
 ## Steps to spin up a self-managed dashboards in EC2 hosted container
 1. Deploy an EC2 instance in the same VPC and subnet as the managed OpenSearch service domain.
 2. Set up Docker/Kubernetes and its dependencies on the instance.
-3. Utilize the attached `docker-compose.yml` file to launch a self-managed dashboards container. After the container is running, you can easily access and interact with all the saved objects.
+3. Utilize the below `docker-compose.yml` file to launch a self-managed dashboards container. After the container is running, you can easily access and interact with all the saved objects.
+```yml
+version: '3'
+services:
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.5.0
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601
+    expose:
+      - "5601"
+    environment:
+      OPENSEARCH_HOSTS: '["https://success-2-ce6hkjt5gh.ap-south-1.es.amazonaws.com"]'
+      OPENSEARCH_USERNAME: 'xxx'
+      OPENSEARCH_PASSWORD: 'xxxx'
+    networks:
+      - opensearch-net
+networks:
+  opensearch-net:
+```
 4. To enable TLS, add the attributes mentioned in this [link](https://opensearch.org/docs/latest/install-and-configure/install-dashboards/tls/) as environment variables.
 
 > [!TIP]
-> One notable advantage of setting up a standalone OpenSearch Dashboards is that when it is deployed on `AWS ECS Fargate`, it generates a public IP. This allows the standalone dashboards to be accessed over the internet without the need for setting up a reverse proxy. As a result, the OpenSearch domains will be within the VPC and standalone dashboards will be available in public, enabling seamless connectivity and eliminating the complexity of configuring additional infrastructure components. This simplifies the setup process and provides convenient access to the dashboards from anywhere on the internet without compromising security or requiring additional network configurations.
+> One notable advantage of setting up a sel-managed OpenSearch Dashboards is that when it is deployed on `AWS ECS Fargate`, it generates a public IP. This allows the standalone dashboards to be accessed over the internet without the need for setting up a reverse proxy. As a result, the OpenSearch domains will be within the VPC and standalone dashboards will be available in public, enabling seamless connectivity and eliminating the complexity of configuring additional infrastructure components. This simplifies the setup process and provides convenient access to the dashboards from anywhere on the internet without compromising security or requiring additional network configurations.
