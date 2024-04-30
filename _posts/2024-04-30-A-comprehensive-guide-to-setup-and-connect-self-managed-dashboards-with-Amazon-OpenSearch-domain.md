@@ -182,3 +182,91 @@ networks:
 
 > [!TIP]
 > One notable advantage of setting up a self-managed OpenSearch Dashboards is that when it is deployed on `AWS ECS Fargate`, it generates a public IP. This allows the self-managed dashboards to be accessed over the internet without the need for setting up a reverse proxy. As a result, the OpenSearch domains will be within the VPC and self-managed dashboards will be available in public, enabling seamless connectivity and eliminating the complexity of configuring additional infrastructure components. This simplifies the setup process and provides convenient access to the dashboards from anywhere on the internet without compromising security or requiring additional network configurations.
+
+# Guide to setup self-managed dashboards in EC2 hosted container - SAML authentication
+
+## Prerequisite
+An AWS managed OpenSearch domain with SAML authentication enabled. [Reference here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
+)
+
+## Steps to spin up a self-managed dashboards in EC2 hosted container
+1. Create an EC2 instance within the identical VPC where the managed service OpenSearch domain is operating to run the self-managed dashboards and capture its endpoint.
+2. Create a new Application in your `IDP` with the self-managed dashboards endpoint which would generate a new IDP metadata
+3. Copy the IDP metadata of the newly created application and paste it into the IDP metadata text box found in the `Configure identity provider (IdP)` section within the security configuration tab of the managed service domain in aws console. Below is the sample IDP metadata xml.
+```xml
+<?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor entityID="http://www.okta.com/exk5o8zomj6eLo2an697" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDqjCCApKgAwIBAgIGAYhxRsHXMA0GCSqGSIb3DQEBCwUAMIGVMQswCQYDVQQGEwJVUzETMBEG
+A1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU
+MBIGA1UECwwLU1NPUHJvdmlkZXIxFjAUBgNVBAMMDXRyaWFsLTg4MDM5MzMxHDAaBgkqhkiG9w0B
+CQEWDWluZm9Ab2t0YS5jb20wHhcNMjMwNTMxMTAwNjIyWhcNMzMwNTMxMTAwNzIyWjCBlTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTAL
+BgNVBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRYwFAYDVQQDDA10cmlhbC04ODAzOTMz
+MRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEA5rt3ZEdTWryMFfGh2CV2am6iO7MFlNj6DsDwWmcpmUtDpR6SxVXT71gYWiphXUzVuYmk
+N3r1LzzLC5NaQuTFY7Dps2HlcR9MFbf8ne2v7wXyZG1fora+v8Iv+nUvQ6xzG/ITOciyF1bsIDaH
+Ja4n2+qg7Yp462izzAHD9D+e7GYpq84wrtCN4f/MueSFAFBMMg4P8nklDDbaeObOYTAfT9gZhvY0
+o5WxDfwfq8zds9dYV0YGTzUVQruLF9VpPIS/6QCOmVmbw6IP8nIIQZjwHBwCHCK3/ArLcYPIL28S
+qA0i/ueP3VQWZcljAL3WRW0hUrupOW+sK5nIdF0Ac1OZYQIDAQABMA0GCSqGSIb3DQEBCwUAA4IB
+AQBOJM5K86/mJx0zlM1dYmP/PbyUpA+QDSi7aNaYJ06tGomIWHyA8wyw0+dMy7S2ZzSm/buXUv/w
+Bgn+nueNrZY5+cOLLW8DSayGG0lZanTgtiCqA7JuKgzwxXmpsld1d7JgQ+EshCNLvF8c3iR47/+R
+/rTp7aZ/jn3c+BBynqTQX/2aYWVizQyAPeZjWPZbTjy1kunUTdv6rhLEP+HizH8HN7tCPf1l4HZS
+OzAwZlwvGWNaT3kaLtjdLmFjlDV5PUMiQdBf6DKihH8fdQjty/vbswxqfMGj0aSppxzXn0XG1kwH
+IK5Y04uMGfRjcE+cPA/vPCKPxh/sgB0n6GaJCIDI</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://trial-8803933.okta.com/app/trial-8803933_2325vpc_1/exk5o8zomj6eLo2an697/sso/saml"/><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://trial-8803933.okta.com/app/trial-8803933_2325vpc_1/exk5o8zomj6eLo2an697/sso/saml"/></md:IDPSSODescriptor></md:EntityDescriptor>
+```
+4. Replace the self-managed dashboards url in the security configuration file with the self-managed dashboards’ endpoint. The purpose of this is to guarantee that after the user is authenticated in IDP, the redirection occurs to the self-managed dashboards instead of the managed service dashboards.
+
+> [!IMPORTANT]
+> Customers do not have access to modify the security configuration file hence raise a support ticket to request a change to the self-managed URL endpoint
+[Refer here](https://opensearch.org/docs/latest/security/authentication-backends/saml/#minimal-configuration-example). By running this API call ```_opendistro/_security/api/securityconfig```, customer can validate the `kibana_url` changes in security configuration file.
+
+5. Install docker and its dependencies on the EC2 instance
+6. Use the below `docker-compose.yml` file and run the self-managed opensearch dashboards
+```yml
+version: '3'
+services:
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.9.0
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601
+    expose:
+      - "5601"
+    environment:
+      OPENSEARCH_HOSTS: '["https://success-2-ce6hkjt5gh.ap-south-1.es.amazonaws.com"]'
+      OPENSEARCH_USERNAME: 'xxx'
+      OPENSEARCH_PASSWORD: 'xxxx'
+    networks:
+      - opensearch-net
+networks:
+  opensearch-net:
+```
+7. After the container is up and running, access it by using the command `docker exec -it <CONTAINER ID> bash` and then modify the `opensearch_dashboards.yml` file by adding the SAML specific attributes. Once the modifications are made, restart the container using `docker restart <CONTAINER ID>`. Find below the sample `opensearch_dashboards.yml` for reference. [Additional Reference here](https://opensearch.org/docs/latest/security/authentication-backends/saml/#opensearch-dashboards-configuration)
+```yml
+opensearch.hosts: [https://localhost:9200]
+opensearch.ssl.verificationMode: none
+opensearch.username: kibanaserver
+opensearch.password: kibanaserver
+opensearch.requestHeadersWhitelist: [authorization, securitytenant]
+opensearch_security.multitenancy.enabled: true
+opensearch_security.multitenancy.tenants.preferred: [Private, Global]
+opensearch_security.readonly_mode.roles: [kibana_read_only]
+# Use this setting if you are running opensearch-dashboards without https
+opensearch_security.cookie.secure: false
+server.host: '0.0.0.0'
+opensearch_security.auth.type: "saml"
+server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_security/saml/logout"]
+```
+8. Post container restart you can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port 5601. By doing so, you can conveniently view and interact with all the saved objects in accordance with the Fine-Grained Access Control settings and SAML authentication.
+> [!CAUTION]
+> If the endpoint is transitioned to self-managed dashboards and the customer intends to revert to the managed service dashboards endpoint, they must repeat the same procedure, which involves altering the kibana_url in the security configuration file back to the managed service dashboards endpoint. Until this change is made, the managed service dashboards endpoint will remain inaccessible.
+
+> [!NOTE]
+> When using docker in EC2 instance, the self-managed OpenSearch Dashboards cannot be accessed over the internet. It is only accessible by machines within the same VPC.
+
+# Reference Links
+* https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
+* https://opensearch.org/docs/latest/security/authentication-backends/saml/
+* https://www.youtube.com/watch?v=TgnHBz4i63M
+* https://www.youtube.com/watch?v=liJO_jOiIF8
+* https://opster.com/guides/opensearch/opensearch-security/how-to-set-up-single-sign-on-using-saml/
+* https://opensearch.org/docs/latest/security/configuration/disable/
+
