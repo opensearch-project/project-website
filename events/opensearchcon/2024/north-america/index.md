@@ -6,13 +6,13 @@ conference_id: 2024-north-america
 permalink: /events/opensearchcon/2024/north-america/index.html
 redirect_from: /events/opensearchcon/2024/index.html
 has_hero: true
-#hero_images:
-#  mobile:
-#    path: /assets/media/community/members/no-image-available.svg
-#    alt: OpenSearchCon 2024 hero banner image.
-#  desktop:
-#    path: /assets/media/community/members/no-image-available.svg
-#    alt: OpenSearchCon 2024 hero banner image.
+hero_images:
+  mobile:
+    path: /assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png
+    alt: OpenSearchCon 2024 hero banner image.
+  desktop:
+    path: /assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png
+    alt: OpenSearchCon 2024 hero banner image.
 conference_sections_button_stack:
   - label: CFP
     url: /events/opensearchcon/2024/north-america/cfp.html

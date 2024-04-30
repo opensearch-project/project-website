@@ -36,6 +36,7 @@ permalink: /events/opensearchcon/2024/north-america/cfp.html
 #    date: Wednesday 09/21/2022
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
+![CFP Banner](/assets/media/opensearchcon/2024/OSC2024_NASF_Social-Graphic2_1200x627.png){: width="100%" }
 
 
 This year’s conference dedicates three tracks to topics the OpenSearch community cares about. We invite the community to submit your best ideas and join us for a great conference in San Francisco.
