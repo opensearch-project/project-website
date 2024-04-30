@@ -101,6 +101,7 @@ services:
 networks:
   opensearch-net:
 ```
+# 
 # Guide to setup self-managed dashboards in ECS & in EC2 hosted docker container - HTTP basic authentication
 
 ## Prerequisite
