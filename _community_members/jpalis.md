@@ -18,6 +18,7 @@ job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/josh-palis.html'
+redirect_from: '/authors/jpalis/'
 ---
 
 **Josh Palis** is a software engineer at Amazon Web Services focusing mostly on the OpenSearch Flow Framework plugin.

@@ -19,5 +19,6 @@ job_title_and_company: 'An independent search engineer'
 personas:
   - author
 permalink: '/community/members/roman-grebennikov.html'
+redirect_from: '/authors/shuttie/'
 ---
 An independent search engineer, working on relevancy, personalization and recommendations. A pragmatic fan of open-source software, functional programming, learn-to-rank models and performance tuning.

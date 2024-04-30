@@ -19,5 +19,6 @@ job_title_and_company: 'Leads OpenSearch AI and machine learning product initiat
 personas:
   - author
 permalink: '/community/members/dylan-tong.html'
+redirect_from: '/authors/dylantong/'
 ---
 **Dylan Tong** leads OpenSearch AI and machine learning product initiatives at AWS.

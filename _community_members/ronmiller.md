@@ -18,6 +18,7 @@ job_title_and_company: 'Solutions Architect at AWS supporting mid-large enterpri
 personas:
   - author
 permalink: '/community/members/ron-miller.html'
+redirect_from: '/authors/ronmiller/'
 ---
 
 **Ron Miller** is a Solutions Architect at AWS supporting mid-large enterprise customers. Ron has worked closely with the AWS speciality organization to promote and support Opensearch. 

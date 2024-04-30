@@ -18,6 +18,7 @@ job_title_and_company: 'Senior software engineer at Amazon'
 personas:
   - author
 permalink: '/community/members/joshua-tokle.html'
+redirect_from: '/authors/joshtok/'
 ---
 
 **Joshua Tokle** is a senior software engineer at Amazon and has worked on AWS Glue and Kinesis Analytics. Prior to joining Amazon Joshua worked as a data scientist and statistician with a specialization in record linkage algorithms. His current interests include statistical and machine learning algorithms on streams. Joshua is a contributor to the Random Cut Forest library.

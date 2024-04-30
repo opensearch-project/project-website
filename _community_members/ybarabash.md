@@ -25,6 +25,7 @@ session_track:
     name: "Search"
 linkedin: "https://www.linkedin.com/in/yuliia-barabash/" 
 twitter: "yuliia_barabash"
+redirect_from: '/authors/ybarabash/'
 ---
 Yuliia Barabash
 Cloud Engineer @ Nordcloud | Master's in Computer Science, AWS Expert

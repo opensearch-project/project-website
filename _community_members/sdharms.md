@@ -19,6 +19,7 @@ job_title_and_company: 'Software Engineer at OpenSearch'
 personas:
   - author
 permalink: '/community/members/dharmesh-singh.html'
+redirect_from: '/authors/sdharms/'
 ---
 
 **Dharmesh** is Software Engineer at OpenSearch. His primary interests are distributed systems and performance.

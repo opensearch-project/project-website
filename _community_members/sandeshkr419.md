@@ -20,5 +20,6 @@ job_title_and_company: 'Software Developer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/sandesh-kumar.html'
+redirect_from: '/authors/sandeshkr419/'
 ---
 **Sandesh** is a Software Developer working on OpenSearch at Amazon Web Services. He is an active contributor to the OpenSearch Project and primarily focuses on improving its resilience and performance.

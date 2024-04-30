@@ -18,6 +18,7 @@ job_title_and_company: 'Applied scientist at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/milind-shyani.html'
+redirect_from: '/authors/mshyani/'
 ---
 
 **Milind Shyani** is an applied scientist at Amazon Web Services working on machine learning algorithms and large language models.

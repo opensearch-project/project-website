@@ -19,6 +19,7 @@ job_title_and_company: 'Prototyping Engineer working at AWS'
 personas:
   - author
 permalink: '/community/members/shunsuke-goto.html'
+redirect_from: '/authors/gteu/'
 ---
 
 **Shunsuke Goto** is a Prototyping Engineer working at AWS. He works closely with customers to build their prototypes and also helps customers to build search and streaming systems.

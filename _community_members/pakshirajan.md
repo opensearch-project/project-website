@@ -17,6 +17,7 @@ job_title_and_company: 'Vice President of Products at Titaniam'
 personas:
   - author
 permalink: '/community/members/pakshi-rajan.html'
+redirect_from: '/authors/pakshirajan/'
 ---
 
 Pakshi Rajan is the Vice President of Products at Titaniam. Titaniam uses data-in-use encryption to breach-proof enterprise search platforms.

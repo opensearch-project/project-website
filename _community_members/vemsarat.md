@@ -19,6 +19,7 @@ job_title_and_company: 'Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/sarat-vemulapalli.html'
+redirect_from: '/authors/vemsarat/'
 ---
 
 **Sarat Vemulapalli** is a Software Engineer at AWS, focusing on OpenSearch and OpenSearch plugins. 

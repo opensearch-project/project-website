@@ -18,6 +18,7 @@ job_title_and_company: 'Software Development Expert at SAP'
 personas:
   - author
 permalink: '/community/members/karsten-schnitter.html'
+redirect_from: '/authors/kschnitter/'
 ---
 
 Karsten is a Software Development Expert at SAP. He works on various logging services on the SAP Business Technology Platform. He focusses on observability and integrations topics. 

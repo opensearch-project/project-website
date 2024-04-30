@@ -34,9 +34,9 @@ breadcrumbs:
       
 
 
-session_time: "time TBD"
+session_time: "2024-05-07 - 3:00pm-3:40pm"
 
-session_room: "a room yet to be determined."
+session_room: "Asgabat"
 
 
 # Session topic track.

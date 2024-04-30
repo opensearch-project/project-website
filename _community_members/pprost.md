@@ -18,6 +18,7 @@ job_title_and_company: 'Observability and infrastructure engineer'
 personas:
   - author
 permalink: '/community/members/pierrick-prost.html'
+redirect_from: '/authors/pprost/'
 ---
 
 **Pierrick Prost** is an observability and infrastructure engineer. He tries to be the unicorn with three heads but it’s not easy. He loves mountains, bike and beer.

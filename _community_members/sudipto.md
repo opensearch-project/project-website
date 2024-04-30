@@ -18,5 +18,6 @@ job_title_and_company: 'Principal scientist at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/sudipto-guha.html'
+redirect_from: '/authors/sudipto/'
 ---
 **Sudipto Guha** is a principal scientist at Amazon Web Services where he studies the design and implementation of a wide range of computational systems: from resource-constrained devices such as sensors, to massively parallel and distributed systems. Sudipto is the prime contributor to the Random Cut Forest library.

@@ -21,5 +21,6 @@ personas:
   - author
 conference_id:
   - "2022-north-america"
+redirect_from: '/authors/pagrawal/'
 ---
 Prashant is a Search Specialist Solutions Architect with OpenSearch Service. He works closely with customers to help them migrate their workloads to the cloud and helps existing customers fine-tune their clusters to achieve better performance and save on cost. Before joining AWS, he helped various customers use OpenSearch and Elasticsearch for their search and log analytics use cases. When not working, you can find him traveling and exploring new places.

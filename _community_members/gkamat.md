@@ -11,7 +11,7 @@ short_name: "gkamat"
 name: "Govind Kamat"
 
 # The path to the community member's photo.
-photo: '/assets/media/community/members/no-image-available.svg'
+photo: '/assets/media/community/members/govkamat.jpg'
 
 # Used as the level 1 page header text.
 primary_title: 'Govind Kamat'
@@ -61,7 +61,7 @@ conference_id:
 
 
 # Optional GitHub username
-#github: githubusername
+github: gkamat
 
 # Optional LinkedIn username
 #linkedin: linkedinusername
@@ -73,6 +73,7 @@ conference_id:
 #mastodon:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
+redirect_from: '/authors/gkamat/'
 ---
 
-Database Engineer III - AWS OpenSearch
+Govind Kamat is a Database Engineer at AWS, working on performance and benchmark tools for OpenSearch.  He is a maintainer on the OpenSearch Benchmark project.  His background is in the area of distributed systems performance and he has prior experience in the development of large-scale software systems, cycle-accurate microprocessor simulators, language compilers and electronic design automation software.

@@ -17,6 +17,7 @@ job_title_and_company: 'AWS software development engineer'
 personas:
   - author
 permalink: '/community/members/lior-perry.html'
+redirect_from: '/authors/lioperry/'
 ---
 
 **Lior Perry** is an AWS software development engineer focusing on OpenSearch.

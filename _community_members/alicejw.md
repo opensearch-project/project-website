@@ -18,6 +18,7 @@ job_title_and_company: 'Alice Williams is an AWS Technical Writer'
 personas:
   - author
 permalink: '/community/members/alice-williams.html'
+redirect_from: '/authors/alicejw/'
 ---
 
 Alice Williams is an AWS Technical Writer working on the OpenSearch project documentation.

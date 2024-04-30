@@ -19,6 +19,7 @@ job_title_and_company: 'senior technical product manager for OpenSearch'
 personas:
   - author
 permalink: '/community/members/joshua-bright.html'
+redirect_from: '/authors/jdbright/'
 ---
 
 **Joshua Bright** is the senior technical product manager for OpenSearch.

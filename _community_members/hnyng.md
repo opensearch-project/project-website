@@ -18,6 +18,7 @@ job_title_and_company: 'Software engineer at AWS'
 personas:
   - author
 permalink: '/community/members/jackie-han.html'
+redirect_from: '/authors/jackiehanyang/'
 ---
 
 Jackie Han is a software engineer at Amazon Web Services focusing mostly on the OpenSearch Anomaly Detection and Flow Framework plugins.

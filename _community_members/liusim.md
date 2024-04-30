@@ -11,7 +11,7 @@ short_name: "liusim"
 name: "Liat Iusim"
 
 # The path to the community member's photo.
-photo: "/assets/media/community/members/no-image-available.svg"
+photo: "/assets/media/community/members/liusim.jpg"
 
 # Used as the level 1 page header text.
 primary_title: 'Liat Iusim'
@@ -30,7 +30,7 @@ breadcrumbs:
     - title: Members
       url: /community/members/index.html
     - title: "Liat Iusim&apos;s Profile"
-      url: '/community/members/first-last.html'
+      url: '/community/members/liat-iusim.html'
 
 # Community member job title and company where they work.
 job_title_and_company: 'Tech Lead - Yotpo'

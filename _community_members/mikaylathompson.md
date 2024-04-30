@@ -16,5 +16,6 @@ job_title_and_company: 'Software engineer at AWS'
 personas:
   - author
 permalink: '/community/members/mikayla-thompson.html'
+redirect_from: '/authors/mikayla/'
 ---
 Mikayla Thompson is a software engineer at AWS working on the OpenSearch Project, where she focuses on migrations.

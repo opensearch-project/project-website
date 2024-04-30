@@ -18,6 +18,7 @@ job_title_and_company: 'Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/tyler-ohlsen.html'
+redirect_from: '/authors/ohltyler/'
 ---
 
 **Tyler Ohlsen** is a software engineer at Amazon Web Services focusing mostly on the OpenSearch Anomaly Detection and Flow Framework plugins.

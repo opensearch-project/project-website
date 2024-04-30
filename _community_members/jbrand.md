@@ -1,8 +1,8 @@
 ---
 short_name: "jbrand"
 name: "Jannik Brand"
-job_title_and_company: "Jannnik Brand"
-photo: '/assets/media/community/members/no-image-available.svg'
+job_title_and_company: "Software Developer at SAP"
+photo: '/assets/media/community/members/jbrand.jpg'
 primary_title: "Jannik Brand"
 title: 'OpenSearch Community Member: Jannik Brand'
 breadcrumbs:
@@ -23,6 +23,8 @@ conference_id:
 session_track: 
   - conference_id: "2024-europe"
     name: "Search"
+redirect_from: '/authors/jbrand/'
+linkedin: jannik-brand
 ---
 
-Jannik Brand
+Jannik is a software developer at SAP. He works on observability services of the SAP Business Technology Platform with a special focus on OpenTelemetry. He holds a Master of Science in computer science from the University of Heidelberg.

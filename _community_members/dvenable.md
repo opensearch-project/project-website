@@ -30,6 +30,7 @@ conference_id:
   - "2024-europe"
   - "2023-north-america"
   - "2022-north-america"
+redirect_from: '/authors/dvenable/'
 ---
 
 David is a senior software engineer working on observability in OpenSearch at Amazon Web Services. He is a maintainer on the Data Prepper project. Prior to working at Amazon, he was the CTO at Allogy Interactive - a start-up creating mobile-learning solutions for healthcare.

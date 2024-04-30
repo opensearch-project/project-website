@@ -18,6 +18,7 @@ job_title_and_company: 'AWS Software Development Manager'
 personas:
   - author
 permalink: '/community/members/dave-lago.html'
+redirect_from: '/authors/davidlago/'
 ---
 
 **Dave Lago** is an AWS Software Development Manager working on the OpenSearch project.

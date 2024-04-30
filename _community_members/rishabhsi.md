@@ -19,6 +19,7 @@ job_title_and_company: 'Systems Development Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/rishabh-singh.html'
+redirect_from: '/authors/rishabhsi/'
 ---
 
 **Rishabh Singh** is a Systems Development Engineer at AWS working on the OpenSearch Project. He is passionate about infrastructure automation, platform development, and improving the developer experience. 

@@ -16,6 +16,7 @@ job_title_and_company: 'Software Engineer working at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/karthik-kumarguru.html'
+redirect_from: '/authors/kkumargu/'
 ---
 
 **Karthik Kumarguru** is a Software Engineer working on search services at Amazon Web Services. His primary interests are distributed systems and networking. He is an active contributor to Open Distro for Elasticsearch.

@@ -18,6 +18,7 @@ job_title_and_company: 'Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/vacha-shah.html'
+redirect_from: '/authors/vachshah/'
 ---
 
 **Vacha Shah** is a Software Engineer at AWS working on the OpenSearch project.

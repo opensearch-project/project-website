@@ -23,6 +23,7 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/alakshmanan/'
 ---
 
 Arun is a senior OpenSearch solutions architect at AWS based in Chicago, Illinois. Arun works on the OpenSearch Project, providing help and guidance to a broad range of customers who have search workloads that they want to move to the AWS Cloud. Prior to joining AWS, Arun’s career as a software developer worked in several database and API Gateway products.

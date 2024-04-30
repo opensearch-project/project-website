@@ -19,5 +19,8 @@ job_title_and_company: 'Developer Advocate for OpenSearch'
 personas:
   - author
 permalink: '/community/members/nate-boot.html'
+redirect_from: '/authors/nateboot/'
 ---
-At work, I'm a Developer Advocate for OpenSearch. At home, I'm a devoted husband and father. No matter where I am, I am at your service. 
+I'm hardcore but approachable. 
+I love tech, video games, bad jokes, and my Padawan youngling. 
+I'm at your service. 

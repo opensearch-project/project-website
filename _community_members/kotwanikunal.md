@@ -18,6 +18,7 @@ job_title_and_company: 'Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/kunal-kotwani.html'
+redirect_from: '/authors/kotwanikunal/'
 ---
 
 **Kunal Kotwani** is a Software Engineer at AWS working on the OpenSearch project.

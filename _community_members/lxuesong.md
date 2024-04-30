@@ -18,6 +18,7 @@ job_title_and_company: 'AWS engineering manager'
 personas:
   - author
 permalink: '/community/members/xuesong-luo.html'
+redirect_from: '/authors/lxuesong/'
 ---
 
 **Xuesong Luo** is an AWS engineering manager working on the OpenSearch Project.

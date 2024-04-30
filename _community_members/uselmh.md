@@ -18,6 +18,7 @@ job_title_and_company: 'Social media specialist for the OpenSearch Project'
 personas:
   - author
 permalink: '/community/members/hannah-uselman.html'
+redirect_from: '/authors/uselmh/'
 ---
 
 **Hannah Uselman** is a social media specialist for the OpenSearch Project.

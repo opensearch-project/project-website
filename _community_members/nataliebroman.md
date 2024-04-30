@@ -17,5 +17,6 @@ job_title_and_company: 'Event Program Manager at AWS'
 personas:
   - author
 permalink: '/community/members/natalie-broman.html'
+redirect_from: '/authors/nataliebroman/'
 ---
 **Natalie Broman** is an Event Program Manager at AWS focusing on the OpenSearch Project and the OpenSource community.

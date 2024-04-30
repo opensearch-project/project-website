@@ -18,6 +18,7 @@ job_title_and_company: 'AWS System Engineer working on the OpenSearch project'
 personas:
   - author
 permalink: '/community/members/prudhvi-godithi.html'
+redirect_from: '/authors/prudhvigodithi/'
 ---
 
 **Prudhvi Godithi** is an AWS System Engineer working on the OpenSearch project.

@@ -23,5 +23,6 @@ personas:
   - conference_speaker
 conference_id:
   - "2023-north-america"
+redirect_from: '/authors/lpavlov/'
 ---
 Laura Pavlov is a senior UX designer at the OpenSearch Project, where she spearheads the design of search relevancy features. Despite being relatively new to the search domain, Laura brings a wealth of passion for applying a goal-directed, user-centered, and research-based design approach to her work. Her background includes leading the design of AI/ML features at OpenSearch as well as enterprise data integration features at Dell Technologies. Laura's educational journey led her to Columbia University, where she focused on the fascinating realm of learning and memory during her experimental psychology studies.

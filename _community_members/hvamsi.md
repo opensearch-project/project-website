@@ -19,6 +19,7 @@ job_title_and_company: 'Software Development Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/harsha-vamsi-kalluri.html'
+redirect_from: '/authors/hvamsi/'
 ---
 
 **Harsha Vamsi Kalluri** is a Software Development Engineer at AWS working on the OpenSearch Clients team.

@@ -19,6 +19,7 @@ job_title_and_company: 'Senior software engineer at AWS'
 personas:
   - author
 permalink: '/community/members/heemin-kim.html'
+redirect_from: '/authors/heemin/'
 ---
 **Heemin Kim** is a senior software engineer at AWS working on geospatial and vector search in OpenSearch.
  

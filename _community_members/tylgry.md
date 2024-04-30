@@ -18,6 +18,7 @@ job_title_and_company: 'Software Development Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/taylor-gray.html'
+redirect_from: '/authors/tylgry/'
 ---
 
 Taylor Gray is a Software Development Engineer at AWS with a focus on OpenSearch and observability. He is a maintainer of the Data Prepper project.

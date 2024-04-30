@@ -19,6 +19,7 @@ job_title_and_company: 'Machine learning engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/dhrubo-saha.html'
+redirect_from: '/authors/dhrubo/'
 ---
 
 **Dhrubo Saha** is a machine learning engineer at Amazon Web Services (AWS) interested in machine learning algorithms, large language models, and distributed systems.

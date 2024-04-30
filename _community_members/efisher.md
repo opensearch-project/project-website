@@ -29,6 +29,7 @@ personas:
 conference_id:
   - "2023-north-america"
   - "2022-north-america"
+redirect_from: '/authors/elifish/'
 ---
 **Eli Fisher** is a Senior Technical Product Manager at AWS. Eli focuses on OpenSearch and OpenSearch Dashboards.
 

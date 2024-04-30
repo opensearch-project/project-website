@@ -18,5 +18,6 @@ job_title_and_company: 'Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/ryan-bogan.html'
+redirect_from: '/authors/ryanbogan/'
 ---
 **Ryan Bogan** is an Engineer at AWS.

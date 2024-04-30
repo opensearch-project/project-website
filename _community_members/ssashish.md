@@ -18,6 +18,7 @@ job_title_and_company: 'Senior software development engineer at AWS'
 personas:
   - author
 permalink: '/community/members/ashish-singh.html'
+redirect_from: '/authors/ssashish/'
 ---
 
 **Ashish Singh** is a senior software development engineer at AWS working on OpenSearch.

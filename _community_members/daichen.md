@@ -18,6 +18,7 @@ job_title_and_company: 'Senior Software Engineer at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/chen-dai.html'
+redirect_from: '/authors/daichen/'
 ---
 
 **Chen Dai** is a Senior Software Engineer at Amazon Web Services, with a focus on OpenSearch SQL and PPL project. He is passionate about distributed computation and database internals.

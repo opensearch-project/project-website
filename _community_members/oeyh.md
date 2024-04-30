@@ -18,6 +18,7 @@ job_title_and_company: 'Software Development Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/hai-yan.html'
+redirect_from: '/authors/oeyh/'
 ---
 
 Hai Yan is a Software Development Engineer at AWS working in search services. He is a maintainer of the Data Prepper project.
