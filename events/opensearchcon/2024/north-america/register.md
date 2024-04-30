@@ -28,6 +28,8 @@ permalink: /events/opensearchcon/2024/north-america/register.html
 #    date: Wednesday 09/21/2022
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
+![CFP Banner](/assets/media/opensearchcon/2024/OSC2024_NASF_Social-Graphic1_1200x627.png){: width="100%" }
+
 <iframe class="airtable-embed" src="https://airtable.com/embed/appWltifOss0C1Ze3/pagCt1teCWSOIZkLY/form" frameborder="0" onmousewheel="" width="100%" height="1300" style="background: transparent; border: 1px solid #ccc;"></iframe>
 
 
