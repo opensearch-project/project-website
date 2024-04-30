@@ -25,7 +25,6 @@ excerpt:
 # The layout template to use for rendering the content.
 # Options are default, fullwidth, homepage, and post.
 layout: post
-
 # Value used for the meta description tag. Also used as a final fallback value for the Twitter Card description field after the excerpt property.
 meta_description: "GSI Technology uses OpenSearch as a vector store to solve advanced real world problems in the realms of AI, Aerospace, Defense and even DNA mapping." 
 
