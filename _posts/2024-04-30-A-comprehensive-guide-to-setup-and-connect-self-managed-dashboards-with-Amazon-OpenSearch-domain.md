@@ -262,6 +262,10 @@ server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_securi
 > [!NOTE]
 > When using docker in EC2 instance, the self-managed OpenSearch Dashboards cannot be accessed over the internet. It is only accessible by machines within the same VPC.
 
+#Summary
+
+The seamless connectivity of self-managed dashboards with the Managed Service domain offers customers a resilient and flexible solution for effective dashboard utilization and visualization, all while experiencing minimal downtime. This integration not only ensures continuous access to vital data insights but also enhances adaptability to evolving business needs. By leveraging this approach, customers can confidently navigate through deployment phases, optimizing their operational efficiency and maintaining uninterrupted productivity.
+
 # References
 * https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
 * https://opensearch.org/docs/latest/security/authentication-backends/saml/
