@@ -83,7 +83,7 @@ services:
 networks:
   opensearch-net:
 ```
-6. The new `docker-compose-no-security.yml` file is now created which looks like the below. Now run the `docker-compose up` command to run the containers with new image. Now customer can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port `5601`. By doing so, you can conveniently view and interact with all the saved objects
+6. The new `docker-compose-no-security.yml` file is now created which should look like the below. Now run the `docker-compose up` command to run the containers with new image. Now customer can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port `5601`. By doing so, you can conveniently view and interact with all the saved objects
 ```yml
 version: '3'
 services:
