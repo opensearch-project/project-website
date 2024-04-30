@@ -24,7 +24,7 @@ This solution currently supports three different methods of authentication
 * SAML authentication
 
 > [!IMPORTANT]
-> It is crucial to select the same major version of dashboards as the OpenSearch domain you intend to connect the dashboards to. [Docker images repo link](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags)
+> Choosing the identical major version of dashboards as the OpenSearch domain you plan to link them with is vital across all supported methods - [Docker images repo link](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags)
 
 # Guide to setup self-managed dashboards in EC2 hosted docker container - No authentication
 
@@ -113,7 +113,44 @@ An AWS managed OpenSearch domain must incorporate Fine-Grained Access Control (F
 3. Under environment variables, add the mandatory keys and values mentioned in this [doc](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html#dashboards-local) to seamlessly connect with managed service domain.
 
 > [!NOTE]
-> I have added `task.json` file from the ECS task defenition to help understand the environment variables that has to be set while creating tasks
+> Below is the sample `task.json` file from the ECS task defenition to help understand the environment variables that has to be set while creating tasks
+```json
+{
+...
+            "portMappings": [
+                {
+                    "name": "dash-5601-tcp",
+                    "containerPort": 5601,
+                    "hostPort": 5601,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                },
+                {
+                    "name": "dash-9200-tcp",
+                    "containerPort": 9200,
+                    "hostPort": 9200,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "OPENSEARCH_USERNAME",
+                    "value": "xxx"
+                },
+                {
+                    "name": "OPENSEARCH_HOSTS",
+                    "value": "https://success-2-ce6hkjt5gh.ap-south-1.es.amazonaws.com"
+                },
+                {
+                    "name": "OPENSEARCH_PASSWORD",
+                    "value": "xxxx"
+                }
+            ],
+...
+}
+```
 
 4. Create a service using the previously created task within the identical VPC and subnet where the managed service OpenSearch domain is operating.
 5. Access the self-managed dashboards by hitting the public endpoint of the running task in ECS Fargate. By doing so, you can conveniently view and interact with all the saved objects in accordance with the Fine-Grained Access Control settings.
