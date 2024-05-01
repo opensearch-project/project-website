@@ -8,7 +8,7 @@ category:
   - community
 
 # Publish date in the format of four digit year, two digit month, two digit day, hour, minute, second, and timezone offset; e.g., 2021-04-12 01:01:01 -0700
-date: 2024-04-15 01:01:01 -0700
+date: 2024-04-30 01:01:01 -0700
 
 # An excerpt of the blog post. It is used in the blog post list view, and in the home page what's new list of N most recent blog posts. It is also used as a fallback value for the twittercard:description field if not explictly defined in the front matter.
 excerpt: 
@@ -49,7 +49,7 @@ Every once in a while I come across a use case that gets me really excited, not 
 
 ## What is the problem to be solved?
 
-Here on Earth we’re starting to see more and more cars that can drive themselves, illustrating the need for collision avoidance. It’s pretty easy to simplify the problem statement here. It’s just making sure that stuff doesn’t smash into each other. Compared to our roads, space really is big, but the space where satellites orbit around the earth isn’t quite as big. So we have a common problem of avoiding collisions, whether between satellites or cars. It is very easy for a small piece of debris, even as small as a fleck of paint, to cause significant damage to an orbiting vehicle. For objects that can’t move themselves, there are only passive approaches to be taken. Approaches like orbital altitudes and graveyard orbits are options, but these are passive solutions that help segregate orbits. Once one of these is used for a launched, there’s not much you can do to move it.
+Here on Earth we’re starting to see more and more cars that can drive themselves, illustrating the need for collision avoidance. It’s pretty easy to simplify the problem statement here. It’s just making sure that stuff doesn’t smash into each other. Compared to our roads, space really is big, but the space where satellites orbit around the earth isn’t quite as big. So we have a common problem of avoiding collisions, whether between satellites or cars. It is very easy for a small piece of debris, even as small as a fleck of paint, to cause significant damage to an orbiting vehicle. For objects that can’t move themselves, there are only passive approaches to be taken. Approaches like orbital altitudes and graveyard orbits are options, but these are passive solutions that help segregate orbits. Once one of these is launched, there’s not much you can do to move it.
 
 Communications satellites are great at talking to each other, but Earth observation satellites don’t always have this strength. They have large arrays of sensors and collect large quantities of data. However, they still need to send their data to the ground for processing. That is to say, these observational satellites don’t really compute their own sensor data. To further complicate this issue, sending sensor data to Earth has to happen during small windows of time due to satellites only being able to transmit to ground stations during small windows in their orbit. This means that not all of the data is sure to make it to the ground. Even after all of this happens, a human still has to review the results.
 
