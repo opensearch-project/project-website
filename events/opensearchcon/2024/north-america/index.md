@@ -7,12 +7,12 @@ permalink: /events/opensearchcon/2024/north-america/index.html
 redirect_from: /events/opensearchcon/2024/index.html
 has_hero: true
 hero_images:
-  mobile:
-    path: /assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png
-    alt: OpenSearchCon 2024 hero banner image.
-  desktop:
-    path: /assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png
-    alt: OpenSearchCon 2024 hero banner image.
+#  mobile:
+#    path: /assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png
+#    alt: OpenSearchCon 2024 hero banner image.
+#  desktop:
+#    path: /assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png
+#    alt: OpenSearchCon 2024 hero banner image.
 conference_sections_button_stack:
   - label: CFP
     url: /events/opensearchcon/2024/north-america/cfp.html
@@ -50,8 +50,9 @@ conference_sections_button_stack:
 #    date: Wednesday 09/21/2022
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
-### **Join us in San Francisco, September 24-26, 2024 for OpenSearchCon North America!**
 
+### **Join us in San Francisco, September 24-26, 2024 for OpenSearchCon North America!**
+![](/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png ){: width="100%" }
 
 The OpenSearch user community continues to expand with new contributors, maintainers, organizations, and partners who are dedicated to make the project a success. It’s all of you who make OpenSearchCon the place where the open source community comes together. That’s why we’re delighted to host the third OpenSearchCon North America, this year in San Francisco!
 
