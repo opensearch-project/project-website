@@ -47,6 +47,7 @@ This year’s conference dedicates three tracks to topics the OpenSearch communi
 * **Search**: Connect with other search and relevance practitioners with demos, deep dives, or new and novel techniques for building rich search applications.
 * **Analytics, Security, and Observability:** Deploying observability tools at scale? Using OpenSearch to turn log data into insights, or to help protect your infrastructure? We want to hear from you!
 * **Community**: Engage a community of builders on a topic that means something to you. Anything that might educate and inspire a community of open search technologists is up for consideration here.
+* **Operating OpenSearch**: You have built out an implementation of OpenSearch? Do you use OpenSearch in a solution that helps your own business or project? Come share how you operate OpenSearch.
 
 
 
