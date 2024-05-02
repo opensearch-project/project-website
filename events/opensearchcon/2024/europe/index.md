@@ -31,8 +31,6 @@ conference_sections_button_stack:
     url: /events/opensearchcon/2024/europe/sessions/index.html
   - label: Unconference
     url: /events/opensearchcon/2024/europe/unconference/index.html
-  - label: Workshops
-    url: /events/opensearchcon/2024/europe/workshops/index.html
 related_articles:
     - title: Announcing OpenSearchCon Europe 2024
       url: /blog/announcing-opensearchcon-europe-2024/
@@ -67,16 +65,6 @@ Join us May 6 and 7 at Cafe Moskau in Berlin for OpenSearchCon Europe 2024. You 
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
                 <a href="https://tickets.plainschwarz.com/opensearchconeu/c/PjtYoMWc8/" class="redesign-button--anchor">
                     Register Now!
-                </a>
-            </div>
-</div>
-
-Open Source Connections will be offering a one-day intensive course based on Think Like a Relevance Engineer (TLRE)! [Learn more](https://opensearch.org/events/opensearchcon/2024/europe/workshops/think-like-a-relevance-engineer-training.html).
-
-<div class="redesign-button-pair--wrapper">
-            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
-                <a href="https://www.eventbee.com/v/opensearch-tlre-intensive-at-opensearchcon-eu-24/event?eid=276614264#/tickets" class="redesign-button--anchor">
-                    Get Training!
                 </a>
             </div>
 </div>
