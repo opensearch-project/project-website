@@ -19,7 +19,13 @@ job_title_and_company: 'The senior technical product manager for OpenSearch'
 personas:
   - conference_speaker
   - author
- 
+  
+conference_id:
+  - "2024-europe"
+  
+session_track:
+  - conference_id: "2024-europe"
+    name: "Search"
 permalink: '/community/members/stavros-macrakis.html'
 redirect_from: '/authors/macrakis/'
 ---
