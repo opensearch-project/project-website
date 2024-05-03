@@ -31,7 +31,7 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 | 2.12.0        | February 6th, 2024                          | February 20th, 2024  | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [4115](https://github.com/opensearch-project/opensearch-build/issues/4115) |
 | 1.3.15         | Feb 27 2024                                | March 05 2024| [Jeff Lu](https://github.com/jordarlu)               |[4294](https://github.com/opensearch-project/opensearch-build/issues/4294) |
 | 2.13.0          | March 19th, 2024                          | April 2nd, 2024 | [Sayali Gaikawad](https://github.com/gaiksaya)  | [4433](https://github.com/opensearch-project/opensearch-build/issues/4433) |
-| 1.3.16          | April 16th, 2024                          | April 23rd, 2024 |                                                      | |
+| 1.3.16          | April 16th, 2024                          | April 23rd, 2024 | [Zelin Hao](https://github.com/zelinh/)       | [4531](https://github.com/opensearch-project/opensearch-build/issues/4531) |
 | 2.14.0          | April 30th, 2024                          | May 14th, 2024 |                                                      | |
 | 1.3.17          | May 28th, 2024                            | June 06th, 2024 |                                                      | |
 | 2.15.0          | June 10th, 2024                           | June 25th, 2024 |                                                      | |
@@ -127,4 +127,5 @@ The software maintainers will not back-port fixes or features to versions outsid
 | February 2nd, 2024   | Enhancement | Added Release Manager & Tracking issue for each release back through 2023 to add clarity for the community. Reversed release history - latest is at the top |
 | February 15th, 2024  | Updated 2024 release schedule                  | Per [Proposal - 186](https://github.com/opensearch-project/.github/issues/186)   |
 | February 21st, 2024  | Update release manager for 1.3.15 release          | [1.3.15 release issue](https://github.com/opensearch-project/opensearch-build/issues/4294)       |                                                                           
+| April 26th, 2024  | Update release manager for 1.3.16 release          | [1.3.16 release issue](https://github.com/opensearch-project/opensearch-build/issues/4531)       |
 {: .desktop-change-log-table}
