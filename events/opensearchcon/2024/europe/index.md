@@ -91,10 +91,6 @@ Read more in the [announcement post](https://opensearch.org/blog/announcing-open
     <td>Registration Open</td>
 </tr>
 <tr>
-    <td>9:00AM to 5:00PM</td>
-    <td>Open Source Connections Training</td>
-</tr>
-<tr>
     <td>9:00AM to 10:00AM</td>
     <td>Breakfast</td>
 </tr>
