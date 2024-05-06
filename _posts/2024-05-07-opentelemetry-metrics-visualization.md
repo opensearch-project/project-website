@@ -169,7 +169,7 @@ We start at the visualize plugin.
 
 We create a new visualization and choose TSVB.
 
-![New TSVB Viszalization](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/visualize_create_tsvb.png){:class="img-centered"}
+![New TSVB Visualization](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/visualize_create_tsvb.png){:class="img-centered"}
 
 As a first step, we navigate to the "Panel options" below the graph.
 
@@ -243,7 +243,75 @@ Highlights of TSVB are the relatively easy entry to time series visualization an
 
 ### Standard Visualizations
 
-  - data tables as selectors
+We will now have a look on the standard visualizations offered by OpenSearch Dashboards.
+Compared to TSVB, these visualizations are a little more elaborate to build.
+However, they allow the creation of filters, that can be applied to the entire dashboard, not only the current visualization.
+This makes the ideal as selectors.
+
+We start with a data table showing us the number of pods and containers by namespace.
+For this, we create a new visualization and choose Data Table.
+
+![New Data Table Visualization](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/visualize_create_data-table.png){:class="img-centered"}
+
+We are asked to select the index or saved search as data source.
+For our table, we can use the entire OpenTelemetry metrics index.
+Let us have a look at the finished table and then walk through the steps, that generate it.
+
+![K8s Pods and Containers per Namespace](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/table_metric_unique-pod-names.png){:class="img-centered"}
+
+The table lists in each line the number of pods and containers.
+Note, that in the example the "kyma-system" namespace consists of 23 pods all running just one Istio container.
+This explains the lower number of unique containers compared to the number of pods.
+
+On the right, we can see, how the number of pods is calculated: It is the unique count of values in field `resource.attributes.k8s@pod@name`, which contains the pod name.
+We could have used the pod id as well, but pod names contain a unique suffix, so this is sematically identical.
+Note, that the pod name is filled in by the kubeletstatsreceiver as resource attribute.
+
+The count of containers can be added by clicking on the plus button with a very similar configuration.
+
+![K8s Unique Container Count](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/table_metric_unique-container-names.png){:class="img-centered"}
+
+Note, that we provide custom labels to have nice table headings.
+Any changes to our configuration are not applied automatically.
+Use the "Update" button on the bottom right to sync the visualization.
+
+We still need to provide separate lines per namespace.
+This is achieved via a bucket aggregation.
+
+![K8s Namespace Terms Aggregation](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/table_metric_namespace-grouping.png){:class="img-centered"}
+
+We choose "split rows" and a "Terms" aggregation for field `resource.attributes.k8s@namespace@name`.
+We order our table by the number of pods.
+We could also choose the number of containers or any other metrics we defined above.
+There is also an option for a complete separate metric.
+
+We can also select the number of entries, we want to retrieve maximally.
+The "Options" tab allows us to paginate this result by specifying the number of rows per page.
+There we can also select a "total" function.
+But in our case, only summing the number of pods would provide a correct number.
+The container count might be double counting containers, that appear in different namespaces.
+This is why this option was left unchecked.
+
+Back in the "Data" tab, we could also opt to create a "missing values" bucket.
+This can cost some query performance.
+We can always check the query performance with the inspect dialog looking at "Requests" and the "Response" tab.
+
+![Visualization Query Performance](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/table_metric_performance.png){:class="img-centered"}
+
+The value reported as `"took": 1787` indicates a latency of 1787ms.
+We can always use this feature to analyze the impact of different aggregations and metrics configurations on the query runtime.
+This can be very helpful on complicated visualizations.
+
+One of the main benefits of the standard visualizations is, that they allow to create global filters.
+In our table, the first column allows filtering on a specific namespace (plus symbol) or excluding it (minus symbol).
+
+![Visualization Filter Creation](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/table_metric_selector.png){:class="img-centered"}
+
+Clicking on either icon will create the corresponding filter and reload the entire dashboard.
+This makes the data tables good candidates to provide selectors by different dimensions.
+The metrics can help users making decisions what data to focus on.
+In our example, we provide a general overview on the size and variety of a namespace.
+
   - quick start to bar chart
   - timelines
 
