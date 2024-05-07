@@ -77,6 +77,10 @@ benchmark_height_mobile: 6000
 </li>
 
 <li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/addcf410-ee05-11ee-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(description:'',filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'333e2950-edec-11ed-a453-51f8c622cf9a',key:query,negate:!f,type:custom,value:'%7B%22bool%22:%7B%22minimum_should_match%22:1,%22should%22:%5B%7B%22match_phrase%22:%7B%22user-tags.cluster-config%22:%22arm64-r6g.2xlarge-3-data-3-shards-1-replica-faiss-cohere-1m%22%7D%7D,%7B%22match_phrase%22:%7B%22meta.tag_cluster-config%22:%22arm64-r6g.2xlarge-3-data-3-shards-1-replica-faiss-cohere-1m%22%7D%7D%5D%7D%7D'),query:(bool:(minimum_should_match:1,should:!((match_phrase:(user-tags.cluster-config:arm64-r6g.2xlarge-3-data-3-shards-1-replica-faiss-cohere-1m)),(match_phrase:(meta.tag_cluster-config:arm64-r6g.2xlarge-3-data-3-shards-1-replica-faiss-cohere-1m))))))),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'%5BVector%20Search%5D%20%5BFaiss%5D%201M%20Cohere%20768D',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Vectorsearch-faiss-1m-Cohere-768D</a>
+</li>
+
+<li>
     <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/d67264e0-f5aa-11ed-aff5-859eb6ed880f?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Segment%20Replication%20Benchmark',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Segment Replication</a>
 </li>
 </ul>
