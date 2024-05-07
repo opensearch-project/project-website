@@ -1,0 +1,56 @@
+---
+calendar_date: '2024-05-07'
+eventdate: 2024-05-12 15:00:00 -0700
+title: OpenSearch 2.14.0 Release Meetings
+online: true
+signup:
+  url: https://chime.aws/2608675002
+  title: Join on Chime
+category: development
+---
+
+**NOTE: This is a series, ending with the release of 2.14.0 - Please read carefully**
+
+Join the OpenSearch team for the open release meetings, so we can push 2.14.0 live as a community.
+
+(hosts: [Barani Bikshandi](https://github.com/bbarani), [Rishabh_Singh](https://github.com/rishabh6788), & [Nate Boot](https://github.com/nateynateynate))
+
+[Release OpenSearch and OpenSearch Dashboards 2.14.0 - Tracking through Issue 4562](https://github.com/opensearch-project/opensearch-build/issues/4562)
+
+On-going release discussions in the [#releases](https://opensearch.slack.com/archives/C0561HRK961) channel on the OpenSearch Project [Slack](https://opensearch.org/slack.html) instance
+
+[Release Schedule and Maintenance Policy](https://opensearch.org/releases.html)
+
+**May 9th 2024 - 9AM PDT**
+
+* Go / No-Go voting
+
+**[Placeholder] May 10th 2024 - 9AM PDT**
+
+* Go / No-Go voting
+
+**April 13 2024 - 2:00PM PDT**
+
+* [Release / Post release](https://github.com/opensearch-project/opensearch-build/wiki/Releasing-the-Distribution#release) (Release day!) [Release manager, leadership team, Repository owners ]
+
+* Last possible date 05/14/2024 per the [Releases schedule](https://opensearch.org/releases.html).
+
+**Dial in information - valid for each meeting:**
+
+**Join Meeting**
+
+**Click to join the meeting: <https://chime.aws/2608675002>**
+
+**Meeting ID: 2608675002** 
+
+A headset is recommended or you may use your computer’s microphone and speakers.
+
+Call in using your phone: 
+- United States Toll-Free (1): +1 855-552-4463
+- United States (1): +1 206-462-5569
+- International: https://chime.aws/dialinnumbers/
+
+Dial-in attendees must enter *7 to mute or unmute themselves.
+
+[Download Chime](https://aws.amazon.com/chime/download)
+[Information about creating an account](https://aws.amazon.com/chime/getting-started)
