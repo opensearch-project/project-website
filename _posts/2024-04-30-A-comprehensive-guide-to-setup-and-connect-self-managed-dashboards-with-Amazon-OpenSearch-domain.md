@@ -14,7 +14,7 @@ has_science_table: true
 
 [OpenSearch](https://opensearch.org/) is a scalable, flexible, and extensible open-source software suite for search, analytics, security monitoring, and observability applications, licensed under Apache 2.0. [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/) is a powerful and flexible data visualization and exploration platform that enables users to analyze and visualize large volumes of data. It is an open-source project that provides a user-friendly interface for creating interactive dashboards, charts, and graphs, allowing users to gain valuable insights from their data.
 
-In [Amazon OpenSearch service](https://aws.amazon.com/opensearch-service/), a blue/green deployment establishes a standby environment for domain updates by replicating the production environment. After completing the updates, users are directed to the new environment. The blue environment represents the current production setup, while the green environment represents the standby. OpenSearch Service after completing the upgrade process, switches the environments, promoting the green environment to become the new production environment without any data loss. However, due to the current code configuration, access to the OpenSearch dashboards is interrupted during the "Creating a new environment" phase of blue/green deployment. This could results in downtime for the dashboards, which presents challenges to customers as it restricts their ability to visualize and explore data during this period.
+In [Amazon OpenSearch service](https://aws.amazon.com/opensearch-service/), a blue/green deployment establishes a standby environment for domain updates by replicating the production environment. After completing the updates, users are directed to the new environment. The blue environment represents the current production setup, while the green environment represents the standby. OpenSearch Service after completing the upgrade process, switches the environments, promoting the green environment to become the new production environment without any data loss. However, due to the current code configuration, access to the OpenSearch dashboards is interrupted during the initial phase of blue/green deployment. This could results in downtime for the dashboards, which presents challenges to customers as it restricts their ability to visualize and explore data during this period.
 
 To maintain continuous access to the dashboards and visualizations during blue/green deployment, customers can implement a workaround by setting up and connecting a self-managed OpenSearch Dashboards with the managed service domain. By utilizing self-managed instances of the OpenSearch Dashboards, customers can ensure continuous access to their dashboards and visualizations throughout the blue/green deployment process, minimizing downtime and mitigating any potential impact on the business operations.
 
@@ -29,7 +29,7 @@ This solution currently supports three different methods of authentication
 # Guide to setup self-managed dashboards in EC2 hosted docker container - No authentication
 
 ## Prerequisite
-An AWS managed OpenSearch domain without any authentication method enabled and is accompanied by the following domain access policy.
+AWS managed OpenSearch domain without any authentication method enabled and is accompanied by the following domain access policy.
 ```json
 {
   "Version": "2012-10-17",
@@ -48,7 +48,7 @@ An AWS managed OpenSearch domain without any authentication method enabled and i
 > [!CAUTION]
 > To establish a connection with the managed OpenSearch domain, it's necessary to uninstall the security plugin from self-managed OpenSearch Dashboards. Otherwise, the Dashboards' security plugin will anticipate a secured domain and will fail to make a connection
 
-## Steps to remove the security plugin and spinup a self-managed dashboards
+## Steps to remove the security plugin and spin up a self-managed dashboards
 1. Remove all Security plugin configuration settings from opensearch_dashboards.yml or place the below example file in the same folder as the Dockerfile
 ```yml
 server.name: opensearch-dashboards
