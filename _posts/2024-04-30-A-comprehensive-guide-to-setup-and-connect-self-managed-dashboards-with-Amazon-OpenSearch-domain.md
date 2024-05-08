@@ -16,7 +16,7 @@ has_science_table: true
 
 In [Amazon OpenSearch service](https://aws.amazon.com/opensearch-service/), a blue/green deployment establishes a standby environment for domain updates by replicating the production environment. After completing the updates, users are directed to the new environment. The blue environment represents the current production setup, while the green environment represents the standby. OpenSearch Service after completing the upgrade process, switches the environments, promoting the green environment to become the new production environment without any data loss. However, due to the current code configuration, access to the OpenSearch dashboards is interrupted during the "Creating a new environment" phase of blue/green deployment. This could results in downtime for the dashboards, which presents challenges to customers as it restricts their ability to visualize and explore data during this period.
 
-To maintain access to dashboards and visualizations during blue/green deployment, customers can implement a workaround by setting up and connecting self-managed OpenSearch Dashboards with the managed service domain. By utilizing self-managed instances of OpenSearch Dashboards, customers can ensure continuous access to their dashboards and visualizations throughout the blue/green deployment process, minimizing downtime and mitigating any potential impact on business operations.
+To maintain continuous access to the dashboards and visualizations during blue/green deployment, customers can implement a workaround by setting up and connecting a self-managed OpenSearch Dashboards with the managed service domain. By utilizing self-managed instances of the OpenSearch Dashboards, customers can ensure continuous access to their dashboards and visualizations throughout the blue/green deployment process, minimizing downtime and mitigating any potential impact on the business operations.
 
 This solution currently supports three different methods of authentication
 * No authentication
@@ -46,7 +46,7 @@ An AWS managed OpenSearch domain without any authentication method enabled and i
 }
 ```
 > [!CAUTION]
-> To establish a connection with the managed OpenSearch domain, it's necessary to uninstall the security plugin from OpenSearch Dashboards. Otherwise, the Dashboards' security plugin will anticipate a secured domain and will fail to make a connection
+> To establish a connection with the managed OpenSearch domain, it's necessary to uninstall the security plugin from self-managed OpenSearch Dashboards. Otherwise, the Dashboards' security plugin will anticipate a secured domain and will fail to make a connection
 
 ## Steps to remove the security plugin and spinup a self-managed dashboards
 1. Remove all Security plugin configuration settings from opensearch_dashboards.yml or place the below example file in the same folder as the Dockerfile
@@ -105,7 +105,7 @@ networks:
 # Guide to setup self-managed dashboards in ECS & in EC2 hosted docker container - HTTP basic authentication
 
 ## Prerequisite
-An AWS managed OpenSearch domain must incorporate Fine-Grained Access Control (FGAC) with HTTP basic authentication, ensuring that a master user is created in the internal user database.
+AWS managed OpenSearch domain must incorporate Fine-Grained Access Control (FGAC) with HTTP basic authentication, ensuring that a master user is created in the internal user database.
 [Reference here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac-http-auth.html)
 
 ## Steps to spin up a self-managed dashboards in ECS
@@ -188,7 +188,7 @@ networks:
 # Guide to setup self-managed dashboards in EC2 hosted container - SAML authentication
 
 ## Prerequisite
-An AWS managed OpenSearch domain with SAML authentication enabled. [Reference here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
+AWS managed OpenSearch domain with SAML authentication enabled. [Reference here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
 )
 
 ## Steps to spin up a self-managed dashboards in EC2 hosted container
@@ -213,7 +213,7 @@ Bgn+nueNrZY5+cOLLW8DSayGG0lZanTgtiCqA7JuKgzwxXmpsld1d7JgQ+EshCNLvF8c3iR47/+R
 OzAwZlwvGWNaT3kaLtjdLmFjlDV5PUMiQdBf6DKihH8fdQjty/vbswxqfMGj0aSppxzXn0XG1kwH
 IK5Y04uMGfRjcE+cPA/vPCKPxh/sgB0n6GaJCIDI</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://trial-8803933.okta.com/app/trial-8803933_2325vpc_1/exk5o8zomj6eLo2an697/sso/saml"/><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://trial-8803933.okta.com/app/trial-8803933_2325vpc_1/exk5o8zomj6eLo2an697/sso/saml"/></md:IDPSSODescriptor></md:EntityDescriptor>
 ```
-4. Replace the self-managed dashboards url in the security configuration file with the self-managed dashboards’ endpoint. The purpose of this is to guarantee that after the user is authenticated in IDP, the redirection occurs to the self-managed dashboards instead of the managed service dashboards.
+4. Replace the self-managed dashboards url in the security configuration file with the self-managed dashboards endpoint. The purpose of this change is to guarantee that after the user is authenticated by IDP, the redirection occurs to the self-managed dashboards instead of the managed service dashboards.
 
 > [!IMPORTANT]
 > Customers do not have access to modify the security configuration file hence raise a support case to AWS support to request a change to the self-managed URL endpoint. After the AWS support completes your request, you can check the new endpoint by running API call ```_opendistro/_security/api/securityconfig```, customer can validate the `kibana_url` changes in security configuration file.
@@ -255,12 +255,12 @@ server.host: '0.0.0.0'
 opensearch_security.auth.type: "saml"
 server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_security/saml/logout"]
 ```
-8. Post container restart you can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port 5601. By doing so, you can conveniently view and interact with all the saved objects in accordance with the Fine-Grained Access Control settings and SAML authentication.
+8. Post container restart you can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port 5601. By doing so, you can view and interact with all the saved objects in accordance with the Fine-Grained Access Control settings and SAML authentication.
 > [!CAUTION]
-> If the endpoint is transitioned to self-managed dashboards and the customer intends to revert to the managed service dashboards endpoint, they must repeat the same procedure, which involves altering the kibana_url in the security configuration file back to the managed service dashboards endpoint. Until this change is made, the managed service dashboards endpoint will remain inaccessible.
+> If the endpoint is transitioned to self-managed dashboards and the customer intends to revert to the managed service dashboards endpoint, they must repeat the same procedure, which involves changing the kibana_url in the security configuration file back to the managed service dashboards endpoint. Until this change is made, the managed service dashboards endpoint will remain inaccessible.
 
 > [!NOTE]
-> When using docker in EC2 instance, the self-managed OpenSearch Dashboards cannot be accessed over the internet. It is only accessible by machines within the same VPC.
+> When using docker in EC2 instance, the self-managed OpenSearch Dashboards cannot be accessed over the internet. It is only accessible within the same VPC.
 
 # Summary
 
