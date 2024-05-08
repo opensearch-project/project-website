@@ -14,7 +14,7 @@ has_science_table: true
 
 [OpenSearch](https://opensearch.org/) is a scalable, flexible, and extensible open-source software suite for search, analytics, security monitoring, and observability applications, licensed under Apache 2.0. [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/) is a powerful and flexible data visualization and exploration platform that enables users to analyze and visualize large volumes of data. It is an open-source project that provides a user-friendly interface for creating interactive dashboards, charts, and graphs, allowing users to gain valuable insights from their data.
 
-In [Amazon OpenSearch service](https://aws.amazon.com/opensearch-service/), a blue/green deployment establishes a standby environment for domain updates by replicating the production environment. After completing the updates, users are directed to the new environment. The blue environment represents the current production setup, while the green environment serves as the standby. OpenSearch Service then switches the environments, promoting the green environment to become the new production environment without any data loss. However, due to the current code configuration, access to OpenSearch dashboards is interrupted during the "Creating a new environment" phase of blue/green deployment. This results in a significant downtime for the dashboards, which presents substantial challenges to customers as it restricts their ability to visualize and explore data during this period.
+In [Amazon OpenSearch service](https://aws.amazon.com/opensearch-service/), a blue/green deployment establishes a standby environment for domain updates by replicating the production environment. After completing the updates, users are directed to the new environment. The blue environment represents the current production setup, while the green environment represents the standby. OpenSearch Service after completing the upgrade process, switches the environments, promoting the green environment to become the new production environment without any data loss. However, due to the current code configuration, access to the OpenSearch dashboards is interrupted during the "Creating a new environment" phase of blue/green deployment. This could results in downtime for the dashboards, which presents challenges to customers as it restricts their ability to visualize and explore data during this period.
 
 To maintain access to dashboards and visualizations during blue/green deployment, customers can implement a workaround by setting up and connecting self-managed OpenSearch Dashboards with the managed service domain. By utilizing self-managed instances of OpenSearch Dashboards, customers can ensure continuous access to their dashboards and visualizations throughout the blue/green deployment process, minimizing downtime and mitigating any potential impact on business operations.
 
@@ -24,7 +24,7 @@ This solution currently supports three different methods of authentication
 * SAML authentication
 
 > [!IMPORTANT]
-> Choosing the identical major version of dashboards as the OpenSearch domain you plan to link them with is vital across all supported methods - [Docker images repo link](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags)
+> Choosing the identical major version of self-managed OpenSearch dashboards as the source managed service domain you plan to link them with is vital across all supported methods (e.g. while upgrading from 1.3 to 2.11, self-managed dashboards should be in 1.3) - [Docker images repo link](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags)
 
 # Guide to setup self-managed dashboards in EC2 hosted docker container - No authentication
 
@@ -192,7 +192,7 @@ An AWS managed OpenSearch domain with SAML authentication enabled. [Reference he
 )
 
 ## Steps to spin up a self-managed dashboards in EC2 hosted container
-1. Create an EC2 instance within the identical VPC where the managed service OpenSearch domain is operating to run the self-managed dashboards and capture its endpoint.
+1. Create an EC2 instance within the identical VPC where the managed service OpenSearch domain is operating to configure the self-managed dashboards and capture its endpoint.
 2. Create a new Application in your `IDP` with the self-managed dashboards endpoint which would generate a new IDP metadata
 3. Copy the IDP metadata of the newly created application and paste it into the IDP metadata text box found in the `Configure identity provider (IdP)` section within the security configuration tab of the managed service domain in aws console. Below is the sample IDP metadata xml.
 ```xml
@@ -216,8 +216,7 @@ IK5Y04uMGfRjcE+cPA/vPCKPxh/sgB0n6GaJCIDI</ds:X509Certificate></ds:X509Data></ds:
 4. Replace the self-managed dashboards url in the security configuration file with the self-managed dashboards’ endpoint. The purpose of this is to guarantee that after the user is authenticated in IDP, the redirection occurs to the self-managed dashboards instead of the managed service dashboards.
 
 > [!IMPORTANT]
-> Customers do not have access to modify the security configuration file hence raise a support ticket to request a change to the self-managed URL endpoint
-[Refer here](https://opensearch.org/docs/latest/security/authentication-backends/saml/#minimal-configuration-example). By running this API call ```_opendistro/_security/api/securityconfig```, customer can validate the `kibana_url` changes in security configuration file.
+> Customers do not have access to modify the security configuration file hence raise a support case to AWS support to request a change to the self-managed URL endpoint. After the AWS support completes your request, you can check the new endpoint by running API call ```_opendistro/_security/api/securityconfig```, customer can validate the `kibana_url` changes in security configuration file.
 
 5. Install docker and its dependencies on the EC2 instance
 6. Use the below `docker-compose.yml` file and run the self-managed opensearch dashboards
@@ -265,7 +264,7 @@ server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_securi
 
 # Summary
 
-The seamless connectivity of self-managed dashboards with the Managed Service domain offers customers a resilient and flexible solution for effective dashboard utilization and visualization, all while experiencing minimal downtime. This integration not only ensures continuous access to vital data insights but also enhances adaptability to evolving business needs. By leveraging this approach, customers can confidently navigate through deployment phases, optimizing their operational efficiency and maintaining uninterrupted productivity. You can find references about these subjects in the resources provided in the following section.
+The self-managed dashboards workaround during upgrade minimizes dashboard downtime and impact on your business operations. The workaround also supports multiple authentication methods to support any specific authentication method required by the customers. You can find references about these subjects in the resources provided in the following section.
 
 # References
 * https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
