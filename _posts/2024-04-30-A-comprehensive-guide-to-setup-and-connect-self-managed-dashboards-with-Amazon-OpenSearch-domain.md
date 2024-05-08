@@ -24,7 +24,7 @@ This solution currently supports three different methods of authentication
 * SAML authentication
 
 > [!IMPORTANT]
-> Choosing the identical major version of self-managed OpenSearch dashboards as the source managed service domain you plan to link them with is vital across all supported methods (e.g. while upgrading from 1.3 to 2.11, self-managed dashboards should be in 1.3) - [Docker images repo link](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags)
+> Choosing the identical major version of self-managed dashboards as the source managed service domain you plan to link them with is vital across all supported methods (e.g. while upgrading from 1.3 to 2.11, self-managed dashboards should be in 1.3) - [Docker images repo link](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags)
 
 # Guide to setup self-managed dashboards in EC2 hosted docker container - No authentication
 
@@ -46,7 +46,7 @@ AWS managed OpenSearch domain without any authentication method enabled and is a
 }
 ```
 > [!CAUTION]
-> To establish a connection with the managed OpenSearch domain, it's necessary to uninstall the security plugin from self-managed OpenSearch Dashboards. Otherwise, the Dashboards' security plugin will anticipate a secured domain and will fail to make a connection
+> To establish a connection with the managed OpenSearch domain, it's necessary to uninstall the security plugin from self-managed dashboards. Otherwise, the Dashboards' security plugin will anticipate a secured domain and will fail to make a connection
 
 ## Steps to remove the security plugin and spin up a self-managed dashboards
 1. Remove all Security plugin configurations from opensearch_dashboards.yml or place the below example file in the same folder as the Dockerfile
@@ -83,7 +83,7 @@ services:
 networks:
   opensearch-net:
 ```
-6. The new `docker-compose-no-security.yml` file is now created which should look like the below. Now run the `docker-compose up` command to run the containers with new image. Now customer can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port `5601`. By doing so, you can conveniently view and interact with all the saved objects
+6. The new `docker-compose-no-security.yml` file is now created which should look like the below. Now run the `docker-compose up` command to run the containers with new image. Now customer can access the self-managed dashboards by hitting the EC2 endpoint with port `5601`. By doing so, you can conveniently view and interact with all the saved objects
 ```yml
 version: '3'
 services:
@@ -182,7 +182,7 @@ networks:
 4. To enable TLS, add the attributes mentioned in this [link](https://opensearch.org/docs/latest/install-and-configure/install-dashboards/tls/) as environment variables.
 
 > [!TIP]
-> One notable advantage of setting up a self-managed OpenSearch Dashboards is that when it is deployed on `AWS ECS Fargate`, it generates a public IP. This allows the self-managed dashboards to be accessed over the internet without the need for setting up a reverse proxy. As a result, the OpenSearch domains will be within the VPC and self-managed dashboards will be available in public, enabling seamless connectivity and eliminating the complexity of configuring additional infrastructure components. This simplifies the setup process and provides convenient access to the dashboards from anywhere on the internet without compromising security or requiring additional network configurations.
+> One notable advantage of setting up a self-managed dashboards is that when it is deployed on `AWS ECS Fargate`, it generates a public IP. This allows the self-managed dashboards to be accessed over the internet without the need for setting up a reverse proxy. As a result, the OpenSearch domains will be within the VPC and self-managed dashboards will be available in public, enabling seamless connectivity and eliminating the complexity of configuring additional infrastructure components. This simplifies the setup process and provides convenient access to the dashboards from anywhere on the internet without compromising security or requiring additional network configurations.
 
 # 
 # Guide to setup self-managed dashboards in EC2 hosted container - SAML authentication
@@ -216,10 +216,10 @@ IK5Y04uMGfRjcE+cPA/vPCKPxh/sgB0n6GaJCIDI</ds:X509Certificate></ds:X509Data></ds:
 4. Replace the self-managed dashboards url in the security configuration file with the self-managed dashboards endpoint. The purpose of this change is to guarantee that after the user is authenticated by IDP, the redirection occurs to the self-managed dashboards instead of the managed service dashboards.
 
 > [!IMPORTANT]
-> Customers do not have access to modify the security configuration file hence raise a support case to AWS support to request a change to the self-managed URL endpoint. After the AWS support completes your request, you can check the new endpoint by running API call ```_opendistro/_security/api/securityconfig```, customer can validate the `kibana_url` changes in security configuration file.
+> Customers do not have access to modify the security configuration file hence raise a support case to AWS support to request a change to the self-managed dashboards URL endpoint. After the AWS support completes your request, you can check the new endpoint by running API call ```_opendistro/_security/api/securityconfig```, customer can validate the `kibana_url` changes in security configuration file.
 
 5. Install docker and its dependencies on the EC2 instance
-6. Use the below `docker-compose.yml` file and run the self-managed opensearch dashboards
+6. Use the below `docker-compose.yml` file and run the self-managed dashboards
 ```yml
 version: '3'
 services:
@@ -255,12 +255,12 @@ server.host: '0.0.0.0'
 opensearch_security.auth.type: "saml"
 server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_security/saml/logout"]
 ```
-8. Post container restart you can access the self-managed OpenSearch Dashboards by hitting the EC2 endpoint with port 5601. By doing so, you can view and interact with all the saved objects in accordance with the Fine-Grained Access Control settings and SAML authentication.
+8. Post container restart you can access the self-managed dashboards by hitting the EC2 endpoint with port 5601. By doing so, you can view and interact with all the saved objects in accordance with the Fine-Grained Access Control settings and SAML authentication.
 > [!CAUTION]
 > If the endpoint is transitioned to self-managed dashboards and the customer intends to revert to the managed service dashboards endpoint, they must repeat the same procedure, which involves changing the kibana_url in the security configuration file back to the managed service dashboards endpoint. Until this change is made, the managed service dashboards endpoint will remain inaccessible.
 
 > [!NOTE]
-> When using docker in EC2 instance, the self-managed OpenSearch Dashboards cannot be accessed over the internet. It is only accessible within the same VPC.
+> When using docker in EC2 instance, the self-managed dashboards cannot be accessed over the internet. It is only accessible within the same VPC.
 
 # Summary
 
