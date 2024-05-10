@@ -215,7 +215,7 @@ IK5Y04uMGfRjcE+cPA/vPCKPxh/sgB0n6GaJCIDI</ds:X509Certificate></ds:X509Data></ds:
 4. Replace the self-managed Dashboards URL in the security configuration file with the self-managed Dashboards endpoint. The purpose of this change is to guarantee that after the user is authenticated by IdP, they are redirected to the self-managed Dashboards instance instead of the managed Dashboards instance.
 
 > [!IMPORTANT]
-> Customers do not have access to modify the security configuration file hence raise a support case to AWS support to request a change to the self-managed dashboards URL endpoint. After the AWS support completes your request, you can check the new endpoint by running API call ```_opendistro/_security/api/securityconfig```, customer can validate the `kibana_url` changes in security configuration file.
+> Users do not have access to modify the security configuration file, so you will need to raise a support case with AWS Support to request a change to the self-managed Dashboards URL endpoint. After AWS Support completes your request, you can check the new endpoint by running the API call ```_opendistro/_security/api/securityconfig``` and validate the `kibana_url` changes in the security configuration file.
 
 5. Install docker and its dependencies on the EC2 instance
 6. Use the below `docker-compose.yml` file and run the self-managed dashboards
