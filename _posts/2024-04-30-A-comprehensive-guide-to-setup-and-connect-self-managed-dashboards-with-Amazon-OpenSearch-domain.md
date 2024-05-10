@@ -105,7 +105,7 @@ networks:
 # Setting up self-managed Dashboards instances in Amazon ECS and in an EC2-hosted Docker container: HTTP basic authentication
 
 ## Prerequisite
-AWS managed OpenSearch domain must incorporate Fine-Grained Access Control (FGAC) with HTTP basic authentication, ensuring that a master user is created in the internal user database.
+The AWS-managed OpenSearch domain must incorporate fine-grained access control (FGAC) with HTTP basic authentication, ensuring that a primary user is created in the internal user database. For more information, see [this tutorial](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac-http-auth.html).
 [Reference here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac-http-auth.html)
 
 ## Steps to spin up a self-managed dashboards in ECS
