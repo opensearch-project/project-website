@@ -110,7 +110,7 @@ The AWS-managed OpenSearch domain must incorporate fine-grained access control (
 ## Spinning up a self-managed Dashboards instance in Amazon ECS
 1. Create a task within Amazon Elastic Container Service (Amazon ECS) on AWS Fargate using the Dashboards Docker image.
 2. When creating a task, under "container definition" in "port mapping", make sure the container ports `5601` and `9200` are added.
-3. Under environment variables, add the mandatory keys and values mentioned in this [doc](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html#dashboards-local) to seamlessly connect with managed service domain.
+3. Under environment variables, add the mandatory keys and values specified in [this document](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html#dashboards-local) to seamlessly connect with the managed service domain.
 
 > [!NOTE]
 > Below is the sample `task.json` file from the ECS task defenition to help understand the environment variables that has to be set while creating tasks
