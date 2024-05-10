@@ -190,7 +190,7 @@ networks:
 AWS managed OpenSearch domain with SAML authentication enabled. [Reference here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
 )
 
-## Steps to spin up a self-managed dashboards in EC2 hosted container
+## Spinning up a self-managed Dashboards instance in an EC2-hosted container
 1. Create an EC2 instance within the identical VPC where the managed service OpenSearch domain is operating to configure the self-managed dashboards and capture its endpoint.
 2. Create a new Application in your `IDP` with the self-managed dashboards endpoint which would generate a new IDP metadata
 3. Copy the IDP metadata of the newly created application and paste it into the IDP metadata text box found in the `Configure identity provider (IdP)` section within the security configuration tab of the managed service domain in aws console. Below is the sample IDP metadata xml.
