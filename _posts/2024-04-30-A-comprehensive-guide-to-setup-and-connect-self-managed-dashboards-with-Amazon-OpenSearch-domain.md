@@ -184,7 +184,7 @@ networks:
 > One notable advantage of setting up a self-managed Dashboards instance is that when it is deployed on `AWS ECS Fargate`, it generates a public IP address. This allows the self-managed Dashboards instance to be accessed over the internet without the need to set up a reverse proxy. As a result, the OpenSearch domains will be within the VPC, and the self-managed Dashboards instances will be publicly available, enabling seamless connectivity and eliminating the complexity of configuring additional infrastructure components. This simplifies the setup process and provides convenient access to the Dashboards instances from anywhere on the internet without compromising security or requiring additional network configurations.
 
 # 
-# Guide to setup self-managed dashboards in EC2 hosted container - SAML authentication
+# Setting up a self-managed Dashboards instance in an EC2-hosted container: SAML authentication
 
 ## Prerequisite
 AWS managed OpenSearch domain with SAML authentication enabled. [Reference here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
