@@ -29,7 +29,7 @@ This solution currently supports three different methods of authentication:
 # Setting up self-managed Dashboards in an Amazon EC2–hosted Docker container: No authentication
 
 ## Prerequisite
-AWS-managed OpenSearch domain without any authentication method enabled and is accompanied by the following domain access policy:
+An AWS-managed OpenSearch domain without any authentication method enabled, accompanied by the following domain access policy, is required:
 ```json
 {
   "Version": "2012-10-17",
