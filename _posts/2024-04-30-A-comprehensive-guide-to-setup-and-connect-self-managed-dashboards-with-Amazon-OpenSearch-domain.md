@@ -263,7 +263,7 @@ server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_securi
 
 # Summary
 
-The self-managed dashboards workaround during upgrade minimizes dashboard downtime and impact on your business operations. The workaround also supports multiple authentication methods to support any specific authentication method required by the customers. You can find references about these subjects in the resources provided in the following section.
+The self-managed Dashboards workaround during upgrade minimizes downtime and impact to your business operations. The workaround also supports multiple authentication methods. You can find more information in the resources provided in the following section.
 
 # References
 * https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
