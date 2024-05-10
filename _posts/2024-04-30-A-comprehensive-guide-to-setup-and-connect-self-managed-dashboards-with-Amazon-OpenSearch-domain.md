@@ -24,7 +24,7 @@ This solution currently supports three different methods of authentication:
 * SAML authentication
 
 > [!IMPORTANT]
-> Choosing the identical major version of self-managed dashboards as the source managed service domain you plan to link them with is vital across all supported methods (e.g. while upgrading from 1.3 to 2.11, self-managed dashboards should be in 1.3) - [Docker images repo link](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags)
+> It is vital to choose the same major version of self-managed OpenSearch Dashboards as the source managed service domain across all supported methods (for example, while upgrading from 1.3 to 2.11, self-managed Dashboards should be on version 1.3). For Docker images, see the [Docker images repository](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags).
 
 # Guide to setup self-managed dashboards in EC2 hosted docker container - No authentication
 
