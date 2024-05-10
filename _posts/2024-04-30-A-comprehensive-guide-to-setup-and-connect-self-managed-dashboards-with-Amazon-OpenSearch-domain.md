@@ -152,7 +152,7 @@ The AWS-managed OpenSearch domain must incorporate fine-grained access control (
 }
 ```
 
-4. Create a service using the previously created task within the identical VPC and subnet where the managed service OpenSearch domain is operating.
+4. Create a service using the previously created task within the same virtual private cloud (VPC) and subnet where the OpenSearch Service domain is operating.
 5. Access the self-managed dashboards by hitting the public endpoint of the running task in ECS Fargate. By doing so, you can conveniently view and interact with all the saved objects in accordance with the Fine-Grained Access Control settings.
 
 ## Steps to spin up a self-managed dashboards in EC2 hosted container
