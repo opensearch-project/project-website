@@ -259,7 +259,7 @@ server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_securi
 > If the endpoint is transitioned to self-managed Dashboards and the user intends to revert to the managed service Dashboards endpoint, they must repeat the same procedure, which involves changing the kibana_url in the security configuration file back to the managed service Dashboards endpoint. Until this change is made, the managed service Dashboards endpoint will remain inaccessible.
 
 > [!NOTE]
-> When using docker in EC2 instance, the self-managed dashboards cannot be accessed over the internet. It is only accessible within the same VPC.
+> When using Docker in an EC2 instance, the self-managed Dashboards instance cannot be accessed over the internet. It is only accessible within the same VPC.
 
 # Summary
 
