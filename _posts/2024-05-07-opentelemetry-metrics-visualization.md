@@ -248,6 +248,8 @@ Compared to TSVB, these visualizations are a little more elaborate to build.
 However, they allow the creation of filters, that can be applied to the entire dashboard, not only the current visualization.
 This makes the ideal as selectors.
 
+#### A Data Table for K8s Namespaces
+
 We start with a data table showing us the number of pods and containers by namespace.
 For this, we create a new visualization and choose Data Table.
 
@@ -312,7 +314,96 @@ This makes the data tables good candidates to provide selectors by different dim
 The metrics can help users making decisions what data to focus on.
 In our example, we provide a general overview on the size and variety of a namespace.
 
-  - quick start to bar chart
-  - timelines
+#### A Line Chart for Timelines
+
+We will now push the standard line chart to its limits by trying to recreate the earlier TSVB visualization of the Pod CPU time.
+Actually, we will go a little beyond it and attempt to visualize the container CPU time for each pod.
+
+For our [data table](#a-data-table-for-k8s-namespaces) we created in the last subsection, we used an index pattern.
+This time, we will create a proper saved search in the Discovery plugin.
+We need to filter our OpenTelemetry metrics index by metric name `container.cpu.time`.
+
+![Saved Search for container cpu time](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/discover_k8s-container-cpu-time.png){:class="img-centered"}
+
+This screenshot is actually superfluous to show both possibilities: Either use DQL in the search input or create the equivalent filter.
+Our example contains an additional filter for the namespace, to show the possibility to add additional filters.
+We save our search, so that we can reference it, when we create our line chart.
+The major benefit of this approach is, that we can refine our saved search during the creation of our visualization.
+
+![New Line Chart Visualization](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/visualize_create_line-chart.png){:class="img-centered"}
+
+![Select Saved Search](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/visualize_select-saved-search.png){:class="img-centered"}
+
+We now need to provide several configurations.
+Let us start with the x-axis, which needs to be a date histogram.
+This divides the time interval selected on the upper right of the screen into time buckets.
+
+![Date Histogram](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_date-histogram.png){:class="img-centered"}
+
+The default time field for OpenTelemetry metrics is `time`.
+The minimum bucket length needs to be at least the reporting interval, to avoid empty buckets.
+The actual length will be selected from the chosen interval.
+
+We can now configure our y-axis.
+
+![Calculating the CPU Time Slice](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_y-axis.png){:class="img-centered"}
+
+We want to use the derivative of each interval.
+Since this is a parent aggregation, we need a time bucket aggregation as well.
+Here we use the maximum, since the metric is a monotonically increasing counter.
+
+In comparison with TSVB, we have no control over the derivation scale.
+That means, the derivative will be dependent on the interval length.
+This is why, we did not give a custom label on the x-axis, so that it will print the interval length.
+This is the first limitation of the standard line chart, we encounter.
+
+Note, that configuring the date histogram on the x-axis is required for using the derivative aggregation.
+
+As a finishing touch, we will now split our data series by K8s pod name and K8s container name.
+This is something, we could not do in TSVB, which only supported grouping by one field.
+We start with the pod name.
+
+![Split by Pod Name](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_split_pod-name.png){:class="img-centered"}
+
+Note, that for ordering we are again restricted to the max aggregation.
+We cannot sort by the derivative well, just like with TSVB.
+After the pod, we split again by container name.
+
+![Split by Container Name](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_split_container-name.png){:class="img-centered"}
+
+When you add the "split series" configuration, OpenSearch Dashboards will complain, that the Date Histogram needs to be the last visualization.
+You can rearrange the bucket aggregations by drag and drop on the "=" icon.
+
+With all that configuration done, we hit the Update button to inspect the graph.
+
+![CPU Time by Container and Pod](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_chart.png){:class="img-centered"}
+
+We get a line of the cpu time used by time interval for each container.
+The labels consist of the pod name first and container name second.
+We can control this ordering by the ordering of our aggregations.
+Similar to TSVB, we have a problem to distinguish long labels in the legend.
+This is no better, if we bring the legend to the bottom with the panel options.
+
+If we mouse-over a data point, we get additional information.
+
+![Line Chart Point Info](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_data-point_info.png){:class="img-centered"}
+
+We can see the timestamp and cpu time used.
+The labels for pod and container names are presented, but hard to recognize.
+This is caused by the double aggregation.
+If we used just pod names, this would be much better.
+An alternative approach would be to use "split series" for container names and "split chart" for pod names.
+
+Clicking on a data point brings up a filter creation dialog.
+
+![Line Chart Point Filter](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_data-point_filters.png){:class="img-centered"}
+
+We can use these options to slice our data.
+These filters are applied across the entire dashboard.
+
+We have pushed our timeline visualization to the limits of the standard charts.
+This gives us a good understanding of its capabilities.
+It has its benefits for creating filters and grouping by multiple attributes.
+But TSVB has easier options to format data.
 
 ### Outlook: Vega
