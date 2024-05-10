@@ -26,7 +26,7 @@ This solution currently supports three different methods of authentication:
 > [!IMPORTANT]
 > It is vital to choose the same major version of self-managed OpenSearch Dashboards as the source managed service domain across all supported methods (for example, while upgrading from 1.3 to 2.11, self-managed Dashboards should be on version 1.3). For Docker images, see the [Docker images repository](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags).
 
-# Guide to setup self-managed dashboards in EC2 hosted docker container - No authentication
+# Setting up self-managed Dashboards in an Amazon EC2–hosted Docker container: No authentication
 
 ## Prerequisite
 AWS managed OpenSearch domain without any authentication method enabled and is accompanied by the following domain access policy.
