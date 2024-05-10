@@ -217,7 +217,7 @@ IK5Y04uMGfRjcE+cPA/vPCKPxh/sgB0n6GaJCIDI</ds:X509Certificate></ds:X509Data></ds:
 > [!IMPORTANT]
 > Users do not have access to modify the security configuration file, so you will need to raise a support case with AWS Support to request a change to the self-managed Dashboards URL endpoint. After AWS Support completes your request, you can check the new endpoint by running the API call ```_opendistro/_security/api/securityconfig``` and validate the `kibana_url` changes in the security configuration file.
 
-5. Install docker and its dependencies on the EC2 instance
+5. Install Docker and its dependencies on the EC2 instance.
 6. Use the below `docker-compose.yml` file and run the self-managed dashboards
 ```yml
 version: '3'
