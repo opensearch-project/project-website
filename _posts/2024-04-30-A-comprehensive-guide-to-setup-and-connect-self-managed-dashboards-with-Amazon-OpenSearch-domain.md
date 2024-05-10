@@ -181,7 +181,7 @@ networks:
 4. To enable TLS, add the attributes specified [here](https://opensearch.org/docs/latest/install-and-configure/install-dashboards/tls/) as environment variables.
 
 > [!TIP]
-> One notable advantage of setting up a self-managed dashboards is that when it is deployed on `AWS ECS Fargate`, it generates a public IP. This allows the self-managed dashboards to be accessed over the internet without the need for setting up a reverse proxy. As a result, the OpenSearch domains will be within the VPC and self-managed dashboards will be available in public, enabling seamless connectivity and eliminating the complexity of configuring additional infrastructure components. This simplifies the setup process and provides convenient access to the dashboards from anywhere on the internet without compromising security or requiring additional network configurations.
+> One notable advantage of setting up a self-managed Dashboards instance is that when it is deployed on `AWS ECS Fargate`, it generates a public IP address. This allows the self-managed Dashboards instance to be accessed over the internet without the need to set up a reverse proxy. As a result, the OpenSearch domains will be within the VPC, and the self-managed Dashboards instances will be publicly available, enabling seamless connectivity and eliminating the complexity of configuring additional infrastructure components. This simplifies the setup process and provides convenient access to the Dashboards instances from anywhere on the internet without compromising security or requiring additional network configurations.
 
 # 
 # Guide to setup self-managed dashboards in EC2 hosted container - SAML authentication
