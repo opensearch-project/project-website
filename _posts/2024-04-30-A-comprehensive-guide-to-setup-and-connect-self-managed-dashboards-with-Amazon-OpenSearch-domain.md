@@ -113,7 +113,7 @@ The AWS-managed OpenSearch domain must incorporate fine-grained access control (
 3. Under environment variables, add the mandatory keys and values specified in [this document](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html#dashboards-local) to seamlessly connect with the managed service domain.
 
 > [!NOTE]
-> Below is the sample `task.json` file from the ECS task defenition to help understand the environment variables that has to be set while creating tasks
+> The following sample `task.json` file from the Amazon ECS task definition shows the environment variables that have to be set while creating tasks:
 ```json
 {
 ...
