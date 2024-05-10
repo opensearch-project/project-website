@@ -8,7 +8,7 @@ categories:
  - technical-post
 meta_keywords: 
 meta_description: 
-excerpt: OpenSearch provides OpenTelemetry ingestion by using DataPrepper as ingestion tool. We explore, how to analyse and visualize metrics indexed by that route.
+excerpt: OpenSearch provides OpenTelemetry ingestion by using DataPrepper as ingestion tool. We explore, how to analyze and visualize metrics indexed by that route.
 has_math: true
 has_science_table: true
 ---
@@ -78,7 +78,7 @@ The complete data flow of this setup is shown in the following diagram:
 
 ![Data Flow of OTel Ingestion](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/otel-ingestion-architecture.drawio.png){:class="img-centered"}
 
-When this setup is complete, you will have a lot of metrics in OpenSearch to analyse.
+When this setup is complete, you will have a lot of metrics in OpenSearch to analyze.
 There is a complete [documentation](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/kubeletstatsreceiver/documentation.md) of the metrics and metadata emitted by the kubeletstatsreceiver.
 
 > Hint: If you are a service provider for development teams, this setup can be automated and transparent to your users.
@@ -87,7 +87,7 @@ It is this solution, that forms the foundation of this article.
 
 ### OpenTelemetry Metrics Data Model
 
-OpenTelemetry uses a well documentated [Metrics Data Model](https://opentelemetry.io/docs/specs/otel/metrics/data-model/).
+OpenTelemetry uses a well documented [Metrics Data Model](https://opentelemetry.io/docs/specs/otel/metrics/data-model/).
 The linked article explains all the details of the various supported metric types.
 We will do a less thorough approach and inspect example points to collect the necessary information.
 With our example setup, we can find data points similar to this (shortened) example:
@@ -126,7 +126,7 @@ However, if we ingested a lot of different metrics, we would reach the field lim
 There is additional information about the kind, that introduces semantics to the time series.
 In the example we deal with a "SUM", i.e. a counter, which is monotonic.
 The "AGGREGATION_TEMPORALITY_CUMULATIVE" tells us, that the `value` will contain the current count started at `startTime`.
-The alternative "AGGREGATION_TEMPORALITY_DELTY" would contain only the change encountered between `startTime` and `time` with non-overlapping intervals.
+The alternative "AGGREGATION_TEMPORALITY_DELTA" would contain only the change encountered between `startTime` and `time` with non-overlapping intervals.
 We need to take these semantics into account, e.g. if we want to visualize the rate of changes to our metrics.
 
 Finally, there are additional metadata fields, we can use to slice our data by different dimensions.
@@ -188,7 +188,7 @@ The minimum interval is important for shorter search intervals.
 TSVB will calculate the interval length automatically and only connect points between adjacent intervals.
 If there are intervals without values, the dots will not be connected.
 
-Chosing the panel filter `name:k8s.pod.cpu.time` filters the metrics for the Pod CPU time.
+Choosing the panel filter `name:k8s.pod.cpu.time` filters the metrics for the Pod CPU time.
 This is the metric we want to visualize first.
 
 We now switch back to the "Data" tab.
@@ -200,7 +200,7 @@ We start simple and select aggregation "Max" of field "value".
 This aligns well with the cumulative aggregation temporality.
 In each interval the maximum (last) cpu time is placed as a dot in our diagram.
 We group by a "Terms" aggregation on the K8s pod name to get the cpu times per pod.
-To avoid overcrouding of our graph, we select Top 3 ordered by "Max of value" in descending direction.
+To avoid over-crowding of our graph, we select Top 3 ordered by "Max of value" in descending direction.
 This provides us with a time-line of cpu time by the top 3 pods.
 
 If we were visualizing a metric of kind gauge, this would be it.
@@ -221,14 +221,14 @@ On the bottom line of the screenshot you can see, that we can only sort by the "
 This is the best we can do.
 If we used "Positive Rate", even that option would vanish.
 
-We can improve the graph by chosing percent as Data Formatter under the Options tab.
+We can improve the graph by choosing percent as Data Formatter under the Options tab.
 This provides a nice view on the CPU utilization history by pod. 
 
 ![TSVB Data Options](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/tsvb_data-options.png){:class="img-centered"}
 
-We can reaggregate the data of this timeline by a cumulative sum.
+We can re-aggregate the data of this timeline by a cumulative sum.
 This yields the cpu time spent in the selected interval.
-Let us also swith the graph type to "Top N".
+Let us also switch the graph type to "Top N".
 
 ![TSVB Data Cumulative](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/tsvb_data-cumulative.png){:class="img-centered"}
 
@@ -266,7 +266,7 @@ Note, that in the example the "kyma-system" namespace consists of 23 pods all ru
 This explains the lower number of unique containers compared to the number of pods.
 
 On the right, we can see, how the number of pods is calculated: It is the unique count of values in field `resource.attributes.k8s@pod@name`, which contains the pod name.
-We could have used the pod id as well, but pod names contain a unique suffix, so this is sematically identical.
+We could have used the pod id as well, but pod names contain a unique suffix, so this is semantically identical.
 Note, that the pod name is filled in by the kubeletstatsreceiver as resource attribute.
 
 The count of containers can be added by clicking on the plus button with a very similar configuration.
@@ -407,3 +407,15 @@ It has its benefits for creating filters and grouping by multiple attributes.
 But TSVB has easier options to format data.
 
 ### Outlook: Vega
+
+We have explored, how to set up present OpenTelemetry metrics using TSVB and the standard visualizations.
+Both approaches allowed the creation of useful charts providing powerful insights.
+But we also encounter quite some limitations.
+To overcome those limits, OpenSearch Dashboards offers Vega as another powerful visualizations approach.
+Vega lets us use any OpenSearch query and provides a grammar to transform and visualize the data with [D3.js](https://d3js.org/).
+It allows to access global filters and the time interval selector to create well-integrated exploration and analysis journeys in OpenSearch.
+
+Of course, this has a steeper learning curve.
+Explaining Vega visualizations would warrant its own blog post.
+There is a short introduction in the [OpenSearch Catalog](https://github.com/opensearch-project/opensearch-catalog/blob/main/visualizations/vega-visualizations.md).
+Be sure to check out the Vega visualizations in that catalog to get further inspiration.
