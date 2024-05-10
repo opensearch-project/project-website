@@ -254,7 +254,7 @@ server.host: '0.0.0.0'
 opensearch_security.auth.type: "saml"
 server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_security/saml/logout"]
 ```
-8. After restarting the container, you can access the self-managed Dashboards instance by hitting the EC2 endpoint with port `5601`. By doing so, you can view and interact with all the saved objects in accordance with the FGAC settings and SAML authentication.
+8. After restarting the container, you can access the self-managed Dashboards instance by connecting to the EC2 endpoint with port `5601`. By doing so, you can view and interact with all the saved objects in accordance with the FGAC settings and SAML authentication.
 > [!CAUTION]
 > If the endpoint is transitioned to self-managed Dashboards and the user intends to revert to the managed service Dashboards endpoint, they must repeat the same procedure, which involves changing the kibana_url in the security configuration file back to the managed service Dashboards endpoint. Until this change is made, the managed service Dashboards endpoint will remain inaccessible.
 
