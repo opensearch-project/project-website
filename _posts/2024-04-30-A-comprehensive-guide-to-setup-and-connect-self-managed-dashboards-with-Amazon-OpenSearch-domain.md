@@ -158,7 +158,7 @@ The AWS-managed OpenSearch domain must incorporate fine-grained access control (
 ## Spinning up a self-managed Dashboards instance in an EC2-hosted container
 1. Deploy an EC2 instance in the same VPC and subnet as the managed OpenSearch Service domain.
 2. Set up Docker/Kubernetes and their dependencies on the instance.
-3. Utilize the below `docker-compose.yml` file to launch a self-managed dashboards container. After the container is running, you can easily access and interact with all the saved objects.
+3. Use the following `docker-compose.yml` file to launch a self-managed Dashboards container. After the container is running, you can easily access and interact with all the saved objects.
 ```yml
 version: '3'
 services:
