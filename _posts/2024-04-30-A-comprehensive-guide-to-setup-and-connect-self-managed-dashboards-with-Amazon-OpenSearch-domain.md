@@ -155,7 +155,7 @@ The AWS-managed OpenSearch domain must incorporate fine-grained access control (
 4. Create a service using the previously created task within the same virtual private cloud (VPC) and subnet where the OpenSearch Service domain is operating.
 5. Access the self-managed Dashboards instances by hitting the public endpoint of the running task in Amazon ECS on AWS Fargate. By doing so, you can conveniently view and interact with all the saved objects in accordance with the FGAC settings.
 
-## Steps to spin up a self-managed dashboards in EC2 hosted container
+## Spinning up a self-managed Dashboards instance in an EC2-hosted container
 1. Deploy an EC2 instance in the same VPC and subnet as the managed OpenSearch service domain.
 2. Set up Docker/Kubernetes and its dependencies on the instance.
 3. Utilize the below `docker-compose.yml` file to launch a self-managed dashboards container. After the container is running, you can easily access and interact with all the saved objects.
