@@ -238,7 +238,7 @@ services:
 networks:
   opensearch-net:
 ```
-7. After the container is up and running, access it by using the command `docker exec -it <CONTAINER ID> bash` and then modify the `opensearch_dashboards.yml` file by adding the SAML specific attributes. Once the modifications are made, restart the container using `docker restart <CONTAINER ID>`. Find below the sample `opensearch_dashboards.yml` for reference. [Additional Reference here](https://opensearch.org/docs/latest/security/authentication-backends/saml/#opensearch-dashboards-configuration)
+7. After the container is up and running, access it by using the command `docker exec -it <CONTAINER ID> bash` and then modify the `opensearch_dashboards.yml` file by adding the SAML-specific attributes. Once the modifications are made, restart the container using `docker restart <CONTAINER ID>`. See the following sample `opensearch_dashboards.yml` file as a reference. See [OpenSearch Dashboards configuration](https://opensearch.org/docs/latest/security/authentication-backends/saml/#opensearch-dashboards-configuration) for more information.
 ```yml
 opensearch.hosts: [https://localhost:9200]
 opensearch.ssl.verificationMode: none
