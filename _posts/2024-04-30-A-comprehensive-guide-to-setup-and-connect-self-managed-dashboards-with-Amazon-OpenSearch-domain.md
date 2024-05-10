@@ -83,7 +83,7 @@ services:
 networks:
   opensearch-net:
 ```
-6. The new `docker-compose-no-security.yml` file has now been created and should appear similar to the following file. Now run the `docker-compose up` command to run the containers with the new image. Then you can access the self-managed Dashboards instances by hitting the Amazon Elastic Compute Cloud (Amazon EC2) endpoint with port `5601`. By doing so, you can conveniently view and interact with all the saved objects.
+6. The new `docker-compose-no-security.yml` file has now been created and should appear similar to the following file. Now run the `docker-compose up` command to run the containers with the new image. Then you can access the self-managed Dashboards instances by connecting to the Amazon Elastic Compute Cloud (Amazon EC2) endpoint with port `5601`. By doing so, you can conveniently view and interact with all the saved objects.
 ```yml
 version: '3'
 services:
