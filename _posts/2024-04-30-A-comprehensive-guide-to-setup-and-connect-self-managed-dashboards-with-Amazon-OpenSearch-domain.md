@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A comprehensive guide to setup and connect self-managed dashboards with Amazon OpenSearch domain"
+title:  "A comprehensive guide to setting up and connecting self-managed OpenSearch Dashboards with an Amazon OpenSearch Service domain"
 authors:
  - mkbn
 date: 2024-04-30
