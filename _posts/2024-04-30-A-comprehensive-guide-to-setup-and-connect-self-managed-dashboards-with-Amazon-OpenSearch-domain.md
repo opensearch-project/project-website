@@ -61,7 +61,7 @@ FROM opensearchproject/opensearch-dashboards:2.5.0
 RUN /usr/share/opensearch-dashboards/bin/opensearch-dashboards-plugin remove securityDashboards
 COPY --chown=opensearch-dashboards:opensearch-dashboards opensearch_dashboards.yml /usr/share/opensearch-dashboards/config/
 ```
-3. Run this command `docker build --tag=opensearch-dashboards-no-security .` to build a new Docker image with security plugin removed.
+3. Run the command `docker build --tag=opensearch-dashboards-no-security` to build a new Docker image with the Security plugin removed.
 4. Validate whether the new image has been created by running the `docker images` command.
 5. In the following sample `docker-compose.yml` file, change the Dashboards image name from `opensearchproject/opensearch-dashboards:2.5.0` to `opensearch-dashboards-no-security` and remove the username and password fields:
 ```yml
