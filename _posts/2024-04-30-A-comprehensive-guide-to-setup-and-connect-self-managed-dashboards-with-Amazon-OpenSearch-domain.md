@@ -18,7 +18,7 @@ In [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/), a bl
 
 To maintain continuous access to dashboards and visualizations during blue/green deployment, users can implement a workaround by setting up and connecting a self-managed Dashboards instance with a managed service domain. By using self-managed Dashboards instances, users can ensure continuous access to their dashboards and visualizations throughout the blue/green deployment process, minimizing downtime and mitigating any potential impact to business operations.
 
-This solution currently supports three different methods of authentication
+This solution currently supports three different methods of authentication:
 * No authentication
 * HTTP basic authentication
 * SAML authentication
