@@ -187,7 +187,7 @@ networks:
 # Setting up a self-managed Dashboards instance in an EC2-hosted container: SAML authentication
 
 ## Prerequisite
-AWS managed OpenSearch domain with SAML authentication enabled. [Reference here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html
+An AWS-managed OpenSearch domain with SAML authentication enabled is required. For more information, see [SAML authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/saml.html).
 )
 
 ## Spinning up a self-managed Dashboards instance in an EC2-hosted container
