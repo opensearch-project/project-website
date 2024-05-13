@@ -127,7 +127,7 @@ There is additional information about the kind, that introduces semantics to the
 In the example we deal with a "SUM" (a counter), which is monotonic.
 The "AGGREGATION_TEMPORALITY_CUMULATIVE" tells us, that the `value` will contain the current count started at `startTime`.
 The alternative "AGGREGATION_TEMPORALITY_DELTA" would contain only the change encountered between `startTime` and `time` with non-overlapping intervals.
-We need to take these semantics into account, e.g., if we want to visualize the rate of changes to our metrics.
+We need to take these semantics into account, for example, if we want to visualize the rate of changes to our metrics.
 
 Finally, there are additional metadata fields, we can use to slice our data by different dimensions.
 There are three different groups:
@@ -153,7 +153,7 @@ The following screenshot shows metrics for the [OpenTelemetry Demo](https://gith
 
 Note the filtering by instrumentation scope and K8s namespace.
 
-We can use the Discover plugin to develop DQL expressions for data filtering, e.g., `name:k8s.pod.cpu.time`, or create saved searches.
+We can use the Discover plugin to develop DQL expressions for data filtering, such as `name:k8s.pod.cpu.time`, or create saved searches.
 Both will be used for visualizations.
 
 One of the main benefits of Discover is the easy access to metrics attributes.
@@ -176,7 +176,7 @@ As a first step, we navigate to the "Panel options" below the graph.
 ![TSVB Panel Options](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/tsvb_panel-options.png){:class="img-centered"}
 
 We select:
-- our example index pattern "metrics-otel-v1-*"
+- our example index pattern `metrics-otel-v1-*`
 - the time field `time` from the DataPrepper/OpenTelemetry data model
 - an interval of at least 1 minute
 - the panel filter DQL expression `name:k8s.pod.cpu.time` we explored with [Discover](#discover-inspecting-the-raw-data-and-saved-searches)
@@ -198,10 +198,10 @@ We now switch back to the "Data" tab.
 Here we configure the data, we want to visualize.
 We start simple and select aggregation "Max" of field "value".
 This aligns well with the cumulative aggregation temporality.
-In each interval the maximum (last) cpu time is placed as a dot in our diagram.
-We group by a "Terms" aggregation on the K8s pod name to get the cpu times per pod.
+In each interval the maximum (last) CPU time is placed as a dot in our diagram.
+We group by a "Terms" aggregation on the K8s pod name to get the CPU times per pod.
 To avoid over-crowding of our graph, we select Top 3 ordered by "Max of value" in descending direction.
-This provides us with a time-line of cpu time by the top 3 pods.
+This provides us with a time-line of CPU time by the top 3 pods.
 
 If we were visualizing a metric of kind gauge, this would be it.
 However, with our sum, there is more to be done.
@@ -211,7 +211,7 @@ In the next step we calculate the rate of our sum.
 ![TSVB Data Positive Rate](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/tsvb_data-positive-rate.png){:class="img-centered"}
 
 We extend the aggregations by a derivative by unit 1s.
-This calculates the time share spent by the cpu on that pod.
+This calculates the time share spent by the CPU on that pod.
 We add another aggregation to filter for positive values only.
 This suppresses artifacts from pod restarts.
 
@@ -227,14 +227,14 @@ This provides a nice view on the CPU utilization history by pod.
 ![TSVB Data Options](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/tsvb_data-options.png){:class="img-centered"}
 
 We can re-aggregate the data of this timeline by a cumulative sum.
-This yields the cpu time spent in the selected interval.
+This yields the CPU time spent in the selected interval.
 Let us also switch the graph type to "Top N".
 
 ![TSVB Data Cumulative](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/tsvb_data-cumulative.png){:class="img-centered"}
 
 Now we have an ordered bar chart of our top 10 pods (we need to adjust the number of options in the group by).
 
-We have now created two different visualizations of pod cpu utilization.
+We have now created two different visualizations of pod CPU utilization.
 We can save our visualizations at any point in time and add them to dashboards, that combine multiple visualizations.
 TSVB allows to configure, whether global filters should be respected or not.
 This allows to embed the visualizations into larger scenarios sharing filters.
@@ -323,7 +323,7 @@ For our [data table](#a-data-table-for-k8s-namespaces) we created in the last su
 This time, we will create a proper saved search in the Discovery plugin.
 We need to filter our OpenTelemetry metrics index by metric name `container.cpu.time`.
 
-![Saved Search for container cpu time](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/discover_k8s-container-cpu-time.png){:class="img-centered"}
+![Saved Search for container CPU time](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/discover_k8s-container-cpu-time.png){:class="img-centered"}
 
 This screenshot is actually superfluous to show both possibilities: Either use DQL in the search input or create the equivalent filter.
 Our example contains an additional filter for the namespace, to show the possibility to add additional filters.
@@ -378,7 +378,7 @@ With all that configuration done, we hit the Update button to inspect the graph.
 
 ![CPU Time by Container and Pod](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_chart.png){:class="img-centered"}
 
-We get a line of the cpu time used by time interval for each container.
+We get a line of the CPU time used by time interval for each container.
 The labels consist of the pod name first and the container name second.
 We can control this ordering by the ordering of our aggregations.
 Similar to TSVB, we have a problem to distinguish long labels in the legend.
@@ -388,7 +388,7 @@ If we mouse-over a data point, we get additional information.
 
 ![Line Chart Point Info](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_data-point_info.png){:class="img-centered"}
 
-We can see the timestamp and cpu time used.
+We can see the timestamp and CPU time used.
 The labels for pod and container names are presented, but hard to recognize.
 This is caused by the double aggregation.
 If we used just pod names, this would be much better.
