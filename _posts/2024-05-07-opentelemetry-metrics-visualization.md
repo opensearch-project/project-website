@@ -13,14 +13,14 @@ has_math: true
 has_science_table: true
 ---
 
-OpenSearch is growing into a full observability platform supporting logs, metrics and traces.
+OpenSearch is growing into a full observability platform supporting logs, metrics, and traces.
 Using DataPrepper, it is capable of ingesting these three signal types via OpenTelemetry.
 _Logs_ are supported well by the search index and other core features from OpenSearch and OpenSearch Dashboards.
 _Traces_ have their own section within the Observability plugin providing flame graphs, service maps and much more.
 The _metrics_ support in OpenSearch is geared towards the integration of an external Prometheus data source.
 Analyzing metrics ingested via DataPrepper requires custom built visualizations.
 This blog post is all about these visualizations and the underlying data model.
-It is built on the experience in SAP Cloud Logging service, where I created per-defined dashboards for the customers.
+It is built on the experience in [SAP Cloud Logging service](https://discovery-center.cloud.sap/serviceCatalog/cloud-logging), where I created per-defined dashboards for the customers.
 
 ### Outline
 
@@ -118,7 +118,7 @@ With our example setup, we can find data points similar to this (shortened) exam
 ```
 
 We can see, that OpenTelemetry separates metrics by the `name`.
-Each point contains the generic `value` and `time`, which form the basic time series for our visualizations.
+Each point contains the generic `value` and `time`, which form the basic time series for the visualizations.
 This schema is a at first glance suboptimal for OpenSearch, where having a field with key `name` and value with the numerical value is easier accessible.
 For our example, this would look like `{ "container.cpu.time": 120.353905}`.
 However, if we ingested a lot of different metrics, we would reach the field limit of 1000 per index pretty fast.
@@ -285,7 +285,7 @@ This is achieved via a bucket aggregation.
 We choose "split rows" and a "Terms" aggregation for field `resource.attributes.k8s@namespace@name`.
 We order our table by the number of pods.
 We could also choose the number of containers or any other metrics we defined above.
-There is also an option for a complete separate metric.
+There is also an option for a completely separate metric.
 
 We can also select the number of entries, we want to retrieve maximally.
 The "Options" tab allows us to paginate this result by specifying the number of rows per page.
@@ -302,7 +302,7 @@ We can always check the query performance with the inspect dialog looking at "Re
 
 The value reported as `"took": 1787` indicates a latency of 1787ms.
 We can always use this feature to analyze the impact of different aggregations and metrics configurations on the query runtime.
-This can be very helpful on complicated visualizations.
+This can be very helpful for complicated visualizations.
 
 One of the main benefits of the standard visualizations is, that they allow to create global filters.
 In our table, the first column allows filtering on a specific namespace (plus symbol) or excluding it (minus symbol).
@@ -353,7 +353,7 @@ Since this is a parent aggregation, we need a time bucket aggregation as well.
 Here we use the maximum, since the metric is a monotonically increasing counter.
 
 In comparison with TSVB, we have no control over the derivation scale.
-That means, the derivative will be dependent on the interval length.
+That means the derivative will be dependent on the interval length.
 This is why, we did not give a custom label on the x-axis, so that it will print the interval length.
 This is the first limitation of the standard line chart, we encounter.
 
@@ -379,7 +379,7 @@ With all that configuration done, we hit the Update button to inspect the graph.
 ![CPU Time by Container and Pod](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_chart.png){:class="img-centered"}
 
 We get a line of the cpu time used by time interval for each container.
-The labels consist of the pod name first and container name second.
+The labels consist of the pod name first and the container name second.
 We can control this ordering by the ordering of our aggregations.
 Similar to TSVB, we have a problem to distinguish long labels in the legend.
 This is no better, if we bring the legend to the bottom with the panel options.
@@ -411,7 +411,7 @@ But TSVB has easier options to format data.
 We have explored, how to set up present OpenTelemetry metrics using TSVB and the standard visualizations.
 Both approaches allowed the creation of useful charts providing powerful insights.
 But we also encounter quite some limitations.
-To overcome those limits, OpenSearch Dashboards offers Vega as another powerful visualizations approach.
+To overcome those limits, OpenSearch Dashboards offers Vega as another powerful visualization approach.
 Vega lets us use any OpenSearch query and provides a grammar to transform and visualize the data with [D3.js](https://d3js.org/).
 It allows to access global filters and the time interval selector to create well-integrated exploration and analysis journeys in OpenSearch.
 
