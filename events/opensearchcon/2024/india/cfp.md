@@ -62,7 +62,7 @@ This information will help the reviewers to get a good impression of your sessio
 
 ## When does it close
 
-CfP ends on **May 12th, 2024 at 23:59 IST**.
+CfP ends on **May 30th, 2024 at 23:59 IST**.
 
 ## View previous presentations
 

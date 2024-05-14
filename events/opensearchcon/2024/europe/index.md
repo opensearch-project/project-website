@@ -60,7 +60,9 @@ redirect_from: "/events/opensearchcon/index.html"
 
 The OpenSearch community continues to expand, always welcoming new individuals, organizations, and partners into the fold, and OpenSearchCon is where the community comes together.
 
-Join us May 6 and 7 at Cafe Moskau in Berlin for OpenSearchCon Europe 2024. You can reserve your seat here: 
+Registration is now closed.
+
+<!--- Join us May 6 and 7 at Cafe Moskau in Berlin for OpenSearchCon Europe 2024. You can reserve your seat here: 
 <div class="redesign-button-pair--wrapper">
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
                 <a href="https://tickets.plainschwarz.com/opensearchconeu/c/PjtYoMWc8/" class="redesign-button--anchor">
@@ -68,7 +70,7 @@ Join us May 6 and 7 at Cafe Moskau in Berlin for OpenSearchCon Europe 2024. You 
                 </a>
             </div>
 </div>
-
+--->
 As always, what makes OpenSearchCon a success are the compelling stories and educational insights shared by our community. The Call for Presentations (CfP) for OpenSearchCon Europe is now closed. 
 
 Read more in the [announcement post](https://opensearch.org/blog/announcing-opensearchcon-europe-2024/)
