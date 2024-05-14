@@ -51,7 +51,7 @@ permalink: '/events/opensearchcon/sessions/unleash-your-clusters-potential-with-
 # ID of the YouTube video of the session to embed in the page.
 # This is to be added after the conference and after the session recordings
 # are uploaded to YouTube.
-#youtube_video_id: 'SOME_YOUTUBE_VIDEO_ID'
+youtube_video_id: 'IKkZ0cQuMLI'
 
 # Conference ID.
 # It is normative to use the format of 'YYYY-location-name', eg. '2023-north-america'.

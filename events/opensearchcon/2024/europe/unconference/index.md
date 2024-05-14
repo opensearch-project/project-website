@@ -25,6 +25,24 @@ conference_id: 2024-europe
 permalink: /events/opensearchcon/2024/europe/unconference/index.html
 ---
 
+{% include youtube-player.html id="fzdKJBSVaGs" %}
+
+{% include youtube-player.html id="hF1FPmIWDc8" %}
+
+{% include youtube-player.html id="FVw8C6SKMm8" %}
+
+{% include youtube-player.html id="eRLmIzevC-4" %}
+
+{% include youtube-player.html id="Y7qI7MXRXvQ" %}
+
+{% include youtube-player.html id="GrAnyrMYS2Q" %}
+
+{% include youtube-player.html id="sq54NyqoQWE" %}
+
+{% include youtube-player.html id="5gjSKufLRw4" %}
+
+{% include youtube-player.html id="9T6sOEBDDXo" %}
+
 We had a fantastic time in Seattle last year, so we're bringing the Unconference to Berlin!
 Make plans to join us and come ready to pitch 
 your favorite speaking topic! This is an opportunity for the community to 
