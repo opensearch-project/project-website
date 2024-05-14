@@ -48,7 +48,7 @@ permalink: '/events/opensearchcon/sessions/unspoken-overhead-of-the-inverted-ind
 # ID of the YouTube video of the session to embed in the page.
 # This is to be added after the conference and after the session recordings
 # are uploaded to YouTube.
-#youtube_video_id: 'SOME_YOUTUBE_VIDEO_ID'
+youtube_video_id: 'fJUWK_lsdaw'
 
 # Conference ID.
 # It is normative to use the format of 'YYYY-location-name', eg. '2023-north-america'.

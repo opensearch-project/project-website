@@ -47,7 +47,7 @@ permalink: '/events/opensearchcon/sessions/how-to-become-an-opensearch-project-r
 # ID of the YouTube video of the session to embed in the page.
 # This is to be added after the conference and after the session recordings
 # are uploaded to YouTube.
-#youtube_video_id: 'SOME_YOUTUBE_VIDEO_ID'
+youtube_video_id: 'UsN7YkCCw-c'
 
 # Conference ID.
 # It is normative to use the format of 'YYYY-location-name', eg. '2023-north-america'.
