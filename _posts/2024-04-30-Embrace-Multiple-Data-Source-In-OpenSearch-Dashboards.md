@@ -14,7 +14,7 @@ Before 2.4 release, OpenSearch Dashboards only works with a single OpenSearch cl
 
 In 2.4, multiple data source feature was introduced together with data source management UI portal to allow users to add new data source to the dashboards, create index patterns based on those data sources, and execute queries against a specific connected data source. In 2.6 release, AWS signature Version 4 was added as one authentication type supported by multi data source in addition to basic auth. Thereafter, multi data source support at core plugin including `Dev Tools` was added in 2.7 release, sample data support was added in 2.9 release, then added in for Vega visualization in 2.13. File based saved objects import sourced from multi data source was added into OpenSearch Dashboards in 2.12.  
 
-In this release, to ensure users that have been using the multiple data source feature to have a consistent experience in the dashboards, we enabled multiple data source at 9 OpenSearch Dashboards plugins including index management, machine learning, search relevance, anomaly detection, maps, security, notification, query workbench, trace analytics, and enabled multiple data source at 2 core plugins including TSVB and Region Map. In addition, we introduced default data source feature which will be the default option chosen for all plugins pages that support multi data source. 
+In this release, to ensure users that have been using the multiple data source feature to have a consistent experience in the dashboards, we enabled multiple data source at 9 OpenSearch Dashboards plugins including Index Management, Machine Learning, Search Relevance, Anomaly Detection, Maps, Security, Notification, Query Workbench, Trace Analytics, and enabled multiple data source at 2 core plugins including TSVB and Region Map. In addition, we introduced default data source feature which will be the default option chosen for all plugins pages that support multi data source. 
 
 This blog provides a quick glance at the accumulated features of multi-data sources from version 2.4 to 2.14 and how these features empower your productivity with unified experience. 
 
@@ -66,7 +66,7 @@ Starting 2.14 , machine learning plugin enabled multi data source support, and b
 
 <img src="/assets/media/blog-images/2024-04-30-embrace-multiple-data-source-in-opensearch-dashboards/models_overview.png"/>
 
-Also note that the pre-trained models were deployed to the selected cluster using `Dev Tools` page. 
+Also note that the pretrained models were deployed to the selected cluster using `Dev Tools` page. 
 
 ### Case 5 use `Dev Tools` to query/modify data using API against specific data source at one place
 Starting 2.7, `Dev Tools` is integrated with multi data source, and by selecting the target data source to execute the command on, users can query/modify the backend data directly at one central place.
@@ -91,7 +91,7 @@ Detectors can be created, viewed, and modified in one dashboard.
 <img src="/assets/media/blog-images/2024-04-30-embrace-multiple-data-source-in-opensearch-dashboards/detector_detail.png"/>
 
 ### Case 3 Compare query results from different data sources
-Before 2.14, dashboards only allow comparison of search results from indexes within one cluster. Starting 2.14, Search relevance plugin enabled multi data source support, and we can compare the search results from indexes within 2 different clusters. Note that the data source selector within the page pre-populates the available data sources to choose from.
+Before 2.14, dashboards only allow comparison of search results from indexes within one cluster. Starting 2.14, Search Relevance plugin enabled multi data source support, and we can compare the search results from indexes within 2 different clusters. Note that the data source selector within the page pre-populates the available data sources to choose from.
 
 <img src="/assets/media/blog-images/2024-04-30-embrace-multiple-data-source-in-opensearch-dashboards/compare_queries.png"/>
 
