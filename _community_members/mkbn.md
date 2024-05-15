@@ -1,7 +1,7 @@
 ---
 short_name: mkbn
 name: Madhan Kumar Baskaran
-photo: '/assets/media/community/members/mkbn.jpg'
+photo: '/assets/media/community/members/mkbn.jpeg'
 github: madhankb
 linkedin: 'madhan-kumar-baskaran-15179ba4'
 ---
