@@ -15,6 +15,7 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | David Tippett    | [dtaivpp](https://github.com/dtaivpp)               | Independent Consultant |
 | Fanit Kolchina   | [kolchfa-aws](https://github.com/kolchfa-aws)       | Amazon      |
 | Nate Boot        | [nateynateynate](https://github.com/nateynateynate) | Amazon      |
+| Nathan Bower        | [natebower](https://github.com/natebower)        | Amazon      |
 
 ### Emeritus
 
