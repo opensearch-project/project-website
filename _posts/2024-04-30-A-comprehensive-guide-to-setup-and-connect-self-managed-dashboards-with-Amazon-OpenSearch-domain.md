@@ -6,8 +6,8 @@ authors:
 date: 2024-05-15
 categories:
  - technical-post
-meta_keywords: OpenSearch dashboards, Amazon OpenSearch service, self-managed, downtime issues, Mitigation
-meta_description: In OpenSearch Managed service, Blue-Green deployment often results in downtime for managed service dashboards, impacting availability. Given the critical reliance of our customers on these dashboards for log analytics and other use cases, I've devised a workaround. By setting up self-managed dashboards and connecting them with the managed service domain, downtime issues during Blue-Green deployment are effectively mitigated. This guide walks through the setup process for self-managed dashboards, covering options such as no authentication, basic authentication, and SAML authentication. Customer to follow along with this blog to implement the solution at their end and ensure uninterrupted access to dashboards.
+meta_keywords: OpenSearch Dashboards, Amazon OpenSearch Service, self-managed dashboards, blue/green deployments
+meta_description: Read this guide to learn how you can set up self-managed dashboards with Amazon OpenSearch service, including no authentication, basic authentication, and SAML authentication.
 has_math: true
 has_science_table: true
 ---
