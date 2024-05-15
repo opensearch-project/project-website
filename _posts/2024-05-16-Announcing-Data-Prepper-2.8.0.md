@@ -22,14 +22,14 @@ We’d like to highlight a few of the major ones for you.
 ## Amazon DocumentDB
 
 [Amazon DocumentDB](https://aws.amazon.com/documentdb/) is a fast, scalable, and highly available document database that is MongoDB compatible.
-Generally, developers will query Amazon DocumentDB on a specific field and create an index on one or more fields for query performance .
+Generally, developers will query Amazon DocumentDB on a specific field and create an index on one or more fields to increase query performance .
 However, many teams would also like to search and analyze data in Amazon DocumentDB.
 Now you can use Data Prepper and OpenSearch to search and analyze Amazon DocumentDB data.
 
 Data Prepper’s new `documentdb` source ingests documents from an Amazon DocumentDB collection so that you can index those documents in OpenSearch.
 You can import existing data from an Amazon DocumentDB collection.
 Data Prepper scans the collection to index the documents in OpenSearch.
-For new data, Data Prepper can read from Amazon DocumentDB streams to keep your OpenSearch cluster’s data up to date with DocumentDB collection.
+For new data, Data Prepper can read from Amazon DocumentDB streams to keep your OpenSearch cluster’s data up to date with the Amazon DocumentDB collection.
 
 The feature supports change data capture (CDC), so it will keep the OpenSearch index up to date with Amazon DocumentDB.
 You can add, update, or delete items.
@@ -94,8 +94,8 @@ This chunking of messages is currently supported only for JSON messages received
 
 ## Other features
 
-* The `s3` sink can write events to [Amazon Simple Storage Service (Amazon S3)](https://aws.amazon.com/s3/) objects with data from events in the key paths. This allows you to organize your key prefixes by dates or other metadata and also allows tools such as [Apache Hadoop](https://hadoop.apache.org/) and [Amazon Athena](https://aws.amazon.com/athena/) to more efficiently perform ad hoc queries on your data.
-* Data Prepper now has an `ndjson` codec that you can use to read data from Amazon S3 that looks like NDJSON. By default, it is far more lenient and does not require new lines between JSON objects.
+* The `s3` sink can write events to [Amazon Simple Storage Service (Amazon S3)](https://aws.amazon.com/s3/) objects using data from events to name the key paths. This allows you to organize your key prefixes by dates or other metadata and also allows tools such as [Apache Hadoop](https://hadoop.apache.org/) and [Amazon Athena](https://aws.amazon.com/athena/) to more efficiently perform ad hoc queries on your data.
+* Data Prepper now has an `ndjson` codec that you can use to read NDJSON data from Amazon S3. It is lenient and does not require newlines between JSON objects.
 * The new `write_json` processor can serialize event data into a JSON string that you can send downstream.
 * The `s3` sink supports bucket ownership validation to ensure more secure interactions with Amazon S3.
 * A new `typeof` operator allows you to write conditions that check the type of a field. You can use this anywhere you use other Data Prepper expressions, such as in routes or conditions.
