@@ -3,7 +3,7 @@ layout: post
 title:  "A comprehensive guide to setting up and connecting self-managed OpenSearch Dashboards with an Amazon OpenSearch Service domain"
 authors:
  - mkbn
-date: 2024-04-30
+date: 2024-05-15
 categories:
  - technical-post
 meta_keywords: OpenSearch dashboards, Amazon OpenSearch service, self-managed, downtime issues, Mitigation
