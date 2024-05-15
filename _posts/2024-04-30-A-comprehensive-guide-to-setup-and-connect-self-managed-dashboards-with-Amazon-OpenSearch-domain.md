@@ -7,7 +7,7 @@ date: 2024-05-15
 categories:
  - technical-post
 meta_keywords: OpenSearch Dashboards, Amazon OpenSearch Service, self-managed dashboards, blue/green deployments
-meta_description: Read this guide to learn how you can set up self-managed dashboards with Amazon OpenSearch service, including no authentication, basic authentication, and SAML authentication.
+meta_description: Read this guide to learn how to set up self-managed dashboards with Amazon OpenSearch Service, covering options such as no authentication, basic authentication, and SAML authentication.
 has_math: true
 has_science_table: true
 ---
