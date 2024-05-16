@@ -21,7 +21,7 @@ For enterprises with data scattered across various clusters, users previously ha
 
 The following images show how OpenSearch Dashboards can present data from various sources in a unified dashboard view.
 
-Users can perform query analytics on different clusters using the data source picker.
+You can perform query analytics on different clusters using the data source picker.
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/discover.png"/>
 
