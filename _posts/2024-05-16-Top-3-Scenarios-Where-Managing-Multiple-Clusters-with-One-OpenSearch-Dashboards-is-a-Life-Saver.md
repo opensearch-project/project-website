@@ -51,7 +51,7 @@ OpenSearch Dashboards allows you to perform all index operations, such as creati
 
 You can switch between different data sources using the upper-right navigation bar, select a specific index, and choose the desired operation. Selecting an index name will display detailed information about that index. The data source ID, which is the unique identifier (UUID), is embedded in the URL, allowing you to bookmark and share specific pages directly. 
 
-The following images show the data source picker in the top right hand corner within Index State Management.
+The following images show the data source picker in the upper-right corner in Index State Management.
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/indexes_overview.png"/>
 
