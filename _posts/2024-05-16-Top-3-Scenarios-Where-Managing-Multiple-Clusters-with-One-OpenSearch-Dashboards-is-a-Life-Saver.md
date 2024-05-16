@@ -17,7 +17,7 @@ The multiple data sources feature is available in OpenSearch versions 2.4 and la
 This blog post explains the top three scenarios in which you might want to enable one OpenSearch Dashboards instance to manage data from multiple data sources. 
 
 ## Scenario 1: Unified analytics across distributed data sources
-For enterprises with data scattered across various clusters, users previously had to establish temporary ingestion pipelines to consolidate data into a central repository for analysis. However, with the introduction of multiple data sources support, OpenSearch Dashboards now enables users to query and visualize data from multiple sources within a single dashboards. This feature supports a range of visualization types, like Vega, TSVB, Region Map, and index pattern-based visualizations, providing a comprehensive and cohesive view of dispersed data. 
+For enterprises with data scattered across various clusters, users previously had to establish temporary ingestion pipelines to consolidate data into a central repository for analysis. However, with the introduction of support for multiple data sources, OpenSearch Dashboards now allows users to query and visualize data from multiple sources within a single dashboard. This feature supports a range of visualization types, like Vega, TSVB, Region Map, and index-pattern-based visualizations, providing a comprehensive and cohesive view of dispersed data. 
 
 The following images show how OpenSearch Dashboards can present data from various sources in a unified dashboard view.
 
