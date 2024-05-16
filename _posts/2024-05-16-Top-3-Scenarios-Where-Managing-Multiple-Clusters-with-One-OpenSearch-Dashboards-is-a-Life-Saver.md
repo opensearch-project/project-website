@@ -90,7 +90,7 @@ The multiple data sources feature in OpenSearch Dashboards represents a signific
 
 If you have additional scenarios you’d like us to cover, let us know.
 
-Special thanks to Ramakrishna Chilaka, Prabhat Sharma, Derek Ho, Junqiu Lei, Jackie Han, Riya Saxena, Sumukh Hanumantha Swamy, Lin Wang, Ella Zhu, Emma Jin, Huy Nguyen, Zhongnan Su for their work to enable multiple data sources support for OpenSearch Dashboards.
+Special thanks to Ramakrishna Chilaka, Prabhat Sharma, Derek Ho, Junqiu Lei, Jackie Han, Riya Saxena, Sumukh Hanumantha Swamy, Lin Wang, Ella Zhu, Emma Jin, Huy Nguyen, and Zhongnan Su for their work in building multiple data sources support for OpenSearch Dashboards.
 
 
 
