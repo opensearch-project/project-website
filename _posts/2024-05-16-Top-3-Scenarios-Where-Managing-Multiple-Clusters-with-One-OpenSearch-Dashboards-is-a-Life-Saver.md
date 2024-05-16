@@ -61,7 +61,7 @@ OpenSearch Dashboards supports managing security across multiple data sources. A
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/roles_overview.png"/>
 
-Users can also manage notification channels, as shown in the following image.
+You can also manage notification channels, as shown in the following image.
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/channels_overview.png"/>
 
