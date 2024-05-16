@@ -49,7 +49,7 @@ In addition to analyzing multiple data sources in a unified dashboard, you can m
 
 OpenSearch Dashboards allows you to perform all index operations, such as creating, reading, updating, and deleting indexes, as well as managing index mappings, templates, and aliases, across multiple data sources from a single instance. 
 
-You can switch between different data sources using the upper-right navigation bar, select a specific index, and choose the desired operation. Selecting on an index name will display detailed information about that index. The data source id, which is the unique identifier (UUID) is embedded in the URL, allowing you to bookmark and share specific pages directly. 
+You can switch between different data sources using the upper-right navigation bar, select a specific index, and choose the desired operation. Selecting an index name will display detailed information about that index. The data source ID, which is the unique identifier (UUID), is embedded in the URL, allowing you to bookmark and share specific pages directly. 
 
 The following images show the data source picker in the top right hand corner within Index State Management.
 
