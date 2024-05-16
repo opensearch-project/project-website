@@ -39,7 +39,7 @@ The multiple data sources feature supports adding a prefix to the index pattern 
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/maps_1.png"/>
 
-Also, the referenced data sources from the current map layers are indicated by clicking on the icon on the top navigation bar.
+Additionally, the referenced data sources from the current map layers are indicated by clicking on the icon on the top navigation bar.
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/maps_2.png"/>
 
