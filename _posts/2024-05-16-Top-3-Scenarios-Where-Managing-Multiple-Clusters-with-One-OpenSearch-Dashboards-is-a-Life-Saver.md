@@ -69,7 +69,7 @@ Users can manage remote ML models, as shown in the following image. The pretrain
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/models_overview.png"/>
 
-The Dev Tools console, shown in the following image, is integrated with the multiple data sources feature. Users can select the target data source and execute commands to query ot modify the backend data directly from a central location. 
+The Dev Tools console, shown in the following image, is integrated with the multiple data sources feature. You can select the target data source and execute commands to query to modify the backend data directly from a central location. 
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/devtool.png"/>
 
