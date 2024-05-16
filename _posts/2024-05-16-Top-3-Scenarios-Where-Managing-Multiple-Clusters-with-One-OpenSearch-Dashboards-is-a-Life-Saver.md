@@ -35,7 +35,7 @@ By simply specifying a new data_source_name field within the Vega specification 
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/vega_overall.png"/>
 
-Multiple data sources supports adding a prefix to the index pattern name, improving ease of identifying the pattern during its creation.
+The multiple data sources feature supports adding a prefix to the index pattern name, making it easier to identify the pattern during its creation.
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/maps_1.png"/>
 
