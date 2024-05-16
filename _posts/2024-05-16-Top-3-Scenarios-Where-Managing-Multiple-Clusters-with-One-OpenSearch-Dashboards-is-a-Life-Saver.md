@@ -65,7 +65,7 @@ You can also manage notification channels, as shown in the following image.
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/channels_overview.png"/>
 
-Users can manage remote ML models, as shown in the following image. The pre-trained models are deployed to the selected cluster through the Dev Tools console. 
+Users can manage remote ML models, as shown in the following image. The pretrained models are deployed to the selected cluster through the Dev Tools console. 
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/models_overview.png"/>
 
