@@ -73,7 +73,7 @@ The Dev Tools console, shown in the following image, is integrated with the mult
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/devtool.png"/>
 
-Multiple data sources enable OpenSearch Dashboards to provide a centralized interface to create, view, and modify anomaly detectors from various OpenSearch clusters, streamlining the management process, as shown in the following image.  
+The multiple data sources feature enables OpenSearch Dashboards to provide a centralized interface for creating, viewing, and modifying anomaly detectors from various OpenSearch clusters, streamlining the management process, as shown in the following image.  
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/detector_detail.png"/>
 
