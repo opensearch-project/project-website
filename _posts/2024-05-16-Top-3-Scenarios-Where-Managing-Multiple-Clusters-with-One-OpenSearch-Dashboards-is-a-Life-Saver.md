@@ -31,7 +31,7 @@ The following image shows a TSVB visualization created from disparate data sourc
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/tsvb_overall.png"/>
 
-By simply specifying a new data_source_name field within the Vega specification url field, users can create Vega visualization with data from one or multiple specific data sources by name. An example specification setting is shown in the following image.
+By simply specifying a new `data_source_name` field within the Vega specification `url` field, you can create a Vega visualization with data from one or more specific data sources by name. An example specification setting is shown in the following image.
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/vega_overall.png"/>
 
