@@ -9,6 +9,7 @@ authors:
 date: 2024-05-16 13:30:00 -0600
 categories:
   - releases
+excerpt: Data Prepper 2.8.0 continues to improve upon Data Prepper’s usefulness for search use cases by adding a new Amazon DocumentDB source, in addition to many other improvements. We’d like to highlight a few of the major ones for you.
 meta_keywords: Amazon DocumentDB, AWS Secrets Manager support, Kafka buffer
 meta_description: Data Prepper 2.8.0 improves on search use-cases with Amazon DocumentDB support and includes other improvements.
 ---
