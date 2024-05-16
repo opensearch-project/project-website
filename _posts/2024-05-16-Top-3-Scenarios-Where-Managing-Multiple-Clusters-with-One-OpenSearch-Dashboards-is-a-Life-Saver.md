@@ -80,7 +80,7 @@ The multiple data sources feature enables OpenSearch Dashboards to provide a cen
 
 ## Scenario 3: Comparing search query results across clusters
 
-For users with multiple OpenSearch clusters handling search traffic, the multiple data sources feature allows OpenSearch Dashboards to compare search results across these clusters within a single instance by using the data source picker in the Compare search results application.
+For users with multiple OpenSearch clusters handling search traffic, the multiple data sources feature allows OpenSearch Dashboards to compare search results across these clusters within a single instance by using the data source picker in the `Compare search results` application.
 
 <img src="/assets/media/blog-images/2024-05-16-top3-scenarios-where-managing-multiple-clusters-with-one-opensearch-dashboards-is-a-life-saver/compare_queries.png"/>
 
