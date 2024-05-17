@@ -2,7 +2,7 @@
 layout: post
 title:  "Announcing Data Prepper 2.8.0"
 authors:
-- george-chen
+- qichen
 - dinujoh
 - kkondaka
 - dvenable
