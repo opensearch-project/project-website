@@ -69,7 +69,7 @@ COPY --chown=opensearch-dashboards:opensearch-dashboards opensearch_dashboards.y
 * Validate whether the new image has been created by running the **`docker images`** command.
 * In the following sample **`docker-compose.yml`** file, change the Dashboards image name from **`opensearchproject/opensearch-dashboards:2.5.0`** to **`opensearch-dashboards-no-security`** and remove the username and password fields:
 
-```
+```yaml
 version: '3'
 services:
   opensearch-dashboards:
@@ -91,7 +91,7 @@ networks:
 
 * The new **`docker-compose-no-security.yml`** file has now been created and should appear similar to the following file. Now run the **`docker-compose up`** command to run the containers with the new image. Then you can access the self-managed Dashboards instances by connecting to the Amazon Elastic Compute Cloud (Amazon EC2) endpoint with port **`5601`**. By doing so, you can conveniently view and interact with all the saved objects.
 
-```
+```yaml
 version: '3'
 services:
   opensearch-dashboards:
@@ -166,7 +166,7 @@ The AWS-managed OpenSearch domain must incorporate fine-grained access control (
 * Set up Docker/Kubernetes and their dependencies on the instance.
 * Use the following **`docker-compose.yml`** file to launch a self-managed Dashboards container. After the container is running, you can easily access and interact with all the saved objects.
 
-```
+```yaml
 version: '3'
 services:
   opensearch-dashboards:
@@ -225,7 +225,7 @@ IK5Y04uMGfRjcE+cPA/vPCKPxh/sgB0n6GaJCIDI</ds:X509Certificate></ds:X509Data></ds:
 * Install Docker and its dependencies on the EC2 instance.
 * Use the following **`docker-compose.yml`** file and run the self-managed Dashboards instance:
 
-```
+```yaml
 version: '3'
 services:
   opensearch-dashboards:
