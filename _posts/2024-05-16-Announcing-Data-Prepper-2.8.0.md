@@ -109,3 +109,17 @@ This chunking of messages is currently supported only for JSON messages received
 * For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/latest/data-prepper/getting-started/).
 * To learn more about the work in progress for Data Prepper 2.9 and other releases, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
 
+## Thanks to our contributors!
+
+The following people contributed to this release. Thank you!
+
+* [asuresh8](https://github.com/asuresh8) - Adi Suresh
+* [chenqi0805](https://github.com/chenqi0805) - Qi Chen
+* [dinujoh](https://github.com/dinujoh) - Dinu John
+* [dlvenable](https://github.com/dlvenable) - David Venable
+* [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
+* [juergen-walter](https://github.com/juergen-walter) - Jürgen Walter
+* [kkondaka](https://github.com/kkondaka) - Krishna Kondaka
+* [oeyh](https://github.com/oeyh) - Hai Yan
+* [srikanthjg](https://github.com/srikanthjg) - Srikanth Govindarajan
+* [Utkarsh-Aga](https://github.com/Utkarsh-Aga) - Utkarsh Agarwal
