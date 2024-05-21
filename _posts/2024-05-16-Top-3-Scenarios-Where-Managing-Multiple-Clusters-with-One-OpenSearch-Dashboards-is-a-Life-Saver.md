@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Top 3 scenarios in which managing multiple clusters with one OpenSearch Dashboards instance is a life saver"
+title: "Top 3 scenarios in which managing multiple clusters with one OpenSearch Dashboards instance is a lifesaver"
 authors:
  - nluyu
-date: 2024-05-16
+date: 2024-05-21
 categories:
  - feature
 meta_keyword: OpenSearch multiple data source, OpenSearch Dashboards
