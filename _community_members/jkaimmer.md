@@ -13,18 +13,12 @@ breadcrumbs:
       url: /community/index.html
     - title: Members
       url: /community/members/index.html
-    - title: "First Last&apos;s Profile"
-      url: '/community/members/first-last.html'
+    - title: "Jon Kaimmer&apos;s Profile"
+      url: '/community/members/jon-kaimmer.html'
 
 # Community member job title and company where they work.
 job_title_and_company: 'Software Engineer supporting OpenSearch'
 keynote_speaker: false
-
-# The conference topic track for the conference sessions that the user is a speaker. These are shaped as an array of value pairs mapping conference ID and name. 
-# For example for the North American conference for the year 2023, and the "Community" track:
-session_track: 
-  - conference_id: "2023-north-america"
-    name: "Community"
 
 # URL for the community member profile.
 permalink: '/community/members/jon-kaimmer.html'
