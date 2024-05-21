@@ -3,11 +3,11 @@ layout: post
 title: "Developer guide: Integrating multiple data sources using OpenSearch Dashboards and plugins"
 authors:
  - zhyuanqi
-date: 2024-05-01
+date: 2024-05-21
 categories:
  - technical-post
-meta_keyword: Discover seamless strategies for consolidating diverse data streams into visually compelling dashboards with our comprehensive guide on integrating multiple data sources using powerful dashboard plugins.
-meta_description: This blog provides a guideline on how to integrate multiple data sources with Dashboards plugins
+meta_keyword: multiple data sources in OpenSearch, OpenSearch Dashboards plugins, using multiple data sources
+meta_description: Leverage this comprehensive guide to learn how you can integrate multiple multiple data sources in OpenSearch to create visually compelling dashboards using plugins.
 ---  
 
 OpenSearch introduced support for multiple data sources starting from version 2.4, allowing users to explore, visualize, and manage data from self-managed clusters and Amazon OpenSearch Service. In version 2.14, OpenSearch Dashboards plugins have been integrated to support multiple data sources. Users can now access data from remote clusters within OpenSearch Dashboards core and its plugins, expanding the range of available data sources. For a list of supported plugins, refer to [List of supported plugins/features](list-of-supported-pluginsfeatures).
@@ -287,6 +287,23 @@ With OpenSearch Dashboards running, navigate to the page and select the left men
 
 The data source is persisted as a saved object in the OpenSearch Dashboards system index. Upon creation, it is assigned a UUID as a unique identifier, and metadata such as the remote cluster version and associated plugins is gathered. This automatically generated data, along with user-provided information like the title, endpoint, and authentication methods, is stored as attributes of the data source object. Refer to the [related code](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/src/plugins/data_source/common/data_sources/types.ts#L8) for the current object schema. 
 
+
+## List of supported plugins/features
+
+Starting from version 2.14, the following external OpenSearch Dashboards plugins support multiple data sources: 
+
+* Index Management
+* Machine Learning
+* Search Relevance
+* Anomaly Detection
+* Maps
+* Security
+* Notification
+* Query Workbench
+* Trace Analytics 
+
+Multiple data sources functionality is also now available with Time Series Visual Builder (TSVB), Vega and Region Map visualization types.
+
 ## Frequently asked questions 
 
 Q: Is any UI component provided by `dataSourceManagemet` used in core OpenSearch?
@@ -313,24 +330,6 @@ The visualization reference is slightly different as it points to the related in
         }
 ]
 ```
-
-
-## List of supported plugins/features
-
-Starting from version 2.14, the following external OpenSearch Dashboards plugins support multiple data sources: 
-
-* Index Management
-* Machine Learning
-* Search Relevance
-* Anomaly Detection
-* Maps
-* Security
-* Notification
-* Query Workbench
-* Trace Analytics 
-
-Multiple data sources functionality is also now available with Time Series Visual Builder (TSVB) and Region Map visualization types.
-
 
 ## Conclusion
 
