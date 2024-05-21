@@ -70,7 +70,7 @@ This information will help the reviewers to get a good impression of your sessio
 
 ## When does it close
 
-CfP ends June 7, 2024 at 11:59 p.m. EST
+CfP ends June 14, 2024 at 11:59 p.m. EST
 
 ## Unconference
 
