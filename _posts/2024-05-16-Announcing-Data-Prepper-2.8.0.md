@@ -74,8 +74,10 @@ kafka-pipeline:
       authentication:
         sasl:
           plain:
+          {% raw %}
             username: "${{aws_secrets:kafka-secret:username}}"
             password: "${{aws_secrets:kafka-secret:password}}"
+          {% endraw %}
   sink:
     ...
 ```
