@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Partner Highlight: Do you need semantic search?"
+title:  "Do you need semantic search?"
 authors:
   - dtaivpp
 date:   2024-05-23 11:45 -0700
