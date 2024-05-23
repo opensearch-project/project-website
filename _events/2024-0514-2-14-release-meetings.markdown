@@ -1,6 +1,6 @@
 ---
-calendar_date: '2024-05-07'
-eventdate: 2024-05-12 15:00:00 -0700
+calendar_date: '2024-05-28'
+eventdate: 2024-05-28 13:00:00 -0700
 title: OpenSearch 2.14.0 Release Meetings
 online: true
 signup:
@@ -34,6 +34,10 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 * [Release / Post release](https://github.com/opensearch-project/opensearch-build/wiki/Releasing-the-Distribution#release) (Release day!) [Release manager, leadership team, Repository owners ]
 
 * Last possible date 05/14/2024 per the [Releases schedule](https://opensearch.org/releases.html).
+
+**May 28th 2024 - 1:00PM PDT**
+
+* [Retrospective](https://github.com/opensearch-project/opensearch-build/issues/4712) - Let's do a retro on the 2.14.0 release as a community.
 
 **Dial in information - valid for each meeting:**
 
