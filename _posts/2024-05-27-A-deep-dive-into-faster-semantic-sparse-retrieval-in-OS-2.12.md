@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Improving document retrieval with sparse semantic encoders
+title:  A deep dive into faster semantic sparse retrieval in OpenSearch 2.12
 authors:
   - zhichaog
   - yych
