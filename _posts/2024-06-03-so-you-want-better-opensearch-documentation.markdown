@@ -30,13 +30,13 @@ Charlie then asked the audience what their thoughts were and we captured a lot o
 
 _While we’ve made a lot of progress in this area, particularly with implementing a redirect strategy, we are currently planning on adding canonical links to all the older pages. The goal is to get this work done by the end of Q2, which should show a big improvement in the back half of the year._
 
-**“I often find a Github issue that answers my question and I ⭐it.” Someone suggested that we look for comments on Github issues that have lots of stars and use that as input to where docs could be improved.**
+**“I often find a GitHub issue that answers my question and I ⭐it.” Someone suggested that we look for comments on GitHub issues that have lots of stars and use that as input to where docs could be improved.**
 
  _Great suggestion!_
 
 **“My 2-yr old won’t let me work at night” was one response to the question of why people who find a gap in documentation don’t pursue opening a PR to improve the docs.** 
 
-_We love community contributions and have made it really easy to start. Check out the [CONTRIBUTING.md](http://contributing.md/) file and watch this [Youtube video](https://www.youtube.com/watch?v=zmVC3fQwnVI) on our documentation process and how you can contribute. You can also search through the issues labeled "[good first issue"](https://github.com/opensearch-project/documentation-website/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or "[help wanted"](https://github.com/opensearch-project/documentation-website/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)._
+_We love community contributions and have made it really easy to start. Check out the [CONTRIBUTING.md](http://contributing.md/) file and watch this [YouTube video](https://www.youtube.com/watch?v=zmVC3fQwnVI) on our documentation process and how you can contribute. You can also search through the issues labeled "[good first issue"](https://github.com/opensearch-project/documentation-website/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or "[help wanted"](https://github.com/opensearch-project/documentation-website/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)._
 
 **Backwards compatibility in API’s came up as an issue. It would be interesting if we could better communicate API changes over time.** 
 
