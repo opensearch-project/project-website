@@ -14,11 +14,13 @@ layout: post
 
 [Charlie Hull](https://opensourceconnections.com/team/charlie-hull/) and I, [Eric Pugh](https://opensourceconnections.com/team/eric-pugh/), OpenSource Connections, had the opportunity during the “Unconference” portion at [_OpenSearchCon EU_](https://opensearch.org/events/opensearchcon/2024/europe/index.html) to talk about the current state of the OpenSearch documentation and get some feedback from the community. I chose this topic based on conversations I had with Heather Halter, OpenSearch Documentation Manager, last fall at OpenSearchCon Seattle.
 
-![OpenSearchCon lightning talk - Documentation](../assets/media/blog-images/2024-06-03-improvedocs.jpg)[OpenSearchCon lightning talk - Documentation](https://www.youtube.com/watch?v=eRLmIzevC-4)
+![lightning talk](../assets/media/blog-images/2024-06-03-improvedocs/2024-06-03-improvedocs.jpg)(https://www.youtube.com/watch?v=eRLmIzevC-4)
 
 We started with the slightly tongue-in-cheek statement that the way you search Reddit is to go to Google and search “_How do I (insert any task here) +Reddit_” to get the information you want. The pattern that lots of folks use to find information about OpenSearch (unsurprisingly, as OpenSearch started as a fork of Elasticsearch) is to go to Google and search “_How do I (insert any task here) +Elasticsearch”_. That statement was met with a few nodding heads and light chuckling.  
 
 We then introduced [_The Documentation System_](https://docs.divio.com/documentation-system/), which is referred to as *The Grand Unified Theory of Documentation*. You may know it as [_Diátaxis_](https://diataxis.fr/)*,* (I am unclear about the relationship between the two sites!) Here’s a [video](https://www.youtube.com/watch?v=t4vKPhjcMZg) explaining the concept, which divides documentation into four quadrants: Tutorials, How-To Guides, Explanation, and Reference. 
+
+![Divio quadrants](../assets/media/blog-images/2024-06-03-improvedocs/2024-06-03-quadrant.jpg)
 
 OpenSearch actually does a pretty good job of the _Reference_ portion of the puzzle, especially considering that there are new releases every six weeks. I started contributing documentation late last year and recently joined the [_opensearch-project/documentation-website_](https://github.com/opensearch-project/documentation-website) repository as a Maintainer. I see a constant flow of both new docs and the improvement of existing docs. Considering the ratio of writers to developers and where the project was not too long ago, I think we’re doing a really good job of keeping up with both. 
 
@@ -30,13 +32,13 @@ Charlie then asked the audience what their thoughts were and we captured a lot o
 
 _While we’ve made a lot of progress in this area, particularly with implementing a redirect strategy, we are currently planning on adding canonical links to all the older pages. The goal is to get this work done by the end of Q2, which should show a big improvement in the back half of the year._
 
-**“I often find a Github issue that answers my question and I ⭐it.” Someone suggested that we look for comments on Github issues that have lots of stars and use that as input to where docs could be improved.**
+**“I often find a GitHub issue that answers my question and I ⭐it.” Someone suggested that we look for comments on GitHub issues that have lots of stars and use that as input to where docs could be improved.**
 
  _Great suggestion!_
 
 **“My 2-yr old won’t let me work at night” was one response to the question of why people who find a gap in documentation don’t pursue opening a PR to improve the docs.** 
 
-_We love community contributions and have made it really easy to start. Check out the [CONTRIBUTING.md](http://contributing.md/) file and watch this [Youtube video](https://www.youtube.com/watch?v=zmVC3fQwnVI) on our documentation process and how you can contribute. You can also search through the issues labeled "[good first issue"](https://github.com/opensearch-project/documentation-website/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or "[help wanted"](https://github.com/opensearch-project/documentation-website/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)._
+_We love community contributions and have made it really easy to start. Check out the [CONTRIBUTING.md](http://contributing.md/) file and watch this [YouTube video](https://www.youtube.com/watch?v=zmVC3fQwnVI) on our documentation process and how you can contribute. You can also search through the issues labeled "[good first issue"](https://github.com/opensearch-project/documentation-website/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or "[help wanted"](https://github.com/opensearch-project/documentation-website/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)._
 
 **Backwards compatibility in API’s came up as an issue. It would be interesting if we could better communicate API changes over time.** 
 
