@@ -17,7 +17,7 @@ This post provides developers with a concise guide to integrating OpenSearch Das
 
 ## Getting started
 
-This tutorial guides you through the steps to seamlessly integrate multiple data sources with OpenSearch Dashboards plugins. We provide the necessary instructions and examples to help you implement, configure, and start using multiple data sources effectively.
+This tutorial shows you how to seamlessly integrate multiple data sources with OpenSearch Dashboards plugins. We provide the necessary instructions and examples to help you implement, configure, and start using multiple data sources effectively.
 
 ### Step 1: Set up a local development environment
 
@@ -52,11 +52,11 @@ Upon successful plugin generation, you should see the following folder structure
 │   └── ja-JP.json
 └── tsconfig.json
 ```
-Refer to [the documentation](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/packages/osd-plugin-generator/README.md) for more information on the OpenSearch Dashboards Plugin Generator. Before using multiple data sources, enable the `data_source.enabled` setting, which is disabled by default. Open the `opensearch_dashboards.yml` file, set `data_source.enabled: true`, and save the changes.
+Refer to [the documentation](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/packages/osd-plugin-generator/README.md) for more information about the OpenSearch Dashboards Plugin Generator. Before using multiple data sources, enable the `data_source.enabled` setting, which is disabled by default. Open the `opensearch_dashboards.yml` file, set `data_source.enabled: true`, and save the change.
 
-### Step 2: Configure plugin to add dependencies
+### Step 2: Configure the plugin to add dependencies
 
-In your Dashboards plugin's `opensearch_dashboards.json` file, add the Data Source and Data Source Management plugins to the `optionalPlugins` section. The Data Source plugin provides clients for connecting to multiple data sources, while the Data Source Management plugin offers generic interfaces for consuming data source components, such as a data source menu or selector.
+In your Dashboards plugin's `opensearch_dashboards.json` file, add the Data Source and Data Source Management plugins to the `optionalPlugins` section, as shown in the following example. The Data Source plugin provides clients for connecting to multiple data sources, while the Data Source Management plugin offers generic interfaces for consuming data source components, such as a data source menu or selector.
 ```
 {
   "id": "blogExamplePlugin",
@@ -107,7 +107,7 @@ export class BlogExamplePluginPlugin
 
 ### Step 4: Register server-side APIs with OpenSearch and the multiple data sources client
 
-Each connected OpenSearch cluster receives a unique data source ID (UUID), which OpenSearch Dashboards uses to identify the cluster. To register server-side APIs, set up the API route with `dataSourceId` as an optional query parameter, as shown in the following configuration. This route handler will be invoked for GET requests matching the specified path. If `dataSourceId` is provided, use the multiple data sources client to query the remote cluster based on the ID. Otherwise, use the OpenSearch client to query the local cluster. Refer to [Multi Data Source Client Management](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/docs/multi-datasource/client_management_design.md) for more information on the multiple data sources client.
+Each connected OpenSearch cluster receives a unique data source ID (UUID), which OpenSearch Dashboards uses to identify the cluster. To register server-side APIs, set up the API route with `dataSourceId` as an optional query parameter, as shown in the following configuration. This route handler will be invoked for GET requests matching the specified path. If `dataSourceId` is provided, use the multiple data sources client to query the remote cluster based on the ID. Otherwise, use the OpenSearch client to query the local cluster. Refer to [Multi Data Source Client Management](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/docs/multi-datasource/client_management_design.md) for more information about the multiple data sources client.
 ```
 import { IRouter } from '../../../../src/core/server';
 import { schema } from '@osd/config-schema';
@@ -143,9 +143,9 @@ export function defineRoutes(router: IRouter, dataSourceEnabled: boolean) {
 
 ### Step 5: Register the Data Source Management plugin in a public folder
 
-Extract the `dataSourceManagement` object in the plugin module in a public folder.
+Extract the `dataSourceManagement` object in the plugin module into a public folder.
 
-The Data Source Management plugin provides react components through a generic interface for your OpenSearch Dashboards plugin. To use the data source UI component interfaces, extract the `dataSourceManagement` object from the plugin module in a public folder and pass it to the main application: 
+The Data Source Management plugin provides react components through a generic interface for your OpenSearch Dashboards plugin. To use the data source UI component interfaces, extract the `dataSourceManagement` object from the plugin module into a public folder and pass it to the main application: 
 ```
 # public/plugin.ts
 import { DataSourceManagementPluginSetup } from '../../../src/plugins/data_source_management/public';
@@ -178,7 +178,7 @@ export class BlogExamplePluginPlugin
 }
 ```
 
-Now, use the UI component interfaces provided by the `dataSourceManagement` plugin.
+Now use the UI component interfaces provided by the `dataSourceManagement` plugin.
 
 With the `dataSourceManagement` plugin initialized, you can leverage its component interfaces. The following example demonstrates using the OpenSearch UI combobox as a base component to provide a UI for selecting data sources. It is stateful, fetching available data sources, returning the user's selection through a callback function, and updating the UI accordingly.
 ```
@@ -193,7 +193,7 @@ const DataSourceSelectorComponent = (
   />
 );
 ```
-Developers can use the `onSelectedDataSource` callback function to retrieve the selected remote data source ID. This function is triggered upon any change in the data source selection. Using the `useState` hook, developers can obtain the selected data source ID and use it to fetch related information and update the remaining page.
+Developers can use the `onSelectedDataSource` callback function to retrieve the selected remote data source ID. This function is triggered upon any change to the data source selection. Using the `useState` hook, developers can obtain the selected data source ID and use it to fetch related information and update the remaining page:
 ```
 const [selectedDataSources, setSelectedDataSources] = useState<string[]>([]);
 ```
@@ -236,7 +236,7 @@ Then add an `onClickHandler` to retrieve indexes based on the selected data sour
     }
   };
 ```
-Now, combine the preceding function and react component:
+Now combine the preceding function and react component:
 ```
 retrun (
     ...
@@ -262,11 +262,11 @@ retrun (
 ```
 
 Congratulations! Now you can run your plugins and use the pickers to select the desired data source. 
-To get indexes from a remote cluster, call `datasource1`, as shown in the following image:
+To get indexes from a remote cluster, call `datasource1`, as shown in the following image.
 <img src="/assets/media/blog-images/2024-05-01-develop-guideline-multiple-data-source-in-opensearch-and-plugins/blog_example_remote_cluster.png">
 
 
-Refer to the [blog_example_plugin](https://github.com/zhyuanqi/OpenSearch-Dashboards/tree/blog_example/examples/blog_example_plugin) repository for additional details about the example plugin code. 
+Refer to the [blog_example_plugin](https://github.com/zhyuanqi/OpenSearch-Dashboards/tree/blog_example/examples/blog_example_plugin) repository for more information about the example plugin code. 
 
 ## Developing, testing, and debugging
 
@@ -274,12 +274,12 @@ Now that you've learned how to integrate multiple data sources with OpenSearch D
 
 ### Example plugins for multiple data sources
 
-To provide a more intuitive and direct experience, we've included an example plugin for developers to get started quickly with the components. You can enable the example plugins by running OpenSearch Dashboards with the following CLI command:
+To provide a more intuitive and direct experience, we've included an example plugin so that developers can get started quickly with the components. You can enable the example plugins by running OpenSearch Dashboards with the following CLI command:
 ```
 yarn start --run-examples
 ```
 
-With OpenSearch Dashboards running, navigate to the page and select the left menu. Under OpenSearch Dashboards, open **Developer Examples**, then select **Multiple Data Sources Integration**, as shown in the following image. On the right side, you'll find a list of pickers, each with a brief introduction and properties listed below. Feel free to experiment with the example plugin.
+With OpenSearch Dashboards running, navigate to the page and select the menu on the left. Under OpenSearch Dashboards, open **Developer Examples** and then select **Multiple Data Sources Integration**, as shown in the following image. On the right, you'll find a list of pickers, each with a brief introduction and a list of properties. Feel free to experiment with the example plugin.
 
 <img src="/assets/media/blog-images/2024-05-01-develop-guideline-multiple-data-source-in-opensearch-and-plugins/multi_selectable.png">
 
@@ -290,7 +290,7 @@ The data source is persisted as a saved object in the OpenSearch Dashboards syst
 
 ## List of supported plugins/features
 
-Starting from version 2.14, the following external OpenSearch Dashboards plugins support multiple data sources: 
+Starting in version 2.14, the following external OpenSearch Dashboards plugins support multiple data sources: 
 
 * Index Management
 * Machine Learning
@@ -298,18 +298,18 @@ Starting from version 2.14, the following external OpenSearch Dashboards plugins
 * Anomaly Detection
 * Maps
 * Security
-* Notification
+* Notifications
 * Query Workbench
 * Trace Analytics 
 
-Multiple data sources functionality is also now available with Time Series Visual Builder (TSVB), Vega and Region Map visualization types.
+Multiple data sources functionality is also now available with the Time Series Visual Builder (TSVB), Vega, and Region Map visualization types.
 
 ## Frequently asked questions 
 
 Q: Is any UI component provided by `dataSourceManagemet` used in core OpenSearch?
 A: A data source selector is now used in Dev Tools, the tutorial, and on the saved object management page. You can see the component after setting `data_source.enabled` to `true` in your `opensearch_dashbards.yml` file.
 
-Q: Since a dashboard is a saved object, won't it have an associated data connection?
+Q: Because a dashboard is a saved object, won't it have an associated data connection?
 A: A data source, represented as a saved object, is identified by its unique saved object ID. Saved objects created from data sources have a `references` section containing the ID, name, and type. This reference helps identify the associated data source for the saved object. Here's an example of an index pattern reference:
 ```
 "references": [
@@ -320,7 +320,7 @@ A: A data source, represented as a saved object, is identified by its unique sav
     }
 ]
 ```
-The visualization reference is slightly different as it points to the related index pattern and uses the index pattern ID to find the corresponding data source, as shown in the following example:
+The visualization reference is slightly different because it points to the related index pattern and uses the index pattern ID to find the corresponding data source, as shown in the following example:
 ```
 "references": [
     {
