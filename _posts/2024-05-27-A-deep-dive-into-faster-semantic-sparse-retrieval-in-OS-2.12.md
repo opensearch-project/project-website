@@ -91,7 +91,7 @@ The GPU endpoint speeds up the ingestion, making throughput 3 times larger with 
 
 In this blog, we deep dive the workload for Neural Sparse. We use experiments to further elaborate it and obtain more insights about it. Here are some key takeaways:
 
-1. The Neural Sparse search workload consists of tokenizer/model inference and inverted index search. The inverted index search workload scales linearly on document counts.
+1. The neural sparse search workload consists of tokenizer/model inference and inverted index search. The inverted index search workload scales linearly with document counts.
 2. In our quantitative study on MSMarco, the inverted index search workload of doc-only mode is about 1.8x that of BM25, and bi-encoder mode is about 4x that of doc-only.
 3. After OpenSearch 2.12, the new Lucene version greatly speeds up BM25 and Neural Sparse search on inverted index. Neural sparse search benefits more from the upgrade than BM25.
 4. Model inference is a throughput bottleneck for Neural Sparse ingestion and bi-encoder search. We can use GPU to accelerate the model inference, which offers higher throughput and better price-performance.
