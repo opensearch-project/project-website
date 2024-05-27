@@ -16,7 +16,7 @@ In our last [blog post](https://opensearch.org/blog/improving-document-retrieval
 
 In this blog post, we first dive into the fundamentals of neural sparse search and provide a quantitative study on the total workload amount. Then we will illustrate two benchmarks about accelerating neural sparse search: One is based on a Lucene upgrade and the other uses a GPU. With a Lucene upgrade, the **P99 search latency** for doc-only and bi-encoder modes **is reduced by 72% and 76%**. With a GPU endpoint, the **P99 search latency** for the bi-encoder **is reduced by 73%**, and the neural sparse **ingestion throughput** is **increased by 234%**.
 
-## Deep Diving the Fundamental of Neural Sparse
+## Diving deep into the fundamentals of neural sparse search
 
 Let’s take a brief overview of how BM25 works first. In OpenSearch, the basic search functionality is built on the top of Lucene inverted index. Lucene inverted index maintains a posting list for each term in the index. The posting list stores all documents containing the term, and the documents are sorted with the order of internal doc ID. When we use a basic match query in OpenSearch, the query text will be tokenized and transformed into Lucene disjunctive term queries like `TermQuery(termA) OR TermQuery(termB) OR TermQuery(termC) ...` Like the figure below, Lucene will go through posting lists for all query terms. It will merge the selected posting lists and calculates scores on the fly using BM25 algorithm. The overall time complexity is determined by the count and length of the hit posting lists. Although Lucene implements many optimizations like block scoring, MaxScore, WAND, this is how the search works at a high level.
 
