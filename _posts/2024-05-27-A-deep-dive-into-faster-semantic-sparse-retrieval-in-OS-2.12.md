@@ -93,7 +93,7 @@ In this blog, we deep dive the workload for Neural Sparse. We use experiments to
 
 1. The neural sparse search workload consists of tokenizer/model inference and inverted index search. The inverted index search workload scales linearly with document counts.
 2. In our quantitative study on MS MARCO, the inverted index search workload in doc-only mode is about 1.8x that of BM25, and bi-encoder mode is about 4x that of doc-only.
-3. After OpenSearch 2.12, the new Lucene version greatly speeds up BM25 and Neural Sparse search on inverted index. Neural sparse search benefits more from the upgrade than BM25.
+3. After OpenSearch 2.12, the new Lucene version greatly speeds up BM25 and neural sparse search on inverted indexes. Neural sparse search benefits more from the upgrade than BM25.
 4. Model inference is a throughput bottleneck for Neural Sparse ingestion and bi-encoder search. We can use GPU to accelerate the model inference, which offers higher throughput and better price-performance.
 
 With these conclusions, if you want to build a new cluster to migrate from BM25 to Neural Sparse search, you can take the quantitative study part in this blog for reference, and scale the resources based on the workload. If you need high query throughput for bi-encoder query or high ingestion throughput, GPU is a good choice. To build your Neural Sparse search experience on your OpenSearch cluster, please check this [documentation](https://opensearch.org/docs/latest/search-plugins/neural-sparse-search/).
