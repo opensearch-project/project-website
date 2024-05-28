@@ -3,7 +3,7 @@ calendar_date: '2024-05-29'
 # put your event date and time (24 hr) here (mind the time-zone and daylight saving time!):
 eventdate: 2024-05-29 15:00:00 -0400
 # the title - this is how it will show up in listing and headings on the site:
-title: Part 2: Tag Teaming Telemetry Data with Data Prepper & Fluent Bit
+title: Part 2 - Tag Teaming Telemetry Data with Data Prepper & Fluent Bit
 online: true
 # If the event is online, remove the next line, otherwise uncomment and adjust it:
 # tz: Pacific/Tahiti
