@@ -7,7 +7,7 @@ date: 2024-05-28
 categories:
  - technical-post
 meta_keywords: multiple data source, vega, tsvb
-meta_description: Learn how to create tsvb and vega visualizations with the multiple data sources feature.
+meta_description: Learn how to create TSVB and Vega visualizations with the multiple data sources feature.
 excerpt: In 2.13 and 2.14 release, multiple data sources (MDS) now supports Vega and TSVB. In this blog, we will explore how to leverage different OpenSearch clusters to view your data.
 ---
 
