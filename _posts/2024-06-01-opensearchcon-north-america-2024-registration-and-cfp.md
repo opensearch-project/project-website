@@ -7,11 +7,11 @@ date:   2024-06-01 0:00:10 -0700
 categories:
   - community
 excerpt: The OpenSearch Project invites the OpenSearch community to explore the future of search, analytics, and generative AI at the first OpenSearch user conference in Europe. Join us in Berlin on May 6 & 7 and learn how to build powerful applications and get the most out of your OpenSearch deployments.
-meta_keywords: opensearchcon Europe, opensearchcon eu, opensearchcon emea, opensearchcon may, opensearchcon call for papers, opensearchcon call for presentations, opensearchcon registration, register for opensearchcon
-meta_description: OpenSearchCon Europe 2024 is coming to Café Moskau in Berlin May 6 and 7. Register today to save your seat!
+meta_keywords: opensearchcon north america, opensearchcon na, opesearchcon call for papers, register for opensearchcon, opensearch community
+meta_description: Join the OpenSearch Project in San Francisco for it’s third annual OpenSearchCon North America 2024 taking place September 24-26 at the Hilton Union Square. Register today.
 feature_image: /assets/media/blog-images/2024-02-29-announcing-opensearchcon-europe-2024/OSC_Berlin_BlogBanner-01.png
 ---
-<div style="width: 100%" style="display block;">
+<div style="width: 100%" style="display: block;">
 <div class="redesign-button-pair--wrapper" style="display: inline; float: left;">
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
                 <a href="/events/opensearchcon/2024/north-america/register.html" class="redesign-button--anchor">
@@ -36,7 +36,7 @@ feature_image: /assets/media/blog-images/2024-02-29-announcing-opensearchcon-eur
 
 [OpenSearchCon](https://opensearch.org/events/opensearchcon/2024/north-america/index.html) North America is back and coming to the Bay Area! Join us at the Hilton Union Square in San Francisco from September 24-26. The event is in-person only and there is no fee to attend.
 
-We’re anticipating hundreds of people and dozens of OpenSearch partners this year, which will make for a fun and exciting show. [Special room rates](https://book.passkey.com/e/50823627)are available for those who wish to stay at the event hotel. OpenSearchCon passes are limited, so [register today](https://opensearchcon2023.splashthat.com/) in order to claim your spot at this year’s conference.
+We’re anticipating hundreds of people and dozens of OpenSearch partners this year, which will make for a fun and exciting show. [Special room rates](https://book.passkey.com/e/50823627) are available for those who wish to stay at the event hotel. OpenSearchCon passes are limited, so [register today](https://opensearchcon2023.splashthat.com/) in order to claim your spot at this year’s conference.
 
 The [Call for Presentations](https://opensearch.org/events/opensearchcon/2024/north-america/cfp.html) is open until the end of the day on June 14. If you have a story you’d like to share, submit your talk NOW - time is of the essence!
 
@@ -60,6 +60,6 @@ First and foremost, we just want everyone to come out, have some fun, and learn 
 
 **Resources:**
 
-[Registration Page](https://opensearch.org/events/opensearchcon/2024/north-america/register.html)
-[CFP Submission Page](https://opensearch.org/events/opensearchcon/2024/north-america/cfp.html)
-[OpenSearchCon Home Page](https://opensearch.org/events/opensearchcon/2024/north-america/index.html)
+* [Registration Page](https://opensearch.org/events/opensearchcon/2024/north-america/register.html)
+* [CFP Submission Page](https://opensearch.org/events/opensearchcon/2024/north-america/cfp.html)
+* [OpenSearchCon Home Page](https://opensearch.org/events/opensearchcon/2024/north-america/index.html)
