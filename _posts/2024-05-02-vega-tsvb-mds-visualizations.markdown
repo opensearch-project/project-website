@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Creating visualizations using multiple data sources"
+title:  "Visualizing data from multiple data sources with TSVB and Vega"
 authors:
  - wronghuy
 date: 2024-05-28
@@ -10,8 +10,6 @@ meta_keywords: multiple data source, vega, tsvb
 meta_description: Learn how to create TSVB and Vega visualizations with the multiple data sources feature.
 excerpt: OpenSearch versions 2.13 and 2.14 now support multiple data sources for Vega and TSVB visualization types. This blog post shows you how to use this feature.
 ---
-
-# Visualizing data from multiple data sources with TSVB and Vega
 
 ## Introduction
 
