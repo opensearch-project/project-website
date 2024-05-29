@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Creating Visualizations Leveraging Multiple Data Sources"
+title:  "Creating visualizations using multiple data sources"
 authors:
  - wronghuy
 date: 2024-05-28
