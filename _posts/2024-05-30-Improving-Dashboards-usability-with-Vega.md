@@ -53,20 +53,20 @@ The [catalog repository](https://github.com/opensearch-project/opensearch-catalo
 
  * [Service Map Widget](https://github.com/opensearch-project/opensearch-catalog/tree/main/visualizations/observability/service-map)
    * Instead of having a static image of a network you can create a dynamic map that is reflective of multiple dimensions of severity of an incident
-   * ![service map](../assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-map.png)
+   * ![service map](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-map.png)
 
  * [Service Metrics Graphs](https://github.com/opensearch-project/opensearch-catalog/tree/main/visualizations/observability/services-metrics-graphs)
 
-   * ![Service Metrics Graphs](../assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/services-metrics-graphs.png)
+   * ![Service Metrics Graphs](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/services-metrics-graphs.png)
 
  * [Trace Gantt Widget](https://github.com/opensearch-project/opensearch-catalog/tree/main/visualizations/observability/traces-gantt-chart)
-    * ![Trace Gantt Widget](../assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/traces-gantt-chart.png)
+    * ![Trace Gantt Widget](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/traces-gantt-chart.png)
 
  * [Service Duration Widget](https://github.com/opensearch-project/opensearch-catalog/tree/main/visualizations/observability/service-duration-heatmap)
-    * ![Service Duration Widget](../assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-duration.png)
+    * ![Service Duration Widget](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-duration.png)
 
  * [HTTP Network Graph Widget](https://github.com/opensearch-project/opensearch-catalog/tree/main/visualizations/observability/http)
-    * ![HTTP Network Graph Widget](../assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/http-network-graph.png)
+    * ![HTTP Network Graph Widget](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/http-network-graph.png)
 
 * * *
 
@@ -107,7 +107,7 @@ We encourage the community to continue this journey with us by developing the ca
 
 Here is a short video combining all the Vega widgets and linking capability to formulate an observability use case.
 
-* ![demo video](../assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/demo-showcase.mov)
+* ![demo video](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/demo-showcase.mov)
 
 Instead of having a static image of a network you can create a dynamic map that is reflective of multiple dimensions of severity of an incident
-* ![service map demo](../assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-map-demo.mov)
+* ![service map demo](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-map-demo.mov)
