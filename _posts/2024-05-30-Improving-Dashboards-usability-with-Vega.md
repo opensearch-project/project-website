@@ -107,7 +107,13 @@ We encourage the community to continue this journey with us by developing the ca
 
 Here is a short video combining all the Vega widgets and linking capability to formulate an observability use case.
 
-* ![demo video](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/demo-showcase.mov)
+* [demo video](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/demo-showcase.mov)
+<video controls="controls" width="50%"  name="Demo Showcase">
+  <source src="/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/demo-showcase.mov">
+</video>
 
 Instead of having a static image of a network you can create a dynamic map that is reflective of multiple dimensions of severity of an incident
-* ![service map demo](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-map-demo.mov)
+* [service map demo](/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-map-demo.mov)
+<video controls="controls" width="50%" name="Demo Showcase">
+  <source src="/assets/media/blog-images/2024-05-30-Improving-Dashboards-usability-with-Vega/service-map-demo.mov">
+</video>
