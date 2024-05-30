@@ -16,7 +16,7 @@ I get asked this question all the time: Do I need semantic search? It's a good q
 I've answered both questions in my [most recent blog post](https://tippybits.com/should-you-be-doing-vector-search/) and its video counterpart, linked below. These answer the following questions: 
 
 1. How does OpenSearch find documents out of the box?
-2. Why these traditional search methods don't always work. 
+2. Why don't these traditional search methods always work? 
 3. When and how to use semantic search in OpenSearch. 
 
 To help I created some additional resources to help you get started! [This GitHub Gist](https://gist.github.com/dtaivpp/c587d99a2cab441eba0314534ae87c86) will help you create an OpenSearch docker compose environment. Also, I have created [this Gist](https://gist.github.com/dtaivpp/d7e8d8a3ee5debaf896ed2f45b915ad3) with all the code needed to create your own semantic search pipeline right from OpenSearch Dashboards. I hope you enjoy them and if your company needs help getting started with semantic search they can reach out to me [on my website](https://tippybits.com/services)!
