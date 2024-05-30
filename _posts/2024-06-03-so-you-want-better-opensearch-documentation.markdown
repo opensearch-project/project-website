@@ -50,7 +50,7 @@ _We are relying more and more on developers to write content and are looking at 
 
 **One person asked what powered the site search functionality, and the response that it is OpenSearch sparked a conversation about whether we could apply new OpenSearch capabilities, like hybrid search and vectors, to what powers the website. Kris Freedain spoke up with a "Who wants to collaborate on this?", and at least one person raised their hand ;-).**
 
-_We are currently looking at how we can upgrade the search experience on the overall website. Please get in touch with [Kris Freedain](https://www.linkedin.com/in/krisfreedain/) if you are interested._
+_We are currently looking at how we can upgrade the search experience on the overall website. Please get in touch with [Kris Freedain](https://opensearch.org/community/members/kris-freedain.html) if you are interested._
 
 _If you have more feedback on OpenSearch documentation, reach out on the [forum](https://forum.opensearch.org/c/feedback/6), [Slack](https://opensearch.slack.com/archives/C052GAV1MQF), or [enter an issue](https://github.com/opensearch-project/documentation-website/issues/new/choose) in the `documentation-website` repo. We also welcome you to contribute your thoughts on the recently published [OpenSearch Documentation Strategy](https://github.com/opensearch-project/documentation-website/issues/7189)._
 
