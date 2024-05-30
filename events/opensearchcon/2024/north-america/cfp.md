@@ -39,7 +39,7 @@ permalink: /events/opensearchcon/2024/north-america/cfp.html
 ![CFP Banner](/assets/media/opensearchcon/2024/OSC2024_NASF_Social-Graphic2_1200x627.png){: width="100%" }
 
 
-This year’s conference dedicates three tracks to topics the OpenSearch community cares about. We invite the community to submit your best ideas and join us for a great conference in San Francisco.
+This year’s conference dedicates four tracks to topics the OpenSearch community cares about. We invite the community to submit your best ideas and join us for a great conference in San Francisco.
 
 
 ## What the OpenSearch community is interested in
