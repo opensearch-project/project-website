@@ -4,12 +4,12 @@ title:  "Improving ease of use in OpenSearch Dashboards with Vega visualizations
 authors:
 - apasun
 - lioperry
-  date: 2024-05-30
-  categories:
+date: 2024-05-30
+categories:
 - technical-post
-  meta_keywords: opensearch dashboards, vega visualization, network graph 
-  meta_description:  In this blog post we discuss the benefits of integrating Vega, a toolkit for general-purpose data visualization with OpenSearch 
-  excerpt: In this blog post we discuss the benefits of integrating Vega, a toolkit for general-purpose data visualization.
+meta_keywords: opensearch dashboards, vega visualization, network graph 
+meta_description:  In this blog post we discuss the benefits of integrating Vega, a toolkit for general-purpose data visualization with OpenSearch 
+excerpt: In this blog post we discuss the benefits of integrating Vega, a toolkit for general-purpose data visualization.
 ---
 
 ### Improving ease of use in OpenSearch Dashboards with Vega visualizations
