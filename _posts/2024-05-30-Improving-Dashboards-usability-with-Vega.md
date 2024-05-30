@@ -7,7 +7,7 @@ authors:
   date: 2024-05-30
   categories:
 - technical-post
-  meta_keywords: dashboards, visualization, graph, vega, 
+  meta_keywords: opensearch dashboards, vega visualization, network graph 
   meta_description:  In this blog post we discuss the benefits of integrating Vega, a toolkit for general-purpose data visualization with OpenSearch 
   excerpt: In this blog post we discuss the benefits of integrating Vega, a toolkit for general-purpose data visualization.
 ---
