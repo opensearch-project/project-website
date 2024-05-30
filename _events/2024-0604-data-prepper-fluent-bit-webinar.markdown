@@ -1,7 +1,7 @@
 ---
-calendar_date: '2024-05-29'
+calendar_date: '2024-06-04'
 # put your event date and time (24 hr) here (mind the time-zone and daylight saving time!):
-eventdate: 2024-05-29 15:00:00 -0400
+eventdate: 2024-06-04 15:00:00 -0400
 # the title - this is how it will show up in listing and headings on the site:
 title: Part 2 - Tag Teaming Telemetry Data with Data Prepper & Fluent Bit
 online: true

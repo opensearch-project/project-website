@@ -4,7 +4,7 @@ eventdate: 2024-06-10 14:30:00 +0200
 title: Berlin Buzzwords 2024 - Rediscover your keyword search - Expand, Enrich and Rewrite
 online: false
 signup:
-  url: https://2024.berlinbuzzwords.de/sessions/?id=WLKNUS
+  url: https://program.berlinbuzzwords.de/bbuzz24/talk/WLKNUS/
   title: Attend the session
 category: events
 ---

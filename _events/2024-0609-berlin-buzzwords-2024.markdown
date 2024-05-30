@@ -11,6 +11,6 @@ category: events
 ---
 Berlin Buzzwords 2024
 
-Proud to be the Platinum Partner again this year for Germany’s most exciting conference on storing, processing, streaming and searching large amounts of digital data, with a focus on open source software projects.
+Proud to be the **Platinum Partner** again this year for Germany’s most exciting conference on storing, processing, streaming and searching large amounts of digital data, with a focus on open source software projects.
 
 Come by the booth to learn more about the OpenSearch Project, and pick up a t-shirt or some stickers for your laptop.
