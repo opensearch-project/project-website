@@ -11,7 +11,7 @@ meta_description: You might be asking yourself do you really need semantic searc
 SemanticSearch: lpQiJGpeeWU
 ---
 
-I get ask this question all the time. Do I need semantic search? It's a good question but it's not the right question to start with. We need to first understand what semantic search does for us. Then we can dive into whether or not it's a good fit for your use case.
+I get asked this question all the time: Do I need semantic search? It's a good question, but it's not the right question to start with. You need to first understand what semantic search can do for you. Then you can dive into whether or not it's a good fit for your use case.
 
 I've answered both questions in my [most recent blog](https://tippybits.com/should-you-be-doing-vector-search/) and its video counterpart linked below. These answer the following questions: 
 
