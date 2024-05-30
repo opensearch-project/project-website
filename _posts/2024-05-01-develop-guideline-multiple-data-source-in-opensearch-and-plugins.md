@@ -307,7 +307,7 @@ Multiple data sources functionality is also now available with the Time Series V
 ## Frequently asked questions 
 
 Q: Is any UI component provided by Data Source Management used in core OpenSearch?
-A: A data source selector is now used in Dev Tools, the tutorial, and on the saved object management page. You can see the component after setting `data_source.enabled` to `true` in your `opensearch_dashbards.yml` file.
+A: A data source selector is now used in Dev Tools, the tutorial, and on the **Saved Object management** page. You can see the component after setting `data_source.enabled` to `true` in your `opensearch_dashbards.yml` file.
 
 Q: Because a dashboard is a saved object, won't it have an associated data connection?
 A: A data source, represented as a saved object, is identified by its unique saved object ID. Saved objects created from data sources have a `references` section containing the ID, name, and type. This reference helps identify the associated data source for the saved object. Here's an example of an index pattern reference:
