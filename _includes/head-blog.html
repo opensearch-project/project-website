@@ -69,6 +69,7 @@
     <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
 
     <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
+    <link rel="stylesheet"  href="/assets/css/bootstrap.min.css">
 
     {% if page.has_science_table %}
         {%- include science-table-styles.html -%}
@@ -82,5 +83,6 @@
       gtag('js', new Date());
       gtag('config', 'G-BQV14XK08F');
     </script>
+    <script src="/assets/js/bootstrap.js"></script>
     {{ page.head_extra }}
   </head>

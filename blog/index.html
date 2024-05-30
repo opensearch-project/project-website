@@ -1,17 +1,116 @@
 ---
-layout: fullwidth-with-breadcrumbs
+layout: blog
 title: Blog
 primary_title: Blog
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-    - title: Blog
-      url: '/blog/'
+
 notice: true
 ---
+{%- include head-blog.html -%}
+{% assign paginator = paginate.posts %}
+{% for post in site.posts limit:1%}
+<style>
+    /* Container for the cards */
+    .row.mb-2 {
+    display: flex;
+    flex-wrap: wrap;
+    }
 
-<ul class="site-content--blog-list">
+    /* Card element */
+    .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .row.g-0.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative {
+    flex: 1; /* Makes each card stretch to the same height */
+    display: flex;
+    flex-direction: column;
+    }
+
+    .col.p-4.d-flex.flex-column.position-static {
+    flex: 1; /* Makes the content area of the card stretch */
+    }
+
+    /* .icon-link {
+    margin-top: auto; /* Pushes the "Continue reading" link to the bottom */
+    } */
+    .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+</style>
+
+<main class="container">
+    <div class="card p-4 p-md-5 mb-4 border rounded text-body-emphasis shadow-sm bg-body-secondary">
+        <!-- <img class="card-img-top" src="{{post.feature_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap"> -->
+        <div class="col-lg-11 px-0">
+        <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post.categories }}</strong>
+        <h1 class="display-4 fst-italic">{{ post.title }}</h1>
+        <div class="mb-1 text-body-secondary">{{ post.date | date: "%b %d" }}</div>
+        <p class="lead my-3">{{ post.excerpt | strip_html | truncatewords: 100 }}</p>
+        <p class="lead mb-0"><a href="{{  post.url }}" class="text-body-emphasis fw-bold stretched-link">Continue reading...</a></p>
+      </div>
+    </div>
+{% endfor %}
+
+<div class="row mb-2">
+    {% for post in site.posts offset:1 limit:2%}
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post.categories }}</strong>
+                    <h3 class="mb-0">{{ post.title }}</h3>
+                    <div class="mb-1 text-body-secondary">{{ post.date | date: "%b %d" }}</div>
+                        <p class="card-text mb-auto">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                        <a href="{{  post.url }}" class="stretched-link">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% for post in site.posts offset:3 limit: 10%}
+    <div class="row mb-2">
+    
+
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post.categories }}</strong>
+                    <h3 class="mb-0">{{ post.title }}</h3>
+                    <div class="mb-1 text-body-secondary">{{ post.date | date: "%b %d" }}</div>
+                        <p class="card-text mb-auto">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                        <a href="{{  post.url }}" class="stretched-link">
+                    </a>
+                </div>
+                <!-- Thumbnail image -->
+                <div class="col-auto d-none d-lg-block">
+                    <!-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                    <img class="card-img-top" width="200" height="250" src="{{post.feature_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap">
+                </div>
+            </div>
+
+    </div>
+{% endfor %}
+
+
+
+
+
+<!-- <ul class="site-content--blog-list">
     {% for post in paginator.posts %}
       <li>
           <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
@@ -20,7 +119,61 @@ notice: true
           <a class="link-readmore" href="{{ post.url }}">Read More</a> 
       </li>
     {% endfor %}
-</ul>
+</ul> -->
+
+
+<!--          -->
+<!--          -->
+<!-- EXAMPLE  -->
+<!-- -------- -->
+<!-- <main class="container">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+      <div class="col-lg-6 px-0">
+        <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+        <p class="lead mb-0"><a href="#" class="text-body-emphasis fw-bold">Continue reading...</a></p>
+      </div>
+    </div>
+  
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+            <h3 class="mb-0">Featured post</h3>
+            <div class="mb-1 text-body-secondary">Nov 12</div>
+            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
+            <h3 class="mb-0">Post title</h3>
+            <div class="mb-1 text-body-secondary">Nov 11</div>
+            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
 {% if paginator.total_pages > 1 %}
     <div class="pagination">
       {%- if paginator.previous_page -%}
