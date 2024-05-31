@@ -3,7 +3,7 @@ layout: post
 title:  "Announcing OpenSearchCon North America 2024"
 authors:
   - daryllswager
-date:   2024-06-01 0:00:10 -0700
+date:   2024-05-31 0:00:10 -0700
 categories:
   - community
 excerpt: The OpenSearch Project invites the OpenSearch community to explore the future of search, analytics, and generative AI at the first OpenSearch user conference in Europe. Join us in Berlin on May 6 & 7 and learn how to build powerful applications and get the most out of your OpenSearch deployments.
