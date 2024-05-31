@@ -62,4 +62,4 @@ Above all, we just want everyone to come out, have some fun, and learn a lot alo
 
 * [Registration Page](https://opensearch.org/events/opensearchcon/2024/north-america/register.html)
 * [CFP Submission Page](https://opensearch.org/events/opensearchcon/2024/north-america/cfp.html)
-* [OpenSearchCon Home Page](https://opensearch.org/events/opensearchcon/2024/north-america/index.html)
+* [OpenSearchCon North America Home Page](https://opensearch.org/events/opensearchcon/2024/north-america/index.html)
