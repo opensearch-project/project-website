@@ -3,7 +3,7 @@ layout: post
 title: "Developer guide: Integrating multiple data sources using OpenSearch Dashboards and plugins"
 authors:
  - zhyuanqi
-date: 2024-05-21
+date: 2024-06-04
 categories:
  - technical-post
 meta_keyword: multiple data sources in OpenSearch, OpenSearch Dashboards plugins, using multiple data sources
