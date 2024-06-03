@@ -1,0 +1,77 @@
+.full-width-layout--header {
+    @include page-element-padding;
+    background-color: white;
+    > .full-width-layout--header--category-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        @media screen and (max-width: 460px) {
+            flex-wrap: nowrap;
+        }
+        > .full-width-layout--header--icon {
+            flex-basis: 40px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            > svg,
+            > img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        > .full-width-layout--header--breadcrumbs--item,
+        > .full-width-layout--header--breadcrumbs--item-separator {
+            min-width: fit-content;
+            @include header-level4($secondary-sanfrancisco-fog-s4);
+            margin-left: 1em;
+            @media screen and (max-width: 411px) {
+                letter-spacing: 2px;
+            }
+            > a {
+                @include header-level4($secondary-sanfrancisco-fog-s4);
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
+                text-decoration: none;
+                @media screen and (max-width: 429px) {
+                    letter-spacing: 2px;
+                }
+            }
+            &:last-of-type {
+                > a {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
+            }
+            @media screen and (max-width: 834px) {
+                display: none;
+            }
+        }
+        > .full-width-layout--header--icon + .full-width-layout--header--breadcrumbs--item {
+            @media screen and (max-width: 834px) {
+                &::before {
+                    content: "\003C"
+                }
+                display: block;
+            }
+        }
+    }
+    > .full-width-layout--header--title {
+        padding-left: 0;
+        > h1 {
+            margin-top: 21px;
+        }
+        @media screen and (max-width: 460px) {
+            padding-left: 0;
+            > h1 {
+                @include header-level1-mobile;
+            }
+        }
+    }
+}
