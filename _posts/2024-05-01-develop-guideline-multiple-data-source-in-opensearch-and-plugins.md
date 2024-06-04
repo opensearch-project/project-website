@@ -22,7 +22,7 @@ This tutorial shows you how to seamlessly integrate multiple data sources with O
 ### Step 1: Set up a local development environment
 
 Before proceeding, set up a local development environment for OpenSearch Dashboards by following the [developer guide](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md). Once your Dashboards instance is running, generate your own plugin using the OpenSearch Dashboards Plugin Generator with the following CLI command:
-```
+```shell
 node scripts/generate_plugin --name my_plugin_name
 ```
 Upon successful plugin generation, you should see the following folder structure:
@@ -57,7 +57,7 @@ Refer to [the documentation](https://github.com/opensearch-project/OpenSearch-Da
 ### Step 2: Configure the plugin to add dependencies
 
 In your Dashboards plugin's `opensearch_dashboards.json` file, add the Data Source and Data Source Management plugins to the `optionalPlugins` section, as shown in the following example. The Data Source plugin provides clients for connecting to multiple data sources, while the Data Source Management plugin offers generic interfaces for consuming data source components, such as a data source menu or selector.
-```
+```json
 {
   "id": "blogExamplePlugin",
   "version": "1.0.0",
@@ -74,7 +74,7 @@ In your Dashboards plugin's `opensearch_dashboards.json` file, add the Data Sour
 **Server side:** Verify that the multiple data sources feature is enabled and register the plugin API accordingly.
 
 If your Dashboards plugin depends on a new API provided by your server-side plugin, you can register the schema for the API or pass the request path as a parameter during initialization. To register the custom API schema, use the interface provided by the Data Source plugin during plugin initialization. See the following example snippet: 
-```
+```ts
 // server/plugin.ts
 import { DataSourcePluginSetup } from '../../../src/plugins/data_source/server';
 
@@ -108,7 +108,7 @@ export class BlogExamplePluginPlugin
 ### Step 4: Register server-side APIs with OpenSearch and the multiple data sources client
 
 Each connected OpenSearch cluster receives a unique data source ID (UUID), which OpenSearch Dashboards uses to identify the cluster. To register server-side APIs, set up the API route with `dataSourceId` as an optional query parameter, as shown in the following configuration. This route handler will be invoked for GET requests matching the specified path. If `dataSourceId` is provided, use the multiple data sources client to query the remote cluster based on the ID. Otherwise, use the OpenSearch client to query the local cluster. Refer to [Multi Data Source Client Management](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/docs/multi-datasource/client_management_design.md) for more information about the multiple data sources client.
-```
+```ts
 import { IRouter } from '../../../../src/core/server';
 import { schema } from '@osd/config-schema';
 
@@ -146,7 +146,7 @@ export function defineRoutes(router: IRouter, dataSourceEnabled: boolean) {
 Extract the `dataSourceManagement` object in the plugin module into a public folder.
 
 The Data Source Management plugin provides React components through a generic interface for your OpenSearch Dashboards plugin. To use the data source UI component interfaces, extract the `dataSourceManagement` object from the plugin module into a public folder and pass it to the main application: 
-```
+```ts
 # public/plugin.ts
 import { DataSourceManagementPluginSetup } from '../../../src/plugins/data_source_management/public';
 
@@ -181,7 +181,7 @@ export class BlogExamplePluginPlugin
 Now use the UI component interfaces provided by the `dataSourceManagement` plugin.
 
 With the `dataSourceManagement` plugin initialized, you can leverage its component interfaces. The following example demonstrates using the OpenSearch UI combobox as a base component to provide a UI for selecting data sources. It is stateful, fetching available data sources, returning the user's selection through a callback function, and updating the UI accordingly.
-```
+```ts
 const DataSourceSelector = dataSourceManagement.ui.DataSourceSelector;
 const DataSourceSelectorComponent = (
   <DataSourceSelector
@@ -194,14 +194,14 @@ const DataSourceSelectorComponent = (
 );
 ```
 Developers can use the `onSelectedDataSource` callback function to retrieve the selected remote data source ID. This function is triggered upon any change to the data source selection. Using the `useState` hook, developers can obtain the selected data source ID and use it to fetch related information and update the remaining page:
-```
+```ts
 const [selectedDataSources, setSelectedDataSources] = useState<string[]>([]);
 ```
 
 ### Step 6: Run a working example
 
 With everything set up, you can combine the components into a working example plugin. First, add a data source selector in `app.tsx`:
-```
+```ts
  # public/components/app.tsx
   const [selectedDataSources, setSelectedDataSources] = useState<string[]>([]);
 
@@ -217,7 +217,7 @@ With everything set up, you can combine the components into a working example pl
   );
 ```
 Then add an `onClickHandler` to retrieve indexes based on the selected data source:
-```
+```ts
  # public/components/app.tsx   
    const [indices, setIndices] = useState<string[]>([]);
    const onClickHandler = async () => {
@@ -237,7 +237,7 @@ Then add an `onClickHandler` to retrieve indexes based on the selected data sour
   };
 ```
 Now combine the preceding function and React component:
-```
+```ts
 retrun (
     ...
    <EuiHorizontalRule />
@@ -254,7 +254,7 @@ retrun (
      <FormattedMessage
        id="blogTest.indicesText"
        defaultMessage="Get indices: {data}"
-       values={{ data: indices ? indices : 'Unknown' }}
+       {% raw %}values={{ data: indices ? indices : 'Unknown' }}{% endraw %}
      />
    </p>
   ...
@@ -311,7 +311,7 @@ A: A data source selector is now used in Dev Tools, the tutorial, and on the **S
 
 Q: Because a dashboard is a saved object, won't it have an associated data connection?
 A: A data source, represented as a saved object, is identified by its unique saved object ID. Saved objects created from data sources have a `references` section containing the ID, name, and type. This reference helps identify the associated data source for the saved object. Here's an example of an index pattern reference:
-```
+```json
 "references": [
     {
         "id": "9dc4e190-08a0-11ef-901b-bb0301313422",
@@ -321,7 +321,7 @@ A: A data source, represented as a saved object, is identified by its unique sav
 ]
 ```
 The visualization reference is slightly different because it points to the related index pattern and uses the index pattern ID to find the corresponding data source, as shown in the following example:
-```
+```json
 "references": [
     {
         "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
