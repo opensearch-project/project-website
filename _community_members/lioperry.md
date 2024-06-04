@@ -20,7 +20,7 @@ personas:
   - author
 permalink: '/community/members/lior-perry.html'
 redirect_from: '/authors/lioperry/'
-linkedin: "lior-perry-62135314"
+linkedin: "lior-perry-yang-db"
 ---
 
 **Lior Perry** is an AWS senior software development engineer focusing on OpenSearch, Lior has contributed to the open-source community for years and is leading the Observability domain bringing vast experience and domain knowledge.
