@@ -3,7 +3,7 @@ layout: post
 title:  "Do you need semantic search?"
 authors:
   - dtaivpp
-date:   2024-05-30 11:45 -0700
+date:   2024-06-05 11:45 -0700
 categories:
   - technical-posts
 meta_keywords: opensearch hybrid search, opensearch semantic search, vector search
