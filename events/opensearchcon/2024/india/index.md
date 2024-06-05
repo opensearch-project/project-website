@@ -71,7 +71,7 @@ Join us on June 26th 2024 at Ritz Carlton in Bengaluru for OpenSearchCon India 2
             </div>
 </div>
 
-As always, what makes OpenSearchCon a success are the compelling stories and educational insights shared by our community. The Call for Presentations (CfP) for OpenSearchCon India is now open—go [here](/events/opensearchcon/2024/india/cfp.html) to learn more and propose your ideas.
+As always, what makes OpenSearchCon a success are the compelling stories and educational insights shared by our community. The Call for Presentations (CfP) for OpenSearchCon India is now closed.
 
 ## What is OpenSearchCon?
 OpenSearchCon is the annual conference for the OpenSearch Project community. OpenSearchCon brings the community together to learn, connect, and collaborate.
