@@ -8,7 +8,7 @@ signup:
   title: Attend the session
 category: events
 ---
-Berlin Buzzwords 2024 - Rediscover your keyword search: Expand, Enrich and Rewrite
+**Berlin Buzzwords 2024 - Rediscover your keyword search: Expand, Enrich and Rewrite**
 
 Praveen Mohan Prasad & Hajer Bouafif
 
