@@ -102,7 +102,7 @@ vis_type_vega.enabled: true
 Open OpenSearch Dashboards and follow these steps:
 
 1. Select **Dashboards Management** from the left-side menu.
-2. Select **Data sources** from the left-side menu and then select the **Create data source** button.
+2. Select **Data sources** and then select the **Create data source** button.
 3. From the Create data source page, enter the connection details and endpoint URL, as shown in the following GIF.
 
 ![create-datasource](/assets/media/blog-images/2024-05-02-vega-tsvb-mds-visualizations/create-datasource.gif)
