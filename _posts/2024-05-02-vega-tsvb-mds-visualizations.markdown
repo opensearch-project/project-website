@@ -85,7 +85,7 @@ Annotations allow you to place markers on your time-series visualization data. F
 5. In **Fields**, enter `timestamp`.
 6. In **Row template**, enter ``timestamp``.
 
-The automatically updates to display your annotations, as shown in the following image.
+The visualization automatically updates to display your annotations, as shown in the following image.
 ![tsvb-annotations](/assets/media/blog-images/2024-05-02-vega-tsvb-mds-visualizations/tsvb-with-annotations.png)
 
 ## Creating Vega visualizations from multiple data sources
