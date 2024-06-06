@@ -103,7 +103,7 @@ Open OpenSearch Dashboards and follow these steps:
 
 1. Select **Dashboards Management** from the menu on the left.
 2. Select **Data sources** and then select the **Create data source** button.
-3. From the Create data source page, enter the connection details and endpoint URL, as shown in the following GIF.
+3. From the **Create data source** page, enter the connection details and endpoint URL, as shown in the following GIF.
 
 ![create-datasource](/assets/media/blog-images/2024-05-02-vega-tsvb-mds-visualizations/create-datasource.gif)
 4. From the **Home page**, select **Add sample data**. Under **Data source**, select your newly created data source, and then select the **Add data button** for the **Sample web logs** dataset, as shown in the following GIF.
