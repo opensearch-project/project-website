@@ -52,7 +52,7 @@ Now that you have completed the setup, you can start visualizing your data.
 Follow these steps to create the visualization:
 
 1. From the menu on the left, select **Visualize**.
-2. From the **Visualizations** page, select **Create Visualization** and then select **TSVB** from the pop-up window, as shown in the following images.
+2. From the **Visualizations** page, select **Create Visualization** and then select **TSVB** in the pop-up window, as shown in the following images.
 
 ![create-visualization-button](/assets/media/blog-images/2024-05-02-vega-tsvb-mds-visualizations/create-visualization-button.jpg)
 ![create-tsvb-button](/assets/media/blog-images/2024-05-02-vega-tsvb-mds-visualizations/tsvb-create-visualization-button.jpg)
