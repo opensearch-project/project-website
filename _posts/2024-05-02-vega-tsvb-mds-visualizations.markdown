@@ -13,7 +13,7 @@ excerpt: OpenSearch versions 2.13 and 2.14 now support multiple data sources for
 
 ## Introduction
 
-[Multiple data sources](https://opensearch.org/blog/multiple-data-source/) gives users the capability to visualize data from various OpenSearch clusters. To date, only certain visualization types have been available. With the release of OpenSearch Dashboards 2.13 and 2.14, multiple data sources is now compatible with [Vega](https://opensearch.org/docs/latest/dashboards/visualize/vega/) and [Time-Series Visual Builder (TSVB)](https://opensearch.org/docs/latest/dashboards/visualize/viz-index/#tsvb) visualizations types.
+The [multiple data sources](https://opensearch.org/blog/multiple-data-source/) feature gives users the capability to visualize data from various OpenSearch clusters. To date, only certain visualization types have been available. With the release of OpenSearch Dashboards 2.13 and 2.14, the multiple data sources feature is now compatible with [Vega](https://opensearch.org/docs/latest/dashboards/visualize/vega/) and [Time-Series Visual Builder (TSVB)](https://opensearch.org/docs/latest/dashboards/visualize/viz-index/#tsvb) visualization types.
 
 Read on to learn how you can visualize your data from multiple data sources using these visualization types with OpenSearch Dashboards.
 
