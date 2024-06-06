@@ -210,4 +210,4 @@ Now that you have completed the setup, you can start visualizing your data.
 ![configure-vega](/assets/media/blog-images/2024-05-02-vega-tsvb-mds-visualizations/configure-vega.gif)
 ## Conclusion
 
-In this blog, we created TSVB and Vega visualizations with multiple data sources in mind. Creating visualizations for your data has never been more versatile! Connect with the OpenSearch Project multiple data sources team to give feedback about how this capability is working for you. You can reach the team at https://forum.opensearch.org/t/feedback-multiple-data-sources-support-for-tsvb-and-vega/19598.
+In this blog post, we showed you how to create TSVB and Vega visualizations from multiple data sources. Creating visualizations for your data has never been more versatile! Connect with the OpenSearch Project multiple data sources team to give feedback about how this capability is working for you. You can reach the team at https://forum.opensearch.org/t/feedback-multiple-data-sources-support-for-tsvb-and-vega/19598.
