@@ -74,7 +74,7 @@ The following GIF shows these steps in action.
 The following image shows the TSVB visualization output.
 ![tsvb-visualization](/assets/media/blog-images/2024-05-02-vega-tsvb-mds-visualizations/tsvb.png)
 
-### Step 4:  Add annotations
+### Step 4: Add annotations
 
 Annotations allow you to place markers on your time-series visualization data. Follow these steps to annotate your visualization:
 
