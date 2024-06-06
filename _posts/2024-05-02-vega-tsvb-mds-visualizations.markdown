@@ -114,7 +114,7 @@ Now that you have completed the setup, you can start visualizing your data.
 
 ### Step 2: Create the visualization
 
-1. From the left-side menu, select **Visualize**.
+1. From the menu on the left, select **Visualize**.
 2. From the **Visualizations** page, select **Create Visualization** and then select **Vega** from the pop-up window, as shown in the following images.
 
 ![create-visualizations-button](/assets/media/blog-images/2024-05-02-vega-tsvb-mds-visualizations/create-visualization-button.jpg)
