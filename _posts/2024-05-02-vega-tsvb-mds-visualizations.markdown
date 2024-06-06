@@ -123,7 +123,7 @@ Now that you have completed the setup, you can start visualizing your data.
 ### Step 3: Add the Vega specification
 
 1. Verify that the data source you created is specified under `data_source_name`.
-2. Copy the following Vega specification.
+2. Copy the following Vega specification:
 
 ```
 {
