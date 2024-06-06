@@ -7,10 +7,10 @@ version_sort: 1.3.17-ga
 components:
   - role: daemon
     artifact: opensearch
-    version: 1.3.16
+    version: 1.3.17
   - role: ui
     artifact: opensearch-dashboards
-    version: 1.3.16
+    version: 1.3.17
   - role: command-line-tools
     artifact: opensearch-cli
     version: 1.2.0
@@ -25,10 +25,10 @@ components:
     version: 8.6.1
   - role: minimal-artifacts
     artifact: opensearch-min
-    version: 1.3.16
+    version: 1.3.17
   - role: minimal-artifacts
     artifact: opensearch-dashboards-min
-    version: 1.3.16
+    version: 1.3.17
   - role: drivers
     artifact: opensearch-sql-odbc
     version: 1.1.0.1
