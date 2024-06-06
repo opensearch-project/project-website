@@ -21,7 +21,7 @@ Read on to learn how you can visualize your data from multiple data sources usin
 
 TSVB is a data visualization tool for creating detailed time-series visualizations. Its key feature is the ability to add annotations or markers at specific time points based on index data, enabling associations between multiple indexes. In addition to time-series visualizations, TSVB offers area, line, metric, gauge, markdown, and data table panels. As of OpenSearch Dashboards version 2.14, users can choose the data source for their visualizations.
 
-[Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are open-source, declarative visualization tools for creating custom data visualizations using OpenSearch data and [Vega Data](https://vega.github.io/vega/docs/data/). These tools are suitable for advanced users comfortable with writing OpenSearch queries directly. As of OpenSearch Dashboards version 2.13, users can specify a `data_source_name` for each OpenSearch query.
+[Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are open-source, declarative visualization tools for creating custom data visualizations using OpenSearch data and [Vega data](https://vega.github.io/vega/docs/data/). These tools are suitable for advanced users comfortable with writing OpenSearch queries directly. As of OpenSearch Dashboards version 2.13, users can specify a `data_source_name` for each OpenSearch query.
 
 
 ## Creating TSVB visualizations from multiple data sources
