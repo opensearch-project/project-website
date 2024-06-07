@@ -20,11 +20,6 @@ OpenSearch covers a broad range of functionality for applications involving docu
 We evaluated performance improvements using the [OpenSearch Big5 workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/big5), which covers the types of queries common in search and log analytics, including text queries, sorting, term aggregations, range queries, and date histograms. This provides an objective and easy-to-replicate benchmark for performance work.
 
 <style>
-
-.light-orange-clr {
-    background-color: #FDEFE5;
-}
-
 .green-clr {
     background-color: #c1f0c1;
 }
@@ -45,21 +40,12 @@ We evaluated performance improvements using the [OpenSearch Big5 workload](https
     text-align: left;
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 table { 
     font-size: 16px; 
 }
 
 h3 {
     font-size: 22px;
-}
-h4 {
-    font-size: 20px;
 }
 
 th {
@@ -76,7 +62,7 @@ The following graph shows the relative improvements by query category as the 90t
 
 The heavy green line summarizes the overall improvements as the geometric mean of the individual categories of improvement, showing continuous progress in performance.
 
-<img src="/assets/media/blog-images/2024-06-07-opensearch-performance-2.14/performance-graph.png" alt="OpenSearch performance improvements up to 2.14" class="img_bound"/>{:style="width: 100%; max-width: 750px; height: auto;"}
+<img src="/assets/media/blog-images/2024-06-07-opensearch-performance-2.14/performance-graph.png" alt="OpenSearch performance improvements up to 2.14" class="center"/>{:style="width: 100%; max-width: 800px; height: auto; text-align: center"}
 
 ## Queries
 
