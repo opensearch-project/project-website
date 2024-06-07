@@ -29,5 +29,5 @@ conference_id:
 redirect_from: '/authors/sisurab/'
 ---
 
-Saurabh, a Senior Software Engineer, is currently dedicated to the OpenSearch project at Amazon Web Services. His passion lies in finding solutions for intricate challenges within large-scale distributed systems, with a particular focus on leading the engineering efforts for the Security Analytics vertical. Saurabh actively contributes to the OpenSearch project, making contributions to its ongoing development and growth.
+Saurabh is a Software Development Manager at AWS leading the core search, releases, and benchmarking areas of the OpenSearch Project. His passion lies in finding solutions for intricate challenges within large-scale distributed systems.
 
