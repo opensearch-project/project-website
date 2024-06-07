@@ -20,7 +20,7 @@ We evaluated performance improvements using the [OpenSearch Big5 workload](https
 
 ## Performance improvements through 2.14
 
-Since the inception of the OpenSearch Project, we have achieved significant speedups. 
+Since the inception of the OpenSearch Project, we have achieved significant increases in speed. 
 
 The following graph shows the relative improvements by query category as the 90th percentile latencies, with a baseline of OpenSearch 1.0. Every category improved considerably, some dramatically. Full numbers are available in the data appendix.
 
