@@ -133,7 +133,7 @@ We are planning to update [the Big5 workload](https://github.com/opensearch-proj
 
 While we're continuing to expand OpenSearch functionality, we are also investing in improving the performance, efficiency, and robustness of the system for every workload. In particular, vector techniques are being widely adopted both for pure semantic search and for hybrid semantic and lexical search.
 
-The OpenSearch team at AWS works in collaboration with the larger OpenSearch community. Without its contributions to testing, feedback, and development, OpenSearch would not be where it is today.
+The OpenSearch team at AWS works in collaboration with the larger OpenSearch community. Without your contributions to testing, feedback, and development, OpenSearch would not be where it is today. Thank you.
 
 Stay tuned to our blog and GitHub for further updates and insights into our progress and future plans.
 
