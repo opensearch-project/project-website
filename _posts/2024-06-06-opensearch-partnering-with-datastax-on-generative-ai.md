@@ -18,12 +18,12 @@ DataStax and the OpenSearch Project team are announcing a series of integration 
 
 To power the explosive growth within the Generative AI space, we need to keep innovating on the tooling available to developers. These tools require access to a variety of enterprise data and we want to be there to provide that access in whatever common format is required. Being able to retrieve data in the most flexible ways possible is a necessary catalyst for getting RAG and GenAI knowledge applications to production. 
 
-Amazon sponsors OpenSearch to ensure the continuing existence of an open source search engine that users could use, modify, and extend however they wish. The OpenSearch community is full of active contributors, maintainers, and partners. For Generative AI specifically, OpenSearch brings:
+Amazon sponsors the OpenSearch project to ensure the continuing existence of an open source search engine that users can use, modify, and extend however they wish.  In addition to AWS, the OpenSearch community is full of active contributors, maintainers, and partners. For Generative AI specifically, OpenSearch brings:
 
 * **Ease of use**: OpenSearch provides easy-to-use indexing and search capabilities and has built in features for text analysis, tokenization, and relevance scoring
 * **Optimized for text retrieval**: OpenSearch makes it easy to find and rank documents based on keyword queries
 * **Versatility**: OpenSearch can handle a wide variety of data types and formats
-* **AI/ML integration**: OpenSearch supports hybrid vector/text search with score normalization, and sparse vector search
+* **AI/ML integration**: OpenSearch supports semantic search with vector embeddings, multi-modal search, hybrid search with score normalization, and sparse vector search
 
 DataStax is a leading contributor to a range of open source projects, including [Langflow](https://langflow.org/), [Apache Cassandra](https://cassandra.apache.org/_/index.html), and [JVector](https://github.com/jbellis/jvector), which provides vector search through DiskANN and advanced GenAI techniques like COLBert. Generative AI developers seek this database and vector combination to provide: 
 
