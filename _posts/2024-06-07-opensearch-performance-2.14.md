@@ -5,6 +5,7 @@ authors:
   - sisurab
   - pallp
   - macrakis
+  - hoangia
 date: 2024-06-07
 categories:
     - technical-posts
@@ -18,15 +19,64 @@ OpenSearch covers a broad range of functionality for applications involving docu
 
 We evaluated performance improvements using the [OpenSearch Big5 workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/big5), which covers the types of queries common in search and log analytics, including text queries, sorting, term aggregations, range queries, and date histograms. This provides an objective and easy-to-replicate benchmark for performance work.
 
+<style>
+
+.light-orange-clr {
+    background-color: #FDEFE5;
+}
+
+.green-clr {
+    background-color: #c1f0c1;
+}
+
+.light-green-clr {
+    background-color: #e3f8e3;
+}
+
+.lightest-green-clr {
+    background-color: #eefbee;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table { 
+    font-size: 16px; 
+}
+
+h3 {
+    font-size: 22px;
+}
+h4 {
+    font-size: 20px;
+}
+
+th {
+    background-color: #f5f7f7;
+}​
+
+</style>
+
 ## Performance improvements through 2.14
 
 Since the inception of the OpenSearch Project, we have achieved significant increases in speed. 
 
-The following graph shows the relative improvements by query category as the 90th percentile latencies, with a baseline of OpenSearch 1.0. Every category improved considerably, some dramatically. Full numbers are available in the data appendix.
+The following graph shows the relative improvements by query category as the 90th percentile latencies, with a baseline of OpenSearch 1.0. Every category improved considerably, some dramatically. For the full results, see the [Appendix](#appendix-benchmark-tests-and-results).
 
 The heavy green line summarizes the overall improvements as the geometric mean of the individual categories of improvement, showing continuous progress in performance.
 
-<img src="/assets/media/blog-images/2024-06-07-opensearch-performance-2.14/performance-graph.png" alt="OpenSearch performance improvements up to 2.14" class="img_bound" id="infographic"/>{:style="width: 100%; max-width: 750px; height: auto;"}
+<img src="/assets/media/blog-images/2024-06-07-opensearch-performance-2.14/performance-graph.png" alt="OpenSearch performance improvements up to 2.14" class="img_bound"/>{:style="width: 100%; max-width: 750px; height: auto;"}
 
 ## Queries
 
@@ -40,7 +90,7 @@ However, many applications do not need this additional information---it's enough
 
 For these applications, OpenSearch 2.12 introduced the [`match_only_text`](https://opensearch.org/docs/latest/field-types/supported-field-types/match-only-text) field. This field type dramatically reduces the space needed for indexes and speeds up query execution because there is no complicated scoring for relevance ranking. At the same time, it supports all standard text query types, except for interval and span queries.
 
-**Using `match_only_text`, text queries are 47% faster in OpenSearch 2.12 than in 2.11 and 57% faster than in OpenSearch 1.0**.
+Using `match_only_text`, text queries are 47% faster in OpenSearch 2.12 than in 2.11 and 57% faster than in OpenSearch 1.0.
 
 ### Term aggregations
 
@@ -48,15 +98,15 @@ Term aggregations are an important tool in data analytics because they allow you
 
 OpenSearch 2.13 speeds up term aggregations for global term aggregations in immutable collections such as log data. This is an important and common analytics use case. OpenSearch gains this efficiency by using the term frequencies that Lucene precalculates.
 
-**Evaluating term aggregations on Big5 data shows speed improvements of a factor of 85 to 100**. 
+Evaluating term aggregations on Big5 data shows speed improvements of a factor of 85 to 100. 
 
 ### Date histograms
 
-Date histograms are OpenSearch’s way of grouping data by date. Almost every Dashboard or Discover visualization in OpenSearch Dashboards depends on this functionality. For example, you might want to aggregate the logs of every HTTP request sent to your site by week. **Date histogram optimizations in OpenSearch 2.12 provide speed improvements ranging from 10 to 50 times on the Big5 benchmark**, in cases where there are no sub-aggregations into range filters.
+Date histograms are OpenSearch’s way of grouping data by date. Almost every Dashboard or Discover visualization in OpenSearch Dashboards depends on this functionality. For example, you might want to aggregate the logs of every HTTP request sent to your site by week. Date histogram optimizations in OpenSearch 2.12 provide speed improvements ranging from 10 to 50 times on the Big5 benchmark, in cases where there are no sub-aggregations into range filters.
 
 ### Multi-term queries and numeric fields
 
-Multi-term queries are commonly used in analytics to simultaneously aggregate by many terms, often retrieving only the top *n* results. **OpenSearch 2.12 accelerates multi-term queries on keyword fields by over 40%** by taking advantage of Lucene's IndexOrDocValuesQuery.
+Multi-term queries are commonly used in analytics to simultaneously aggregate by many terms, often retrieving only the top *n* results. OpenSearch 2.12 accelerates multi-term queries on keyword fields by over 40% by taking advantage of Lucene's IndexOrDocValuesQuery.
 
 In version 2.14, we also use the IndexOrDocValuesQuery to increase search speed on numeric, IP, Boolean, and date fields, even when the fields are not indexed. This means that you can save storage space by not creating indexes for less commonly used search fields.
 
@@ -68,7 +118,7 @@ Document vectors can require a lot of storage space, especially when documents a
 
 ### Vector search cost reduction
 
-**By reducing the vector elements from 32-bit to 16-bit (fp16) floating-point numbers, OpenSearch 2.13 reduces the amount of storage required by 45--50%**. Our experiments show that this has little or no effect on the quality of the results: Recall remains above 95%, and query latency is unaffected.
+By reducing the vector elements from 32-bit to 16-bit (fp16) floating-point numbers, OpenSearch 2.13 reduces the amount of storage required by 45--50%. Our experiments show that this has little or no effect on the quality of the results: Recall remains above 95%, and query latency is unaffected.
 
 OpenSearch 2.14 also improves the memory usage of IVFPQ and HNSWPQ vector indexes by unifying the storage of index metadata.
 
@@ -103,12 +153,12 @@ We are planning the following enhancements:
 
 Hybrid search combines lexical and semantic vector search in order to get the best of both worlds. Highly specific names---like part numbers---are best found using lexical search, while broader queries are often best handled by semantic vector search. We have supported hybrid search since OpenSearch 2.10. 
 
-We are planning to enhance hybrid search in the following ways:
+We are planning the following hybrid search enhancements:
 
 - By executing lexical and vector searches in parallel, we can achieve a latency improvement of up to 25%.
-- We will support resorting of hybrid query results.
-- We will support additional algorithms for combining query results. In particular, reciprocal rank fusion has shown good results for some applications.
-- We will return the raw scores of subqueries, which are useful for debugging and relevance tuning.
+- Supporting resorting of hybrid query results.
+- Supporting additional algorithms for combining query results. In particular, reciprocal rank fusion has shown good results for some applications.
+- Returning the raw scores of subqueries, which are useful for debugging and relevance tuning.
 
 ### Vector search
 
@@ -135,7 +185,7 @@ While we're continuing to expand OpenSearch functionality, we are also investing
 
 The OpenSearch team at AWS works in collaboration with the larger OpenSearch community. Without your contributions to testing, feedback, and development, OpenSearch would not be where it is today. Thank you.
 
-Stay tuned to our blog and GitHub for further updates and insights into our progress and future plans.
+Stay tuned to our [blog](https://opensearch.org/blog/) and [GitHub](https://github.com/orgs/opensearch-project/projects/153/views/1) for further updates and insights into our progress and future plans.
 
 ## Appendix: Benchmark tests and results
 
@@ -152,10 +202,436 @@ This section provides detailed information about the performance benchmarks we u
 
 The following table presents the latency comparison.
 
-<!-- insert table -->
+<table>
+ <tr>
+  <th></th>
+  <th>Query type</th>
+  <th>OS 1.0</th>
+  <th>OS 2.7</th>
+  <th>OS 2.11</th>
+  <th>OS 2.12</th>
+  <th>OS 2.13</th>
+  <th>OS 2.14</th>
+ </tr>
+ <tr>
+  <td rowspan=5 class="left"><b>Big 5 areas mean latency, ms</b></td>
+  <td class="left">Text query</td>
+  <td>44.34</td>
+  <td>37.02</td>
+  <td>36.12</td>
+  <td class="green-clr bold">19.42</td>
+  <td class="green-clr bold">19.41</td>
+  <td class="green-clr bold">20.01</td>
+ </tr>
+ <tr>
+  <td class="left">Sorting</td>
+  <td>65.04</td>
+  <td>18.58</td>
+  <td>10.21</td>
+  <td class="green-clr bold">6.22</td>
+  <td class="green-clr bold">5.55</td>
+  <td class="green-clr bold">5.53</td>
+ </tr>
+ <tr>
+  <td class="left">Terms Aggregation</td>
+  <td>311.78</td>
+  <td>315.27</td>
+  <td>316.32</td>
+  <td class="light-green-clr bold">282.41</td>
+  <td class="green-clr bold">36.27</td>
+  <td class="green-clr bold">27.18</td>
+ </tr>
+ <tr>
+  <td class="left">Range query</td>
+  <td>4.06</td>
+  <td>4.52</td>
+  <td>4.32</td>
+  <td class="lightest-green-clr bold">3.81</td>
+  <td class="lightest-green-clr bold">3.44</td>
+  <td class="lightest-green-clr bold">3.41</td>
+ </tr>
+ <tr>
+  <td class="left">Date histogram</td>
+  <td>4812.36</td>
+  <td>5093.01</td>
+  <td>5057.62</td>
+  <td class="green-clr bold">310.32</td>
+  <td class="green-clr bold">332.41</td>
+  <td class="green-clr bold">141.5</td>
+ </tr>
+ <tr>
+  <td class="left"><b>Relative latency, compared to OS 1.0 (geo mean)</b></td>
+  <td></td>
+  <td>100%</td>
+  <td>78%</td>
+  <td>68%</td>
+  <td>30%</td>
+  <td>19%</td>
+  <td>15%</td>
+ </tr>
+ <tr>
+  <td class="left"><b>Speedup factor, compared to OS 1.0 (geo mean)</b></td>
+  <td></td>
+  <td>1.0</td>
+  <td>1.3</td>
+  <td>1.5</td>
+  <td>3.3</td>
+  <td>5.3</td>
+  <td>6.7</td>
+ </tr>
+</table>
 
-The following table presents benchmarking results by query category.
+The following table presents benchmarking results by query category. It shows the P90 Service Time (ms) values.
 
-<!-- insert table -->
+<table>
+ <tr>
+  <th>Buckets</th>
+  <th>Query</th>
+  <th>OS 1.0 </th>
+  <th>OS 2.7</th>
+  <th>OS 2.11.0</th>
+  <th>OS 2.12.0</th>
+  <th>OS 2.13.0</th>
+  <th>OS 2.14</th>
+ </tr>
+ <tr>
+  <td rowspan=6><b>Text Querying</b></td>
+  <td class="left">default</td>
+  <td>2.79</td>
+  <td>2.65</td>
+  <td>2.41</td>
+  <td>2.5</td>
+  <td>2.34</td>
+  <td>2.27</td>
+ </tr>
+ <tr>
+  <td class="left">scroll</td>
+  <td>448.9</td>
+  <td>228.42</td>
+  <td>227.36</td>
+  <td>222.1</td>
+  <td>210.41</td>
+  <td>217.82</td>
+ </tr>
+ <tr>
+  <td class="left light-green-clr">query_string_on_message</td>
+  <td>180.55</td>
+  <td>173.6</td>
+  <td>168.29</td>
+  <td>8.72</td>
+  <td>9.29</td>
+  <td>8.22</td>
+ </tr>
+ <tr>
+  <td class="left">query_string_on_message_filtered</td>
+  <td>174.25</td>
+  <td>125.88</td>
+  <td>146.62</td>
+  <td>102.53</td>
+  <td>110.49</td>
+  <td>135.98</td>
+ </tr>
+ <tr>
+  <td class="left">query_string_on_message_filtered_sorted_num</td>
+  <td>238.14</td>
+  <td>183.62</td>
+  <td>180.46</td>
+  <td>112.39</td>
+  <td>120.41</td>
+  <td>139.95</td>
+ </tr>
+ <tr>
+  <td class="left">term</td>
+  <td>0.81</td>
+  <td>1.06</td>
+  <td>0.91</td>
+  <td>0.96</td>
+  <td>0.88</td>
+  <td>0.83</td>
+ </tr>
+ <tr>
+  <td rowspan=14><b>Sorting</b></td>
+  <td class="left"> desc_sort_timestamp</td>
+  <td>13.09</td>
+  <td>159.45</td>
+  <td>28.39</td>
+  <td>20.65</td>
+  <td>18.76</td>
+  <td>20.4483</td>
+ </tr>
+ <tr>
+  <td class="left">asc_sort_timestamp</td>
+  <td>993.81</td>
+  <td>61.94</td>
+  <td>78.91</td>
+  <td>39.78</td>
+  <td>36.83</td>
+  <td>33.79</td>
+ </tr>
+ <tr>
+  <td class="left">desc_sort_with_after_timestamp</td>
+  <td>1123.65</td>
+  <td>163.53</td>
+  <td>28.93</td>
+  <td>19.4</td>
+  <td>18.78</td>
+  <td>22.492</td>
+ </tr>
+ <tr>
+  <td class="left">asc_sort_with_after_timestamp</td>
+  <td>1475.51</td>
+  <td>42.69</td>
+  <td>38.55</td>
+  <td>6.22</td>
+  <td>5.55</td>
+  <td>5.14</td>
+ </tr>
+ <tr>
+  <td class="left">desc_sort_timestamp_can_match_shortcut</td>
+  <td>15.49</td>
+  <td>31.13</td>
+  <td>7.64</td>
+  <td>7.11</td>
+  <td>6.54</td>
+  <td>6.88</td>
+ </tr>
+ <tr>
+  <td class="left">desc_sort_timestamp_no_can_match_shortcut</td>
+  <td>15.29</td>
+  <td>30.95</td>
+  <td>7.63</td>
+  <td>7.17</td>
+  <td>6.53</td>
+  <td>6.74441</td>
+ </tr>
+ <tr>
+  <td class="left">asc_sort_timestamp_can_match_shortcut</td>
+  <td>198.59</td>
+  <td>32.46</td>
+  <td>18.93</td>
+  <td>12.64</td>
+  <td>9.45</td>
+  <td>8.91</td>
+ </tr>
+ <tr>
+  <td class="left">asc_sort_timestamp_no_can_match_shortcut</td>
+  <td>197.36</td>
+  <td>32.5</td>
+  <td>18.78</td>
+  <td>12.74</td>
+  <td>9.02</td>
+  <td>8.82</td>
+ </tr>
+ <tr>
+  <td class="left">sort_keyword_can_match_shortcut</td>
+  <td>181.18</td>
+  <td>2.59</td>
+  <td>2.37</td>
+  <td>2.46</td>
+  <td>2.18</td>
+  <td>2.13</td>
+ </tr>
+ <tr>
+  <td class="left">sort_keyword_no_can_match_shortcut</td>
+  <td>181.06</td>
+  <td>2.43</td>
+  <td>2.44</td>
+  <td>2.49</td>
+  <td>2.15</td>
+  <td>2.09</td>
+ </tr>
+ <tr>
+  <td class="left">sort_numeric_desc</td>
+  <td>36.19</td>
+  <td>35.15</td>
+  <td>23.6</td>
+  <td>6.04</td>
+  <td>5.83</td>
+  <td>5.78</td>
+ </tr>
+ <tr>
+  <td class="left">sort_numeric_asc</td>
+  <td>66.87</td>
+  <td>37.74</td>
+  <td>21.14</td>
+  <td>5.3</td>
+  <td>5.15</td>
+  <td>5.2</td>
+ </tr>
+ <tr>
+  <td class="left">sort_numeric_desc_with_match</td>
+  <td>1.23</td>
+  <td>1.01</td>
+  <td>0.99</td>
+  <td>0.92</td>
+  <td>0.85</td>
+  <td>0.8</td>
+ </tr>
+ <tr>
+  <td class="left">sort_numeric_asc_with_match</td>
+  <td>1.24</td>
+  <td>0.99</td>
+  <td>0.9</td>
+  <td>0.89</td>
+  <td>0.84</td>
+  <td>0.8</td>
+ </tr>
+ <tr>
+  <td rowspan=5><b>Terms aggregation</b></td>
+  <td class="left">multi_terms_keyword</td>
+  <td>0.92</td>
+  <td>1.1</td>
+  <td>1</td>
+  <td>1.05</td>
+  <td>0.91</td>
+  <td>0.89</td>
+ </tr>
+ <tr>
+  <td class="left">keyword_terms</td>
+  <td>2126.25</td>
+  <td>2117.22</td>
+  <td>2382.37</td>
+  <td>1906.71</td>
+  <td>12.74</td>
+  <td>6.96</td>
+ </tr>
+ <tr>
+  <td class="left">keyword_terms_low_cardinality</td>
+  <td>2135.16</td>
+  <td>2121.88</td>
+  <td>2338.1</td>
+  <td>1893.9</td>
+  <td>10.81</td>
+  <td>5.25</td>
+ </tr>
+ <tr>
+  <td class="left">composite_terms</td>
+  <td>696.37</td>
+  <td>668.09</td>
+  <td>631.23</td>
+  <td>572.77</td>
+  <td>581.24</td>
+  <td>551.62</td>
+ </tr>
+ <tr>
+  <td class="left">composite_terms_keyword</td>
+  <td>1012.96</td>
+  <td>943.35</td>
+  <td>900.66</td>
+  <td>827.16</td>
+  <td>861.81</td>
+  <td>826.18</td>
+ </tr>
+ <tr>
+  <td rowspan=7><b>Range queries</b></td>
+  <td class="left">range</td>
+  <td>203.29</td>
+  <td>170.68</td>
+  <td>189.77</td>
+  <td>115.38</td>
+  <td>115.2</td>
+  <td>125.99</td>
+ </tr>
+ <tr>
+  <td class="left">range_numeric</td>
+  <td>0.81</td>
+  <td>0.96</td>
+  <td>0.87</td>
+  <td>0.9</td>
+  <td>0.76</td>
+  <td>0.75</td>
+ </tr>
+ <tr>
+  <td class="left">keyword_in_range</td>
+  <td>210.69</td>
+  <td>179.18</td>
+  <td>200.37</td>
+  <td>123.59</td>
+  <td>124.66</td>
+  <td>134.06</td>
+ </tr>
+ <tr>
+  <td class="left">range_field_conjunction_big_range_big_term_query</td>
+  <td>0.92</td>
+  <td>1.13</td>
+  <td>0.99</td>
+  <td>1.01</td>
+  <td>0.91</td>
+  <td>0.82</td>
+ </tr>
+ <tr>
+  <td class="left">range_field_disjunction_big_range_small_term_query</td>
+  <td>0.82</td>
+  <td>1.08</td>
+  <td>1.04</td>
+  <td>1</td>
+  <td>0.86</td>
+  <td>0.81</td>
+ </tr>
+ <tr>
+  <td class="left">range_field_conjunction_small_range_small_term_query</td>
+  <td>0.83</td>
+  <td>1.09</td>
+  <td>0.93</td>
+  <td>0.98</td>
+  <td>0.85</td>
+  <td>0.81</td>
+ </tr>
+ <tr>
+  <td class="left">range_field_conjunction_small_range_big_term_query</td>
+  <td>0.83</td>
+  <td>0.98</td>
+  <td>0.88</td>
+  <td>0.91</td>
+  <td>0.78</td>
+  <td>0.78</td>
+ </tr>
+ <tr>
+  <td rowspan=5><b>Date histogram</b></td>
+  <td class="left light-green-clr">date_histogram_hourly_agg</td>
+  <td>3618.5</td>
+  <td>3664.45</td>
+  <td>3785.48</td>
+  <td>8.5</td>
+  <td>9.97</td>
+  <td>3.39</td>
+ </tr>
+ <tr>
+  <td class="left">date_histogram_minute_agg</td>
+  <td>2854.99</td>
+  <td>2933.76</td>
+  <td>2961.69</td>
+  <td>2518.69</td>
+  <td>2635.16</td>
+  <td>148.69</td>
+ </tr>
+ <tr>
+  <td class="left">composite_date_histogram_daily</td>
+  <td>3760.5</td>
+  <td>4016.42</td>
+  <td>3574.18</td>
+  <td>1.44</td>
+  <td>1.51</td>
+  <td>1.39</td>
+ </tr>
+ <tr>
+  <td class="left">range_auto_date_histo</td>
+  <td>5267.47</td>
+  <td>5960.21</td>
+  <td>6055.74</td>
+  <td>6784.27</td>
+  <td>6977.05</td>
+  <td>6129.29</td>
+ </tr>
+ <tr>
+  <td class="left">range_auto_date_histo_with_metrics</td>
+  <td>12612.77</td>
+  <td>13314.87</td>
+  <td>13637.23</td>
+  <td>13759.51</td>
+  <td>14662.24</td>
+  <td>13208.98</td>
+ </tr>
+</table>
 
-If you decide to run your own benchmarking tests, please feel free to share the results with us. As always, we welcome your feedback and contributions.
+If you decide to run your own benchmarking tests, please feel free to share the results with us. As always, we welcome your feedback and contributions and we'd love to hear from you in the [OpenSearch Forum](https://forum.opensearch.org/).
