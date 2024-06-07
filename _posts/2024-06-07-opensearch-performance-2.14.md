@@ -102,7 +102,7 @@ Evaluating term aggregations on Big5 data shows speed improvements of a factor o
 
 ### Date histograms
 
-Date histograms are OpenSearch’s way of grouping data by date. Almost every Dashboard or Discover visualization in OpenSearch Dashboards depends on this functionality. For example, you might want to aggregate the logs of every HTTP request sent to your site by week. Date histogram optimizations in OpenSearch 2.12 provide speed improvements ranging from 10 to 50 times on the Big5 benchmark, in cases where there are no sub-aggregations into range filters.
+Date histograms are OpenSearch’s way of grouping data by date. Almost every Dashboard or Discover visualization in OpenSearch Dashboards depends on this functionality. For example, you might want to aggregate the logs of every HTTP request sent to your site by week. Date histogram optimizations in OpenSearch 2.12 provide speed improvements ranging from 10 to 50 times on the Big5 benchmark, in cases where there are no sub-aggregations in range filters.
 
 ### Multi-term queries and numeric fields
 
@@ -197,8 +197,8 @@ This section provides detailed information about the performance benchmarks we u
 - The Big5 index comprised a single shard with no replicas (run with `--workload-params="number_of_replicas:0"`).
 - During the tests, we ingested data using a single bulk indexing client to ensure that data was ingested in chronological order.
 - We ran the tests in [benchmarking mode](https://opensearch.org/docs/latest/benchmark/user-guide/target-throughput/#benchmarking-mode) (`target-throughput` was disabled) so that the OpenSearch client sent requests to the OpenSearch cluster as quickly as possible.
-- We configured the indexing Log Structured Merge (LSM) with LogByteSizeMergePolicy because this optimization was in place last year, prior to the publishing of this blog post.
-- The corpus size of the workload was 60 GB, 70M documents. The store size after ingestion was 15 GB for the primary shard. If overhead such as doc values is eliminated, Resident Set Size (RSS) should be about 8 GB, which should match the JVM heap size for the instance. Having most data resident in memory should provide a good assessment of performance improvements.
+- We configured the shard merge policy with LogByteSizeMergePolicy because this optimization was in place last year, prior to the publishing of this blog post.
+- The corpus size of the workload was 60 GB, 70M documents. The store size after ingestion was 15 GB for the primary shard. If overhead such as doc values is eliminated, Resident Set Size (RSS) should be about 8 GB, which should match the JVM heap size for the instance. Having most data in-memory should provide an ideal performance assessment.
 
 The following table presents the latency comparison.
 
