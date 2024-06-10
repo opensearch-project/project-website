@@ -21,7 +21,13 @@
   {% assign pagetitle = page.title | strip_newlines %}
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title }}{% else %}OpenSearch{% endif %}" />
+  <meta name="twitter:title" content="
+    {% if page.title != '' %}
+      {{ page.title }}
+    {% else %}
+      OpenSearch
+    {% endif %}" 
+  />
 
   {% if page.twittercard.account %}
     <meta name="twitter:site" content="{{ page.twittercard.account }}" />
