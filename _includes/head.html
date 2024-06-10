@@ -31,11 +31,12 @@
 
   {% if page.twittercard.account %}
     <meta name="twitter:site" content="{{ page.twittercard.account }}" />
-  {% elsif page.authors %}
+  {% endif %}
+  {% if page.authors %}
     {% assign author_short_name = page.authors | first  %}
     {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
     {% if author.twitter %}
-      <meta name="twitter:site" content="@{{ author.twitter }}" />
+      <meta name="twitter:creator" content="@{{ author.twitter }}" />
     {% endif %} 
   {% endif %}
 
