@@ -29,5 +29,5 @@ conference_id:
 redirect_from: '/authors/sisurab/'
 ---
 
-Saurabh is a Software Development Manager at AWS leading the core search, releases, and benchmarking areas of the OpenSearch Project. His passion lies in finding solutions for intricate challenges within large-scale distributed systems.
+Saurabh is a Software Development Manager at AWS leading the core search, release, and benchmarking areas of the OpenSearch Project. His passion lies in finding solutions for intricate challenges within large-scale distributed systems.
 

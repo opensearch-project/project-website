@@ -19,5 +19,5 @@ personas:
   - author
 permalink: '/community/members/ian-hoang.html'
 ---
-**Ian Hoang** is a software engineer at AWS working on OpenSearch.
+**Ian Hoang** is a Software Engineer at AWS working on OpenSearch.
  
