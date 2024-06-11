@@ -5,12 +5,12 @@ authors:
   - zhichaog
   - yych
   - dylantong
-date: 2024-05-27 01:00:00 -0700
+date: 2024-06-11 01:00:00 -0700
 categories:
     - technical-posts
 has_math: true
-meta_keywords: search relevance, neural sparse search, semantic search, semantic search with sparse encoders
-meta_description: We're going to first deep dive on the fundamental of neural sparse, while giving the quantitative study on the total workload amount. Then we will illustrate two benchmarks about accelerating neural sparse.
+meta_keywords: OpenSearch semantic search, neural sparse search, semantic sparse retrieval
+meta_description: Deep dive into the fundamentals of neural sparse search and explore two methods for accelerating semantic sparse retrieval in OpenSearch.
 ---
 
 In our last [blog post](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/), we introduced neural sparse search, a new efficient method of semantic retrieval made generally available in [OpenSearch 2.11](https://opensearch.org/versions/opensearch-2-11-0.html). We released two sparse encoding models on OpenSearch [model hub](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models) and Hugging Face [model hub](https://huggingface.co/opensearch-project). Both models excel at producing relevant information compared to other sparse encoding models with the same architecture. Sparse search uses a Lucene inverted index to achieve high-quality semantic search with low resource overhead.
@@ -25,7 +25,7 @@ Before diving into neural sparse search, let’s first take a brief look at how 
 
 In OpenSearch, the basic search functionality is built on top of a Lucene inverted index. For each term in the index, the Lucene inverted index maintains a posting list. The posting list stores all documents containing the term, sorted by internal document ID. When you run a basic match query in OpenSearch, the query text is tokenized and transformed into Lucene disjunctive term queries, such as `TermQuery(termA) OR TermQuery(termB) OR TermQuery(termC) ...`. Lucene then searches the posting lists for all query terms, as shown in the following image. 
 
-<img src="/assets/media/blog-images/2024-05-27-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/lucene-inverted-index-overview.png"/>
+<img src="/assets/media/blog-images/2024-06-11-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/lucene-inverted-index-overview.png"/>
 
 Lucene merges the selected posting lists and calculates document scores in real time using the BM25 algorithm. The overall time complexity is determined by the number of hit posting lists and the lists' lengths. Although Lucene implements many optimizations, like block scoring, MaxScore, and WAND, this is how the search works at a high level.
 
@@ -67,7 +67,7 @@ MS MARCO dataset with document counts ranging from 1 million to 8 million, incre
 
 The following figure shows the experiment results.
 
-<img src="/assets/media/blog-images/2024-05-27-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/quantitive-analysis.png"/>
+<img src="/assets/media/blog-images/2024-06-11-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/quantitive-analysis.png"/>
 
 > **Note:** For this blog post, we measured the client-side latency. The client-side latency consists of the sparse encoding model/sparse tokenizer inference time, retrieval time, and network latency.
 
@@ -91,13 +91,13 @@ Because of its use of the top-k hits disjunctive Boolean query, **neural sparse 
 
 The following figure shows the experiment results for 1M documents.
 
-<img src="/assets/media/blog-images/2024-05-27-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/experiments-on-1m.png"/>
+<img src="/assets/media/blog-images/2024-06-11-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/experiments-on-1m.png"/>
 
 ### Benchmark results for 8.8M documents
 
 The following figure shows the experiment results for 8.8M documents.
 
-<img src="/assets/media/blog-images/2024-05-27-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/experiments-on-1m.png"/>
+<img src="/assets/media/blog-images/2024-06-11-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/experiments-on-1m.png"/>
 
 ### Results explained
 
@@ -121,13 +121,13 @@ We used a SageMaker GPU endpoint to host the neural sparse model. We connected t
 
 Our experiments show that using a GPU reduces the model inference latency by a large margin. This translates to significant improvements in the client-side search latency and throughput, as shown in the following figure. This performance boost is crucial for running neural sparse search in bi-encoder mode in production. 
 
-<img src="/assets/media/blog-images/2024-05-27-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/gpu-search-performance.png"/>
+<img src="/assets/media/blog-images/2024-06-11-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/gpu-search-performance.png"/>
 
 ### Using a GPU at ingestion time
 
 Ingestion relies heavily on model inference, so using a GPU at ingestion time leads to a higher ingestion throughput. In our experiment, we used the same GPU endpoint for ingestion. We performed ingestion using 6 clients, with a bulk size of 10. The following figure illustrates the experiment results.
 
-<img src="/assets/media/blog-images/2024-05-27-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/gpu-ingestion-performance.png"/>
+<img src="/assets/media/blog-images/2024-06-11-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/gpu-ingestion-performance.png"/>
 
 The GPU endpoint significantly accelerates the model ingestion process, achieving a 
 tripled throughput at a considerably lower cost. This is particularly valuable in scenarios with heavy ingestion workloads, regardless of whether you're using the bi-encoder mode or the doc-only mode for search.
