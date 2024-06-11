@@ -5,7 +5,7 @@ authors:
   - sisurab
   - pallp
   - macrakis
-  - hoangia
+  - ihoang
 date: 2024-06-07
 categories:
     - technical-posts
