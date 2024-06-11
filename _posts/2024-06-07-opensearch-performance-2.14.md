@@ -142,7 +142,7 @@ Hybrid search combines lexical and semantic vector search in order to get the be
 We are planning the following hybrid search enhancements:
 
 - By executing lexical and vector searches in parallel, we can achieve a latency improvement of up to 25%.
-- Supporting resorting of hybrid query results.
+- Supporting re-sorting of hybrid query results.
 - Supporting additional algorithms for combining query results. In particular, reciprocal rank fusion has shown good results for some applications.
 - Returning the raw scores of subqueries, which are useful for debugging and relevance tuning.
 
@@ -620,4 +620,4 @@ The following table presents benchmarking results by query category. It shows th
  </tr>
 </table>
 
-If you decide to run your own benchmarking tests, please feel free to share the results with us. As always, we welcome your feedback and contributions and we'd love to hear from you in the [OpenSearch Forum](https://forum.opensearch.org/).
+If you decide to run your own benchmarking tests, please feel free to share the results with us. As always, we welcome your feedback and contributions, and we'd love to hear from you on the [OpenSearch forum](https://forum.opensearch.org/).
