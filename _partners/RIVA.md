@@ -7,7 +7,7 @@ name_long: 'RIVA Solutiuons Inc.'
 
 # The partner logo is used on the partners collection page (/partners).
 # upload your logo to the following directory - must be square
-logo: '/assets/media/partners/placeholder.png'
+logo: '/assets/media/RIVA/logo.png'
 
 # URL to the partner's website.
 link: 'http://rivasolutionsinc.com'
@@ -15,7 +15,7 @@ link: 'http://rivasolutionsinc.com'
 # logo_large is used on the extended partner details page.
 # It is normative to upload all extended partner page images to a subdirectory of /assets/media/partners/ with the name of the partner as the directory name.
 # For example given a partner named "SampleCompany" the logo_large image would be uploaded to /assets/media/partners/samplecompany/logo_large.png
-logo_large: '/assets/media/partners/placeholder.png'
+logo_large: '/assets/media/RIVA/logo_large.png'
 
 # Large image displayed in the top right of the extended partner details page.
 product_image: '/assets/media/partners/samplecompany/sample-product-image.png'
