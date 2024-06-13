@@ -3,12 +3,12 @@ layout: post
 title:  "Announcing an OpenSearch and DataStax generative AI partnership"
 authors:
   - zznate 
-date: 2024-06-06
+date: 2024-06-13
 categories:
   - community
   - partners
-meta_keywords: 
-meta_description: 
+meta_keywords: Generative AI, retrieval augmented generation , DataStax HCDP, OpenSearch integrations
+meta_description: Learn about the collaboration between open source startup DataStax and the OpenSearch Project on integration efforts to support Generative AI developers.
 excerpt: 
 has_math: false
 has_science_table: false
@@ -41,7 +41,7 @@ DataStax will maintain a JVector integration for OpenSearch and offer OpenSearch
 
 Enterprises have spent years investing in search infrastructure. With the inclusion of OpenSearch, DataStax can provide developers the most flexible information retrieval possible using applications already familiar to many enterprises. OpenSearch bridges the gap between single-document Q&A and open-domain Q&A, essentially providing the ability to reason across multiple diverse documents and texts by combining keyword search in OpenSearch with the dense vector search of JVector in Astra and HCDP. 
 
-For generative AI, relevance wins, and through this partnership we will ensure that your enterprise data estate can act as context for RAG and generative AI workflows to provide as much data to the context as possible. For more information, see the [HCDP announcement](https://www.datastax.com/fr/blog/introducing-vector-search-for-self-managed-modern-architecture).
+For generative AI, relevance is critical, and through this partnership we will ensure that your enterprise data estate can act as context for RAG and generative AI workflows to provide as much data to the context as possible. For more information, see the [HCDP announcement](https://www.datastax.com/fr/blog/introducing-vector-search-for-self-managed-modern-architecture).
 
 
 
