@@ -18,7 +18,7 @@ DataStax and the OpenSearch Project are announcing a series of integration effor
 
 To power the explosive growth within the generative AI space, we need to keep innovating on the tooling available to developers. These tools require access to a variety of enterprise data, and we want to be there to provide that access in whatever common format is required. Being able to retrieve data in the most flexible ways possible is a necessary catalyst for getting RAG and generative AI knowledge applications to production. 
 
-Amazon sponsors the OpenSearch project to ensure the continuing existence of an open source search engine that users can use, modify, and extend however they wish.  In addition to AWS, the OpenSearch community is full of active contributors, maintainers, and partners. For Generative AI specifically, OpenSearch brings:
+Amazon sponsors the OpenSearch Project to ensure the continuing existence of an open-source search engine that users can use, modify, and extend however they wish. In addition to AWS, the OpenSearch community is full of active contributors, maintainers, and partners. For generative AI specifically, OpenSearch offers the following benefits:
 
 * **Ease of use**: OpenSearch provides easy-to-use indexing and search capabilities and has built in features for text analysis, tokenization, and relevance scoring
 * **Optimized for text retrieval**: OpenSearch makes it easy to find and rank documents based on keyword queries
