@@ -38,7 +38,7 @@ feature_image: /assets/media/opensearchcon/2024/OSC2024_NASF_Social-Graphic1_120
 
 We’re anticipating hundreds of people and dozens of OpenSearch partners this year, which will make for a fun and exciting show. [Special room rates](https://book.passkey.com/e/50823627) are available for those who wish to stay at the event hotel. OpenSearchCon passes are limited, so [register today](https://opensearchcon2023.splashthat.com/) in order to claim your spot at this year’s conference.
 
-The [Call for Presentations](https://opensearch.org/events/opensearchcon/2024/north-america/cfp.html) is open until the end of the day on June 14. If you have a story you’d like to share, submit your talk now-time is of the essence!
+The [Call for Presentations](https://opensearch.org/events/opensearchcon/2024/north-america/cfp.html) is open until the end of the day on June 28. If you have a story you’d like to share, submit your talk now-time is of the essence!
 
 Builders will be presenting dozens of sessions across four conference tracks to help you learn more about building applications at scale as an open-source contributor.  The four conference tracks are:
 

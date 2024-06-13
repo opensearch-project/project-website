@@ -65,7 +65,7 @@ Join us  September 24 through  September 26, 2024 at the [Hilton Union Square in
                 </a>
             </div>
 </div>
-What makes the community want to attend OpenSearchCon? Beyond the opportunity to network with peers and commune with passionate open sourcers, OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. If you have a story to tell or an idea you’d like to present to the community, our Call for Presentations (CfP) for OpenSearchCon North America is now open—go [here](/events/opensearchcon/2024/north-america/cfp.html) and submit by June 14, 2024 at 11:59 p.m. EST to submit your abstract.
+What makes the community want to attend OpenSearchCon? Beyond the opportunity to network with peers and commune with passionate open sourcers, OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. If you have a story to tell or an idea you’d like to present to the community, our Call for Presentations (CfP) for OpenSearchCon North America is now open—go [here](/events/opensearchcon/2024/north-america/cfp.html) and submit by June 28, 2024 at 11:59pm EST to submit your abstract.
 
 <div class="redesign-button-pair--wrapper">
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
