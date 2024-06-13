@@ -62,16 +62,17 @@ This information will help the reviewers to get a good impression of your sessio
 
 ## When does it close
 
-CfP ends on **May 30th, 2024 at 23:59 IST**.
+The Call for Presentations (CfP) for OpenSearchCon India is now closed.
 
 ## View previous presentations
 
-You can view presentations from OpenSearchCon North America 2023 [here](https://www.youtube.com/playlist?list=PLzgr9zSpws166-ndhm5W49L9bJmiWjsrm).
+You can view presentations from OpenSearchCon North America 2023 [here](https://www.youtube.com/playlist?list=PLzgr9zSpws166-ndhm5W49L9bJmiWjsrm), and from OpenSearchCon Europe 2024 [here](https://www.youtube.com/playlist?list=PLzgr9zSpws14zCETcKtCBwcOuTGMccpV9).
 
 ## Code of Conduct
 
 It is expected that your submission and presentation follow the OpenSearch [Code of Conduct](https://neonicheintegrated.in/2024/aws/opensearch/registration/cfp.php#).
 
+<!--- 
 <label class="redesign-buttons--label">Submit Presentations</label>
 <div class="redesign-button-pair--wrapper">
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
@@ -82,5 +83,5 @@ It is expected that your submission and presentation follow the OpenSearch [Code
 </div>
 
 <br/>
-
+--->
 
