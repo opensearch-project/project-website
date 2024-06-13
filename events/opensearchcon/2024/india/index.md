@@ -62,7 +62,9 @@ conference_sections_button_stack:
 
 The OpenSearch community continues to expand, always welcoming new individuals, organizations, and partners into the fold, and OpenSearchCon is where the community comes together.
 
-Join us on June 26th 2024 at Ritz Carlton in Bengaluru for OpenSearchCon India 2024. You can reserve your seat here:
+Registration is now closed.
+
+<!--- Join us on June 26th 2024 at Ritz Carlton in Bengaluru for OpenSearchCon India 2024. You can reserve your seat here:
 <div class="redesign-button-pair--wrapper">
             <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
                 <a href="https://airtable.com/embed/apppC3Z0EqIapqw70/pag1De4o7iN1QL30U/form" class="redesign-button--anchor">
@@ -70,7 +72,7 @@ Join us on June 26th 2024 at Ritz Carlton in Bengaluru for OpenSearchCon India 2
                 </a>
             </div>
 </div>
-
+--->
 As always, what makes OpenSearchCon a success are the compelling stories and educational insights shared by our community. The Call for Presentations (CfP) for OpenSearchCon India is now closed.
 
 ## What is OpenSearchCon?
