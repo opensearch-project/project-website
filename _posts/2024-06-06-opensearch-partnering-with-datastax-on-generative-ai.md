@@ -14,7 +14,7 @@ has_math: false
 has_science_table: false
 ---
 
-DataStax and the OpenSearch Project team are announcing a series of integration efforts to support Generative AI developers. Retrieval Augmented Generation (RAG) is a key design pattern in Generative AI. RAG Applications work by assembling context from a variety of sources, which is then processed by an LLM to provide an intelligent and relevant response. Serving these applications requires a mix of data retrieval and storage capabilities and we, OpenSearch and DataStax, are committed to working together to serve the broad needs of Generative AI developers.   
+DataStax and the OpenSearch Project are announcing a series of integration efforts to support generative AI developers. Retrieval-augmented generation (RAG) is a key design pattern in generative AI. RAG applications work by assembling context from a variety of sources, which is then processed by a large language model (LLM) to provide an intelligent and relevant response. Serving these applications requires a mix of data retrieval and storage capabilities, and we, OpenSearch and DataStax, are committed to working together to serve the broad needs of generative AI developers.   
 
 To power the explosive growth within the generative AI space, we need to keep innovating on the tooling available to developers. These tools require access to a variety of enterprise data, and we want to be there to provide that access in whatever common format is required. Being able to retrieve data in the most flexible ways possible is a necessary catalyst for getting RAG and generative AI knowledge applications to production. 
 
