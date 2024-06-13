@@ -1,16 +1,16 @@
 ---
 # Partner name used on the partners collection page (/partners).
-name: SampleCompany
+name: RIVASolutionsInc
 
 # name_long is used on the extended partner details page.
-name_long: 'Sample Company'
+name_long: 'RIVA Solutiuons Inc.'
 
 # The partner logo is used on the partners collection page (/partners).
 # upload your logo to the following directory - must be square
-logo: '/assets/media/partners/RIVA.png'
+logo: '/assets/media/partners/placeholder.png'
 
 # URL to the partner's website.
-link: 'https://rivasolutionsinc.com'
+link: 'http://rivasolutionsinc.com'
 
 # logo_large is used on the extended partner details page.
 # It is normative to upload all extended partner page images to a subdirectory of /assets/media/partners/ with the name of the partner as the directory name.
@@ -46,11 +46,31 @@ main_office_location:  |
   1676 International Dr.
   Suite #520
   Mclean VA 22102
+  United States of America
+multiple_office_locations:
+#  - name: 'New York City'
+#    location: |
+#      123 Main Street 
+#      20th Floor
+#      New York, NY 10001
+#  - name: 'Portland, OR'
+#    location: |
+#      345 Main Street
+#      Portland, OR 97232
 
 # Collection of Web resources that the partner wishes to promote on their extended partner details page. Resources like blog posts, tutorials, news announcements, etc.
 # Each resource must have a url, title, thumbnail, and type.
 # It is normative to upload images into a subdirectory within /assets/media/partners/ with the name of the partner as the directory name. 
 # It is advised that the thumbnail images share the same, or very close to the same aspect ratio across all resources. 
+resources:
+#  - url: 'https://example.com/blog'
+#    title: 'Blog Title'
+#    thumbnail: '/assets/media/partners/placeholder.png'
+#    type: 'blog'
+#  - url: 'https://example.com/resource'
+#    title: 'Resource Title'
+#    thumbnail: '/assets/media/partners/placeholder.png'
+#    type: 'resource'
 
 # Collection of social links that the partner wishes to promote on their extended partner details page. Supported types are 'twitter', 'linkedin', 'facebook', and 'github'.
 social_links:
@@ -65,3 +85,11 @@ social_links:
 
 # Collection of products that the partner wishes to promote on their extended partner details page. Each product should have a url, name, and description.
 # The product listing is rendered below the partner description on the extended partner details page and above the resources.
+products:
+#  - url: 'https://example-product.example'
+#    name: 'Example Product Name'
+#    description: 'Example Product Description'
+#  - url: 'https://another-example-product.example'
+#    name: 'Another Example Product Name'
+#    description: 'Another example product description.'
+---
