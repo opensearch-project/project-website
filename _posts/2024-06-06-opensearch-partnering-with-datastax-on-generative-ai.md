@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Announcing an OpenSearch and DataStax partnership on Generative AI"
+title:  "Announcing an OpenSearch and DataStax generative AI partnership"
 authors:
   - zznate 
 date: 2024-06-06
