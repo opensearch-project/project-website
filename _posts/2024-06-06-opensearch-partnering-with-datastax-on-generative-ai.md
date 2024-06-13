@@ -37,7 +37,7 @@ The combination of these technologies enable semantic and keyword searches as we
 * Database queries which provide known personalization, profile, and transactional data
 
 ### **Moving Forward**
-DataStax will maintain a JVector integration for OpenSearch, and offer OpenSearch as part of their self-managed offering platform, HCDP (Hyper Converged Data Platform) and as integration to their cloud service, Astra. 
+DataStax will maintain a JVector integration for OpenSearch and offer OpenSearch as part of its self-managed offering platform, HCDP (Hyper Converged Data Platform), and as an integration for its cloud service, Astra. 
 
 Enterprises have spent years investing in search infrastructure. With the inclusion of OpenSearch, DataStax can give developers the most flexible information retrieval possible with applications already familiar to many enterprises. OpenSearch bridges the gap between single document Q&A and open domain Q&A: essentially providing the ability to reason across multiple, diverse documents and texts by tying keyword searching in OpenSearch alongside dense vector search of JVector in Astra and HCDP. 
 
