@@ -41,7 +41,7 @@ DataStax will maintain a JVector integration for OpenSearch, and offer OpenSearc
 
 Enterprises have spent years investing in search infrastructure. With the inclusion of OpenSearch, DataStax can give developers the most flexible information retrieval possible with applications already familiar to many enterprises. OpenSearch bridges the gap between single document Q&A and open domain Q&A: essentially providing the ability to reason across multiple, diverse documents and texts by tying keyword searching in OpenSearch alongside dense vector search of JVector in Astra and HCDP. 
 
-For Generative AI, relevance wins and through this partnership we will ensure that your enterprise data estate can act as context for RAG and GenAI workflows to provide as much data to the context as possible. For more information, see the [HCDP announcement here](https://www.datastax.com/fr/blog/introducing-vector-search-for-self-managed-modern-architecture).
+For generative AI, relevance wins, and through this partnership we will ensure that your enterprise data estate can act as context for RAG and generative AI workflows to provide as much data to the context as possible. For more information, see the [HCDP announcement](https://www.datastax.com/fr/blog/introducing-vector-search-for-self-managed-modern-architecture).
 
 
 
