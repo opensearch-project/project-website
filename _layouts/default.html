@@ -3,12 +3,13 @@
 ---
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  {%- include head.html -%}
 
   {% if page.layout == 'post' %}
     {% assign page_type_class = 'page--blog-post' %}
+    {%- include head-twitter-metatags.html -%}
   {% else %}
     {% assign page_type_class = '' %}
+    {%- include head.html -%}
   {% endif %}
 
   <body id="{{ page.sectionid }}" class="{{ page.body_class }} {{ page_type_class }}">

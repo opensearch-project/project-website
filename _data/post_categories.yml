@@ -1,20 +1,26 @@
-default_category: "technical-posts"
-
-- category: technical-posts
+categories:
+- name: default
+  image:          https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Generic-01.png
+  secondary:      https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Generic-02.png
+- name: technical-posts
+  image:      https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Technical-01.png
+  secondary:  https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Technical-02.png
+  # image:          http://127.0.0.1:4000/assets/media/blog-category-images/OpenSearch_WebGraphic_Technical-01.png #for local testing
+- name: community
+  image:          https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Community-01.png
+  secondary:      https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Community-02.png
+- name: releases
+  image:          https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Release-01.png
+  secondary:      https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Release-02.png
+- name: partners
   image: ""
-- category: community
+- name: feature
   image: ""
-- category: releases
+- name: intro
   image: ""
-- category: partners
+- name: community-updates
   image: ""
-- category: feature
+- name: events
   image: ""
-- category: intro
-  image: ""
-- category: community-updates
-  image: ""
-- category: events
-  image: ""
-- category: odfe-updates
+- name: odfe-updates
   image: ""
