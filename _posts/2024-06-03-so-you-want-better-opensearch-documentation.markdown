@@ -5,11 +5,11 @@ layout: post
   - epugh
   - chull
   - hdhalter
- date: 2024-06-03
+ date: 2024-06-18
  categories:
   - events
- meta_keywords: <provided by marketing>
- meta_description: <provided by marketing>
+ meta_keywords: OpenSearch documentation, diataxis documentation structure, Divio quadrants
+ meta_description: Learn how the OpenSearch Project uses the Diataxis documentation system to identify gaps while working with its community to encourage contributions and improve its content.
 ---
 
 [Charlie Hull](https://opensourceconnections.com/team/charlie-hull/) and I, [Eric Pugh](https://opensourceconnections.com/team/eric-pugh/), from [OpenSource Connections](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://opensourceconnections.com/&ved=2ahUKEwiqxrXG37WGAxUtM1kFHY5XDKgQFnoECAcQAQ&usg=AOvVaw0jRbdTI-7Nyxctwov1hOEu), had the opportunity during the "Unconference" portion of [OpenSearchCon Europe 2024](https://opensearch.org/events/opensearchcon/2024/europe/index.html) to talk about the current state of the OpenSearch documentation and get some feedback from the community. I chose this topic based on conversations I had with [Heather Halter](https://www.linkedin.com/in/heather-halter/), OpenSearch Documentation Manager, last fall at OpenSearchCon 2023 in Seattle.
