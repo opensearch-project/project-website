@@ -1,0 +1,136 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% assign meta_keywords = page.meta_keywords | default: "open-source, search, opensearch" %}
+    {% assign meta_description = page.meta_description | default: page.description | default: "" %}
+    {% assign twitter_card_type = "summary_large_image" %}
+
+
+    <!-- LOGIC to pull the correct category image onto blog posts that do not have an image  -->
+    {% if page.featured_image %}
+        {% assign twitter_card_image = page.featured_image %}
+
+    {% else %}
+        <!-- what is the post category?  -->
+        {% assign category = page.categories | first %}
+        {% assign category_image = site.categories[category].image %}
+
+        <!-- does that category have an image? if yes assign the image, otherwise default to a normal summary card and no image. -->
+        {% if category_image %}
+            {% assign twitter_card_image = category_image %}
+        {% else %}
+        <!-- if there is no category image...  -->
+            {% assign twitter_card_image = "/assets/img/opensearch-twitter-card.png" %}
+        {% endif %}
+    
+    {% endif %}
+
+
+    <!-- THIS THIS   -->
+    {% assign category_data = site.categories | where: "name", category | first %}
+    {% assign category_image = category_data.image %}  
+    <!-- THIS THIS   -->
+
+    <meta name="ROBOTS" content="ALL" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />    <!-- MSSmartTags... turns off internet explorer smart tags that are outdated and no longer supported.  -->
+  
+    <!-- <meta name="keywords" content="
+        {% if page.meta_keywords %} 
+            {{ page.meta_keywords }} 
+        {% else %} 
+            open-source, search, opensearch 
+        {% endif %}" 
+      /> -->
+    <!-- {% if page.meta_description %}<meta name="description" content="{{ page.meta_description }}" />{%endif%} -->
+
+
+    <meta name="keywords" content="{{ meta_keywords }}" />
+    <meta name="description" content="{{ meta_description }}" />
+
+    <!-- The {% feed_meta %} is a Liquid tag used in Jekyll to generate meta tags for RSS and Atom feeds. It is typically used in the head section of a website to provide metadata for feed readers and social media platforms. The {% feed_meta %} tag generates the necessary meta tags based on the configuration specified in the _config.yml file. -->
+    {% feed_meta %}
+  
+    
+      
+    {% assign pagetitle = page.title | strip_newlines %}
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="
+      {% if page.title != '' %}
+        {{ page.title }}
+      {% else %}
+        OpenSearch
+      {% endif %}" 
+    />
+  
+    {% if page.twittercard.account %}
+      <meta name="twitter:site" content="{{ page.twittercard.account }}" />
+    {% endif %}
+    {% if page.authors %}
+      {% assign author_short_name = page.authors | first  %}
+      {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
+      {% if author.twitter %}
+        <meta name="twitter:creator" content="@{{ author.twitter }}" />
+      {% endif %} 
+    {% endif %}
+  
+  
+  
+    {% if page.twittercard.description %}
+      <meta name="twitter:description" content="{{ page.twittercard.description  | xml_escape }}" />
+    {% else %}
+      <meta name="twitter:description" content="OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." />
+    {% endif %}
+    {% if page.twittercard.image %}
+      <meta name="twitter:image" content="{{ page.twittercard.image }}" /> 
+    {% else %}
+      <meta name="twitter:image" content="https://opensearch.org/assets/opensearch-twitter-card.png" />
+    {% endif %}
+  
+  
+    <meta content="{{ site.title }}" property="og:site_name">
+    <meta content="{{ page.url | absolute_url }}" property="og:url">
+    {% if page.title %}
+      <meta content="{{ page.title }}" property="og:title">
+    {% else %}
+      <meta content="{{ site.title }}" property="og:title"> 
+    {% endif %}
+  
+    {% if page.image %}
+      <meta content="{{ site.url }}/assets/img/posts/{{ page.image }}" property="og:image">
+    {% else %}
+      <meta content="{{ site.url }}/assets/img/logo-high-resolution.png" property="og:image">
+    {% endif %}
+  
+    <!-- Favicons -->
+    {{ page.link_rel_tags }}
+    <link rel="apple-touch-icon" href="{{'assets/img/apple-touch-icon.png' | relative_url }}">
+    <link rel="icon" sizes="192x192" href="{{'assets/img/apple-touch-icon.png' | relative_url }}">
+    <link rel="shortcut icon" href="{{'assets/img/favicon.ico' | relative_url }}">
+  
+    <link rel="canonical" href="{%if page.canonical %}{{page.canonical}}{%else%}{{site.url | append: page.url}}{%endif%}" />
+  
+    <meta name="msapplication-TileColor" content="#113228">
+    <meta name="msapplication-TileImage" content="{{'img/icon-tile.png' | relative_url }}">
+      
+      
+    <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
+  
+    <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
+    {% if page.has_science_table %}
+      {%- include science-table-styles.html -%}
+    {% endif %}
+    <script src="{{ 'assets/js/lib/modernizr.js' | relative_url }}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV14XK08F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BQV14XK08F');
+    </script>
+    {{ page.head_extra }}
+  </head>
+  

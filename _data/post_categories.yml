@@ -1,0 +1,20 @@
+default_category: "technical-posts"
+
+- category: technical-posts
+  image: ""
+- category: community
+  image: ""
+- category: releases
+  image: ""
+- category: partners
+  image: ""
+- category: feature
+  image: ""
+- category: intro
+  image: ""
+- category: community-updates
+  image: ""
+- category: events
+  image: ""
+- category: odfe-updates
+  image: ""
