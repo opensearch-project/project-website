@@ -9,8 +9,7 @@ layout: default
 {% include opensearch-button.html %}
 <main class="container">
     <div class="{{ page_type_class }}">
-        {% include page-breadcrumbs-and-title.html
-            breadcrumbs=page.breadcrumbs
+        {% include page-title.html
             primary_title=page.primary_title 
             title=page.title
         %}
