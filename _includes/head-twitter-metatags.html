@@ -25,19 +25,23 @@
         {% assign twitter_card_image = page.featured_image %}
 
     {% else %}
-        <!-- what is the post category?  -->
+        <!-- If there is a category, pull the correct category and fetch the generic image for that category  -->
         {% if page.categories %}
           {% assign category = page.categories | first %}
-          {% assign category_image = "" %}
-
-
-          <!-- BAD... LETS NOT USE A FOR LOOP. INSTEAD LETS DO A HASH OR SOMETHING -->
-          {% for cat in site.data.post_categories.categories %}
-            {% if cat.name == category %}
-              {% assign category_image = cat.image %}
-            {% endif %}
-          {% endfor %}
+        {% else %}
+        <!-- If there is no category, give the page the gerneric category "default-category"  -->
+            {% assign category = "default-category" %}
         {% endif %}
+
+        {% assign category_image = "" %}
+
+        <!-- Fetch the generic image for the pages category -->
+        {% for cat in site.data.post_categories.categories %}
+          {% if cat.name == category %}
+            {% assign category_image = cat.image %}
+          {% endif %}
+        {% endfor %}
+
 
 
         <!-- does that category have an image? if yes assign the image, otherwise default to a normal summary card and no image. -->
