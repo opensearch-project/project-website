@@ -1,5 +1,5 @@
 categories:
-- name: default
+- name: default-category
   image:          https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Generic-01.png
   secondary:      https://opensearch.org/assets/media/blog-category-images/OpenSearch_WebGraphic_Generic-02.png
 - name: technical-posts
