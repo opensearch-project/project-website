@@ -6,12 +6,12 @@
 
   {% if page.layout == 'post' %}
     {% assign page_type_class = 'page--blog-post' %}
-    {%- include head-twitter-metatags.html -%}
   {% else %}
     {% assign page_type_class = '' %}
-    {%- include head.html -%}
   {% endif %}
 
+  {%- include head.html -%}
+  
   <body id="{{ page.sectionid }}" class="{{ page.body_class }} {{ page_type_class }}">
     {%- include header.html -%}
     

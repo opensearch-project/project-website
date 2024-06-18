@@ -5,6 +5,8 @@
 
   {% feed_meta %}
   {% assign pagetitle = page.title | strip_newlines %}
+  {%- include head-twitter-metatags.html -%}
+  
   <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
 
   <!-- Favicons -->
