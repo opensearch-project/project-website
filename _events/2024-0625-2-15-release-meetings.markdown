@@ -33,7 +33,7 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 **[Placeholder]June Pending 2024 - 1:00PM PDT**
 
-* [Retrospective](https://github.com/opensearch-project/opensearch-build/issues/) - Let's do a retro on the 2.15.0 release as a community.
+* [Retrospective](https://github.com/opensearch-project/opensearch-build/issues/4786) - Let's do a retro on the 2.15.0 release as a community.
 
 **Dial in information - valid for each meeting:**
 
