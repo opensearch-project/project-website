@@ -14,7 +14,7 @@
 
 
     {% assign meta_keywords = page.meta_keywords | default: "open-source, search, opensearch" %}
-    {% assign meta_description = page.meta_description | default: page.description | default: "OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." %}
+    {% assign meta_description = page.excerpt  | default:page.description | default:page.meta_description  | default: "OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." %}
     {% assign twitter_card_type = "summary_large_image" %}
     {% assign twitter_card_title = page.title  | default: "OpenSearch"%}
     {% assign OpenSearch_twitter_account = "@OpenSearchProj" %}
