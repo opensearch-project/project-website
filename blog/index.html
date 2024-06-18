@@ -1,144 +1,48 @@
 ---
-layout: blog
+layout: fullwidth-with-breadcrumbs
 title: Blog
 primary_title: Blog
-
+breadcrumbs:
+  icon: community
+  items:
+    - title: Community
+    - title: Blog
+      url: '/blog/'
 notice: true
 ---
 
-<style>
-    /* Container for the cards */
-    .row.mb-2 {
-    display: flex;
-    flex-wrap: wrap;
-    }
+<ul class="site-content--blog-list">
+    {% for post in paginator.posts %}
+      <li>
+          <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+          <div class="meta">{{ post.date | date: "%a, %b %d, %Y" }}</div>
+          <p>{{ post.excerpt | strip_html | truncatewords: 60 }}</p>
+          <a class="link-readmore" href="{{ post.url }}">Read More</a> 
+      </li>
+    {% endfor %}
+</ul>
+{% if paginator.total_pages > 1 %}
+    <div class="pagination">
+      {%- if paginator.previous_page -%}
+          <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
+      {%- else -%}
+          <span>&laquo; Prev</span>
+      {%- endif -%}
 
-    /* Card element */
-    .col-md-6 {
-    display: flex;
-    flex-direction: column;
-    }
+      {% for page in (1..paginator.total_pages) %}
+          {% if page == paginator.page %}
+          <em>{{ page }}</em>
+          {% elsif page == 1 %}
+          <a href="{{ '/' | relative_url }}">{{ page }}</a>
+          {% else %}
+          <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+          {% endif %}
+      {% endfor %}
 
-    .row.g-0.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative {
-    flex: 1; /* Makes each card stretch to the same height */
-    display: flex;
-    flex-direction: column;
-    }
-
-    .col.p-4.d-flex.flex-column.position-static {
-    flex: 1; /* Makes the content area of the card stretch */
-    }
-
-
-    .cropped-img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-        object-position: center;
-
-    }
-    .card:hover {
-        transform: translate3d(0px, -2px, 0px) scale(1.015);  
-        transition: transform 0.3s ease; /* Animation */
-      
-    }
-    .full-width-layout--header {
-        padding: 0px 0px;
-    }
-</style>
-{%- include head-blog.html -%}
-
-{% assign paginator = paginator %}
-{% assign featured_post = site.posts | where: "featured", true | first %}
- 
-
-<main class="container">
-    <div class= "page-with-hero">
-        {% include page-title.html 
-            primary_title=page.primary_title 
-            title=page.title 
-        %}
-    </div> 
-    <div class="full-width-layout--content">
-        <div class="pt-4"
-            <!-- FEATURED CONTENT: only shown on hte first page  -->
-            {% if paginator.page == 1 %}
-                <div class="card mb-4 border rounded text-body-emphasis shadow-sm bg-body-secondary">
-                    <img class="card-img-top cropped-img" src="{{featured_post.featured_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="col-lg-11 px-4">
-                            <strong class="d-inline-block mb-2 text-primary-emphasis">{{ featured_post.categories }}</strong>
-                            <h1 class="display-4 fst-italic">{{ featured_post.title }}</h1>
-                            <div class="mb-1 text-body-secondary">{{ featured_post.date | date: "%b %d" }}</div>
-                            <p class="lead my-3">{{ featured_post.excerpt | strip_html | truncatewords: 100 }}</p>
-                            <a href="{{  featured_post.url }}" class="stretched-link"></a>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-
-            {% for post in paginator.posts %}
-                {% if post != featured_post %}
-                    <div class="row mb-2">
-                        <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post.categories }}</strong>
-                                <h3 class="mb-0">{{ post.title }}</h3>
-                                <div class="mb-1 text-body-secondary">{{ post.date | date: "%b %d" }}</div>
-                                    <p class="card-text mb-auto">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-                                    <a href="{{  post.url }}" class="stretched-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-
-        {% if paginator.total_pages > 1 %}
-
-            <nav aria-label="Paginator">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        {%- if paginator.previous_page -%}
-                            <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        {%- else -%}
-                            <a class="page-link disabled" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        {% endif %}
-                    </li>
-                    {% for page in (1..paginator.total_pages) %}
-                        {% if page == paginator.page %}
-                            <li class="page-item active"><a class="page-link" href="#">{{ page }}</a></li>
-                            
-                        {% elsif page == 1 %}
-                            <li class="page-item"><a class="page-link" href="{{ '/blog' | relative_url }}">{{ page }}</a></li>
-                        
-                        {% else %}
-                            <li class="page-item"><a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a></li>
-                        
-                        {% endif %}
-                    {% endfor %}
-
-        
-                    
-                    <li class="page-item">
-                        {% if paginator.next_page %}
-                            <a class="page-link" href="{{ paginator.next_page_path | relative_url }}" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        {% else %}
-                            <a class="page-link disabled" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        {% endif %}
-                    </li>
-                    </ul>
-            </nav>
-
-        {% endif %}
-        </div>
+      {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+      {% else %}
+          <span>Next &raquo;</span>
+      {% endif %}
     </div>
-</main>
-
+{% endif %}
