@@ -13,7 +13,6 @@ breadcrumbs:
       url: /events/opensearchcon/2024/europe/index.html
 conference_id: 2024-europe
 permalink: /events/opensearchcon/2024/europe/index.html
-redirect_from: /events/opensearchcon/2024/index.html
 #has_hero: false
 hero_images:
   mobile:
