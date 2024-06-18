@@ -24,16 +24,11 @@ hero_images:
 conference_sections_button_stack:
   - label: CFP
     url: /events/opensearchcon/2024/india/cfp.html
-  - label: Exhibitors (TBD)
-#    url: /events/opensearchcon/2024/india/exhibitors/index.html
-  - label: Speakers (TBD)
-#    url: /events/opensearchcon/2024/india/speakers/index.html
-  - label: Sessions (TBD)
-#    url: /events/opensearchcon/2024/india/sessions/index.html
-#  - label: Unconference
-#    url: /events/opensearchcon/2024/india/unconference/index.html
-  - label: Workshops (TBD)
-#    url: /events/opensearchcon/2024/india/workshops/index.html
+  - label: Sessions
+    url: /events/opensearchcon/2024/india/sessions/index.html
+redirect_from: /events/opensearchcon/2024/index.html
+
+
 #related_articles:
 #  - title: Using Fluent Bit and OpenSearch with Bottlerocket and Kubelet logs
 #    url: /blog/bottlerocket-k8s-fluent-bit/
@@ -64,15 +59,6 @@ The OpenSearch community continues to expand, always welcoming new individuals, 
 
 Registration is now closed.
 
-<!--- Join us on June 26th 2024 at Ritz Carlton in Bengaluru for OpenSearchCon India 2024. You can reserve your seat here:
-<div class="redesign-button-pair--wrapper">
-            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
-                <a href="https://airtable.com/embed/apppC3Z0EqIapqw70/pag1De4o7iN1QL30U/form" class="redesign-button--anchor">
-                    Register Now!
-                </a>
-            </div>
-</div>
---->
 As always, what makes OpenSearchCon a success are the compelling stories and educational insights shared by our community. The Call for Presentations (CfP) for OpenSearchCon India is now closed.
 
 ## What is OpenSearchCon?
