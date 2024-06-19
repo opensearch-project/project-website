@@ -32,19 +32,13 @@ notice: true
 
     .cropped-img {
         width: 100%;
-        height: 500px;
+        /* height: 500px; */
         object-fit: cover;
         object-position: center;
 
     }
-    .card:hover {
-        transform: translate3d(0px, -2px, 0px) scale(1.015);  
-        transition: transform 0.3s ease; /* Animation */
-      
-    }
-    .full-width-layout--header {
-        padding: 0px 0px;
-    }
+
+
 </style>
 {%- include head-blog.html -%}
 
@@ -63,21 +57,26 @@ notice: true
         <div class="pt-4"
             <!-- FEATURED CONTENT: only shown on the first page  -->
             {% if paginator.page == 1 %}
-                {% assign post_category_string = "" %}
-                {% for category in post.categories %}
-                    {% assign post_category_string = post_category_string | append: category %}
+                {% assign post_metadata_string = "" %}
+                <!-- Date -->
+                {% assign post_metadata_string = post_metadata_string | append: featured_post.date | date: "%b %d" %}
+
+                {% assign post_metadata_string = post_metadata_string | append: " &bull; " %}
+                <!-- Categories -->
+                {% for category in featured_post.categories %}
+                    {% assign post_metadata_string = post_metadata_string | append: category %}
                     {% if forloop.length > 1 and forloop.last != true %}
-                        {% assign post_category_string = post_category_string | append: ", " %}
+                        {% assign post_metadata_string = post_metadata_string | append: ", " %}
                     {% endif %}
                 {% endfor %}
-                <div class="card mb-4 border rounded text-body-emphasis shadow-sm bg-body-secondary">
+                <div class="card mb-4 border shadow-sm rounded text-body-emphasis bg-body-secondary">
                     <img class="card-img-top cropped-img" src="{{featured_post.featured_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap">
                     <div class="card-body">
-                        <div class="col-lg-11 px-4">
-                            <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post_category_string }}</strong>
-                            <h1 class="display-6 fst-italic">{{ featured_post.title }}</h1>
-                            <div class="mb-1 text-body-secondary">{{ featured_post.date | date: "%b %d" }}</div>
-                            <p class="lead my-3">{{ featured_post.excerpt | strip_html | truncatewords: 100 }}</p>
+                        <div class="p-4">
+                            <h1 class=" display-6 ">{{ featured_post.title }}</h1>
+                            <hr>
+                            <div class="mb-1 text-body-secondary">{{ post_metadata_string }}</div>
+                            <p class="card-text mb-auto">{{ featured_post.excerpt | strip_html | truncatewords: 50 }}</p>
                             <a href="{{  featured_post.url }}" class="stretched-link"></a>
                         </div>
                     </div>
@@ -87,19 +86,24 @@ notice: true
             <!-- normal posts: the single "featured_post" is not shown here, but previous featured posts will be shown. -->
             {% for post in paginator.posts %}
                 {% if post != featured_post %}
-                    {% assign post_category_string = "" %}
+                    {% assign post_metadata_string = "" %}
+                    <!-- Date -->
+                    {% assign post_metadata_string = post_metadata_string | append: post.date | date: "%b %d" %}
+
+                    {% assign post_metadata_string = post_metadata_string | append: " &bull; " %}
+                    <!-- Categories -->
                     {% for category in post.categories %}
-                        {% assign post_category_string = post_category_string | append: category %}
+                        {% assign post_metadata_string = post_metadata_string | append: category %}
                         {% if forloop.length > 1 and forloop.last != true %}
-                            {% assign post_category_string = post_category_string | append: ", " %}
+                            {% assign post_metadata_string = post_metadata_string | append: ", " %}
                         {% endif %}
                     {% endfor %}
-                    <div class="row mb-2">
-                        <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="row m-2">
+                        <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 mx-6 shadow-sm h-md-250 position-relative">
                             <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post_category_string }}</strong>
+                                <!-- <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post_category_string }}</strong> -->
                                 <h3 class="mb-0">{{ post.title }}</h3>
-                                <div class="mb-1 text-body-secondary">{{ post.date | date: "%b %d" }}</div>
+                                <div class="mb-1 text-body-secondary">{{ post_metadata_string }}</div>
                                     <p class="card-text mb-auto">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
                                     <a href="{{  post.url }}" class="stretched-link"></a>
                             </div>
