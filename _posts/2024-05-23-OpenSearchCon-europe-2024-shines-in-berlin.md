@@ -10,6 +10,7 @@ categories:
 meta_keyword: OopenSearchCon europe, opensearchcon eu, opensearch conference, opensearch event europe, opensearch usergroup europe, opensearch germany, berlin
 meta_description: On May 6th and 7th 2024 the OpenSearch community gathered at Cafe Moskau in the city of Berlin to interact with and learn from one another at the first OpenSearchCon Europe.
 OpenSearchConEurope2024Keynote: xtoSOXrlkFY
+featured_image: "/assets/media/blog-images/2024-05-23-OpenSearchCon-europe-2024-shines-in-berlin/2024-05-OSCEU-keynote.jpg"
 ---  
 
 For the past two years, we were lucky enough to hold OpenSearchCon in Seattle. Every year has brought new topics to be discussed among the community, new speakers who share interesting projects they’ve been working on, and new areas of growth for the project and the community. But one question kept coming up: When is OpenSearchCon coming to Europe? On May 6th and 7th, we had the opportunity to do just that, as we held the first [OpenSearchCon Europe](https://opensearch.org/events/opensearchcon/2024/europe/index.html) in the wonderful city of Berlin.
