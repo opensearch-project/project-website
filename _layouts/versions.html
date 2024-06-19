@@ -27,6 +27,7 @@ pretty:
     macos: macOS
     java: "Java"
     docker: Docker
+    posix-platforms: "POSIX Platforms"
   extensions:
     targz: ".tar.gz"
     exe: "Installer (exe)"
@@ -37,6 +38,7 @@ pretty:
     docker_hub: 'Dockerfile'
     system-package: "System package"
   architectures:
+    all-architectures: "All Architectures"
     arm64: "ARM64"
     x64: "x64"
     x86: "x86"
@@ -45,18 +47,21 @@ pretty:
     opensearch: OpenSearch
     opensearch-dashboards: OpenSearch Dashboards
     command-line-tools: 'Command Line Tools'
+    migrations: 'Migration and Comparison Tools'
     data-ingest: 'Ingest Tools'
     docker-compose: 'Try OpenSearch with Docker Compose'
     minimal: 'Minimal Distributions'
     drivers: "Drivers"
 
 architecture_order: 
+  - all-architectures
   - x64
   - arm64
   - x86
   - jvm
 
 platform_order:
+  - posix-platforms
   - linux
   - docker
   - freebsd
