@@ -5,12 +5,16 @@ authors:
   - zhichaog
   - yych
   - dylantong
-date: 2024-06-11 01:00:00 -0700
+date: 2024-06-11
 categories:
     - technical-posts
 has_math: true
 meta_keywords: OpenSearch semantic search, neural sparse search, semantic sparse retrieval
 meta_description: Deep dive into the fundamentals of neural sparse search and explore two methods for accelerating semantic sparse retrieval in OpenSearch.
+
+excerpt: Deep dive into the fundamentals of neural sparse search and explore two methods for accelerating semantic sparse retrieval in OpenSearch.
+featured_blog_post: true 
+featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
 
 In our last [blog post](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/), we introduced neural sparse search, a new efficient method of semantic retrieval made generally available in [OpenSearch 2.11](https://opensearch.org/versions/opensearch-2-11-0.html). We released two sparse encoding models on OpenSearch [model hub](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models) and Hugging Face [model hub](https://huggingface.co/opensearch-project). Both models excel at producing relevant information compared to other sparse encoding models with the same architecture. Sparse search uses a Lucene inverted index to achieve high-quality semantic search with low resource overhead.

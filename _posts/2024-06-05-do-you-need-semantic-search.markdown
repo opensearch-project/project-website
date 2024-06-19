@@ -1,14 +1,18 @@
 ---
 layout: post
-title:  "Do you need semantic search?"
+title:  Do you need semantic search?
 authors:
   - dtaivpp
-date:   2024-06-05 11:45 -0700
+date:   2024-06-05
 categories:
   - technical-posts
 meta_keywords: opensearch hybrid search, opensearch semantic search, vector search
 meta_description: You might be asking yourself do you really need semantic search? I've been asked this question dozens of times so lets dive in and see what semantic search is and why you might want to use it. 
 SemanticSearch: lpQiJGpeeWU
+
+excerpt: You might be asking yourself do you really need semantic search? I've been asked this question dozens of times so lets dive in and see what semantic search is and why you might want to use it. 
+featured_blog_post: false
+featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
 
 I get asked this question all the time: Do I need semantic search? It's a good question, but it's not the right question to start with. You need to first understand what semantic search can do for you. Then you can dive into whether or not it's a good fit for your use case.

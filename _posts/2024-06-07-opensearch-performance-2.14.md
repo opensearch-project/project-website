@@ -1,18 +1,23 @@
 ---
 layout: post
 title: "OpenSearch Project update: A look at performance progress through version 2.14"
+layout: post
 authors:
-  - sisurab
-  - pallp
-  - macrakis
-  - ihoang
+    - sisurab
+    - pallp
+    - macrakis
+    - ihoang
 date: 2024-06-07
 categories:
-    - technical-posts
-    - community
+        - technical-posts
+        - community
 meta_keywords: OpenSearch performance progress 2.14, OpenSearch roadmap
 meta_description: Learn more about the strategic enhancements and performance features that OpenSearch has delivered up to version 2.14.
 has_science_table: true
+
+excerpt: Learn more about the strategic enhancements and performance features that OpenSearch has delivered up to version 2.14.
+featured_blog_post: false
+featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
 
 OpenSearch covers a broad range of functionality for applications involving document search, e-commerce search, log analytics, observability, and data analytics. All of these applications depend on a full-featured, scalable, reliable, and high-performance foundation. In the latest OpenSearch versions, we've added new features such as enhanced artificial intelligence and machine learning (AI/ML) semantic/vector search capabilities, neural search, hybrid search, flat objects, and zero-ETL integrations. As we continue to add new features, we are also improving scalability, reliability, and performance both for existing and for new features. These improvements allow us to support ever-growing data collections with high throughput, low latency, lower resource consumption, and, thus, lower costs. This blog post focuses on performance improvements in OpenSearch 2.12, 2.13, and 2.14. These fall into four broad categories: text querying, vector storage and querying, ingestion and indexing, and storage efficiency.
