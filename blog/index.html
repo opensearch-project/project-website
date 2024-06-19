@@ -49,7 +49,7 @@ notice: true
 {%- include head-blog.html -%}
 
 {% assign paginator = paginator %}
-{% assign featured_post = site.posts | where: "featured", true | first %}
+{% assign featured_post = site.posts | where: "featured_blog_post", true | first %}
  
 
 <main class="container">

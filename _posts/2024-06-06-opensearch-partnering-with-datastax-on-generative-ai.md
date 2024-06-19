@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Announcing an OpenSearch and DataStax generative AI partnership"
+title:  Announcing an OpenSearch and DataStax generative AI partnership
 authors:
   - zznate 
 date: 2024-06-13
@@ -9,9 +9,12 @@ categories:
   - partners
 meta_keywords: Generative AI, retrieval augmented generation , DataStax HCDP, OpenSearch integrations
 meta_description: Learn about the collaboration between open source startup DataStax and the OpenSearch Project on integration efforts to support Generative AI developers.
-excerpt: 
 has_math: false
 has_science_table: false
+
+excerpt: Learn about the collaboration between open source startup DataStax and the OpenSearch Project on integration efforts to support Generative AI developers. 
+featured_blog_post: false
+featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
 
 DataStax and the OpenSearch Project are announcing a series of integration efforts to support generative AI developers. Retrieval-augmented generation (RAG) is a key design pattern in generative AI. RAG applications work by assembling context from a variety of sources, which is then processed by a large language model (LLM) to provide an intelligent and relevant response. Serving these applications requires a mix of data retrieval and storage capabilities, and we, OpenSearch and DataStax, are committed to working together to serve the broad needs of generative AI developers.   
