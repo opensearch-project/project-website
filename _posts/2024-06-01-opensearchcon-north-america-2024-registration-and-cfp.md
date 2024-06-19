@@ -1,15 +1,18 @@
 ---
 layout: post
-title:  "Announcing OpenSearchCon North America 2024"
+title:  Announcing OpenSearchCon North America 2024
 authors:
   - daryllswager
-date:   2024-05-31 0:00:10 -0700
+date:   2024-05-31
 categories:
   - community
-excerpt: The OpenSearch Project invites the OpenSearch community to explore the future of search, analytics, and generative AI at the first OpenSearch user conference in Europe. Join us in Berlin on May 6 & 7 and learn how to build powerful applications and get the most out of your OpenSearch deployments.
+
 meta_keywords: opensearchcon north america, opensearchcon na, opesearchcon call for papers, register for opensearchcon, opensearch community
 meta_description: Join the OpenSearch Project in San Francisco for it’s third annual OpenSearchCon North America 2024 taking place September 24-26 at the Hilton Union Square. Register today.
-feature_image: /assets/media/opensearchcon/2024/OSC2024_NASF_Social-Graphic1_1200x627.png
+
+excerpt: The OpenSearch Project invites the OpenSearch community to explore the future of search, analytics, and generative AI at the first OpenSearch user conference in Europe. Join us in Berlin on May 6 & 7 and learn how to build powerful applications and get the most out of your OpenSearch deployments. 
+featured_blog_post: false
+featured_image: /assets/media/opensearchcon/2024/OSC2024_NASF_Social-Graphic1_1200x627.png
 ---
 <div style="width: 100%" style="display: block;">
 <div class="redesign-button-pair--wrapper" style="display: inline; float: left;">
