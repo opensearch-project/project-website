@@ -3,6 +3,7 @@
 ---
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {%- include head.html -%}
 
   {% if page.layout == 'post' %}
     {% assign page_type_class = 'page--blog-post' %}
@@ -10,8 +11,6 @@
     {% assign page_type_class = '' %}
   {% endif %}
 
-  {%- include head.html -%}
-  
   <body id="{{ page.sectionid }}" class="{{ page.body_class }} {{ page_type_class }}">
     {%- include header.html -%}
     
