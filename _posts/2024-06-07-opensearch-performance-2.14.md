@@ -1,6 +1,24 @@
 ---
 layout: post
 title: "OpenSearch Project update: A look at performance progress through version 2.14"
+layout: post
+authors:
+    - sisurab
+    - pallp
+    - macrakis
+    - ihoang
+date: 2024-06-07
+categories:
+        - technical-posts
+        - community
+meta_keywords: OpenSearch performance progress 2.14, OpenSearch roadmap
+meta_description: Learn more about the strategic enhancements and performance features that OpenSearch has delivered up to version 2.14.
+has_science_table: true
+
+excerpt: Learn more about the strategic enhancements and performance features that OpenSearch has delivered up to version 2.14.
+featured_blog_post: false
+featured_image: false # /assets/media/blog-images/__example__image__name.jpg
+layout: post
 authors:
   - sisurab
   - pallp
