@@ -1,26 +1,29 @@
 ---
 layout: post
- title: So you want better OpenSearch documentation?
- authors:
+title: So you want better OpenSearch documentation?
+authors:
   - epugh
   - chull
   - hdhalter
- date: 2024-06-18
- categories:
+date: 2024-06-18
+categories:
   - events
- meta_keywords: OpenSearch documentation, diataxis documentation structure, Divio quadrants
- meta_description: Learn how the OpenSearch Project uses the Diataxis documentation system to identify gaps while working with its community to encourage contributions and improve its content.
+featured: true
+meta_keywords: OpenSearch documentation, diataxis documentation structure, Divio quadrants
+meta_description: Learn how the OpenSearch Project uses the Diataxis documentation system to identify gaps while working with its community to encourage contributions and improve its content.
 ---
 
 [Charlie Hull](https://opensourceconnections.com/team/charlie-hull/) and I, [Eric Pugh](https://opensourceconnections.com/team/eric-pugh/), from [OpenSource Connections](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://opensourceconnections.com/&ved=2ahUKEwiqxrXG37WGAxUtM1kFHY5XDKgQFnoECAcQAQ&usg=AOvVaw0jRbdTI-7Nyxctwov1hOEu), had the opportunity during the "Unconference" portion of [OpenSearchCon Europe 2024](https://opensearch.org/events/opensearchcon/2024/europe/index.html) to talk about the current state of the OpenSearch documentation and get some feedback from the community. I chose this topic based on conversations I had with [Heather Halter](https://www.linkedin.com/in/heather-halter/), OpenSearch Documentation Manager, last fall at OpenSearchCon 2023 in Seattle.
 
-![lightning talk](../assets/media/blog-images/2024-06-03-improvedocs/2024-06-03-improvedocs.jpg)(https://www.youtube.com/watch?v=eRLmIzevC-4)
+![lightning talk](/assets/media/blog-images/2024-06-03-improvedocs/2024-06-03-improvedocs.jpg)
+
+{% include youtube-player.html id="eRLmIzevC-4" %}
 
 We started with the slightly tongue-in-cheek statement that the way you search Reddit is to go to Google and search "How do I (insert any task here) +Reddit" to get the information you want. The pattern that lots of folks use to find information about OpenSearch (unsurprisingly, as OpenSearch started as a fork of Elasticsearch) is to go to Google and search "How do I (insert any task here) +Elasticsearch." That statement was met with a few nodding heads and light chuckling.  
 
 We then introduced [The Documentation System](https://docs.divio.com/documentation-system/), which is referred to as *The Grand Unified Theory of Documentation*. You may know it as [Diátaxis](https://diataxis.fr/) (I am unclear about the relationship between the two sites!). Here's a [video](https://www.youtube.com/watch?v=t4vKPhjcMZg) explaining the concept, which divides documentation into four quadrants: Tutorials, How-To Guides, Explanation, and Reference. 
 
-![Divio quadrants](../assets/media/blog-images/2024-06-03-improvedocs/2024-06-03-quadrant.jpg)
+![Divio quadrants](/assets/media/blog-images/2024-06-03-improvedocs/2024-06-03-quadrant.jpg)
 
 OpenSearch actually does a pretty good job of the _Reference_ portion of the puzzle, especially considering that there are new releases every 6 weeks. I started contributing documentation late last year and recently joined the [opensearch-project/documentation-website](https://github.com/opensearch-project/documentation-website) repository as a maintainer. I see a constant flow of both new docs and the improvement of existing docs. Considering the ratio of writers to developers and where the project was not too long ago, I think we're doing a really good job of keeping up with both. 
 
@@ -42,7 +45,7 @@ _We love community contributions and have made it really easy to start. Check ou
 
 **Backwards compatibility in APIs came up as an issue. It would be interesting if we could better communicate API changes over time.** 
 
-_We use the "Introduced (version)" label to indicate the release in which a feature is introduced. But going backwards to identify everything is a big job. We received a suggestion to do this for field types, so I labeled it with "*[*_good first issue_*](https://github.com/opensearch-project/documentation-website/issues/6993)*" in case someone wants to jump in._
+_We use the "Introduced (version)" label to indicate the release in which a feature is introduced. But going backwards to identify everything is a big job. We received a suggestion to do this for field types, so I labeled it with "[good first issue](https://github.com/opensearch-project/documentation-website/issues/6993)" in case someone wants to jump in._
 
 **Someone did make the comment that they do NOT believe that developers don't like to write docs, especially in open source, but that we need to strive to continue to lower the barriers to contributing docs.** 
 
