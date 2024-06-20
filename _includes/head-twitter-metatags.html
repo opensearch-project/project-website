@@ -66,11 +66,11 @@
     <meta name="twitter:title" content="{{ twitter_card_title }}" />
     <meta name="twitter:card" content="{{ twitter_card_type }}" />
     <meta name="twitter:description" content="{{ meta_description  | xml_escape }}" />
-    <meta name="twitter:image" content="{{ twitter_card_image }}" /> 
+    <meta name="twitter:image" content="{{ twitter_card_image | absolute_url }}" />
     <meta name="twitter:site" content="{{ OpenSearch_twitter_account }}" />
 
     <!-- OG: OPENGRAPH SHARING -->
-    <meta property="og:image" content="{{ twitter_card_image }}" />
+    <meta property="og:image" content="{{ twitter_card_image | absolute_url }}" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:height" content="1200" />
     <meta property="og:image:width" content="675" />
