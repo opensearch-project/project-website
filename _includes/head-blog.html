@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="ROBOTS" content="ALL" />
     <meta name="MSSmartTagsPreventParsing" content="true" />
-    <meta name="Copyright" content="" />
+
 
     <meta name="keywords" content="
 		{% if page.meta_keywords %} 
@@ -18,10 +18,10 @@
 
     {% if page.meta_description %}<meta name="description" content="{{ page.meta_description }}" />{%endif%}
     
-    {% assign pagetitle = page.title | strip_newlines %}
+    {% assign pagetitle = page.title  | default = "OpenSearch" | strip_newlines %}
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title }}{% else %}OpenSearch{% endif %}" />
+    <meta name="twitter:title" content="{{ page.title }}" />
     {% if page.twittercard.account %}
     <meta name="twitter:site" content="{{ page.twittercard.account }}" />
     {% elsif page.authors %}
