@@ -35,6 +35,9 @@ components:
   - role: drivers
     artifact: opensearch-sql-jdbc
     version: 1.1.0.1
+  - role: sql-command-line
+    artifact: opensearch-sql-cli  
+    version: 1.0.0
 sections:
   docker-compose:
     explanation: "downloads/opensearch-docker.markdown"
@@ -77,6 +80,11 @@ sections:
         explanation: "downloads/opensearch-daemon-min.markdown"
       opensearch-dashboards-min:
         explanation: "downloads/opensearch-ui-min.markdown"
+  sql-command-line:
+    role: sql-command-line
+    artifacts:
+      opensearch-sql-cli:
+        explanation: "downloads/opensearch-sql-cli.html"
 pretty:
   artifacts:
     opensearch: ''
