@@ -1,0 +1,25 @@
+categories:
+- name: default-category
+  image:          /assets/media/blog-category-images/OpenSearch_WebGraphic_Generic-01.png
+  secondary:      /assets/media/blog-category-images/OpenSearch_WebGraphic_Generic-02.png
+- name: technical-posts
+  image:          /assets/media/blog-category-images/OpenSearch_WebGraphic_Technical-01.png
+  secondary:      /assets/media/blog-category-images/OpenSearch_WebGraphic_Technical-02.png
+- name: community
+  image:          /assets/media/blog-category-images/OpenSearch_WebGraphic_Community-01.png
+  secondary:      /assets/media/blog-category-images/OpenSearch_WebGraphic_Community-02.png
+- name: releases
+  image:          /assets/media/blog-category-images/OpenSearch_WebGraphic_Release-01.png
+  secondary:      /assets/media/blog-category-images/OpenSearch_WebGraphic_Release-02.png
+- name: partners
+  image: ""
+- name: feature
+  image: ""
+- name: intro
+  image: ""
+- name: community-updates
+  image: ""
+- name: events
+  image: ""
+- name: odfe-updates
+  image: ""
