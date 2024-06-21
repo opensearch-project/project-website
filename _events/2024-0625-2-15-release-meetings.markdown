@@ -1,10 +1,10 @@
 ---
-calendar_date: '2024-06-21'
-eventdate: 2024-06-21 08:00:00 -0700
+calendar_date: '2024-06-24'
+eventdate: 2024-06-24 08:30:00 -0700
 title: OpenSearch 2.15.0 Release Meetings
 online: true
 signup:
-  url: https://chime.aws/6952079465
+  url: https://chime.aws/1955930667
   title: Join on Chime
 category: development
 ---
@@ -25,13 +25,17 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 * Go / No-Go voting
 
+**June 24st 2024 - 8:30AM PDT**
+
+* Go / No-Go voting
+
 **[Placeholder] June 25th 2024 - 2:00PM PDT**
 
 * [Release / Post release](https://github.com/opensearch-project/opensearch-build/wiki/Releasing-the-Distribution#release) (Release day!) [Release manager, leadership team, Repository owners ]
 
 * Last possible date 06/25/2024 per the [Releases schedule](https://opensearch.org/releases.html).
 
-**[Placeholder] June Pending 2024 - 8AM PDT**
+**[Placeholder] June Pending 2024 - 8:30AM PDT**
 
 * [Retrospective](https://github.com/opensearch-project/opensearch-build/issues/4786) - Let's do a retro on the 2.15.0 release as a community.
 
@@ -39,9 +43,9 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 **Join Meeting**
 
-**Click to join the meeting: <https://chime.aws/6952079465>**
+**Click to join the meeting: <https://chime.aws/1955930667>**
 
-**Meeting ID: 6952079465** 
+**Meeting ID: 1955930667** 
 
 A headset is recommended or you may use your computer’s microphone and speakers.
 
