@@ -53,7 +53,6 @@ Starting in OpenSearch 2.14, you can perform radial search with either the Lucen
 |Engine	|Filter supported	|Nested field supported	|Search type	|
 |---	|---	|---	|---	|
 |Lucene	|Yes	|No	|Approximate	|
-|---	|---	|---	|---	|
 |Faiss	|Yes	|Yes	|Approximate	|
 
 ## Spaces
@@ -345,7 +344,6 @@ The following table presents the benchmarking results.
 |Query threshold	|Engine type	|Query type	|Search: 50th percentile service time (ms)	|Search: 90th percentile service time (ms)	|Search: 99th percentile service time (ms)	|Recall	|
 |---	|---	|---	|---	|---	|---	|---	|
 |min score threshold1	|Faiss	|min_score	|6.24	|7.33	|11.11	|0.99	|
-|---	|---	|---	|---	|---	|---	|---	|
 |min score threshold2	|Faiss	|min_score	|7.76	|13.58	|26.83	|0.98	|
 |min score threshold3	|Faiss	|min_score	|6.89	|12.13	|25.59	|0.98	|
 |min score threshold1	|Lucene	|min_score	|4.42	|17.01	|50.14	|0.85	|
