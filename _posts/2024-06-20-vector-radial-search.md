@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Understanding Vector Radial Search in OpenSearch
+title:  Understanding vector radial search in OpenSearch
 authors:
   - junqiu
   - vamshin
@@ -15,11 +15,11 @@ featured_blog_post: true
 featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
 
-Before OpenSearch version 2.14, the OpenSearch k-NN plugin only provided top-k queries for approximate vector similarity search. OpenSearch 2.14 introduced a new type of vector search---_radial search_. Radial search is now supported in both [k-NN search]((https://opensearch.org/docs/latest/search-plugins/knn/radial-search-knn/)) and [neural search](https://opensearch.org/docs/latest/query-dsl/specialized/neural/) also support radial search.
+Before OpenSearch version 2.14, the OpenSearch k-NN plugin only provided top-k queries for approximate vector similarity search. OpenSearch 2.14 introduced a new type of vector search---_radial search_. Radial search is now supported in both [k-NN search]((https://opensearch.org/docs/latest/search-plugins/knn/radial-search-knn/)) and [neural search](https://opensearch.org/docs/latest/query-dsl/specialized/neural/).
 
 Radial search enhances the capabilities of the OpenSearch k-NN plugin beyond approximate top-k searches. With radial search, you can search for all points in a vector space that are within a specified maximum distance or minimum score threshold from a query point. This provides increased flexibility and utility in search operations. 
 
-For instance, if you want to search for documents most similar to a given document, you can run a query to retrieve the top K most similar documents (where K = top N). However, if K is not chosen optimally, you might receive irrelevant results or miss relevant ones. With vector radial search, you can run a query to retrieve all highly similar documents by using a threshold (e.g., similarity score > 0.95).
+For instance, if you want to search for documents most similar to a given document, you can run a query to retrieve the top K most similar documents (where K = top N). However, if K is not chosen optimally, you might receive irrelevant results or miss relevant ones. With vector radial search, you can run a query to retrieve all highly similar documents by using a threshold (for example, similarity score > 0.95).
 
 ## Defining the search radius
 
@@ -33,7 +33,7 @@ You can define the search radius in the following ways:
 
 - **Minimum score**: Define a similarity score threshold, retrieving all points that meet or exceed that score in relation to your query point. This is useful when relative similarity, based on a specific metric, is more critical than physical proximity. 
    
-    The following image shows a example of radial search with `min_score`= 0.90. The number within each circle represents the point's OpenSearch score relative to the query target. All points whose score is 0.90 or above are included in the results.
+    The following image shows an example of radial search with `min_score`= 0.90. The number within each circle represents the point's OpenSearch score relative to the query target. All points whose score is 0.90 or above are included in the results.
 
     <img src="/assets/media/blog-images/2024-06-20-vector-radial-search/radial-search-with-min-score.png" alt="Radial search with min score" class="center"/>{:style="width: 100%; max-width: 800px; height: auto; text-align: center"}
 
@@ -43,12 +43,12 @@ Use radial search instead of top-k vector search in the following scenarios:
 
 * **Proximity-based filtering**: When you need to find all items within a specific distance from a query point. Unlike traditional k-NN searches that return a fixed number of top results,
 radial search allows you to find all items that fall within a specified distance threshold.
-* **Threshold-specific queries**: When you need to make sure only items that meet your criteria are included in the results. Radial search lets you define specific similarity or distance thresholds, which is essential for tasks like anomaly detection and geospatial searches.
+* **Threshold-specific queries**: When you need to make sure that only items that meet your criteria are included in the results. Radial search lets you define specific similarity or distance thresholds, which is essential for tasks like anomaly detection and geospatial searches.
 * **Dynamic range adjustments:** When the acceptable similarity or distance range can vary. Radial search offers more flexible search results.
 
 ## Supported configurations
 
-Starting with OpenSearch 2.14, you can perform radial search with either the Lucene or Faiss engines in OpenSearch k-NN plugin. The following table summarizes radial search use cases by engine.
+Starting in OpenSearch 2.14, you can perform radial search with either the Lucene or Faiss engines using the OpenSearch k-NN plugin. The following table summarizes radial search use cases by engine.
 
 |Engine	|Filter supported	|Nested field supported	|Search type	|
 |---	|---	|---	|---	|
@@ -113,7 +113,7 @@ PUT _bulk?refresh=true
 {"my_vector": [5.7, 7.9], "price": 16.5}
 ```
 
-### Radial search with max distance and a filter
+### Radial search with a max distance and a filter
 
 The following example shows a radial search with a `max_distance` and a filter:
 
@@ -174,7 +174,7 @@ All documents that fall within the squared Euclidean distance (L2<sup>2</sup>) o
 }
 ```
 
-### Radial search with min score and a filter
+### Radial search with a min score and a filter
 
 The following example shows a radial search with a `min_score` and a response filter:
 
@@ -266,7 +266,7 @@ GET /my-nlp-index/_search
 }
 ```
 
-The following example shows a k-NN radial search with `min_score` of `0.95` and the same filter as the preceding query:
+The following example shows a k-NN radial search with a `min_score` of `0.95` and the same filter as the preceding query:
 
 ```json
 GET /my-nlp-index/_search
@@ -306,7 +306,7 @@ GET /my-nlp-index/_search
 
 We ran radial search benchmarks using the following cluster configuration.
 
-|OpenSearch version	|Leader nodes	|Leader node type	|Leader node disk space	|Data nodes	|Data node type	|Data node disk space	|Primary shard count	|Replica count	|Availability zone	|Test client type	|
+|OpenSearch version	|Leader nodes	|Leader node type	|Leader node disk space	|Data nodes	|Data node type	|Data node disk space	|Primary shard count	|Replica count	|Availability Zone	|Test client type	|
 |---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|
 |2.14	|3	|c6g.xlarge	|50 GB	|3	|r6g.2xlarge	|100 GB	|3	|1	|us-east-1	|m5.2xlarge	|
 
@@ -320,11 +320,11 @@ We used the following dataset for benchmarking.
 
 |Name	|Dimension	|Doc size	|Query size	|Space type	|
 |---	|---	|---	|---	|---	|
-|cohere-wikipedia-22-12-en-embeddings	|768	|1M	|10k	|inner product	|
+|cohere-wikipedia-22-12-en-embeddings	|768	|1M	|10k	|Inner product	|
 
-The dataset was updated to include the top-k threshold values and true neighbors for radial threshold. In our benchmarks, top-k refers to the number of nearest neighbors considered when setting the minimum score and maximum distance thresholds for radial search. For instance, a top-k 100 setting means we used the 100th closest document to a query point to determine these thresholds. The following table summarizes the threshold configuration.
+The dataset was updated to include the top-k threshold values and true neighbors for the radial threshold. In our benchmarks, top-k refers to the number of nearest neighbors considered when setting the minimum score and maximum distance thresholds for radial search. For instance, a top-k 100 setting means that we used the 100th closest document to a query point to determine these thresholds. The following table summarizes the threshold configuration.
 
-|Threshold name	|Min score threshold	|Median num of true neighbors	|Average num of true neighbors	|Num of query targets having 0 neighbors	|
+|Threshold name	|Min score threshold	|Median num of true neighbors	|Average num of true neighbors	|Num of query targets with 0 neighbors	|
 |---	|---	|---	|---	|---	|
 |threshold1	|161	|118	|83.1888	|4048	|
 |threshold2	|156	|1186	|421.8486	|1661	|
@@ -332,7 +332,7 @@ The dataset was updated to include the top-k threshold values and true neighbors
 
 ### Algorithm
 
-The algorithm used was specified as follows.
+The algorithm used was configured as follows.
 
 |Algorithm name	|ef construction	|ef search	|hnsw m	|
 |---	|---	|---	|---	|
@@ -355,6 +355,6 @@ The following table presents the benchmarking results.
 
 ## Summary
 
-OpenSearch 2.14 introduced vector radial search, significantly expanding the capabilities of the k-NN plugin. This powerful feature allows searches based on distance or score thresholds, offering greater flexibility for various applications. Supported by both Lucene and Faiss engines, radial search caters to diverse use cases. 
+OpenSearch 2.14 introduced vector radial search, significantly expanding the capabilities of the k-NN plugin. This powerful feature allows searches based on distance or score thresholds, offering greater flexibility for various applications. Supported by both the Lucene and Faiss engines, radial search caters to diverse use cases. 
 
 Try the examples in this blog post to improve your searches and boost performance using vector radial search. For more information about vector radial search, see the [Radial search documentation](https://opensearch.org/docs/latest/search-plugins/knn/radial-search-knn/).
