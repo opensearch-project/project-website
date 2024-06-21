@@ -21,4 +21,4 @@ permalink: '/community/members/junqiu-lei.html'
 redirect_from: '/authors/junqiu/'
 ---
 
-**Junqiu Lei** is a software development engineer at Amazon Web Services working on vector search(k-NN) and maps visualization in OpenSearch project.
+**Junqiu Lei** is a software development engineer at Amazon Web Services working on vector search (k-NN) and map visualizations for the OpenSearch Project.
