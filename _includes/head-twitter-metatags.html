@@ -18,41 +18,37 @@
     {% assign twitter_card_type = "summary_large_image" %}
     {% assign twitter_card_title = page.title  | default: "OpenSearch"%}
     {% assign OpenSearch_twitter_account = "@OpenSearchProj" %}
+    {% assign category = "" %}
 
 
     <!-- LOGIC to pull the correct category image onto blog posts that do not have an image  -->
     {% if page.featured_image %}
-        {% assign twitter_card_image = page.featured_image %}
+      {% assign twitter_card_image = page.featured_image %}
 
     {% else %}
-        <!-- If there is a category, pull the correct category and fetch the generic image for that category  -->
-        {% if page.categories %}
-          {% assign category = page.categories | first %}
-        {% else %}
-        <!-- If there is no category, give the page the gerneric category "default-category"  -->
-            {% assign category = "default-category" %}
-        {% endif %}
-
-        {% assign category_image = "" %}
-
-        <!-- Fetch the generic image for the pages category -->
+      <!-- If there is a category, pull the correct category and fetch the generic image for that category  -->
+      {% if page.categories %}
+        {% assign category = page.categories | first %}
+        <!-- Category validation // if invalid category, assign the default category to pull that image -->
+        {% assign valid_category = false %}
         {% for cat in site.data.post_categories.categories %}
           {% if cat.name == category %}
-            {% assign category_image = cat.image %}
+            {% assign valid_category = true %}
           {% endif %}
         {% endfor %}
 
-
-
-        <!-- does that category have an image? if yes assign the image, otherwise default to a normal summary card and no image. -->
-        {% if category_image %}
-            {% assign twitter_card_image = category_image %}
-
-        <!-- if there is no category image...  assign the default image -->
-        {% else %}
-            {% assign twitter_card_image = "/assets/img/opensearch-twitter-card.png" %}
-            
+        {% if valid_category == false %}
+          {% assign category = "default-category" %}
         {% endif %}
+
+      {% else %}
+      <!-- If there is no category, give the page the generic category "default-category"  -->
+          {% assign category = "default-category" %}
+      {% endif %}
+      
+      {% assign category_object = site.data.post_categories.categories | where: 'name', category | first %}
+      {% assign twitter_card_image = category_object.image %}
+
     
     {% endif %}
 
