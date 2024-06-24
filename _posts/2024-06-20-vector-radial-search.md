@@ -8,8 +8,8 @@ authors:
 date: 2024-06-20
 categories:
     - technical-posts
-meta_keywords: 
-meta_description: 
+meta_keywords: vector radial search, OpenSearch k-NN plugin, k-NN search, neural search
+meta_description: Discover how vector radial search enhances the capabilities of the OpenSearch k-NN plugin and increases flexibility and utility in search operations.
 has_science_table: true
 featured_blog_post: true 
 featured_image: false # /assets/media/blog-images/__example__image__name.jpg
