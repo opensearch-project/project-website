@@ -5,7 +5,7 @@ authors:
   - junqiu
   - vamshin
   - dylantong
-date: 2024-06-20
+date: 2024-06-24
 categories:
     - technical-posts
 meta_keywords: vector radial search, OpenSearch k-NN plugin, k-NN search, neural search
