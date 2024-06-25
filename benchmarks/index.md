@@ -62,7 +62,7 @@ benchmark_height_mobile: 6000
 <p> You can also view the open GitHub issues tagged to performance label <a href ="https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aopensearch-project+label%3Aperformance+">here</a>.
 </p>
 <p>
-    Follow the link to read more about <a href="https://opensearch.org/blog/opensearch-performance-2.14/">OpenSearch’s performance improvements since launch.</a>
+    To learn more about OpenSearch performance improvements through version 2.14, read <a href="https://opensearch.org/blog/opensearch-performance-2.14/">this blog post</a>.
 </p>
 
 <div class="switcher" id="navigation">
