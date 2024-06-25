@@ -25,7 +25,7 @@ Many modern applications require significant data processing at the time of inge
 
 **Accelerate hybrid search with parallel processing**
 
-This release also brings parallel processing to hybrid search for significant performance improvements. Introduced in OpenSearch 2.10, [hybrid search](https://opensearch.org/blog/hybrid-search/) combines lexical (BM25) or neural sparse search with semantic vector search to provide higher-quality results than when using either technique alone, and is a best practice for text search. OpenSearch 2.15 lowers hybrid search latency by running the two [subsearches in parallel](https://opensearch.org/docs/latest/search-plugins/neural-sparse-search/#step-5-create-and-enable-the-two-phase-processor-optional)at various stages of the process. The result is a latency reduction of up to 25%.
+This release also brings parallel processing to hybrid search for significant performance improvements. Introduced in OpenSearch 2.10, [hybrid search](https://opensearch.org/blog/hybrid-search/) combines lexical (BM25) or neural sparse search with semantic vector search to provide higher-quality results than when using either technique alone, and is a best practice for text search. OpenSearch 2.15 lowers hybrid search latency by running the two [subsearches in parallel](https://opensearch.org/docs/latest/search-plugins/neural-sparse-search/#step-5-create-and-enable-the-two-phase-processor-optional) at various stages of the process. The result is a latency reduction of up to 25%.
 
 **Advance search performance with SIMD support for exact search**
 
@@ -77,7 +77,7 @@ Previously, OpenSearch users could only create regex-based guardrails to detect 
 
 **Enable local models for ML inference processing**
 
-The [ML inference processor](https://opensearch.org/docs/latest/ingest-pipelines/processors/ml-inference/)enables users to enrich ingest pipelines using inferences from any integrated ML model. Previously, the processor only supported remote models, which connect to model provider APIs like Amazon SageMaker, OpenAI, Cohere, and Amazon Bedrock. In OpenSearch 2.15, the processor is compatible with local models, which are models hosted on the search cluster's infrastructure. 
+The [ML inference processor](https://opensearch.org/docs/latest/ingest-pipelines/processors/ml-inference/) enables users to enrich ingest pipelines using inferences from any integrated ML model. Previously, the processor only supported remote models, which connect to model provider APIs like Amazon SageMaker, OpenAI, Cohere, and Amazon Bedrock. In OpenSearch 2.15, the processor is compatible with local models, which are models hosted on the search cluster's infrastructure. 
 
 
 ### ***Ease of use***
