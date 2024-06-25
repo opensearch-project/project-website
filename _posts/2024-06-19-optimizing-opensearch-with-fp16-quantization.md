@@ -130,7 +130,6 @@ We ran the following tests on a single-node cluster without any replicas using t
 |---	|---	|---	|---	|
 |16	|100	|100	|0	|
 
-<br><br>
 |Dataset ID	|Dataset	|Dimension of vector	|Data size	|Number of queries	|Training data range	|Query data range	|Space type	|Primary shards	|Indexing clients	|
 |---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|
 |Dataset 1	|cohere-wiki-simple-embeddings-768	|768	|475,858	|10,000	|[ -4.1561704, 5.5478516 ]	|[ -4.065383, 5.4902344 ]	|L2	|4	|8	|
@@ -190,7 +189,6 @@ To compare performance metrics and memory savings, we ran tests on the large-sca
 |query clients	|1	|1	|
 |forcemerge segments	|1	|1	|
 |client instance	|r5.16xlarge	|r5.16xlarge	|
-<br><br>
 
 Config ID	|Optimization Strategy	|m	|ef_construction	|ef_search	|
 |---	|---	|---	|---	|---	|
