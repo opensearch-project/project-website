@@ -33,7 +33,7 @@ OpenSearch 2.12 introduced support for JDK21, enabling users to run OpenSearch c
 
 **Save vector search storage capacity**
 
-OpenSearch 2.15 introduces the ability to [disable document values](https://opensearch.org/docs/latest/search-plugins/knn/performance-tuning/) for the `k-nn` field when using the Lucene engine for vector search. This does not impact k-NN search functionality; for example, you can continue to perform both approximate nearest neighbor and exact search with the Lucene engine, similarly to previous versions of OpenSearch. In our tests, after disabling document values, we observed a ~16% reduction in shard size. We plan to extend this optimization to the NMSLIB and Faiss engines in future releases.
+OpenSearch 2.15 introduces the ability to disable document values for the `k-nn` field when using the Lucene engine for vector search. This does not impact k-NN search functionality; for example, you can continue to perform both approximate nearest neighbor and exact search with the Lucene engine, similarly to previous versions of OpenSearch. In our tests, after disabling document values, we observed a ~16% reduction in shard size. We plan to extend this optimization to the NMSLIB and Faiss engines in future releases.
 
 **Query certain data more efficiently with wildcard fields**
 
