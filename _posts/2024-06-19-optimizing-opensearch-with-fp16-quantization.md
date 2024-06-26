@@ -100,7 +100,7 @@ GET test-index/_search
 }
 ```
 
-## HNSW memory estimation
+## HNSW memory estimation with fp16
 
 The memory required for HNSW is estimated to be `1.1 * (2 * dimension + 8 * M)` bytes/vector.
 
@@ -126,37 +126,39 @@ We ran the following tests on a single-node cluster without any replicas using t
 
 #### Configuration
 
-|m	|ef_construction	|ef_search	|replica	|
+|m	|ef_construction	|ef_search	|replica|
 |---	|---	|---	|---	|
 |16	|100	|100	|0	|
 
-|Dataset ID	|Dataset	|Dimension of vector	|Data size	|Number of queries	|Training data range	|Query data range	|Space type	|Primary shards	|Indexing clients	|
+The dataset details and other configuration are listed below:
+
+|Dataset ID	|Dataset	|Dimension of vector	|Data size	|Number of queries	|Training data range	|Query data range	|Space type	|Primary shards	|Indexing clients|
 |---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|
-|Dataset 1	|cohere-wiki-simple-embeddings-768	|768	|475,858	|10,000	|[ -4.1561704, 5.5478516 ]	|[ -4.065383, 5.4902344 ]	|L2	|4	|8	|
-|Dataset 2	|cohere-ip-1m	|768	|1,000,000	|10,000	|[ -4.1073565, 5.504557 ]	|[ -4.109505, 5.4809895 ]	|innerproduct	|8	|16	|
-|Dataset 3	|gist-960-euclidean	|960	|1,000,000	|1,000	|[ 0.0, 1.48 ]	|[ 0.0, 0.729 ]	|L2	|8	|16	|
-|Dataset 4	|sift-128-euclidean	|128	|1,000,000	|10,000	|[ 0.0, 218.0 ]	|[ 0.0, 184.0 ]	|L2	|8	|16	|
-|Dataset 5	|mnist-784-euclidean	|784	|60,000	|10,000	|[ 0.0, 255.0 ]	|[ 0.0, 255.0 ]	|L2	|1	|2	|
+|Dataset 1	|gist-960-euclidean	|960	|1,000,000	|1,000	|[ 0.0, 1.48 ]	|[ 0.0, 0.729 ]	|L2	|8	|16|
+|Dataset 2	|mnist-784-euclidean	|784	|60,000	|10,000	|[ 0.0, 255.0 ]	|[ 0.0, 255.0 ]	|L2	|1	|2|
+|Dataset 3	|cohere-wiki-simple-embeddings-768	|768	|475,858	|10,000	|[ -4.1561704, 5.5478516 ]	|[ -4.065383, 5.4902344 ]	|L2	|4	|8|
+|Dataset 4	|cohere-ip-1m	|768	|1,000,000	|10,000	|[ -4.1073565, 5.504557 ]	|[ -4.109505, 5.4809895 ]	|innerproduct	|8	|16|
+|Dataset 5	|sift-128-euclidean	|128	|1,000,000	|10,000	|[ 0.0, 218.0 ]	|[ 0.0, 184.0 ]	|L2	|8	|16|
 
 #### Recall and memory results
 
-|Dataset ID	|Faiss hnsw recall@100	|Faiss hnsw-sqfp16 recall@100	|Faiss hnsw memory estimate (gb)	|Faiss hnsw-sqfp16 memory estimate (gb)	|Faiss hnsw memory usage (gb)	|Faiss hnsw-sqfp16 memory usage (gb)	|% reduction in memory	|
+|Dataset ID	| Faiss hnsw recall@100	|Faiss hnsw-sqfp16 recall@100	|Faiss hnsw memory estimate (gb)	|Faiss hnsw-sqfp16 memory estimate (gb)	|Faiss hnsw memory usage (gb)	|Faiss hnsw-sqfp16 memory usage (gb)	|% reduction in memory	|
 |---	|---	|---	|---	|---	|---	|---	|---	|
-|Dataset 1	|0.9456	|0.9450	|1.56	|0.81	|1.43	|0.75	|47.55	|
-|Dataset 2	|0.9429	|0.9422	|3.28	|1.70	|3.00	|1.57	|47.67	|
-|Dataset 3	|0.9071	|0.9072	|4.07	|2.10	|3.72	|1.93	|48.12	|
-|Dataset 4	|0.9925	|0.9925	|0.66	|0.39	|0.62	|0.38	|38.71	|
-|Dataset 5	|0.9889	|0.9889	|0.20	|0.10	|0.18	|0.10	|44.44	|
+|Dataset 1	|0.9071	|0.9072	|4.07	|2.10	|3.72	|1.93	|48.12 |
+|Dataset 2	|0.9889	|0.9889	|0.20	|0.10	|0.18	|0.10	|44.44|
+|Dataset 3	|0.9456	|0.9450	|1.56	|0.81	|1.43	|0.75	|47.55|
+|Dataset 4	|0.9429	|0.9422	|3.28	|1.70	|3.00	|1.57	|47.67|
+|Dataset 5	|0.9925	|0.9925	|0.66	|0.39	|0.62	|0.38	|38.71|
 
 #### Indexing and query results
 
 |Dataset ID	|Faiss hnsw mean throughput (docs/sec)	|Faiss hnsw-sqfp16 mean throughput (docs/sec)	|Faiss hnsw p90 (ms)	|Faiss hnsw-sqfp16 p90 (ms)	|Faiss hnsw p99 (ms)	|Faiss hnsw-sqfp16 p99 (ms)	|
 |---	|---	|---	|---	|---	|---	|---	|
-|Dataset 1	|4690	|4698	|3.35	|3.33	|3.58	|3.57	|
-|Dataset 2	|6044	|6129	|4.61	|4.81	|5.16	|5.37	|
-|Dataset 3	|4681	|4696	|4.97	|5.08	|5.54	|5.50	|
-|Dataset 4	|115499	|102060	|2.73	|2.68	|2.96	|2.89	|
-|Dataset 5	|4271	|4580	|2.01	|2.06	|2.16	|2.21	|
+|Dataset 1	|4681	|4696	|4.97	|5.08	|5.54	|5.50|
+|Dataset 2	|4271	|4580	|2.01	|2.06	|2.16	|2.21|
+|Dataset 3	|4690	|4698	|3.35	|3.33	|3.58	|3.57|
+|Dataset 4	|6044	|6129	|4.61	|4.81	|5.16	|5.37|
+|Dataset 5	|115499	|102060	|2.73	|2.68	|2.96	|2.89|
 
 #### Analysis
 
