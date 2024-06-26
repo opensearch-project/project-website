@@ -243,7 +243,7 @@ requirements and maximizing cost-effectiveness.
 
 ## Appendix: Memory and data node requirement estimation
 
-The following calculations provide a memory and number of data nodes estimation for the 100M, 768 dimension large workload benchmarking test.
+The following calculations provide an estimation of the memory and number of data nodes for the 100M, 768-dimension large workload benchmarking test:
 
 ```
 // Faiss HNSW SQfp16 Memory Estimation
