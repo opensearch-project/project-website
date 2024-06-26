@@ -1,6 +1,6 @@
 ---
-calendar_date: '2024-06-25'
-eventdate: 2024-06-25 14:00:00 -0700
+calendar_date: '2024-06-28'
+eventdate: 2024-06-28 09:00:00 -0700
 title: OpenSearch 2.15.0 Release Meetings
 online: true
 signup:
