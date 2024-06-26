@@ -1,10 +1,10 @@
 ---
-calendar_date: '2024-06-25'
-eventdate: 2024-06-25 14:00:00 -0700
+calendar_date: '2024-06-28'
+eventdate: 2024-06-28 09:00:00 -0700
 title: OpenSearch 2.15.0 Release Meetings
 online: true
 signup:
-  url: https://chime.aws/7306222022
+  url: https://chime.aws/4821125597
   title: Join on Chime
 category: development
 ---
@@ -43,9 +43,9 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 **Join Meeting**
 
-**Click to join the meeting: <https://chime.aws/7306222022>**
+**Click to join the meeting: <https://chime.aws/4821125597>**
 
-**Meeting ID: 7306222022** 
+**Meeting ID: 4821125597** 
 
 A headset is recommended or you may use your computer’s microphone and speakers.
 
