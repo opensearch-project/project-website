@@ -8,8 +8,8 @@ authors:
 date: 2024-06-19 00:00:00 -0700
 categories:
   - technical-posts
-meta_keywords: FP16 quantization, OpenSearch k-NN plugin, memory optimization, cost-effectiveness
-meta_description: Learn how FP16 Quantization in OpenSearch helps to reduce memory requirements upto 50% with a very minimal loss in quality.
+meta_keywords: FP16 quantization, OpenSearch k-NN plugin, memory optimization, cost-effectiveness, performance, search latency, indexing throughput
+meta_description: Learn how FP16 Quantization in OpenSearch helps to reduce memory requirements up to 50% with a very minimal loss in quality.
 has_science_table: true
 ---
 
@@ -20,7 +20,7 @@ leading to higher memory requirements and increased operational costs. Faiss sca
 
 ## Why use Faiss scalar quantization?
 
-When you index vectors in [OpenSearch 2.13](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.13.0.md) or later versions, you can configure your k-NN index to apply a technique called _scalar quantization_. Scalar quantization converts each dimension of a vector from a 32-bit floating-point (`fp32`) to a 16-bit floating-point (`fp16`) representation. Using the Faiss scalar quantizer (SQfp16), integrated in the k-NN plugin, you can get up to a 50% memory savings with a very minimal loss of recall (see [Benchmarking results](#benchmarking-results)). When used with [SIMD optimization](https://opensearch.org/docs/latest/search-plugins/knn/knn-index#simd-optimization-for-the-faiss-engine), 
+When you index vectors in [OpenSearch 2.13](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.13.0.md) or later versions, you can configure your k-NN index to apply _scalar quantization_. Scalar quantization converts each dimension of a vector from a 32-bit floating-point (`fp32`) to a 16-bit floating-point (`fp16`) representation. Using the Faiss scalar quantizer (SQfp16), integrated in the k-NN plugin, you can get up to a 50% memory savings with a very minimal loss of recall (see [Benchmarking results](#benchmarking-results)). When used with [SIMD optimization](https://opensearch.org/docs/latest/search-plugins/knn/knn-index#simd-optimization-for-the-faiss-engine), 
 SQfp16 quantization can also significantly reduce search latencies and improve indexing throughput.
 
 ## How to use Faiss scalar quantization
@@ -64,13 +64,13 @@ PUT /test-index
 
 For more information about the SQ parameters, see the [k-NN documentation](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/#sq-parameters).
 
-The `fp16` encoder converts 32-bit vectors into their 16-bit counterparts. For this encoder type, the vector values must be in the **[-65504.0, 65504.0]** range.
+The `fp16` encoder converts 32-bit vectors into their 16-bit counterparts. For this encoder type, the vector values must be in the range **[-65504.0, 65504.0]**.
 
-The preceding index mapping request specifies the `clip` parameter, which defines how to handle out-of-range values:
+The `clip` parameter above  specifies how to handle out-of-range values:
 
 * By default, `clip` is `false`, and any vectors containing out-of-range values are rejected.
 * When `clip` is set to `true`, out of-range vector values are rounded up or down so that they are in the supported range. For example, if the original 32-bit vector is 
-`[65510.82, -65504.1]`, the vector will be indexed as a 16-bit vector `[65504.0, -65504.0]`.
+`[65510.82, -65504.1]`, the vector will be indexed in the range `[65504.0, -65504.0]`.
 
 **Note**: We recommend setting `clip` to `true` only if very few elements lie outside of the supported range. Rounding the values may cause a drop in recall.
 
@@ -112,16 +112,16 @@ For more information about memory estimation for scalar quantization with the in
 
 ## Benchmarking results
 
-We ran benchmarking tests on some popular and trending datasets using our [opensearch-benchmark](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) tool 
-to compare the indexing, search performance, and quality of search results of Faiss scalar quantization. We compared Faiss scalar quantization against using Faiss with float vectors without any encoding. All tests were performed with [SIMD](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/#simd-optimization-for-the-faiss-engine) (Single Instruction Multiple Data).
+We ran benchmarking tests on some popular datasets using our [opensearch-benchmark](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) tool 
+to compare the indexing, search performance, and quality of search results of Faiss scalar quantization. We compared Faiss scalar quantization (FP16) against using Faiss with float vectors without any encoding (FP32). All tests were performed with [SIMD](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/#simd-optimization-for-the-faiss-engine) (Single Instruction Multiple Data).
 enabled on x86 architecture with AVX2 optimization.
 
 **Note**: Without SIMD optimization (AVX2 or NEON) or with AVX2 disabled (on x86 architecture), the quantization process introduces additional overhead, which leads to an increase in latency. 
-For information about processors that support AVX2, see [CPUs with AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2). In AWS, all community Amazon Machine Images (AMIs) with [HVM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html) support AVX2 optimization for the x86 architecture.
+For information about processors that support AVX2, see [CPUs with AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2). In an AWS environment, all community Amazon Machine Images (AMIs) with [HVM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html) support AVX2 optimization for the x86 architecture.
 
 ### Benchmarking results using small workloads
 
-We ran the following tests on a single-node cluster without any replicas using the following datasets.
+We ran the following tests on a single-node cluster without any replicas.
 
 
 #### Configuration
@@ -142,13 +142,13 @@ The dataset and other configuration details are listed in the following table.
 
 #### Recall and memory results
 
-|Dataset ID	| Faiss hnsw recall@100	|Faiss hnsw-sqfp16 recall@100	|Faiss hnsw memory estimate (gb)	|Faiss hnsw-sqfp16 memory estimate (gb)	|Faiss hnsw memory usage (gb)	|Faiss hnsw-sqfp16 memory usage (gb)	|% reduction in memory	|
-|---	|---	|---	|---	|---	|---	|---	|---	|
-|Dataset 1	|0.9071	|0.9072	|4.07	|2.10	|3.72	|1.93	|48.12 |
-|Dataset 2	|0.9889	|0.9889	|0.20	|0.10	|0.18	|0.10	|44.44|
-|Dataset 3	|0.9456	|0.9450	|1.56	|0.81	|1.43	|0.75	|47.55|
-|Dataset 4	|0.9429	|0.9422	|3.28	|1.70	|3.00	|1.57	|47.67|
-|Dataset 5	|0.9925	|0.9925	|0.66	|0.39	|0.62	|0.38	|38.71|
+|Dataset ID	| Faiss hnsw recall@100	 | Faiss hnsw-sqfp16 recall@100	 |Faiss hnsw memory estimate (gb)	|Faiss hnsw-sqfp16 memory estimate (gb)	|Faiss hnsw memory usage (gb)	|Faiss hnsw-sqfp16 memory usage (gb)	|% reduction in memory	|
+|---	|--------------------|-------------------------|---	|---	|---	|---	|--	|
+|Dataset 1	| 0.91	              | 0.91                    |4.07	|2.10	|3.72	|1.93	|48 |
+|Dataset 2	| 0.99               | 0.99                    |0.20	|0.10	|0.18	|0.10	|44|
+|Dataset 3	| 0.95	              | 0.95                    |1.56	|0.81	|1.43	|0.75	|48|
+|Dataset 4	| 0.94	              | 0.94                    |3.28	|1.70	|3.00	|1.57	|48|
+|Dataset 5	| 0.99	              | 0.99                    |0.66	|0.39	|0.62	|0.38	|39|
 
 #### Indexing and query results
 
@@ -226,24 +226,22 @@ For more information about estimating the required memory and number of data nod
 
 ## Conclusion
 
-Faiss FP16 scalar quantization is a powerful technique that provides significant memory savings while maintaining high recall performance similar to full-precision vectors. By converting vectors to a 16-bit floating-point representation, it can reduce memory requirements by up to 50%. When combined with SIMD optimization, FP16 scalar quantization also enhances indexing throughput and reduces search latencies, leading to better overall performance. This method strikes an excellent balance between memory efficiency and accuracy, making it a valuable tool for large-scale similarity search applications.
+Faiss SQfp16 scalar quantization is a powerful technique that provides significant memory savings while maintaining high recall performance similar to full-precision vectors. Converting vectors to a 16-bit floating-point representation can reduce memory requirements by up to 50%. When combined with SIMD optimization, SQfp16 scalar quantization also enhances indexing throughput and reduces search latency, leading to better overall performance. This method strikes an excellent balance between memory efficiency and accuracy, making it a valuable tool for large-scale similarity search applications.
 
 ## Future scope
 
 To achieve even greater memory efficiency, we plan to introduce `int8` quantization support using a [Faiss scalar quantizer](https://github.com/opensearch-project/k-NN/issues/1723) and [Lucene scalar quantizer](https://github.com/opensearch-project/k-NN/issues/1277). 
-This advanced technique will enable a remarkable 75% reduction in memory requirements, or 4x compression, compared to full-precision vectors while maintaining high recall performance. 
+This technique will enable a remarkable 75% reduction in memory requirements, or 4x compression, compared to full-precision vectors and we expect to find minimal reduction in recall. 
 The quantizers will accept `fp32` vectors as input, perform online training, and quantize the data into byte-sized vectors, eliminating the need for external quantization or extra training steps.
 
-Furthermore, we aim to release binary vector support, enabling an unprecedented 32x compression rate. This groundbreaking approach will further reduce memory consumption. 
-By combining these cutting-edge quantization techniques, we will provide a comprehensive solution for efficient similarity search, balancing memory optimization and 
-accurate retrieval.
+Furthermore, we aim to release binary vector support, enabling an unprecedented 32x compression rate. This approach will further reduce memory consumption. In 
+addition to this we will soon add support for avx512 optimization which helps to further reduce search latency.
 
-Our commitment to continuous innovation delivers state-of-the-art technologies to tackle large-scale similarity search challenges while minimizing resource 
-requirements and maximizing cost-effectiveness.
+Our ongoing analysis and tuning of OpenSearch lets you address large-scale similarity search while minimizing resource requirements and maximizing cost-effectiveness.
 
 ## Appendix: Memory and data node requirement estimation
 
-The following calculations provide an estimation of the memory and number of data nodes required for the 100M, 768-dimension large workload benchmarking test:
+Here are some estimates of the amount of memory and number of data nodes needed for the 100M, 768 dimension large workload benchmarking test:
 
 ```
 // Faiss HNSW SQfp16 Memory Estimation
