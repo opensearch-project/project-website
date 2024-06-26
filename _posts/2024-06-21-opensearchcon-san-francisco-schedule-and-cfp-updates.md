@@ -10,7 +10,7 @@ categories:
 meta_keywords: opensearchcon north america, opensearchcon na, opesearchcon call for papers, register for opensearchcon, opensearch community
 meta_description: Join the OpenSearch Project in San Francisco for it’s third annual OpenSearchCon North America 2024 taking place September 24-26 at the Hilton Union Square. Register today.
 
-excerpt: The OpenSearch Project invites the open source community to explore the future of search, analytics, and generative AI at OpenSearchCon North America 2024. Join us in San Francisco on September 25-27 and learn how to build powerful applications and get the most out of your OpenSearch deployments.
+excerpt: The OpenSearch Project invites the OpenSearch community to explore the future of search, analytics, and generative AI at the first OpenSearch user conference in North America. Join us in San Francisco September 24-26 and learn how to build powerful applications and get the most out of your OpenSearch deployments. 
 featured_blog_post: true
 featured_image: /assets/media/opensearchcon/2024/OSC2024_NASF_Social-Graphic1_1200x627.png
 ---
