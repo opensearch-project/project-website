@@ -1,7 +1,7 @@
 ---
 name: Naveen Tatikonda
 short_name: naveen
-photo: '/assets/media/community/members/navtat.jpg'
+photo: '/assets/media/community/members/navtat.png'
 title: 'OpenSearch Community Member: Naveen Tatikonda'
 primary_title: Naveen Tatikonda
 breadcrumbs:
