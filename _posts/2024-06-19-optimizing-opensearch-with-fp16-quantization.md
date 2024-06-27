@@ -5,10 +5,10 @@ authors:
   - naveen
   - vamshin
   - tal
-date: 2024-06-19 00:00:00 -0700
+date: 2024-06-27 00:00:00 -0700
 categories:
   - technical-posts
-meta_keywords: FP16 quantization, OpenSearch k-NN plugin, memory optimization, cost-effectiveness, performance, search latency, indexing throughput
+meta_keywords: faiss scalar quantization, OpenSearch k-NN plugin, FP16 scalar quantization, vector embeddings
 meta_description: Learn how FP16 Quantization in OpenSearch helps to reduce memory requirements up to 50% with a very minimal loss in quality.
 has_science_table: true
 ---
