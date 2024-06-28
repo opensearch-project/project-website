@@ -193,14 +193,16 @@ To compare performance metrics and memory savings, we ran tests on the large-sca
 |Force merge segments	|1	|1	|
 |Client instance	|r5.16xlarge	|r5.16xlarge	|
 
-Config ID	|Optimization strategy	|m	|ef_construction	|ef_search	|
-|---	|---	|---	|---	|---	|
-|hnsw1	|Default configuration	|16	|100	|100	|
-|hnsw2	|Balance between latency, memory, and recall	|16	|128	|128	|
-|hnsw3	|Optimize for recall	|16	|256	|256	|
 
-Faiss HNSW SQfp16 requires 4 data nodes---half the number needed for Faiss HNSW (8). This demonstrates that SQfp16 reduces memory requirements by 50%. 
+Faiss HNSW SQfp16 requires 4 data nodes---half the number needed for Faiss HNSW (8). This demonstrates that SQfp16 reduces memory requirements by 50%.
 For more information about estimating the required memory and number of data nodes, see the [Appendix](#appendix-memory-and-data-node-requirement-estimation).
+
+
+| Config ID	 |Optimization strategy	|m	|ef_construction	|ef_search	|
+|------------|---	|---	|---	|---	|
+| hnsw1	     |Default configuration	|16	|100	|100	|
+| hnsw2	     |Balance between latency, memory, and recall	|16	|128	|128	|
+| hnsw3	     |Optimize for recall	|16	|256	|256	|
 
 #### Recall and memory results
 
