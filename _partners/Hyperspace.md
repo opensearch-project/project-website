@@ -1,9 +1,9 @@
 ---
 # Partner name used on the partners collection page (/partners).
-name: SampleCompany
+name: Hyperspace
 
 # name_long is used on the extended partner details page.
-name_long: 'Sample Company'
+name_long: 'Hyperspace'
 
 # The partner logo is used on the partners collection page (/partners).
 # upload your logo to the following directory - must be square
