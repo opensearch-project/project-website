@@ -19,4 +19,4 @@ personas:
 permalink: '/community/members/varunudr.html'
 ---
 
-**Varun Jain** is a Software Engineer at AWS, focusing on OpenSearch and its plugins.
+**Varun Jain** is a Software Engineer at AWS focusing on OpenSearch and its plugins.

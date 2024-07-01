@@ -1,9 +1,8 @@
 ---
 layout: post
-title:  "Boosting Hybrid Query Performance in OpenSearch 2.15"
+title:  "Boosting Hybrid query performance in OpenSearch 2.15"
 authors:
   - gaievski
-  - varunudr
   - vamshin
   - macrakis
 date: 2024-07-02
@@ -50,32 +49,33 @@ Since its introduction in OpenSearch 2.10, hybrid search has become popular amon
 
 With each new release, OpenSearch has implemented numerous enhancements to improve the performance of hybrid search at scale. In version 2.15, these enhancements led to hybrid query performance improving by up to 70% compared to version 2.13.
 
-## Impelmented improvements
+## Improvements in OpenSearch 2.15
 
 The development team made improvements by analyzing the code and optimizing performance bottlenecks. We focused on the following areas:
 
-- **Conditional scoring logic**: Previously, the core logic for collecting scores during a query was fixed, so computations were performed regardless of whether they were needed. This often led to unnecessary calculations, especially when scoring computations were redundant for specific query types or plugins. In OpenSearch 2.15, we made the scoring logic conditional, allowing certain computations to be skipped if they are not needed by the plugin in use. This optimization reduces computational overhead, accelerates query processing, and improves resource utilization. 
+- **Conditional scoring logic**: Previously, the core logic for collecting scores during a query was fixed, so computations were performed regardless of whether they were needed. This often led to unnecessary calculations, especially when scoring computations were redundant for specific query types or plugins. In OpenSearch 2.15, we made the scoring logic conditional, allowing certain computations to be skipped if they are not needed by the plugin currently in use. This optimization reduces computational overhead, accelerates query processing, and improves resource utilization. 
 
-    The performance improvements from this change are substantial. Our benchmarks show a 20% increase in query processing speed for some use cases. For more information, see the following GitHub issues:
+    The performance improvements resulting from this change are substantial. Our benchmarks show a 20% increase in query processing speed for some use cases. For more information, see the following GitHub issues:
     - [[Feature Request] Provide capability for not adding top docs collector in the query search path #13170](https://github.com/opensearch-project/OpenSearch/issues/13170)
     - [Pass empty QueryCollectorContext in case of hybrid query to improve latencies by 20% #731](https://github.com/opensearch-project/neural-search/pull/731)
 
-- **Replacing inefficient constructs**:  We analyzed the performance of version 2.13 and found that the Java Streams API, while convenient, introduced unnecessary overhead in high-performance scenarios. This was particularly evident in areas with intensive data processing requirements.
-In version 2.15, we replaced Java Streams constructs with more efficient alternatives, such as for loops and optimized data handling techniques. This change resulted in a performance gain of up to 25% in specific data processing tasks, helping OpenSearch handle larger datasets and more complex queries more efficiently. For more information, see the following GitHub issue:
+- **Replacement of inefficient constructs**: We analyzed the performance of version 2.13 and found that the Java Streams API, while convenient, introduced unnecessary overhead in high-performance scenarios. This was particularly evident in areas with intensive data processing requirements.
+In version 2.15, we replaced Java Streams constructs with more efficient alternatives, such as for loops and optimized data handling techniques. This change resulted in a performance gain of up to 25% for specific data processing tasks, helping OpenSearch handle larger datasets and more complex queries more efficiently. For more information, see the following GitHub issue:
     - [In hybrid query optimize the way we iterate over results and collect scores of sub queries #745](https://github.com/opensearch-project/neural-search/issues/745)
 
-- **Eliminating unnecessary calculations:**  We found that certain expensive calculations, such as computing hash codes for Query objects, are unnecessary. By removing these calculations, resources are allocated more efficiently, speeding up hybrid queries. This change has improved query processing speed by 20%. For more information, see the following GitHub issue:
+- **Elimination of unnecessary calculations**: We found that certain expensive calculations, such as computing hash codes for query objects, are unnecessary. By removing these calculations, resources are allocated more efficiently, speeding up hybrid queries. This change has improved query processing speed by 20%. For more information, see the following GitHub issue:
     - [Improve efficiency by eliminating unnecessary hash code computations #705](https://github.com/opensearch-project/neural-search/issues/705)
-- **Optimized data structures:** We improved the use of priority queues, which are used for some sorting operations. By changing the allocation strategy of query hits objects to perform lazy initialization, we removed the lowest-score element when the queue reaches full capacity. Our benchmarks show that this optimization resulted in an up to 10% performance gain in query processing times for specific data processing tasks. For more information, see the following GitHub issue:
+
+- **Optimized data structures**: We improved the use of priority queues, which are used for some sorting operations. By changing the allocation strategy of query hits objects to perform lazy initialization, we removed the lowest-score element when the queue reaches full capacity. Our benchmarks show that this optimization resulted in a performance gain of up to 10% in query processing speed for specific data processing tasks. For more information, see the following GitHub issue:
     - [In hybrid query optimize the way we iterate over results and collect scores of sub queries #745](https://github.com/opensearch-project/neural-search/issues/745)
 
-- **Reducing repetitive calculations:** To mitigate redundant internal computations, we have implemented value caching and reuse strategies, reducing the overall computational overhead within the system. By optimizing the handling of repetitive calculations and promoting value reuse, we have sped up the system by 5%. For more information, see the following GitHub issues:
+- **Reducing repetitive calculations:** To mitigate redundant internal calculations, we have implemented value caching and reuse strategies, reducing the overall computational overhead within the system. By optimizing the handling of repetitive calculations and promoting value reuse, we have sped up the system by 5%. For more information, see the following GitHub issues:
     - [Improve efficiency by caching and reusing internal calculations #756](https://github.com/opensearch-project/neural-search/issues/756)
     - [Enhance performance through value caching and reuse strategies #764](https://github.com/opensearch-project/neural-search/issues/764)
 
 ## Benchmark results
 
-Benchmark results show up to a 70% performance improvement for large datasets (over 10M) in hybrid queries with OpenSearch 2.15 compared to version 2.13. These benchmarks were conducted using a new OpenSearch Benchmark workload created specifically for evaluating semantic-search use cases. The following table summarizes benchmark results.
+Our benchmark results show a performance improvement of up to 70% for large datasets (over 10M) in hybrid queries with OpenSearch 2.15 compared to version 2.13. These benchmarks were conducted using a new OpenSearch Benchmark workload created specifically for evaluating semantic-search use cases. The following table summarizes the benchmark results.
 
 <table>
  <tr>
@@ -146,15 +146,15 @@ Benchmark results show up to a 70% performance improvement for large datasets (o
 
 ## Planned improvements
 
-We continue to analyze OpenSearch performance and identify opportunities for further enhancements. Future improvements may include:
+We will continue to analyze OpenSearch performance metrics and identify opportunities for further enhancements. Future improvements may include:
 
-- **Advanced optimization techniques for hybrid query**:  Iterating over blocks of documents rather than individual ones to further reduce latency and enhance performance. This technique aim to streamline hybrid query processing by minimizing the computational overhead associated with handling large volumes of data.
+- **Advanced optimization techniques for hybrid queries**: Iterating over batches of documents rather than individual ones to further reduce latency and enhance performance. This technique aims to streamline hybrid query processing by minimizing the computational overhead associated with handling large volumes of data.
 
 - **Algorithmic refinements**: Refining existing algorithms and introducing new ones better suited for hybrid search. This includes optimizing ranking and scoring mechanisms to ensure more accurate and faster results.
 
-Ongoing initiatives to provide continuous performance insights and improvements include:
+Ongoing initiatives to provide continuous performance insights and improvements include the following:
 
-- **Nightly benchmark runs**: Starting with version 2.15, the team will publish the results of hybrid query nightly benchmark runs so you can track performance changes between versions. These results will be available on the [OpenSearch Benchmarks page](https://opensearch.org/benchmarks/).
+- **Nightly benchmark runs**: Starting with version 2.15, we will publish the results of hybrid query nightly benchmark runs so you can track performance changes between versions. These results will be available on the [OpenSearch Performance Benchmarks](https://opensearch.org/benchmarks/) page.
 
 - **Enhanced benchmark workloads**: We'll expand benchmark workloads with extensions in order to gather metrics for vector search queries, in addition to text search queries.
 
@@ -166,6 +166,6 @@ These enhancements will make OpenSearch more powerful and efficient.
 
 1. [[META] Improve Hybrid query latency](https://github.com/opensearch-project/neural-search/issues/704)
 2. [OpenSearch Benchmark workload for semantic search](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/noaa_semantic_search)  
-3. [OpenSearch Benchmarks page](https://opensearch.org/benchmarks/)  
+3. [OpenSearch Performance Benchmarks](https://opensearch.org/benchmarks/)
 4. [Improve search relevance with hybrid search, generally available in OpenSearch 2.10](https://opensearch.org/blog/hybrid-search/)  
 5. [Hybrid query](https://opensearch.org/docs/latest/query-dsl/compound/hybrid/)  
