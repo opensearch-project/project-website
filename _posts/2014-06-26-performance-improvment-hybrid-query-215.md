@@ -8,8 +8,8 @@ authors:
 date: 2024-07-02
 categories:
   - technical-posts
-meta_keywords: Multimodal search, searching with semantic and visual understanding, improve search relevance, hybrid search in OpenSearch 2.10, keyword and image search
-meta_description: Improve hybrid query performance in OpenSearch 2.15.
+meta_keywords: hybrid search, boost hybrid query performance, OpenSearch 2.15, semantic search
+meta_description: The launch of OpenSearch 2.15 greatly improves hybrid search with numerous enhancements that boost hybrid query performance by as much as 70% in comparison to version 2.13.
 has_science_table: true
 ---
 
