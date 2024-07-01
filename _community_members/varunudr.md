@@ -12,11 +12,11 @@ breadcrumbs:
       url: /community/members/index.html
     - title: 'Varun Jain&apos;s Profile'
       url: '/community/members/varunudr.html'
-photo: '/assets/media/community/members/haoyng.jpg'
+photo: '/assets/media/community/members/varunudr.jpg'
 job_title_and_company: 'Software development engineer at AWS'
 personas:
   - author
 permalink: '/community/members/varunudr.html'
 ---
 
-**Varun Jain** is a Software Engineer at AWS, focused on working upon opensearch and its plugins.
+**Varun Jain** is a Software Engineer at AWS, focusing on OpenSearch and its plugins.
