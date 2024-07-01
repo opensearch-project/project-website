@@ -15,16 +15,9 @@ has_science_table: true
 ---
 
 <style>
-.green-clr {
-    background-color: #c1f0c1;
-}
 
 .light-green-clr {
     background-color: #e3f8e3;
-}
-
-.lightest-green-clr {
-    background-color: #eefbee;
 }
 
 .bold {
@@ -38,7 +31,6 @@ has_science_table: true
 .center {
     text-align: center;
 }
-
 
 table { 
     font-size: 16px; 
