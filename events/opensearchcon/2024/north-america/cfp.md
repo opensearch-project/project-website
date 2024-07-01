@@ -38,6 +38,8 @@ permalink: /events/opensearchcon/2024/north-america/cfp.html
 ---
 ![CFP Banner](/assets/media/opensearchcon/2024/OSC2024_NASF_Social-Graphic2_1200x627.png){: width="100%" }
 
+The CfP for OpenSearchCon 2024 North America is now *closed*.
+
 
 This year’s conference dedicates four tracks to topics the OpenSearch community cares about. We invite the community to submit your best ideas and join us for a great conference in San Francisco.
 
@@ -70,7 +72,7 @@ This information will help the reviewers to get a good impression of your sessio
 
 ## When does it close
 
-CfP ends June 28, 2024 at 11:59pm EST
+CfP ends June 28, 2024 at 11:59pm EST. It is now closed. 
 
 ## Unconference
 
@@ -81,5 +83,7 @@ Based on the success and excitement of the Unconference we held at OpenSearchCon
 
 It is expected that your submission and presentation follow the [OpenSearch Code of Conduct](https://opensearch.org/codeofconduct.html).
 
-<iframe class="airtable-embed" src="https://airtable.com/embed/appWltifOss0C1Ze3/paghymzSgP6jpreTz/form" frameborder="0" onmousewheel="" width="100%" height="1500" style="background: transparent; border: 1px solid #ccc;"></iframe>
+The CFP for OpenSearchCon 2024 North America is now *closed*.
+
+
 
