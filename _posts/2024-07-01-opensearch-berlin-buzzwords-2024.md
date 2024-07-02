@@ -11,7 +11,7 @@ meta_description: On June 9th through 11th 2024 the OpenSearch Project joined th
 rediscoverKeywordSearch: anLaY47S_3I
 flowFramework: nZdL6ykntKs
 
-excerpt: On June 9th through 11th 2024 the OpenSearch Project joined the community at Berlin Buzzwords to share knowledge and interact with the search and open source communities.
+excerpt: June 9–11, the OpenSearch Project joined the community at Berlin Buzzwords to share knowledge and interact with the search and open-source communities.
 featured_blog_post: false
 featured_image: /assets/media/blog-images/2024-07-01-opensearch-berlin-buzzwords-2024/2024-0612-BBuzz-Booth.png
 ---  
