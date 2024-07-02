@@ -12,7 +12,7 @@ meta_keywords: hybrid search, boost hybrid query performance, OpenSearch 2.15, s
 meta_description: The launch of OpenSearch 2.15 greatly improves hybrid search with numerous enhancements that boost hybrid query performance by as much as 70% in comparison to version 2.13.
 has_science_table: true
 ---
-
+Since its introduction in OpenSearch 2.10, hybrid search has become popular among users looking to enhance the relevance of their semantic search results. By combining full-text search and semantic search, hybrid queries deliver superior results for various applications, including e-commerce, document search, log analytics, and data exploration. However, managing large datasets and complex queries can sometimes lead to performance issues.
 <style>
 
 .light-green-clr {
@@ -45,7 +45,7 @@ th {
 
 </style>
 
-Since its introduction in OpenSearch 2.10, hybrid search has become popular among users looking to enhance the relevance of their semantic search results. By combining full-text search and semantic search, hybrid queries deliver superior results for various applications, including e-commerce, document search, log analytics, and data exploration. However, managing large datasets and complex queries can sometimes lead to performance issues.
+
 
 With each new release, OpenSearch has implemented numerous enhancements to improve the performance of hybrid search at scale. In version 2.15, these enhancements led to **hybrid query performance improving by up to 70%** compared to version 2.13.
 
