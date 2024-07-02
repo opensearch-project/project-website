@@ -22,7 +22,7 @@ The event started off with "Barcamp," a kind of "un-conference" with a schedule 
 
 <img src="/assets/media/blog-images/2024-07-01-opensearch-berlin-buzzwords-2024/2024-0612-BBuzz-Barcamp.png"/>
 
-We had two talks at this years Buzzwords as well. 
+Additionally, we presented two talks at this year's conference. 
 
 [Praveen Mohan Prasad](https://opensearch.org/community/members/praveen-mohan-prasad.html) and [Hajer Bouafif](https://www.linkedin.com/in/hajerbouafif/) gave a talk on ‘[Rediscover your keyword search: Expand, Enrich and Rewrite](https://program.berlinbuzzwords.de/bbuzz24/talk/WLKNUS/)’, and explained that Dense Vector Search is not the only route to improve your search relevance. They shared how to empower your existing sparse keyword search with semantic search capabilities by leveraging text expansion, metadata enrichment, and query re-writing techniques. Watch the full session: 
 {% include youtube-player.html id=page.rediscoverKeywordSearch %}
