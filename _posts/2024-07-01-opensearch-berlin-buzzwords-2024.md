@@ -39,6 +39,6 @@ Our booth was well attended, and we noticed a few patterns: A lot of people eith
 
 <img src="/assets/media/blog-images/2024-07-01-opensearch-berlin-buzzwords-2024/2024-0612-BBuzz-Booth.png"/> 
 
-We’re already excited about next year’s Berlin Buzzwords. 
+We're already excited about next year's Berlin Buzzwords. 
 
 *Want to come connect with the OpenSearch community in person?* *Our third annual* [*OpenSearchCon North America*](https://opensearch.org/events/opensearchcon/2024/north-america/index.html) *is coming to San Francisco September 24–26, and we hope to see you there. We also recommend joining the conversation on the [forum](https://forum.opensearch.org/) and public [Slack instance](https://opensearch.org/slack.html). Interested in local User Groups? Find out if there is an event near you on our [Meetup page](https://www.meetup.com/pro/opensearchproject/), read our [charter & guidelines](https://github.com/opensearch-project/community/blob/main/user-groups/charter-guidelines.md) document, or come offer to give a talk in the [#user-groups](https://opensearch.slack.com/archives/C073A2DDP5J) channel.*
