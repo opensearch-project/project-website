@@ -27,6 +27,8 @@ Additionally, we presented two talks at this year's conference.
 [Praveen Mohan Prasad](https://opensearch.org/community/members/praveen-mohan-prasad.html) and [Hajer Bouafif](https://www.linkedin.com/in/hajerbouafif/) presented [Rediscover your keyword search: Expand, Enrich and Rewrite](https://program.berlinbuzzwords.de/bbuzz24/talk/WLKNUS/) and explained why dense vector search is not the only way to improve your search relevance. They shared how to empower your existing sparse keyword search with semantic search capabilities by leveraging text expansion, metadata enrichment, and query rewriting techniques. Watch the full session: 
 {% include youtube-player.html id=page.rediscoverKeywordSearch %}
 
+*[slides available here](https://github.com/opensearch-project/community/blob/main/presentations/2024-06-10-BerlinBuzzwords-Re-discover-Your-Keyword-Search.pdf) [notebook code](https://github.com/aws-samples/AI-search-with-amazon-opensearch-service/blob/main/LLM%20to%20re-write%20OpenSearch%20query/Use%20LLM%20to%20re-write%20OpenSearch%20Query%20DSL.ipynb) [demo application url](https://ml-search-opensearch.site/)*
+
 [Mingshi Liu](https://opensearch.org/community/members/mingshi-liu.html) and [Owais Kazi](https://opensearch.org/community/members/owais-kazi.html) presented [Elevating AI Applications with OpenSearch's Flow Framework and RAG Tool](https://program.berlinbuzzwords.de/bbuzz24/talk/SRSS7M/), where they introduced OpenSearch's Flow Framework and Retrieval-Augmented Generation (RAG) Tool, which enables developers to create AI-augmented agents, queries, and ingestion flows, integrate ML models, and streamline app development through a no-code/low-code builder. Watch the full session: 
 {% include youtube-player.html id=page.flowFramework %}
 
