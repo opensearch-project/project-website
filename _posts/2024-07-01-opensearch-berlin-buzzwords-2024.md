@@ -6,7 +6,7 @@ authors:
 date: 2024-07-03
 categories:
  - community
-meta_keyword: Berlin Buzzwords, opensearch conference, opensearch event europe, keyword search, flow framework, RAG tool, opensearch germany, berlin
+meta_keywords: Berlin Buzzwords, opensearch conference, opensearch event europe, keyword search, flow framework, RAG tool, opensearch germany, berlin
 meta_description: On June 9th through 11th 2024 the OpenSearch Project joined the community at Berlin Buzzwords to share knowledge and interact with the search and open source communities.
 rediscoverKeywordSearch: anLaY47S_3I
 flowFramework: nZdL6ykntKs
