@@ -3,6 +3,7 @@ layout: post
 title:  "Boosting Hybrid query performance in OpenSearch 2.15"
 authors:
   - gaievski
+  - varunudr
   - vamshin
   - macrakis
 date: 2024-07-02
