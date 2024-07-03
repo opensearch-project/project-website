@@ -3,7 +3,7 @@ layout: post
 title: OpenSearch at Berlin Buzzwords 2024
 authors:
  - krisfreedain
-date: 2024-07-01
+date: 2024-07-03
 categories:
  - community
 meta_keyword: Berlin Buzzwords, opensearch conference, opensearch event europe, keyword search, flow framework, RAG tool, opensearch germany, berlin
@@ -35,7 +35,7 @@ Additionally, we presented two talks at this year's conference.
 * [Full playlist of presentations](https://www.youtube.com/playlist?list=PLq-odUc2x7i8jHpa6PHGzmxfAPEz-c-on)
 * [Photo gallery](https://www.flickr.com/photos/newthinking_de/albums/72177720317853019/)
 
-Our booth was well attended, and we noticed a few patterns: A lot of people either wanted to congratulate the presenters on how much they got out of the talks or had questions about their existing workflows and instances and stopped by to seek information or advice. This told us that OpenSearch is continuing to be adopted by the community as a platform of choice, and it gave us ideas regarding further content development. If you would like to help contribute that content, check out [help wanted](https://github.com/opensearch-project/project-website/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and [new blog](https://github.com/opensearch-project/project-website/issues?q=is%3Aissue+is%3Aopen+label%3A%22new+blog%22) in the project-website repository. We also observed that the booth was packed during breaks but that the booth area really cleared out during sessions. This confirms what an incredible show [Plain Schwarz](https://plainschwarz.com/) puts on and that each presentation given at Berlin Buzzwords is truly appreciated by the community. 
+Our booth was well attended, and we noticed a few patterns: A lot of people either wanted to congratulate the presenters on how much they got out of the talks or had questions about their existing workflows and instances and stopped by to seek information or advice. This told us that OpenSearch is continuing to be adopted by the community as a platform of choice, and it gave us ideas regarding further content development. If you would like to help contribute that content, check out [help wanted](https://github.com/opensearch-project/project-website/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and [new blog](https://github.com/opensearch-project/project-website/issues?q=is%3Aissue+is%3Aopen+label%3A%22new+blog%22) in the `project-website` repository. We also observed that the booth was packed during breaks but that the booth area really cleared out during sessions. This confirms what an incredible show [Plain Schwarz](https://plainschwarz.com/) puts on and that each presentation given at Berlin Buzzwords is truly appreciated by the community. 
 
 <img src="/assets/media/blog-images/2024-07-01-opensearch-berlin-buzzwords-2024/2024-0612-BBuzz-Booth.png"/> 
 
