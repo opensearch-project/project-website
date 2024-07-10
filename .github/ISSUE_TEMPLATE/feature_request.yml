@@ -2,7 +2,7 @@ name: 🎆 Feature request
 description: Suggest an idea for this project
 title: '[Feature Request] <title>'
 labels: ['enhancement, untriaged']
-projects: ["Website Update Project"]
+projects: ["opensearch-project/74"]
 body:
   - type: textarea
     attributes:
