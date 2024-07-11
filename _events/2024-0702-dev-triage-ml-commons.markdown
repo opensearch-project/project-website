@@ -1,11 +1,11 @@
 ---
-calendar_date: '2024-07-02'
-eventdate: 2024-07-02 10:30:00 -0700
-primary_title: Development Backlog & Triage Meeting - ml-commons - 2024-07-02
-title: Development Backlog & Triage Meeting - ml-commons - 2024-07-02
+calendar_date: '2024-07-16'
+eventdate: 2024-07-16 10:30:00 -0700
+primary_title: Development Backlog & Triage Meeting - ml-commons - 2024-07-16
+title: Development Backlog & Triage Meeting - ml-commons - 2024-07-16
 online: true
 signup:
-    url: https://www.meetup.com/opensearch/events/301901152
+    url: https://www.meetup.com/opensearch/events/302181982
     title: Join on Meetup
 
 ---
