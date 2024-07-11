@@ -2,7 +2,7 @@ name: 🐛 Bug report
 description: Create a report to help us improve
 title: "[BUG] <title>"
 labels: ['bug, untriaged']
-projects: ["Website Update Project"]
+projects: ["opensearch-project/Website Update Project"]
 body:
   - type: textarea
     attributes:
