@@ -1,0 +1,83 @@
+
+
+{% assign meta_keywords = page.meta_keywords | default: "open-source, search, opensearch" %}
+{% assign meta_description = page.excerpt  | default:page.description | default:page.meta_description  | default: "OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." %}
+{% assign twitter_card_type = "summary_large_image" %}
+{% assign twitter_card_title = page.title  | default: "OpenSearch"%}
+{% assign OpenSearch_twitter_account = "@OpenSearchProj" %}
+{% assign category = "" %}
+
+
+<!-- LOGIC to pull the correct category image onto blog posts that do not have an image  -->
+{% if page.featured_image %}
+  {% assign twitter_card_image = page.featured_image %}
+
+{% else %}
+  <!-- If there is a category, pull the correct category and fetch the generic image for that category  -->
+  {% if page.categories %}
+    {% assign category = page.categories | first %}
+    <!-- Category validation // if invalid category, assign the default category to pull that image -->
+    {% assign valid_category = false %}
+    {% for cat in site.data.post_categories.categories %}
+      {% if cat.name == category %}
+        {% assign valid_category = true %}
+      {% endif %}
+    {% endfor %}
+
+    {% if valid_category == false %}
+      {% assign category = "default-category" %}
+    {% endif %}
+
+  {% else %}
+  <!-- If there is no category, give the page the generic category "default-category"  -->
+      {% assign category = "default-category" %}
+  {% endif %}
+
+  {% assign category_object = site.data.post_categories.categories | where: 'name', category | first %}
+  {% assign twitter_card_image = category_object.image %}
+
+
+{% endif %}
+
+
+<meta name="ROBOTS" content="ALL" />
+<meta name="MSSmartTagsPreventParsing" content="true" />    <!-- MSSmartTags... turns off internet explorer smart tags that are outdated and no longer supported.  -->
+<meta name="msapplication-TileColor" content="#113228">
+<meta name="msapplication-TileImage" content="{{'img/icon-tile.png' | relative_url }}"> 
+<meta name="meta_keywords" content="{{ meta_keywords  | xml_escape }}" />
+<meta name="meta_description" content="{{ meta_description  | xml_escape }}" />
+
+<!-- TWITTER -->
+<meta name="twitter:title" content="{{ twitter_card_title }}" />
+<meta name="twitter:card" content="{{ twitter_card_type }}" />
+<meta name="twitter:description" content="{{ meta_description  | xml_escape }}" />
+<meta name="twitter:image" content="{{ twitter_card_image | absolute_url }}" />
+<meta name="twitter:site" content="{{ OpenSearch_twitter_account }}" />
+
+<!-- OG: OPENGRAPH SHARING -->
+<meta property="og:image" content="{{ twitter_card_image | absolute_url }}" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="1200" />
+<meta property="og:image:width" content="675" />
+<meta property="og:description" content="{{ meta_description  | xml_escape }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="og:title" content="{{ twitter_card_title }}" />
+<meta property="og:site_name" content="{{ site.title }}" />
+
+
+
+
+
+
+
+
+
+{% if page.authors %}
+  {% assign author_short_name = page.authors | first  %}
+  {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
+  {% if author.twitter %}
+    <meta name="twitter:creator" content="@{{ author.twitter }}" />
+  {% endif %} 
+{% endif %}
+  

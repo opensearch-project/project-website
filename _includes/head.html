@@ -1,85 +1,36 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="ROBOTS" content="ALL" />
-    <meta name="MSSmartTagsPreventParsing" content="true" />
-    <meta name="Copyright" content="" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="keywords" content="
-		{% if page.meta_keywords %} 
-			{{ page.meta_keywords }} 
-		{% else %} 
-			open-source, search, opensearch 
-		{% endif %}" 
-	/>
+  {% feed_meta %}
+  {% assign pagetitle = page.title | strip_newlines %}
+  {%- include head-twitter-metatags.html -%}
+  
+  <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
 
-    {% feed_meta %}
+  <!-- Favicons -->
+  {{ page.link_rel_tags }}
+  <link rel="apple-touch-icon" href="{{'assets/img/apple-touch-icon.png' | relative_url }}">
+  <link rel="icon" sizes="192x192" href="{{'assets/img/apple-touch-icon.png' | relative_url }}">
+  <link rel="shortcut icon" href="{{'assets/img/favicon.ico' | relative_url }}">
+  <link rel="canonical" href="{%if page.canonical %}{{page.canonical}}{%else%}{{site.url | append: page.url}}{%endif%}">
 
-    {% if page.meta_description %}<meta name="description" content="{{ page.meta_description }}" />{%endif%}
-    
-    {% assign pagetitle = page.title | strip_newlines %}
+  <meta name="msapplication-TileColor" content="#113228">
+  <meta name="msapplication-TileImage" content="{{'img/icon-tile.png' | relative_url }}">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="{% if pagetitle != "" %}{{ page.title }}{% else %}OpenSearch{% endif %}" />
-    {% if page.twittercard.account %}
-    <meta name="twitter:site" content="{{ page.twittercard.account }}" />
-    {% elsif page.authors %}
-      {% assign author_short_name = page.authors | first  %}
-      {% assign author = site.community_members | where: 'short_name', author_short_name | first %}
-      {% if author.twitter %}
-        <meta name="twitter:site" content="@{{ author.twitter }}" />
-      {% endif %} 
-    {% endif %}
-
-
-
-    {% if page.twittercard.description %}
-    <meta name="twitter:description" content="{{ page.twittercard.description  | xml_escape }}" />
-    {% else %}
-    <meta name="twitter:description" content="OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." />
-    {% endif %}
-    {% if page.twittercard.image %}
-    <meta name="twitter:image" content="{{ page.twittercard.image }}" /> 
-    {% else %}
-    <meta name="twitter:image" content="https://opensearch.org/assets/opensearch-twitter-card.png" />
-    {% endif %}
-
-
-    <meta content="{{ site.title }}" property="og:site_name">
-    <meta content="{{ page.url | absolute_url }}" property="og:url">
-    {% if page.title %}<meta content="{{ page.title }}" property="og:title">
-    {% else %}<meta content="{{ site.title }}" property="og:title"> {% endif %}
-
-    {% if page.image %}<meta content="{{ site.url }}/assets/img/posts/{{ page.image }}" property="og:image">
-    {% else %}<meta content="{{ site.url }}/assets/img/logo-high-resolution.png" property="og:image">{% endif %}
-
-    {{ page.link_rel_tags }}
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{'assets/img/apple-touch-icon.png' | relative_url }}">
-    <link rel="icon" sizes="192x192" href="{{'assets/img/apple-touch-icon.png' | relative_url }}">
-    <link rel="shortcut icon" href="{{'assets/img/favicon.ico' | relative_url }}">
-
-    <link rel="canonical" href="{%if page.canonical %}{{page.canonical}}{%else%}{{site.url | append: page.url}}{%endif%}" />
-
-    <meta name="msapplication-TileColor" content="#113228">
-    <meta name="msapplication-TileImage" content="{{'img/icon-tile.png' | relative_url }}">
-    
-    
-    <title>{% if pagetitle != "" %} {{ page.title | append: " &middot;" }} {% endif %} OpenSearch</title>
-
-    <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
-    {% if page.has_science_table %}
-        {%- include science-table-styles.html -%}
-    {% endif %}
-    <script src="{{ 'assets/js/lib/modernizr.js' | relative_url }}"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV14XK08F"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BQV14XK08F');
-    </script>
-    {{ page.head_extra }}
-  </head>
+  <link rel="stylesheet" href="{{'assets/css/output.css' | relative_url }}" >
+  {% if page.has_science_table %}
+    {%- include science-table-styles.html -%}
+  {% endif %}
+  <script src="{{ 'assets/js/lib/modernizr.js' | relative_url }}"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV14XK08F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BQV14XK08F');
+  </script>
+  {{ page.head_extra }}
+</head>

@@ -23,7 +23,8 @@ This solution currently supports three different methods of authentication:
 * HTTP basic authentication
 * SAML authentication
 
-**IMPORTANT**: It is vital to choose the same major version of self-managed OpenSearch Dashboards as the source managed service domain across all supported methods (for example, while upgrading from 1.3 to 2.11, self-managed Dashboards should be on version 1.3). For Docker images, see the [Docker images repository](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags).
+**IMPORTANT**: It is crucial to select the latest version of self-managed OpenSearch Dashboards, see the [Docker images repository](https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags) and add `“opensearch.ignoreVersionMismatch: true”` in the `opensearch_dashboards.yml` file. This will bypass the version check, allowing the Dashboards to connect seamlessly with any version of the managed service domain and prevent compatibility issues during blue/green deployment.
+Please note that starting from version 2.14.0, OpenSearch Dashboards supports the 'ignore version check' feature.
 
 # Setting up self-managed Dashboards in an Amazon EC2–hosted Docker container: No authentication
 
@@ -222,6 +223,9 @@ IK5Y04uMGfRjcE+cPA/vPCKPxh/sgB0n6GaJCIDI</ds:X509Certificate></ds:X509Data></ds:
 * Replace the self-managed Dashboards URL in the security configuration file with the self-managed Dashboards endpoint. The purpose of this change is to guarantee that after the user is authenticated by IdP, they are redirected to the self-managed Dashboards instance instead of the managed Dashboards instance.
 
 **IMPORTANT**: Users do not have access to modify the security configuration file, so you will need to raise a support case with AWS Support to request a change to the self-managed Dashboards URL endpoint. After AWS Support completes your request, you can check the new endpoint by running the API call **```_opendistro/_security/api/securityconfig```** and validate the **`kibana_url`** changes in the security configuration file.
+
+**Disclaimer**: When changes are made to the Security Configuration file (such as those related to Basic Auth or SAML) after altering the `kibana_url`, it initiates an update to the backend Security Configuration. This update results in the `kibana_url` being reverted to the Custom Domain endpoint. The managed service control plane component uses the PATCH security config API to carry out this process, underscoring the strong recommendation against making any modifications to the security configuration.
+
 * Install Docker and its dependencies on the EC2 instance.
 * Use the following **`docker-compose.yml`** file and run the self-managed Dashboards instance:
 
@@ -265,7 +269,7 @@ server.xsrf.whitelist: ["/_opendistro/_security/saml/acs", "/_opendistro/_securi
 
 * After restarting the container, you can access the self-managed Dashboards instance by connecting to the EC2 endpoint with port `5601`. By doing so, you can view and interact with all the saved objects in accordance with the FGAC settings and SAML authentication.
 
-**CAUTION**: If the endpoint is transitioned to self-managed Dashboards and the user intends to revert to the managed service Dashboards endpoint, they must repeat the same procedure, which involves changing the kibana_url in the security configuration file back to the managed service Dashboards endpoint. Until this change is made, the managed service Dashboards endpoint will remain inaccessible.
+**CAUTION**: If the endpoint is transitioned to self-managed Dashboards and the user intends to revert to the managed service Dashboards endpoint, they must repeat the same procedure, which involves changing the `kibana_url` in the security configuration file back to the managed service Dashboards endpoint.
 
 **NOTE**: When using Docker in an EC2 instance, the self-managed Dashboards instance cannot be accessed over the internet. It is only accessible within the same VPC.
 
