@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Optimize storage and query performance with the MatchOnlyText field in OpenSearch"
+title:  "Optimize storage and performance with the MatchOnlyText field in OpenSearch"
 authors:
   - rishabhmaurya
   - macrakis
@@ -50,9 +50,9 @@ The OpenSearch project recently introduced a new field type called `match_only_t
 
 The `match_only_text` field is a variant of the standard `text` field in OpenSearch. It differs from the regular `text` field in a few key ways:
 
-1. **Reduced Storage Requirements**: It omits storing positions, frequencies, and norms, which reduces the overall storage requirements.
-2. **Constant Scoring**: It disables scoring, so that all matching documents receive a constant score of 1.0.
-3. **Limited Query Support**: It supports most query types, except for interval and span queries.
+1. **Reduced storage requirements**: It omits storing positions, frequencies, and norms, which reduces the overall storage requirements.
+2. **Constant scoring**: It disables scoring, so that all matching documents receive a constant score of 1.0.
+3. **Limited query support**: It supports most query types, except for interval and span queries.
 
 By avoiding the overhead of storing frequencies and positions, `match_only_text` fields result in smaller indexes and lower storage costs, especially for large datasets.
 
