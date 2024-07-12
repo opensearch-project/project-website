@@ -119,7 +119,7 @@ With our example setup, we can find data points similar to this (shortened) exam
 
 We can see that OTel separates metrics by the `name`.
 Each point contains the generic `value` and `time`, which form the basic time series for the visualizations.
-This schema is a at first glance suboptimal for OpenSearch, where having a field with key `name` and value with the numerical value is easier accessible.
+This schema is a at first glance suboptimal for OpenSearch, where having a field with key `name` and a value containing the numerical value is more easily accessible.
 For our example, this would look like `{ "container.cpu.time": 120.353905}`.
 However, if we ingest a lot of different metrics, we may reach the field limit of 1,000 per index fairly quickly.
 
@@ -255,7 +255,7 @@ For this, we create a new visualization and choose **Data Table**.
 ![New Data Table Visualization](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/visualize_create_data-table.png){:class="img-centered"}
 
 We are asked to select the index or saved search as data source.
-For our table, we can use the entire OpenTelemetry metrics index.
+For our table, we can use the entire OTel metrics index.
 Let's take a look at the finished table and then walk through the steps required to generate it.
 
 ![K8s Pods and Containers per Namespace](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/table_metric_unique-pod-names.png){:class="img-centered"}
@@ -369,27 +369,27 @@ After the pod, we split again by container name.
 When you add the "split series" configuration, OpenSearch Dashboards notify you that the date histogram needs to be the last visualization.
 You can rearrange the bucket aggregations by dragging and dropping them on the "=" icon.
 
-With all that configuration done, we hit the Update button to inspect the graph.
+With all that configuration done, we select the **Update** button to inspect the graph.
 
 ![CPU Time by Container and Pod](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_chart.png){:class="img-centered"}
 
 We get a line of the CPU time used by time interval for each container.
 The labels consist of the pod name first and the container name second.
-We can control this ordering by the ordering of our aggregations.
-Similar to TSVB, we have a problem to distinguish long labels in the legend.
+We can control this ordering by changing the order of our aggregations.
+Similarly to TSVB, we have a problem distinguishing long labels in the legend.
 This is no better, if we bring the legend to the bottom with the panel options.
 
-If we mouse-over a data point, we get additional information.
+If we hover over a data point, we get additional information.
 
 ![Line Chart Point Info](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_data-point_info.png){:class="img-centered"}
 
 We can see the timestamp and CPU time used.
-The labels for pod and container names are presented, but hard to recognize.
+The labels for pod and container names are presented but are hard to recognize.
 This is caused by the double aggregation.
 If we used just pod names, this would be much better.
 An alternative approach would be to use "split series" for container names and "split chart" for pod names.
 
-Clicking on a data point brings up a filter creation dialog.
+Selecting a data point brings up a filter creation dialog.
 
 ![Line Chart Point Filter](/assets/media/blog-images/2024-05-07-opentelemetry-metrics-visualization/line_data-point_filters.png){:class="img-centered"}
 
@@ -398,19 +398,16 @@ These filters are applied across the entire dashboard.
 
 We have pushed our timeline visualization to the limits of the standard charts.
 This gives us a good understanding of its capabilities.
-It has its benefits for creating filters and grouping by multiple attributes.
-But TSVB has easier options to format data.
+The visualization has its benefits in terms of creating filters and grouping by multiple attributes, but TSVB offers easier options for formatting data.
 
 ### Outlook: Vega
 
-We have explored, how to set up present OpenTelemetry metrics using TSVB and the standard visualizations.
-Both approaches allowed the creation of useful charts providing powerful insights.
-But we also encounter quite some limitations.
-To overcome those limits, OpenSearch Dashboards offers Vega as another powerful visualization approach.
-Vega lets us use any OpenSearch query and provides a grammar to transform and visualize the data with [D3.js](https://d3js.org/).
-It allows to access global filters and the time interval selector to create well-integrated exploration and analysis journeys in OpenSearch.
+We have explored how to set up and present OTel metrics using TSVB and standard visualizations.
+Both approaches allow the creation of useful charts that provide powerful insights, but they also present some limitations.
+To overcome those limitations, OpenSearch Dashboards offers Vega as another powerful visualization tool.
+Vega lets you use any OpenSearch query and provides a grammar for transforming and visualizing the data with [D3.js](https://d3js.org/).
+It allows you to access global filters and the time interval selector to create well-integrated exploration and analysis journeys in OpenSearch.
 
 Of course, this has a steeper learning curve.
 Explaining Vega visualizations would warrant its own blog post.
-There is a short introduction in the [OpenSearch Catalog](https://github.com/opensearch-project/opensearch-catalog/blob/main/visualizations/vega-visualizations.md).
-Be sure to check out the Vega visualizations in that catalog to get further inspiration.
+See [Vega Visualizations](https://github.com/opensearch-project/opensearch-catalog/blob/main/visualizations/vega-visualizations.md) for a short introduction and to get further inspiration.
