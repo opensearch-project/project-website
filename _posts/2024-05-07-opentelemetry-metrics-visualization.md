@@ -6,8 +6,8 @@ authors:
 date: 2024-07-16
 categories:
  - technical-post
-meta_keywords: 
-meta_description: 
+meta_keywords: SAP Cloud Logging, Data Prepper ingestion, OpenTelemetry data models, OpenSearch Dashboards, observability plugin
+meta_description: Discover how SAP Cloud Logging created custom-built visualizations for analyzing metrics using the OpenTelemetry and Data Prepper ingestion tools in OpenSearch.
 excerpt: OpenSearch provides OpenTelemetry ingestion by using Data Prepper as an ingestion tool. In this blog post, we explore how to analyze and visualize metrics indexed using this method.
 has_math: true
 has_science_table: true
