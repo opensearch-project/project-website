@@ -5,7 +5,7 @@ description: 'OpenSearch as a vector database supports a range of applications. 
 feature_area_category_name: Search
 feature_area_solution_name: Vector Database
 how_to_get_started: 
-  - 'You can begin exploring OpenSearch&apos;s vector database functionality by downloading your preferred distribution. To learn more or start a discussion, join the Slack channel or check out our user forum and follow our blog for the latest on OpenSearch tools.'
+  - 'You can get started with OpenSearch&apos;s vector database functionality by exploring our <a href="https://opensearch.org/docs/latest/search-plugins/vector-search/" target="_blank">vector search documentation</a>. To learn more or to start a discussion, join our <a href="https://opensearch.org/slack.html"  target="_blank">public Slack channel</a>, check out our <a href="https://forum.opensearch.org/"  target="_blank">user forum</a>, and follow our <a href="https://opensearch.org/blog/"  target="_blank">blog</a> for the latest on OpenSearch tools and features.'
 button_stack:
   - download
 ---
@@ -27,15 +27,15 @@ button_stack:
     </tr>
     <tr>
       <td>Semantic search</td>
-      <td>Enhance search relevancy by powering vector search with text embedding models that capture semantic meaning and use hybrid scoring to blend term frequency models (BM25) for improved results.</td>
+      <td>Enhance search relevancy by powering vector search with text embedding models that capture semantic meaning and use hybrid scoring to blend term frequency models (BM25) for improved results. To learn more, see <a href="https://opensearch.org/docs/latest/search-plugins/semantic-search/" target="_blank">Semantic search</a>.</td>
     </tr>
     <tr>
       <td>Multimodal search</td>
-      <td>Use state-of-the-art models that can fuse and encode text, image, and audio inputs to generate more accurate digital fingerprints of rich media and enable more relevant search and insights.</td>
+      <td>Use state-of-the-art models that can fuse and encode text, image, and audio inputs to generate more accurate digital fingerprints of rich media and enable more relevant search and insights. To learn more, see <a href="https://opensearch.org/docs/latest/search-plugins/multimodal-search/" target="_blank">Multimodal search</a>.</td>
     </tr>
     <tr>
       <td>Generative AI agents</td>
-      <td>Build intelligent agents with the power of generative AI while minimizing <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)#:~:text=AI%20hallucination%20gained%20prominence%20around,falsehoods%20within%20their%20generated%20content." target="_blank">hallucinations</a> by using OpenSearch to power retrieval augmented generation (RAG) workflows with large language models (LLMs). (Whether you refer to them as chatbots, automated conversation entities, question answering bots, or something else, OpenSearch’s vector database functionality can help them deliver better results).</td>
+      <td>Build intelligent agents with the power of generative AI while minimizing <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)#:~:text=AI%20hallucination%20gained%20prominence%20around,falsehoods%20within%20their%20generated%20content." target="_blank">hallucinations</a> by using OpenSearch to power retrieval augmented generation (RAG) workflows with large language models (LLMs). (Whether you refer to them as chatbots, automated conversation entities, question answering bots, or something else, OpenSearch’s vector database functionality can help them deliver better results). To learn more, see <a href="https://opensearch.org/docs/latest/search-plugins/conversational-search/" target="_blank">Conversational search</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -78,7 +78,7 @@ button_stack:
   <tbody>
     <tr>
       <td>Data and machine learning platforms</td>
-      <td>Build your platform with an integrated, Apache 2.0-licensed vector database that provides a reliable and scalable solution to operationalize embeddings and power vector search.</td>
+      <td>Build your platform with an integrated, Apache 2.0-licensed vector database that provides a reliable and scalable solution to operationalize embeddings and power vector search. To learn more, see <a href="https://opensearch.org/docs/latest/search-plugins/vector-search/" target="_blank">Vector search</a>.</td>
     </tr>
   </tbody>
 </table>
