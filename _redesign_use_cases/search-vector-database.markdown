@@ -5,7 +5,7 @@ description: 'OpenSearch as a vector database supports a range of applications. 
 feature_area_category_name: Search
 feature_area_solution_name: Vector Database
 how_to_get_started: 
-  - 'You can begin exploring OpenSearch&apos;s vector database functionality by exploring <a href="https://opensearch.org/docs/latest/search-plugins/vector-search/" target="_blank">Vector search</a> in our documentation. To learn more or start a discussion, join the Slack channel or check out our user forum and follow our blog for the latest on OpenSearch tools.'
+  - 'You can get started with OpenSearch&apos;s vector database functionality by exploring our <a href="https://opensearch.org/docs/latest/search-plugins/vector-search/" target="_blank">vector search documentation</a>. To learn more or to start a discussion, join our <a href="https://opensearch.org/slack.html"  target="_blank">public Slack channel</a>, check out our <a href="https://forum.opensearch.org/"  target="_blank">user forum</a>, and follow our <a href="https://opensearch.org/blog/"  target="_blank">blog</a> for the latest on OpenSearch tools and features.'
 button_stack:
   - download
 ---
