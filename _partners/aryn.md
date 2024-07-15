@@ -10,7 +10,7 @@ name_long: 'Aryn'
 logo: '/assets/media/partners/arynai/ArynLogo_White-cropped.svg'
 
 # URL to the partner's website.
-link: 'http://aryn.ai'
+link: 'https://aryn.ai'
 
 # logo_large is used on the extended partner details page.
 # It is normative to upload all extended partner page images to a subdirectory of /assets/media/partners/ with the name of the partner as the directory name.
