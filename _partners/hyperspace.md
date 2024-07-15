@@ -15,10 +15,10 @@ link: 'https://www.hyper-space.io/'
 # logo_large is used on the extended partner details page.
 # It is normative to upload all extended partner page images to a subdirectory of /assets/media/partners/ with the name of the partner as the directory name.
 # For example given a partner named "SampleCompany" the logo_large image would be uploaded to /assets/media/partners/samplecompany/logo_large.png
-logo: '/assets/media/partners/hyperspace_logo_large.png'
+logo_large: '/assets/media/partners/hyperspace_logo.png'
 
 # Large image displayed in the top right of the extended partner details page.
-product_image: '/assets/media/partners/samplecompany/sample-product-image.png'
+#product_image: '/assets/media/partners/hyperspace_logo.png'
 # Partner company description used on the extended partner details page.
 description: Hyperspace is an elastic compatible cloud-native search database that leverages custom computing power so you can run any type of search at any time and scale with uncompromised performance, consistency, and confidence.
 
@@ -32,7 +32,7 @@ region: 'Global'
 contact: amits@hyper-space.io.
 
 # Comma delimited list of one or more feature areas of the OpenSearch platform that the partner specializes in.
-opensearch_tech: search?
+opensearch_tech: search
 
 # Comma delimited list of one or more industries that the partner specializes in serving.
 industries: 'Education, financial services, healthcare, media and entertainment, non-profit, retail, software and technology'
