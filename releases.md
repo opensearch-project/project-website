@@ -12,7 +12,7 @@ breadcrumbs:
 include_mobile_tables: true
 ---
 
-##### Updated February 2, 2024
+##### Updated July 16, 2024
 
 - [Release Schedule](#release-schedule)
 - [Maintenance Policy](#maintenance-policy)
