@@ -1,10 +1,10 @@
 ---
 short_name: 'rgumiero'
-name: 'Rafiel Gumiero'
+name: 'Rafael Gumiero'
 photo: '/assets/media/community/members/rgumiero.png'
 job_title_and_company: 'Sr. Analytics Specialist Solutions Architect, Amazon Web Services'
-primary_title: 'Rafiel Gumiero'
-title: 'OpenSearch Community Member: Rafiel Gumiero'
+primary_title: 'Rafael Gumiero'
+title: 'OpenSearch Community Member: Rafael Gumiero'
 breadcrumbs:
   icon: community
   items:
@@ -12,7 +12,7 @@ breadcrumbs:
       url: /community/index.html
     - title: Members
       url: /community/members/index.html
-    - title: "Rafiel Gumiero&apos;s Profile"
+    - title: "Rafael Gumiero&apos;s Profile"
       url: '/community/members/rafiel-gumiero.html'
 keynote_speaker: false
 permalink: '/community/members/rafiel-gumiero.html'
