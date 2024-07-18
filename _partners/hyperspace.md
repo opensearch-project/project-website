@@ -26,7 +26,7 @@ main_office_location:  |
 Documentation:
   - url: 'https://docs.hyper-space.io/hyperspace-docs'
     title: 'Hyperspace Documentation'
-    thumbnail:  '/assets/media/partners/hyperspace_logo.png'
+    thumbnail:  '/assets/media/partners/hyperspace/hyperspace_logo.png'
     type: 'resource'
 
 social_links:

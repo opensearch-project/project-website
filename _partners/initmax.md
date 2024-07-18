@@ -18,7 +18,7 @@ opensearch_tech: 'Log Management &amp; Wazuh &amp; Searching'
 resources: 
   - url: 'https://www.initmax.cz/blog/'
     title: 'initMAX Blog'
-    thumbnail: '/assets/media/partners/initmax.png'
+    thumbnail: '/assets/media/partners/initmax/initmax.png'
     aspect_ratio: '74:73'
     type: 'blog'
 products:
