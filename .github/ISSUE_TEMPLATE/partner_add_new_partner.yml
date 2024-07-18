@@ -2,7 +2,7 @@ name: 🎉 Become an OpenSearch Partner
 description: Become an OpenSearch Partner
 title: "[PARTNER] {{ Company name }} "
 labels: ['Partner/new-Partner, untriaged']
-projects: ["testProject/Partners"]
+projects: ["opensearch-project/Partners"]
 
 
 

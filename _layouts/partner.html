@@ -1,5 +1,5 @@
 ---
-layout: default-base-template
+layout: default
 title: Partners
 primary_title: Partners
 ---
@@ -12,40 +12,13 @@ primary_title: Partners
 
 {% assign primary_title = page.name_long %}
 
-<div class="container text-left py-4 bg-body-tertiary p-0">
-    <div class="row align-items-start">
-        <!-- large logo -->
-        <div class="col">
-            <img src="{{ page.logo_large }}" alt="{{ page.name_long }} Logo" style="height: 75px;">
-        </div>
-    </div>
-  </div>
-</div>
 
-
-<div class="container text-left">
-    <div class="row align-items-start">
-        <!-- sidbar -->
-        <div class="col">
-            <div class="partner-page--branding--product">
-                {% if page.product_image %}
-                    <img src="{{ page.product_image }}" alt="{{ page_long }} Product">
-                {% endif %}
-            </div>
-        </div>
-        <!-- main content -->
-        <div class="col">
-            Two
-        </div>
-    </div>
-  </div>
-</div>
 
 <div class="container sidebar-left">
     <div class="partner-page--branding">
-        <!-- <div class="partner-page--branding--logo">
+        <div class="partner-page--branding--logo">
             <img src="{{ page.logo_large }}" alt="{{ page.name_long }} Logo">
-        </div> -->
+        </div>
         <div class="partner-page--branding--product">
             {% if page.product_image %}
                 <img src="{{ page.product_image }}" alt="{{ page_long }} Product">
@@ -189,3 +162,8 @@ primary_title: Partners
         </div>
     </div>
 </div>
+
+
+
+
+
