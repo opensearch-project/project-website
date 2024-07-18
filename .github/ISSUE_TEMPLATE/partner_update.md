@@ -2,7 +2,8 @@
 name: 🤝 Partner Update
 about: I am an OpenSearch partner and wish to update my information
 title: "[PARTNER] update {{ Company name }} "
-labels: ['Partner/update-Partner, untriaged']
+labels: ['enhancement, untriaged']
+projects: ["opensearch-project/Website Update Project"]
 assignees: ''
 
 ---

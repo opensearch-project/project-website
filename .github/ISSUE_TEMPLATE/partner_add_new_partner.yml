@@ -1,9 +1,9 @@
 name: 🎉 Become an OpenSearch Partner
 description: Become an OpenSearch Partner
 title: "[PARTNER] {{ Company name }} "
-labels: ['Partner/new-Partner, untriaged']
-projects: ["opensearch-project/Partners"]
-
+labels: ['enhancement, untriaged']
+projects: ["opensearch-project/Website Update Project"]
+assignees: ''
 
 
 body:
