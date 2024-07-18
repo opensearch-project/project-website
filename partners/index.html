@@ -1,32 +1,49 @@
 ---
-layout: fullwidth-with-breadcrumbs
+layout: default-base-template
 title: Partners
 primary_title: Partners
 body_class: partners-page
 notice: true
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-    - title: Partners
-      url: '/partners/'
+
 ---
 
-<p>OpenSearch is a team effort, we are grateful to all our partners.</p>
-<p>Want to join the partner program? This <a href="../new-partner.html">guide describes how to join as an OpenSearch partner</a>.
-<div class="partners">
-  {% for partner in site.partners %}
-    <div class="partner">
-        {% if partner.name_long %}
-            <a href="{{ partner.url | relative_url }}">
-        {% elsif partner.link %}
-            <a href="{{ partner.link }}" target="_blank">
-        {% endif %}
-        <img src="{{ partner.logo }}" alt="{{ partner.name }} Logo" />
-        <span class="partner-name"> {{ partner.name }} </span>
-        {% if partner.name_long or partner.link %}
-        </a>
-        {% endif %}
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-8 col-md-8 mx-auto">
+        <h1 class="fw-light">OpenSearch Partnerships</h1>
+        <p class="lead text-body-secondary">The OpenSearch Project works with a wide range of open-source community partners that represent organizations in search, analytics, observability, security, machine learning, and other data-intensive applications.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Become a Partner</a>
+          <a href="#" class="btn btn-outline-primary my-2">Partner update</a>
+        </p>
+      </div>
     </div>
-  {% endfor %}
-</div>
+  </section>
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <h1 class="text-center">Our Partners</h1>
+      <br/>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for partner in site.partners %}
+          <div class="col partner">
+            <div class="card h-100 shadow-sm d-flex align-items-center justify-content-center">
+              {% if partner.name_long %}
+                <a href="{{ partner.url | relative_url }}">
+              {% elsif partner.link %}
+                <a href="{{ partner.link }}" target="_blank">
+              {% endif %}
+              <img src="{{ partner.logo_large }}" alt="{{ partner.name }} Logo" class="partner-logo"/>
+              <!-- <div class="card-body">
+                <h5 class="card-title partner-name"> {{ partner.name }} </h5>
+              </div> -->
+              {% if partner.name_long or partner.link %}
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+</main>        
+
