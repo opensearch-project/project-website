@@ -1,7 +1,7 @@
 ---
 name: FusionAuth
 name_long: FusionAuth
-logo: '/assets/media/partners/fusionauth.png'
+logo: '/assets/media/partners/fusionauth/fusionauth.png'
 link: 'https://fusionauth.io'
 logo_large: '/assets/media/partners/fusionauth/fusionauth_large.png'
 description: 'FusionAuth is a customer authentication and authorization platform.'

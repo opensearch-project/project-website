@@ -3,7 +3,7 @@ name: MC+A
 name_long: 'MC+A'
 logo: '/assets/media/partners/mcplusa/mcplusa.logo.notag.svg'
 link: 'https://mcplusa.com'
-logo_large: '/assets/media/partners/mcplusa/mcplusa.logo.notag.svg'
+logo_large: '/assets/media/partners/mcplusa/large_logo.png'
 description: 'MC+A is an award-winning technology consultancy that specializes in the implementation of Search and AI solutions. With over 20 years of experience in search implementation, we leverage our expertise to bring cutting-edge GenAI and LLM capabilities to our customers. MC+A is committed to helping clients build, run and manage AI solutions that drive efficiency and effectiveness across diverse sectors.'
 business_type: 'Systems Integrator, Managed Services, ISV'
 region: 'North America, South America, Australia'

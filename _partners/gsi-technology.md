@@ -2,7 +2,7 @@
 name: GSI Technology
 # upload your logo to the following directory - must be square
 name_long: 'GSI Technology, Inc.'
-logo: '/assets/media/partners/just-gsi-logo.png'
+logo: '/assets/media/partners/gsi-technology/just-gsi-logo.png'
 link: 'https://www.gsitechnology.com/apu'
 logo_large: '/assets/media/partners/gsi-technology/gsi-technology-logo.png'
 product_image: '/assets/media/partners/gsi-technology/gsi-technology-product.jpg'

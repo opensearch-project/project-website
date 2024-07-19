@@ -1,9 +1,9 @@
 ---
 name: BigData Boutique
 name_long: BigData Boutique
-logo: '/assets/media/partners/bigdataboutique.png'
+logo: '/assets/media/partners/bigdataboutique/bigdataboutique.png'
 link: 'https://bigdataboutique.com'
-logo_large: '/assets/media/partners/bigdataboutique/bigdataboutique-logo.png'
+logo_large: '/assets/media/partners/bigdataboutique/bigdataboutique.png'
 description: 'BigData Boutique provides end-to-end OpenSearch expert consulting and 24/7 support services. As trusted OpenSearch experts, we address and overcome any challenge related to OpenSearch usage (performance, cost, modeling, and more), as well as data migration services.'
 business_type: ISV
 region: Worldwide
