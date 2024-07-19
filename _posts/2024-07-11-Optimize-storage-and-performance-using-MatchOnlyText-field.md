@@ -46,7 +46,7 @@ th {
 
 The OpenSearch Project introduced a new field type called `match_only_text` in version 2.12. This field type is designed for full-text search scenarios where scoring and positional information of terms within a document are not critical. If you're working with large datasets in OpenSearch and looking to optimize storage and performance, then the `match_only_text` field could be an interesting option to explore.
 
-## What is the MatchOnlyText Field?
+## What is the MatchOnlyText field?
 
 The `match_only_text` field is a variant of the standard `text` field in OpenSearch. It differs from the regular `text` field in a few key ways:
 
