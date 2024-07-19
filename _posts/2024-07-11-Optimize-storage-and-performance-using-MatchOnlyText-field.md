@@ -70,7 +70,7 @@ With the `match_only_text` field, the positional information is not stored, resu
 
 ## Estimating Storage Savings
 
-To understand how much storage cost it would save and whether it's worth trading off unsupported features and the performance of phrase queries, you can use the OpenSearch index stats API:
+To understand how much the `match_only_text` field could save you in storage costs and whether it would be worth trading off unsupported features and the performance of phrase queries, you can use the OpenSearch Index Stats API:
 
 ```
 /<index_name>/_stats/segments?level=shards&include_segment_file_sizes&pretty
