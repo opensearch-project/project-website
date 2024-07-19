@@ -58,7 +58,7 @@ By avoiding the overhead of storing frequencies and positions, `match_only_text`
 
 ## Why use the MatchOnlyText field?
 
-The `match_only_text` field can be particularly beneficial when you need to quickly find documents containing specific terms, without the need for relevance ranking or queries that rely on term proximity or order (like interval or span queries). For example, when searching for exceptions in logs for the last hour, the relevance may not be critical.
+The `match_only_text` field can be particularly beneficial when you need to quickly find documents containing specific terms, without the need for relevance ranking or queries that rely on term proximity or order (like interval or span queries). For example, when searching for exceptions in logs for the last hour, relevance may not be critical.
 
 The reduced storage requirements of `match_only_text` fields can lead to significant cost savings, especially for organizations managing large amounts of text data. According to initial benchmarks, the storage savings can be as high as 25% compared to using standard `text` fields.
 
