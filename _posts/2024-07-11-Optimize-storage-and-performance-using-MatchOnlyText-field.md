@@ -76,7 +76,7 @@ To understand how much storage cost it would save and whether it's worth trading
 /<index_name>/_stats/segments?level=shards&include_segment_file_sizes&pretty
 ```
 
-This API will provide information about the storage usage of the `pos` (positions), `doc` (frequencies), and `nvm` (norms) components. The savings you can achieve by using `match_only_text` will depend on your specific data and workload, but initial benchmarks have shown storage reductions of up to 25% for PMC workload in OpenSearch benchmark.
+This API provides information about the storage usage of the `pos` (positions), `doc` (frequencies), and `nvm` (norms) components. The savings you can achieve by using `match_only_text` will depend on your specific data and workload, but initial benchmarks have shown storage reductions of up to 25% for the PMC workload in OpenSearch Benchmark.
 
 Keep in mind that the `_stats` API has a constraint, as it's not possible to get field-level statistics. An issue has been opened to address this limitation, to help you accurately predict the storage optimization after transitioning from `text` to `match_only_text` [GitHub Issue](https://github.com/opensearch-project/OpenSearch/issues/6836#issuecomment-1758529469).
 
