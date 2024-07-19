@@ -20,4 +20,4 @@ permalink: '/community/members/rishabh-maurya.html'
 redirect_from: '/authors/rishabhmaurya/'
 ---
 
-**Rishabh** is a Software Engineer at AWS working on the OpenSearch project.
+**Rishabh** is a Software Engineer at AWS working on the OpenSearch Project.
