@@ -3,8 +3,6 @@ description: Become an OpenSearch Partner
 title: "[PARTNER] {{ Company name }} "
 labels: ['enhancement, untriaged']
 projects: ["opensearch-project/Website Update Project"]
-assignees: ''
-
 
 body:
   - type: markdown
