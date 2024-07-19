@@ -62,7 +62,7 @@ The `match_only_text` field can be particularly beneficial when you need to quic
 
 The reduced storage requirements of `match_only_text` fields can lead to significant cost savings, especially for organizations dealing with large amounts of text data. According to initial benchmarks, the storage savings can be as high as 25% compared to using standard `text` fields.
 
-## How MatchOnlyText Achieves Smaller Index Sizes
+## How MatchOnlyText achieves smaller index sizes
 
 For regular `text` fields, the inverted index stores the term-to-postings mapping, where postings contain the document IDs where the term exists, as well as additional information such as positions, document frequencies, and norms. When executing queries where positions are not needed, such as term queries, the positions are never loaded. However, when running phrase queries, the positions of terms within a document are required to ensure the individual terms of the phrase query are in order.
 
