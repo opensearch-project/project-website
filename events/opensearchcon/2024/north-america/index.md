@@ -26,13 +26,13 @@ conference_sections_button_stack:
 #    url: /events/opensearchcon/2024/north-america/exhibitors/index.html
 #  - label: Workshops
 #    url: /events/opensearchcon/2024/north-america/workshops/index.html
-#  - label: Unconference
-#    url: /events/opensearchcon/2024/north-america/unconference/index.html
-#related_articles:
-#  - title: Using Fluent Bit and OpenSearch with Bottlerocket and Kubelet logs
-#    url: /blog/bottlerocket-k8s-fluent-bit/
-#    category: community
-#    date: 'Wed, Jul 20, 2022'
+  - label: Unconference
+    url: /events/opensearchcon/2024/north-america/unconference/index.html
+related_articles:
+  - title: OpenSearchCon San Francisco - Schedule and CFP Updates
+    url: /blog/opensearchcon-san-francisco-schedule-and-cfp-updates/
+    category: community
+    date: 'Fri, Jul 21, 2024'
 #featured_sessions:
 #  - title: Opening Keynote
 #    url: /events/opensearchcon/2022/north-america/sessions/keynote.html
