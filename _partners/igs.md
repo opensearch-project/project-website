@@ -3,10 +3,10 @@ name: IGS
 # name_long is used on the partner details page.
 name_long: 'Integrated Global Solutions Limited'
 # upload your logo to the following directory - must be square
-logo: '/assets/media/partners/igs.png'
+logo: '/assets/media/partners/igs/igs.png'
 link: 'https://www.igsl-group.com/'
 # logo_large is used on the partner details page.
-logo_large: '/assets/media/partners/igs.png'
+logo_large: '/assets/media/partners/igs/igs.png'
 # product_image: ''
 description: 'Integrated Global Solutions Limited (IGS) is an IT solutions and service provider with over a decade of business experience, focusing on IT Service Management (ITSM), infrastructure management solutions, applications development, data analytics, big data solutions and open-source technologies.'
 business_type: 'Product/Technology, Services Organization'
