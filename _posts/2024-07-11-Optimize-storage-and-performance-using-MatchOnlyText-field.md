@@ -56,7 +56,7 @@ The `match_only_text` field is a variant of the standard `text` field in OpenSea
 
 By avoiding the overhead of storing frequencies and positions, `match_only_text` fields result in smaller indexes and lower storage costs, especially for large datasets.
 
-## Why Use MatchOnlyText?
+## Why use the MatchOnlyText field?
 
 The `match_only_text` field can be particularly beneficial when you need to quickly find documents containing specific terms, without the need for relevance ranking or queries that rely on term proximity or order (like interval or span queries). For example, when searching for exceptions in logs for the last hour, the relevance may not be critical.
 
