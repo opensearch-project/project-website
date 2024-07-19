@@ -98,4 +98,4 @@ To use the `match_only_text` field, you can simply define it in your OpenSearch 
 
 Remember that the `match_only_text` field comes with some trade-offs, such as reduced phrase query performance and the inability to use proximity-based queries. Make sure to evaluate your specific use case and requirements to determine whether this field type is the right choice for your OpenSearch application.
 
-For more detailed information, refer to the official OpenSearch documentation on the [MatchOnlyText field](https://opensearch.org/docs/latest/field-types/supported-field-types/match-only-text).
+For more detailed information, refer to the `match_only_text` field [documentation](https://opensearch.org/docs/latest/field-types/supported-field-types/match-only-text).
