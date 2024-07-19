@@ -68,7 +68,7 @@ For regular `text` fields, the inverted index stores the term-to-postings mappin
 
 With the `match_only_text` field, the positional information is not stored, resulting in smaller indexes. To run phrase queries without the positional data, OpenSearch converts the phrase query into a conjunction of individual term queries, and then checks the matching documents against the original document content in the `_source` field using a Lucene MemoryIndex. This approach trades off the performance of phrase queries for the reduced storage requirements.
 
-## Estimating Storage Savings
+## Estimating storage savings
 
 To understand how much the `match_only_text` field could save you in storage costs and whether it would be worth trading off unsupported features and the performance of phrase queries, you can use the OpenSearch Index Stats API:
 
