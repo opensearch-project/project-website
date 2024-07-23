@@ -10,9 +10,8 @@ categories:
 meta_keywords: match_only_text field, storage optimization, full-text search OpenSearch, text query performance
 meta_description: Explore how the match_only_text field can help you work with large datasets in OpenSearch while making it possible to optimize storage and performance at a reduced cost.
 has_science_table: true
-excerpt: The OpenSearch Project introduced a new field type called `match_only_text` in version 2.12. This field type is designed for full-text search scenarios where scoring and positional information of terms within a document are not critical. If you're working with large datasets in OpenSearch and looking to optimize storage and performance, then the `match_only_text` field could be an interesting option to explore.
 ---
-
+The OpenSearch Project introduced a new field type called `match_only_text` in version 2.12. This field type is designed for full-text search scenarios where scoring and positional information of terms within a document are not critical. If you're working with large datasets in OpenSearch and looking to optimize storage and performance, then the `match_only_text` field could be an interesting option to explore.
 
 <style>
 
