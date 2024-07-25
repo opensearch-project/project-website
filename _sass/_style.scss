@@ -21,7 +21,6 @@ html {
 body {
     @include sans-serif;
     font-size: 18px;
-    background: $background-darker;
     color: $text;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -95,7 +94,6 @@ h6 {
 }
 h1 {
     font-size: 28px;
-    color: $background-lightest;
     letter-spacing: -1px;
     line-height: 1.1;
     @include respond-min(462.5px) {
