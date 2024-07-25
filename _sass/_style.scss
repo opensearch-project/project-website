@@ -314,24 +314,6 @@ ul {
     }
 }
 
-.container {
-    @include respond-min(1100px) {
-        margin: 0 auto;
-        max-width: 1400px;
-        padding: 0 calc(32/768) * 100%;
-    }
-
-    @include respond-max(1099px) {
-        margin: 0 auto;
-        max-width: 100vw;
-        padding: 0 20px;
-    }
-
-    @media screen and (max-width: 834px) {
-        padding: 0;
-    }
-}
-
 .copy-banner {
     // Large green callout at the top of the page
     background: $background-darkest;
