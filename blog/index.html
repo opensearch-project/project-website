@@ -59,7 +59,7 @@ notice: true
             {% if paginator.page == 1 %}
                 {% assign post_metadata_string = "" %}
                 <!-- Date -->
-                {% assign post_metadata_string = post_metadata_string | append: featured_post.date | date: "%b %d" %}
+                {% assign post_metadata_string = post_metadata_string | append: featured_post.date | date: "%b %d %Y" %}
 
                 {% assign post_metadata_string = post_metadata_string | append: " &bull; " %}
                 <!-- Categories -->
@@ -74,7 +74,6 @@ notice: true
                     <div class="card-body">
                         <div class="p-4">
                             <h1 class=" display-6 ">{{ featured_post.title }}</h1>
-                            <hr>
                             <div class="mb-1 text-body-secondary">{{ post_metadata_string }}</div>
                             <p class="card-text mb-auto">{{ featured_post.excerpt | strip_html | truncatewords: 50 }}</p>
                             <a href="{{  featured_post.url }}" class="stretched-link"></a>
@@ -88,7 +87,7 @@ notice: true
                 {% if post != featured_post %}
                     {% assign post_metadata_string = "" %}
                     <!-- Date -->
-                    {% assign post_metadata_string = post_metadata_string | append: post.date | date: "%b %d" %}
+                    {% assign post_metadata_string = post_metadata_string | append: post.date | date: "%b %d, %Y" %}
 
                     {% assign post_metadata_string = post_metadata_string | append: " &bull; " %}
                     <!-- Categories -->
@@ -102,7 +101,7 @@ notice: true
                         <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 mx-6 shadow-sm h-md-250 position-relative">
                             <div class="col p-4 d-flex flex-column position-static">
                                 <!-- <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post_category_string }}</strong> -->
-                                <h3 class="mb-0">{{ post.title }}</h3>
+                                <h2 class="mb-0">{{ post.title }}</h2>
                                 <div class="mb-1 text-body-secondary">{{ post_metadata_string }}</div>
                                     <p class="card-text mb-auto">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
                                     <a href="{{  post.url }}" class="stretched-link"></a>

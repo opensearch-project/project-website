@@ -1,5 +1,5 @@
 ---
-layout: default-base-template
+layout: default
 title: Partners
 primary_title: Partners
 body_class: partners-page
@@ -29,7 +29,7 @@ notice: true
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for partner in site.partners %}
           <div class="col partner">
-            <div class="card h-100 shadow-sm d-flex align-items-center justify-content-center">
+            <div class="card p-4 h-100 shadow-sm d-flex align-items-center justify-content-center">
               {% if partner.name_long %}
                 <a href="{{ partner.url | relative_url }}" class="stretched-link">
               {% elsif partner.link %}
