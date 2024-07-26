@@ -21,8 +21,7 @@ contact_phone: x-xxx-xxx-xxxx
 
 industries:  business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology
 
-product_image: ''
-product_description: Brief description of your product
+
 
 opensearch_tech:  search, relevance, analytics, observability
 
@@ -52,7 +51,7 @@ social_links:
   - url: 'https://github.com/example'
     icon: 'github'
 
-
+product_image: ''
 products:
   - url: 'https://example-product.example'
     name: 'Example Product Name'
