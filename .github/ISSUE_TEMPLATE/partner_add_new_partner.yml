@@ -63,8 +63,10 @@ body:
       multiple: true
       options:
         - Consultant
-        - (MSR) Managed Service Provider
+        - (MSP) Managed Service Provider
+        - (CSP) Content Service Provider
         - (ISV) Independent Software Vendor
+        - Systems Integrator
         - Professional Services
         - Training
       default: 0
