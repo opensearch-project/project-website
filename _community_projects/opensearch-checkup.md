@@ -6,5 +6,5 @@ owner_link: https://www.opster.com
 link: https://checkups.opster.com/checkup/input
 license: Free
 license_link: https://opster.com/about/term-and-conditions/
-icon: /assets/media/partners/opster.png
+icon: /assets/media/partners/opster/opster.png
 ---
