@@ -9,5 +9,5 @@ category: opensearch-dashboards
 slug: opensearch-dashboards-2.15.0-archlinux-x64
 version: 2.15.0
 archlinux_package_name: opensearch-dashboards
-link: https://www.freshports.org/textproc/opensearch-dashboards
+link: https://archlinux.org/packages/extra/x86_64/opensearch-dashboards/
 ---
