@@ -1,0 +1,12 @@
+---
+role: daemon
+artifact_id: opensearch
+version: 2.15.0
+platform: archlinux
+architecture: x64
+slug: opensearch-2.15.0-archlinux-x64
+category: opensearch
+type: system-package
+archlinux_package_name: opensearch
+link: https://www.freshports.org/textproc/opensearch
+---

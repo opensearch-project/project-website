@@ -27,6 +27,7 @@ pretty:
     macos: macOS
     java: "Java"
     docker: Docker
+    archlinux: "Arch Linux"
   extensions:
     targz: ".tar.gz"
     exe: "Installer (exe)"
@@ -60,6 +61,7 @@ platform_order:
   - linux
   - docker
   - freebsd
+  - archlinux
   - macos
   - windows
   - java
@@ -210,6 +212,13 @@ this is the built-in error checking for the version definition having missing ar
                 <pre># pkg install {{details.freebsd_package_name}}</pre>
                 </div>{% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.archlinux_package_name %}
+            {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
+            <p>Install from Arch Linux packages:</p>
+            <pre># pacman -S install {{details.archlinux_package_name}}</pre>
+            </div>{% endcapture %}
+            {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
             {% if details.link %}
               {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
