@@ -2,7 +2,7 @@ name: 🎉 Become an OpenSearch Partner
 description: Become an OpenSearch Partner
 title: "[PARTNER] {{ Company name }} "
 labels: ['enhancement, untriaged']
-projects: ["opensearch-project/Website Update Project"]
+projects: ["opensearch-project/Website Update Project","opensearch-project/Partner Updates and Additions"]
 
 body:
   - type: markdown
@@ -63,8 +63,11 @@ body:
       multiple: true
       options:
         - Consultant
-        - (MSR) Managed Service Provider
+        - (MSP) Managed Service Provider
+        - (CSP) Content Service Provider
         - (ISV) Independent Software Vendor
+        - Systems Integrator
+        - Platform Integrator
         - Professional Services
         - Training
       default: 0

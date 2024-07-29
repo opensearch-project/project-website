@@ -8,5 +8,5 @@ download_link: https://github.com/DiggieApp/Diggie/releases
 license: Diggie EULA (developer preview)
 license_link: https://github.com/DiggieApp/Diggie/blob/master/license.txt
 # upload your logo to the following directory
-icon: /assets/media/partners/diggie.png
+icon: /assets/media/partners/diggie/diggie.png
 ---
