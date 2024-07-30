@@ -73,7 +73,7 @@ We recommend setting the translog flush size to around 25% of your available Jav
 ```json
 POST index-name/_settings
 {
-	"index" {
+	"index": {
 		"translog.flush_threshold_size": "2048MB"
 	}
 }
