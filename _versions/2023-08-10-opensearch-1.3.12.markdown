@@ -20,6 +20,9 @@ components:
     platform_order:
       - docker
       - linux
+  - role: migrations
+    artifact: opensearch-migrations
+    version: 0.1.0
   - role: ingest
     artifact: logstash-oss-with-opensearch-output-plugin
     version: 8.6.1
@@ -56,6 +59,11 @@ sections:
         explanation: "downloads/data-prepper.html"
       logstash-oss-with-opensearch-output-plugin:
         explanation: "downloads/logstash-oss-with-opensearch-output-plugin.markdown"
+  migrations:
+    role: migrations
+    artifacts:
+      opensearch-migrations:
+        explanation: "downloads/opensearch-migrations.html"
   command-line-tools:
     role: command-line-tools
     artifacts:
