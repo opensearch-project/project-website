@@ -6,4 +6,4 @@ github: jed326
 linkedin: 'jed326'
 ---
 
-**Jay Deng** is a Software Development Engineer at AWS contributing to the OpenSearch project.
+**Jay Deng** is a Software Development Engineer at AWS contributing to the OpenSearch Project.
