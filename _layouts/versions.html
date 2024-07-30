@@ -20,6 +20,7 @@ pretty:
     data-prepper: Data Prepper
     data-prepper-no-jdk: Data Prepper (without bundled JDK)
     logstash-oss-with-opensearch-output-plugin: Logstash OSS with OpenSearch Output Plugin
+    opensearch-sql-cli: SQL-CLI
   platforms:
     windows: "Windows"
     linux: "Linux"
@@ -27,6 +28,7 @@ pretty:
     macos: macOS
     java: "Java"
     docker: Docker
+    python: "Python"
   extensions:
     targz: ".tar.gz"
     exe: "Installer (exe)"
@@ -36,15 +38,18 @@ pretty:
     jar: ".jar"
     docker_hub: 'Dockerfile'
     system-package: "System package"
+    python: ".tar.gz"
   architectures:
     arm64: "ARM64"
     x64: "x64"
     x86: "x86"
     jvm: Java Virtual Machine
+    python: "pypi"
   sections:
     opensearch: OpenSearch
     opensearch-dashboards: OpenSearch Dashboards
     command-line-tools: 'Command Line Tools'
+    sql-command-line: 'OpenSearch SQL CLI'
     data-ingest: 'Ingest Tools'
     docker-compose: 'Try OpenSearch with Docker Compose'
     minimal: 'Minimal Distributions'
@@ -55,6 +60,7 @@ architecture_order:
   - arm64
   - x86
   - jvm
+  - python
 
 platform_order:
   - linux
@@ -63,6 +69,7 @@ platform_order:
   - macos
   - windows
   - java
+  - python
 ---
 
 {%comment%} 
