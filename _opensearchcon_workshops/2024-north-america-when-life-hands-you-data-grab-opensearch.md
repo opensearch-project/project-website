@@ -4,7 +4,7 @@ conference_id: '2024-north-america'
 speaker_talk_title: 'When Life Hands You Data, Grab OpenSearch!'
 primary_title: 'When Life Hands You Data, Grab OpenSearch!'
 title: 'OpenSearchCon 2024 Workshop: When Life Hands You Data, Grab OpenSearch!'
-
+reg_link: 'https://airtable.com/appWltifOss0C1Ze3/pagr2WBnf0KJBWhx9/form'
 session_time: '2024-09-26 9:00am to 12:00pm'
 session_room: 'Continental Ballroom 2'
 session_track: 'Workshop'
@@ -19,7 +19,7 @@ permalink: '/events/opensearchcon/2024/north-america/workshops/when-life-hands-y
 **Time:** 9:00AM to 12:00PM  
 **Location:** Continental Ballroom 2
 
-_[CTA Button “Register for Training”]: Link to AirTable registration link_
+<a class="btn btn-primary shadow-lg" role="button" href="https://airtable.com/appWltifOss0C1Ze3/pagr2WBnf0KJBWhx9/form">Register for Training!</a>
 
 In this free, half-day workshop, you’ll learn how to use OpenSearch to search data and analyze log data. You’ll learn how to deploy an OpenSearch cluster on Kubernetes and a simple container application for searching. Experiment with search and search relevance. Try out the neural plugin to generate and search with kNN. Pull log and metric data, send it to OpenSearch to visualize the performance of the application, and use the OpenSearch observability capabilities to debug issues.
 
@@ -34,8 +34,7 @@ In this free, half-day workshop, you’ll learn how to use OpenSearch to search 
 
 Attendees will be provided with an AWS account and pre-provisioned resources to participate in the lab, along with wifi and power connection to support their lab experience. Course and login information will be emailed to you prior to the start of the hands-on workshop.
 
-_[CTA Button “Register for Training”]: Link to AirTable registration link_
-
+<a class="btn btn-primary shadow-lg" role="button" href="https://airtable.com/appWltifOss0C1Ze3/pagr2WBnf0KJBWhx9/form">Register for Training!</a>
 
 ### What to Bring With You
 
