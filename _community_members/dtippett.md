@@ -2,7 +2,7 @@
 short_name: dtaivpp
 name: 'David Tippett'
 photo: '/assets/media/community/members/dtippett.jpg'
-job_title_and_company: 'Independent Consultant'
+job_title_and_company: 'Search Engineer at GitHub'
 primary_title: 'David Tippett'
 title: 'OpenSearch Community Member: David Tippett'
 breadcrumbs:
@@ -31,4 +31,4 @@ conference_id:
 redirect_from: '/authors/dtaivpp/'
 ---
 
-David is an [independent consultant](https://tippybits.com/services) working on open source software related to search and data infrastructure.
+David is an search engineer at GitHub and [blogger](https://tippybits.com/services) writing about everything search and data infrastructure.
