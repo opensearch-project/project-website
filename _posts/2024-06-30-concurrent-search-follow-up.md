@@ -4,12 +4,12 @@ title:  "Exploring concurrent segment search performance"
 authors:
  - jaydeng
  - sohami
-date: 2024-06-30
+date: 2024-07-30
 categories:
  - search
  - technical-post
-meta_keywords:
-meta_description:
+meta_keywords: concurrent segment search, search concurrency, control search concurrency, searching segments concurrently in OpenSearch
+meta_description: Learn how to benchmark, track performance, and improve latency across your large workloads by searching segments concurrently in OpenSearch. 
 has_math: true
 has_science_table: true
 ---
