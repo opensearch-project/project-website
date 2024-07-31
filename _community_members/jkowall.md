@@ -33,4 +33,4 @@ conference_id:
 redirect_from: '/authors/jonahkowall/'
 ---
 
-**Jonah Kowall** is the VP Product Management at Aiven, computer scientist, and open-source contributor to OpenSearch, Jaeger, OpenTelemetry. A technical leader across startups to large enterprises specialized in operations, security, and performance. Led Gartner research on monitoring. Product leadership at AppDynamics, Cisco (post-acquisition), Kentik, Logz.io, and is current the head of product management at Aiven building tomorrow’s open source data platform for everyone.
+**Jonah Kowall** is current between jobs but is a computer scientist, and open-source maintainer of Jaeger as well as being a contributor to OpenSearch, OpenTelemetry. Jonah is also on the OpenSearch Advisory Board. He is a technical product and engineering leader across startups to large enterprises specialized in operations, security, and performance. Led Gartner research on monitoring/observability. Product leadership at AppDynamics, Cisco (post-acquisition), Kentik, Logz.io, and Aiven.
