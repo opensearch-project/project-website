@@ -14,9 +14,9 @@ industries: All
 main_office_location: |
   Houston, TX
 resources:
-  - url: 'https://www.graylog.org/features/anomaly-detection-ml-ueba/'
-    title: 'Anomaly Detection ML / UEBA'
-    thumbnail: '/assets/media/partners/graylog/graylog-anomaly-detection.webp'
+  - url: 'https://opensearch.org/blog/navigating-the-future-of-log-management/'
+    title: 'Navigating the Future of Log Management'
+    thumbnail: '/assets/media/partners/graylog/navigation.jpg'
     aspect_ratio: '1920:1371'
     type: 'blog'
   - url: 'https://www.graylog.org/post/centralized-log-management-for-access-monitoring/'
