@@ -14,6 +14,11 @@ components:
   - role: command-line-tools
     artifact: opensearch-cli
     version: 1.2.0
+  - role: sql-command-line
+    artifact: opensearch-sql-cli
+    version: 1.0.0
+    platform_order: 
+      - python
   - role: ingest
     artifact: data-prepper
     version: data-prepper-2.8.0
@@ -61,6 +66,11 @@ sections:
     artifacts:
       opensearch-cli:
         explanation: "downloads/opensearch-cli.html"
+  sql-command-line:
+    role: sql-command-line
+    artifacts:
+      opensearch-sql-cli:
+        explanation: "downloads/opensearch-sql-cli.markdown"
   drivers:
     explanation: "downloads/drivers.markdown"
     role: drivers
