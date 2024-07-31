@@ -101,7 +101,7 @@ The following figure shows the experiment results for 1M documents.
 
 The following figure shows the experiment results for 8.8M documents.
 
-<img src="/assets/media/blog-images/2024-06-11-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/experiments-on-1m.png"/>
+<img src="/assets/media/blog-images/2024-06-11-A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/experiments-on-8m.png"/>
 
 ### Results explained
 
