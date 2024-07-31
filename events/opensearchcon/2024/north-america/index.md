@@ -26,8 +26,8 @@ conference_sections_button_stack:
     url: /events/opensearchcon/2024/north-america/sessions/index.html
 #  - label: Exhibitors
 #    url: /events/opensearchcon/2024/north-america/exhibitors/index.html
-#  - label: Workshops
-#    url: /events/opensearchcon/2024/north-america/workshops/index.html
+  - label: Workshops
+    url: /events/opensearchcon/2024/north-america/workshops/index.html
   - label: Unconference
     url: /events/opensearchcon/2024/north-america/unconference/index.html
 related_articles:
