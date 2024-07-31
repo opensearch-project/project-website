@@ -20,6 +20,7 @@ pretty:
     data-prepper: Data Prepper
     data-prepper-no-jdk: Data Prepper (without bundled JDK)
     logstash-oss-with-opensearch-output-plugin: Logstash OSS with OpenSearch Output Plugin
+    opensearch-sql-cli: SQL-CLI
   platforms:
     windows: "Windows"
     linux: "Linux"
@@ -27,6 +28,8 @@ pretty:
     macos: macOS
     java: "Java"
     docker: Docker
+    archlinux: "Arch Linux"
+    python: "Python"
   extensions:
     targz: ".tar.gz"
     exe: "Installer (exe)"
@@ -36,15 +39,18 @@ pretty:
     jar: ".jar"
     docker_hub: 'Dockerfile'
     system-package: "System package"
+    python: ".tar.gz"
   architectures:
     arm64: "ARM64"
     x64: "x64"
     x86: "x86"
     jvm: Java Virtual Machine
+    python: "pypi"
   sections:
     opensearch: OpenSearch
     opensearch-dashboards: OpenSearch Dashboards
     command-line-tools: 'Command Line Tools'
+    sql-command-line: 'OpenSearch SQL CLI'
     data-ingest: 'Ingest Tools'
     docker-compose: 'Try OpenSearch with Docker Compose'
     minimal: 'Minimal Distributions'
@@ -55,14 +61,17 @@ architecture_order:
   - arm64
   - x86
   - jvm
+  - python
 
 platform_order:
   - linux
   - docker
   - freebsd
+  - archlinux
   - macos
   - windows
   - java
+  - python
 ---
 
 {%comment%} 
@@ -210,6 +219,13 @@ this is the built-in error checking for the version definition having missing ar
                 <pre># pkg install {{details.freebsd_package_name}}</pre>
                 </div>{% endcapture %}
               {% assign artifact_extras = artifact_extras | append: artifact_extra %}
+            {% endif %}
+            {% if details.archlinux_package_name %}
+            {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
+            <p>Install from Arch Linux packages:</p>
+            <pre># pacman -S install {{details.archlinux_package_name}}</pre>
+            </div>{% endcapture %}
+            {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
             {% if details.link %}
               {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
