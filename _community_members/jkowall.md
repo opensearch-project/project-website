@@ -33,4 +33,4 @@ conference_id:
 redirect_from: '/authors/jonahkowall/'
 ---
 
-**Jonah Kowall** is current between jobs but is a computer scientist, and open-source maintainer of Jaeger as well as being a contributor to OpenSearch, OpenTelemetry. Jonah is also on the OpenSearch Advisory Board. He is a technical product and engineering leader across startups to large enterprises specialized in operations, security, and performance. Led Gartner research on monitoring/observability. Product leadership at AppDynamics, Cisco (post-acquisition), Kentik, Logz.io, and Aiven.
+**Jonah Kowall** is currently between jobs but is a computer scientist, and open-source maintainer of Jaeger as well as being a contributor to OpenSearch, OpenTelemetry. Jonah is also on the OpenSearch Advisory Board. He is a technical product and engineering leader across startups to large enterprises specialized in operations, security, and performance. Led Gartner research on monitoring/observability. Product leadership at AppDynamics, Cisco (post-acquisition), Kentik, Logz.io, and Aiven.
