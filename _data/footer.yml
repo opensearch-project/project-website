@@ -1,61 +1,88 @@
 columns:
   -
-    title: 'Get Involved'
+    title: Participate
     links:
       -
         title: Code of Conduct
-        url: '/codeofconduct.html'
+        url: /codeofconduct.html
       -
-        title: 'Forum'
-        url: 'https://forum.opensearch.org/'
+        title: Forum
+        url: https://forum.opensearch.org/
       -
-        title: 'Github'
-        url: 'https://github.com/opensearch-project'
+        title: Project Repo
+        url: https://github.com/opensearch-project
       -
-        title: 'Slack'
-        url: '/slack.html'
+        title: Community Repo
+        url: https://github.com/opensearch-project/community
+      -
+        title: Slack
+        url: /slack.html
+      -
+        title: Connect
+        url: /connect.html
+      -
+        title: Meetup
+        url: https://www.meetup.com/pro/opensearchproject/
+
   -
-    title: 'Resources'
+    title: Partners
+    links:
+      -
+        title: Become a Partner
+        url: https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=enhancement%2C+untriaged&projects=opensearch-project%2FWebsite+Update+Project%2Copensearch-project%2FPartner+Updates+and+Additions&template=partner_add_new_partner.yml&title=%5BPARTNER%5D+%7B%7B+Company+name+%7D%7D+
+      -
+        title: Find a Partner
+        url: https://opensearch.org/partners/
+  
+  -
+    title: Resources
     links:
       - 
         title: About
-        url: '/about.html'
-      - 
-        title: Release Schedule
-        url: '/releases.html'
-      - 
-        title: Maintenance Policy
-        url: '/releases.html#maintenance-policy'
+        url: /about.html
       - 
         title: FAQ
-        url: '/faq/'
+        url: /faq/
+      - 
+        title: Release Schedule
+        url: /releases.html
+      - 
+        title: Maintenance Policy
+        url: /releases.html#maintenance-policy
+      - 
+        title: Documentation
+        url: /docs/latest/about/
+      - 
+        title: Getting Started
+        url: /docs/latest/getting-started/
       -
-        title: 'Testimonials'
-        url: '/testimonials/'
+        title: Testimonials
+        url: /testimonials/
       -
-        title: 'Trademark and Brand Policy'
-        url: '/trademark-brand-policy.html'
+        title: Brand Guidelines
+        url: /trademark-brand-policy.html
       -
-        title: 'Privacy'
-        url: 'https://aws.amazon.com/privacy/'
-  -
-    title: 'Contact Us'
-    links:
-      -
-        title: 'Connect'
-        url: '/connect.html'
-      -
-        title: 'Twitter'
-        url: 'https://twitter.com/OpenSearchProj'
-      -
-        title: 'LinkedIn'
-        url: 'https://www.linkedin.com/company/opensearch-project/'
-      -
-        title: 'YouTube'
-        url: 'https://www.youtube.com/c/OpenSearchProject'
-      -
-        title: 'Meetup'
-        url: 'https://www.meetup.com/pro/opensearchproject/'
-      -
-        title: 'Facebook'
-        url: 'https://www.facebook.com/OpenSearchProject/'
+        title: Privacy
+        url: https://aws.amazon.com/privacy/
+
+  # -
+  #   title: 'Contact Us'
+  #   links:
+  #     -
+  #       title: 'Connect'
+  #       url: '/connect.html'
+  #     -
+  #       title: 'Twitter'
+  #       url: 'https://twitter.com/OpenSearchProj'
+  #     -
+  #       title: 'LinkedIn'
+  #       url: 'https://www.linkedin.com/company/opensearch-project/'
+  #     -
+  #       title: 'YouTube'
+  #       url: 'https://www.youtube.com/c/OpenSearchProject'
+  #     -
+  #       title: 'Meetup'
+  #       url: 'https://www.meetup.com/pro/opensearchproject/'
+  #     -
+  #       title: 'Facebook'
+  #       url: 'https://www.facebook.com/OpenSearchProject/'  

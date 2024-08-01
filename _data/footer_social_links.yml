@@ -1,0 +1,37 @@
+socialLinks:
+  - 
+    name: twitter
+    icon: partner_social_links_twitter_tpl
+    url: 'https://twitter.com/OpenSearchProj'
+  -
+    name: linkedin
+    icon: partner_social_links_linkedin_tpl
+    url: 'https://www.linkedin.com/company/opensearch-project/'
+  -
+    name: youtube
+    icon: partner_social_links_youtube_tpl
+    url: 'https://www.youtube.com/c/OpenSearchProject'
+  -
+    name: meetup
+    icon: partner_social_links_meetup_tpl
+    url: 'https://www.meetup.com/pro/opensearchproject/'
+  -
+    name: facebook
+    icon: partner_social_links_facebook_tpl
+    url: 'https://www.facebook.com/OpenSearchProject/'
+  -
+    name: github
+    icon: partner_social_links_github_tpl
+    url: 'https://www.github.com/OpenSearchProject/'
+  -
+    name: slack
+    icon: partner_social_links_slack_tpl
+    url: 'https://www.opensearch.org/slack.html'
+  -
+    name: forum
+    icon: partner_social_links_forum_tpl
+    url: 'https://forum.opensearch.org/'
+  # -
+    # name: email
+    # icon: partner_social_links_email_tpl
+    # url: 'mailto:''
