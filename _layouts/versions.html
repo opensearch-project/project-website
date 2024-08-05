@@ -223,7 +223,7 @@ this is the built-in error checking for the version definition having missing ar
             {% if details.archlinux_package_name %}
             {% capture artifact_extra %}<div class="extra_links extra_{{artifact_id}}">
             <p>Install from Arch Linux packages:</p>
-            <pre># pacman -S install {{details.archlinux_package_name}}</pre>
+            <pre># pacman -S {{details.archlinux_package_name}}</pre>
             </div>{% endcapture %}
             {% assign artifact_extras = artifact_extras | append: artifact_extra %}
             {% endif %}
