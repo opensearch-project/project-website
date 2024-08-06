@@ -1,6 +1,6 @@
 ---
 calendar_date: '2024-08-02'
-eventdate: 2024-08-07 09:30:00 -0700
+eventdate: 2024-08-07 08:30:00 -0700
 title: OpenSearch 2.16.0 Release Meetings
 online: true
 signup:
@@ -33,7 +33,7 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 * 3rd Go / No-Go voting call
 
-**August 07th 2024 - 9:30AM PDT**
+**August 07th 2024 - 8:30AM PDT**
 
 * 4th Go / No-Go voting call
 
