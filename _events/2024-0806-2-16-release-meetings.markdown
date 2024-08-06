@@ -1,5 +1,5 @@
 ---
-calendar_date: '2024-08-02'
+calendar_date: '2024-08-07'
 eventdate: 2024-08-07 08:30:00 -0700
 title: OpenSearch 2.16.0 Release Meetings
 online: true
