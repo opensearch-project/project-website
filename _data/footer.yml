@@ -15,14 +15,8 @@ columns:
         title: Community Repo
         url: https://github.com/opensearch-project/community
       -
-        title: Slack
-        url: /slack.html
-      -
         title: Connect
         url: /connect.html
-      -
-        title: Meetup
-        url: https://www.meetup.com/pro/opensearchproject/
 
   -
     title: Partners
