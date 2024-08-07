@@ -56,6 +56,14 @@ related_articles:
 ### **Join us in San Francisco, September 24-26, 2024 for OpenSearchCon North America!**
 ![](/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png ){: width="100%" }
 
+<div class="redesign-button-pair--wrapper">
+            <div class="redesign-button--wrapper redesign-button--wrapper__text-only__dark">
+                <a href="/events/opensearchcon/2024/north-america/register.html" class="redesign-button--anchor">
+                    Register Now
+                </a>
+            </div>
+</div>
+
 The OpenSearch user community continues to expand with new contributors, maintainers, organizations, and partners who are dedicated to make the project a success. It’s all of you who make OpenSearchCon the place where the open source community comes together. That’s why we’re delighted to host the third OpenSearchCon North America, this year in San Francisco!
 
 Join us  September 24 through  September 26, 2024 at the [Hilton Union Square in San Francisco](https://www.hilton.com/en/hotels/sfofhhh-hilton-san-francisco-union-square/) for OpenSearchCon North America 2024:
