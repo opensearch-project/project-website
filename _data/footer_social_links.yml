@@ -2,7 +2,7 @@ socialLinks:
   - 
     name: twitter
     icon: partner_social_links_twitter_tpl
-    url: 'https://twitter.com/OpenSearchProj'
+    url: 'https://X.com/OpenSearchProj'
   -
     name: linkedin
     icon: partner_social_links_linkedin_tpl
@@ -31,7 +31,3 @@ socialLinks:
     name: forum
     icon: partner_social_links_forum_tpl
     url: 'https://forum.opensearch.org/'
-  # -
-    # name: email
-    # icon: partner_social_links_email_tpl
-    # url: 'mailto:''
