@@ -1,7 +1,5 @@
 
 
-$small-font-size: 0.875em !default;
-
 $hover-effect-color: #0275d8; // Original color: purple
 $primary-color: #006D97; // Original color: blue
 
@@ -28,6 +26,7 @@ $primary-color: #006D97; // Original color: blue
 // light mode
 .footer-main-wrapper-light {
     padding: 20px;
+    background-color: #F4F8FB;
 
 }
 
@@ -38,14 +37,20 @@ $primary-color: #006D97; // Original color: blue
     font-weight: 700;
     margin: 0;
     padding: 0;
+    @media screen and (max-width: 768px) {
+        font-size: 30px;
+
+    }
     
 }
 
 .footer-content-light { 
     color: $black;  
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 400
 }
+
+
 .footer-category-navlinks-light {
     font-size: 15px;
     font-weight: 600;  
@@ -55,9 +60,16 @@ $primary-color: #006D97; // Original color: blue
     &:focus {
         color: $hover-effect-color;
     }   
+    @media screen and (max-width: 991px) {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 40px;
+    }
 }
+
+
 .footer-copyright-light { 
-    font-size: 14px;   
+    font-size: 15px;   
 }
 
 

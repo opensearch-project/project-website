@@ -1,27 +1,94 @@
 
 <!-- //  LIGHT THEME // -->
-<footer class="pt-5 footer-main-wrapper-light">
-  <div class="container">
 
-    <div class="row">
-      
-      <!-- LOGO, DESCRIPTION AND COPYRIGHT -->
-      <div class="col-6">
-        <!-- LOGO -->
+  <footer class="pt-5 pb-2 mt-5 footer-main-wrapper-light">
+
+
+      <div class="container">
         <div class="row">
-          <div class="mb-4">
-            <a href="/" class="d-flex justify-content-start text-decoration-none">
-              {% include icons.html type='opensearch-default-logo-footer' %}
-            </a>
+          <!-- LOGO, DESCRIPTION AND COPYRIGHT -->
+          <div class="col-lg-6 col-sm-12">
+            <!-- LOGO -->
+            <div class="row">
+              <div class="mb-4">
+                <a href="/" class="d-flex justify-content-start text-decoration-none">
+                  {% include icons.html type='opensearch-default-logo-footer' %}
+                </a>
+              </div>
+              <!-- DESCRIPTION -->
+              <div class="row">
+                <p class="mb-5 ms-2 footer-content-light">OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data.</p>
+              </div>
+            </div>
           </div>
-          <!-- DESCRIPTION -->
-          <div class="row">
-            <p class="mb-5 ms-2 footer-content-light">OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data.</p>
+  
+          <!-- CATEGORIES -->
+          <div class="offset-lg-2 offset-md-0  col-lg-4 ">
+            <div class="row">
+              <!-- footer navlinks column -- Participate and Partners -->
+              <div class="col col-sm-8 col-lg-6">
+                {% assign participateColumn = site.data.footer.columns | where: "title", "Participate" %} 
+                <div class="mb-2 d-flex justify-content-start">
+                  <h5 class="footer-column-categories-light">{{ participateColumn[0].title }}</h5>
+                </div>
+                <div>
+                  <ul class="list-unstyled ms-1">
+                    {% for link in participateColumn[0].links %}
+                      <li class="footer-category-navlinks-light mb-2">
+                        <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% assign partnersColumn = site.data.footer.columns | where: "title", "Partners" %} 
+                <div class="my-5"> 
+                  <div class="mb-2 d-flex justify-content-start">
+                    <h5 class="footer-column-categories-light">{{ partnersColumn[0].title }}</h5>
+                  </div>
+                  <div>
+                    <ul class="list-unstyled ms-1">
+                      {% for link in partnersColumn[0].links %}
+                        <li class="footer-category-navlinks-light mb-2">
+                          <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+  
+              </div>
+  
+              <!-- footer navlinks column -- Resources -->
+              <div class="col col-sm-8 col-lg-6">
+                {% assign resourcesColumn = site.data.footer.columns | where: "title", "Resources" %} 
+                <div class=" mb-2 d-flex justify-content-start">
+                  <h5 class="footer-column-categories-light">{{ resourcesColumn[0].title }}</h5>
+                </div>
+                <div>
+                  <ul class="list-unstyled ms-1">
+                    {% for link in resourcesColumn[0].links %}
+                      <li class="footer-category-navlinks-light mb-2">
+                        <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+  
+              </div>
+            </div>
+  
+  
+  
           </div>
         </div>
+      </div>
 
-        <!-- ICONS -->
+
+
+      <div class="container">
+        <!-- SOCIAL ICONS-->
         <div class ="row">
+          
           <div class="container ms-2 mt-5 mb-3">
             <div class="row justify-content-start">
 
@@ -51,80 +118,19 @@
             </div>
           </div>
         </div>
-    
+
         <!-- COPYRIGHT -->
         <div class="row">
+          
           <div class="col footer-copyright-light  ms-2 mb-5 justify-content-start">
             <span class="text-center">© OpenSearch contributors, 2024. OpenSearch is a registered trademark of Amazon Web Services.</span>
           </div>
         </div>
       </div>
 
-      <!-- EMPTY COLUMN -->
-      <div class="col">
-      </div>
 
-      <!-- CATEGORIES -->
-      <div class="col-4">
-        <div class="row">
-
-          <!-- footer navlinks column -- Participate and Partners -->
-          <div class="col-6">
-            {% assign participateColumn = site.data.footer.columns | where: "title", "Participate" %} 
-            <div class="mb-2 d-flex justify-content-start">
-              <h5 class="footer-column-categories-light">{{ participateColumn[0].title }}</h5>
-            </div>
-            <div>
-              <ul class="list-unstyled ms-1">
-                {% for link in participateColumn[0].links %}
-                  <li class="footer-category-navlinks-light mb-2">
-                    <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-            {% assign partnersColumn = site.data.footer.columns | where: "title", "Partners" %} 
-            <div class="mb-2 mt-5 d-flex justify-content-start">
-              <h5 class="footer-column-categories-light">{{ partnersColumn[0].title }}</h5>
-            </div>
-            <div>
-              <ul class="list-unstyled ms-1">
-                {% for link in partnersColumn[0].links %}
-                  <li class="footer-category-navlinks-light mb-2">
-                    <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-
-          <!-- footer navlinks column -- Resources -->
-          <div class="col-6">
-            {% assign resourcesColumn = site.data.footer.columns | where: "title", "Resources" %} 
-            <div class=" mb-2 d-flex justify-content-start">
-              <h5 class="footer-column-categories-light">{{ resourcesColumn[0].title }}</h5>
-            </div>
-            <div>
-              <ul class="list-unstyled ms-1">
-                {% for link in resourcesColumn[0].links %}
-                  <li class="footer-category-navlinks-light mb-2">
-                    <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-  </div>
+  </footer>
 </div>
 
-</footer>
+
 
