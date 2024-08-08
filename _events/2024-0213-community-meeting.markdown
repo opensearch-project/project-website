@@ -1,9 +1,10 @@
 ---
 calendar_date: '2024-02-13'
-eventdate: 2024-02-13 15:00:00 -0700
+eventdate: 2024-02-13 15:00:00 -0800
 
 title: OpenSearch Community Meeting - 2024-02-13
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/298211086/
     title: Join on Meetup
