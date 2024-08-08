@@ -21,7 +21,7 @@ OpenSearch 2.9 added support for [byte-quantized vectors](https://opensearch.org
 
 **Build more flexible search pipelines with sort search and split search processors**
 
-In OpenSearch 2.16, we've added [sort searc hand split search processors](https://opensearch.org/docs/latest/search-plugins/search-pipelines/search-processors/) to our search pipeline toolset. The sort processor can be configured within a search pipeline to sort search responses, and the split processor is used to split strings into arrays of substrings. These processors were added to provide more flexibility and support for more use cases. For instance, along with the ML inference search processor, you can now create a reranking search pipeline that uses a custom ranking model to rescore results and then use the sort processor to re-sort them.
+In OpenSearch 2.16, we've added [sort search and split search processors](https://opensearch.org/docs/latest/search-plugins/search-pipelines/search-processors/) to our search pipeline toolset. The sort processor can be configured within a search pipeline to sort search responses, and the split processor is used to split strings into arrays of substrings. These processors were added to provide more flexibility and support for more use cases. For instance, along with the ML inference search processor, you can now create a reranking search pipeline that uses a custom ranking model to rescore results and then use the sort processor to re-sort them.
 
 **Lower the cost of vector search workloads with binary vector support**
 
