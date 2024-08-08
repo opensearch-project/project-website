@@ -1,7 +1,7 @@
 ---
 name: Cong Guan
 short_name: congguan
-photo: '/assets/media/community/members/congguan.png'
+photo: '/assets/media/community/members/congguan.jpg'
 title: 'OpenSearch Community Member: Cong Guan'
 primary_title: Cong Guan
 breadcrumbs:
