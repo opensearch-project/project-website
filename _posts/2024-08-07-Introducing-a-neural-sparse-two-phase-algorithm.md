@@ -43,7 +43,7 @@ Performance was measured on OpenSearch clusters with 3 m5.4xlarge nodes using [O
 
 ### Test dataset
 
-For search quality, we tested multiple BEIR datasets and measured the relative quality of the results. Below are some parameter details for these datasets:
+For search quality, we tested multiple BEIR datasets and measured the relative quality of the results. The following table presents parameter details for these datasets.
 
 | Dataset        | BEIR-Name     | Queries | Corpus | Rel D/Q |
 |----------------|---------------|---------|--------|---------|
