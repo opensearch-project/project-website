@@ -63,6 +63,15 @@ This release introduces updates to help you improve the **stability, availabilit
 
 OpenSearch users can encounter challenges when scaling their domains across large workloads. Often, the cluster manager is the cause of the bottleneck. This release brings several updates to the cluster manager, including network optimization of cluster manager APIs, compute optimization of pending task processing, and incremental read/writes for routing tables. The result is a reduced load on the cluster manager, which paves the way for the cluster manager to support a greater number of nodes and shards. Additionally, further optimizations to OpenSearch's shard allocation have reduced the overhead of scaling and operating large domains. Together, these updates will help users scale up to more nodes and larger volumes of data.
 
+## _Security Analytics_
+This release also includes a major expansion of OpenSearch's Security Analytics capabilities.
+
+**Expand visibility into potential security threats**
+
+OpenSearch [Security Analytics](https://opensearch.org/platform/security-analytics/index.html) provides a comprehensive toolkit with more than 3,300 prepackaged, open-source Sigma rules for detecting, investigating, and analyzing potential security threats across your monitored infrastructure. With new security threats continuously emerging, users tell us they want to use external sources of threat intelligence to find malicious activity.
+
+With this release, OpenSearch adds [threat intelligence](https://opensearch.org/docs/latest/security-analytics/threat-intelligence/getting-started/) capabilities as part of its out-of-the-box Security Analytics solution. This functionality enables you to use customized Structured Threat Information Expression (STIX)-compliant threat intelligence feeds by uploading a file locally or referencing an Amazon S3 bucket. Supported malicious indicator of compromise (IOC) types include IPv4-Address, IPv6-Address, domains, and file hashes. Users can apply this information to their data to help find potential threats before they escalate. Combined with the threat detection provided by Sigma rules, this functionality offers a more comprehensive view into security threats, affording greater insights to support decision-making and remediation.
+
 ## _Deprecating CentOS7_
 
 We previously issued a [deprecation notice in 2.12](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.12.0.md#deprecation-notice) regarding CentOS Linux 7, which reached end-of-life on June 30, 2024. Following the official [notice](https://blog.centos.org/2023/04/end-dates-are-coming-for-centos-stream-8-and-centos-linux-7/) issued by the CentOS Project, the OpenSearch Project is also [deprecating CentOS Linux 7](https://github.com/opensearch-project/opensearch-build/issues/4379) as a continuous integration build image and supported operating system in the 2.16 release. To view OpenSearch's compatible operating systems, visit the [Operating system compatibility](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/index/#operating-system-compatibility) page. 
