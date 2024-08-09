@@ -235,7 +235,6 @@ ul {
         width: 60%;
         .mdzr-boxshadow & {
             border: none;
-            box-shadow: 0px 0px 0 0 $background-lightest, 0px 0px 0 0 $background-lightest, 460px 0 0 0 $background-lightest, 1000px 0 0 0 $background-lightest, 0px 600px 0 0px $background-lightest, 460px 600px 0 0px $background-lightest;
             padding-left: 4%;
             padding-right: 0;
             width: 63%;
@@ -245,7 +244,6 @@ ul {
             float: left;
             .mdzr-boxshadow & {
                 border: none;
-                box-shadow: 0px 0px 0 0 $background-lightest, 0px 0px 0 0 $background-lightest, -460px 0 0 0 $background-lightest, -1000px 0 0 0 $background-lightest, 0px 600px 0 0px $background-lightest, -460px 600px 0 0px $background-lightest;
                 padding-left: 0;
                 width: 62%;
                 padding-right: 4%;
