@@ -1,22 +1,24 @@
-
 <div class="container {{ page.layout_class | default: layout_class | default: '' }}">
-  <div id="subwrap">
-    <div role="main">
-      <div id="content-main">
-        {{ content }}
-        {{ content_secondary}}
+  <div class="row">
+    <div id="subwrap">
+      <div role="main">
+        <div id="content-main" class="col">
+          {{ content }}
+          {{ content_secondary}}
+        </div>
       </div>
+      
+      <!-- END #content-main -->
+      <div id="content-related" class="sidebar">
+      {{ content_related }}
+      </div>
+      <!-- END #content-related -->
     </div>
-    
-    <!-- END #content-main -->
-    <div id="content-related" class="sidebar">
-    {{ content_related }}
+    <!-- END #subwrap -->
+    <div id="content-extra" class="sidebar">
+    {{ content_extra }}
     </div>
-    <!-- END #content-related -->
+    <!-- END #content-extra -->
   </div>
-  <!-- END #subwrap -->
-  <div id="content-extra" class="sidebar">
-  {{ content_extra }}
-  </div>
-  <!-- END #content-extra -->
 </div>
+
