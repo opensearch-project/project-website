@@ -28,4 +28,4 @@ In addition to the [OpenSearch Code of Conduct](https://opensearch.org/codeofcon
 * No Sales Pitches – The OpenSearch Project Slack workspace is a place to discuss development of the project—not a place to sell things.
 
 Contributors, maintainers, and community members can use this communication channel to collaborate.
-Read more on Slack [communications here](https://github.com/opensearch-project/.github/blob/main/COMMUNICATIONS.md).
+Read more on Slack [communications here](https://github.com/opensearch-project/community/blob/main/COMMUNICATIONS.md).
