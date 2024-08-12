@@ -14,11 +14,11 @@ breadcrumbs:
       url: /community/members/index.html
     - title: 'Fanit Kolchina&apos;s Profile'
       url: '/community/members/fanit-kolchina.html'
-job_title_and_company: 'technical writer at AWS focusing on OpenSearch'
+job_title_and_company: 'senior programmer writer at AWS focusing on OpenSearch'
 personas:
   - author
 permalink: '/community/members/fanit-kolchina.html'
 redirect_from: '/authors/kolchfa/'
 ---
 
-**Fanit Kolchina** is a technical writer at AWS focusing on OpenSearch.
+**Fanit Kolchina** is a senior programmer writer at AWS focusing on OpenSearch.
