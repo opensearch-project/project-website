@@ -1,7 +1,9 @@
 Active Directory
+AI21 Labs Jurassic
 Aiven
 Adoptium
 Amazon
+Amazon Bedrock
 Amazon OpenSearch Serverless
 Amazon OpenSearch Service
 Ansible
@@ -17,6 +19,9 @@ Bonsai
 Calyptia
 CloudTrail
 Cognito
+Cohere Command
+Cohere Embed English
+Cohere Embed Multilingual
 Coralogix
 Dashboards Query Language
 Data Prepper
@@ -104,6 +109,7 @@ NGINX
 Node.js
 Okta
 Open Distro
+OpenAI
 OpenID Connect
 OpenSearch
 OpenSearch Benchmark
@@ -137,6 +143,7 @@ Recon InfoSec
 ReflexSOAR
 RPM Package Manager
 Ruby
+SageMaker
 SciDocs
 SciFact
 Seacom
