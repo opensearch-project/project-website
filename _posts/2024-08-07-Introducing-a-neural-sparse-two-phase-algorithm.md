@@ -5,12 +5,12 @@ authors:
   - zhichaog
   - yych
   - congguan
-date: 2024-08-07
+date: 2024-08-13
 categories:
     - technical-posts
 has_science_table: true
-meta_keywords: OpenSearch semantic search, neural sparse search, semantic sparse retrieval
-meta_description: Introducing a new search pipeline that can reduce the latency of OpenSearch neural sparse search.
+meta_keywords: neural sparse search, OpenSearch semantic search, neural sparse two phase processor
+meta_description: OpenSearch continues to refine neural sparse search and retrieval with a two-phase algorithm that significantly reduces computational load while maintaining the quality of the final ranking.
 
 excerpt: We are excited to announce the release of a new feature in OpenSearch 2.15, a two-phase search pipeline for neural sparse retrieval. In testing, this feature has achieved significant speed improvements.
 featured_blog_post: true 
