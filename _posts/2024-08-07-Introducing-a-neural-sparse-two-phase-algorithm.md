@@ -8,7 +8,7 @@ authors:
 date: 2024-08-13
 categories:
     - technical-posts
-has_science_table: true
+has_science_table: false
 meta_keywords: neural sparse search, OpenSearch semantic search, neural sparse two phase processor
 meta_description: OpenSearch continues to refine neural sparse search and retrieval with a two-phase algorithm that significantly reduces computational load while maintaining the quality of the final ranking.
 
