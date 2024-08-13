@@ -13,7 +13,7 @@ meta_keywords: neural sparse search, OpenSearch semantic search, neural sparse t
 meta_description: OpenSearch continues to refine neural sparse search and retrieval with a two-phase algorithm that significantly reduces computational load while maintaining the quality of the final ranking.
 
 excerpt: We are excited to announce the release of a new feature in OpenSearch 2.15, a two-phase search pipeline for neural sparse retrieval. In testing, this feature has achieved significant speed improvements.
-featured_blog_post: true 
+featured_blog_post: false
 featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
 
