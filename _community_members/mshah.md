@@ -5,29 +5,28 @@ photo: '/assets/media/community/members/mshah.jpg'
 job_title_and_company: 'Co-Founder of Aryn.ai'
 primary_title: 'Mehul A. Shah'
 title: 'OpenSearch Community Member: Mehul A. Shah'
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: "Mehul Shah&apos;s Profile"
-      url: '/community/members/mehul-shah.html'
+
 keynote_speaker:
   - "2023-north-america"
+
+
 twitter: 'Mashah08'
 github: mashah
 linkedin: 'mehulashah'
 session_track: 
   - conference_id: "2023-north-america"
     name: "Search"
+  - conference_id: "2024-north-america"
+    name: "Search"
+    
 permalink: '/community/members/mehul-shah.html'
 personas:
   - conference_speaker
   - author
 conference_id:
   - "2023-north-america"
+  - "2024-north-america"
+
 redirect_from: '/authors/mehulshah/'
 ---
 

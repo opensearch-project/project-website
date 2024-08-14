@@ -15,7 +15,7 @@ photo: "/assets/media/community/members/abe-abernethy.jpg"
 
 session_track: 
   - conference_id: "2024-north-america"
-    name: "Community"
+    name: "Operating OpenSearch"
 
 personas:
   - conference_speaker

@@ -4,20 +4,20 @@ short_name: nateboot
 photo: '/assets/media/community/members/nateboot.png'
 title: 'OpenSearch Community Member: Nate Boot'
 primary_title: Nate Boot
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: 'Nate Boot&apos;s Profile'
-      url: '/community/members/nate-boot.html'
+
 twitter: 'nateboot'
 github: nateynateynate
 job_title_and_company: 'Developer Advocate for OpenSearch'
+
 personas:
   - author
+  - conference_speaker
+conference_id:
+  - "2024-north-america"
+session_track: 
+  - conference_id: "2024-north-america"
+    name: "Search"
+
 permalink: '/community/members/nate-boot.html'
 redirect_from: '/authors/nateboot/'
 ---

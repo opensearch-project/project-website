@@ -1,33 +1,30 @@
 ---
 short_name: jonahkowall
-# short_name: 'jkowall'
 name: 'Jonah Kowall'
 photo: '/assets/media/community/members/jkowall.jpg'
 job_title_and_company: 'VP Product Management / Aiven'
 primary_title: 'Jonah Kowall'
 title: 'OpenSearch Community Member: Jonah Kowall'
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: "Jonah Kowall&apos;s Profile"
-      url: '/community/members/jonah-kowall.html'
+
 keynote_speaker:
   - '2022-north-america'
+
 twitter: "jkowall"
 github: "jkowall"
 linkedin: "jkowall"
+
 session_track: 
+  - conference_id: "2024-north-america"
+    name: "Analytics, Observability, and Security"
   - conference_id: "2023-north-america"
     name: "Operating OpenSearch"
+
 permalink: '/community/members/jonah-kowall.html'
 personas:
   - conference_speaker
   - author
 conference_id:
+  - "2024-north-america"
   - "2023-north-america"
   - "2022-north-america"
 redirect_from: '/authors/jonahkowall/'
