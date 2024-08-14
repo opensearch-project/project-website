@@ -152,4 +152,12 @@ POST /_plugins/_ml/models/_register?deploy=true
 GET /_plugins/_ml/tasks/{task_id}
 ```
 
+## Further reading
+
+Read more about neural sparse search:
+
+1. [Improving document retrieval with sparse semantic encoders]({{site.baseurl}}/blog/improving-document-retrieval-with-sparse-semantic-encoders)
+1. [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12]({{site.baseurl}}/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12)
+1. [Introducing the neural sparse two-phase algorithm]({{site.baseurl}}/blog/Introducing-a-neural-sparse-two-phase-algorithm)
+
 [^1]: We pick a subset of [training data](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2#training-data) collected by sentence-transformers. All datasets overlapped with BEIR are excluded to keep a zero-shot setting for the evaluation.
