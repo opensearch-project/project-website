@@ -8,12 +8,16 @@
         const elOverlay = document.querySelector('.top-banner-search--overlay');
         const elSpinner = document.querySelector('.top-banner-search--field-with-results--field--wrapper--search-component--search-spinner');
         if (!elInput || !elResults || !elOverlay) return;
-        
+
         const CLASSNAME_SPINNING = 'spinning';
         const CLASSNAME_HIGHLIGHTED = 'highlighted';
 
         const canSmoothScroll = 'scrollBehavior' in document.documentElement.style;
-        const docsVersion = elInput.getAttribute('data-docs-version');
+
+        //Extract version from the URL path
+        const urlPath = window.location.pathname;
+        const versionMatch = urlPath.match(/(\d+\.\d+)/);
+        const docsVersion = versionMatch ? versionMatch[1] : elInput.getAttribute('data-docs-version');
 
         let _showingResults = false,
             animationFrame,
@@ -46,7 +50,7 @@
 
                 case 'Enter':
                     e.preventDefault();
-                    navToHighlightedResult();
+                    navToResult();
                     break;
             }
         });
@@ -247,9 +251,19 @@
             }
         };
 
-        const navToHighlightedResult = () => {
+        const navToResultsPage = () => {
+            const query = encodeURIComponent(elInput.value);
+            window.location.href = `/docs/${docsVersion}/search.html?q=${query}`;
+        }
+
+        const navToResult = () => {
             const searchResultClassName = 'top-banner-search--field-with-results--field--wrapper--search-component--search-results--result';
-            elResults.querySelector(`.${searchResultClassName}.highlighted a[href]`)?.click?.();
+            const element = elResults.querySelector(`.${searchResultClassName}.highlighted a[href]`);
+            if (element) {
+                element.click?.();
+            } else {
+                navToResultsPage();
+            }
         };
 
         const recordEvent = (name, data) => {
