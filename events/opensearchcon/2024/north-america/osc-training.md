@@ -30,8 +30,6 @@ New for OpenSearchCon North America, renowned search relevance experts and OpenS
 
 This is a paid training course provided by OpenSource Connections, suitable for search relevance engineers, search product owners, search data scientists, and other members of the search team.
 
-OpenSearchCon attendees can register for the training at a discount of 50% off of the regular cost. Enter the code **osconsf24** during registration to attend at a cost of $425.
-
 Reserve your seat in the training room [here](https://www.eventbee.com/v/opensearch-tlre-intensive-at-opensearchcon-us-24/event?eid=237312684#/tickets){:target="_blank"} and learn how to tune your OpenSearch installation for success.
 
 <div class="redesign-button-pair--wrapper">
