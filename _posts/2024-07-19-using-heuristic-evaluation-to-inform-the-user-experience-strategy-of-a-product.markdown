@@ -49,7 +49,7 @@ title: "Using heuristic evaluation to inform the user experience strategy of a p
 ---
 
 
-Analytics products such as OpenSearch rely heavily on visual interfaces such as dashboards to communicate the meaning of data to end users. These products offer powerful tools to construct visualizations and it is crucial that the user workflow is intuitive and smooth for them to get the most out of their experience.
+Analytics products such as OpenSearch rely heavily on visual interfaces such as dashboards to communicate the meaning of data to end users. These products offer powerful tools to construct visualizations, and it is crucial that the user workflow is both intuitive and smooth.
 
 Of the different research methodologies that a product team can utilize to improve their dashboard offerings, conducting a heuristic evaluation to help inform the products user experience strategy can be valuable. This research method helps amplify the benefits of best in line research methodologies and helps inform essential and universal recommendations in the product.
 
