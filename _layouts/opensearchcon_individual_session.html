@@ -49,8 +49,9 @@ layout: redesign-fullwidth
         {%- if speaker -%}
             <div class="speaker-session--speaker-cards--card">
                 <div class="speaker-session--speaker-cards--card--image">
-                    {%- assign speaker_image = speaker.photo | default: "/assets/media/opensearchcon/speakers/no-image-available.svg" -%}
-                    <img src="{{ speaker_image }}" alt="{{ speaker.name }} photograph">
+                    {%- if speaker.photo -%}
+                        <img src="{{ speaker.photo }}" alt="{{ speaker.name }} photograph">                  
+                    {%- endif -%} 
                 </div>
                 <div class="speaker-session--speaker-cards--card--content speaker-session--speaker-cards--card--content__bottom-edge">
                     {%- if speaker.keynote_speaker contains page.conference_id -%}

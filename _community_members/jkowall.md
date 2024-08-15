@@ -27,6 +27,7 @@ conference_id:
   - "2024-north-america"
   - "2023-north-america"
   - "2022-north-america"
+  
 redirect_from: '/authors/jonahkowall/'
 ---
 

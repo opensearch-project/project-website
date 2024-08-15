@@ -1,5 +1,5 @@
 ---
-short_name: 'amistrn'
+short_name: amistrn
 name: 'Amitai Stern'
 photo: '/assets/media/community/members/amistrn.jpg'
 job_title_and_company: 'Software developer & Telemetry Storage Team Lead at Logz.io'

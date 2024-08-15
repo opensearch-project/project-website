@@ -29,10 +29,10 @@ session_time: "2024-09-26 - 9:00am-5:30pm"
 session_room: "Hilton Union Square"
 
 # Session topic track.
-#session_track: "Community"
+session_track: "Community"
 
 # URL permalink for the session.
-permalink: '/events/opensearchcon/sessions/opensource_connections_training.html'
+permalink: '/events/opensearchcon/sessions/opensource-connections-training.html'
 
 # ID of the YouTube video of the session to embed in the page.
 # This is to be added after the conference and after the session recordings
