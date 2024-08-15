@@ -4,7 +4,7 @@ speaker_talk_title: "How Attribute based access control(ABAC) can solve differen
 
 primary_title: "How Attribute based access control(ABAC) can solve different customer use-cases and be the future of FGAC"
 
-primary_presenter: pchaturvedi
+primary_presenter: prabhat-chaturvedi
 
 speaker_name_full: Prabhat Chaturvedi
 
@@ -23,7 +23,7 @@ permalink: '/events/opensearchcon/sessions/how-attribute-based-access-control(ab
 conference_id: '2024-north-america' 
 
 presenters: 
-  - pchaturvedi 
+  - prabhat-chaturvedi
 
 
 
