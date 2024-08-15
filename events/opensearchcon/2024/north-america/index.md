@@ -14,6 +14,8 @@ hero_images:
 #    path: /assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png
 #    alt: OpenSearchCon 2024 hero banner image.
 conference_sections_button_stack:
+  - label: Capture the Flag
+    url: /events/opensearchcon/2024/north-america/capture-the-flag.html
   - label: Search Relevance Training
     url: /events/opensearchcon/2024/north-america/osc-training.html
   - label: CFP
@@ -24,8 +26,8 @@ conference_sections_button_stack:
 #    url: /events/opensearchcon/2024/north-america/speakers/index.html
   - label: Sessions 
     url: /events/opensearchcon/2024/north-america/sessions/index.html
-#  - label: Exhibitors
-#    url: /events/opensearchcon/2024/north-america/exhibitors/index.html
+  - label: Exhibitors
+    url: /events/opensearchcon/2024/north-america/exhibitors/index.html
   - label: Workshops
     url: /events/opensearchcon/2024/north-america/workshops/index.html
   - label: Unconference
