@@ -69,3 +69,5 @@ The "Logs in the Shell" CTF event is open to anyone with an interest in data ana
 We look forward to seeing you at the "Logs in the Shell" Capture the Flag event in San Francisco!
 
 <a role="button" target="_blank" class="btn btn-primary" href="https://airtable.com/appWltifOss0C1Ze3/pagKjDHOEPqWvQDnw/form">Register today</a>
+
+Please note that attendees are subject to the [OpenSearch Code of Conduct](https://opensearch.org/codeofconduct.html).
