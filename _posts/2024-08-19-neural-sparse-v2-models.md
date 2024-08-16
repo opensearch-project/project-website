@@ -96,7 +96,7 @@ Compared with the v1 model, the **v2-distill** model **decreased client-side sea
 
 Similar to the tests described in our previous [blog post](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/), we evaluated model search relevance on a subset of the BEIR benchmark. The search relevance results are provided in the following table. **All v2-series models outperform the v1 models with the same architecture**, indicating that distillation from a heterogeneous teacher model is a more effective method than original pretraining using InfoNCE loss.
     
-| Model | Average | Trec Covid | NFCorpus | NQ | HotpotQA | FiQA | ArguAna | Touche | DBPedia | SCIDOCS | FEVER | Climate FEVER | SciFact | Quora |
+| Model | Average | Trec-Covid | NFCorpus | NQ | HotpotQA | FiQA | ArguAna | Touche | DBPedia | SciDocs | FEVER | Climate FEVER | SciFact | Quora |
 |-------|---------|------------|----------|----|----------|------|---------|--------|---------|---------|-------|---------------|---------|-------|
 | [opensearch-neural-sparse-encoding-v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-v1) | 0.524 | 0.771 | 0.360 | 0.553 | 0.697 | 0.376 | 0.508 | 0.278 | 0.447 | 0.164 | 0.821 | 0.263 | 0.723 | 0.856 |
 | [opensearch-neural-sparse-encoding-v2-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-v2-distill) | 0.528 | 0.775 | 0.347 | 0.561 | 0.685 | 0.374 | 0.551 | 0.278 | 0.435 | 0.173 | 0.849 | 0.249 | 0.722 | 0.863 |
