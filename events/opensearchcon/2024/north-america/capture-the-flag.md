@@ -70,5 +70,4 @@ We look forward to seeing you at the "Logs in the Shell" Capture the Flag event 
 
 <a role="button" target="_blank" class="btn btn-primary" href="https://airtable.com/appWltifOss0C1Ze3/pagKjDHOEPqWvQDnw/form">Register today</a>
 
-Please note that attendees of the OpenSource Connections training course are subject to the
-[OpenSearch Code of Conduct](https://opensearch.org/codeofconduct.html).
+Please note that participants of the Capture the Flag event are subject to the [OpenSearch Code of Conduct](https://opensearch.org/codeofconduct.html).

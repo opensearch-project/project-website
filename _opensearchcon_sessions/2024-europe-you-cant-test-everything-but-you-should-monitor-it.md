@@ -41,7 +41,7 @@ session_room: "Asgabat"
 session_track: "Community"
 
 # URL permalink for the session.
-permalink: '/events/opensearchcon/sessions/you-cant-test-everything-but-you-should-monitor-it.html'
+permalink: "/events/opensearchcon/sessions/you-cant-test-everything-but-you-should-monitor-it.html"
 
 # ID of the YouTube video of the session to embed in the page.
 # This is to be added after the conference and after the session recordings
