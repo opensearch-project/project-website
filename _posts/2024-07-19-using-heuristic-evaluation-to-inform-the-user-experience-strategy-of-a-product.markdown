@@ -28,10 +28,12 @@ date: 2024-07-19 01:01:01 -0700
 layout: post
 
 # Value used for the meta description tag. Also used as a final fallback value for the Twitter Card description field after the excerpt property.
-meta_description: "" 
+meta_description: "Learn why the OpenSearch Project partners with Steyer Insights to conduct a heuristic evaluation of the OpenSearch Playground and how these insights are informing a refined getting started process."
+  
+
 
 # Value used for the meta keywords tag.
-meta_keywords: ""
+meta_keywords: "UX heuristic evaluation, OpenSearch Plaground, OpenSearch UI design, Steyer Insights"
 
 # Set to true to indicate content that was imported from the Open Distro For Elasticsearch blog.
 #odfeimport: true
