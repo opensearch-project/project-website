@@ -49,9 +49,9 @@ layout: redesign-fullwidth
                 {%- endif -%}
                 <div class="speaker-session--speaker-cards--card speaker-session--speaker-cards--card__left-edge speaker-session--speaker-cards--card__categorized session-card {{ session_track_classname }}">
                     <div class="speaker-session--speaker-cards--card--content">
-                        <h3><a href="{{ session.permalink }}">{{ session.speaker_talk_title }}</a></h3>
+                        <h3><a href="{{ session.permalink }}">{{ session.speaker_talk_title | truncate: 80 }}</a></h3>
                         {% assign session_date_time = session.session_time | split: " - " %}
-                        {% assign session_date = session_date_time[0] | date: "%A, %B %e" %}
+                        {% assign session_date = session_date_time[0] | date: "%a, %b %e" %}
                         <div class="speaker-session--speaker-cards--card--content--job-title">{{ session_date }} {{ session_date_time[1] }} | {{ session.session_room }}</div>
                     </div>
                     <div class="speaker-session--speaker-cards--card__categorized--categories">
