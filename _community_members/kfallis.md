@@ -1,6 +1,6 @@
 ---
 short_name: kfallis
-name: Kevin
+name: Kevin Fallis
 title: "OpenSearch Project Community Member: Kevin Fallis "
 primary_title: Kevin Fallis
 permalink: /community/members/kevin-fallis.html

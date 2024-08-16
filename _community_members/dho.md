@@ -1,6 +1,6 @@
 ---
 short_name: dho
-name: Derek
+name: Derek Ho
 title: "OpenSearch Project Community Member: Derek Ho "
 primary_title: Derek Ho
 permalink: /community/members/derek-ho.html

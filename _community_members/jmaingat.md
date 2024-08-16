@@ -1,6 +1,6 @@
 ---
 short_name: jmaingat
-name: JR
+name: J.R. Maingat
 title: "OpenSearch Project Community Member: JR Maingat "
 primary_title: JR Maingat
 permalink: /community/members/jr-maingat.html

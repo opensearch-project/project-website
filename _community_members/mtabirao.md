@@ -1,8 +1,8 @@
 ---
 short_name: mtabirao
-name: MichelleAnne
+name: "Michelle Anne Tabirao"
 title: "OpenSearch Project Community Member: MichelleAnne Tabirao "
-primary_title: MichelleAnne Tabirao
+primary_title: "Michelle Anne Tabirao"
 permalink: /community/members/michelleanne-tabirao.html
 
 job_title_and_company: "Product Manager at Canonical"
