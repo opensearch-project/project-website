@@ -1,31 +1,32 @@
 ---
 layout: post
-title:  Advancing Search Quality and Inference Speed with v2 Series Neural Sparse Models
+title:  Improving search efficiency and accuracy with the newest v2 neural sparse models
 authors:
   - zhichaog
   - congguan
   - yych
   - dylantong
+  - kolchfa
 date: 2024-08-19
 categories:
     - technical-posts
-has_math: true
+has_science_table: true
 meta_keywords: OpenSearch semantic search, neural sparse search, semantic sparse retrieval
-meta_description: Introducing the neural sparse v2 series model, and demonstrate the benchmark result on ingestion performance, search performance and search relevance.
+meta_description: Accelerating inference and improving search with v2 neural sparse encoding models
 
-excerpt: Introducing the neural sparse v2 series model, and demonstrate the benchmark result on ingestion performance, search performance and search relevance.
+excerpt: We're excited to introduce the neural sparse v2 series models---a significant upgrade that enhances performance across key metrics. Our benchmarks reveal improved ingestion speed, faster search performance, and better search relevance. 
 featured_blog_post: true 
 featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
 
-Neural sparse search is a novel, efficient method of semantic retrieval that was [introduced in OpenSearch 2.11](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/). The sparse encoding models encode text into (token, weight) entries, and OpenSearch builds indexes and perform searches using Lucene's inverted index. Neural sparse search is efficient and have strong generalization ability in out-of-domain(OOD) scenarios. We are thrilled to announce the release of our v2 series neural sparse models: 
+Neural sparse search is a novel and efficient method for semantic retrieval, [introduced in OpenSearch 2.11](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/). Sparse encoding models encode text into (token, weight) entries, allowing OpenSearch to build indexes and perform searches using Lucene's inverted index. Neural sparse search is efficient and generalizes well in out-of-domain (OOD) scenarios. We are excited to announce the release of our v2 series neural sparse models:
 
-- v2-distill model: this model **reduces the model parameters to 0.5x** and reduce cost as a result of proportionally less memory requirements. It increases the ingestion throughput **1.39x** on GPU and **1.74x** on CPU. v2-distill arch is supported on both doc-only and bi-encoder modes.
-- v2-mini model: this model **reduces the model parameters to 0.25x** and reduce cost as a result of proportionally less memory requirements. It increases the ingestion throughput **1.74x** on GPU and **4.18x** on CPU. v2-mini arch is supported on doc-only mode.
+- **v2-distill model**: This model **reduces model parameters by 50%**, resulting in lower memory requirements and costs. It **increases ingestion throughput by 1.39 on GPU and 1.74x on CPU**. The v2-distill architecture supports both doc-only and bi-encoder modes.
+- **v2-mini model**: This model **reduces model parameters by 75%**, also reducing memory requirements and costs. It **increases ingestion throughput by 1.74x on GPU and 4.18x on CPU**. The v2-mini architecture supports the doc-only mode.
 
-Besides, all v2 models achieve **better search relevance**. The overall comparison between them and the v1 models is shown in the table below. All v2 models are now available at both [OpenSearch](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models) and [Hugging Face](https://huggingface.co/opensearch-project).
+Additionally, all v2 models achieve **better search relevance**. A comparison with v1 models is shown in the following table. All v2 models are now available on both [OpenSearch](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models) and [Hugging Face](https://huggingface.co/opensearch-project).
 
-| Model | Inference-free for Retrieval | Model Parameters | AVG NDCG@10 | 
+| Model | Requires no inference for retrieval | Model parameters | AVG NDCG@10 | 
 |-------|------------------------------|------------------|-------------|
 | [opensearch-neural-sparse-encoding-v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-v1) |  | 133M | 0.524 | 
 | [opensearch-neural-sparse-encoding-v2-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-v2-distill) |  | 67M | 0.528 | 
@@ -33,70 +34,67 @@ Besides, all v2 models achieve **better search relevance**. The overall comparis
 | [opensearch-neural-sparse-encoding-doc-v2-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill) | ✔️ | 67M | 0.504 |
 | [opensearch-neural-sparse-encoding-doc-v2-mini](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini) | ✔️ | 23M | 0.497 |
 
-## The Evolution from v1 Series to v2 Series of Models
+## From v1 series to v2 series models
 
-### Limitations for v1 Models
+The transition from v1 to v2 models in OpenSearch represents a significant advancement in neural sparse search capabilities.
 
-For neural sparse search, the sparse encoding model is a critical component as it influences how documents are scored and rank. In other words, it directly influences the relevancy of your search results. Moreover, the inference speed of the model also directly affects the ingestion throughput and the client-side search latency of bi-encoder mode. When we released the neural sparse feature in OpenSearch, we also launched two neural sparse models, supporting doc-only and bi-encoder modes respectively.
+### Limitations of v1 models
 
-The biggest challenge for v1 models is the large model size. The v1 series models are tuned from the BERT-base model, which is a 12-layer transformer model with 133 million parameters.  Compared with popular dense embedding models like [tas-b](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b) and [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2), the inference cost of the v1 models is 2x even 4x higher. As a result, for the v2 series models, there is an urgent need to reduce the number of model parameters without compromising search accuracy.
+For neural sparse search, the sparse encoding model is critical as it influences document scoring and ranking, directly impacting search relevance. The model’s inference speed also affects ingestion throughput and client-side search latency in bi-encoder mode. When we released neural sparse search in OpenSearch, we also launched two neural sparse models supporting doc-only and bi-encoder modes, respectively.
 
-### Knowledge Distillation from Ensemble Heterogeneous Teacher Models
+The primary challenge for v1 models is their large size. The v1 series models are based on the BERT base model, a 12-layer transformer with 133 million parameters. Compared to popular dense embedding models like [`tas-b`](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b) and [`all-MiniLM-L6-v2`](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2), the inference cost of the v1 models is 2x to 4x higher. Therefore, reducing model parameters without compromising search accuracy became essential for the v2 series.
 
-For neural models, performance is tightly coupled with the number of parameters. When using smaller backbone, we need to enhance the training algorithm to compensate for the performance drop. For the retrieval task, the common technique is to **pre-training** and **knowledge distillation**:
+### Knowledge distillation from an ensemble of heterogeneous teacher models
 
-- Pre-training: Training models using massive amount of data, which is usually constructed by rules. For example, (title, body) pairs in news articles or (question, answer) pairs on Q&A websites. Pre-training enhances the model’s search relevance and generalization ability.
-- Knowledge distillation: Some models have strong performance but are inefficient in the form of large model size or inefficient structure(e.g. cross-encoder rerankers). Distillation is a technique that transfers knowledge from these teacher models to smaller ones with the aim to preserve high performance while discarding the inefficiencies.
+In neural models, performance is closely tied to the number of parameters. When using a smaller architecture, the training algorithm must be enhanced to offset any performance drop. For retrieval tasks, common techniques include **pretraining** and **knowledge distillation**:
 
-For existing dense retrievers, pre-training was usually conducted with the infoNCE loss, which was proved to improve the alignment and uniformity of dense representations. However, for sparse embeddings especially doc-only mode, we find that infoNCE loss doesn't enhance the model as it does for dense models. In contrast, knowledge distillation loss is a more effective optimization objective. The challenge is to find a teacher model which are strong enough(where siamese encoders fail) and efficient enough to predict on the large-scale pre-training dataset(where cross-encoders fail). Inspired by the drastic performance boost from the [hybrid search of dense and lexical(sparse) approach](https://opensearch.org/blog/hybrid-search/),  we innovatively propose to ensemble bi-encoder learned sparse retriever with Siamese dense models to construct a strong teacher model. It combines the strength of heterogenous retrievers, and is efficient enough to apply on pre-training. We plan to publish a paper about the training procedure and will discuss more details in it. The pre-training with knowledge distillation allow us to safely reduce the number of model parameters without compromising performance.
+- **Pretraining**: This involves training models on large datasets, often constructed using specific rules. Examples of such dataset elements are `(title, body)` pairs in news articles or `(question, answer)` pairs on Q&A websites. Pretraining enhances the model’s search relevance and ability to generalize.
+- **Knowledge distillation**: Some models are powerful but suffer from inefficiencies because of their large size or complex structure. An example of such a model is the cross-encoder reranker. Distillation transfers knowledge from these teacher models to smaller ones, preserving high performance while eliminating these drawbacks.
 
+Dense retrievers are usually pretrained using Information Noise-Contrastive Estimation (InfoNCE) loss, which improves consistency and uniformity of dense representations. However, we found that InfoNCE loss does not enhance sparse embeddings in doc-only mode as it does for dense models. Instead, knowledge distillation loss is a more effective optimization technique for sparse encoding models. Finding a suitable teacher model for large-scale pretraining is challenging. Siamese encoders are generally not strong models, while cross-encoders struggle with handling large pretraining datasets. Inspired by the performance boost from the [hybrid search of dense and lexical (sparse) approaches](https://opensearch.org/blog/hybrid-search/), we decided to combine a bi-encoder sparse retriever with Siamese dense models to create a strong teacher model. This model combines the strengths of heterogeneous retrievers and is efficient enough for pretraining. We plan to publish a paper detailing the training procedure.
 
-Overall, thanks to pre-training on massive corpus[^1], the **v2 series models** have further **improved search relevance** while significantly **reducing the number of model parameters**. We have released distill-BERT-based models for both doc-only and bi-encoder modes (same size as  [tas-b](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b)), and a miniLM-based model for the doc-only mode (same size as [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)). 
+Pretraining with knowledge distillation allows us to reduce the number of model parameters without compromising performance. Because we performed pretraining on a massive corpus[^1], the **v2 series models** achieved **improved search relevance** while significantly **reducing the number of model parameters**. We have released distill-BERT-based models for both doc-only and bi-encoder modes (similar in size to [tas-b](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b)) and a miniLM-based model for the doc-only mode (similar in size to [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)).
 
-## Model Inference Speed Up
+## Accelerating model inference 
 
-The v2 model continues to use the transformer architecture. It reduces the number of parameters by decreasing the number of layers and the hidden dimension. Therefore, we can get higher ingestion throughput and lower search latency with the smaller v2 models. We benchmark the v2 models at the scenarios of ingestion and search. We use the MS MARCO passage retrieval dataset. We use a OpenSearch 2.16 cluster with 3 nodes of r7a.8xlarge EC2 instances.
+The v2 models continue to use the transformer architecture, reducing the number of parameters by decreasing the number of layers and the hidden dimension size. As a result, the smaller v2 models offer higher ingestion throughput and lower search latency. We benchmarked the v2 models in ingestion and search scenarios using the MS MARCO passage retrieval dataset on an OpenSearch 2.16 cluster with three nodes running on r7a.8xlarge EC2 instances.
 
-**GPU deployment.** We use a SageMaker GPU endpoint to host the neural sparse model and use it as a remote connector ([code script](https://github.com/zhichao-aws/neural-search/tree/neural_sparse_sagemaker/neural_sparse_sagemaker_example)). We use a **g5.xlarge** GPU instance to host the model. 
-**CPU deployment.** The model is deployed on **all 3 nodes** in the cluster.
+**GPU deployment**: We used a SageMaker GPU endpoint to host the neural sparse model, connecting to it using a remote connector. For complete deployment code, see [this example](https://github.com/zhichao-aws/neural-search/blob/neural_sparse_sagemaker/neural_sparse_sagemaker_example/run.ipynb). The model was hosted on a **g5.xlarge** GPU instance.  
+**CPU deployment**: The model was deployed on **all three nodes** in the cluster.
 
-### Ingestion
-
-In this experiments, we set the `batch_size` of `sparse_encoding` ingestion processor to 2. We record the mean ingestion throughput and the P99 client-side latency for the bulk API. We use 20 clients to do ingestion in this section.
+In these experiments, we set the `batch_size` of the `sparse_encoding` ingestion processor to `2`. We recorded the mean ingestion throughput and the p99 client-side latency for the Bulk API, using 20 clients for ingestion.
 
 #### Remote deployment using GPU 
 
-Bulk size is set to 24. The experiment results is listed below. Compared with the v1 model, the **v2-distill** model increase the mean throughput **1.39x** and the **v2-mini** model increase the mean throughput **1.74x**. 
+The bulk size was set to 24. The experiment results are listed in the following figure. Compared with the v1 model, the **v2-distill** model provided a **1.39x increase in mean throughput** and the **v2-mini** model provided a **1.74x increase in mean throughput**.
 
 <img src="/assets/media/blog-images/2024-08-19-neural-sparse-v2-models/gpu_ingest.png"/>
 
 #### Local deployment using CPU
 
-Bulk size is set to 8. Compared with the v1 model, the **v2-distill** model increase the mean throughput **1.58x** and the **v2-mini** model increase the mean throughput **4.18x**. 
+The bulk size was set to 8. Compared with the v1 model, the **v2-distill** model provided a **1.58x increase in mean throughput** and the **v2-mini** model provided a **4.18x increase in mean throughput**.
 
 <img src="/assets/media/blog-images/2024-08-19-neural-sparse-v2-models/cpu_ingest.png"/>
 
 ### Search
 
-In this experiments, we ingest 1 million documents into the index, and use 20 clients to search in concurrent. We record the search client-side P99 latency and model inference P99 latency. We test the search performance for the **bi-encoder** mode.
+In these experiments, we ingested 1 million documents into an index and used 20 clients to perform concurrent searches. We recorded the p99 for both client-side search and model inference. We tested search performance for the **bi-encoder** mode.
 
 #### Remote deployment using GPU 
 
-Compared with the v1 model, the **v2-distill** model decrease the search client-side latency by **11.7%** and model inference latency by **23%**.
+Compared with the v1 model, the **v2-distill** model **decreased client-side search latency by 11.7% and model inference latency by 23%**.
 
 <img src="/assets/media/blog-images/2024-08-19-neural-sparse-v2-models/gpu_search.png"/>
 
 #### Local deployment using CPU
 
-Compared with the v1 model, the **v2-distill** model decrease the search client-side latency by **30.2%** and model inference latency by **33.3%**.
+Compared with the v1 model, the **v2-distill** model **decreased client-side search latency by 30.2% and model inference latency by 33.3%**.
 
 <img src="/assets/media/blog-images/2024-08-19-neural-sparse-v2-models/cpu_search.png"/>
 
-## Search Relevance Benchmark
+## Search relevance benchmarks
 
-Consistent with our previous [blog](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/), we benchmark the model search relevance on subset of BEIR benchmark. The detailed search relevance is shown in the table below. All v2-series models outperform the v1 model with the same architecture.
-
-<div style="overflow-x: auto;">
+Similar to the tests described in our previous [blog post](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/), we evaluated model search relevance on a subset of the BEIR benchmark. The search relevance results are provided in the following table. **All v2-series models outperform the v1 models with the same architecture**, indicating that distillation from a heterogeneous teacher model is a more effective method than original pretraining using InfoNCE loss.
     
 | Model | Average | Trec Covid | NFCorpus | NQ | HotpotQA | FiQA | ArguAna | Touche | DBPedia | SCIDOCS | FEVER | Climate FEVER | SciFact | Quora |
 |-------|---------|------------|----------|----|----------|------|---------|--------|---------|---------|-------|---------------|---------|-------|
@@ -106,58 +104,76 @@ Consistent with our previous [blog](https://opensearch.org/blog/improving-docume
 | [opensearch-neural-sparse-encoding-doc-v2-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill) | 0.504 | 0.690 | 0.343 | 0.528 | 0.675 | 0.357 | 0.496 | 0.287 | 0.418 | 0.166 | 0.818 | 0.224 | 0.715 | 0.841 |
 | [opensearch-neural-sparse-encoding-doc-v2-mini](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini) | 0.497 | 0.709 | 0.336 | 0.510 | 0.666 | 0.338 | 0.480 | 0.285 | 0.407 | 0.164 | 0.812 | 0.216 | 0.699 | 0.837 |
 
-</div>
+## Registering and deploying v2 models
 
-## Register and Deploy V2 Models
+OpenSearch now provides [pretrained v2 sparse encoding models](https://opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#sparse-encoding-models). Depending on the search mode, you need to register different models:
 
-The v2 series sparse encoding models can be registered as OpenSearch-provided pretrained models supported by ml-commons plugin. The register APIs are listed as follows.
+- In **doc-only mode**, you need to register a sparse encoding model for ingestion and a tokenizer for search. 
+- In **bi-encoder mode**, you need to register a sparse encoding model that will be used for ingestion and search.
 
-For ingestion and search with sparse model deployed, please check the [documentation](https://opensearch.org/docs/latest/search-plugins/neural-sparse-search/).
+For detailed setup steps and tutorials, see [Neural sparse search](https://opensearch.org/docs/latest/search-plugins/neural-sparse-search/).
 
-### Register&Deploy models of doc-only mode
+### Registering and deploying models in doc-only mode
 
-```json
-## register sparse_encoding model for ingestion
-POST /_plugins/_ml/models/_register?deploy=true
-{
-    "name": "amazon/neural-sparse/opensearch-neural-sparse-encoding-doc-v2-distill",
-    "version": "1.0.0",
-    "model_format": "TORCH_SCRIPT"
-}
+To register and deploy models in doc-only mode, use the following steps.
 
-## register sparse_tokenize model for search
-POST /_plugins/_ml/models/_register?deploy=true
-{
-    "name": "amazon/neural-sparse/opensearch-neural-sparse-tokenizer-v1",
-    "version": "1.0.1",
-    "model_format": "TORCH_SCRIPT"
-}
+1. Register and deploy a sparse encoding model for ingestion:
 
-## get model_id from task_ids returned by register model API
-GET /_plugins/_ml/tasks/{task_id}
-```
+    ```json
+    POST /_plugins/_ml/models/_register?deploy=true
+    {
+        "name": "amazon/neural-sparse/opensearch-neural-sparse-encoding-doc-v2-distill",
+        "version": "1.0.0",
+        "model_format": "TORCH_SCRIPT"
+    }
+    ```
 
-### Register&Deploy models of bi-encoder mode
+1. Register and deploy a tokenizer for search:
 
-```json
-## register sparse_encoding model for ingestion and search
-POST /_plugins/_ml/models/_register?deploy=true
-{
-    "name": "amazon/neural-sparse/opensearch-neural-sparse-encoding-v2-distill",
-    "version": "1.0.0",
-    "model_format": "TORCH_SCRIPT"
-}
+    ```
+    POST /_plugins/_ml/models/_register?deploy=true
+    {
+        "name": "amazon/neural-sparse/opensearch-neural-sparse-tokenizer-v1",
+        "version": "1.0.1",
+        "model_format": "TORCH_SCRIPT"
+    }
+    ```
 
-## get model_id from task_ids returned by register model API
-GET /_plugins/_ml/tasks/{task_id}
-```
+1. Get model IDs for the model and tokenizer by calling the Tasks API:
+
+    ```
+    GET /_plugins/_ml/tasks/{task_id}
+    ```
+
+### Registering and deploying models in bi-encoder mode
+
+To register and deploy models in bi-encoder mode, use the following steps.
+
+1. Register and deploy a sparse encoding model for ingestion and search:
+
+    ```json
+    POST /_plugins/_ml/models/_register?deploy=true
+    {
+        "name": "amazon/neural-sparse/opensearch-neural-sparse-encoding-v2-distill",
+        "version": "1.0.0",
+        "model_format": "TORCH_SCRIPT"
+    }
+    ```
+
+1. Get the model ID for the sparse encoding model by calling the Tasks API:
+
+    ```
+    GET /_plugins/_ml/tasks/{task_id}
+    ```
 
 ## Further reading
 
-Read more about neural sparse search:
+For more information about neural sparse search, see our other blog posts:
 
-1. [Improving document retrieval with sparse semantic encoders]({{site.baseurl}}/blog/improving-document-retrieval-with-sparse-semantic-encoders)
-1. [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12]({{site.baseurl}}/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12)
-1. [Introducing the neural sparse two-phase algorithm]({{site.baseurl}}/blog/Introducing-a-neural-sparse-two-phase-algorithm)
+- [Improving document retrieval with sparse semantic encoders]({{site.baseurl}}/blog/improving-document-retrieval-with-sparse-semantic-encoders)
+- [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12]({{site.baseurl}}/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12)
+- [Introducing the neural sparse two-phase algorithm]({{site.baseurl}}/blog/Introducing-a-neural-sparse-two-phase-algorithm)
 
-[^1]: We pick a subset of [training data](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2#training-data) collected by sentence-transformers. All datasets overlapped with BEIR are excluded to keep a zero-shot setting for the evaluation.
+---
+
+[^1]: For pretraining, we selected a portion of the sentence transformers [training data](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2#training-data). We removed any data that also appeared in BEIR to maintain a zero-shot evaluation environment.
