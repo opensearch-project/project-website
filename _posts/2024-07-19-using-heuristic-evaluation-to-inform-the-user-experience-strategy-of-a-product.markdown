@@ -9,7 +9,7 @@ category:
   - community-updates
 
 # Publish date in the format of four digit year, two digit month, two digit day, hour, minute, second, and timezone offset; e.g., 2021-04-12 01:01:01 -0700
-date: 2024-07-19 01:01:01 -0700
+date: 2024-08-16 01:01:01 -0700
 
 # An excerpt of the blog post. It is used in the blog post list view, and in the home page what's new list of N most recent blog posts. It is also used as a fallback value for the twittercard:description field if not explictly defined in the front matter.
 #excerpt: 
