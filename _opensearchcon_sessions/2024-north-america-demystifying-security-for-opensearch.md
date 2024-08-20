@@ -4,7 +4,7 @@ speaker_talk_title: "Demystifying security for OpenSearch"
 
 primary_title: "Demystifying security for OpenSearch"
 
-primary_presenter: dchanpura
+primary_presenter: dchanp
 
 speaker_name_full: Darshit Chanpura
 
@@ -23,7 +23,7 @@ permalink: '/events/opensearchcon/sessions/demystifying-security-for-opensearch.
 conference_id: '2024-north-america' 
 
 presenters: 
-  - dchanpura 
+  - dchanp 
   - dho 
 
 
