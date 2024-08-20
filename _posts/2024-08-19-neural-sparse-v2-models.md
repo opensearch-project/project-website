@@ -81,7 +81,7 @@ The bulk size was set to 8. Compared with the v1 model, the **v2-distill** model
 
 In these experiments, we ingested 1 million documents into an index and used 20 clients to perform concurrent searches. We recorded the p99 latency for both client-side search and model inference. We tested search performance for the **bi-encoder** mode.
 
-#### Remote deployment using GPU 
+#### Remote deployment on a GPU 
 
 Compared with the v1 model, the **v2-distill** model **decreased client-side search latency by 11.7% and model inference latency by 23%**, as shown in the following figure.
 
