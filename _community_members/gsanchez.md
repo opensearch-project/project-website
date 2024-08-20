@@ -1,6 +1,6 @@
 ---
 short_name: gsanchez
-name: Gustavo
+name: Gustavo Sanchez
 title: "OpenSearch Project Community Member: Gustavo Sanchez "
 primary_title: Gustavo Sanchez
 permalink: /community/members/gustavo-sanchez.html

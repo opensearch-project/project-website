@@ -1,6 +1,6 @@
 ---
 short_name: bhoffman
-name: Bree
+name: Bree Hoffman
 title: "OpenSearch Project Community Member: Bree Hoffman "
 primary_title: Bree Hoffman
 permalink: /community/members/bree-hoffman.html

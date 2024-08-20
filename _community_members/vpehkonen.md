@@ -1,6 +1,6 @@
 ---
 short_name: vpehkonen
-name: Vesa
+name: Vesa Pehkonen
 title: "OpenSearch Project Community Member: Vesa Pehkonen "
 primary_title: Vesa Pehkonen
 permalink: /community/members/vesa-pehkonen.html

@@ -4,7 +4,7 @@ speaker_talk_title: OpenSearch Project Roadmap 2024 and Beyond
 
 primary_title: OpenSearch Project Roadmap 2024 and Beyond
 
-primary_presenter: ppriyadarshini
+primary_presenter: pallp
 
 speaker_name_full: Pallavi Priyadarshini
 
@@ -23,8 +23,8 @@ permalink: '/events/opensearchcon/sessions/opensearch-project-roadmap-2024-and-b
 conference_id: '2024-north-america' 
 
 presenters: 
-  - ppriyadarshini 
-  - sherman 
+  - pallp
+  - samuelherman
 
 
 

@@ -1,6 +1,6 @@
 ---
 short_name: cchristian
-name: Charles
+name: Charles Christian
 title: "OpenSearch Project Community Member: Charles Christian "
 primary_title: Charles Christian
 permalink: /community/members/charles-christian.html

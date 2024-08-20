@@ -1,8 +1,8 @@
 ---
 short_name: rmanickam
-name: RameshKumar
+name: Ramesh Kumar Manickam
 title: "OpenSearch Project Community Member: RameshKumar Manickam "
-primary_title: RameshKumar Manickam
+primary_title: Ramesh Kumar Manickam
 permalink: /community/members/rameshkumar-manickam.html
 
 job_title_and_company: "Sr Director at Transunion"

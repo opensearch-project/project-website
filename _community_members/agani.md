@@ -1,6 +1,6 @@
 ---
 short_name: agani
-name: Amine
+name: Amine Gani
 title: "OpenSearch Project Community Member: Amine Gani "
 primary_title: Amine Gani
 permalink: /community/members/amine-gani.html

@@ -1,6 +1,6 @@
 ---
 short_name: tgrainger
-name: Trey
+name: Trey Grainger
 title: "OpenSearch Project Community Member: Trey Grainger "
 primary_title: Trey Grainger
 permalink: /community/members/trey-grainger.html

@@ -1,6 +1,6 @@
 ---
 short_name: jwilks
-name: Jay
+name: Jay Wilks
 title: "OpenSearch Project Community Member: Jay Wilks "
 primary_title: Jay Wilks
 permalink: /community/members/jay-wilks.html

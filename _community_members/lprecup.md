@@ -1,6 +1,6 @@
 ---
 short_name: lprecup
-name: Lucian
+name: Lucian Precup
 title: "OpenSearch Project Community Member: Lucian Precup "
 primary_title: Lucian Precup
 permalink: /community/members/lucian-precup.html

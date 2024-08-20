@@ -1,6 +1,6 @@
 ---
 short_name: miyer
-name: Mallika
+name: Mallika Iyer
 title: "OpenSearch Project Community Member: Mallika Iyer "
 primary_title: Mallika Iyer
 permalink: /community/members/mallika-iyer.html
