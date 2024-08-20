@@ -12,7 +12,7 @@ conference_id: '2024-north-america'
 name: Eliatra
 
 # Path to the partner company logo image.
-logo: '/assets/media/partners/eliatra/eliatra-exhibitor-logo.png'
+logo: '/assets/media/partners/eliatra/eliatra-logo-70.png'
 
 # URI to the partner page or the fully qualified URL to the external partner site
 # if the company does not have an internal partner page defined.

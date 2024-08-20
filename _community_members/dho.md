@@ -1,9 +1,11 @@
 ---
 short_name: dho
 name: Derek Ho
+photo: '/assets/media/community/members/dho.jpg'
 title: "OpenSearch Project Community Member: Derek Ho "
 primary_title: Derek Ho
 permalink: /community/members/derek-ho.html
+github: derek-ho
 
 job_title_and_company: "Software Engineer at Amazon"
 
@@ -18,5 +20,9 @@ session_track:
 personas:
   - conference_speaker
 
+linkedin: "derek-ho8"
+
 
 ---
+
+**Derek Ho** is an AWS software development engineer.
