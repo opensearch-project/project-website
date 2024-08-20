@@ -65,7 +65,7 @@ The v2 models continue to use the transformer architecture, reducing the number 
 
 In these experiments, we set the `batch_size` of the `sparse_encoding` ingestion processor to `2`. We recorded the mean ingestion throughput and the p99 client-side latency for the Bulk API, using 20 clients for ingestion.
 
-#### Remote deployment using GPU 
+#### Remote deployment on a GPU 
 
 The bulk size was set to 24. The experiment results are presented in the following figure. Compared with the v1 model, the **v2-distill** model provided a **1.39x increase in mean throughput**, and the **v2-mini** model provided a **1.74x increase in mean throughput**.
 
