@@ -7,14 +7,13 @@ authors:
   - yych
   - dylantong
   - kolchfa
-date: 2024-08-19
+date: 2024-08-21
 categories:
     - technical-posts
 has_science_table: true
-meta_keywords: OpenSearch semantic search, neural sparse search, semantic sparse retrieval
+meta_keywords: neural sparse models, OpenSearch semantic search, semantic sparse retrieval, neural search
 meta_description: Accelerating inference and improving search with v2 neural sparse encoding models
-
-excerpt: We're excited to introduce the neural sparse v2 series models---a significant upgrade that enhances performance across key metrics. Our benchmarks reveal improved ingestion speed, faster search performance, and better search relevance. 
+excerpt: OpenSearch announces the availability of v2 series neural sparse models that enhance the efficiency of semantic sparse retrieval while accelerating inference and improving search.
 featured_blog_post: true 
 featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
