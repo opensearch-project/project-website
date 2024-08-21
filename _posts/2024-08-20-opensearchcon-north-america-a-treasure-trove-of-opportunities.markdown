@@ -38,7 +38,7 @@ meta_keywords: "opensearchcon, open source community, OpenSearch training"
 # URL for use by the jekyll-redirect-from plugin.
 # When importing your posts and pages from, say, Tumblr, it's annoying and impractical to create new pages in the proper subdirectories so they, e.g. /post/123456789/my-slug-that-is-often-incompl, redirect to the new post URL.
 # For reference see: https://github.com/jekyll/jekyll-redirect-from
-redirect_from: /blog/odfe-updates/2019/09/Check-out-earlier-blogposts-on-Open-Distro-for-Elasticsearch/
+#redirect_from: /blog/odfe-updates/2019/09/Check-out-earlier-blogposts-on-Open-Distro-for-Elasticsearch/
 
 # The title of the post.
 title: "OpenSearchCon North America 2024: A treasure trove of opportunities"
