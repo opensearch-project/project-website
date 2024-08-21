@@ -1,6 +1,6 @@
 ---
 short_name: kwren
-name: Kassian
+name: Kassian Wren
 title: "OpenSearch Project Community Member: Kassian Wren "
 primary_title: Kassian Wren
 permalink: /community/members/kassian-wren.html

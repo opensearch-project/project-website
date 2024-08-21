@@ -1,6 +1,6 @@
 ---
 short_name: mbendriss
-name: Mehdi
+name: Mehdi Bendriss
 title: "OpenSearch Project Community Member: Mehdi Bendriss "
 primary_title: Mehdi Bendriss
 permalink: /community/members/mehdi-bendriss.html

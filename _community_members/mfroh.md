@@ -1,6 +1,6 @@
 ---
 short_name: mfroh
-name: Michael
+name: Michael Froh
 title: "OpenSearch Project Community Member: Michael Froh "
 primary_title: Michael Froh
 permalink: /community/members/michael-froh.html

@@ -1,6 +1,6 @@
 ---
 short_name: spapadopoulos
-name: Sokratis
+name: Sokratis Papadopoulos
 title: "OpenSearch Project Community Member: Sokratis Papadopoulos "
 primary_title: Sokratis Papadopoulos
 permalink: /community/members/sokratis-papadopoulos.html

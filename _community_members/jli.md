@@ -1,6 +1,6 @@
 ---
 short_name: jli
-name: Jianwei
+name: Jianwei Li
 title: "OpenSearch Project Community Member: Jianwei Li "
 primary_title: Jianwei Li
 permalink: /community/members/jianwei-li.html
