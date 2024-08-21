@@ -146,3 +146,11 @@ In this blog post, we explored the performance of neural sparse search and showe
 1. Model inference is a throughput bottleneck for neural sparse ingestion and bi-encoder search. Using a GPU can significantly accelerate model inference, leading to a higher throughput and better cost/performance ratio.
 
 This study provides insights to help you scale your resources effectively when migrating from BM25 to neural sparse search in a new cluster. Refer to the quantitative data to estimate the workload requirements for your specific use case. If you require a high ingestion throughput or a high query throughput for searching in the bi-encoder mode, we recommend using a GPU. For more information about configuring neural sparse search, see the [Neural sparse search documentation](https://opensearch.org/docs/latest/search-plugins/neural-sparse-search/).
+
+## Further reading
+
+Read more about neural sparse search:
+
+1. [Improving document retrieval with sparse semantic encoders]({{site.baseurl}}/blog/improving-document-retrieval-with-sparse-semantic-encoders)
+1. [Introducing the neural sparse two-phase algorithm]({{site.baseurl}}/blog/Introducing-a-neural-sparse-two-phase-algorithm)
+1. [Advancing Search Quality and Inference Speed with v2 Series Neural Sparse Models]({{site.baseurl}}/blog/neural-sparse-v2-models)

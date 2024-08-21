@@ -120,3 +120,10 @@ PUT /<your-index-name>/_settings
 
 For more information about the two-phase processor, see [Neural sparse query two-phase processor](https://opensearch.org/docs/latest/search-plugins/search-pipelines/neural-sparse-query-two-phase-processor/).
 
+## Further reading
+
+Read more about neural sparse search:
+
+1. [Improving document retrieval with sparse semantic encoders]({{site.baseurl}}/blog/improving-document-retrieval-with-sparse-semantic-encoders)
+1. [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12]({{site.baseurl}}/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12)
+1. [Advancing Search Quality and Inference Speed with v2 Series Neural Sparse Models]({{site.baseurl}}/blog/neural-sparse-v2-models)
