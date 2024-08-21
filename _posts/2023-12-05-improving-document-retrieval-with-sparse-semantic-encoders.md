@@ -480,3 +480,11 @@ Use the following recommendations to select a sparse encoding model:
 - For an end-to-end neural search tutorial, see [Neural search tutorial](https://opensearch.org/docs/latest/search-plugins/neural-search-tutorial/). 
 - For a list of all search methods OpenSearch supports, see [Search methods](https://opensearch.org/docs/latest/search-plugins/index/#search-methods).
 - Provide your feedback on the [OpenSearch Forum](https://forum.opensearch.org/).
+
+## Further reading
+
+Read more about neural sparse search:
+
+1. [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12]({{site.baseurl}}/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12)
+1. [Introducing the neural sparse two-phase algorithm]({{site.baseurl}}/blog/Introducing-a-neural-sparse-two-phase-algorithm)
+1. [Advancing Search Quality and Inference Speed with v2 Series Neural Sparse Models]({{site.baseurl}}/blog/neural-sparse-v2-models)
