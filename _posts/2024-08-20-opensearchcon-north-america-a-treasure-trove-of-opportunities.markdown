@@ -17,20 +17,20 @@ excerpt: The third annual OpenSearchCon North America is just around the corner,
 #feature_image: /assets/path/to/image/asset.ext
 
 # Setting to true will result in the inclusion of the MathJax JavaScript library for rendering math equations. For reference see: _includes/include-mathjax.html.
-has_math: true
+#has_math: true
 
 # Setting to true will result in the inclusion of CSS styles specific to using borders for the table, for table header cells, and table data cells. scientific data tables. For reference see: _includes/science-table-styles.html.
-has_science_table: true
+#has_science_table: true
 
 # The layout template to use for rendering the content.
 # Options are default, fullwidth, homepage, and post.
 layout: post
 
 # Value used for the meta description tag. Also used as a final fallback value for the Twitter Card description field after the excerpt property.
-meta_description: "Learn how the OpenSearch approximate k-NN search solution enables you to build a scalable, reliable, and distributed framework for similarity searches" 
+meta_description: "Checkout everything OpenSearchCon North America 2024 has to offer with more than 40 sessions, an Unconference, Capture the Flag, paid training, and free workshop. Register now" 
 
 # Value used for the meta keywords tag.
-meta_keywords: "approximate k-NN search, k-nearest neighbor plugin, k-NN plugin, ANN similarity search solution"
+meta_keywords: "opensearchcon, open source community, OpenSearch training"
 
 # Set to true to indicate content that was imported from the Open Distro For Elasticsearch blog.
 #odfeimport: true
