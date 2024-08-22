@@ -10,7 +10,7 @@ speaker_name_full: David Venable
 
 title: "OpenSearchCon 2024 North America Session: Expanding capabilities for data ingestion: Contributing to Data Prepper"
 
-session_time: '2024-09-25 - 11:30am-12:00pm' 
+session_time: '2024-09-25 - 1:00pm-1:30pm' 
 
 session_room: 'Continental BR 1-3' 
 
