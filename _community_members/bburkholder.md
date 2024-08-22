@@ -62,5 +62,3 @@ conference_id:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
 ---
-
-Markdown or HTML content providing a user bio, or whatever is desired to describe their involvement in open source technology in general, and specifically how their work relates to the OpenSearch Project.
