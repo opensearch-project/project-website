@@ -62,4 +62,4 @@ conference_id:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
 ---
-
+Milav Shah is an Engineering Leader with Amazon OpenSearch Service. He focuses on Search experience for OpenSearch customers. He has extensive experience building highly scalable solutions in Databases, Real-time streaming and Distributed computing. He also possesses functional domain expertise in verticals like Internet of Things, Fraud Protection, Gaming and ML/AI. In his free time, he likes to ride bicycle, hike and play chess.
