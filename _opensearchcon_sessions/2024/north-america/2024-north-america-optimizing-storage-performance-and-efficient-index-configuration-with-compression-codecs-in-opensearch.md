@@ -10,9 +10,9 @@ speaker_name_full: Sarthak Aggarwal
 
 title: 'OpenSearchCon 2024 North America Session: Optimizing Storage Performance and Efficient Index Configuration with Compression Codecs in OpenSearch'
 
-session_time: '2024-09-25 - 4:40pm-5:10pm' 
+session_time: '2024-09-25 - 11:30am-12:00pm' 
 
-session_room: 'Continental BR 1-3' 
+session_room: 'Continental BR 7-9' 
 
 session_track: 'Search' 
 
