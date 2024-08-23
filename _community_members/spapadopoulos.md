@@ -4,7 +4,7 @@ name: Sokratis Papadopoulos
 title: "OpenSearch Project Community Member: Sokratis Papadopoulos "
 primary_title: Sokratis Papadopoulos
 permalink: /community/members/sokratis-papadopoulos.html
-
+photo: "/assets/media/community/members/sokratispapadopoulos.jpeg"
 job_title_and_company: "OpenSearch Service Manager at CERN"
 
 
