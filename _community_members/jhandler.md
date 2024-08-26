@@ -5,26 +5,23 @@ photo: '/assets/media/community/members/handler.jpg'
 job_title_and_company: 'Senior Principal Solutions Architect, AWS'
 primary_title: 'Jon Handler'
 title: 'OpenSearch Community Member: Jon Handler'
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: "Jon Handler&apos;s Profile"
-      url: '/community/members/jon-handler.html'
+
 keynote_speaker: false
 session_track: 
+  - conference_id: "2024-north-america"
+    name: "Operating OpenSearch"
   - conference_id: "2023-north-america"
     name: "Operating OpenSearch"
+
 permalink: '/community/members/jon-handler.html'
 personas:
   - conference_speaker
   - author
 conference_id:
+  - "2024-north-america"
   - "2023-north-america"
   - "2024-europe"
+  
 redirect_from: '/authors/jhandler/'
 ---
 

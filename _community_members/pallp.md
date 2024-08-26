@@ -4,15 +4,19 @@ name: Pallavi Priyadarshini
 photo: '/assets/media/community/members/pallp.png'
 title: 'OpenSearch Community Member: Pallavi Priyadarshini'
 primary_title: Pallavi Priyadarshini
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: 'Pallavi Priyadarshini&apos;s Profile'
-      url: '/community/members/pallavi-priyadarshini.html'
+
+
+
+conference_id:
+  - 2024-north-america
+
+session_track:
+  - conference_id: 2024-north-america
+    name: Community
+
+personas:
+  - conference_speaker
+  
 github: Pallavi-AWS
 linkedin: pallavipr
 job_title_and_company: 'Senior Engineering Manager at AWS'

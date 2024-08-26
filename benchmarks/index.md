@@ -61,6 +61,9 @@ benchmark_height_mobile: 6000
 </p>
 <p> You can also view the open GitHub issues tagged to performance label <a href ="https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aopensearch-project+label%3Aperformance+">here</a>.
 </p>
+<p>
+    To learn more about OpenSearch performance improvements through version 2.14, read <a href="https://opensearch.org/blog/opensearch-performance-2.14/">this blog post</a>.
+</p>
 
 <div class="switcher" id="navigation">
 <ul>
@@ -74,6 +77,10 @@ benchmark_height_mobile: 6000
 
 <li>
     <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/56b9d060-f8f8-11ee-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'PMC%20Nightly%20Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">PMC</a>
+</li>
+
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards#/view/c28730f0-1ead-11ef-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:Big5_final,viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Big5</a>
 </li>
 
 <li>
@@ -103,6 +110,19 @@ benchmark_height_mobile: 6000
 <li>
     <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/d67264e0-f5aa-11ed-aff5-859eb6ed880f?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Segment%20Replication%20Benchmark',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Segment Replication</a>
 </li>
+
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/c130a680-fb5f-11ee-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Big5 Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Concurrent Segment Search Big5</a>
+</li>
+
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/f2eeb270-fd4e-11ee-a589-033f2c21734f?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'NYC_TAXIS Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Concurrent Segment Search NYC taxis</a>
+</li>
+
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/f3f89730-fb73-11ee-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'NOAA Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Concurrent Segment Search NOAA</a>
+</li>
+
 </ul>
 </div>
 

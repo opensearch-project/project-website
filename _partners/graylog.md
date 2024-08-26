@@ -1,9 +1,9 @@
 ---
 name: Graylog
 name_long: Graylog
-logo: '/assets/media/partners/graylog.png'
+logo: '/assets/media/partners/graylog/graylog.png'
 link: 'https://www.graylog.org'
-logo_large: '/assets/media/partners/graylog.png'
+logo_large: '/assets/media/partners/graylog/graylog.png'
 product_image: '/assets/media/partners/graylog/graylog-product.png'
 description: 'Graylog is a SIEM and log management solution that offers robust, cost-effective ways to protect your organization. Using AI/ML, security analytics, and intelligent alerting, Graylog enables you to stay ahead of threats and addresses the needs of IT Ops teams, making it easy to normalize, visualize, and analyze log data from any source.'
 bueiness_type: 'Software Vendor'
@@ -14,9 +14,9 @@ industries: All
 main_office_location: |
   Houston, TX
 resources:
-  - url: 'https://www.graylog.org/features/anomaly-detection-ml-ueba/'
-    title: 'Anomaly Detection ML / UEBA'
-    thumbnail: '/assets/media/partners/graylog/graylog-anomaly-detection.webp'
+  - url: 'https://opensearch.org/blog/navigating-the-future-of-log-management/'
+    title: 'Navigating the Future of Log Management'
+    thumbnail: '/assets/media/partners/graylog/navigation.jpg'
     aspect_ratio: '1920:1371'
     type: 'blog'
   - url: 'https://www.graylog.org/post/centralized-log-management-for-access-monitoring/'

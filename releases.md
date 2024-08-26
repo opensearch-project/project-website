@@ -12,7 +12,7 @@ breadcrumbs:
 include_mobile_tables: true
 ---
 
-##### Updated February 2, 2024
+##### Updated August 6, 2024
 
 - [Release Schedule](#release-schedule)
 - [Maintenance Policy](#maintenance-policy)
@@ -33,11 +33,11 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 | 2.13.0         | March 19th, 2024                          | April 2nd, 2024                                      | [Sayali Gaikawad](https://github.com/gaiksaya)       | [4433](https://github.com/opensearch-project/opensearch-build/issues/4433) |
 | 1.3.16         | April 16th, 2024                          | April 23rd, 2024                                     | [Zelin Hao](https://github.com/zelinh/)              | [4531](https://github.com/opensearch-project/opensearch-build/issues/4531) |
 | 2.14.0         | April 30th, 2024                          | May 14th, 2024                                       | [Rishabh Singh](https://github.com/rishabh6788/)     | [4562](https://github.com/opensearch-project/opensearch-build/issues/4562) |
-| 1.3.17         | May 28th, 2024                            | June 06th, 2024                                      |                                                      |                                                                            |
-| 2.15.0         | June 10th, 2024                           | June 25th, 2024                                      |                                                      |                                                                            |
-| 1.3.18         | July 09th, 2024                           | July 16th, 2024                                      |                                                      |                                                                            |
-| 2.16.0         | July 23rd, 2024                           | August 06th, 2024                                    |                                                      |                                                                            |
-| 1.3.19         | Aug 20th, 2024                            | August 27th, 2024                                    |                                                      |                                                                            |
+| 1.3.17         | May 28th, 2024                            | June 06th, 2024                                      | [Divya Madala](https://github.com/Divyaasm/)         | [4659](https://github.com/opensearch-project/opensearch-build/issues/4659) |
+| 2.15.0         | June ~~10th~~ 11th, 2024                  | June 25th, 2024                                      | [Peter Zhu](https://github.com/peterzhuamazon)       | [4681](https://github.com/opensearch-project/opensearch-build/issues/4681) |
+| 1.3.18         | July 09th, 2024                           | July 16th, 2024                                      | [Zelin Hao](https://github.com/zelinh/)              | [4763](https://github.com/opensearch-project/opensearch-build/issues/4763) |
+| 2.16.0         | July 23rd, 2024                           | August ~~06th~~07th 2024                                    | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [4771](https://github.com/opensearch-project/opensearch-build/issues/4771) |
+| 1.3.19         | Aug 20th, 2024                            | August 27th, 2024                                    | [Brandon Shien](https://github.com/bshien)           | [4888](https://github.com/opensearch-project/opensearch-build/issues/4888) |
 | 2.17.0         | September 03rd, 2024                      | September 17th, 2024                                 |                                                      |                                                                            |
 | 2.18.0         | October 22nd, 2024                        | November 05th, 2024                                  |                                                      |                                                                            |
 | 1.3.20         | December 03rd, 2024                       | December 10th, 2024                                  |                                                      |                                                                            |

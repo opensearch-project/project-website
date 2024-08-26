@@ -1,7 +1,7 @@
 ---
 name: ElastiFlow
 name_long: 'ElastiFlow Inc.'
-logo: '/assets/media/partners/elastiflow.png'
+logo: '/assets/media/partners/elastiflow/elastiflow.png'
 link: 'https://www.elastiflow.com'
 logo_large: '/assets/media/partners/elastiflow/elastiflow-logo.png'
 description: 'Network Performance and Security Analytics for Open Data Platforms. The most complete network observability solution for use with modern data platforms providing unprecedented insights at any scale.'

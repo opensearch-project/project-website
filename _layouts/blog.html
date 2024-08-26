@@ -1,0 +1,55 @@
+---
+
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+
+  {%- include head.html -%}
+
+  {% if page.layout == 'post' %}
+    {% assign page_type_class = 'page--blog-post' %}
+  {% else %}
+    {% assign page_type_class = '' %}
+  {% endif %}
+
+  <body id="{{ page.sectionid }}" class="{{ page.body_class }} {{ page_type_class }}">
+    {%- include header.html -%}
+    
+    {{ content }}
+
+    {% comment %} Used to display urgent news, events, and alerts {% endcomment %}
+    {{ page.alert }}
+
+    {%- include footer.html -%}
+
+    {% comment %} Require JS {% endcomment %}
+    <script>
+    function extless(input) {
+        return input.replace(/(.*)\.[^.]+$/, '$1');
+    }
+    var require = {
+        shim: {
+            'jquery': []
+        },
+        paths: {
+            "jquery": extless("{{'assets/js/lib/jquery-3.6/jquery-3.6.0.min.js' | relative_url }}"),
+            "clipboard": extless("{{'assets/js/lib/clipboard/dist/clipboard.min.js' | relative_url }}"),
+            "mod/floating-warning": extless("{{'assets/js/mod/floating-warning.js' | relative_url }}"),
+            "mod/list-collapsing": extless("{{'assets/js/mod/list-collapsing.js' | relative_url }}"),
+            "mod/tag-picker" : extless("{{'assets/js/mod/tag-picker.js' | relative_url }}"),
+            "mod/version-switcher": extless("{{'assets/js/mod/version-switcher.js' | relative_url }}"),
+            "mod/search-key": extless("{{'assets/js/mod/search-key.js' | relative_url }}"),
+            "mod/console-tabs": extless("{{'assets/js/mod/console-tabs.js' | relative_url }}"),
+            "mod/locale-date": extless("{{'assets/js/mod/locale-date.js' | relative_url }}"),
+        }
+    };
+    </script>
+    <script data-main="{{ 'assets/js/main.js' | relative_url }}" src="{{'assets/js/lib/require.js' | relative_url }}"></script>
+    <script src="{{'assets/js/search.js' | relative_url }}"></script>
+    {{ page.body_extra }}
+    {%- if page.include_mobile_tables %}
+      {% include mobile_tables.html %}
+    {% endif -%}
+  </body>
+</html>

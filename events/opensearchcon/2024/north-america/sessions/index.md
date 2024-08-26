@@ -16,4 +16,3 @@ breadcrumbs:
 conference_id: 2024-north-america
 permalink: /events/opensearchcon/2024/north-america/sessions/index.html
 ---
-

@@ -1,42 +1,132 @@
 
-<div role="contentinfo" class="bottom-contentinfo--wrapper">
-  <div class="bottom-contentinfo--subfooter">
-    <div class="bottom-contentinfo--container">
-      <h1 class="visuallyhidden">OpenSearch Links</h1>
-      <div class="subfooter--flex-wrapper">
-        <div class="subfooter--columns-wrapper">
-          {% for column in site.data.footer.columns %}
-            <div class="subfooter--columns-wrapper--column">
-              <h4>{{ column.title }}</h4>
-              <ul>
-              {% for link in column.links %}
-                <li><a href="{{ link.url }}">{{ link.title}}</a></li>
-              {% endfor %}
-              </ul>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- //  LIGHT THEME // -->
 
-  <div class="bottom-contentinfo--footer">
-    <div class="bottom-contentinfo--container">
-      <div class="footer--flex-wrapper">
-        <div class="footer--legal-rows-wrapper">
-          <div class="footer--legal-rows-wrapper--row">
-            <div class="footer--legal-rows-wrapper--row--logo__mobile">
-              {% include icons.html type='opensearch-logo-with-tagline-vertical' %}
-            </div>
-            <div class="footer--legal-rows-wrapper--row--logo__desktop">
-              {% include icons.html type='opensearch-logo-with-tagline-horizontal-monochrome' %}
+  <footer class="pt-5 pb-2 mt-5 footer-main-wrapper-light border-top">
+
+
+      <div class="container">
+        <div class="row">
+          <!-- LOGO, DESCRIPTION AND COPYRIGHT -->
+          <div class="col-lg-6 col-sm-12">
+            <!-- LOGO -->
+            <div class="row">
+              <div class="mb-4">
+                <a href="/" class="d-flex justify-content-start text-decoration-none">
+                  {% include icons.html type='opensearch-default-logo-footer' %}
+                </a>
+              </div>
+              <!-- DESCRIPTION -->
+              <div class="row">
+                <p class="mb-5 ms-2 footer-content-light">OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data.</p>
+              </div>
+
+
+              <div class="container">
+                <!-- SOCIAL ICONS-->
+                <div class ="row">
+                  
+                  <div class="container ms-2 mt-5 mb-3">
+                    <div class="row justify-content-start">
+        
+                      <div class="d-flex gap-2">
+                        <a href="https://www.opensearch.org/slack.html" class="text-reset btn btn-icon">
+                          {% include icons.html type='slack-social' %}
+                        </a>
+                        <a href="https://fosstodon.org/@OpenSearchProject" class="text-reset btn btn-icon">
+                          {% include icons.html type='mastodon-social' %}
+                        </a>
+                        <a href="https://X.com/OpenSearchProj" class="text-reset btn btn-icon">
+                          {% include icons.html type='x-social' %}
+                        </a>
+                        <a href="https://www.youtube.com/c/OpenSearchProject" class="text-reset btn btn-icon">
+                          {% include icons.html type='youtube-social' %}
+                        </a>
+                        <a href="https://www.facebook.com/OpenSearchProject/" class="text-reset btn btn-icon">
+                          {% include icons.html type='facebook-social' %}
+                        </a>
+                        <a href="https://www.linkedin.com/company/opensearch-project/" class="text-reset btn btn-icon">
+                          {% include icons.html type='linkedin-social' %}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- COPYRIGHT -->
+                <div class="row">
+                  
+                  <div class="col footer-copyright-light  ms-2 mb-5 justify-content-start">
+                    <span class="text-center">© OpenSearch contributors, 2024. OpenSearch is a registered trademark of Amazon Web Services.</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="footer--legal-rows-wrapper--row">
-            {% include footer_legal.html %}
+  
+          <!-- CATEGORIES -->
+          <div class="offset-lg-2 offset-md-0  col-lg-4 ">
+            <div class="row">
+              <!-- footer navlinks column -- Participate and Partners -->
+              <div class="col col-sm-8 col-lg-6">
+                {% assign participateColumn = site.data.footer.columns | where: "title", "Participate" %} 
+                <div class="mb-2 d-flex justify-content-start">
+                  <h5 class="footer-column-categories-light">{{ participateColumn[0].title }}</h5>
+                </div>
+                <div>
+                  <ul class="list-unstyled">
+                    {% for link in participateColumn[0].links %}
+                      <li class="footer-category-navlinks-light mb-2">
+                        <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% assign partnersColumn = site.data.footer.columns | where: "title", "Partners" %} 
+                <div class="my-5"> 
+                  <div class="mb-2 d-flex justify-content-start">
+                    <h5 class="footer-column-categories-light">{{ partnersColumn[0].title }}</h5>
+                  </div>
+                  <div>
+                    <ul class="list-unstyled">
+                      {% for link in partnersColumn[0].links %}
+                        <li class="footer-category-navlinks-light mb-2">
+                          <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+  
+              </div>
+  
+              <!-- footer navlinks column -- Resources -->
+              <div class="col col-sm-8 col-lg-6">
+                {% assign resourcesColumn = site.data.footer.columns | where: "title", "Resources" %} 
+                <div class=" mb-2 d-flex justify-content-start">
+                  <h5 class="footer-column-categories-light">{{ resourcesColumn[0].title }}</h5>
+                </div>
+                <div>
+                  <ul class="list-unstyled">
+                    {% for link in resourcesColumn[0].links %}
+                      <li class="footer-category-navlinks-light mb-2">
+                        <a href="{{ link.url }}" class="text-decoration-none text-reset">{{ link.title}}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+  
+              </div>
+            </div>
+  
+  
+  
           </div>
         </div>
       </div>
-    </div>
-  </div>
+
+
+  </footer>
 </div>
+
+
+

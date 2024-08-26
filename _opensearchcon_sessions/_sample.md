@@ -20,17 +20,7 @@ primary_title: 'Session Title'
 # Page document title displayed in the browser title bar.
 title: 'OpenSearchCon __YEAR__ Session: Session Title'
 
-breadcrumbs:
-  icon: community
-  items:
-    - title: OpenSearchCon
-      url: /events/opensearchcon/index.html
-    - title: 2022
-      url: /events/opensearchcon/2022/index.html
-    - title: North America
-      url: /events/opensearchcon/2022/north-america/index.html
-    - title: Session Summaries
-      url: /events/opensearchcon/2022/north-america/sessions/index.html
+
 # Session date / time
 # The template logic expects the following format: YYYY-MM-DD - h:m(am|pm)-(h:m(am|pm))
 session_time: "2023-09-27 - 4:30pm-5:10pm"
