@@ -4,6 +4,7 @@ name: Ramesh Kumar Manickam
 title: "OpenSearch Project Community Member: RameshKumar Manickam "
 primary_title: Ramesh Kumar Manickam
 permalink: /community/members/rameshkumar-manickam.html
+photo: "/assets/media/community/members/Ramesh.jpg"
 
 job_title_and_company: "Sr Director at Transunion"
 

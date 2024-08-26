@@ -18,7 +18,7 @@ title: 'OpenSearchCon 2024 Session: OpenSearch - Conversations with Context'
 
 # Session date / time
 # The template logic expects the following format: YYYY-MM-DD - h:m(am|pm)-(h:m(am|pm))
-session_time: "2024-09-25 - 4:05pm-5:35pm"
+session_time: "2024-09-25 - 4:05pm-4:35pm"
 
 # Room of location where the talk will occur.
 session_room: "Contintental BR 1-3"

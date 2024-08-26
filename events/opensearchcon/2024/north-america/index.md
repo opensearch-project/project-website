@@ -22,8 +22,8 @@ conference_sections_button_stack:
     url: /events/opensearchcon/2024/north-america/cfp.html
   - label: Register
     url: /events/opensearchcon/2024/north-america/register.html
-#  - label: Speakers
-#    url: /events/opensearchcon/2024/north-america/speakers/index.html
+  - label: Speakers
+    url: /events/opensearchcon/2024/north-america/speakers/index.html
   - label: Sessions 
     url: /events/opensearchcon/2024/north-america/sessions/index.html
   - label: Exhibitors
