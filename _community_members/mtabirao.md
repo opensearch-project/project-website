@@ -21,3 +21,4 @@ personas:
 linkedin: michelle-tabirao
 
 ---
+Michelle is a Data Solutions Product Manager at Canonical and has been working for Charmed OpenSearch innovations. She also advocates for open source, inclusive tech, and digital literacy through her non-profit organization - www.ulap.org.
