@@ -46,8 +46,9 @@ Additionally, [Schematized Tags](https://docs.hopsworks.ai/3.7/user_guides/fs/ta
 
 As a ML platform, [Hopsworks also makes OpenSearch k-NN plugin](https://www.youtube.com/watch?v=9vBRjGgdyTY&t=2s) available as a [vector database](https://opensearch.org/platform/search/vector-database.html). ML embedding models encode semantic information in content (documents, images, and audio) into vectors. Those vectors can be stored and indexed in OpenSearch, and then clients can search for similar content, enabling media search and personalized search/recommendations. This capability powered by OpenSearch within the platform makes the feature store a one stop shop for all the AI data within an organization.
 
+It is important to note that OpenSearch's search capabilities extend beyond vector search, offering a suite of complementary technologies that work in tandem to provide superior search results. And while vector similarity search is crucial for LLM applications, OpenSearch power also lies in its ability to implement hybrid search strategies. By combining semantic search with traditional search methods, organizations can create more effective RAG solutions. This flexibility in methodologies can enhance the effectiveness of RAG applications, allowing for more comprehensive and accurate retrieval of relevant information.
+
 Approximate nearest neighbor (ANN) indexing and vector similarity search for vector embeddings stored in the feature store is a keystone to enable LLMs for organizations; combining their enterprise data for AI with similarity search, allowing users to make better recommendation systems, fine-tune datasets and RAG solutions more easily, faster.
-div>
 
 <div>
   <img src="https://assets-global.website-files.com/618399cd49d125734c8dec95/65f84052a4d5ee1cbd43ef9f_feature%20group%20shared%20schema.png" alt="Search in Hopsworks" />
