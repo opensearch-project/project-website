@@ -14,6 +14,7 @@ meta_keywords: concurrent segment search, OpenSearch vector search, shard optimi
 meta_description: The concurrent segment search feature in OpenSearch optimizes CPU usage and enhances vector search performance by executing queries in parallel across multiple segments within a shard.
 has_science_table: true
 ---
+In OpenSearch, data is stored in shards, which are further divided into segments. When you execute a search query, it runs sequentially across all segments of each shard involved in the query. As the number of segments increases, this sequential execution can increase _query latency_ (the time it takes to retrieve the results) because the query has to wait for each segment run to complete before moving on to the next one. This delay becomes especially noticeable if some segments take longer to process queries than others.
 
 <style>
 
@@ -35,7 +36,7 @@ th {
 
 </style>
 
-In OpenSearch, data is stored in shards, which are further divided into segments. When you execute a search query, it runs sequentially across all segments of each shard involved in the query. As the number of segments increases, this sequential execution can increase _query latency_ (the time it takes to retrieve the results) because the query has to wait for each segment run to complete before moving on to the next one. This delay becomes especially noticeable if some segments take longer to process queries than others.
+
 
 Introduced in OpenSearch version 2.12, _concurrent segment search_ addresses this issue by enabling parallel execution of queries across multiple segments within a shard. By using available computing resources, this feature reduces overall query latency, particularly for larger datasets with many segments. Concurrent segment search is designed to provide more consistent and predictable latencies. It achieves this consistency by reducing the impact of variations in segment performance or the number of segments on query execution time.
 
