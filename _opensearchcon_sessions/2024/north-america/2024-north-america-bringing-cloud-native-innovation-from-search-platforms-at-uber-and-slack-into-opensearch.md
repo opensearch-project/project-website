@@ -18,7 +18,7 @@ speaker_talk_title: 'Bringing cloud native innovation from search platforms at U
 primary_title: 'Bringing cloud native innovation from search platforms at Uber and Slack into OpenSearch'
 
 # Page document title displayed in the browser title bar.
-title: 'OpenSearchCon 2024 Session: Bringing cloud native innovation from search platforms at Uber and Slack into OpenSearch'
+title: 'OpenSearchCon 2024 North America Session: Bringing cloud native innovation from search platforms at Uber and Slack into OpenSearch'
 
 
 # Session date / time
