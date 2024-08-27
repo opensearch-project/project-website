@@ -5,7 +5,7 @@ speaker_talk_title: 'When Life Hands You Data, Grab OpenSearch!'
 primary_title: 'When Life Hands You Data, Grab OpenSearch!'
 title: 'OpenSearchCon 2024 Workshop: When Life Hands You Data, Grab OpenSearch!'
 reg_link: 'https://airtable.com/appWltifOss0C1Ze3/pagr2WBnf0KJBWhx9/form'
-session_time: '2024-09-25 9:00am to 12:00pm'
+session_time: '2024-09-26 9:00am to 12:00pm'
 session_room: 'Continental Ballroom 2'
 session_track: 'Workshop'
 presenters:
@@ -15,7 +15,7 @@ permalink: '/events/opensearchcon/2024/north-america/workshops/when-life-hands-y
 ---
 ### Title: When Life Hands You Data, Grab OpenSearch!
 
-**Date:** Wednesday, September 26, 2024  
+**Date:** Thursday, September 26, 2024  
 **Time:** 9:00AM to 12:00PM  
 **Location:** Continental Ballroom 2
 
