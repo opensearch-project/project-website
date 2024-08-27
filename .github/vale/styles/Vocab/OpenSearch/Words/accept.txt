@@ -82,6 +82,7 @@ Levenshtein
 [Mm]ultiword
 [Nn]amespace
 [Oo]nboarding
+p\d{2}
 pebibyte
 [Pp]laintext
 [Pp]luggable
