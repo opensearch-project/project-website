@@ -37,13 +37,13 @@ th {
 
 In OpenSearch, data is stored in shards, which are further divided into segments. When you execute a search query, it runs sequentially across all segments of each shard involved in the query. As the number of segments increases, this sequential execution can increase _query latency_ (the time it takes to retrieve the results) because the query has to wait for each segment run to complete before moving on to the next one. This delay becomes especially noticeable if some segments take longer to process queries than others.
 
-Introduced in OpenSearch version 2.12, _concurrent segment search_ addresses this issue by enabling parallel execution of queries across multiple segments within a shard. By using available computing resources, this feature reduces overall query latency, particularly for larger datasets with many segments. Concurrent segment search is designed to provide more consistent and predictable latencies. It achieves this consistency by reducing the impact of the number of segments or variations in segment performance on query execution time.
+Introduced in OpenSearch version 2.12, _concurrent segment search_ addresses this issue by enabling parallel execution of queries across multiple segments within a shard. By using available computing resources, this feature reduces overall query latency, particularly for larger datasets with many segments. Concurrent segment search is designed to provide more consistent and predictable latencies. It achieves this consistency by reducing the impact of variations in segment performance or the number of segments on query execution time.
 
 In this blog post, we'll explore the impact of concurrent segment search on vector search workloads.
 
 ## Enabling concurrent segment search
 
-By default, concurrent segment search is disabled in OpenSearch. For our experiments, we enabled it for all indexes in the cluster using the following dynamic cluster setting:
+By default, concurrent segment search is disabled in OpenSearch. For our experiments, we enabled it for all indexes in the cluster by using the following dynamic cluster setting:
 
 ```json
 PUT _cluster/settings
@@ -54,7 +54,7 @@ PUT _cluster/settings
 }
 ```
 
-To achieve concurrent segment searches, OpenSearch divides the segments within each shard into multiple slices, with each slice processed in parallel on a separate thread. The number of slices determines the degree of parallelism OpenSearch can provide. You can choose between Lucene’s default slicing mechanism or set the maximum slice count manually. For detailed instructions on updating the slice count, see [Slicing mechanisms](https://opensearch.org/docs/latest/search-plugins/concurrent-segment-search/#slicing-mechanisms).
+To achieve concurrent segment searches, OpenSearch divides the segments within each shard into multiple slices, with each slice processed in parallel on a separate thread. The number of slices determines the degree of parallelism that OpenSearch can provide. You can either use Lucene's default slicing mechanism or set the maximum slice count manually. For detailed instructions on updating the slice count, see [Slicing mechanisms](https://opensearch.org/docs/latest/search-plugins/concurrent-segment-search/#slicing-mechanisms).
 
 ## Performance results
 
@@ -78,7 +78,7 @@ We performed our tests on an [OpenSearch 2.15](https://opensearch.org/versions/o
 
 |Dimension	|Vector count	| Search query count	|Refresh interval	|
 |:--- | :--- | :--- | :--- |
-|768	| 10M	|10K	|1s ( default )	|
+|768	| 10M	|10K	|1s (default)	|
 
 ### Service time comparison
 
@@ -538,13 +538,13 @@ The following sections present the results of these experiments.
   </tbody>
 </table>
 
-### Results comparison 
+### Comparing results 
 
-For simplicity, we'll focus on the p90 metric from our experiments with a single search client, because this metric captures the performance of long-running vector search queries.
+For simplicity, we'll focus on the p90 metric with a single search client because this metric captures the performance of long-running vector search queries.
 
 #### Service time comparison (p90)
 
-|k-NN engine	|Concurrent segment search disabled	|Concurrent segment search enabled (Lucene default number of slices)	|% Improvement	|Concurrent segment search with max slice count = 2	|% Improvement	|Concurrent segment search with max slice count =4	|% Improvement	|Concurrent segment search with max slice count = 8	|% Improvement	|
+|k-NN engine	|Concurrent segment search disabled	|Concurrent segment search enabled (Lucene default number of slices)	|% Improvement	|Concurrent segment search with max slice count = 2	|% Improvement	|Concurrent segment search with max slice count = 4	|% Improvement	|Concurrent segment search with max slice count = 8	|% Improvement	|
 |---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|
 |Lucene	|37	|15	|59.5	|16	|56.8	|15.9	|57	|16	|56.8	|
 |NMSLIB	|35	|14	|60	|23	|34.3	|15	|57.1	|12	|65.7	|
@@ -553,14 +553,14 @@ For simplicity, we'll focus on the p90 metric from our experiments with a single
 
 #### CPU utilization comparison
 
-|k-NN engine	|Concurrent segment search disabled	|Concurrent segment search enabled (Lucene default number of slices)	|% Additional CPU utilization	|Concurrent segment search with max slice count = 2	|% Additional CPU utilization	|Concurrent segment search with max slice count =4	|% Additional CPU utilization	|Concurrent segment search with max slice count = 8	|% Additional CPU utilization	|
+|k-NN engine	|Concurrent segment search disabled	|Concurrent segment search enabled (Lucene default number of slices)	|% Additional CPU utilization	|Concurrent segment search with max slice count = 2	|% Additional CPU utilization	|Concurrent segment search with max slice count = 4	|% Additional CPU utilization	|Concurrent segment search with max slice count = 8	|% Additional CPU utilization	|
 |---	|---	|---	|---	|---	|---	|---	|---	|---	|---	|
 |Lucene	|11	|47	|36	|41	|30	|49	|38	|43	|32	|
 |NMSLIB	|10	|38	|28	|16	|6	|29	|19	|41	|31	|
 |Faiss	|10	|34	|24	|19	|9	|30	|20	|44	|34	|
 
 
-As demonstrated by our performance benchmarks, enabling concurrent segment search with the default slice count delivers at least a **60% improvement** in vector search service time while requiring only **25-35% more CPU**. This increase in CPU utilization is expected because concurrent segment search runs on more CPU threads---the number of threads is equal to twice the number of CPU cores.
+As demonstrated by our performance benchmarks, enabling concurrent segment search with the default slice count delivers at least a **60% improvement** in vector search service time while requiring only **25--35% more CPU**. This increase in CPU utilization is expected because concurrent segment search runs on more CPU threads---the number of threads is equal to twice the number of CPU cores.
 
 We observed a similar improvement in service time when using multiple concurrent search clients. However, maximum CPU utilization also doubled, as expected, because of the increased number of active search threads running concurrently.
 
@@ -569,6 +569,6 @@ We observed a similar improvement in service time when using multiple concurrent
 
 Our experiments clearly show that enabling concurrent segment search with the default slice count improves vector search query performance, albeit at the cost of higher CPU utilization. We recommend testing your workload to determine whether the additional parallelization achieved by increasing the slice count outweighs the additional processing overhead.
 
-Before running concurrent segment search, we recommend force-merging segments into a single segment for better performance. The major disadvantage of this approach is that the time required for force-merging increases as segments grow larger. Thus, we recommend reducing the number of segments to a reasonable number for your use case. 
+Before running concurrent segment search, we recommend force-merging segments into a single segment to achieve better performance. The major disadvantage of this approach is that the time required for force-merging increases as segments grow larger. Thus, we recommend reducing the number of segments in accordance with your use case. 
 
 By combining vector search with concurrent segment search, you can improve query performance and optimize search operations. To get started with concurrent segment search, explore the [documentation](https://opensearch.org/docs/latest/search-plugins/concurrent-segment-search/).
