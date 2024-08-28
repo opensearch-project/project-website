@@ -75,7 +75,7 @@ This is a good approach when you don't need to store the original string in your
 But it doesn't always make the memory used by the string available for garbage collection when you need it.
 The reason for this is that Data Prepper pipelines operate on batches of data.
 As these batches of data move through the pipeline, the pipeline will expand the memory usage in one processor and then attempt to reduce it in the next.
-Because the memory expansion happen in batches, Data Prepper may expand many thousands of events before starting to remove the source data.
+Because the memory expansion happens in batches, Data Prepper may expand many thousands of events before starting to remove the source data.
 
 See the following example pipeline, which runs `grok` and then `delete_entries`.
 With a configured `batch_size` of 100,000, Data Prepper will expand 100,000 events before deleting the messages.
