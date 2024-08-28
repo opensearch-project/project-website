@@ -13,7 +13,7 @@ breadcrumbs:
       url: /community/members/index.html
     - title: 'Heather Halter&apos;s Profile'
       url: '/community/members/heather-halter.html'
-linkedin: https://www.linkedin.com/in/heather-halter/
+linkedin: heather-halter
 job_title_and_company: 'Documentation Manager for OpenSearch Project'
 personas:
   - author

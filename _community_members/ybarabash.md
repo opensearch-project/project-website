@@ -19,7 +19,7 @@ session_track:
   - conference_id: "2024-north-america"
     name: "Search"
     
-linkedin: "https://www.linkedin.com/in/yuliia-barabash/" 
+linkedin: yuliia-barabash
 twitter: "yuliia_barabash"
 redirect_from: '/authors/ybarabash/'
 ---
