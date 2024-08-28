@@ -17,9 +17,9 @@ You can download Data Prepper 2.9.0 today.
 This release includes a number of core improvements as well as improvements to many popular processors.
 
 
-## Improvements to expressions
+## Expressions improvements
 
-Data Prepper continues to improve support for expressions to allow you more control over routing and when conditions.
+Data Prepper continues to improve support for expressions to allow you more control conditions that you use for routing and conditional processing.
 In this release, Data Prepper adds support for set operations.
 These operations allow you to write conditions that check whether a value is in a set of possible values.
 This can be especially useful for routing, where you need to route data depending on the originating system.
@@ -65,16 +65,17 @@ This release includes a number of internal improvements that speed up processing
 You don't need to do anything other than update your version to experience these improvements.
 
 Data Prepper 2.9 also offers some new features that you can use to help reduce out-of-memory errors or circuit breaker trips.
-Many pipelines involve taking some source data in the form of a string and then extracting that data into a structure.
+Many pipelines involve extracting source data from a string into a structure.
 Some examples are `grok` and `parse_json`.
 When you use these processors, you more than double the size of each event that you process.
-Because the events flowing through the system are the largest part of memory usage, this will greatly increase your memory requirements.
+Because the events flowing through the system consume the largest portion of memory usage, this will greatly increase your memory requirements.
 
-Many pipeline authors will use these processors and then in a second processor remove the source data.
-This is good, but it doesn't always make the available available for garbage collection when you need it.
+Many pipeline authors may these processors and then remove the source data in a second processor.
+This is a good approach when you don't need to store the original string in your sink.
+But it doesn't always make the memory used by the string available for garbage collection when you need it.
 The reason for this is that Data Prepper pipelines operate on batches of data.
 As these batches of data move through the pipeline, the pipeline will expand the memory usage in one processor and then attempt to reduce it in the next.
-Because these happen in batches, Data Prepper may expand many thousands of events before starting to remove the source data.
+Because the memory expansion happen in batches, Data Prepper may expand many thousands of events before starting to remove the source data.
 
 See the following example pipeline, which runs `grok` and then `delete_entries`.
 With a configured `batch_size` of 100,000, Data Prepper will expand 100,000 events before deleting the messages.
@@ -108,7 +109,7 @@ my-pipeline:
         delete_source: true
 ```
 
-If you observe this pattern of the source being deleted in a separate processor, migrate your pipeline to start using `delete_source` in order to improve your overall memory usage.
+If you observe this pattern of the source being deleted in a separate processor, configure your pipeline to use `delete_source` in order to improve your overall memory usage.
 
 
 ## Getting started
