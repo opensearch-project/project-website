@@ -23,8 +23,8 @@ permalink: '/events/opensearchcon/sessions/enabling-search-on-databases-with-dat
 conference_id: '2024-north-america' 
 
 presenters: 
-  - tgray 
-  - dinujoh 
+  - tylgry 
+  - dinujoh
 
 
 

@@ -24,6 +24,7 @@ conference_id: '2024-north-america'
 
 presenters: 
   - prabhat-chaturvedi
+  - shikhar
 
 
 
