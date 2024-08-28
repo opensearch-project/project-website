@@ -16,7 +16,7 @@ breadcrumbs:
       url: '/community/members/noam-schwartz.html'
 keynote_speaker: false
 github: "noamschwartz"
-linkedin: "/noam-schwartz-ba5466185"
+linkedin: "noam-schwartz-ba5466185"
 session_track: 
   - conference_id: "2023-north-america"
     name: "Search"

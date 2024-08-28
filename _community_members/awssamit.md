@@ -14,7 +14,7 @@ breadcrumbs:
     - title: 'Samit Kumbhani&apos;s Profile'
       url: '/community/members/samit-kumbhani.html'
 github: awssamit
-linkedin: https://www.linkedin.com/in/samitkumbhani/
+linkedin: samitkumbhani
 job_title_and_company: 'Solutions Architect in the New York City area'
 personas:
   - author

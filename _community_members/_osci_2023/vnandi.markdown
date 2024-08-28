@@ -1,7 +1,7 @@
 ---
 name: Vikram Nandi
 short_name: vnandi
-linkedin: https://www.linkedin.com/in/vikram-nandi/
+linkedin: vikram-nand
 github: Miiu64
 title: 'OpenSearch Community Member: Vikram Nandi'
 primary_title: Vikram Nandi

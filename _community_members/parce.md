@@ -15,7 +15,7 @@ breadcrumbs:
     - title: "Pablo Arce&apos;s Profile"
       url: '/community/members/pablo-arce.html'
 keynote_speaker: false
-linkedin: "https://www.linkedin.com/in/pablo-arce-95504223/"
+linkedin: pablo-arce-95504223
 session_track: 
   - conference_id: "2023-north-america"
     name: "Search"
