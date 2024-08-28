@@ -118,3 +118,23 @@ If you observe this pattern of the source being deleted in a separate processor,
 * For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/latest/data-prepper/getting-started/).
 * To learn more about the work in progress for Data Prepper 2.10 and other releases, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
 
+## Thanks to our contributors!
+
+The following people contributed to this release. Thank you!
+
+* [chenqi0805](https://github.com/chenqi0805) - Qi Chen
+* [danhli](https://github.com/danhli) - Daniel Li
+* [dinujoh](https://github.com/dinujoh) - Dinu John
+* [dlvenable](https://github.com/dlvenable) - David Venable
+* [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
+* [ivan-tse](https://github.com/ivan-tse) - Ivan Tse
+* [jayeshjeh](https://github.com/jayeshjeh) - Jayesh Parmar
+* [joelmarty](https://github.com/joelmarty) - Joël Marty
+* [kkondaka](https://github.com/kkondaka) - Krishna Kondaka
+* [mishavay-aws](https://github.com/mishavay-aws) - None
+* [oeyh](https://github.com/oeyh) - Hai Yan
+* [san81](https://github.com/san81) - Santhosh Gandhe
+* [sb2k16](https://github.com/sb2k16) - Souvik Bose
+* [shenkw1](https://github.com/shenkw1) - Katherine Shen
+* [srikanthjg](https://github.com/srikanthjg) - Srikanth Govindarajan
+* [timo-mue](https://github.com/timo-mue) - None
