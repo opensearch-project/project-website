@@ -1,7 +1,7 @@
 ---
 name: Nate Boot
 short_name: nateboot
-photo: '/assets/media/community/members/nateboot.png'
+photo: '/assets/media/community/members/nateboot.jpg'
 title: 'OpenSearch Community Member: Nate Boot'
 primary_title: Nate Boot
 
