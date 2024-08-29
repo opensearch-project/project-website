@@ -3,12 +3,12 @@ layout: post
 title:  Data Prepper 2.9.0 is ready for download
 authors:
 - dvenable
-date: 2024-08-28 13:30:00 -0600
+date: 2024-08-29 12:30:00 -0600
 categories:
   - releases
 excerpt: Data Prepper 2.9.0 contains core improvements to expressions, routing, performance, and more.
-meta_keywords: expressions, set operators, conditional routing, performance
-meta_description: Data Prepper 2.9.0 contains core improvements to help with expressions, routing, performance, and more.
+meta_keywords: Data Prepper, condition expressions, conditional processing, expression syntax, startsWith function
+meta_description: Data Prepper 2.9.0 adds support for set operations and a new startsWith function, giving users more control over routing and conditional processing.
 ---
 
 ## Introduction
