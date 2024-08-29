@@ -70,7 +70,7 @@ Some examples are `grok` and `parse_json`.
 When you use these processors, you more than double the size of each event that you process.
 Because the events flowing through the system consume the largest portion of memory usage, this will greatly increase your memory requirements.
 
-Many pipeline authors may these processors and then remove the source data in a second processor.
+Many pipeline authors may use these processors and then remove the source data in a second processor.
 This is a good approach when you don't need to store the original string in your sink.
 But it doesn't always make the memory used by the string available for garbage collection when you need it.
 The reason for this is that Data Prepper pipelines operate on batches of data.
@@ -120,21 +120,21 @@ If you observe this pattern of the source being deleted in a separate processor,
 
 ## Thanks to our contributors!
 
-The following people contributed to this release. Thank you!
+The following community members contributed to this release. Thank you!
 
-* [chenqi0805](https://github.com/chenqi0805) - Qi Chen
-* [danhli](https://github.com/danhli) - Daniel Li
-* [dinujoh](https://github.com/dinujoh) - Dinu John
-* [dlvenable](https://github.com/dlvenable) - David Venable
-* [graytaylor0](https://github.com/graytaylor0) - Taylor Gray
-* [ivan-tse](https://github.com/ivan-tse) - Ivan Tse
-* [jayeshjeh](https://github.com/jayeshjeh) - Jayesh Parmar
-* [joelmarty](https://github.com/joelmarty) - Joël Marty
-* [kkondaka](https://github.com/kkondaka) - Krishna Kondaka
-* [mishavay-aws](https://github.com/mishavay-aws) - None
-* [oeyh](https://github.com/oeyh) - Hai Yan
-* [san81](https://github.com/san81) - Santhosh Gandhe
-* [sb2k16](https://github.com/sb2k16) - Souvik Bose
-* [shenkw1](https://github.com/shenkw1) - Katherine Shen
-* [srikanthjg](https://github.com/srikanthjg) - Srikanth Govindarajan
-* [timo-mue](https://github.com/timo-mue) - None
+* [chenqi0805](https://github.com/chenqi0805) -- Qi Chen
+* [danhli](https://github.com/danhli) -- Daniel Li
+* [dinujoh](https://github.com/dinujoh) -- Dinu John
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [ivan-tse](https://github.com/ivan-tse) -- Ivan Tse
+* [jayeshjeh](https://github.com/jayeshjeh) -- Jayesh Parmar
+* [joelmarty](https://github.com/joelmarty) -- Joël Marty
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [mishavay-aws](https://github.com/mishavay-aws)
+* [oeyh](https://github.com/oeyh) -- Hai Yan
+* [san81](https://github.com/san81) -- Santhosh Gandhe
+* [sb2k16](https://github.com/sb2k16) -- Souvik Bose
+* [shenkw1](https://github.com/shenkw1) -- Katherine Shen
+* [srikanthjg](https://github.com/srikanthjg) -- Srikanth Govindarajan
+* [timo-mue](https://github.com/timo-mue)
