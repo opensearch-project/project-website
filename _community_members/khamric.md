@@ -16,7 +16,7 @@ breadcrumbs:
       url: '/community/members/ken-hamric.html'
 keynote_speaker: false
 github: "kdhamric"
-linkedin: "ken-hamric-016b1420/"
+linkedin: ken-hamric-016b1420
 session_track: 
   - conference_id: "2023-north-america"
     name: "Analytics, Observability, and Security"

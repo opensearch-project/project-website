@@ -1,7 +1,7 @@
 ---
 name: Henry Chang
 short_name: hchang
-linkedin: henry-chang-340488244/
+linkedin: henry-chang-340488244
 github: henrychang2313
 title: 'OpenSearch Community Member: Henry Chang'
 primary_title: Henry Chang

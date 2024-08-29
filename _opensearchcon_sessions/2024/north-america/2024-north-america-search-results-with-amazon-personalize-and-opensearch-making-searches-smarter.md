@@ -10,7 +10,7 @@ speaker_name_full: Yulia Barabash
 
 title: 'OpenSearchCon 2024 North America Session: Search Results with Amazon Personalize and OpenSearch: Making Searches Smarter'
 
-session_time: '2024-09-25 - 3:15pm-3:55pm' 
+session_time: '2024-09-25 - 3:15pm-3:35pm' 
 
 session_room: 'Continental BR 7-9' 
 
