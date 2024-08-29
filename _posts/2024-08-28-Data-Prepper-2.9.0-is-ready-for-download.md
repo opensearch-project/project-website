@@ -17,9 +17,9 @@ You can download Data Prepper 2.9.0 today.
 This release includes a number of core improvements as well as improvements to many popular processors.
 
 
-## Expressions improvements
+## Expression improvements
 
-Data Prepper continues to improve support for expressions to allow you more control conditions that you use for routing and conditional processing.
+Data Prepper continues to improve support for expressions to allow you more control over conditions that you use for routing and conditional processing.
 In this release, Data Prepper adds support for set operations.
 These operations allow you to write conditions that check whether a value is in a set of possible values.
 This can be especially useful for routing, where you need to route data depending on the originating system.
