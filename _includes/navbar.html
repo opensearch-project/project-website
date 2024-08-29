@@ -1,0 +1,757 @@
+
+<!-- MOBILE MENU -->
+<nav class="navbar navbar-expand-lg d-block d-lg-none">
+    <div class="container">
+        <a class="navbar-brand" href="{{ '/' | relative_url }}">
+            {% include icons.html type='opensearch-logo-default-1' %}          
+        </a>
+
+        <!-- TOGGLER -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                    <div class="dropdown-menu dropdown-menu-xxl">
+                        <div class="row row-cols-lg-4 row-cols-1 g-0">
+                            <div class="col">
+                                <div>
+                                    <div>
+                                        <div class="dropdown-header">Blog</div>
+                                        <a class="dropdown-item" href="@@webRoot/blog-list-view.html">List View</a>
+                                        <a class="dropdown-item" href="@@webRoot/blog.html">Grid View</a>
+                                        <a class="dropdown-item" href="@@webRoot/blog-grid-thumbnail.html">Grid View v.2</a>
+                                        <a class="dropdown-item" href="@@webRoot/blog-sidebar.html">Sidebar</a>
+                                        <a class="dropdown-item" href="@@webRoot/blog-category.html">Category</a>
+                                        <a class="dropdown-item" href="@@webRoot/blog-single.html">Single Post</a>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="dropdown-header">About</div>
+                                        <a class="dropdown-item" href="@@webRoot/about.html">About v.1</a>
+                                        <a class="dropdown-item" href="@@webRoot/about-v2.html">About v.2</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mt-3 mt-lg-0">
+                                    <div>
+                                        <div class="dropdown-header">Service</div>
+                                        <a class="dropdown-item" href="@@webRoot/service-v1.html">Service v.1</a>
+                                        <a class="dropdown-item" href="@@webRoot/service-v2.html">Service v.2</a>
+                                        <a class="dropdown-item" href="@@webRoot/service-v3.html">Service v.3</a>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="dropdown-header">Events</div>
+
+                                        <a class="dropdown-item" href="@@webRoot/events.html">List</a>
+                                        <a class="dropdown-item" href="@@webRoot/event-single.html">Single</a>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="dropdown-header">Contact</div>
+
+                                        <a class="dropdown-item" href="@@webRoot/contact-1.html">Contact Us</a>
+                                        <a class="dropdown-item" href="@@webRoot/contact-2.html">Contact Sales</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mt-3 mt-lg-0">
+                                    <div>
+                                        <div class="dropdown-header">Portfolio</div>
+
+                                        <a class="dropdown-item" href="@@webRoot/portfolio.html">Grid View</a>
+
+                                        <a class="dropdown-item" href="@@webRoot/portfolio-single.html">Single View</a>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="dropdown-header">Pricing</div>
+                                        <a class="dropdown-item" href="@@webRoot/pricing-v1.html">Pricing v.1</a>
+                                        <a class="dropdown-item" href="@@webRoot/pricing-v2.html">Pricing v.2</a>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="dropdown-header">Career</div>
+                                        <a class="dropdown-item" href="@@webRoot/career.html">Career</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mt-3 mt-lg-0">
+                                    <div>
+                                        <div class="dropdown-header">Integration</div>
+                                        <a class="dropdown-item" href="@@webRoot/integration.html">Grid View</a>
+                                        <a class="dropdown-item" href="@@webRoot/integration-single.html">Single</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary" aria-current="download">Download OpenSearch 2.6</button>
+            </div>
+            
+            <!-- Search form -->
+            <form class="input-group w-auto my-auto d-none d-sm-flex">
+                <input
+                    autocomplete="off"
+                    type="search"
+                    class="form-control rounded"
+                    placeholder="Search for Anything"
+                    style="min-width: 125px;"
+                />
+                <span class="input-group-text border-0 d-none d-lg-flex">
+                    <i class="fas fa-search"></i>
+                </span>
+            </form> 
+
+        </div>
+    </div>
+</nav>
+
+
+
+<!--Third button-->
+<section class="mb-3">
+    <nav class="navbar navbar-info bg-info">
+      <div class="container-fluid">
+        <button data-mdb-button-init class="navbar-toggler third-button" type="button" data-mdb-collapse-init
+          data-mdb-target="#navbarToggleExternalContent11"
+          aria-controls="navbarToggleExternalContent11" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <div class="animated-icon3"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+    </nav>
+    <div class="collapse" id="navbarToggleExternalContent11">
+      <div class="bg-body-tertiary shadow-3 p-4">
+        <button data-mdb-button-init data-mdb-ripple-init
+          class="btn btn-link btn-block border-bottom m-0">Link 1</button>
+        <button data-mdb-button-init data-mdb-ripple-init
+          class="btn btn-link btn-block border-bottom m-0">Link 2</button>
+        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-block m-0">Link
+          3</button>
+      </div>
+    </div>
+  </section>
+
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <button data-mdb-button-init class="navbar-toggler" type="button" data-mdb-collapse-init
+        data-mdb-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-body-tertiary shadow-3 p-4">
+      <button data-mdb-button-init data-mdb-ripple-init
+        class="btn btn-link btn-block border-bottom m-0">Link 1</button>
+      <button data-mdb-button-init data-mdb-ripple-init
+        class="btn btn-link btn-block border-bottom m-0">Link 2</button>
+      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-block m-0">Link
+        3</button>
+    </div>
+  </div>
+
+<!-- DESKTOP MENU -->
+
+
+
+
+<div class="nav-drawer accordion accordion-flush" id="accordion-megamenu">
+
+
+    <nav class="navbar top-nav-desktop navbar-expand-lg d-none d-lg-block">
+        <div class="container">
+            <a class="navbar-brand" href="{{ '/' | relative_url }}">
+                {% include icons.html type='opensearch-logo-default-1' %}          
+            </a>
+
+            <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+                <li class="nav-item accordion-header my-auto mx-3">
+                    <a class="nav-link btn  accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Platform" aria-controls="navbarToggleExternalContent-Platform" aria-expanded="false" aria-label="Toggle navigation Platform" href="#">Platform</a>
+                </li>
+                <li class="nav-item accordion-header my-auto mx-3">
+                    <a class="nav-link btn accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Blog" aria-controls="navbarToggleExternalContent-Blog" aria-expanded="false" aria-label="Toggle navigation Blog" href="#">Blog</a>
+                </li>
+                <li  class="nav-item accordion-header my-auto mx-3">
+                    <a class="nav-link btn accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Community" aria-controls="navbarToggleExternalContent-Community" aria-expanded="false" aria-label="Toggle navigation Community" href="#">Community</a>
+                </li >
+                <li  class="nav-item accordion-header my-auto mx-3">
+                    <a class="nav-link btn accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Documentation" aria-controls="navbarToggleExternalContent-Documentation" aria-expanded="false" aria-label="Toggle navigation Documentation" href="#">Documentation</a>
+                </li >
+
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                <div class=" my-auto pt-2 pb-2 mx-3 d-none d-xxl-block">
+                    <button class="btn top-nav-button btn-outline-primary my-1 py-1" aria-current="Download">Download OpenSearch 2.16</button>
+                </div>
+                <div class=" my-auto pt-2 pb-2 mx-3 d-block d-xxl-none">
+                    <button class="btn top-nav-button btn-outline-primary my-1 py-1" aria-current="Download">Download</button>
+                </div>
+
+                <div class="my-auto mx-auto">
+                    <button class="btn accordion-button nav-search-icon collapsed my-auto p-0 rounded-circle" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Search" aria-controls="navbarToggleExternalContent-Search" aria-current="Toggle navigation Search">
+                        {% include icons.html type='search-magnifying-glass-navbar' %}
+                    </button>
+                </div>
+
+
+            </ul> 
+
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="container accordion accordion-flush">
+    
+        <!-- PLATFORM -->
+        <div class="accordion-item">
+            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Platform" >
+                <div class="accordion-body">
+                    <div class="row mb-4">
+                        <div class="col-md-4 col-12">
+                            <div class="pb-2 mb-4">
+                                <span class="mb-0 drawer-content-header-link">Platform</span>
+                            </div>
+                            <div>
+    
+                                <!-- CORE -->
+                                <div class="mb-5 row">
+                                    <div class="col-2 mx-auto">
+                                        {% include icons.html type='OpenSearch-Core-condensedImage' class='object-fit-contain' %}
+                                    </div>
+                                    <div class="col">
+                                        <div class="row mb-2">
+                                            <a href="#" class="drawer-content-subheader">OpenSearch</a>
+                                        </div>
+                                        <div class="row">
+                                            <span class="mb-0 drawer-content-text">OpenSearch is a powerful search and analytics engine built on Apache Lucene.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- DASHBOARDS -->
+                                <div class="mb-5 row">
+                                    <div class="col-2 mx-auto">
+                                        {% include icons.html type='OpenSearch-Dashboards-condensedImage' class='object-fit-contain' %}
+                                    </div>
+                                    <div class="col">
+                                        <div class="row mb-2">
+                                            <a href="#" class="drawer-content-subheader">OpenSearch Dashboards</a>
+                                        </div>
+                                        <div class="row">
+                                            <span class="mb-0 drawer-content-text">Our data visualization toolset is a flexible, fully integrated solution for visually exploring and querying your data.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- DATAPREPPER -->
+                                <div class="mb-5 row">
+                                    <div class="col-2 mx-auto">
+                                        {% include icons.html type='OpenSearch-DataPrepper-condensedImage' class='object-fit-contain' %}
+                                    </div>
+                                    <div class="col">
+                                        <div class="row mb-2">
+                                            <a href="#" class="drawer-content-subheader">Data Prepper</a>
+                                        </div>
+                                        <div class="row">
+                                            <span class="mb-0 drawer-content-text">A server-side data collector designed to enrich, transform, and aggregate data for downstream analytics with OpenSearch.</span>
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-12">
+                            <div class="pb-2 mb-4">
+                                <span class="mb-0 drawer-content-header">Capabilities</span>
+                            </div>
+                            <div>
+                                <!-- SEARCH -->
+                                <div class="mb-4 row">
+                                    <div class="col-2 mx-auto">
+                                        {% include icons.html type='OpenSearch-Search-condensedImage'%}
+                                    </div>
+                                    <div class="col">
+                                        <div class="row mb-2">
+                                            <a href="#" class="drawer-content-subheader">Search</a>
+                                        </div>
+                                        <div class="row">
+                                            <span class="mb-0 drawer-content-text-link">Vector Search</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- OBSERVABILITY -->
+                                <div class="mb-4 row">
+                                    <div class="col-2 mx-auto">
+                                        {% include icons.html type='OpenSearch-Observability-condensedImage'%}
+                                    </div>
+                                    <div class="col">
+                                        <div class="row mb-2">
+                                            <a href="#" class="drawer-content-subheader">Observability</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECURITY ANALYTICS -->
+                                <div class="mb-4 row">
+                                    <div class="col-2 mx-auto">
+                                        {% include icons.html type='OpenSearch-Security-condensedImage'%}
+                                    </div>
+                                    <div class="col">
+                                        <div class="row mb-2">
+                                            <a href="#" class="drawer-content-subheader">Security Analytics</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- AI ML TOOLING -->
+                                <div class="mb-4 row">
+                                    <div class="col-2 mx-auto">
+                                        {% include icons.html type='OpenSearch-AI-condensedImage'%}
+                                    </div>
+                                    <div class="col">
+                                        <div class="row mb-2">
+                                            <a href="#" class="drawer-content-subheader">AI/ML Tooling</a>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-md-1 col-12">
+                            <div class="pb-2 mb-4">
+                                <span class="mb-0 drawer-content-header">Performance Benchmarks</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-2 mx-auto">
+                                    {% include icons.html type='OpenSearch-DataConsumer-condensedImage'%}
+                                </div>
+                                <div class="col mb-2">
+                                    <a href="#" class="drawer-content-subheader">View key performance metrics across different workloads</a>
+                                </div>
+                            </div>
+    
+                            <div>
+                                <div class="mt-4">
+                                    <a href="#" class="btn button-light">View Data</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="position-relative">
+                            <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                                {% include icons.html type='navbar-drawer-Platform' %}
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+        <!-- BLOG -->
+        <div class="accordion-item">
+            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Blog" >
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="lh-1 mb-5">
+                                <h3 class="mb-1">Heading title goes here</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque recusandae officia exercitationem.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <div class="border-bottom pb-2 mb-3">
+                                <h5 class="mb-0">Heading #1</h5>
+                            </div>
+                            <div>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="mt-4">
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Button</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12 mt-4 mt-lg-0">
+                            <div class="border-bottom pb-2 mb-3">
+                                <h5 class="mb-0">Heading #2</h5>
+                            </div>
+                            <div>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
+                                        <div class="ms-2">
+                                            <small class="text-body">Small Text</small>
+                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="mt-4">
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Button</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12 mt-4 mt-lg-0">
+                            <div class="border-bottom pb-2 mb-3">
+                                <h5 class="mb-0">Heading #3</h5>
+                            </div>
+                            <div>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Link</a>
+                                    </li>
+                                </ul>
+            
+                                <div class="mt-4">
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Button</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="position-relative">
+                            <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                                {% include icons.html type='navbar-drawer-Blog' %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    
+        <!-- COMMUNITY -->
+        <div class="accordion-item">
+            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Community" >
+                <div class="accordion-body">
+                    <div class="row">
+    
+                        <!-- COMMUNITY AND COMMUNITY RESOURCES -->
+                        <div class="col-lg-7 col-12">
+                            <div class="pb-2 mb-4">
+                                <span class="mb-0 drawer-content-header-link">OpenSearch Community</span>
+                            </div>
+                            <div class="row">
+    
+                                    <div class="col">
+                                        <!-- FORUM -->
+                                        <div class="mb-5 row">
+                                            <div class="col-2 mx-auto">
+                                                {% include icons.html type='OpenSearch-Forum-condensedImage'%}
+                                            </div>
+                                            <div class="col">
+                                                <div class="row mb-2">
+                                                    <a href="#" class="drawer-content-subheader">Forum</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 drawer-content-text">Find answers to your questions, help others in the community, and join the conversation.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- EVENTS -->
+                                        <div class="mb-5 row">
+                                            <div class="col-2 mx-auto">
+                                                {% include icons.html type='OpenSearch-Events-condensedImage' class='object-fit-contain' %}
+                                            </div>
+                                            <div class="col">
+                                                <div class="row mb-2">
+                                                    <a href="#" class="drawer-content-subheader">Events</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 drawer-content-text">Community Meetings, Development Backlog & Triage, in-person, and virtual events.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- MEMBERS -->
+                                        <div class="mb-5 row">
+                                            <div class="col-2 mx-auto">
+                                                {% include icons.html type='OpenSearch-Members-condensedImage' class='object-fit-contain' %}
+                                            </div>
+                                            <div class="col">
+                                                <div class="row mb-2">
+                                                    <a href="#" class="drawer-content-subheader">Members</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 drawer-content-text">Community member profiles</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- PARTNERS -->
+                                        <div class="mb-5 row">
+                                            <div class="col-2 mx-auto">
+                                                {% include icons.html type='OpenSearch-Partners-condensedImage' class='object-fit-contain' %}
+                                            </div>
+                                            <div class="col">
+                                                <div class="row mb-2">
+                                                    <a href="#" class="drawer-content-subheader">Partners</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 drawer-content-text">Find open-source partners offering solutions and services.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- PROJECTS -->
+                                        <div class="mb-5 row">
+                                            <div class="col-2 mx-auto">
+                                                {% include icons.html type='OpenSearch-Projects-condensedImage' class='object-fit-contain' %}
+                                            </div>
+                                            <div class="col">
+                                                <div class="row mb-2">
+                                                    <a href="#" class="drawer-content-subheader">Projects</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 drawer-content-text">Highlights of projects built by the community.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- USER GROUPS -->
+                                        <div class="mb-5 row">
+                                            <div class="col-2 mx-auto">
+                                                {% include icons.html type='OpenSearch-UserGroups-condensedImage' class='object-fit-contain' %}
+                                            </div>
+                                            <div class="col">
+                                                <div class="row mb-2">
+                                                    <a href="#" class="drawer-content-subheader">User Groups</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 drawer-content-text">Find local groups to share knowledge and build community.</span>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                    </div>
+                            </div>
+                            <div class="pb-2 mb-4">
+                                <span class="mb-0 drawer-content-header-link">Community Resources</span>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <!-- SLACK -->
+                                    <div class="row">
+                                        <div class="col-2 mx-auto">
+                                            {% include icons.html type='OpenSearch-Slack-condensedImage'%}
+                                        </div>
+                                        <div class="col">
+                                            <div class="row mb-2">
+                                                <a href="#" class="drawer-content-subheader">OpenSearch on Slack</a>
+                                            </div>
+                                            <div class="row">
+                                                <span class="mb-0 drawer-content-text">Speak with other developers.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <!-- GITHUB -->
+                                    <div class="row">
+                                        <div class="col-2 mx-auto">
+                                            {% include icons.html type='OpenSearch-Github-condensedImage'%}
+                                        </div>
+                                        <div class="col">
+                                            <div class="row mb-2">
+                                                <a href="#" class="drawer-content-subheader">Project Organization on Github</a>
+                                            </div>
+                                            <div class="row">
+                                                <span class="mb-0 drawer-content-text">Join us for in-person and virtual events to learn the latest about the project.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- OPENSEARCHCON -->
+                        <div class="col-lg-4 offset-lg-1 col-12">
+                            <div class="pb-2 mb-4">
+                                <span class="mb-0 drawer-content-header">OpenSearchCon</span>
+                            </div>
+    
+                            <!-- OPENSEARCH CON CARD -->
+                            <div class="row my-4">
+
+
+                                <a >
+                                    <img src="/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png"  style="width: 354px; height: 171px; object-fit:cover; object-position: 0% 0;" alt="OpenSearchCon 2024">
+                                </a>
+
+
+    
+                            </div>
+                            <div class="row my-4">
+                                <a href="#" class="btn button-light">North America: September 2024</a>
+                            </div>
+                            <!-- OTHER CONFERENCES -->
+                            <div class="row my-4">
+                                <div class="col">
+                                    <span href="#" class="drawer-content-subheader">Other Conferences in 2024</span>
+                                </div>
+                                <div class="drawer-content-text-link">
+                                    <a class="row my-2" href="#">Europe: May 2024</a>
+                                    <a class="row my-2" href="#">India: June 2024</a>
+                                </div>
+                            </div>                    
+    
+    
+    
+                        </div>
+                        <div class="position-relative">
+                            <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                                {% include icons.html type='navbar-drawer-Community' %}
+                            </div>
+                        </div>
+    
+                    </div>
+
+
+    
+                </div>
+    
+            </div>
+        </div>    
+    
+        <!-- DOCUMENTATION -->
+        <div class="accordion-item">
+            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Documentation" >
+                <div class="accordion-body">
+                    <h5 class="text-body-emphasis h4">Collapsed content</h5>
+                    <span class="text-body-secondary">Toggleable via the navbar brand.</span>
+                    <div class="position-relative">
+                        <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                            {% include icons.html type='navbar-drawer-Documentation' %}
+                        </div>
+                    </div>
+
+                </div>
+    
+            </div>
+        </div>    
+    
+        <!-- SEARCH -->
+        <div class="accordion-item">
+            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Search" >
+                <div class="accordion-body">
+                    <h5 class="text-body-emphasis h4">Collapsed content</h5>
+                    <span class="text-body-secondary">Toggleable via the navbar brand.</span>
+                    <div class="position-relative">
+                        <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                            {% include icons.html type='navbar-drawer-Search' %}
+                        </div>
+                    </div>
+        
+
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+</div>
