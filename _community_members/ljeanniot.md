@@ -21,7 +21,7 @@ title: 'OpenSearch Project Community Member: Lucas Jeanniot'
 
 
 # Community member job title and company where they work.
-job_title_and_company: 'Junior Machine Learning engineer'
+job_title_and_company: 'Machine Learning engineer'
 
 # Array of conference IDs for which the community member is a keynote speaker, if any, or boolean false otherwise.
 # This value is only relevant for member's with the "conference_speaker" user persona.
@@ -42,6 +42,7 @@ permalink: '/community/members/lucas-jeanniot.html'
 # At this time, only conference_speaker, and author are defined.
 personas:
   - conference_speaker
+  - author
 
 # Array of conference IDs that the member is a speaker.
 conference_id:
@@ -62,4 +63,4 @@ linkedin: lucas-jeanniot
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
 ---
-Lucas is a Junior Machine Learning engineer, driven by curiosity and a passion for data analysis, he enjoys the challenge of crafting efficient algorithms and refining data pipelines to make sense of complex information. With a focus on practical applications, Lucas enjoys leveraging technology to optimize processes and improve decision-making in data, text, audio, and image applications.
+Lucas is aMachine Learning engineer, driven by curiosity and a passion for data analysis, he enjoys the challenge of crafting efficient algorithms and refining data pipelines to make sense of complex information. With a focus on practical applications, Lucas enjoys leveraging technology to optimize processes and improve decision-making in data, text, audio, and image applications. In his spare time, Lucas enjoys painting tabletop models and video games. 
