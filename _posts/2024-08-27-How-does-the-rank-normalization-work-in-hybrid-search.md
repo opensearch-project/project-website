@@ -1,4 +1,17 @@
-### An Overview of Rank Normalization in Hybrid Search
+---
+layout: post
+title:  "An Overview of Rank Normalization in Hybrid Search"
+authors:
+ - ljeanniot
+date: 2024-08-30
+categories:
+ - technical-post
+meta_keywords: semantic search engine, neural search engine, keyword and natural language search, hybrid search.
+meta_description: Learn the role of rank normalization in hybrid search systems. Learn how L2 and Min-Max normalization techniques are used in OpenSearch to standardize scores from multiple search algorithms, ensuring accurate and fair ranking of search results. Ideal for developers and tech enthusiasts looking to optimize search engines.
+excerpt: Rank normalization is a crucial process in hybrid search systems, ensuring that scores from different search algorithms are adjusted to a common scale. This allows for fair and accurate comparisons, preventing any single algorithm from disproportionately influencing the final rankings. By implementing techniques like L2 and Min-Max normalization, search engines like OpenSearch can deliver more precise and balanced search results, ultimately enhancing user satisfaction and search performance.
+has_math: true
+has_science_table: false
+---
 
 **Introduction:**
 
