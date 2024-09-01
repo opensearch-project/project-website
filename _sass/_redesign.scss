@@ -585,22 +585,29 @@ $header-banner-mobile-breakpoint: 1018px;
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;    // diff
+                justify-content: flex-start;    
                 > .homepage-hero-banner--os-con--flex-wrap {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
                     flex-wrap: wrap;
-                    justify-content: left;  // diff
+                    justify-content: left;  
+                    margin-top: 8px;
+                    @media screen and (max-width: 580px) {
+                        align-items: center;
+                    }
                     > .homepage-hero-banner--os-con--icon-with-name {
                         display: flex;
                         flex-direction: row;
                         align-items: center;
                         flex-wrap: nowrap;
                         justify-content: center;
-                        margin-left: 16px;  // diff
+                        margin-left: 16px;  
                         @media screen and (max-width: 959px) {
                             margin-top: 16px;
+                        }
+                        @media screen and (max-width: 580px) {
+                            margin-left: 0;
                         }
                         > .homepage-hero-banner--os-con--icon-with-name--icon {
                             width: 88px;
@@ -663,7 +670,7 @@ $header-banner-mobile-breakpoint: 1018px;
                         }
                         @media screen and (max-width: 399px) {
                             font-size: 16px;
-                            margin-left: 16px;
+                            margin-left: 0;
                         }
                     }
                 }
@@ -851,110 +858,50 @@ $header-banner-mobile-breakpoint: 1018px;
                 justify-content: center;
                 &.malibu-sunrise {
                     @include hero-call-to-action-button($secondary-malibu-sunrise, #fff, $primary-pacific-blue);
-                    .landing-page-hero--call-to-action--arrow__normal-focused {
-                        display: block;
-                    }
-                    .landing-page-hero--call-to-action--arrow__hover-active {
-                        display: none;
-                    }
                     &:hover {
                         @include hover-hero-call-to-action-button(#fff, $secondary-malibu-sunrise);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                     &.malibu-sunrise__focus {
                         @include focused-hero-call-to-action-button($secondary-malibu-sunrise, $primary-pacific-blue);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: block;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: none;
-                        }
                     }
                     &.malibu-sunrise__active {
                         @include active-call-to-action-button($primary-pacific-blue, #fff, $secondary-malibu-sunrise);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                 }
                 &.purple-sage-secondary {
                     @include hero-call-to-action-button($secondary-purple-sage, #fff, $primary-open-sky);
-                    .landing-page-hero--call-to-action--arrow__normal-focused {
-                        display: block;
-                    }
-                    .landing-page-hero--call-to-action--arrow__hover-active {
-                        display: none;
-                    }
                     &:hover {
                         @include hover-hero-call-to-action-button(#fff, $secondary-purple-sage);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                     &.purple-sage-secondary__focus {
                         @include focused-hero-call-to-action-button($secondary-purple-sage, $primary-open-sky);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: block;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: none;
-                        }
                     }
                     &.purple-sage-secondary__active {
                         @include active-call-to-action-button($primary-open-sky, #fff, $secondary-purple-sage);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                 }
                 &.open-sky-primary {
                     @include hero-call-to-action-button($primary-open-sky, #fff, $primary-pacific-blue);
-                    .landing-page-hero--call-to-action--arrow__normal-focused {
-                        display: block;
-                    }
-                    .landing-page-hero--call-to-action--arrow__hover-active {
-                        display: none;
-                    }
                     &:hover {
                         @include hover-hero-call-to-action-button(#fff, $primary-open-sky);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                     &.open-sky-primary__focus {
                         @include focused-hero-call-to-action-button($primary-open-sky, $primary-pacific-blue);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: block;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: none;
-                        }
                     }
                     &.open-sky-primary__active {
                         @include active-call-to-action-button($primary-pacific-blue, #fff, $primary-open-sky);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
+                    }
+                }
+                &.pacific-blue-primary {
+                    @include hero-call-to-action-button($primary-pacific-blue, #fff, $primary-pacific-blue);
+                    &:hover {
+                        @include hover-hero-call-to-action-button(#fff, $primary-pacific-blue);
+                    }
+                    &.open-sky-primary__focus {
+                        @include focused-hero-call-to-action-button($primary-pacific-blue, $primary-open-sky);
+                    }
+                    &.open-sky-primary__active {
+                        @include active-call-to-action-button($primary-pacific-blue, #fff, $primary-open-sky);
                     }
                 }
                 > a {
@@ -975,7 +922,6 @@ $header-banner-mobile-breakpoint: 1018px;
                         flex-wrap: nowrap;
                         > .landing-page-hero--call-to-action--label {
                             padding-right: 15px;
-                            padding-bottom: 4px;
                         }
                         > .landing-page-hero--call-to-action--arrow {
                             flex-basis: 25px;
