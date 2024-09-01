@@ -190,6 +190,16 @@
     line-height: 21px;
 }
 
+@mixin header-large($color: $primary-pacific-blue-s3) {
+    color: $color;
+    font-family: 'Open Sans Condensed';
+    font-size: 84px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -2px;
+}
+
 @mixin header-level2($color: $primary-pacific-blue-s3) {
     color: $color;
     font-family: 'Open Sans Condensed';
