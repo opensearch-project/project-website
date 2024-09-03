@@ -78,3 +78,5 @@ items:
         url: https://playground.opensearch.org/
       - label: Performance Benchmarks
         url: /benchmarks/
+      - label: Release Metrics
+        url: /release-metrics/
