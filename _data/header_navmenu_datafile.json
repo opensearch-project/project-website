@@ -1,0 +1,268 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "Desktop": {
+
+        "Platform": {
+            "Title": "Platform",
+            "BottomTriangleIcon": "OpenSearch-Platform-DrawerIcon-condensedImage",
+            
+            
+            "LeftColumn": [
+                {
+                    "Title": "Platform",
+                    "SubNav": [
+                        {
+                            "Name": "OpenSearch",
+                            "SubText": "OpenSearch is a powerful search and analytics engine built on Apache Lucene.",
+                            "URL": "/docs/latest/about/",
+                            "Icon": "OpenSearch-Core-condensedImage"
+                        },
+                        {
+                            "Name": "OpenSearch Dashboards",
+                            "SubText": "Our data visualization toolset is a flexible, fully integrated solution for visually exploring and querying your data.",
+                            "URL": "/docs/latest/about/",
+                            "Icon": "OpenSearch-Dashboards-condensedImage"
+                        },
+                        {
+                            "Name": "Data Prepper",
+                            "SubText": "A server-side data collector designed to enrich, transform, and aggregate data for downstream analytics with OpenSearch.",
+                            "URL": "/docs/latest/data-prepper/",
+                            "Icon": "OpenSearch-DataPrepper-condensedImage"
+                        }
+                    ]
+                }
+            ],
+    
+            "CenterColumn": [
+                {
+                    "Title": "Capabilities",
+                    "SubNav": [
+                        {
+                            "Name": "Search",
+                            "URL": "/docs/latest/about/",
+                            "Icon": "OpenSearch-Search-condensedImage",
+                            "SubLinks": [
+                                {
+                                    "Name": "Vector Search",
+                                    "URL": "/platform/search/vector-database.html"
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "Observability",
+                            "URL": "/platform/observability/index.html",
+                            "Icon": "OpenSearch-Observability-condensedImage",
+                            "SubLinks": []
+                        },
+                        {
+                            "Name": "Security Analytics",
+                            "URL": "/platform/security-analytics/index.html",
+                            "Icon": "OpenSearch-Security-condensedImage",
+                            "SubLinks": []
+                        },
+                        {
+                            "Name": "AI/ML Tooling",
+                            "URL": "/platform/security-analytics/index.html",
+                            "Icon": "OpenSearch-AI-condensedImage",
+                            "SubLinks": []
+                        }
+                    ]
+                }
+            ],
+            "RightColumn": [
+                {
+                    "Title": "Performance Benchmarks",
+                    "SubNav": [
+                        {
+                            "Name": "View key performance metrics across different workloads",
+                            "URL": "/benchmarks/",
+                            "Icon": "OpenSearch-DataConsumer-condensedImage"
+                        }
+                    ]
+                }
+            ]
+    
+        },   
+        "Blog": {
+            "Title": "Blog",
+            "BottomTriangleIcon": "OpenSearch-Blog-DrawerIcon-condensedImage",
+            
+            
+            "LeftColumn": [
+                {
+                    "Title": "OpenSearch Blog",
+                    "TableHeading": "Most Recent Articles",
+                    "NumberPostsShown": 4
+                }
+            ],
+    
+            "CenterColumn": null,
+            "RightColumn": [
+                {
+                    "Title": "Featured Post"
+                }
+            ]
+    
+        },    
+        "Community": {
+            "Title": "Community",
+            "BottomTriangleIcon": "OpenSearch-Community-DrawerIcon-condensedImage",
+            
+            
+            "LeftColumn": [
+                {
+                    "Title": "OpenSearch Community",
+                    "SubNav": [
+                        {
+                            "Name": "Forum",
+                            "SubText": "Find answers to your questions, help others in the community, and join the conversation.",
+                            "URL": "https://forum.opensearch.org/",
+                            "Icon": "OpenSearch-Forum-condensedImage"
+                        },
+                        {
+                            "Name": "Partners",
+                            "SubText": "Find open-source partners offering solutions and services.",
+                            "URL": "/partners/",
+                            "Icon": "OpenSearch-Partners-condensedImage"
+                        },
+                        {
+                            "Name": "Events",
+                            "SubText": "Community Meetings, Development Backlog & Triage, in-person, and virtual events.",
+                            "URL": "/events/",
+                            "Icon": "OpenSearch-Events-condensedImage"
+                        },
+                        {
+                            "Name": "Projects",
+                            "SubText": "Highlights of projects built by the community.",
+                            "URL": "/projects/",
+                            "Icon": "OpenSearch-Projects-condensedImage"
+                        },
+                        {
+                            "Name": "Members",
+                            "SubText": "Community member profiles.",
+                            "URL": "/community/members/index.html",
+                            "Icon": "OpenSearch-Members-condensedImage"
+                        },
+                        {
+                            "Name": "User Groups",
+                            "SubText": "Find local groups to share knowledge and build community.",
+                            "URL": "#",
+                            "Icon": "OpenSearch-UserGroups-condensedImage"
+                        }
+                    ]
+                }, 
+                {
+                    "Title": "Community Resources",
+                    "SubNav": [
+                        {
+                            "Name": "Slack",
+                            "SubText": "Speak with other developers.",
+                            "URL": "/slack.html",
+                            "Icon": "OpenSearch-Slack-condensedImage"
+                        },
+                        {
+                            "Name": "Github Project Organization",
+                            "SubText": "Join us for in-person and virtual events to learn the latest about the project.",
+                            "URL": "https://github.com/opensearch-project",
+                            "Icon": "OpenSearch-Github-condensedImage"
+                        }
+                    ]
+                }
+            ],
+    
+            "CenterColumn":  null,
+            "RightColumn": [
+                {
+                    "Title": "OpenSearchCon",
+                    "OpenSearchCon_HeroBanner": "/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_720x360.png",
+                    "OpenSearchCon_ButtonText": "North America: Sep 2024",
+                    "OpenSearchCon_Link": "/events/opensearchcon/2024/north-america/index.html",
+                    "Name": "Other Conferences in 2024",
+                    "SubNav": [
+                        {
+                            "Name": "Europe: May 2024",
+                            "URL": "/events/opensearchcon/2024/europe/index.html"
+                        },
+                        {
+                            "Name": "India: June 2024",
+                            "URL": "/events/opensearchcon/2024/india/index.html"
+                        }
+                    ]
+                }
+            ]
+    
+        },      
+        "Documentation": {
+            "Title": "Documentation",
+            "BottomTriangleIcon": "OpenSearch-Documentation-DrawerIcon-condensedImage",
+            
+            
+            "LeftColumn": [
+                {
+                    "Title": "Getting Started with OpenSearch",
+                    "SubNav": [
+                        {
+                            "Name": "What is OpenSearch?",
+                            "SubText": "Build your OpenSearch solution using core tooling and visualizations.",
+                            "URL": "/docs/latest/about/",
+                            "Icon": "OpenSearch-Dashboards-Square-condensedImage"
+                        },
+                        {
+                            "Name": "OpenSearch Benchmark",
+                            "SubText": "Measure performance metrics for your OpenSearch cluster.",
+                            "URL": "/benchmarks/",
+                            "Icon": "OpenSearch-DataConsumer-condensedImage"
+                        },
+                        {
+                            "Name": "Data Prepper",
+                            "SubText": "Filter, mutate, and sample your data for ingestion into OpenSearch.",
+                            "URL": "/docs/latest/data-prepper/",
+                            "Icon": "OpenSearch-DataPrepper-condensedImage"
+                        },
+                        {
+                            "Name": "Clients",
+                            "SubText": "Interact with OpenSearch from your application using language APIs.",
+                            "URL": "/docs/latest/clients/",
+                            "Icon": "OpenSearch-Clients-condensedImage"
+                        }
+                    ]
+                }
+            ],
+    
+            "CenterColumn": null,
+            "RightColumn": null
+    
+        },      
+        "Search": {
+            "Title": "Search",
+            "BottomTriangleIcon": "OpenSearch-Search-DrawerIcon-condensedImage",
+            
+            
+            "LeftColumn": null,
+            "CenterColumn": null,
+            "RightColumn": null
+    
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+      }
+}

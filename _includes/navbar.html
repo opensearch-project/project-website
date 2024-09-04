@@ -124,7 +124,7 @@
 
 
 <!--Third button-->
-<section class="mb-3">
+<!-- <section class="mb-3">
     <nav class="navbar navbar-info bg-info">
       <div class="container-fluid">
         <button data-mdb-button-init class="navbar-toggler third-button" type="button" data-mdb-collapse-init
@@ -165,13 +165,12 @@
       <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-block m-0">Link
         3</button>
     </div>
-  </div>
+  </div> -->
 
 <!-- DESKTOP MENU -->
 
 
-
-
+{% assign datafile = "header_navmenu_datafile.json" %}
 <div class="nav-drawer accordion accordion-flush" id="accordion-megamenu">
 
 
@@ -181,7 +180,7 @@
                 {% include icons.html type='opensearch-logo-default-1' %}          
             </a>
 
-            <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item accordion-header my-auto mx-3">
                     <a class="nav-link btn  accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Platform" aria-controls="navbarToggleExternalContent-Platform" aria-expanded="false" aria-label="Toggle navigation Platform" href="#">Platform</a>
                 </li>
@@ -205,8 +204,8 @@
                     <button class="btn top-nav-button btn-outline-primary my-1 py-1" aria-current="Download">Download</button>
                 </div>
 
-                <div class="my-auto mx-auto">
-                    <button class="btn accordion-button nav-search-icon collapsed my-auto p-0 rounded-circle" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Search" aria-controls="navbarToggleExternalContent-Search" aria-current="Toggle navigation Search">
+                <div class="accordion-header my-auto mx-auto">
+                    <button class="btn accordion-button nav-search-icon collapsed my-auto p-0 rounded-circle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Search" aria-controls="navbarToggleExternalContent-Search" aria-current="Toggle navigation Search" aria-expanded="false" >
                         {% include icons.html type='search-magnifying-glass-navbar' %}
                     </button>
                 </div>
@@ -222,490 +221,317 @@
 
 
     <div class="container accordion accordion-flush">
-    
+
+        {% assign data_platform_dropdown = site.data.header_navmenu_datafile.Desktop['Platform']  %}
+        {% assign left_column = data_platform_dropdown['LeftColumn'] %}
+        {% assign center_column = data_platform_dropdown['CenterColumn'] %}
+        {% assign right_column = data_platform_dropdown['RightColumn'] %}
         <!-- PLATFORM -->
         <div class="accordion-item">
             <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Platform" >
                 <div class="accordion-body">
-                    <div class="row mb-4">
+                    <div class="row">
+
+                        <!-- LEFT COLUMN -->
                         <div class="col-md-4 col-12">
-                            <div class="pb-2 mb-4">
-                                <span class="mb-0 drawer-content-header-link">Platform</span>
-                            </div>
-                            <div>
-    
-                                <!-- CORE -->
-                                <div class="mb-5 row">
-                                    <div class="col-2 mx-auto">
-                                        {% include icons.html type='OpenSearch-Core-condensedImage' class='object-fit-contain' %}
-                                    </div>
-                                    <div class="col">
-                                        <div class="row mb-2">
-                                            <a href="#" class="drawer-content-subheader">OpenSearch</a>
-                                        </div>
-                                        <div class="row">
-                                            <span class="mb-0 drawer-content-text">OpenSearch is a powerful search and analytics engine built on Apache Lucene.</span>
-                                        </div>
-                                    </div>
+
+                            {% for content_section in left_column %}
+                                <div class="mb-4">
+                                    <span class="mb-0 drawer-content-header-link">{{content_section.Title}}</span>
                                 </div>
-                                <!-- DASHBOARDS -->
-                                <div class="mb-5 row">
-                                    <div class="col-2 mx-auto">
-                                        {% include icons.html type='OpenSearch-Dashboards-condensedImage' class='object-fit-contain' %}
-                                    </div>
-                                    <div class="col">
-                                        <div class="row mb-2">
-                                            <a href="#" class="drawer-content-subheader">OpenSearch Dashboards</a>
+
+                                <div>
+                                    {% for nav_link in content_section.SubNav %}
+                                        <div class="mb-4 row">
+                                            <div class="col-2 icon-div-box">
+                                                {% include icons.html type=nav_link.Icon %}
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="row mb-1">
+                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 drawer-content-text">{{ nav_link.SubText }}</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="row">
-                                            <span class="mb-0 drawer-content-text">Our data visualization toolset is a flexible, fully integrated solution for visually exploring and querying your data.</span>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
-                                <!-- DATAPREPPER -->
-                                <div class="mb-5 row">
-                                    <div class="col-2 mx-auto">
-                                        {% include icons.html type='OpenSearch-DataPrepper-condensedImage' class='object-fit-contain' %}
-                                    </div>
-                                    <div class="col">
-                                        <div class="row mb-2">
-                                            <a href="#" class="drawer-content-subheader">Data Prepper</a>
-                                        </div>
-                                        <div class="row">
-                                            <span class="mb-0 drawer-content-text">A server-side data collector designed to enrich, transform, and aggregate data for downstream analytics with OpenSearch.</span>
-                                        </div>
-                                    </div>
-                                </div>
-    
-    
-                            </div>
+
+                            {% endfor %}
                         </div>
+
+                        <!-- CENTER COLUMN -->
                         <div class="col-md-3 col-12">
-                            <div class="pb-2 mb-4">
-                                <span class="mb-0 drawer-content-header">Capabilities</span>
-                            </div>
-                            <div>
-                                <!-- SEARCH -->
-                                <div class="mb-4 row">
-                                    <div class="col-2 mx-auto">
-                                        {% include icons.html type='OpenSearch-Search-condensedImage'%}
-                                    </div>
-                                    <div class="col">
-                                        <div class="row mb-2">
-                                            <a href="#" class="drawer-content-subheader">Search</a>
-                                        </div>
-                                        <div class="row">
-                                            <span class="mb-0 drawer-content-text-link">Vector Search</span>
-                                        </div>
-                                    </div>
+                            {% for content_section in center_column %}
+                                <div class="pb-2 mb-4">
+                                    <span class="mb-0 drawer-content-header">{{content_section.Title}}</span>
                                 </div>
-                                <!-- OBSERVABILITY -->
-                                <div class="mb-4 row">
-                                    <div class="col-2 mx-auto">
-                                        {% include icons.html type='OpenSearch-Observability-condensedImage'%}
-                                    </div>
-                                    <div class="col">
-                                        <div class="row mb-2">
-                                            <a href="#" class="drawer-content-subheader">Observability</a>
+                                <div>
+                                    {% for nav_link in content_section.SubNav %}
+                                        
+                                        <div class="mb-5 row">
+                                            <div class="col-2 icon-div-box">
+                                                {% include icons.html type=nav_link.Icon %}
+                                            </div>
+                                            <div class="col">
+                                                <div class="row mb-2">
+                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                </div>
+                                                {% for sub_nav_link in nav_link.SubLinks %}
+                                                    <div class="row mb-1 ps-1">
+                                                        <a href='{{ sub_nav_link.URL }}' class="drawer-content-text-link">{{ sub_nav_link.Name }}</a>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
                                         </div>
-                                    </div>
+
+                                    {% endfor %}
                                 </div>
-                                <!-- SECURITY ANALYTICS -->
-                                <div class="mb-4 row">
-                                    <div class="col-2 mx-auto">
-                                        {% include icons.html type='OpenSearch-Security-condensedImage'%}
-                                    </div>
-                                    <div class="col">
-                                        <div class="row mb-2">
-                                            <a href="#" class="drawer-content-subheader">Security Analytics</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- AI ML TOOLING -->
-                                <div class="mb-4 row">
-                                    <div class="col-2 mx-auto">
-                                        {% include icons.html type='OpenSearch-AI-condensedImage'%}
-                                    </div>
-                                    <div class="col">
-                                        <div class="row mb-2">
-                                            <a href="#" class="drawer-content-subheader">AI/ML Tooling</a>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                            </div>
+                            {% endfor %}
                         </div>
+
+                        <!-- RIGHT COLUMN -->
                         <div class="col-md-4 offset-md-1 col-12">
-                            <div class="pb-2 mb-4">
-                                <span class="mb-0 drawer-content-header">Performance Benchmarks</span>
-                            </div>
-                            <div class="row">
-                                <div class="col-2 mx-auto">
-                                    {% include icons.html type='OpenSearch-DataConsumer-condensedImage'%}
+                            {% for content_section in right_column %}
+                                <div class="pb-2 mb-4">
+                                    <span class="mb-0 drawer-content-header">{{content_section.Title}}</span>
                                 </div>
-                                <div class="col mb-2">
-                                    <a href="#" class="drawer-content-subheader">View key performance metrics across different workloads</a>
+
+                                <div>
+                                    {% for nav_link in content_section.SubNav %}
+                                        
+                                        <div class="mb-2 row">
+                                            <div class="col-2 icon-div-box">
+                                                {% include icons.html type=nav_link.Icon %}
+                                            </div>
+                                            <div class="col">
+                                                <div class="row mb-2">
+                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    {% endfor %}
                                 </div>
-                            </div>
     
-                            <div>
-                                <div class="mt-4">
-                                    <a href="#" class="btn button-light">View Data</a>
+                                <div class="px-5">
+                                    <a href="/benchmarks/" class="btn button-light">View Data</a>
                                 </div>
                                 
-                            </div>
+                            {% endfor %}
                         </div>
+
+
+                        <!-- BOTTOM TRIANGLE ICON -->
                         <div class="position-relative">
                             <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                                {% include icons.html type='navbar-drawer-Platform' %}
+                                {% include icons.html type=data_platform_dropdown.BottomTriangleIcon %}
                             </div>
                         </div>
-                        <hr/>
                     </div>
                 </div>
     
             </div>
         </div>
+    
 
+        {% assign data_community_dropdown = site.data.header_navmenu_datafile.Desktop['Blog']  %}
+        {% assign left_column = data_community_dropdown['LeftColumn'] %}
+        {% assign right_column = data_community_dropdown['RightColumn'] %}
+
+        {% assign paginator = paginator %}
+        {% assign featured_post = site.posts | where: "featured_blog_post", true | first %}
         <!-- BLOG -->
         <div class="accordion-item">
             <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Blog" >
                 <div class="accordion-body">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="lh-1 mb-5">
-                                <h3 class="mb-1">Heading title goes here</h3>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque recusandae officia exercitationem.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="border-bottom pb-2 mb-3">
-                                <h5 class="mb-0">Heading #1</h5>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="mt-4">
-                                    <a href="#" class="btn btn-outline-primary btn-sm">Button</a>
+    
+                        <!-- LEFT COLUMN -->
+                        <div class="col-md-8 col-12">
+
+                            {% for content_section in left_column %}
+                                <div class="mb-4">
+                                    <span class="drawer-content-header-link">{{content_section.Title}}</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12 mt-4 mt-lg-0">
-                            <div class="border-bottom pb-2 mb-3">
-                                <h5 class="mb-0">Heading #2</h5>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light p-4 rounded-3 icon-lg"></div>
-                                        <div class="ms-2">
-                                            <small class="text-body">Small Text</small>
-                                            <h6 class="mb-0">Lorem ipsum dolor sit amet.</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="mt-4">
-                                    <a href="#" class="btn btn-outline-primary btn-sm">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12 mt-4 mt-lg-0">
-                            <div class="border-bottom pb-2 mb-3">
-                                <h5 class="mb-0">Heading #3</h5>
-                            </div>
-                            <div>
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Link</a>
-                                    </li>
-                                </ul>
-            
-                                <div class="mt-4">
-                                    <a href="#" class="btn btn-outline-primary btn-sm">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                                {% include icons.html type='navbar-drawer-Blog' %}
-                            </div>
+
+                                <!-- TABLE -->
+                                <table class="table blog-table shadow mb-5">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="megamenu-table-heading">{{ content_section.TableHeading }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider">
+                                        {% for post in site.posts limit:5 %}
+                                            {% if post != featured_post %}
+                                                {% assign post_metadata_date_string = "" %}
+
+                                                <!-- Date -->
+                                                {% assign post_metadata_date_string = post_metadata_date_string | append: post.date | date: "%b %d, %Y" %}
+                            
+
+                                                <tr>
+                                                    <td scope="row"><a class="megamenu-blog-title" href="{{  post.url }}" >{{ post.title }}</a></td>
+                                                    <td class="megamenu-blog-date">{{ post_metadata_date_string }}</td>
+                                                </tr>
+
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+                            {% endfor %}
+
+
                         </div>
 
+
+
+                        <!-- RIGHT COLUMN -->
+                        <div class="col-lg-4 col-12">
+
+                            {% for content_section in right_column %}
+                                <div class="mb-4">
+                                    <span class="drawer-content-header">{{content_section.Title}}</span>
+                                </div>
+
+
+
+
+
+
+
+
+
+                                <!-- FEATURED POST -->
+                                {% assign post_metadata_string = "" %}
+                                <!-- Date -->
+                                {% assign post_metadata_string = post_metadata_string | append: featured_post.date | date: "%b %d %Y" %}
+                
+                                {% assign post_metadata_string = post_metadata_string | append: " &bull; " %}
+                                <!-- Categories -->
+                                {% for category in featured_post.categories %}
+                                    {% assign post_metadata_string = post_metadata_string | append: category %}
+                                    {% if forloop.length > 1 and forloop.last != true %}
+                                        {% assign post_metadata_string = post_metadata_string | append: ", " %}
+                                    {% endif %}
+                                {% endfor %}
+                                <div class="card mb-5 border shadow-sm rounded text-body-emphasis bg-body-secondary">
+                                    <img class="card-img-top cropped-img" src="{{featured_post.featured_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <div class="p-0">
+                                            <h3 class=" display-6 ">{{ featured_post.title }}</h3>
+                                            <a href="{{  featured_post.url }}" class="stretched-link"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BUTTON -->
+                                <div class="mb-5 px-1">
+                                    <a href="/blog/" class="btn button-light">Visit the OpenSearch Blog</a>
+                                </div>
+
+
+                            {% endfor %}
+
+                        </div>
+
+
+
+
+
+                        <!-- BOTTOM TRIANGLE ICON -->
+                        <div class="position-relative">
+                            <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                                {% include icons.html type=data_community_dropdown.BottomTriangleIcon %}
+                            </div>
+                        </div>
+    
                     </div>
                 </div>
     
             </div>
         </div>
     
+
+        {% assign data_community_dropdown = site.data.header_navmenu_datafile.Desktop['Community']  %}
+        {% assign left_column = data_community_dropdown['LeftColumn'] %}
+        {% assign right_column = data_community_dropdown['RightColumn'] %}
         <!-- COMMUNITY -->
         <div class="accordion-item">
             <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Community" >
                 <div class="accordion-body">
                     <div class="row">
     
-                        <!-- COMMUNITY AND COMMUNITY RESOURCES -->
-                        <div class="col-lg-7 col-12">
-                            <div class="pb-2 mb-4">
-                                <span class="mb-0 drawer-content-header-link">OpenSearch Community</span>
-                            </div>
-                            <div class="row">
-    
-                                    <div class="col">
-                                        <!-- FORUM -->
-                                        <div class="mb-5 row">
-                                            <div class="col-2 mx-auto">
-                                                {% include icons.html type='OpenSearch-Forum-condensedImage'%}
-                                            </div>
-                                            <div class="col">
-                                                <div class="row mb-2">
-                                                    <a href="#" class="drawer-content-subheader">Forum</a>
-                                                </div>
-                                                <div class="row">
-                                                    <span class="mb-0 drawer-content-text">Find answers to your questions, help others in the community, and join the conversation.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- EVENTS -->
-                                        <div class="mb-5 row">
-                                            <div class="col-2 mx-auto">
-                                                {% include icons.html type='OpenSearch-Events-condensedImage' class='object-fit-contain' %}
-                                            </div>
-                                            <div class="col">
-                                                <div class="row mb-2">
-                                                    <a href="#" class="drawer-content-subheader">Events</a>
-                                                </div>
-                                                <div class="row">
-                                                    <span class="mb-0 drawer-content-text">Community Meetings, Development Backlog & Triage, in-person, and virtual events.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- MEMBERS -->
-                                        <div class="mb-5 row">
-                                            <div class="col-2 mx-auto">
-                                                {% include icons.html type='OpenSearch-Members-condensedImage' class='object-fit-contain' %}
-                                            </div>
-                                            <div class="col">
-                                                <div class="row mb-2">
-                                                    <a href="#" class="drawer-content-subheader">Members</a>
-                                                </div>
-                                                <div class="row">
-                                                    <span class="mb-0 drawer-content-text">Community member profiles</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <!-- PARTNERS -->
-                                        <div class="mb-5 row">
-                                            <div class="col-2 mx-auto">
-                                                {% include icons.html type='OpenSearch-Partners-condensedImage' class='object-fit-contain' %}
-                                            </div>
-                                            <div class="col">
-                                                <div class="row mb-2">
-                                                    <a href="#" class="drawer-content-subheader">Partners</a>
-                                                </div>
-                                                <div class="row">
-                                                    <span class="mb-0 drawer-content-text">Find open-source partners offering solutions and services.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- PROJECTS -->
-                                        <div class="mb-5 row">
-                                            <div class="col-2 mx-auto">
-                                                {% include icons.html type='OpenSearch-Projects-condensedImage' class='object-fit-contain' %}
-                                            </div>
-                                            <div class="col">
-                                                <div class="row mb-2">
-                                                    <a href="#" class="drawer-content-subheader">Projects</a>
-                                                </div>
-                                                <div class="row">
-                                                    <span class="mb-0 drawer-content-text">Highlights of projects built by the community.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- USER GROUPS -->
-                                        <div class="mb-5 row">
-                                            <div class="col-2 mx-auto">
-                                                {% include icons.html type='OpenSearch-UserGroups-condensedImage' class='object-fit-contain' %}
-                                            </div>
-                                            <div class="col">
-                                                <div class="row mb-2">
-                                                    <a href="#" class="drawer-content-subheader">User Groups</a>
-                                                </div>
-                                                <div class="row">
-                                                    <span class="mb-0 drawer-content-text">Find local groups to share knowledge and build community.</span>
-                                                </div>
-                                            </div>
-                                        </div>   
-                                    </div>
-                            </div>
-                            <div class="pb-2 mb-4">
-                                <span class="mb-0 drawer-content-header-link">Community Resources</span>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <!-- SLACK -->
-                                    <div class="row">
-                                        <div class="col-2 mx-auto">
-                                            {% include icons.html type='OpenSearch-Slack-condensedImage'%}
-                                        </div>
-                                        <div class="col">
-                                            <div class="row mb-2">
-                                                <a href="#" class="drawer-content-subheader">OpenSearch on Slack</a>
-                                            </div>
-                                            <div class="row">
-                                                <span class="mb-0 drawer-content-text">Speak with other developers.</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <!-- LEFT COLUMN -->
+                        <div class="col-md-8 col-12">
+
+                            {% for content_section in left_column %}
+                                <div class="mb-4">
+                                    <span class="drawer-content-header-link">{{content_section.Title}}</span>
                                 </div>
-                                <div class="col">
-                                    <!-- GITHUB -->
-                                    <div class="row">
-                                        <div class="col-2 mx-auto">
-                                            {% include icons.html type='OpenSearch-Github-condensedImage'%}
-                                        </div>
-                                        <div class="col">
-                                            <div class="row mb-2">
-                                                <a href="#" class="drawer-content-subheader">Project Organization on Github</a>
+
+                                <div class="row row-cols-1 row-cols-lg-2">    
+                                    {% for nav_link in content_section.SubNav %}
+                                        <div class="row mb-4">
+                                            <div class="col-4 icon-div-box">
+                                                {% include icons.html type=nav_link.Icon class='object-fit-contain' %}
                                             </div>
-                                            <div class="row">
-                                                <span class="mb-0 drawer-content-text">Join us for in-person and virtual events to learn the latest about the project.</span>
+                                            <div class="col pe-0">
+                                                <div class="row mb-1">
+                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 pe-0 drawer-content-text">{{ nav_link.SubText }}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
-                            </div>
+        
+                            {% endfor %}
                         </div>
-    
-                        <!-- OPENSEARCHCON -->
-                        <div class="col-lg-4 offset-lg-1 col-12">
-                            <div class="pb-2 mb-4">
-                                <span class="mb-0 drawer-content-header">OpenSearchCon</span>
-                            </div>
-    
-                            <!-- OPENSEARCH CON CARD -->
-                            <div class="row my-4">
 
 
-                                <a >
-                                    <img src="/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png"  style="width: 354px; height: 171px; object-fit:cover; object-position: 0% 0;" alt="OpenSearchCon 2024">
-                                </a>
 
 
-    
-                            </div>
-                            <div class="row my-4">
-                                <a href="#" class="btn button-light">North America: September 2024</a>
-                            </div>
-                            <!-- OTHER CONFERENCES -->
-                            <div class="row my-4">
-                                <div class="col">
-                                    <span href="#" class="drawer-content-subheader">Other Conferences in 2024</span>
+
+                        <!-- RIGHT COLUMN -->
+                        <div class="col-lg-4 col-12">
+
+                            {% for content_section in right_column %}
+                                <div class="mb-4">
+                                    <span class="drawer-content-header">{{content_section.Title}}</span>
                                 </div>
-                                <div class="drawer-content-text-link">
-                                    <a class="row my-2" href="#">Europe: May 2024</a>
-                                    <a class="row my-2" href="#">India: June 2024</a>
+
+                                <div class="card mb-4 hero-card rounded">
+                                    <img src="{{ content_section.OpenSearchCon_HeroBanner }}" class="card-img h-100" alt="{{ content_section.OpenSearchCon_ButtonText}}">
+                                    <a href="{{ content_section.OpenSearchCon_Link }}" class="stretched-link"></a>
                                 </div>
-                            </div>                    
-    
-    
-    
+
+                                <div class="row mb-1">
+                                    <span class="drawer-content-subheader">{{ content_section.Name }}</span>
+                                </div>
+                                {% for nav_link in content_section.SubNav %}
+                                    <div class="row mb-1 ps-2">
+                                        <a href='{{ nav_link.URL }}' class="drawer-content-text-link">{{ nav_link.Name }}</a>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+
                         </div>
+
+
+
+
+
+                        <!-- BOTTOM TRIANGLE ICON -->
                         <div class="position-relative">
                             <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                                {% include icons.html type='navbar-drawer-Community' %}
+                                {% include icons.html type=data_community_dropdown.BottomTriangleIcon %}
                             </div>
                         </div>
     
@@ -718,15 +544,51 @@
             </div>
         </div>    
     
+        
+
+        {% assign data_documentation_dropdown = site.data.header_navmenu_datafile.Desktop['Documentation']  %}
+        {% assign left_column = data_documentation_dropdown['LeftColumn'] %}
         <!-- DOCUMENTATION -->
         <div class="accordion-item">
             <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Documentation" >
                 <div class="accordion-body">
-                    <h5 class="text-body-emphasis h4">Collapsed content</h5>
-                    <span class="text-body-secondary">Toggleable via the navbar brand.</span>
+                    
+                    <div class="row mb-5">
+                        <!-- LEFT COLUMN -->
+                        <div class="col-md-9 col-12">
+
+                            {% for content_section in left_column %}
+                                <div class="mb-5">
+                                    <span class="drawer-content-header-link">{{content_section.Title}}</span>
+                                </div>
+
+                                <div class="row row-cols-1 row-cols-lg-2 g-4">    
+                                    {% for nav_link in content_section.SubNav %}
+                                        <div class="row mb-4">
+                                            <div class="col-4 icon-div-box">
+                                                {% include icons.html type=nav_link.Icon class='object-fit-contain' %}
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row mb-1">
+                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                </div>
+                                                <div class="row">
+                                                    <span class="mb-0 drawer-content-text">{{ nav_link.SubText }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+        
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    <!-- BOTTOM TRIANGLE ICON -->
                     <div class="position-relative">
                         <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                            {% include icons.html type='navbar-drawer-Documentation' %}
+                            {% include icons.html type=data_documentation_dropdown.BottomTriangleIcon %}
                         </div>
                     </div>
 
@@ -735,15 +597,44 @@
             </div>
         </div>    
     
+
+        {% assign data_search_dropdown = site.data.header_navmenu_datafile.Desktop['Search']  %}
         <!-- SEARCH -->
         <div class="accordion-item">
             <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Search" >
                 <div class="accordion-body">
-                    <h5 class="text-body-emphasis h4">Collapsed content</h5>
-                    <span class="text-body-secondary">Toggleable via the navbar brand.</span>
+
+                    <div class="row mb-5">
+                        <!-- LEFT COLUMN -->
+                        <div class="col-md-11 col-12">
+                        
+
+                        <!-- SEARCH FORM -->
+                        <div class="row mb-5">
+
+                                <div class="input-group search-form">
+                                    
+                                    <span class="input-group-text bg-transparent border-right-0">{% include icons.html type='searchbar-search-icon' %}</span>
+                                   
+                                    <input class="form-control py-2 border-left-0 border" type="search" value="..." id="example-search-input">
+                                    
+                                    <span class="input-group-text bg-transparent border-left-0">{% include icons.html type='searchbar-close-icon' %}</span>
+                                    
+                                </div>
+                        </div>
+                        <!-- SEARCH RESULTS -->
+                        <div class="row mb-5">
+                        </div>
+                    </div>                        
+
+                    </div>
+
+
+
+                    <!-- BOTTOM TRIANGLE ICON -->
                     <div class="position-relative">
                         <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                            {% include icons.html type='navbar-drawer-Search' %}
+                            {% include icons.html type=data_search_dropdown.BottomTriangleIcon %}
                         </div>
                     </div>
         
