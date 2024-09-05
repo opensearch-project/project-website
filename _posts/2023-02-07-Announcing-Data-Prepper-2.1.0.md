@@ -249,6 +249,6 @@ See the [release notes](https://github.com/opensearch-project/data-prepper/relea
 You can [download](https://opensearch.org/downloads.html) Data Prepper or install a Docker container from the OpenSearch Download & Get Started page. The maintainers encourage 
 all users to update to Data Prepper 2.1.0 on order to gain the improved stability, additional administrative options, and new features.
 
-Additionally, we have already started working on Data Prepper 2.2. See the [roadmap](https://github.com/opensearch-project/data-prepper/projects/1) to learn more.
+Additionally, we have already started working on Data Prepper 2.2. See the [roadmap](https://github.com/orgs/opensearch-project/projects/221) to learn more.
 
 
