@@ -187,13 +187,13 @@ metrics_height_mobile: 6000
 </div>
 
 <div id="component-metrics-dashboard" class="dashboard-container">
-    <h1 onclick="openModal('modal3')">OpenSearch Component Release Metrics</h1>
+    <h1 onclick="openModal('modal2')">OpenSearch Component Release Metrics</h1>
     <a id="component-metrics-dashboard-link" href="#" target="_blank" class="button">Direct Link to Component Metrics Dashboard</a>
     <iframe id="component-metrics-iframe" width="100%" height="{{ page.metrics_height_desktop }}"></iframe>
 </div>
 
 <div id="test-results-dashboard" class="dashboard-container">
-    <h1 onclick="openModal('modal2')">OpenSearch Release Build and Integration Test Results</h1>
+    <h1 onclick="openModal('modal3')">OpenSearch Release Build and Integration Test Results</h1>
     <a id="test-results-dashboard-link" href="#" target="_blank" class="button">Direct Link to Test Results Dashboard</a>
     <iframe id="test-results-iframe" width="100%" height="{{ page.metrics_height_desktop }}"></iframe>
 </div>
