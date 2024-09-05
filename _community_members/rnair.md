@@ -11,7 +11,7 @@ short_name: "rnair"
 name: "Rohit Nair"
 
 # The path to the community member's photo.
-photo: "/assets/media/community/members/no-image-available.svg"
+photo: "/assets/media/community/members/rohitnair.jpeg"
 
 # Used as the level 1 page header text.
 primary_title: 'Rohit Nair'
@@ -63,5 +63,4 @@ conference_id:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
 ---
-
-Markdown or HTML content providing a user bio, or whatever is desired to describe their involvement in open source technology in general, and specifically how their work relates to the OpenSearch Project.
+Rohit Nair is a Software Development Engineer at AWS currently working on OpenSearch Serverless. He has previously worked on areas like UltraWarm storage for Amazon OpenSearch Service and Amazon Kinesis Data Streams. He loves working at the intersection of distributed systems, scale and performance
