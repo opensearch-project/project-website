@@ -23,7 +23,8 @@ permalink: '/events/opensearchcon/sessions/scaling-operational-intelligence-into
 conference_id: '2024-north-america' 
 
 presenters: 
-  - rmanickam 
+  - rmanickam
+  - mvanjiappan
 
 
 
