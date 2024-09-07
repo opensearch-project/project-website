@@ -85,6 +85,8 @@
         }
 
         const doSearch = async () => {
+
+            // console.log('doSearch');
             const query = elInput.value.replace(/[^a-z0-9-_. ]+/ig, ' ');
             if (query.length < 3) return hideResults(true);
             if (query === lastQuery) return;

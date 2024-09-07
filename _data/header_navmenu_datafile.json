@@ -9,35 +9,143 @@
 
 
 
-
-
-
 {
+    "Mobile": [
+
+        {
+
+            "Title": "Platform",
+            "Icon": "OpenSearch-Platform-condensedImage-mobile",
+            "collapse-data-target": "collapse-data-target-platform",
+            "SubNav": [
+                {
+                    "Name": "OpenSearch",
+                    "URL": "https://opensearch.org/docs/latest/"
+                },
+                {
+                    "Name": "OpenSearch Dashboards",
+                    "URL": "https://opensearch.org/docs/latest/"
+                },
+                {
+                    "Name": "Data Prepper",
+                    "URL": "/docs/latest/data-prepper/"
+                },
+                {
+                    "Name": "Performance Benchmarks",
+                    "URL": "/benchmarks/"
+                }          
+            ]
+        },
+        {
+            "Title": "Capabilities",
+            "Icon": "OpenSearch-Capabilities-condensedImage-mobile",
+            "collapse-data-target": "collapse-data-target-capabilities",
+            "SubNav": [
+                {
+                    "Name": "Search",
+                    "URL": "/platform/search/index.html"
+                },
+                {
+                    "Name": "Observability",
+                    "URL": "/platform/observability/index.html"
+                },
+                {
+                    "Name": "Security Analytics",
+                    "URL": "/platform/security-analytics/index.html"
+                }  
+            ] 
+        },
+        {
+
+            "Title": "Community",
+            "Icon": "OpenSearch-Community-condensedImage-mobile",
+            "collapse-data-target": "collapse-data-target-community",
+            "SubNav": [
+                {
+                    "Name": "Forum",
+                    "URL": "https://forum.opensearch.org/"
+                },
+                {
+                    "Name": "Partners",
+                    "URL": "/partners/"
+                },
+                {
+                    "Name": "Events",
+                    "URL": "/events/"
+                },
+                {
+                    "Name": "Projects",
+                    "URL": "/projects/"
+                },
+                {
+                    "Name": "Members",
+                    "URL": "/community/members/index.html"
+                }     
+            ] 
+
+        },
+        {
+            "Title": "Documentation",
+            "Icon": "OpenSearch-Documentation-condensedImage-mobile",
+            "collapse-data-target": "collapse-data-target-documentation",
+            "SubNav": [
+                {
+                    "Name": "What is OpenSearch?",
+                    "URL": "/platform/search/index.html"
+                },
+                {
+                    "Name": "OpenSearch Benchmark",
+                    "URL": "/benchmarks/"
+                },
+                {
+                    "Name": "Data Prepper",
+                    "URL": "/docs/latest/data-prepper/"
+                },
+                {
+                    "Name": "Clients",
+                    "URL": "/docs/latest/clients/"
+                }      
+            ] 
+        }
+    ],
+
+
+
+
+
+
+
+
+
+
     "Desktop": {
 
         "Platform": {
             "Title": "Platform",
-            "BottomTriangleIcon": "OpenSearch-Platform-DrawerIcon-condensedImage",
-            
-            
+            "BottomTriangleIcon": "OpenSearch-Platform-DrawerIcon-condensedImage",           
             "LeftColumn": [
                 {
                     "Title": "Platform",
+                    "ClassValue" : "drawer-content-header-link",
+                    "URL": "/platform/",
                     "SubNav": [
                         {
                             "Name": "OpenSearch",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "SubText": "OpenSearch is a powerful search and analytics engine built on Apache Lucene.",
                             "URL": "/docs/latest/about/",
                             "Icon": "OpenSearch-Core-condensedImage"
                         },
                         {
                             "Name": "OpenSearch Dashboards",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "SubText": "Our data visualization toolset is a flexible, fully integrated solution for visually exploring and querying your data.",
                             "URL": "/docs/latest/about/",
                             "Icon": "OpenSearch-Dashboards-condensedImage"
                         },
                         {
                             "Name": "Data Prepper",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "SubText": "A server-side data collector designed to enrich, transform, and aggregate data for downstream analytics with OpenSearch.",
                             "URL": "/docs/latest/data-prepper/",
                             "Icon": "OpenSearch-DataPrepper-condensedImage"
@@ -49,35 +157,63 @@
             "CenterColumn": [
                 {
                     "Title": "Capabilities",
+                    "ClassValue" : "drawer-content-header",
                     "SubNav": [
                         {
                             "Name": "Search",
-                            "URL": "/docs/latest/about/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "URL": "/platform/search/index.html",
                             "Icon": "OpenSearch-Search-condensedImage",
                             "SubLinks": [
                                 {
+                                    "Name": "e-Commerce",
+                                    "URL": "/docs/latest/search-plugins/searching-data/index/"
+                                },
+                                {
                                     "Name": "Vector Search",
                                     "URL": "/platform/search/vector-database.html"
+                                },
+                                {
+                                    "Name": "Documents",
+                                    "URL": "/blog/similar-document-search/"
                                 }
                             ]
                         },
                         {
                             "Name": "Observability",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "URL": "/platform/observability/index.html",
                             "Icon": "OpenSearch-Observability-condensedImage",
-                            "SubLinks": []
+                            "SubLinks": [
+                                {
+                                    "Name": "Performance Monitoring",
+                                    "URL": "/docs/latest/monitoring-your-cluster/pa/index/"
+                                },
+                                {
+                                    "Name": "Log Analysis",
+                                    "URL": "/docs/latest/dashboards/discover/index-discover/"
+                                }
+                            ]
                         },
                         {
                             "Name": "Security Analytics",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "URL": "/platform/security-analytics/index.html",
                             "Icon": "OpenSearch-Security-condensedImage",
-                            "SubLinks": []
-                        },
-                        {
-                            "Name": "AI/ML Tooling",
-                            "URL": "/platform/security-analytics/index.html",
-                            "Icon": "OpenSearch-AI-condensedImage",
-                            "SubLinks": []
+                            "SubLinks": [
+                                {
+                                    "Name": "Anomaly Detection",
+                                    "URL": "/docs/latest/observing-your-data/ad/index/"
+                                },
+                                {
+                                    "Name": "Threat Intelligence",
+                                    "URL": "/docs/latest/security-analytics/usage/detectors/"
+                                },
+                                {
+                                    "Name": "Event Correlation",
+                                    "URL": "/blog/correlating-security-events/"
+                                }                                
+                            ]
                         }
                     ]
                 }
@@ -85,10 +221,11 @@
             "RightColumn": [
                 {
                     "Title": "Performance Benchmarks",
+                    "ClassValue" : "drawer-content-header",
                     "SubNav": [
                         {
                             "Name": "View key performance metrics across different workloads",
-                            "URL": "/benchmarks/",
+                            "ClassValue" : "drawer-content-subheader",
                             "Icon": "OpenSearch-DataConsumer-condensedImage"
                         }
                     ]
@@ -100,10 +237,11 @@
             "Title": "Blog",
             "BottomTriangleIcon": "OpenSearch-Blog-DrawerIcon-condensedImage",
             
-            
             "LeftColumn": [
                 {
                     "Title": "OpenSearch Blog",
+                    "ClassValue": "drawer-content-header-link",
+                    "URL": "/blog/",
                     "TableHeading": "Most Recent Articles",
                     "NumberPostsShown": 4
                 }
@@ -112,7 +250,8 @@
             "CenterColumn": null,
             "RightColumn": [
                 {
-                    "Title": "Featured Post"
+                    "Title": "Featured Post",
+                    "ClassValue": "drawer-content-header"
                 }
             ]
     
@@ -125,58 +264,62 @@
             "LeftColumn": [
                 {
                     "Title": "OpenSearch Community",
+                    "ClassValue": "drawer-content-header",
                     "SubNav": [
                         {
                             "Name": "Forum",
                             "SubText": "Find answers to your questions, help others in the community, and join the conversation.",
                             "URL": "https://forum.opensearch.org/",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Forum-condensedImage"
                         },
                         {
                             "Name": "Partners",
                             "SubText": "Find open-source partners offering solutions and services.",
                             "URL": "/partners/",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Partners-condensedImage"
                         },
                         {
                             "Name": "Events",
                             "SubText": "Community Meetings, Development Backlog & Triage, in-person, and virtual events.",
                             "URL": "/events/",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Events-condensedImage"
                         },
                         {
                             "Name": "Projects",
                             "SubText": "Highlights of projects built by the community.",
                             "URL": "/projects/",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Projects-condensedImage"
                         },
                         {
                             "Name": "Members",
                             "SubText": "Community member profiles.",
                             "URL": "/community/members/index.html",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Members-condensedImage"
-                        },
-                        {
-                            "Name": "User Groups",
-                            "SubText": "Find local groups to share knowledge and build community.",
-                            "URL": "#",
-                            "Icon": "OpenSearch-UserGroups-condensedImage"
                         }
+
                     ]
                 }, 
                 {
                     "Title": "Community Resources",
+                    "ClassValue": "drawer-content-header",
                     "SubNav": [
                         {
                             "Name": "Slack",
                             "SubText": "Speak with other developers.",
                             "URL": "/slack.html",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Slack-condensedImage"
                         },
                         {
                             "Name": "Github Project Organization",
                             "SubText": "Join us for in-person and virtual events to learn the latest about the project.",
                             "URL": "https://github.com/opensearch-project",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Github-condensedImage"
                         }
                     ]
@@ -187,6 +330,7 @@
             "RightColumn": [
                 {
                     "Title": "OpenSearchCon",
+                    "ClassValue": "drawer-content-header",
                     "OpenSearchCon_HeroBanner": "/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_720x360.png",
                     "OpenSearchCon_ButtonText": "North America: Sep 2024",
                     "OpenSearchCon_Link": "/events/opensearchcon/2024/north-america/index.html",
@@ -208,34 +352,37 @@
         "Documentation": {
             "Title": "Documentation",
             "BottomTriangleIcon": "OpenSearch-Documentation-DrawerIcon-condensedImage",
-            
-            
             "LeftColumn": [
                 {
                     "Title": "Getting Started with OpenSearch",
+                    "ClassValue": "drawer-content-header",
                     "SubNav": [
                         {
                             "Name": "What is OpenSearch?",
                             "SubText": "Build your OpenSearch solution using core tooling and visualizations.",
                             "URL": "/docs/latest/about/",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Dashboards-Square-condensedImage"
                         },
                         {
                             "Name": "OpenSearch Benchmark",
                             "SubText": "Measure performance metrics for your OpenSearch cluster.",
                             "URL": "/benchmarks/",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-DataConsumer-condensedImage"
                         },
                         {
                             "Name": "Data Prepper",
                             "SubText": "Filter, mutate, and sample your data for ingestion into OpenSearch.",
                             "URL": "/docs/latest/data-prepper/",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-DataPrepper-condensedImage"
                         },
                         {
                             "Name": "Clients",
                             "SubText": "Interact with OpenSearch from your application using language APIs.",
                             "URL": "/docs/latest/clients/",
+                            "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Clients-condensedImage"
                         }
                     ]

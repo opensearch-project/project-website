@@ -1,180 +1,113 @@
 
 <!-- MOBILE MENU -->
-<nav class="navbar navbar-expand-lg d-block d-lg-none">
+
+{% if page.alert %}
+  <div role="banner" class="banner-alert">
     <div class="container">
-        <a class="navbar-brand" href="{{ '/' | relative_url }}">
-            {% include icons.html type='opensearch-logo-default-1' %}          
-        </a>
-
-        <!-- TOGGLER -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-                    <div class="dropdown-menu dropdown-menu-xxl">
-                        <div class="row row-cols-lg-4 row-cols-1 g-0">
-                            <div class="col">
-                                <div>
-                                    <div>
-                                        <div class="dropdown-header">Blog</div>
-                                        <a class="dropdown-item" href="@@webRoot/blog-list-view.html">List View</a>
-                                        <a class="dropdown-item" href="@@webRoot/blog.html">Grid View</a>
-                                        <a class="dropdown-item" href="@@webRoot/blog-grid-thumbnail.html">Grid View v.2</a>
-                                        <a class="dropdown-item" href="@@webRoot/blog-sidebar.html">Sidebar</a>
-                                        <a class="dropdown-item" href="@@webRoot/blog-category.html">Category</a>
-                                        <a class="dropdown-item" href="@@webRoot/blog-single.html">Single Post</a>
-                                    </div>
-                                    <div class="mt-3">
-                                        <div class="dropdown-header">About</div>
-                                        <a class="dropdown-item" href="@@webRoot/about.html">About v.1</a>
-                                        <a class="dropdown-item" href="@@webRoot/about-v2.html">About v.2</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="mt-3 mt-lg-0">
-                                    <div>
-                                        <div class="dropdown-header">Service</div>
-                                        <a class="dropdown-item" href="@@webRoot/service-v1.html">Service v.1</a>
-                                        <a class="dropdown-item" href="@@webRoot/service-v2.html">Service v.2</a>
-                                        <a class="dropdown-item" href="@@webRoot/service-v3.html">Service v.3</a>
-                                    </div>
-                                    <div class="mt-3">
-                                        <div class="dropdown-header">Events</div>
-
-                                        <a class="dropdown-item" href="@@webRoot/events.html">List</a>
-                                        <a class="dropdown-item" href="@@webRoot/event-single.html">Single</a>
-                                    </div>
-                                    <div class="mt-3">
-                                        <div class="dropdown-header">Contact</div>
-
-                                        <a class="dropdown-item" href="@@webRoot/contact-1.html">Contact Us</a>
-                                        <a class="dropdown-item" href="@@webRoot/contact-2.html">Contact Sales</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="mt-3 mt-lg-0">
-                                    <div>
-                                        <div class="dropdown-header">Portfolio</div>
-
-                                        <a class="dropdown-item" href="@@webRoot/portfolio.html">Grid View</a>
-
-                                        <a class="dropdown-item" href="@@webRoot/portfolio-single.html">Single View</a>
-                                    </div>
-                                    <div class="mt-3">
-                                        <div class="dropdown-header">Pricing</div>
-                                        <a class="dropdown-item" href="@@webRoot/pricing-v1.html">Pricing v.1</a>
-                                        <a class="dropdown-item" href="@@webRoot/pricing-v2.html">Pricing v.2</a>
-                                    </div>
-                                    <div class="mt-3">
-                                        <div class="dropdown-header">Career</div>
-                                        <a class="dropdown-item" href="@@webRoot/career.html">Career</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="mt-3 mt-lg-0">
-                                    <div>
-                                        <div class="dropdown-header">Integration</div>
-                                        <a class="dropdown-item" href="@@webRoot/integration.html">Grid View</a>
-                                        <a class="dropdown-item" href="@@webRoot/integration-single.html">Single</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-            
-            <div class="d-grid gap-2">
-                <button class="btn btn-outline-primary" aria-current="download">Download OpenSearch 2.6</button>
-            </div>
-            
-            <!-- Search form -->
-            <form class="input-group w-auto my-auto d-none d-sm-flex">
-                <input
-                    autocomplete="off"
-                    type="search"
-                    class="form-control rounded"
-                    placeholder="Search for Anything"
-                    style="min-width: 125px;"
-                />
-                <span class="input-group-text border-0 d-none d-lg-flex">
-                    <i class="fas fa-search"></i>
-                </span>
-            </form> 
-
-        </div>
+      {{ page.alert | markdownify }}
     </div>
-</nav>
-
-
-
-<!--Third button-->
-<!-- <section class="mb-3">
-    <nav class="navbar navbar-info bg-info">
-      <div class="container-fluid">
-        <button data-mdb-button-init class="navbar-toggler third-button" type="button" data-mdb-collapse-init
-          data-mdb-target="#navbarToggleExternalContent11"
-          aria-controls="navbarToggleExternalContent11" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <div class="animated-icon3"><span></span><span></span><span></span></div>
-        </button>
-      </div>
-    </nav>
-    <div class="collapse" id="navbarToggleExternalContent11">
-      <div class="bg-body-tertiary shadow-3 p-4">
-        <button data-mdb-button-init data-mdb-ripple-init
-          class="btn btn-link btn-block border-bottom m-0">Link 1</button>
-        <button data-mdb-button-init data-mdb-ripple-init
-          class="btn btn-link btn-block border-bottom m-0">Link 2</button>
-        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-block m-0">Link
-          3</button>
-      </div>
+  </div>
+{% endif %}
+{% if site.data.alert.message %}
+  <div role="banner" class="banner-alert">
+    <div class="container">
+      {{site.data.alert.message | markdownify}}
     </div>
-  </section>
-
-  <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-      <button data-mdb-button-init class="navbar-toggler" type="button" data-mdb-collapse-init
-        data-mdb-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </nav>
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-body-tertiary shadow-3 p-4">
-      <button data-mdb-button-init data-mdb-ripple-init
-        class="btn btn-link btn-block border-bottom m-0">Link 1</button>
-      <button data-mdb-button-init data-mdb-ripple-init
-        class="btn btn-link btn-block border-bottom m-0">Link 2</button>
-      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-block m-0">Link
-        3</button>
-    </div>
-  </div> -->
-
-<!-- DESKTOP MENU -->
+  </div>
+{% endif %}
 
 
 {% assign datafile = "header_navmenu_datafile.json" %}
-<div class="nav-drawer accordion accordion-flush" id="accordion-megamenu">
+{% assign data_mobile_nav = site.data.header_navmenu_datafile.Mobile  %}
+<!-- MOBILE ACCORDION NAV MENU -->
+<div class="mobile-nav-topLevel-wrapper d-block d-lg-none mb-5">
+    <div class="accordion accordion-flush mobile-nav-topLevel-accordion" id="mobile-nav-topLevel">
+
+        <!-- OPENSEARCH ICON AND TOP LEVEL NAV ICON -->
+        <div class="accordion-item">
+            
+            <div class="mobile-nav-topLevel accordion-header">
+
+                <!-- TOGGLER -->
+                <button 
+                    class="accordion-button collapsed mobile-nav-topLevel-accordion-toggler" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#mobile-nav-contentSection" 
+                    aria-controls="mobile-nav-contentSection" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                    <a class="navbar-brand" href="{{ '/' | relative_url }}">
+                        {% include icons.html type='opensearch-logo-default-1' %}          
+                    </a>
+                </button> 
+
+            </div>    
+            
+            <div id="mobile-nav-contentSection" class="accordion-collapse collapse  mobile-nav-contentSection" data-bs-parent="#mobile-nav-topLevel">
+                <div class="accordion-body collapsed">
 
 
-    <nav class="navbar top-nav-desktop navbar-expand-lg d-none d-lg-block">
+
+                    <!-- TOP-NAV DROP DOWN  -->
+                    <div class="container mobile-nav-contentSection-accordion accordion accordion-flush" id="mobile-nav-contentSection-accordion">
+
+
+                        <!-- CONTENT SECTION ACCORDION -->
+
+                        {% for sub_category in data_mobile_nav %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header row">
+                                    <div class="col-3 px-0 ms-4 me-0 pt-3 icon-div-box-mobile">
+                                        {% include icons.html type=sub_category.Icon %} 
+                                    </div>
+                                    <div class="col">
+                                        <button class="accordion-button collapsed mobile-nav-contentSection-accordion-toggler ps-2" type="button" data-bs-toggle="collapse" data-bs-target="#{{sub_category.collapse-data-target}}" aria-expanded="false" aria-controls="{{sub_category.collapse-data-target}}">
+                                            <div class="mobile-content-header">{{sub_category.Title}}</div>
+                                        </button>
+                                    </div>
+
+                                </h2>
+                                <div id="{{sub_category.collapse-data-target}}" class="accordion-collapse collapse" data-bs-parent="#mobile-nav-contentSection-accordion">
+                                    <div class="accordion-body">
+
+                                        {% for nav_link in sub_category.SubNav %}
+                                            <div class="row">
+                                                <a href='{{ nav_link.URL }}' class="ms-5 mobile-content-text-link">{{ nav_link.Name }}</a>
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        {% endfor %}
+
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div> 
+        </div>            
+
+
+        
+    </div>
+
+
+</div>
+
+
+<!-- DESKTOP MENU -->
+<div class="nav-drawer accordion mb-5 d-none d-lg-block" id="accordion-megamenu">
+
+
+    <nav class="navbar top-nav-desktop navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{{ '/' | relative_url }}">
                 {% include icons.html type='opensearch-logo-default-1' %}          
@@ -201,7 +134,7 @@
                     <button class="btn top-nav-button btn-outline-primary my-1 py-1" aria-current="Download">Download OpenSearch 2.16</button>
                 </div>
                 <div class=" my-auto pt-2 pb-2 mx-3 d-block d-xxl-none">
-                    <button class="btn top-nav-button btn-outline-primary my-1 py-1" aria-current="Download">Download</button>
+                    <button class="btn top-nav-button btn-outline-primary my-1 py-1" aria-current="Download">Downloads</button>
                 </div>
 
                 <div class="accordion-header my-auto mx-auto">
@@ -220,7 +153,7 @@
 
 
 
-    <div class="container accordion accordion-flush">
+    <div class="container accordion">
 
         {% assign data_platform_dropdown = site.data.header_navmenu_datafile.Desktop['Platform']  %}
         {% assign left_column = data_platform_dropdown['LeftColumn'] %}
@@ -230,15 +163,22 @@
         <div class="accordion-item">
             <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Platform" >
                 <div class="accordion-body">
-                    <div class="row">
+                    <div class="row mb-5">
 
                         <!-- LEFT COLUMN -->
                         <div class="col-md-4 col-12">
 
                             {% for content_section in left_column %}
-                                <div class="mb-4">
-                                    <span class="mb-0 drawer-content-header-link">{{content_section.Title}}</span>
-                                </div>
+
+                                {% if content_section.URL %}
+                                    <div class="mb-4">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }} mb-4">{{content_section.Title}}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-4">
+                                        <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                {% endif %}
 
                                 <div>
                                     {% for nav_link in content_section.SubNav %}
@@ -248,7 +188,7 @@
                                             </div>
                                             <div class="col-10">
                                                 <div class="row mb-1">
-                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                    <p><a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a></p>
                                                 </div>
                                                 <div class="row">
                                                     <span class="mb-0 drawer-content-text">{{ nav_link.SubText }}</span>
@@ -264,9 +204,17 @@
                         <!-- CENTER COLUMN -->
                         <div class="col-md-3 col-12">
                             {% for content_section in center_column %}
-                                <div class="pb-2 mb-4">
-                                    <span class="mb-0 drawer-content-header">{{content_section.Title}}</span>
-                                </div>
+                                {% if content_section.URL %}
+                                    <div class="mb-4">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }} mb-4">{{content_section.Title}}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-4">
+                                        <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                {% endif %}
+
+
                                 <div>
                                     {% for nav_link in content_section.SubNav %}
                                         
@@ -276,13 +224,18 @@
                                             </div>
                                             <div class="col">
                                                 <div class="row mb-2">
-                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                    <a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a>
                                                 </div>
+
+
                                                 {% for sub_nav_link in nav_link.SubLinks %}
-                                                    <div class="row mb-1 ps-1">
+                                                    <div class="row mb-1 ps-3">
                                                         <a href='{{ sub_nav_link.URL }}' class="drawer-content-text-link">{{ sub_nav_link.Name }}</a>
                                                     </div>
                                                 {% endfor %}
+
+
+
                                             </div>
                                         </div>
 
@@ -294,9 +247,15 @@
                         <!-- RIGHT COLUMN -->
                         <div class="col-md-4 offset-md-1 col-12">
                             {% for content_section in right_column %}
-                                <div class="pb-2 mb-4">
-                                    <span class="mb-0 drawer-content-header">{{content_section.Title}}</span>
-                                </div>
+                                {% if content_section.URL %}
+                                    <div class="mb-4">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }} mb-4">{{content_section.Title}}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-4">
+                                        <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                {% endif %}
 
                                 <div>
                                     {% for nav_link in content_section.SubNav %}
@@ -307,7 +266,7 @@
                                             </div>
                                             <div class="col">
                                                 <div class="row mb-2">
-                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                    <a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -323,12 +282,15 @@
                         </div>
 
 
-                        <!-- BOTTOM TRIANGLE ICON -->
-                        <div class="position-relative">
-                            <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                                {% include icons.html type=data_platform_dropdown.BottomTriangleIcon %}
-                            </div>
-                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- BOTTOM TRIANGLE ICON -->
+                <div class="position-relative">
+                    <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                        {% include icons.html type=data_platform_dropdown.BottomTriangleIcon %}
                     </div>
                 </div>
     
@@ -336,9 +298,9 @@
         </div>
     
 
-        {% assign data_community_dropdown = site.data.header_navmenu_datafile.Desktop['Blog']  %}
-        {% assign left_column = data_community_dropdown['LeftColumn'] %}
-        {% assign right_column = data_community_dropdown['RightColumn'] %}
+        {% assign data_blog_dropdown = site.data.header_navmenu_datafile.Desktop['Blog']  %}
+        {% assign left_column = data_blog_dropdown['LeftColumn'] %}
+        {% assign right_column = data_blog_dropdown['RightColumn'] %}
 
         {% assign paginator = paginator %}
         {% assign featured_post = site.posts | where: "featured_blog_post", true | first %}
@@ -346,15 +308,21 @@
         <div class="accordion-item">
             <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Blog" >
                 <div class="accordion-body">
-                    <div class="row">
+                    <div class="row mb-5">
     
                         <!-- LEFT COLUMN -->
                         <div class="col-md-8 col-12">
 
                             {% for content_section in left_column %}
-                                <div class="mb-4">
-                                    <span class="drawer-content-header-link">{{content_section.Title}}</span>
-                                </div>
+                                {% if content_section.URL %}
+                                    <div class="mb-4">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }} mb-4">{{content_section.Title}}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-4">
+                                        <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                {% endif %}
 
                                 <!-- TABLE -->
                                 <table class="table blog-table shadow mb-5">
@@ -394,17 +362,15 @@
                         <div class="col-lg-4 col-12">
 
                             {% for content_section in right_column %}
-                                <div class="mb-4">
-                                    <span class="drawer-content-header">{{content_section.Title}}</span>
-                                </div>
-
-
-
-
-
-
-
-
+                                {% if content_section.URL %}
+                                    <div class="mb-4">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }} mb-4">{{content_section.Title}}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-4">
+                                        <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                {% endif %}
 
                                 <!-- FEATURED POST -->
                                 {% assign post_metadata_string = "" %}
@@ -420,36 +386,31 @@
                                     {% endif %}
                                 {% endfor %}
                                 <div class="card mb-5 border shadow-sm rounded text-body-emphasis bg-body-secondary">
-                                    <img class="card-img-top cropped-img" src="{{featured_post.featured_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap">
+                                    <img class="card-img cropped-img" src="{{featured_post.featured_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap">
                                     <div class="card-body">
                                         <div class="p-0">
-                                            <h3 class=" display-6 ">{{ featured_post.title }}</h3>
                                             <a href="{{  featured_post.url }}" class="stretched-link"></a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- BUTTON -->
-                                <div class="mb-5 px-1">
+                                <!-- <div class="mb-5 px-1">
                                     <a href="/blog/" class="btn button-light">Visit the OpenSearch Blog</a>
-                                </div>
+                                </div> -->
 
 
                             {% endfor %}
 
                         </div>
+                    </div>
 
 
-
-
-
-                        <!-- BOTTOM TRIANGLE ICON -->
-                        <div class="position-relative">
-                            <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                                {% include icons.html type=data_community_dropdown.BottomTriangleIcon %}
-                            </div>
-                        </div>
-    
+                </div>
+                <!-- BOTTOM TRIANGLE ICON -->
+                <div class="position-relative">
+                    <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                        {% include icons.html type=data_community_dropdown.BottomTriangleIcon %}
                     </div>
                 </div>
     
@@ -464,15 +425,21 @@
         <div class="accordion-item">
             <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Community" >
                 <div class="accordion-body">
-                    <div class="row">
+                    <div class="row mb-5">
     
                         <!-- LEFT COLUMN -->
                         <div class="col-md-8 col-12">
 
                             {% for content_section in left_column %}
-                                <div class="mb-4">
-                                    <span class="drawer-content-header-link">{{content_section.Title}}</span>
-                                </div>
+                                {% if content_section.URL %}
+                                    <div class="mb-4">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }} mb-4">{{content_section.Title}}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-4">
+                                        <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                {% endif %}
 
                                 <div class="row row-cols-1 row-cols-lg-2">    
                                     {% for nav_link in content_section.SubNav %}
@@ -482,7 +449,7 @@
                                             </div>
                                             <div class="col pe-0">
                                                 <div class="row mb-1">
-                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                                    <a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a>
                                                 </div>
                                                 <div class="row">
                                                     <span class="mb-0 pe-0 drawer-content-text">{{ nav_link.SubText }}</span>
@@ -495,17 +462,19 @@
                             {% endfor %}
                         </div>
 
-
-
-
-
                         <!-- RIGHT COLUMN -->
                         <div class="col-lg-4 col-12">
 
                             {% for content_section in right_column %}
-                                <div class="mb-4">
-                                    <span class="drawer-content-header">{{content_section.Title}}</span>
-                                </div>
+                                {% if content_section.URL %}
+                                    <div class="mb-4">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }} mb-4">{{content_section.Title}}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-4">
+                                        <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                {% endif %}
 
                                 <div class="card mb-4 hero-card rounded">
                                     <img src="{{ content_section.OpenSearchCon_HeroBanner }}" class="card-img h-100" alt="{{ content_section.OpenSearchCon_ButtonText}}">
@@ -525,20 +494,18 @@
                         </div>
 
 
-
-
-
-                        <!-- BOTTOM TRIANGLE ICON -->
-                        <div class="position-relative">
-                            <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                                {% include icons.html type=data_community_dropdown.BottomTriangleIcon %}
-                            </div>
-                        </div>
     
                     </div>
 
 
+
     
+                </div>
+                <!-- BOTTOM TRIANGLE ICON -->
+                <div class="position-relative">
+                    <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                        {% include icons.html type=data_community_dropdown.BottomTriangleIcon %}
+                    </div>
                 </div>
     
             </div>
@@ -558,25 +525,34 @@
                         <div class="col-md-9 col-12">
 
                             {% for content_section in left_column %}
-                                <div class="mb-5">
-                                    <span class="drawer-content-header-link">{{content_section.Title}}</span>
-                                </div>
-
+                                {% if content_section.URL %}
+                                    <div class="mb-4">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }}">{{content_section.Title}}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-4">
+                                        <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                {% endif %}
+                                
                                 <div class="row row-cols-1 row-cols-lg-2 g-4">    
                                     {% for nav_link in content_section.SubNav %}
-                                        <div class="row mb-4">
-                                            <div class="col-4 icon-div-box">
-                                                {% include icons.html type=nav_link.Icon class='object-fit-contain' %}
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="row mb-1">
-                                                    <a href='{{ nav_link.URL }}' class="drawer-content-subheader">{{ nav_link.Name }}</a>
+                                        <div class="col">
+                                            <div class="row mb-4">
+                                                <div class="col-4 icon-div-box">
+                                                    {% include icons.html type=nav_link.Icon class='object-fit-contain' %}
                                                 </div>
-                                                <div class="row">
-                                                    <span class="mb-0 drawer-content-text">{{ nav_link.SubText }}</span>
+                                                <div class="col-8">
+                                                    <div class="row mb-1">
+                                                        <a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <span class="mb-0 drawer-content-text">{{ nav_link.SubText }}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                     {% endfor %}
                                 </div>
         
@@ -585,13 +561,14 @@
 
                     </div>
 
-                    <!-- BOTTOM TRIANGLE ICON -->
-                    <div class="position-relative">
-                        <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                            {% include icons.html type=data_documentation_dropdown.BottomTriangleIcon %}
-                        </div>
-                    </div>
 
+
+                </div>
+                <!-- BOTTOM TRIANGLE ICON -->
+                <div class="position-relative">
+                    <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                        {% include icons.html type=data_documentation_dropdown.BottomTriangleIcon %}
+                    </div>
                 </div>
     
             </div>
@@ -609,36 +586,95 @@
                         <div class="col-md-11 col-12">
                         
 
-                        <!-- SEARCH FORM -->
-                        <div class="row mb-5">
 
-                                <div class="input-group search-form">
-                                    
-                                    <span class="input-group-text bg-transparent border-right-0">{% include icons.html type='searchbar-search-icon' %}</span>
-                                   
-                                    <input class="form-control py-2 border-left-0 border" type="search" value="..." id="example-search-input">
-                                    
-                                    <span class="input-group-text bg-transparent border-left-0">{% include icons.html type='searchbar-close-icon' %}</span>
-                                    
+
+
+
+                            <!-- OLD SEARCH FORM -->
+
+
+                            <div class="search-wrapper ms-4 my-5">
+                                <div class="top-banner-search mb-5">
+                                    <div class="top-banner-search--field-with-results">
+                                        <div class="top-banner-search--field-with-results--field">
+                                            <div class="top-banner-search--field-with-results--field--wrapper">
+                                                <div class="top-banner-search--field-with-results--field--wrapper--search-component">
+                                                    <div class="top-banner-search--field-with-results--field--wrapper--search-component--input-wrap">
+                    
+                    
+                                                        <div class="input-group mb-5 top-banner-search--field-with-results--field--wrapper--search-component--search-input">
+
+                                                            <span class="input-group-text bg-transparent border-end-0">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="top-banner-search--field-with-results--field--wrapper--search-component--search-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                                                                    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                                                </svg>
+                                                            </span>
+   
+
+                    
+
+    
+                                                            <input 
+                                                                type="text" 
+                                                                id="search-input" 
+                                                                class="form-control border-start-0 search-form" 
+                                                                placeholder="Search" 
+                                                                aria-label="Search" 
+                                                                aria-describedby="search-input-form"
+                                                                data-docs-version="latest" 
+                                                                autocomplete="off"
+                                                            >
+                                                                
+                                                            
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="top-banner-search--overlay"></div>
                                 </div>
+    
+    
+    
+    
+    
+    
+                                <!-- SEARCH RESULTS -->
+                                <div class="div search-results-wrapper">
+    
+                                    <div class="row mb-5">
+                                        <div id="search-results" class="top-banner-search--field-with-results--field--wrapper--search-component--search-results">
+                                            <div class="top-banner-search--field-with-results--field--wrapper--search-component--search-results-wrapper">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                              
+
+
+                            
+                        
+
+
+
                         </div>
-                        <!-- SEARCH RESULTS -->
-                        <div class="row mb-5">
-                        </div>
-                    </div>                        
+
 
                     </div>
 
-
-
-                    <!-- BOTTOM TRIANGLE ICON -->
-                    <div class="position-relative">
-                        <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                            {% include icons.html type=data_search_dropdown.BottomTriangleIcon %}
-                        </div>
+                </div>
+                <!-- BOTTOM TRIANGLE ICON -->
+                <div class="position-relative">
+                    <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
+                        {% include icons.html type=data_search_dropdown.BottomTriangleIcon %}
                     </div>
-        
-
                 </div>
     
             </div>
