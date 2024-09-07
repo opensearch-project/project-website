@@ -45,6 +45,13 @@ primary_link_url: /blog
         
         {%- include author_panel.html author=author linked="true" -%}
     {% endfor %}
+
+    {% assign additional_author_info = page.additional_author_info  | default: '' %}
+    {% if additional_author_info.size > 0 %}
+        <div class="additional-author-info">
+            <p>{{additional_author_info}}</p>
+        </div>
+    {% endif %}
 </div>
 {% endcapture %}
 
