@@ -334,15 +334,19 @@
                     "OpenSearchCon_HeroBanner": "/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_720x360.png",
                     "OpenSearchCon_ButtonText": "North America: Sep 2024",
                     "OpenSearchCon_Link": "/events/opensearchcon/2024/north-america/index.html",
-                    "Name": "Other Conferences in 2024",
+                    "Name": "OpenSearchCons in 2024",
                     "SubNav": [
                         {
-                            "Name": "Europe: May 2024",
-                            "URL": "/events/opensearchcon/2024/europe/index.html"
+                            "Name": "North America (San Francisco): September 24 - 26",
+                            "URL": "/events/opensearchcon/2024/north-america/index.html"
                         },
                         {
-                            "Name": "India: June 2024",
+                            "Name": "India (Bengaluru): June 26",
                             "URL": "/events/opensearchcon/2024/india/index.html"
+                        },
+                        {
+                            "Name": "Europe (Berlin): May 6-7",
+                            "URL": "/events/opensearchcon/2024/europe/index.html"
                         }
                     ]
                 }
