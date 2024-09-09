@@ -75,7 +75,7 @@
                 },
                 {
                     "Name": "Projects",
-                    "URL": "/projects/"
+                    "URL": "/community_projects/"
                 },
                 {
                     "Name": "Members",
@@ -290,7 +290,7 @@
                         {
                             "Name": "Projects",
                             "SubText": "Highlights of projects built by the community.",
-                            "URL": "/projects/",
+                            "URL": "/community_projects/",
                             "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Projects-condensedImage"
                         },

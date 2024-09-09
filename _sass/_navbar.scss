@@ -54,7 +54,7 @@ $primary-color: #B9D9EB; //
     --bs-accordion-active-color: #9BCFED;               // (BUTTON) (When active) Text color of the top accordion header
     --bs-accordion-btn-color: #E1F0F9;
 
-    --bs-accordion-border-color: #006D97;
+    --bs-accordion-border-color: $primary-open-sky-s2;
 
     .mobile-nav-contentSection-accordion-toggler {
 
@@ -149,9 +149,8 @@ $primary-color: #B9D9EB; //
     line-height: 24px;
 
     &:hover {
-        border-color: $searchIcon-hover-effect-color;
-        color: #003551; 
-        background-color: #C7DFEE;
+        background-color: #F4F8FB;
+        color: $primary-open-sky; 
     }  
 }
 
@@ -167,9 +166,6 @@ $primary-color: #B9D9EB; //
     background-color: #F4F8FB !important;
     padding: 0;
 
-
-    
-
     &.accordion-button {
         --bs-accordion-btn-icon-width: 12px;
         --bs-accordion-transition: 0.5s;
@@ -179,9 +175,6 @@ $primary-color: #B9D9EB; //
             transition: all 0.5s;
             margin-left:8px;
         }
-
-
-
     }
 
     &:active,
@@ -192,19 +185,11 @@ $primary-color: #B9D9EB; //
         box-shadow: none;
         outline: none;
     }
-
-
 }
 
 .nav-drawer-triangle {
     z-index: 1;
-
-
 }
-
-// style="display: flex; justify-content: flex-end; align-items: flex-end; position: relative; bottom: 0; right: 0; width: 100px; height: 100px; transform: rotate(-90deg); transform-origin: 0 0; background: #003551"
-
-
 .nav-search-icon {
     background-color: $primary-color;
     padding-top: 100px;
@@ -244,7 +229,7 @@ $primary-color: #B9D9EB; //
 
     &:hover {
         border-color: $searchIcon-hover-effect-color;
-        color: #003551; 
+        color: $primary-open-sky-s2; 
         background-color: #C7DFEE;
     }  
 }
@@ -267,7 +252,7 @@ $primary-color: #B9D9EB; //
 .nav-drawer {
 
     .drawer-content-header {
-        color: #003551;
+        color: $primary-open-sky-s3;
         font-family: 'Open Sans Condensed';
         margin-bottom: 20px;
         font-size: 30px;
@@ -275,7 +260,7 @@ $primary-color: #B9D9EB; //
         text-decoration: none;
     }
     .drawer-content-header-link {
-        color: #003551;
+        color: $primary-open-sky-s3;
         font-family: 'Open Sans Condensed';
         margin-bottom: 20px;
         font-size: 30px;
@@ -287,19 +272,18 @@ $primary-color: #B9D9EB; //
             text-decoration: underline;
         }
 
+
     }
 
     .drawer-content-subheader {
-        color: #006D97;
+        color: $primary-open-sky-s2;
         font-size: 21px;
         font-weight: 700;
         line-height: 36px;
-        text-decoration: none;
-
-        
+        text-decoration: none;  
     }
     .drawer-content-subheader-link {
-        color: #006D97;
+        color: $primary-open-sky-s2;
         font-size: 21px;
         font-weight: 700;
         line-height: 36px;
@@ -308,9 +292,10 @@ $primary-color: #B9D9EB; //
             color: $primary-open-sky;
             text-decoration: underline;
         }
+
     }    
     .drawer-content-text {
-        color: #003551;
+        color: $primary-open-sky-s3;
         font-size: 15px;
         font-weight: 600;
         line-height: 24px;
@@ -318,7 +303,7 @@ $primary-color: #B9D9EB; //
         text-decoration: none;
     }
     .drawer-content-text-link {
-        color: #003551;
+        color: $primary-open-sky-s3;
         font-size: 15px;
         font-weight: 600;
         line-height: 24px;
@@ -329,19 +314,16 @@ $primary-color: #B9D9EB; //
             color: $primary-open-sky;
             text-decoration: underline;
         }
+
     }
 
     .hero-card {
         box-shadow: none;
-
-
     }
 
     .blog-table {
-
-        
         .megamenu-table-heading {
-            color: #006D97;
+            color: $primary-open-sky-s2;
             font-size: 21px;
             font-weight: 700;
             line-height: 24px;
@@ -350,7 +332,7 @@ $primary-color: #B9D9EB; //
         }
 
         .megamenu-blog-title {
-            color: #003551;
+            color: $primary-open-sky-s3;
             font-size: 18px;
             font-weight: 700;
             line-height: 24px;

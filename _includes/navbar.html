@@ -131,10 +131,10 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                 <div class=" my-auto pt-2 pb-2 mx-3 d-none d-xxl-block">
-                    <button class="btn top-nav-button btn-outline-primary my-1 py-1" aria-current="Download">Download OpenSearch 2.16</button>
+                    <a class="btn top-nav-button btn-outline-primary my-1 py-1" href="/downloads.html" aria-current="Download">Download OpenSearch 2.16</a>
                 </div>
                 <div class=" my-auto pt-2 pb-2 mx-3 d-block d-xxl-none">
-                    <button class="btn top-nav-button btn-outline-primary my-1 py-1" aria-current="Download">Downloads</button>
+                    <a class="btn top-nav-button btn-outline-primary my-1 py-1" href="/downloads.html" aria-current="Download">Downloads</a>
                 </div>
 
                 <div class="accordion-header my-auto mx-auto">
@@ -161,7 +161,7 @@
         {% assign right_column = data_platform_dropdown['RightColumn'] %}
         <!-- PLATFORM -->
         <div class="accordion-item">
-            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Platform" >
+            <div id="navbarToggleExternalContent-Platform" class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu">
                 <div class="accordion-body">
                     <div class="row mb-5">
 
@@ -306,7 +306,7 @@
         {% assign featured_post = site.posts | where: "featured_blog_post", true | first %}
         <!-- BLOG -->
         <div class="accordion-item">
-            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Blog" >
+            <div id="navbarToggleExternalContent-Blog"  class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" >
                 <div class="accordion-body">
                     <div class="row mb-5">
     
@@ -325,7 +325,7 @@
                                 {% endif %}
 
                                 <!-- TABLE -->
-                                <table class="table blog-table shadow mb-5">
+                                <table class="table table-hover blog-table shadow mb-5">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="megamenu-table-heading">{{ content_section.TableHeading }}</th>
@@ -393,13 +393,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- BUTTON -->
-                                <!-- <div class="mb-5 px-1">
-                                    <a href="/blog/" class="btn button-light">Visit the OpenSearch Blog</a>
-                                </div> -->
-
-
                             {% endfor %}
 
                         </div>
@@ -410,7 +403,7 @@
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                        {% include icons.html type=data_community_dropdown.BottomTriangleIcon %}
+                        {% include icons.html type=data_blog_dropdown.BottomTriangleIcon %}
                     </div>
                 </div>
     
@@ -423,7 +416,7 @@
         {% assign right_column = data_community_dropdown['RightColumn'] %}
         <!-- COMMUNITY -->
         <div class="accordion-item">
-            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Community" >
+            <div id="navbarToggleExternalContent-Community" class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu"  >
                 <div class="accordion-body">
                     <div class="row mb-5">
     
@@ -476,9 +469,9 @@
                                     </div>
                                 {% endif %}
 
-                                <div class="card mb-4 hero-card rounded">
-                                    <img src="{{ content_section.OpenSearchCon_HeroBanner }}" class="card-img h-100" alt="{{ content_section.OpenSearchCon_ButtonText}}">
-                                    <a href="{{ content_section.OpenSearchCon_Link }}" class="stretched-link"></a>
+                                <div class="card mb-4 card-img rounded">
+                                    <img src="{{ content_section.OpenSearchCon_HeroBanner }}" class="h-100" alt="{{ content_section.OpenSearchCon_ButtonText}}">
+                                        <a href="{{ content_section.OpenSearchCon_Link }}" class="stretched-link"></a>
                                 </div>
 
                                 <div class="row mb-1">
@@ -501,6 +494,7 @@
 
     
                 </div>
+
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
@@ -517,7 +511,7 @@
         {% assign left_column = data_documentation_dropdown['LeftColumn'] %}
         <!-- DOCUMENTATION -->
         <div class="accordion-item">
-            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Documentation" >
+            <div id="navbarToggleExternalContent-Documentation" class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu"   >
                 <div class="accordion-body">
                     
                     <div class="row mb-5">
@@ -560,10 +554,8 @@
                         </div>
 
                     </div>
-
-
-
                 </div>
+
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
@@ -578,21 +570,11 @@
         {% assign data_search_dropdown = site.data.header_navmenu_datafile.Desktop['Search']  %}
         <!-- SEARCH -->
         <div class="accordion-item">
-            <div class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" data-bs-toggle="collapse" aria-expanded="false" id="navbarToggleExternalContent-Search" >
+            <div id="navbarToggleExternalContent-Search" class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu"  >
                 <div class="accordion-body">
-
                     <div class="row mb-5">
                         <!-- LEFT COLUMN -->
                         <div class="col-md-11 col-12">
-                        
-
-
-
-
-
-                            <!-- OLD SEARCH FORM -->
-
-
                             <div class="search-wrapper ms-4 my-5">
                                 <div class="top-banner-search mb-5">
                                     <div class="top-banner-search--field-with-results">
@@ -600,20 +582,12 @@
                                             <div class="top-banner-search--field-with-results--field--wrapper">
                                                 <div class="top-banner-search--field-with-results--field--wrapper--search-component">
                                                     <div class="top-banner-search--field-with-results--field--wrapper--search-component--input-wrap">
-                    
-                    
                                                         <div class="input-group mb-5 top-banner-search--field-with-results--field--wrapper--search-component--search-input">
-
                                                             <span class="input-group-text bg-transparent border-end-0">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="top-banner-search--field-with-results--field--wrapper--search-component--search-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
                                                                     <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                                                 </svg>
                                                             </span>
-   
-
-                    
-
-    
                                                             <input 
                                                                 type="text" 
                                                                 id="search-input" 
@@ -624,10 +598,7 @@
                                                                 data-docs-version="latest" 
                                                                 autocomplete="off"
                                                             >
-                                                                
-                                                            
                                                         </div>
-    
                                                     </div>
                                                 </div>
                                             </div>
@@ -635,41 +606,21 @@
                                     </div>
                                     <div class="top-banner-search--overlay"></div>
                                 </div>
-    
-    
-    
-    
-    
-    
+
                                 <!-- SEARCH RESULTS -->
                                 <div class="div search-results-wrapper">
-    
                                     <div class="row mb-5">
                                         <div id="search-results" class="top-banner-search--field-with-results--field--wrapper--search-component--search-results">
                                             <div class="top-banner-search--field-with-results--field--wrapper--search-component--search-results-wrapper">
-
-
                                             </div>
                                         </div>
                                     </div>
-    
                                 </div>
                             </div>
-
-                              
-
-
-                            
-                        
-
-
-
                         </div>
-
-
                     </div>
-
                 </div>
+
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
@@ -682,3 +633,6 @@
     </div>
 
 </div>
+
+
+
