@@ -38,7 +38,7 @@
                     aria-expanded="false" 
                     aria-label="Toggle navigation">
                     <a class="navbar-brand" href="{{ '/' | relative_url }}">
-                        {% include icons.html type='opensearch-logo-default-1' %}          
+                        {% include icons_navbar.html type='opensearch-logo-default-1' %}          
                     </a>
                 </button> 
 
@@ -59,7 +59,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header row">
                                     <div class="col-3 px-0 ms-4 me-0 pt-3 icon-div-box-mobile">
-                                        {% include icons.html type=sub_category.Icon %} 
+                                        {% include icons_navbar.html type=sub_category.Icon %} 
                                     </div>
                                     <div class="col">
                                         <button class="accordion-button collapsed mobile-nav-contentSection-accordion-toggler ps-2" type="button" data-bs-toggle="collapse" data-bs-target="#{{sub_category.collapse-data-target}}" aria-expanded="false" aria-controls="{{sub_category.collapse-data-target}}">
@@ -98,8 +98,6 @@
 
         
     </div>
-
-
 </div>
 
 
@@ -110,7 +108,7 @@
     <nav class="navbar top-nav-desktop navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{{ '/' | relative_url }}">
-                {% include icons.html type='opensearch-logo-default-1' %}          
+                {% include icons_navbar.html type='opensearch-logo-default-1' %}          
             </a>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -130,8 +128,6 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                <!-- {% assign latest_version = site.versions | sort_versions: 'version_sort' | last %} -->
-                <!-- {{ latest_version | inspect  }} -->
 
                 <div class=" my-auto pt-2 pb-2 mx-3 d-none d-xxl-block">
                     <a class="btn top-nav-button btn-outline-primary my-1 py-1" href="/downloads.html" aria-current="Download">Download OpenSearch 2.16</a>
@@ -142,7 +138,7 @@
 
                 <div class="accordion-header my-auto mx-auto">
                     <button class="btn accordion-button nav-search-icon collapsed my-auto p-0 rounded-circle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Search" aria-controls="navbarToggleExternalContent-Search" aria-current="Toggle navigation Search" aria-expanded="false" >
-                        {% include icons.html type='search-magnifying-glass-navbar' %}
+                        {% include icons_navbar.html type='search-magnifying-glass-navbar' %}
                     </button>
                 </div>
 
@@ -187,7 +183,7 @@
                                     {% for nav_link in content_section.SubNav %}
                                         <div class="mb-5 row">
                                             <div class="col-2 icon-div-box">
-                                                {% include icons.html type=nav_link.Icon %}
+                                                {% include icons_navbar.html type=nav_link.Icon %}
                                             </div>
                                             <div class="col-10">
                                                 <div class="row mb-1">
@@ -223,7 +219,7 @@
                                         
                                         <div class="mb-3 row">
                                             <div class="col-2 icon-div-box">
-                                                {% include icons.html type=nav_link.Icon %}
+                                                {% include icons_navbar.html type=nav_link.Icon %}
                                             </div>
                                             <div class="col">
                                                 <div class="row mb-2">
@@ -265,7 +261,7 @@
                                         
                                         <div class="mb-2 row">
                                             <div class="col-2 icon-div-box">
-                                                {% include icons.html type=nav_link.Icon %}
+                                                {% include icons_navbar.html type=nav_link.Icon %}
                                             </div>
                                             <div class="col">
                                                 <div class="row mb-2">
@@ -293,7 +289,7 @@
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                        {% include icons.html type=data_platform_dropdown.BottomTriangleIcon %}
+                        {% include icons_navbar.html type=data_platform_dropdown.BottomTriangleIcon %}
                     </div>
                 </div>
     
@@ -408,7 +404,7 @@
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                        {% include icons.html type=data_blog_dropdown.BottomTriangleIcon %}
+                        {% include icons_navbar.html type=data_blog_dropdown.BottomTriangleIcon %}
                     </div>
                 </div>
     
@@ -515,7 +511,7 @@
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                        {% include icons.html type=data_community_dropdown.BottomTriangleIcon %}
+                        {% include icons_navbar.html type=data_community_dropdown.BottomTriangleIcon %}
                     </div>
                 </div>
     
@@ -551,7 +547,7 @@
                                         <div class="col">
                                             <div class="row mb-4">
                                                 <div class="col-4 icon-div-box">
-                                                    {% include icons.html type=nav_link.Icon class='object-fit-contain' %}
+                                                    {% include icons_navbar.html type=nav_link.Icon class='object-fit-contain' %}
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="row mb-1">
@@ -576,7 +572,7 @@
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                        {% include icons.html type=data_documentation_dropdown.BottomTriangleIcon %}
+                        {% include icons_navbar.html type=data_documentation_dropdown.BottomTriangleIcon %}
                     </div>
                 </div>
     
@@ -641,7 +637,7 @@
                 <!-- BOTTOM TRIANGLE ICON -->
                 <div class="position-relative">
                     <div class="nav-drawer-triangle position-absolute bottom-0 end-0" >
-                        {% include icons.html type=data_search_dropdown.BottomTriangleIcon %}
+                        {% include icons_navbar.html type=data_search_dropdown.BottomTriangleIcon %}
                     </div>
                 </div>
     
