@@ -500,9 +500,7 @@
 }
 
 .page--blog-post {
-    img {
-        @extend .img__outlined;
-    }
+
 
     .highlight pre, .highlight code {
         border: none;

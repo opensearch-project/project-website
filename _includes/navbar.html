@@ -130,6 +130,9 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
+                <!-- {% assign latest_version = site.versions | sort_versions: 'version_sort' | last %} -->
+                <!-- {{ latest_version | inspect  }} -->
+
                 <div class=" my-auto pt-2 pb-2 mx-3 d-none d-xxl-block">
                     <a class="btn top-nav-button btn-outline-primary my-1 py-1" href="/downloads.html" aria-current="Download">Download OpenSearch 2.16</a>
                 </div>
@@ -162,7 +165,7 @@
         <!-- PLATFORM -->
         <div class="accordion-item">
             <div id="navbarToggleExternalContent-Platform" class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu">
-                <div class="accordion-body">
+                <div class="accordion-body nav-drawer-body-tall">
                     <div class="row mb-5">
 
                         <!-- LEFT COLUMN -->
@@ -182,13 +185,13 @@
 
                                 <div>
                                     {% for nav_link in content_section.SubNav %}
-                                        <div class="mb-4 row">
+                                        <div class="mb-5 row">
                                             <div class="col-2 icon-div-box">
                                                 {% include icons.html type=nav_link.Icon %}
                                             </div>
                                             <div class="col-10">
                                                 <div class="row mb-1">
-                                                    <p><a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a></p>
+                                                    <a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a>
                                                 </div>
                                                 <div class="row">
                                                     <span class="mb-0 drawer-content-text">{{ nav_link.SubText }}</span>
@@ -218,7 +221,7 @@
                                 <div>
                                     {% for nav_link in content_section.SubNav %}
                                         
-                                        <div class="mb-5 row">
+                                        <div class="mb-3 row">
                                             <div class="col-2 icon-div-box">
                                                 {% include icons.html type=nav_link.Icon %}
                                             </div>
@@ -307,7 +310,7 @@
         <!-- BLOG -->
         <div class="accordion-item">
             <div id="navbarToggleExternalContent-Blog"  class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu" >
-                <div class="accordion-body">
+                <div class="accordion-body nav-drawer-body-tall">
                     <div class="row mb-5">
     
                         <!-- LEFT COLUMN -->
@@ -385,10 +388,12 @@
                                         {% assign post_metadata_string = post_metadata_string | append: ", " %}
                                     {% endif %}
                                 {% endfor %}
-                                <div class="card mb-5 border shadow-sm rounded text-body-emphasis bg-body-secondary">
-                                    <img class="card-img cropped-img" src="{{featured_post.featured_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap">
+
+                                <div class="card border shadow-sm rounded bg-body-secondary">
+                                    <img class="card-img object-fit-cover navbar-featured-post-image" src="{{featured_post.featured_image | default: '/assets/img/blog-hero-placeholder.png'}}" alt="Card image cap">
                                     <div class="card-body">
                                         <div class="p-0">
+                                            <span class="navbar-featured-post-title">{{ featured_post.title }}</span>
                                             <a href="{{  featured_post.url }}" class="stretched-link"></a>
                                         </div>
                                     </div>
@@ -417,7 +422,7 @@
         <!-- COMMUNITY -->
         <div class="accordion-item">
             <div id="navbarToggleExternalContent-Community" class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu"  >
-                <div class="accordion-body">
+                <div class="accordion-body nav-drawer-body-tall">
                     <div class="row mb-5">
     
                         <!-- LEFT COLUMN -->
@@ -441,12 +446,24 @@
                                                 {% include icons.html type=nav_link.Icon class='object-fit-contain' %}
                                             </div>
                                             <div class="col pe-0">
-                                                <div class="row mb-1">
-                                                    <a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a>
-                                                </div>
+
+
+                                                {% if nav_link.ID %}
+                                                    <div class="row mb-1">
+                                                        <a id='{{ nav_link.ID }}' href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a>
+                                                    </div>
+                                                {% else %}
+                                                    <div class="row mb-1">
+                                                        <a href='{{ nav_link.URL }}' class="{{ nav_link.ClassValue }}">{{ nav_link.Name }}</a>
+                                                    </div>
+                                                {% endif %}
+
                                                 <div class="row">
                                                     <span class="mb-0 pe-0 drawer-content-text">{{ nav_link.SubText }}</span>
                                                 </div>
+
+
+
                                             </div>
                                         </div>
                                     {% endfor %}
@@ -512,7 +529,7 @@
         <!-- DOCUMENTATION -->
         <div class="accordion-item">
             <div id="navbarToggleExternalContent-Documentation" class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu"   >
-                <div class="accordion-body">
+                <div class="accordion-body nav-drawer-body-short">
                     
                     <div class="row mb-5">
                         <!-- LEFT COLUMN -->
@@ -571,7 +588,7 @@
         <!-- SEARCH -->
         <div class="accordion-item">
             <div id="navbarToggleExternalContent-Search" class="accordion-collapse collapse" data-bs-parent="#accordion-megamenu"  >
-                <div class="accordion-body">
+                <div class="accordion-body nav-drawer-body-short">
                     <div class="row mb-5">
                         <!-- LEFT COLUMN -->
                         <div class="col-md-11 col-12">
@@ -582,8 +599,8 @@
                                             <div class="top-banner-search--field-with-results--field--wrapper">
                                                 <div class="top-banner-search--field-with-results--field--wrapper--search-component">
                                                     <div class="top-banner-search--field-with-results--field--wrapper--search-component--input-wrap">
-                                                        <div class="input-group mb-5 top-banner-search--field-with-results--field--wrapper--search-component--search-input">
-                                                            <span class="input-group-text bg-transparent border-end-0">
+                                                        <div class="input-group mb-5 top-banner-search--field-with-results--field--wrapper--search-component--search-input search-form">
+                                                            <span class="input-group-text search-form-icon bg-transparent border-end-0">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="top-banner-search--field-with-results--field--wrapper--search-component--search-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
                                                                     <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                                                 </svg>
@@ -591,7 +608,7 @@
                                                             <input 
                                                                 type="text" 
                                                                 id="search-input" 
-                                                                class="form-control border-start-0 search-form" 
+                                                                class="form-control border-start-0 search-form search-form-input" 
                                                                 placeholder="Search" 
                                                                 aria-label="Search" 
                                                                 aria-describedby="search-input-form"
@@ -634,5 +651,17 @@
 
 </div>
 
+<script type="module">
 
+    // Initialize the calendar view menu item to target the current month's calendar
+    document.addEventListener('DOMContentLoaded', () => {
+
+        let eventsLinkSelector = document.getElementById('events-link');
+        let currentDate = new Date();
+        let month = currentDate.toLocaleString('default', { month: 'long' });
+        let year = currentDate.getFullYear();
+        eventsLinkSelector.setAttribute("href", `/events/calendar/${year}/${month.toLowerCase()}/`);
+
+    });
+</script>
 

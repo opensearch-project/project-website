@@ -160,21 +160,33 @@
                     "ClassValue" : "drawer-content-header",
                     "SubNav": [
                         {
-                            "Name": "Search",
+                            "Name": "AI/ML Tooling",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "URL": "/blog/opensearch-ai-retrospective/",
+                            "Icon": "OpenSearch-AI-condensedImage",
+                            "SubLinks": [
+                                {
+                                    "Name": "Vector Database",
+                                    "URL": "/platform/search/vector-database.html"
+                                },
+                                {
+                                    "Name": "Anomaly Detection",
+                                    "URL": "/docs/latest/observing-your-data/ad/index/"
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "Lexical Search",
                             "ClassValue" : "drawer-content-subheader-link",
                             "URL": "/platform/search/index.html",
                             "Icon": "OpenSearch-Search-condensedImage",
                             "SubLinks": [
                                 {
-                                    "Name": "e-Commerce",
+                                    "Name": "E-Commerce",
                                     "URL": "/docs/latest/search-plugins/searching-data/index/"
                                 },
                                 {
-                                    "Name": "Vector Search",
-                                    "URL": "/platform/search/vector-database.html"
-                                },
-                                {
-                                    "Name": "Documents",
+                                    "Name": "Document Search",
                                     "URL": "/blog/similar-document-search/"
                                 }
                             ]
@@ -201,10 +213,6 @@
                             "URL": "/platform/security-analytics/index.html",
                             "Icon": "OpenSearch-Security-condensedImage",
                             "SubLinks": [
-                                {
-                                    "Name": "Anomaly Detection",
-                                    "URL": "/docs/latest/observing-your-data/ad/index/"
-                                },
                                 {
                                     "Name": "Threat Intelligence",
                                     "URL": "/docs/latest/security-analytics/usage/detectors/"
@@ -285,7 +293,8 @@
                             "SubText": "Community Meetings, Development Backlog & Triage, in-person, and virtual events.",
                             "URL": "/events/",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "Icon": "OpenSearch-Events-condensedImage"
+                            "Icon": "OpenSearch-Events-condensedImage",
+                            "ID": "events-link"
                         },
                         {
                             "Name": "Projects",
@@ -337,7 +346,7 @@
                     "Name": "OpenSearchCons in 2024",
                     "SubNav": [
                         {
-                            "Name": "North America (San Francisco): September 24 - 26",
+                            "Name": "North America (San Francisco): September 24-26",
                             "URL": "/events/opensearchcon/2024/north-america/index.html"
                         },
                         {
