@@ -18,8 +18,8 @@ keynote_speaker: false
 session_track: 
   - conference_id: "2023-north-america"
     name: "Community"
-twitter: 'https://twitter.com/kmw_technology'
-linkedin: 'https://www.linkedin.com/in/bnauheimer/'
+twitter: kmw_technology
+linkedin: bnauheimer
 permalink: '/community/members/brian-nauheimer.html'
 personas:
   - conference_speaker

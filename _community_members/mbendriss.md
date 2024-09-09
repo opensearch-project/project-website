@@ -1,25 +1,25 @@
 ---
-short_name: 'mbendriss'
-name: 'Mehdi Bendriss'
-photo: '/assets/media/community/members/mbendriss.png'
-job_title_and_company: 'Senior Software Engineer, Canonical'
-primary_title: 'Mehdi Bendriss'
-title: 'OpenSearch Community Member: Mehdi Bendriss'
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: "Mehdi Bendriss&apos;s Profile"
-      url: '/community/members/mehdi-bendriss.html'
-keynote_speaker: false
-permalink: '/community/members/mehdi-bendriss.html'
+short_name: mbendriss
+name: Mehdi Bendriss
+title: "OpenSearch Project Community Member: Mehdi Bendriss "
+primary_title: Mehdi Bendriss
+permalink: /community/members/mehdi-bendriss.html
+photo: "/assets/media/community/members/mbendriss.png"
+
+job_title_and_company: "Engineering Manager at Canonical"
+
+
+conference_id:
+  - 2024-north-america
+  - 2022-north-america
+
+session_track:
+  - conference_id: 2024-north-america
+    name: "Operating OpenSearch"
+
 personas:
   - conference_speaker
-conference_id:
-  - "2022-north-america"
-redirect_from: '/authors/mbendriss/'
+
+linkedin: mehdibendriss
 ---
-Mehdi is a Senior Software Engineer working on the Data Platform team at Canonical. His current focus is on creating charmed operators for data products, namely, OpenSearch. He has experience designing and building data platforms on the cloud. Prior to joining Canonical, he was a Senior Data Platform engineer at Scout24 SE.
+Mehdi is a Senior Engineer and the Engineering Manager of the NoSQL team in Canonical's Data Platform department. He has been actively involved in managing, designing, and developing the Charmed OpenSearch operator and all of its components and artifacts.

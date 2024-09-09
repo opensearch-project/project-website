@@ -161,7 +161,7 @@ layout: default
                     {% assign conference_sessions = site.opensearchcon_sessions | where_exp: "session", session_presenter_selector %}
                     {% if conference_sessions and conference_sessions.size > 0 %}
                         <div class="community-member--conference-sessions">
-                            <h2>OpenSearch Con</h2>
+                            <h2>OpenSearchCon</h2>
 
                             {% assign sessions_grouped_by_id = conference_sessions | group_by: "conference_id" %}
                             {% for sessions in sessions_grouped_by_id %}

@@ -109,7 +109,7 @@ This chunking of messages is currently supported only for JSON messages received
 
 * To download Data Prepper, see the [OpenSearch downloads](https://opensearch.org/downloads.html) page.
 * For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/latest/data-prepper/getting-started/).
-* To learn more about the work in progress for Data Prepper 2.9 and other releases, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
+* To learn more about the work in progress for Data Prepper 2.9 and other releases, see the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projects/221).
 
 ## Thanks to our contributors!
 

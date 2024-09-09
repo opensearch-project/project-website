@@ -1,7 +1,7 @@
 
 
 {% assign meta_keywords = page.meta_keywords | default: "open-source, search, opensearch" %}
-{% assign meta_description = page.excerpt  | default:page.description | default:page.meta_description  | default: "OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." %}
+{% assign meta_description = page.meta_description  | default:page.description | default: "OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data." %}
 {% assign twitter_card_type = "summary_large_image" %}
 {% assign twitter_card_title = page.title  | default: "OpenSearch"%}
 {% assign OpenSearch_twitter_account = "@OpenSearchProj" %}
@@ -45,6 +45,7 @@
 <meta name="msapplication-TileColor" content="#113228">
 <meta name="msapplication-TileImage" content="{{'img/icon-tile.png' | relative_url }}"> 
 <meta name="meta_keywords" content="{{ meta_keywords  | xml_escape }}" />
+<meta name="description" content="{{ meta_description  | xml_escape }}" />
 <meta name="meta_description" content="{{ meta_description  | xml_escape }}" />
 
 <!-- TWITTER -->

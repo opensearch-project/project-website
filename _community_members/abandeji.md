@@ -14,7 +14,7 @@ breadcrumbs:
     - title: 'Arpit Bandejiya&apos;s Profile'
       url: '/community/members/arpit-bandejiya.html'
 github: Arpit-Bandejiya
-linkedin: https://www.linkedin.com/in/arpit-bandejiya/
+linkedin: arpit-bandejiya
 job_title_and_company: 'Software Engineer working on OpenSearch'
 personas:
   - author

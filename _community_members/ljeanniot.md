@@ -19,21 +19,9 @@ primary_title: 'Lucas Jeanniot'
 # Used as the document title displayed in the browser title bar.
 title: 'OpenSearch Project Community Member: Lucas Jeanniot'
 
-# Breadcrumbs specification.
-# The community icon is expected.
-# The breadcrumbs path structure is Communit -> Members -> Lucas Jeanniot's Profile.
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: "Lucas Jeanniot&apos;s Profile"
-      url: '/community/members/first-last.html'
 
 # Community member job title and company where they work.
-job_title_and_company: 'Junior Machine Learning engineer'
+job_title_and_company: 'Machine Learning Engineer'
 
 # Array of conference IDs for which the community member is a keynote speaker, if any, or boolean false otherwise.
 # This value is only relevant for member's with the "conference_speaker" user persona.

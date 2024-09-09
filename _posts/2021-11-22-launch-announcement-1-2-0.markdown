@@ -33,7 +33,7 @@ With 1.2.0 launched, OpenSearch 1.3.0 is already in development! There are a num
 * [Drag and drop visualization creation](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/379) 
 * A new [application analytics view](https://github.com/opensearch-project/trace-analytics/issues/131)
 
-If you are curious, feel free to take a look at the [project roadmap](https://github.com/orgs/opensearch-project/projects/1) where you can find out the planned features and fixes with linked issues where you can provide feedback. 
+If you are curious, feel free to take a look at the [project roadmap](https://github.com/orgs/opensearch-project/projects/220) where you can find out the planned features and fixes with linked issues where you can provide feedback. 
 
 ## How can you contribute?
 

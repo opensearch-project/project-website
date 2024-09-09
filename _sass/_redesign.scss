@@ -568,7 +568,109 @@ $header-banner-mobile-breakpoint: 1018px;
                         }
                         @media screen and (max-width: 399px) {
                             font-size: 44px;
-                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+            .homepage-hero-banner--os-con {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;    
+                > .homepage-hero-banner--os-con--flex-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    justify-content: left;  
+                    margin-top: 8px;
+                    @media screen and (max-width: 580px) {
+                        align-items: center;
+                    }
+                    > .homepage-hero-banner--os-con--icon-with-name {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                        justify-content: center;
+                        margin-left: 16px;  
+                        @media screen and (max-width: 959px) {
+                            margin-top: 16px;
+                        }
+                        @media screen and (max-width: 580px) {
+                            margin-left: 0;
+                        }
+                        > .homepage-hero-banner--os-con--icon-with-name--icon {
+                            width: 88px;
+                            height: 88px;
+                            flex-grow: 0;
+                            flex-shrink: 0;
+                            @media screen and (max-width: 959px) {
+                                width: 72px;
+                                height: 72px;    
+                            }
+                            @media screen and (max-width: 580px) {
+                                width: 54px;
+                                height: 54px;
+                            }
+                            @media screen and (max-width: 399px) {
+                                width: 48px;
+                                height: 48px;    
+                            }              
+                        }
+                        > .homepage-hero-banner--os-con--icon-with-name--name {
+                            @include header-large;
+                            padding-left: 3px;
+                            box-sizing: border-box;
+                            margin-top: -10px;
+                            @media screen and (max-width: 959px) {
+                                font-size: 60px;
+                            }
+                            @media screen and (max-width: 739px) {
+                                font-size: 60px;
+                            }
+                            @media screen and (max-width: 580px) {
+                                font-size: 44px;
+                            }
+                            >.large-header-open {
+                                color: $primary-pacific-blue;
+                            }
+                            >.large-header-search {
+                                color: $primary-deep-blue-sea;
+                            }
+                            >.large-header-con {
+                                color: $primary-open-sky;
+                            }
+                        }
+                    }
+                    > .homepage-hero-banner--os-con--location {
+                        color: $primary-deep-blue-sea;
+                        text-align: center;
+                        font-family: 'Open Sans';
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        margin-left: 54px;
+                        @media screen and (max-width: 959px) {
+                            font-size: 20px;
+                        }
+                        @media screen and (max-width: 580px) {
+                            font-size: 16px;
+                            margin-left: 36px;
+                        }
+                        @media screen and (max-width: 399px) {
+                            font-size: 16px;
+                            margin-left: 0;
                         }
                     }
                 }
@@ -689,20 +791,20 @@ $header-banner-mobile-breakpoint: 1018px;
                     height: 100%;
                     &.landing-page-hero--images--image__desktop {
                         > img {
-                            object-fit: fill;
+                            object-fit: cover;
                             width: 100%;
                             height: 100%;
                         }
                     }
                     &.landing-page-hero--images--image__mobile {
                         > img {
-                            object-fit: fill;
+                            object-fit: cover;
                             width: 100%;
                             height: 100%;
                         }
                     }
                     img {
-                        object-fit: fill;
+                        object-fit: cover;
                         width: 100%;
                         height: 100%;
                     }
@@ -756,110 +858,50 @@ $header-banner-mobile-breakpoint: 1018px;
                 justify-content: center;
                 &.malibu-sunrise {
                     @include hero-call-to-action-button($secondary-malibu-sunrise, #fff, $primary-pacific-blue);
-                    .landing-page-hero--call-to-action--arrow__normal-focused {
-                        display: block;
-                    }
-                    .landing-page-hero--call-to-action--arrow__hover-active {
-                        display: none;
-                    }
                     &:hover {
                         @include hover-hero-call-to-action-button(#fff, $secondary-malibu-sunrise);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                     &.malibu-sunrise__focus {
                         @include focused-hero-call-to-action-button($secondary-malibu-sunrise, $primary-pacific-blue);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: block;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: none;
-                        }
                     }
                     &.malibu-sunrise__active {
                         @include active-call-to-action-button($primary-pacific-blue, #fff, $secondary-malibu-sunrise);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                 }
                 &.purple-sage-secondary {
                     @include hero-call-to-action-button($secondary-purple-sage, #fff, $primary-open-sky);
-                    .landing-page-hero--call-to-action--arrow__normal-focused {
-                        display: block;
-                    }
-                    .landing-page-hero--call-to-action--arrow__hover-active {
-                        display: none;
-                    }
                     &:hover {
                         @include hover-hero-call-to-action-button(#fff, $secondary-purple-sage);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                     &.purple-sage-secondary__focus {
                         @include focused-hero-call-to-action-button($secondary-purple-sage, $primary-open-sky);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: block;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: none;
-                        }
                     }
                     &.purple-sage-secondary__active {
                         @include active-call-to-action-button($primary-open-sky, #fff, $secondary-purple-sage);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                 }
                 &.open-sky-primary {
                     @include hero-call-to-action-button($primary-open-sky, #fff, $primary-pacific-blue);
-                    .landing-page-hero--call-to-action--arrow__normal-focused {
-                        display: block;
-                    }
-                    .landing-page-hero--call-to-action--arrow__hover-active {
-                        display: none;
-                    }
                     &:hover {
                         @include hover-hero-call-to-action-button(#fff, $primary-open-sky);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
                     }
                     &.open-sky-primary__focus {
                         @include focused-hero-call-to-action-button($primary-open-sky, $primary-pacific-blue);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: block;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: none;
-                        }
                     }
                     &.open-sky-primary__active {
                         @include active-call-to-action-button($primary-pacific-blue, #fff, $primary-open-sky);
-                        .landing-page-hero--call-to-action--arrow__normal-focused {
-                            display: none;
-                        }
-                        .landing-page-hero--call-to-action--arrow__hover-active {
-                            display: block;
-                        }
+                    }
+                }
+                &.pacific-blue-primary {
+                    @include hero-call-to-action-button($primary-pacific-blue, #fff, $primary-pacific-blue);
+                    &:hover {
+                        @include hover-hero-call-to-action-button(#fff, $primary-pacific-blue);
+                    }
+                    &.open-sky-primary__focus {
+                        @include focused-hero-call-to-action-button($primary-pacific-blue, $primary-open-sky);
+                    }
+                    &.open-sky-primary__active {
+                        @include active-call-to-action-button($primary-pacific-blue, #fff, $primary-open-sky);
                     }
                 }
                 > a {
@@ -880,7 +922,6 @@ $header-banner-mobile-breakpoint: 1018px;
                         flex-wrap: nowrap;
                         > .landing-page-hero--call-to-action--label {
                             padding-right: 15px;
-                            padding-bottom: 4px;
                         }
                         > .landing-page-hero--call-to-action--arrow {
                             flex-basis: 25px;

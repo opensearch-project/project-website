@@ -27,13 +27,23 @@ permalink: /events/opensearchcon/2024/north-america/capture-the-flag.html
 #    date: Wednesday 09/21/2022
 #    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
 ---
-![capture the flag banner](/assets/media/opensearchcon/2024/capture-the-flag.png){: width="100%" }
+
+<div class="row">
+<div class="col p-3 m-3 text-center">
+  <img width="100%" src="/assets/media/opensearchcon/2024/capture-the-flag.png">
+</div>
+<div class="col p-3 m-3 text-center">
+  <img width="100%" src="/assets/media/partners/graylog/graylog.png">
+</div>
+</div>
+
 
 ## Capture the Flag and Bragging Rights at OpenSearchCon North America
 
 ### What  about logs, shells, and flags?
 
 Join us for the "Logs in the Shell" Capture the Flag (CTF) event presented by [Graylog](https://opensearch.org/partners/graylog.html)! This exciting challenge will test your skills in data analytics and cybersecurity through a series of entertaining puzzles and hands-on activities in a virtual lab environment. And let’s not forget, you can win prizes and walk away with bragging rights!
+
 
 ### Event details
 
@@ -70,5 +80,4 @@ We look forward to seeing you at the "Logs in the Shell" Capture the Flag event 
 
 <a role="button" target="_blank" class="btn btn-primary" href="https://airtable.com/appWltifOss0C1Ze3/pagKjDHOEPqWvQDnw/form">Register today</a>
 
-Please note that attendees of the OpenSource Connections training course are subject to the
-[OpenSearch Code of Conduct](https://opensearch.org/codeofconduct.html).
+Please note that participants of the Capture the Flag event are subject to the [OpenSearch Code of Conduct](https://opensearch.org/codeofconduct.html).

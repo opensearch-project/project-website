@@ -4,19 +4,19 @@ name: Dinu John
 photo: '/assets/media/community/members/dinujoh.jpg'
 title: 'OpenSearch Community Member: Dinu John'
 primary_title: Dinu John
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: 'Dinu John&apos;s Profile'
-      url: '/community/members/dinu-john.html'
+
 github: dinujoh
 job_title_and_company: 'Senior Software Engineer at AWS - OpenSearch'
 personas:
   - author
+  - conference_speaker
+
+conference_id:
+  - "2024-north-america"
+session_track: 
+  - conference_id: "2024-north-america"
+    name: "Search"
+    
 permalink: '/community/members/dinu-john.html'
 redirect_from: '/authors/dinujoh/'
 ---
