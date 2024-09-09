@@ -48,16 +48,6 @@ metrics_height_mobile: 6000
         width: 100%;
         border: none;
     }
-    @media only screen and (min-width: 768px) {
-        iframe {
-            height: {{ page.benchmark_height_desktop }}px;
-        }
-    }
-    @media only screen and (max-width: 767px) {
-        iframe {
-            height: {{ page.benchmark_height_mobile }}px;
-        }
-    }
     .modal {
         display: none;
         position: fixed;
@@ -183,7 +173,7 @@ metrics_height_mobile: 6000
 <div id="metrics-dashboard" class="dashboard-container">
     <h1 onclick="openModal('modal1')">OpenSearch Release Metrics</h1>
     <a id="metrics-dashboard-link" href="#" target="_blank" class="button">Direct Link to Metrics Dashboard</a>
-    <iframe id="metrics-iframe" width="100%" height="{{ page.metrics_height_desktop }}"></iframe>
+    <iframe id="metrics-iframe" width="100%" height="1300"></iframe>
 </div>
 
 <div id="component-metrics-dashboard" class="dashboard-container">
