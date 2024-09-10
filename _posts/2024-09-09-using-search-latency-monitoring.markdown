@@ -42,7 +42,7 @@ Before OpenSearch 2.11, OpenSearch only monitored the `query` and `fetch` shard 
 
 ### Nodes Stats API
 
-Introduced in OpenSearch 2.11, the [Nodes Stats API](https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-stats/)can measure the following coordinator-node-level metrics. 
+Introduced in OpenSearch 2.11, the [Nodes Stats API](https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-stats/) can measure the following coordinator-node-level metrics. 
 
 |Metric	|Description	|
 |---	|---	|
