@@ -4,6 +4,7 @@ title: Using search latency monitoring at the coordinator-node-level
 authors:
    - davizane
    - naarcha
+   - akjain
 date: 2024-09-09 
 categories:
   - technical-posts
