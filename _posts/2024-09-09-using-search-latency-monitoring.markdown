@@ -25,12 +25,12 @@ Luckily, in OpenSearch 2.11 and later, OpenSearch offers search latency monitori
 
 In OpenSearch, the coordinator node plays a crucial role in search execution by acting as an intermediary between the client and the cluster. When a search request is received, the coordinator node fans the request to data nodes containing the relevant shards. Depending on the type of search, the request undergoes a series of search phases, or types of search operations, initiated by the coordinator node. These phases include the following:
 
-* `dfs_pre_query` –- Depth-first search (DFS) pre-query operations
-* `query` –- Query operations
-* `fetch` –- Fetch operations
-* `dfs_query` –- DFS query operations
-* `expand` –- Expand operations
-* `can_match` –- Can match operations
+* `can_match`: Pre-filtesr search shards based on query rewrites.
+* `dfs_pre_query`: Collects additional information from each shard to make scoring 100% accurate.
+* `dfs_query` – Executes distributed searches with pre-collected distributed frequencies for all search terms in the search request.
+* `query` – Runs query and gets information about the matching documents, such as document IDs, score, and sort criterion, from each shard.
+* `fetch` – Gets the actual top matching documents after reducing all matches in the `query` phase. The top matches are returned.
+* `expand` – Collapses fields on the inner hits when `expand` is enabled.
 
 The following diagram shows the search phase workflow, from request to response.
 
@@ -166,7 +166,7 @@ For more information about how to set up slow log thresholds, see [Search reques
 
 To enable these features, visit the [Search settings](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/search-settings/) page in the OpenSearch documentation or use the following example API request:
 
-**NOTE**: Search request slow log thresholds can be customized. 
+**TIP**: Search request slow log thresholds can be customized. This simplifies setting thresholds for certain search requests, since you can set the log creation to match the search threshold.
 
 ```json
 PUT _cluster/settings
@@ -176,7 +176,7 @@ PUT _cluster/settings
     "search.request_stats_enabled" : "true",
     // Search phase took time
     "search.phase_took_enabled" : "true",
-    // Search request slow logs
+    // Search request slow log and thresholds
     "cluster.search.request.slowlog.level" : "TRACE",
     "cluster.search.request.slowlog.threshold.warn": "10s",
     "cluster.search.request.slowlog.threshold.info": "5s",
