@@ -29,7 +29,7 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 * 2nd Go / No-Go voting call
 
-**September 17th 2024 - 2:00PM PDT**
+**September 17th 2024 - 2PM PDT**
 
 * [Release / Post release](https://github.com/opensearch-project/opensearch-build/wiki/Releasing-the-Distribution#release) (Release day!) [Release manager, leadership team, Repository owners ]
 
