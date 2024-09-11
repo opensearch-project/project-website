@@ -1,7 +1,136 @@
 ---
 layout: default
 ---
+
+
+<!-- HOMEPAGE -->
+<!-- LOAD THE DATAFILE -->
+
+{% assign homepage_hero_dataObject = site.data.homepage_datafile.Hero  %}
+<!-- DESKTOP HERO -->
+<div class="container-fluid homepage-hero-banner-background-wrapper px-0">
+    <div class="container homepage-hero-heading-background-container">
+        <div class="row flex-xl-row align-items-center my-5 py-5 ms-5">
+            <div class="col-xl-7">
+                <h1 class="homepage-hero-heading pe-5">{{ homepage_hero_dataObject.Title }}</h1>
+                <p class="homepage-hero-subtext">{{ homepage_hero_dataObject.SubText }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MOBILE HERO -->
+
+
+<div class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom">OpenSearch Capabilities</h2>
+</div>
+
+
+{% assign homepage_platform_dataObject = site.data.homepage_datafile.Platform  %}
+<div class="container mb-5">
+    <h2 class="homepage-section-heading">{{ homepage_platform_dataObject.Title }}</h2>
+
+    <!-- ICON AND SUBHEADING -->
+    <div class="row">
+        <div class="col d-flex align-items-start">
+            <div class="col-2 d-inline-flex">
+                <div class="col-3 px-0 ms-4 me-0 pt-3 icon-div-box-mobile">
+                    {% include icons_navbar.html type=homepage_platform_dataObject.Icon %} 
+                </div>
+            </div>
+            <div class="col-auto">
+                <h3 class="homepage-section-subheading">{{ homepage_platform_dataObject.SubHeader }}</h3>
+            </div>
+        </div>
+    </div>
+    <!-- BANNER -->
+    <div class="homepage-banner px-5">
+        <img src="{{ homepage_platform_dataObject.PathPlatformImageDesktop}}" class="img-fluid" alt="Platform banner">
+    </div>
+</div>
+
+<div class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom">Join the OpenSearch Community!</h2>
+</div>
+
+
+
+
+
+
+
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">OpenSearchCon User Conferences</h2>
+    <p class="text-body-secondary">OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. In 2024, we hosted three OpenSearchCon in Berlin, Bengaluru, and San Francisco. Find a conference happening near you!</p>
+    
+    
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <div class="card card-cover homepage-opensearchcon-gallary-card rounded-4 shadow-md" style="background-image: url('/assets/img/hero-banners/OSC2024_NA_herobanner.png');">
+
+        </div>
+      </div>
+
+
+
+      <div class="col">
+        <div class="card card-cover homepage-opensearchcon-gallary-card rounded-4 shadow-md" style="background-image: url('/assets/img/hero-banners/OSC2024_India_herobanner.png');">
+
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover homepage-opensearchcon-gallary-card rounded-4 shadow-lmd" style="background-image: url('/assets/img/hero-banners/OSC2024_Europe_herobanner.png');">
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+<!-- <div class="container-fluid homepage-hero-banner-container px-0">
+>
+    <div class="col-lg-6 homepage-hero-heading-container">
+
+
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
+        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        
+    
+        </div>
+    </div>
+
+
+    <img class="homepage-hero-banner px-0" src="/assets/img/hero-banners/hero-banner-03.png" alt="OpenSearch hero background" />
+
+    <div class="row align-items-center gy-6">
+        <div class="col-lg-5 col">
+            <div class="d-flex flex-column">
+                <h1 class="homepage-hero-heading">FIND THE TRUTH IN YOUR DATA</h1>
+
+                <h2 class="">FIND THE TRUTH IN YOUR DATA</h2>
+            </div>
+
+
+        </div>
+
+    </div> 
+    
+
+
+
+</div> -->
+
+
+
+
+<!-- 
 <main class="container">
+
     <div class="homepage-wrapper page-with-hero">
         <div class="landing-page-hero-wrapper">
             {% include hero-with-headline.html show_arrows=true show_pagination=true items=site.redesign_heros carousel_id="redesign_top_hero_carousel" arrow_color="white" %}
@@ -152,4 +281,4 @@ layout: default
     </div>
 </main>
 {% include interactive-states.html container_selector=".resource-grid--more" element_classname="link-button" %}
-{% include card-clickability.html card_container_selector=".landing-page-solutions--hero-3up .tall-card__no-image--grid" card_classname="tall-card__no-image--grid--card" %}
+{% include card-clickability.html card_container_selector=".landing-page-solutions--hero-3up .tall-card__no-image--grid" card_classname="tall-card__no-image--grid--card" %} -->
