@@ -1,0 +1,50 @@
+{
+  "OpenSearchCons": [
+    {
+      "Year": 2024,
+      "Events": [
+        {
+          "Name": "Europe",
+          "URL": "https://opensearch.org/events/opensearchcon/2024/europe/index.html",
+          "StringDate": "May 2024",
+          "Date": "2024-05-06"
+        },
+        {
+          "Name": "India",
+          "URL": "https://opensearch.org/events/opensearchcon/2024/india/index.html",
+          "StringDate": "June 2024",
+          "Date": "2024-06-26"
+        },
+        {
+          "Name": "North America",
+          "URL": "https://opensearch.org/events/opensearchcon/2024/north-america/index.html",
+          "StringDate": "September 2024",
+          "Date": "2024-09-24"
+        }
+      ]
+    },
+    {
+      "Year": 2025,
+      "Events": [
+        {
+          "Name": "Europe",
+          "URL": "https://opensearch.org/events/opensearchcon/2025/europe/index.html",
+          "StringDate": "May 2025",
+          "Date": "2025-05-06"
+        },
+        {
+          "Name": "India",
+          "URL": "https://opensearch.org/events/opensearchcon/2025/india/index.html",
+          "StringDate": "June 2025",
+          "Date": "2025-06-26"
+        },
+        {
+          "Name": "North America",
+          "URL": "https://opensearch.org/events/opensearchcon/2025/north-america/index.html",
+          "StringDate": "September 2025",
+          "Date": "2025-09-24"
+        }
+      ]
+    }
+  ]
+}
