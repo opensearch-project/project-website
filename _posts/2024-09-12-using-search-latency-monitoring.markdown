@@ -5,7 +5,8 @@ authors:
    - davizane
    - naarcha
    - akjain
-date: 2024-09-09 
+   - kkhatua
+date: 2024-09-12 
 categories:
   - technical-posts
   - search
@@ -35,7 +36,7 @@ In OpenSearch, the coordinator node plays a crucial role in search execution by 
 
 The following diagram shows the search phase workflow, from request to response.
 
-![Search-phases](/assets/media/blog-images/2024-09-09-using-search-latency-monitoring/search_phase2.png){:class="img-centered"}
+![Search-phases](/assets/media/blog-images/2024-09-12-using-search-latency-monitoring/search_phase2.png){:class="img-centered"}
 
 ## New features for phase monitoring
 
