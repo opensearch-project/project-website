@@ -4,7 +4,7 @@ eventdate: 2024-09-13 09:00:00 -0700
 title: OpenSearch 2.17.0 Release Meetings
 online: true
 signup:
-  url: https://chime.aws/3333391714
+  url: https://chime.aws/9631232287
   title: Join on Chime
 category: development
 ---
@@ -40,9 +40,9 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 **Join Meeting**
 
-**Click to join the meeting: <https://chime.aws/3333391714>**
+**Click to join the meeting: <https://chime.aws/9631232287>**
 
-**Meeting ID: 3333391714** 
+**Meeting ID: 9631232287** 
 
 A headset is recommended or you may use your computer’s microphone and speakers.
 
@@ -50,7 +50,7 @@ Call in using your phone:
 - United States Toll-Free (1): +1 855-552-4463
 - United States (1): +1 206-462-5569
 - International: https://chime.aws/dialinnumbers/
-- One-click Mobile Dial-in (United States (1)): +1 206-462-5569,,,3333391714#
+- One-click Mobile Dial-in (United States (1)): +1 206-462-5569,,,9631232287#
 
 Dial-in attendees must enter *7 to mute or unmute themselves.
 
