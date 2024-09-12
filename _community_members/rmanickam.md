@@ -22,4 +22,4 @@ personas:
 linkedin: ramesh-kumar-manickam-60b90a14
 
 ---
-Working as a Senior Engineering Manager At TransUnion Global Capability Center Bangalore. Solving problems in the domain of Risk & Fraud by leveraging cutting edge Technologies in digital landscape. Having 16+ years of IT Industry experience with hands on exposure to Java, Microservices, Google Clod Platform, Python, Data Science. Working in OpenSearch APIs, leveraging it to the fullest extend in the past couple of years.
+Ramesh heads the TruContact Enterprise Product Engineering group in Bangalore and brings 24+ years of Industry experience building Software Products & Engineering Centres of Excellence cutting across TravelTech, FinTech and CommTech.
