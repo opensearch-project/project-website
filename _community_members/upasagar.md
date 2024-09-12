@@ -14,7 +14,7 @@ breadcrumbs:
     - title: 'Sagar Upadhyaya&apos;s Profile'
       url: '/community/members/sagar-upadhyaya.html'
 github: uselmh
-job_title_and_company: 'Social media specialist for the OpenSearch Project'
+job_title_and_company: 'Software engineer at AWS'
 personas:
   - author
 permalink: '/community/members/sagar-upadhyaya.html'
