@@ -81,7 +81,7 @@ You can keep informed about upcoming distributions on the [distribution roadmap]
 
 ## RPM & Debian Distributions
 
-As of yesterday (March 16), the team identified the [roadmap](https://github.com/orgs/opensearch-project/projects/220) for 1.3.0 included references to RPM and Debian distributions. In late January, the distribution efforts started to be [tracked on a separate board](https://github.com/orgs/opensearch-project/projects/13) as distributions were decoupled from version releases. In this transition, the cards for RPM and Debian distributions were never removed from the 1.3.0 roadmap. The team regrets this error and have put measures into place to ensure that the roadmap will be more accurate moving forward.
+As of yesterday (March 16), the team identified the [roadmap](https://github.com/orgs/opensearch-project/projects/206) for 1.3.0 included references to RPM and Debian distributions. In late January, the distribution efforts started to be [tracked on a separate board](https://github.com/orgs/opensearch-project/projects/13) as distributions were decoupled from version releases. In this transition, the cards for RPM and Debian distributions were never removed from the 1.3.0 roadmap. The team regrets this error and have put measures into place to ensure that the roadmap will be more accurate moving forward.
 
 ## What’s Next?
 
@@ -97,7 +97,7 @@ In addition, OpenSearch 2.0.0 is already in development! The primary driver for 
 * **Lucene 9.0.0**: Lucene 9.0.0 includes several new features and performance improvements ([Lucene 9.0.0 Documentation](https://lucene.apache.org/core/9_0_0/index.html)) that OpenSearch would like to make available to users, including K-NN support, Vectors, Big Endian, faster numeric indexing, faster sorting, concurrent merge scheduler, and prototype Java Jigsaw module support. Starting to use Lucene 9.0.0 as soon as possible is a priority. It will take a few releases to leverage the full value of it, but adding it with 2.0.0. is so exciting and has loads of potential for OpenSearch.
 * **Node.js Upgrade**: OpenSearch Dashboards needs to upgrade the Node.js version from the current version, 10.24.1, which is no longer in support to a newer version. The target version of node for the upgrade will be v14.18.1. Node v14 which will be in LTS until 2023.
 
-In addition to the above features, this release will replace non-inclusive terminology (e.g., master, blacklist, etc.) throughout OpenSearch with inclusive ones (e.g., leader, primary, allowlist). If you are curious, feel free to take a look at the [project roadmap](https://github.com/orgs/opensearch-project/projects/220) where you can find out the planned features and fixes with linked issues where you can provide feedback. Additionally, please take a look at the [proposed 2022 release schedule](https://opensearch.org/blog/partners/2022/02/roadmap-proposal/).
+In addition to the above features, this release will replace non-inclusive terminology (e.g., master, blacklist, etc.) throughout OpenSearch with inclusive ones (e.g., leader, primary, allowlist). If you are curious, feel free to take a look at the [project roadmap](https://github.com/orgs/opensearch-project/projects/206) where you can find out the planned features and fixes with linked issues where you can provide feedback. Additionally, please take a look at the [proposed 2022 release schedule](https://opensearch.org/blog/partners/2022/02/roadmap-proposal/).
 
 ## How can you contribute?
 

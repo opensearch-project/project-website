@@ -20,7 +20,7 @@ primary_title: 'Mohanraj Vanjiappan'
 title: 'OpenSearch Project Community Member: Mohanraj Vanjiappan'
 
 # Community member job title and company where they work.
-job_title_and_company: ''
+job_title_and_company: 'Senior Engineering Manager - TransUnion Global Capability Center, Bangalore'
 
 # Array of conference IDs for which the community member is a keynote speaker, if any, or boolean false otherwise.
 # This value is only relevant for member's with the "conference_speaker" user persona.
@@ -61,4 +61,4 @@ conference_id:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
 ---
-
+Solving problems in the domain of Risk & Fraud by leveraging cutting edge Technologies in digital landscape. Having 16+ years of IT Industry experiencewith hands on exposure to Java, Microservices, Google Cloud Platform, Python, Data Science. Working in OpenSearch APIs, leveraging it to the fullest extent in the past couple of years.
