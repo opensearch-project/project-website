@@ -41,4 +41,4 @@ Other updates in OpenSearch 2.2 include the following.
 
 ### Get started
 
-OpenSearch 2.2 is ready for [download here](https://opensearch.org/downloads.html)! Take a look at the latest [documentation](https://opensearch.org/docs/latest) and [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.2.0.md), and keep an eye on the [OpenSearch Project roadmap](https://github.com/orgs/opensearch-project/projects/220) for exciting features and enhancements coming in version 2.3!
+OpenSearch 2.2 is ready for [download here](https://opensearch.org/downloads.html)! Take a look at the latest [documentation](https://opensearch.org/docs/latest) and [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.2.0.md), and keep an eye on the [OpenSearch Project roadmap](https://github.com/orgs/opensearch-project/projects/206) for exciting features and enhancements coming in version 2.3!
