@@ -11,8 +11,8 @@ categories:
   - technical-posts
   - search
 excerpt: 
-meta_keywords:
-meta_description: 
+meta_keywords: search latency, OpenSearch cluster, latency monitoring, coordinator node, search performance optimization
+meta_description: Explore how enhanced search latency monitoring capabilities at the coordinator node level can help you optimize search performance in your OpenSearch cluster.
 ---
 
 # Using search latency monitoring at the coordinator node level
@@ -21,13 +21,13 @@ Responsiveness is core to any search solution, and communication delays between 
 
 However, the ability to monitor search latency in OpenSearch versions earlier than 2.11 is limited. Tools such as the [Nodes Stats API](https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-stats/) and [shard slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs) offer latency measurements based on shard-level operations but do not provide any visibility at the coordinator node level. Because search requests often hit multiple shards simultaneously, the measured amount of time spent in a single shard search phase doesn't provide comprehensive latency information.
 
-Luckily, in OpenSearch 2.11 and later, OpenSearch offers search latency monitoring at the coordinator node level. This blog post provides information about several tools---the Node Stats API, the `phase_took` parameter, and slow logs---that can help you monitor coordinator-node-level statistics.
+Luckily, in OpenSearch 2.11 and later, OpenSearch offers search latency monitoring at the coordinator node level. This blog post provides information about several tools---the Node Stats API, the `phase_took` parameter, and search request slow logs---that can help you monitor coordinator-node-level statistics.
 
 ## The coordinator node and search phases
 
-In OpenSearch, the coordinator node plays a crucial role in search execution by acting as an intermediary between the client and the cluster. When a search request is received, the coordinator node fans the request to data nodes containing the relevant shards. Depending on the type of search, the request undergoes a series of search phases, or types of search operations, initiated by the coordinator node. These phases include the following:
+In OpenSearch, the coordinator node plays a crucial role in search execution by acting as an intermediary between the client and data nodes. When a search request is received, the coordinator node fans the request to data nodes containing the relevant shards. Depending on the type of search, the request undergoes a series of search phases, or types of search operations, initiated by the coordinator node. These phases include the following:
 
-* `can_match`: Pre-filtesr search shards based on query rewrites.
+* `can_match`: Pre-filters search shards based on query rewrites.
 * `dfs_pre_query`: Collects additional information from each shard to make scoring 100% accurate.
 * `dfs_query` – Executes distributed searches with pre-collected distributed frequencies for all search terms in the search request.
 * `query` – Runs query and gets information about the matching documents, such as document IDs, score, and sort criterion, from each shard.

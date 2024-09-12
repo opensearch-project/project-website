@@ -12,12 +12,12 @@ breadcrumbs:
     - title: Members
       url: /community/members/index.html
     - title: 'David Zaneo&apos;s Profile'
-      url: '/community/members/davizane.html'
+      url: '/community/members/david-zane.html'
 github: dzane17
 job_title_and_company: 'AWS Software Engineer'
 personas:
   - author
-permalink: '/community/members/davizane.html'
+permalink: '/community/members/david-zane.html'
 ---
 
 David Zane is a Software Engineer at AWS working on the OpenSearch Project.
