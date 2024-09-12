@@ -21,7 +21,7 @@ items:
       - label: Releases
         url: /releases.html
       - label: Roadmap
-        url: https://github.com/orgs/opensearch-project/projects/220
+        url: https://github.com/orgs/opensearch-project/projects/206
       - label: FAQ
         url: /faq/
   - label: Community

@@ -1,7 +1,7 @@
 ---
 layout: redesign-use-case
 title: Key Features
-description: 'The OpenSearch platform includes a vast array of built-in features, with new features contributed in every <a href="https://github.com/orgs/opensearch-project/projects/220" target="_blank">major or minor release</a>. The following are a few of the capabilities that help OpenSearch stand alone.'
+description: 'The OpenSearch platform includes a vast array of built-in features, with new features contributed in every <a href="https://github.com/orgs/opensearch-project/projects/206" target="_blank">major or minor release</a>. The following are a few of the capabilities that help OpenSearch stand alone.'
 feature_area_category_name: Platform
 feature_area_solution_name: Core
 how_to_get_started:
