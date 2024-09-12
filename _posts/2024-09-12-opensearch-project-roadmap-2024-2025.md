@@ -37,8 +37,12 @@ In the rest of this post, we will first [summarize the key innovation areas](#ro
 
 <style>
 
+h2 {
+    font-size: 28px;
+}
+
 h3 {
-    font-size: 22px;
+    font-size: 24px;
 }
 
 </style>
