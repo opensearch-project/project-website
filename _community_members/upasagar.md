@@ -13,7 +13,7 @@ breadcrumbs:
       url: /community/members/index.html
     - title: 'Sagar Upadhyaya&apos;s Profile'
       url: '/community/members/sagar-upadhyaya.html'
-github: uselmh
+github: sgup432
 job_title_and_company: 'Software engineer at AWS'
 personas:
   - author
