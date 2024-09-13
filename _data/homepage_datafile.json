@@ -1,0 +1,153 @@
+
+{
+
+    "Hero": {
+        "Title": "Find the meaning <br>in your data",
+        "SubText": "OpenSearch is an open-source, enterprise-grade search and observability suite that brings order to unstructured data at scale",
+        "PathHeroImageDesktop": "/assets/img/homepage-assets/Banner_HomePage_Hero_Desktop.png", 
+        "PathHeroImageMobile": "/assets/img/homepage-assets/Banner_HomePage_Hero_Desktop.png"          
+    },   
+    "Capabilities": {
+        "Title": "OpenSearch Capabilities",
+        "Categories": [
+            {
+                "Name": "Machine Learning and AI",
+                "Subtext": "Use AI/ML tools to create cutting-edge applications",
+                "URL": "/blog/opensearch-ai-retrospective/",
+                "Icon": "/assets/img/homepage-assets/Icon_ML_Tooling.png",
+                "SubNav": [
+                    {
+                        "Name": "Vector Database",
+                        "URL": "/platform/search/vector-database.html"
+                    },
+                    {
+                        "Name": "Natural Language Search",
+                        "URL": "/docs/latest/observing-your-data/ad/index/"
+                    }
+                ]
+            },
+            {
+                "Name": "Search",
+                "Subtext": "Build smarter, more efficient search solutions for your applications.",
+                "URL": "/platform/search/index.html",
+                "Icon": "/assets/img/homepage-assets/Icon_Lexical_Search.png",
+                "SubNav": [
+                    {
+                        "Name": "E-Commerce",
+                        "URL": "/docs/latest/search-plugins/searching-data/index/"
+                    },
+                    {
+                        "Name": "Document Search",
+                        "URL": "/blog/similar-document-search/"
+                    }
+                ]
+            },
+            {
+                "Name": "Observability",
+                "Subtext": "Identify and resolve issues across your applications and infrastructure.",
+                "URL": "/platform/observability/index.html",
+                "Icon": "/assets/img/homepage-assets/Icon_Observability.png",
+                "SubNav": [
+                    {
+                        "Name": "Performance Monitoring",
+                        "URL": "/docs/latest/monitoring-your-cluster/pa/index/"
+                    },
+                    {
+                        "Name": "Log Analysis",
+                        "URL": "/docs/latest/dashboards/discover/index-discover/"
+                    }
+                ]
+            },
+            {
+                "Name": "Security Analytics",
+                "Subtext": "Detect and respond to security threats in real time.",
+                "URL": "/platform/security-analytics/index.html",
+                "Icon": "/assets/img/homepage-assets/Icon_Security_Analytics.png",
+                "SubNav": [
+                    {
+                        "Name": "Threat Intelligence",
+                        "URL": "/docs/latest/security-analytics/usage/detectors/"
+                    },
+                    {
+                        "Name": "Event Correlation",
+                        "URL": "/blog/correlating-security-events/"
+                    }   
+                ]
+            }      
+        ]    
+    },    
+    "Platform": {
+        "Title": "OpenSearch Platform",
+        "SubHeader": "Build freely with OpenSearch's integrated components",
+        "IconPath": "/assets/img/iconography/OpenSearch-Platform.png",
+        "URL": "/platform/",
+        "PathPlatformImageDesktop": "/assets/img/homepage-assets/Banner_Platform_Desktop.png", 
+        "PathPlatformImageMobile": "/assets/img/homepage-assets/Banner_Platform_Mobile.png"        
+    },      
+    "Community": {
+        "Title": "Join the OpenSearch Community!",
+        "SubText": "The OpenSearch Community has been at the center of OpenSearch since the very beginning. Community members actively participate in building the future of OpenSearch and help each other out every day. Explore our collaboration sites, post questions and answers, and lend support to the community.",
+        "SubNav": [
+            {
+                "Name": "Forum",
+                "IconPath": "/assets/img/iconography/OpenSearch-Community.png",
+                "URL": "https://forum.opensearch.org/",
+                "ClassValue": "icon-homepage-community-withSurroundingCircle"
+            },
+            {
+                "Name": "Events",
+                "IconPath": "/assets/img/iconography/OpenSearch-Events.png",
+                "URL": "/events/",
+                "ClassValue": "icon-homepage-community-withSurroundingCircle"
+            },
+            {
+                "Name": "Blog",
+                "IconPath": "/assets/img/iconography/OpenSearch-Forum.png",
+                "URL": "/blog/",
+                "ClassValue": "icon-homepage-community-withSurroundingCircle"
+            },
+            {
+                "Name": "Github",
+                "IconPath": "/assets/img/iconography/OpenSearch-Github.png",
+                "URL": "https://github.com/opensearch-project",
+                "ClassValue": "icon-homepage-community-socialLink"
+            },
+            {
+                "Name": "Slack",
+                "IconPath": "/assets/img/iconography/OpenSearch-Slack.png",
+                "URL": "/slack.html",
+                "ClassValue": "icon-homepage-community-socialLink"
+            }
+        ]
+    },      
+    "OpenSearchCon": {
+        "Title": "OpenSearchCon User Conferences",
+        "SubText": "OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. In 2024, we hosted three OpenSearchCon in Berlin, Bengaluru, and San Francisco. Find a conference happening near you!",
+        "Conferences": [
+            {
+                "Name": "North America",
+                "Date": "September 2024",
+                "Location": "San Francisco, USA",
+                "Image": "/assets/img/homepage-assets/OSC2024_NA.png",
+                "URL": "https://opensearch.org/events/opensearchcon/2024/north-america/index.html"
+
+            },
+            {
+                "Name": "India",
+                "Date": "June 2024",
+                "Location": "Bengaluru, India",
+                "Image": "/assets/img/homepage-assets/OSC2024_India.png",
+                "URL": "https://opensearch.org/events/opensearchcon/2024/india/index.html"
+            },
+            {
+                "Name": "Europe",
+                "Date": "May 2024",
+                "Location": "Berlin, Germany",
+                "Image": "/assets/img/homepage-assets/OSC2024_Europe.png",
+                "URL": "https://opensearch.org/events/opensearchcon/2024/europe/index.html"
+            }
+        ]
+    },
+    "F": {}
+
+}
