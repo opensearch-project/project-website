@@ -10,7 +10,7 @@
             "collapse-data-target": "collapse-data-target-platform",
             "SubNav": [
                 {
-                    "Name": "OpenSearch",
+                    "Name": "OpenSearch Core",
                     "URL": "https://opensearch.org/docs/latest/"
                 },
                 {
@@ -246,7 +246,7 @@
                     "ClassValue": "drawer-content-header-link",
                     "URL": "/blog/",
                     "TableHeading": "Most Recent Articles",
-                    "NumberPostsShown": 7
+                    "NumberPostsShown": 10
                 }
             ],
     

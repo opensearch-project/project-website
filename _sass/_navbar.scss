@@ -1,7 +1,7 @@
 // Navbar
 
 .mobile-nav-topLevel-wrapper {
-
+    overflow-x: hidden;
 
     .mobile-nav-topLevel-accordion {
 
@@ -33,7 +33,8 @@
     } 
 }
 .mobile-nav-contentSection-accordion {
-
+    overflow-x: hidden;
+    
     --bs-accordion-btn-bg: #003551;                   // (BUTTON) Background color of the top accordion header
     --bs-accordion-active-bg: #003551;                // (BUTTON) (When active) Background color of the top accordion header
     --bs-accordion-btn-focus-box-shadow: none;
@@ -72,9 +73,9 @@
     }
     .mobile-content-text-link {
         color: $primary-open-sky-t3;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 400;
-        line-height: 48px;
+        line-height: 27px;
         text-decoration: none;
     }
 
@@ -82,18 +83,22 @@
 
 
 .button-dark {
-    background-color: #F4F8FB;
-    border-radius: 6px;
-    border-color: #B9D9EB;
-    color: #006D97;
-    font-size: 15px;
+    // --bs-btn-color: $secondary-sanfrancisco-fog-t1;
+    --bs-btn-padding-y: 15px;
+    --bs-btn-padding-x: 15px;
+    background-color: $primary-open-sky-s2;
+    border-radius: 0px;
+    border-color: $secondary-sanfrancisco-fog-t1;
+    color: $secondary-sanfrancisco-fog-t1 !important;
+    
+    font-size: 18px;
     font-weight: 700;
     line-height: 24px;
 
     &:hover {
         border-color: #006D97;
         color: #003551; 
-        background-color: #C7DFEE;
+        // background-color: #C7DFEE;
     }  
 }
 

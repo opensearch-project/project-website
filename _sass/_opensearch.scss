@@ -582,12 +582,14 @@
     font-family: "Open Sans condensed";
     font-weight: 700;
     margin-bottom: 30px;
-    text-decoration: none;
-
+    text-decoration: underline;
+    &:visited {
+        color: inherit;
+    }
     &:hover {
         color: $primary-open-sky;
-        text-decoration: underline;
     }
+
 }
 .homepage-section-subheading {
     color: $primary-open-sky-s2;
@@ -625,7 +627,7 @@
 .community_icon_left_card_layout {
     max-width: 800px;
     position: relative;
-    border-top-left-radius: 25px;
+    // border-top-left-radius: 25px;
 
     &::after {
         content: "";
@@ -678,9 +680,6 @@
 
         }
     }
-    .card-icon {
-        border-top-left-radius: 10px;
-    } 
 }
 
 
@@ -694,8 +693,6 @@
 // COMMUNITY 
 .homepage-community-section-wrapper {
     background-color: $primary-pacific-sky-t3;
-    // background-image: linear-gradient(180deg, var(--bs-secondary-bg), var(--bs-body-bg) 100px, var(--bs-body-bg));
-
 
     .homepage-section-subtext {
         line-height: 44px;
@@ -731,17 +728,10 @@
 }
 
 
-
-
-
-
-
 // OPEN SEARCH CON
 .homepage-opensearchcon-gallary-card {
     object-fit: cover;
 }
-
-
 
 
 // COMPONENTS
@@ -780,8 +770,3 @@
         box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
     } 
 }
-
-// COLORS
-// $primary-open-sky-s1: #0085B8;
-// $primary-open-sky-s2: #006D97;
-// $primary-open-sky-s3: #003551;
