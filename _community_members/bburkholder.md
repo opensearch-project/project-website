@@ -41,7 +41,7 @@ permalink: '/community/members/bryan-burkholder.html'
 # At this time, only conference_speaker, and author are defined.
 personas:
   - conference_speaker
-#  - author
+  - author
 
 # Array of conference IDs that the member is a speaker.
 conference_id:
@@ -62,3 +62,5 @@ conference_id:
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
 ---
+
+**Bryan Burkholder** is a Staff Software Engineer at Slack, focused on improving observability adoption across the engineering organization. Recently, this work has centered around developing Astra, an open-source log search and analytics engine that can handle petabyte scale in a cost-effective manner.

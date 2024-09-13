@@ -35,7 +35,7 @@ With the launch of 1.1.0, OpenSearch is already racing forward. There are a numb
 * OpenSearch’s k-NN plugin will add support for the updated [FAISS](https://github.com/facebookresearch/faiss) algorithm that improves performance.
 * Anomaly detection will add visibility to which signals contributed to specific anomalies. 
 
-See additional active features on the [project roadmap](https://github.com/orgs/opensearch-project/projects/220).
+See additional active features on the [project roadmap](https://github.com/orgs/opensearch-project/projects/206).
 
 **How can you contribute?**
 
