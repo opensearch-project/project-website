@@ -21,7 +21,7 @@ title: 'OpenSearch Project Community Member: Lucas Jeanniot'
 
 
 # Community member job title and company where they work.
-job_title_and_company: 'Machine Learning engineer'
+job_title_and_company: 'Machine Learning Engineer'
 
 # Array of conference IDs for which the community member is a keynote speaker, if any, or boolean false otherwise.
 # This value is only relevant for member's with the "conference_speaker" user persona.
