@@ -324,14 +324,15 @@
                                 {% endif %}
 
                                 <!-- TABLE -->
-                                <table class="table table-hover blog-table shadow mb-5">
+                                <table class="table table-hover blog-table shadow">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="megamenu-table-heading">{{ content_section.TableHeading }}</th>
+                                            <th scope="col" class="megamenu-table-heading"></th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-group-divider">
-                                        {% for post in site.posts limit:5 %}
+                                        {% for post in site.posts limit: content_section.NumberPostsShown %}
                                             {% if post != featured_post %}
                                                 {% assign post_metadata_date_string = "" %}
 

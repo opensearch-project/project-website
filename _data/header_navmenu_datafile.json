@@ -1,14 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
 {
     "Mobile": [
 
@@ -52,7 +43,11 @@
                 {
                     "Name": "Security Analytics",
                     "URL": "/platform/security-analytics/index.html"
-                }  
+                },
+                {
+                    "Name": "Machine Learning and AI",
+                    "URL": "/blog/opensearch-ai-retrospective/"
+                } 
             ] 
         },
         {
@@ -160,7 +155,7 @@
                     "ClassValue" : "drawer-content-header",
                     "SubNav": [
                         {
-                            "Name": "AI/ML Tooling",
+                            "Name": "Machine Learning and AI",
                             "ClassValue" : "drawer-content-subheader-link",
                             "URL": "/blog/opensearch-ai-retrospective/",
                             "Icon": "OpenSearch-AI-condensedImage",
@@ -176,7 +171,7 @@
                             ]
                         },
                         {
-                            "Name": "Lexical Search",
+                            "Name": "Search",
                             "ClassValue" : "drawer-content-subheader-link",
                             "URL": "/platform/search/index.html",
                             "Icon": "OpenSearch-Search-condensedImage",
@@ -251,7 +246,7 @@
                     "ClassValue": "drawer-content-header-link",
                     "URL": "/blog/",
                     "TableHeading": "Most Recent Articles",
-                    "NumberPostsShown": 4
+                    "NumberPostsShown": 7
                 }
             ],
     

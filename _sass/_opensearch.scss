@@ -575,7 +575,27 @@
     font-family: "Open Sans condensed";
     font-weight: 700;
     margin-bottom: 30px;
+}
+.homepage-section-heading-link {
+    color: $primary-open-sky-s3;
+    font-size: 30px;
+    font-family: "Open Sans condensed";
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-decoration: none;
 
+    &:hover {
+        color: $primary-open-sky;
+        text-decoration: underline;
+    }
+}
+.homepage-section-subheading {
+    color: $primary-open-sky-s2;
+    font-size: 21px;
+    font-family: "Open Sans";
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 30px;
 }
 .homepage-section-subheading-link {
     color: $primary-open-sky-s2;
@@ -583,11 +603,11 @@
     font-family: "Open Sans";
     font-weight: 700;
     text-decoration: none;
+    margin-bottom: 30px;
 
     &:hover {
         text-decoration: underline;
     }
-
 }
 .homepage-section-subtext {
     color: $primary-open-sky-s3;
@@ -605,14 +625,15 @@
 .community_icon_left_card_layout {
     max-width: 800px;
     position: relative;
-    
+    border-top-left-radius: 25px;
+
     &::after {
         content: "";
         position: absolute;
         height: 6px;
         width: 100%;
         background-color: $primary-open-sky-s2;
-        bottom: -6px;
+        bottom: 0px;
         left: 0;
     }
 
@@ -691,6 +712,11 @@
             margin: 30px;
             width: 100px;
             height: 100px;
+
+            .icon-homepage-community-withSurroundingCircle {
+                width: 115px;
+                height: 115px;
+            }
         }
         .card-title {
             color: $primary-open-sky-s2;
@@ -735,11 +761,7 @@
     .card-icon {
         justify-content: center;
     }     
-    // .card-title {
-    //     &:hover {
-    //         text-decoration: underline;
-    //     }        
-    // } 
+
 }
 
 
@@ -757,7 +779,6 @@
     &:focus {
         box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
     } 
-}
 
 
 // COLORS

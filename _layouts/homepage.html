@@ -40,29 +40,31 @@ layout: default
             <div class="col">
                 <div class="card card-horizontallystacked-icon community_icon_left_card_layout rounded-1 ">
                     <div class="row">
-                        <div class="col-4 my-auto">
-                            <div class="div ms-3 m-md-4 ">
+
+
+                        <div class="col-4 my-auto pe-0">
+                            <div class="div m-3 m-lg-4">
                                 <img src="{{capability_card.Icon }}" class="img-fluid card-icon" alt="{{ capability_card.Name }} icon">
                             </div>
-                            
                         </div>
-                        <div class="col-8 p-0">
-                            <div class="card-body flex-column ms-0">
-                                <!-- <div class="capability_card_title" >{{ capability_card.Name }}</div> -->
-                                <a href="{{ capability_card.URL }}" class="stretched-link capability_card_title">{{ capability_card.Name }}</a>
-                                <p class="capability_card_text mb-auto">{{ capability_card.Subtext }}</p>
-                                
 
-                                <div class="row">
-                                    {% for sub_nav_link in capability_card.SubNav %}
-                                        <div class="col-auto">
-                                            <a href="{{sub_nav_link.URL}}" class="capability_card_link p-2">{{sub_nav_link.Name}}</a>
-                                        </div>
-                                    {% endfor %}
-                                </div>
 
-                                
+                        <div class="col-8 d-flex align-items-start flex-column m-0 py-3 ps-0">
+
+                            <a href="{{ capability_card.URL }}" class="stretched-link capability_card_title">{{ capability_card.Name }}</a>
+                            <p class="capability_card_text flex-grow-1 me-2">{{ capability_card.Subtext }}</p>
+                            
+
+                            <div class="row mt-auto">
+                                {% for sub_nav_link in capability_card.SubNav %}
+                                    <div class="col-auto">
+                                        <a href="{{sub_nav_link.URL}}" class="capability_card_link p-1 p-lg-3">{{sub_nav_link.Name}}</a>
+                                    </div>
+                                {% endfor %}
                             </div>
+
+                                
+
                         </div>
                     </div>
 
@@ -80,18 +82,20 @@ layout: default
 <!-- PLATFORM -->
 {% assign homepage_platform_dataObject = site.data.homepage_datafile.Platform  %}
 <div class="container mb-5 px-3">
-    <h2 class="homepage-section-heading">{{ homepage_platform_dataObject.Title }}</h2>
 
+
+
+
+    <div class="mb-3">
+        <a href="{{ homepage_platform_dataObject.URL }}" class="homepage-section-heading-link">{{ homepage_platform_dataObject.Title }}</a>
+    </div>
+    
     <!-- ICON AND SUBHEADING -->
-    <div class="row">
+    <div class="row mb-3">
         <div class="col d-flex align-items-start">
 
-            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-start flex-shrink-0 me-3 my-auto">
-                {% include icons_navbar.html type=homepage_platform_dataObject.Icon %} 
-            </div>
-
-
-            <a class="homepage-section-subheading-link">{{ homepage_platform_dataObject.SubHeader }}</a>
+            <img src="{{homepage_platform_dataObject.IconPath}}" alt="OpenSearch {{homepage_platform_dataObject.Title}}" class="iconography icon-div-box me-3 d-none d-lg-block">
+            <span class="homepage-section-subheading my-auto">{{ homepage_platform_dataObject.SubHeader }}</span>
 
         </div>
     </div>
@@ -102,6 +106,11 @@ layout: default
     <div class="d-block d-lg-none mb-5">
         <img src="{{ homepage_platform_dataObject.PathPlatformImageMobile}}" class="homepage-banner" alt="Platform banner">
     </div>
+
+
+
+
+
 </div>
 
 
@@ -127,7 +136,7 @@ layout: default
                         <div class="col d-flex flex-column align-items-center gap-2">
                             <div class="card card-verticallystacked-icon homepage-community-icon-card">
  
-                                <img src="{{community_icon.IconPath}}" alt="OpenSearch {{community_icon.Name}}" class="iconography card-icon">
+                                <img src="{{community_icon.IconPath}}" alt="OpenSearch {{community_icon.Name}}" class="iconography card-icon {{community_icon.ClassValue}}">
                                 <span class="card-title">{{ community_icon.Name }}</span>
                                 <a href="{{ community_icon.URL }}" class="stretched-link"></a>
 
@@ -158,9 +167,9 @@ layout: default
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-5 py-5">
         {% for OSC_card in homepage_OSC_dataObject.Conferences %}
             <div class="col">
-                <div class="card homepage-opensearchcon-gallary-card card-fullimageoverlay rounded-2">
+                <div class="card homepage-opensearchcon-gallary-card card-fullimageoverlay rounded-1">
 
-                    <img src="{{ OSC_card.Image }}" class="rounded-2" alt="{{ OSC_card.Title }}">
+                    <img src="{{ OSC_card.Image }}" class="rounded-1" alt="{{ OSC_card.Title }}">
                     <a href="{{ OSC_card.URL }}" class="stretched-link"></a>
 
                 </div>

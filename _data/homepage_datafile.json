@@ -78,8 +78,8 @@
     },    
     "Platform": {
         "Title": "OpenSearch Platform",
-        "SubHeader": "Build freely with OpenSearch’s integrated components",
-        "Icon": "OpenSearch-Platform-condensedImage",
+        "SubHeader": "Build freely with OpenSearch's integrated components",
+        "IconPath": "/assets/img/iconography/OpenSearch-Platform.png",
         "URL": "/platform/",
         "PathPlatformImageDesktop": "/assets/img/homepage-assets/Banner_Platform_Desktop.png", 
         "PathPlatformImageMobile": "/assets/img/homepage-assets/Banner_Platform_Mobile.png"        
@@ -91,27 +91,32 @@
             {
                 "Name": "Forum",
                 "IconPath": "/assets/img/iconography/OpenSearch-Community.png",
-                "URL": "https://forum.opensearch.org/"
+                "URL": "https://forum.opensearch.org/",
+                "ClassValue": "icon-homepage-community-withSurroundingCircle"
             },
             {
                 "Name": "Events",
                 "IconPath": "/assets/img/iconography/OpenSearch-Events.png",
-                "URL": "/events/"
+                "URL": "/events/",
+                "ClassValue": "icon-homepage-community-withSurroundingCircle"
             },
             {
                 "Name": "Blog",
                 "IconPath": "/assets/img/iconography/OpenSearch-Forum.png",
-                "URL": "/blog/"
+                "URL": "/blog/",
+                "ClassValue": "icon-homepage-community-withSurroundingCircle"
             },
             {
                 "Name": "Github",
                 "IconPath": "/assets/img/iconography/OpenSearch-Github.png",
-                "URL": "https://github.com/opensearch-project"
+                "URL": "https://github.com/opensearch-project",
+                "ClassValue": "icon-homepage-community-socialLink"
             },
             {
                 "Name": "Slack",
                 "IconPath": "/assets/img/iconography/OpenSearch-Slack.png",
-                "URL": "/slack.html"
+                "URL": "/slack.html",
+                "ClassValue": "icon-homepage-community-socialLink"
             }
         ]
     },      
