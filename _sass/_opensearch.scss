@@ -551,14 +551,15 @@
 .homepage-hero-heading-background-container {
     position: fluid;
 }
+
+
 .homepage-hero-heading {
     color: $primary-open-sky-s2;
-    font-size: 80px;
+    // font-size: 80px;
     font-family: "Open Sans";
-    font-weight: 900;
+    font-weight: 1000;
     word-wrap: break-word;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-
 }
 .homepage-hero-subtext {
     color: $primary-open-sky-s3;
@@ -569,35 +570,196 @@
     word-wrap: break-word;
 }
 
+// SHARED
+.homepage-section-heading {
+    color: $primary-open-sky-s3;
+    font-size: 30px;
+    font-family: "Open Sans condensed";
+    font-weight: 700;
+    margin-bottom: 30px;
 
-// OpenSearchCon
+}
+.homepage-section-subheading-link {
+    color: $primary-open-sky-s2;
+    font-size: 21px;
+    font-family: "Open Sans";
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+}
+.homepage-section-subtext {
+    color: $primary-open-sky-s3;
+    font-size: 21px;
+    font-family: "Open Sans";
+    font-weight: 400;
+    line-height: 36px;
+    word-wrap: break-word; 
+}
+
+
+
+
+// CAPABILITIES
+.community_icon_left_card_layout {
+    max-width: 800px;
+    position: relative;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background-color: $primary-open-sky-s2;
+        bottom: -6px;
+        left: 0;
+    }
+
+    .capability_card_title {
+        color: $primary-open-sky-s1;
+        font-size: 24px;
+        font-family: "Open Sans";
+        font-weight: 700;
+        line-height: 36px;
+        justify-content: flex-start;
+        word-wrap: normal;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .capability_card_text {
+        color: $secondary-sanfrancisco-fog-s4;
+        font-size: 18px;
+        font-family: "Open Sans";
+        font-weight: 400;
+        word-wrap: break-word;
+
+        text-align: start;
+        line-height: 27px;
+    }
+    .capability_card_link {
+        color: $secondary-sanfrancisco-fog-s5;
+        font-size: 15px;
+        font-family: "Open Sans";
+        font-weight: 400;
+        word-wrap: normal;
+        text-align: start;
+        text-decoration: none;
+
+        z-index: 2;
+        position: relative;
+        &:hover {
+
+            color: $primary-open-sky;
+            text-decoration: underline;
+
+        }
+    }
+    .card-icon {
+        border-top-left-radius: 10px;
+    } 
+}
+
+
+// PLATFORM
+.homepage-banner {
+    max-width: 100%;
+    height: auto;
+}
+
+
+// COMMUNITY 
+.homepage-community-section-wrapper {
+    background-color: $primary-pacific-sky-t3;
+    // background-image: linear-gradient(180deg, var(--bs-secondary-bg), var(--bs-body-bg) 100px, var(--bs-body-bg));
+
+
+    .homepage-section-subtext {
+        line-height: 44px;
+    }
+
+    .homepage-community-icon-card {
+
+        background-color: $primary-pacific-sky-t3;
+        text-decoration-color: $primary-open-sky-s2 !important; 
+
+
+        .card-icon {
+            justify-content: center;
+            margin: 30px;
+            width: 100px;
+            height: 100px;
+        }
+        .card-title {
+            color: $primary-open-sky-s2;
+            text-decoration-color: $primary-open-sky-s2; 
+            font-size: 21px;
+            font-family: 'Open Sans';
+            font-weight: 700;
+            line-height: 36px;
+            word-wrap: break-word;
+        }
+    }
+}
+
+
+
+
+
+
+
+// OPEN SEARCH CON
 .homepage-opensearchcon-gallary-card {
-    height: 300px;
     object-fit: cover;
 }
 
 
-// OLD 
-// .homepage-hero-banner-container {
-//     object-fit: cover;
-//     overflow: hidden;
-//     position: relative;
-//     height: 500px;
 
-// }
 
-// .homepage-hero-banner {
-//     object-fit: cover;
-//     position: left;
-//     height: 100%;
-//     min-height: 300px;
-//     width: 130%; 
-// }
+// COMPONENTS
+.card-verticallystacked-icon {
+    background-color: inherit;
+    border: none; 
+    align-items: center;
+ 
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+        text-decoration: underline;
+        text-decoration-color: inherit; 
+    } 
 
-// .homepage-hero-heading-container {
-//     position: fluid;
-// }
+    .card-icon {
+        justify-content: center;
+    }     
+    // .card-title {
+    //     &:hover {
+    //         text-decoration: underline;
+    //     }        
+    // } 
+}
 
+
+.card-horizontallystacked-icon {
+    background-color: none;
+    border: none;  
+    box-shadow: 4px 4px 12px 1px rgba(0, 0, 0, 0.25);
+}
+
+.card-fullimageoverlay {
+    width: 100%;
+
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    } 
+}
 
 
 // COLORS

@@ -2,7 +2,7 @@
 {
 
     "Hero": {
-        "Title": "Find the meaning in your data",
+        "Title": "Find the meaning <br>in your data",
         "SubText": "OpenSearch is an open-source, enterprise-grade search and observability suite that brings order to unstructured data at scale",
         "PathHeroImageDesktop": "/assets/img/homepage-assets/Banner_HomePage_Hero_Desktop.png", 
         "PathHeroImageMobile": "/assets/img/homepage-assets/Banner_HomePage_Hero_Desktop.png"          
@@ -11,8 +11,8 @@
         "Title": "OpenSearch Capabilities",
         "Categories": [
             {
-                "Name": "AI/ML Tooling",
-                "Subtext": "Utilize cutting-edge advances in search in your AI/ML applications.",
+                "Name": "Machine Learning and AI",
+                "Subtext": "Use AI/ML tools to create cutting-edge applications",
                 "URL": "/blog/opensearch-ai-retrospective/",
                 "Icon": "/assets/img/homepage-assets/Icon_ML_Tooling.png",
                 "SubNav": [
@@ -21,13 +21,13 @@
                         "URL": "/platform/search/vector-database.html"
                     },
                     {
-                        "Name": "Anomaly Detection",
+                        "Name": "Natural Language Search",
                         "URL": "/docs/latest/observing-your-data/ad/index/"
                     }
                 ]
             },
             {
-                "Name": "Lexical Search",
+                "Name": "Search",
                 "Subtext": "Build smarter, more efficient search solutions for your applications.",
                 "URL": "/platform/search/index.html",
                 "Icon": "/assets/img/homepage-assets/Icon_Lexical_Search.png",
@@ -79,49 +79,45 @@
     "Platform": {
         "Title": "OpenSearch Platform",
         "SubHeader": "Build freely with OpenSearch’s integrated components",
-        "Icon": "OpenSearch-Community-DrawerIcon-condensedImage",
+        "Icon": "OpenSearch-Platform-condensedImage",
         "URL": "/platform/",
         "PathPlatformImageDesktop": "/assets/img/homepage-assets/Banner_Platform_Desktop.png", 
-        "PathPlatformImageMobile": "/assets/img/homepage-assets/Banner_Platform_Desktop.png"        
+        "PathPlatformImageMobile": "/assets/img/homepage-assets/Banner_Platform_Mobile.png"        
     },      
     "Community": {
         "Title": "Join the OpenSearch Community!",
-        "SubText": "OpenSearch is a proud open search project licensed under Apache 2.0 and is a part of the Linux Foundation. Our worldwide community of contributors are the builders who make OpenSearch so powerful. Explore how you can contribute!",
+        "SubText": "The OpenSearch Community has been at the center of OpenSearch since the very beginning. Community members actively participate in building the future of OpenSearch and help each other out every day. Explore our collaboration sites, post questions and answers, and lend support to the community.",
         "SubNav": [
             {
                 "Name": "Forum",
-                "Icon": "OpenSearch-Members-condensedImage",
+                "IconPath": "/assets/img/iconography/OpenSearch-Community.png",
                 "URL": "https://forum.opensearch.org/"
             },
             {
                 "Name": "Events",
-                "Icon": "OpenSearch-Events-condensedImage",
+                "IconPath": "/assets/img/iconography/OpenSearch-Events.png",
                 "URL": "/events/"
             },
             {
                 "Name": "Blog",
-                "Icon": "OpenSearch-Forum-condensedImage",
+                "IconPath": "/assets/img/iconography/OpenSearch-Forum.png",
                 "URL": "/blog/"
             },
             {
                 "Name": "Github",
-                "Icon": "OpenSearch-Github-condensedImage",
+                "IconPath": "/assets/img/iconography/OpenSearch-Github.png",
                 "URL": "https://github.com/opensearch-project"
             },
             {
                 "Name": "Slack",
-                "Icon": "OpenSearch-Slack-condensedImage",
+                "IconPath": "/assets/img/iconography/OpenSearch-Slack.png",
                 "URL": "/slack.html"
-            },
-            {
-                "Name": "",
-                "URL": "#"
             }
         ]
     },      
     "OpenSearchCon": {
         "Title": "OpenSearchCon User Conferences",
-        "SubText": "OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. In 2024, we hosted three OpenSearchCon in Berlin, Bengaluru, and San Francisco. Find a conference happening near you!",
+        "SubText": "OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. In 2024, we hosted three OpenSearchCon in Berlin, Bengaluru, and San Francisco. Find a conference happening near you!",
         "Conferences": [
             {
                 "Name": "North America",

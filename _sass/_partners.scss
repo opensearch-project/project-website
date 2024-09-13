@@ -10,7 +10,7 @@
     display: block;
   }
   
-  .card {
+  .partner-card {
     min-width: 250px;
     -webkit-box-shadow: 0 0 3px rgba(0,0,0,.25);
     box-shadow: 0 0 3px rgba(0,0,0,.25);
@@ -22,7 +22,7 @@
     }
   }
 
-  .card-body {
+  .partner-card-body {
     flex: 1;
     display: flex;
     flex-direction: column;

@@ -8,277 +8,169 @@ layout: default
 
 {% assign homepage_hero_dataObject = site.data.homepage_datafile.Hero  %}
 <!-- DESKTOP HERO -->
-<div class="container-fluid homepage-hero-banner-background-wrapper px-0">
+<div class="container-fluid homepage-hero-banner-background-wrapper d-none d-lg-block px-0 mb-5">
     <div class="container homepage-hero-heading-background-container">
-        <div class="row flex-xl-row align-items-center my-5 py-5 ms-5">
-            <div class="col-xl-7">
-                <h1 class="homepage-hero-heading pe-5">{{ homepage_hero_dataObject.Title }}</h1>
-                <p class="homepage-hero-subtext">{{ homepage_hero_dataObject.SubText }}</p>
+        <div class="row flex-xl-row align-items-center my-5 py-5">
+            <div class="col-lg-11 col-xl-10 col-xxl-8">
+                <h1 class="homepage-hero-heading display-1 pe-5">{{ homepage_hero_dataObject.Title }}</h1>
+                <p class="homepage-hero-subtext display-5">{{ homepage_hero_dataObject.SubText }}</p>
             </div>
         </div>
     </div>
 </div>
 <!-- MOBILE HERO -->
+<div class="container-fluid homepage-hero-banner-background-mobile-wrapper d-block d-lg-none mb-5">
+    <div class="container homepage-hero-heading-background-container">
+        <div class="row flex-xl-row align-items-center m-4 py-5">
+            <div class="col">
+                <h1 class="homepage-hero-heading display-1 pe-5">{{ homepage_hero_dataObject.Title }}</h1>
+                <p class="homepage-hero-subtext">{{ homepage_hero_dataObject.SubText }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CAPABILITIES -->
+{% assign homepage_capabilities_dataObject = site.data.homepage_datafile.Capabilities  %}
+<div class="container mb-5 px-3">
+    <h2 class="homepage-section-heading">{{ homepage_capabilities_dataObject.Title }}</h2>
+
+    <div class="row row-cols-1 row-cols-lg-2 g-4"> 
+        {% for capability_card in homepage_capabilities_dataObject.Categories %}
+
+            <div class="col">
+                <div class="card card-horizontallystacked-icon community_icon_left_card_layout rounded-1 ">
+                    <div class="row">
+                        <div class="col-4 my-auto">
+                            <div class="div ms-3 m-md-4 ">
+                                <img src="{{capability_card.Icon }}" class="img-fluid card-icon" alt="{{ capability_card.Name }} icon">
+                            </div>
+                            
+                        </div>
+                        <div class="col-8 p-0">
+                            <div class="card-body flex-column ms-0">
+                                <!-- <div class="capability_card_title" >{{ capability_card.Name }}</div> -->
+                                <a href="{{ capability_card.URL }}" class="stretched-link capability_card_title">{{ capability_card.Name }}</a>
+                                <p class="capability_card_text mb-auto">{{ capability_card.Subtext }}</p>
+                                
+
+                                <div class="row">
+                                    {% for sub_nav_link in capability_card.SubNav %}
+                                        <div class="col-auto">
+                                            <a href="{{sub_nav_link.URL}}" class="capability_card_link p-2">{{sub_nav_link.Name}}</a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
 
 
-<div class="container px-4 py-5">
-    <h2 class="pb-2 border-bottom">OpenSearch Capabilities</h2>
+                </div>
+            </div>
+
+
+
+
+        {% endfor %}
+    </div>
 </div>
 
-
+<!-- PLATFORM -->
 {% assign homepage_platform_dataObject = site.data.homepage_datafile.Platform  %}
-<div class="container mb-5">
+<div class="container mb-5 px-3">
     <h2 class="homepage-section-heading">{{ homepage_platform_dataObject.Title }}</h2>
 
     <!-- ICON AND SUBHEADING -->
     <div class="row">
         <div class="col d-flex align-items-start">
-            <div class="col-2 d-inline-flex">
-                <div class="col-3 px-0 ms-4 me-0 pt-3 icon-div-box-mobile">
-                    {% include icons_navbar.html type=homepage_platform_dataObject.Icon %} 
-                </div>
+
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-start flex-shrink-0 me-3 my-auto">
+                {% include icons_navbar.html type=homepage_platform_dataObject.Icon %} 
             </div>
-            <div class="col-auto">
-                <h3 class="homepage-section-subheading">{{ homepage_platform_dataObject.SubHeader }}</h3>
-            </div>
+
+
+            <a class="homepage-section-subheading-link">{{ homepage_platform_dataObject.SubHeader }}</a>
+
         </div>
     </div>
     <!-- BANNER -->
-    <div class="homepage-banner px-5">
-        <img src="{{ homepage_platform_dataObject.PathPlatformImageDesktop}}" class="img-fluid" alt="Platform banner">
+    <div class="d-none d-lg-block mb-5">
+        <img src="{{ homepage_platform_dataObject.PathPlatformImageDesktop}}" class="homepage-banner" alt="Platform banner">
+    </div>
+    <div class="d-block d-lg-none mb-5">
+        <img src="{{ homepage_platform_dataObject.PathPlatformImageMobile}}" class="homepage-banner" alt="Platform banner">
     </div>
 </div>
 
-<div class="container px-4 py-5">
-    <h2 class="pb-2 border-bottom">Join the OpenSearch Community!</h2>
-</div>
 
+<!-- COMMUNITY -->
+{% assign homepage_community_dataObject = site.data.homepage_datafile.Community  %}
+<div class="container-fluid homepage-community-section-wrapper py-3 mb-5">
+    <div class="container px-3">
 
+        <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5">
 
-
-
-
-
-<div class="container px-4 py-5" id="custom-cards">
-    <h2 class="pb-2 border-bottom">OpenSearchCon User Conferences</h2>
-    <p class="text-body-secondary">OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by our community. In 2024, we hosted three OpenSearchCon in Berlin, Bengaluru, and San Francisco. Find a conference happening near you!</p>
-    
-    
-    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-      <div class="col">
-        <div class="card card-cover homepage-opensearchcon-gallary-card rounded-4 shadow-md" style="background-image: url('/assets/img/hero-banners/OSC2024_NA_herobanner.png');">
-
-        </div>
-      </div>
-
-
-
-      <div class="col">
-        <div class="card card-cover homepage-opensearchcon-gallary-card rounded-4 shadow-md" style="background-image: url('/assets/img/hero-banners/OSC2024_India_herobanner.png');">
-
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card card-cover homepage-opensearchcon-gallary-card rounded-4 shadow-lmd" style="background-image: url('/assets/img/hero-banners/OSC2024_Europe_herobanner.png');">
-
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-
-
-
-
-<!-- <div class="container-fluid homepage-hero-banner-container px-0">
->
-    <div class="col-lg-6 homepage-hero-heading-container">
-
-
-        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-        
-    
-        </div>
-    </div>
-
-
-    <img class="homepage-hero-banner px-0" src="/assets/img/hero-banners/hero-banner-03.png" alt="OpenSearch hero background" />
-
-    <div class="row align-items-center gy-6">
-        <div class="col-lg-5 col">
-            <div class="d-flex flex-column">
-                <h1 class="homepage-hero-heading">FIND THE TRUTH IN YOUR DATA</h1>
-
-                <h2 class="">FIND THE TRUTH IN YOUR DATA</h2>
+            <!-- LEFT -->
+            <div class="col d-flex flex-column align-items-start gap-2">
+                <h2 class="homepage-section-heading">{{ homepage_community_dataObject.Title }}</h2>
+                <p class="homepage-section-subtext">{{ homepage_community_dataObject.SubText }}</p>
             </div>
 
+            <!-- RIGHT -->
+            <div class="col mx-0">
 
-        </div>
+                <div class="row row-cols-2 row-cols-lg-3 g-3 g-lg-5">
 
-    </div> 
-    
+                    {% for community_icon in homepage_community_dataObject.SubNav %}
+                        <div class="col d-flex flex-column align-items-center gap-2">
+                            <div class="card card-verticallystacked-icon homepage-community-icon-card">
+ 
+                                <img src="{{community_icon.IconPath}}" alt="OpenSearch {{community_icon.Name}}" class="iconography card-icon">
+                                <span class="card-title">{{ community_icon.Name }}</span>
+                                <a href="{{ community_icon.URL }}" class="stretched-link"></a>
 
-
-
-</div> -->
-
-
-
-
-<!-- 
-<main class="container">
-
-    <div class="homepage-wrapper page-with-hero">
-        <div class="landing-page-hero-wrapper">
-            {% include hero-with-headline.html show_arrows=true show_pagination=true items=site.redesign_heros carousel_id="redesign_top_hero_carousel" arrow_color="white" %}
-        </div>
-        <div class="landing-page-content__right-panel">
-            <div class="landing-page-content__right-panel--content">
-                <div class="landing-page-content__right-panel--content--body">
-                    {{ content }}
-                </div>
-                <div class="landing-page-content__right-panel--content--side-panel">
-                    <div class="draft-3-landing-page--button-stack">
-                        {% for button in page.button_stack %}
-                            <div class="draft-3-landing-page--button-stack--button">
-                                {% include redesign_buttons.html name=button %}
                             </div>
-                        {% endfor %}
-                    </div>
-                    <div class="landing-page-content__right-panel--content-side-panel--version-label">
-                        {% assign the_version = site.versions | sort_versions: 'version_sort' | last %}
-                        Current Version: {{ the_version.version }} / {{ the_version.date | date: "%b %d, %Y" }}
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% include callout-cards.html heading="Build on a flexible foundation with open-source tools" callouts=page.callouts cta_label="Learn About the Platform" cta_url="/platform/index.html" %}
-        {% include card-clickability.html card_container_selector=".homepage-wrapper > .solutions-card-grid > .solutions-card-grid--card-wrapper" card_classname="solutions-card-grid--card-wrapper--card" %}
-        {% include interactive-states.html container_selector=".solutions-card-grid--call-to-action" element_classname="link-button" %}
-        <div class="platform-landing-page--community-voices-wrapper">
-            {% include community_voices_carousel.html %}
-        </div>
-        <div class="landing-page-solutions--hero-3up">
-            <div>
-                <h2>Featured Blog Posts</h2>
-            </div>
-            <div class="landing-page-solutions--hero-3up--hero">
-                {% assign first_post = site.posts[0] %}
-                {% assign first_post_featured_image = first_post.featured_image %}
-                {% if first_post.categories and first_post.categories.first %}
-                    {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
-                    {% assign first_post_category = first_post.categories | first %}
-                {% elsif first_post.categories %}
-                    {% comment %} Sometimes posts have a categories property that is only a single string. {% endcomment %}
-                    {% assign first_post_category = first_post.categories %}
-                {% elsif first_post.category %}
-                    {% comment %} Sometimes posts have a category property, and at this time all 11 of them are arrays. {% endcomment %}
-                    {% assign first_post_category = first_post.category | first %}
-                {% else %}
-                    {% comment %} If no category is defined apply a generic default. {% endcomment %}
-                    {% assign first_post_category = "post" %}
-                {% endif %}
-                {% assign first_post_icon = site.data.post_category_icons.icon_map | find: "category", first_post_category %}
-                {% if post_icon %}
-                    {% assign first_post_icon_name = post_icon.icon %}
-                {% else %}
-                    {% assign first_post_icon_name = site.data.post_category_icons.default_post_icon %}
-                {% endif %}
-                {% assign first_post_date = first_post.date | date: "%a, %b %d, %Y" %}
-                {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
-                {% assign first_post_category = first_post_category | replace: "-", " " %}
-                {% unless first_post_category == 'news' or first_post_category == 'releases' %}
-                    {% assign category_chars = first_post_category | split: "" %}
-                    {% assign last_category_char = category_chars | last %}
-                    {% if last_category_char == "s" %}
-                        {% assign new_category_length = category_chars | size | minus: 1 %}
-                        {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
-                        {% assign first_post_category = new_category_chars | join: "" %}
-                    {% endif %}
-                {% endunless %}
-                <div class="landing-page-solutions--hero-3up--hero--image">
-                    <img src="/assets/img/blog-hero-placeholder.png" 
-                        alt="Featured Image for {{ first_post.title }}">
-                </div>
-                <div class="landing-page-solutions--hero-3up--hero--preview">
-                    <div class="landing-page-solutions--hero-3up--hero--preview--category">
-                        {{ first_post_category }}
-                    </div>
-                    <div class="landing-page-solutions--hero-3up--hero--preview--title">
-                        <h3><a href="{{ first_post.url }}">{{ first_post.title }}</a></h3>
-                    </div>
-                    <div class="landing-page-solutions--hero-3up--hero--preview--excerpt">
-                        {% comment %} The use of markdownify is necessary to properly format a blog post that has an
-                                      excplicit value for excerpt specified in its Front Matter.
-                        {% endcomment %}
-                        {{ first_post.excerpt | markdownify }}
-                    </div>
-                    <div class="landing-page-solutions--hero-3up--hero--preview--footer">
-                        <div class="landing-page-solutions--hero-3up--hero--preview--footer--icon">
-                            {% include icons.html type=first_post_icon_name %}
                         </div>
-                        <div class="landing-page-solutions--hero-3up--hero--preview--footer--date">
-                            {{ first_post_date }}
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
+
             </div>
-            {% include card-clickability.html card_container_selector=".landing-page-solutions--hero-3up" card_classname="landing-page-solutions--hero-3up--hero" %}
-            <div class="landing-page-solutions--hero-3-up--3up solutions-card-grid">
-                <div class="tall-card__no-image--grid solutions-card-grid--card-wrapper">
-                    {% for i in (0..6) -%}
-                        {%- assign post = site.posts[i] -%}
-                        {% if post.categories and post.categories.first %}
-                            {% comment %} Usually posts have a categories property that is an array. {% endcomment %}
-                            {% assign category = post.categories | first %}
-                        {% elsif post.categories %}
-                            {% comment %} Sometimes posts have a categories property that is only a single string. {% endcomment %}
-                            {% assign category = post.categories %}
-                        {% elsif post.category %}
-                            {% comment %} Sometimes posts have a category property, and at this time all 11 of them are arrays. {% endcomment %}
-                            {% assign category = post.category | first %}
-                        {% else %}
-                            {% comment %} If no category is defined apply a generic default. {% endcomment %}
-                            {% assign category = "post" %}
-                        {% endif %}
-                        {% assign post_icon = site.data.post_category_icons.icon_map | find: "category", category %}
-                        {% if post_icon %}
-                            {% assign icon_name = post_icon.icon %}
-                        {% else %}
-                            {% assign icon_name = site.data.post_category_icons.default_post_icon %}
-                        {% endif %}
-                        {% assign post_date = post.date | date: "%a, %b %d, %Y" %}
-                        {% comment %} Format the category as a singular, with any hyphens replaced with spaces. {% endcomment %}
-                        {% assign category = category | replace: "-", " " %}
-                        {% unless category == 'news' or category == 'releases' %}
-                            {% assign category_chars = category | split: "" %}
-                            {% assign last_category_char = category_chars | last %}
-                            {% if last_category_char == "s" %}
-                                {% assign new_category_length = category_chars | size | minus: 1 %}
-                                {% assign new_category_chars = category_chars | slice: 0, new_category_length %}
-                                {% assign category = new_category_chars | join: "" %}
-                            {% endif %}
-                        {% endunless %}
-                        {% include tall-card-no-image.html
-                            category=category
-                            title=post.title
-                            url=post.url
-                            icon=icon_name
-                            date=post_date
-                        %}
-                    {%- endfor -%}
-                </div>
-                <div class="resource-grid--more">
-                    <div class="link-button">
-                        <a href="/blog">View All Blog Posts</a>
-                    </div>
-                </div>
-            </div>
+
         </div>
+
     </div>
-</main>
-{% include interactive-states.html container_selector=".resource-grid--more" element_classname="link-button" %}
-{% include card-clickability.html card_container_selector=".landing-page-solutions--hero-3up .tall-card__no-image--grid" card_classname="tall-card__no-image--grid--card" %} -->
+</div>
+
+
+
+
+
+<!-- OPEN SEARCH CONS -->
+{% assign homepage_OSC_dataObject = site.data.homepage_datafile.OpenSearchCon  %}
+<div class="container mb-5 px-3">
+    <h2 class="homepage-section-heading ">{{ homepage_OSC_dataObject.Title }}</h2>
+    <p class="homepage-section-subtext">{{ homepage_OSC_dataObject.SubText }}</p>
+    
+    
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-5 py-5">
+        {% for OSC_card in homepage_OSC_dataObject.Conferences %}
+            <div class="col">
+                <div class="card homepage-opensearchcon-gallary-card card-fullimageoverlay rounded-2">
+
+                    <img src="{{ OSC_card.Image }}" class="rounded-2" alt="{{ OSC_card.Title }}">
+                    <a href="{{ OSC_card.URL }}" class="stretched-link"></a>
+
+                </div>
+            </div>
+        {% endfor %}
+
+
+
+    </div>
+
+
+</div>
+
