@@ -63,4 +63,4 @@ linkedin: lucas-jeanniot
 #  url: https://mastodon.social/@mastodonusername
 #  name: mastodonusername
 ---
-Lucas is aMachine Learning engineer, driven by curiosity and a passion for data analysis, he enjoys the challenge of crafting efficient algorithms and refining data pipelines to make sense of complex information. With a focus on practical applications, Lucas enjoys leveraging technology to optimize processes and improve decision-making in data, text, audio, and image applications. In his spare time, Lucas enjoys painting tabletop models and video games. 
+Lucas is a machine learning engineer. Driven by curiosity and a passion for data analysis, he enjoys the challenge of crafting efficient algorithms and refining data pipelines to make sense of complex information. With a focus on practical applications, Lucas enjoys leveraging technology to optimize processes and improve decision-making in data, text, audio, and image applications. In his spare time, Lucas enjoys painting tabletop models and playing video games. 
