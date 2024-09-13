@@ -49,7 +49,7 @@ In summary, rank normalization is a critical component in hybrid search systems,
 
 ## 2. L2 normalization technique
 
-### Introduction to the L2 normalization technique: 
+### Introduction to the L2 normalization technique:
 
 L2 normalization, also known as Euclidean normalization, is a method used to adjust scores by scaling them in relation to the Euclidean distance of the vector of all scores. This technique ensures that the magnitude of the scores is normalized, providing a consistent scale for comparing different scores. It is particularly useful in hybrid search systems, where scores from multiple sub-queries need to be harmonized.
 
