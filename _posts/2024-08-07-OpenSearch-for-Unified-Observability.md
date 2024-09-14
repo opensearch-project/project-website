@@ -16,7 +16,7 @@ Explore how OpenSearch offers a unified observability solution for platform team
 
 Most organizations today are implementing shared services or platforms when it comes to common building blocks to make developers more productive. This offers many benefits to the development teams and enables better technology along with compliance and integrations without using the time of development teams. These are meant to help productivity and provide the right developer experience. 
 
-Platform teams have many choices for Observability, which is one component of a platform team. Most platform teams select open source most often, at least as part of the service offering they are creating for internal teams. The challenge with open source Observability is that most solutions require several data stores and user experiences. This makes the developer experience difficult and can make it even harder on the platform team who has to manage the lifecycle of the services. This not only includes provisioning, but also data management (backup, scaling, etc.) along with upgrades, which can be a challenge. 
+Platform teams have many choices for Observability, which is one component of a platform team. Most platform teams select open source most often, at least as part of the service offering they are creating for internal teams. The challenge with open source Observability is that most solutions require several data stores and user experiences. This makes the developer experience difficult and can make it even harder on the platform team who has to manage the lifecycle of the services. This not only includes provisioning, but also data management including backups and scaling the cluster. Don't forget the lifecycle of the software stack including upgrades. Needless to say this is a challenge. 
 
 ## Implications of Open Source
 
@@ -28,7 +28,7 @@ OpenSearch provides a path forward which can be strategic, especially as the pro
 
 ## Analysis using multiple interfaces
 
-OpenSearch is not only a database, but the powerful OpenSearch Dashboards allows the user to analyze observability data, namely logs and traces. In Jaeger (a project I am one of the maintainers of) we are working on some derived metrics on OpenSearch, but this is one weak spot for the database. I would not suggest doing high scale metrics on OpenSearch as It’s not suited for time series data. However, OpenSearch integrates with popular metric systems such as Prometheus, which is a better path forward for widespread use of metrics. 
+OpenSearch is not only a database, but the powerful OpenSearch Dashboards allows the user to analyze observability data, namely logs and traces. In Jaeger (a project I am one of the maintainers of) we are working on some derived metrics on OpenSearch, but this is one weak spot for the database. I would not suggest doing high scale metrics on OpenSearch as it’s not suited for time-series data. However, OpenSearch integrates with popular metric systems such as Prometheus, which is a better path forward for widespread use of metrics. 
 
 Although OpenSearch Dashboards is not as good as some other time series analysis tools such as Grafana, it doesn’t mean you can’t use both. Keep in mind that OpenSearch will never change licenses from its current Apache 2 license. This is not the case with other tools that are open source, but not part of software foundations such as the Apache Software Foundation, The Linux Foundation (LF) or the CNCF which is a sub-foundation of LF. 
 
