@@ -153,10 +153,7 @@ layout: default
         </div>
     </div>
     
-    
-    
-    
-    
+
     <!-- OPEN SEARCH CONS -->
     {% assign homepage_OSC_dataObject = site.data.homepage_datafile.OpenSearchCon  %}
     <div class="container mb-5 px-5">
@@ -181,6 +178,42 @@ layout: default
         </div>
     
     
+    </div>
+
+    <!-- FOUNDATION -->
+    {% assign homepage_foundation_dataObject = site.data.homepage_datafile.Foundation  %}
+    <div class="container-fluid homepage-foundation-section-wrapper py-3 px-5">
+        <div class="container homepage-foundation-content-container py-5 px-3">
+
+            <div class="mb-3 px-3 pt-3">
+                <h2 class="homepage-section-heading">{{ homepage_foundation_dataObject.Title }}</h2>
+            </div>
+
+            <div class="row row-cols-1 row-cols-lg-2 align-items-lg-center g-5">
+
+                <!-- LEFT -->
+                <div class="col mx-auto">
+        
+                    <img src="{{ homepage_foundation_dataObject.FoundationLogoImagePath }}" class="homepage-foundation-image" alt="OpenSearch Foundation">
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="col d-flex flex-column align-items-start gap-3">
+                    <span class="homepage-section-subheading">{{ homepage_foundation_dataObject.SubHeader }}</span>
+                    <p class="homepage-section-subtext my-0">{{ homepage_foundation_dataObject.SubText_Line1 }}</p>
+                    <p class="homepage-section-subtext mt-0">{{ homepage_foundation_dataObject.SubText_Line2 }}</p>
+                    <!-- FOUNDATION BUTTON -->
+                    <div class="row mt-4">
+                        <a type="button" href="{{ homepage_foundation_dataObject.BtnURL }}" class="btn button-primary rounded-pill shadow mx-auto my-3">
+                            {{ homepage_foundation_dataObject.BtnText }}
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
     </div>
 </div>
 

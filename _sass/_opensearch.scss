@@ -593,19 +593,21 @@
 }
 .homepage-section-subheading {
     color: $primary-open-sky-s2;
-    font-size: 21px;
+    font-size: 24px;
     font-family: "Open Sans";
     font-weight: 700;
     text-decoration: none;
     margin-bottom: 30px;
+    line-height: 36px;
 }
 .homepage-section-subheading-link {
     color: $primary-open-sky-s2;
-    font-size: 21px;
+    font-size: 24px;
     font-family: "Open Sans";
     font-weight: 700;
     text-decoration: none;
     margin-bottom: 30px;
+    line-height: 36px;
 
     &:hover {
         text-decoration: underline;
@@ -616,7 +618,7 @@
     font-size: 21px;
     font-family: "Open Sans";
     font-weight: 400;
-    line-height: 36px;
+    line-height: 32px;
     word-wrap: break-word; 
 }
 
@@ -690,6 +692,7 @@
 }
 
 
+
 // COMMUNITY 
 .homepage-community-section-wrapper {
     background-color: $primary-pacific-sky-t3;
@@ -731,6 +734,41 @@
 // OPEN SEARCH CON
 .homepage-opensearchcon-gallary-card {
     object-fit: cover;
+}
+
+// FOUNDATION
+.homepage-foundation-section-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-image: url(/assets/img/homepage-assets/Banner_Foundation_Background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.homepage-foundation-image {
+    width: 100%;
+}
+// Textoverlay for the hero
+.homepage-foundation-content-container {
+    position: fluid;
+}
+.button-primary {
+    background-color: $primary-open-sky;
+    border-radius: 2px;
+    border-color: $secondary-sanfrancisco-fog-t1;
+    color: $secondary-sanfrancisco-fog-t1;
+    --bs-btn-padding-y: 15px;
+    --bs-btn-padding-x: 25px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+
+    &:hover {
+        border-color: $primary-open-sky;
+        color: $primary-open-sky; 
+        background-color: $secondary-sanfrancisco-fog-t1;
+    }  
 }
 
 
