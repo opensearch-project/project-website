@@ -148,6 +148,16 @@
             }
         ]
     },
-    "F": {}
+    "Foundation": {
+        "Title": "OpenSearch Software Foundation",
+        "SubHeader": "The OpenSearch Software Foundation is the exciting next chapter for the OpenSearch Project, formed in September 2024.",
+        "SubText_Line1": "As a new project of the Linux Foundation we're more excited than ever to open this project up to the community.",
+        "SubText_Line2": "Learn more about the OpenSearch Software Foundation to help us build the next great innovations in search together.",
+        "BtnText": "Visit foundation.opensearch.org",
+        "BtnURL": "https://foundation.opensearch.org",
+        "FoundationLogoImagePath": "/assets/img/homepage-assets/Banner_Logo_Foundation.png"
+
+
+    }
 
 }
