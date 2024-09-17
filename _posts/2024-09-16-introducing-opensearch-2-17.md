@@ -95,7 +95,7 @@ In OpenSearch 2.17, we added multiple optimizations to snapshots, making them mo
 
 **Reduce overhead and boost efficiency with remote cluster state publication**
 
-Remote cluster state publication was introduced as experimental feature in OpenSearch 2.15 and is now generally available in OpenSearch 2.17. When this feature is enabled, the active cluster manager uploads the cluster state to remote-backed storage and then notifies the follower nodes to download the cluster state from remote-backed storage rather than sending it over the transport layer. This reduces the memory, CPU, and communication overhead on the cluster manager node for publication.
+Remote cluster state publication was introduced as an experimental feature in OpenSearch 2.15 and is now generally available in OpenSearch 2.17. When this feature is enabled, the active cluster manager node uploads the cluster state to remote-backed storage and then notifies the follower nodes to download the cluster state from remote-backed storage rather than sending it over the transport layer. This reduces the memory, CPU, and communication overhead on the cluster manager node during publication.
 
 **Enhance performance and manage traffic with search-only replica shards**
 
