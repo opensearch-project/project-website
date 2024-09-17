@@ -3,9 +3,11 @@ layout: post
 title:  "Introducing OpenSearch 2.17"
 authors:
   - sisurab
+  - kolchfa
 date:   2024-09-17 
 categories:
   - releases
+additional_author_info: Special thanks to Michael Froh, Vamshi Vijay Nakkirtha, Joshua Bright, Anirudha Jadhav, Shweta Thareja, and others who contributed to this blog.
 meta_keywords: OpenSearch 2.17, machine learning, generative AI, vector search, search performance, vector workloads, inference processors, OpenSearch Playground
 meta_description: Explore the new features and enhancements in OpenSearch 2.17, including improved machine learning integration, enhanced search performance, increased scalability, and cost efficiency.
 ---
