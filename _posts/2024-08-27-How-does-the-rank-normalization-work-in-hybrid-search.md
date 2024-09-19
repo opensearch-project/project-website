@@ -52,9 +52,7 @@ L2 normalization, also known as Euclidean normalization, is a method used to adj
 The L2 normalization formula adjusts each score ($$ \text{score}_i $$) by dividing it by the square root of the sum of the squares of all scores:
 
 $$
-\begin{align}
 \text{n_score}_i = \frac {\text{score}_i} {\sqrt{\text{score}_1^2 + \text{score}_2^2 + \dots + \text{score}_n^2}}
-\end{align}
 $$
 
 This formula ensures that each score is proportionate to its contribution to the total score magnitude.
@@ -186,9 +184,7 @@ Min-max normalization is a method used to scale scores so that they fit within a
 The min-max normalization formula adjusts each score ($$ \text{score} $$) by subtracting the minimum score and then dividing by the range (maximum score minus minimum score):
 
 $$
-\begin{align}
 \text{n_score} = \frac {\text{score} - \text{min_score}} {\text{max_score} - \text{min_score}}
-\end{align}
 $$
 
 This formula ensures that the scores are scaled proportionately within the $$0$$ to $$1$$ range.
