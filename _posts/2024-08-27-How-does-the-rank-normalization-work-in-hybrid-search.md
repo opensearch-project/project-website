@@ -3,7 +3,7 @@ layout: post
 title:  "An overview of rank normalization in hybrid Search"
 authors:
  - ljeanniot
-date: 2024-08-30
+date: 2024-09-19
 categories:
  - technical-post
 meta_keywords: rank normalization, hybrid search, OpenSearch score normalization, search relevance, user experience
