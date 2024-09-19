@@ -48,8 +48,8 @@ Join us for the "Logs in the Shell" Capture the Flag (CTF) event presented by [G
 ### Event details
 
 Date:  Thursday, Sept. 26, 2024
-Time:  9:00 AM - 4:00 PM
-Location: Kicks off at 9:00 AM in the Continental 4 Ballroom
+Time:  10:00 AM - 4:00 PM
+Location: Kicks off at 10:00 AM in the Continental 4 Ballroom
 Awards: Ceremony from 4:00 - 4:30 PM
 
 <a role="button" target="_blank" class="btn btn-primary" href="https://airtable.com/appWltifOss0C1Ze3/pagKjDHOEPqWvQDnw/form">Register today</a>

@@ -1,8 +1,4 @@
 ---
-
-
-
-
 primary_presenter: tgrainger
 primary_title: "Building AI Models with OpenSearch's User Behavior Insights"
 speaker_talk_title: "Building AI Models with OpenSearch's User Behavior Insights"
@@ -13,7 +9,7 @@ title: "OpenSearchCon 2024 North America Session: Building AI Models with OpenSe
 
 session_time: '2024-09-25 - 10:45am - 11:25am' 
 
-session_room: 'Continental BR 7-9 
+session_room: 'Continental BR 7-9'
 
 session_track: 'Search' 
 
