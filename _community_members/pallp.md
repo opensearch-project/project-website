@@ -8,20 +8,20 @@ primary_title: Pallavi Priyadarshini
 
 
 conference_id:
-  - 2024-north-america
+  - "2024-north-america"
 
 session_track:
-  - conference_id: 2024-north-america
+  - conference_id: "2024-north-america"
     name: Community
 
 personas:
   - conference_speaker
+  - author
   
 github: Pallavi-AWS
 linkedin: pallavipr
 job_title_and_company: 'Senior Engineering Manager at AWS'
-personas:
-  - author
+
 permalink: '/community/members/pallavi-priyadarshini.html'
 redirect_from: '/authors/pallp/'
 ---
