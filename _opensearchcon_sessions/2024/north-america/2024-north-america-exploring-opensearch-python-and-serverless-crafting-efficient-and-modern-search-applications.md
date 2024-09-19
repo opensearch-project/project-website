@@ -10,7 +10,7 @@ speaker_name_full: Laysa Uchoa
 
 title: 'OpenSearchCon 2024 North America Session: Exploring OpenSearch, Python, and Serverless: Crafting Efficient and Modern Search Applications'
 
-session_time: '2024-09-25 - 11:25am-11:55am' 
+session_time: '2024-09-25 - 11:30am - 12:00pm' 
 
 session_room: 'MainStage' 
 

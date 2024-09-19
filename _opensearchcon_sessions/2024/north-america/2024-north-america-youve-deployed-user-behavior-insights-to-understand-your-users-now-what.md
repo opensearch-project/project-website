@@ -10,7 +10,7 @@ speaker_name_full: Eric Pugh
 
 title: 'OpenSearchCon 2024 North America Session: You’ve Deployed User Behavior Insights to understand your users.  Now What?'
 
-session_time: '2024-09-25 - 10:40am-11:20am' 
+session_time: '2024-09-25 - 10:45am-11:25am' 
 
 session_room: 'MainStage' 
 
