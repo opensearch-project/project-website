@@ -51,7 +51,6 @@
             ] 
         },
         {
-
             "Title": "Community",
             "Icon": "OpenSearch-Community-condensedImage-mobile",
             "collapse-data-target": "collapse-data-target-community",
@@ -85,12 +84,12 @@
             "collapse-data-target": "collapse-data-target-documentation",
             "SubNav": [
                 {
-                    "Name": "What is OpenSearch?",
-                    "URL": "/platform/search/index.html"
+                    "Name": "OpenSearch and Dashboards",
+                    "URL": "/docs/latest/about/"
                 },
                 {
                     "Name": "OpenSearch Benchmark",
-                    "URL": "/benchmarks/"
+                    "URL": "/docs/latest/benchmark/"
                 },
                 {
                     "Name": "Data Prepper",
@@ -366,7 +365,7 @@
                     "ClassValue": "drawer-content-header",
                     "SubNav": [
                         {
-                            "Name": "What is OpenSearch?",
+                            "Name": "OpenSearch and Dashboards",
                             "SubText": "Build your OpenSearch solution using core tooling and visualizations.",
                             "URL": "/docs/latest/about/",
                             "ClassValue" : "drawer-content-subheader-link",
@@ -375,7 +374,7 @@
                         {
                             "Name": "OpenSearch Benchmark",
                             "SubText": "Measure performance metrics for your OpenSearch cluster.",
-                            "URL": "/benchmarks/",
+                            "URL": "/docs/latest/benchmark/",
                             "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-DataConsumer-condensedImage"
                         },
