@@ -50,7 +50,7 @@
 
 
                     <!-- TOP-NAV DROP DOWN  -->
-                    <div class="container mobile-nav-contentSection-accordion accordion accordion-flush" id="mobile-nav-contentSection-accordion">
+                    <div class="container mobile-nav-contentSection-accordion accordion accordion-flush mb-4" id="mobile-nav-contentSection-accordion">
 
 
                         <!-- CONTENT SECTION ACCORDION -->
@@ -58,7 +58,7 @@
                         {% for sub_category in data_mobile_nav %}
                             <div class="accordion-item">
                                 <h2 class="accordion-header row">
-                                    <div class="col-3 px-0 ms-4 me-0 pt-3 icon-div-box-mobile">
+                                    <div class="col-3 px-0 ms-1 me-0 pt-3 icon-div-box-mobile">
                                         {% include icons_navbar.html type=sub_category.Icon %} 
                                     </div>
                                     <div class="col">
@@ -73,7 +73,7 @@
 
                                         {% for nav_link in sub_category.SubNav %}
                                             <div class="row">
-                                                <a href='{{ nav_link.URL }}' class="ms-5 mobile-content-text-link">{{ nav_link.Name }}</a>
+                                                <a href='{{ nav_link.URL }}' class="ms-4 pb-3 mobile-content-text-link">{{ nav_link.Name }}</a>
                                             </div>
                                         {% endfor %}
 
@@ -85,6 +85,13 @@
                         {% endfor %}
 
 
+                    </div>
+
+                    <!-- BLOG BUTTON -->
+                    <div class="row px-4">
+                        <a type="button" href="/blog/" class="btn button-dark rounded-pill mx-auto">
+                            Visit the OpenSearch Blog
+                        </a>
                     </div>
 
 
@@ -102,7 +109,7 @@
 
 
 <!-- DESKTOP MENU -->
-<div class="nav-drawer accordion mb-5 d-none d-lg-block" id="accordion-megamenu">
+<div class="nav-drawer accordion mb-3 d-none d-lg-block" id="accordion-megamenu">
 
 
     <nav class="navbar top-nav-desktop navbar-expand-lg">

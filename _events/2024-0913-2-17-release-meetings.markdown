@@ -1,6 +1,6 @@
 ---
-calendar_date: '2024-09-17'
-eventdate: 2024-09-17 14:00:00 -0700
+calendar_date: '2024-09-20'
+eventdate: 2024-09-20 09:00:00 -0700
 title: OpenSearch 2.17.0 Release Meetings
 online: true
 signup:
@@ -35,6 +35,9 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 * Last possible date 09/17/2024 per the [Releases schedule](https://opensearch.org/releases.html).
 
+**September 20th 2024 - 9:00AM PDT**
+
+* [Retrospective](https://github.com/opensearch-project/opensearch-build/issues/4909) - Let's do a retro on the 2.17.0 release as a community.
 
 **Dial in information - valid for each meeting:**
 
