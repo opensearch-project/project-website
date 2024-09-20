@@ -16,8 +16,8 @@ link: http://example.com
 contact: example@acme.com
 contact_phone: x-xxx-xxx-xxxx
 
-logo: /assets/media/partners/placeholder.png
-logo_large: /assets/media/partners/placeholder.png
+logo: /assets/media/partners/partner-name/placeholder.png
+logo_large: /assets/media/partners/partner-name/placeholder.png
 
 
 
@@ -60,5 +60,5 @@ products:
   - url: 'https://another-example-product.example'
     name: 'Another Example Product Name'
     description: 'Another example product description.'
-    
+
 ---
