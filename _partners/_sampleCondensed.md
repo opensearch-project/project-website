@@ -1,4 +1,5 @@
 ---
+
 name: SampleCompany
 name_long: Sample Company
 
@@ -7,26 +8,26 @@ main_office_location:  |
   Suite 123
   City, State Zip Code
   Country
-region: North America, Europe 
 
 description: Brief description of your business and what it does (50 words or less).
-business_type: Type of business (e.g., MSP, CSP, ISV, product/technology, services organization, other). If other, please define.
-
-
 
 link: http://example.com
 
 contact: example@acme.com
 contact_phone: x-xxx-xxx-xxxx
 
-industries:  business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology
-
-
-
-opensearch_tech:  search, relevance, analytics, observability
-
 logo: /assets/media/partners/placeholder.png
 logo_large: /assets/media/partners/placeholder.png
+
+
+
+region: Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+
+industries:  Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+
+business_type: Consultant, (MSP) Managed Service Provider, (CSP) Content Service Provider, (ISV) Independent Software Vendor, Systems Integrator, Platform Integrator, Professional Services, Training
+
+opensearch_tech:  Search, Observability, Security, Logs, Analytics, Machine Learning & AI, GenAI
 
 
 
@@ -59,4 +60,5 @@ products:
   - url: 'https://another-example-product.example'
     name: 'Another Example Product Name'
     description: 'Another example product description.'
+    
 ---
