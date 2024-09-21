@@ -11,7 +11,7 @@ short_name: "mgodwani"
 name: "Mohit Godwani"
 
 # The path to the community member's photo.
-photo: "/assets/media/..."
+photo: "/assets/media/community/members/mgodwani.jpg"
 
 # Used as the level 1 page header text.
 primary_title: 'Mohit Godwani'
