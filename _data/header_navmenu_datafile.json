@@ -84,6 +84,10 @@
             "collapse-data-target": "collapse-data-target-documentation",
             "SubNav": [
                 {
+                    "Name": "Documentation Library",
+                    "URL": "/docs/latest/"
+                },
+                {
                     "Name": "OpenSearch and Dashboards",
                     "URL": "/docs/latest/about/"
                 },
@@ -361,8 +365,9 @@
             "BottomTriangleIcon": "OpenSearch-Documentation-DrawerIcon-condensedImage",
             "LeftColumn": [
                 {
-                    "Title": "Getting Started with OpenSearch",
-                    "ClassValue": "drawer-content-header",
+                    "Title": "Documentation Library",
+                    "ClassValue": "drawer-content-header-link",
+                    "URL": "/docs/latest/",
                     "SubNav": [
                         {
                             "Name": "OpenSearch and Dashboards",
