@@ -12,6 +12,9 @@ breadcrumbs:
 omit_from_search: true
 
 release_versions:
+  - version: 2.18.0
+    release_issue: 5004
+    release_retro_issue: 5005
   - version: 2.17.0
     release_issue: 4908
     release_retro_issue: 4909
