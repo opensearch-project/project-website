@@ -15,7 +15,7 @@ breadcrumbs:
       url: /events/opensearchcon/2024/north-america/unconference/index.html
 speaker_talk_title: Unconference
 session_time: '2024-09-24 - 1:00pm-4:00pm'
-session_room: TBD
+session_room: Continental BR 7-9
 session_track: Unconference
 primary_speaker_name: krisfreedain
 hero_banner_image: /assets/media/opensearchcon/2024/OSC2024_NASF_Uncon.png
