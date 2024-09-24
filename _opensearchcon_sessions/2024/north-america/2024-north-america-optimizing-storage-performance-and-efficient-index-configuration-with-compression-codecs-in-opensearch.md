@@ -4,9 +4,9 @@ speaker_talk_title: Optimizing Storage Performance and Efficient Index Configura
 
 primary_title: Optimizing Storage Performance and Efficient Index Configuration with Compression Codecs in OpenSearch
 
-primary_presenter: saggarwal
+primary_presenter: mgodwani
 
-speaker_name_full: Sarthak Aggarwal
+speaker_name_full: Mohit Godwani
 
 title: 'OpenSearchCon 2024 North America Session: Optimizing Storage Performance and Efficient Index Configuration with Compression Codecs in OpenSearch'
 
@@ -23,7 +23,7 @@ permalink: '/events/opensearchcon/sessions/optimizing-storage-performance-and-ef
 conference_id: '2024-north-america' 
 
 presenters: 
-  - saggarwal 
+  - mgodwani 
 
 
 
