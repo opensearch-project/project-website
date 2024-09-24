@@ -51,7 +51,7 @@ conference_id: 2024-north-america
 </tr>
 <tr>
     <td>1:00pm-4:00pm</td>
-    <td>The Unconference</td>
+    <td>The Unconference - Continental Rooms 7-9</td>
 </tr>
 <tr>
     <td>1:00pm-5:30pm</td>
