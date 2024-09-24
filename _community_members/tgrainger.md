@@ -5,7 +5,7 @@ title: "OpenSearch Project Community Member: Trey Grainger "
 primary_title: Trey Grainger
 permalink: /community/members/trey-grainger.html
 photo: /assets/media/community/members/trey-grainger.png
-job_title_and_company: "Founder at Searchkernal"
+job_title_and_company: "Founder at Searchkernel, Book Author: AI-Powered Search"
 
 
 conference_id:
