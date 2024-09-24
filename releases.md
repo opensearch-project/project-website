@@ -36,9 +36,10 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 | 1.3.17         | May 28th, 2024                            | June 06th, 2024                                      | [Divya Madala](https://github.com/Divyaasm/)         | [4659](https://github.com/opensearch-project/opensearch-build/issues/4659) |
 | 2.15.0         | June ~~10th~~ 11th, 2024                  | June 25th, 2024                                      | [Peter Zhu](https://github.com/peterzhuamazon)       | [4681](https://github.com/opensearch-project/opensearch-build/issues/4681) |
 | 1.3.18         | July 09th, 2024                           | July 16th, 2024                                      | [Zelin Hao](https://github.com/zelinh/)              | [4763](https://github.com/opensearch-project/opensearch-build/issues/4763) |
-| 2.16.0         | July 23rd, 2024                           | August ~~06th~~07th 2024                             | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [4771](https://github.com/opensearch-project/opensearch-build/issues/4771) |
+| 2.16.0         | July 23rd, 2024                           | August ~~06th~~ 07th 2024                            | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [4771](https://github.com/opensearch-project/opensearch-build/issues/4771) |
 | 1.3.19         | Aug 20th, 2024                            | August 27th, 2024                                    | [Brandon Shien](https://github.com/bshien)           | [4888](https://github.com/opensearch-project/opensearch-build/issues/4888) |
 | 2.17.0         | September ~~04th~~ 05th, 2024             | September 17th, 2024                                 | [Sayali Gaikawad](https://github.com/gaiksaya/)      | [4908](https://github.com/opensearch-project/opensearch-build/issues/4908) |
+| 2.17.1         | September 24th, 2024                      | October 1st, 2024                                    | [Divya Madala](https://github.com/Divyaasm/)         | [5046](https://github.com/opensearch-project/opensearch-build/issues/5046) |
 | 2.18.0         | October 22nd, 2024                        | November 05th, 2024                                  |                                                      |                                                                            |
 | 1.3.20         | December 03rd, 2024                       | December 10th, 2024                                  |                                                      |                                                                            |
 | 2.19.0         | January 28th, 2025                        | Feb 11th, 2025                                       |                                                      |                                                                            | 
@@ -70,7 +71,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 | Major Version | Latest Minor Version |   Status    | Initial Release | Maintenance Window Start | Maintenance Window End             |
 |:--------------|:---------------------|:------------|:----------------|:-------------------------|:-----------------------            |
 | 1             | 1.3.19                | Maintenance |  July 12, 2021  | May 26, 2022             | GA release of 3.0.                 |
-| 2             | 2.16.0                | Current     |  May 26, 2022   | N/A                      | N/A                                |
+| 2             | 2.17.0                | Current     |  May 26, 2022   | N/A                      | N/A                                |
 {: .desktop-maintenance-policy-table}
 
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date
@@ -80,6 +81,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Release Number |  Release Date        | Release Manager                                                                                                                                 | Tracking Issue |
 |:---------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+| 2.17.0         | September 17th, 2024 | [Sayali Gaikawad](https://github.com/gaiksaya/)                                                                                                 | [4908](https://github.com/opensearch-project/opensearch-build/issues/4908) |
 | 1.3.19         | August 27th, 2024    | [Brandon Shien](https://github.com/bshien)                                                                                                      | [4888](https://github.com/opensearch-project/opensearch-build/issues/4888) |
 | 2.16.0         | August 07th 2024     | [Prudhvi Godithi](https://github.com/prudhvigodithi)                                                                                            | [4771](https://github.com/opensearch-project/opensearch-build/issues/4771) |
 | 1.3.18         | July 16th, 2024      | [Zelin Hao](https://github.com/zelinh/)                                                                                                         | [4763](https://github.com/opensearch-project/opensearch-build/issues/4763) |
