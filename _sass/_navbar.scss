@@ -82,6 +82,42 @@
 } 
 
 
+
+
+
+.btn-primary-dark {
+
+    --bs-btn-padding-y: 15px;
+    --bs-btn-padding-x: 25px;
+    background-color: $primary-open-sky-s1;
+    border-radius: 0px;
+    color: $secondary-sanfrancisco-fog-t1;
+    
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    border-radius: 30px;
+
+    --bs-btn-active-color: $secondary-golden-poppy;
+    --bs-btn-active-bg:$primary-open-sky-s3;
+
+    &:active {
+        background-color: $primary-open-sky-s3;
+        color: $secondary-golden-poppy; 
+    }
+    &:hover {
+        background-color: $primary-open-sky-s3;
+    }
+    &:visited {
+        color: $secondary-sanfrancisco-fog-t1;
+    }
+}
+
+
+
+
+
+
 .button-dark {
     // --bs-btn-color: $secondary-sanfrancisco-fog-t1;
     --bs-btn-padding-y: 15px;
