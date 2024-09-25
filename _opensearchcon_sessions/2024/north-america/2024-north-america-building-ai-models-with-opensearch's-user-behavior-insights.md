@@ -11,7 +11,7 @@ speaker_name_full: Trey Grainger
 
 title: "OpenSearchCon 2024 North America Session: Building AI Models with OpenSearch's User Behavior Insights"
 
-session_time: '2024-09-25 - 10:45am-11:25am' 
+session_time: '2024-09-25 - 1:00pm-1:40pm' 
 
 session_room: 'Continental BR 1-3' 
 
