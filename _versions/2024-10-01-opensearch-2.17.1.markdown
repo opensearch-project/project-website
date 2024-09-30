@@ -1,8 +1,8 @@
 ---
 date: "2024-10-01"
 product: opensearch
-version: '2.17.0'
-release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.17.0.md
+version: '2.17.1'
+release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.17.1.md
 version_sort: 2.17.1-ga
 components:
   - role: daemon
