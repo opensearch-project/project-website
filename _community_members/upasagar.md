@@ -14,7 +14,7 @@ breadcrumbs:
     - title: 'Sagar Upadhyaya&apos;s Profile'
       url: '/community/members/sagar-upadhyaya.html'
 github: sgup432
-job_title_and_company: 'Software engineer at AWS'
+job_title_and_company: 'AWS Software Engineer'
 personas:
   - author
 permalink: '/community/members/sagar-upadhyaya.html'
