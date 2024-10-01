@@ -22,7 +22,7 @@ In this blog, we will first understand the query execution workflow, followed by
 
 ## Overview of Query Execution Workflow
 
-At a high level, query execution workflow is divided into two major phases: query phase and fetch phase. The query phase is responsible for obtaining matching results from each shard in the form of objects that contain the document IDs and relevancy score. These results are then sent to the fetch phase, where the source of these document IDs are fetched from the shards. Later, the results from each shard are combined to form the final search response, which is sent to the user. To learn more about the execution process, check out our earlier blog on [query's journey in OpenSearch](https://opensearch.org/blog/a-query-or-there-and-back-again/). 
+At a high level, query execution workflow is divided into two major phases: query phase and fetch phase. The query phase is responsible for obtaining matching results from each shard in the form of objects that contain the document IDs and relevancy score. These results are then sent to the fetch phase, where the source of these document IDs are fetched from the shards. Later the results from each shard are combined to form the final search response, which is sent to the user. To learn more about the execution process, check out our earlier blog on [query's journey in OpenSearch](https://opensearch.org/blog/a-query-or-there-and-back-again/). 
 
 ## High-Level Logic and Example of Sorting in Hybrid query
 
@@ -50,7 +50,7 @@ The following diagram explains at a high level on how these sub-problems are sol
 * The collector executes on each shard to collect results for each subquery. While collecting, it also inserts the matching result into a priority queue, which is ordered according to the sorting criteria.
 * In the post process of the query phase, the subquery results are popped from the priority queue in the sorted order.
 
-Once coordinator node receives the response from all the data nodes, then the normalization process begins. The normalization processor calculates a score for each subquery result. Then, it combines different subqueries results to form a final sorted list of results, as per the sort criteria. The results from the normalization phase are then sent to the fetch phase, which fetches the source of the document ids from the shards and create the final search response to be returned to the user. 
+Once coordinator node receives the response from all the data nodes, then the normalization process begins. The normalization processor calculates a score for each subquery result. It combines different subqueries results to form a final sorted list of results, as per the sort criteria. The results from the normalization phase are then sent to the fetch phase, which fetches the source of the document ids from the shards and create the final search response to be returned to the user. 
 
 ![sorting-hld](/assets/media/blog-images/2024-10-08-internal-functioning-of-sorting-in-hybrid-search/Sorting-hld.png)
 
@@ -58,7 +58,7 @@ Once coordinator node receives the response from all the data nodes, then the no
 
 Certain restrictions apply to sorting in hybrid queries due to the complexity in its formation of the search result. The following points outline these restrictions in detail.
 
-1. If a user applies sorting criteria that include multiple fields and one of them is _score, we need to block this case. This is because the subquery results can only be combined based on either the sort field or _score , but not both simultaneously.
+1. If a user applies sorting criteria that include multiple fields and one of them is `_score`, we need to block this case. This is because the subquery results can only be combined based on either the sort field or _score , but not both simultaneously.
 
 ```json
 {
@@ -81,7 +81,7 @@ Certain restrictions apply to sorting in hybrid queries due to the complexity in
 
 ## How to use sorting
 
-To use sorting, the user must add a sort clause to the the query in the search request. In this clause, you define the sorting criteria as shown in the example below:
+To use sorting, user must add a sort clause to the query in the search request. In this clause, you define the sorting criteria as shown in the example below:
 
 ```json
 {
