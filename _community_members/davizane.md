@@ -1,7 +1,7 @@
 ---
 name: David Zane
 short_name: davizane
-photo: '/assets/media/community/members/davizane.jpg'
+photo: '/assets/media/community/members/davizane.jpeg'
 title: 'OpenSearch Community Member: David Zane'
 primary_title: David Zane
 breadcrumbs:

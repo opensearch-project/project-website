@@ -15,9 +15,6 @@ excerpt:
 meta_keywords: search latency, OpenSearch cluster, latency monitoring, coordinator node, search performance optimization
 meta_description: Explore how enhanced search latency monitoring capabilities at the coordinator node level can help you optimize search performance in your OpenSearch cluster.
 ---
-
-# Using search latency monitoring at the coordinator node level
-
 Responsiveness is core to any search solution, and communication delays between search requests and responses can present problems for your users. This is why many administrators monitor search latency: the amount of time between when a search request is sent to an OpenSearch cluster and when a response is returned. 
 
 However, the ability to monitor search latency in OpenSearch versions earlier than 2.11 is limited. Tools such as the [Nodes Stats API](https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-stats/) and [shard slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs) offer latency measurements based on shard-level operations but do not provide any visibility at the coordinator node level. Because search requests often hit multiple shards simultaneously, the measured amount of time spent in a single shard search phase doesn't provide comprehensive latency information.
