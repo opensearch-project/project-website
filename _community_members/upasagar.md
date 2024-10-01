@@ -2,17 +2,8 @@
 name: Sagar Upadhyaya
 short_name: upasagar
 photo: '/assets/media/community/members/upasagar.jpg'
-title: 'OpenSearch Community Member: Sagar Upadhyaya
+title: 'OpenSearch Community Member: Sagar Upadhyaya'
 primary_title: Sagar Upadhyaya
-breadcrumbs:
-  icon: community
-  items:
-    - title: Community
-      url: /community/index.html
-    - title: Members
-      url: /community/members/index.html
-    - title: 'Sagar Upadhyaya&apos;s Profile'
-      url: '/community/members/sagar-upadhyaya.html'
 github: sgup432
 job_title_and_company: 'AWS Software Engineer'
 personas:
