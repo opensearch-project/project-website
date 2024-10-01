@@ -58,7 +58,7 @@ Once coordinator node receives the response from all the data nodes, then the no
 
 Certain restrictions apply to sorting in hybrid queries due to the complexity in its formation of the search result. The following points outline these restrictions in detail.
 
-1. If a user applies sorting criteria that include multiple fields and one of them is `_score`, we need to block this case. This is because the subquery results can only be combined based on either the sort field or _score , but not both simultaneously.
+1. If a user applies sorting criteria that include multiple fields and one of them is `_score`, we need to block this case. This is because the subquery results can only be combined based on either the sort field or `_score` , but not both simultaneously.
 
 ```json
 {
