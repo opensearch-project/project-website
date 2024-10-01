@@ -73,38 +73,38 @@ GET /_nodes/stats/indices/search
       "indices": {
         "search": {
           ...
-          **"request"****:** **** **{**
- **** **"dfs_pre_query"****:** **** **{**
- **** **"time_in_millis"****:** **47****,**
- **** **"current"****:** **0****,**
- **** **"total"****:** **41**
- **** **},**
- **** **"query"****:** **** **{**
- **** **"time_in_millis"****:** **** **5429****,**
- **** **"current"****:** **** **13****,**
- **** **"total"****:** **** **238**
- **** **},**
- **** **"fetch"****:** **** **{**
- **** **"time_in_millis"****:** **** **1230****,**
- **** **"current"****:** **** **2****,**
- **** **"total"****:** **** **238**
- **** **},**
- **** **"dfs_query"****:** **** **{**
- **** **"time_in_millis"****:** **** **0****,**
- **** **"current"****:** **** **0****,**
- **** **"total"****:** **** **0**
- **** **},**
- **** **"expand"****:** **** **{**
- **** **"time_in_millis"****:** **** **304****,**
- **** **"current"****:** **1****,**
- **** **"total"****:** **238**
- **** **},**
- **** **"can_match"****:** **** **{**
- **** **"time_in_millis"****:** **** **0****,**
- **** **"current"****:** **** **0****,**
- **** **"total"****:** **** **0**
- **** **}**
- **** **}**
+          "request":  {
+  "dfs_pre_query":  {
+  "time_in_millis": 47,
+  "current": 0,
+  "total": 41
+  },
+  "query":  {
+  "time_in_millis":  5429,
+  "current":  13,
+  "total":  238
+  },
+  "fetch":  {
+  "time_in_millis":  1230,
+  "current":  2,
+  "total":  238
+  },
+  "dfs_query":  {
+  "time_in_millis":  0,
+  "current":  0,
+  "total":  0
+  },
+  "expand":  {
+  "time_in_millis":  304,
+  "current": 1,
+  "total": 238
+  },
+  "can_match":  {
+  "time_in_millis":  0,
+  "current":  0,
+  "total":  0
+  }
+  }
         }
       }
     },
@@ -117,17 +117,17 @@ GET /_nodes/stats/indices/search
 Introduced in OpenSearch 2.12, the `phase_took` parameter returns phase took times directly in the search response, as shown in the following example:
 
 ```json
-GET /my-index-000001/_search?**phase_took**
+GET /my-index-000001/_search?phase_took
 {
   "took" : 105,
-  **"phase_took" : {
+  "phase_took" : {
     "dfs_pre_query" : 0,
     "query" : 69,
     "fetch" : 22,
     "dfs_query" : 0,
     "expand" : 4,
     "can_match" : 0
-  },**
+  },
   "timed_out" : false,
   "_shards" : {
     "total" : 5,
@@ -166,7 +166,7 @@ For more information about how to set up slow log thresholds, see [Search reques
 
 To enable these features, visit the [Search settings](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/search-settings/) page in the OpenSearch documentation or use the following example API request:
 
-**TIP**: Search request slow log thresholds can be customized. This simplifies setting thresholds for certain search requests, since you can set the log creation to match the search threshold.
+TIP: Search request slow log thresholds can be customized. This simplifies setting thresholds for certain search requests, since you can set the log creation to match the search threshold.
 
 ```json
 PUT _cluster/settings
