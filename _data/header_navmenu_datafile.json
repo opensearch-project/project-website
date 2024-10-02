@@ -328,6 +328,13 @@
                             "URL": "https://github.com/opensearch-project",
                             "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Github-condensedImage"
+                        },
+                        {
+                            "Name": "Project Roadmap",
+                            "SubText": "What is next for the OpenSearch project?",
+                            "URL": "https://github.com/orgs/opensearch-project/projects/220",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-UserGroups-condensedImage"
                         }
                     ]
                 }
