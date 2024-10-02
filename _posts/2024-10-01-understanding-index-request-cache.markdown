@@ -4,6 +4,7 @@ title: "Behind the scenes with OpenSearch: Understanding Index request cache thr
 authors:
    - awskiran
    - kkhatua
+   - upasagar
 date: 2024-10-01 
 categories:
   - technical-posts
