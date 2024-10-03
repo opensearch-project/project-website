@@ -93,10 +93,11 @@
     border-radius: 0px;
     color: $secondary-sanfrancisco-fog-t1;
     
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     line-height: 24px;
     border-radius: 30px;
+    text-wrap: nowrap;
 
     --bs-btn-active-color: $secondary-golden-poppy;
     --bs-btn-active-bg:$primary-open-sky-s3;
@@ -108,17 +109,47 @@
     &:hover {
         background-color: $primary-open-sky-s3;
     }
+    &:active > .downloads-button-content {
+        color: $secondary-golden-poppy;
+        fill: $secondary-golden-poppy;
+    }
     &:visited {
         color: $secondary-sanfrancisco-fog-t1;
     }
 }
 
+.downloads-button-content {
+    &:active > svg {
+        fill: $secondary-golden-poppy;
+    }   
+}
 
 .downloads-button-chevron-icon {
     fill: $secondary-sanfrancisco-fog-t1;
+    margin-bottom: 2px;
+
+    &:has( + input:active) {
+        fill: $secondary-golden-poppy;
+    }
+
+    &:active {
+        fill: $secondary-golden-poppy;
+    }
+    &:hover {
+        fill: $secondary-sanfrancisco-fog-t1;
+    }
+    &:visited {
+        fill: $secondary-sanfrancisco-fog-t1;
+    }
 }
 
 
+.navbar-downloads-button {
+    &:hover {
+        border-color: #006D97;
+        color: #003551; 
+    }   
+}
 
 .button-dark {
     // --bs-btn-color: $secondary-sanfrancisco-fog-t1;

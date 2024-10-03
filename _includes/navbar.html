@@ -136,12 +136,22 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
 
-                <div class=" my-auto pt-2 pb-2 mx-3">
+                <div class="my-auto pt-2 pb-2 mx-3">
                     <a class="btn btn-primary-dark my-1 py-1" href="/downloads.html" aria-current="Download">
-                        Download OpenSearch 
-                        <div class="ms-1 my-auto">
-                            {% include icons_navbar.html type='chevron-in-circle' %}
+                        
+                        <div class="row downloads-button-content">
+                            <div class="col-auto d-none d-xxl-block">
+                                Download OpenSearch 
+                            </div>
+                            <div class="col-auto d-block d-xxl-none pe-1">
+                                Download
+                            </div>
+                            <div class="col-auto px-0 ms-1 me-1 align-self-center">
+                                {% include icons_navbar.html type='chevron-in-circle' %}
+                            </div>
+                            
                         </div>
+
                     </a>
                 </div>
 
