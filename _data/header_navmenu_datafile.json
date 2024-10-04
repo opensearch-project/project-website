@@ -409,7 +409,16 @@
             ],
     
             "CenterColumn": null,
-            "RightColumn": null
+            "RightColumn": [
+                {
+                    "Title": "OpenSearch Project Roadmap",
+                    "ClassValue": "drawer-content-subheader-link",
+                    "SubText": "Project development plan for 2024-2025 and beyond",
+                    "URL": "https://github.com/orgs/opensearch-project/projects/206",
+                    "Roadmap_HeroBanner": "/assets/img/roadmap-graphic.png",
+                    "Roadmap_Link": "https://github.com/orgs/opensearch-project/projects/206"
+                }
+            ]
     
         },      
         "Search": {
