@@ -100,7 +100,7 @@ When an `IndexReader` is closed, the corresponding `CleanupKey` is added to a se
 
 ![CleanupKey](/assets/media/blog-images/2024-10-01-understanding-index-request-cache/key_and_cleanupkey.png){:class="img-centered" style="width:700px;"}
 
-The third entity in the Key class, **BytesReference**, is not used in `CleanupKey` because it represents the cached data itself, which is not needed to identify which entries should be cleaned up. `CleanupKey` is only concerned with identifying the entries to remove, not their contents.
+**BytesReference** is not used by the `CleanupKey` because it represents the cached data itself, which is not needed to identify which entries should be cleaned up. The `CleanupKey` only identifies the entries to be removed and is not concerned with their contents.
 
 A cache entry can become invalid because of the following operations:
 
