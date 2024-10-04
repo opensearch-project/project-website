@@ -153,6 +153,6 @@ function cleanCache() {
 
 ## Wrapping up
 
-Index request cache plays a crucial role in OpenSearch's efficiency. By understanding how it works, you can optimize performance and fine-tune your configurations with greater confidence.
+The index request cache plays a crucial role in ensuring the efficiency of OpenSearch. By understanding how it works, you can optimize performance and fine-tune your configurations with greater confidence.
 
 OpenSearch thrives on community contributions. If you have ideas or see opportunities for improvement, consider contributing. Your input can help shape the future of this search technology.
