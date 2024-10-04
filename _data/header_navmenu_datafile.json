@@ -413,7 +413,7 @@
                 {
                     "Title": "OpenSearch Project Roadmap",
                     "ClassValue": "drawer-content-subheader-link",
-                    "SubText": "Read our <a href=\"http://127.0.0.1:4000/blog/opensearch-project-roadmap-2024-2025/\">blog</a> on project development plan for 2024-2025 and beyond!",
+                    "SubText": "Read our <a href=\"blog/opensearch-project-roadmap-2024-2025/\">blog</a> on project development plan for 2024-2025 and beyond!",
                     "URL": "https://github.com/orgs/opensearch-project/projects/206",
                     "Roadmap_HeroBanner": "/assets/img/roadmap-graphic.png",
                     "Roadmap_Link": "https://github.com/orgs/opensearch-project/projects/206"
