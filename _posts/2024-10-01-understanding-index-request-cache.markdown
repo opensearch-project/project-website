@@ -16,7 +16,7 @@ meta_description:
 
 Speed and efficiency are essential for search users. OpenSearch achieves these through various mechanisms, one of the most important of which being the [index request cache](https://opensearch.org/docs/latest/search-plugins/caching/request-cache/). This blog post describes how this cache is implemented and how it optimizes query performance.
 
-## What is index request cache?
+## What is the index request cache?
 
 Index request cache is designed to accelerate search queries in OpenSearch by storing query results at the shard level, as shown in the following image. 
 
