@@ -307,6 +307,13 @@
                             "URL": "/community/members/index.html",
                             "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Members-condensedImage"
+                        },
+                        {
+                            "Name": "UserGroups",
+                            "SubText": "Join the OpenSearch Project Meetup Network",
+                            "URL": "https://www.meetup.com/pro/opensearchproject/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-UserGroups-condensedImage"
                         }
 
                     ]
@@ -402,7 +409,16 @@
             ],
     
             "CenterColumn": null,
-            "RightColumn": null
+            "RightColumn": [
+                {
+                    "Title": "OpenSearch Project Roadmap",
+                    "ClassValue": "drawer-content-subheader-link",
+                    "SubText": "Project development plan for 2024-2025 and beyond",
+                    "URL": "https://github.com/orgs/opensearch-project/projects/206",
+                    "Roadmap_HeroBanner": "/assets/img/roadmap-graphic.png",
+                    "Roadmap_Link": "https://github.com/orgs/opensearch-project/projects/206"
+                }
+            ]
     
         },      
         "Search": {
