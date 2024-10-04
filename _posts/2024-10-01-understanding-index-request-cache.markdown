@@ -30,7 +30,7 @@ Not all search requests are eligible for caching in the index request cache. Sea
 
 The following requests are ineligible for caching:
 
-* **Non-deterministic requests:** Searches involving functions like `Math.random()` or relative times such as `now` or `new Date()`.
+* **Non-deterministic requests:** Searches involving functions, like `Math.random()`, or relative times, such as `now` or `new Date()`.
 * **Scroll and Profile API requests**
 * **DFS query then fetch requests:** This search type depends on both index content and overridden statistics, leading to inaccurate scores when the statistics differ (for example, because of shard updates).
 
