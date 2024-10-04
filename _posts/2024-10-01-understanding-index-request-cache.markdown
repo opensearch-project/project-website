@@ -51,9 +51,9 @@ GET /students/_search?request_cache=true
 
 Each cache entry is a key-value pair consisting of **Key → BytesReference**.
 
-A [key](https://github.com/opensearch-project/OpenSearch/blob/4199bc2726235456e5b5422eaf4e836f25c2c5ed/server/src/main/java/org/opensearch/indices/IndicesRequestCache.java#L346) consists of three entities:
+A [Key](https://github.com/opensearch-project/OpenSearch/blob/4199bc2726235456e5b5422eaf4e836f25c2c5ed/server/src/main/java/org/opensearch/indices/IndicesRequestCache.java#L346) consists of three entities:
 
-1. **CacheEntity:** An [IndexShardCacheEntity](https://github.com/opensearch-project/OpenSearch/blob/4199bc2726235456e5b5422eaf4e836f25c2c5ed/server/src/main/java/org/opensearch/indices/IndicesService.java#L1866C24-L1866C45) contains the [IndexShard](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/index/shard/IndexShard.java). This reference links the key to the shard it belongs to.
+1. **CacheEntity:** An [IndexShardCacheEntity](https://github.com/opensearch-project/OpenSearch/blob/4199bc2726235456e5b5422eaf4e836f25c2c5ed/server/src/main/java/org/opensearch/indices/IndicesService.java#L1866C24-L1866C45) contains the [IndexShard](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/index/shard/IndexShard.java). This reference links the key to its shard.
 2. **ReaderCacheKeyId:** A unique identifier for the current state of the shard. This reference changes when the shard's state changes (for example, after a document addition, deletion, update, or refresh).
 3. **BytesReference:** The actual search query, stored in byte format.
 
@@ -96,7 +96,7 @@ An `IndexReader` provides a point-in-time view of an index. Any operation that m
 
 ### CleanupKey
 
-When an `IndexReader` is closed, the corresponding `CleanupKey` is added to a set called `KeysToClean`, as shown in the following diagram.
+When an `IndexReader` is closed, the corresponding `CleanupKey` is added to a set called `KeysToClean`
 
 ![CleanupKey](/assets/media/blog-images/2024-10-01-understanding-index-request-cache/key_and_cleanupkey.png){:class="img-centered" style="width:700px;"}
 
@@ -110,7 +110,7 @@ A cache entry can become invalid because of the following operations:
   POST /my-index/_cache/clear?request=true
   ```
 
-Any operation that invalidates an `IndexReader` or explicitly clears the cache adds corresponding `CleanupKeys` to a collection called `KeysToClean`, as shown in the following diagram.
+Any operation that invalidates an `IndexReader` or explicitly clears the cache add a corresponding `CleanupKey` to a collection called `KeysToClean`, as shown in the following diagram.
 
 ![Cache-Clear](/assets/media/blog-images/2024-10-01-understanding-index-request-cache/keys_to_clean_insert.png){:class="img-centered" style="width:650px;"}
 
