@@ -307,6 +307,13 @@
                             "URL": "/community/members/index.html",
                             "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Members-condensedImage"
+                        },
+                        {
+                            "Name": "UserGroups",
+                            "SubText": "Join the OpenSearch Project Meetup Network",
+                            "URL": "https://www.meetup.com/pro/opensearchproject/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-UserGroups-condensedImage"
                         }
 
                     ]
