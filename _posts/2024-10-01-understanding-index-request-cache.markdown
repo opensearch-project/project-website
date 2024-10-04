@@ -116,7 +116,7 @@ Any scenario that invalidates an `IndexReader` or explicitly clears the cache ad
 
 ## Cache cleanup
 
-OpenSearch runs a background job called [CacheCleaner](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/indices/IndicesService.java#L1678) every minute on a separate thread. This job calls the [`cleanCache`](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/indices/IndicesRequestCache.java#L698) method, which iterates through all cache entries, maps each `Key` to a `CleanupKey` in `KeysToClean`, and removes the corresponding entries, as shown in the following diagram.
+Every minute, OpenSearch runs a background job called [CacheCleaner](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/indices/IndicesService.java#L1678) on a separate thread. This job calls the [`cleanCache`](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/indices/IndicesRequestCache.java#L698) method, which iterates through all cache entries, maps each `Key` to a `CleanupKey` in `KeysToClean`, and removes the corresponding entries, as shown in the following diagram.
 
 ![Cache-Clear](/assets/media/blog-images/2024-10-01-understanding-index-request-cache/keys_to_clean_delete_and_fetch.png){:class="img-centered" style="width:650px;"}
 
