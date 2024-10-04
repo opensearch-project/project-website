@@ -51,7 +51,7 @@ GET /students/_search?request_cache=true
 
 Each cache entry is a key-value pair consisting of **Key → BytesReference**.
 
-A [Key](https://github.com/opensearch-project/OpenSearch/blob/4199bc2726235456e5b5422eaf4e836f25c2c5ed/server/src/main/java/org/opensearch/indices/IndicesRequestCache.java#L346) consists of three entities:
+A [key](https://github.com/opensearch-project/OpenSearch/blob/4199bc2726235456e5b5422eaf4e836f25c2c5ed/server/src/main/java/org/opensearch/indices/IndicesRequestCache.java#L346) consists of three entities:
 
 1. **CacheEntity:** An [IndexShardCacheEntity](https://github.com/opensearch-project/OpenSearch/blob/4199bc2726235456e5b5422eaf4e836f25c2c5ed/server/src/main/java/org/opensearch/indices/IndicesService.java#L1866C24-L1866C45) contains the [IndexShard](https://github.com/opensearch-project/OpenSearch/blob/main/server/src/main/java/org/opensearch/index/shard/IndexShard.java). This reference links the key to the shard it belongs to.
 2. **ReaderCacheKeyId:** A unique identifier for the current state of the shard. This reference changes when the shard's state changes (for example, after a document addition, deletion, update, or refresh).
