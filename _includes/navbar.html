@@ -586,12 +586,18 @@
 
 
                                 {% if content_section.URL %}
-                                    <div class="mb-1">
-                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }} mb-4">{{content_section.Title}}</a>
+                                    <div class="row mb-1">
+                                        <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }}">{{content_section.Title}}</a>
+                                    </div>
+                                    <div class="row">
+                                        <span class="mb-0 drawer-content-text">{{ content_section.SubText }}</span>
                                     </div>
                                 {% else %}
                                     <div class="mb-1">
                                         <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="mb-0 drawer-content-text">{{ content_section.SubText }}</span>
                                     </div>
                                 {% endif %}   
                             {% endfor %}
