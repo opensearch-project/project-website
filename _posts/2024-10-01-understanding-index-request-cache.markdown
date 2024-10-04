@@ -110,7 +110,7 @@ A cache entry can become invalid because of the following operations:
   POST /my-index/_cache/clear?request=true
   ```
 
-Any scenario that invalidates an `IndexReader` or explicitly clears the cache adds corresponding `CleanupKeys` to a collection called `KeysToClean`, as shown in the following diagram.
+Any operation that invalidates an `IndexReader` or explicitly clears the cache adds corresponding `CleanupKeys` to a collection called `KeysToClean`, as shown in the following diagram.
 
 ![Cache-Clear](/assets/media/blog-images/2024-10-01-understanding-index-request-cache/keys_to_clean_insert.png){:class="img-centered" style="width:650px;"}
 
