@@ -49,7 +49,7 @@ GET /students/_search?request_cache=true
 
 ## Understanding cache entries
 
-Each cache entry is a key-value pair of **Key → BytesReference**.
+Each cache entry is a key-value pair consisting of **Key → BytesReference**.
 
 A [Key](https://github.com/opensearch-project/OpenSearch/blob/4199bc2726235456e5b5422eaf4e836f25c2c5ed/server/src/main/java/org/opensearch/indices/IndicesRequestCache.java#L346) consists of three entities:
 
