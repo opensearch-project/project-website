@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Optimizing query performance: The implementation of index request cache in OpenSearch" 
+title: "Optimizing query performance: The implementation of the OpenSearch index request cache" 
 authors:
    - awskiran
    - kkhatua
