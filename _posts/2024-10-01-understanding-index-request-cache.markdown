@@ -26,7 +26,7 @@ Caching frequently run queries reduces the need to re-execute the same query mul
 
 ## Caching policy
 
-Not all search requests are eligible for caching in index request cache. Search requests which specify `size=0` are cached by default. These requests cache only metadata, such as the total number of results or hits. 
+Not all search requests are eligible for caching in the index request cache. Search requests that specify `size=0` are cached by default. These requests cache only metadata, such as the total number of results or hits. 
 
 The following requests are ineligible for caching:
 
