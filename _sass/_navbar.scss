@@ -88,7 +88,7 @@
 .btn-primary-dark {
 
     --bs-btn-padding-y: 15px;
-    --bs-btn-padding-x: 25px;
+    --bs-btn-padding-x: 20px;
     background-color: $primary-open-sky-s1;
     border-radius: 0px;
     color: $secondary-sanfrancisco-fog-t1;
@@ -243,13 +243,13 @@
 }
 
 .nav-search-icon {
-    background-color: #B9D9EB;
+    background-color: $primary-open-sky-s1;
     padding-top: 100px;
 
     &:active,
     &:focus,
     &:hover {
-        background-color: #006D97;
+        background-color: $primary-open-sky-s3;
         box-shadow: none;
         outline: none;  
     }
