@@ -579,7 +579,7 @@
                             {% for content_section in right_column %}
 
 
-                                <div class="card card-img rounded border border-0">
+                                <div class="card card-img rounded border border-0 pe-5 mb-2">
                                     <img src="{{ content_section.Roadmap_HeroBanner }}" class="h-100 card-img " alt="{{ content_section.Title }}">
                                         <a href="{{ content_section.Roadmap_Link }}" class="stretched-link"></a>
                                 </div>
@@ -589,14 +589,14 @@
                                     <div class="row mb-1">
                                         <a href="{{content_section.URL}}" class="{{ content_section.ClassValue }}">{{content_section.Title}}</a>
                                     </div>
-                                    <div class="row">
+                                    <div class="row pe-5">
                                         <span class="mb-0 drawer-content-text">{{ content_section.SubText }}</span>
                                     </div>
                                 {% else %}
                                     <div class="mb-1">
                                         <span class="{{ content_section.ClassValue }}">{{content_section.Title}}</span>
                                     </div>
-                                    <div class="row">
+                                    <div class="row pe-5">
                                         <span class="mb-0 drawer-content-text">{{ content_section.SubText }}</span>
                                     </div>
                                 {% endif %}   
