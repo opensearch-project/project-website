@@ -6,12 +6,12 @@ authors:
    - kkhatua
    - upasagar
    - kolchfa
-date: 2024-10-01 
+date: 2024-10-08 
 categories:
   - technical-posts
   - search
-meta_keywords: OpenSearch cluster, Opensearch caching, index request cache, search performance optimization, search latency
-meta_description: 
+meta_keywords: index request cache, search query performance, cache implementation, cache invalidation, cache cleanup, OpenSearch indices request cache
+meta_description: Explore the implementation of the OpenSearch index request cache and how this crucial mechanism enhances search query performance and efficiency.
 ---
 
 Speed and efficiency are essential for search users. OpenSearch achieves these through various mechanisms, one of the most important of which being the [index request cache](https://opensearch.org/docs/latest/search-plugins/caching/request-cache/). This blog post describes how this cache is implemented and how it optimizes query performance.
