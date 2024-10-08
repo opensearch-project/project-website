@@ -200,7 +200,7 @@
 }
 
 .nav-drawer-triangle {
-    z-index: 1;
+    z-index: 0;
 }
 
 .nav-search-icon {
@@ -279,6 +279,7 @@
         font-size: 30px;
         font-weight: 700;
         text-decoration: none;
+        z-index: 1;
     }
     .drawer-content-header-link {
         color: $primary-open-sky-s3;
@@ -287,6 +288,7 @@
         font-size: 30px;
         font-weight: 700;
         text-decoration: underline;
+        z-index: 1;
 
         &:hover {
             color: $primary-open-sky;
@@ -298,7 +300,8 @@
         font-size: 21px;
         font-weight: 700;
         line-height: 36px;
-        text-decoration: none;  
+        text-decoration: none;
+        z-index: 1;  
     }
     .drawer-content-subheader-link {
         color: $primary-open-sky-s2;
@@ -306,6 +309,7 @@
         font-weight: 700;
         line-height: 36px;
         text-decoration: underline;
+        z-index: 1;
         &:hover {
             color: $primary-open-sky;
             text-decoration: underline;
@@ -318,6 +322,7 @@
         line-height: 24px;
         word-wrap: break-word;
         text-decoration: none;
+        z-index: 1;
     }
     .drawer-content-text-link {
         color: $primary-open-sky-s3;
@@ -326,6 +331,7 @@
         line-height: 24px;
         word-wrap: break-word;
         text-decoration: none;
+        z-index: 1;
 
         &:hover {
             color: $primary-open-sky;
