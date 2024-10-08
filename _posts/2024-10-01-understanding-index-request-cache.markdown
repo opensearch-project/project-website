@@ -96,9 +96,12 @@ An `IndexReader` provides a point-in-time view of an index. Any operation that m
 
 ### CleanupKey
 
-When an `IndexReader` is closed, the corresponding `CleanupKey` is added to a set called `KeysToClean`.
+A `CleanupKey` corresponds to a `Key` to be deleted. The relationship between them is shown in the following diagram.
 
-![CleanupKey](/assets/media/blog-images/2024-10-01-understanding-index-request-cache/key_and_cleanupkey.png){:class="img-centered" style="width:700px;"}
+![CleanupKey](/assets/media/blog-images/2024-10-01-understanding-index-request-cache/key_and_cleanupkey.png)
+{:class="img-centered" style="width:700px;"}
+
+When an `IndexReader` is closed, the corresponding `CleanupKey` is added to a set called `KeysToClean`.
 
 **BytesReference** is not used by the `CleanupKey` because it represents the cached data itself, which is not needed to identify which entries should be cleaned up. The `CleanupKey` only identifies the entries to be removed and is not concerned with their contents.
 
