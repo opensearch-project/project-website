@@ -11,4 +11,4 @@ personas:
 permalink: '/community/members/sagar-upadhyaya.html'
 ---
 
-Sagar Upadhyay is a Software Engineer working on Amazon OpenSearch Service. He is an active contributor in OpenSearch, primarily focussed on search performance and resiliency related features.
+Sagar Upadhyaya is a Software Engineer working on Amazon OpenSearch Service. He is an active contributor to the OpenSearch Project, primarily focused on search performance and resiliency-related features.
