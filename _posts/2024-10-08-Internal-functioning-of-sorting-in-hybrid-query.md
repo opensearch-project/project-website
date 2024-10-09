@@ -1,89 +1,90 @@
 ---
 layout: post
-title:  "Internal functioning of sorting in hybrid query"
+title:  "How sorting works in hybrid queries"
 authors:
-- varun
+- varunudr
 - minalsha
 - vamshin
 - kolchfa
 date: 2024-10-08
 categories:
   - technical-posts
-  - search
-meta_keywords: hybrid query, hybrid search, vector search, search, semantic and keyword search
-meta_description: The concurrent segment search feature in OpenSearch optimizes CPU usage and enhances vector search performance by executing queries in parallel across multiple segments within a shard.
+meta_keywords: hybrid query, hybrid search, vector search, search, semantic and lexical search
+meta_description: Discover how sorting works in hybrid queries in OpenSearch, from sorting individual subquery results to combining them based on your search criteria.
 ---
 
-Since the introduction of hybrid query in OpenSearch 2.10, it has become increasingly popular among customers who want to improve the relevance of their semantic search results. Hybrid queries combine full-text search and semantic search to provide better results than either method alone for a wide variety of applications in e-commerce, document search, log analytics, and data exploration. We highly recommend reading our earlier blog on [hybrid search internal functioning](https://opensearch.org/blog/hybrid-search/) and consider it as a prerequisite for this blog.
+Since the introduction of hybrid query in OpenSearch 2.10, it has become increasingly popular among users who want to improve the relevance of their semantic search results. Hybrid queries combine full-text lexical search and semantic search in order to provide better results than either method alone. They are useful for a wide variety of applications, such as e-commerce, document search, log analytics, and data exploration. If you're unfamiliar with hybrid queries, start by reading our [earlier blog post](https://opensearch.org/blog/hybrid-search/) that introduces hybrid search and presents its quality and performance results.
 
-OpenSearch has been continuously enhancing its Hybrid query capabilities and performance by introducing features like post-filters, aggregations, query parallelization. However, we identified a gap in the hybrid query capability where it did not support sorting of the search results based on custom sort conditions. To overcome this, in OpenSearch 2.16, we introduced new feature of "sorting" in hybrid queries for applications that need to sort hybrid query results based on specific fields or attributes, providing a more flexible and powerful way to enhance the relevance and usability of hybrid queries.
+OpenSearch has been continuously enhancing its hybrid query capabilities and performance by introducing features like post-filters, aggregations, and query parallelization. However, when hybrid queries were first introduced, they did not support sorting of the search results based on custom sort conditions. In OpenSearch 2.16, we added sorting capability to hybrid queries, allowing applications to sort results by specific fields or attributes. This enhancement provides greater flexibility and improves the relevance and usability of hybrid queries.
 
-In this blog, we will first understand the query execution workflow, followed by internal functioning of this sorting in hybrid queries and then learn how to leverage this feature in a query. 
+In this blog post, we will start by reviewing the query execution workflow, then explain how sorting works in hybrid queries, and finally demonstrate how to use this feature.
 
-## Overview of Query Execution Workflow
+## Query execution workflow
 
-At a high level, query execution workflow is divided into two major phases: query phase and fetch phase. The query phase is responsible for obtaining matching results from each shard in the form of objects that contain the document IDs and relevancy score. These results are then sent to the fetch phase, where the source of these document IDs are fetched from the shards. Later the results from each shard are combined to form the final search response, which is sent to the user. To learn more about the execution process, check out our earlier blog on [query's journey in OpenSearch](https://opensearch.org/blog/a-query-or-there-and-back-again/). 
+At a high level, query execution is divided into two main phases: ***query*** and ***fetch***. During the query phase, OpenSearch retrieves matching results from each shard as objects containing document IDs and relevance scores. These results then move to the fetch phase, where the full text for each document ID is retrieved from the shards. Finally, OpenSearch combines the results from all shards, generates the final search response, and sends this response to the user. Query processing is discussed in more detail in [this blog post](https://opensearch.org/blog/a-query-or-there-and-back-again/). 
 
-## High-Level Logic and Example of Sorting in Hybrid query
+## High-level logic of sorting in a hybrid query
 
-Typically, in a hybrid query, subquery results are retrieved based on their relevancy scores. The top-scoring documents from each shard are then combined to form the final result. This process prioritizes relevance over other sorting criteria.
+In a typical hybrid query, results are retrieved based on both lexical and semantic relevance scores. The top-scoring documents from each shard are then combined to form the final result, prioritizing relevance over any other sorting criteria.
 
-To enable sorting within this process, we enhanced the hybrid query logic. Now, the individual subquery results are retrieved based on the specified sort criteria. These individual sorted subquery results are combined at the coordinator level, ensuring the final result reflects the user’s chosen order, not the relevancy scores.
+To enable sorting in this process, subquery results are retrieved according to the specified sort criteria. These sorted subquery results are then merged at the coordinator level, ensuring that the final output follows the user’s requested sort order rather than relying solely on relevance scores.
 
-The following example helps to demonstrate the sorting workflow in a hybrid query, accompanied by a diagram. In this scenario, user triggers a hybrid query with two subqueries: match and term, and seek search results to be ordered by stock price in descending order.
+The following example illustrates the sorting workflow in a hybrid query. In this case, a user triggers a hybrid query with two subqueries: `match` and `term`, and requests that the search results be ordered by stock price in descending order.
 
-The hybrid query internally executes the match and term query individually, and cater the search results respectively based on the specified score criteria (stock price in this case). Unlike traditional sorting, where the search results are purely based on sort criteria and does not cater relevancy score, the hybrid query also caters relevancy score with the sort fields to use it in the normalization process. Following this, the search results from all the subqueries are combined at the coordinator level to form the final shard result. This ensures that the final output adheres to the user’s requested sorting, prioritizing stock prices in descending order.
+First, the hybrid query executes the `match` and `term` subqueries separately, sorting each result set by the specified criterion—in this case, stock price. Unlike traditional sorting, which disregards relevance scores, hybrid queries include both the relevance score and the sorting fields in the results. These values are then used in the normalization process. Finally, the subquery results are combined at the coordinator level to form the final result, ensuring that the output is sorted by stock price in descending order, as requested.
 
-Below is the diagram showing the flow of the query phase and how the final shard result is created based on sorting criteria.
+The following diagram illustrates the flow of the query phase and creating the final shard result based on sorting criteria.
 
-![hybrid-query-with-sorting](/assets/media/blog-images/2024-10-08-internal-functioning-of-sorting-in-hybrid-search/Hybrid-query-with-sorting.png)
+![hybrid-query-with-sorting](/assets/media/blog-images/2024-10-08-internal-functioning-of-sorting-in-hybrid-search/Hybrid-query-with-sorting.png){:class="img-centered"}
 
-## Detailed overview of Sorting in Hybrid Query 
 
-Building on the high-level logic discussed earlier, let’s now explore the detailed overview of sorting in a hybrid query. At high level, the process can be broken down into two key sub-problems:
+## Detailed overview of sorting in a hybrid query 
 
-1. Sort the individual subquery results at shard level.
-2. Combine the multiple subqueries results as per the sort criteria at the coordinator node.
+Building on the high-level logic discussed earlier, let's now dive into the detailed process of sorting in a hybrid query. This can be broken down into two key steps:
 
-The following diagram explains at a high level on how these sub-problems are solved. The coordinator node sends the requests to the data nodes to retrieve query results from the shards. Internally, during the execution of the query phase, the following process occurs:
+1. Sorting individual subquery results at the shard level.
+2. Merging the multiple subquery results based on the sorting criteria at the coordinator node.
 
-* The collector executes on each shard to collect results for each subquery. While collecting, it also inserts the matching result into a priority queue, which is ordered according to the sorting criteria.
-* In the post process of the query phase, the subquery results are popped from the priority queue in the sorted order.
+Figure 1.2 illustrates these steps in detail. 
 
-Once coordinator node receives the response from all the data nodes, then the normalization process begins. The normalization processor calculates a score for each subquery result. It combines different subqueries results to form a final sorted list of results, as per the sort criteria. The results from the normalization phase are then sent to the fetch phase, which fetches the source of the document ids from the shards and create the final search response to be returned to the user. 
+![sorting-hld](/assets/media/blog-images/2024-10-08-internal-functioning-of-sorting-in-hybrid-search/Sorting-hld.png){:class="img-centered"}
 
-![sorting-hld](/assets/media/blog-images/2024-10-08-internal-functioning-of-sorting-in-hybrid-search/Sorting-hld.png)
+The coordinator node sends requests to data nodes to retrieve query results from the shards. Internally, during the query phase, the following process takes place:
 
-## Restrictions for sorting in hybrid query
+- A collector runs on each shard to gather results for each subquery. As results are collected, they are inserted into a priority queue that is ordered based on the sorting criteria.
+- At the end of the query phase, the subquery results are popped from the priority queue in sorted order.
 
-Certain restrictions apply to sorting in hybrid queries due to the complexity in its formation of the search result. The following points outline these restrictions in detail.
+Once the coordinator node receives responses from all the data nodes, the normalization process begins. This process assigns a score to each subquery result and merges them into a final sorted list according to the specified sorting criteria. After normalization, the results move to the fetch phase, where the document IDs are used to retrieve the full document content from the shards. The final search response is then sent to the user.
 
-1. If a user applies sorting criteria that include multiple fields and one of them is `_score`, we need to block this case. This is because the subquery results can only be combined based on either the sort field or `_score` , but not both simultaneously.
+## Sorting limitations
 
-```json
-{
-  "sort": [
-    {
-      "foo": {
-        "order": "desc"
-      }
-    },
-    {
-      "_score": {
-        "order": "asc"
-      }
-    }
-  ]
-}
-```
+Because of the complexity involved in generating search results, sorting in hybrid queries has the following limitations:
 
-2. According to the OpenSearch architecture, when a user applies sorting criteria and sets `track_scores=true` in the search request, the scores are calculated during the fetch phase. This needs to be blocked in hybrid queries. In hybrid query implementation, scores are initially calculated in the query phase and later normalized by the normalization processor. Setting `track_scores=true` triggers a recalculation of scores during sorting, which can lead to incorrect results. This is because the recalculated score will not be the normalized score, as the normalization processor operates between the query and fetch phases.
+1. **Sorting by multiple fields cannot include `_score`**: You cannot sort by multiple fields if one of the fields is `_score` because subquery results can only be combined based on either the sort field or `_score`, but not both. Thus, a query similar to the following will return an error:
+  ```json
+  {
+    "sort":[
+      {
+        "foo":{
+          "order":"desc"
+        }
+      },
+      {
+        "_score":{
+          "order":"asc"
+      }       
+    ]
+  }
+  ```
+
+2. **Sorting is incompatible with `track_scores`**: When you specify `track_scores=true` in the search request, OpenSearch calculates scores during the fetch phase. However, this is impossible in hybrid queries. In a hybrid query, scores are initially calculated during the query phase and then normalized by the normalization processor. If `track_scores` is enabled, it triggers a recalculation of scores during sorting, which can produce incorrect results because the recalculated scores won’t reflect the normalization performed earlier in the process.
 
 ## How to use sorting
 
-To use sorting, user must add a sort clause to the query in the search request. In this clause, you define the sorting criteria as shown in the example below:
+To use sorting, add a `sort` clause to a hybrid query and define the sorting criteria:
 
 ```json
+GET /my-nlp-index/_search?search_pipeline=nlp-search-pipeline
 {
   "query":{
       "hybrid":{
@@ -113,14 +114,9 @@ To use sorting, user must add a sort clause to the query in the search request. 
  ]
 }
 ```
-We have provided a detailed [example](https://opensearch.org/docs/latest/search-plugins/hybrid-search/#using-sorting-with-a-hybrid-query) of how to use this feature in the hybrid query documentation. We recommend reading it for a more comprehensive understanding.
+
+For more information, see [Using sorting with a hybrid query](https://opensearch.org/docs/latest/search-plugins/hybrid-search/#using-sorting-with-a-hybrid-query).
 
 ## Wrapping up
 
-In summary, we explored the internal functioning of sorting in hybrid queries and learned how it effectively sorts the individual subquery results, combining them based of sorting criteria. However, certain restrictions, such as setting `track_scores = true` and sorting by `_score` with other fields, apply due to the way sorting operates in OpenSearch. We also learned how users can leverage this feature to enhance the relevance and usability of hybrid queries. More such interesting features, like explainability and pagination, will soon be released to make hybrid query more flexible and powerful.
-
-## Sources
-
-* https://opensearch.org/docs/latest/search-plugins/searching-data/sort/
-* https://opensearch.org/docs/latest/search-plugins/hybrid-search/
-
+In summary, you’ve seen how sorting works in hybrid queries, from sorting individual subquery results to combining them based on your chosen criteria. Try sorting with hybrid queries in your workload to improve search result relevance. For more information, see the [Hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/) documentation. Stay tuned for upcoming features like explainability and pagination, which will make hybrid queries more flexible and useful.
