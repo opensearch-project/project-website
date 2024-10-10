@@ -21,4 +21,4 @@ personas:
 permalink: '/community/members/varunudr.html'
 ---
 
-**Varun Jain** is a software engineering engineer working on the OpenSearch Project and Amazon OpenSearch Service. His primary interests include distributed systems. He is an active contributor to various plugins, like neural-search, k-NN, job-scheduler, and anomaly-detection.
+**Varun Jain** is a Software Development Engineer II working on the OpenSearch Project and Amazon OpenSearch Service. His primary interests include distributed systems. He is an active contributor to various plugins, like neural-search, k-NN, job-scheduler, and anomaly-detection.
