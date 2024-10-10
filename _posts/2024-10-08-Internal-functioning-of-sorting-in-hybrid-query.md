@@ -31,7 +31,7 @@ To enable sorting in this process, subquery results are retrieved according to t
 
 The following example illustrates the sorting workflow in a hybrid query. In this case, a user triggers a hybrid query with two subqueries: `match` and `term`, and requests that the search results be ordered by stock price in descending order.
 
-First, the hybrid query executes the `match` and `term` subqueries separately, sorting each result set by the specified criterion—in this case, stock price. Unlike traditional sorting, which disregards relevance scores, hybrid queries include both the relevance score and the sorting fields in the results. These values are then used in the normalization process. Finally, the subquery results are combined at the coordinator level to form the final result, ensuring that the output is sorted by stock price in descending order, as requested.
+First, the hybrid query executes the `match` and `term` subqueries separately, sorting each result set by the specified criterion—in this case, stock price. Unlike traditional sorting, which disregards relevance scores, hybrid queries include both the relevance score and the sorting fields in the results of query phase. These values are then used in the normalization process. During normalization, relevance scores are used to calculate normalization scores, which act as tie-breakers when subquery results are combined. Finally, the subquery results are combined at the coordinator level to form the final result, ensuring that the output is sorted by stock price in descending order, as requested.
 
 The following diagram illustrates the flow of the query phase and creating the final shard result based on sorting criteria.
 
