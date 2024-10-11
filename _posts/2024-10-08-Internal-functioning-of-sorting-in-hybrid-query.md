@@ -9,8 +9,8 @@ authors:
 date: 2024-10-08
 categories:
   - technical-posts
-meta_keywords: hybrid query, hybrid search, vector search, search, semantic and lexical search
-meta_description: Discover how sorting works in hybrid queries in OpenSearch, from sorting individual subquery results to combining them based on your search criteria.
+meta_keywords: hybrid queries, semantic search, lexical search, search relevance, query execution workflow, OpenSearch hybrid search
+meta_description: Explore how sorting works in hybrid queries, the query execution workflow, and ways to leverage these sorting capabilities within OpenSearch to improve search relevance and usability of results.
 ---
 
 Since the introduction of hybrid query in OpenSearch 2.10, it has become increasingly popular among users who want to improve the relevance of their semantic search results. Hybrid queries combine full-text lexical search and semantic search in order to provide better results than either method alone. They are useful for a wide variety of applications, such as e-commerce, document search, log analytics, and data exploration. If you're unfamiliar with hybrid queries, start by reading our [earlier blog post](https://opensearch.org/blog/hybrid-search/) that introduces hybrid search and presents its quality and performance results.
