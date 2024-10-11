@@ -10,8 +10,8 @@ date: 2024-10-11
 categories:
   - technical-posts
 has_science_table: true
-meta_keywords: OpenSearch, tiered caching, query performance, on-heap cache, disk-based cache, request cache, cache hit ratio, OpenSearch Benchmark, performance optimization, caching
-meta_description: Learn how tiered caching in OpenSearch enhances query performance by combining on-heap and disk-based caching. Explore its benefits, limitations, and practical use cases in this detailed blog.
+meta_keywords: tiered caching, disk-based caching, on-heap caching, OpenSearch caching performance, how tiered caching works
+meta_description: Explore how OpenSearch combines on-heap and disk-based caching to handle larger datasets and improve performance. Learn about the trade-offs of tiered caching, how it works, and future developments.
 ---
 
 For performance-intensive applications like OpenSearch, caching is an essential optimization. Caching stores data so that future requests can be served faster, improving query response times and application performance. OpenSearch uses two main cache types: request cache and query cache. Both are on-heap caches, meaning their size is determined by the amount of available heap memory on a node.
