@@ -2,23 +2,24 @@
 layout: post
 title:  Empowering Action Through Accessibility
 authors:
-- apasun
-- pajuric
-- alejandrasasomething
-- sonjaseomthingerother
+  - natalienew
+  - alejandrasevilla
+  - sonyailevasseur
+  - pattijuric
+  - apasun
 
-date: 2024-09-18 12:30:00 -0600
+date: 2024-10-11 12:30:00 -0600
 categories:
   - releases
-meta_keywords: 
-meta_description: 
+meta_keywords: WCAG 2.1 compliance, web content accessibility, Protegrity, OpenSearch data visualization, inclusive design, UX, user experience
+meta_description: Explore how Protegrity uses OpenSearch and embraces WCAG 2.1 compliance to integrate web content accessibility guidelines and data visualizations that foster inclusivity, drive innovation, and utilize secure data.
 ---
 Accessibility is no longer just a legal requirement — it's a cornerstone of inclusivity and innovation. At Protegrity, we understand the importance of making our technology accessible to all users, regardless of their abilities, experiences, or expertise levels. Empowering end users makes our customers more effective at data security and, by extension, keeps their customers’ data safe. By embracing accessibility standards such as the Web Content Accessibility Guidelines (WCAG) 2.1, Conformance Level AA Success Criteria, and leveraging data visualizations, we're meeting regulatory requirements and empowering users to take meaningful action.
 
 
 **OpenSearch accessibility**
 
-Our vision is laser-focused on expanding accessibility within our technology through AWS OpenSearch data visualizations. These visualizations simplify complex data sets and empower a broader community within our businesses to interpret logs and take actionable steps. By reducing the need for security and data expertise, AWS OpenSearch data visualizations enable users at all levels to protect our data effectively, make informed decisions, and drive meaningful action.
+Our vision is laser-focused on expanding accessibility within our technology using OpenSearch data visualizations. These visualizations simplify complex data sets and empower a broader community within our businesses to interpret logs and take actionable steps. By reducing the need for security and data expertise, [OpenSearch data visualizations](https://opensearch.org/docs/latest/dashboards/visualize/viz-index/) enable users at all levels to protect our data effectively, make informed decisions, and drive meaningful action.
 
 **Empowering professionals using accessibility insights**
 
@@ -42,6 +43,7 @@ Protegrity recognizes that democratizing data security empowers users to protect
 * **Robust:** Content should be robust and reliable so that various user agents and assistive technologies can interpret it.
 
 **Insight's visualizations promote action with precision**
+
 One core use case for Insights is identifying potential risks. These can be user-based systems, applications, and more. Using audit logs from various systems, administrators can create alerts, monitoring, and visualizations with combinations of user-generated events on a system and across date and time ranges. Visualizations can easily detect any outliers in security audit logs, allowing administrators to take appropriate action.
 Examples:
 
@@ -62,7 +64,9 @@ By prioritizing accessibility in everything we do, we ensure that our technology
 
 
 
-*Figure 1 - Landing Page of "Insight Dashboard". This shows the trend graph for logs that are ingested in OpenSearch for a given time frame.*
+![](/assets/media/blog-images/2024-09-18-empowering-action-through-accessibility/Figure-1.png)
+
+This shows the trend graph for logs that are ingested in OpenSearch for a given time frame.
 
 **How we’re improving the user experience**
 
@@ -95,4 +99,4 @@ At Protegrity, we're committed to empowering all users to take meaningful action
 
 And more. Making these improvements allows those of the vision and mobility impaired to access data systems with their needs in mind, allowing disabled communities to not only improve their current working conditions in technical fields, but also experience new job opportunities to advance their careers.
 
-By embracing accessibility with AWS OpenSearch, we're meeting regulatory requirements, fostering inclusivity, and driving innovation for those who will safely utilize secure data to make our world a better place. 
+By embracing accessibility and using OpenSearch Dashboards we are meeting regulatory requirements, fostering inclusivity, and driving innovation for those who will safely utilize secure data to make our world a better place.
