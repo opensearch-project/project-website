@@ -84,7 +84,7 @@ The response should appear similar to the following:
 
 Follow this procedure to run integration tests for an OpenSearch plugin. In this example, you'll run tests for the [OpenSearch Alerting plugin](https://github.com/opensearch-project/alerting) on an M1 MacBook.
 
-Clone the alerting repository and change the directory to the repository root:
+Clone the alerting repository and change directory to the repository root:
 
 ```bash
 git clone https://github.com/opensearch-project/alerting.git
