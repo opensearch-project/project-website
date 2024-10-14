@@ -4,6 +4,7 @@ title:  "Tiered caching in OpenSearch"
 authors:
    - upasagar
    - akjain
+   - peteral
    - kkhatua
    - kolchfa
 date: 2024-10-11
