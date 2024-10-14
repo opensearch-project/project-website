@@ -62,24 +62,3 @@ columns:
         title: Privacy
         url: https://aws.amazon.com/privacy/
 
-  # -
-  #   title: 'Contact Us'
-  #   links:
-  #     -
-  #       title: 'Connect'
-  #       url: '/connect.html'
-  #     -
-  #       title: 'Twitter'
-  #       url: 'https://twitter.com/OpenSearchProj'
-  #     -
-  #       title: 'LinkedIn'
-  #       url: 'https://www.linkedin.com/company/opensearch-project/'
-  #     -
-  #       title: 'YouTube'
-  #       url: 'https://www.youtube.com/c/OpenSearchProject'
-  #     -
-  #       title: 'Meetup'
-  #       url: 'https://www.meetup.com/pro/opensearchproject/'
-  #     -
-  #       title: 'Facebook'
-  #       url: 'https://www.facebook.com/OpenSearchProject/'  
