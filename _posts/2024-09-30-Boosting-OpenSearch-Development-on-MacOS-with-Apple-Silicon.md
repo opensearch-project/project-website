@@ -94,7 +94,7 @@ cd alerting
 First, try running integration tests on an older version of OpenSearch that doesn't contain the core snapshot for macOS ARM64 (in this example, 2.14.0):
 
 ```bash
-# Checkout 2.14
+# Check out 2.14
 git checkout 2.14
 
 # Run integration test
@@ -137,7 +137,7 @@ BUILD FAILED in 1m 31s
 Then switch to the 2.16.0 version, in which the macOS ARM64 snapshot is available, and try again:
 
 ```bash
-# Checkout 2.16
+# Check out 2.16
 git checkout 2.16
 
 # Run integration test
