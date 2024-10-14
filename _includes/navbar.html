@@ -119,16 +119,16 @@
             </a>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item accordion-header my-auto mx-3">
+                <li class="nav-item accordion-header my-auto mx-2">
                     <a class="nav-link btn  accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Platform" aria-controls="navbarToggleExternalContent-Platform" aria-expanded="false" aria-label="Toggle navigation Platform" href="#">Platform</a>
                 </li>
-                <li class="nav-item accordion-header my-auto mx-3">
+                <li class="nav-item accordion-header my-auto mx-2">
                     <a class="nav-link btn accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Blog" aria-controls="navbarToggleExternalContent-Blog" aria-expanded="false" aria-label="Toggle navigation Blog" href="#">Blog</a>
                 </li>
-                <li  class="nav-item accordion-header my-auto mx-3">
+                <li  class="nav-item accordion-header my-auto mx-2">
                     <a class="nav-link btn accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Community" aria-controls="navbarToggleExternalContent-Community" aria-expanded="false" aria-label="Toggle navigation Community" href="#">Community</a>
                 </li >
-                <li  class="nav-item accordion-header my-auto mx-3">
+                <li  class="nav-item accordion-header my-auto ms-2">
                     <a class="nav-link btn accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent-Documentation" aria-controls="navbarToggleExternalContent-Documentation" aria-expanded="false" aria-label="Toggle navigation Documentation" href="#">Documentation</a>
                 </li >
 
@@ -136,8 +136,23 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
 
-                <div class=" my-auto pt-2 pb-2 mx-3">
-                    <a class="btn-primary-dark btn   my-1 py-1" href="/downloads.html" aria-current="Download">Download OpenSearch</a>
+                <div class="my-auto pt-2 pb-2 me-3">
+                    <a class="btn btn-primary-dark my-1 py-1" href="/downloads.html" aria-current="Download">
+                        
+                        <div class="row button-content">
+                            <div class="button-content-text col-auto d-none d-xxl-block">
+                                Download OpenSearch 
+                            </div>
+                            <div class="button-content-text col-auto d-block d-xxl-none pe-1">
+                                Download
+                            </div>
+                            <div class="button-content-icon col-auto px-0 ms-1 me-1 align-self-center">
+                                {% include icons_navbar.html type='chevron-in-circle' %}
+                            </div>
+                            
+                        </div>
+
+                    </a>
                 </div>
 
 
