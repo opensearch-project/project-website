@@ -14,7 +14,7 @@ meta_keywords: opensearch open source, MacOS, ARM64, Apple Silicon, developer fr
 meta_description: Learn how to simplify your OpenSearch development workflow on macOS with Apple silicon
 ---
 
-OpenSearch is an Apache-2.0 licensed open-source project supported by an engaging community of users across the globe. Building on its commitment to openness and growth, OpenSearch recently became part of the newly formed [OpenSearch Software Foundation](https://foundation.opensearch.org/), a community-driven initiative under the [Linux Foundation](https://www.linuxfoundation.org/). This shift has allowed us to enhance the developer experience by expanding platform and architecture support, especially for developers using macOS ARM64 machines. Previously, setting up OpenSearch cluster and running integration tests required a Linux environment or Docker containers, adding complexity and overhead to the process. Now, you can run and test OpenSearch plugins natively on macOS, simplifying workflows and reducing development time.
+OpenSearch is an Apache 2.0--licensed open-source project supported by an engaged community of users across the globe. Building on its commitment to openness and growth, OpenSearch recently became part of the newly formed [OpenSearch Software Foundation](https://foundation.opensearch.org/), a community-driven initiative under the [Linux Foundation](https://www.linuxfoundation.org/). This shift has allowed us to enhance the developer experience by expanding platform and architecture support, especially for developers using macOS ARM64 machines. Previously, setting up an OpenSearch cluster and running integration tests required a Linux environment or Docker containers, adding complexity and overhead to the process. Now you can run and test OpenSearch plugins natively on macOS, simplifying workflows and reducing development time.
 
 We're excited to announce that the OpenSearch core snapshot tarball artifact, built specifically for macOS ARM64 machines, is now publicly available. If you're developing on these machines, especially the latest Mac computers with Apple silicon, we encourage you to give it a try.
 
@@ -23,7 +23,7 @@ In this blog post, we'll discuss accessing the new snapshot artifact and using i
 
 ## Prerequisite
 
-You can use the artifact described in this post on a [Mac computer with Apple silicon](https://support.apple.com/en-us/116943) (ARM64 architecture). For older models with the Intel processor, you can use the [OpenSearch core snapshot artifact for macOS X64 Host](https://github.com/opensearch-project/opensearch-build/issues/2216).
+You can use the artifact described in this post on a [Mac computer with Apple silicon](https://support.apple.com/en-us/116943) (ARM64 architecture). For older models with an Intel processor, you can use the [OpenSearch core snapshot artifact for macOS X64 Host](https://github.com/opensearch-project/opensearch-build/issues/2216).
 
 
 ## Download the artifact and start an OpenSearch cluster
@@ -58,7 +58,7 @@ Once the cluster is started, you can make a test API call to verify that the clu
 curl http://localhost:9200
 ```
 
-The response should look similar to the following:
+The response should appear similar to the following:
 
 ```json
 {
@@ -84,7 +84,7 @@ The response should look similar to the following:
 
 Follow this procedure to run integration tests for an OpenSearch plugin. In this example, you'll run tests for the [OpenSearch Alerting plugin](https://github.com/opensearch-project/alerting) on an M1 MacBook.
 
-Clone the alerting repository and change directory to the repository root:
+Clone the alerting repository and change the directory to the repository root:
 
 ```bash
 git clone https://github.com/opensearch-project/alerting.git
@@ -176,7 +176,7 @@ BUILD SUCCESSFUL in 22m 48s
 28 actionable tasks: 25 executed, 3 up-to-date
 ```
 
-**Note**: Running integration tests with the new artifact also works for OpenSearch version 1.3.19 (when you switch to the 1.3 branch) or any version 3.0.0 and later (when you switch to main branch).
+**Note**: Running integration tests with the new artifact also works for OpenSearch version 1.3.19 (when you switch to the 1.3 branch) or version 3.0.0 and later (when you switch to the main branch).
 
 ## Simplify your OpenSearch Dashboards development experience
 
@@ -230,5 +230,5 @@ Now that OpenSearch is running in the background, you can start developing OpenS
 
 ## Next steps
 
-If you're a developer working on a macOS ARM64 machine, we encourage you to test the artifact and share your feedback. If you have any questions, feel free to join us on our [public slack channel](https://opensearch.org/slack.html) or in the [GitHub repository](https://github.com/opensearch-project).
+If you're a developer working on a macOS ARM64 machine, we encourage you to test the artifact and share your feedback. If you have any questions, feel free to join us on our [public Slack channel](https://opensearch.org/slack.html) or in the [GitHub repository](https://github.com/opensearch-project).
 
