@@ -3,7 +3,7 @@ layout: post
 title:  'Session Spotlight: Keynote Address at OpenSearchCon North America 2024'
 authors:
  - mlutton
-date: 2024-10-07
+date: 2024-10-21
 categories:
  - community-updates
 meta_keywords: OpenSearchCon, OpenSearch Project, Adobe, Linux Foundation, GenAI, Vector Search, OpenSearch Software Foundation
