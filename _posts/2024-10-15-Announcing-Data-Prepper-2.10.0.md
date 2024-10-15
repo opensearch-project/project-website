@@ -2,8 +2,8 @@
 layout: post
 title: Announcing Data Prepper 2.10.0
 authors:
+- sb2k16
 - dvenable
-- TODO
 date: 2024-10-15 12:30:00 -0600
 categories:
   - releases
