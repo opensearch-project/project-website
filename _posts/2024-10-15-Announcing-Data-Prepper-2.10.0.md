@@ -8,8 +8,8 @@ date: 2024-10-15 12:30:00 -0600
 categories:
   - releases
 excerpt: Data Prepper 2.10.0 offers an OpenSearch _bulk API and reads from Amazon Kinesis.
-meta_keywords: Data Prepper, _bulk, Amazon Kinesis Data Streams, OTel Logs, OTLP JSON
-meta_description: Data Prepper 2.10.0 offers a source that simulates the OpenSearch _bulk API and another source for reading from Amazon Kinesis Data Streams.
+meta_keywords: Data Prepper, OpenSearch bulk API, Kinesis data streams, Kafka, SASL/SCRAM authentication, streaming data ingestion
+meta_description: Data Prepper 2.10.0 adds OpenSearch API and Kinesis Data Streams sources for seamless ingestion, plus Kafka SASL/SCRAM support and OpenTelemetry log parsing.
 ---
 
 ## Introduction
@@ -26,7 +26,7 @@ A new Data Prepper source named `opensearch_api` has been added that accepts [Op
 The behavior of this source is also quite similar to the existing `http` source. 
 It supports industry-standard encryption in the form of TLS/HTTPS and HTTP basic authentication. 
 It also parses incoming requests and creates Data Prepper events and associated event metadata, making it compatible with the `opensearch` sink. 
-The request body should be compatible with the OpenSearch Document API bulk operation and will also support all actions: index, create, delete, and update.
+The request body is compatible with the OpenSearch Document API bulk operation and supports all actions: index, create, delete, and update.
 
 The following two HTTP methods are now supported:
 
@@ -37,10 +37,10 @@ POST <index>/_bulk
 
 The second API specifies the index in the path, so you don't need to include it in the request body.
 
-Moreover, the following query parameters are also supported that are available in OpenSearch Document API Bulk Operation as the following below:
+Additionally, the following OpenSearch Document API bulk operation query parameters are supported:
 
-* pipeline
-* routing
+* `pipeline`
+* `routing`
 
 The following example demonstrates how to use the source:
 
@@ -70,7 +70,7 @@ POST _bulk
 { "title": "Rush", "year": 2013 }
 ```
 
-This request will be ingested into OpenSearch, and a new document will be created under the index `movies` with the document ID `tt1979320` with the document `{ "title": "Rush", "year": 2013 }`.
+This request will be ingested into OpenSearch, and a new document will be created under the index `movies` with the document ID `tt1979320` with a document source of `{ "title": "Rush", "year": 2013 }`.
 
 The Data Prepper maintainers are interested in further expanding this source to support other indexing APIs, allowing it to stand in for an OpenSearch cluster in ingestion workloads.
 To learn more or provide feedback, see [Provide an OpenSearch API source #4180](https://github.com/opensearch-project/data-prepper/issues/4180).
@@ -80,7 +80,7 @@ To learn more or provide feedback, see [Provide an OpenSearch API source #4180](
 
 [Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/introduction.html) is a high-speed streaming data service. 
 Data Prepper has also introduced a new source named `kinesis` that can be used to ingest stream record data from multiple Kinesis data streams into OpenSearch clusters. 
-You can configure it to read stream records from the beginning or from the latest record. 
+You can configure it to read stream records from either the oldest untrimmed record or from the most recent record. 
 Moreover, if you enable end-to-end acknowledgements, Kinesis data streams will be checkpointed to prevent duplicate processing of records.
 
 The following is an example pipeline:
