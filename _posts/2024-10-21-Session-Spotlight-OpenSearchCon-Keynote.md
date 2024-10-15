@@ -17,7 +17,7 @@ has_science_table: false
 youtubeID: WPVGfWoR0B8
 ---
 
-Whether or not you were able to join us in San Francisco for OpenSearchCon North America 2024, now is a fantastic time to review recordings of the sessions. In our first session spotlight we’re bringing you back to the kickoff of the conference on September 24, 2024. 
+Whether or not you were able to join us in San Francisco for OpenSearchCon North America 2024, now is a fantastic time to review recordings of the sessions. In our first session spotlight we're bringing you back to the kickoff of the conference on September 24, 2024. 
 
 The opening keynote for OpenSearchCon North America 2024 was given by Eli Fisher, Senior Manager of Project Management at AWS for OpenSearch, alongside two very special guests: Anupam Chaturvedi, Engineering Manager for Acrobat GenAI Services at Adobe, and Jim Zemlin, Executive Director of the Linux Foundation. 
 
