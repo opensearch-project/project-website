@@ -70,7 +70,7 @@ POST _bulk
 { "title": "Rush", "year": 2013 }
 ```
 
-This request will be ingested into OpenSearch, and a new document will be created under the index `movies` with the document ID `tt1979320` with a document source of `{ "title": "Rush", "year": 2013 }`.
+This request will be ingested into OpenSearch, and a new document will be created under the index `movies` with the document ID `tt1979320` and the document source `{ "title": "Rush", "year": 2013 }`.
 
 The Data Prepper maintainers are interested in further expanding this source to support other indexing APIs, allowing it to stand in for an OpenSearch cluster in ingestion workloads.
 To learn more or provide feedback, see [Provide an OpenSearch API source #4180](https://github.com/opensearch-project/data-prepper/issues/4180).
