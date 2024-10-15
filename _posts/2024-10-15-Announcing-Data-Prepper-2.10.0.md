@@ -126,4 +126,21 @@ Data Prepper 2.10 has introduced a number of other improvements:
 
 The following community members contributed to this release. Thank you!
 
-TODO
+* [chenqi0805](https://github.com/chenqi0805) -- Qi Chen
+* [danhli](https://github.com/danhli) -- Daniel Li
+* [dependabot[bot]](https://github.com/apps/dependabot)
+* [dinujoh](https://github.com/dinujoh) -- Dinu John
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [franky-m](https://github.com/franky-m)
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [jayeshjeh](https://github.com/jayeshjeh) -- Jayesh Parmar
+* [KarstenSchnitter](https://github.com/KarstenSchnitter) -- Karsten Schnitter
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [LeeroyHannigan](https://github.com/LeeroyHannigan) -- Lee
+* [linghengqian](https://github.com/linghengqian) -- Ling Hengqian
+* [oeyh](https://github.com/oeyh) -- Hai Yan
+* [quanghungb](https://github.com/quanghungb) -- qhung
+* [san81](https://github.com/san81) -- Santhosh Gandhe
+* [sb2k16](https://github.com/sb2k16) -- Souvik Bose
+* [shenkw1](https://github.com/shenkw1) -- Katherine Shen
+* [srikanthjg](https://github.com/srikanthjg) -- Srikanth Govindarajan
