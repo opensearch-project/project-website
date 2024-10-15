@@ -21,7 +21,7 @@ Two major features include a source that sends data to Data Prepper using an API
 ## OpenSearch API source
 
 Many existing OpenSearch clients that perform ingestion directly to OpenSearch can now send that data to Data Prepper first.
-With this, you can use Data Prepper's buffering and rich processor set before sending data to OpenSearch without having to change clients that are using the OpenSearch `_bulk` API. 
+This means that you can use Data Prepper's buffering and rich processor set before sending data to OpenSearch without having to change clients that are using the OpenSearch `_bulk` API.  
 A new Data Prepper source named `opensearch_api` has been added that accepts [OpenSearch Document API bulk operation](https://opensearch.org/docs/latest/api-reference/document-apis/bulk/) requests from clients using REST and ingests data into OpenSearch. 
 The behavior of this source is also quite similar to the existing `http` source. 
 It supports industry-standard encryption in the form of TLS/HTTPS and HTTP basic authentication. 
