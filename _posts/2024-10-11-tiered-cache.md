@@ -19,7 +19,7 @@ For performance-intensive applications like OpenSearch, caching is an essential 
 
 ## On-heap caching: A good start, but is it enough?
 
-On-heap caching in OpenSearch provides a quick, simple, and efficient way to cache data locally on a node. It offers low-latency data retrieval and thereby provides significant performance gains. However, these advantages come with trade-offs, especially as the cache grows, which may lead to performance challenges.
+On-heap caching in OpenSearch provides a quick, simple, and efficient way to cache data locally on a node. It offers low-latency data retrieval and thereby provides significant performance gains. However, these advantages come with trade-offs: as the cache grows, on-heap caching may lead to performance challenges.
 
 The size of an on-heap cache size is directly tied to the amount of heap memory available on a node, which is both finite and costly. This limitation creates a challenge when trying to store large datasets or manage numerous queries. When the cache reaches its capacity, older queries must often be evicted to make room for new ones. This frequent eviction can lead to cache churn, negatively impacting performance, because evicted queries may need to be recomputed later.
 
@@ -49,10 +49,10 @@ Because tiered caching currently only applies to the request cache, it's useful 
 
 Tiered caching is especially beneficial in these situations:
 
-- Your domain experiences many cache evictions and has repeatable queries. You can confirm this by using request cache statistics.
+- Your domain experiences many cache evictions and has repeated queries. You can confirm this by using request cache statistics.
 - You're working with log analytics or read-only indexes, in which data doesn't change often, and you're encountering frequent evictions.
 
-By default, the request cache only stores aggregation queries. You can enable caching for specific requests by using the `?request_cache=true` query parameter.
+By default, the request cache only stores aggregation query results. You can enable caching for specific requests by using the `?request_cache=true` query parameter.
 
 ## How to enable tiered caching
 
@@ -90,4 +90,4 @@ The initial results show that tiered caching performs well, especially with high
 
 ## What's next?
 
-While tiered caching is a promising feature, we're actively working on further improvements. We're currently exploring ways to make tiered caching more performant. Future enhancements may include promoting frequently accessed items from the disk cache to the on-heap cache, persisting disk cache data between restarts, or integrating tiered caching with other OpenSearch cache types, such as the query cache. You can follow our progress in [this issue](https://github.com/opensearch-project/OpenSearch/issues/10024). We encourage you to try tiered caching in a non-production environment and to share your feedback to help make this feature more robust.
+While tiered caching is a promising feature, we're actively working on further improvements. We're currently exploring ways to make tiered caching more performant. Future enhancements may include promoting frequently accessed items from the disk cache to the on-heap cache, persisting disk cache data between restarts, and integrating tiered caching with other OpenSearch cache types, such as the query cache. You can follow our progress in [this issue](https://github.com/opensearch-project/OpenSearch/issues/10024). We encourage you to try tiered caching in a non-production environment and to share your feedback to help improve this feature.
