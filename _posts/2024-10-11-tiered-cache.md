@@ -19,7 +19,7 @@ For performance-intensive applications like OpenSearch, caching is an essential 
 
 ## On-heap caching: A good start, but is it enough?
 
-On-heap caching in OpenSearch provides a quick, simple, and efficient way to cache data locally on a node. It offers low-latency data retrieval and thereby provides significant performance gains. However, these advantages come with trade-offs: As the cache grows, on-heap caching may lead to performance challenges.
+On-heap caching in OpenSearch provides a quick, simple, and efficient way to cache data locally on a node. It offers low-latency data retrieval and thereby provides significant performance gains. However, these advantages come with trade-offs, especially as the cache grows. When the cache size is close to capacity, on-heap caching may lead to performance challenges because of a high number of evictions and misses.
 
 The size of an on-heap cache size is directly tied to the amount of heap memory available on a node, which is both finite and costly. This limitation creates a challenge when trying to store large datasets or manage numerous queries. When the cache reaches its capacity, older queries must often be evicted to make room for new ones. This frequent eviction can lead to cache churn, negatively impacting performance, because evicted queries may need to be recomputed later.
 
