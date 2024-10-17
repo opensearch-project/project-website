@@ -2,12 +2,6 @@
 layout: fullwidth-with-breadcrumbs
 primary_title: Slack workspace
 title: Slack workspace
-breadcrumbs:
-  icon: community
-  items:
-    - title: 'Community'
-    - title: 'Slack Workspace'
-      url: '/slack.html'
 content_cta_button: 'join-slack'
 content_reposition_rules:
   source_selector: '.full-width-layout--content--body > .content-body--cta-button'
