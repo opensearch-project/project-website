@@ -6,7 +6,7 @@ authors:
 - minalsha
 - vamshin
 - kolchfa
-date: 2024-10-08
+date: 2024-10-17
 categories:
   - technical-posts
 meta_keywords: hybrid queries, semantic search, lexical search, search relevance, query execution workflow, OpenSearch hybrid search
