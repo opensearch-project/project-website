@@ -11,17 +11,17 @@ meta_keywords: opensearch query insights, search performance, query optimization
 meta_description: Gain deeper visibility into search query performance with OpenSearch Query Insights. This tool helps identify bottlenecks, optimize resources, and troubleshoot issues by providing detailed insights into query execution, latency, CPU/memory usage, and more. Enhance your search analytics and deliver a better user experience.
 ---
 
-In the world of search and analytics, performance is everything. As an engineer, you need to ensure that your search queries are not only fast but also resource-efficient. However, understanding what’s happening under the hood of your search operations can be challenging. That’s where OpenSearch’s new feature, Query Insights, comes into play. This tool is designed to give you deeper visibility into the performance of your search queries, helping you identify bottlenecks, optimize performance, and ultimately, provide a better experience for your users.
+In the world of search and analytics, performance is everything. As an engineer, you need to ensure that your search queries are not only fast but also resource efficient. However, understanding what's happening in your search operations internally can be challenging. That's where OpenSearch's new feature, Query Insights, comes into play. This tool is designed to give you deeper visibility into the performance of your search queries, helping you identify bottlenecks, optimize performance, and, ultimately, provide a better experience for your users.
 
 
 ### What is Query Insights?
 
-Query Insights is a comprehensive framework within OpenSearch that provides detailed visibility into the execution of search queries. It collects and analyzes data on the performance of each query, offering you the tools to identify top resource-consuming queries, understand query latency, and track the source of queries. This feature is invaluable for troubleshooting, optimizing performance, and ensuring the smooth operation of your search environment.
+Query Insights is a comprehensive framework within OpenSearch that provides detailed visibility into the execution of search queries. It collects and analyzes data on the performance of each query, offering you the tools to identify the top resource-consuming queries, understand query latency, and track the source of queries. This feature is invaluable for troubleshooting, optimizing performance, and ensuring the smooth operation of your search environment.
 
 
 ### Why is Query Insights important?
 
-Understanding the performance of your search queries is critical for maintaining a responsive and efficient search platform. With Query Insights, you can quickly identify the top queries that are consuming the most CPU, memory, or exhibiting high latency. This allows you to focus your optimization efforts where they are needed most. By using Query Insights, you can:
+Understanding the performance of your search queries is critical for maintaining a responsive and efficient search platform. With Query Insights, you can quickly identify the top queries that are consuming the most CPU or memory or are exhibiting high latency. This allows you to focus your optimization efforts where they are needed most. By using Query Insights, you can:
 
 
 * **Identify performance bottlenecks:** Easily spot queries that are slowing down your system, whether due to high resource usage or inefficient execution.
@@ -30,10 +30,10 @@ Understanding the performance of your search queries is critical for maintaining
 
 ### Key features of Query Insights
 
-1. **Top-N queries:** One of the most sought-after features is the ability to identify the top queries by latency, CPU usage, or memory consumption. This feature allows you to focus on optimizing the queries that have the most significant impact on your system’s performance.
-2. **Detailed Query Metadata:** Each query record includes essential information such as timestamps, source, involved indexes, node ID, and task-level resource usage. This data is crucial for understanding the context of each query and making informed decisions about optimizations.
-3. **Query Exporter:** The Query Insights framework includes an exporter that allows you to save query performance data to local indexes or a data lake. This historical data can be invaluable for investigating past performance issues, such as CPU spikes or node drops.
-4. **Upcoming Dashboard Integration:** An upcoming feature is the Query Insights dashboard, which will offer a visual representation of the top queries and their performance metrics. This dashboard will make it even easier to monitor and analyze query performance over time.
+1. **Top N queries:** One of the most requested features is the ability to identify the top queries by latency, CPU usage, or memory consumption. This feature allows you to focus on optimizing the queries that have the most significant impact on your system's performance.
+2. **Detailed query metadata:** Each query record includes essential information such as timestamps, source, involved indexes, node ID, and task-level resource usage. This data is crucial for understanding the context of each query and making informed decisions about optimizations.
+3. **Query exporter:** The Query Insights framework includes an exporter that allows you to save query performance data to local indexes or a data lake. This historical data can be invaluable for investigating past performance issues, such as CPU spikes or node drops.
+4. **Upcoming dashboard integration:** An upcoming feature is the Query Insights dashboard, which will offer a visual representation of the top queries and their performance metrics. This dashboard will make it even easier to monitor and analyze query performance over time.
 
 
 
@@ -41,7 +41,7 @@ Understanding the performance of your search queries is critical for maintaining
 
 The Query Insights architecture includes the new Query Insights plugin, additional OpenSearch components, and the integration of existing components to collect metrics, delivering comprehensive insights and recommendations. At a high level, the Query Insights framework comprises the following integral components:
 
-* **Collectors**: Within OpenSearch, these components gather performance-related data at various stages of search query execution.
+* **Collectors**: These components gather performance-related data at various stages of search query execution.
 * **Processors**: Built into the Query Insights plugin, these components perform lightweight aggregation and processing on data gathered by the collectors.
 * **Customer experience:** Various user interaction points, such as APIs, dashboards, metrics, and exporters, facilitate the presentation of insights and recommendations to users.
 
@@ -56,7 +56,7 @@ To better illustrate the power of Query Insights, let's explore some practical u
 
 ### Example 1: Identify resource-intensive queries (top N queries by CPU usage)
 
-**Scenario**: You notice that your OpenSearch cluster is experiencing high CPU usage. To investigate, you want to track the top N queries by CPU usage over a 30-minute window.
+**Scenario**: You notice that your OpenSearch cluster is experiencing high CPU usage. To investigate, you want to track the top N queries by CPU usage within a 30-minute window.
 
 **Steps**:
 
@@ -92,11 +92,11 @@ To better illustrate the power of Query Insights, let's explore some practical u
   GET /_insights/top_queries?type=cpu
   ```
 
-The response returns the 10 queries using the most CPU resources within the past 30 minutes, helping you identify which queries to optimize.
+The response returns the 10 queries that used the most CPU resources within the last 30 minutes, helping you identify which queries to optimize.
 
 ### Example 2: Diagnose slow search queries (top N queries by latency)
 
-**Scenario**: Your users are reporting slow search queries, and you need to find the most time-consuming queries over the last hour.
+**Scenario**: Your users are reporting slow search queries, and you need to find the most time-consuming queries executed in the last hour.
 
 **Steps**:
 
@@ -133,12 +133,13 @@ The response returns the 10 queries using the most CPU resources within the past
   ```
 
 
-The response provides a list of the 5 slowest queries executed in the last hour, allowing you to investigate further.
+The response provides a list of the five slowest queries executed in the last hour, allowing you to investigate further.
 
 
 ### Example 3: Group similar queries for better analysis (top N queries by similarity)
 
 **Scenario**: A single query is executed multiple times with small variations, preventing other resource-heavy queries from appearing in the top N query list. You want to group similar queries based on their structure.
+
 **Steps**:
 
 1. **Enable top N query monitoring by CPU or latency**:
@@ -179,6 +180,7 @@ By grouping similar queries, you ensure that the results contain a greater varie
 ### Example 4: Export Query Insights data for offline analysis
 
 **Scenario**: You want to export top N query data to local indexes for offline analysis.
+
 **Steps**:
 
 1. **Enable top N query monitoring (for example, by latency)**:
@@ -201,12 +203,12 @@ By grouping similar queries, you ensure that the results contain a greater varie
   }
   ```
 
-This request signals to store daily top N query data in your local index, allowing for extended historical analysis.
+This request will store daily top N query data in your local index, allowing for extended historical analysis.
 
 
-### How query insights can benefit you
+### How Query Insights can benefit you
 
-Whether you’re running a small cluster or managing a large-scale search platform, Query Insights can help you maintain optimal performance. By leveraging the detailed insights provided by this tool, you can:
+Whether you're running a small cluster or managing a large-scale search platform, Query Insights can help you maintain optimal performance. By leveraging the detailed insights provided by this tool, you can:
 
 
 * **Proactively manage performance:** With real-time visibility into query execution, you can identify and address potential performance issues before they impact your users.
@@ -215,6 +217,6 @@ Whether you’re running a small cluster or managing a large-scale search platfo
 
 ### Conclusion
 
-Query Insights is a game-changer for anyone responsible for maintaining the performance and reliability of an OpenSearch environment. With its powerful features and detailed metrics, you can gain a deeper understanding of how your search queries are performing and take action to optimize them. Whether you’re troubleshooting a specific issue or looking to improve overall system efficiency, Query Insights provides the tools you need to succeed. Keep an eye out for the upcoming dashboard feature, which will further enhance your ability to monitor and analyze your search queries in real-time. 
+Query Insights is a useful tool for anyone responsible for maintaining the performance and reliability of an OpenSearch environment. Using Query Insights, you can gain a deeper understanding of how your search queries are performing and take actions to optimize them. Whether you're troubleshooting a specific issue or looking to improve overall system efficiency, Query Insights provides the tools you need to succeed. Keep an eye out for the upcoming dashboard feature, which will further enhance your ability to monitor and analyze your search queries in real time. 
 
 To learn more about Query Insights, check out the [documentation](https://opensearch.org/docs/latest/observing-your-data/query-insights/index/).

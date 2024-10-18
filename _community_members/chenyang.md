@@ -22,4 +22,4 @@ personas:
 redirect_from: '/authors/chenyang/'
 ---
 
-Chenyang Ji is a Software Engineer at AWS, actively contributing to the OpenSearch Project with a focus on improving search performance and developing observability features.
+Chenyang Ji is a Software Engineer at AWS actively contributing to the OpenSearch Project, with a focus on improving search performance and developing observability features.
