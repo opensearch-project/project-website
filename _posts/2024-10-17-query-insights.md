@@ -31,7 +31,7 @@ Understanding the performance of your search queries is critical for maintaining
 ### Key features of Query Insights
 
 1. **Top N queries:** One of the most requested features is the ability to identify the top queries by latency, CPU usage, or memory consumption. This feature allows you to focus on optimizing the queries that have the most significant impact on your system's performance.
-2. **Detailed query metadata:** Each query record includes essential information such as timestamps, source, involved indexes, node ID, and task-level resource usage. This data is crucial for understanding the context of each query and making informed decisions about optimizations.
+2. **Detailed query metadata:** Each query record includes essential information such as the timestamp, source, involved indexes, node ID, and task-level resource usage. This data is crucial for understanding the context of each query and making informed decisions about optimizations.
 3. **Query exporter:** The Query Insights framework includes an exporter that allows you to save query performance data to local indexes or a data lake. This historical data can be invaluable for investigating past performance issues, such as CPU spikes or node drops.
 4. **Upcoming dashboard integration:** An upcoming feature is the Query Insights dashboard, which will offer a visual representation of the top queries and their performance metrics. This dashboard will make it even easier to monitor and analyze query performance over time.
 
