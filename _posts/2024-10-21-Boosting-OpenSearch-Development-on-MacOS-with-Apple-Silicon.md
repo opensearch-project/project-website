@@ -10,8 +10,8 @@ categories:
   - releases
   - technical-posts
 excerpt: We're excited to announce that the OpenSearch core snapshot tarball artifact, built specifically for macOS ARM64 machines, is now publicly available. If you're developing on the latest Mac computers with Apple silicon, we encourage you to give it a try and experience the streamlined workflow.
-meta_keywords: opensearch open source, MacOS, ARM64, Apple Silicon, developer friendly, architecture support, platform support
-meta_description: Learn how to simplify your OpenSearch development workflow on macOS with Apple silicon
+meta_keywords: OpenSearch core snapshot, macOS ARM64, OpenSearch Dashboards, development workflow on macOS with Apple silicon
+meta_description: Learn how to access the new OpenSearch core snapshot artifact for macOS ARM64 and use it to simplify your development process and streamline your workflow on Mac computers with Apple silicon.
 ---
 
 OpenSearch is an Apache 2.0--licensed open-source project supported by an engaged community of users across the globe. Building on its commitment to openness and growth, OpenSearch recently became part of the newly formed [OpenSearch Software Foundation](https://foundation.opensearch.org/), a community-driven initiative under the [Linux Foundation](https://www.linuxfoundation.org/). This shift has allowed us to enhance the developer experience by expanding platform and architecture support, especially for developers using macOS ARM64 machines. Previously, setting up an OpenSearch cluster and running integration tests required a Linux environment or Docker containers, adding complexity and overhead to the process. Now you can run and test OpenSearch plugins natively on macOS, simplifying workflows and reducing development time.
