@@ -38,10 +38,10 @@ We've moved away from the simple dropdown search interface in favor of a full se
 
 ## Key features
 
-Here's a look at the key improvements and new features that enhance your search experience on OpenSearch.org:
+Here's a look at the key improvements and new features in OpenSearch.org search:
 
 - **Dedicated search results page**:
-    After submitting a search, you'll be taken to a new page that shows a more comprehensive list of results than was provided by the previous dropdown. You can browse through these results more easily, without leaving the page.
+    Search results are shown on a dedicated page with a comprehensive list of results, which makes it easy to review them.
 
 - **Persistent search box**:
     The search box stays at the top of the page, allowing you to refine your query or enter new keywords without losing your current search context.
