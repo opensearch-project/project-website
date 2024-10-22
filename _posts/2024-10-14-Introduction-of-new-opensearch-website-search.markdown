@@ -1,64 +1,71 @@
 ---
 layout: post
-title: Introduction of new OpenSearch website search
+title: Introducing enhanced search functionality on OpenSearch.org
 authors:
    - zelinhao
+   - kolchfa
 date: 2024-10-14 
 categories:
+  - community-updates
   - update
-  - search
-excerpt: 
-meta_keywords: 
-meta_description: 
+  - community
+meta_keywords: OpenSearch search update, improved search results, advanced filters, documentation search, OpenSearch search page, Amazon OpenSearch Service, version-specific search, search infrastructure update
+meta_description: Discover the new and improved search functionality on OpenSearch.org. Learn how our updated infrastructure, advanced filters, and dedicated search results page make it easier to find the documentation, blog posts, and event information you need.
 ---
-We are excited to announce a new update to OpenSearch.org's search capabilities. This new design addresses key challenges in the current infrastructure and search functionality while laying the foundation for enhanced user experience through advanced search options.
+We're pleased to announce an update to the search functionality on OpenSearch.org. This new design addresses key challenges in the current infrastructure and search experience while setting the stage for more advanced search features that help you find the information you need more easily.
 
-## Overview
+## The new search functionality
 
-The previous documentation search system had limitations in terms of scalability, maintenance, and user experience. With the new search functionality, we are transitioning to Amazon OpenSearch Service for a more robust and scalable infrastructure, while introducing advanced search features that allow users to find exactly what they need, faster and more efficiently.
+The previous search system had limitations related to scalability, maintenance, and user experience. With this update, we're moving to Amazon OpenSearch Service for a more reliable and scalable infrastructure, and we've added new search features to make your experience faster and more efficient.
 
-This update will:
+**Here's what's new:**
 
-* **Stabilize infrastructure**, eliminating deployment and indexing failures.
-* **Remove duplication of search results** to provide cleaner, more accurate results.
-* Introduce a **new search results landing page**, moving beyond the dropdown experience.
-* **Filter search results exclusively on documentation/blog/event** for a more relevant experience.
-* Enable users to **search across archived versions** of documentation.
+- [**Improved infrastructure**](#better-search-infrastructure) to eliminate deployment and indexing issues.
+- **No more duplicate results**, giving you cleaner and more accurate search results.
+- A [**new search results page**](#new-search-results-page) that goes beyond the dropdown format.
+- **Filters for documentation, blogs, and events** to help you focus on relevant content.
+- The ability to **search archived versions** of documentation.
 
-## Key Features
+## Better search infrastructure
 
-### Enhanced search infrastructure
+We've restructured the backend of our search system to improve both performance and relevance. Now, content is indexed by documentation version, so your search results are version-specific. This reduces clutter and duplication, making it easier for you to find the right information quickly.
 
-To enhance both performance and relevancy, we've restructured the underlying infrastructure that powers the search functionality on OpenSearch.org. We redesigned our indexing strategy by splitting the indexes by version. Now, content is indexed based on the specific documentation version it belongs to, allowing users to get version-specific search results. This approach ensures that results are clean, relevant, and free from duplication, making it easier for users to find exactly what they need.
+We've also upgraded from basic query strings to `match` and `multi_match` queries, which provide more precise results by searching across multiple fields. Additionally, we've applied `indices_boost` to prioritize documentation in search results, further improving relevance.
 
-Previously, we utilized basic query strings, which provided a fundamental search experience. To offer more accurate and refined search results, we’ve adopted `match` and `multi_match` queries, which allow us to search across multiple fields with a high degree of precision. `indices_boost` is applied to prioritize documentation indices, further enhancing the relevancy of search hits.
+## New search results page
 
-### New search results landing page
+We've moved away from the simple dropdown search interface to a full search results page, offering a more powerful and user-friendly way to navigate search results. This page gives you more control over your search and makes it easier to refine your results.
 
-In a move to enhance user experience, we’re transitioning from the simple dropdown interface to a fully-featured search results landing page. This new page offers a more powerful and intuitive way for users to engage with search results, enabling deeper filtering and customization options. Whether users are searching through documentation, blog posts, or event content, the landing page provides the tools to efficiently refine their results, making it easier than ever to find relevant information.
+## Key features
 
-#### Key Features:
+Here's a look at the key improvements and new features that enhance your search experience on OpenSearch.org:
 
-* **Dedicated search results page:**  
-  When users enter a query and press ‘Enter,’ they’ll be taken to this new results page. Unlike the previous dropdown, which showed limited and condensed results, the new page is designed to present search results in a more organized and comprehensive manner. Users are able to browse through extensive lists of results without leaving the page, making their search journey smoother and more effective.
+- **Dedicated search results page**:
+    After submitting a search, you'll be taken to a new page that shows a more comprehensive list of results than the previous dropdown. You can browse through these results more easily, without leaving the page.
 
-* **Search box:**  
-  The search box at the top of the landing page allows users to input new keywords or modify their existing query. It remains persistent across interactions, so users can continue adjusting their search criteria as needed without losing their context.
+- **Persistent search box**:
+    The search box stays at the top of the page, allowing you to refine your query or enter new keywords without losing your current search context.
 
-* **Advanced filters:**  
-  One of the standout features of the new landing page is its filtering options. Users can now specify their search focus by selecting content types, including:
-    * **Documentation:** Focus exclusively on technical documents.
-    * **Blog:** Retrieve blog posts related to OpenSearch.
-    * **Event:** Search through events and announcements.
-    * **All:** A combined search across all content categories.
+- **Advanced filters**:
+    The new page includes filtering options to help you focus your search. You can filter by:
+    - **Documentation**: Narrow down your search to technical documentation.
+    - **Blogs**: View relevant blog posts.
+    - **Events**: Search through events and announcements.
+    - **All**: Search across all types of content.
 
-  Along with content filters, users can also select specific documentation versions (for example, “OpenSearch 2.17 (latest)”, “OpenSearch 1.3”) to narrow down results to particular product releases. This feature is especially useful for users who are working on different versions of OpenSearch and want to access historical documentation.
+    You can also filter by specific documentation versions, like “OpenSearch 2.17 (latest)” or “OpenSearch 1.3.” This is particularly useful if you're working with different versions of OpenSearch and need access to historical documentation.
 
-* **Search results display:**  
-  The results themselves are shown in a clear and organized list, featuring:
-    * **Title and brief overview:**  
-      Each search result includes a clickable title that links directly to the relevant page, accompanied by a short summary to give users a quick preview of the content.
-    * **Breadcrumb navigation:**  
-      To help users maintain their sense of location within the documentation structure, each result is equipped with breadcrumb navigation, outlining its position in the hierarchy (for example, OpenSearch 2.17 › › Installing OpenSearch).
+- **Organized results display**:
+    Search results are displayed clearly, with:
+    - **Title and summary**:
+    Each result includes a clickable title and a brief summary to give you an idea of the content before you click through.
+    - **Breadcrumb navigation**:
+    Each result shows its location within the documentation structure, helping you keep track of where you are.
 
-By integrating these new features into the landing page, we’re ensuring that users can quickly access, filter, and interact with search results in ways that suit their specific needs, improving both speed and accuracy of information retrieval.
+By introducing these new features, we're making it easier for you to quickly find the information you need, whether you're looking through documentation, blog posts, or events. The updated search results page helps you filter and interact with results more efficiently, improving both the speed and accuracy of your searches.
+
+## We value your feedback
+
+Your experience matters to us! We encourage you to explore the new search functionality and share your thoughts on the [OpenSearch forum](https://forum.opensearch.org/) or directly on one of our [documentation](https://opensearch.org/docs/latest/) pages. Your input is essential in helping us improve and refine our features. 
+
+Thank you for being a part of the OpenSearch community!
