@@ -29,5 +29,5 @@ conference_id:
 redirect_from: '/authors/sayaligaikawad/'
 ---
 
-I am a software development engineer at OpenSearch (Amazon). I work with Engineering Effectiveness team at OpenSearch that concentrates on release processes, build and test tools, and re-usable infrastructure for the OpenSearch project making life of developers a little bit easier.
+Sayali Gaikawad is a software development engineer at OpenSearch Project at Amazon. She works with Engineering Effectiveness team at OpenSearch that concentrates on release processes, build and test tools, and re-usable infrastructure for the OpenSearch project making the life of developers a little bit easier.
 
