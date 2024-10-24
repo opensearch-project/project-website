@@ -22,7 +22,7 @@ industries:  Software and Technology, Business Services, Education, Government, 
 
 business_type: (MSP) Managed Service Provider, (ISV) Independent Software Vendor
 
-opensearch_tech:  Search, Observability, Security, Logs, Analytics, Machine Learning & AI, GenAI
+opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs', 'AI and Machine Learning', 'GenAI']
 
 
 

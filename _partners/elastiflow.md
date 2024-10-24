@@ -8,7 +8,9 @@ description: 'Network Performance and Security Analytics for Open Data Platforms
 business_type: 'Product, Technology'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'info@elastiflow.com'
-opensearch_tech: 'Analytics, Observability, Security'
+
+opensearch_tech: ['Observability', 'Security', 'Analytics']
+
 industries: 'business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 main_office_location: |
     ElastiFlow Inc. 

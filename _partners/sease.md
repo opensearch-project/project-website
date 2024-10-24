@@ -9,7 +9,10 @@ description: |
 business_type: 'ISV'
 contact: 'info@sease.io'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific and Australia.'
-opensearch_tech: 'Search, Vector based search'
+
+opensearch_tech: ['Search', 'Vector Database']
+
+
 industries: 'software and technology'
 main_office_location: |
   International House, 776-778 Barking Road

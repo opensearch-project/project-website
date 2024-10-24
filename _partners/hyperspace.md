@@ -12,7 +12,7 @@ region: 'Global'
 
 contact: amits@hyper-space.io
 
-opensearch_tech: search
+opensearch_tech: ['Search']
 
 industries: 'Education, financial services, healthcare, media and entertainment, non-profit, retail, software and technology'
 

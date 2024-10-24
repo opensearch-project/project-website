@@ -9,7 +9,10 @@ description: 'deepset is the company behind Haystack NLP and deepset Cloud enter
 business_type: 'ISV, SaaS, Product/Technology, Services Organization'
 region: 'Worldwide, with the focus on North America and Europe.'
 contact: 'https://www.deepset.ai/, engage@deepset.ai'
-opensearch_tech: 'Developers can use Haystack with OpenSearch as a scalable &apos;DocumentStore&apos; — leveraging OpenSearch capabilities for keyword- and vector-based search. OpenSearch is also part of the deepset Cloud&apos;s data storage infrastructure.'
+
+
+opensearch_tech: ['Search', 'Observability', 'AI and Machine Learning', 'Vector Database']
+
 industries: 'Our technology and products are used horizontally by companies of all sizes across many verticals. NLP has become quite pervasive, but we see primarily financial industry, legal, healthcare and manufacturing amongst the verticals that rapidly adopt new NLP-driven products.'
 multiple_office_locations:
   - name: 'Berlin, Germany'

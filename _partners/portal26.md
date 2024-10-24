@@ -9,7 +9,9 @@ description: Portal26 provides encryption based data protection for big data sto
 business_type: Software Vendor
 region: Global
 contact: "+1 (408) 533-0782, info@portal26.ai"
-opensearch_tech:  security
+
+opensearch_tech: ['Security']
+
 industries:  Financial Services, Healthcare, Government, Public Sector
 main_office_location:  |
   15559 Union Avenue

@@ -10,7 +10,9 @@ description: 'Bitergia helps companies improve the ROI of their software develop
 business_type: 'Product/Technology, Services Organization'
 region: Worldwide
 contact: 'info@bitergia.com'
-opensearch_tech: 'Analytics, Observability'
+
+opensearch_tech: ['Observability', 'Analytics']
+
 industries: 'Software and Technology'
 main_office_location: |
   Madrid, Spain - Remote

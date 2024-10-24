@@ -8,7 +8,9 @@ description: 'Aiven provides managed open source data technologies, such as Post
 business_type: MSP
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'https://aiven.io/contact'
-opensearch_tech: 'OpenSearch as a fully managed service, with a rich set of advanced plugins and dashboards to visualize your data – easily deployed in the cloud of your choice.'
+
+opensearch_tech: ['Search', 'Observability', 'Logs', 'Analytics']
+
 industries: 'Managed OpenSearch®'
 main_office_location:  |
   Aiven Oy

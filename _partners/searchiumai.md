@@ -11,7 +11,9 @@ description: |
 business_type: 'Product/Technology'
 region: 'Worldwide'
 contact: 'devopsil@gsitechnology.com, social@gsitechnology.com'
-opensearch_tech: 'Search'
+
+opensearch_tech: ['Search']
+
 industries: 'Software and Technology'
 main_office_location: |
   18 Raul Wallenberg

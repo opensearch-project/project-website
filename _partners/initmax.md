@@ -14,7 +14,10 @@ main_office_location: |
   Praha 170 00
 region: 'Worldwide'
 industries: 'Retail, Automotive'
-opensearch_tech: 'Log Management &amp; Wazuh &amp; Searching'
+
+opensearch_tech: ['Search', 'Logs']
+
+
 resources: 
   - url: 'https://www.initmax.cz/blog/'
     title: 'initMAX Blog'

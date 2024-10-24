@@ -9,7 +9,9 @@ description: 'OpenSource Connections are leading specialists in search relevance
 business_type: 'Services Organisation, Consultancy &amp; Training'
 region: 'North America, Europe, Others on application'
 contact: 'hello@opensourceconnections.com, +1 (434) 466-1467, +44 (08700) 118334'
-opensearch_tech: 'Search relevance'
+
+opensearch_tech: ['Search']
+
 industries: 'Business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 multiple_office_locations:
   - name: 'USA'

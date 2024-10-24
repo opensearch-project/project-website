@@ -8,7 +8,9 @@ description: 'BigData Boutique provides end-to-end OpenSearch expert consulting 
 business_type: ISV
 region: Worldwide
 contact: 'itamar@bigdataboutique.com'
-opensearch_tech: 'Search, Analytics, Observability, Alerting, Optimizations'
+
+opensearch_tech: ['Search', 'Observability', 'Logs', 'Analytics']
+
 industries: 'Business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 resources:
   - url: 'https://blog.bigdataboutique.com/2023/03/controlling-shard-rebalance-in-elasticsearch-and-opensearch-47c71d'

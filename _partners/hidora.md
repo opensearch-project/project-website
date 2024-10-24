@@ -9,7 +9,10 @@ description: 'Hidora is a Swiss-based Managed Cloud Company that enables you to 
 business_type: 'We work with end-customers, IT consulting firms, and system integrators, and we also provide on-premise integration services as an integrator ourselves.'
 region: Europe
 contact: 'contact@hidora.io, 00 41 22 552 14 14'
-opensearch_tech: Observability
+
+opensearch_tech: ['Observability']
+
+
 industries: 'Business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 main_office_location: |
   Geneva, Switzerland

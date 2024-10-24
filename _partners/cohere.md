@@ -8,6 +8,9 @@ description: 'Cohere is the leading AI platform for enterprise. Its world-class 
 business_type: 'Product/Technology (Machine Learning Platform)'
 region: Global
 contact: 'team@cohere.ai'
+
+opensearch_tech: ['Search', 'AI and Machine Learning', 'Vector Database']
+
 industries: 'business service, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, software and technology'
 main_office_location: |
   171 John Street

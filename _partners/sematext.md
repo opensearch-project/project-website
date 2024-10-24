@@ -12,7 +12,10 @@ description: 'Sematext has deep expertise with OpenSearch and building search ap
 business_type: 'Systems Integrator, Technology Services Provider, Services Organisation, Consultancy &amp; Training, ISV'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'info@sematext.com, +1 (347) 480-1610'
-opensearch_tech:  'Search, E-Commerce Search, Scaling and Performance Tuning, Search Relevance, Vector based search, Log Analytics, Observability'
+
+opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs']
+
+
 industries: 'business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 
 

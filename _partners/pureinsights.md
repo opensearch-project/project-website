@@ -10,7 +10,10 @@ description: 'Pureinsights has deep expertise building search applications with 
 business_type: 'Systems Integrator, Technology Services Provider'
 region: 'North, Central and South America, Europe.'
 contact: 'info@pureinsights.com'
-opensearch_tech: 'Search and Analytics'
+
+opensearch_tech: ['Search', 'Analytics']
+
+
 industries: 'consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, software and technology.'
 main_office_location: |
   205 Van Buren St

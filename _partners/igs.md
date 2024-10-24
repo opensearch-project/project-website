@@ -12,7 +12,10 @@ description: 'Integrated Global Solutions Limited (IGS) is an IT solutions and s
 business_type: 'Product/Technology, Services Organization'
 region: 'Asia Pacific, Australia, Europe'
 contact: 'info@igsl-group.com'
-opensearch_tech: 'search, analytics, observability, security, plugin development'
+
+opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics']
+
+
 industries: 'business services, financial services, public sector, non-profit, software and technology'
 
 main_office_location:  |

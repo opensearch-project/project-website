@@ -9,7 +9,9 @@ description: '<p>Canonical is the publisher of Ubuntu, the OS for most public cl
 business_type: 'Product/technology, Professional services'
 region: Global
 contact: '+1 737 204 0291, +44 203 656 5291'
-opensearch_tech: 'Canonical provides OpenSearch® consulting, support and security maintenance.'
+
+opensearch_tech: ['Search', 'Observability', 'Logs', 'Analytics', 'Security']
+
 industries: 'Canonical provides OpenSearch® consulting, support, and security maintenance.'
 main_office_location: |
   4th Floor

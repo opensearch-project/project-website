@@ -10,7 +10,11 @@ description: 'GSI Technology offers the Gemini® APU, a massively parallel compu
 business_type: 'Product/Technology, Services Organization'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'opensearch@gsitechnology.com'
-opensearch_tech: 'k-NN, Approximate Nearest Neighbor (ANN), and Multi-modal Search acceleration for lower latency, higher accuracy, and lower power, with economical very large database support for ANN'
+
+opensearch_tech: ['Search', 'AI and Machine Learning']
+
+
+
 industries: 'Software and Technology
 Supporting various industries (business services, IOT, financial services, healthcare, retail), including Aerospace & Defense'
 

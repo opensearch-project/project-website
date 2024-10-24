@@ -11,7 +11,10 @@ Get a 10x reduction in test creation time, and a 20x reduction in troubleshootin
 business_type: 'Open-source product'
 region: 'Global'
 contact: 'ken@kubeshop.io, adnan@kubeshop.io'
-opensearch_tech: 'Observability, Testing'
+
+opensearch_tech: ['Observability']
+
+
 industries: 'Software, Technology'
 main_office_location:  'Remote'
 resources:

@@ -8,7 +8,9 @@ description: 'FusionAuth is a customer authentication and authorization platform
 business_type: 'Product/Technology'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'https://fusionauth.io/contact'
-opensearch_tech: 'Search'
+
+opensearch_tech: ['Search', 'Security']
+
 industries: 'All, CIAM, Applications With Authentication'
 main_office_location:  |
   8181 arista place

@@ -33,7 +33,9 @@ region: North America, Europe, Asia
 contact: info@xoriant.com
 
 # Comma delimited list of one or more feature areas of the OpenSearch platform that the partner specializes in.
-opensearch_tech:  Search, Analytics, Observability, Migration
+
+opensearch_tech: ['Search', 'Observability', 'Analytics' , 'Migration']
+
 
 # Comma delimited list of one or more industries that the partner specializes in serving.
 industries:  Manufacturing and Automotive, Supply Chain, Consumer Services, Education, Energy and Utilities, Financial Services, Healthcare, Media and Entertainment, Public sector, Retail and e-commerce, Software and Technology

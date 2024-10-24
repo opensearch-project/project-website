@@ -8,7 +8,9 @@ description: 'Metarank Labs Co. provides integration and ongoing support for com
 business_type: 'product/technology, services'
 region: 'Worldwide'
 contact: 'seva@metarank.ai'
-opensearch_tech: 'search, recommendations, personalization'
+
+opensearch_tech: ['Search']
+
 industries: 'business services'
 resources:
   - url: 'https://blog.metarank.ai/learn-to-rank-with-opensearch-and-metarank-3557fa70f8e8'

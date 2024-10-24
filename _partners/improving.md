@@ -9,7 +9,11 @@ description: 'Improving revolutionizes the digital landscape, providing cutting-
 business_type: 'System Integrator, Professional Services, CSP, ISV, Training'
 region: 'North America'
 contact: 'Kyle.Porter@improving.com, +1 (604) 441-7318'
-opensearch_tech: 'Analytics, Observability'
+
+opensearch_tech: ['Observability', 'Analytics']
+
+
+
 industries: 'All'
 multiple_office_locations:
   - name: Dallas, Texas HQ

@@ -4,4 +4,7 @@ name: KMW Technology
 logo: '/assets/media/partners/kmw/kmw-technology.png'
 logo_large: '/assets/media/partners/kmw/kmw-technology.png'
 link: https://www.kmwllc.com/
+
+opensearch_tech: ['Search', 'Security', 'AI and Machine Learning']
+
 ---

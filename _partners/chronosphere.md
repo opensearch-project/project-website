@@ -23,7 +23,7 @@ industries:  Software and Technology
 
 
 
-opensearch_tech:  Observability, Logs, Analytics
+opensearch_tech: ['Observability', 'Logs', 'Analytics']
 
 logo: /assets/media/partners/chronosphere/small_logo.png
 logo_large: /assets/media/partners/chronosphere/logo.png

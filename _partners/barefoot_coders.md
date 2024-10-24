@@ -10,7 +10,9 @@ business_type: 'Professional Services Organization'
 region: 'North America'
 industries: All
 contact: 'hello@barefootcoders.com, +1 855 833 2777'
-opensearch_tech: 'Search, Log Management'
+
+opensearch_tech: ['Search', 'Logs']
+
 main_office_location: |
     240 Kent Ave. Ste B19, Brooklyn, NY 11249
     830 NE Holladay St, Portland OR 97232

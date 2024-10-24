@@ -1,3 +1,31 @@
+
+// NEW
+
+
+// Highlight dropdown-toggle with specific "filter-select" class if there is any checkbox checked inside dropdown-menu
+.dropdown:has(:checked) .filter-select {
+    --bs-btn-border-color: #{$gray-900};
+    --bs-btn-hover-border-color: #{$gray-900};
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// OLD
+
 .btn-primary {
     color: white !important;
 }

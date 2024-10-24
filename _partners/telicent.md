@@ -8,7 +8,10 @@ description: 'Telicent is a software start-up building a super-secure platform t
 business_type: 'ISV'
 region: Worldwide
 contact: 'opensource@telicent.io'
-opensearch_tech: 'search, observability, security'
+
+opensearch_tech: ['Search', 'Observability', 'Security']
+
+
 industries: 'Energy and utilities, financial services, healthcare, public sector, non-profit, software and technology'
 main_office_location:  |
   London, UK

@@ -11,7 +11,11 @@ business_type: 'ISV, services organization'
 business_type: 'Consultancy, Support, Product'
 region: 'Europe, Middle East, Africa'
 contact: 'info@seacom.it, +390500984020'
-opensearch_tech: 'Observability, Security, Search, Analytics, NLP, SNA'
+
+
+opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics']
+
+
 main_office_location: |
   Via Gramsci 5
   56021 NAvacchio (PI), Italy

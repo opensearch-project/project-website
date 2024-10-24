@@ -15,7 +15,8 @@ link: https://www.reliaquest.com/about-us/
 
 industries:  Software and Technology
 
-opensearch_tech:  Security
+
+opensearch_tech: ['Security']
 
 logo: /assets/media/partners/ReliaQuest/logo-dark.svg
 logo_large: /assets/media/partners/ReliaQuest/logo-dark.svg

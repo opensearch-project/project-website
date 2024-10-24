@@ -21,6 +21,342 @@ body_class: partners-page
     </div>
   </section>
 
+
+
+<div class="container">
+        <!-- Page title -->
+        <h1 class="h3 position-relative pb-sm-2 pb-md-3" style="z-index: 1021">OpenSearch Solutions Providers</h1>
+
+
+
+        <!-- Filters -->
+        <div class="sticky-top bg-body mb-3 mb-sm-4" style="margin-top: -4.5rem">
+          <div class="row align-items-center pt-5">
+            <div class="col-5 col-sm-8 col-md-9 d-flex gap-2 pb-3 mt-4">
+              <div class="d-none d-sm-block w-100 me-1">
+                <select class="form-select rounded-pill" data-select='{
+                  "classNames": {
+                    "containerInner": "form-select filter-select rounded-pill"
+                  }
+                }' aria-label="Sorting">
+                  <option value="">Sort by</option>
+                  <option value="popular" selected>Most popular</option>
+                  <option value="match">Best match</option>
+                  <option value="new">New arrivals</option>
+                  <option value="price-asc">Price ascending</option>
+                  <option value="price-desc">Price descending</option>
+                </select>
+              </div>
+              <div class="dropdown w-100 d-none d-md-block me-1">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle filter-select justify-content-between w-100 text-body fw-normal rounded-pill px-3" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Category <span class="ms-1 me-auto" id="categoryCount"></span></button>
+                <div class="dropdown-menu w-100 p-3">
+                  <div class="d-flex flex-column gap-2">
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="living-room" checked onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="living-room" class="form-check-label d-flex align-items-end">
+                        Living room
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">657</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="bedroom" checked onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="bedroom" class="form-check-label d-flex align-items-end">
+                        Bedroom
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">528</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="kitchen" onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="kitchen" class="form-check-label d-flex align-items-end">
+                        Kitchen
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">342</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="office" onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="office" class="form-check-label d-flex align-items-end">
+                        Office
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">283</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="lighting" checked onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="lighting" class="form-check-label d-flex align-items-end">
+                        Lighting
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">395</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="decoration" onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="decoration" class="form-check-labe d-flex align-items-endl">
+                        Decoration
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">204</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="accessories" checked onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="accessories" class="form-check-label d-flex align-items-end">
+                        Accessories
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">190</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="dropdown w-100 d-none d-lg-block me-1">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle filter-select justify-content-between w-100 text-body fw-normal rounded-pill px-3" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Type <span class="ms-1 me-auto" id="typeCount"></span></button>
+                <div class="dropdown-menu w-100 p-3">
+                  <div class="d-flex flex-column gap-2">
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="armchair" onclick="updateFilterCount('typeCount')" data-count-id="typeCount">
+                      <label for="armchair" class="form-check-label d-flex align-items-end">
+                        Armchair
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">324</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="sofa" onclick="updateFilterCount('typeCount')" data-count-id="typeCount">
+                      <label for="sofa" class="form-check-label d-flex align-items-end">
+                        Sofa
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">275</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="ottoman" onclick="updateFilterCount('typeCount')" data-count-id="typeCount">
+                      <label for="ottoman" class="form-check-label d-flex align-items-end">
+                        Ottoman
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">117</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="bench" onclick="updateFilterCount('typeCount')" data-count-id="typeCount">
+                      <label for="bench" class="form-check-label d-flex align-items-end">
+                        Bench
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">86</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="bed" onclick="updateFilterCount('typeCount')" data-count-id="typeCount">
+                      <label for="bed" class="form-check-label d-flex align-items-end">
+                        Bed frame
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">263</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="lamp" onclick="updateFilterCount('typeCount')" data-count-id="typeCount">
+                      <label for="lamp" class="form-check-label d-flex align-items-end">
+                        Lamp
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">415</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="stool" onclick="updateFilterCount('typeCount')" data-count-id="typeCount">
+                      <label for="stool" class="form-check-labe d-flex align-items-end">
+                        Stool
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">104</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown w-100 d-none d-xl-block me-1">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle filter-select justify-content-between w-100 text-body fw-normal rounded-pill px-3" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Color <span class="ms-1 me-auto" id="colorCount"></span></button>
+                <div class="dropdown-menu w-100 p-3">
+                  <div class="d-flex flex-column gap-2">
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="emerald" onclick="updateFilterCount('colorCount')" data-count-id="colorCount">
+                      <label for="emerald" class="form-check-label d-flex align-items-end">
+                        <span class="align-self-center rounded-circle border border-2 p-1 me-2" style="--cz-border-color: #32808e; background-color: #32808e"></span>
+                        Emerald
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">97</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="dark-gray" onclick="updateFilterCount('colorCount')" data-count-id="colorCount">
+                      <label for="dark-gray" class="form-check-label d-flex align-items-end">
+                        <span class="align-self-center rounded-circle border border-2 p-1 me-2" style="--cz-border-color: #6a6f7b; background-color: #6a6f7b"></span>
+                        Dark gray
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">346</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="light-gray" onclick="updateFilterCount('colorCount')" data-count-id="colorCount">
+                      <label for="light-gray" class="form-check-label d-flex align-items-end">
+                        <span class="align-self-center rounded-circle border border-2 p-1 me-2" style="--cz-border-color: #bdc5da; background-color: #bdc5da"></span>
+                        Light gray
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">291</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="brown" onclick="updateFilterCount('colorCount')" data-count-id="colorCount">
+                      <label for="brown" class="form-check-label d-flex align-items-end">
+                        <span class="align-self-center rounded-circle border border-2 p-1 me-2" style="--cz-border-color: #af8d6a; background-color: #af8d6a"></span>
+                        Brown
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">105</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="blue" onclick="updateFilterCount('colorCount')" data-count-id="colorCount">
+                      <label for="blue" class="form-check-label d-flex align-items-end">
+                        <span class="align-self-center rounded-circle border border-2 p-1 me-2" style="--cz-border-color: #216aae; background-color: #216aae"></span>
+                        Blue
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">84</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="green" onclick="updateFilterCount('colorCount')" data-count-id="colorCount">
+                      <label for="green" class="form-check-label d-flex align-items-end">
+                        <span class="align-self-center rounded-circle border border-2 p-1 me-2" style="--cz-border-color: #187c1c; background-color: #187c1c"></span>
+                        Green
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">69</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="beige" onclick="updateFilterCount('colorCount')" data-count-id="colorCount">
+                      <label for="beige" class="form-check-label d-flex align-items-end">
+                        <span class="align-self-center rounded-circle border border-2 p-1 me-2" style="--cz-border-color: #bdaB9e; background-color: #bdaB9e"></span>
+                        Beige
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">173</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- All filters offcanvas toggle -->
+              <nav class="nav">
+                <a class="nav-link animate-underline px-2" href="#shopFilters" data-bs-toggle="offcanvas" aria-controls="shopFilters">
+                  <i class="ci-filter me-1"></i>
+                  <span class="animate-target text-nowrap">All filters</span>
+                </a>
+              </nav>
+            </div>
+
+            <!-- Product / room view switcher -->
+            <div class="col-7 col-sm-4 col-md-3">
+              <ul class="nav nav-underline flex-nowrap justify-content-end" id="viewShwitcher">
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link active" id="showProduct" role="tab" aria-selected="true">
+                    Product
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link" id="showRoom" role="tab" aria-selected="false">
+                    Room
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- form group filtering  -->
+        <form class ="form-group d-block rounded-pill mt-ns mt-md-4 mt-xl-5 mb-md-4">
+
+          <div class="align-items-center g-0 ms-n2 row">
+
+            <!-- Search bar -->
+            <div class="col-xl-3 col-md-5 col-12">
+              <div class = "border-end-md border-light input-group input-group-lg">
+                <input placeholder = "Search for a provider" class="form-control">
+              </div>
+            </div>
+
+            <!-- Category filters -->
+            <div class = "d-sm-flex col-xl-4 col-md-7 col-12">
+
+              <!-- first... -->
+              <div class="dropdown w-50 d-none d-md-block me-1">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle filter-select justify-content-between w-100 text-body fw-normal px-3" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Category <span class="ms-1 me-auto" id="categoryCount"></span></button>
+                <div class="dropdown-menu w-100 p-3">
+                  <div class="d-flex flex-column gap-2">
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="living-room" checked onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="living-room" class="form-check-label d-flex align-items-end">
+                        Living room
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">657</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="bedroom" checked onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="bedroom" class="form-check-label d-flex align-items-end">
+                        Bedroom
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">528</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="kitchen" onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="kitchen" class="form-check-label d-flex align-items-end">
+                        Kitchen
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">342</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="office" onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="office" class="form-check-label d-flex align-items-end">
+                        Office
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">283</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="lighting" checked onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="lighting" class="form-check-label d-flex align-items-end">
+                        Lighting
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">395</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="decoration" onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="decoration" class="form-check-labe d-flex align-items-endl">
+                        Decoration
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">204</span>
+                      </label>
+                    </div>
+                    <div class="form-check m-0">
+                      <input type="checkbox" class="form-check-input fs-base" id="accessories" checked onclick="updateFilterCount('categoryCount')" data-count-id="categoryCount">
+                      <label for="accessories" class="form-check-label d-flex align-items-end">
+                        Accessories
+                        <span class="fs-xs text-body-secondary ps-2 ms-auto">190</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Search button -->
+            <div class="d-sm-flex align-items-center col-xl-5 col-12">
+              <button type="button" class = "w-100 w-sm-50 w-lg-auto mt-4 mt-sm-0 btn btn-primary rounded-pill btn-lg">Search</button>
+            </div>
+            
+          </div>
+          
+        </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
       <h1 class="text-center">Our Partners</h1>
@@ -29,27 +365,37 @@ body_class: partners-page
         {% for partner in site.partners %}
           
           <div class="col partner">
-            <div class="card partner-card h-100 shadow-sm d-flex">
+            <div class="card partner-card shadow-sm d-flex">
 
                 <a href="{{ partner.url | relative_url }}" class="stretched-link p-4">
                   <img src="{{ partner.logo_large }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
                 </a>
                 
                 <h5 class="card-title ps-3">{{ partner.name }}</h5>
-                <!-- <ul class="list-group list-group-flush">
-                  <li class="list-group-item px-4">
-                    <i class="fa-solid fa-tag"></i>
-                    {{ partner.opensearch_tech }}
-                  </li>
-                  <li class="list-group-item px-4">
-                    <i class="fa-solid fa-fire"></i>
-                    {{ partner.business_type }}
-                  </li>
-                  <li class="list-group-item px-4">
-                    <i class="fa-solid fa-globe"></i>
-                    {{ partner.region }}
-                  </li>
-                </ul> -->
+                
+                  {% if partner.opensearch_tech %}
+                    <div class="card-footer px-4">
+                      <i class="fa-solid fa-tag"></i>
+                      <span class="fs-xs text-body-secondary">{{ partner.opensearch_tech }}</span>
+                    </div>
+
+
+                    <!-- <ul class="list-group list-group-flush">
+                      <li class="list-group-item px-4">
+                        <i class="fa-solid fa-tag"></i>
+                        <span class="fs-xs text-body-secondary">{{ partner.opensearch_tech }}</span>
+                      </li>
+                      <li class="list-group-item px-4">
+                        <i class="fa-solid fa-fire"></i>
+                        {{ partner.business_type }}
+                      </li>
+                      <li class="list-group-item px-4">
+                        <i class="fa-solid fa-globe"></i>
+                        {{ partner.region }}
+                      </li>
+                    </ul> -->
+                  {% endif %}
+                
 
 
             </div>
@@ -57,6 +403,26 @@ body_class: partners-page
         {% endfor %}
       </div>
     </div>
+
+
+    <script>
+
+        // Dynamically update count number of selected items inside filter dropdown
+        window.onload = () => {
+          updateFilterCount('categoryCount')
+          updateFilterCount('categoryCount-2')
+        }
+
+        const updateFilterCount = (countId) => {
+          const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
+          const countElement = document.getElementById(countId)
+          if (checkedCheckboxes.length > 0) {
+              countElement.textContent = '(' + checkedCheckboxes.length + ')'
+          } else {
+              countElement.textContent = ''
+          }
+        }
+    </script>
     
 </main>        
 

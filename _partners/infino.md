@@ -12,7 +12,10 @@ Save money, save time, and keep your commitments to your customers.'
 business_type: ISV
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'tech@infino.ai'
-opensearch_tech: 'Observability'
+
+opensearch_tech: ['Search', 'Observability']
+
+
 industries: 'Software and Technology'
 main_office_location:  |
    Infino AI Inc.

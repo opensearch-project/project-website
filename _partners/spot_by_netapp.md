@@ -8,7 +8,9 @@ description: 'Spot by NetApp helps companies get the most out of their cloud inv
 business_type: MSP, Product, Services
 region: Worldwide
 contact: '+1 408 822 6000, nfo@spot.io, https://spot.io/contact/'
-opensearch_tech: 'Fully managed and hosted OpenSearch service, Configure through the Spot SaaS platform, Spot API or Terraform, 24x7 Expert support, SOC 2, PCI Private Network and PrivateLink enabled, Built-in monitoring, 99.999% SLA, Run in your cloud provider account or ours'
+
+opensearch_tech: ['Search']
+
 industries: 'Software, Technology'
 main_office_location: |
   3060 Olsen Drive

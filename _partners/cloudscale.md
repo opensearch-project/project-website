@@ -12,7 +12,9 @@ contact: 'contact@cloudscaleinc.com'
 region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 main_office_location: 'Chandigarh, India - 160062'
 industries: 'business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, retail, software and technology'
-opensearch_tech: 'search, analytics, observability, security'
+
+opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics']
+
 resources:
   - url: 'https://cloudscaleinc.com/topics/cloud-computing/simplified-multi-cloud-by-cloudscale-experts/'
     title: 'What is a Multi-Cloud, Simplified by Cloud Scale Experts'

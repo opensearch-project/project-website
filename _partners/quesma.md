@@ -11,7 +11,10 @@ description: We help customers innovate faster by reshaping how applications are
 business_type: product/technology
 region: Global
 contact: info@quesma.com
-opensearch_tech: All
+
+opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs']
+
+
 industries: All
 multiple_office_locations:
   - name: 'USA'

@@ -7,7 +7,9 @@ logo_large: '/assets/media/partners/cribl/cribl-logo.png'
 description: 'Cribl Stream is a vendor-agnostic observability pipeline that gives you the flexibility to collect, reduce, enrich, normalize, and route data from any source to any destination within your existing data infrastructure.'
 business_type: 'ISV'
 contact: 'hello@cribl.com'
-opensearch_tech: 'Observability pipelines'
+
+opensearch_tech: ['Observability']
+
 industries: 'energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 region: 'Worldwide'
 main_office_location: |

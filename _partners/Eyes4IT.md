@@ -18,7 +18,8 @@ business_type: Consultant, (MSP) Managed Service Provider, Systems Integrator, P
 contact: sdesseaux@eyes4it.tech
 contact_phone: 3-363-232-0964
 
-opensearch_tech: Observability, Security, Logs, Analytics, Machine Learning & AI
+opensearch_tech: ['Observability', 'Security', 'Analytics', 'AI and Machine Learning']
+
 industries: Software and Technology
 
 region: 'Europe'

@@ -34,7 +34,7 @@ region: North America, South America, Europe, Middle East, Africa, Asia Pacific,
 contact: info@aryn.ai
 
 # Comma delimited list of one or more feature areas of the OpenSearch platform that the partner specializes in.
-opensearch_tech:  Search, Analytics, GenAI
+opensearch_tech: ['Search', 'Analytics', 'GenAI']
 
 # Comma delimited list of one or more industries that the partner specializes in serving.
 industries:  Business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology

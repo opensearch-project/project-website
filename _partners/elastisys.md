@@ -8,7 +8,10 @@ description: 'Elastisys, founded in 2011 and based in Sweden, specializes in clo
 business_type: 'Consultancy, Support, Product'
 region: 'Europe'
 contact: 'contact@elastisys.com, +46101471000'
-opensearch_tech: 'Observability, Security, Search, Analytics'
+
+opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics']
+
+
 resources:
   - url: 'https://elastisys.io/compliantkubernetes/user-guide/logs'
     title: 'Logs in Elastisys Kubernetes Offering'

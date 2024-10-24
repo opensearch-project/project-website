@@ -7,7 +7,10 @@ logo_large: '/assets/media/partners/calyptia/calyptia.png'
 description: 'As the creators and maintainers of the open source Fluent Bit project, Calyptia is dedicated to providing vendor-neutral products and services that enhance observability practices.'
 business_type: 'ISV'
 contact: 'hello@calyptia.com'
-opensearch_tech: 'Observability pipelines'
+
+
+opensearch_tech: ['Observability', 'Logs']
+
 industries: 'energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 region: 'Worldwide'
 main_office_location: |

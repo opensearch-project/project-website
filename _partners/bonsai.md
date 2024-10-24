@@ -10,7 +10,9 @@ business_type: 'MSP'
 region: 'Global'
 contact: 'team@bonsai.io'
 industries: 'Education, financial services, healthcare, media and entertainment, non-profit, retail, software and technology'
-opensearch_tech: Search
+
+opensearch_tech: ['Search']
+
 main_office_location: |
   2009 South 1st Street
   Suite 100

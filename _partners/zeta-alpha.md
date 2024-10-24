@@ -8,7 +8,11 @@ description: Zeta Alpha is the best Neural Discovery Platform for AI and beyond.
 business_type: Technology company, consulting
 region: Europe, US
 contact: info@zeta-alpha.com
-opensearch_tech:  generative AI, neural search, fine tuning embeddings, recommendations, analytics, vector-based search
+
+
+opensearch_tech: ['Search', 'Analytics', 'Vector Database', 'AI and Machine Learning', 'GenAI']
+
+
 industries:  Chemistry, Pharma, Life Sciences, Finance, Legal, Education
 main_office_location:  |
   Science Park 900

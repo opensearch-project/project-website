@@ -11,7 +11,9 @@ description: 'Eliatra provides Enterprise Solutions for OpenSearch, including su
 business_type: 'Product and services company'
 region: Worldwide
 contact: 'info@eliatra.com, https://eliatra.com/contact'
-opensearch_tech: '24/7 Support, CVE fixes, Bug fixes, Migration'
+
+opensearch_tech: ['Migration', 'Search', 'Observability', 'Security', 'Analytics', 'AI and Machine Learning']
+
 industries: All
 main_office_location: |
   77 Lower Camden Street

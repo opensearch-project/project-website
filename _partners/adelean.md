@@ -8,7 +8,8 @@ description: Adelean is a technology and systems consulting company. We guide yo
 business_type: Technology and systems consulting company
 region: Europe, Worldwide
 contact: info@adelean.com, https://adelean.com
-opensearch_tech: search, relevance, analytics, observability
+opensearch_tech: ['Search', 'Observability', 'Analytics']
+
 industries: business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology
 main_office_location:  |
   Station F

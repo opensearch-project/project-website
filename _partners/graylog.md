@@ -9,7 +9,9 @@ description: 'Graylog is a SIEM and log management solution that offers robust, 
 bueiness_type: 'Software Vendor'
 region: Global
 contact: 'info@graylog.com'
-opensearch_tech: 'Security, Analytics'
+
+opensearch_tech: ['Security', 'Analytics']
+
 industries: All
 main_office_location: |
   Houston, TX

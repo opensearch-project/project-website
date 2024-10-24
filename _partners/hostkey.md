@@ -9,7 +9,11 @@ description: 'We offer a wide range of dedicated servers from entry-level up to 
 business_type: 'Server infrastructure provider.'
 region: 'North America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'support@hostkey.com'
-opensearch_tech: 'We provide pre-installed and ready-to-use OpenSearch for our clients in our App Marketplace.'
+
+opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs']
+
+
+
 industries:  'business services, consumer services'
 multiple_office_locations:
   - name: 'Main office - Netherlands'
