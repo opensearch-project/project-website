@@ -1,0 +1,175 @@
+
+
+{
+
+    "SolutionProviders": {
+
+        "HeroBanner": {
+            "Title": "OpenSearch <br>Solutions Providers",
+            "SubText": "Find the right provider to achieve your business goals, extend your products, and better serve your customers",
+            "PathHeroImageDesktop": "/assets/img/homepage-assets/Banner_HomePage_Hero_Desktop.png", 
+            "PathHeroImageMobile": "/assets/img/homepage-assets/Banner_HomePage_Hero_Desktop.png"
+        },
+
+        "MainBody": {
+            "Title": "OpenSearch Solution Providers",
+            "ClassValue": "drawer-content-header",
+            "Pagination": 15
+        },    
+
+        "SearchBar": {
+            "SearchBox": {
+                "Placeholder": "Search for a Provider",
+                "IconPath": ""
+            }, 
+            "BusinessType_Dropdown": {
+                "Title": "Business Type",
+                "ButtonCategoryCountID": "BusinessType_CategoryCount",
+                "Categories": [
+                    {
+                        "Name": "Consultant",
+                        "CategoryCount" : 26,
+                        "DataAttribute": "Consultant"
+                    },
+                    {
+                        "Name": "Content Service Provider",
+                        "CategoryCount" : 1,
+                        "DataAttribute": "CSP"
+                    },
+                    {
+                        "Name": "Independent Software Vendor",
+                        "CategoryCount" : 3,
+                        "DataAttribute": "ISV"
+                    },
+                    {
+                        "Name": "Managed Service Provider",
+                        "CategoryCount" : 2,
+                        "DataAttribute": "MSP"
+                    },
+                    {
+                        "Name": "Platform Integrator",
+                        "CategoryCount" : 9,
+                        "DataAttribute": "Platform Integrator"
+                    },
+                    {
+                        "Name": "Professional Services",
+                        "CategoryCount" : 8,
+                        "DataAttribute": "Professional Services"
+                    },
+                    {
+                        "Name": "Training",
+                        "CategoryCount" : 2,
+                        "DataAttribute": "Training"
+                    },
+                    {
+                        "Name": "Support",
+                        "CategoryCount" : 1,
+                        "DataAttribute": "Support"
+                    },
+                    {
+                        "Name": "Systems Integrator",
+                        "CategoryCount" : 3,
+                        "DataAttribute": "Systems Integrator"
+                    }
+
+                ]
+            }, 
+            "OpenSearchSpecialization_Dropdown": {
+                "Title": "Specialization",
+                "ButtonCategoryCountID": "Specialization_CategoryCount",
+                "Categories": [
+                    {
+                        "Name": "Search",
+                        "CategoryCount" : 47,
+                        "DataAttribute": "Search"
+                    },
+                    {
+                        "Name": "ML & AI",
+                        "CategoryCount" : 10,
+                        "DataAttribute": "AI and Machine Learning"
+                    },
+                    {
+                        "Name": "Observability",
+                        "CategoryCount" : 37,
+                        "DataAttribute": "Observability"
+                    },
+                    {
+                        "Name": "Security",
+                        "CategoryCount" : 27,
+                        "DataAttribute": "Security"
+                    },
+                    {
+                        "Name": "Logs",
+                        "CategoryCount" : 20,
+                        "DataAttribute": "Logs"
+                    },
+                    {
+                        "Name": "Analytics",
+                        "CategoryCount" : 34,
+                        "DataAttribute": "Analytics"
+                    },
+                    {
+                        "Name": "GenAI",
+                        "CategoryCount" : 4,
+                        "DataAttribute": "GenAI"
+                    },
+                    {
+                        "Name": "Migrations",
+                        "CategoryCount" : 2,
+                        "DataAttribute": "Migrations"
+                    },
+                    {
+                        "Name": "Vector Database",
+                        "CategoryCount" : 5,
+                        "DataAttribute": "Support"
+                    }
+
+                ]
+            },          
+            "Regions_Dropdown" : {
+                "Title": "Regions Served",
+                "ButtonCategoryCountID": "Region_CategoryCount",
+                "Categories": [
+                    {
+                        "Name": "Global",
+                        "CategoryCount" : 17,
+                        "DataAttribute": "Global"
+                    },
+                    {
+                        "Name": "North America",
+                        "CategoryCount" : 4,
+                        "DataAttribute": "North America"
+                    },
+                    {
+                        "Name": "South America",
+                        "CategoryCount" : 1,
+                        "DataAttribute": "South America"
+                    },
+                    {
+                        "Name": "Europe",
+                        "CategoryCount" : 15,
+                        "DataAttribute": "Europe"
+                    },
+                    {
+                        "Name": "Asia Pacific",
+                        "CategoryCount" : 2,
+                        "DataAttribute": "Asia Pacific"
+                    },
+                    {
+                        "Name": "Middle East",
+                        "CategoryCount" : 1,
+                        "DataAttribute": "Middle East"
+                    }
+                ]
+            },
+            "FilterButton": {
+                "ButtonText": "Apply Filters",
+                "ClassValue": ""
+            }, 
+
+        }
+
+
+
+    }
+}

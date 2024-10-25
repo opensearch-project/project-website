@@ -22,8 +22,8 @@ contact_phone: 06202495871
 industries: Software and Technology
 
 
+opensearch_tech: ['GenAI']
 
-opensearch_tech:  GenAI
 
 logo: /assets/media/partners/AIMLAPI/aimlapi_logo_big.png
 logo_large: /assets/media/partners/AIMLAPI/aimlapi_logo_big.png

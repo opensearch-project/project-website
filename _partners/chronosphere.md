@@ -7,10 +7,10 @@ main_office_location:  |
   Suite 500,
   PMB47, New York NY 10001
   USA
-region: North America, South America, Europe, Asia Pacific, Australia 
+
 
 description: Chronosphere is the only observability platform that helps DevOps teams control the speed, scale, and complexity that comes with the technology and organizational changes of a cloud native world. Chronosphere helps engineers resolve infrastructure and application issues before they affect customer experiences and the bottom line. Trusted by the world’s most innovative brands, including DoorDash, Snap, and Zillow, Chronosphere helps teams reign in costs, improve developer productivity, increase customer satisfaction, and gain competitive advantage.
-business_type: (ISV) Independent Software Vendor
+
 
 
 
@@ -19,11 +19,11 @@ link: http://Chronosphere.io
 contact: events@Chronosphere.io
 
 
+business_type: (ISV) Independent Software Vendor
 industries:  Software and Technology
+region: North America, South America, Europe, Asia Pacific, Australia 
 
-
-
-opensearch_tech: ['Observability', 'Logs', 'Analytics']
+opensearch_tech: [Observability, Logs, Analytics]
 
 logo: /assets/media/partners/chronosphere/small_logo.png
 logo_large: /assets/media/partners/chronosphere/logo.png
