@@ -116,7 +116,7 @@
                     {
                         "Name": "Migrations",
                         "CategoryCount" : 2,
-                        "DataAttribute": "Migrations"
+                        "DataAttribute": "Migration"
                     },
                     {
                         "Name": "Vector Database",

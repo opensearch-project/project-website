@@ -6,6 +6,10 @@ body_class: partners-page
 
 ---
 
+
+
+
+
 <main>
 
   <section class="py-5 text-center container">
@@ -20,7 +24,6 @@ body_class: partners-page
       </div>
     </div>
   </section>
-
 
 
   <div class="album py-5 bg-body-tertiary">
@@ -42,9 +45,10 @@ body_class: partners-page
 
       <!-- INPUT GROUP TRY 3 -->
       <!-- VARIABLE: data_SearchBar -->
-      <div class="input-group input-group-lg rounded-pill mb-5 px-3">
 
-        <input type="search" class="form-control" aria-label="Search" placeholder = '{{ data_SearchBar_SearchBox.Placeholder }}' >
+      <div class="input-group input-group-lg rounded-pill mb-5 px-3" id="filter-bar">
+
+        <input type="search" class="form-control m-0 " aria-label="Search" placeholder = '{{ data_SearchBar_SearchBox.Placeholder }}' >
         
         <!-- Business Type dropdown -->
         <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +65,7 @@ body_class: partners-page
                 type="checkbox" 
                   class="form-check-input fs-base" 
                   id="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
-                  onclick="updateFilterCount('{{ data_SearchBar_BusinessType.ButtonCategoryCountID }}')" 
+                  onclick="updateFilterCount('{{ data_SearchBar_BusinessType.ButtonCategoryCountID }}', '{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}')" 
                   data-count-id="{{ data_SearchBar_BusinessType.ButtonCategoryCountID }}">
               <label 
                 for="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
@@ -88,8 +92,8 @@ body_class: partners-page
               <input 
                 type="checkbox" 
                   class="form-check-input fs-base" 
-                  id="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
-                  onclick="updateFilterCount('{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID }}')" 
+                  id="{{category.DataAttribute}}" 
+                  onclick="updateFilterCount('{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
                   data-count-id="{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID }}">
               <label 
                 for="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
@@ -134,10 +138,12 @@ body_class: partners-page
         <button 
           type="button" 
           class="btn btn-outline-primary"
-          onclick="gatherAllFilters()" >
+          onclick="onScreenElements_ApplyFilters()" >
           {{ data_SearchBar_FilterButton.ButtonText }}
         </button>
       </div>
+
+
 
 
 
@@ -168,12 +174,16 @@ body_class: partners-page
         {% for partner in site.partners %}
           
           <div class="col partner">
-            <card class="card partner-card shadow-sm d-flex">
+            <card 
+              class="card partner-card shadow-sm d-flex show"
+              id="{{partner.name}}-id"
+              data-partner-name = "{{partner.name}}"
+              data-partner-specializations = "{{partner.opensearch_tech}}"
+              >
 
                 <a href="{{ partner.url | relative_url }}" class="stretched-link p-4">
                   <img src="{{ partner.logo_large }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
                 </a>
-                <li data-s-os-tech='Search' data-s-os-tech=“Observability”></li>
                 <h5 class="card-title ps-3">{{ partner.name }}</h5>
                 
                   {% if partner.opensearch_tech %}
@@ -183,29 +193,70 @@ body_class: partners-page
                     </div>
                   {% endif %}
                 
-
-
-            </dicardv>
+            </card>
           </div>
+
         {% endfor %}
+
       </div>
     </div>
 
 
     <script>
-
+        let partnerArray = []
+        let specializationFilters = []
         // Dynamically update count number of selected items inside filter dropdown
+        
+        document.addEventListener("DOMContentLoaded", (event) => {
+          console.log("DOM fully loaded and parsed");
+        });
+        
         window.onload = () => {
+          
+
+          // find all partners and enter each partner object into the partnerArray
+          let partnerObjectsOnScreen = document.querySelectorAll(`card.partner-card`);
+          // console.log(partnerObjectsOnScreen)
+
+          partnerObjectsOnScreen.forEach(partnerObject => {
+            let partnerName = partnerObject.getAttribute('data-partner-name');
+            let partnerSpecializationArray = partnerObject.getAttribute('data-partner-specializations');
+            let partnerId = partnerObject.getAttribute('id');
+            partnerArray.push(
+              { name: partnerName, 
+                id: partnerId, 
+                specializations: partnerSpecializationArray 
+              });
+          });
+
+          console.log(partnerArray);
+          
           
         }
 
-        const updateFilterCount = (countId) => {
+        const updateFilterCount = (countId, filterName) => {
+          console.log(countId, filterName);
           const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
           const countElement = document.getElementById(countId)
           if (checkedCheckboxes.length > 0) {
               countElement.textContent = '(' + checkedCheckboxes.length + ')'
           } else {
               countElement.textContent = ''
+          }
+
+          // Update the JS filter array
+          if (countId == 'Specialization_CategoryCount') {
+            console.log(filterName)
+
+            // Check if filterName is already present in specializationFilters array
+            let index = specializationFilters.indexOf(filterName);
+            if (index > -1){
+              specializationFilters.splice(index,1);
+            } else {
+              specializationFilters.push(filterName);
+            }
+
+            console.log(specializationFilters);
           }
         }
 
@@ -224,6 +275,46 @@ body_class: partners-page
 
           alert('{{ data_SearchBar_OpenSearchSpeciality.Title }} ');
         }
+
+        let onScreenElements_ApplyFilters = () => {
+
+          
+          // Hide every item on screen
+          let items = partnerArray;
+          items.forEach((item) => {
+            const card = document.getElementById(`${item.name}-id`);
+            // console.log('HIDING: ', card);
+            card.classList.remove("card-show");
+            card.classList.add("card-hide");
+          });
+
+          // show current filters to the console
+          console.log(specializationFilters);
+          if (specializationFilters.length === 0) {
+            items.forEach((item) => {
+              const card = document.getElementById(`${item.name}-id`);
+              card.classList.remove("card-hide");
+              card.classList.add("card-show");
+            });
+          } else {
+            // specializationFilters
+            // for each item, check if it has one of the specializationFilters in its tag category. If so, we want to show it.
+            items.forEach((item) => {
+              let containsSpecializationTag = specializationFilters.some(filter => item.specializations.includes(filter));
+              if (containsSpecializationTag) {
+                const card = document.getElementById(`${item.name}-id`);
+                card.classList.remove("card-hide");
+                card.classList.add("card-show");
+              }
+            });
+          }
+          
+
+
+
+        }
+
+        
 
 
         
