@@ -1,6 +1,7 @@
 .full-width-layout--header {
-    @include page-element-padding;
     background-color: white;
+    @include page-element-padding;
+    
     > .full-width-layout--header--category-area {
         display: flex;
         flex-direction: row;
@@ -25,19 +26,21 @@
         > .full-width-layout--header--breadcrumbs--item,
         > .full-width-layout--header--breadcrumbs--item-separator {
             min-width: fit-content;
-            @include header-level4($secondary-sanfrancisco-fog-s4);
             margin-left: 1em;
+            @include header-level4($secondary-sanfrancisco-fog-s4);
+            
             @media screen and (max-width: 411px) {
                 letter-spacing: 2px;
             }
             > a {
+                text-decoration: none;
                 @include header-level4($secondary-sanfrancisco-fog-s4);
                 &:hover {
                     text-decoration: underline;
                     text-decoration-color: $primary-pacific-blue;
                     text-decoration-thickness: 2px;
                 }
-                text-decoration: none;
+                
                 @media screen and (max-width: 429px) {
                     letter-spacing: 2px;
                 }
@@ -54,11 +57,12 @@
             }
         }
         > .full-width-layout--header--icon + .full-width-layout--header--breadcrumbs--item {
+            display: block;
             @media screen and (max-width: 834px) {
                 &::before {
                     content: "\003C"
                 }
-                display: block;
+                
             }
         }
     }
@@ -81,35 +85,36 @@
     > .full-width-layout--content--body {
         @extend .platform-page--content;
         > h5:nth-of-type(1) {
-            @include header-level5(#000);
-            @include page-element-left-right-padding;
             padding-bottom: 0;
             padding-top: 0;
             margin-bottom: 0;
+            @include header-level5(#000);
+            @include page-element-left-right-padding;
         }
         > h5:nth-of-type(1) + ul:nth-of-type(1),
         .in-page-links-list {
-            @include page-element-left-right-margins;
             list-style-type: none;
             padding-left: 0;
             margin-top: 10px;
             margin-bottom: 30px;
+            @include page-element-left-right-margins;
+            @include clearfix;
             > li {
                 float: left;
                 margin-right: 30px;
                 > a {
-                    @include body-small;
                     text-underline-offset: 1px;
+                    @include body-small;
                 }
             }
-            @include clearfix;
+            
             & + p {
                 padding-top: 0;
             }
         }
         > ul {
-            @include page-element-left-right-margins;
             padding-left: 0; // Override global ul rule.
+            @include page-element-left-right-margins;
             &.site-content--blog-list {
                 list-style-type: none;
                 > li {
@@ -134,8 +139,9 @@
             }
         }
         > p {
-            @include page-paragraph-padding;
             margin: 0;
+            @include page-paragraph-padding;
+            
             &:first-of-type {
                 padding-top: 2em;
             }
@@ -149,9 +155,10 @@
         }
         > h2,
         > ol > li > h2 {
+            margin: 0;  
             @include header-level2($primary-open-sky-s3);
             @include page-paragraph-padding;
-            margin: 0;            
+                      
         }
         > h2:first-of-type {
             margin-top: 1em;
@@ -161,9 +168,10 @@
         }
         > h3,
         > ol > li h3 {
+            margin: 0;
             @include header-level3($primary-open-sky-s2);
             @include page-paragraph-padding;
-            margin: 0;
+            
         }
         > ol > li p {
             @include page-paragraph-padding;
@@ -280,17 +288,17 @@
         > .principles-for-development {
             @include page-element-padding;
             > div {
+                background-color: white;
                 @include thick-edge-bottom;
                 @include card-shadow;
-                background-color: white;
                 @include inner-element-padding;
                 > h2 {
+                    margin-top: 2em;
+                    margin-bottom: 0;
                     @include header-level2($primary-open-sky-s2);
                     &:first-of-type {
                         margin-top: 0;
                     }
-                    margin-top: 2em;
-                    margin-bottom: 0;
                 }
                 > p {
                     margin-top: 0;

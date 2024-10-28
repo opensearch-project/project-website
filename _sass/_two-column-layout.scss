@@ -1,5 +1,6 @@
 .two-column-layout {
     display: flex;
+    justify-content: flex-start;
     &.two-column-layout__left-sidebar {
         flex-direction: row;
     }
@@ -12,7 +13,7 @@
     @media screen and (max-width: 834px) {
         display: block;
     }
-    justify-content: flex-start;
+    
     > .two-column-layout--sidebar {
         flex-basis: 500px;
         @media screen and (min-width: 1020px) {

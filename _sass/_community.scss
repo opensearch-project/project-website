@@ -1,5 +1,6 @@
 .community-members--member-cards {
     display: grid;
+    margin-bottom: 0;
     @media screen and (min-width: $two-column-min-width) {
         grid-template-columns: 1fr 1fr;
         row-gap: 60px;
@@ -8,7 +9,7 @@
         grid-template-columns: 1fr;
         row-gap: 30px;
     }
-    margin-bottom: 0;
+    
     
     @media screen and (max-width: $speaker-card-squish-for-height-breakpoint) {
         column-gap: 20px;
@@ -20,27 +21,27 @@
     > .community-members--member-cards--card {
         cursor: pointer;
         background-color: white;
-        &.community-members--member-cards--card__left-edge {
-            @include thick-edge-left;
-            border-bottom: unset;
-        }
-        &.community-members--member-cards--card__bottom-edge {
-            @include thick-edge-bottom;
-            border-left: unset;
-        }
-        @include card-shadow;
         max-width: 600px;
         min-width: 400px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        @include card-shadow;
+        &.community-members--member-cards--card__left-edge {
+            border-bottom: unset;
+            @include thick-edge-left;
+        }
+        &.community-members--member-cards--card__bottom-edge {
+            border-left: unset;
+            @include thick-edge-bottom;
+        }
         @media screen and (max-width: $single-column-max-width) {
             max-width: 100%;
         }
         @media screen and (max-width: $shrink-card-images-breakpoint) {
             min-width: auto;
         }
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: nowrap;
         @media screen and (max-width: $shrink-card-images-breakpoint) {
             flex-direction: column;
         }
@@ -69,6 +70,11 @@
         > .community-members--member-cards--card--content {
             padding-left: 15px;
             padding-top: 20px;
+            box-sizing: border-box;
+            flex-basis: auto;
+            flex-shrink: 1;
+            flex-grow: 1;
+            height: 200px;
             @media screen and (max-width: 1400px) {
                 padding-top: 0;
             }
@@ -79,17 +85,13 @@
                 padding-right: 20px;
             }
             &.community-members--member-cards--card--content__bottom-edge {
-                @include thick-edge-bottom;
                 border-left: unset;
+                @include thick-edge-bottom;
             }
-            box-sizing: border-box;
             @media screen and (max-width: 380px) {
                 padding-left: 5px;
             }
-            flex-basis: auto;
-            flex-shrink: 1;
-            flex-grow: 1;
-            height: 200px;
+
             > .community-member--member-cards--card--content--persona-label {
                 margin-top: 15px;
                 color: $primary-open-sky-s3;
@@ -102,6 +104,8 @@
                 text-transform: uppercase;
             }
             > h3 {
+                margin-top: 0;
+                margin-bottom: 0;
                 > a {
                     @include header-level3($primary-open-sky-s2);
                 }
@@ -113,14 +117,14 @@
                     margin-top: 10px;
                     margin-bottom: 10px;
                 }
-                margin-top: 0;
-                margin-bottom: 0;
+
             }
             > .community-members--member-cards--card--content--job-title {
                 margin-top: 0;
                 color: $secondary-sanfrancisco-fog-s5;
-                @include body-small;
                 padding-right: 10px;
+                @include body-small;
+                
             }
         }
         > .community-members--member-cards--card--content__fullwidth {
@@ -176,9 +180,9 @@
 .full-width-layout--content {
     > .full-width-layout--content--body {
         > .community-member--listing {
-            @include page-element-left-right-margins;
             padding: 0;
             margin-bottom: 80px;
+            @include page-element-left-right-margins;
             > h2 {
                 @include header-level2($primary-open-sky-s3);
             }
@@ -294,8 +298,9 @@
     &.two-column-layout {
         @include thick-edge-top;
         > .two-column-layout--sidebar {
-            @include page-element-padding;
             background-color: #fff;
+            @include page-element-padding;
+            
             > .community-member--photo {
                 width: 100%;
                 height: auto;

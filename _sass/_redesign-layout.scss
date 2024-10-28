@@ -7,6 +7,8 @@
 }
 
 @mixin page-element-padding() {
+    box-sizing: border-box;
+    width: 100%;
     @media screen and (min-width: 1200px) {
         padding: 40px 80px;
     }
@@ -22,11 +24,12 @@
     @media screen and (max-width: 430px) {
         padding: 30px;
     }
-    box-sizing: border-box;
-    width: 100%;
+
 }
 
 @mixin page-element-left-right-padding() {
+    box-sizing: border-box;
+    width: 100%;
     @media screen and (min-width: 1200px) {
         padding-left: 80px;
         padding-right: 80px;
@@ -47,10 +50,11 @@
         padding-left: 30px;
         padding-right: 30px;
     }
-    box-sizing: border-box;
-    width: 100%;
+
 }
 @mixin page-paragraph-padding() {
+    box-sizing: border-box;
+    width: 100%;
     @media screen and (min-width: 1200px) {
         padding: 1em 80px 0;
     }
@@ -66,11 +70,12 @@
     @media screen and (max-width: 430px) {
         padding: 1em 30px 0;
     }
-    box-sizing: border-box;
-    width: 100%;
+
 }
 
 @mixin inner-element-padding() {
+    box-sizing: border-box;
+    width: 100%;
     @media screen and (min-width: 1200px) {
         padding: 40px 40px;
     }
@@ -86,8 +91,7 @@
     @media screen and (max-width: 430px) {
         padding: 30px;
     }
-    box-sizing: border-box;
-    width: 100%;
+
 }
 
 @mixin page-element-margins() {

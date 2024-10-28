@@ -51,6 +51,9 @@ $max-hero-item-count: 20;
                 display: block;
                 width: 100%;
                 height: auto;
+                overflow-x: hidden;
+                $arrow-button-width-height: 60px;
+                $arrow-button-half-height: 30px;
                 @include respond-min(835px) {
                     height: 370px;
                 }
@@ -58,13 +61,8 @@ $max-hero-item-count: 20;
                     height: 430px;
                     font-size: 0; // mobile-extra height fix.
                 }
-                overflow-x: hidden;
-                $arrow-button-width-height: 60px;
-                $arrow-button-half-height: 30px;
+
                 .landing-page-hero--arrows--arrow {
-                    @include respond-max(834px) {
-                        display: none;
-                    }
                     position: absolute;
                     top: calc(50% - $arrow-button-half-height);
                     margin: auto;
@@ -77,6 +75,10 @@ $max-hero-item-count: 20;
                     box-sizing: border-box;
                     padding-top: 6px;
                     z-index: 2;
+                    @include respond-max(834px) {
+                        display: none;
+                    }
+
                     > opensearch-button {
                         opacity: 0.4;
                         width: $arrow-button-width-height;
