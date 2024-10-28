@@ -38,11 +38,11 @@ body_class: partners-page
 
 
       <!-- Page title -->
-      <h1 class="h3 position-relative" style="z-index: 1021">{{ data_MainBody.Title }}</h1>
+      <h1 class="h3 position-relative mb-5" style="z-index: 1021">{{ data_MainBody.Title }}</h1>
 
       <!-- INPUT GROUP TRY 3 -->
       <!-- VARIABLE: data_SearchBar -->
-      <div class="input-group input-group-lg rounded-pill mb-5">
+      <div class="input-group input-group-lg rounded-pill mb-5 px-3">
 
         <input type="search" class="form-control" aria-label="Search" placeholder = '{{ data_SearchBar_SearchBox.Placeholder }}' >
         
@@ -131,7 +131,12 @@ body_class: partners-page
         </ul>  
 
         <!-- Search button -->
-        <button type="button" class="btn btn-outline-primary">{{ data_SearchBar_FilterButton.ButtonText }}</button>
+        <button 
+          type="button" 
+          class="btn btn-outline-primary"
+          onclick="gatherAllFilters()" >
+          {{ data_SearchBar_FilterButton.ButtonText }}
+        </button>
       </div>
 
 
@@ -158,16 +163,17 @@ body_class: partners-page
 
 
     <div class="container">
+      <hr/>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for partner in site.partners %}
           
           <div class="col partner">
-            <div class="card partner-card shadow-sm d-flex">
+            <card class="card partner-card shadow-sm d-flex">
 
                 <a href="{{ partner.url | relative_url }}" class="stretched-link p-4">
                   <img src="{{ partner.logo_large }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
                 </a>
-                
+                <li data-s-os-tech='Search' data-s-os-tech=“Observability”></li>
                 <h5 class="card-title ps-3">{{ partner.name }}</h5>
                 
                   {% if partner.opensearch_tech %}
@@ -175,27 +181,11 @@ body_class: partners-page
                       <i class="fa-solid fa-tag"></i>
                       <span class="fs-xs text-body-secondary">{{ partner.opensearch_tech }}</span>
                     </div>
-
-
-                    <!-- <ul class="list-group list-group-flush">
-                      <li class="list-group-item px-4">
-                        <i class="fa-solid fa-tag"></i>
-                        <span class="fs-xs text-body-secondary">{{ partner.opensearch_tech }}</span>
-                      </li>
-                      <li class="list-group-item px-4">
-                        <i class="fa-solid fa-fire"></i>
-                        {{ partner.business_type }}
-                      </li>
-                      <li class="list-group-item px-4">
-                        <i class="fa-solid fa-globe"></i>
-                        {{ partner.region }}
-                      </li>
-                    </ul> -->
                   {% endif %}
                 
 
 
-            </div>
+            </dicardv>
           </div>
         {% endfor %}
       </div>
@@ -206,8 +196,7 @@ body_class: partners-page
 
         // Dynamically update count number of selected items inside filter dropdown
         window.onload = () => {
-          updateFilterCount('categoryCount')
-          updateFilterCount('categoryCount-2')
+          
         }
 
         const updateFilterCount = (countId) => {
@@ -219,6 +208,27 @@ body_class: partners-page
               countElement.textContent = ''
           }
         }
+
+        const gatherAllFilters = () => {
+          // const dropdown_IDs = [
+
+          // ]
+
+          let results = document.querySelectorAll('cards > li[data-s-os-tech="Search"][data-s-os-tech=“Observability”]')
+          console.log(results)
+          // const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
+
+          // const test = {{ data_SearchBar_OpenSearchSpeciality }};
+          // const test2 = JSON.parse({{ data_SearchBar_OpenSearchSpeciality }})
+          // console.log(test2);
+
+          alert('{{ data_SearchBar_OpenSearchSpeciality.Title }} ');
+        }
+
+
+        
+
+
     </script>
     
 </main>        
