@@ -170,10 +170,12 @@ body_class: partners-page
 
     <div class="container">
       <hr/>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="row row-cols-1 row-cols-md-3 g-5">
         {% for partner in site.partners %}
           
-          <div class="col partner">
+          <div class="col">
+
+          
             <card 
               class="card partner-card shadow-sm d-flex show"
               id="{{partner.name}}-id"
@@ -186,12 +188,12 @@ body_class: partners-page
                 </a>
                 <h5 class="card-title ps-3">{{ partner.name }}</h5>
                 
-                  {% if partner.opensearch_tech %}
-                    <div class="card-footer px-4">
-                      <i class="fa-solid fa-tag"></i>
-                      <span class="fs-xs text-body-secondary">{{ partner.opensearch_tech }}</span>
-                    </div>
-                  {% endif %}
+                {% if partner.opensearch_tech %}
+                  <div class="card-footer px-4">
+                    <i class="fa-solid fa-tag"></i>
+                    <span class="fs-xs text-body-secondary">{{ partner.opensearch_tech }}</span>
+                  </div>
+                {% endif %}
                 
             </card>
           </div>

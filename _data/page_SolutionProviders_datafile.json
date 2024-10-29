@@ -121,7 +121,7 @@
                     {
                         "Name": "Vector Database",
                         "CategoryCount" : 5,
-                        "DataAttribute": "Support"
+                        "DataAttribute": "Vector Database"
                     }
 
                 ]

@@ -11,7 +11,9 @@
 
 
 .card-hide {
-    display: none !important;
+    // display: block !important;
+    pointer-events: none;
+    opacity: 0.25;
 }
 .card-show {
     display: block !important;
