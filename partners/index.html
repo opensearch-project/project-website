@@ -173,11 +173,11 @@ body_class: partners-page
       <div class="row row-cols-1 row-cols-md-3 g-5">
         {% for partner in site.partners %}
           
-          <div class="col">
+
 
           
             <card 
-              class="card partner-card shadow-sm d-flex show"
+              class="col card partner-card shadow-sm d-flex show"
               id="{{partner.name}}-id"
               data-partner-name = "{{partner.name}}"
               data-partner-specializations = "{{partner.opensearch_tech}}"
@@ -196,7 +196,7 @@ body_class: partners-page
                 {% endif %}
                 
             </card>
-          </div>
+
 
         {% endfor %}
 
