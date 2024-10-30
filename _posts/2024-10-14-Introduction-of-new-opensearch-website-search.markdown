@@ -4,7 +4,7 @@ title: Introducing enhanced search functionality on OpenSearch.org
 authors:
    - zelinhao
    - kolchfa
-date: 2024-10-14 
+date: 2024-10-30 
 categories:
   - community-updates
   - update
