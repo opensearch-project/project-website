@@ -9,8 +9,8 @@ categories:
   - community-updates
   - update
   - community
-meta_keywords: OpenSearch search update, improved search results, advanced filters, documentation search, OpenSearch search page, Amazon OpenSearch Service, version-specific search, search infrastructure update
-meta_description: Discover the new and improved search functionality on OpenSearch.org. Learn how our updated infrastructure, advanced filters, and dedicated search results page make it easier to find the documentation, blog posts, and event information you need.
+meta_keywords: improve search functionality, OpenSearch search experience, OpenSearch.org, advanced filtering options, enhanced search experience
+meta_description: Explore the enhanced search experience on OpenSearch.org. Discover how our upgraded infrastructure, advanced filtering options, and dedicated search page make it easier to locate the documentation and content you need.
 ---
 We're pleased to announce an update to the search functionality on OpenSearch.org. This new design addresses key challenges in the current infrastructure and search experience while setting the stage for more advanced search features that help you find the information you need more easily.
 
