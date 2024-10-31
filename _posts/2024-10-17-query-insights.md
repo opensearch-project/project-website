@@ -4,11 +4,11 @@ title: "Gain deeper insights with OpenSearch Query Insights"
 authors:
    - chenyang
    - kolchfa
-date: 2024-10-17 
+date: 2024-10-31
 categories:
   - technical-posts
-meta_keywords: opensearch query insights, search performance, query optimization, search analytics, resource monitoring, latency analysis, cpu usage, memory consumption, troubleshooting, search visibility, metrics, dashboards
-meta_description: Gain deeper visibility into search query performance with OpenSearch Query Insights. This tool helps identify bottlenecks, optimize resources, and troubleshoot issues by providing detailed insights into query execution, latency, CPU/memory usage, and more. Enhance your search analytics and deliver a better user experience.
+meta_keywords: OpenSearch query insights, search performance, query optimization, query latency, search analytics, resource monitoring
+meta_description: The query insights feature in OpenSearch gives you visibility into search performance, enabling you to identify bottlenecks, optimize resources, and enhance troubleshooting to deliver a better search experience for users.
 ---
 
 In the world of search and analytics, performance is everything. As an engineer, you need to ensure that your search queries are not only fast but also resource efficient. However, understanding what's happening in your search operations internally can be challenging. That's where OpenSearch's new feature, Query Insights, comes into play. This tool is designed to give you deeper visibility into the performance of your search queries, helping you identify bottlenecks, optimize performance, and, ultimately, provide a better experience for your users.
