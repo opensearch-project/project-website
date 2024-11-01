@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to Create a New Database Integration with Data Prepper"
+title:  "Step-by-step: Creating a new database integration using Data Prepper"
 authors:
 - tylgry
 - dinujoh
@@ -8,20 +8,18 @@ date: 2022-09-21 10:00:00 -0500
 categories:
   - technical-post
 twittercard:
-  description: " Data Prepper contains support for migrating databases like MongoDB and DynamoDB to OpenSearch. This infrastructure is extendable to other databases, and involves creating a new Data Prepper source plugin."
-redirect_from: "/blog/technical-post/2024/09/How to Create a New Database Integration with Data Prepper/"
+  description: "Data Prepper offers a flexible framework for database migration, supporting sources like MongoDB and DynamoDB. You can extend this capability to new databases by implementing a Data Prepper source plugin."
 ---
 
-Data Prepper is an open source data collector for trace and log data that can filter,
-enrich, and aggregate data for downstream analysis and visualization in OpenSearch. 
+Data Prepper, an open source data collector, enables you to collect, filter, enrich, and aggregate trace and log data. With Data Prepper, you can prepare your data for downstream analysis and visualization in OpenSearch.
 
-Data Prepper pipelines are made up of a source, an optional set of processors, and one or more sinks. See [ Data Prepper 
-Key Concepts and Fundamentals](https://opensearch.org/docs/latest/data-prepper/#key-concepts-and-fundamentals)
-for more details. The following sections discuss the process required to create a new database source integration in Data Prepper.
+Data Prepper pipelines consist of three main components: a source, an optional set of processors, and one or more sinks. For more information, see [ Data Prepper key concepts and fundamentals](https://opensearch.org/docs/latest/data-prepper/#key-concepts-and-fundamentals). The following sections outline the steps necessary for implementing a new database source integration within Data Prepper.
 
-### Push-based vs. Pull-based sources
+### Understanding push-based and pull-based sources
 
-Data Prepper source plugins can be divided into two different categories: push-based and pull-based. Pull-based sources,
+Data Prepper source plugins fall into two categories: push-based and pull-based. 
+
+_Pull-based sources_ such as HTTP and OpenTelemetry (OTel), scale easily across Data Prepper containers. _Push-based sources_ rely load balancing solutions, such as Kubernetes, NGINX, or Docker Swarm, to distribute workload across Data Prepper containers.  
 like HTTP and OpenTelemetry, are easy to scale between Data Prepper containers. Kubernetes, Nginx, or Docker Swarm will support
 load balancing between Data Prepper containers for push-based sources.
 
