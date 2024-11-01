@@ -17,13 +17,13 @@ logo_large: /assets/media/partners/elastio/elastio-logo.png
 
 
 
-region: [Global]
+region: Global
 
-industries:  [Software and Technology, Business Services, Consumer Services]
+industries:  Software and Technology, Business Services, Consumer Services
 
-business_type: [(MSP) Managed Service Provider]
+business_type: (MSP) Managed Service Provider
 
-opensearch_tech:  [Search, Observability, Analytics]
+opensearch_tech:  Search, Observability, Analytics
 
 
 social_links:

@@ -23,13 +23,13 @@ logo_large: /assets/media/partners/swirl/swirl-logo-large.png
 
 
 
-region: [Global, North America]
+region: Global, North America
 
-industries:  [Software and Technology, Energy and Utilities, Government, Financial Services, Healthcare, Retail, Telecommunications]
+industries:  Software and Technology, Energy and Utilities, Government, Financial Services, Healthcare, Retail, Telecommunications
 
-business_type: [(ISV) Independent Software Vendor]
+business_type: (ISV) Independent Software Vendor
 
-opensearch_tech:  [Search, GenAI]
+opensearch_tech:  Search, GenAI
 
 
 
