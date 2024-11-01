@@ -21,13 +21,13 @@ logo_large: /assets/media/partners/partner-name/placeholder.png
 
 
 
-region: Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+region: [Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia]
 
-industries:  Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+industries:  [Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications]
 
-business_type: Consultant, (MSP) Managed Service Provider, (CSP) Content Service Provider, (ISV) Independent Software Vendor, Systems Integrator, Platform Integrator, Professional Services, Training
+business_type: [Consultant, (MSP) Managed Service Provider, (CSP) Content Service Provider, (ISV) Independent Software Vendor, Systems Integrator, Platform Integrator, Professional Services, Training]
 
-opensearch_tech:  Search, Observability, Security, Logs, Analytics, Machine Learning & AI, GenAI
+opensearch_tech:  [Search, Observability, Security, Logs, Analytics, Machine Learning & AI, GenAI]
 
 
 
