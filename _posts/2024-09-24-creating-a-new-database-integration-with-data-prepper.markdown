@@ -20,33 +20,28 @@ Data Prepper pipelines consist of three main components: a source, an optional s
 Data Prepper source plugins fall into two categories: push-based and pull-based. 
 
 _Pull-based sources_ such as HTTP and OpenTelemetry (OTel), scale easily across Data Prepper containers. _Push-based sources_ rely load balancing solutions, such as Kubernetes, NGINX, or Docker Swarm, to distribute workload across Data Prepper containers.  
-like HTTP and OpenTelemetry, are easy to scale between Data Prepper containers. Kubernetes, Nginx, or Docker Swarm will support
-load balancing between Data Prepper containers for push-based sources.
 
-Pull-based sources, on the other hand, need an alternative mechanism to scale and distribute work between a fleet of Data Prepper containers. For Data Prepper,
-this alternative mechanism is [Source Coordination](https://opensearch.org/docs/latest/data-prepper/managing-data-prepper/source-coordination/).
-
-Source coordination uses an external store that acts as a lease table, similar to the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html),
+Unlike push-based sources, pull-based sources in Data Prepper use [Source coordination](https://opensearch.org/docs/latest/data-prepper/managing-data-prepper/source-coordination/) to achieve scalability and work distribution across multiple containers. Source coordination uses an external store functioning as a lease table, similar to the approach used by the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html).
 
 
-### Choosing a partition of work
-Source coordination enables Data Prepper to divide "partitions" of work between Data Prepper containers.
+### Defining work partitions for source coordination
 
-For example, for Data Prepper's S3 source, a partition of work is a single S3 object. For OpenSearch as a source,
-a partition of work is an OpenSearch index. For DynamoDB as a source, there are two types of partitions: an S3 data file for the one-time export, 
-and a shard when reading from DynamoDB streams.
+Data Prepper uses source coordination to distribute  work partitions" across Data Prepper containers.
 
-When creating a new Data Prepper source that requires source coordination, one of the first questions to answer is "What are my partitions of work?"
+For new Data Prepper sources using source coordination, identifying and delineating work partitions is a fundamental first step. 
 
-### Creating a Data Prepper plugin with Source Coordination Enabled
+Data Prepper defines work partitions differently for various sources. In the S3 source, each S3 object represents a partition. For OpenSearch, an index serves as a partition. DynamoDB sources have dual partition types: S3 data files for exports and shards for stream processing. 
 
-To create a plugin that uses Source Coordination, the minimum required amount of code is to create two classes: one for the plugin itself, and one for the configuration of the plugin.
-The configuration will contain the necessary parameters users must provide to run your plugin. For example, it may contain the database name or endpoint, as well as information on authorization and performance tuning. 
-Anything that a user would need to provide to run your plugin should be defined in this configuration. 
 
-To get started, see this [sample source example](https://github.com/graytaylor0/data-prepper/blob/SourceCoordinationSampleSource/data-prepper-plugins/sample-source-coordination-source/src/main/java/SampleSource.java). 
-This example is for a hypothetical database, where the only configurations required are `database_name`, `username`, and `password` ([Configuration Class](https://github.com/graytaylor0/data-prepper/blob/SourceCoordinationSampleSource/data-prepper-plugins/sample-source-coordination-source/src/main/java/SampleSourceConfig.java)). Note in the example code that the plugin name and configuration class is defined in the `@DataPrepperPlugin` annotation on the class. 
-When running Data Prepper, the pipeline.yaml for this source would be as follows:
+### Creating a source coordination-enabled Data Prepper plugin
+
+A source coordination plugin consists of to two classes: the main plugin class and a configuration class. The configuration class specifies all required users inputs, from the data endpoints to authorization details and performance tuning parameters. All user-required inputs for plugin operation should be specified within this configuration class.
+
+For a practical starting point, refer to the [sample source code](https://github.com/graytaylor0/data-prepper/blob/SourceCoordinationSampleSource/data-prepper-plugins/sample-source-coordination-source/src/main/java/SampleSource.java) in the Data Prepper repository.
+ 
+This example demonstrates a basic configuration for a [hypothetical database source](https://github.com/graytaylor0/data-prepper/blob/SourceCoordinationSampleSource/data-prepper-plugins/sample-source-coordination-source/src/main/java/SampleSourceConfig.java), requiring only `database_name`, `username`, and `password`. The plugin name and configuration class are defined in the `@DataPrepperPlugin` annotation.
+ 
+The `pipeline.yaml` for running this source in Data Prepper would be structured as follows:
 
 ```yaml
 version: 2
@@ -60,12 +55,11 @@ sample-source-pipeline:
     - stdout:
 ```
 
-### Using the Source Coordination APIs
+### Using the source coordination APIs
 
-The [Source Coordination Interface](https://github.com/opensearch-project/data-prepper/blob/main/data-prepper-api/src/main/java/org/opensearch/dataprepper/model/source/coordinator/enhanced/EnhancedSourceCoordinator.java) defines 
-the methods available for interacting with the [Source Coordination Store](https://github.com/opensearch-project/data-prepper/blob/main/data-prepper-api/src/main/java/org/opensearch/dataprepper/model/source/SourceCoordinationStore.java).
+The [source coordination interface](https://github.com/opensearch-project/data-prepper/blob/main/data-prepper-api/src/main/java/org/opensearch/dataprepper/model/source/coordinator/enhanced/EnhancedSourceCoordinator.java) defines the methods available for interacting with the [source coordination store](https://github.com/opensearch-project/data-prepper/blob/main/data-prepper-api/src/main/java/org/opensearch/dataprepper/model/source/SourceCoordinationStore.java).
 
-These methods enable plugin creators to handle CRUD operations on their partitions, as well as acquiring the next partition to be worked on with the `acquireAvailablePartition(String partitionType)` method. A common pattern when using Source Coordination
+These methods provide for managing partition CRUD operations and getting the next available partition using `acquireAvailablePartition(String partitionType)`. A common source coordination pattern assigns a "leader" Data Prepper container for partition discovery and creation. This is done by initializing a "leader partition" at startup and using `acquireAvailablePartition(LeaderPartition.PARTITION_TYPE)` to assign partition management responsibilities. 
 is to assign a "leader" Data Prepper container that is responsible for partition discovery and creation of partitions. This is achieved by creating one partition on startup of Data Prepper that is the "Leader Partition", and utilizing the `acquireAvailablePartition(LeaderPartition.PARTITION_TYPE)`
 method to determine if the job of partition discovery and creation of other partitions is assigned to a given Data Prepper container. 
 
