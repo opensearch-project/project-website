@@ -60,18 +60,15 @@ sample-source-pipeline:
 The [source coordination interface](https://github.com/opensearch-project/data-prepper/blob/main/data-prepper-api/src/main/java/org/opensearch/dataprepper/model/source/coordinator/enhanced/EnhancedSourceCoordinator.java) defines the methods available for interacting with the [source coordination store](https://github.com/opensearch-project/data-prepper/blob/main/data-prepper-api/src/main/java/org/opensearch/dataprepper/model/source/SourceCoordinationStore.java).
 
 These methods provide for managing partition CRUD operations and getting the next available partition using `acquireAvailablePartition(String partitionType)`. A common source coordination pattern assigns a "leader" Data Prepper container for partition discovery and creation. This is done by initializing a "leader partition" at startup and using `acquireAvailablePartition(LeaderPartition.PARTITION_TYPE)` to assign partition management responsibilities. 
-is to assign a "leader" Data Prepper container that is responsible for partition discovery and creation of partitions. This is achieved by creating one partition on startup of Data Prepper that is the "Leader Partition", and utilizing the `acquireAvailablePartition(LeaderPartition.PARTITION_TYPE)`
-method to determine if the job of partition discovery and creation of other partitions is assigned to a given Data Prepper container. 
 
-The following code snippet demonstrates a simple flow while using source coordination. This example references a hypothetical database, where the "partition" is a single database file.
-The full code for this example can be found [here](https://github.com/graytaylor0/data-prepper/blob/6e38dead8e9beca089381519654f329b82524b9d/data-prepper-plugins/sample-source-coordination-source/src/main/java/DatabaseWorker.java#L40).
+The following code snippet shows a basic source coordination workflow, using a hypothetical database where each partition represent an individual database file. See the [full code](https://github.com/graytaylor0/data-prepper/blob/6e38dead8e9beca089381519654f329b82524b9d/data-prepper-plugins/sample-source-coordination-source/src/main/java/DatabaseWorker.java#L40) on GitHub.
 
-The overview of this code is as follows for the different numbered sections
+The key components and workflow in the code for implementing source coordination in Data Prepper are as follows:
 
-1. A leader partition was created on startup of Data Prepper ([Code reference](https://github.com/graytaylor0/data-prepper/blob/6e38dead8e9beca089381519654f329b82524b9d/data-prepper-plugins/sample-source-coordination-source/src/main/java/SampleSource.java#L41)). There is only one leader partition, and whichever Data Prepper node acquires it with the method call to `acquireAvailablePartition(LeaderPartition.PARTITION_TYPE)` will now be assigned the responsibility of discovering new database files.
-2. If the leader partition is owned by this Data Prepper node, it will query the hypothetical database and create new partitions in the Source Coordination Store. When these partitions are created in the store, all Data Prepper nodes running this source will be able to acquire the database file partitions.
-3. Acquire a database file partition to process. If no database files need to be processed at this time, an empty Optional will be returned
-4. Process the database file by writing the records from that file into the Data Prepper buffer as individual Events. After the database file has all records written to the buffer, mark the database file partition as COMPLETED in the source coordination store. This will make it so the database file is not processed again.
+1. Upon Data Prepper's startup, a leader partition is established.  See the [code reference](https://github.com/graytaylor0/data-prepper/blob/6e38dead8e9beca089381519654f329b82524b9d/data-prepper-plugins/sample-source-coordination-source/src/main/java/SampleSource.java#L41)). The single leader partition is assigned to the Data Prepper node that successfully calls `acquireAvailablePartition(LeaderPartition.PARTITION_TYPE)`, assigning it the task of identifying new database files.
+2. When a Data Prepper node owns the leader partition, it queries the hypothetical database and creates new partitions in the source coordination store, enabling all nodes running this source to access these database file partitions.
+3. A database file partition is acquired for processing. In cases where no partitions need processing, an empty `Optional` is returned.
+4. The database file undergoes processing, with its records written into the Data Prepper buffer as individual `Events`. Once all records have been written to the buffer, the source coordination store marks the database file partition as `COMPLETED`, ensuring it is not not processed again.
 
 ```java
 public void run() {
@@ -116,25 +113,22 @@ public void run() {
 }
 ```
 
-### Running and Testing Data Prepper with Source Coordination
+### Running and testing Data Prepper using source coordination
 
-To create a new plugin, it is helpful to first experience setting up and running Data Prepper locally. The following steps will outline how to get Data Prepper up and running with a pipeline
-that is streaming documents from MongoDB, and writing them to OpenSearch using source coordination. The example will only use a single Data Prepper application instance, 
-but using source coordination allows for scaling if multiple instances of Data Prepper were run with the same pipeline configuration (i.e. pointing to the same MongoDB database), 
-and utilizing the same source coordination store as defined in the `data-prepper-config.yaml`.
+Before creating a new plugin, you must set up and run Data Prepper locally. The following steps guide you in configuring Data Prepper for streaming documents from MongoDB to OpenSearch using source coordination. While this example uses a single Data Prepper instance, the source coordination allows for scalability when running multiple instances with identical pipeline configurations and shared source coordination store settings defined in `data-prepper-config.yaml`.
 
-#### Step 1 - Set up Data Prepper locally for development
+#### Step 1 - Set up Data Prepper for local development
 
-The [Data Prepper Developer Guide](https://github.com/opensearch-project/data-prepper/blob/main/docs/developer_guide.md) demonstrates all of the ways to run Data Prepper.
-When developing a new source plugin, one must clone the Data Prepper repository and build from source with the following commands
+The [Data Prepper developer guide](https://github.com/opensearch-project/data-prepper/blob/main/docs/developer_guide.md) provides a complete overview for running Data Prepper in various environments.
+Creating a new source plugin requires cloning the Data Prepper repository and building it from source using the following commands:
 
 
-Clone the Data Prepper repository
+- Clone the Data Prepper repository
 ```
 git clone https://github.com/opensearch-project/data-prepper.git
 ```
 
-Build data prepper from source
+- Build Data Prepper from source
 
 ```
 ./gradlew assemble
@@ -142,29 +136,28 @@ Build data prepper from source
 
 #### Step 2 - Set up MongoDB locally
 
-Follow the [MongoDB installation guide](https://www.mongodb.com/docs/manual/installation/) to install and run MongoDB. Before you run MongoDB, 
-you will need to enable [MongoDB change streams](https://www.mongodb.com/docs/manual/changeStreams/) by following [Converting your Standalone Self-Manged MongoDB to a Replica Set](https://www.mongodb.com/docs/manual/tutorial/convert-standalone-to-replica-set/).
+First, install and configure MongoDB using the [MongoDB installation guide](https://www.mongodb.com/docs/manual/installation/). Before running MongoDB, enable [MongoDB change streams](https://www.mongodb.com/docs/manual/changeStreams/) by following the instructions in [Convert a Standalone Self-Managed mongod to a Replica Set](https://www.mongodb.com/docs/manual/tutorial/convert-standalone-to-replica-set/).
 
-Run `mongosh` to enter the shell. Once in the shell, create a new user and password. This username and password will be specified later in the Data Prepper `pipeline.yaml`. See [Create User Documentation](https://www.mongodb.com/docs/manual/reference/method/db.createUser/) for more information on creating users with MongoDB.
+Next, launch the MongoDB shell by running `mongosh`, and then create a new user and password within the shell using the following syntax. The username and password are required later in the Data Prepper `pipeline.yaml`. See [Create User Documentation](https://www.mongodb.com/docs/manual/reference/method/db.createUser/) for more information about MongoDB user creation.
 
 ```
 use admin
 db.createUser({"user": "dbuser","pwd": "admin1234","roles": []});
 ```
 
-Create a new database named `demo`:
+Then, create a new database named `demo`:
 
 ```
 use demo
 ```
 
-Now create a new MongoDB collection in the `demo` database named `demo_collection` with
+Next, create a new MongoDB collection named `demo_collection` in your `demo` database with this syntax:
 
 ```
 db.createCollection("demo_collection")
 ```
 
-Insert some records into the collection. These will be processed during the export phase of the MongoDB pipeline.
+Finally, add sample records to the collection using the following syntax. These records are processed during the MongoDB pipeline's export phase:
 
 ```
 db.demo_collection.insertOne({"key-one": "value-one"})
@@ -174,16 +167,14 @@ db.demo_collection.insertOne({"key-three": "value-three"})
 
 #### Step 3 - Set up OpenSearch locally
 
-Follow the [Installation Quickstart](https://opensearch.org/docs/latest/getting-started/quickstart/) guide to run OpenSearch locally.
+To run OpenSearch locally, follow the steps in the [Installation quickstart](https://opensearch.org/docs/latest/getting-started/quickstart/).
 
-#### Step 4 - Create an AWS S3 bucket
-Follow the steps here to [Create a new S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html). If you already have a bucket, this step can be skipped. Since only one Data Prepper node can read from MongoDB streams
-at a time, this S3 bucket will be used by the pipeline to provide a way to parallelize the processing and writing of data to OpenSearch between multiple Data Prepper containers when running in a multi-node environment.
+#### Step 4 - Create an Amazon S3 bucket
+Follow the steps in [Create a new S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html). You can skip this step if you have an existing bucket. This S3 buckets enables parallel processing and writing to OpenSearch across multiple Data Prepper containers in a multi-node setup, as only one node can read from MongoDB streams at a time.
 
-#### Step 5 - Get credentials for accessing AWS DynamoDB and AWS S3
+#### Step 5 - Get AWS credentials for DynamoDB and S3 access
 
-To create and interact with the DynamoDB Source Coordination Store that will be created on startup of Data Prepper, and to access the S3 bucket that was created in step 4, create a role with the following AWS policy permissions.
-Be sure to replace the `MONGODB_BUCKET`, `REGION` and `AWS_ACCOUNT_ID`.
+Set up an AWS role with the following policy permissions to enable Data Prepper to interact with the DynamoDB source coordination store and the S3 bucket from step 4. Make sure to replace `MONGODB_BUCKET`, `REGION` and `AWS_ACCOUNT_ID` with your unique values.
 
 ```json
 {
@@ -239,31 +230,27 @@ Be sure to replace the `MONGODB_BUCKET`, `REGION` and `AWS_ACCOUNT_ID`.
 }
 ```
 
-Now run
+Run the following command, then enter the `Access Key Id` and `Secret Access Key` associated with credentials that correspond to the previously defined role:
 
 ```
 aws configure
 ```
 
-and insert the `Access Key Id` and `Secret Access Key` for credentials that allow the previously created role to be assumed.
 
-Set the following environment variables:
+Then, set the following environment variables:
 
 ```
 export AWS_REGION="{{REGION}}"
 export SOURCE_COORDINATION_PIPELINE_IDENTIFIER="test-mongodb"
 ```
 
-The `SOURCE_COORDINATION_PIPELINE_IDENTIFIER` should be the same as the `partition_prefix` in the `data-prepper-config.yaml` that 
-will be created in the next step.
+The `SOURCE_COORDINATION_PIPELINE_IDENTIFIER` must correspond to the `partition_prefix` that you will define in the `data-prepper-config.yaml` in step 6. 
 
 #### Step 6 - Create the data-prepper-config.yaml
 
-The `data-prepper-config.yaml` is used to configure the source coordination store for Data Prepper. At this time,
-only DynamoDB is supported as a source coordination store.
+Configure the source coordination store for Data Prepper using the `data-prepper-config.yaml` file. Currently, this store exclusively supports DynamoDB.
 
-Create a file named `data-prepper-config.yaml` in the `data-prepper/release/archives/linux/build/install/opensearch-data-prepper-$VERSION-linux-x64/config/` directory 
-and place the following contents into it. Be sure to replace the `REGION` with the desired region the DynamoDB table will be created in, as well as the `ROLE_ARN_FROM_STEP_5`:
+In the `data-prepper/release/archives/linux/build/install/opensearch-data-prepper-$VERSION-linux-x64/config/` directory, create a file named `data-prepper-config.yaml`. Insert the following content, replacing `REGION` with your desired DynamoDB table region and `ROLE_ARN_FROM_STEP_5` with the appropriate role ARN:
 
 ```yaml
 ssl: false
@@ -277,10 +264,9 @@ source_coordination:
       skip_table_creation: false
 ```
 
-Note how the `skip_table_creation` parameter is set to false. This will make it so Data Prepper will attempt to create the table on startup if it does not exist.
-After the first time Data Prepper is run, this flag can be set to true to speed up the startup of Data Prepper.
+The `skip_table_creation` parameter is set to `false`, instructing Data Prepper create the table on startup if it is missing. For subsequent runs, you can set this flag to `true` to accelerate startup speed.
 
-Also note the `partition_prefix`. This prefix makes it easy to do a soft reset of the pipeline in the coordination store. If you are testing a new source plugin, simply bumping the prefix between each 
+The `partition_prefix` enables soft resets of the pipeline in the source coordination store. When testing a new source plugin, incrementing this prefix (for example, `test-mongodb-1`, `test-mongodb-2`) ensures Data Prepper ignores DynamoDB items from the previous test runs.
 run (i.e. `test-mongodb-1`, `test-mongodb-2`) will make it so Data Prepper ignores DynamoDB items from the previous test run.
 
 #### Step 7 - Create the pipeline.yaml
