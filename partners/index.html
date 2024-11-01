@@ -170,18 +170,17 @@ body_class: partners-page
 
     <div class="container">
       <hr/>
-      <div class="row row-cols-1 row-cols-md-3 g-5">
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+
         {% for partner in site.partners %}
-          
-
-
-          
+          <div 
+            class="col partner-card-wrapper"
+            id="{{partner.name}}-id"
+            data-partner-name = "{{partner.name}}"
+            data-partner-specializations = "{{partner.opensearch_tech}}"
+          >
             <card 
-              class="col card partner-card shadow-sm d-flex show"
-              id="{{partner.name}}-id"
-              data-partner-name = "{{partner.name}}"
-              data-partner-specializations = "{{partner.opensearch_tech}}"
-              >
+              class="card shadow-sm d-flex show px-0">
 
                 <a href="{{ partner.url | relative_url }}" class="stretched-link p-4">
                   <img src="{{ partner.logo_large }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
@@ -189,14 +188,14 @@ body_class: partners-page
                 <h5 class="card-title ps-3">{{ partner.name }}</h5>
                 
                 {% if partner.opensearch_tech %}
-                  <div class="card-footer px-4">
+                  <div class="card-footer">
                     <i class="fa-solid fa-tag"></i>
-                    <span class="fs-xs text-body-secondary">{{ partner.opensearch_tech }}</span>
+                    <span class="text-body-secondary">{{ partner.opensearch_tech }}</span>
                   </div>
                 {% endif %}
                 
             </card>
-
+          </div>
 
         {% endfor %}
 
@@ -217,8 +216,8 @@ body_class: partners-page
           
 
           // find all partners and enter each partner object into the partnerArray
-          let partnerObjectsOnScreen = document.querySelectorAll(`card.partner-card`);
-          // console.log(partnerObjectsOnScreen)
+          let partnerObjectsOnScreen = document.querySelectorAll(`div.partner-card-wrapper`);
+          console.log(partnerObjectsOnScreen)
 
           partnerObjectsOnScreen.forEach(partnerObject => {
             let partnerName = partnerObject.getAttribute('data-partner-name');
@@ -283,9 +282,10 @@ body_class: partners-page
           
           // Hide every item on screen
           let items = partnerArray;
+          console.log(items)
           items.forEach((item) => {
             const card = document.getElementById(`${item.name}-id`);
-            // console.log('HIDING: ', card);
+            console.log('HIDING: ', card);
             card.classList.remove("card-show");
             card.classList.add("card-hide");
           });

@@ -5,13 +5,18 @@ logo: '/assets/media/partners/aiven.png'
 link: 'https://aiven.io'
 logo_large: '/assets/media/partners/aiven/aiven_logo.png'
 description: 'Aiven provides managed open source data technologies, such as PostgreSQL®, Apache Kafka® and OpenSearch®, on all major clouds.'
-business_type: MSP
-region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
+
 contact: 'https://aiven.io/contact'
 
-opensearch_tech: ['Search', 'Observability', 'Logs', 'Analytics']
 
-industries: 'Managed OpenSearch®'
+opensearch_tech:  Search, Observability, Logs, analytics
+region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+industries:       Software and Technology, Business Services
+business_type:    (MSP) Managed Service Provider
+
+
+
+
 main_office_location:  |
   Aiven Oy
   Antinkatu 1, 6th floor, 00100

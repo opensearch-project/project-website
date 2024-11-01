@@ -5,12 +5,17 @@ logo: '/assets/media/partners/adelean/adelean_logo_mark.png'
 link: 'https://adelean.com'
 logo_large: '/assets/media/partners/adelean/adelean_logo.png'
 description: Adelean is a technology and systems consulting company. We guide you through setting up search engines and tools for data exploration and analysis. Integrators of search platforms like Lucene, Solr, Elasticsearch and OpenSearch, we bring our expertise for deploying and optimizing these technologies into your systems.
-business_type: Technology and systems consulting company
-region: Europe, Worldwide
-contact: info@adelean.com, https://adelean.com
-opensearch_tech: ['Search', 'Observability', 'Analytics']
 
-industries: business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology
+contact: info@adelean.com, https://adelean.com
+
+region:           Global, Europe
+opensearch_tech:  Search, Observability, Analytics
+industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail
+business_type:    Consultant, Systems Integrator, Professional Services
+
+
+
+
 main_office_location:  |
   Station F
   5, parvis Alan Turing

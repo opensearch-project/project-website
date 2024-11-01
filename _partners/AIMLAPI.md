@@ -5,30 +5,21 @@ name_long: AI/ML API
 main_office_location:  |
   Estonia, Talinn
 
-region: Global
+logo: /assets/media/partners/AIMLAPI/aimlapi_logo_big.png
+logo_large: /assets/media/partners/AIMLAPI/aimlapi_logo_big.png
 
 description: 'We are an AI API provider, giving many AI models at top-notch prices and speeds. This includes image-gen, video-gen, chatting, TTS and STT AIs all in one platform.
 We serve enterprise clients, either giving them serverless API access, or providing them with dedicated servers. Excited to partner with you, and share some of our business connections!'
-
-business_type: ISV
-
-
 
 link: https://aimlapi.com/
 
 contact: sergey@aimlapi.com
 contact_phone: 06202495871
 
-industries: Software and Technology
-
-
-opensearch_tech: ['GenAI']
-
-
-logo: /assets/media/partners/AIMLAPI/aimlapi_logo_big.png
-logo_large: /assets/media/partners/AIMLAPI/aimlapi_logo_big.png
-
-
+region:           Global
+opensearch_tech:  GenAI
+industries:       Software and Technology
+business_type:    (ISV) Independent Software Vendor
 
 resources:
   - url: 'https://aimlapi.com/blog/hidden-embedding-models-youve-been-missing-out-on'
@@ -44,9 +35,6 @@ resources:
     thumbnail: '/assets/media/partners/AIMLAPI/ai-playground.png'
     type: 'resource'
 
-
-
-
 social_links:
   - url: 'https://x.com/aimlapi'
     icon: 'twitter'
@@ -56,7 +44,6 @@ social_links:
     icon: 'facebook'
   - url: 'https://github.com/example'
     icon: 'github'
-
 
 product_description: 'We offer API access to 200+ AI models, including open-source models like LLama, Flux, Qwen - as well as closed source models like ChatGPT and Claude.'
 
