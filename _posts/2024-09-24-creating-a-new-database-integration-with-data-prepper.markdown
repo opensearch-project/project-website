@@ -267,12 +267,10 @@ source_coordination:
 The `skip_table_creation` parameter is set to `false`, instructing Data Prepper create the table on startup if it is missing. For subsequent runs, you can set this flag to `true` to accelerate startup speed.
 
 The `partition_prefix` enables soft resets of the pipeline in the source coordination store. When testing a new source plugin, incrementing this prefix (for example, `test-mongodb-1`, `test-mongodb-2`) ensures Data Prepper ignores DynamoDB items from the previous test runs.
-run (i.e. `test-mongodb-1`, `test-mongodb-2`) will make it so Data Prepper ignores DynamoDB items from the previous test run.
 
-#### Step 7 - Create the pipeline.yaml
+#### Step 7 - Create the `pipeline.yaml` file
 
-Create a file named `pipeline.yaml` in the `data-prepper/release/archives/linux/build/install/opensearch-data-prepper-$VERSION-linux-x64/pipelines/` directory, and place the following contents into it.
-Be sure to replace `S3_BUCKET_NAME`, `S3_BUCKET_REGION`, `ROLE_ARN_FROM_STEP_5`, and your OpenSearch password:
+In the `data-prepper/release/archives/linux/build/install/opensearch-data-prepper-$VERSION-linux-x64/pipelines/` directory, create a `pipeline.yaml` file with the following content. Make sure to update `S3_BUCKET_NAME`, `S3_BUCKET_REGION, ROLE_ARN_FROM_STEP_5`, and your OpenSearch password:
 
 ```yaml
 pipeline: 
@@ -318,54 +316,49 @@ pipeline:
 
 #### Step 8 - Run the pipeline
 
-Now that you have the AWS credentials, and MongoDB and OpenSearch are both running locally, you can now start the pipeline.
+With AWS credentials configured and both MongoDB and OpenSearch running on your local machine, you can launch the pipeline.
 
-Move to the directory containing the Data Prepper binaries
+First, navigate to the directory containing the Data Prepper binaries:
 
 ```
 cd data-prepper/release/archives/linux/build/install/opensearch-data-prepper-$VERSION-linux-x64
 ```
 
-Start Data Prepper
+Then, start Data Prepper using the following command:
 
 ```
 bin/data-prepper
 ```
 
-#### Step 9 - Observe the documents in OpenSearch
+#### Step 9 - Review the documents in OpenSearch
 
-It may take a minute for the export to go through. Once you see a log like `org.opensearch.dataprepper.plugins.source.s3.ScanObjectWorker - Received all acknowledgments for folder partition` from Data Prepper, 
-visit OpenSearch Dashboards in your browser at `http://localhost:5601`. 
+Wait for the export to complete, which may take a minute. Once Data Prepper displays  a log, for example, `org.opensearch.dataprepper.plugins.source.s3.ScanObjectWorker - Received all acknowledgments for folder partition`, open `http://localhost:5601` to access OpenSearch Dashboards. 
 
+Go to the **Dev Tools** application and enter `GET mongodb-index/_search` into the console editor to retrieve the MongoDB documents you created in step 2. 
 
-Go to `Dev Tools` and run `GET mongodb-index/_search`. You should see the documents you added to MongoDB in step 2. 
-
-#### Step 10 - Insert some sample documents to MongoDB
-
+#### Step 10 - Add sample documents to MongoDB
+Add sample documents to MongoDB using the following command:
+ 
 ```
 db.demo_collection.insertOne({"key-four": "value-four"})
 db.demo_collection.insertOne({"key-five": "value-five"})
 db.demo_collection.insertOne({"key-six": "value-six"})
 ```
 
-These documents will now be pulled by Data Prepper's MongoDB source from the MongoDB streams.
+The MongoDB source in Data Prepper will now extract  these documents from the MongoDB streams.
 
-#### Step 11 - Observe the documents in OpenSearch
+#### Step 11 - Review the documents in OpenSearch
 
-Once you see another Data Prepper log like `org.opensearch.dataprepper.plugins.source.s3.ScanObjectWorker - Received all acknowledgments for folder partition`, 
-go back to OpenSearch Dashboards Dev Tools and run another query on the index with `GET mongodb-index/_search`.
+As soon as Data Prepper generates another log, for example, `org.opensearch.dataprepper.plugins.source.s3.ScanObjectWorker - Received all acknowledgments for folder partition`, return to **Dev Tools** and run another search on the index using `GET mongodb-index/_search`.
 
-#### Step 12 - Cleanup resources
+#### Step 12 - Clean up resources
 
-You are all done! Remember to delete the DynamoDB Source Coordination Store and the S3 bucket, and to stop Data Prepper, MongoDB, and OpenSearch.
+As you complete this process, make sure perform the following cleanup tasks: delete the DynamoDB source coordination store and S3 bucket, and stop the Data Prepper, MongoDB, and OpenSearch instances.
 
 ### Summary
 
-After reading this and following along, you hopefully will have a better understanding of the internals of Data Prepper, and how to create a new plugin 
+We hope this walkthrough deepens. your knowledge of the Data Prepper architecture and process of creating scalable plugins with source coordination. For any suggestions regarding new database plugins, assistance with plugin creation, or general Data Prepper questions, [create a new discussion](https://github.com/opensearch-project/data-prepper/discussions). The Data Prepper community and maintenance team are committed to supporting your efforts.  
 that can scale via Source Coordination. If you have any ideas or proposals on new database plugins for Data Prepper, 
-questions about creating a new plugin for a database, or even just general questions about Data Prepper, 
-please don't hesitate to [Create a new discussion](https://github.com/opensearch-project/data-prepper/discussions), 
-and the community and Data Prepper maintainers would be happy to help!
 
 
 
