@@ -21,21 +21,28 @@ logo_large: '/assets/media/partners/placeholder.png'
 product_image: '/assets/media/partners/samplecompany/sample-product-image.png'
 # Partner company description used on the extended partner details page.
 description: Brief description of your business and what it does (50 words or less).
-
-# Comma delimited list of business types used on the extended partner details page in the side panel.
-business_type: Type of business (e.g., MSP, CSP, ISV, product/technology, services organization, other). If other, please define.
-
-# Comma delimited list of geographic regions used on the extended partner details page in the side panel.
-region: What regions do you serve (e.g.,North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia)?
-
 # Comma delimited list of one or more of email addresses, phone numbers, and web URLs that can be used to contat the partner.
 contact: How can people contact you (email and phone).
 
-# Comma delimited list of one or more feature areas of the OpenSearch platform that the partner specializes in.
-opensearch_tech:  What OpenSearch technologies do you specialize in (e.g., search, analytics, observability, security, or other)?
 
-# Comma delimited list of one or more industries that the partner specializes in serving.
-industries:  What industries do you specialize in (e.g. business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology)? Add all that apply.
+# BUSSINESS TYPE
+#   - Comma delimited list of business types used on the extended partner details page in the side panel.
+business_type: [Consultant, (MSP) Managed Service Provider, (CSP) Content Service Provider, (ISV) Independent Software Vendor, Systems Integrator, Platform Integrator, Professional Services, Training]
+
+# REGION
+#   - Comma delimited list of geographic regions used on the extended partner details page in the side panel.
+region: [Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia]
+
+# OPENSEARCH SPECIALIZATION
+#   - Comma delimited list of one or more feature areas of the OpenSearch platform that the partner specializes in.
+#   - What OpenSearch technologies do you specialize in (e.g., search, analytics, observability, security, or other)?
+opensearch_tech: [Search, Observability, Security, Logs, Analytics, Machine Learning & AI, GenAI]
+
+# INDUSTRIES
+#   - Comma delimited list of one or more industries that the partner specializes in serving.
+#   - What industries do you specialize in (e.g. business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology)? Add all that apply.
+industries: [Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications]
+
 
 # If the partner only has one office location then use the main_office_location key
 # otherwise use the multiple_office_locations key.
