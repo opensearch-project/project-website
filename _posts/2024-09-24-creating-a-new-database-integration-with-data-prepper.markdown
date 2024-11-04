@@ -334,7 +334,7 @@ bin/data-prepper
 
 Wait for the export to complete, which may take a minute. Once Data Prepper displays a log, for example, `org.opensearch.dataprepper.plugins.source.s3.ScanObjectWorker - Received all acknowledgments for folder partition`, open `http://localhost:5601` to access OpenSearch Dashboards. 
 
-Go to the **Dev Tools** application and enter `GET mongodb-index/_search` into the console editor to retrieve the MongoDB documents you created in step 2. 
+Go to the **Dev Tools** application and enter `GET mongodb-index/_search` in the console editor to retrieve the MongoDB documents you created in step 2. 
 
 #### Step 10: Add sample documents to MongoDB
 Add sample documents to MongoDB using the following command:
