@@ -330,7 +330,7 @@ Then, start Data Prepper using the following command:
 bin/data-prepper
 ```
 
-#### Step 9 - Review the documents in OpenSearch
+#### Step 9: Review the documents in OpenSearch
 
 Wait for the export to complete, which may take a minute. Once Data Prepper displays  a log, for example, `org.opensearch.dataprepper.plugins.source.s3.ScanObjectWorker - Received all acknowledgments for folder partition`, open `http://localhost:5601` to access OpenSearch Dashboards. 
 
