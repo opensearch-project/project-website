@@ -33,7 +33,7 @@ For new Data Prepper sources using source coordination, identifying and delineat
 Data Prepper defines work partitions differently for various sources. In the `s3` source, each Amazon Simple Storage Service (Amazon S3) object represents a partition. In OpenSearch, an index serves as a partition. Amazon DynamoDB sources have dual partition types: S3 data files for exports and shards for stream processing. 
 
 
-### Creating a source coordination-enabled Data Prepper plugin
+### Creating a source-coordination-enabled Data Prepper plugin
 
 A source coordination plugin consists of to two classes: the main plugin class and a configuration class. The configuration class specifies all required users inputs, from the data endpoints to authorization details and performance tuning parameters. All user-required inputs for plugin operation should be specified within this configuration class.
 
