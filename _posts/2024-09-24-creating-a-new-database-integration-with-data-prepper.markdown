@@ -41,7 +41,7 @@ For a practical starting point, refer to the [sample source code](https://github
  
 This example demonstrates a basic configuration for a [hypothetical database source](https://github.com/graytaylor0/data-prepper/blob/SourceCoordinationSampleSource/data-prepper-plugins/sample-source-coordination-source/src/main/java/SampleSourceConfig.java), requiring only `database_name`, `username`, and `password`. The plugin name and configuration class are defined in the `@DataPrepperPlugin` annotation.
  
-The `pipeline.yaml` for running this source in Data Prepper would be structured as follows:
+The `pipeline.yaml` file for running this source in Data Prepper would be structured as follows:
 
 ```yaml
 version: 2
