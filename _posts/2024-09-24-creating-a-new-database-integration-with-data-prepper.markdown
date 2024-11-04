@@ -246,7 +246,7 @@ export SOURCE_COORDINATION_PIPELINE_IDENTIFIER="test-mongodb"
 
 The `SOURCE_COORDINATION_PIPELINE_IDENTIFIER` must correspond to the `partition_prefix` that you will define in the `data-prepper-config.yaml` file in step 6. 
 
-#### Step 6 - Create the data-prepper-config.yaml
+#### Step 6: Create the data-prepper-config.yaml file
 
 Configure the source coordination store for Data Prepper using the `data-prepper-config.yaml` file. Currently, this store exclusively supports DynamoDB.
 
