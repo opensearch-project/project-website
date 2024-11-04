@@ -172,7 +172,7 @@ To run OpenSearch locally, follow the steps in the [Installation quickstart](htt
 #### Step 4: Create an Amazon S3 bucket
 Follow the steps in [Create a new S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html). You can skip this step if you have an existing bucket. This S3 bucket enables parallel processing and writing to OpenSearch across multiple Data Prepper containers in a multi-node setup, given that only one node can read from MongoDB streams at a time.
 
-#### Step 5 - Get AWS credentials for DynamoDB and S3 access
+#### Step 5: Get AWS credentials for DynamoDB and S3 access
 
 Set up an AWS role with the following policy permissions to enable Data Prepper to interact with the DynamoDB source coordination store and the S3 bucket from step 4. Make sure to replace `MONGODB_BUCKET`, `REGION` and `AWS_ACCOUNT_ID` with your unique values.
 
