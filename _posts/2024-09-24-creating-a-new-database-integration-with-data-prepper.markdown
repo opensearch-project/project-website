@@ -270,7 +270,7 @@ The `partition_prefix` enables soft resets of the pipeline in the source coordin
 
 #### Step 7: Create the `pipeline.yaml` file
 
-In the `data-prepper/release/archives/linux/build/install/opensearch-data-prepper-$VERSION-linux-x64/pipelines/` directory, create a `pipeline.yaml` file with the following content. Make sure to update `S3_BUCKET_NAME`, `S3_BUCKET_REGION, ROLE_ARN_FROM_STEP_5`, and your OpenSearch password:
+In the `data-prepper/release/archives/linux/build/install/opensearch-data-prepper-$VERSION-linux-x64/pipelines/` directory, create a `pipeline.yaml` file with the following content. Make sure to update `S3_BUCKET_NAME`, `S3_BUCKET_REGION, `ROLE_ARN_FROM_STEP_5`, and your OpenSearch password:
 
 ```yaml
 pipeline: 
