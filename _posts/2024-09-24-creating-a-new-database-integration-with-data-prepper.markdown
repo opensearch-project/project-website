@@ -264,7 +264,7 @@ source_coordination:
       skip_table_creation: false
 ```
 
-The `skip_table_creation` parameter is set to `false`, instructing Data Prepper create the table on startup if it is missing. For subsequent runs, you can set this flag to `true` to accelerate startup speed.
+The `skip_table_creation` parameter is set to `false`, instructing Data Prepper to create the table on startup if it is missing. For subsequent runs, you can set this flag to `true` to accelerate startup speed.
 
 The `partition_prefix` enables soft resets of the pipeline in the source coordination store. When testing a new source plugin, incrementing this prefix (for example, `test-mongodb-1`, `test-mongodb-2`) ensures Data Prepper ignores DynamoDB items from the previous test runs.
 
