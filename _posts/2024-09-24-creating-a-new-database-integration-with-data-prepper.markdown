@@ -357,7 +357,7 @@ As you complete this process, make sure perform the following cleanup tasks: del
 
 ### Summary
 
-We hope this walkthrough deepens. your knowledge of the Data Prepper architecture and process of creating scalable plugins with source coordination. For any suggestions regarding new database plugins, assistance with plugin creation, or general Data Prepper questions, [create a new discussion](https://github.com/opensearch-project/data-prepper/discussions). The Data Prepper community and maintenance team are committed to supporting your efforts.  
+We hope this guide deepens your knowledge of the Data Prepper architecture and the process of creating scalable plugins with source coordination. For any suggestions regarding new database plugins, assistance with plugin creation, or general Data Prepper questions, [create a new discussion](https://github.com/opensearch-project/data-prepper/discussions). The Data Prepper community and maintenance team are committed to supporting your efforts.  
 
 
 
