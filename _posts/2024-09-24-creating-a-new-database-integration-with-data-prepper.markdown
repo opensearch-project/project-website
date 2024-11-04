@@ -351,7 +351,7 @@ The MongoDB source in Data Prepper will now extract  these documents from the Mo
 
 As soon as Data Prepper generates another log, for example, `org.opensearch.dataprepper.plugins.source.s3.ScanObjectWorker - Received all acknowledgments for folder partition`, return to **Dev Tools** and run another search on the index using `GET mongodb-index/_search`.
 
-#### Step 12 - Clean up resources
+#### Step 12: Clean up resources
 
 As you complete this process, make sure perform the following cleanup tasks: delete the DynamoDB source coordination store and S3 bucket, and stop the Data Prepper, MongoDB, and OpenSearch instances.
 
