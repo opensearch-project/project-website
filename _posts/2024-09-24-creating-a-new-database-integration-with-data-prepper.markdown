@@ -134,7 +134,7 @@ git clone https://github.com/opensearch-project/data-prepper.git
 ./gradlew assemble
 ```
 
-#### Step 2 - Set up MongoDB locally
+#### Step 2: Set up MongoDB locally
 
 First, install and configure MongoDB using the [MongoDB installation guide](https://www.mongodb.com/docs/manual/installation/). Before running MongoDB, enable [MongoDB change streams](https://www.mongodb.com/docs/manual/changeStreams/) by following the instructions in [Convert a Standalone Self-Managed mongod to a Replica Set](https://www.mongodb.com/docs/manual/tutorial/convert-standalone-to-replica-set/).
 
