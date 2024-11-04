@@ -117,7 +117,7 @@ public void run() {
 
 Before creating a new plugin, you must set up and run Data Prepper locally. The following steps guide you through configuring Data Prepper for streaming documents from MongoDB to OpenSearch using source coordination. While this example uses a single Data Prepper instance, the source coordination allows for scalability when running multiple instances with identical pipeline configurations and shared source coordination store settings defined in `data-prepper-config.yaml`.
 
-#### Step 1 - Set up Data Prepper for local development
+#### Step 1: Set up Data Prepper for local development
 
 The [Data Prepper developer guide](https://github.com/opensearch-project/data-prepper/blob/main/docs/developer_guide.md) provides a complete overview for running Data Prepper in various environments.
 Creating a new source plugin requires cloning the Data Prepper repository and building it from source using the following commands:
