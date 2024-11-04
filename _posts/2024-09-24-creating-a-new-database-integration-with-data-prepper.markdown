@@ -21,7 +21,7 @@ Data Prepper source plugins fall into two categories: push-based and pull-based.
 
 _Pull-based sources_ such as HTTP and OpenTelemetry (OTel), scale easily across Data Prepper containers. _Push-based sources_ rely load balancing solutions, such as Kubernetes, NGINX, or Docker Swarm, to distribute workload across Data Prepper containers.  
 
-Unlike push-based sources, pull-based sources in Data Prepper use [Source coordination](https://opensearch.org/docs/latest/data-prepper/managing-data-prepper/source-coordination/) to achieve scalability and work distribution across multiple containers. Source coordination uses an external store functioning as a lease table, similar to the approach used by the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html).
+Unlike push-based sources, pull-based sources use [source coordination](https://opensearch.org/docs/latest/data-prepper/managing-data-prepper/source-coordination/) to achieve scalability and work distribution across multiple containers. Source coordination uses an external store functioning as a lease table, similar to the approach used by the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html).
 
 
 ### Defining work partitions for source coordination
