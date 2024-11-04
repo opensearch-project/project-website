@@ -230,7 +230,7 @@ Set up an AWS role with the following policy permissions to enable Data Prepper 
 }
 ```
 
-Run the following command, then enter the `Access Key Id` and `Secret Access Key` associated with credentials that correspond to the previously defined role:
+Run the following command, and then enter the `Access Key Id` and `Secret Access Key` associated with the credentials that correspond to the previously defined role:
 
 ```
 aws configure
