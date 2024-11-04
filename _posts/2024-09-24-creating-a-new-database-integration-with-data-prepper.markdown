@@ -353,7 +353,7 @@ As soon as Data Prepper generates another log, for example, `org.opensearch.data
 
 #### Step 12: Clean up resources
 
-As you complete this process, make sure perform the following cleanup tasks: delete the DynamoDB source coordination store and S3 bucket, and stop the Data Prepper, MongoDB, and OpenSearch instances.
+As you complete this process, make sure that you delete the DynamoDB source coordination store and S3 bucket as well as stop the Data Prepper, MongoDB, and OpenSearch instances.
 
 ### Summary
 
