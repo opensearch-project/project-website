@@ -26,7 +26,7 @@ Unlike push-based sources, pull-based sources use [source coordination](https://
 
 ### Defining work partitions for source coordination
 
-Data Prepper uses source coordination to distribute  work partitions" across Data Prepper containers.
+Data Prepper uses source coordination to distribute work partitions across Data Prepper containers.
 
 For new Data Prepper sources using source coordination, identifying and delineating work partitions is a fundamental first step. 
 
