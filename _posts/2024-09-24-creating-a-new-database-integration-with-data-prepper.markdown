@@ -30,7 +30,7 @@ Data Prepper uses source coordination to distribute work partitions across Data 
 
 For new Data Prepper sources using source coordination, identifying and delineating work partitions is a fundamental first step. 
 
-Data Prepper defines work partitions differently for various sources. In the S3 source, each S3 object represents a partition. For OpenSearch, an index serves as a partition. DynamoDB sources have dual partition types: S3 data files for exports and shards for stream processing. 
+Data Prepper defines work partitions differently for various sources. In the `s3` source, each Amazon Simple Storage Service (Amazon S3) object represents a partition. In OpenSearch, an index serves as a partition. Amazon DynamoDB sources have dual partition types: S3 data files for exports and shards for stream processing. 
 
 
 ### Creating a source coordination-enabled Data Prepper plugin
