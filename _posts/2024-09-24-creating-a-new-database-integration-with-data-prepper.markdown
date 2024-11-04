@@ -17,7 +17,7 @@ Data Prepper pipelines consist of three main components: a source, an optional s
 
 ### Understanding push-based and pull-based sources
 
-Data Prepper source plugins fall into two categories: push-based and pull-based. 
+Data Prepper source plugins fall into two categories: push based and pull based. 
 
 _Pull-based sources_, such as HTTP and OpenTelemetry (OTel), scale easily across Data Prepper containers. _Push-based sources_ rely on load balancing solutions, such as Kubernetes, NGINX, or Docker Swarm, to distribute a workload across Data Prepper containers.  
 
