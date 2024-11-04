@@ -165,7 +165,7 @@ db.demo_collection.insertOne({"key-two": "value-two"})
 db.demo_collection.insertOne({"key-three": "value-three"})
 ```
 
-#### Step 3 - Set up OpenSearch locally
+#### Step 3: Set up OpenSearch locally
 
 To run OpenSearch locally, follow the steps in the [Installation quickstart](https://opensearch.org/docs/latest/getting-started/quickstart/).
 
