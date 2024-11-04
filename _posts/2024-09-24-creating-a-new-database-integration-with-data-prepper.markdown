@@ -244,7 +244,7 @@ export AWS_REGION="{{REGION}}"
 export SOURCE_COORDINATION_PIPELINE_IDENTIFIER="test-mongodb"
 ```
 
-The `SOURCE_COORDINATION_PIPELINE_IDENTIFIER` must correspond to the `partition_prefix` that you will define in the `data-prepper-config.yaml` in step 6. 
+The `SOURCE_COORDINATION_PIPELINE_IDENTIFIER` must correspond to the `partition_prefix` that you will define in the `data-prepper-config.yaml` file in step 6. 
 
 #### Step 6 - Create the data-prepper-config.yaml
 
