@@ -123,7 +123,7 @@ The [OpenSearch Data Prepper Developer Guide](https://github.com/opensearch-proj
 Creating a new source plugin requires cloning the Data Prepper repository and building it from the source using the following commands:
 
 
-- Clone the Data Prepper repository
+- Clone the Data Prepper repository:
 ```
 git clone https://github.com/opensearch-project/data-prepper.git
 ```
