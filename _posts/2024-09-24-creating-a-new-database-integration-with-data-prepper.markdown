@@ -314,7 +314,7 @@ pipeline:
         flush_timeout: -1
 ```
 
-#### Step 8 - Run the pipeline
+#### Step 8: Run the pipeline
 
 With AWS credentials configured and both MongoDB and OpenSearch running on your local machine, you can launch the pipeline.
 
