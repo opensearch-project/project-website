@@ -336,7 +336,7 @@ Wait for the export to complete, which may take a minute. Once Data Prepper disp
 
 Go to the **Dev Tools** application and enter `GET mongodb-index/_search` into the console editor to retrieve the MongoDB documents you created in step 2. 
 
-#### Step 10 - Add sample documents to MongoDB
+#### Step 10: Add sample documents to MongoDB
 Add sample documents to MongoDB using the following command:
  
 ```
