@@ -174,7 +174,7 @@ Follow the steps in [Create a new S3 bucket](https://docs.aws.amazon.com/AmazonS
 
 #### Step 5: Get AWS credentials for DynamoDB and S3 access
 
-Set up an AWS role with the following policy permissions to enable Data Prepper to interact with the DynamoDB source coordination store and the S3 bucket from step 4. Make sure to replace `MONGODB_BUCKET`, `REGION` and `AWS_ACCOUNT_ID` with your unique values.
+Set up an AWS role with the following policy permissions to enable Data Prepper to interact with the DynamoDB source coordination store and the S3 bucket from step 4. Make sure to replace `MONGODB_BUCKET`, `REGION`, and `AWS_ACCOUNT_ID` with your unique values.
 
 ```json
 {
