@@ -35,7 +35,7 @@ Data Prepper defines work partitions differently for various sources. In the `s3
 
 ### Creating a source-coordination-enabled Data Prepper plugin
 
-A source coordination plugin consists of to two classes: the main plugin class and a configuration class. The configuration class specifies all required users inputs, from the data endpoints to authorization details and performance tuning parameters. All user-required inputs for plugin operation should be specified within this configuration class.
+A source coordination plugin consists of to two classes: the main plugin class and a configuration class. The configuration class specifies all required user inputs, including data endpoints, authorization details, and performance tuning parameters. All user-required inputs for plugin operations should be specified within this configuration class.
 
 For a practical starting point, refer to the [sample source code](https://github.com/graytaylor0/data-prepper/blob/SourceCoordinationSampleSource/data-prepper-plugins/sample-source-coordination-source/src/main/java/SampleSource.java) in the Data Prepper repository.
  
