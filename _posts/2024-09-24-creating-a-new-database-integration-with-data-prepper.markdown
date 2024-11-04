@@ -345,7 +345,7 @@ db.demo_collection.insertOne({"key-five": "value-five"})
 db.demo_collection.insertOne({"key-six": "value-six"})
 ```
 
-The MongoDB source in Data Prepper will now extract  these documents from the MongoDB streams.
+The MongoDB source in Data Prepper will now extract these documents from the MongoDB streams.
 
 #### Step 11: Review the documents in OpenSearch
 
