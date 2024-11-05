@@ -4,9 +4,11 @@ title:  "Step-by-step: Creating a new database integration using Data Prepper"
 authors:
 - tylgry
 - dinujoh
-date: 2022-09-21 10:00:00 -0500
+date: 2022-11-05 10:00:00 -0500
 categories:
   - technical-post
+meta_keywords: Data Prepper, database integration, OpenSearch data collector, data pipeline, mongodb
+meta_description: Use this step-by-step guide to set up and test a Data Prepper pipeline. Create a new database integration that streams data from MongoDB to OpenSearch using source coordination.
 twittercard:
   description: "Data Prepper offers a flexible framework for database migration, supporting sources like MongoDB and Amazon DynamoDB. You can extend this capability to new databases by implementing a Data Prepper source plugin."
 ---
