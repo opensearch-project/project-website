@@ -8,7 +8,7 @@ date: 2022-09-21 10:00:00 -0500
 categories:
   - technical-post
 twittercard:
-  description: "Data Prepper offers a flexible framework for database migration, supporting sources like MongoDB and DynamoDB. You can extend this capability to new databases by implementing a Data Prepper source plugin."
+  description: "Data Prepper offers a flexible framework for database migration, supporting sources like MongoDB and Amazon DynamoDB. You can extend this capability to new databases by implementing a Data Prepper source plugin."
 ---
 
 Data Prepper, an open-source data collector, enables you to collect, filter, enrich, and aggregate trace and log data. With Data Prepper, you can prepare your data for downstream analysis and visualization in OpenSearch.
