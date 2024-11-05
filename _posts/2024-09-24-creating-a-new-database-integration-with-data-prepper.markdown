@@ -128,7 +128,7 @@ Creating a new source plugin requires cloning the Data Prepper repository and bu
 git clone https://github.com/opensearch-project/data-prepper.git
 ```
 
-- Build Data Prepper from source
+- Build Data Prepper from source:
 
 ```
 ./gradlew assemble
