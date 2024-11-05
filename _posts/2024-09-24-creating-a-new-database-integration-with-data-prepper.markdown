@@ -347,7 +347,7 @@ db.demo_collection.insertOne({"key-six": "value-six"})
 
 The MongoDB source in Data Prepper will now extract these documents from the MongoDB streams.
 
-#### Step 11: Review the documents in OpenSearch
+#### Step 11: Observe the stream documents in OpenSearch
 
 As soon as Data Prepper generates another log, for example, `org.opensearch.dataprepper.plugins.source.s3.ScanObjectWorker - Received all acknowledgments for folder partition`, return to **Dev Tools** and run another search on the index using `GET mongodb-index/_search`.
 
