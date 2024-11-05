@@ -2,7 +2,7 @@
 # List of one or more author names that map to the value of short_name in site.community_members. See the content in the _community_members collection for reference.
 authors: 
     - apasun
-    - rsalas
+    - raysalas
 
 # Content categorization. One or more categories can be specified. 
 category:
