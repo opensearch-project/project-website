@@ -120,6 +120,7 @@ Before creating a new plugin, you must set up and run Data Prepper locally. The 
 #### Step 1: Set up Data Prepper for local development
 
 The [OpenSearch Data Prepper Developer Guide](https://github.com/opensearch-project/data-prepper/blob/main/docs/developer_guide.md) provides a complete overview of running Data Prepper in various environments.
+
 Creating a new source plugin requires cloning the Data Prepper repository and building it from source using the following commands:
 
 
@@ -345,7 +346,7 @@ db.demo_collection.insertOne({"key-five": "value-five"})
 db.demo_collection.insertOne({"key-six": "value-six"})
 ```
 
-The MongoDB source in Data Prepper will now extract these documents from the MongoDB streams.
+The MongoDB source in Data Prepper will now extract these documents from the MongoDB change streams.
 
 #### Step 11: Observe the stream documents in OpenSearch
 
