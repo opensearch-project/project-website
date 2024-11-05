@@ -20,7 +20,7 @@ The goal of nightly playgrounds is to let you experiment with new features as th
 Just like the current [OpenSearch Playground](https://playground.opensearch.org/app/home), nightly playgrounds give you anonymous, read-only access to try out new features and explore preconfigured sample data:
 
 * **Preview new features**
-    - Interact with sample dashboards, visualizations, and data sources—no installation or configuration of OpenSearch or OpenSearch Dashboards required. You can explore new actively built features in development overnight and provide feedback that contributes to the final release.
+    - Interact with sample dashboards, visualizations, and data sources—no installation or configuration of OpenSearch or OpenSearch Dashboards required. You can explore newly built features overnight and provide feedback that contributes to the final release.
 
 * **Speed up debugging**
     - Nightly playgrounds proved valuable during the 2.16 release, helping to quickly spot issues with the Alerting Dashboards plugin. These clusters are ready to use at any time for everyday debugging, including during release cycles.
