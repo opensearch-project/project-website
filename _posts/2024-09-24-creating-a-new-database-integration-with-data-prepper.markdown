@@ -4,7 +4,7 @@ title:  "Step-by-step: Creating a new database integration using Data Prepper"
 authors:
 - tylgry
 - dinujoh
-date: 2022-11-05 10:00:00 -0500
+date: 2024-11-05 10:00:00 -0500
 categories:
   - technical-post
 meta_keywords: Data Prepper, database integration, OpenSearch data collector, data pipeline, mongodb
