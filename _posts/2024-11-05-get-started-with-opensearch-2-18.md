@@ -3,11 +3,11 @@ layout: post
 title:  "Get started with OpenSearch 2.18"
 authors:
   - jamesmcintyre
-date:   2024-11-05 
+date:   2024-11-06
 categories:
   - releases
 meta_keywords: OpenSearch 2.18, machine learning, generative AI, vector search, search performance, vector workloads, inference processors, workspace, discover, search pipelines, rerank
-meta_description: Explore the new features and enhancements in OpenSearch 2.17, including enhanced tools for building generative AI applications, improved performance for search workloads, and ease-of-use updates to help your teams collaborate.
+meta_description: Explore the new features and enhancements in OpenSearch 2.18, including enhanced tools for building generative AI applications, improved performance for search workloads, and ease-of-use updates to help your teams collaborate.
 ---
 
 Our latest release brings a number of updates that help you build generative AI (GenAI) applications, improve performance for core search and related workloads, and advance the way your teams work together with significant ease-of-use updates for OpenSearch Dashboards. What follows is an overview of a few of the exciting features now available with [OpenSearch 2.18](https://opensearch.org/downloads.html). For a comprehensive look at what's new, check out the [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.18.0.md), and visit [OpenSearch Playground](https://playground.opensearch.org/app/home) to explore OpenSearch's visualization toolkit.
@@ -74,7 +74,7 @@ This release introduces new capabilities designed to transform the way you exper
 
 **Create and collaborate across teams with Workspace**
 
-OpenSearch 2.18 introduces Workspace, a multi-tenant environment designed to increase team collaboration. We've received substantial community feedback on the value of tenant-level, "isolated" spaces for index patterns, dashboards, and saved objects in OpenSearch Dashboards. With this release, you can now manage collaboration with granular access controls, easily adding or removing collaborators to or from your workspace and controlling their permissions at the workspace level. As the creator of a workspace, you can assign role-based permissions: "read-only" for stakeholders who only need to access your workspace and view data visualizations; "read and write" for colleagues who need to create and update saved objects; and "admin" for co-owners who need full permissions to read, write, configure settings, or delete the workspace. Additionally, There are five workspace types, each tailored toward a different use case—Security Analytics, observability, search, essentials, and analytics—each with a different set of available features that provide a tailored experience.
+OpenSearch 2.18 introduces [Workspace](https://opensearch.org/docs/latest/dashboards/workspace/workspace/), a multi-tenant environment designed to increase team collaboration. We've received substantial community feedback on the value of tenant-level, "isolated" spaces for index patterns, dashboards, and saved objects in OpenSearch Dashboards. With this release, you can now manage collaboration with granular access controls, easily adding or removing collaborators to or from your workspace and controlling their permissions at the workspace level. As the creator of a workspace, you can assign role-based permissions: "read-only" for stakeholders who only need to access your workspace and view data visualizations; "read and write" for colleagues who need to create and update saved objects; and "admin" for co-owners who need full permissions to read, write, configure settings, or delete the workspace. Additionally, There are five workspace types, each tailored toward a different use case—Security Analytics, observability, search, essentials, and analytics—each with a different set of available features that provide a tailored experience. To learn how to access Workspace, visit the [documentation](https://opensearch.org/docs/latest/dashboards/workspace/workspace/#enabling-the-workspace-feature).
 
 
 
