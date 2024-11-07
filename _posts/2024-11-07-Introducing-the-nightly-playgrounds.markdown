@@ -4,11 +4,11 @@ title: "Introducing OpenSearch nightly playgrounds: Preview new OpenSearch featu
 authors:
    - sayaligaikawad
    - kolchfa
-date: 2024-11-05
+date: 2024-11-07
 categories:
   - community
-meta_keywords: OpenSearch nightly playgrounds, OpenSearch Dashboards, demo environment, OpenSearch features, live preview, feedback, GitHub integration, open source, community
-meta_description: Explore OpenSearch's nightly playgrounds—a live demo environment with early access to the latest OpenSearch and OpenSearch Dashboards features. Experiment with new updates, provide feedback, and contribute to an evolving OpenSearch experience.
+meta_keywords: OpenSearch dashboards, OpenSearch nightly playgrounds, nightly build artifacts, opensearch cluster cdk
+meta_description: Explore upcoming versions of OpenSearch and OpenSearch Dashboards using anonymous, read-only access to OpenSearch nightly playgrounds where you can try out new features and provide early feedback.
 ---
 
 We're excited to introduce [nightly playgrounds](https://playground.nightly.opensearch.org/)—a dynamic environment where you can explore upcoming versions of OpenSearch and OpenSearch Dashboards in a fully deployed distribution cluster. This live demo environment hosts clusters running the latest validated nightly build artifacts, giving you preview access to the latest features in the 2.x and 3.x versions of [OpenSearch](https://build.ci.opensearch.org/view/Build/job/distribution-build-opensearch/) and [OpenSearch Dashboards](https://build.ci.opensearch.org/view/Build/job/distribution-build-opensearch-dashboards/).
