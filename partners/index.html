@@ -31,7 +31,6 @@ body_class: partners-page
     {% assign data_HeroBanner = solutionProviders_pageContent['HeroBanner']  %}
     {% assign data_MainBody = solutionProviders_pageContent['MainBody']  %}
     {% assign data_SearchBar = solutionProviders_pageContent['SearchBar']  %}
-    {% assign data_SearchBar_SearchBox = data_SearchBar['SearchBox']  %}
     {% assign data_SearchBar_BusinessType = data_SearchBar['BusinessType_Dropdown']  %}
     {% assign data_SearchBar_OpenSearchSpeciality = data_SearchBar['OpenSearchSpecialization_Dropdown']  %}
     {% assign data_SearchBar_Region = data_SearchBar['Regions_Dropdown']  %}
@@ -46,14 +45,16 @@ body_class: partners-page
       <!-- INPUT GROUP TRY 3 -->
       <!-- VARIABLE: data_SearchBar -->
 
-      <div class="input-group input-group-lg rounded-pill mb-5 px-3" id="filter-bar">
+      <div class="filter-bar-wrapper input-group justify-content-center mb-5 px-3" id="filter-bar">
 
-        <input type="search" class="form-control m-0 " aria-label="Search" placeholder = '{{ data_SearchBar_SearchBox.Placeholder }}' >
         
         <!-- Business Type dropdown -->
-        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="filter-bar-button btn-rounded-left btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="filter-bar-empty-span"></span>
           {{data_SearchBar_BusinessType.Title}} 
           <span class="ms-1 me-auto" id="{{data_SearchBar_BusinessType.ButtonCategoryCountID}}"></span>
+          <span class="filter-bar-empty-span"></span>
+          
         </button>
 
         <ul class="dropdown-menu dropdown-menu-end w-25 px-4">
@@ -79,9 +80,11 @@ body_class: partners-page
         </ul>
 
         <!-- OpenSearch Specialization dropdown -->
-        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="filter-bar-button btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
           {{data_SearchBar_OpenSearchSpeciality.Title}} 
           <span class="ms-1 me-auto" id="{{data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID}}"></span>
+          <span class="filter-bar-empty-span"></span>
+          
         </button>
 
         <ul class="dropdown-menu dropdown-menu-end w-25 px-4">
@@ -107,9 +110,11 @@ body_class: partners-page
         </ul>        
 
         <!-- Region dropdown -->
-        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="filter-bar-button btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
           {{data_SearchBar_Region.Title}} 
           <span class="ms-1 me-auto" id="{{data_SearchBar_Region.ButtonCategoryCountID}}"></span>
+          <span class="filter-bar-empty-span"></span>
+          
         </button>
 
         <ul class="dropdown-menu dropdown-menu-end w-25 px-4">
@@ -137,15 +142,20 @@ body_class: partners-page
         <!-- Search button -->
         <button 
           type="button" 
-          class="btn btn-outline-primary"
+          class="filter-bar-button btn-rounded-right btn btn-outline-primary"
           onclick="onScreenElements_ApplyFilters()" >
           {{ data_SearchBar_FilterButton.ButtonText }}
+          <span class="filter-bar-empty-span"></span>
         </button>
       </div>
 
 
 
 
+
+    </div>
+
+    <div class="container filter-criteria-selection-wrapper">
 
     </div>
 

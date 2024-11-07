@@ -22,11 +22,52 @@
     display: block !important;
 }
 
+// border-radius: 5000px 0 0 5000px;
+.filter-bar-wrapper {
+    // border-radius: 100px;
+    background-color: #f2f2f2;
+    // padding: 10px;
 
+    .filter-bar-button {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .filter-bar-empty-span {
+        width: 10px;
+        display: inline-block;
+    }
+    // .dropdown-body {
+    //     --bs-dropdown-padding-x: 20px;
+    //     --bs-dropdown-min-width: 250px;
+    // }
 
+    .btn-rounded-left {
+        // border-top-left-radius: 5000px;
+        // border-bottom-left-radius: 5000px;
+        border-radius: 5000px 0 0 5000px;
+    }
+    .btn-rounded-right {
+        border-radius: 0 5000px 5000px 0;
+    }
+    .btn-rounded-all {
+        border-radius: 5000px 5000px 5000px 5000px;
+    }
+}
+.filter-criteria-selection-wrapper {
+    background-color: #f2f2f2;
+}
 
-
-
+.btn-rounded-left {
+    border-top-left-radius: 5000px;
+    border-bottom-left-radius: 5000px;
+    // border-radius: 5000px 0 0 5000px;
+}
+.btn-rounded-right {
+    border-radius: 0 5000px 5000px 0;
+}
+.btn-rounded-all {
+    border-radius: 5000px 5000px 5000px 5000px;
+}
 
 
 

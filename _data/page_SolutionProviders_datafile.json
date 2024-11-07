@@ -12,16 +12,12 @@
         },
 
         "MainBody": {
-            "Title": "OpenSearch Solution Providers",
+            "Title": "Find your next Solutions Provider",
             "ClassValue": "drawer-content-header",
             "Pagination": 15
         },    
 
         "SearchBar": {
-            "SearchBox": {
-                "Placeholder": "Search for a Provider",
-                "IconPath": ""
-            }, 
             "BusinessType_Dropdown": {
                 "Title": "Business Type",
                 "ButtonCategoryCountID": "BusinessType_CategoryCount",
