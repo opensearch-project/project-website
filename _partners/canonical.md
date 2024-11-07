@@ -6,13 +6,18 @@ logo: '/assets/media/partners/canonical.png'
 link: 'https://canonical.com'
 logo_large: '/assets/media/partners/canonical/Canonical-large-logo-red.png'
 description: '<p>Canonical is the publisher of Ubuntu, the OS for most public cloud workloads as well as the emerging categories of smart gateways, self-driving cars and advanced robots. Canonical provides enterprise</p><p>security, support and services to commercial users of Ubuntu.On the data solutions front, Canonical provides consulting, support, security and managed services for data technologies, such as PostgreSQL®, MySQL®, Apache Kafka®, Apache Spark®, MongoDB®, Redis® and OpenSearch®, on any cloud.</p><p>Established in 2004, Canonical is a privately held company.'
-business_type: 'Product/technology, Professional services'
-region: Global
+
 contact: '+1 737 204 0291, +44 203 656 5291'
 
-opensearch_tech: ['Search', 'Observability', 'Logs', 'Analytics', 'Security']
 
-industries: 'Canonical provides OpenSearch® consulting, support, and security maintenance.'
+
+region:           Global
+industries:       Software and Technology, Business Services
+business_type:    Professional Services
+opensearch_tech:  Search, Observability, Security, Logs, Analytics
+
+
+
 main_office_location: |
   4th Floor
   201 Borough High Street

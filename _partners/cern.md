@@ -5,13 +5,15 @@ logo: '/assets/media/partners/cern/cern_logo.png'
 link: 'https://www.home.cern'
 logo_large: '/assets/media/partners/cern/cern_logo.png'
 description: "CERN is one of the world's largest and most respected centres for scientific research. Our work helps to uncover what the universe is made of and how it works. We do this by providing a unique range of particle accelerator facilities to researchers, to advance the boundaries of human knowledge."
-business_type: 'Research Institute'
-region: 'Global'
+
+
 contact: 'cern.reception@cern.ch, it-opensearch-experts@cern.ch'
 
-opensearch_tech: ['Search', 'Security', 'Analytics', 'Other']
+region: Global
+business_type: ResearchInstitute
+opensearch_tech: Search, Security, Analytics
+industries: NonProfit
 
-industries: 'non-profit'
 main_office_location:  |
   Esplanade des Particules 1
   P.O. Box

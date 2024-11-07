@@ -13,16 +13,17 @@ description: 'We help companies (small to big) scale their business and innovate
 To achieve this goal, we provide trainings, consulting and support.
 We provide OpenSearch trainings (basic to advanced level) for integration, monitoring and observability of the platform.'
 
-business_type: Consultant, (MSP) Managed Service Provider, Systems Integrator, Platform Integrator, Professional Services, Training
+
 
 contact: sdesseaux@eyes4it.tech
 contact_phone: 3-363-232-0964
 
-opensearch_tech: ['Observability', 'Security', 'Analytics', 'AI and Machine Learning']
 
-industries: Software and Technology
+region:           Europe
+industries:       Software and Technology
+business_type: Consultant, (MSP) Managed Service Provider, Systems Integrator, Platform Integrator, Professional Services, Training
+opensearch_tech:  Observability, Security, Analytics, Machine Learning & AI
 
-region: 'Europe'
 
 social_links:
   - url: 'https://www.linkedin.com/company/e4it'

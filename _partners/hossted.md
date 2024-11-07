@@ -5,6 +5,6 @@ logo_large: '/assets/media/partners/hossted/Large_Logo.png'
 link: 'https://hossted.com'
 
 
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs']
+opensearch_tech: Search, Observability, Security, Analytics, Logs
 
 ---

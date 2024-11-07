@@ -6,12 +6,15 @@ link: 'https://bonsai.io'
 logo_large: '/assets/media/partners/bonsai/bonsai-logo.svg'
 product_image: '/assets/media/partners/bonsai/bonsai-product.webp'
 description: 'The managed OpenSearch platform that provides the support of a search engineering team, but at a fraction of the cost.'
-business_type: 'MSP'
-region: 'Global'
-contact: 'team@bonsai.io'
-industries: 'Education, financial services, healthcare, media and entertainment, non-profit, retail, software and technology'
 
-opensearch_tech: ['Search']
+
+contact: 'team@bonsai.io'
+
+region:           Global
+industries:       Software and Technology, Business Services, Education, Financial Services, Healthcare, Media and Entertainment, NonProfit, Retail, Telecommunications
+business_type:    (MSP) Managed Service Provider
+opensearch_tech:  Search
+
 
 main_office_location: |
   2009 South 1st Street

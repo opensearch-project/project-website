@@ -5,14 +5,15 @@ logo: '/assets/media/partners/calyptia/calyptia-logo.png'
 link: 'https://calyptia.com'
 logo_large: '/assets/media/partners/calyptia/calyptia.png'
 description: 'As the creators and maintainers of the open source Fluent Bit project, Calyptia is dedicated to providing vendor-neutral products and services that enhance observability practices.'
-business_type: 'ISV'
+
 contact: 'hello@calyptia.com'
 
+region:           Global
+industries:       Software and Technology, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit
+business_type:    (ISV) Independent Software Vendor
+opensearch_tech:  Observability, Logs
 
-opensearch_tech: ['Observability', 'Logs']
 
-industries: 'energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
-region: 'Worldwide'
 main_office_location: |
   2261 Market Street #4121
   San Francisco, CA 94114

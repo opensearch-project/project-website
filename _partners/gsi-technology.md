@@ -7,16 +7,15 @@ link: 'https://www.gsitechnology.com/apu'
 logo_large: '/assets/media/partners/gsi-technology/gsi-technology-logo.png'
 product_image: '/assets/media/partners/gsi-technology/gsi-technology-product.jpg'
 description: 'GSI Technology offers the Gemini® APU, a massively parallel compute in-memory processor for big data similarity search. This innovative technology is offered both as an on-premises or SaaS solution. GSI currently holds over 50 patents for our associative computing technology.'
-business_type: 'Product/Technology, Services Organization'
-region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
+
+
 contact: 'opensearch@gsitechnology.com'
 
-opensearch_tech: ['Search', 'AI and Machine Learning']
 
-
-
-industries: 'Software and Technology
-Supporting various industries (business services, IOT, financial services, healthcare, retail), including Aerospace & Defense'
+region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+industries:       Software and Technology
+business_type:    Professional Services
+opensearch_tech:  Search, Machine Learning & AI
 
 main_office_location:  |
   1213 Elko Drive

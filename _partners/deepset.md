@@ -6,14 +6,15 @@ link: 'https://www.deepset.ai/'
 logo_large: '/assets/media/partners/deepset/deepset-logo.svg'
 product_image: '/assets/media/partners/deepset/deepset-product.png'
 description: 'deepset is the company behind Haystack NLP and deepset Cloud enterprise ML/NLP platform. Started in 2018 by Milos Rusic, Malte Pietsch and Timo Möller, deepset has enabled many enterprises and public sector organizations to build innovative NLP-driven search solutions. deepset is backed by leading VC firms, and former founders of well-known machine learning and commercial open source companies'
-business_type: 'ISV, SaaS, Product/Technology, Services Organization'
-region: 'Worldwide, with the focus on North America and Europe.'
+
 contact: 'https://www.deepset.ai/, engage@deepset.ai'
 
 
-opensearch_tech: ['Search', 'Observability', 'AI and Machine Learning', 'Vector Database']
+region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+industries:       Software and Technology
+business_type:    (ISV) Independent Software Vendor
+opensearch_tech:  Search, Vector Database, Observability, Machine Learning & AI
 
-industries: 'Our technology and products are used horizontally by companies of all sizes across many verticals. NLP has become quite pervasive, but we see primarily financial industry, legal, healthcare and manufacturing amongst the verticals that rapidly adopt new NLP-driven products.'
 multiple_office_locations:
   - name: 'Berlin, Germany'
   - name: 'New York, NY'

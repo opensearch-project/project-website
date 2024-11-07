@@ -5,13 +5,15 @@ logo: '/assets/media/partners/elastiflow/elastiflow.png'
 link: 'https://www.elastiflow.com'
 logo_large: '/assets/media/partners/elastiflow/elastiflow-logo.png'
 description: 'Network Performance and Security Analytics for Open Data Platforms. The most complete network observability solution for use with modern data platforms providing unprecedented insights at any scale.'
-business_type: 'Product, Technology'
-region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'info@elastiflow.com'
 
-opensearch_tech: ['Observability', 'Security', 'Analytics']
 
-industries: 'business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
+region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+business_type:    Consultant
+opensearch_tech:  Observability, Security, Analytics
+
+
 main_office_location: |
     ElastiFlow Inc. 
     Oakland, California USA

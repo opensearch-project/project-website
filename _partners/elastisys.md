@@ -5,11 +5,16 @@ link: 'https://www.elastisys.com/'
 name_long: 'Elastisys'
 logo_large: '/assets/media/partners/elastisys/elastisys.png'
 description: 'Elastisys, founded in 2011 and based in Sweden, specializes in cloud native technologies. We offer a cloud native Kubernetes platform, optimized for security and compliance with EU regulations for software critical to our society. Our solutions enable customers to accelerate innovation, reduce costs, and enhance security using our leading cloud native technology and expertise.'
-business_type: 'Consultancy, Support, Product'
-region: 'Europe'
 contact: 'contact@elastisys.com, +46101471000'
 
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics']
+
+
+region:           Europe
+industries:       Software and Technology
+business_type:    Consultant
+opensearch_tech:  Search, Observability, Security, Analytics
+
+
 
 
 resources:

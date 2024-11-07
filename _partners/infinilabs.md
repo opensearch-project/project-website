@@ -4,6 +4,6 @@ logo: '/assets/media/partners/infinilabs/infinilabs.png'
 logo_large: '/assets/media/partners/infinilabs/infinilabs.png'
 link: 'https://www.infinilabs.com'
 
-opensearch_tech: ['Search']
+opensearch_tech: Search
 
 ---

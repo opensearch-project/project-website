@@ -5,13 +5,14 @@ logo: '/assets/media/partners/cohere/cohere-logo.png'
 link: 'https://cohere.ai'
 logo_large: '/assets/media/partners/cohere/cohere-logo.png'
 description: 'Cohere is the leading AI platform for enterprise. Its world-class AI is uniquely suited to the needs of business, unlocking unprecedented ease-of-use, accessibility, and data privacy. Cohere’s platform is cloud-agnostic, accessible through API as a managed service, and can be deployed on virtual private cloud (VPC) or on premise.'
-business_type: 'Product/Technology (Machine Learning Platform)'
-region: Global
 contact: 'team@cohere.ai'
 
-opensearch_tech: ['Search', 'AI and Machine Learning', 'Vector Database']
+region:           Global
+industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit
+business_type:    Professional Services
+opensearch_tech:  Search, Machine Learning & AI, Vector Database
 
-industries: 'business service, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, software and technology'
+
 main_office_location: |
   171 John Street
   Toronto, Ontario

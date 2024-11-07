@@ -5,13 +5,16 @@ logo: '/assets/media/partners/fusionauth/fusionauth.png'
 link: 'https://fusionauth.io'
 logo_large: '/assets/media/partners/fusionauth/fusionauth_large.png'
 description: 'FusionAuth is a customer authentication and authorization platform.'
-business_type: 'Product/Technology'
-region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'https://fusionauth.io/contact'
 
-opensearch_tech: ['Search', 'Security']
 
-industries: 'All, CIAM, Applications With Authentication'
+
+region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+business_type:    Professional Services
+opensearch_tech:  Search, Security
+
+
 main_office_location:  |
   8181 arista place
   100

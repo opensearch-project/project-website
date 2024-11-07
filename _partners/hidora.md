@@ -6,14 +6,18 @@ link: 'https://hidora.io'
 logo_large: '/assets/media/partners/hidora/hidora-logo.png'
 product_image: '/assets/media/partners/hidora/hidora-product.png'
 description: 'Hidora is a Swiss-based Managed Cloud Company that enables you to rapidly build and scale applications using Java, PHP, Ruby, Node.js, or Python. Their Platform-as-a-Service automates all complex system administration tasks, freeing you to focus solely on coding without worrying about hosting. With flexible billing, an intuitive interface, data security, and a 24/7/365 support team, Hidora provides everything you need for business success.'
-business_type: 'We work with end-customers, IT consulting firms, and system integrators, and we also provide on-premise integration services as an integrator ourselves.'
-region: Europe
+
+
 contact: 'contact@hidora.io, 00 41 22 552 14 14'
 
-opensearch_tech: ['Observability']
 
 
-industries: 'Business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
+region:           Europe
+industries:       Software and Technology
+business_type:    Professional Services
+opensearch_tech:  Observability
+
+
 main_office_location: |
   Geneva, Switzerland
 resources:

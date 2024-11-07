@@ -6,7 +6,7 @@ logo_large: "/assets/media/partners/ironcorelabs/ironcore-labs-logo.png"
 link: "https://ironcorelabs.com"
 
 
-opensearch_tech: ['Search', 'Security', 'AI and Machine Learning']
+opensearch_tech: Search, Security, AI and Machine Learning
 
 
 ---

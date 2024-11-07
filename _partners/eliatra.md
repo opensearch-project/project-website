@@ -8,13 +8,17 @@ logo_large: '/assets/media/partners/eliatra/eliatra-logo-70.png'
 
 link: 'https://eliatra.com'
 description: 'Eliatra provides Enterprise Solutions for OpenSearch, including support with guaranteed SLAs, professional services, and custom development. Our Eliatra OpenSearch Distro (EOD) makes it easy to run OpenSearch for Mission-critical systems.'
-business_type: 'Product and services company'
-region: Worldwide
+
 contact: 'info@eliatra.com, https://eliatra.com/contact'
 
-opensearch_tech: ['Migration', 'Search', 'Observability', 'Security', 'Analytics', 'AI and Machine Learning']
 
-industries: All
+
+region:           Global
+industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+business_type:    Consultant, Professional Services
+opensearch_tech:  Migration, Search, Observability, Security, Analytics, Machine Learning & AI
+
+
 main_office_location: |
   77 Lower Camden Street
   Dublin, D02 XE80

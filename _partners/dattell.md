@@ -8,14 +8,17 @@ product_image: '/assets/media/partners/dattell/dattel-product.png'
 description: |
   <p>Dattell offers consulting support and managed services for OpenSearch, Elasticsearch, Kafka, and Pulsar. We support implementations in our clients’ environments, on-prem or cloud (AWS, GCP, Azure).</p>
   <p>All of our team members are senior level DevOps, IT, or programming professionals with 10+ years experience running data infrastructure for complex use cases.</p>
-business_type: 'MSP, Services Organization'
-region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
+
 contact: 'support@dattell.com, (619) 786-0813'
 
 
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Vector Database']
 
-industries: 'Financial Services, Healthcare, Software & Technology, Media, Public Sector, Consumer Services, Business Services, Energy & Utilities, Internet of Things, Fintech, Healthtech, Saas, Defense, Biotech, Medtech, High Tech, Energy & Utilities'
+region:           Global
+industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+business_type:    (MSP) Managed Service Provider
+opensearch_tech:  Search, Observability, Security, Logs, Analytics, Vector Database
+
+
 main_office_location: |
   12636 High Bluff Dr
   San Diego, CA 92130

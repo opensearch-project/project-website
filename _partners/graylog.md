@@ -6,13 +6,16 @@ link: 'https://www.graylog.org'
 logo_large: '/assets/media/partners/graylog/graylog.png'
 product_image: '/assets/media/partners/graylog/graylog-product.png'
 description: 'Graylog is a SIEM and log management solution that offers robust, cost-effective ways to protect your organization. Using AI/ML, security analytics, and intelligent alerting, Graylog enables you to stay ahead of threats and addresses the needs of IT Ops teams, making it easy to normalize, visualize, and analyze log data from any source.'
-bueiness_type: 'Software Vendor'
-region: Global
+
 contact: 'info@graylog.com'
 
-opensearch_tech: ['Security', 'Analytics']
 
-industries: All
+region:           Global
+industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+business_type:    Consultant, (ISV) Independent Software Vendor, Professional Services
+opensearch_tech:  Observability, Security, Logs, Analytics
+
+
 main_office_location: |
   Houston, TX
 resources:

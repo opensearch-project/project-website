@@ -5,13 +5,18 @@ logo: '/assets/media/partners/bigdataboutique/bigdataboutique.png'
 link: 'https://bigdataboutique.com'
 logo_large: '/assets/media/partners/bigdataboutique/bigdataboutique.png'
 description: 'BigData Boutique provides end-to-end OpenSearch expert consulting and 24/7 support services. As trusted OpenSearch experts, we address and overcome any challenge related to OpenSearch usage (performance, cost, modeling, and more), as well as data migration services.'
-business_type: ISV
-region: Worldwide
+
+
 contact: 'itamar@bigdataboutique.com'
 
-opensearch_tech: ['Search', 'Observability', 'Logs', 'Analytics']
 
-industries: 'Business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
+
+region:           Global
+industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+business_type:    (ISV) Independent Software Vendor
+opensearch_tech:  Search, Observability, Logs, Analytics
+
+
 resources:
   - url: 'https://blog.bigdataboutique.com/2023/03/controlling-shard-rebalance-in-elasticsearch-and-opensearch-47c71d'
     title: 'Controlling Shard Rebalance in Elasticsearch and OpenSearch'

@@ -1,17 +1,25 @@
 ---
 name: Bitergia
 name_long: 'Bitergia'
-# upload your logo to the following directory - must be square
+
 logo: '/assets/media/partners/bitergia.png'
 link: 'https://bitergia.com'
 logo_large: '/assets/media/partners/bitergia/bitergia-logo.svg'
 product_image: '/assets/media/partners/bitergia/bitergia-product.jpg'
 description: 'Bitergia helps companies improve the ROI of their software development projects by providing tools and knowledge to improve decision making. iIts core platform is 100% open source. The Bitergia team has 15+ years experience in research focused on collaborative software development methodologies and software development quality models.'
-business_type: 'Product/Technology, Services Organization'
-region: Worldwide
+
+
 contact: 'info@bitergia.com'
 
-opensearch_tech: ['Observability', 'Analytics']
+
+
+region:           Global
+industries:       Software and Technology
+# business_type: 'Product/Technology, Services Organization'
+business_type:    Professional Services
+opensearch_tech:  Observability, Analytics
+
+
 
 industries: 'Software and Technology'
 main_office_location: |
