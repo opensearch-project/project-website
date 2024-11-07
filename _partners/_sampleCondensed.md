@@ -27,7 +27,8 @@ industries:       Software and Technology, Business Services, Consumer Services,
 
 business_type:    Consultant, (MSP) Managed Service Provider, (CSP) Content Service Provider, (ISV) Independent Software Vendor, Systems Integrator, Platform Integrator, Professional Services, Training
 
-opensearch_tech:  Search, Observability, Security, Logs, Analytics, Machine Learning & AI, GenAI
+
+opensearch_tech:  [Search, Observability, Security, Logs, Analytics, Machine Learning & AI, GenAI]
 
 
 
