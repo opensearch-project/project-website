@@ -1,4 +1,33 @@
 
+
+// Floating buttons
+
+.floating-buttons {
+    transform: translateX(50%) rotate(-90deg);
+  }
+// Back to top button
+
+.btn-scroll-top {
+    --bs-btn-padding-x: .75rem;
+    // --bs-btn-padding-y: #{calc($btn-padding-y-sm + var(--bs-border-width))};
+  
+    position: relative;
+    text-transform: uppercase;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform .25s ease-in-out, opacity .25s, visibility .25s;
+    transform: scale(0);
+
+    // @include font-size($font-size-base * .625);
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+
 // NEW
 
 
