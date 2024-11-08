@@ -2,7 +2,7 @@
  * Animate scroll to top button in/off view
  */
 
-export default (() => {
+(() => {
     let button = document.querySelector('.btn-scroll-top'),
       scrollOffset = 500
   

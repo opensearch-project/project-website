@@ -13,18 +13,19 @@
   
     position: relative;
     text-transform: uppercase;
-    visibility: hidden;
-    opacity: 0;
+    visibility: show;
+    // opacity: 0;
     transition: transform .25s ease-in-out, opacity .25s, visibility .25s;
     transform: scale(0);
+    z-index: 3;
 
     // @include font-size($font-size-base * .625);
 
-    &.show {
-      visibility: visible;
-      opacity: 1;
-      transform: scale(1);
-    }
+    // &.show {
+    //   visibility: visible;
+    //   opacity: 1;
+    //   transform: scale(1);
+    // }
   }
 
 
@@ -54,8 +55,8 @@
 // border-radius: 5000px 0 0 5000px;
 .filter-bar-wrapper {
     // border-radius: 100px;
-    background-color: #f2f2f2;
     // padding: 10px;
+    background-color: #f2f2f2;
 
     .filter-bar-button {
         padding-left: 30px;
@@ -69,29 +70,22 @@
     //     --bs-dropdown-padding-x: 20px;
     //     --bs-dropdown-min-width: 250px;
     // }
-
-    .btn-rounded-left {
-        // border-top-left-radius: 5000px;
-        // border-bottom-left-radius: 5000px;
-        border-radius: 5000px 0 0 5000px;
-    }
-    .btn-rounded-right {
-        border-radius: 0 5000px 5000px 0;
-    }
-    .btn-rounded-all {
-        border-radius: 5000px 5000px 5000px 5000px;
-    }
 }
+
 .filter-criteria-selection-wrapper {
     background-color: #f2f2f2;
 }
 
-.btn-rounded-left {
+
+.btn-group-rounded-left {
     border-top-left-radius: 5000px;
     border-bottom-left-radius: 5000px;
     // border-radius: 5000px 0 0 5000px;
 }
-.btn-rounded-right {
+.btn-group-middle-element {
+    border-radius: 0 0 0 0;
+}
+.btn-group-rounded-right {
     border-radius: 0 5000px 5000px 0;
 }
 .btn-rounded-all {
