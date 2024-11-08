@@ -5,10 +5,10 @@
     "SolutionProviders": {
 
         "HeroBanner": {
-            "Title": "OpenSearch <br>Solutions Providers",
+            "Title": "OpenSearch Solutions Providers",
             "SubText": "Find the right provider to achieve your business goals, extend your products, and better serve your customers",
-            "PathHeroImageDesktop": "/assets/img/homepage-assets/Banner_HomePage_Hero_Desktop.png", 
-            "PathHeroImageMobile": "/assets/img/homepage-assets/Banner_HomePage_Hero_Desktop.png"
+            "PathHeroImageDesktop": "/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_desktop.png", 
+            "PathHeroImageMobile": "/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_mobile.png"
         },
 
         "MainBody": {
@@ -18,9 +18,9 @@
         },    
 
         "SearchBar": {
-            "BusinessType_Dropdown": {
-                "Title": "Business Type",
-                "ButtonCategoryCountID": "BusinessType_CategoryCount",
+            "ProviderType_Dropdown": {
+                "Title": "Provider Type",
+                "ButtonCategoryCountID": "ProviderType_CategoryCount",
                 "Categories": [
                     {
                         "Name": "Consultant",
