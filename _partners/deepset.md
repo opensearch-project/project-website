@@ -1,10 +1,12 @@
 ---
 name: deepset
 name_long: deepset
-logo: '/assets/media/partners/deepset.png'
-link: 'https://www.deepset.ai/'
-logo_large: '/assets/media/partners/deepset/deepset-logo.svg'
-product_image: '/assets/media/partners/deepset/deepset-product.png'
+
+logo: /assets/media/partners/deepset/deepset.png
+link: https://www.deepset.ai/
+logo_large: /assets/media/partners/deepset/deepset-logo.svg
+
+product_image: /assets/media/partners/deepset/deepset-product.png
 description: 'deepset is the company behind Haystack NLP and deepset Cloud enterprise ML/NLP platform. Started in 2018 by Milos Rusic, Malte Pietsch and Timo Möller, deepset has enabled many enterprises and public sector organizations to build innovative NLP-driven search solutions. deepset is backed by leading VC firms, and former founders of well-known machine learning and commercial open source companies'
 
 contact: 'https://www.deepset.ai/, engage@deepset.ai'

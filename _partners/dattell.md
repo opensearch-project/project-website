@@ -1,9 +1,11 @@
 ---
 name: Dattell 
 name_long: Dattel
-logo: '/assets/media/partners/dattell.png'
-link: 'https://dattell.com/opensearch-managed-services-consulting-support/'
-logo_large: '/assets/media/partners/dattell/dattel-logo.png'
+
+logo: /assets/media/partners/dattell/dattell.png
+link: https://dattell.com/opensearch-managed-services-consulting-support/
+logo_large: /assets/media/partners/dattell/dattel-logo.png
+
 product_image: '/assets/media/partners/dattell/dattel-product.png'
 description: |
   <p>Dattell offers consulting support and managed services for OpenSearch, Elasticsearch, Kafka, and Pulsar. We support implementations in our clients’ environments, on-prem or cloud (AWS, GCP, Azure).</p>

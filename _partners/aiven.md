@@ -1,9 +1,9 @@
 ---
 name: Aiven
 name_long: Aiven
-logo: '/assets/media/partners/aiven.png'
+logo: /assets/media/partners/aiven/aiven.png
 link: 'https://aiven.io'
-logo_large: '/assets/media/partners/aiven/aiven_logo.png'
+logo_large: /assets/media/partners/aiven/aiven_logo.png
 description: 'Aiven provides managed open source data technologies, such as PostgreSQL®, Apache Kafka® and OpenSearch®, on all major clouds.'
 
 contact: 'https://aiven.io/contact'

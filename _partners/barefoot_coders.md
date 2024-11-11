@@ -2,9 +2,9 @@
 name: Barefoot Coders
 name_long: 'Barefoot Coders'
 
-logo: '/assets/media/partners/logo-barefootcoders-square.png'
-link: 'https://www.barefootcoders.com/'
-logo_large: '/assets/media/partners/barefootcoders/barefootcoders-logo.png'
+logo: /assets/media/partners/barefootcoders/logo-barefootcoders-square.png
+link: https://www.barefootcoders.com/
+logo_large: /assets/media/partners/barefootcoders/barefootcoders-logo.png
 description: 'Barefoot Coders is a boutique software and technical infrastructure development studio, helping organizations scale through cloud-native solutions.'
 
 

@@ -62,11 +62,12 @@ body_class: partners-page
 
         <!-- Provider Type dropdown -->
         <div class="d-none d-md-block">
-          <button type="button" class="filter-bar-button btn-group-rounded-left btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <button type="button" class="filter-bar-button btn-group-rounded-left btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
             <span class="md-width-empty-span"></span>
             {{data_SearchBar_ProviderType.Title}} 
             <span class="" id="{{data_SearchBar_ProviderType.ButtonCategoryCountID}}"></span>
             <span class="lg-width-empty-span"></span>
+            <i class="fa-solid fa-chevron-down"></i>
             
           </button>
   
@@ -96,12 +97,12 @@ body_class: partners-page
 
         <!-- OpenSearch Specialization dropdown -->
         <div class="d-none d-md-block">
-          <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
             <span class="md-width-empty-span"></span>
             {{data_SearchBar_OpenSearchSpeciality.Title}} 
             <span class="" id="{{data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID}}"></span>
             <span class="lg-width-empty-span"></span>
-            
+            <i class="fa-solid fa-chevron-down"></i>
           </button>
   
           <ul class="dropdown-menu dropdown-menu-end w-25 px-4">
@@ -130,11 +131,12 @@ body_class: partners-page
 
         <!-- Region dropdown -->
         <div class="d-none d-lg-block">
-          <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
             <span class="md-width-empty-span"></span>
             {{data_SearchBar_Region.Title}} 
             <span class="" id="{{data_SearchBar_Region.ButtonCategoryCountID}}"></span>
             <span class="md-width-empty-span"></span>
+            <i class="fa-solid fa-chevron-down"></i>
             
           </button>
   
@@ -185,7 +187,7 @@ body_class: partners-page
       
       <div class="row">
         <!-- Page title -->
-        <h1 class="col align-self-start position-relative mb-5" style="z-index: 1021">{{ data_MainBody.Title }}</h1>
+        <h1 class="col align-self-start position-relative {{data_MainBody.ClassValue }} mb-0">{{ data_MainBody.Title }}</h1>
 
         <!-- Returned results -->
         <!-- <div class="col align-self-end returned-results-wrapper hide order-last"></div>
@@ -202,32 +204,36 @@ body_class: partners-page
 
 
 
-    <div class="container">
+    <div class="container px-5">
       <hr/>
       <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
 
         {% for partner in site.partners %}
           <div 
-            class="col"
+            class="col card-solutionsProvider-wrapper"
             id="{{partner.name}}-id"
             data-partner-name = "{{partner.name}}"
-            data-partner-specializations = "{{partner.opensearch_tech}}"
+            data-partner-specializations = "{{ partner.opensearch_tech }}"
+            data-partner-providerTypes = "{{ partner.business_type }}"
+            data-partner-regions = "{{ partner.region }}"
           >
             <card 
               class="card card-solutionsProvider shadow-sm d-flex show px-0">
 
                 <a href="{{ partner.url | relative_url }}" class="stretched-link p-4">
-                  <img src="{{ partner.logo_large }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
+                  {% if partner.logo %}
+                    <!-- If the partner has a favicon logo attached to their profile. -->
+                    <img src="{{ partner.logo }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
+                  {% else %}
+                    <!-- otherwise use the full width -->
+                    <img src="{{ partner.logo_large }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
+                  {% endif %}
                 </a>
                 
-                
-                {% if partner.opensearch_tech %}
-                  <div class="card-footer">
-                    <h5 class="card-title ps-3">{{ partner.name }}</h5>
-                    <!-- <i class="fa-solid fa-tag"></i>
-                    <span class="text-body-secondary">{{ partner.opensearch_tech }}</span> -->
-                  </div>
-                {% endif %}
+                <div class="card-footer">
+                  <h5 class="card-title ps-3">{{ partner.name }}</h5>
+                </div>
+
                 
             </card>
           </div>
@@ -258,7 +264,7 @@ body_class: partners-page
           
 
           // find all partners and enter each partner object into the partnerArray
-          let partnerObjectsOnScreen = document.querySelectorAll(`div.partner-card-wrapper`);
+          let partnerObjectsOnScreen = document.querySelectorAll(`div.card-solutionsProvider-wrapper`);
           let count_partnerObjects = partnerObjectsOnScreen.length;
           console.log("PARTNER COUNT:")
           console.log(count_partnerObjects)
@@ -266,11 +272,15 @@ body_class: partners-page
           partnerObjectsOnScreen.forEach(partnerObject => {
             let partnerName = partnerObject.getAttribute('data-partner-name');
             let partnerSpecializationArray = partnerObject.getAttribute('data-partner-specializations');
+            let partnerProviderTypeArray = partnerObject.getAttribute('data-partner-providerTypes');
+            let partnerRegionArray = partnerObject.getAttribute('data-partner-regions');
             let partnerId = partnerObject.getAttribute('id');
             partnerArray.push(
               { name: partnerName, 
                 id: partnerId, 
-                specializations: partnerSpecializationArray 
+                specializations: partnerSpecializationArray,
+                providerTypes: partnerProviderTypeArray,
+                regions: partnerRegionArray
               });
           });
 
@@ -305,55 +315,50 @@ body_class: partners-page
           }
         }
 
-        const gatherAllFilters = () => {
-          // const dropdown_IDs = [
-
-          // ]
-
-          let results = document.querySelectorAll('cards > li[data-s-os-tech="Search"][data-s-os-tech=“Observability”]')
-          console.log(results)
-          // const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
-
-          // const test = {{ data_SearchBar_OpenSearchSpeciality }};
-          // const test2 = JSON.parse({{ data_SearchBar_OpenSearchSpeciality }})
-          // console.log(test2);
-
-          alert('{{ data_SearchBar_OpenSearchSpeciality.Title }} ');
-        }
-
         let onScreenElements_ApplyFilters = () => {
-
+          // allElements
+          // filterSelectionArray - and we need to know what type of filter it is... 
+          // we need to build the array of elements, that meet the criteria... and then its like a waterfall. At the end we show all the elements that are in the array that survived. 
           
           // Hide every item on screen
           let items = partnerArray;
           console.log(items)
           items.forEach((item) => {
             const card = document.getElementById(`${item.name}-id`);
-            console.log('HIDING: ', card);
+            // console.log('HIDING: ', card);
             card.classList.remove("card-show");
             card.classList.add("card-hide");
           });
 
           // show current filters to the console
           console.log(specializationFilters);
-          if (specializationFilters.length === 0) {
-            items.forEach((item) => {
+
+          //
+          //
+          //  iterate through the items in the array. If the specializationFilters.length is zero, we do nothing. 
+          // otherwise, remove the items from the array that do not meet the filter criteria. 
+            if (specializationFilters.length !== 0) {
+              items.forEach((item) => {
+                let containsSpecializationTag = specializationFilters.some(filter => item.specializations.includes(filter));
+                if (containsSpecializationTag) {
+
+                  // if the item contains the specializationTag... do nothing. the item has survived the filter. 
+                } else {
+
+                  // otherwise, remove the item from the item array. pop off
+                  
+                }
+              });
+          }
+
+          // Finally, show all the items that survived the filtering process. 
+          items.forEach((item) => {
               const card = document.getElementById(`${item.name}-id`);
               card.classList.remove("card-hide");
               card.classList.add("card-show");
             });
-          } else {
-            // specializationFilters
-            // for each item, check if it has one of the specializationFilters in its tag category. If so, we want to show it.
-            items.forEach((item) => {
-              let containsSpecializationTag = specializationFilters.some(filter => item.specializations.includes(filter));
-              if (containsSpecializationTag) {
-                const card = document.getElementById(`${item.name}-id`);
-                card.classList.remove("card-hide");
-                card.classList.add("card-show");
-              }
-            });
-          }
+
+
           
 
 

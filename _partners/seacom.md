@@ -1,9 +1,12 @@
 ---
 name: Seacom
 name_long: 'Seacom srl sb'
-logo: '/assets/media/partners/seacom.png'
-link: 'https://www.seacom.it/'
-logo_large: '/assets/media/partners/seacom/seacom-logo.png'
+
+logo: /assets/media/partners/seacom/seacom.png
+link: https://www.seacom.it/
+logo_large: /assets/media/partners/seacom/seacom-logo.png
+
+
 product_image: '/assets/media/partners/seacom/seacom-product.png'
 description: 'Seacom has been working in Information Technology since 1999, offering professional services to enterprise-level companies and public administrations on Open Source software. Our main offerings are email and collaboration, data management architectures, cybersecurity, and Cloud Native infrastructures.
 Seacom has been main Elastic&apos;s partner in Italy since 2013, gaining strong product experience, and certifications in developing enterprise-level projects.'

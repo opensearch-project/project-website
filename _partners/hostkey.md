@@ -1,10 +1,11 @@
 ---
 name: 'Hostkey'
 name_long: 'HOSTKEY B.V.'
-# upload your logo to the following directory - must be square
-logo: '/assets/media/partners/hostkey.png'
-link: 'https://hostkey.com/'
-logo_large: '/assets/media/partners/hostkey/hostkey-logo.png'
+
+logo: /assets/media/partners/hostkey/hostkey.png
+link: https://hostkey.com/
+logo_large: /assets/media/partners/hostkey/hostkey-logo.png
+
 description: 'We offer a wide range of dedicated servers from entry-level up to high-performance GPU servers and private cloud solutions. Our servers are hosted in TIER III data centers in the Netherlands, Germany, Finland, Iceland, Turkey and the USA.'
 business_type: 'Server infrastructure provider.'
 region: 'North America, Europe, Middle East, Africa, Asia Pacific, Australia'

@@ -1,10 +1,12 @@
 ---
 name: Hidora
 name_long: Hidora
-logo: '/assets/media/partners/hidora.png'
-link: 'https://hidora.io'
-logo_large: '/assets/media/partners/hidora/hidora-logo.png'
-product_image: '/assets/media/partners/hidora/hidora-product.png'
+
+logo: /assets/media/partners/hidora/hidora.png
+link: https://hidora.io
+logo_large: /assets/media/partners/hidora/hidora-logo.png
+product_image: /assets/media/partners/hidora/hidora-product.png
+
 description: 'Hidora is a Swiss-based Managed Cloud Company that enables you to rapidly build and scale applications using Java, PHP, Ruby, Node.js, or Python. Their Platform-as-a-Service automates all complex system administration tasks, freeing you to focus solely on coding without worrying about hosting. With flexible billing, an intuitive interface, data security, and a 24/7/365 support team, Hidora provides everything you need for business success.'
 
 

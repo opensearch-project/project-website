@@ -1,9 +1,11 @@
 ---
 name: Metarank
 name_long: 'Metarank Labs Co.'
-logo: '/assets/media/partners/metarank.png'
-link: 'https://metarank.ai'
-logo_large: '/assets/media/partners/metarank/large-logo.png'
+
+logo: /assets/media/partners/metarank/metarank.png
+link: https://metarank.ai
+logo_large: /assets/media/partners/metarank/large-logo.png
+
 description: 'Metarank Labs Co. provides integration and ongoing support for companies that use open source personalized ranking and recommendations service Metarank.'
 business_type: 'product/technology, services'
 region: 'Worldwide'

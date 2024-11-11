@@ -1,10 +1,11 @@
 ---
 name: Canonical | Ubuntu
 name_long: Canonical
-# upload your logo to the following directory - must be square
-logo: '/assets/media/partners/canonical.png'
+
+logo: /assets/media/partners/canonical/canonical.png
 link: 'https://canonical.com'
-logo_large: '/assets/media/partners/canonical/Canonical-large-logo-red.png'
+logo_large: /assets/media/partners/canonical/Canonical-large-logo-red.png
+
 description: '<p>Canonical is the publisher of Ubuntu, the OS for most public cloud workloads as well as the emerging categories of smart gateways, self-driving cars and advanced robots. Canonical provides enterprise</p><p>security, support and services to commercial users of Ubuntu.On the data solutions front, Canonical provides consulting, support, security and managed services for data technologies, such as PostgreSQL®, MySQL®, Apache Kafka®, Apache Spark®, MongoDB®, Redis® and OpenSearch®, on any cloud.</p><p>Established in 2004, Canonical is a privately held company.'
 
 contact: '+1 737 204 0291, +44 203 656 5291'

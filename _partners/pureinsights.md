@@ -1,11 +1,12 @@
 ---
 name: Pureinsights
-# upload your logo to the following directory - must be square
 name_long: 'Pureinsights Technology Corporation'
-logo: '/assets/media/partners/pureinsights.png'
-link: 'https://pureinsights.com'
-logo_large: '/assets/media/partners/pureinsights/pureinsights-logo.svg'
-product_image: '/assets/media/partners/pureinsights/pureinsights-product.jpg'
+
+logo: /assets/media/partners/pureinsights/pureinsights.png
+link: https://pureinsights.com
+logo_large: /assets/media/partners/pureinsights/pureinsights-logo.svg
+product_image: /assets/media/partners/pureinsights/pureinsights-product.jpg
+
 description: 'Pureinsights has deep expertise building search applications with conventional search engines. The company helps customers go "Beyond Search", using Knowledge Graphs, Machine Learning, and Natural Language Processing to build enterprise search applications that better understand user intent and deliver answers users want. &quot;Just make it work like Google.&quot;'
 business_type: 'Systems Integrator, Technology Services Provider'
 region: 'North, Central and South America, Europe.'

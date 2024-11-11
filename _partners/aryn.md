@@ -6,8 +6,7 @@ name: Aryn
 name_long: 'Aryn'
 
 
-logo: '/assets/media/partners/arynai/ArynLogo_White-cropped.svg'
-logo_large: '/assets/media/partners/arynai/ArynLogo_White-cropped.svg'
+logo_large: /assets/media/partners/arynai/ArynLogo_White-cropped.svg
 
 link: 'https://aryn.ai'
 

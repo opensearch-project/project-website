@@ -1,9 +1,12 @@
 ---
 name: Sease
 name_long: 'Sease Ltd.'
-logo: '/assets/media/partners/sease.png'
+
+logo: /assets/media/partners/sease/sease.png
 link: https://sease.io
-logo_large: '/assets/media/partners/sease/sease-logo.png'
+logo_large: /assets/media/partners/sease/sease-logo.png
+
+
 description: |
   <p>Sease mission is to make research in Information Retrieval more accessible to an industry audience, transforming the best research ideas into real-world products.</p><p>Our focus is to provide R&D projects guidance and implementation, consulting services and training, using open source software such as Apache Lucene/Solr, Elasticsearch, OpenSearch, and Vespa.</p>
 business_type: 'ISV'

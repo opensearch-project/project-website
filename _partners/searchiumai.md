@@ -1,9 +1,12 @@
 ---
 name: Searchium.ai
 name_long: Searchium.ai
-logo: '/assets/media/partners/searchiumai.png'
-link: 'https://www.searchium.ai/'
-logo_large: '/assets/media/partners/searchiumai/searchiumai-logo.png'
+
+logo: /assets/media/partners/searchiumai/searchiumai.png
+link: https://www.searchium.ai/
+logo_large: /assets/media/partners/searchiumai/searchiumai-logo.png
+
+
 description: |
   <p>Searchium.ai is a SaaS platform that optimizes neural search applications.</p>
   <p>Based on in-memory computing built specifically for search, we give you a significant advantage, easy-to-integrate neural search that scales to billions without sacrificing speed or accuracy.</p>

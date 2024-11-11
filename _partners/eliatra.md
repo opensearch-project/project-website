@@ -1,10 +1,10 @@
 ---
 name: Eliatra
 name_long: Eliatra - The OpenSearch Experts
-# square
-logo: '/assets/media/partners/eliatra.png'
 
-logo_large: '/assets/media/partners/eliatra/eliatra-logo-70.png'
+
+logo: /assets/media/partners/eliatra/eliatra.png
+logo_large: /assets/media/partners/eliatra/eliatra-logo-70.png
 
 link: 'https://eliatra.com'
 description: 'Eliatra provides Enterprise Solutions for OpenSearch, including support with guaranteed SLAs, professional services, and custom development. Our Eliatra OpenSearch Distro (EOD) makes it easy to run OpenSearch for Mission-critical systems.'

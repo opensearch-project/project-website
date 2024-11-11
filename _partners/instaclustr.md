@@ -1,9 +1,11 @@
 ---
 name: Instaclustr
 name_long: 'Instaclustr, now part of Spot by NetApp'
-logo: '/assets/media/partners/instaclustr.png'
-link: 'https://www.instaclustr.com/'
-logo_large: '/assets/media/partners/instaclustr/logo-large.svg'
+
+logo: /assets/media/partners/instaclustr/instaclustr.png
+link: https://www.instaclustr.com/
+logo_large: /assets/media/partners/instaclustr/logo-large.svg
+
 description: |
   <p>Instaclustr helps organizations deliver applications at scale by operating and supporting their data infrastructure through its SaaS platform for open source technologies, whether on-prem or in their cloud of choice.
   </p><p>In addition to managed platforms, Instaclustr also offers 24x7 support services, consulting and training for numerous open source technologies.</p>

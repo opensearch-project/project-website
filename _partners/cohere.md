@@ -1,9 +1,10 @@
 ---
 name: Cohere
 name_long: Cohere
-logo: '/assets/media/partners/cohere/cohere-logo.png'
+logo: /assets/media/partners/cohere/cohere-logo.png
 link: 'https://cohere.ai'
-logo_large: '/assets/media/partners/cohere/cohere-logo.png'
+logo_large: /assets/media/partners/cohere/cohere-logo.png
+
 description: 'Cohere is the leading AI platform for enterprise. Its world-class AI is uniquely suited to the needs of business, unlocking unprecedented ease-of-use, accessibility, and data privacy. Cohere’s platform is cloud-agnostic, accessible through API as a managed service, and can be deployed on virtual private cloud (VPC) or on premise.'
 contact: 'team@cohere.ai'
 

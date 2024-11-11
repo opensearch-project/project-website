@@ -5,7 +5,7 @@ name_long: 'Eyes4IT'
 link: https://www.eyes4it.tech
 
 
-logo: /assets/media/partners/Eyes4IT/Eyes4IT-logo.png
+logo: /assets/media/partners/Eyes4IT/e4it_logo_favicon.png
 logo_large: /assets/media/partners/Eyes4IT/Eyes4IT-logo.png
 
 

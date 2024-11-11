@@ -12,7 +12,7 @@ link: https://elest.io/
 
 contact: contact@elest.io
 
-logo: /assets/media/partners/elastio/elastio-logo.png
+logo: /assets/media/partners/elastio/elastio.png
 logo_large: /assets/media/partners/elastio/elastio-logo.png
 
 

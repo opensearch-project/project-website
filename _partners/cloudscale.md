@@ -1,11 +1,12 @@
 ---
 name: 'Cloud Scale'
 name_long: 'Cloud Scale Innovation Private Limited'
-# upload your logo to the following directory - must be square
-logo: '/assets/media/partners/cloudscale.png'
-link: 'http://cloudscaleinc.com/'
-logo_large: '/assets/media/partners/cloudscale/cloudscale-logo.png'
-product_image: '/assets/media/partners/cloudscale/cloudscale-product.png'
+
+logo: /assets/media/partners/cloudscale/cloudscale.png
+link: http://cloudscaleinc.com/
+logo_large: /assets/media/partners/cloudscale/cloudscale-logo.png
+
+product_image: /assets/media/partners/cloudscale/cloudscale-product.png
 description: 'Cloud Scale® is on a mission to simplify the development, deployment, and scaling of complex applications and to bring the full power of multi-cloud to developers and enterprises, everywhere.'
 contact: 'contact@cloudscaleinc.com'
 

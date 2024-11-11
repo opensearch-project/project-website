@@ -1,9 +1,10 @@
 ---
 name: Bonsai
 name_long: Bonsai
-logo: '/assets/media/partners/bonsai.png'
+logo: /assets/media/partners/bonsai/bonsai.png
 link: 'https://bonsai.io'
-logo_large: '/assets/media/partners/bonsai/bonsai-logo.svg'
+logo_large: /assets/media/partners/bonsai/bonsai-logo.svg
+
 product_image: '/assets/media/partners/bonsai/bonsai-product.webp'
 description: 'The managed OpenSearch platform that provides the support of a search engineering team, but at a fraction of the cost.'
 

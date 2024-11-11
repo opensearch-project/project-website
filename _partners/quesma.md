@@ -1,11 +1,12 @@
 ---
 name: Quesma
 name_long: 'Quesma Inc'
-logo: '/assets/media/partners/quesma.png'
-link: 'https://quesma.com'
-logo_large: '/assets/media/partners/quesma/quesma-logo-black-transparent-full.png'
 
-# Large image displayed in the top right of the extended partner details page.
+logo: /assets/media/partners/quesma/quesma.png
+link: https://quesma.com
+logo_large: /assets/media/partners/quesma/quesma-logo-black-transparent-full.png
+
+
 product_image: '/assets/media/partners/quesma/quesma-diagram.png'
 description: We help customers innovate faster by reshaping how applications are built and connected to their DBs. Quesma database gateway enables development teams to modernize and evolve application architecture by enabling interoperability between OpenSearch stack and super-efficient analytical DB platforms of your choice.
 business_type: product/technology
