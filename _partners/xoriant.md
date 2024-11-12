@@ -7,15 +7,15 @@ name_long: 'Xoriant'
 
 # The partner logo is used on the partners collection page (/partners).
 # upload your logo to the following directory - must be square
-logo: '/assets/media/partners/xoriant.png'
+logo: /assets/media/partners/xoriant/xoriant.png
 
 # URL to the partner's website.
-link: 'https://www.xoriant.com'
+link: https://www.xoriant.com
 
 # logo_large is used on the extended partner details page.
 # It is normative to upload all extended partner page images to a subdirectory of /assets/media/partners/ with the name of the partner as the directory name.
 # For example given a partner named "SampleCompany" the logo_large image would be uploaded to /assets/media/partners/samplecompany/logo_large.png
-logo_large: '/assets/media/partners/xoriant/xoriant.png'
+logo_large: /assets/media/partners/xoriant/xoriant.png
 
 # Large image displayed in the top right of the extended partner details page.
 # product_image: '/assets/media/partners/xoriant/xoriant.png'

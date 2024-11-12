@@ -1,9 +1,11 @@
 ---
 name: Telicent
 name_long: 'Telicent Ltd'
-logo: '/assets/media/partners/telicent.png'
-link: 'https://telicent.io'
-logo_large: '/assets/media/partners/telicent/talicent-logo-large.png'
+
+logo: /assets/media/partners/telicent/telicent.png
+link: https://telicent.io
+logo_large: /assets/media/partners/telicent/talicent-logo-large.png
+
 description: 'Telicent is a software start-up building a super-secure platform to enable rapid innovation and digital transformation. Our CORE platform is open source, and lets you innovate with your own data in a secure way - try out new tools, new ideas, new start-ups. Safely.'
 business_type: 'ISV'
 region: Worldwide

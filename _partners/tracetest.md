@@ -1,10 +1,14 @@
 ---
 name: Tracetest | Kubeshop
 name_long: 'Tracetest (part of the Kubeshop accelerator)'
-logo: '/assets/media/partners/tracetest.png'
-link: 'https://tracetest.io'
-logo_large: '/assets/media/partners/tracetest/tracetest-logo.png'
-product_image: '/assets/media/partners/tracetest/tracetest-product.png'
+
+
+logo: /assets/media/partners/tracetest/tracetest.png
+link: https://tracetest.io
+logo_large: /assets/media/partners/tracetest/tracetest-logo.png
+product_image: /assets/media/partners/tracetest/tracetest-product.png
+
+
 description: 'An open-source testing tool that enables testing your distributed system with distributed traces.
 No more writing test scripts or mocks. Instead, test against real data.
 Get a 10x reduction in test creation time, and a 20x reduction in troubleshooting time.'

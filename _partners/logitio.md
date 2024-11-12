@@ -5,6 +5,7 @@ name_long: 'Logit.io Ltd'
 logo: /assets/media/partners/logit/logitio.png
 link: https://logit.io/
 logo_large: /assets/media/partners/logit/logit-logo.jpg
+
 product_image: /assets/media/partners/logit/logit-product.png
 
 description: 'Logit.io offers a comprehensive observability and data analysis solution that enables businesses to enhance their cloud observability. By providing users with a unified and reliable data analysis solution, the platform facilitates scalability.'

@@ -61,8 +61,8 @@ body_class: partners-page
       <div class="filter-bar-wrapper input-group justify-content-center mb-5 px-3" id="filter-bar">
 
         <!-- Provider Type dropdown -->
-        <div class="d-none d-md-block">
-          <button type="button" class="filter-bar-button btn-group-rounded-left btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+        <div class="d-none d-md-block ">
+          <button type="button" class="filter-bar-button btn-group-rounded-left btn btn-outline-primary dropdown-bs-toggle shadow" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
             <span class="md-width-empty-span"></span>
             {{data_SearchBar_ProviderType.Title}} 
             <span class="" id="{{data_SearchBar_ProviderType.ButtonCategoryCountID}}"></span>
@@ -71,16 +71,15 @@ body_class: partners-page
             
           </button>
   
-          <ul class="dropdown-menu dropdown-menu-end w-25 px-4">
+          <ul class="dropdown-menu dropdown-menu-end w-25 px-4 shadow">
             <li><h5 class="dropdown-header">Select all that apply</h5></li>
             {% for category in data_SearchBar_ProviderType.Categories %}
-              <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
               <div class="form-check m-0">
                 <input 
                   type="checkbox" 
                     class="form-check-input fs-base" 
                     id="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
-                    onclick="updateFilterCount('{{ data_SearchBar_ProviderType.ButtonCategoryCountID }}', '{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}')" 
+                    onclick="updateFilterCount('{{ data_SearchBar_ProviderType.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
                     data-count-id="{{ data_SearchBar_ProviderType.ButtonCategoryCountID }}">
                 <label 
                   for="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
@@ -97,7 +96,7 @@ body_class: partners-page
 
         <!-- OpenSearch Specialization dropdown -->
         <div class="d-none d-md-block">
-          <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+          <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-bs-toggle shadow" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
             <span class="md-width-empty-span"></span>
             {{data_SearchBar_OpenSearchSpeciality.Title}} 
             <span class="" id="{{data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID}}"></span>
@@ -105,7 +104,7 @@ body_class: partners-page
             <i class="fa-solid fa-chevron-down"></i>
           </button>
   
-          <ul class="dropdown-menu dropdown-menu-end w-25 px-4">
+          <ul class="dropdown-menu dropdown-menu-end w-25 px-4 shadow">
             <li><h5 class="dropdown-header">Select all that apply</h5></li>
             {% for category in data_SearchBar_OpenSearchSpeciality.Categories %}
               <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
@@ -131,7 +130,7 @@ body_class: partners-page
 
         <!-- Region dropdown -->
         <div class="d-none d-lg-block">
-          <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+          <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-bs-toggle shadow" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
             <span class="md-width-empty-span"></span>
             {{data_SearchBar_Region.Title}} 
             <span class="" id="{{data_SearchBar_Region.ButtonCategoryCountID}}"></span>
@@ -140,16 +139,15 @@ body_class: partners-page
             
           </button>
   
-          <ul class="dropdown-menu dropdown-menu-end w-25 px-4">
+          <ul class="dropdown-menu dropdown-menu-end w-25 px-4 shadow">
             <li><h5 class="dropdown-header">Select all that apply</h5></li>
             {% for category in data_SearchBar_Region.Categories %}
-              <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
               <div class="form-check m-0">
                 <input 
                   type="checkbox" 
                     class="form-check-input fs-base" 
                     id="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
-                    onclick="updateFilterCount('{{ data_SearchBar_Region.ButtonCategoryCountID }}')" 
+                    onclick="updateFilterCount('{{ data_SearchBar_Region.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
                     data-count-id="{{ data_SearchBar_Region.ButtonCategoryCountID }}">
                 <label 
                   for="{{data_SearchBar_Region.DataAttribute}}" 
@@ -168,7 +166,7 @@ body_class: partners-page
         <div class="d-none d-md-block">
           <button 
             type="button" 
-            class="filter-bar-button btn-group-rounded-right btn btn-outline-primary"
+            class="filter-bar-button btn-group-rounded-right btn btn-outline-primary shadow"
             onclick="onScreenElements_ApplyFilters()" >
             <span class="md-width-empty-span"></span>
             {{ data_SearchBar_FilterButton.ButtonText }}
@@ -206,7 +204,7 @@ body_class: partners-page
 
     <div class="container px-5">
       <hr/>
-      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
 
         {% for partner in site.partners %}
           <div 
@@ -251,127 +249,180 @@ body_class: partners-page
 
       </a>
     </div>
-    <script>
-        let partnerArray = []
-        let specializationFilters = []
-        // Dynamically update count number of selected items inside filter dropdown
-        
-        document.addEventListener("DOMContentLoaded", (event) => {
-          console.log("DOM fully loaded and parsed");
-        });
-        
-        window.onload = () => {
-          
+</main>
 
-          // find all partners and enter each partner object into the partnerArray
-          let partnerObjectsOnScreen = document.querySelectorAll(`div.card-solutionsProvider-wrapper`);
-          let count_partnerObjects = partnerObjectsOnScreen.length;
-          console.log("PARTNER COUNT:")
-          console.log(count_partnerObjects)
-
-          partnerObjectsOnScreen.forEach(partnerObject => {
-            let partnerName = partnerObject.getAttribute('data-partner-name');
-            let partnerSpecializationArray = partnerObject.getAttribute('data-partner-specializations');
-            let partnerProviderTypeArray = partnerObject.getAttribute('data-partner-providerTypes');
-            let partnerRegionArray = partnerObject.getAttribute('data-partner-regions');
-            let partnerId = partnerObject.getAttribute('id');
-            partnerArray.push(
-              { name: partnerName, 
-                id: partnerId, 
-                specializations: partnerSpecializationArray,
-                providerTypes: partnerProviderTypeArray,
-                regions: partnerRegionArray
-              });
-          });
-
-          console.log(partnerArray);
-          
-          
-        }
-
-        const updateFilterCount = (countId, filterName) => {
-          console.log(countId, filterName);
-          const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
-          const countElement = document.getElementById(countId)
-          if (checkedCheckboxes.length > 0) {
-              countElement.textContent = '(' + checkedCheckboxes.length + ')'
-          } else {
-              countElement.textContent = ''
-          }
-
-          // Update the JS filter array
-          if (countId == 'Specialization_CategoryCount') {
-            console.log(filterName)
-
-            // Check if filterName is already present in specializationFilters array
-            let index = specializationFilters.indexOf(filterName);
-            if (index > -1){
-              specializationFilters.splice(index,1);
-            } else {
-              specializationFilters.push(filterName);
-            }
-
-            console.log(specializationFilters);
-          }
-        }
-
-        let onScreenElements_ApplyFilters = () => {
-          // allElements
-          // filterSelectionArray - and we need to know what type of filter it is... 
-          // we need to build the array of elements, that meet the criteria... and then its like a waterfall. At the end we show all the elements that are in the array that survived. 
-          
-          // Hide every item on screen
-          let items = partnerArray;
-          console.log(items)
-          items.forEach((item) => {
-            const card = document.getElementById(`${item.name}-id`);
-            // console.log('HIDING: ', card);
-            card.classList.remove("card-show");
-            card.classList.add("card-hide");
-          });
-
-          // show current filters to the console
-          console.log(specializationFilters);
-
-          //
-          //
-          //  iterate through the items in the array. If the specializationFilters.length is zero, we do nothing. 
-          // otherwise, remove the items from the array that do not meet the filter criteria. 
-            if (specializationFilters.length !== 0) {
-              items.forEach((item) => {
-                let containsSpecializationTag = specializationFilters.some(filter => item.specializations.includes(filter));
-                if (containsSpecializationTag) {
-
-                  // if the item contains the specializationTag... do nothing. the item has survived the filter. 
-                } else {
-
-                  // otherwise, remove the item from the item array. pop off
-                  
-                }
-              });
-          }
-
-          // Finally, show all the items that survived the filtering process. 
-          items.forEach((item) => {
-              const card = document.getElementById(`${item.name}-id`);
-              card.classList.remove("card-hide");
-              card.classList.add("card-show");
-            });
-
-
-          
-
-
-
-        }
-
-        
-
-
-        
-
-
-    </script>
     
-</main>        
+<script>
+    let partnerArray = []
+    let specializationFilters = []
+    let providerTypeFilters = []
+    let regionFilters = []
+    
+    window.onload = () => {
+      
+
+      // find all partners and enter each partner object into the partnerArray
+      let partnerObjectsOnScreen = document.querySelectorAll(`div.card-solutionsProvider-wrapper`);
+      let count_partnerObjects = partnerObjectsOnScreen.length;
+      console.log("PARTNER COUNT:")
+      console.log(count_partnerObjects)
+
+      partnerObjectsOnScreen.forEach(partnerObject => {
+        let partnerName = partnerObject.getAttribute('data-partner-name');
+        let partnerSpecializationArray = partnerObject.getAttribute('data-partner-specializations');
+        let partnerProviderTypeArray = partnerObject.getAttribute('data-partner-providerTypes');
+        let partnerRegionArray = partnerObject.getAttribute('data-partner-regions');
+        let partnerId = partnerObject.getAttribute('id');
+        partnerArray.push(
+          { name: partnerName, 
+            id: partnerId, 
+            specializations: partnerSpecializationArray,
+            providerTypes: partnerProviderTypeArray,
+            regions: partnerRegionArray
+          });
+      });
+
+      console.log(partnerArray);
+      
+      
+    }
+
+    // Specialization
+    const updateFilterCount = (countId, filterName) => {
+      console.log(countId, filterName);
+
+      // Update the filter counts on the filter bar buttons
+      const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
+      const countElement = document.getElementById(countId)
+      if (checkedCheckboxes.length > 0) {
+          countElement.textContent = '(' + checkedCheckboxes.length + ')'
+      } else {
+          countElement.textContent = ''
+      }
+
+      // update the backend filter array with this element
+      switch (countId) {
+        case 'Specialization_CategoryCount':
+          // Check if filterName is already present in specializationFilters array
+          let indexSpecialization = specializationFilters.indexOf(filterName);
+          if (indexSpecialization > -1){
+            specializationFilters.splice(indexSpecialization,1);
+          } else {
+            specializationFilters.push(filterName);
+          }
+          console.log(`SpecializationFilters: ${specializationFilters}.`);
+          break;
+
+        case 'ProviderType_CategoryCount':
+          let indexProvider = providerTypeFilters.indexOf(filterName);
+          if (indexProvider > -1){
+            providerTypeFilters.splice(indexProvider,1);
+          } else {
+            providerTypeFilters.push(filterName);
+          }
+          console.log(`ProviderTypeFilters: ${providerTypeFilters}.`);
+          break;
+
+        case 'Region_CategoryCount':
+          let indexRegion = regionFilters.indexOf(filterName);
+          if (indexRegion > -1){
+            regionFilters.splice(indexRegion,1);
+          } else {
+            regionFilters.push(filterName);
+          }
+          console.log(`RegionFilters: ${regionFilters}.`);
+          break;
+        default: 
+          console.log(`ID not found for filter: ${countId}.`);
+      }
+    }
+
+    let onScreenElements_ApplyFilters = () => {
+      // allElements
+      // filterSelectionArray - and we need to know what type of filter it is... 
+      // we need to build the array of elements, that meet the criteria... and then its like a waterfall. At the end we show all the elements that are in the array that survived. 
+      
+      // Hide every item on screen
+      let items = partnerArray;
+      console.log(items)
+      items.forEach((item) => {
+        const card = document.getElementById(`${item.name}-id`);
+        // console.log('HIDING: ', card);
+        card.classList.remove("card-show");
+        card.classList.add("card-hide");
+      });
+
+      // show current filters to the console
+      console.log(providerTypeFilters);
+      console.log(specializationFilters);
+      console.log(regionFilters);
+
+
+      //
+      //
+      //  iterate through the items in the array. If the specializationFilters.length is zero, we do nothing. 
+      // otherwise, remove the items from the array that do not meet the filter criteria.
+      temp_specializationArray_filteredItems = [];
+      if (specializationFilters.length !== 0) {
+        items.forEach((item) => {
+          let containsSpecializationTag = specializationFilters.some(filter => item.specializations.includes(filter));
+          if (containsSpecializationTag) {
+            temp_specializationArray_filteredItems.push(item);
+            // if the item contains the specializationTag...push it onto the temp array
+          }
+        });
+      } else {
+        temp_specializationArray_filteredItems = items;
+      }
+      console.log()
+      temp_providerTypeArray_filteredItems = [];
+      if (providerTypeFilters.length !== 0) {
+        temp_specializationArray_filteredItems.forEach((item) => {
+          let containsProviderTag = providerTypeFilters.some(filter => item.providerTypes.includes(filter));
+          if (containsProviderTag) {
+            temp_providerTypeArray_filteredItems.push(item);
+          }
+        });
+      } else {
+        temp_providerTypeArray_filteredItems = temp_specializationArray_filteredItems;
+      }
+
+      temp_regionArray_filteredItems = [];
+      if (regionFilters.length !== 0) {
+        temp_providerTypeArray_filteredItems.forEach((item) => {
+          let containsRegionTag = regionFilters.some(filter => item.regions.includes(filter));
+          if (containsRegionTag) {
+            temp_regionArray_filteredItems.push(item);
+          }
+        });
+      } else {
+        temp_regionArray_filteredItems = temp_providerTypeArray_filteredItems;
+      }
+
+      // Finally, show all the items that survived the filtering process. 
+      temp_regionArray_filteredItems.forEach((item) => {
+          const card = document.getElementById(`${item.name}-id`);
+          card.classList.remove("card-hide");
+          card.classList.add("card-show");
+        });
+
+
+      console.log(`PartnersFound: ${temp_regionArray_filteredItems.length}`);
+
+
+      
+
+
+
+    }
+
+    
+
+
+    
+
+
+</script>
+    
+        
 
