@@ -33,7 +33,7 @@ Let's explore how you can use binary vectors in your OpenSearch solution.
 
 To get started, you'll need binary vector data. Luckily, many models now generate embeddings in binary format. For example, the Cohere Embed v3 model generates binary vectors.
 
-Binary vectors are arrays of zeros and ones, such as `[0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0]`. However, OpenSearch requires binary vectors packed into an `int8` byte format. For example, the preceding bit array would be converted to `[108, -116]`, as shown in the following image.
+Binary vectors are arrays of 1s and 0s, such as `[0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0]`. However, OpenSearch requires that binary vectors be packed into an `int8` byte format. For example, the preceding bit array would be converted to `[108, -116]`, as shown in the following image.
 
 <img src="/assets/media/blog-images/2024-10-30-lower-your-cost-on-opensearch-using-binary-vectors/pic2.png" alt="binary-vector-packing" class="img-centered"/>
 
