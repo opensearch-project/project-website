@@ -83,6 +83,50 @@
 }
 
 
+// CTA BANNER
+.OpenSearch-banner-dark-backgroundBanner {
+    position: relative;
+    // height: 50px;
+    overflow: hidden;
+    background-color: $primary-open-sky-s3;
+    background-image: var(--bs-gradient);
+
+    OpenSearch-banner-dark-backgroundBanner-container {
+        position: fluid;
+
+
+    }
+    
+}
+.openSearch-banner-dark-bannerText {
+    display: inline;
+    color: $secondary-golden-poppy;
+    font-size: 15px;
+    font-family: "Open Sans";
+    font-weight: 700;
+    line-height: 24px;
+    word-wrap: break-word;
+}
+.openSearch-banner-dark-bannerLink {
+    display: inline-block;
+    color: $secondary-golden-poppy;
+    font-size: 15px;
+    font-family: "Open Sans";
+    font-weight: 400;
+    line-height: 24px;
+    transition: all 0.15s;
+
+    &:visited {
+        color: $secondary-golden-poppy;
+    }
+    &:hover {
+        color: $secondary-sanfrancisco-fog-t1;
+        font-weight: 700;
+    }
+}
+
+
+
 
 
 // Highlight dropdown-toggle with specific "filter-select" class if there is any checkbox checked inside dropdown-menu
@@ -109,6 +153,7 @@
 .filter-bar-wrapper {
     // border-radius: 100px;
     // padding: 10px;
+    
     
 
     .filter-bar-button {
@@ -140,15 +185,21 @@
 
 
 .btn-group-rounded-left {
+
     border-top-left-radius: 5000px;
     border-bottom-left-radius: 5000px;
     // border-radius: 5000px 0 0 5000px;
+
 }
 .btn-group-middle-element {
+
     border-radius: 0 0 0 0;
+
 }
 .btn-group-rounded-right {
+
     border-radius: 0 5000px 5000px 0;
+
 }
 .btn-rounded-all {
     border-radius: 5000px 5000px 5000px 5000px;
