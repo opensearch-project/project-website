@@ -199,20 +199,21 @@ body_class: partners-page
     <!-- SOLUTIONS PROVIDERS RESULTS  -->
     <div class="container title-wrapper">
       
-      <div class="row">
+      <div class="d-flex">
         <!-- Page title -->
-        <h1 class="col align-self-start position-relative {{data_MainBody.ClassValue }} mb-0">{{ data_MainBody.Title }}</h1>
+        <h1 class="align-self-start position-relative {{data_MainBody.ClassValue }} mb-0">{{ data_MainBody.Title }}</h1>
 
         <!-- Returned results -->
-        <!-- <div class="col align-self-end returned-results-wrapper hide order-last"></div>
-          <span>Viewing </span>
-          <span id="partner-filter-returned-results"></span>
-          <span>Solutions Providers (Total = </span>
-          <span id="partner-filter-total-count"></span>
-          <span>)</span>
-        </div> -->
-        
+        <div class="ms-auto returned-results-wrapper hide">
+          <p class="returned-solutions-providers-text">
+            <span>Viewing </span>
+            <span id="solutions-providers-returned-results" class="solutions-providers-returned-results-count"></span>
+            <span> Solutions Providers</span>
+          </p>
+        </div>
       </div>
+
+
     </div>
 
 
@@ -258,22 +259,25 @@ body_class: partners-page
     </div>
 
     <!-- Back to top button -->
-    <div class="floating-buttons position-fixed top-50 end-0 z-sticky me-3 me-xl-4 pb-4">
+    <!-- <div class="floating-buttons position-fixed top-50 end-0 z-sticky me-3 me-xl-4 pb-4">
       <a class="btn-scroll-top btn btn-sm bg-body border-0 rounded-pill shadow animate-slide-end" href="#top">
         <i class="fa-solid fa-chevron-right"></i>
         Top
 
       </a>
-    </div>
+    </div> -->
+
+
   </div>
 </main>
 
     
 <script>
-    let partnerArray = []
-    let specializationFilters = []
-    let providerTypeFilters = []
-    let regionFilters = []
+    let partnerArray = [];
+    let specializationFilters = [];
+    let providerTypeFilters = [];
+    let regionFilters = [];
+    let resultsObject;
     
     window.onload = () => {
       
@@ -299,7 +303,9 @@ body_class: partners-page
           });
       });
 
-      console.log(partnerArray);
+      resultsObject = document.getElementById(`solutions-providers-returned-results`);
+      resultsObject.innerText = partnerArray.length;
+      console.log(resultsObject);
       
       
     }
@@ -422,14 +428,8 @@ body_class: partners-page
           card.classList.remove("card-hide");
           card.classList.add("card-show");
         });
-
-
-      console.log(`PartnersFound: ${temp_regionArray_filteredItems.length}`);
-
-
       
-
-
+      resultsObject.innerText = temp_regionArray_filteredItems.length;
 
     }
 

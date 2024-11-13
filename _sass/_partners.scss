@@ -126,6 +126,21 @@
 }
 
 
+.returned-solutions-providers-text {
+    color: $primary-open-sky-s3;
+    font-size: 15px;
+    font-family: Open Sans;
+    font-weight: 600;
+    line-height: 24px;
+    word-wrap: break-word;    
+    
+    .solutions-providers-returned-results-count {
+        font-weight: 700;
+        font-size: 20px;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+}
 
 
 
