@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/dashboard-styles.css' | relative_url }}">
+</head>
+<body>
+<div class="dashboard-container">
+    <div class="sidebar">
+        <h2>Dashboards</h2>
+        <ul>
+            {% for dashboard in page.dashboards %}
+            <li><a href="{{ dashboard.url | relative_url }}">{{ dashboard.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="main-content">
+        {{ content }}
+    </div>
+</div>
+</body>
+</html>
