@@ -78,11 +78,12 @@ body_class: partners-page
                 <input 
                   type="checkbox" 
                     class="form-check-input fs-base" 
-                    id="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
+                    id="{{category.DataAttribute}}" 
+                    autocomplete="off"
                     onclick="updateFilterCount('{{ data_SearchBar_ProviderType.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
                     data-count-id="{{ data_SearchBar_ProviderType.ButtonCategoryCountID }}">
                 <label 
-                  for="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
+                  for="{{category.DataAttribute}}" 
                   class="form-check-label d-flex align-items-end">
                   {{ category.Name }}
                   <span class="fs-xs text-body-secondary ps-2 ms-auto">{{ category.CategoryCount }}</span>
@@ -113,10 +114,11 @@ body_class: partners-page
                   type="checkbox" 
                     class="form-check-input fs-base" 
                     id="{{category.DataAttribute}}" 
+                    autocomplete="off"
                     onclick="updateFilterCount('{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
                     data-count-id="{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID }}">
                 <label 
-                  for="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
+                  for="{{category.DataAttribute}}" 
                   class="form-check-label d-flex align-items-end">
                   {{ category.Name }}
                   <span class="fs-xs text-body-secondary ps-2 ms-auto">{{ category.CategoryCount }}</span>
@@ -146,11 +148,12 @@ body_class: partners-page
                 <input 
                   type="checkbox" 
                     class="form-check-input fs-base" 
-                    id="{{data_SearchBar_OpenSearchSpeciality.DataAttribute}}" 
+                    id="{{category.DataAttribute}}" 
+                    autocomplete="off"
                     onclick="updateFilterCount('{{ data_SearchBar_Region.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
                     data-count-id="{{ data_SearchBar_Region.ButtonCategoryCountID }}">
                 <label 
-                  for="{{data_SearchBar_Region.DataAttribute}}" 
+                  for="{{category.DataAttribute}}" 
                   class="form-check-label d-flex align-items-end">
                   {{ category.Name }}
                   <span class="fs-xs text-body-secondary ps-2 ms-auto">{{ category.CategoryCount }}</span>
