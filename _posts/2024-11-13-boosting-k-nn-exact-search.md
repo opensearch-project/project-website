@@ -80,7 +80,7 @@ For more information about exact k-NN search and `script_score` queries, see [Ex
 
 ## Experiments show real-world performance gains
 
-To measure the impact of these optimizations, we conducted A/B tests comparing OpenSearch 2.14 to OpenSearch 2.15 and 2.17 in a single-node cluster. 
+To measure the impact of these optimizations, we conducted A/B tests comparing OpenSearch 2.14 to OpenSearch 2.17 in a single-node cluster. 
 
 ### Cluster configuration
 
@@ -91,17 +91,6 @@ To measure the impact of these optimizations, we conducted A/B tests comparing O
 |EBS Volume (GB)	|500	|
 
 ### Results
-
-The following table provides latency comparison between OpenSearch versions 2.14 and 2.15.
-
-|Space type	|Version	|50th percentile latency (ms)	|90th percentile latency (ms)	|99th percentile latency (ms)	|
-|---	|---	|---	|---	|---	|
-|**Inner product**	|2.14	|668.84378	|816.95014	|948.21019	|
-|| 2.15	|481.71112	|499.61605	|519.03619	|
-|| **Improvement**	|27.98%	|38.84%	|45.26%	|
-|**L2**	|2.14	|670.98628	|682.84925	|693.12135	|
-|| 2.15	|503.96816	|520.86304	|537.51321	|
-|| **Improvement**	|24.89%	|23.72%	|22.45%	|
 
 The following table provides latency comparison between OpenSearch versions 2.14 and 2.17.
 
@@ -116,7 +105,7 @@ The following table provides latency comparison between OpenSearch versions 2.14
 
 ### Conclusion
 
-The tests showed that OpenSearch's new SIMD optimizations resulted in significant latency reductions, especially for the inner product space type, which saw up to an 87% latency reduction at the 99th percentile.
+The tests showed that OpenSearch's new SIMD support and optimized memory access resulted in significant latency reductions, especially for the inner product space type, which saw up to an 87% latency reduction at the 99th percentile.
 
 ## What's next for exact k-NN search?
 
