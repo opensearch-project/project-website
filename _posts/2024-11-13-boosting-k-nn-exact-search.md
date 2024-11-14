@@ -18,13 +18,13 @@ Exact k-nearest neighbor (k-NN) search in OpenSearch allows you to define custom
 
 Using OpenSearch's `script_score` queries, you can perform exact k-NN searches to find the closest neighbors to a query vector. This query type allows you to create complex scoring functions that account for factors like document attributes, user preferences, or external data. 
 
-The exact k-NN search is especially effective for datasets with a few hundred to a few thousand documents, as it guarantees perfect recall (1.0). This method is often more suitable for small or specialized datasets, where the computational overhead of approximate k-NN may outweigh its speed advantages. For larger datasets, however, approximate search can be a better choice for managing latency. 
+Exact k-NN search is especially effective for datasets containing a few hundred to a few thousand documents because it guarantees perfect recall (1.0). This method is often more suitable for small or specialized datasets, where the computational overhead of approximate k-NN may outweigh its speed advantages. For larger datasets, however, approximate search can be a better choice in terms of managing latency. 
 
 ## Using Lucene's SIMD optimizations for faster k-NN search
 
-The release of [Lucene 9.7](https://lucene.apache.org/core/9_7_0/index.html) brought in Project Panama's Java Vector API, which accelerates k-NN vector calculations through Single Instruction, Multiple Data (SIMD) operations. SIMD enables CPUs to run the same operation on multiple data points simultaneously, speeding up search tasks that rely on data-parallel processing.
+The release of [Lucene 9.7](https://lucene.apache.org/core/9_7_0/index.html) introduced Project Panama's Java Vector API, which accelerates k-NN vector calculations through single instruction, multiple data (SIMD) operations. SIMD enables CPUs to run the same operation on multiple data points simultaneously, speeding up search tasks that rely on data-parallel processing.
 
-In OpenSearch 2.15, SIMD optimizations were added to the k-NN plugin's script scoring, resulting in significant performance gains on CPUs with SIMD support, such as AVX2 or AVX512 on x86, or NEON on ARM. Further improvements in OpenSearch 2.17 introduced Lucene's new vector format, which includes optimized memory-mapped file access. Together, these enhancements significantly reduce search latency for exact k-NN searches on supported hardware.
+In OpenSearch 2.15, SIMD optimizations were added to the k-NN plugin's script scoring, resulting in significant performance gains for CPUs with SIMD support, such as AVX2 or AVX512 on x86 or NEON on ARM. Further improvements in OpenSearch 2.17 introduced Lucene's new vector format, which includes optimized memory-mapped file access. Together, these enhancements significantly reduce search latency for exact k-NN searches on supported hardware.
 
 ## How to run exact k-NN search
 
@@ -88,7 +88,7 @@ To measure the impact of these optimizations, we conducted A/B tests comparing O
 |---	|---	|
 |Data nodes	|1	|
 |CPUs	|8	|
-|EBS Volume (GB)	|500	|
+|EBS volume (GB)	|500	|
 
 ### Results
 
@@ -109,4 +109,4 @@ The tests showed that OpenSearch's new SIMD support and optimized memory access 
 
 ## What's next for exact k-NN search?
 
-Future OpenSearch updates will provide even more flexibility for k-NN search. You'll be able to switch between exact and approximate search directly at query time. Additionally, future versions will provide the ability to specify which fields build indexes for exact and approximate search types. Stay tuned for these updates as we continue to improve OpenSearch's k-NN search capabilities.
+Future OpenSearch versions will provide even more k-NN search flexibility. You'll be able to switch between exact and approximate search at query time. Additionally, future versions will provide the ability to specify which fields build indexes for exact and approximate search types. Stay tuned for these updates as we continue to improve OpenSearch's k-NN search capabilities.
