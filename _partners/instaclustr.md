@@ -9,15 +9,14 @@ logo_large: /assets/media/partners/instaclustr/logo-large.svg
 description: |
   <p>Instaclustr helps organizations deliver applications at scale by operating and supporting their data infrastructure through its SaaS platform for open source technologies, whether on-prem or in their cloud of choice.
   </p><p>In addition to managed platforms, Instaclustr also offers 24x7 support services, consulting and training for numerous open source technologies.</p>
-business_type: MSP
-region: Worldwide
 contact: 'support@instaclustr.com'
 
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs']
+region:           Global
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Managed Services Provider (MSP)
+opensearch_tech:  Search,Analytics,Observability,Security,Logs and Metrics
 
 
-
-industries: 'All'
 main_office_location:  |
   Canberra, Australia
   San Jose, California, US

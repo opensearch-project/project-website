@@ -13,7 +13,7 @@ contact: 'contact@digitalpebble.com'
 
 region:           Global
 industries:       Software and Technology
-business_type:    Consultant
+business_type:    Consultancy
 opensearch_tech:  Search, Observability, Analytics
 
 main_office_location: |

@@ -9,9 +9,9 @@ description: 'As the creators and maintainers of the open source Fluent Bit proj
 contact: 'hello@calyptia.com'
 
 region:           Global
-industries:       Software and Technology, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit
-business_type:    (ISV) Independent Software Vendor
-opensearch_tech:  Observability, Logs
+industries:       Education,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Independent Software Vendor (ISV)
+opensearch_tech:  Observability,Logs and Metrics
 
 
 main_office_location: |

@@ -11,8 +11,8 @@ contact: 'hello@cribl.com'
 
 
 region:           Global
-industries:       Software and Technology, Business Services, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail
-business_type:    (ISV) Independent Software Vendor
+industries:       Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Independent Software Vendor (ISV)
 opensearch_tech:  Observability
 
 main_office_location: |

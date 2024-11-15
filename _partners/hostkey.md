@@ -7,15 +7,15 @@ link: https://hostkey.com/
 logo_large: /assets/media/partners/hostkey/hostkey-logo.png
 
 description: 'We offer a wide range of dedicated servers from entry-level up to high-performance GPU servers and private cloud solutions. Our servers are hosted in TIER III data centers in the Netherlands, Germany, Finland, Iceland, Turkey and the USA.'
-business_type: 'Server infrastructure provider.'
-region: 'North America, Europe, Middle East, Africa, Asia Pacific, Australia'
+business_type: Systems Inegrator
+region: North America,Europe,Middle East,Asia Pacific,Australia
 contact: 'support@hostkey.com'
 
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs']
+opensearch_tech: Observability,Search,Analytics,Logs and Metrics
 
 
 
-industries:  'business services, consumer services'
+industries:  Business Services,Consumer Services
 multiple_office_locations:
   - name: 'Main office - Netherlands'
     location: |

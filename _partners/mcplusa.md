@@ -10,10 +10,10 @@ description: 'MC+A is an award-winning technology consultancy that specializes i
 contact: 'sales@mcplsua.com, +1 312-585-6396'
 
 
-opensearch_tech: Search, Observability, Logs
-industries: All
-business_type: Systems Integrator, Managed Services, ISV
-region: North America, South America, Australia
+opensearch_tech: Search,Observability,Logs and Metrics,Machine Learning and AI
+industries: Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type: Managed Services Provider (MSP),Systems Inegrator,Independent Software Vendor (ISV)
+region: North America,South America,Europe
 
 resources:
   - url: 'https://mcplusa.com/comparing-performance-of-openai-gpt-4-and-microsoft-azure-gpt-4/'

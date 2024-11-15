@@ -10,8 +10,8 @@ contact: 'info@craftercms.com, +1.703.570.5185'
 
 
 
-region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail
+region:           Global
+industries:       Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Business Services,Financial Services
 business_type:    Professional Services
 opensearch_tech:  Search
 

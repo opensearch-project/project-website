@@ -1,7 +1,7 @@
 
 // LAYOUT STYLES 
 .sm-width-empty-span {
-    width: 10px;
+    width: 5px;
     display: inline-block;
 }
 .md-width-empty-span {
@@ -86,15 +86,12 @@
 // CTA BANNER
 .OpenSearch-banner-dark-backgroundBanner {
     position: relative;
-    // height: 50px;
     overflow: hidden;
     background-color: $primary-open-sky-s3;
     background-image: var(--bs-gradient);
 
     OpenSearch-banner-dark-backgroundBanner-container {
         position: fluid;
-
-
     }
     
 }
@@ -112,7 +109,7 @@
     color: $secondary-golden-poppy;
     font-size: 15px;
     font-family: "Open Sans";
-    font-weight: 400;
+    font-weight: 700;
     line-height: 24px;
     transition: all 0.15s;
 
@@ -121,7 +118,6 @@
     }
     &:hover {
         color: $secondary-sanfrancisco-fog-t1;
-        font-weight: 700;
     }
 }
 
@@ -143,15 +139,6 @@
 }
 
 
-
-// Highlight dropdown-toggle with specific "filter-select" class if there is any checkbox checked inside dropdown-menu
-// .dropdown:has(:checked) .filter-select {
-//     --bs-btn-border-color: #{$gray-900};
-//     --bs-btn-hover-border-color: #{$gray-900};
-//   }
-
-
-
 .card-hide {
     // .col {
     //     display: none !important;
@@ -166,14 +153,10 @@
 
 
 .filter-bar-wrapper {
-    // border-radius: 100px;
-    // padding: 10px;
-    
-    
 
     .filter-bar-button {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
         color: $primary-open-sky-s1;
         background-color: $secondary-sanfrancisco-fog-t1;
         font-family: 'Open Sans Condensed';
@@ -182,16 +165,7 @@
             background-color: $primary-open-sky-s1;
             color: $secondary-sanfrancisco-fog-t1;
         }
-
-        // .filter-bar-button-text-header {
-
-        // }
     }
-
-    // .dropdown-body {
-    //     --bs-dropdown-padding-x: 20px;
-    //     --bs-dropdown-min-width: 250px;
-    // }
 }
 
 .filter-criteria-selection-wrapper {
@@ -207,12 +181,10 @@
 
 }
 .btn-group-middle-element {
-
     border-radius: 0 0 0 0;
 
 }
 .btn-group-rounded-right {
-
     border-radius: 0 5000px 5000px 0;
 
 }

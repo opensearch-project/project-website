@@ -8,10 +8,15 @@ logo_large: /assets/media/partners/oracle/oracle-logo.png
 product_image: /assets/media/partners/oracle/oracle-product.png
 
 description: 'Our mission is to help people see data in new ways, discover insights, unlock endless possibilities.'
-business_type: 'Oracle’s public cloud is delivered by networks of globally distributed cloud regions that provide secure, high-performance, local environments, organized into separate, secure cloud realms. Organizations can move, build, and run all workloads and cloud applications on Oracle Cloud Infrastructure (OCI) while complying with regional data regulations.'
 contact: 'grant.herbon@oracle.com'
-industries: 'business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology.'
-region: 'Worldwide'
+
+
+region:           Global
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Managed Services Provider (MSP), Independent Software Vendor (ISV)
+opensearch_tech:  Search,Observability,Analytics,Machine Learning and AI,Security,Migration
+
+
 main_office_location: |
     2300 Oracle Way
     Austin, TX 78741

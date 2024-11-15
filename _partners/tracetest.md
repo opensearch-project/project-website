@@ -12,14 +12,15 @@ product_image: /assets/media/partners/tracetest/tracetest-product.png
 description: 'An open-source testing tool that enables testing your distributed system with distributed traces.
 No more writing test scripts or mocks. Instead, test against real data.
 Get a 10x reduction in test creation time, and a 20x reduction in troubleshooting time.'
-business_type: 'Open-source product'
-region: 'Global'
 contact: 'ken@kubeshop.io, adnan@kubeshop.io'
 
-opensearch_tech: ['Observability']
+region: Global
+industries:  Software and Technology
+business_type: Independent Software Vendor (ISV)
+opensearch_tech:  Observability,Other
 
 
-industries: 'Software, Technology'
+
 main_office_location:  'Remote'
 resources:
   - url: 'https://tracetest.io/blog/observability-trace-based-testing-aws-serverless-opensearch-tracetest'

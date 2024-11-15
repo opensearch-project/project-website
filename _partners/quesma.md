@@ -9,14 +9,14 @@ logo_large: /assets/media/partners/quesma/quesma-logo-black-transparent-full.png
 
 product_image: '/assets/media/partners/quesma/quesma-diagram.png'
 description: We help customers innovate faster by reshaping how applications are built and connected to their DBs. Quesma database gateway enables development teams to modernize and evolve application architecture by enabling interoperability between OpenSearch stack and super-efficient analytical DB platforms of your choice.
-business_type: product/technology
-region: Global
 contact: info@quesma.com
 
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs']
+region:           Global
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Independent Software Vendor (ISV),Consultancy
+opensearch_tech:  Search,Observability,Analytics,Security,Machine Learning and AI,Migration,Logs and Metrics
 
 
-industries: All
 multiple_office_locations:
   - name: 'USA'
     location: |

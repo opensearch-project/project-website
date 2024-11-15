@@ -5,13 +5,15 @@ logo: '/assets/media/partners/spot_by_netapp/spot-by-netapp.png'
 link: 'https://spot.io/'
 logo_large: '/assets/media/partners/spot_by_netapp/spot.png'
 description: 'Spot by NetApp helps companies get the most out of their cloud investments. Our CloudOps portfolio helps customers securely and reliably deploy, operate and scale applications and infrastructure in the cloud.'
-business_type: MSP, Product, Services
-region: Worldwide
 contact: '+1 408 822 6000, nfo@spot.io, https://spot.io/contact/'
 
-opensearch_tech: ['Search']
+region:           Global
+industries:       Software and Technology,Financial Services
+business_type:    Managed Services Provider (MSP),Professional Services
+opensearch_tech:  Search,Observability,Machine Learning and AI,Logs and Metrics,Migration,Analytics,Security
 
-industries: 'Software, Technology'
+
+
 main_office_location: |
   3060 Olsen Drive
   San Jose, CA 95128

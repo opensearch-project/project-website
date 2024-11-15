@@ -9,9 +9,9 @@ contact: 'https://fusionauth.io/contact'
 
 
 
-region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
-business_type:    Professional Services
+region:           Global
+industries:       Aerospace and Defense,Automotive,Business Services,Consumer Services,Energy and Utilities,Education,Financial Services,Manufacturing,Media and Entertainment,Healthcare,Non-Profit,Public Sector,Retail and e-Commerce,Software and Technology,Supply Chain
+business_type:    Independent Software Vendor (ISV)
 opensearch_tech:  Search, Security
 
 

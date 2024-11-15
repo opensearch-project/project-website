@@ -18,11 +18,8 @@ logo_large: /assets/media/partners/elastio/elastio-logo.png
 
 
 region: Global
-
 industries:  Software and Technology, Business Services, Consumer Services
-
-business_type: (MSP) Managed Service Provider
-
+business_type:  Managed Service Provider (MSP)
 opensearch_tech:  Search, Observability, Analytics
 
 

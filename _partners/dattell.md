@@ -16,9 +16,9 @@ contact: 'support@dattell.com, (619) 786-0813'
 
 
 region:           Global
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
-business_type:    (MSP) Managed Service Provider
-opensearch_tech:  Search, Observability, Security, Logs, Analytics, Vector Database
+industries:       Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Business Services,Financial Services
+business_type:    Professional Services,Consultancy
+opensearch_tech:  Search,Observability,Security,Analytics,Logs and Metrics,Machine Learning and AI
 
 
 main_office_location: |

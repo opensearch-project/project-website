@@ -12,8 +12,8 @@ description: 'The managed OpenSearch platform that provides the support of a sea
 contact: 'team@bonsai.io'
 
 region:           Global
-industries:       Software and Technology, Business Services, Education, Financial Services, Healthcare, Media and Entertainment, NonProfit, Retail, Telecommunications
-business_type:    (MSP) Managed Service Provider
+industries:       Education,Healthcare,Media and Entertainment,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Managed Services Provider (MSP)
 opensearch_tech:  Search
 
 

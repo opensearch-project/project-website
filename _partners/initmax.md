@@ -6,16 +6,18 @@ link: 'https://www.initmax.com'
 logo_large: '/assets/media/partners/initmax/logo_large.png'
 product_image: '/assets/media/partners/initmax/initmax-product.png'
 description: 'Company initMAX is your partner for advanced IT monitoring'
-business_type: 'Professional Services Organization'
+
 contact: 'info@initmax.com, +420 800 244 442'
 main_office_location: |
   Czech Republic
   Plynární 1617/10
   Praha 170 00
-region: 'Worldwide'
-industries: 'Retail, Automotive'
 
-opensearch_tech: ['Search', 'Logs']
+
+region:           Global
+industries:       Automotive,Retail and e-Commerce
+business_type:    Consultancy,Training
+opensearch_tech:  Search,Logs and Metrics
 
 
 resources: 

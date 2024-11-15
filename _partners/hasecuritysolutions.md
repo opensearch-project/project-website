@@ -5,6 +5,9 @@ logo: '/assets/media/partners/hasecuritysolutions/hasecuritysolutions.png'
 logo_large: '/assets/media/partners/hasecuritysolutions/hasecuritysolutions_BackgroundRemoved.png'
 link: 'https://www.hasecuritysolutions.com'
 
-opensearch_tech: Security
+region:           North America
+industries:       Healthcare,Media and Entertainment,Retail and e-Commerce
+business_type:    Professional Services
+opensearch_tech:  Security
 
 ---

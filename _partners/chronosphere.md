@@ -19,11 +19,10 @@ link: http://Chronosphere.io
 contact: events@Chronosphere.io
 
 
-business_type: (ISV) Independent Software Vendor
+business_type: Independent Software Vendor (ISV)
 industries:  Software and Technology
-region: North America, South America, Europe, Asia Pacific, Australia 
-
-opensearch_tech: [Observability, Logs, Analytics]
+region: North America, Europe, Asia Pacific, Australia 
+opensearch_tech: Analytics,Observability,Logs and Metrics
 
 logo: /assets/media/partners/chronosphere/small_logo.png
 logo_large: /assets/media/partners/chronosphere/logo.png

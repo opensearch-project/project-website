@@ -14,9 +14,9 @@ contact: 'info@eliatra.com, https://eliatra.com/contact'
 
 
 region:           Global
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
-business_type:    Consultant, Professional Services
-opensearch_tech:  Migration, Search, Observability, Security, Analytics, Machine Learning & AI
+industries:       Aerospace and Defense,Automotive,Business Services,Consumer Services,Education,Energy and Utilities,Financial Services,Healthcare,Manufacturing,Media and Entertainment,Non-Profit,Public Sector,Retail and e-Commerce,Software and Technology,Supply Chain
+business_type:    Professional Services,Consultancy
+opensearch_tech:  Migration,Search,Security,Observability,Analytics,Machine Learning and AI,Logs and Metrics
 
 
 main_office_location: |

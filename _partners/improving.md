@@ -7,15 +7,16 @@ logo_large: /assets/media/partners/improving/improving-logo-large.png
 
 product_image: /assets/media/partners/improving/improving-product-image.png
 description: 'Improving revolutionizes the digital landscape, providing cutting-edge IT consulting, dynamic software development, and comprehensive agile training globally. Our trailblazing solutions empower our clients to conquer tactical and strategic goals, propelling them to unparalleled success in a relentlessly competitive and ever-evolving market. Join us on the journey to unprecedented heights.'
-business_type: 'System Integrator, Professional Services, CSP, ISV, Training'
-region: 'North America'
 contact: 'Kyle.Porter@improving.com, +1 (604) 441-7318'
 
-opensearch_tech: ['Observability', 'Analytics']
 
 
+region:           North America
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Systems Inegrator,Professional Services,Independent Software Vendor (ISV),Training
+opensearch_tech:  Analytics,Observability
 
-industries: 'All'
+
 multiple_office_locations:
   - name: Dallas, Texas HQ
     location: |

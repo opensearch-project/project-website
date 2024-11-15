@@ -10,8 +10,8 @@ contact: 'contact@elastisys.com, +46101471000'
 
 
 region:           Europe
-industries:       Software and Technology
-business_type:    Consultant
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Support,Consultancy,Platform Integrator
 opensearch_tech:  Search, Observability, Security, Analytics
 
 

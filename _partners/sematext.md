@@ -9,14 +9,14 @@ link: 'https://sematext.com'
 logo_large: '/assets/media/partners/sematext/sematext.png'
 product_image: '/assets/media/partners/sematext/sematext.png'
 description: 'Sematext has deep expertise with OpenSearch and building search applications on top of it.  Having been in the search business since 2010 and providing consulting, production support and training, we have helped 100s of organizations with OpenSearch, Elasticsearch, and Apache Solr.'
-business_type: 'Systems Integrator, Technology Services Provider, Services Organisation, Consultancy &amp; Training, ISV'
-region: 'North America, South America, Europe, Middle East, Africa, Asia Pacific, Australia'
 contact: 'info@sematext.com, +1 (347) 480-1610'
 
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics', 'Logs']
+region:           Global
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Public Sector,Media and Entertainment,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Systems Inegrator,Consultancy,Training
+opensearch_tech:  Search,Logs and Metrics,Observability,Analytics,Machine Learning and AI
 
 
-industries: 'business services, consumer services, education, energy and utilities, financial services, healthcare, media and entertainment, public sector, non-profit, retail, software and technology'
 
 
 main_office_location:  |

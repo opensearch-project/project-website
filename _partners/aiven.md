@@ -9,10 +9,10 @@ description: 'Aiven provides managed open source data technologies, such as Post
 contact: 'https://aiven.io/contact'
 
 
-opensearch_tech:  Search, Observability, Logs, analytics
-region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
-industries:       Software and Technology, Business Services
-business_type:    (MSP) Managed Service Provider
+opensearch_tech:  Search,Observability,Analytics,Logs and Metrics
+region:           Global
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Managed Services Provider (MSP)
 
 
 

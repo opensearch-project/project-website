@@ -9,14 +9,16 @@ link: 'https://www.igsl-group.com/'
 logo_large: '/assets/media/partners/igs/igs.png'
 # product_image: ''
 description: 'Integrated Global Solutions Limited (IGS) is an IT solutions and service provider with over a decade of business experience, focusing on IT Service Management (ITSM), infrastructure management solutions, applications development, data analytics, big data solutions and open-source technologies.'
-business_type: 'Product/Technology, Services Organization'
-region: 'Asia Pacific, Australia, Europe'
+
 contact: 'info@igsl-group.com'
 
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics']
 
 
-industries: 'business services, financial services, public sector, non-profit, software and technology'
+region:           Europe,Asia Pacific,Australia
+industries:       Business Services,Public Sector,Non-Profit,Software and Technology,Financial Services
+business_type:    Systems Inegrator
+opensearch_tech:  Search,Observability,Analytics,Security
+
 
 main_office_location:  |
   Room 1501, Millennium City 5, 418 Kwun Tong Road

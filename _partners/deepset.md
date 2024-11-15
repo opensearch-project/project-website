@@ -12,10 +12,10 @@ description: 'deepset is the company behind Haystack NLP and deepset Cloud enter
 contact: 'https://www.deepset.ai/, engage@deepset.ai'
 
 
-region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
-industries:       Software and Technology
-business_type:    (ISV) Independent Software Vendor
-opensearch_tech:  Search, Vector Database, Observability, Machine Learning & AI
+region:           Global
+industries:       Business Services,Healthcare,Software and Technology,Financial Services
+business_type:    Independent Software Vendor (ISV),Professional Services
+opensearch_tech:  Machine Learning and AI,Observability,Search
 
 multiple_office_locations:
   - name: 'Berlin, Germany'

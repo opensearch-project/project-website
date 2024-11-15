@@ -13,9 +13,9 @@ contact: 'info@graylog.com'
 
 
 region:           Global
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
-business_type:    Consultant, (ISV) Independent Software Vendor, Professional Services
-opensearch_tech:  Observability, Security, Logs, Analytics
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Independent Software Vendor (ISV), Consultancy
+opensearch_tech:  Observability, Security, Logs and Metrics, Analytics
 
 
 main_office_location: |

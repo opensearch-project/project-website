@@ -12,10 +12,10 @@ description: 'GSI Technology offers the Gemini® APU, a massively parallel compu
 contact: 'opensearch@gsitechnology.com'
 
 
-region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+region:           Global
 industries:       Software and Technology
-business_type:    Professional Services
-opensearch_tech:  Search, Machine Learning & AI
+business_type:    Systems Inegrator,Independent Software Vendor (ISV),Platform Integrator
+opensearch_tech:  Search,Machine Learning and AI
 
 main_office_location:  |
   1213 Elko Drive

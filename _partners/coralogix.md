@@ -10,10 +10,10 @@ description: 'Harmonious, Full-Stack Observability at Scale. As data volumes con
 
 
 
-region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+region:           Global
 industries:       Software and Technology
-business_type:    (MSP) Managed Service Provider,  Platform Integrator
-opensearch_tech:  Search, Observability, Analytics
+business_type:    Independent Software Vendor (ISV),Managed Services Provider (MSP)
+opensearch_tech:  Search,Observability,Analytics,Security
 
 products:
   - name: 'Coralogix SaaS Platform'

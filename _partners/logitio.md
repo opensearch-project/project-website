@@ -9,14 +9,14 @@ logo_large: /assets/media/partners/logit/logit-logo.jpg
 product_image: /assets/media/partners/logit/logit-product.png
 
 description: 'Logit.io offers a comprehensive observability and data analysis solution that enables businesses to enhance their cloud observability. By providing users with a unified and reliable data analysis solution, the platform facilitates scalability.'
-business_type: Worldwide
 contact: 'sales@logit.io'
 
-opensearch_tech: ['Observability', 'Security', 'Logs']
+region:           Global
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Platform Integrator
+opensearch_tech:  Search,Security,Analytics,Observability,Logs and Metrics
 
 
-
-industries: 'Public sector and government, manufacturing, telecoms, financial services, logistics, retail, e-commerce, media and entertainment, healthcare'
 main_office_location:  |
   76 Manchester Road 
   Denton, Manchester 

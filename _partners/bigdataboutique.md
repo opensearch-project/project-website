@@ -12,9 +12,9 @@ contact: 'itamar@bigdataboutique.com'
 
 
 region:           Global
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
-business_type:    (ISV) Independent Software Vendor
-opensearch_tech:  Search, Observability, Logs, Analytics
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Consultancy
+opensearch_tech:  Search,Observability,Analytics
 
 
 resources:

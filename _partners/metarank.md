@@ -7,13 +7,14 @@ link: https://metarank.ai
 logo_large: /assets/media/partners/metarank/large-logo.png
 
 description: 'Metarank Labs Co. provides integration and ongoing support for companies that use open source personalized ranking and recommendations service Metarank.'
-business_type: 'product/technology, services'
-region: 'Worldwide'
 contact: 'seva@metarank.ai'
 
-opensearch_tech: ['Search']
+region:           Global
+industries:       Business Services
+business_type:    Independent Software Vendor (ISV)
+opensearch_tech:  Search
 
-industries: 'business services'
+
 resources:
   - url: 'https://blog.metarank.ai/learn-to-rank-with-opensearch-and-metarank-3557fa70f8e8'
     title: 'Learn to Rank with OpenSearch and Metarank'

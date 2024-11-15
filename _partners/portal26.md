@@ -7,14 +7,15 @@ link: https://portal26.ai/
 logo_large: /assets/media/partners/portal26/portal26-logo-large.png
 
 description: Portal26 provides encryption based data protection for big data stores such as AWS S3, OpenSearch, Redshift etc. Portal26 also leverages the above encryption to provide a SaaS platform for customers to monitor and understand data security risks in the GenAI usage within the enterprise.
-
-business_type: Software Vendor
-region: Global
 contact: "+1 (408) 533-0782, info@portal26.ai"
 
-opensearch_tech: ['Security']
+region:           Global
+industries:       Healthcare,Public Sector,Government ,Financial Services
+business_type:    Independent Software Vendor (ISV)
+opensearch_tech:  Security,Search,Machine Learning and AI
 
-industries:  Financial Services, Healthcare, Government, Public Sector
+
+
 main_office_location:  |
   15559 Union Avenue
   Suite 3054

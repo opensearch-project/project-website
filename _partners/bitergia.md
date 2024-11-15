@@ -16,8 +16,7 @@ contact: 'info@bitergia.com'
 
 region:           Global
 industries:       Software and Technology
-# business_type: 'Product/Technology, Services Organization'
-business_type:    Professional Services
+business_type:    Independent Software Vendor (ISV),Professional Services
 opensearch_tech:  Observability, Analytics
 
 

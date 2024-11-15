@@ -17,9 +17,9 @@ contact: sergey@aimlapi.com
 contact_phone: 06202495871
 
 region:           Global
-opensearch_tech:  GenAI
+opensearch_tech:  Machine Learning and AI
 industries:       Software and Technology
-business_type:    (ISV) Independent Software Vendor
+business_type:    Independent Software Vendor (ISV)
 
 resources:
   - url: 'https://aimlapi.com/blog/hidden-embedding-models-youve-been-missing-out-on'

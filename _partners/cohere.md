@@ -9,9 +9,9 @@ description: 'Cohere is the leading AI platform for enterprise. Its world-class 
 contact: 'team@cohere.ai'
 
 region:           Global
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit
-business_type:    Professional Services
-opensearch_tech:  Search, Machine Learning & AI, Vector Database
+industries:       Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Software and Technology,Business Services,Financial Services
+business_type:    Professional Services,Managed Services Provider (MSP)
+opensearch_tech:  Machine Learning and AI,Search
 
 
 main_office_location: |

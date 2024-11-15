@@ -10,13 +10,13 @@ logo_large: /assets/media/partners/seacom/seacom-logo.png
 product_image: '/assets/media/partners/seacom/seacom-product.png'
 description: 'Seacom has been working in Information Technology since 1999, offering professional services to enterprise-level companies and public administrations on Open Source software. Our main offerings are email and collaboration, data management architectures, cybersecurity, and Cloud Native infrastructures.
 Seacom has been main Elastic&apos;s partner in Italy since 2013, gaining strong product experience, and certifications in developing enterprise-level projects.'
-business_type: 'ISV, services organization'
-business_type: 'Consultancy, Support, Product'
-region: 'Europe, Middle East, Africa'
+
 contact: 'info@seacom.it, +390500984020'
 
-
-opensearch_tech: ['Search', 'Observability', 'Security', 'Analytics']
+region:           Europe,Middle East,Asia Pacific,Africa
+industries:       Business Services,Software and Technology
+business_type:    Consultancy,Support,Professional Services
+opensearch_tech:  Search,Observability,Security,Analytics,Logs and Metrics
 
 
 main_office_location: |

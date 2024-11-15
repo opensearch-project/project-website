@@ -11,9 +11,9 @@ description: 'Barefoot Coders is a boutique software and technical infrastructur
 contact: 'hello@barefootcoders.com, +1 855 833 2777'
 
 region:           North America
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
 business_type:    Professional Services
-opensearch_tech:  Search, Logs
+opensearch_tech:  Search,Analytics,Logs and Metrics
 
 
 

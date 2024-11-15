@@ -13,9 +13,9 @@ contact: '+1 737 204 0291, +44 203 656 5291'
 
 
 region:           Global
-industries:       Software and Technology, Business Services
-business_type:    Professional Services
-opensearch_tech:  Search, Observability, Security, Logs, Analytics
+industries:       Education,Financial Services,Public Sector,Software and Technology
+business_type:    Professional Services,Managed Services Provider (MSP),Consultancy
+opensearch_tech:  Search,Observability,Security,Analytics,Logs and Metrics
 
 
 

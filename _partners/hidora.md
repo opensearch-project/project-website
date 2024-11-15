@@ -15,8 +15,8 @@ contact: 'contact@hidora.io, 00 41 22 552 14 14'
 
 
 region:           Europe
-industries:       Software and Technology
-business_type:    Professional Services
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Consultancy
 opensearch_tech:  Observability
 
 

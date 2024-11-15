@@ -13,10 +13,10 @@ contact: 'contact@cloudscaleinc.com'
 main_office_location: 'Chandigarh, India - 160062'
 
 
-region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
-industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit
-business_type:    (MSP) Managed Service Provider, Professional Services
-opensearch_tech:  Search, Observability, Security, Analytics
+region:           Global
+industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
+business_type:    Managed Services Provider (MSP),Professional Services
+opensearch_tech:  Search,Observability,Analytics,Security
 
 
 

@@ -7,14 +7,16 @@ link: https://telicent.io
 logo_large: /assets/media/partners/telicent/talicent-logo-large.png
 
 description: 'Telicent is a software start-up building a super-secure platform to enable rapid innovation and digital transformation. Our CORE platform is open source, and lets you innovate with your own data in a secure way - try out new tools, new ideas, new start-ups. Safely.'
-business_type: 'ISV'
-region: Worldwide
 contact: 'opensource@telicent.io'
 
-opensearch_tech: ['Search', 'Observability', 'Security']
 
 
-industries: 'Energy and utilities, financial services, healthcare, public sector, non-profit, software and technology'
+region: Global
+industries:  Energy and Utilities,Business Services,Healthcare,Public Sector,Non-Profit,Software and Technology,Financial Services
+business_type: Independent Software Vendor (ISV)
+opensearch_tech:  Search,Observability,Security
+
+
 main_office_location:  |
   London, UK
 social_links:

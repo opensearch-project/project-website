@@ -6,15 +6,17 @@ link: 'https://www.hyper-space.io/'
 logo_large: '/assets/media/partners/hyperspace/hyperspace_logo_large.png'
 description: Hyperspace is an elastic compatible cloud-native search database that leverages custom computing power so you can run any type of search at any time and scale with uncompromised performance, consistency, and confidence.
 
-business_type: 'MSP'
-
-region: 'Global'
 
 contact: amits@hyper-space.io
 
-opensearch_tech: ['Search']
 
-industries: 'Education, financial services, healthcare, media and entertainment, non-profit, retail, software and technology'
+
+region:           Global
+industries:       Education,Financial Services,Healthcare,Media and Entertainment,Retail and e-Commerce,Non-Profit,Software and Technology
+business_type:    Managed Services Provider (MSP)
+opensearch_tech:  Search
+
+
 
 main_office_location:  |
   Toha building

@@ -10,9 +10,9 @@ description: "CERN is one of the world's largest and most respected centres for 
 contact: 'cern.reception@cern.ch, it-opensearch-experts@cern.ch'
 
 region: Global
-business_type: ResearchInstitute
-opensearch_tech: Search, Security, Analytics
-industries: NonProfit
+business_type: Consultancy
+opensearch_tech: Search,Security,Analytics,Other
+industries: Non-Profit
 
 main_office_location:  |
   Esplanade des Particules 1

@@ -10,14 +10,14 @@ logo_large: /assets/media/partners/searchiumai/searchiumai-logo.png
 description: |
   <p>Searchium.ai is a SaaS platform that optimizes neural search applications.</p>
   <p>Based on in-memory computing built specifically for search, we give you a significant advantage, easy-to-integrate neural search that scales to billions without sacrificing speed or accuracy.</p>
-
-business_type: 'Product/Technology'
-region: 'Worldwide'
 contact: 'devopsil@gsitechnology.com, social@gsitechnology.com'
 
-opensearch_tech: ['Search']
+region:           Global
+industries:       Software and Technology
+business_type:    Independent Software Vendor (ISV)
+opensearch_tech:  Search
 
-industries: 'Software and Technology'
+
 main_office_location: |
   18 Raul Wallenberg
   Tel Aviv, Israel
