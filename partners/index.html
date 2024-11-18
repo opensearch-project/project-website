@@ -86,7 +86,7 @@ body_class: partners-page
             </button>
   
             <ul class="dropdown-menu dropdown-menu-end w-35 px-4 shadow">
-              <li><h5 class="dropdown-header">Select all that apply</h5></li>
+              <li><h5 class="dropdown-header solutionsProviders-dropdownHeader">Select all that apply</h5></li>
 
               {% for category in data_SearchBar_ProviderType.Categories %}
                 <div class="form-check">
@@ -119,9 +119,8 @@ body_class: partners-page
             </button>
     
             <ul class="dropdown-menu dropdown-menu-end w-15 px-4 shadow">
-              <li><h5 class="dropdown-header">Select all that apply</h5></li>
+              <li><h5 class="dropdown-header solutionsProviders-dropdownHeader">Select all that apply</h5></li>
               {% for category in data_SearchBar_OpenSearchSpeciality.Categories %}
-                <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
                 <div class="form-check">
                   <input 
                     type="checkbox" 
@@ -153,7 +152,7 @@ body_class: partners-page
             </button>
     
             <ul class="dropdown-menu dropdown-menu-end w-15 px-4 shadow">
-              <li><h5 class="dropdown-header">Select all that apply</h5></li>
+              <li><h5 class="dropdown-header solutionsProviders-dropdownHeader">Select all that apply</h5></li>
               {% for category in data_SearchBar_Region.Categories %}
                 <div class="form-check">
                   <input 
@@ -313,11 +312,10 @@ body_class: partners-page
       
     }
 
-    // Specialization
+    // Update the filter counts on the filter bar buttons
     const updateFilterCount = (countId, filterName) => {
       console.log(countId, filterName);
 
-      // Update the filter counts on the filter bar buttons
       const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
       const countElement = document.getElementById(countId)
       if (checkedCheckboxes.length > 0) {
