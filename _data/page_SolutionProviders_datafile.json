@@ -3,7 +3,10 @@
 {
 
     "SolutionProviders": {
-
+        "MobileFilterBar": {
+            "ButtonTitile": "Filters",
+            "OffcanvasTitle": "Filters"
+        },
         "HeroBanner": {
             "Title": "OpenSearch Solutions Providers",
             "SubText": "Find the right provider to achieve your business goals, extend your products, and better serve your customers",
@@ -26,14 +29,12 @@
             "ProviderType_Dropdown": {
                 "Title": "Provider type",
                 "ButtonCategoryCountID": "ProviderType_CategoryCount",
+                "ButtonCategoryCountID_MobileFilters": "ProviderType_CategoryCount_Mobile",
+                "AccordionMobileFilters_TargetDataAttribute": "ProviderTypeFilters",
                 "Categories": [
                     {
                         "Name": "Consultancy",
                         "DataAttribute": "Consultancy"
-                    },
-                    {
-                        "Name": "Content Service Provider",
-                        "DataAttribute": "CSP"
                     },
                     {
                         "Name": "Independent Software Vendor",
@@ -52,16 +53,16 @@
                         "DataAttribute": "Professional Services"
                     },
                     {
-                        "Name": "Training",
-                        "DataAttribute": "Training"
-                    },
-                    {
                         "Name": "Support",
                         "DataAttribute": "Support"
                     },
                     {
                         "Name": "Systems Integrator",
                         "DataAttribute": "Systems Integrator"
+                    },
+                    {
+                        "Name": "Training",
+                        "DataAttribute": "Training"
                     }
 
                 ]
@@ -69,10 +70,20 @@
             "OpenSearchSpecialization_Dropdown": {
                 "Title": "OpenSearch solutions",
                 "ButtonCategoryCountID": "Specialization_CategoryCount",
+                "ButtonCategoryCountID_MobileFilters": "Specialization_CategoryCount_Mobile",
+                "AccordionMobileFilters_TargetDataAttribute": "SpecializationFilters",
                 "Categories": [
                     {
-                        "Name": "Search",
-                        "DataAttribute": "Search"
+                        "Name": "Analytics",
+                        "DataAttribute": "Analytics"
+                    },
+                    {
+                        "Name": "Logs & Metrics",
+                        "DataAttribute": "Logs and Metrics"
+                    },
+                    {
+                        "Name": "Migrations",
+                        "DataAttribute": "Migration"
                     },
                     {
                         "Name": "ML & AI",
@@ -83,51 +94,60 @@
                         "DataAttribute": "Observability"
                     },
                     {
-                        "Name": "Security",
-                        "DataAttribute": "Security"
-                    },
-                    {
-                        "Name": "Logs and Metrics",
-                        "DataAttribute": "Logs and Metrics"
-                    },
-                    {
-                        "Name": "Analytics",
-                        "DataAttribute": "Analytics"
-                    },
-                    {
-                        "Name": "Migrations",
-                        "DataAttribute": "Migration"
-                    },
-                    {
                         "Name": "Other",
                         "DataAttribute": "Other"
+                    },
+                    {
+                        "Name": "Search",
+                        "DataAttribute": "Search"
+                    },
+                    {
+                        "Name": "Security",
+                        "DataAttribute": "Security"
                     }
-
                 ]
             },          
             "Regions_Dropdown" : {
                 "Title": "Regions",
                 "ButtonCategoryCountID": "Region_CategoryCount",
+                "ButtonCategoryCountID_MobileFilters": "Region_CategoryCount_Mobile",
+                "AccordionMobileFilters_TargetDataAttribute": "RegionFilters",
                 "Categories": [
                     {
                         "Name": "Global",
                         "DataAttribute": "Global"
                     },
                     {
-                        "Name": "North America",
-                        "DataAttribute": "North America"
-                    },
-                    {
-                        "Name": "Europe",
-                        "DataAttribute": "Europe"
+                        "Name": "Africa",
+                        "DataAttribute": "Africa"
                     },
                     {
                         "Name": "Asia Pacific",
                         "DataAttribute": "Asia Pacific"
                     },
                     {
+                        "Name": "Australia & NZ",
+                        "DataAttribute": "Australia"
+                    },
+                    {
+                        "Name": "Central America",
+                        "DataAttribute": "Central America"
+                    },
+                    {
+                        "Name": "Europe",
+                        "DataAttribute": "Europe"
+                    },
+                    {
                         "Name": "Middle East",
                         "DataAttribute": "Middle East"
+                    },
+                    {
+                        "Name": "North America",
+                        "DataAttribute": "North America"
+                    },
+                    {
+                        "Name": "South America",
+                        "DataAttribute": "South America"
                     }
                 ]
             },
