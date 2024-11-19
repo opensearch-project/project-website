@@ -6,12 +6,12 @@ authors:
    - jmazane
    - vamshin
    - kolchfa
-date: 2024-11-13
+date: 2024-11-19
 categories: 
     - technical-posts
 has_science_table: true
-meta_keywords: exact k-NN search in OpenSearch, SIMD optimizations, query performance, relevance scoring, latency management
-meta_description: Learn how to achieve precise, high-performance search with exact k-NN in OpenSearch.
+meta_keywords: k-NN search performance, SIMD in OpenSearch, script score queries, performance optimization, machine learning, exact K-NN
+meta_description: Boost exact k-NN search performance in OpenSearch using SIMD optimizations and script_score queries. Discover real-world performance gains for efficient vector similarity searches in machine learning applications.
 ---
 
 Exact k-nearest neighbor (k-NN) search in OpenSearch allows you to define custom scoring functions to retrieve documents based on their proximity to a query vector. This method provides highly accurate search results, making it ideal when you need precise, deterministic matches.
