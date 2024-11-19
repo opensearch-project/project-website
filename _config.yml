@@ -111,6 +111,7 @@ defaults:
       layout: opensearchcon_individual_session
 collections:
   partners:
+    sort_by: name
     output: true
   community_projects:
   javadocs:
