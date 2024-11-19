@@ -10,8 +10,8 @@ authors:
 date: 2024-10-30 00:00:00 -0700
 categories:
 - technical-posts
-meta_keywords: binary vectors, vector search, efficient vector storage, binary vector performance, large-scale search, cost-effective vector scaling, memory-efficient vectors
-meta_description: Binary vectors significantly reduce memory and storage demands by over 90% compared to FP32 vectors, making them a powerful choice for large-scale vector search applications. Binary vectors help manage massive datasets efficiently, improving performance and cutting costs.
+meta_keywords: vector search, binary vectors in OpenSearch, k-NN plugin, difference between FP32 and binary vectors, Binary vector challenges, HNSW algorithm
+meta_description: Explore how binary vectors in OpenSearch revolutionize large-scale vector search, offering significant cost savings and performance improvements over traditional FP32 vectors.
 excerpt: Binary vectors offer a powerful, efficient alternative to FP32 vectors, reducing memory and storage by more than 90% without compromising performance. They provide a cost-effective way to scale large datasets while boosting resource efficiency.
 ---
 
