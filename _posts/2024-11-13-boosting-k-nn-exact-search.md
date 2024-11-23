@@ -110,3 +110,8 @@ The tests showed that OpenSearch's new SIMD support and optimized memory access 
 ## What's next for exact k-NN search?
 
 Future OpenSearch versions will provide even more k-NN search flexibility. You'll be able to switch between exact and approximate search at query time. Additionally, future versions will provide the ability to specify which fields build indexes for exact and approximate search types. Stay tuned for these updates as we continue to improve OpenSearch's k-NN search capabilities.
+
+
+#### Note:
+
+It is required to enable the setting `index.knn: true` to use the optimized Lucene format. With this setting in OpenSearch 2.17, the approximate nearest neighbors data structures were also built.  In OpenSearch 2.18, we introduced a new setting `index.knn.advanced.approximate_threshold`.  If you are only performing exact search, set this to  either `-1` or `Integer.MAX - 2` in order to speed up indexing time.
