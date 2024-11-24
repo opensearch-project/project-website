@@ -53,16 +53,17 @@ Many companies and partners were presenting and sharing knowledge. Some that you
 - [Aparna Sundar & Lior Perry – Vega Integration in OpenSearch Dashboards](https://www.youtube.com/watch?v=UZ9RbVi2nLo&t=3s)
 - [Nate Boot – Improving your chances of survival in Cataclysm: Dark Days Ahead with OpenSearch](https://www.youtube.com/watch?v=3kTjMTvw4No)
 
-Log.IO, Eliatra, Aiven Oy, and Canonical, are leveraging OpenSearch within their products. Are you curious for more? You can find all those amazing talks here
+Log.IO, Eliatra, Aiven Oy, and Canonical are leveraging OpenSearch within their products. Are you curious for more? You can find all those amazing talks [here](https://www.youtube.com/watch?v=WPVGfWoR0B8&list=PLzgr9zSpws17ZYDb12UTIgEXq5vrUA4b1).
 
 ![conference-attendees](/assets/media/blog-images/2024-11-01-5-Takeaways-of-OpenSearchCon-NA-2024/conference-attendees.jpg){:class="img-centered"}
 
 ## Trainings 🎉🍹🎶
-Have you ever looked for a great opportunity to learn OpenSearch from industry experts? On the third day of the conference, this became a reality. Attendees could dive into relevance engineering with OpenSearch, learning how to measure search quality and improve it by adjusting field weights. Additionally, those interested in deploying OpenSearch on Elastic Kubernetes Service (EKS) had the chance to work alongside Jon Handler and Arun Lakshmanan in hands-on labs covering OpenSearch, EKS, and data management. These sessions provided immediate, practical experience with OpenSearch, making them invaluable for participants
+Have you ever looked for a great opportunity to learn OpenSearch from industry experts? 
+On the third day of the conference, this became a reality. Attendees could dive into relevance engineering with OpenSearch, learning how to measure search quality and improve it by adjusting field weights. Additionally, those interested in deploying OpenSearch on Elastic Kubernetes Service (EKS) had the chance to work alongside Jon Handler and Arun Lakshmanan in hands-on labs covering OpenSearch, EKS, and data management. These sessions provided immediate, practical experience with OpenSearch, making them invaluable for participants
 
 ![conference-party](/assets/media/blog-images/2024-11-01-5-Takeaways-of-OpenSearchCon-NA-2024/conference-party.jpg){:class="img-centered"}
 
 ## Party 🎉🍹🎶
-Finally, if you were worried about not having enough time to meet people and network between talks, training sessions, and the unconference, the organizers had you covered with ‘The Search Party.’ It was a great opportunity to connect with OpenSearch maintainers, partners, and other community members. The vibe was just right for real conversations and making connections in OpenSearch world!
+Additionally, if you were worried about not having enough time to meet people and network between talks, training sessions, and the unconference, the organizers had you covered with ‘The Search Party.’ It was a great opportunity to connect with OpenSearch maintainers, partners, and other community members. The vibe was just right for real conversations and making connections in OpenSearch world!
 
-And finally, the moment you’ve been waiting for—check out all the awesome pics from the conference [here](https://buff.ly/3U3Sh5K)! 📸🎉
+Finally, the moment you’ve been waiting for—check out all the awesome pics from the conference [here](https://buff.ly/3U3Sh5K)! 📸🎉
