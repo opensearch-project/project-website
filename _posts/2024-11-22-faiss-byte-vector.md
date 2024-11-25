@@ -96,7 +96,7 @@ GET test-index/_search
 
 We used OpenSearch Benchmark to run benchmarking tests on popular datasets to compare recall, indexing, and search performance between float vectors and byte vectors using Faiss HNSW.
 
-**Note**: Without Single Instruction, Multiple Data (SIMD) optimization (such as AVX2 or NEON) or when AVX2 is disabled (on x86 architectures), the quantization process introduces additional latency. For more information about AVX2-compatible processors, see [CPUs with AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2). In an AWS environment, all community Amazon Machine Images (AMIs) with [HVM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html) support AVX2 optimization.
+**Note**: Without single instruction, multiple data (SIMD) optimization (such as AVX2 or NEON) or when AVX2 is disabled (on x86 architectures), the quantization process introduces additional latency. For more information about AVX2-compatible processors, see [CPUs with AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2). In an AWS environment, all community Amazon Machine Images (AMIs) with [HVM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html) support AVX2 optimization.
 
 These tests were conducted on a single-node cluster, except for the cohere-10m dataset, which used two `r5.2xlarge` instances. 
 
