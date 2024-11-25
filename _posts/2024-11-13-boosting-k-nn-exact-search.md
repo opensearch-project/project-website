@@ -114,4 +114,4 @@ Future OpenSearch versions will provide even more k-NN search flexibility. You'l
 
 #### Note:
 
-It is required to enable the setting `index.knn: true` to use the optimized Lucene format. With this setting in OpenSearch 2.17, the approximate nearest neighbors data structures were also built.  In OpenSearch 2.18, we introduced a new setting `index.knn.advanced.approximate_threshold`.  If you are only performing exact search, set this to  either `-1` or `Integer.MAX - 2` in order to speed up indexing time.
+To use the optimized Lucene format in OpenSearch 2.17, set `index.knn` to `true` in order to build approximate nearest neighbor (ANN) data structures. In OpenSearch 2.18, a new `index.knn.advanced.approximate_threshold` setting is available. If you are performing only exact searches, set this value to `-1` or `Integer.MAX_VALUE - 2` to reduce indexing time.
