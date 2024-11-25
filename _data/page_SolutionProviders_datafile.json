@@ -5,7 +5,8 @@
     "SolutionProviders": {
         "MobileFilterBar": {
             "ButtonTitile": "Filters",
-            "OffcanvasTitle": "Filters"
+            "OffcanvasTitle": "Filters",
+            "FilterButtonCategoryCountID": "MobileFilterButton_CategoryCount"
         },
         "HeroBanner": {
             "Title": "OpenSearch Solutions Providers",

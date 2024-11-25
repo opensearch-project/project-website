@@ -96,23 +96,40 @@ $form-check-input-checked-bg-color:     $primary-open-sky-s3 !default;
 
 
 // HEROBANNER
+$mobile-banner-height: 200px;
+$desktop-banner-height: 350px;
 .solutionsProviders-hero-banner-background-wrapper {
     position: relative;
-    height: 500px;
+    height: $desktop-banner-height;
     overflow: hidden;
     background-image: url(/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_desktop.png);
     background-size: cover;
     background-repeat: no-repeat;
+    .solutionsProviders-hero-heading-background-container {
+        height: $desktop-banner-height;
+    }
 }
 .solutionsProviders-hero-banner-background-mobile-wrapper {
     position: relative;
-    height: 500px;
+    min-height: $mobile-banner-height;
     overflow: hidden;
     background-image: url(/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_mobile.png);
     background-size: cover;
     background-repeat: no-repeat;
+    .solutionsProviders-hero-heading-background-container {
+        min-height: $mobile-banner-height;
+    }
+    // .solutionsProviders-hero-heading {
+    //     font-size: 32px;
+    // }
+    .solutionsProviders-hero-subtext {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 22px;
+    }
 }
 // Textoverlay for the hero
+
 .solutionsProviders-hero-heading-background-container {
     position: fluid;
 }
@@ -152,9 +169,14 @@ $form-check-input-checked-bg-color:     $primary-open-sky-s3 !default;
     color: $secondary-golden-poppy;
     font-size: 15px;
     font-family: "Open Sans";
-    font-weight: 700;
+    font-weight: 600;
     line-height: 24px;
     word-wrap: break-word;
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 20px;
+    }
 }
 .openSearch-banner-dark-bannerLink {
     display: inline-block;
@@ -164,7 +186,11 @@ $form-check-input-checked-bg-color:     $primary-open-sky-s3 !default;
     font-weight: 700;
     line-height: 24px;
     transition: all 0.15s;
-
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 20px;
+    }
     &:visited {
         color: $secondary-golden-poppy;
     }

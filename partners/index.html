@@ -29,36 +29,32 @@ body_class: partners-page
   <!-- SOLUTIONS PROVIDERS HERO BANNERS -->
   
   <!-- DESKTOP HERO -->
-  <div class="container-fluid solutionsProviders-hero-banner-background-wrapper d-none d-lg-block px-0">
-      <div class="container solutionsProviders-hero-heading-background-container px-5">
-          <div class="row flex-xl-row align-items-center my-5 py-5">
-              <div class="col-lg-11 col-xl-10 col-xxl-8">
-                  <h1 class="solutionsProviders-hero-heading display-3">{{ data_HeroBanner.Title }}</h1>
-                  <p class="solutionsProviders-hero-subtext">{{ data_HeroBanner.SubText }}</p>
-              </div>
-          </div>
+  <div class="container-fluid solutionsProviders-hero-banner-background-wrapper d-none d-lg-block">
+      <div class="container solutionsProviders-hero-heading-background-container d-flex px-5">
+        <div class="align-self-center">
+          <h1 class="solutionsProviders-hero-heading display-2">{{ data_HeroBanner.Title }}</h1>
+          <p class="solutionsProviders-hero-subtext ps-3">{{ data_HeroBanner.SubText }}</p>
+        </div>
       </div>
   </div>
   <!-- MOBILE HERO -->
   <div class="container-fluid solutionsProviders-hero-banner-background-mobile-wrapper d-block d-lg-none">
-      <div class="container solutionsProviders-hero-heading-background-container">
-          <div class="row flex-xl-row align-items-center m-1 m-xs-3 py-4 py-xs-5">
-              <div class="col">
-                  <h1 class="solutionsProviders-hero-heading display-3 pe-sm-5">{{ data_HeroBanner.Title }}</h1>
-                  <p class="solutionsProviders-hero-subtext">{{ data_HeroBanner.SubText }}</p>
-              </div>
+      <div class="container solutionsProviders-hero-heading-background-container d-flex pt-2 px-0">
+          <div class="align-self-center">
+              <h1 class="solutionsProviders-hero-heading display-5">{{ data_HeroBanner.Title }}</h1>
+              <p class="solutionsProviders-hero-subtext m-0">{{ data_HeroBanner.SubText }}</p>
           </div>
       </div>
   </div>
 
   <!-- CTA BANNER -->
   <div class="container-fluid OpenSearch-banner-dark-backgroundBanner shadow py-1">
-    <div class="container OpenSearch-banner-dark-backgroundBanner-container px-5">
+    <div class="container OpenSearch-banner-dark-backgroundBanner-container px-1 px-md-5">
       <div class="row justify-content-center">
-          <div class="col-lg-11 col-xl-10 col-xxl-8">
-            <p class="text-center my-2">
+          <div class="col-12 col-lg-11 col-xl-10 col-xxl-8 px-0">
+            <p class="text-center my-1">
               <span class="openSearch-banner-dark-bannerText">{{ data_CTABanner.Text_startSpan }}</span>
-              <a href="{{ data_CTABanner.Link_URL }}" class="openSearch-banner-dark-bannerLink link-offset-1 link-offset-2-hover">{{ data_CTABanner.Link_Text }}</a>
+              <a href="{{ data_CTABanner.Link_URL }}" class="openSearch-banner-dark-bannerLink link-offset-1 link-offset-2-hover"> {{ data_CTABanner.Link_Text }}</a>
               <span class="openSearch-banner-dark-bannerText">{{ data_CTABanner.Text_endSpan }}</span>
             </p>
           </div>
@@ -70,6 +66,7 @@ body_class: partners-page
 
 
     
+    <!-- FILTER BAR -->
     <div class="container ">
 
       <!-- DESKTOP FILTER BAR -->
@@ -189,14 +186,6 @@ body_class: partners-page
         </div>
       </div>
 
-
-
-
-
-
-
-
-      <!-- DATAFILE -->
       <!-- MOBILE FILTER BAR -->
       <div class="d-block d-lg-none">
 
@@ -204,6 +193,7 @@ body_class: partners-page
           <nav class="nav justify-content-center mb-4">
             <button class="btn btn-OpenSearch-primary rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilterSelection" aria-controls="offcanvasFilterSelection">
               {{ data_MobileFilterBar.ButtonTitile }}
+              <span class="" id="{{data_MobileFilterBar.FilterButtonCategoryCountID}}"></span>
             </button>
           </nav>
 
@@ -243,7 +233,7 @@ body_class: partners-page
                               class="form-check-input" 
                               id="{{category.DataAttribute}}-mobile" 
                               autocomplete="off"
-                              onclick= "updateFilterCount('{{ data_SearchBar_ProviderType.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}')" 
+                              onclick= "updateFilterCount_Mobile('{{ data_SearchBar_ProviderType.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}', '{{data_MobileFilterBar.FilterButtonCategoryCountID}}')" 
                               data-count-id="{{ data_SearchBar_ProviderType.ButtonCategoryCountID_MobileFilters }}">
                           <label 
                             for="{{category.DataAttribute}}" 
@@ -287,7 +277,7 @@ body_class: partners-page
                               class="form-check-input" 
                               id="{{category.DataAttribute}}-mobile" 
                               autocomplete="off"
-                              onclick= "updateFilterCount('{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}')" 
+                              onclick= "updateFilterCount_Mobile('{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}', '{{data_MobileFilterBar.FilterButtonCategoryCountID}}')" 
                               data-count-id="{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID_MobileFilters }}">
                           <label 
                             for="{{category.DataAttribute}}" 
@@ -331,7 +321,7 @@ body_class: partners-page
                               class="form-check-input" 
                               id="{{category.DataAttribute}}-mobile" 
                               autocomplete="off"
-                              onclick= "updateFilterCount('{{ data_SearchBar_Region.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}')" 
+                              onclick= "updateFilterCount_Mobile('{{ data_SearchBar_Region.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}', '{{data_MobileFilterBar.FilterButtonCategoryCountID}}')" 
                               data-count-id="{{ data_SearchBar_Region.ButtonCategoryCountID_MobileFilters }}">
                           <label 
                             for="{{category.DataAttribute}}" 
@@ -376,19 +366,6 @@ body_class: partners-page
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- FILTER CHIPS -->
     <div class="container filter-criteria-selection-wrapper">
     </div>
@@ -396,18 +373,20 @@ body_class: partners-page
     <!-- SOLUTIONS PROVIDERS RESULTS  -->
     <div class="container title-wrapper">
       
-      <div class="d-flex">
+      <div class="d-flex flex-column flex-lg-row">
+
         <!-- Page title -->
-        <h1 class="align-self-start position-relative {{data_MainBody.ClassValue }} mb-0">{{ data_MainBody.Title }}</h1>
+        <h1 class="flex-grow-1 mx-auto {{data_MainBody.ClassValue }}">{{ data_MainBody.Title }}</h1>
 
         <!-- Returned results -->
-        <div class="ms-auto returned-results-wrapper hide">
-          <p class="returned-solutions-providers-text">
+        <div class="returned-results-wrapper mx-auto">
+          <p class="returned-solutions-providers-text m-0">
             <span>Viewing </span>
             <span id="solutions-providers-returned-results" class="solutions-providers-returned-results-count"></span>
             <span> Solutions Providers</span>
           </p>
         </div>
+
       </div>
 
 
@@ -416,9 +395,9 @@ body_class: partners-page
 
 
 
-    <div class="container px-5">
+    <div class="container px-3 px-md-5">
       <hr/>
-      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-sm-4">
 
         {% for partner in site.partners %}
           <div 
@@ -443,7 +422,7 @@ body_class: partners-page
                 </a>
                 
                 <div class="card-footer">
-                  <h5 class="card-title ps-3">{{ partner.name }}</h5>
+                  <h5 class="card-title ps-2 ps-md-3 m-0">{{ partner.name }}</h5>
                 </div>
 
                 
@@ -454,15 +433,6 @@ body_class: partners-page
 
       </div>
     </div>
-
-    <!-- Back to top button -->
-    <!-- <div class="floating-buttons position-fixed top-50 end-0 z-sticky me-3 me-xl-4 pb-4">
-      <a class="btn-scroll-top btn btn-sm bg-body border-0 rounded-pill shadow animate-slide-end" href="#top">
-        <i class="fa-solid fa-chevron-right"></i>
-        Top
-
-      </a>
-    </div> -->
 
 
   </div>
@@ -485,8 +455,8 @@ body_class: partners-page
       // find all partners and enter each partner object into the partnerArray
       let partnerObjectsOnScreen = document.querySelectorAll(`div.card-solutionsProvider-wrapper`);
       let count_partnerObjects = partnerObjectsOnScreen.length;
-      console.log("PARTNER COUNT:")
-      console.log(count_partnerObjects)
+      // console.log("PARTNER COUNT:")
+      // console.log(count_partnerObjects)
 
       partnerObjectsOnScreen.forEach(partnerObject => {
         let partnerName = partnerObject.getAttribute('data-partner-name');
@@ -505,14 +475,14 @@ body_class: partners-page
 
       resultsObject = document.getElementById(`solutions-providers-returned-results`);
       resultsObject.innerText = partnerArray.length;
-      console.log(resultsObject);
+      // console.log(resultsObject);
       
       
     }
 
     // Update the filter counts on the filter bar buttons
     const updateFilterCount = (countId, filterName) => {
-      console.log(countId, filterName);
+      // console.log(countId, filterName);
 
       const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
       const countElement = document.getElementById(countId)
@@ -532,7 +502,7 @@ body_class: partners-page
           } else {
             specializationFilters.push(filterName);
           }
-          console.log(`SpecializationFilters: ${specializationFilters}.`);
+          // console.log(`SpecializationFilters: ${specializationFilters}.`);
           break;
 
         case 'ProviderType_CategoryCount':
@@ -542,7 +512,7 @@ body_class: partners-page
           } else {
             providerTypeFilters.push(filterName);
           }
-          console.log(`ProviderTypeFilters: ${providerTypeFilters}.`);
+          // console.log(`ProviderTypeFilters: ${providerTypeFilters}.`);
           break;
 
         case 'Region_CategoryCount':
@@ -552,7 +522,7 @@ body_class: partners-page
           } else {
             regionFilters.push(filterName);
           }
-          console.log(`RegionFilters: ${regionFilters}.`);
+          // console.log(`RegionFilters: ${regionFilters}.`);
           break;
 
         case 'Specialization_CategoryCount_Mobile':
@@ -563,7 +533,7 @@ body_class: partners-page
           } else {
             specializationFilters_mobile.push(filterName);
           }
-          console.log(`SpecializationFilters: ${specializationFilters_mobile}.`);
+          // console.log(`SpecializationFilters: ${specializationFilters_mobile}.`);
           break;
 
         case 'ProviderType_CategoryCount_Mobile':
@@ -573,7 +543,7 @@ body_class: partners-page
           } else {
             providerTypeFilters_mobile.push(filterName);
           }
-          console.log(`ProviderTypeFilters: ${providerTypeFilters_mobile}.`);
+          // console.log(`ProviderTypeFilters: ${providerTypeFilters_mobile}.`);
           break;
 
         case 'Region_CategoryCount_Mobile':
@@ -583,13 +553,74 @@ body_class: partners-page
           } else {
             regionFilters_mobile.push(filterName);
           }
-          console.log(`RegionFilters: ${regionFilters_mobile}.`);
+          // console.log(`RegionFilters: ${regionFilters_mobile}.`);
           break;
 
 
         default: 
           console.log(`ID not found for filter: ${countId}.`);
       }
+    }
+
+    const updateFilterCount_Mobile = (countId, filterName, filterButtonID) => {
+      // console.log(countId, filterName);
+
+      const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`);
+      const countElement = document.getElementById(countId);
+      if (checkedCheckboxes.length > 0) {
+          countElement.textContent = '(' + checkedCheckboxes.length + ')';
+      } else {
+          countElement.textContent = '';
+      }
+
+      // update the backend filter array with this element
+      switch (countId) {
+
+        case 'Specialization_CategoryCount_Mobile':
+          // Check if filterName is already present in specializationFilters array
+          let indexSpecialization_mobile = specializationFilters_mobile.indexOf(filterName);
+          if (indexSpecialization_mobile > -1){
+            specializationFilters_mobile.splice(indexSpecialization_mobile,1);
+          } else {
+            specializationFilters_mobile.push(filterName);
+          }
+          // console.log(`SpecializationFilters: ${specializationFilters_mobile}.`);
+          break;
+
+        case 'ProviderType_CategoryCount_Mobile':
+          let indexProvider_mobile = providerTypeFilters_mobile.indexOf(filterName);
+          if (indexProvider_mobile > -1){
+            providerTypeFilters_mobile.splice(indexProvider_mobile,1);
+          } else {
+            providerTypeFilters_mobile.push(filterName);
+          }
+          // console.log(`ProviderTypeFilters: ${providerTypeFilters_mobile}.`);
+          break;
+
+        case 'Region_CategoryCount_Mobile':
+          let indexRegion_mobile = regionFilters_mobile.indexOf(filterName);
+          if (indexRegion_mobile > -1){
+            regionFilters_mobile.splice(indexRegion_mobile,1);
+          } else {
+            regionFilters_mobile.push(filterName);
+          }
+          // console.log(`RegionFilters: ${regionFilters_mobile}.`);
+          break;
+
+
+        default: 
+          console.log(`ID not found for filter: ${countId}.`);
+      }
+      
+
+      let numberFiltersApplied = specializationFilters_mobile.length + providerTypeFilters_mobile.length + regionFilters_mobile.length;
+      const filterButton_countElement = document.getElementById(filterButtonID);
+      if (numberFiltersApplied > 0) {
+        filterButton_countElement.textContent = '(' + numberFiltersApplied + ')';
+      } else {
+        filterButton_countElement.textContent = '';
+      }
+
     }
 
     let onScreenElements_ApplyFilters = () => {
@@ -599,18 +630,17 @@ body_class: partners-page
       
       // Hide every item on screen
       let items = partnerArray;
-      console.log(items)
+      // console.log(items)
       items.forEach((item) => {
         const card = document.getElementById(`${item.name}-id`);
-        // console.log('HIDING: ', card);
         card.classList.remove("card-show");
         card.classList.add("card-hide");
       });
 
       // show current filters to the console
-      console.log(providerTypeFilters);
-      console.log(specializationFilters);
-      console.log(regionFilters);
+      // console.log(providerTypeFilters);
+      // console.log(specializationFilters);
+      // console.log(regionFilters);
 
 
       //
@@ -629,7 +659,7 @@ body_class: partners-page
       } else {
         temp_specializationArray_filteredItems = items;
       }
-      console.log()
+      // console.log()
       let temp_providerTypeArray_filteredItems = [];
       if (providerTypeFilters.length !== 0) {
         temp_specializationArray_filteredItems.forEach((item) => {
@@ -672,7 +702,7 @@ body_class: partners-page
       
       // Hide every item on screen
       let items = partnerArray;
-      console.log(items)
+      // console.log(items)
       items.forEach((item) => {
         const card = document.getElementById(`${item.name}-id`);
         card.classList.remove("card-show");
@@ -680,9 +710,9 @@ body_class: partners-page
       });
 
       // show current filters to the console
-      console.log(providerTypeFilters_mobile);
-      console.log(specializationFilters_mobile);
-      console.log(regionFilters_mobile);
+      // console.log(providerTypeFilters_mobile);
+      // console.log(specializationFilters_mobile);
+      // console.log(regionFilters_mobile);
 
 
       //
@@ -701,7 +731,7 @@ body_class: partners-page
       } else {
         temp_specializationArray_filteredItems = items;
       }
-      console.log()
+      // console.log()
       let temp_providerTypeArray_filteredItems = [];
       if (providerTypeFilters_mobile.length !== 0) {
         temp_specializationArray_filteredItems.forEach((item) => {
