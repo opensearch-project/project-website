@@ -7,7 +7,7 @@ authors:
 - vamshin
 - dylantong
 - kolchfa
-date: 2024-11-21 00:00:00 -0700
+date: 2024-11-25
 categories:
 - technical-posts
 meta_keywords: vector search, binary vectors in OpenSearch, k-NN plugin, difference between FP32 and binary vectors, Binary vector challenges, HNSW algorithm
