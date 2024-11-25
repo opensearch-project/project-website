@@ -157,7 +157,7 @@ The following are the key findings derived from comparing the benchmarking resul
 
 ## How does Faiss work with byte vectors internally?
 
-Faiss doesn't directly support the `byte` data type for vector storage. To achieve this, OpenSearch uses a  [`QT_8bit_direct_signed` scalar quantizer](https://faiss.ai/cpp_api/struct/structfaiss_1_1ScalarQuantizer.html). This quantizer accepts float vectors within the signed 8-bit value range and encodes them as unsigned 8-bit integer vectors. During indexing and search, these encoded unsigned 8-bit integer vectors are decoded back into signed 8-bit original vectors for distance computation.
+Faiss doesn't directly support the `byte` data type for vector storage. To achieve this, OpenSearch uses a  [`QT_8bit_direct_signed` scalar quantizer](https://faiss.ai/cpp_api/struct/structfaiss_1_1ScalarQuantizer.html). This quantizer accepts float vectors within the signed 8-bit value range and encodes them as unsigned 8-bit integer vectors. During indexing and search, these encoded unsigned 8-bit integer vectors are decoded back into the original signed 8-bit vectors for distance computation.
 
 This quantization approach reduces the memory footprint by a factor of four. However, encoding and decoding during scalar quantization introduce additional latency. To mitigate this, you can use [SIMD optimization](https://opensearch.org/docs/latest/search-plugins/knn/knn-index#simd-optimization-for-the-faiss-engine) with the `QT_8bit_direct_signed` quantizer to reduce search latencies and improve indexing throughput.
 
