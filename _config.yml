@@ -110,7 +110,7 @@ defaults:
     values:
       layout: opensearchcon_individual_session
 collections:
-  partners:
+  solutionsProviders:
     sort_by: name
     output: true
   community_projects:

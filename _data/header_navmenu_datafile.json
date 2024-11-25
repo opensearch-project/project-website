@@ -60,8 +60,8 @@
                     "URL": "https://forum.opensearch.org/"
                 },
                 {
-                    "Name": "Partners",
-                    "URL": "/partners/"
+                    "Name": "Providers",
+                    "URL": "/solutionsProviders/"
                 },
                 {
                     "Name": "Events",
@@ -280,9 +280,9 @@
                             "Icon": "OpenSearch-Forum-condensedImage"
                         },
                         {
-                            "Name": "Partners",
-                            "SubText": "Find open-source partners offering solutions and services.",
-                            "URL": "/partners/",
+                            "Name": "Providers",
+                            "SubText": "Find open-source providers offering solutions and services.",
+                            "URL": "/solutionsProviders/",
                             "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Partners-condensedImage"
                         },

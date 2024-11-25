@@ -22,14 +22,14 @@ columns:
         url: /connect.html
 
   -
-    title: Partners
+    title: Providers
     links:
       -
-        title: Become a Partner
+        title: Become a Provider
         url: https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=enhancement%2C+untriaged&projects=opensearch-project%2FWebsite+Update+Project%2Copensearch-project%2FPartner+Updates+and+Additions&template=partner_add_new_partner.yml&title=%5BPARTNER%5D+%7B%7B+Company+name+%7D%7D+
       -
-        title: Find a Partner
-        url: https://opensearch.org/partners/
+        title: Find a Provider
+        url: https://opensearch.org/solutionsProviders/
   
   -
     title: Resources

@@ -21,15 +21,15 @@ logo_large: /assets/media/partners/partner-name/placeholder.png
 
 
 
-region:           Global, North America, South America, Europe, Asia Pacific, Middle East, Africa, Australia
+
+
+
+
+business_type:    Consultancy, Independent Software Vendor (ISV), Managed Service Provider (MSP), Platform Integrator, Professional Services, Support, Systems Integrator, Training
+opensearch_tech:  Analytics, Logs and Metrics, Migration, Machine Learning and AI, Observability, Other, Search, Security
+region:           Global, Africa, Asia Pacific, Australia, Central America, Europe, Middle East, North America, South America
 
 industries:       Software and Technology, Business Services, Consumer Services, Education, Energy and Utilities, Government, Financial Services, Healthcare, Media and Entertainment, Public Sector, NonProfit, Retail, Telecommunications
-
-business_type:    Consultant, (MSP) Managed Service Provider, (CSP) Content Service Provider, (ISV) Independent Software Vendor, Systems Integrator, Platform Integrator, Professional Services, Training
-
-
-opensearch_tech:  [Search, Observability, Security, Logs, Analytics, Machine Learning & AI, GenAI]
-
 
 
 resources:

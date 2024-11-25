@@ -1,18 +1,18 @@
-name: 🎉 Become an OpenSearch Partner
-description: Become an OpenSearch Partner
-title: "[PARTNER] {{ Company name }} "
+name: 🎉 Become an OpenSearch Solutions Provider
+description: Become an OpenSearch Solutions Provider
+title: "[SolutionsProvider]  "
 labels: ['enhancement, untriaged']
 projects: ["opensearch-project/Website Update Project","opensearch-project/Partner Updates and Additions"]
 
 body:
   - type: markdown
     attributes:
-      value: "# Become an OpenSearch Partner! 🎉"
+      value: "# Become an OpenSearch Solutions Provider! 🎉"
   - type: markdown
     attributes:
       value: |
         Welcome!
-        Please take the time to fill out this new partner request.
+        Please take the time to fill out this new Solutions Provider request.
         We will review your submission and get back to you as soon as possible.
 
 
@@ -39,20 +39,21 @@ body:
       multiple: true
       options:
         - Global
+        - Africa
+        - Asia Pacific
+        - Australia
+        - Central America
+        - Europe
+        - Middle East
         - North America
         - South America
-        - Europe
-        - Asia Pacific
-        - Middle East
-        - Africa
-        - Australia
       default: 0
     validations:
       required: true
   - type: textarea
     attributes:
       label: Business description
-      description: A clear and concise description of your business. We will use this to help create your partner page.
+      description: A clear and concise description of your business. We will use this to help create your Solutions Provider page.
       placeholder: We are a ...
     validations:
       required: true
@@ -62,13 +63,13 @@ body:
       description: Select all that apply
       multiple: true
       options:
-        - Consultant
-        - (MSP) Managed Service Provider
-        - (CSP) Content Service Provider
-        - (ISV) Independent Software Vendor
-        - Systems Integrator
+        - Consultancy
+        - Independent Software Vendor (ISV)
+        - Managed Service Provider (MSP)
         - Platform Integrator
         - Professional Services
+        - Support
+        - Systems Integrator
         - Training
       default: 0
     validations:
@@ -139,13 +140,14 @@ body:
       description: Select all that apply
       multiple: true
       options:
-        - Search
-        - Observability
-        - Security
-        - Logs
         - Analytics
-        - Machine Learning & AI
-        - GenAI
+        - Logs and Metrics
+        - Migration
+        - Machine Learning and AI
+        - Observability
+        - Other
+        - Search
+        - Security
       default: 0
     validations:
       required: true
@@ -156,7 +158,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        We use the logo and branding to create your partner page and display your organization's information.
+        We use the logo and branding to create your Solutions Provider page and display your organization's information.
         Either provide a URL to your logo or attach your logo to this issue.
   
   - type: input
@@ -214,7 +216,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Provide any additional content that you would like to include on your partner page.
+        Provide any additional content that you would like to include on your Solutions Provider page.
         You may paste rich text, images, or links to videos.
   - type: textarea
     attributes:
