@@ -96,7 +96,7 @@ GET test-index/_search
 
 We used OpenSearch Benchmark to run benchmarking tests on popular datasets to compare recall, indexing, and search performance between float vectors and byte vectors using Faiss HNSW.
 
-**Note**: Without SIMD optimization (such as AVX2 or NEON) or when AVX2 is disabled (on x86 architectures), the quantization process introduces additional latency. For more information about AVX2-compatible processors, see [CPUs with AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2). In an AWS environment, all community Amazon Machine Images (AMIs) with [HVM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html) support AVX2 optimization.
+**Note**: Without Single Instruction, Multiple Data (SIMD) optimization (such as AVX2 or NEON) or when AVX2 is disabled (on x86 architectures), the quantization process introduces additional latency. For more information about AVX2-compatible processors, see [CPUs with AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2). In an AWS environment, all community Amazon Machine Images (AMIs) with [HVM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html) support AVX2 optimization.
 
 These tests were conducted on a single-node cluster, except for the cohere-10m dataset, which used two `r5.2xlarge` instances. 
 
@@ -176,13 +176,13 @@ The following example shows how an input vector is encoded and decoded using the
 [-126, 28, 127, 0, 10, -45, 12, -110]
 ```
 
-## Conclusion
-
-OpenSearch 2.17 introduced support for Faiss byte vectors, allowing you to efficiently store quantized byte vector embeddings. This reduces memory consumption by up to 75%, lowers costs, and maintains high performance. These advantages make byte vectors an excellent choice for large-scale similarity search applications, especially when memory resources are limited, and applications that handle large volumes of data within the signed byte value range.
-
 ## Future enhancements
 
 In future versions, we plan to enhance this feature by adding an `on_disk` mode with a `4x` Faiss compression level. This mode will accept `fp32` vectors as input, perform online training, and quantize the data into byte-sized vectors, eliminating the need to perform external quantization.
+
+## Conclusion
+
+OpenSearch 2.17 introduced support for Faiss byte vectors, allowing you to efficiently store quantized byte vector embeddings. This reduces memory consumption by up to 75%, lowers costs, and maintains high performance. These advantages make byte vectors an excellent choice for large-scale similarity search applications, especially when memory resources are limited, and applications that handle large volumes of data within the signed byte value range.
 
 ## References
 
