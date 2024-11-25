@@ -119,6 +119,8 @@ $desktop-banner-height: 350px;
         line-height: 22px;
     }
 }
+
+
 // Textoverlay for the hero
 
 .solutionsProviders-hero-heading-background-container {
@@ -263,6 +265,94 @@ $desktop-banner-height: 350px;
 .btn-rounded-all {
     border-radius: 5000px 5000px 5000px 5000px;
 }
+
+
+
+// INDIVIDUAL SOLUTIONS PROVIDER PAGE
+// HEROBANNER
+$mobile-solutionsProvider-banner-height: 200px;
+$desktop-solutionsProvider-banner-height: 255px;
+$desktop-sidebar-width: 200px;
+$favicon-img-desktop-height: 100px;
+.solutionsProviders-desktopTopBanner-container{
+    position: relative;
+
+    .solutionsProvider-topBanner-img-wrapper{
+        position: relative;
+        height: $desktop-solutionsProvider-banner-height;
+        overflow: hidden;
+        background-image: url(/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_maskedImage.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        .solutionsProvider-topBanner-content-wrapper {
+            height: $desktop-solutionsProvider-banner-height;
+        }
+    }
+
+    .solutionsProvider-topBanner-mobile-wrapper{
+        position: relative;
+        min-height: $mobile-solutionsProvider-banner-height;
+        overflow: hidden;
+        background-image: url(/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_maskedImage.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        .solutionsProvider-hero-heading-background-container {
+            min-height: $mobile-solutionsProvider-banner-height;
+        }
+        .solutionsProvider-hero-subtext {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 22px;
+        }
+    }
+
+    .solutionsProvider-sidebar-favicon-wrapper{
+        // min-width: $desktop-sidebar-width;
+        height: $desktop-solutionsProvider-banner-height;
+        background-color: white;
+    
+        .solutionProvider-favicon-image{
+            max-width: 40%;
+            // height: $favicon-img-desktop-height; 
+            object-fit: contain;
+            // margin: auto;
+            display: block;
+        }
+    }
+
+    // Bottom Border
+    &::after {
+        content: "";
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background-color: $primary-open-sky-s2;
+        bottom: 0px;
+        left: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

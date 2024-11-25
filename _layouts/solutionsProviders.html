@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Partners
-primary_title: Partners
+title: SolutionsProviders
+primary_title: SolutionsProviders
 ---
 
 {% include address-custom-element.html %}
@@ -11,6 +11,81 @@ primary_title: Partners
 {% include contact-info-element.html %}
 
 {% assign primary_title = page.name_long %}
+
+
+
+<div class="container solutionsProviders-desktopTopBanner-container d-none d-lg-block">
+    <div class="row">
+        <!-- FAVICON -->
+        <div class="col-3 solutionsProvider-sidebar-favicon-wrapper d-flex justify-content-center align-items-center">
+            
+            {% if page.logo %}
+                <img 
+                    src="{{ page.logo }}" 
+                    alt="{{ page.name_long }} Logo"
+                    class="solutionProvider-favicon-image"
+                > 
+            {% endif %}
+            
+        </div>
+
+        <!-- HEROBANNER -->
+        <div class="col-9 solutionsProvider-topBanner-img-wrapper">
+            <div class="solutionsProvider-topBanner-content-wrapper d-flex">
+                <div class="align-items-start">
+                <h1 class="solutionsProvider-hero-heading-name display-2">{{ page.primary_title }}</h1>
+                <span class="solutionsProvider-hero-subtext">{{ data_HeroBanner.SubText }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- DESKTOP HERO -->
+<!-- <div class="container-fluid solutionsProvider-topBanner-img-wrapper d-none d-lg-block">
+    <div class="container solutionsProvider-topBanner-content-wrapper d-flex">
+      <div class="align-self-start">
+        <h1 class="solutionsProvider-hero-heading-name display-2">{{ data_HeroBanner.Title }}</h1>
+        <p class="solutionsProvider-hero-subtext ps-3">{{ data_HeroBanner.SubText }}</p>
+      </div>
+    </div>
+</div> -->
+<!-- MOBILE HERO -->
+<div class="container-fluid solutionsProvider-topBanner-mobile-wrapper d-block d-lg-none">
+    <div class="container solutionsProviders-hero-heading-background-container d-flex pt-2 px-0">
+        <div class="align-self-center">
+            <h1 class="solutionsProviders-hero-heading display-5">{{ data_HeroBanner.Title }}</h1>
+            <p class="solutionsProviders-hero-subtext m-0">{{ data_HeroBanner.SubText }}</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container solutionsProviders-fullpage-with-sidebar-left">
+    <div class="sidebar-left">
+        
+    </div>
+
+
+
+</div>
+
+
+
+
+
 
 
 
