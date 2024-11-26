@@ -25,19 +25,20 @@
     }
 }
 .subheader--h3 {
-    // color: $primary-open-sky-s2;
-    color: red;
-    font-size: 21px;
+    color: $primary-open-sky-s2;
+    font-family: 'Open Sans Condensed';
+    font-size: 24px;
     font-weight: 700;
-    line-height: 36px;
+    line-height: 42px;
     text-decoration: none;
     z-index: 1;  
 }
 .subheader--h3-link {
     color: $primary-open-sky-s2;
-    font-size: 21px;
+    font-family: 'Open Sans Condensed';
+    font-size: 24px;
     font-weight: 700;
-    line-height: 36px;
+    line-height: 42px;
     text-decoration: underline;
     z-index: 1;
     &:hover {
@@ -48,8 +49,8 @@
 .bodycontent--text {
     color: $primary-open-sky-s3;
     font-size: 15px;
-    font-weight: 600;
-    line-height: 24px;
+    font-weight: 400;
+    line-height: 30px;
     word-wrap: break-word;
     text-decoration: none;
     z-index: 1;
@@ -57,8 +58,8 @@
 .bodycontent--text-link {
     color: $primary-open-sky-s3;
     font-size: 15px;
-    font-weight: 600;
-    line-height: 24px;
+    font-weight: 400;
+    line-height: 30px;
     word-wrap: break-word;
     text-decoration: none;
     z-index: 1;
