@@ -7,12 +7,12 @@ authors:
    - vamshin
    - dylantong
    - kolchfa
-date: 2024-11-22
+date: 2024-11-26
 categories: 
     - technical-posts
 has_science_table: true
-meta_keywords: Faiss byte vectors in OpenSearch, similarity search, vector search, large-scale applications, memory efficiency, quantization techniques, benchmarking results, signed byte range
-meta_description: Learn how byte vectors improve memory efficiency and performance in large-scale similarity search applications. Discover benchmarking results, quantization techniques, and use cases for Faiss byte vectors in OpenSearch.
+meta_keywords: byte quantized vector, Faiss byte vector, vector search in OpenSearch, enhance vector search efficiency, AI and LLM applications
+meta_description: Discover how Faiss byte vector support in OpenSearch enhances vector search efficiency for AI and LLM applications. Learn about improved memory usage, performance gains, and implementation details.
 ---
 
 The growing popularity of generative AI and large language models (LLMs) has led to an increased demand for efficient vector search and similarity operations. These models often rely on high-dimensional vector representations of text, images, or other data. Performing similarity searches or nearest neighbor queries on these vectors becomes computationally expensive, especially as vector databases grow in size. OpenSearch's support for Faiss byte vectors offers a promising solution to these challenges.
