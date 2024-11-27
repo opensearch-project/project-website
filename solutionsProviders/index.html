@@ -67,7 +67,7 @@ body_class: SolutionsProviders-page
 
     
     <!-- FILTER BAR -->
-    <div class="container ">
+    <div class="container">
 
       <!-- DESKTOP FILTER BAR -->
       <div class="d-none d-lg-block">
@@ -363,11 +363,18 @@ body_class: SolutionsProviders-page
 
       </div>
 
-    </div>
-
-
-    <!-- FILTER CHIPS -->
-    <div class="container filter-criteria-selection-wrapper">
+      <!-- APPLIED FILTERS  -->
+      <!-- <div class="filter-criteria-selection-wrapper mb-5 d-none d-lg-block">
+        <div class="row ">
+          <div class="col-2"></div>
+          <div class="col-8 d-flex flex-row align-items-center">
+            <span class="bodycontent--text me-3" style="display:inline-block;">Filters:</span>
+            <span id="filters-applied-resultString" class="bodycontent--text"></span>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div> -->
+      
     </div>
 
     <!-- SOLUTIONS PROVIDERS RESULTS  -->
@@ -480,12 +487,14 @@ body_class: SolutionsProviders-page
       
     }
 
+    // DESKTOP
     // Update the filter counts on the filter bar buttons
     const updateFilterCount = (countId, filterName) => {
       // console.log(countId, filterName);
+      const filtersAppliedResultsElement = document.getElementById('filters-applied-resultString');
+      const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`);
+      const countElement = document.getElementById(countId);
 
-      const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`)
-      const countElement = document.getElementById(countId)
       if (checkedCheckboxes.length > 0) {
           countElement.textContent = '(' + checkedCheckboxes.length + ')'
       } else {
@@ -560,8 +569,18 @@ body_class: SolutionsProviders-page
         default: 
           console.log(`ID not found for filter: ${countId}.`);
       }
+
+      // let numberFiltersApplied = specializationFilters.length + providerTypeFilters.length + regionFilters.length;
+      // Something was just clicked... we need to update the filters applied screen. If the filters applied is now zero, the string should also be zero. 
+      // if (numberFiltersApplied > 0) {
+      //   filtersAppliedResultsElement.textContent = specializationFilters + providerTypeFilters + regionFilters;
+      // } else {
+      //   filtersAppliedResultsElement.textContent = '';
+      // }
+
     }
 
+    // MOBILE
     const updateFilterCount_Mobile = (countId, filterName, filterButtonID) => {
       // console.log(countId, filterName);
 
