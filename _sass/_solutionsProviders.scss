@@ -336,7 +336,7 @@ $favicon-img-desktop-height: 100px;
 
     .solutionsProvider-hero-heading-name{
         color: $primary-open-sky-s2;
-        font-size: 48px;
+        font-size: 56px;
         font-family: 'Open Sans Condensed';
         font-weight: 800;
         line-height: 40px;
@@ -360,9 +360,10 @@ $favicon-img-desktop-height: 100px;
         background-image: url(/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_maskedImage.png);
         background-size: cover;
         background-repeat: no-repeat;
-        .solutionsProvider-hero-heading-background-container {
-            min-height: $mobile-solutionsProvider-banner-height;
-        }
+
+    }
+    .solutionsProvider-mobile-content-wrapper {
+        min-height: $mobile-solutionsProvider-banner-height;
     }
     .solutionsProvider-sidebar-favicon-wrapper{
         height: $mobile-solutionsProvider-banner-height;
