@@ -7,8 +7,8 @@ authors:
 date: 2024-11-27
 categories: 
     - community
-meta_keywords: 
-meta_description: 
+meta_keywords: OpenSearch Project, AWS open source, Linux Foundation, community contributions, OpenSearch Software Foundation
+meta_description: Explore the OpenSearch journey from an AWS-led project to a vendor-neutral, community-driven open-source platform under the Linux Foundation. Learn about the project's growth, challenges, and future in search, analytics, and vector databases.
 ---
 
 When Amazon Web Services (AWS) launched the OpenSearch Project, it sought to inspire a community of contributors to help drive innovation for a strategically important open-source project. Working toward that goal called for new domain knowledge and a fresh look at company culture to help build trust across internal teams and, more importantly, with external contributors and organizations. 
