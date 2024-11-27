@@ -13,7 +13,7 @@ meta_description:
 
 When Amazon Web Services (AWS) launched the OpenSearch Project, it sought to inspire a community of contributors to help drive innovation for a strategically important open-source project. Working toward that goal called for new domain knowledge and a fresh look at company culture to help build trust across internal teams and, more importantly, with external contributors and organizations. 
 
-In [this keynote address](https://www.youtube.com/watch?v=9gwTMW901ew&t=4142s), I shared the journey OpenSearch has embarked on with the invaluable support of our community, highlighting our efforts to empower and collaboratively shape the project's future.
+In [this keynote address](https://www.youtube.com/watch?v=9gwTMW901ew&t=4142), I shared the journey OpenSearch has embarked on with the invaluable support of our community, highlighting our efforts to empower and collaboratively shape the project's future.
 
 <img src="/assets/media/blog-images/2024-11-27-driving-community-contributions/LF_Member_Summit_Keynote_journey.png" alt="OpenSearch Project Linux Foundation infographic" class="center"/>{:style="width: 100%; max-width: 800px; height: auto; text-align: center"}
 
@@ -39,3 +39,5 @@ This momentum carried into 2024 as our technical roadmap grew ambitiously. Compa
 Today the OpenSearch Software Foundation has 14 member organizations, including premier members AWS, SAP, and Uber and general members Aiven, Aryn, Atlassian, Canonical, DataStax, Digital Ocean, DTEX, Eliatra, Graylog, Instaclustr by NetApp, and Portal26. Since the launch of the OpenSearch Software Foundation in September, we've confirmed a governing board with leaders from AWS, Aryn, SAP, and Uber. Our Technical Steering Committee is already driving key technology decisions with committee members from SAP, Bytedance, Oracle, Logz.io, Aiven, Aryn, Uber, and Slack/Salesforce.
 
 With a more engaged community than ever before, we're well positioned to build on the foundation we've forged together and continue to innovate. While the OpenSearch Software Foundation represents a culmination of four years of community-focused collaboration and growth, in many ways it feels like we're at the beginning of a new and really exciting journey. As always, we will continue to look to the community for your valuable input as we move forward together on this journey.
+
+{% include youtube-player.html id='9gwTMW901ew' %}
