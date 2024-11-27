@@ -20,11 +20,13 @@ featured_blog_post: false
 featured_image: false 
 ---
 
-Since its inception, OpenSearch has been dedicated to supporting a diverse range of applications, including document search, log analytics, observability, and security analytics. These critical workloads require a foundation that is not only scalable and reliable but also high-performing and cost-efficient. OpenSearch remains focused on meeting these demands while continuously evolving to address emerging challenges. With the release of version 2.17, OpenSearch achieved another milestone in its journey of optimization and innovation. This release delivers a 6x performance improvement over OpenSearch version 1.3, with gains across essential operations such as text queries, term aggregations, range queries, date histograms, and sorting.
+OpenSearch has always been committed to expanding functionality, scalability, and performance. In previous performance blogs, we discussed the major improvements we've made between OpenSearch 1.0 and first [2.11](https://opensearch.org/blog/opensearch-performance-improvements/)and then [2.14](https://opensearch.org/blog/opensearch-performance-2.14/). In this blog, we'll bring you up to date on our continuing performance improvements through OpenSearch 2.17.
 
-As OpenSearch integrates advanced capabilities like vector and hybrid search, disk-optimized storage, and improved query processing, it continues to address the growing needs for efficiency, scalability, and performance. These improvements reflect the contributions and collaboration of a dedicated community, whose insights and efforts drive OpenSearch forward.
+The wide range of applications that OpenSearch supports means that no one number can summarize the improvements you will see in your applications. That's why we're reporting on a variety of performance metrics, some mostly relevant to analytics in general and log analytics in particular, some mostly relevant to lexical search, and yet others relevant to semantic search using vector embeddings and k-NN. Under the rubric of performance, we're also including improvements in resource utilization, notably RAM and disk.
 
-In this post, we'll highlight the performance improvements in OpenSearch 2.17 compared to prior releases. We'll focus on key query types, including text queries, term aggregations, range queries, date histograms, and sorting. These improvements were evaluated using the [OpenSearch Big5 workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/big5), which represents common use cases in both search and analytics applications. The benchmarks provide a repeatable framework for measuring real-world performance enhancements. For a detailed benchmark analysis or to run your own benchmarks, see the [Appendix](#appendix---benchmarking-tests-and-results).
+Overall, OpenSearch 2.17 delivers a 6x overall performance improvement over OpenSearch 1.3, with gains across essential operations such as text queries, term aggregations, range queries, date histograms, and sorting. And that's not even counting improvements to semantic vector search, which is now highly configurable to let you choose the ideal balance of response time, accuracy, and cost for your applications. All these improvements reflect the contributions and collaboration of a dedicated community, whose insights and efforts drive OpenSearch forward.
+
+This post highlights the performance improvements in OpenSearch 2.17. The first section focuses on key query operations, including text queries, term aggregations, range queries, date histograms, and sorting. These improvements were evaluated using the [OpenSearch Big5 workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/big5), which represents common use cases in both search and analytics applications. The benchmarks provide a repeatable framework for measuring real-world performance enhancements. The next section reports on vector search improvements. Finally, we present our roadmap for 2025, where you'll see that we're making qualitative improvements in many areas, in addition to important incremental changes. We are improving query speed by processing data in real time. We are building a query planner which uses resources more efficiently. We are speeding up intra-cluster communications. And we're adding efficient Join operations to query DSL, Piped Processing Language (PPL), and SQL. To follow our work in more detail, and to contribute comments or code, please participate on the [OpenSearch Forum](https://forum.opensearch.org/) as well as directly in our GitHub repos.
 
 <style>
 .green-clr {
@@ -99,6 +101,8 @@ Date Histogram	|6068	|5249	|5168	|469	|357	|146	|157	|164	|160	|
 |Speedup factor, compared to OS 1.3 (geo mean)	|1.0	|1.27	|1.50	|2.62	|3.78	|4.51	|5.29	|7.95	|7.96	|
 |Relative latency, compared to OS 1.3 (geo mean)	|100%	|78.89	|66.80	|38.20	|26.45	|22.17	|18.92	|12.58	|15.93	|
 
+ For a detailed benchmark analysis or to run your own benchmarks, see the [Appendix](#appendix---benchmarking-tests-and-results).
+
 ## Queries
 
 OpenSearch has made the following query improvements.
@@ -159,7 +163,7 @@ The following improvements are included in the OpenSearch roadmap for 2025.
 In 2025, we will push the boundaries of OpenSearch's query engine with several key initiatives aimed at improving performance, scalability, and efficiency:
 
 * **[Streaming architecture](https://github.com/opensearch-project/OpenSearch/issues/16679)**: We're moving from a request/response model to streaming, processing and delivering data in real time, reducing memory overhead and improving query speed.
-* **[Native join support](https://github.com/opensearch-project/OpenSearch/issues/15185)**: We're introducing efficient JOIN operations across indexes to be supported natively, fully integrated with OpenSearch's query DSL, Piped Processing Language (PPL), and SQL.
+* **[Native join support](https://github.com/opensearch-project/OpenSearch/issues/15185)**: We're introducing efficient JOIN operations across indexes to be supported natively, fully integrated with OpenSearch's query DSL, PPL, and SQL.
 * **Native vectorized processing**: By using modern CPU SIMD operations and native code, we're optimizing the processing of data streams to eliminate Java's garbage collection bottlenecks.
 * **[Smarter query planning](https://github.com/opensearch-project/OpenSearch/issues/12390)**: Optimizing where and how computations run ensures we reduce unnecessary data transfer and improve performance for parallel query execution.
 * **[gRPC-based Search API](https://github.com/opensearch-project/OpenSearch/issues/15190)**: We're enhancing client-server communication with Protobuf and gRPC, accelerating search by reducing overhead.
