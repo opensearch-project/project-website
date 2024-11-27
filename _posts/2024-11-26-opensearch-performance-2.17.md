@@ -24,21 +24,14 @@ additional_author_info: We sincerely appreciate the contributions to this blog f
 
 Our commitment to enhancing OpenSearch's performance remains unwavering, and this blog post showcases the significant progress we've made. Recently, we've focused our investments on four key areas: text querying, vector storage and querying, ingestion and indexing, and storage efficiency. Additionally, we've published our search and performance roadmap, reaffirming that performance continues to be our top priority. In this blog post, we'll bring you up to date on our continuing performance improvements through [OpenSearch 2.17](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.17.0.md).
 
-OpenSearch 2.17 offers a remarkable **6x performance boost** compared to OpenSearch 1.3, enhancing key operations like text queries, term aggregations, range queries, date histograms, and sorting. Additionally, the improvements in semantic vector search now allow for highly configurable settings, enabling you to balance response time, accuracy, and cost according to your needs. These advancements are a testament to the dedicated community whose contributions and collaboration propel OpenSearch forward.
+OpenSearch 2.17 offers a remarkable **6x performance boost** compared to OpenSearch 1.3, enhancing key operations like text queries, terms aggregations, range queries, date histograms, and sorting. Additionally, the improvements in semantic vector search now allow for highly configurable settings, enabling you to balance response time, accuracy, and cost according to your needs. These advancements are a testament to the dedicated community whose contributions and collaboration propel OpenSearch forward.
 
-The first section focuses on key query operations, including text queries, terms aggregations, range queries, date histograms, and sorting. These improvements were evaluated using the [OpenSearch Big5 workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/big5), which represents common use cases in both search and analytics applications. The benchmarks provide a repeatable framework for measuring real-world performance enhancements. The next section reports on vector search improvements. Finally, we present our roadmap for 2025, where you'll see that we're making qualitative improvements in many areas, in addition to important incremental changes. We are improving query speed by processing data in real time. We are building a query planner that uses resources more efficiently. We are speeding up intra-cluster communications. And we're adding efficient join operations to query domain-specific language (DSL), Piped Processing Language (PPL), and SQL. To follow our work in more detail, and to contribute comments or code, please participate on the [OpenSearch forum](https://forum.opensearch.org/) as well as directly in our GitHub repos.
+The first section focuses on key query operations, including text queries, 297s aggregations, range queries, date histograms, and sorting. These improvements were evaluated using the [OpenSearch Big5 workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/big5), which represents common use cases in both search and analytics applications. The benchmarks provide a repeatable framework for measuring real-world performance enhancements. The next section reports on vector search improvements. Finally, we present our roadmap for 2025, where you'll see that we're making qualitative improvements in many areas, in addition to important incremental changes. We are improving query speed by processing data in real time. We are building a query planner that uses resources more efficiently. We are speeding up intra-cluster communications. And we're adding efficient join operations to query domain-specific language (DSL), Piped Processing Language (PPL), and SQL. To follow our work in more detail, and to contribute comments or code, please participate on the [OpenSearch forum](https://forum.opensearch.org/) as well as directly in our GitHub repos.
 
 <style>
-.green-clr {
-    background-color: #c1f0c1;
-}
 
 .light-green-clr {
     background-color: #e3f8e3;
-}
-
-.lightest-green-clr {
-    background-color: #eefbee;
 }
 
 .gray-clr {
@@ -47,14 +40,6 @@ The first section focuses on key query operations, including text queries, terms
 
 .ylw-clr {
     background-color: #FFEFCC;
-}
-
-.orange-clr {
-    background-color: #FCE2CF;
-}
-
-.light-orange-clr {
-    background-color: #FDEFE5;
 }
 
 .border-btm {
@@ -294,7 +279,7 @@ In 2025, we will continue to invest in the following key initiatives aimed at pe
 * **Autotuning k-NN indexes:** OpenSearch's vector database offers a toolkit of algorithms tailored for diverse workloads. In 2025, our goal is to enhance the out-of-the-box experience by autotuning hyperparameters and settings based on access patterns and hardware resources.
 * **Cold-warm tiering:** In version 2.18, we added support for enabling vector search on remote snapshots. We will continue focusing on decoupling index read/write operations to extend vector indexes to different storage systems in order to reduce storage and compute costs.
 * **Memory footprint reduction:** We will continue to aggressively reduce the memory footprint of vector indexes. One of our goals is to support the ability to partially load HNSW indexes into native engines. This complements our disk-optimized search and helps further reduce the operating costs of OpenSearch clusters.
-* **Reduced disk storage using derived source:** Currently, vector data is stored both in a doc-values-like format and in the stored `_source` field. The stored `_source` field can contribute more than 60% of the overall vector storage requirement. We plan to create a custom stored field format that will inject the vector fields into the source from the doc-values-like format, creating a dervied source field. In addition to storage savings, this approach will improve indexing throughput, reduce shard size, and even accelerate search.
+* **Reduced disk storage using derived source:** Currently, vector data is stored both in a doc-values-like format and in the stored `_source` field. The stored `_source` field can contribute more than 60% of the overall vector storage requirement. We plan to create a custom stored field format that will inject the vector fields into the source from the doc-values-like format, creating a derived source field. In addition to storage savings, this approach will improve indexing throughput, reduce shard size, and even accelerate search.
 
 ### Neural search
 
@@ -307,7 +292,7 @@ Our 2025 roadmap emphasizes optimizing performance, enhancing functionality, and
 - **Supporting additional algorithms for combining hybrid query results**: Support algorithms like reciprocal rank fusion (RRF), which improves hybrid search latency by avoiding costly score normalization because the scores are rank based.  
 - **Enhancing neural sparse pruning strategies**: Apply techniques such as pruning by weight, by ratio with max weight, by top-k, and by alpha-mass to improve performance by 20%.  
 - **Optimizing inference calls during updates and reindexing**: Reduce the number of inference calls required for neural and sparse ingestion pipelines, increasing throughput by 20% for these operations.  
-- **Consolidating multi-field inference calls**: Combine multiple field inference calls into a single operation for dense and sparse vector semantic search, reducing inference latency by 15% for multi-field dense-vector-based semantic queries. 
+- **Consolidating multifield inference calls**: Combine multiple field inference calls into a single operation for dense and sparse vector semantic search, reducing inference latency by 15% for multifield dense-vector-based semantic queries. 
 - **Reducing memory usage for resource-constrained systems**: Introduce a new quantization processor to decrease memory usage by 20%, improving efficiency in environments with limited resources or connectivity.  
 
 These advancements aim to enhance query performance, streamline operations, and expand usability across diverse workloads.
@@ -362,7 +347,7 @@ The following table provides benchmarking test results.
     </thead>
     <tbody>
         <tr>
-            <td rowspan=4>Text queries</td>
+            <td rowspan=4 class="bold">Text queries</td>
             <td>query-string-on-message</td>
             <td>1</td>
             <td>332.75</td>
@@ -415,7 +400,7 @@ The following table provides benchmarking test results.
             <td>4</td>
         </tr>
         <tr>
-            <td rowspan=14>Sorting</td>
+            <td rowspan=14 class="bold">Sorting</td>
             <td>asc_sort_timestamp</td>
             <td>5</td>
             <td>9.75</td>
@@ -598,7 +583,7 @@ The following table provides benchmarking test results.
             <td>2</td>
         </tr>
         <tr>
-            <td rowspan=7>Terms aggregations</td>
+            <td rowspan=7 class="bold">Terms aggregations</td>
             <td>cardinality-agg-high</td>
             <td>19</td>
             <td>3075.75</td>
@@ -690,7 +675,7 @@ The following table provides benchmarking test results.
             <td>770</td>
         </tr>
         <tr>
-            <td rowspan=9>Range queries</td>
+            <td rowspan=9 class="bold">Range queries</td>
             <td>keyword-in-range</td>
             <td>26</td>
             <td>101.5</td>
@@ -808,7 +793,7 @@ The following table provides benchmarking test results.
             <td>2</td>
         </tr>
         <tr>
-            <td rowspan=5>Date histograms</td>
+            <td rowspan=5 class="bold">Date histograms</td>
             <td>composite-date_histogram-daily</td>
             <td>35</td>
             <td>4828.75</td>
@@ -879,4 +864,4 @@ The following table provides benchmarking test results.
 ### Notes and considerations
 
 - **Additional queries**: The Big5 workload was recently updated to include additional queries. These queries have been included in the results of this blog post. 
-- <sup>*</sup> **`multi_terms-keyword` support**: OpenSearch 1.3.18 and 2.7.0 recorded `0` ms service time for `multi_terms-keyword` . This is because `multi_terms-keyword` was not supported until OpenSearch 2.11.0. Thus, entries in **Mean latency** account for this by excluding `multi_terms-keyword` from the geometric mean computation for OpenSearch 1.3.18 and 2.7.0.
+- <sup>*</sup> **`multi_terms-keyword` support**: OpenSearch 1.3.18 and 2.7.0 recorded `0` ms service time for `multi_terms-keyword`. This is because `multi_terms-keyword` was not supported until OpenSearch 2.11.0. Mean latency calculations account for this by excluding `multi_terms-keyword` from the geometric mean computation for OpenSearch 1.3.18 and 2.7.0.
