@@ -4,7 +4,7 @@ title: "Give back and go forward: Driving community contributions from vendor le
 authors:
    - anandhi
    - jamesmcintyre
-date: 2024-11-27
+date: 2024-11-29
 categories: 
     - community
 meta_keywords: OpenSearch Project, AWS open source, Linux Foundation, community contributions, OpenSearch Software Foundation
