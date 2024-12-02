@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "OpenSearchCon 2024 - North America: The Blog"
+title:  "OpenSearchCon 2024: North America -- The blog post"
 authors:
  - prthsh
  - smelik
