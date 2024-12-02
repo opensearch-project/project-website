@@ -18,7 +18,7 @@ excerpt: OpenSearch, the community-driven, open-source search and analytics suit
 
 
 1. Introduction 
-OpenSearch, the community-driven, open-source search and analytics suite, has been gaining momentum in the data-driven application landscape. The recent ![OpenSearchCon North America 2024](https://opensearch.org/events/opensearchcon/2024/north-america/index.html) event held in San Francisco, which attracted over 350 attendees from around the world, was a testament to the growing influence of this powerful platform. In this blog post, we'll explore the key highlights, insightful sessions, and exciting announcements that emerged from this year's conference.
+OpenSearch, the community-driven, open-source search and analytics suite, has been gaining momentum in the data-driven application landscape. The recent ![OpenSearchCon 2024: North America](https://opensearch.org/events/opensearchcon/2024/north-america/index.html) event held in San Francisco, which attracted over 350 attendees from around the world, was a testament to the growing influence of this powerful platform. In this blog post, we'll explore the key highlights, insightful sessions, and exciting announcements that emerged from this year's conference.
 
 2. Keynote: The Future of OpenSearch
 
