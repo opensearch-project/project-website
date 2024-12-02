@@ -38,7 +38,7 @@ The conference featured several informative sessions and workshops, including:
 * Session: ![Bringing cloud native innovation from search platforms at Uber and Slack into OpenSearch](https://youtu.be/iZrFVqvTD9s?si=loButiXx8zm2PHob)
     This session, led by Karthikeyan Ramasamy and Bryan Burkholder, showcased how their organizations' unique requirements of low-latency, high-throughput workloads led them to develop their own search and log analytics platforms, making it easy to operate, cost effective, and able to scale to petabytes of data. The session covered how Uber and Slack are collaborating with the OpenSearch Project to bring some of their learnings and innovations from their platforms into OpenSearch, with a special focus on a modular cloud-native architecture featuring isolation between readers and writers and a performant messaging protocol for communication between services. 
 * Session: ![A deep dive into OpenSearch Serverless](https://www.youtube.com/watch?v=JPo_uF4Fw4M)
-    This session, led by Rohit Nair and Milav Shah, dove deep into how OpenSearch Serverless works, including architecture details, performance and operational characteristics, and the future roadmap.
+    This session, led by Rohit Nair and Milav Shah, dives deep into how Amazon OpenSearch Serverless works, including architecture details, understanding performance and operational characteristics, and the future roadmap.
 
 4. Closing remarks: What's next for OpenSearch?
 
