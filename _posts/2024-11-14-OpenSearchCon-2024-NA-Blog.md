@@ -40,7 +40,7 @@ The conference featured several informative sessions and workshops, including:
 * Session: ![A deep dive into OpenSearch Serverless](https://www.youtube.com/watch?v=JPo_uF4Fw4M)
     This session led by Rohit Nair and Milav Shah, dives deep into how OpenSearch serverless works, including architecture details, understanding performance and operational characteristics and future roadmap.
 
-4. Closing Remarks: What’s Next for OpenSearch?
+4. Closing remarks: What's next for OpenSearch?
 
 The event was not just about technical sessions—it was also a fantastic opportunity to network with peers in the open-source search space. The community lounge was buzzing with activity, and there were plenty of informal meetups where attendees could connect with OpenSearch engineers, contributors, and advocates.
 
