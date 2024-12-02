@@ -26,7 +26,7 @@ The event kicked off with an inspiring keynote from Eli Fisher, Sr. Manager, Pro
 
 * OpenSearch 2.x and unlocking AI potential: Eli shared details about the OpenSearch 2.x release, including features like the OpenSearch AI toolkit, a built-in retrieval-augmented generation (RAG) processor, and concurrent segment search, unlocking new possibilities for AI-powered applications.
 * OpenSearch generative AI use cases: Anupam Chaturvedi, Adobe Engineering Manager, demonstrated how Adobe is leveraging OpenSearch for its Acrobat generative AI assistant, showcasing the practical applications of OpenSearch in the generative AI space.
-* Community Growth: Jim Zemlin, Executive Director, ![The Linux Foundation](https://www.linuxfoundation.org/) spoke about welcoming OpenSearch to the Linux Foundation. By opening up the project governance and moving to a neutral home, the OpenSearch team is taking concrete steps to further the project’s founding principle of being for the community and by the community. 
+* Community growth: Jim Zemlin, Executive Director, ![The Linux Foundation](https://www.linuxfoundation.org/), spoke about welcoming OpenSearch to the Linux Foundation. By opening up project governance and moving to a neutral home, the OpenSearch Project is taking concrete steps to further the project's founding principle of being for the community and by the community. 
 
 3. Important Sessions and Workshops
 The conference featured several informative sessions and workshops, including:
