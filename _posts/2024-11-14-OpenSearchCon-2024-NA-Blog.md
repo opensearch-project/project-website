@@ -22,7 +22,7 @@ OpenSearch, the community-driven, open-source search and analytics suite, has be
 
 2. Keynote: The future of OpenSearch
 
-The event kicked off with an inspiring keynote from Eli Fisher, Sr. Manager, Product Management at OpenSearch who laid out the vision for the future of OpenSearch. Some key announcements included:
+The event kicked off with an inspiring keynote from Eli Fisher, Sr. Manager, Product Management at OpenSearch, who laid out the vision for the future of OpenSearch. Some key announcements included:
 
 * OpenSearch 2.x and Unlocking AI potential: Eli shared details about the OpenSearch 2.x release, including features like the OpenSearch AI toolkit, built-in RAG processor, and concurrent segment search, unlocking new possibilities for AI-powered applications.
 * OpenSearch GenAI Use Cases : Anupam Chaturvedi, Adobe Engineering Manager, demonstrated how Adobe is leveraging OpenSearch for its Acrobat GenAI assistant, showcasing the practical applications of OpenSearch in the generative AI space.
