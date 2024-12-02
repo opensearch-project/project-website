@@ -28,7 +28,7 @@ The event kicked off with an inspiring keynote from Eli Fisher, Sr. Manager, Pro
 * OpenSearch generative AI use cases: Anupam Chaturvedi, Adobe Engineering Manager, demonstrated how Adobe is leveraging OpenSearch for its Acrobat generative AI assistant, showcasing the practical applications of OpenSearch in the generative AI space.
 * Community growth: Jim Zemlin, Executive Director, ![The Linux Foundation](https://www.linuxfoundation.org/), spoke about welcoming OpenSearch to the Linux Foundation. By opening up project governance and moving to a neutral home, the OpenSearch Project is taking concrete steps to further the project's founding principle of being for the community and by the community. 
 
-3. Important Sessions and Workshops
+3. Important sessions and workshops
 The conference featured several informative sessions and workshops, including:
 
 * Session: ![Airbnb Embedding Platform](https://www.youtube.com/watch?v=kpWQ55hVF90)
