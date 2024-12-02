@@ -44,7 +44,7 @@ The conference featured several informative sessions and workshops, including:
 
 The event was not just about technical sessions—it was also a fantastic opportunity to network with peers in the open-source search space. The community lounge was buzzing with activity, and there were plenty of informal meetups where attendees could connect with OpenSearch engineers, contributors, and advocates.
 
-As the OpenSearchCon event drew to a close, it was clear that the conference was a significant milestone for the OpenSearch community. The announcements around new features, improvements in observability, and the ongoing commitment to open-source principles left attendees excited about the future of the project.
+As the OpenSearchCon event drew to a close, it was clear that the conference was a significant milestone for the OpenSearch community. The announcements about new features, improvements in observability, and the ongoing commitment to open-source principles left attendees excited about the future of the project.
 
 The OpenSearch roadmap for 2024 highlights key themes around which the contributors are innovating, including stability, availability, and resiliency (StAR); cost, performance, and scale (CoPS); ease of use; observability and log analytics; search and machine learning; security; and a modular architecture.
 
