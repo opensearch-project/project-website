@@ -110,9 +110,6 @@ $desktop-banner-height: 350px;
     .solutionsProviders-hero-heading-background-container {
         min-height: $mobile-banner-height;
     }
-    // .solutionsProviders-hero-heading {
-    //     font-size: 32px;
-    // }
     .solutionsProviders-hero-subtext {
         font-size: 15px;
         font-weight: 600;
@@ -129,11 +126,16 @@ $desktop-banner-height: 350px;
 
 .solutionsProviders-hero-heading {
     color: $secondary-golden-poppy;
-    // font-size: 64px;
+    font-size: 48px;
     font-family: "Open Sans";
     font-weight: 800;
     word-wrap: break-word;
-    // text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    @media screen and (max-width: 500px) {
+        font-size: 36px;
+    }
+    @media screen and (min-width: 900px) {
+        font-size: 64px;
+    }
 }
 .solutionsProviders-hero-subtext {
     color: $secondary-sanfrancisco-fog-t1;
