@@ -133,7 +133,6 @@
                 @include sans-serif;
 
                 &:hover, &:active, &:focus {
-                    background-color: lighten($color: $core, $amount: 10%);
                     transition: all .125s ease-in;
                 }
             }

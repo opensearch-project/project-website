@@ -7,11 +7,12 @@ $calendar-month-default-week-count: 5;
     width: 350px;
     height: 350px;
     padding: 45px 30px 10px 30px;
-    @include thick-edge-bottom;
-    @include card-shadow;
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    @include thick-edge-bottom;
+    @include card-shadow;
+
     &.events--calendar--details--card__events-page {
         justify-content: start;
     }
@@ -91,13 +92,14 @@ $calendar-month-default-week-count: 5;
     > h2[id],
     > h1[id],
     .events--calendar--body--week--day--event--details--description {
-        @include trim-ellipsis-multiline;
         color: #000;
         font-size: 15px;
         font-style: normal;
         font-weight: 400;
         line-height: 24px;
         margin: 10px 0;
+        @include trim-ellipsis-multiline;
+
         & * {
             font-weight: normal;
             font-style: normal;
@@ -135,13 +137,15 @@ $calendar-month-default-week-count: 5;
 .full-width-layout--content 
 > .full-width-layout--content--body 
 > div.events--calendar--wrapper {
-    @include page-element-left-right-margins;
     padding: 0;
+    @include page-element-left-right-margins;
+
     p.events--calendar--no-events-message {
-        @include body-text;
         text-align: left;
         white-space: nowrap;
         overflow-x: visible;
+        @include body-text;
+
         &.events--calendar--no-events-message__centered {
             text-align: center;
         }
@@ -518,7 +522,6 @@ $calendar-month-default-week-count: 5;
                                 box-sizing: border-box;
                                 padding-left: 5px;
                                 > a {
-                                    @include trim-ellipsis-multiline(2);
                                     overflow: hidden;
                                     color: #000;
                                     text-overflow: ellipsis;
@@ -528,6 +531,8 @@ $calendar-month-default-week-count: 5;
                                     font-weight: 400;
                                     line-height: 16px;
                                     text-decoration: none;
+                                    @include trim-ellipsis-multiline(2);
+
                                     &:hover,
                                     &:active {
                                         font-weight: 600;
@@ -549,9 +554,10 @@ $calendar-month-default-week-count: 5;
                                 left: 100%;
                                 right: auto;
                                 bottom: auto;
-                                @extend .events--calendar--details--card;
                                 padding-top: 0px;
                                 height: 400px;
+                                @extend .events--calendar--details--card;
+
                                 > .events--calendar--body--week--day--event--details--close-button {
                                     box-sizing: border-box;
                                     width: 100%;
@@ -638,8 +644,9 @@ $calendar-month-default-week-count: 5;
         }
     }
     > .events--calendar--more {
-        @extend .conference-speakers--session-speakers--more;
         margin-top: 80px;
+        @extend .conference-speakers--session-speakers--more;
+
     }
 }
 
@@ -675,8 +682,9 @@ $calendar-month-default-week-count: 5;
                         padding-bottom: 15px;
                     }
                     > .solutions-card-grid--card-wrapper--card--content {
-                        @include body-small;
                         color: $secondary-sanfrancisco-fog-s3;
+                        @include body-small;
+                        
                         > a {
                             color: $primary-pacific-blue;
                             font-size: 18px;

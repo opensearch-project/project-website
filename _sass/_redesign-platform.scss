@@ -68,10 +68,11 @@ $platform-page-content-reduce-padding-width: 1199px;
         }
     }
     .platform-page--solution--use-cases {
-        @include page-element-left-right-padding;
         background: linear-gradient(180deg, #E1FAFF 0%, #98E3F4 48.15%, #00B7E0 100%);
         padding-top: 40px;
         padding-bottom: 66px;
+        @include page-element-left-right-padding;
+
         h2 {
             color: $primary-pacific-blue-s3;
         }
@@ -126,6 +127,10 @@ $solutions-card-bottom-margin: 36px;
         
         > .platform-category-page--hero {
             height: auto;
+            position: relative;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             @media screen and (min-width: 835px) {
                 max-width: unset;
                 min-height: 360px;
@@ -135,10 +140,7 @@ $solutions-card-bottom-margin: 36px;
                 height: auto;
                 aspect-ratio: 3/2;
             }
-            position: relative;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+
             > .landing-page-hero--images {
                 position: absolute;
                 top: 0;
@@ -216,9 +218,10 @@ $solutions-card-bottom-margin: 36px;
             >.landing-page-hero--header {
                 padding: 0;
                 > h1 {
-                    @include hero-header-text;
                     margin-top: 0;
                     margin-bottom: 0;
+                    @include hero-header-text;
+
                     @media screen and (max-width: 660px) {
                         @include header-level1-mobile;
                     }
@@ -249,8 +252,9 @@ $solutions-card-bottom-margin: 36px;
                 top: -20px;
                 box-sizing: border-box;
                 > h2 {
-                    @include hero-header-subtext;
                     margin-bottom: 3px;
+                    @include hero-header-subtext;
+                    
                 }
                 @media screen and (min-width: 1010px) {
                     width: 50%;
@@ -522,6 +526,8 @@ $solutions-card-bottom-margin: 36px;
                 flex-basis: 39.25%;
                 max-width: unset;
                 flex-grow: 1;
+                @include gradient-open-sky;
+                @include center-flex(350px);
                 @media screen and (max-width: 834px) {
                     flex-basis: unset;
                     max-width: 100%;
@@ -532,8 +538,7 @@ $solutions-card-bottom-margin: 36px;
                     padding-left: 20px;
                     padding-right: 20px;       
                 }
-                @include gradient-open-sky;
-                @include center-flex(350px);
+
                 .draft-3-landing-page--button-stack {
                     justify-content: space-evenly;
                     row-gap: unset;
@@ -560,6 +565,7 @@ $solutions-card-bottom-margin: 36px;
                         max-width: unset;
                     }
                     .draft-3-landing-page--button-stack--button {
+                        width: 100%;
                         @media screen and (min-width: $content-with-panel-expanded-min) and (max-width: 1439px) {
                             // Overrides defaults defined in _redesign.scss
                             flex-basis: unset;
@@ -567,7 +573,7 @@ $solutions-card-bottom-margin: 36px;
                             flex-shrink: unset;
                             widtH: 100%;
                         }
-                        width: 100%;
+                        
                         > .redesign-button--wrapper {
                             width: 100%;
                             box-sizing: border-box;
@@ -603,6 +609,10 @@ $solutions-card-bottom-margin: 36px;
         @include page-element-padding;
         > .platform-category-page--hero {
             height: auto;
+            position: relative;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             @media screen and (min-width: 835px) {
                 max-width: unset;
                 aspect-ratio: 1280 / 400;
@@ -611,10 +621,7 @@ $solutions-card-bottom-margin: 36px;
                 max-width: 100%;
                 aspect-ratio: 754 / 400;
             }
-            position: relative;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+
             > .landing-page-hero--images {
                 > .landing-page-hero--images--image {
                     position: absolute;
@@ -717,22 +724,25 @@ $solutions-card-bottom-margin: 36px;
         @include page-element-padding;
         > .platform-category-page--key-features--list-box {
             background: white;
+            padding: 25px 50px;
             @include card-shadow;
             @include thick-edge-bottom;
-            padding: 25px 50px;
+            
             @media screen and (max-width: 834px) {
                 padding: 25px 10px;
             }
             > hgroup {
                 > h2 {
-                    @include header-level2($primary-open-sky-s2);
                     margin-top: 0;
                     margin-bottom: 0;
+                    @include header-level2($primary-open-sky-s2);
+
                 }
                 > p {
-                    @include body-text($secondary-sanfrancisco-fog-s4);
                     margin-top: 5px;
                     margin-bottom: 30px;
+                    @include body-text($secondary-sanfrancisco-fog-s4);
+
                 }
                 &:last-of-type {
                     > p {
@@ -743,18 +753,20 @@ $solutions-card-bottom-margin: 36px;
         }
     }
     .platform-page--solution--use-cases {
-        @include page-element-padding;
         box-sizing: border-box;
         width: 100%;
         background: $secondary-sanfrancisco-fog-t1;
+        @include page-element-padding;
+
     }
     .landing-page-content__right-panel {
         padding: 0;
         background: #fff;
         margin-bottom: 0;
         > .landing-page-content__right-panel--content {
-            @include page-element-padding;
             padding-bottom: 0;
+            @include page-element-padding;
+            
             > .landing-page-content__right-panel--content--body {
                 padding: 0;
                 @media screen and (min-widtH: 835px) {
@@ -795,6 +807,8 @@ $solutions-card-bottom-margin: 36px;
             > .landing-page-content__right-panel--content {
                 padding: 0;
                 > .landing-page-content__right-panel--content--body {
+                    box-sizing: border-box;
+                    background: transparent;
                     @media screen and (min-width: 835px) {
                         width: 66%;
                         flex-basis: 66%;
@@ -802,8 +816,7 @@ $solutions-card-bottom-margin: 36px;
                     @media screen and (max-width: 834px) {
                         width: 100%;
                     }
-                    box-sizing: border-box;
-                    background: transparent;
+
                     .platform-page--resources.solutions-card-grid {
                         padding: 0;
                         box-sizing: border-box;
@@ -892,10 +905,11 @@ $solutions-card-bottom-margin: 36px;
                                         flex-grow: 1;
                                         flex-shrink: 1;
                                         flex-basis: content;
-                                        @include body-small;
                                         color: $secondary-sanfrancisco-fog-s4;
                                         padding-top: 12px;
                                         padding-left: 8px;
+                                        @include body-small;
+
                                     }
                                 }
                             }
@@ -904,6 +918,7 @@ $solutions-card-bottom-margin: 36px;
                 }
                 > .landing-page-content__right-panel--content--side-panel {
                     background: transparent;
+                    box-sizing: border-box;
                     @media screen and (min-width: 835px) and (max-width: 1099px) {
                         display: block;
                         width: 34%;
@@ -921,9 +936,10 @@ $solutions-card-bottom-margin: 36px;
                         display: flex;
                         justify-content: center;
                     }
-                    box-sizing: border-box;
+                    
                     
                     .draft-3-landing-page--button-stack__with-label {
+                        box-sizing: border-box;
                         @media screen and (min-width: 835px) {
                             width: 100%;
                             max-width: unset;
@@ -937,7 +953,7 @@ $solutions-card-bottom-margin: 36px;
                             max-width: 100%;
                         }
                         
-                        box-sizing: border-box;
+                        
                         @media screen and (max-width: 834px) {
                             padding-top: 40px;
                         }
@@ -949,6 +965,7 @@ $solutions-card-bottom-margin: 36px;
                         > .draft-3-landing-page--button-stack {
                             background: $secondary-sanfrancisco-fog-t1;
                             box-sizing: border-box;
+                            height: 245px;
                             @media screen and (min-width: 835px) {
                                 max-width: 350px;
                                 min-width: 280px;
@@ -961,7 +978,7 @@ $solutions-card-bottom-margin: 36px;
                                 padding-left: 15px;
                                 padding-right: 15px;
                             }
-                            height: 245px;
+                            
                         }
                     }
                 }
@@ -1007,12 +1024,13 @@ $solutions-card-bottom-margin: 36px;
         }
     }
     .resource-grid--item {
-        @include card-shadow;
-        @include thick-edge-bottom;
         max-width: 350px;
         height: 437px;
         background-color: white;
         padding: 0;
+        @include card-shadow;
+        @include thick-edge-bottom;
+
         .resource-grid-item--byline {
             padding-left: 2em;
             > span {
@@ -1020,10 +1038,11 @@ $solutions-card-bottom-margin: 36px;
             }
         }
         .resource-grid--item--title-type {
-            @include header-level4;
             position: relative;
             top: -10px;
             padding-left: 2em;
+            @include header-level4;
+
         }
         .resource-grid--item--title {
             position: relative;
@@ -1103,6 +1122,7 @@ $solutions-card-bottom-margin: 36px;
     }
     > .platform-product {
         display: flex;
+        margin-bottom: 75px;
         @media screen and (min-width: 835px) {
             max-width: 1265px;
             flex-direction: row;
@@ -1117,7 +1137,7 @@ $solutions-card-bottom-margin: 36px;
             align-items: flex-start;
             row-gap: 0;
         }
-        margin-bottom: 75px;
+
         :has(a[href]) {
             cursor: pointer;
         }
@@ -1158,6 +1178,13 @@ $solutions-card-bottom-margin: 36px;
             }
         }
         > .platform-product--title {
+            
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @include gradient-deep-blue-sea;
             @media screen and (min-width: 835px) {
                 flex-basis: 47.43%;
                 max-width: 600px;
@@ -1167,13 +1194,9 @@ $solutions-card-bottom-margin: 36px;
                 width: 100%;
                 min-height: 300px;
             }
-            @include gradient-deep-blue-sea;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+
             > .platform-product--title--text {
+                margin: auto;
                 color: white;
                 font-family: 'Open Sans';
                 font-size: 51px;
@@ -1183,13 +1206,18 @@ $solutions-card-bottom-margin: 36px;
                 @media screen and (min-width: 1010px) {
                     width: 75%;
                 }
-                margin: auto;
+
                 @media screen and (max-width: 460px) {
                     @include header-level1-mobile;
                 }
             }
         }
         > .platform-product--description {
+            padding: 50px 3%;
+            min-height: 400px;
+            background-color: white;
+            box-sizing: border-box;
+            @include thick-edge-bottom;
             @media screen and (min-width: 835px) {
                 flex-basis: 52.57%;
                 max-width: 665px;
@@ -1197,17 +1225,15 @@ $solutions-card-bottom-margin: 36px;
             @media screen and (max-width: 834px) {
                 width: 100%;
             }
-            padding: 50px 3%;
-            min-height: 400px;
-            background-color: white;
-            @include thick-edge-bottom;
-            box-sizing: border-box;
+
+            
             > h3 {
+                margin-top: 0;
                 @include header-level3($primary-open-sky-s2);
                 > a {
                     @include header-level3($primary-open-sky-s2);
                 }
-                margin-top: 0;
+                
             }
             > p {
                 @include body-small;

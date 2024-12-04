@@ -975,6 +975,9 @@ $max-container: 1440px;
                                     > a {
                                         &.in-category,
                                         &:hover {
+                                            text-decoration: underline;
+                                            text-decoration-thickness: 2px;
+                                            text-underline-offset: 6px;
                                             @media screen and (min-width: $header-banner-min-width) {
                                                 color: $primary-open-sky-s2;
                                                 text-decoration-color: $primary-open-sky-s2;
@@ -983,9 +986,6 @@ $max-container: 1440px;
                                                 color: $primary-open-sky-t2;
                                                 text-decoration-color: $primary-open-sky-t2;
                                             }
-                                            text-decoration: underline;
-                                            text-decoration-thickness: 2px;
-                                            text-underline-offset: 6px;
                                         }
                                         @media screen and (max-width: $header-banner-mobile-breakpoint) {
                                             @include header-level3($primary-open-sky-t3);
