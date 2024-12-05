@@ -4,15 +4,15 @@ title:  "OpenSearchCon 2024: North America -- The blog post"
 authors:
  - prthsh
  - smelik
-date: 2024-11-14
+date: 2024-12-05
 categories:
  - community-updates
  - community
  - updates
  - update
  - partners
-meta_keywords: OpenSearchCon, OpenSearch Project, Adobe, Linux Foundation, GenAI, Vector Search, OpenSearch Software Foundation, Airbnb, Lucene, Cloud, OpenSearch Serverless, Uber, Slack, OpenSearchCon North America
-meta_description: 
+meta_keywords: OpenSearch Project, OpenSearchCon 2024, search and analytics, open-source, AI, machine learning, data-driven applications, cloud-native, community-driven, Linux Foundation
+meta_description: Explore the key highlights, insightful sessions, and exciting announcements from the OpenSearchCon North America 2024. Learn about the OpenSearch Project, new features, community growth, and about the roadmap for 2024 and beyond.
 excerpt: OpenSearch, the community-driven, open-source search and analytics suite, has been gaining momentum in the data-driven application landscape. The recent OpenSearchCon North America 2024 event held in San Francisco, which attracted over 350 attendees from around the world, was a testament to the growing influence of this powerful platform. In this blog post, we'll explore the key highlights, insightful sessions, and exciting announcements that emerged from this year's conference.
 ---
 
