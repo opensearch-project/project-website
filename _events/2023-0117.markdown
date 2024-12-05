@@ -3,6 +3,7 @@ calendar_date: '2023-01-17'
 eventdate: 2023-01-17 08:00:00 -0800
 title: OpenSearch Community Meeting - 2023-01-17
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/290443462/
     title: Join on Meetup
