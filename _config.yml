@@ -17,7 +17,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-last-modified-at
-  - jekyll-sitemap
+  # - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock

@@ -1,0 +1,118 @@
+---
+layout: default
+title: UserGroups
+primary_title: UserGroups
+body_class: UserGroups-page
+---
+
+
+<main>
+
+    
+    <!-- MAIN DATAFILE -->
+    {% assign userGroups_pageContent = site.data.page_UserGroups_datafile['UserGroups'] %}
+  
+    {% assign data_HeroBanner = userGroups_pageContent['HeroBanner']  %}
+    {% assign data_Page_Overview = userGroups_pageContent['Content_PageOverview']  %}
+    {% assign data_UserGroup_Overview = userGroups_pageContent['Content_UserGroups']  %}
+    {% assign data_GroupCharter_Button = userGroups_pageContent['UserGroups_GroupCharter_Button']  %}
+    {% assign data_UserGroup_Array = userGroups_pageContent['UserGroup_Array']  %}
+  
+  
+    <div class="container usergroups-desktopTopBanner-container">
+        <div class="row">
+            <!-- ICON -->
+            <div class="col-2 ps-3 usergroups-sidebar-favicon-wrapper d-flex justify-content-center align-items-center">
+                <img 
+                    src="{{ data_HeroBanner.PathIconImageDesktop }}" 
+                    alt="UserGroup Icon"
+                    class="usergroups-favicon-image"
+                > 
+            </div>
+    
+            <!-- HEROBANNER -->
+            <div class="col-10 usergroups-topBanner-img-wrapper m-0">
+                <div class="usergroups-topBanner-content-wrapper d-flex flex-column align-items-start justify-content-center ps-4">
+
+                    <h1 class="usergroups-hero-heading-name mb-2">{{ data_HeroBanner.Title }}</h1>
+                    <span class="bodycontent--text usergroup-herobanner-subtext">{{ data_HeroBanner.SubText }}</span>
+    
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+  
+    <!-- BUILDERS BANNER -->
+    <div class="container-fluid Builders-banner-dark-backgroundBannerpy-1">
+    
+      <div class="container Builders-banner-dark-backgroundBanner-container px-1 px-md-5">
+
+
+        <div class="row">
+            <!-- IMAGE -->
+            <div class="col-12 col-lg-5 p-4 m-0 usergroups-buildersbanner-image-wrapper d-flex justify-content-center align-items-center">
+                <img 
+                    src="{{ data_Page_Overview.Builders_ImagePath }}" 
+                    alt="Builders Image"
+                    class="usergroups-builders-image"
+                > 
+            </div>
+    
+            <!-- Content -->
+            <div class="col-12 col-lg-7 p-4 m-0 usergroups-topBanner-content-wrapper d-flex align-items-center justify-content-start">
+
+                    <span class="bodycontent--text usergroup-body-text">{{ data_Page_Overview.TextContent }}</span>
+
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  
+
+
+
+
+    <div class="album py-5 solutionsProviders-mainContent-wrapper">
+
+        <!-- PARTICIPATE IN LOCAL USER GROUP -->
+        <div class="container px-3">
+            <div class="d-flex flex-column">
+                <h1 class="flex-grow-1 header--h2">{{ data_UserGroup_Overview.Title }}</h1>
+                <span class="bodycontent--text usergroup-body-text">{{ data_UserGroup_Overview.TextContent }}</span>
+
+            </div>
+        </div>
+
+        <!-- USERGROUP ARRAY -->
+        <div class="container px-3 px-md-5">
+            <hr/>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    
+            {% for usergroup in data_UserGroup_Array %}
+                <div class="col">
+                    <card class="card card-usergroup-img-top shadow-sm d-flex">
+
+                        <img src="{{ usergroup.ImagePath }}" class="card-img-top" alt="{{ usergroup.Name }}">
+                        <a href="{{ usergroup.Link }}" class="stretched-link"></a>
+                        <div class="card-body d-flex flex-column">
+                            <span class="card-text">{{ usergroup.Location }}</span>
+                            <h5 class="card-title">{{ usergroup.Name }}</h5>
+                        </div>
+
+                    </card>
+                </div>
+    
+            {% endfor %}
+    
+            </div>
+        </div>
+  
+    </div>
+
+
+
+  </main>

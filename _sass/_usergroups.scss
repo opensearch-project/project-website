@@ -1,0 +1,135 @@
+
+
+
+
+// HERO BANNER
+$mobile-usergroups-banner-height: 200px;
+$desktop-usergroups-banner-height: 255px;
+$desktop-sidebar-width: 200px;
+$favicon-img-desktop-height: 100px;
+.usergroups-desktopTopBanner-container{
+    position: relative;
+
+    .usergroups-hero-heading-name{
+        color: $primary-open-sky-s2;
+        font-size: 64px;
+        font-family: 'Open Sans Condensed';
+        font-weight: 800;
+        line-height: 72px;
+        text-decoration: none;
+        z-index: 1;
+    }
+    .icon-div-box{
+        margin-left: 0px;
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .usergroups-topBanner-img-wrapper{
+        position: relative;
+        height: $desktop-usergroups-banner-height;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        .usergroups-topBanner-content-wrapper {
+            height: $desktop-usergroups-banner-height;
+        }
+    }
+
+
+
+    .usergroups-sidebar-favicon-wrapper{
+        // min-width: $desktop-sidebar-width;
+        height: $desktop-usergroups-banner-height;
+        background-color: white;
+    
+        .usergroups-favicon-image {
+            min-width: 50px;
+            max-width: 40%;
+            object-fit: contain;
+            display: block;
+        }
+    }
+
+    // Bottom Border
+    &::after {
+        content: "";
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background-color: $primary-open-sky-s2;
+        bottom: 0px;
+        left: 0;
+    }
+}
+
+$desktop-usergroups-buildersbanner-height: 300px;
+// BUILDERS BANNER
+.Builders-banner-dark-backgroundBanner {
+    position: relative;
+    overflow: hidden;
+    background-color: $primary-pacific-sky-t3;
+
+    .Builders-banner-dark-backgroundBanner-container {
+        position: fluid;
+        height: $desktop-usergroups-buildersbanner-height;
+    }
+
+    .usergroups-builders-image {
+        // max-width: 40%;
+        // max-height: $desktop-usergroups-buildersbanner-height;
+        min-width: 400px;
+        // object-fit: contain;
+        display: block;
+    }
+    
+}
+
+
+// FONT
+.usergroup-h2-header {
+    color: $primary-open-sky-s3;
+    font-size: 30px;
+    font-weight: 700px;
+}
+.usergroup-herobanner-subtext {
+    color: $primary-open-sky-s3;
+    font-size: 20px;
+    font-weight: 700px;
+    line-height: 30px;
+}
+.usergroup-body-text {
+    color: black;
+    font-size: 24px;
+    font-weight: 400px;
+    line-height: 48px;
+}
+
+
+
+
+// USERGROUP CARDS
+.card-usergroup-img-top {
+
+    // .card-img-top{
+    //     height: 100px;
+    // }
+    .card-title {
+        color: #0085B8;
+        font-size: 21px;
+        font-family: Open Sans;
+        font-weight: 700;
+        line-height: 36px;
+        word-wrap: break-word
+    }
+    .card-text {
+        color: #003551;
+        font-size: 15px;
+        font-family: Open Sans;
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height: 24px;
+        letter-spacing: 4.50px; 
+    }
+}

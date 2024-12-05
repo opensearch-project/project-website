@@ -1,0 +1,120 @@
+
+
+{
+
+    "UserGroups": {
+
+        "HeroBanner": {
+            "Title": "Community User Groups",
+            "SubText": "A place for local OpenSearch communities to gather worldwide",
+            "PathIconImageDesktop": "/assets/img/usergroups-assets/UserGroup_Icon.png" 
+        },
+        "Content_PageOverview": {
+            "Builders_ImagePath": "/assets/img/usergroups-assets/OpenSearchBuilders.png",
+            "TextContent": "User Groups are community-driven meetups, or recurring gatherings who discuss OpenSearch topics, share knowledge, present related solutions, and network with the wider open source community. <br/> OpenSearch Project User Groups are meant to facilitate in-person collaboration, knowledge sharing, success stories, best practices, and resources."
+        }, 
+        "Content_UserGroups": {
+            "Title": "Participate in a local User Group",
+            "ClassValue": "header--h2",
+            "TextContent": "Anyone interested is welcome to join the OpenSearch Meetup Network. <br/> User Group presentations typically discuss search engineering, open source search technology, search relevancy, observability, log analytics, and other OpenSearch-related topics."
+        },   
+        "UserGroups_GroupCharter_Button": {
+            "Title": "User group charter and guidelines",
+            "ClassValue": "button-primary",
+            "Link": ""
+        },  
+        "UserGroup_Array": [
+            {
+                "Name": "Amsterdam, Neatherlands",
+                "Location": "Europe",
+                "ImagePath": "/assets/img/usergroups-assets/Amsterdam_UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-amsterdam/"
+            }, 
+            {
+                "Name": "Austin, United States",
+                "Location": "North America",
+                "ImagePath": "/assets/img/usergroups-assets/Austin_UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-austin/"
+            }, 
+            {
+                "Name": "Bay Area, United States",
+                "Location": "North America",
+                "ImagePath": "/assets/img/usergroups-assets/OS-AWS-SF-UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-bay-area/"
+            }, 
+            {
+                "Name": "Berlin, Germany",
+                "Location": "Europe",
+                "ImagePath": "/assets/img/usergroups-assets/AWS-Berlin-UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-berlin/"
+            }, 
+            {
+                "Name": "Bristol, United Kingdom",
+                "Location": "Europe",
+                "ImagePath": "/assets/img/usergroups-assets/AWS-Bristol-UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-bristol/"
+            }, 
+            {
+                "Name": "Chicago, United States",
+                "Location": "North America",
+                "ImagePath": "/assets/img/usergroups-assets/AWS-Chicago-UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-chicago/"
+            }, 
+            {
+                "Name": "Dublin, Ireland",
+                "Location": "Europe",
+                "ImagePath": "/assets/img/usergroups-assets/Dublin_UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-dublin/"
+            }, 
+            {
+                "Name": "London, England",
+                "Location": "Europe",
+                "ImagePath": "/assets/img/usergroups-assets/London_UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-london/"
+            }, 
+            {
+                "Name": "Munchen, Germany",
+                "Location": "Europe",
+                "ImagePath": "/assets/img/usergroups-assets/OpenSearch_Munich_UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-munchen/"
+            }, 
+            {
+                "Name": "New York City, United States",
+                "Location": "North America",
+                "ImagePath": "/assets/img/usergroups-assets/AWS-NYC-UserGroup.png",
+                "Link": "https://www.meetup.com/new-york-city-opensearch-user-group/"
+            }, 
+            {
+                "Name": "Paris, France",
+                "Location": "Europe",
+                "ImagePath": "/assets/img/usergroups-assets/Paris_UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-paris/"
+            }, 
+            {
+                "Name": "Seattle, United States",
+                "Location": "North America",
+                "ImagePath": "/assets/img/usergroups-assets/OpenSearch_Seattle_UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-seattle/"
+            }, 
+            {
+                "Name": "Seoul, South Korea",
+                "Location": "Asia",
+                "ImagePath": "/assets/img/usergroups-assets/AWS-Seoul-Skyline.png",
+                "Link": "https://www.meetup.com/opensearch-project-seoul/"
+            }, 
+            {
+                "Name": "Vancouver, Canada",
+                "Location": "North America",
+                "ImagePath": "/assets/img/usergroups-assets/OpenSearch_Vancouver_UserGroup.png",
+                "Link": "https://www.meetup.com/opensearch-project-vancouver-bc/"
+            }
+        ]
+
+
+
+    }
+}
+
+
+
+
