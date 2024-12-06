@@ -1,5 +1,5 @@
 
-  <footer class="pt-5 pb-2 mt-5 footer-main-wrapper-light border-top">
+  <footer class="pt-5 pb-2 footer-main-wrapper-light border-top">
 
 
       <div class="container">
@@ -64,7 +64,7 @@
           <!-- CATEGORIES -->
           <div class="offset-lg-2 offset-md-0  col-lg-4 ">
             <div class="row">
-              <!-- footer navlinks column -- Participate and Partners -->
+              <!-- footer navlinks column -- Participate and Solutions Providers -->
               <div class="col col-sm-8 col-lg-6">
                 {% assign participateColumn = site.data.footer.columns | where: "title", "Participate" %} 
                 <div class="mb-2 d-flex justify-content-start">
@@ -79,7 +79,7 @@
                     {% endfor %}
                   </ul>
                 </div>
-                {% assign partnersColumn = site.data.footer.columns | where: "title", "Partners" %} 
+                {% assign partnersColumn = site.data.footer.columns | where: "title", "Providers" %} 
                 <div class="my-5"> 
                   <div class="mb-2 d-flex justify-content-start">
                     <h5 class="footer-column-categories-light">{{ partnersColumn[0].title }}</h5>

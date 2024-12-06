@@ -33,10 +33,10 @@ defaults:
       permalink: blog/:title/
 -
     scope:
-      type: "partners"
+      type: "solutionsProviders"
     values:
-      layout: "partner"
-      permalink: partners/:name.html
+      layout: "solutionsProviders"
+      permalink: solutionsProviders/:name.html
 -
     scope:
       type: javadocs
@@ -110,7 +110,8 @@ defaults:
     values:
       layout: opensearchcon_individual_session
 collections:
-  partners:
+  solutionsProviders:
+    sort_by: name
     output: true
   community_projects:
   javadocs:
