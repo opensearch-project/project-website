@@ -4,7 +4,7 @@ title:  "OpenSearchCon 2024: North America -- The blog post"
 authors:
  - prthsh
  - smelik
-date: 2024-12-05
+date: 2024-12-09
 categories:
  - community-updates
  - community
