@@ -3,7 +3,6 @@
 ---
 @import "normalize"; // reset
 @import "utils"; // mixins & vars
-@import "font-awesome"; // symbol font styles
 @import "web-fonts";
 @import "redesign-palette";
 @import "redesign-typography";
@@ -13,7 +12,7 @@
 @import "print"; // print styles
 @import "opensearch";
 @import "resource-grid";
-@import "partners";
+@import "solutionsProviders";
 @import "community_projects";
 @import "tables";
 @import "herobanner";
@@ -34,3 +33,4 @@
 @import "two-column-layout";
 @import "navbar";
 @import "main-imports";
+@import "common/OpenSearch_typography";
