@@ -112,9 +112,9 @@ $desktop-usergroups-buildersbanner-height: 300px;
 // USERGROUP CARDS
 .card-usergroup-img-top {
 
-    // .card-img-top{
-    //     height: 100px;
-    // }
+    .card-img-top{
+        width: 100%;
+    }
     .card-title {
         color: #0085B8;
         font-size: 21px;
