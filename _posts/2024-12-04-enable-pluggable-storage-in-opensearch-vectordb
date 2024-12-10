@@ -1,0 +1,211 @@
+---
+layout: post
+title:  "Deep dive: Enable Pluggable Storage in OpenSearch VectorDB"
+authors:
+ - kdooyong
+ - navneev
+ - vamshin
+date: 2024-12-04
+categories:
+ - community-updates
+ - technical-posts
+meta_keywords: OpenSearch strategic enhancements, OpenSearch core engine, vector search engine
+meta_description: Showcase how a pluggable storage was enabled in OpenSearch vector db with a practical example of searchable snapshot which was not working in the past.
+has_math: false
+has_science_table: false
+---
+
+# Deep dive: Enable Pluggable Storage in OpenSearch VectorDB
+
+## Introduction
+
+In 2019, OpenSearch officially introduced the Vector Engine, which now supports three native engines: Non-Metric Space Library (NMSLIB), Facebook AI Similarity Search (Faiss), and Lucene. Unlike Lucene, which is Java-based, FAISS and NMSLIB are C++ libraries that OpenSearch accesses via a lightweight JNI layer. A limitation of these native engines is that they handle I/O through File APIs, with FAISS relying on `FILE` pointers and NMSLIB using `std::fstream` to save and load graph indexes. 
+This post will first provide a brief overview of KNN, then dive into the challenges we aim to address. Specifically, we’ll discuss attempts to introduce an abstract layer for loading in both native engines without performance degradation. Finally, we’ll demonstrate how after this change we can do Approximate k-NN Search with native engines on remote snapshots aka Searchable Snapshot feature is now available for vector indexes.
+
+## What is k-NN search?
+
+The k-NN (k-nearest neighbor) search algorithm identifies the k closest vectors to a given query vector. It relies on a distance metric, such as cosine similarity, to measure the similarity between two vector points - with closer points considered more similar.
+One popular algorithm for approximate nearest neighbor (ANN) search in high-dimensional spaces is HNSW (Hierarchical Navigable Small World). HNSW organizes data points into a multi-layer graph structure, where each layer contains connections that enable efficient navigation through the data. Inspired by skip-lists, HNSW has layers with varying densities that increase proportionally with depth. This allows the search to effectively narrow down the search space to find vectors similar to a query vector, similar to how one might locate an address by moving from larger regions to finer details (e.g. country → state → street).
+In the OpenSearch vector database, users can choose different algorithms for vector search, with HNSW being the most commonly used. In this post, any reference to the "graph index" will specifically refer to the HNSW index.
+
+For more information on building a k-NN similarity search engine with OpenSearch, please refer to our [documentation](https://opensearch.org/docs/latest/search-plugins/knn/index/).
+
+## Dependency on FILE API
+
+Native vector engines, such as FAISS and NMSLIB, are highly performant and provide predictable latencies. However, they come with limitations when it comes to integrating with storage systems that are not based on the file system. Unlike Lucene, which is Java-based and can leverage the Directory abstraction to read and write files, the native engines are tightly coupled with file system APIs.
+The `Directory` class in Lucene offers a storage abstraction layer that enables users to read and write files, providing APIs for opening input and output streams along with utilities for tasks like getting file lengths and other file-related operations. This abstraction is the key factor for the Lucene Vector Search Engine, allowing it to store files independently of the underlying storage system.
+We applied similar principles in native engines, abstracting the I/O layer to eliminate tight coupling with specific file APIs. Resolving this limitation allowed us to integrate with any directory implementation of Opensearch and make vector search compatible with them.
+
+## Solution — Loading Layer
+
+Both FAISS and NMSLIB load a graph-based vector index from storage into physical memory. During this loading phase, they rely on `fread` to fetch the bytes needed to restructure the graph index.
+We can replaced `fread` and make the native engines rely on a read interface to fetch the bytes they need. FAISS already provides the `IOReader` interface, but we had to add a similar read interface in NMSLIB, called `NmslibIOReader`.
+KNN search will be conducted after the graph is loaded into memory. Therefore, it should not impact average search performance. (For the benchmark result, please refer to the next section)
+
+![Loading layer in native engine high level overview
+](/assets/media/blog-images/2024-12-04-enable-pluggable-storageoin-opensearch-vectordb/loading_layer_high_level.png){: .img-fluid}
+
+### Performance Benchmark Results
+
+#### Benchmark Environment
+
+|Key	|Value	|
+|---	|---	|
+|Opensearch Verison	|2.18	|
+|vCPUs	|48	|
+|Physical Memory	|128gb	|
+|Storage type	|Elastic Block Storage	|
+|JVM	|63gb	|
+|	|	|
+|total number of vectors	|1M	|
+|dimensions	|128	|
+
+#### Benchmark Results
+
+In the benchmark, we achieved identical search performance results after introducing the loading layer, compared to the baseline. Also, we did not find any evidence of disparity in system metrics or JVM GC metrics between the two.
+From this, we concluded that we successfully replaced the tight coupling of the File API with Lucene's IndexInput while maintaining the same search performance, allowing users to plug in a custom Directory in OpenSearch to save a vector index in their desired storage.
+
+|Engine	|Metric	|Baseline	|Candidate	|Explanation	|
+|---	|---	|---	|---	|---	|
+|Faiss	|Average query latency	|3.5832 ms	|3.83349 ms	|Average time taken to process a vector search query.	|
+|Faiss	|P99 query latency	|22.1628 ms	|23.8439 ms	|P99 search latency for processing a vector search query.	|
+|Faiss	|Total Young Gen JVM GC time	|0.338 sec	|0.342 sec	|Total time spent on Young GC in the JVM.	|
+|	|	|	|	|	|
+
+## Searchable Snapshot
+
+With the loading layer now in place, we can now use a searchable snapshot to perform Vector search directly on it! Below is the high level flow on how does Searchable Snapshots work.
+
+![searchable snapshots overview](/assets/media/blog-images/2024-12-04-enable-pluggable-storageoin-opensearch-vectordb/searchable_snapshots_overview.png){: .img-fluid}
+
+### Perquisites
+
+1. Please ensure that you cluster is correctly setup for searchable snapshot feature. ([Ref](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/searchable_snapshot/#configuring-a-node-to-use-searchable-snapshots))
+
+### Setting up Vector index
+
+```
+PUT /knn-index/
+{
+  "settings": {
+    "index": {
+      "knn": true,
+    }
+  },
+  "mappings": {
+    "properties": {
+      "my_vector": {
+        "type": "knn_vector",
+        "dimension": 2
+      }
+    }
+  }
+}
+```
+
+### Ingest Data
+
+```
+POST _bulk?refresh
+{ "index": { "_index": "knn-index", "_id": "1" } }
+{ "my_vector": [1.5, 2.5], "price": 12.2 }
+{ "index": { "_index": "knn-index", "_id": "2" } }
+{ "my_vector": [2.5, 3.5], "price": 7.1 }
+{ "index": { "_index": "knn-index", "_id": "3" } }
+{ "my_vector": [3.5, 4.5], "price": 12.9 }
+{ "index": { "_index": "knn-index", "_id": "4" } }
+{ "my_vector": [5.5, 6.5], "price": 1.2 }
+{ "index": { "_index": "knn-index", "_id": "5" } }
+{ "my_vector": [4.5, 5.5], "price": 3.7 }
+
+```
+
+### Run Query on the Local index to ensure index is correctly setup
+
+```
+POST knn-index/_search
+{
+  "query": {
+    "knn": {
+      "my_vector": {
+        "vector": [2, 3],
+        "k": 2
+      }
+    }
+  }
+}
+```
+
+### Take Snapshot
+
+Go ahead and take the snapshot of the above created index using [this](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/) documentation. Once the snapshot is completed go ahead and delete the `knn-index` so that it is no longer available locally.
+
+### Create a Searchable snapshot index from the snapshot
+
+```
+POST _snapshot/<SNAPSHOT_REPO>/<SNAPSHOT_NAME>/_restore 
+{
+  "storage_type": "remote_snapshot",
+  "indices": "knn-index"
+}
+
+curl -X GET http://localhost:9200/_cat/indices
+
+```
+
+For more details ref [this](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/searchable_snapshot/#create-a-searchable-snapshot-index) documentation.
+
+### Run Vector Search Query
+
+```
+POST knn-index/_search
+{
+  "query": {
+    "knn": {
+      "my_vector": {
+        "vector": [2, 3],
+        "k": 2
+      }
+    }
+  }
+}
+```
+
+The above query should give you same results as the query running on the index available locally.
+
+
+## Conclusion
+
+We replaced the native engines' tight coupling with file system APIs by introducing an abstract I/O layer that leverages Lucene's Directory interfaces. This approach allows the vector engine to read the graph data structures from any storage system supported by OpenSearch's Directory implementation, rather than being limited to local file storage. To ensure this change did not impact performance, we conducted extensive benchmarking. The results showed that we were able to match the search performance of the original file API-based approach. Importantly, we found no regression in search times once the graphs were loaded into memory, as this is a one-time operation for a properly scaled cluster.
+
+With the new read interface in place, users can now utilize any Directory implementation in OpenSearch, and it will be compatible with vector indices. This flexibility enables the use of remote storage options, such as S3, for vector data.
+
+## Next Steps
+
+In the 2.18 release, we added the capability to enable vector search queries to use ~~to load vector files at the segment level using~~ Lucene's Directory and IndexInput interfaces. Building on this, in the 2.19 release, we plan to further extend this capability during the native index creation process. Specifically, the KNN plugin will start using the IndexOutput interface to write the graph file directly to a segment([github issue](https://github.com/opensearch-project/k-NN/issues/2033)).
+
+Furthermore, since the KNN plugin now has the ability to stream the vector data structure files, this opens up the possibility for partial loading of these files. This will help reduce the memory pressure on the cluster and provide a better price-performance experience, especially when the cluster is under stress.([github issue](https://github.com/opensearch-project/k-NN/issues/1693))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
