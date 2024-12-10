@@ -20,8 +20,8 @@
         },   
         "UserGroups_GroupCharter_Button": {
             "Title": "User group charter and guidelines",
-            "ClassValue": "button-primary",
-            "Link": ""
+            "ClassValue": "btn-secondary-dark",
+            "Link": "https://github.com/opensearch-project/community/blob/main/user-groups/charter-guidelines.md"
         },  
         "UserGroup_Array": [
             {

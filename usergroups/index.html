@@ -76,12 +76,12 @@ body_class: UserGroups-page
 
 
 
-    <div class="album py-5 solutionsProviders-mainContent-wrapper">
+    <div class="album pt-5 solutionsProviders-mainContent-wrapper">
 
         <!-- PARTICIPATE IN LOCAL USER GROUP -->
-        <div class="container px-3">
+        <div class="container px-5">
             <div class="d-flex flex-column">
-                <h1 class="flex-grow-1 header--h2">{{ data_UserGroup_Overview.Title }}</h1>
+                <h1 class="flex-grow-1 usergroup-h2-header">{{ data_UserGroup_Overview.Title }}</h1>
                 <span class="bodycontent--text usergroup-body-text">{{ data_UserGroup_Overview.TextContent }}</span>
 
             </div>
@@ -90,11 +90,11 @@ body_class: UserGroups-page
         <!-- USERGROUP ARRAY -->
         <div class="container px-3 px-md-5">
             <hr/>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
     
             {% for usergroup in data_UserGroup_Array %}
                 <div class="col">
-                    <card class="card card-usergroup-img-top shadow-sm d-flex">
+                    <card class="card card-usergroup-img-top rounded-top shadow-sm d-flex">
 
                         <img src="{{ usergroup.ImagePath }}" class="card-img-top" alt="{{ usergroup.Name }}">
                         <a href="{{ usergroup.Link }}" class="stretched-link"></a>
@@ -110,6 +110,26 @@ body_class: UserGroups-page
     
             </div>
         </div>
+
+
+        <!-- USER GROUP BUTTON -->
+        <div class="py-5 d-flex justify-content-center">
+            <a class="btn btn-secondary-dark shadow my-2" href="{{ data_GroupCharter_Button.Link }}" aria-current="Download">
+                
+                <div class="row button-content align-items-center">
+                    <div class="button-content-text col-auto align-self-center">
+                        {{ data_GroupCharter_Button.Title }}
+                    </div>
+                    <div class="lg-button-content-icon col-auto px-0 ms-1 me-1 align-self-center">
+                        {% include icons_navbar.html type='lg-chevron-in-circle' %}
+                    </div>
+                    
+                </div>
+
+            </a>
+        </div>
+
+
   
     </div>
 
