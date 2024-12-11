@@ -1,5 +1,5 @@
 ---
-short_name: prthsh
+short_name: shahar
 name: Shahar Shaked
 photo: '/assets/media/community/members/shaharshaked.jpg'
 title: 'OpenSearch Community Member: Shahar Shaked'
