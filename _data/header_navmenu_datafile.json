@@ -311,7 +311,7 @@
                         {
                             "Name": "UserGroups",
                             "SubText": "Join the OpenSearch Project Meetup Network",
-                            "URL": "https://www.meetup.com/pro/opensearchproject/",
+                            "URL": "/usergroups/",
                             "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-UserGroups-Icon-condensedImage"
                         }
