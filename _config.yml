@@ -17,7 +17,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-last-modified-at
-  - jekyll-sitemap
+  # - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -109,8 +109,13 @@ defaults:
       type: opensearchcon_workshops
     values:
       layout: opensearchcon_individual_session
+
+
 collections:
   solutionsProviders:
+    sort_by: name
+    output: true
+  AnomalyDetection:
     sort_by: name
     output: true
   community_projects:

@@ -1,0 +1,84 @@
+---
+layout: default
+title: Anomaly Detection
+primary_title: Anomaly Detection
+body_class: usecase-page
+
+---
+
+
+<main>
+
+    
+  <!-- MAIN DATAFILE -->
+  {% assign AnomalyDetection_pageContent = site.data.usecases.page_anomalyDetection_datafile['AnomalyDetection'] %}
+
+  {% assign data_HeroBanner = AnomalyDetection_pageContent['HeroBanner']  %}
+  {% assign data_MainBody = AnomalyDetection_pageContent['MainBody']  %}
+
+
+
+  <!-- {% assign data_CTABanner = solutionProviders_pageContent['Banner_CallToAction']  %}
+  
+  
+  {% assign data_SearchBar = solutionProviders_pageContent['SearchBar']  %}
+  {% assign data_SearchBar_ProviderType = data_SearchBar['ProviderType_Dropdown']  %}
+  {% assign data_SearchBar_OpenSearchSpeciality = data_SearchBar['OpenSearchSpecialization_Dropdown']  %}
+  {% assign data_SearchBar_Region = data_SearchBar['Regions_Dropdown']  %}
+  {% assign data_SearchBar_FilterButton = data_SearchBar['FilterButton']  %} -->
+
+  
+  <!-- DESKTOP HERO -->
+  <div class="container-fluid usecase-hero-banner-background-wrapper d-none d-lg-block">
+      <div class="container usecase-hero-heading-background-container d-flex px-5">
+        <div class="align-self-center">
+          <div class="d-flex flex-row mb-4">
+            <img src="{{ data_HeroBanner.Icon }}" alt="{{page.title}} image" class="iconography icon-div-box me-3">
+            <span class="h4--category-text my-auto">{{ data_HeroBanner.Category }}</span>
+          </div>
+          <h1 class="h1--hero-heading ps-5 ms-3">{{ data_HeroBanner.Title }}</h1>
+          <p class="h4--text-hero-subtext ps-5 ms-3">{{ data_HeroBanner.SubText }}</p>
+        </div>
+      </div>
+  </div>
+
+
+  <!-- MAIN SECTION -->
+  <div class="container usecase-mainbody-container">
+
+    <!-- OPENING PARAGRAPH -->
+    <p class="h4--text pt-5">{{ data_MainBody.BeginningParagraph }}</p>
+
+    <!-- THREE CARDS -->
+
+  </div>
+
+
+  <!-- CTA BANNER -->
+  <div class="container-fluid OpenSearch-banner-dark-backgroundBanner shadow py-1">
+    <div class="container OpenSearch-banner-dark-backgroundBanner-container px-1 px-md-5">
+      <div class="row justify-content-center">
+          <div class="col-12 col-lg-11 col-xl-10 col-xxl-8 px-0">
+            <p class="text-center my-1">
+              <span class="openSearch-banner-dark-bannerText">{{ data_CTABanner.Text_startSpan }}</span>
+              <a href="{{ data_CTABanner.Link_URL }}" class="openSearch-banner-dark-bannerLink link-offset-1 link-offset-2-hover"> {{ data_CTABanner.Link_Text }}</a>
+              <span class="openSearch-banner-dark-bannerText">{{ data_CTABanner.Text_endSpan }}</span>
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    
+
+</main>
+
+    
+
+
+    
+        
+

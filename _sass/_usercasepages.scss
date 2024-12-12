@@ -1,0 +1,78 @@
+
+
+
+
+
+// HEROBANNER
+$mobile-banner-height: 200px;
+$desktop-banner-height: 450px;
+.usecase-hero-banner-background-wrapper {
+    position: relative;
+    height: $desktop-banner-height;
+    overflow: hidden;
+    background-image: url(/assets/img/pageAssets_usecasepages/Herobanner-AnomalyDetection.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    .usecase-hero-heading-background-container {
+        height: $desktop-banner-height;
+    }
+    .h4--category-text {
+        color: white;
+        font-size: 24px;
+        font-family: 'Open Sans Condensed';
+        font-weight: 700;
+        line-height: 42px;
+        word-wrap: break-word;
+    }
+    .h1--hero-heading {
+        color: white;
+        font-size: 64px;
+        font-family: Open Sans;
+        font-weight: 800;
+        line-height: 72px;
+        word-wrap: break-word;
+    }
+    .h4--text-hero-subtext {
+        color: white;
+        font-size: 20px;
+        font-family: Open Sans;
+        font-weight: 700;
+        line-height: 30px;
+        word-wrap: break-word;
+    }
+
+    // Bottom Border
+    &::after {
+        content: "";
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background-color: $secondary-seafoam-mint;
+        bottom: 0px;
+        left: 0;
+    }
+}
+
+
+.usecase-mainbody-container {
+    .h4--text{
+        color: black;
+        font-size: 24px;
+        font-family: Open Sans;
+        font-weight: 400;
+        line-height: 48px;
+        word-wrap: break-word; 
+    }
+
+    .h2--subheader {
+        color: #003551;
+        font-size: 24px;
+        font-family: Open Sans;
+        font-weight: 700;
+        line-height: 42px;
+        word-wrap: break-word;
+    }
+}
+
+
+
