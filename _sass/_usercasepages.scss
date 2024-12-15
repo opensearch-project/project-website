@@ -72,7 +72,32 @@ $desktop-banner-height: 450px;
         line-height: 42px;
         word-wrap: break-word;
     }
+
+
+
+    .card-usecase-img-top{
+        .card-img-top{
+            width: 100%;
+        }
+        .card-text {
+            color: #003551;
+            font-size: 18px;
+            font-family: Open Sans;
+            font-weight: 400;
+            line-height: 30px;
+            word-wrap: break-word;
+
+        }
+        // Bottom Border
+        &::before {
+            content: "";
+            position: absolute;
+            height: 6px;
+            width: 100%;
+            background-color: $secondary-purple-sage-s1;
+            bottom: 0px;
+            left: 0;
+        }
+
+    }
 }
-
-
-

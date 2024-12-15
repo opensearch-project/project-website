@@ -15,28 +15,29 @@
         },
         "MainBody": {
             "BeginningParagraph": "Wherever you work with data, you’ll find anomalies. In increasingly rich information ecosystems, manually detecting and resolving those anomalies can seem like an impossible task. OpenSearch’s built-in plugin gives you the power to create automated, intelligent workflows that identify anomalies so you can resolve them proactively and minimize disruption.",
+
+            "ThreeCard_row" : [
+                {
+                    "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-pointGraph.png",
+                    "classValue": "card-usecase-img-top",
+                    "SubText": "<strong>Discover point anomalies</strong> or global outliers like unusually large transfers of funds."
+                }, 
+                {
+                    "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-Graph.png",
+                    "classValue": "card-usecase-img-top",
+                    "SubText": "<strong>Uncover contextual anomalies.</strong> For example - an unexpected surge in usage or consumption."
+                }, 
+                {
+                    "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-IPAddresses.png",
+                    "classValue": "card-usecase-img-top",
+                    "SubText": "<strong>Observe collective anomalies,</strong> including unusual web traffic from a cluster of IP addresses"
+                }
+            ],
             "ImageLeft_row" : {
                 "ImagePath": "",
                 "Subheader": "View results in real time",
                 "SubText": "Eliminate delays to detection and resolution, minimize manual monitoring and troubleshooting, and bridge gaps in visibility to provide insights at scale. With OpenSearch, you can create and configure detectors that expose anomalies, deliver highly observable results, and send alerts in near real-time."
             },
-            "ThreeImage_row" : [
-                {
-                    "ImagePath": "",
-                    "classValue": "card-usecase-img-top",
-                    "SubText": "<strong>Discover point anomalies</strong> or global outliers like unusually large transfers of funds."
-                }, 
-                {
-                    "ImagePath": "",
-                    "classValue": "card-usecase-img-top",
-                    "SubText": "<strong>Uncover contextual anomalies.</strong> For example - an unexpected surge in usage or consumption."
-                }, 
-                {
-                    "ImagePath": "",
-                    "classValue": "card-usecase-img-top",
-                    "SubText": "<strong>Observe collective anomalies,<strong> including unusual web traffic from a cluster of IP addresses"
-                }
-            ],
             "TwoColumn_Row" : {
                 "left_BlogColumn" : {
                     "title": "Correlating security events across different log sources ",
