@@ -22,4 +22,4 @@ permalink: '/community/members/kdooyong.html'
 redirect_from: '/authors/kdooyong/'
 ---
 
-**Dooyong Kim** is a software engineer at AWS working on the OpenSearch Project and Amazon OpenSearch Service. His primary interests include machine learning, vector search. Outside of work, he enjoys reading and taking a nap in sofa afternoon.
+**Dooyong Kim** is a software engineer at AWS working on the OpenSearch Project and Amazon OpenSearch Service. His primary interests include machine learning and vector search. Outside of work, he enjoys reading and taking a nap on a sofa in the afternoon.
