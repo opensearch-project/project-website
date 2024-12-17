@@ -116,7 +116,7 @@ These are the results running the test set of both query sets independently:
 | NDCG@10 | 0.24 | 0.23 |
 | Precision@10 | 0.27 | 0.24 |
 
-We applied an 80/20 split on the query sets to have a training and test dataset for the upcoming optimization steps. For the baseline we used the test set to calculate the search metrics. Every optimization step uses the 80% training part of the query and the 20% test part for calculating and comparing the search metrics.
+We applied an 80/20 split on the query sets to arrange for a training and test dataset. Every optimization step uses the queries of the training set whereas search metrics are calculated and compared for the test set. For the baseline, we calculated the metrics for the test set only since there is no actual training going on.
 
 These numbers are now the starting point for our optimization journey. We want to maximize these metrics and see how far we get when looking for the best global hybrid search configuration in the next step.
 
@@ -124,11 +124,10 @@ These numbers are now the starting point for our optimization journey. We want t
 
 With that starting point we can set off to explore the parameter space that hybrid search offers us. Our global hybrid search optimization notebook tries out 66 parameter combinations for hybrid search with the following set:
 
-* Normalization technique: [l2, min_max]  
-* Combination technique: [arithmetic_mean, harmonic_mean, geometric_mean]  
-* Keyword search weight: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]  
-* Neural search weight: [1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0]
-
+* Normalization technique: [`l2`, `min_max`]  
+* Combination technique: [`arithmetic_mean`, `harmonic_mean`, `geometric_mean`]  
+* Keyword search weight: [`0.0`, `0.1`, `0.2`, `0.3`, `0.4`, `0.5`, `0.6`, `0.7`, `0.8`, `0.9`, `1.0`]  
+* Neural search weight: [`1.0`, `0.9`, `0.8`, `0.7`, `0.6`, `0.5`, `0.4`, `0.3`, `0.2`, `0.1`, `0.0`]
 
 Neural and keyword search weights always add up to 1.0, so a keyword search weight of 0.1 automatically comes with a neural search weight of 0.9, a keyword search weight of 0.2 comes with a neural search weight of 0.8, etc.
 
@@ -172,9 +171,9 @@ Here is a template of the temporary search pipelines we use for our hybrid searc
 }
 ```
 
-norm is the variable for the normalization technique, combi the variable for the combination technique, keywordness is the keyword search weight and neuralness is the neural search weight.
+`norm` is the variable for the normalization technique, `combi` the variable for the combination technique, `keywordness` is the keyword search weight and `neuralness` is the neural search weight.
 
-The neural part of the hybrid query is searching in a field with embeddings that were created based on the title of a product with the model all-MiniLM-L6-v2:
+The neural part of the hybrid query is searching in a field with embeddings that were created based on the title of a product with the model `all-MiniLM-L6-v2`:
 
 ```
 {  
