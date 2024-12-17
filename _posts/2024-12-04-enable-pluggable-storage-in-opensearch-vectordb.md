@@ -16,7 +16,7 @@ has_math: false
 has_science_table: true
 ---
 
-In 2019, OpenSearch introduced the Vector Engine, which supports three native engines: Non-Metric Space Library (NMSLIB), Facebook AI Similarity Search (Faiss), and Lucene. Unlike Lucene, which is Java based, Faiss and NMSLIB are C++ libraries that OpenSearch accesses through a lightweight JNI layer. However, these native engines handle I/O using file-based APIs, with Faiss relying on `FILE` pointers and NMSLIB using `std::fstream` to manage graph indexes.
+In 2019, OpenSearch introduced the Vector Engine, which supports three native engines: Non-Metric Space Library (NMSLIB), Facebook AI Similarity Search (Faiss), and Lucene. Unlike Lucene, which is Java based, Faiss and NMSLIB are C++ libraries that OpenSearch accesses through a lightweight Java Native Interface (JNI) layer. However, these native engines handle I/O using file-based APIs, with Faiss relying on `FILE` pointers and NMSLIB using `std::fstream` to manage graph indexes.
 
 This blog post explains how we addressed these limitations by introducing an abstraction layer for loading data into native engines without compromising performance. We'll start with an overview of k-NN search, discuss the challenges of file API dependencies, and explain the solution we implemented. Finally, we'll explore how these changes support searchable snapshots of vector indexes, which involves running approximate k-NN search on remote snapshots using native engines.
 
@@ -250,6 +250,6 @@ With this new read interface, you can now use vector indexes with any OpenSearch
 
 ## Next steps
 
-In version 2.18, we introduced the ability to enable vector search queries using Lucene's **Directory** and **IndexInput** classes. Looking ahead, version 2.19 will expand this functionality to the native index creation process. Specifically, the k-NN plugin will begin using the **IndexOutput** class to write graph files directly to segments. For more information, see [this GitHub issue](https://github.com/opensearch-project/k-NN/issues/2033).
+In version 2.18, we introduced the ability to use vector search queries with Lucene's **Directory** and **IndexInput** classes. Looking ahead, version 2.19 will expand this functionality to the native index creation process. Specifically, the k-NN plugin will begin using the **IndexOutput** class to write graph files directly to segments. For more information, see [this GitHub issue](https://github.com/opensearch-project/k-NN/issues/2033).
 
 Additionally, the k-NN plugin now having the ability to stream vector data structure files presents an opportunity for partial loading of these files. This enhancement will reduce memory pressure on the cluster and deliver better price-performance, especially under high-stress conditions. For more information, see [this GitHub issue](https://github.com/opensearch-project/k-NN/issues/1693).
