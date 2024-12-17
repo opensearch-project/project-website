@@ -205,7 +205,7 @@ Take a snapshot of the index. For detailed steps, see [Take and restore snapshot
 
 ### Step 5: Create a searchable snapshot index from the snapshot
 
-Use the following request to restore the original index from the snapshot as a searchable snapshot:
+Use the following request to restore the original index from the snapshot in order to create a searchable snapshot index
 
 ```json
 POST _snapshot/<SNAPSHOT_REPO>/<SNAPSHOT_NAME>/_restore
