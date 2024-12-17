@@ -15,7 +15,7 @@ meta_description: Tackle the optimization of hybrid search in a systematic way a
 
 [Hybrid search combines keyword and neural search to improve search relevance](https://opensearch.org/docs/latest/search-plugins/hybrid-search) and this combination shows promising results across industries and [in benchmarks](https://opensearch.org/blog/semantic-science-benchmarks/).
 
-As of [OpenSearch 2.18 hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/) is linearly combining keyword search (e.g. match queries) with neural search (transforming queries to vector embeddings by using machine learning models). This combination is configured in a search pipeline. It defines the post processing of the result sets for keyword and neural search by normalizing the scores of each and then combining them with one of currently three available techniques (arithmetic, harmonic or geometric mean).
+As of [OpenSearch 2.18 hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/) is linearly combining keyword search (for example match queries) with neural search (transforming queries to vector embeddings by using machine learning models). This combination is configured in a search pipeline. It defines the post processing of the result sets for keyword and neural search by normalizing the scores of each and then combining them with one of currently three available techniques (arithmetic, harmonic or geometric mean).
 
 This search pipeline configuration lets OpenSearch users define how to normalize the scores and how to weigh the result sets.
 
@@ -31,7 +31,7 @@ However, there is a systematic way to arrive at this ideal set of parameters and
 
 To identify the best hybrid search configuration we treat this as a parameter optimization challenge. We know the values parameters can have, so we know what combinations exist:
 
-* There are two [normalization techniques: l2 and min_max](https://opensearch.org/blog/How-does-the-rank-normalization-work-in-hybrid-search/)  
+* There are two [normalization techniques: `l2` and `min_max`](https://opensearch.org/blog/How-does-the-rank-normalization-work-in-hybrid-search/)  
 * There are three combination techniques: arithmetic mean, harmonic mean, geometric mean  
 * The keyword and neural search weights are values in the range from 0 to 1.
 
@@ -48,7 +48,7 @@ A query set is a collection of queries. Ideally, query sets contain a representa
 
 * Very frequent queries (head queries), but also queries that are used rarely (tail queries)  
 * Queries that are important to the business   
-* Queries that express different user intent classes (e.g. searching for a product category, searching for product category + color, searching for a brand)  
+* Queries that express different user intent classes (such as searching for a product category, searching for product category + color, searching for a brand)  
 * Other classes depending on the individual search application
 
 These different queries are best sourced from a query log that captures all queries your users send to your system. One way of sampling these efficiently is [Probability-Proportional-to-Size Sampling](https://opensourceconnections.com/blog/2022/10/13/how-to-succeed-with-explicit-relevance-evaluation-using-probability-proportional-to-size-sampling/) (PPTSS). This method can generate a frequency weighted sample.
@@ -59,7 +59,7 @@ We will run each query in the query set against a baseline first to see how our 
 
 Once a query set is available judgments come next. A judgment describes how relevant a particular document is for a given query. A judgment consists of three parts: the query, the document, and a (typically) numerical rating.
 
-Ratings can be binary (0 or 1, i.e. irrelevant or relevant) or graded (e.g. 0 to 3, definitely irrelevant to definitely relevant). In the case of explicit judgments, there are human raters going through query-document pairs and assigning these ratings according to some rules. On the other hand there are implicit judgments. Implicit judgments are derived from user behavior: user queries, viewed and clicked documents. Implicit judgments can be modeled with [click models that emerged from web search](https://clickmodels.weebly.com/) in the early 2010s and range from simple clickthrough rates to more [complex approaches](https://www.youtube.com/watch?v=wa88XShl7hs). All come with limitations and/or deal differently with biases like position bias.
+Ratings can be binary (0 or 1, that is irrelevant or relevant) or graded (for example 0 to 3, definitely irrelevant to definitely relevant). In the case of explicit judgments, there are human raters going through query-document pairs and assigning these ratings according to some rules. On the other hand there are implicit judgments. Implicit judgments are derived from user behavior: user queries, viewed and clicked documents. Implicit judgments can be modeled with [click models that emerged from web search](https://clickmodels.weebly.com/) in the early 2010s and range from simple click through rates to more [complex approaches](https://www.youtube.com/watch?v=wa88XShl7hs). All come with limitations and/or deal differently with biases like position bias.
 
 Recently, a third category of generating judgments emerged: LLM-as-a-judge. Here you use large language models like GPT-4o to judge query-doc pairs.
 
@@ -69,7 +69,7 @@ Implicit judgments have the advantage of scale: when already collecting user eve
 
 ## Search metrics
 
-With a query set and the corresponding judgments we can calculate search metrics. Widely used [search metrics are Precision, DCG or NDCG](https://opensourceconnections.com/blog/2020/02/28/choosing-your-search-relevance-metric/).
+With a query set and the corresponding judgments we can calculate search metrics. Widely used [search metrics are Precision, DCG, or NDCG](https://opensourceconnections.com/blog/2020/02/28/choosing-your-search-relevance-metric/).
 
 Search metrics provide a way of measuring the search result quality of a search system numerically. We calculate search metrics for each configuration and this enables us to compare them objectively against each other. As a result we know which configuration scored best.
 
@@ -129,7 +129,7 @@ With that starting point we can set off to explore the parameter space that hybr
 * Keyword search weight: [`0.0`, `0.1`, `0.2`, `0.3`, `0.4`, `0.5`, `0.6`, `0.7`, `0.8`, `0.9`, `1.0`]  
 * Neural search weight: [`1.0`, `0.9`, `0.8`, `0.7`, `0.6`, `0.5`, `0.4`, `0.3`, `0.2`, `0.1`, `0.0`]
 
-Neural and keyword search weights always add up to 1.0, so a keyword search weight of 0.1 automatically comes with a neural search weight of 0.9, a keyword search weight of 0.2 comes with a neural search weight of 0.8, etc.
+Neural and keyword search weights always add up to 1.0, so a keyword search weight of 0.1 automatically comes with a neural search weight of 0.9, a keyword search weight of 0.2 comes with a neural search weight of 0.8, ...
 
 This leaves us with 66 combinations to test: 2 normalization techniques * 3 combination techniques * 11 keyword/neural search weight combinations.
 
@@ -231,9 +231,9 @@ We call this approach to identify a suitable configuration individually per hybr
 
 You may ask: why predict only the “neuralness” and none of the other parameter values? The results of the global hybrid search optimizer (large query set) showed us that the majority of search configurations share two parameter values: the l2 normalization technique and the arithmetic mean as the combination technique.
 
-Looking at the top 5 configurations per search metric (DCG@10, NDCG@10 and Precision@10) only five out of the 15 pipelines have min_max as an alternative normalization technique and none of these configurations has another combination technique.
+Looking at the top 5 configurations per search metric (DCG@10, NDCG@10 and Precision@10) only five out of the 15 pipelines have `min_max` as an alternative normalization technique and none of these configurations has another combination technique.
 
-With that knowledge we assume the l2 normalization and the arithmetic mean combination technique to be best suited throughout the whole dataset.
+With that knowledge we assume the `l2` normalization and the arithmetic mean combination technique to be best suited throughout the whole dataset.
 
 That leaves us with the parameter values for the neural search weight and the keyword search weight. By predicting one we can calculate the other by subtracting the prediction from 1: by predicting the “neuralness” we can calculate the “keywordness” by 1 - “neuralness”.
 
@@ -277,9 +277,9 @@ With the appropriate data at hand we explored different algorithms and experimen
 We went for two relatively simple algorithms: linear regression and random forest regression.  
 We applied cross validation, regularization, and tried out all different feature combinations. This resulted in interesting findings that are summarized in the following section.
 
-**Dataset size matters**: Working with the differently sized datasets revealed that the amount of data matters when training and evaluating the models. The larger dataset reported a smaller Root Mean Squared Error compared to the smaller dataset. It also results in less variation of the RMSE scores within the cross-validation runs (i.e. when comparing the RMSE scores within one cross validation run for one feature combination).
+**Dataset size matters**: Working with the differently sized datasets revealed that the amount of data matters when training and evaluating the models. The larger dataset reported a smaller Root Mean Squared Error compared to the smaller dataset. It also results in less variation of the RMSE scores within the cross-validation runs (that is when comparing the RMSE scores within one cross validation run for one feature combination).
 
-**Model performance differs among the different algorithms**: the best RMSE score for the random forest regressor was 0.18 vs. 0.22 for the best linear regression model (large dataset) - both with different feature combinations though. The more complex model (random forest) is the one that performs better. However, better performance comes with the trade-off of longer training times for this more complex model.
+**Model performance differs among the different algorithms**: the best RMSE score for the random forest regressor was 0.18 compared to 0.22 for the best linear regression model (large dataset) - both with different feature combinations though. The more complex model (random forest) is the one that performs better. However, better performance comes with the trade-off of longer training times for this more complex model.
 
 **Feature combinations of all groups have the lowest RMSE**: the lowest error scores can be achieved when combining features from all three feature groups (query, keyword search result, neural search result). Looking at RMSE scores for feature combinations within the feature groups shows that working with keyword search result feature combinations only serves as the best alternative.
 
@@ -314,7 +314,7 @@ Metrics for the large dataset:
 | NDCG@10 | 0.23 | 0.25 | 0.27 | 0.27 |
 | Precision@10 | 0.24 | 0.27 | 0.29 | 0.29 |
 
-Looking at these numbers shows us a steady positive trend starting from the baseline going all the way to the dynamic predictions of keywordness and neuralness per query. The large dataset shows a DCG increase of 8.9% rising from 9.3 to 10.13, the small dataset shows an increase of 9.3%. The other metrics increase as well: NDCG shows an improvement of 7.4%for the large dataset, 10.3% for the small dataset, Precision shows an improvement of 8% for the large dataset and 7.7% for the small dataset.
+Looking at these numbers shows us a steady positive trend starting from the baseline going all the way to the dynamic predictions of keywordness and neuralness per query. The large dataset shows a DCG increase of 8.9% rising from 9.3 to 10.13, the small dataset shows an increase of 9.3%. The other metrics increase as well: NDCG shows an improvement of 8% for the large dataset, 7.7% for the small dataset, Precision shows an improvement of 7.4% for the large dataset and 10.3% for the small dataset.
 
 Interestingly, both models score exactly equally. The reason for this is that while they both predict different NDCG values, they predict the best ones with the same “neuralness” as an input feature. So while the models may differ in RMSE scores during the evaluation phase they provide equal results when applied to the test set.
 
