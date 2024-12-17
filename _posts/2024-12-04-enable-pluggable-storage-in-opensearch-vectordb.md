@@ -59,7 +59,7 @@ We ran benchmarking tests in an environment with the following configuration.
 | OpenSearch version      | 2.18                  |
 | vCPUs                   | 48                    |
 | Physical memory         | 128 GB                |
-| Storage type            | Elastic Block Storage |
+| Storage type            | Amazon Elastic Block Store (Amazon EBS)|
 | JVM                     | 63 GB                 |
 | Total number of vectors | 1M                    |
 | Dimensions              | 128                   |
