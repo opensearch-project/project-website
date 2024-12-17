@@ -10,7 +10,7 @@ date: 2024-12-16
 categories:
  - technical-posts
  - community
-meta_keywords: OpenSearch strategic enhancements, OpenSearch core engine, vector search engine
+meta_keywords: OpenSearch vector engine, vector search, pluggable storage, Faiss, NMSLIB, k-NN search, searchable snapshots, performance optimization  
 meta_description: Showcase how a pluggable storage was enabled in OpenSearch vector db with a practical example of searchable snapshot which was not working in the past.
 has_math: false
 has_science_table: true
