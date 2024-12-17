@@ -16,31 +16,31 @@ has_math: false
 has_science_table: true
 ---
 
-In 2019, OpenSearch introduced the vector engine, which supports three native engines: Non-Metric Space Library (NMSLIB), Facebook AI Similarity Search (Faiss), and Lucene. Unlike Lucene, which is Java-based, Faiss and NMSLIB are C++ libraries that OpenSearch accesses through a lightweight JNI layer. However, these native engines handle I/O using file-based APIs, with Faiss relying on `FILE` pointers and NMSLIB using `std::fstream` to manage graph indexes.
+In 2019, OpenSearch introduced the Vector Engine, which supports three native engines: Non-Metric Space Library (NMSLIB), Facebook AI Similarity Search (Faiss), and Lucene. Unlike Lucene, which is Java based, Faiss and NMSLIB are C++ libraries that OpenSearch accesses through a lightweight JNI layer. However, these native engines handle I/O using file-based APIs, with Faiss relying on `FILE` pointers and NMSLIB using `std::fstream` to manage graph indexes.
 
-This blog post explains how we addressed these limitations by introducing an abstraction layer for loading data into native engines without compromising performance. We'll start with an overview of k-NN search, discuss the challenges of file API dependencies, and explain the solution we implemented. Finally, we'll explore how these changes support searchable snapshots on vector indexes, which involves running approximate k-NN search on remote snapshots using native engines.
+This blog post explains how we addressed these limitations by introducing an abstraction layer for loading data into native engines without compromising performance. We'll start with an overview of k-NN search, discuss the challenges of file API dependencies, and explain the solution we implemented. Finally, we'll explore how these changes support searchable snapshots of vector indexes, which involves running approximate k-NN search on remote snapshots using native engines.
 
 ## What is k-NN search?
 
-The k-nearest neighbor (k-NN) search algorithm identifies the k closest vectors to a given query vector. It uses a distance metric, such as cosine similarity, to measure similarity between vectors, with closer points considered more similar. 
+The k-nearest neighbors (k-NN) search algorithm identifies the k closest vectors to a given query vector. It uses a distance metric, such as cosine similarity, to measure similarity between vectors, with closer points considered to be more similar. 
 
-In the OpenSearch vector database, you can choose different vector search algorithms. A popular algorithm for approximate nearest neighbor (ANN) search in high-dimensional spaces is Hierarchical Navigable Small World (HNSW). HNSW organizes data points into a multi-layer graph, in which each layer contains connections for efficient navigation through data. Inspired by skip lists, layers in the HNSW graph have varying densities that increase proportionally with depth. This helps narrow the search space from broader to more specific regions—--similar to locating an address by starting with a country and then narrowing down to a state, town, and street.
+In the OpenSearch vector database, you can choose from different vector search algorithms. A popular algorithm for approximate nearest neighbor (ANN) search in high-dimensional spaces is Hierarchical Navigable Small World (HNSW). HNSW organizes data points into a multi-layer graph in which each layer contains connections for efficient data navigation. Inspired by skip lists, HNSW graph layers have varying densities that increase proportionally with depth. This helps narrow the search space from broader to more specific regions---similar to locating an address by starting with a country and then narrowing down to a state, city, and street.
 
 For more information about building a k-NN similarity search engine with OpenSearch, see our [documentation](https://opensearch.org/docs/latest/search-plugins/knn/index/).
 
 ## Challenges with file-based APIs
 
-Native vector engines, such ass Faiss and NMSLIB, offer high performance and predictable latencies. However, their reliance on file-based APIs makes it difficult to integrate them with storage that is not based on file systems. 
+Native vector engines, such as Faiss and NMSLIB, offer high performance and predictable latencies. However, their reliance on file-based APIs makes them difficult to integrate with storage that is not file system based. 
 
-Lucene uses the Java-based **Directory** abstraction for reading and writing files, native engines tightly couple their operations to file-based I/O. The **Directory** class abstracts file storage, enabling operations like reading, writing, and managing file metadata across diverse storage systems. This abstraction allows the Lucene vector engine to store files independently of the underlying storage in OpenSearch.
+Lucene uses the Java-based **Directory** abstraction for reading and writing files. The **Directory** class abstracts file storage, enabling operations like reading, writing, and managing file metadata across diverse storage systems. This abstraction allows the Lucene vector engine to store files independently of the underlying OpenSearch storage.
 
-Unlike Lucene, native engines tightly couple their operations to file-based I/O. To address these limitations, we applied Lucene's principles to native engines. By abstracting the I/O layer, we eliminated the engines' tight coupling with specific file APIs. This enhancement enables integration with any OpenSearch directory implementation, making vector search compatible with a broader range of storage systems.
+Unlike Lucene, native engines tightly couple their operations to file-based I/O. To address these limitations, we applied Lucene's principles to native engines. By abstracting the I/O layer, we eliminated the engines' tight coupling to specific file APIs. This enhancement enables integration with any OpenSearch directory implementation, making vector search compatible with a broader range of storage systems.
 
 ## Introducing the loading layer
 
 Both Faiss and NMSLIB load graph-based vector indexes from storage into memory. During this process, they use `fread` to fetch the bytes needed to reconstruct the graph. 
 
-To improve flexibility, we replaced `fread` with a read interface. Faiss provides an **IOReader** interface for reading index data from various storage systems. For NMSLIB, we introduced a similar read interface called **NmslibIOReader**. These interfaces allow the native engines to read data through an abstraction layer, making it possible to integrate with OpenSearch's directory implementations.
+To improve flexibility, we replaced `fread` with a read interface. Faiss provides an **IOReader** interface for reading index data from various storage systems. For NMSLIB, we introduced a similar read interface called **NmslibIOReader**. These interfaces allow the native engines to read data through an abstraction layer, making integration possible with OpenSearch's directory implementations.
 
 Because k-NN search is conducted after the graph is loaded into memory, this change does not impact average search performance. 
 
@@ -66,9 +66,9 @@ We ran benchmarking tests in an environment with the following configuration.
 
 ### Benchmarking results
 
-During benchmarking, we observed that introducing the loading layer resulted in identical search performance compared to the baseline. Additionally, there were no differences in system metrics or JVM GC metrics when the loading layer was introduced.
+During benchmarking, we observed that introducing the loading layer resulted in identical search performance compared to the baseline. Additionally, there were no differences in system metrics or JVM GC metrics when introducing the loading layer.
 
-Based on these findings, we concluded that we successfully replaced the tight coupling of the File API with Lucene's **IndexInput**. This change maintained the same search performance. Additionally, with this change, you can integrate a custom **Directory** in OpenSearch and save a vector index in your preferred storage system.
+Based on these findings, we concluded that we successfully replaced the tight coupling of the File API with Lucene's **IndexInput**. This change maintained the same search performance. Additionally, with this change you can integrate a custom **Directory** in OpenSearch and save a vector index in your preferred storage system.
 
 The following table presents our benchmarking results, comparing query latency with the loading layer (candidate) to the baseline.
 
@@ -135,7 +135,7 @@ POST _bulk?refresh
 
 ### Step 3: Query the local index 
 
-Query the local index to ensure it's configured correctly:
+Query the local index to ensure that it's configured correctly:
 
 ```json
 POST knn-index/_search
@@ -151,7 +151,7 @@ POST knn-index/_search
 }
 ```
 
-The response returns vectors closest to the query vector:
+The response returns the vectors closest to the query vector:
 
 ```json
 {
@@ -201,7 +201,7 @@ The response returns vectors closest to the query vector:
 
 ### Step 4: Take a snapshot
 
-Take a snapshot of the index. For detailed steps, see [Take and restore snapshots](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/). After taking the snapshot, delete the `knn-index` so it is no longer available locally.
+Take a snapshot of the index. For detailed steps, see [Take and restore snapshots](https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/). After taking the snapshot, delete the `knn-index` so that it is no longer available locally.
 
 ### Step 5: Create a searchable snapshot index from the snapshot
 
@@ -240,16 +240,16 @@ POST knn-index/_search
 }
 ```
 
-The query returns the same results as the query on the local index in [Step 3](#step-3-query-the-local-index).
+The query returns the same results as the local index query in [Step 3](#step-3-query-the-local-index).
 
 ## Conclusion
 
-By introducing an abstract I/O layer that uses Lucene's **Directory** abstraction, we eliminated the native engines' dependency on file-based APIs that limited storage to local file systems. This change allows the vector engine to read graph data structures from any storage system supported by OpenSearch's **Directory** implementation. Our extensive benchmark testing confirmed that this change maintained the original file API-based approach's search performance. Notably, we observed no regression in search times after the graphs were loaded into memory (graph loading is a one-time operation for a properly scaled cluster).
+By introducing an I/O layer that uses Lucene's **Directory** abstraction, we eliminated the native engines' dependency on file-based APIs that limit storage to local file systems. This change allows the vector engine to read graph data structures from any storage system supported by OpenSearch's **Directory** implementation. Our extensive benchmarking tests confirmed that this change maintains the search performance of the original file-API-based approach. Notably, we observed no regression in search times after the graphs were loaded into memory (graph loading is a one-time operation for a properly scaled cluster).
 
-With this new read interface, you can now use any **Directory** implementation in OpenSearch with vector indexes. This added flexibility makes it possible to store vector data in remote storage solutions like S3.
+With this new read interface, you can now use vector indexes with any OpenSearch **Directory** implementation. This added flexibility makes it possible to store vector data in remote storage solutions like Amazon Simple Storage Service (Amazon S3).
 
 ## Next steps
 
-In the 2.18 release, we introduced the capability to enable vector search queries using Lucene's **Directory** and **IndexInput** classes. Looking ahead, the 2.19 release will expand this functionality to the native index creation process. Specifically, the k-NN plugin will start using the **IndexOutput** class to write graph files directly to segments. For more information, see [this GitHub issue](https://github.com/opensearch-project/k-NN/issues/2033).
+In version 2.18, we introduced the ability to enable vector search queries using Lucene's **Directory** and **IndexInput** classes. Looking ahead, version 2.19 will expand this functionality to the native index creation process. Specifically, the k-NN plugin will begin using the **IndexOutput** class to write graph files directly to segments. For more information, see [this GitHub issue](https://github.com/opensearch-project/k-NN/issues/2033).
 
-Additionally, because the k-NN plugin now has the ability to stream vector data structure files, this presents an opportunity for partial loading of these files. This enhancement will reduce memory pressure on the cluster and deliver better price-performance, especially under high-stress conditions. For more information, see [this GitHub issue](https://github.com/opensearch-project/k-NN/issues/1693).
+Additionally, the k-NN plugin now having the ability to stream vector data structure files presents an opportunity for partial loading of these files. This enhancement will reduce memory pressure on the cluster and deliver better price-performance, especially under high-stress conditions. For more information, see [this GitHub issue](https://github.com/opensearch-project/k-NN/issues/1693).
