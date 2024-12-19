@@ -1,47 +1,60 @@
-# OpenSearch Simplified: The Power of Application-Based Configuration Templates
+---
+layout: post
+title: "OpenSearch simplified: The power of application-based configuration templates"
+authors:
+   - mgodwani
+   - kolchfa
+date: 2024-12-19
+categories: 
+    - technical-post
+meta_keywords: 
+meta_description: 
+---
+
+OpenSearch supports a wide variety of use cases---such as logs, metrics, traces, website search, and vectors---and enables you to build solutions for various applications based on your use case. As the use cases for OpenSearch continue to grow, managing indexes and configuring them with the right settings can become a daunting task, both for experienced and new users. OpenSearch provides numerous settings to fine-tune indexes for various performance and usability dimensions, such as throughput, latency, and disk utilization. However, for new users, finding the optimal configuration often requires extensive experimentation and developer effort, creating friction during the onboarding process. As new features are developed and released, experienced users of OpenSearch may overlook them as well.
+
+To address this challenge, OpenSearch 2.17 introduced the concept of _Application-Based Configuration (ABC) templates_ as an experimental feature. This feature allows you to easily configure your indexes based on your specific use case, reducing the need for manual updating while promoting a seamless onboarding experience and managing the lifecycle of the index and its settings and mappings as new features are introduced.
 
 
-OpenSearch supports a wide variety of use-cases, ranging from logs, metrics, traces, website search, vectors, etc., and enables users to build solutions for various applications based on their use cases. As the use cases for OpenSearch continue to grow, managing indices and configuring them with the right settings can become a daunting task, both for experienced and new users. OpenSearch provides numerous knobs and settings to fine-tune indices for different performance and usability dimensions, such as throughput, latency, disk utilization, and more. However, for new users, finding the optimal configuration often requires extensive experimentation and developer effort, creating friction during the on-boarding process. As new features are developed and released, experienced users of OpenSearch may miss out on them as well.
+## What are ABC templates?
 
-To address this challenge, OpenSearch 2.17 introduced the concept of Application Based Configuration templates as an experimental feature. This feature allows users to easily configure their indices based on the specific use case they are building it for, reducing the need for manual tweaking and promoting a seamless on-boarding experience and managing the lifecycle of the index and its settings/mappings as new features are introduced.
+In OpenSearch, ABC templates are predefined system templates designed to simplify the process of configuring indexes for various use cases by providing predefined settings and configurations out of the box. These templates encapsulate various optimized settings, mappings, and configurations tailored for different use cases, eliminating the need to manually handle each setting individually.
 
+ABC templates can be applied to your indexes or index templates by providing the `context` field in a request when creating an index or index template. This associates the index or index template with the specified use case (for example, logs or metrics), automatically applying the corresponding settings and mappings from the ABC template to the index or index template.
 
-## What are Application-Based Configuration (ABC) Templates?
-
-Application-Based Configuration (ABC) templates in OpenSearch are predefined system templates designed to simplify the process of configuring indices for various use cases by providing predefined settings and configurations out of the box. These templates encapsulate various optimized settings, mappings, and configurations tailored for different use cases, eliminating the need for users to manually handle each setting or knob individually.
-
-These templates can be applied on users’ indices or index templates using the `context` field while creating the respective resources. This associates the index/index-template with the specified use case (e.g., logs, metrics), and OpenSearch automatically applies the corresponding settings and mappings from the ABC template.
-
-The primary issue that was being addressed was the reduction of friction in OpenSearch onboarding and usage for users. Due to the wide variety of use-cases supported through OpenSearch, the solution was desired to be introduced which could make the indices use-case aware and apply the best configuration applicable in terms of performance and end-to-end support from index creation till data visualization (e.g. SS4O). Currently, for any such case-by-case defaults, composable index templates and component templates are relied upon by users to provide the basic building blocks for configurations. Component templates are used by ABC templates as a resource to expose the use-case specific configurations. The solution is designed to work well with existing index definitions, while the available optimizations are provided straight out of the box
+ABC templates make the indexes use-case-aware and apply the best configuration applicable in terms of performance and end-to-end support at all stages, from index creation to data visualization (for example, Simple Schema for Observability [SS4O]). You can rely on composable index templates and component templates for providing the basic building blocks for the applicable configurations. ABC templates use component templates as a resource in order to expose use-case-specific configurations. The solution is designed to work well with existing index definitions, while the available optimizations are provided straight out of the box.
 
 
-## Why to use ABC Templates?
+## Why use ABC templates?
 
-Using ABC templates in OpenSearch offers several advantages:
+Using ABC templates in OpenSearch offers the following advantages:
 
-1. **Simplified Configuration**: ABC templates eliminate the need for users to navigate through numerous settings and knobs, reducing the complexity of index configuration.
-2. **Optimized Performance**: The predefined settings and mappings in the templates are optimized for specific use cases, ensuring better performance out of the box.
-3. **Automatic Updates**: As OpenSearch introduces new optimizations and features, they are added in the ABC template, and users can start leveraging them with minimal effort for their newly created indices.
+- **Simplified configuration**: ABC templates eliminate the need to navigate through numerous settings, reducing the complexity of index configuration.
+- **Optimized performance**: The predefined settings and mappings in the templates are optimized for specific use cases, ensuring better performance out of the box.
+- **Automatic updates**: As OpenSearch introduces new optimizations and features, they are added to the ABC template, and you can start using them for their newly created indexes with minimal effort.
 
 
-To understand the optimized settings by ABC templates and their performance benefits, a comparison exercise was performed using an index which relies on the `logs` template using the http logs data-set (at same refresh interval), and found the following:
+To understand the optimized settings by ABC templates and their performance benefits, we performed a comparison exercise using an index which relies on the `logs` template using HTTP logs dataset (at the same refresh interval), and found the following:
 
-1. Storage improves by 20% (Using ZSTD no dict against the default LZ4 compression for stored fields).
-2. Indexing P99 latency saw an improvement of 6% due to lesser merges owing to lesser size of segments generated.
-3. The template enforces that the index uses log byte size merge policy, thus ensuring that the data ingested together is kept together even after merging of segments, resulting in improved performance for time range filter queries.
+- Storage improved by 20% (when using `zstd_no_dict` compared to the default `qat_lz4` compression for stored fields).
+- Indexing p99 latency improved by 6% because the generated segments are smaller and thus require fewer merges.
+- The template enforces that the index uses the `log_byte_size` merge policy, thus ensuring that the data ingested together is kept together even after segment merges, resulting in an improved performance of time range filter queries.
 
-![img](/assets/media/blog-images/2024-12-20-OpenSearch-Simplified-The-Power-of-Application-Based-Templates/perf-comparison.png)
-## How to use ABC Templates?
+The following diagram compares storage and p99 latency performance.
 
-The feature is currently available as experimental. For more information on how to get started on using the feature, refer to OpenSearch docs [link here].
+![Application-based template performance comparison](/assets/media/blog-images/2024-12-20-OpenSearch-Simplified-The-Power-of-Application-Based-Templates/perf-comparison.png)
 
-Following animation shows how you can create an index leveraging ABC templates, which attach the required mappings, and settings to the index, and also unlocks direct integration with OpenSearch dashboards for the data which is ingested thereafter.
+## How to use ABC templates?
 
-![img](/assets/media/blog-images/2024-12-20-OpenSearch-Simplified-The-Power-of-Application-Based-Templates/demo.gif)
+To get started with ABC templates, see [Index context](https://opensearch.org/docs/latest/im-plugin/index-context/).
+
+The following animation illustrates creating an index using ABC templates. The template sets the required mappings and settings to the index. Additionally, it configures direct integration with OpenSearch dashboards for the data ingested thereafter.
+
+![Illustration of an index using ABC templates](/assets/media/blog-images/2024-12-20-OpenSearch-Simplified-The-Power-of-Application-Based-Templates/demo.gif)
 
 ### Available templates
 
-With the first version of `opensearch-system-templates`, the following templates have been available to be used through the `context` parameter as of OpenSearch 2.17:
+In the first version of `opensearch-system-templates`, the following templates are available to use in the `context` parameter as of OpenSearch 2.17:
 
 * `logs`
 * `metrics`
@@ -54,11 +67,11 @@ With the first version of `opensearch-system-templates`, the following templates
 
 ### Limitations
 
-While ABC templates brings a lot of values, it does has some limitations:
+While providing a lot of benefits, ABC templates have the following limitations:
 
-* When using ABC templates for an index, users cannot include any settings declared in the template backing the index context used during index creation or dynamic settings updates.
-* The context becomes permanent once set on an index and cannot be removed.
+* When using ABC templates for an index, you cannot include any settings defined in the template that supports the index context during its creation or during dynamic setting updates.
+* Once configured for an index, the context becomes permanent and cannot be removed.
 
 ## Conclusion
 
-As OpenSearch continues to evolve, users can expect to benefit from new optimizations and features seamlessly integrated into their existing ABC templates, ensuring a consistent and optimized experience across various use cases. By providing predefined, optimized settings and configurations out of the box, this feature reduces the friction and developer effort required during the onboarding process. We look forward to your feedback around this, and work together to make the OpenSearch easier to use with every release. 
+As OpenSearch continues to evolve, you can expect to benefit from new optimizations and features seamlessly integrated into your existing ABC templates, ensuring a consistent and optimized experience across various use cases. By providing predefined, optimized settings and configurations out of the box, this feature reduces the friction and developer effort required during the onboarding process. We look forward to your feedback about this feature on the [OpenSearch forum](https://forum.opensearch.org/), and working together to make the OpenSearch easier to use with every release. 
