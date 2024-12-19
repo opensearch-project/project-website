@@ -8,7 +8,7 @@ date: 2024-12-19
 categories: 
     - technical-post
 meta_keywords: Application-Based Configuration templates, ABC templates, index templates, index configuration, OpenSearch performance optimization
-meta_description: 
+meta_description: Explore OpenSearch's Application-Based Configuration (ABC) templates simplifies index configuration, optimizes performance, and streamlines setup for various use cases including logs, metrics, and traces.
 ---
 
 OpenSearch supports a wide variety of use cases---such as [logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/), [metrics](https://opensearch.org/docs/latest/monitoring-your-cluster/metrics/getting-started/), [traces](https://opensearch.org/docs/latest/data-prepper/common-use-cases/trace-analytics/), [website search](https://opensearch.org/docs/latest/search-plugins/), and [vectors](https://opensearch.org/docs/latest/search-plugins/vector-search/)---and enables you to build solutions for various applications based on your use case. As the use cases for OpenSearch continue to grow, managing indexes and configuring them with the right settings can become a daunting task, both for experienced and new users. OpenSearch provides numerous settings that you can use to fine-tune indexes for various performance and usability dimensions, such as throughput, latency, and disk utilization. However, for new users, finding the optimal configuration often requires extensive experimentation and developer effort, creating friction during the onboarding process. As new features are developed and released, experienced OpenSearch users may overlook them as well.
