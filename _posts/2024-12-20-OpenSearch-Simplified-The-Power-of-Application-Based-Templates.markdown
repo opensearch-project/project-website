@@ -7,7 +7,7 @@ authors:
 date: 2024-12-19
 categories: 
     - technical-post
-meta_keywords: 
+meta_keywords: Application-Based Configuration templates, ABC templates, index templates, index configuration, OpenSearch performance optimization
 meta_description: 
 ---
 
