@@ -14,7 +14,7 @@
             "Category": "Machine Learning & AI"
         },
         "MainBody": {
-            "BeginningParagraph": "Wherever you work with data, you’ll find anomalies. In increasingly rich information ecosystems, manually detecting and resolving those anomalies can seem like an impossible task. OpenSearch’s built-in plugin gives you the power to create automated, intelligent workflows that identify anomalies so you can resolve them proactively and minimize disruption.",
+            "BeginningParagraph": "Wherever you work with data, you'll find anomalies. In increasingly rich information ecosystems, manually detecting and resolving those anomalies can seem like an impossible task. OpenSearch's built-in capabilities give you the power to create automated, intelligent workflows that identify anomalies so you can resolve them proactively and minimize disruption.",
 
             "ThreeCard_row" : [
                 {
@@ -25,7 +25,7 @@
                 {
                     "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-Graph.png",
                     "classValue": "card-usecase-img-top",
-                    "SubText": "<strong>Uncover contextual anomalies.</strong> For example - an unexpected surge in usage or consumption."
+                    "SubText": "<strong>Uncover contextual anomalies</strong> such as unexpected surges in usage or consumption."
                 }, 
                 {
                     "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-IPAddresses.png",
@@ -33,24 +33,109 @@
                     "SubText": "<strong>Observe collective anomalies,</strong> including unusual web traffic from a cluster of IP addresses"
                 }
             ],
-            "ImageLeft_row" : {
-                "ImagePath": "",
-                "Subheader": "View results in real time",
+            "ImageRight_row" : {
+                "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-AnomalyImage.png",
+                "Subheader": "Detection and resolution at scale",
                 "SubText": "Eliminate delays to detection and resolution, minimize manual monitoring and troubleshooting, and bridge gaps in visibility to provide insights at scale. With OpenSearch, you can create and configure detectors that expose anomalies, deliver highly observable results, and send alerts in near real-time."
             },
-            "TwoColumn_Row" : {
+            "TwoColumn_FurtherResources_row" : {
                 "left_BlogColumn" : {
-                    "title": "Correlating security events across different log sources ",
-                    "blog_array": [
+                    "Title": "Explore further resources",
+                    "Blog_array": [
                         {
-                            "title": "Correlating security events across different log sources "
+                            "Type": "OpenSearch Blog",
+                            "Title": "Overlaying anomalies and alters on OpenSearch Dashboards visualizations",
+                            "Link": "",
+                            "Icon": "/assets/img/iconography/OpenSearch-AI.png",
+                            "SubText": "Wed, Aug 2, 2023"
+                        },
+                        {
+                            "Type": "OpenSearch Video",
+                            "Title": "Leveraging anomaly detection for UEBA at Graylog",
+                            "Link": "",
+                            "Icon": "/assets/img/iconography/Youtube-frame.png",
+                            "SubText": "Watch on YouTube"
+                        },
+                        {
+                            "Type": "OpenSearch Blog",
+                            "Title": "Anomaly detection for historical data and real-time streaming...",
+                            "Link": "",
+                            "Icon": "/assets/img/iconography/OpenSearch-AI.png",
+                            "SubText": "Thu, Nov 18, 2021"
                         }
                     ]
                 },
                 "right_LargeImageColumn" : {
-                    "header": "Some kind of subheader for this section",
-                    "ImagePath": ""
+                    "Title": "Custom anomaly detection workflows powered by intelligent, scalable, highly adaptable features",
+                    "Feature_array": [
+                        {
+                            "Title": "Real time data ingestion and indexing",
+                            "SubText": "Continuously collect and index data from multiple sources to ensure you’re conducting anomaly detection on the most up-to-date information.",
+                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-DataConsumer-PurpleMint.png"
+                        },
+                        {
+                            "Title": "Advanced anomaly detection algorithms",
+                            "SubText": "Leverage cutting-edge AI and machine learning algorithms to identify problems in your ingested data, including univariate, multivariate, and contextual anomalies.",
+                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-AI-MachineLearning-PurpleMint.png"
+                        },
+                        {
+                            "Title": "Flexible alerting and notifications",
+                            "SubText": "Our Anomaly Detection tools enable customizable alerts and notifications you can use to inform your stakeholders and resolve issues proactively.",
+                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-DataProducer-PurpleMint.png"
+                        },
+                        {
+                            "Title": "Scalable and distributed architecture",
+                            "SubText": "OpenSearch’s distributed, highly scalable nature helps you ingest, process, and analyze large volumes of data without compromising performance.",
+                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-Infrastructure-PurpleMint.png"
+                        },
+                        {
+                            "Title": "Seamless integration with existing toolsets",
+                            "SubText": "Easily integrate OpenSearch into the monitoring, observability, and IT service management (ITSM) tools you already use to maintain seamless continuity with existing technology investments and workflows.",
+                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-Platform-PurpleMint.png"
+                        }
+                    ]
                 }
+            },
+            "TwoColumn_FeatureList_row" : {
+                "left_Paragraph" : {
+                    "Text": "A proactive approach to anomaly detection puts <strong>you</strong> in control of your data. <br/><br/>By getting ahead of disruption, you improve data quality and maximize uptime to keep operations consistent and secure."
+                },
+                "right_FeatureList" : {
+                    "Feature_array": [
+                        {
+                            "Title": "Proactive issue identification",
+                            "SubText": "Quickly detect anomalies in your data to identify and address potential issues before they escalate, reducing the impact on business operations and customer experience."
+                        }, 
+                        {
+                            "Title": "Enhanced security and compliance",
+                            "SubText": "Identify and investigate security threats and demonstrate compliance with industry regulations and standards."
+                        }, 
+                        {
+                            "Title": "Scalability and future-proofing",
+                            "SubText": "Scalable and flexible architecture expands your anomaly detection capabilities seamlessly as data volume grows alongside infrastructure complexity."
+                        }, 
+                        {
+                            "Title": "Improved operational efficiency",
+                            "SubText": "Gain an AI advantage that helps you rapidly identify and resolve anomalies to optimize processes, reduce manual troubleshooting, and smooth operations."
+                        }, 
+                        {
+                            "Title": "Informed decision-making",
+                            "SubText": "OpenSearch delivers the insights and contextual information you need to make data-driven decisions, optimize resource allocation, and improve strategic planning."
+                        }
+                    ]
+                }
+            }, 
+            "GetStartedBanner_row" : {
+                "Text": "See what you can accomplish with OpenSearch anomaly detection.",
+                "ButtonText": "Get started ",
+                "ButtonLink": "/docs/latest/observing-your-data/ad/index/"
+            },
+            "ImageLeft_row" : {
+                "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-NextGenPlaygrounds.png",
+                "Subheader": "OpenSearch Dashboards Playground",
+                "SubText": "Experience OpenSearch anomaly detection in our free demo environment.",
+                "ButtonText": "Jump into our sandbox",
+                "ButtonLink": "/playgrounds/"
             }
 
         }
