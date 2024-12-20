@@ -7,8 +7,8 @@ authors:
 date: 2024-12-17
 categories:
  - technical-post
-meta_keywords: opensearch dashboards development, vs code, jest
-meta_description: Learn how to setup OpenSearch Dashboards with VS Code
+meta_keywords: OpenSearch Dashboards, VS Code, development tools, Jest integration, ESLint, multi-root workspaces, unit testing, OSD codebase
+meta_description: Boost OpenSearch Dashboards development with VS Code. Learn to set up efficient workflows for testing, linting, and debugging. Enhance productivity using Jest, ESLint, and multi-root workspaces.
 excerpt: OpenSearch Dashboards can be a challenge to set up. This blog post shows you how to use VS Code with OpenSearch Dashboards to make development easier.
 ---
 
@@ -56,9 +56,10 @@ Here are a few Jest features:
 
   The first line will use the custom `jest.js` OSD script to load the custom `config.js` file and pass any arguments directly to `jest`. The second line prevents the test runner from running every test on file save, which helps to save computing resources.
 
-After performing these steps, you should see the following **Test Explorer** (🧪) icon in the **Extensions** sidebar. 
 
-Select this icon to view all detected test files.
+
+After performing these steps, you should see the **Test Explorer** ({::nomarkdown}<img src="/assets/media/blog-images/2024-12-17-vscode-osd-setup/test-icon.png" style="border: none; padding: 0; box-shadow: none; width:1.8rem;" alt="flask icon"/>{:/}) icon in the **Extensions** sidebar. Select this icon to view all detected test files.
+
 
 ## Configuring Prettier and ESLint integration
 
