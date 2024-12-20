@@ -345,9 +345,9 @@
                 {
                     "Title": "OpenSearchCon",
                     "ClassValue": "drawer-content-header",
-                    "OpenSearchCon_HeroBanner": "/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_720x360.png",
-                    "OpenSearchCon_ButtonText": "North America: Sep 2024",
-                    "OpenSearchCon_Link": "/events/opensearchcon/2024/north-america/index.html",
+                    "OpenSearchCon_HeroBanner": "/assets/media/opensearchcon/2025/OSCEU-2025.png",
+                    "OpenSearchCon_ButtonText": "Europe: Apr 2025",
+                    "OpenSearchCon_Link": "https://events.linuxfoundation.org/opensearchcon-europe/",
                     "Name": "OpenSearchCons in 2024",
                     "SubNav": [
                         {
