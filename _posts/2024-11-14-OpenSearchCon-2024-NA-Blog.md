@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "OpenSearchCon 2024: North America -- The blog post"
+title:  "OpenSearchCon 2024: North America – The blog post"
 authors:
  - prthsh
  - smelik
@@ -16,11 +16,9 @@ meta_description: Explore the key highlights, insightful sessions, and exciting 
 excerpt: OpenSearch, the community-driven, open-source search and analytics suite, has been gaining momentum in the data-driven application landscape. The recent OpenSearchCon North America 2024 event held in San Francisco, which attracted over 350 attendees from around the world, was a testament to the growing influence of this powerful platform. In this blog post, we'll explore the key highlights, insightful sessions, and exciting announcements that emerged from this year's conference.
 ---
 
-
-1. Introduction 
 OpenSearch, the community-driven, open-source search and analytics suite, has been gaining momentum in the data-driven application landscape. The recent [OpenSearchCon 2024: North America](https://opensearch.org/events/opensearchcon/2024/north-america/index.html) event held in San Francisco, which attracted over 350 attendees from around the world, was a testament to the growing influence of this powerful platform. In this blog post, we'll explore the key highlights, insightful sessions, and exciting announcements that emerged from this year's conference.
 
-2. Keynote: The future of OpenSearch
+## Keynote: The future of OpenSearch
 
 The event kicked off with an inspiring keynote from Eli Fisher, Sr. Manager, Product Management at OpenSearch, who laid out the vision for the future of OpenSearch. Some key announcements included:
 
@@ -28,7 +26,7 @@ The event kicked off with an inspiring keynote from Eli Fisher, Sr. Manager, Pro
 * OpenSearch generative AI use cases: Anupam Chaturvedi, Adobe Engineering Manager, demonstrated how Adobe is leveraging OpenSearch for its Acrobat generative AI assistant, showcasing the practical applications of OpenSearch in the generative AI space.
 * Community growth: Jim Zemlin, Executive Director, [The Linux Foundation](https://www.linuxfoundation.org/), spoke about welcoming OpenSearch to the Linux Foundation. By opening up project governance and moving to a neutral home, the OpenSearch Project is taking concrete steps to further the project's founding principle of being for the community and by the community. 
 
-3. Important sessions and workshops
+## Important sessions and workshops
 The conference featured several informative sessions and workshops, including:
 
 * Session: [Airbnb Embedding Platform](https://www.youtube.com/watch?v=kpWQ55hVF90)
@@ -40,7 +38,7 @@ The conference featured several informative sessions and workshops, including:
 * Session: [A deep dive into OpenSearch Serverless](https://www.youtube.com/watch?v=JPo_uF4Fw4M)
     This session, led by Rohit Nair and Milav Shah, dives deep into how Amazon OpenSearch Serverless works, including architecture details, understanding performance and operational characteristics, and the future roadmap.
 
-4. Closing remarks: What's next for OpenSearch?
+## Closing remarks: What's next for OpenSearch?
 
 The event was not just about technical sessions—it was also a fantastic opportunity to network with peers in the open-source search space. The community lounge was buzzing with activity, and there were plenty of informal meetups where attendees could connect with OpenSearch engineers, contributors, and advocates.
 
