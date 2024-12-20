@@ -9,15 +9,15 @@ categories:
  - technical-post
 meta_keywords: opensearch dashboards development, vs code, jest
 meta_description: Learn how to setup OpenSearch Dashboards with VS Code
-excerpt: OpenSearch Dashboards can be a challenge to setup. This blog post shows how you can leverage VS Code with OpenSearch Dashboards to make development easier
+excerpt: OpenSearch Dashboards can be a challenge to set up. This blog post shows you how to use VS Code with OpenSearch Dashboards to make development easier.
 ---
 
-Developing OpenSearch Dashboards (OSD) can feel overwhelming, whether you're setting up your environment for the first time or starting work on a significant feature. This blog post introduces developer tools and workflows in [VS Code](https://code.visualstudio.com/) to make OSD development more manageable and efficient.
+Developing OpenSearch Dashboards (OSD) can feel overwhelming, whether you're setting up your environment for the first time or starting work on a significant feature. This blog post introduces developer tools and workflows in [VS Code](https://code.visualstudio.com/) that make OSD development more manageable and efficient.
 
-VS Code provides many built-in capabilities, such as IntelliSense, code search, and Git integration. In this blog, you’ll learn how to configure the following:
+VS Code provides many built-in capabilities, such as IntelliSense, code search, and Git integration. In this post, you'll learn how to configure the following:
 
 * Unit tests that are easy to run and debug at the individual test level.
-* A linter that runs automatically on save using OSD rules, eliminating the need to run the linter at commit time and re-commit changes (though some linting errors will still require manual fixes).
+* A linter that runs automatically on save using OSD rules, eliminating the need to run the linter at commit time and recommit changes (though some linting errors will still require manual fixes).
 * A one-click OSD server startup and server-side debugging.
 * Multi-root workspaces for development on *both* individual plugins *and* OSD Core.
 
@@ -25,21 +25,21 @@ VS Code provides many built-in capabilities, such as IntelliSense, code search, 
 
 OSD uses [Jest](https://jestjs.io/) as the testing framework. With over 2,000 test suites in OSD alone, finding and running specific tests can be a hassle. 
 
-The [vscode-jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) extension provides a quick and easy Jest integration in VSCode, as shown in the following image.
+The [vscode-jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) extension provides a quick and easy Jest integration in VS Code, as shown in the following image.
 
 ![jest-integration](/assets/media/blog-images/2024-12-17-vscode-osd-setup/jest-integration.gif)
 
 Here are a few Jest features:
 
-* A graphical interface to select which tests to run: you can run all project tests, tests inside a specific directory, specific test files, individual test suites, or even individual test methods.
+* A graphical interface used to select which tests to run: you can run all project tests, tests inside a specific directory, specific test files, individual test suites, or even individual test methods.
   ![test-suites](/assets/media/blog-images/2024-12-17-vscode-osd-setup/test-suites.png)
-* A UI icon to display passed or failed tests.
-* Inline `Test Run` button in your test files so you don't have to run tests in command line.
+* A UI icon that displays passed or failed tests.
+* An inline `Test Run` button in your test files so you don't have to run tests in the command line.
   ![inline-tests](/assets/media/blog-images/2024-12-17-vscode-osd-setup/inline-tests.png)
-* Ability to run a test with debug options.
+* The ability to run a test with debug options.
   ![debug-tests](/assets/media/blog-images/2024-12-17-vscode-osd-setup/debug-tests.png)
 
-**Note:** Do not run all tests under `src/plugins*`. There are over 2,000 test cases, so running all tests will consume lots of resources. Instead, run tests on-demand for specific subdirectories.
+**Note:** Do not run all tests under `src/plugins*`. There are over 2,000 test cases, so running all tests will consume lots of resources. Instead, run tests on demand for specific subdirectories.
 
 ### Configuring Jest
 
@@ -54,7 +54,7 @@ Here are a few Jest features:
     }
     ```
 
-  The first line will use the custom `jest.js` OSD script to load the custom `config.js` file and pass any arguments directly to `jest`. The second line prevents the test runner to run every test on file save, which helps save on computing resources.
+  The first line will use the custom `jest.js` OSD script to load the custom `config.js` file and pass any arguments directly to `jest`. The second line prevents the test runner from running every test on file save, which helps to save computing resources.
 
 After performing these steps, you should see the following **Test Explorer** (🧪) icon in the **Extensions** sidebar. 
 
@@ -62,7 +62,7 @@ Select this icon to view all detected test files.
 
 ## Configuring Prettier and ESLint integration
 
-The OSD repo includes [Husky](https://typicode.github.io/husky/), a precommit hook that runs scripts before commits are made (scripts may include linting or running unit tests). However, rerunning the linter and recommitting your changes may still be time-consuming. VS Code provides the ability to lint on save but OSD has specific linting rules that may not work out of the box.
+The OSD repo includes [Husky](https://typicode.github.io/husky/), a precommit hook that runs scripts before commits are made (scripts may include linting or running unit tests). However, rerunning the linter and recommitting your changes may still be time-consuming. VS Code provides the ability to lint on save, but OSD has specific linting rules that may not work out of the box.
 
 You can use the [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) VS Code plugins to lint files automatically on save. Note that some rules that cannot be fixed automatically will still require manual corrections. The Prettier plugin is configured using the `.prettierrc` config file and will execute the Prettier rules in VS Code. ESLint is configured using the workspace's ESLInt configuration to enforce its rules. The linting integration is shown in the following image.
 
@@ -82,7 +82,7 @@ Before you start, configure linting on save by pressing `Cmd` (or `Ctrl`) + `Shi
 
 1. Install the Prettier and ESLint extensions.
 2. Press `Cmd` (or `Ctrl`) + `Shift` + `P` and select **Open Workspace Settings (JSON)**.
-3. Add in the following settings to the `settings.json` file:
+3. Add the following settings to the `settings.json` file:
 
     ```json
     {
@@ -108,12 +108,12 @@ Starting the OSD server typically requires running commands in two terminals:
 This approach works for many use cases but doesn't allow you to debug server-side changes. To simplify this process, you can set up a series of launch tasks, turning server startup into a one-click operation:
 
 1. Start the OpenSearch server.
-2. Start the Dashboards server. Starting the Dashboards server requires a wait period for the server to boot up; this can be accomplished with a VS Code task to wait for a period of time.
+2. Start the Dashboards server. Starting the Dashboards server requires a wait period while the server boots up; this can be accomplished with a VS Code task that specifies to wait for a certain period of time.
 
 Making this task a VS Code run configuration provides the following benefits:
 
 * One-click OSD development server startup, eliminating the need to repeatedly use the CLI.
-* Ability to debug server-side code (for client-side code (public), you can use your preferred browser's developer tools).
+* The ability to debug server-side code (for client-side code [public], you can use your preferred browser's developer tools).
 
 The run configuration is presented in the following image.
 
@@ -224,29 +224,29 @@ nvm install 18.9.0
     }
     ```
 
-1. In the **Run and Debug** tab, select **Start Dashboards** from the dropdown menu and press the play icon. OSD should start after a period of time.
+1. On the **Run and Debug** tab, select **Start Dashboards** from the dropdown menu and press the play icon. OSD should start after a period of time.
   
 Now you can set any breakpoint in `server` code.
 
-The **Debug** toolbar should appear under the **CALL STACK**, in a specific worker node, as shown in the following image.
+The **Debug** toolbar should appear under the **CALL STACK** in a specific worker node, as shown in the following image.
 
 ![debug-toolbar](/assets/media/blog-images/2024-12-17-vscode-osd-setup/debug-toolbar.png)
 
-Using this toolbar, you can resume breakpoints, step into code, and execute the next instruction, as shown in.
+Using this toolbar, you can resume breakpoints, step into code, and execute the next instruction.
 
 ## Configuring multi-root workspace integration
 
-For most development scenarios, working within the OSD Core should be sufficient. However, if you need to develop code for a plugin, the [multi-root workspaces feature](https://code.visualstudio.com/docs/editor/multi-root-workspaces) is a useful option. The setup for Jest, linting, and run configurations for plugins is similar to that of the OSD Core, so we won’t cover it in detail here.
+For most development scenarios, working within the OSD Core should be sufficient. However, if you need to develop code for a plugin, the [multi-root workspaces feature](https://code.visualstudio.com/docs/editor/multi-root-workspaces) is a useful option. The setup for Jest, linting, and run configurations for plugins is similar to that of the OSD Core, so we won't cover it in detail here.
 
-In summary, for OSD to recognize plugins during development, the plugin's project root must be located within the `OpenSearch-Dashboards/plugins/` directory. The following image shows multi-root workspace integration.
+In summary, in order for OSD to recognize plugins during development, the plugin's project root must be located within the `OpenSearch-Dashboards/plugins/` directory. The following image shows multi-root workspace integration.
 
 ![multi-root-workspaces](/assets/media/blog-images/2024-12-17-vscode-osd-setup/multi-root-workspaces.gif)
 
 ### Setup
 
-In this example, assume you're developing code for the [anomaly-detection-dashboards-plugin](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin) and the project has been checked out in the `plugins` directory.
+In this example, assume you're developing code for the [anomaly-detection-dashboards-plugin](https://github.com/opensearch-project/anomaly-detection-dashboards-plugin) and that the project has been checked out in the `plugins` directory.
 
-1. Navigate one directory above the `OpenSearch-Dashboards` project folder and create a file called `OpenSearch-Dashboards.code-workspace`. Add the following configuration to this file:
+1. Navigate to one directory above the `OpenSearch-Dashboards` project folder and create a file called `OpenSearch-Dashboards.code-workspace`. Add the following configuration to this file:
 
     ```json
     {
@@ -279,4 +279,4 @@ In this workspace, you will have access to launch configurations, Jest test suit
 
 ## Wrapping up
 
-While these tools aren't a replacement for a thorough understanding of the OSD codebase, they help streamline your development workflow. By automating tasks like server startup, debugging, and linting, they reduce time spent on configuration and allow you to focus on writing code. These tools make the development and PR process more efficient, saving you time and boosting productivity.
+While these tools aren't a replacement for a thorough understanding of the OSD codebase, they can help to streamline your development workflow. By automating tasks like server startup, debugging, and linting, they reduce time spent on configuration and allow you to focus on writing code. These tools make the development and PR process more efficient, saving you time and boosting productivity.
