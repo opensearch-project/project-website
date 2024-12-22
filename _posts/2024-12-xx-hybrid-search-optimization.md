@@ -277,7 +277,7 @@ With the appropriate data at hand we explored different algorithms and experimen
 We went for two relatively simple algorithms: linear regression and random forest regression.  
 We applied cross validation, regularization, and tried out all different feature combinations. This resulted in interesting findings that are summarized in the following section.
 
-**Dataset size matters**: Working with the differently sized datasets revealed that the amount of data matters when training and evaluating the models. The larger dataset reported a smaller Root Mean Squared Error compared to the smaller dataset. It also results in less variation of the RMSE scores within the cross-validation runs (i.e. when comparing the RMSE scores within one cross validation run for one feature combination).
+**Dataset size matters**: Working with the differently sized datasets revealed that the amount of data matters when training and evaluating the models. The larger dataset reported a smaller Root Mean Squared Error compared to the smaller dataset. It also results in less variation of the RMSE scores within the cross-validation runs (that is when comparing the RMSE scores within one cross validation run for one feature combination).
 
 **Model performance differs among the different algorithms**: the best RMSE score for the random forest regressor was 0.18 compared to 0.22 for the best linear regression model (large dataset) \- both with different feature combinations though. The more complex model (random forest) is the one that performs better. However, better performance comes with the trade-off of longer training times for this more complex model.
 
