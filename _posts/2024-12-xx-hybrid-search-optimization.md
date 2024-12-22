@@ -15,7 +15,7 @@ meta_description: Tackle the optimization of hybrid search in a systematic way a
 
 [Hybrid search combines lexical and neural search to improve search relevance](https://opensearch.org/docs/latest/search-plugins/hybrid-search); this combination shows promising results across industries and [in benchmarks](https://opensearch.org/blog/semantic-science-benchmarks/).
 
-In OpenSearch 2.18, [hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/) is a linear combination of the lexical (match query) and neural (kNN) search scores. It first normalizes the scores and then combines them with one of three techniques (arithmetic, harmonic or geometric mean), each of which includes weighting parameters.
+In OpenSearch 2.18, [hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/) is an arithmetic combination of the lexical (match query) and neural (k-NN) search scores. It first normalizes the scores and then combines them with one of three techniques (arithmetic, harmonic or geometric mean), each of which includes weighting parameters.
 
 The search pipeline configuration is how OpenSearch users define score normalization, combination, and weighting.
 
@@ -25,11 +25,11 @@ The question for a user of hybrid search in OpenSearch is how to choose the norm
 
 What is best depends strongly on the corpus, on user behavior, and on the application domain – there is no one-size-fits-all solution. 
 
-However, there is a systematic way to arrive at this ideal set of parameters. We call identifying the best set of parameters *global hybrid search optimization*: we identify the best parameter set for all incoming queries; it is “global” because it doesn’t depend on per-query factors. We will cover this approach first before moving on to a dynamic approach that identifies hybrid query parameters individually per query.
+However, there is a systematic way to arrive at this ideal set of parameters. We call identifying the best set of parameters *global hybrid search optimization*: we identify the best parameter set for all incoming queries; it is “global” because it doesn’t depend on per-query factors. We will cover this approach first before moving on to a dynamic approach that takes into account per-query signals.
 
 # Global hybrid search optimizer
 
-We treat hybrid search configuration as a parameter optimization challenge. The parameters and combinations are:
+We treat hybrid search configuration as a parameter optimization problem. The parameters and combinations are:
 
 * Two [normalization techniques: `l2` and `min_max`](https://opensearch.org/blog/How-does-the-rank-normalization-work-in-hybrid-search/)  
 * Three combination techniques: arithmetic mean, harmonic mean, geometric mean  
@@ -40,7 +40,7 @@ With this knowledge we can define a collection of parameter combinations to try 
 
 1. Query set: a collection of queries.  
 2. Judgments: a collection of ratings that tell how relevant a result for a given query is.  
-3. Search Metrics: a numeric expression of how well the search system does in returning relevant documents for queries
+3. Search Quality Metrics: a numeric expression of how well the search system does in returning relevant documents for queries
 
 ## Query set
 
@@ -48,7 +48,7 @@ A query set is a collection of queries. Ideally, query sets contain a representa
 
 * Very frequent queries (head queries), but also queries that are used rarely (tail queries)  
 * Queries that are important to the business   
-* Queries that express different user intent classes (e.g. searching for a product category, searching for product category \+ color, searching for a brand)  
+* Queries that express different user intent classes (for example searching for a product category, searching for product category \+ color, searching for a brand)  
 * Other classes depending on the individual search application
 
 These different queries are best sourced from a query log that captures all queries your users send to your system. One way of sampling these efficiently is [Probability-Proportional-to-Size Sampling](https://opensourceconnections.com/blog/2022/10/13/how-to-succeed-with-explicit-relevance-evaluation-using-probability-proportional-to-size-sampling/) (PPTSS). This method can generate a frequency weighted sample.
@@ -59,7 +59,7 @@ We will run each query in the query set against a baseline first to see how our 
 
 Once a query set is available, judgments come next. A judgment describes how relevant a particular document is for a given query. A judgment consists of three parts: the query, the document, and a (typically) numerical rating.
 
-Ratings can be binary (0 or 1, i.e. irrelevant or relevant) or graded (e.g. 0 to 3, definitely irrelevant to definitely relevant). In the case of explicit judgments, human raters go through query-document pairs and assign these ratings. Implicit judgments, on the other hand, are derived from user behavior: user queries, viewed and clicked documents. Implicit judgments can be modeled with [click models that emerged from web search](https://clickmodels.weebly.com/) in the early 2010s and range from simple clickthrough rates to more [complex approaches](https://www.youtube.com/watch?v=wa88XShl7hs). All come with limitations and/or deal differently with biases like position bias.
+Ratings can be binary (0 or 1, that is irrelevant or relevant) or graded (for example 0 to 3, definitely irrelevant to definitely relevant). In the case of explicit judgments, human raters go through query-document pairs and assign these ratings. Implicit judgments, on the other hand, are derived from user behavior: user queries, viewed and clicked documents. Implicit judgments can be modeled with [click models that emerged from web search](https://clickmodels.weebly.com/) in the early 2010s and range from simple clickthrough rates to more [complex approaches](https://www.youtube.com/watch?v=wa88XShl7hs). All come with limitations and/or deal differently with biases like position bias.
 
 Recently, a third category of generating judgments emerged: LLM-as-a-judge. Here a large language model like GPT-4o judges query-doc pairs.
 
@@ -69,7 +69,7 @@ Implicit judgments have the advantage of scale: when already collecting user eve
 
 ## Search metrics
 
-With a query set and the corresponding judgments we can calculate search metrics. Widely used [search metrics are Precision, DCG or NDCG](https://opensourceconnections.com/blog/2020/02/28/choosing-your-search-relevance-metric/).
+With a query set and the corresponding judgments we can calculate search quality metrics. Widely used [search metrics are Precision, DCG, or NDCG](https://opensourceconnections.com/blog/2020/02/28/choosing-your-search-relevance-metric/).
 
 Search metrics provide a way of measuring the search result quality of a search system numerically. We calculate search metrics for each configuration and this enables us to compare them objectively against each other. As a result we know which configuration scored best.
 
@@ -279,7 +279,7 @@ We applied cross validation, regularization, and tried out all different feature
 
 **Dataset size matters**: Working with the differently sized datasets revealed that the amount of data matters when training and evaluating the models. The larger dataset reported a smaller Root Mean Squared Error compared to the smaller dataset. It also results in less variation of the RMSE scores within the cross-validation runs (i.e. when comparing the RMSE scores within one cross validation run for one feature combination).
 
-**Model performance differs among the different algorithms**: the best RMSE score for the random forest regressor was 0.18 vs. 0.22 for the best linear regression model (large dataset) \- both with different feature combinations though. The more complex model (random forest) is the one that performs better. However, better performance comes with the trade-off of longer training times for this more complex model.
+**Model performance differs among the different algorithms**: the best RMSE score for the random forest regressor was 0.18 compared to 0.22 for the best linear regression model (large dataset) \- both with different feature combinations though. The more complex model (random forest) is the one that performs better. However, better performance comes with the trade-off of longer training times for this more complex model.
 
 **Feature combinations of all groups have the lowest RMSE**: the lowest error scores can be achieved when combining features from all three feature groups (query, lexical search result, neural search result). Looking at RMSE scores for feature combinations within the feature groups shows that working with lexical search result feature combinations only serves as the best alternative.
 
