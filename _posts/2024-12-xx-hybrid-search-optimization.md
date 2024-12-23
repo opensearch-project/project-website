@@ -15,7 +15,7 @@ meta_description: Tackle the optimization of hybrid search in a systematic way a
 
 [Hybrid search combines lexical and neural search to improve search relevance](https://opensearch.org/docs/latest/search-plugins/hybrid-search); this combination shows promising results across industries and [in benchmarks](https://opensearch.org/blog/semantic-science-benchmarks/).
 
-In OpenSearch 2.18, [hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/) is an arithmetic combination of the lexical (match query) and neural (k-NN) search scores. It first normalizes the scores and then combines them with one of three techniques (arithmetic, harmonic or geometric mean), each of which includes weighting parameters.
+In OpenSearch 2.18, [hybrid search](https://opensearch.org/docs/latest/search-plugins/hybrid-search/) is an arithmetic combination of the lexical (match query) and neural (k-NN) search scores. It first normalizes the scores and then combines them with one of three techniques (arithmetic, harmonic, or geometric mean), each of which includes weighting parameters.
 
 The search pipeline configuration is how OpenSearch users define score normalization, combination, and weighting.
 
