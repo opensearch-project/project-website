@@ -23,7 +23,7 @@ The search pipeline configuration is how OpenSearch users define score normaliza
 
 The primary question for a user of hybrid search in OpenSearch is how to choose the normalization and combination techniques and the weighting parameters for their application.
 
-What is best depends strongly on the corpus, on user behavior, and on the application domain – there is no one-size-fits-all solution. 
+What is best depends strongly on the corpus, on user behavior, and on the application domain---there is no one-size-fits-all solution. 
 
 However, there is a systematic way to arrive at this ideal set of parameters. We call identifying the best set of parameters *global hybrid search optimization*: we identify the best parameter set for all incoming queries; it is “global” because it doesn’t depend on per-query factors. We will cover this approach first before moving on to a dynamic approach that takes into account per-query signals.
 
