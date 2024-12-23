@@ -19,7 +19,7 @@ In OpenSearch 2.18, [hybrid search](https://opensearch.org/docs/latest/search-pl
 
 The search pipeline configuration is how OpenSearch users define score normalization, combination, and weighting.
 
-# Finding the right hybrid search configuration is hard
+# Finding the right hybrid search configuration can be difficult
 
 The question for a user of hybrid search in OpenSearch is how to choose the normalization and combination techniques and the weighting parameters for their application.
 
