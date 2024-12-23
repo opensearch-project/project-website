@@ -221,9 +221,9 @@ The following chart shows the DCG@10 values of the training queries of the small
 
 <img src="/assets/media/blog-images/2024-12-xx-optimizing-hybrid-search/1_search_config_comparison.png" alt="Scatter Plot of DCG values for lexical-heavy search configuration and Neural-heavy search configuration" class="center"/>{:style="width: 100%; max-width: 800px; height: auto; text-align: center"}
 
-The queries with the highest search quality metrics improvements of configuration B are those that are located on the y-axis: they have a DCG score of 0 for this configuration. And for configuration A some even score above 15.
+The queries with the highest search quality metric improvements of configuration B are those that are located on the y-axis: they have a DCG score of 0 for this configuration. And for configuration A some even score above 15.
 
-As we strive for improving the search quality metrics for all queries this now leads us to the question: improvements on average are fine but how can we tackle this in a more targeted way to come up with an approach that provides us the best configuration per-query instead of one good configuration for all queries?  
+Striving to improve the search quality metrics for all queries raises the following question: improvements on average are fine, but how can we tackle this in a more targeted way to come up with an approach that provides the best configuration per query instead of one good configuration for all queries?  
 
 # Dynamic hybrid search optimizer
 
