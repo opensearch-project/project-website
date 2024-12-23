@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Optimizing Hybrid Search in OpenSearch"
+title: "Optimizing hybrid search in OpenSearch"
 authors:
    - dwrigley
 date: 2024-12-xx
