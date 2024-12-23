@@ -21,7 +21,7 @@ The search pipeline configuration is how OpenSearch users define score normaliza
 
 # Finding the right hybrid search configuration can be difficult
 
-The question for a user of hybrid search in OpenSearch is how to choose the normalization and combination techniques and the weighting parameters for their application.
+The primary question for a user of hybrid search in OpenSearch is how to choose the normalization and combination techniques and the weighting parameters for their application.
 
 What is best depends strongly on the corpus, on user behavior, and on the application domain – there is no one-size-fits-all solution. 
 
