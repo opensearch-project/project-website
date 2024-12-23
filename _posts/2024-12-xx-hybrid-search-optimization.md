@@ -328,7 +328,7 @@ We encourage everyone to adopt the approach and explore its usefulness in their 
 
 # Future work
 
-The currently planned next steps include replicating the approach with a dataset that has higher judgment coverage and covers a different domain to see its generalizability.
+The currently planned next steps include replicating the approach with a dataset that has higher judgment coverage and covers a different domain in order to determine its generalizability.
 
 Optimizing hybrid search typically is not the first step in search result quality optimization. Optimizing lexical search results first is especially important as the lexical search query is part of the hybrid search query. Bayesian optimization is an efficient technique to efficiently identify the best set of fields and field weights, sometimes also referred to as learning to boost.
 
