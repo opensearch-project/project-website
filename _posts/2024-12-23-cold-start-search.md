@@ -13,52 +13,43 @@ has_math: false
 has_science_table: true
 ---
 
-When helping customers upgrade their workloads from older Elasticsearch versions to OpenSearch, we encountered a recurring issue: Customers complaint about slow initial searches that did not occur in their previous Elasticsearch clusters. This post explores the root cause and provides potential solutions.
+Upgrading to OpenSearch offers many advantages, but it can also introduce unexpected challenges. One such issue we've encountered while assisting with upgrades from older Elasticsearch versions is the "cold start search" problem. You might notice that the first search after a period of inactivity is unusually slow, even though subsequent searches perform as expected. This blog post will explore the root cause of this behavior and offer potential solutions tailored to your needs.
 
+## Understanding the cold start search problem
 
-## The Problem
+After upgrading from Elasticsearch 6.x to OpenSearch (or even to later Elasticsearch versions), you may see a pattern: the first search after some inactivity is slow, while subsequent searches run much faster. After another idle period, the slow search recurs. This issue is particularly noticeable in non-production environments, where search activity isn't as constant as in live systems. The following image presents is a typical search rate metric illustrating this behavior:
 
-After upgrading from Elasticsearch 6.x to higher versions of Elasticsearch and eventually to OpenSearch, customers report a pattern where the first search after a period of inactivity is slow but the subsequent searches are far more performant. After another period of search-inactivity, the cycle repeats. This issue is more prevalent in pre-production environments and not so much in a Live production environment which usually has continuous search activity. The SearchRate metric would look something like below
-[Image: Image.jpg]
+![Search rate metric](/assets/media/blog-images/2024-12-23-cold-start-search/search-metric.png)
 
-## What It's Not
+At first glance, this might look like a cache-warming issue. However, the pattern persists even for queries that don't use cache. Both simple and complex queries are affected equally, and slow logs don't identify these as slow queries. This means that caching or query complexity isn't the cause of the problem.
 
-Initially, this might seem like a cache warming problem. However, the pattern persists even for uncacheable queries. Both simple and complex queries are equally affected, so to the query complexity also doesn't seem to be a factor. Slow logs do not record these as slow queries. Therefore we can rule out this to be a cache warming problem.
+## Uncovering the root cause
 
+Through detailed investigation using [search slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs) and [query profiling](https://opensearch.org/docs/latest/api-reference/profile/), we traced the root cause to two key settings in OpenSearch:  
 
-## The Root Cause
+- **`refresh_interval`**: OpenSearch buffers newly indexed documents in memory until a refresh operation transfers them to searchable segments. By default, `refresh_interval` is set to 1 second for near real-time (NRT) search. However, if a shard becomes idle (determined by the `index.search.idle.after` time period), it stops refreshing until a search request triggers a refresh.
 
-After investigating [search slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs), other related settings and [profiling the query](https://opensearch.org/docs/latest/api-reference/profile/), we identified the issue to be related to the following settings.
+- **`index.search.idle.after`**: This setting defines how long a shard can stay idle before it stops automatic refreshes. Its default value is 30 seconds. While this improves bulk indexing performance by reducing refresh frequency, it introduces a delay for the first search after a period of inactivity.
 
+When upgrading from Elasticsearch 6.x to OpenSearch or Elasticsearch 7.x, this behavior can cause the first search after a long idle period to wait for the refresh to complete before executing. Older Elasticsearch versions didn't have this behavior because `index.search.idle.after` didn't exist. The severity of the delay depends on how much data needs to be refreshed, which in turn depends on how much indexing occurred during the idle period.
 
-1. `refresh_interval` — In OpenSearch, indexing places documents in a memory buffer where they are not yet searchable. A refresh operation transfers these documents to segments, making them searchable. The default `refresh_interval` of 1s which is how OpenSearch achieves NTR search (Near Real Time). If this is not explicitly set, idle shards (as determined by `index.search.idle.after`) won't refresh until they receive a search request.
-2. `index.search.idle.after` defines how long a shard can go without search or get requests before being considered idle. Default is `30s`. Idle shards pause automatic refreshes, potentially improving bulk indexing performance by reducing refresh frequency. This setting was introduced in Elasticsearch 7.0
+## Practical solutions for cold start searches
 
+The best way to address this issue depends on your workload. Below are some common scenarios and recommended solutions:
 
-Tying this back to the problem, after a workload is upgraded from Elasticsearch 6.x to OpenSearch (or a higher version of Elasticsearch), a search request that comes in after a period of inactivity is not processed immediately but rather triggers the index refresh and waits for the refresh to be completed before the search request is executed. This is due to the `index.search.idle.after` pausing the refresh as described previously. Immediate subsequent searches are processed immediately since the refresh is now occurring every second. This provides an explanation as to why customers did not experience this problem with older Elasticsearch versions (pre-7.0) but did encounter it with Elasticsearch 7.0-7.10 and OpenSearch. The intensity of the slowness of the initial search would depend upon when the last refresh happened and how much data was ingested since then, since the amount of time to complete the refresh will depend upon how much data there is to be refreshed. This problem is also prevalent in non-live/non-prod environments which usually do not receive continuous search traffic.
+- **Predictable business hours with idle periods**  
+  If your search activity is heavy during specific times (for example, during the 9--5 work hours) and indexing happens off-hours, you can leave the default settings in place. Perform a [manual refresh](https://opensearch.org/docs/latest/api-reference/index-apis/refresh/) before the busy period begins or right after nightly indexing completes.
 
-## Potential Solutions
+- **Write-heavy use cases (for example, observability or log analytics)**: For workloads where search latency isn't as critical, increasing `refresh_interval` to 30 or 60 seconds can improve indexing performance. Explicitly setting `refresh_interval` avoids interference from `index.search.idle.after`.
 
-Explicitly setting `refresh_interval` to 1s would fix the problem but by doing so, the purpose of `index.search.idle.after` is defeated. It is therefore important to understand the type of search workload and the NRT requirements for a suitable solution. Below are some of the scenarios and recommendations for each. 
+- **Read-heavy use cases with sporadic writes**: Setting `refresh_interval` to 1 second ensures near real-time search and eliminates delays caused by idle shards.
 
+- **Balanced workloads (where search latency, indexing, and NRT results are equally important)**: Retain the default settings. Don't base your decision on behavior in non-production systems, because live systems typically have more consistent search activity.
 
-* Search activity is heavy during 9 to 5 and indexing is done during non-business hours, then its better to leave the default behaviour as it is and perform a [manual refresh](https://opensearch.org/docs/latest/api-reference/index-apis/refresh/) right before the business hour begins or as soon as the nightly index is finished.
-* A write heavy use case such as Observability/Log Analytics where search latency and NTR search requirements are generally not as strict as in an eCommerce search use case, increasing `refresh_interval` to 30s or 60s would make sense. Setting the `refresh_interval` explicitly would remove the interference from the i`ndex.search.idle.after` setting.
-* For a read heavy use case with sporadic writes, setting the `refresh_interval` explicitly to 1s would remove the interference from i`ndex.search.idle.after` setting and achieve NRT searchability.
-* A use case where the search latency, NTR search, indexing throughput are all equally important, it is once again recommended to keep the default settings unchanged. Decision on the `refresh_interval` setting should not be based off the behaviour seen in non-live system since the search inactivity rate between a live and a non-live system are different.
-* You can also consider increasing the `index.search.idle.after` (e.g., to 5 or 10 minutes). In cases where search pattern is predictable and the frequency of searches is known, it may be beneficial to increase the `index.search.idle.after` setting to a higher value.
+- **Predictable but infrequent searches**: Consider increasing `index.search.idle.after` to 5 or 10 minutes if search patterns are predictable. This reduces refresh overhead without affecting responsiveness during active periods.
 
 ## Conclusion
 
-While setting the refresh interval explicitly can fix the issue, it's essential to consider your specific use case and workload patterns. The optimal solution depends on whether your priority is write performance or consistent search responsiveness or find a sweet spot between both of them.
+Addressing the cold start search problem requires understanding your specific workload and priorities. Explicitly setting `refresh_interval` or adjusting `index.search.idle.after` can help, but each solution comes with tradeoffs. For most production systems, this issue is less likely to occur because of continuous search activity.
 
-For more information on optimizing refresh intervals, check out the blog post on [how to optimize OpenSearch Refresh Interval](https://opensearch.org/blog/optimize-refresh-interval/).
-
-Remember, in production environments with continuous search activity, this issue is less likely to occur. Always test thoroughly in your specific environment to find the best configuration for your needs.
-
-
-
-
-
-
-
+Always test these configurations in your environment to find the right balance for your needs. For more tips on optimizing refresh intervals, check out our [blog post on optimizing OpenSearch refresh intervals](https://opensearch.org/blog/optimize-refresh-interval/).
