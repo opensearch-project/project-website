@@ -3,7 +3,7 @@ layout: post
 title: "Optimizing hybrid search in OpenSearch"
 authors:
    - dwrigley
-date: 2024-12-xx
+date: 2024-12-30
 categories: 
     - technical-posts
     - community
@@ -227,7 +227,7 @@ As we strive for improving the search quality metrics for all queries this now l
 
 # Dynamic hybrid search optimizer
 
-We call identifying a suitable configuration individually per hybrid search query *dynamic hybrid search optimization*. To move in that direction we treat hybrid search as a query understanding challenge: by understanding certain features of the query we develop an approach to predict the “neuralness” of a query. “Neuralness” is used as the term describing the neural search weight for the hybrid search queries.
+We call identifying a suitable configuration individually per hybrid search query *dynamic hybrid search optimization*. To move in that direction we treat hybrid search as a query understanding challenge: by understanding certain features of the query, we develop an approach to predict the "neuralness" of a query. "Neuralness" is used to describe the neural search weight for the hybrid search queries.
 
 You may ask: Why predict only the "neuralness" and none of the other parameter values? The results of the global hybrid search optimizer (large query set) showed us that the majority of search configurations share two parameter values: the l2 normalization technique and the arithmetic mean as the combination technique.
 
