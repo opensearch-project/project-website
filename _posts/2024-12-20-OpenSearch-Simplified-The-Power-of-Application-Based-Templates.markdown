@@ -4,7 +4,7 @@ title: "OpenSearch simplified: The power of Application-Based Configuration (ABC
 authors:
    - mgodwani
    - kolchfa
-date: 2024-12-19
+date: 2024-12-23
 categories: 
     - technical-post
 meta_keywords: Application-Based Configuration templates, ABC templates, index templates, index configuration, OpenSearch performance optimization
