@@ -33,14 +33,14 @@ We treat hybrid search configuration as a parameter optimization problem. The pa
 
 * Two [normalization techniques: `l2` and `min_max`](https://opensearch.org/blog/How-does-the-rank-normalization-work-in-hybrid-search/).
 * Three combination techniques: arithmetic mean, harmonic mean, geometric mean.
-* The lexical and neural search weights, values in the range from 0 to 1.
+* The lexical and neural search weights, which are values ranging from 0 to 1.
 
 
 With this knowledge we can define a collection of parameter combinations to try out and compare. To follow this path we need three things:
 
 1. Query set: A collection of queries.  
 2. Judgments: A collection of ratings that indicate the relevance of a result for a given query.  
-3. Search quality metrics: A numeric expression of how well the search system performs in returning relevant documents for queries.
+3. Search quality metrics: A numeric expression indicating how well the search system performs in returning relevant documents for queries.
 
 ## Query set
 
@@ -215,15 +215,15 @@ Two things are important to note:
 * While the systematic approach can be transferred to other applications, the experiment results cannot. It is necessary to always evaluate and experiment with your own data.  
 * The ESCI dataset does not provide 100% judgment coverage. On average we saw roughly 35% judgment coverage among the top 10 retrieved results per query. This leaves us with some uncertainty.
 
-The improvements tell us that we optimize our metrics on average when switching to hybrid search with the above parameter values. But of course there are queries that are winners and queries that are losers when conducting this switch. This is something we can virtually always observe when comparing two search configurations with each other. While one configuration outperforms the other on average, not every query will profit from the configuration.
+The improvements tell us that we optimize our metrics on average when switching to hybrid search with the above parameter values. But of course there are queries that benefit (as in their search quality metrics improve) and queries that do not benefit (as in their search quality metrics decrease) when conducting this switch. This is something we can virtually always observe when comparing two search configurations with each other. While one configuration outperforms the other on average, not every query will profit from the configuration.
 
-The following chart shows the DCG@10 values of the training queries of the small query set. The x-axis represents the search pipeline with l2 norm, arithmetic mean, 0.1 lexical search weight and 0.9 neural search weight (configuration A). The y-axis represents the search pipeline with identical normalization and combination technique but switched weights: 0.9 lexical search weight, 0.1 neural search weight (configuration B).
+The following chart shows the DCG@10 values of the training queries of the small query set. The x-axis represents the search pipeline with l2 norm, arithmetic mean, 0.1 lexical search weight, and 0.9 neural search weight (configuration A). The y-axis represents the search pipeline with an identical normalization and combination technique but switched weights: 0.9 lexical search weight and 0.1 neural search weight (configuration B).
 
 <img src="/assets/media/blog-images/2024-12-xx-optimizing-hybrid-search/1_search_config_comparison.png" alt="Scatter Plot of DCG values for lexical-heavy search configuration and Neural-heavy search configuration" class="center"/>{:style="width: 100%; max-width: 800px; height: auto; text-align: center"}
 
-The clearest winners of configuration B are those that are located on the y-axis: they have a DCG score of 0 for this configuration. And for configuration A some even score above 15.
+The queries with the highest search quality metrics improvements of configuration B are those that are located on the y-axis: they have a DCG score of 0 for this configuration. And for configuration A some even score above 15.
 
-As we strive for having winners only this now leads us to the question: improvements on average are fine but how can we tackle this in a more targeted way to come up with an approach that provides us the best configuration per-query instead of one good configuration for all queries?  
+As we strive for improving the search quality metrics for all queries this now leads us to the question: improvements on average are fine but how can we tackle this in a more targeted way to come up with an approach that provides us the best configuration per-query instead of one good configuration for all queries?  
 
 # Dynamic hybrid search optimizer
 
@@ -245,7 +245,7 @@ We divide the features into three groups: query features, lexical search result 
 
 * Query features: These features describe the user query string.  
 * Lexical search result features: These features describe the results that the user query retrieves when executed as a lexical search.  
-* Neural search result features: These features describe the results that the user query retrieves as a neural search.
+* Neural search result features: These features describe the results that the user query retrieves when executed as a neural search.
 
 ### Query features
 
@@ -263,7 +263,7 @@ We divide the features into three groups: query features, lexical search result 
 ### Neural search result features
 
 * Maximum semantic score: The maximum semantic score of the retrieved top 10 documents. This is the score we receive for a neural query based on the query's similarity to the title.  
-* Average semantic score: In contrast to BM25 scores, the semantic scores are normalized and in the range of 0 to 1. Using the average score seems more reasonable than going for the sum.
+* Average semantic score: In contrast to BM25 scores, the semantic scores are normalized and in the range of 0 to 1. Using the average score seems more reasonable than attempting to calculate the sum.
 
 ## Feature engineering
 
@@ -271,17 +271,17 @@ We used the output of the global hybrid search optimizer as training data. As pa
 
 That leaves us with 250 queries (small query set) or 5,000 queries (large query set) together with their "neuralness" values for which they achieved the best NDCG@10 values. Next, we engineered the nine features for each query. This constitutes the training and test data.
 
-## Model training and evaluation
+## Model training and evaluation findings
 
-With the appropriate data at hand, we explored different algorithms and experimented with different model fitting settings to identify patterns and evaluate whether we're on the right track with that approach.  
+With the appropriate data at hand, we explored different algorithms and experimented with different model fitting settings to identify patterns and evaluate whether our approach was suitable.  
 We used two relatively simple algorithms: linear regression and random forest regression.  
 We applied cross-validation, regularization, and tried out all different feature combinations. This resulted in interesting findings that are summarized in the following section.
 
-**Dataset size matters**: Working with the differently sized datasets revealed that the amount of data matters when training and evaluating the models. The larger dataset reported a smaller Root Mean Squared Error compared to the smaller dataset. It also results in less variation of the RMSE scores within the cross-validation runs (that is, when comparing the RMSE scores within one cross-validation run for one feature combination).
+**Dataset size matters**: Working with the differently sized datasets revealed that the amount of data matters when training and evaluating the models. The larger dataset reported a smaller Root Mean Squared Error compared to the smaller dataset. The larger dataset also showed less variation of the RMSE scores within the cross-validation runs (that is, when comparing the RMSE scores within one cross-validation run for one feature combination).
 
 **Model performance differs among the different algorithms**: The best RMSE score for the random forest regressor was 0.18 compared to 0.22 for the best linear regression model (large dataset)---both with different feature combinations, though. The more complex model (random forest) performs better. However, better performance comes with the trade-off of longer training times for this more complex model.
 
-**Feature combinations of all groups have the lowest RMSE**: The lowest error scores can be achieved when combining features from all three feature groups (query, lexical search result, and neural search result). Looking at RMSE scores for feature combinations within the feature groups shows that working with lexical search result feature combinations only serves as the best alternative.
+**Feature combinations of all groups have the lowest RMSE**: The lowest error scores can be achieved when combining features from all three feature groups (query, lexical search result, and neural search result). Looking at RMSE scores for feature combinations within the feature groups shows that working with lexical search result feature combinations serves as the best alternative.
 
 This is particularly interesting when thinking about productionizing this: putting an approach like this in production means that features need to be calculated per query during query time. Getting lexical search result features and neural search result features requires running these queries, which would add significant latency to the overall query even prior to inference time.
 
@@ -293,7 +293,7 @@ The overall picture does not change when looking at the numbers for the linear m
 
 ## Model testing
 
-Let's look at how the trained models perform when applying them dynamically on our test set.  
+Let's look at how the trained models perform when applying them dynamically to our test set.  
 For each query of the test set we engineer the features and let the model make the inference for the "neuralness" values between 0.0 and 1.0 because "neuralness" is also a feature that we pass into the model. We then take the "neuralness" value that resulted in the highest prediction, which is the best NDCG value. By knowing the "neuralness" we can calculate the "lexicalness" by subtracting the "neuralness" from 1.
 
 We again use the l2 norm and arithmetic mean as our hybrid search normalization and combination parameter values because they scored best in the global hybrid search optimizer experiment. With that, we build the hybrid query, execute it, retrieve the results, and calculate the search metrics like with the baseline and global hybrid search optimizer. 
