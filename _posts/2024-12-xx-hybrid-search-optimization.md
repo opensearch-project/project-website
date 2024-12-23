@@ -324,7 +324,7 @@ Despite the low judgement coverage, we see improvements for all metrics. This gi
 
 We provide a systematic approach to optimizing hybrid search in OpenSearch based on its current state and capabilities (normalization and combination techniques). The results look promising, especially given the low judgment coverage provided by the ESCI dataset.
 
-We encourage everyone to adopt the approach and explore its usefulness with their dataset. We look forward to hearing the community's feedback on the provided approach.
+We encourage everyone to adopt the approach and explore its usefulness with their dataset. We look forward to hearing the community's feedback on the provided approach on the [OpenSearch forum](https://forum.opensearch.org/).
 
 # Future work
 
