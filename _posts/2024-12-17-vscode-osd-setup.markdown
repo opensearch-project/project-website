@@ -4,7 +4,7 @@ title:  "Streamline OpenSearch Dashboards development with VS Code"
 authors:
  - wronghuy
  - kolchfa
-date: 2024-12-17
+date: 2024-12-27
 categories:
  - technical-post
 meta_keywords: OpenSearch Dashboards, VS Code, development tools, Jest integration, ESLint, multi-root workspaces, unit testing, OSD codebase
