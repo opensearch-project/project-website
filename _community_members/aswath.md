@@ -1,6 +1,7 @@
 ---
 short_name: aswath
 name: Aswath Srinivasan
+github: aswath86
 photo: "/assets/media/community/members/aswath.jpg"
 title: 'OpenSearch Community Member: Aswath Srinivasan'
 primary_title: Aswath Srinivasan
