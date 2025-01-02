@@ -3,6 +3,7 @@ layout: post
 title:  "Solving the cold start search problem in OpenSearch"
 authors:
  - aswath
+ - allan
  - kolchfa
 date: 2024-12-23
 categories:
