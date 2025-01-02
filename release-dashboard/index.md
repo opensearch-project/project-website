@@ -12,6 +12,9 @@ breadcrumbs:
 omit_from_search: true
 
 release_versions:
+  - version: 3.0.0
+    release_issue: 3747
+    release_retro_issue: 5174
   - version: 2.18.0
     release_issue: 5004
     release_retro_issue: 5005
@@ -249,7 +252,7 @@ metrics_height_mobile: 6000
             const baseUrl = 'https://metrics.opensearch.org/_dashboards/app/dashboards?security_tenant=global#';
             const metricsUrl = `${baseUrl}/view/12d47dd0-e0cc-11ee-86f3-3358a59f8c46?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-90d,to:now))&_a=(description:'',filters:!(('$state':(store:appState),meta:(alias:!n,controlledBy:'1710287534575',disabled:!f,index:'512c9c70-e0b3-11ee-9a74-07cd3b4ff414',key:version.keyword,negate:!f,params:(query:'${selectedVersion}'),type:phrase),query:(match_phrase:(version.keyword:'${selectedVersion}')))),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'OpenSearch%20Release%20Metrics',viewMode:view)&show-top-menu=true&show-query-input=true&show-time-filter=true`;
 
-            const testResultsUrl = `${baseUrl}/view/21aad140-49f6-11ef-bbdd-39a9b324a5aa?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(description:'OpenSearch%20Release%20Build%20and%20Integration%20Test%20Results',filters:!(('$state':(store:appState),meta:(alias:!n,controlledBy:'1721852613904',disabled:!f,index:'16f55f10-4977-11ef-8565-15a1562cd0a0',key:version,negate:!f,params:(query:'${selectedVersion}'),type:phrase),query:(match_phrase:(version:'${selectedVersion}')))),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'OpenSearch%20Release%20Build%20and%20Integration%20Test%20Results',viewMode:view)&show-top-menu=true&show-query-input=true&show-time-filter=true`;
+            const testResultsUrl = `${baseUrl}/view/21aad140-49f6-11ef-bbdd-39a9b324a5aa?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-90d,to:now))&_a=(description:'OpenSearch%20Release%20Build%20and%20Integration%20Test%20Results',filters:!(('$state':(store:appState),meta:(alias:!n,controlledBy:'1721852613904',disabled:!f,index:'16f55f10-4977-11ef-8565-15a1562cd0a0',key:version,negate:!f,params:(query:'${selectedVersion}'),type:phrase),query:(match_phrase:(version:'${selectedVersion}')))),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'OpenSearch%20Release%20Build%20and%20Integration%20Test%20Results',viewMode:view)&show-top-menu=true&show-query-input=true&show-time-filter=true`;
 
             const componentMetricsUrl = `${baseUrl}/view/be62b350-6b06-11ef-8d6b-d50babf51bc6?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(description:'',filters:!(('$state':(store:appState),meta:(alias:!n,controlledBy:'1725485220320',disabled:!f,index:'512c9c70-e0b3-11ee-9a74-07cd3b4ff414',key:version.keyword,negate:!f,params:(query:'${selectedVersion}'),type:phrase),query:(match_phrase:(version.keyword:'${selectedVersion}')))),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'OpenSearch%20Component%20Release%20Metrics',viewMode:view)&show-top-menu=true&show-query-input=true&show-time-filter=true`;
 
@@ -268,7 +271,7 @@ metrics_height_mobile: 6000
             const baseUrl = 'https://metrics.opensearch.org/_dashboards/app/dashboards?security_tenant=global#';
             const defaultMetricsUrl = `${baseUrl}/view/12d47dd0-e0cc-11ee-86f3-3358a59f8c46?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-90d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'OpenSearch%20Release%20Metrics',viewMode:view)&show-top-menu=true&show-query-input=true&show-time-filter=true`;
 
-            const defaultTestResultsUrl = `${baseUrl}/view/21aad140-49f6-11ef-bbdd-39a9b324a5aa?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(description:'OpenSearch%20Release%20Build%20and%20Integration%20Test%20Results',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'OpenSearch%20Release%20Build%20and%20Integration%20Test%20Results',viewMode:view)&show-top-menu=true&show-query-input=true&show-time-filter=true`;
+            const defaultTestResultsUrl = `${baseUrl}/view/21aad140-49f6-11ef-bbdd-39a9b324a5aa?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-90d,to:now))&_a=(description:'OpenSearch%20Release%20Build%20and%20Integration%20Test%20Results',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'OpenSearch%20Release%20Build%20and%20Integration%20Test%20Results',viewMode:view)&show-top-menu=true&show-query-input=true&show-time-filter=true`;
 
             const defaultComponentMetricsUrl = `${baseUrl}/view/be62b350-6b06-11ef-8d6b-d50babf51bc6?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'OpenSearch%20Component%20Release%20Metrics',viewMode:view)&show-top-menu=true&show-query-input=true&show-time-filter=true`;
 
