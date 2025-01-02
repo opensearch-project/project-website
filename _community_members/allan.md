@@ -21,4 +21,4 @@ permalink: '/community/members/allan-pienaar.html'
 redirect_from: '/authors/allan/'
 ---
 
-**Allan Pienaar** is an OpenSearch SME and Customer Success Engineer at AWS. He works closely with enterprise customers to ensure operational excellence, maintain production stability, and optimize costs using the Amazon OpenSearch Service.
+**Allan Pienaar** is an OpenSearch SME and Customer Success Engineer at AWS. He works closely with enterprise customers to ensure operational excellence, maintain production stability, and optimize costs using Amazon OpenSearch Service.

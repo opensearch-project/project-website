@@ -20,4 +20,4 @@ permalink: '/community/members/aswath-srinivasan.html'
 redirect_from: '/authors/aswath/'
 ---
 
-**Aswath Srinivasan** is a Senior Search Engine Architect at Amazon Web Services currently based in Munich, Germany. With over 17 years of experience in various search technologies, Aswath currently focuses on OpenSearch. He is a search and open source enthusiast and helps customers and the search community with their search problems.
+**Aswath Srinivasan** is a Senior Search Engine Architect at AWS currently based in Munich, Germany. With over 17 years of experience in various search technologies, Aswath currently focuses on OpenSearch. He is a search and open source enthusiast and helps customers and the search community with their search problems.
