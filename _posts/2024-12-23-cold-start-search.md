@@ -9,7 +9,7 @@ date: 2025-01-07
 categories:
  - technical-posts
 meta_keywords: cold start search, OpenSearch refresh interval, search latency, search performance optimization  
-meta_description: 
+meta_description: Explore the cold start search problem in OpenSearch after upgrading from older Elasticsearch versions. Learn about the root causes and discover practical solutions to optimize search performance for various workload scenarios.
 has_math: false
 has_science_table: true
 ---
