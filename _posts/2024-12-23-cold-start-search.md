@@ -5,10 +5,10 @@ authors:
  - aswath
  - allan
  - kolchfa
-date: 2024-12-23
+date: 2025-01-07
 categories:
  - technical-posts
-meta_keywords:   
+meta_keywords: cold start search, OpenSearch refresh interval, search latency, search performance optimization  
 meta_description: 
 has_math: false
 has_science_table: true
