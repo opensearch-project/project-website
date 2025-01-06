@@ -81,4 +81,4 @@ connect with OpenSearch maintainers, partners, and other community members. The 
 conversations and making connections in the OpenSearch community.
 
 Finally, the moment you've been waiting for—check out all the awesome pics from the
-conference [here](https://buff.ly/3U3Sh5K)! 📸🎉
+conference [here](https://buff.ly/3U3Sh5K)! 
