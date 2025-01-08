@@ -41,13 +41,13 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 | 2.17.0         | September ~~04th~~ 05th, 2024             | September 17th, 2024                                 | [Sayali Gaikawad](https://github.com/gaiksaya/)      | [4908](https://github.com/opensearch-project/opensearch-build/issues/4908) |
 | 2.17.1         | September 24th, 2024                      | October 1st, 2024                                    | [Divya Madala](https://github.com/Divyaasm/)         | [5046](https://github.com/opensearch-project/opensearch-build/issues/5046) |
 | 2.18.0         | October 22nd, 2024                        | November 05th, 2024                                  | [Rishabh Singh](https://github.com/rishabh6788/)     | [5004](https://github.com/opensearch-project/opensearch-build/issues/5004) |
-| 1.3.20         | December 03rd, 2024                       | December 10th, 2024                                  | [Brandon Shien](https://github.com/bshien)           | [4990](https://github.com/opensearch-project/opensearch-build/issues/4990) |
+| 1.3.20         | December 03rd, 2024                       | December ~~10th~~ 11th, 2024                         | [Brandon Shien](https://github.com/bshien)           | [4990](https://github.com/opensearch-project/opensearch-build/issues/4990) |
 | 2.19.0         | January 28th, 2025                        | Feb 11th, 2025                                       |                                                      |                                                                            | 
 {: .desktop-release-schedule-table}
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
 
-For minor version releases, OpenSearch follows "release window" model as described in our [releasing documentation](https://github.com/opensearch-project/.github/blob/main/RELEASING.md).  The goal is to release a new minor version approximately every six weeks which includes all the new features and fixes that are ready to go. Once we enter a release window, every day we will generate a release candidate. When the exit criteria are met by a release candidate, we will make an announcement, update the release date column above and publish new artifacts on that date.
+For minor version releases, OpenSearch follows "release window" model as described in our [releasing documentation](https://github.com/opensearch-project/.github/blob/main/RELEASING.md). The goal is to release a new minor version approximately every eight weeks which includes all the new features and fixes that are ready to go. Once we enter a release window, every day we will generate a release candidate. When the exit criteria are met by a release candidate, we will make an announcement, update the release date column above and publish new artifacts on that date.
 
 **Note:** If we cannot pass the exit criteria by 2 weeks after the start of the release cycle window (1 week for 1.x patch releases), we will cancel the minor release and hold changes until the next release window.
 
@@ -70,7 +70,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Major Version | Latest Minor Version |   Status    | Initial Release | Maintenance Window Start | Maintenance Window End             |
 |:--------------|:---------------------|:------------|:----------------|:-------------------------|:-----------------------            |
-| 1             | 1.3.19               | Maintenance |  July 12, 2021  | May 26, 2022             | GA release of 3.0.                 |
+| 1             | 1.3.20               | Maintenance |  July 12, 2021  | May 26, 2022             | GA release of 3.0.                 |
 | 2             | 2.18.0               | Current     |  May 26, 2022   | N/A                      | N/A                                |
 {: .desktop-maintenance-policy-table}
 
@@ -81,6 +81,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Release Number | Release Date         | Release Manager                                                                                                                                 | Tracking Issue |
 |:---------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+| 1.3.20         | December 11th, 2024  | [Brandon Shien](https://github.com/bshien), [Zelin Hao](https://github.com/zelinh/) & [Peter Zhu](https://github.com/peterzhuamazon)            | [4990](https://github.com/opensearch-project/opensearch-build/issues/4990) |
 | 2.18.0         | November 5th, 2024   | [Rishabh Singh](https://github.com/rishabh6788/)                                                                                                | [5004](https://github.com/opensearch-project/opensearch-build/issues/5004) |
 | 2.17.1         | October 1st, 2024    | [Divya Madala](https://github.com/Divyaasm/) & [Peter Zhu](https://github.com/peterzhuamazon)                                                   | [5046](https://github.com/opensearch-project/opensearch-build/issues/5046) |
 | 2.17.0         | September 17th, 2024 | [Sayali Gaikawad](https://github.com/gaiksaya/)                                                                                                 | [4908](https://github.com/opensearch-project/opensearch-build/issues/4908) |
@@ -159,5 +160,6 @@ The software maintainers will not back-port fixes or features to versions outsid
 | September 3rd, 2024  | Update release history from 2021 to 2023 | Update page |
 | September 4th, 2024  | Update release candidate generation date for 2.17.0 | Too many last minute PRs causing CI build issues |
 | October 25th, 2024   | Update release history for 2.17.1 release and current progress of release 2.18.0 | Update page |
-| November 19th, 2024  | Update release history for 2.18.0 release and updated release manager for 1.3.20  | [1.3.20 release issue](https://github.com/opensearch-project/opensearch-build/issues/4990)       |
+| November 19th, 2024  | Update release history for 2.18.0 release and updated release manager for 1.3.20  | [1.3.20 release issue](https://github.com/opensearch-project/opensearch-build/issues/4990) |
+| December 11th, 2024  | Update release history for 1.3.20 release | Update Page |
 {: .desktop-change-log-table}

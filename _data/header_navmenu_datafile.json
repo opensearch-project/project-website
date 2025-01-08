@@ -232,7 +232,7 @@
                         {
                             "Name": "View key performance metrics across different workloads",
                             "ClassValue" : "drawer-content-subheader",
-                            "Icon": "OpenSearch-DataConsumer-condensedImage"
+                            "Icon": "OpenSearch-PerformanceBenchmarks-condensedImage"
                         }
                     ]
                 }
@@ -277,14 +277,14 @@
                             "SubText": "Find answers to your questions, help others in the community, and join the conversation.",
                             "URL": "https://forum.opensearch.org/",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "Icon": "OpenSearch-Forum-condensedImage"
+                            "Icon": "OpenSearch-Forum-Icon-condensedImage"
                         },
                         {
                             "Name": "Providers",
                             "SubText": "Find open-source providers offering solutions and services.",
                             "URL": "/solutionsProviders/",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "Icon": "OpenSearch-Partners-condensedImage"
+                            "Icon": "OpenSearch-Providers-Icon-condensedImage"
                         },
                         {
                             "Name": "Events",
@@ -299,21 +299,21 @@
                             "SubText": "Highlights of projects built by the community.",
                             "URL": "/community_projects/",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "Icon": "OpenSearch-Projects-condensedImage"
+                            "Icon": "OpenSearch-Projects-Icon-condensedImage"
                         },
                         {
                             "Name": "Members",
                             "SubText": "Community member profiles.",
                             "URL": "/community/members/index.html",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "Icon": "OpenSearch-Members-condensedImage"
+                            "Icon": "OpenSearch-Members-Icon-condensedImage"
                         },
                         {
                             "Name": "UserGroups",
                             "SubText": "Join the OpenSearch Project Meetup Network",
-                            "URL": "https://www.meetup.com/pro/opensearchproject/",
+                            "URL": "/usergroups/",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "Icon": "OpenSearch-UserGroups-condensedImage"
+                            "Icon": "OpenSearch-UserGroups-Icon-condensedImage"
                         }
 
                     ]
@@ -345,9 +345,9 @@
                 {
                     "Title": "OpenSearchCon",
                     "ClassValue": "drawer-content-header",
-                    "OpenSearchCon_HeroBanner": "/assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_720x360.png",
-                    "OpenSearchCon_ButtonText": "North America: Sep 2024",
-                    "OpenSearchCon_Link": "/events/opensearchcon/2024/north-america/index.html",
+                    "OpenSearchCon_HeroBanner": "/assets/media/opensearchcon/2025/OSCEU-2025.png",
+                    "OpenSearchCon_ButtonText": "Europe: Apr 2025",
+                    "OpenSearchCon_Link": "https://events.linuxfoundation.org/opensearchcon-europe/",
                     "Name": "OpenSearchCons in 2024",
                     "SubNav": [
                         {
@@ -388,7 +388,7 @@
                             "SubText": "Measure performance metrics for your OpenSearch cluster.",
                             "URL": "/docs/latest/benchmark/",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "Icon": "OpenSearch-DataConsumer-condensedImage"
+                            "Icon": "OpenSearch-PerformanceBenchmarks-condensedImage"
                         },
                         {
                             "Name": "Data Prepper",
@@ -402,7 +402,7 @@
                             "SubText": "Interact with OpenSearch from your application using language APIs.",
                             "URL": "/docs/latest/clients/",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "Icon": "OpenSearch-Clients-condensedImage"
+                            "Icon": "OpenSearch-Clients-Icon-condensedImage"
                         }
                     ]
                 }
