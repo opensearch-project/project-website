@@ -14,11 +14,11 @@ meta_description: OpenSearchCon Europe comes to Amsterdam with two days of learn
 
 ![OpenSearchCon Europe 2025](/assets/media/blog-images/2025-01-13-announcing-OpenSearchCon-europe-2025/OpenSearchConEU2025-banner.png){:class="img-centered"}
 
-We are delighted to announce [OpenSearchCon Europe 2025](https://events.linuxfoundation.org/opensearchcon-europe/), the premier event for the OpenSearch community in Europe! Mark your calendars for April 30 and May 1 as we bring together developers, IT professionals, and business leaders in Amsterdam for an immersive exploration of the world of open-source search and analytics.
+We are delighted to announce [OpenSearchCon Europe 2025](https://events.linuxfoundation.org/opensearchcon-europe/), the premier event for the OpenSearch community in Europe! Mark your calendars for 30 April and 1 May as we bring together developers, IT professionals, and business leaders in Amsterdam for an immersive exploration of the world of open-source search and analytics.
 
 ## Event highlights
 
-This year's OpenSearchCon Europe conference promises to be an exciting gathering of minds, featuring:
+This year's OpenSearchCon Europe promises to be an exciting gathering of minds, featuring:
 
 * Presentations from industry leaders and OpenSearch core contributors.
 * Technical deep dives and hands-on workshops.
@@ -45,7 +45,7 @@ Our call for proposals is now open. We invite speakers to share their knowledge 
 * Community: Engage a community of builders on a topic that means something to you. Anything that might educate and inspire a community of open-source technologists is up for consideration here.
 * Operating OpenSearch: Have you have built out an implementation of OpenSearch? Do you use OpenSearch in a solution that helps your own business or project? Share how you operate OpenSearch.
 
-[Submit your proposal](https://events.linuxfoundation.org/opensearchcon-europe/program/cfp/) by January 19th for a chance to present at OpenSearchCon Europe 2025.
+[Submit your proposal](https://events.linuxfoundation.org/opensearchcon-europe/program/cfp/) by 19 January for a chance to present at OpenSearchCon Europe 2025.
 
 ## Registration
 
