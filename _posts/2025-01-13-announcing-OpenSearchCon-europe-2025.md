@@ -55,7 +55,7 @@ Early bird registration is now open! Secure your spot at OpenSearchCon Europe 20
 
 Showcase your brand and connect with the OpenSearch community by becoming a sponsor. Various sponsorship packages are available to suit different goals and budgets. Learn more [here](https://events.linuxfoundation.org/opensearchcon-europe/sponsor/).
 
-## Stay Updated
+## Stay updated
 
 For the latest information on speakers, schedules, and special events, follow us on social media and watch this space:
 [LinkedIn](https://www.linkedin.com/company/opensearch-project/) - [Mastodon](https://fosstodon.org/@OpenSearchProject) - [X/Twitter](https://x.com/OpenSearchProj)
