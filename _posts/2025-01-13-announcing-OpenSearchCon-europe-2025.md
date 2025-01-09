@@ -31,7 +31,7 @@ This year's OpenSearchCon Europe conference promises to be an exciting gathering
 Whether you're a seasoned OpenSearch user or just beginning your journey, OpenSearchCon Europe 2025 offers something for everyone:
 
 * Learn about the latest features and roadmap for OpenSearch.
-* Gain insights into best practices for deployment, scaling, and optimization
+* Gain insights into best practices for deployment, scaling, and optimization.
 * Explore real-world applications of OpenSearch across various industries
 * Contribute to the future direction of the project through community sessions
 * Connect and network with folks you might collaborate with in the future
