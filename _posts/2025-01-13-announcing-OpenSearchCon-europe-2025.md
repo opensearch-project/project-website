@@ -49,7 +49,7 @@ Our call for proposals is now open. We invite speakers to share their knowledge 
 
 ## Registration
 
-Early bird registration is now open! Secure your spot at OpenSearchCon Europe 2025 and take advantage of discounted rates available for a limited time. [Register now!](https://events.linuxfoundation.org/opensearchcon-europe/register/)
+Early bird registration is now open! Secure your spot at OpenSearchCon Europe 2025 and take advantage of discounted rates available for a limited time. [Register now](https://events.linuxfoundation.org/opensearchcon-europe/register/)!
 
 ## Sponsorship opportunities
 
