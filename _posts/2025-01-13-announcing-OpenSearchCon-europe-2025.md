@@ -18,7 +18,7 @@ We are delighted to announce [OpenSearchCon Europe 2025](https://events.linuxfou
 
 ## Event highlights
 
-This year’s OpenSearchCon Europe conference promises to be an exciting gathering of minds, featuring:
+This year's OpenSearchCon Europe conference promises to be an exciting gathering of minds, featuring:
 
 * Presentations from industry leaders and OpenSearch core contributors
 * Technical deep dives and hands-on workshops
