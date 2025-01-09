@@ -14,7 +14,7 @@ breadcrumbs:
     - title: 'Theo Truong&apos;s Profile'
       url: '/community/members/theo-truong.html'
 github: nhtruong
-linkedin: https://www.linkedin.com/in/nam-theo-truong-9557905a/
+linkedin: nam-theo-truong-9557905a
 job_title_and_company: 'Software Engineer at AWS working on OpenSearch'
 personas:
   - author
