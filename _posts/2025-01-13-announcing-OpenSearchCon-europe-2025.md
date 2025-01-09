@@ -26,7 +26,7 @@ This year's OpenSearchCon Europe conference promises to be an exciting gathering
 * Networking opportunities with peers and experts in the field.
 * An exhibition area showcasing the latest innovations in the OpenSearch ecosystem.
 
-## Why Attend?
+## Why attend?
 
 Whether you're a seasoned OpenSearch user or just beginning your journey, OpenSearchCon Europe 2025 offers something for everyone:
 
