@@ -38,7 +38,7 @@ Whether you're a seasoned OpenSearch user or just beginning your journey, OpenSe
 
 ## Call for proposals
 
-We invite speakers to share their knowledge and experiences with the community. Our call for proposals is now open, covering topics such as:
+Our call for proposals is now open. We invite speakers to share their knowledge and experience with the community in the following areas:
 
 * Search: Connect with other search and relevance practitioners with demos, deep dives, or new and novel techniques for building rich search applications.
 * Analytics, Security, and Observability: Deploying observability tools at scale? Using OpenSearch to turn log data into insights, or to help protect your infrastructure? We want to hear from you!
