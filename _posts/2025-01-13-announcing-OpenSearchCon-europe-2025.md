@@ -16,7 +16,7 @@ meta_description: OpenSearchCon Europe comes to Amsterdam with two days of learn
 
 We are delighted to announce [OpenSearchCon Europe 2025](https://events.linuxfoundation.org/opensearchcon-europe/), the premier event for the OpenSearch community in Europe! Mark your calendars for April 30 and May 1 as we bring together developers, IT professionals, and business leaders in Amsterdam for an immersive exploration of the world of open-source search and analytics.
 
-## Event Highlights
+## Event highlights
 
 This year’s OpenSearchCon Europe conference promises to be an exciting gathering of minds, featuring:
 
