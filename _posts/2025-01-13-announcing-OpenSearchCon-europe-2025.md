@@ -22,7 +22,7 @@ This year's OpenSearchCon Europe conference promises to be an exciting gathering
 
 * Presentations from industry leaders and OpenSearch core contributors.
 * Technical deep dives and hands-on workshops.
-* Case studies and success stories from organizations leveraging OpenSearch
+* Case studies and success stories from organizations leveraging OpenSearch.
 * Networking opportunities with peers and experts in the field
 * Exhibition area showcasing the latest innovations in the OpenSearch ecosystem
 
