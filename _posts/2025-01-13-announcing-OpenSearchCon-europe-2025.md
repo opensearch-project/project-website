@@ -51,7 +51,7 @@ We invite speakers to share their knowledge and experiences with the community. 
 
 Early bird registration is now open! Secure your spot at OpenSearchCon Europe 2025 and take advantage of discounted rates available for a limited time. [Register now!](https://events.linuxfoundation.org/opensearchcon-europe/register/)
 
-## Sponsorship Opportunities
+## Sponsorship opportunities
 
 Showcase your brand and connect with the OpenSearch community by becoming a sponsor. Various sponsorship packages are available to suit different goals and budgets. [Learn more](https://events.linuxfoundation.org/opensearchcon-europe/sponsor/).
 
