@@ -34,7 +34,7 @@ Whether you're a seasoned OpenSearch user or just beginning your journey, OpenSe
 * Gain insights into best practices for deployment, scaling, and optimization.
 * Explore real-world applications of OpenSearch across various industries.
 * Contribute to the future direction of the project through community sessions.
-* Connect and network with folks you might collaborate with in the future
+* Connect and network with folks you might collaborate with in the future.
 
 ## Call for Proposals
 
