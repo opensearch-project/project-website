@@ -60,6 +60,6 @@ Showcase your brand and connect with the OpenSearch community by becoming a spon
 For the latest information on speakers, schedules, and special events, follow us on social media:
 [LinkedIn](https://www.linkedin.com/company/opensearch-project/) - [Mastodon](https://fosstodon.org/@OpenSearchProject) - [X/Twitter](https://x.com/OpenSearchProj)
 
-For questions, please feel free to reach out on the [#opensearchcon](https://opensearch.slack.com/archives/C05K9ER975Z) channel on [Slack](https://opensearch.org/slack.html).
+If you have questions, feel free to reach out on the [#opensearchcon](https://opensearch.slack.com/archives/C05K9ER975Z) channel on [Slack](https://opensearch.org/slack.html).
 
 We can't wait to see you at #OpenSearchCon Europe 2025 as we shape the future of open-source search and analytics together!
