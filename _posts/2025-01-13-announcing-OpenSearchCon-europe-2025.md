@@ -36,7 +36,7 @@ Whether you're a seasoned OpenSearch user or just beginning your journey, OpenSe
 * Contribute to the future direction of the project through community sessions.
 * Connect and network with folks you might collaborate with in the future.
 
-## Call for Proposals
+## Call for proposals
 
 We invite speakers to share their knowledge and experiences with the community. Our call for proposals is now open, covering topics such as:
 
