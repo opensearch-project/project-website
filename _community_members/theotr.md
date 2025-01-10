@@ -22,4 +22,4 @@ permalink: '/community/members/theo-truong.html'
 redirect_from: '/authors/theotr/'
 ---
 
-**Theo Truong** is a Software Engineer at AWS working on OpenSearch clients and specification.
+**Theo Truong** is a Software Engineer at AWS working on OpenSearch clients and API specification.
