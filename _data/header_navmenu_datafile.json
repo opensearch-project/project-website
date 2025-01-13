@@ -160,7 +160,7 @@
                         {
                             "Name": "Machine Learning and AI",
                             "ClassValue" : "drawer-content-subheader-link",
-                            "URL": "/blog/opensearch-ai-retrospective/",
+                            "URL": "/platform/MachineLearning/index.html",
                             "Icon": "OpenSearch-AI-condensedImage",
                             "SubLinks": [
                                 {
