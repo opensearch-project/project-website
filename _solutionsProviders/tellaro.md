@@ -21,7 +21,14 @@ opensearch_tech:  Analytics, Machine Learning and AI, Observability, Other, Secu
 region:           Global
 industries:       Software and Technology
 
+social_links:
+  - url: 'https://twitter.com/tellaroprotect'
+    icon: 'twitter'
+  - url: 'http://www.linkedin.com/company/tellaro'
+    icon: 'linkedin'
+
 products:
   - description: 'Tellaro integrates and correlates data from various security technologies and sources, including managed detection and response (MDR), network security monitoring (NSM), security information and event management (SIEM), cloud monitoring, and other essential security tools.'
+
 
 ---
