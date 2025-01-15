@@ -19,14 +19,17 @@ This year, OpenSearchCon North America took place in San Francisco. The city, be
 the ideal place to talk about important topics like search and machine learning. The conference was held from September
 24 to 26, 2024, and offered not only talks but also training and the Unconference (yes, we'll explain that part in a
 moment!).
-![ali-fischer-keynote](/assets/media/blog-images/2024-11-01-5-Takeaways-of-OpenSearchCon-NA-2024/eli-fischer-keynote.jpg){:class="img-centered"}
+![eli-fischer-keynote](/assets/media/blog-images/2024-11-01-5-Takeaways-of-OpenSearchCon-NA-2024/eli-fischer-keynote.jpg){:
+class="img-centered"}
 
 ## Keynote
 
 There is no present without a past, which Eli Fisher highlighted in his keynote address about the history of the
 OpenSearch Project. He showed how contributions shape such a complex project, helping to keep it stable.
 
-Then Anupam Chaturvedi talked about generative AI and OpenSearch interacting with technologies like information stored in PDF format. This reminds us that new technologies have to consider past ones. But how do we ensure the future of OpenSearch?
+Continuing with Anupam Chaturvedi talking about Generative AI and OpenSearch interacting with predominantly technologies
+like information stored in PDF. This reminds us that new technologies have to consider also, the past ones. But how do
+ensure the future of OpenSearch?
 
 OpenSearch is open source, and we all know that modern technology wouldn't exist without open-source software. From a long-term perspective, around OpenSearch and other open-source projects, we need flexibility and neutrality. The Linux Foundation, as a non-profit organization, supports the sustainable growth of the OpenSearch Project in this way. Jim Zemlin, Executive Director of the Linux Foundation, shared how this works in practice. 
 
@@ -57,7 +60,9 @@ Many organizations and partners presented and shared their knowledge. Here are a
 - [Aparna Sundar & Lior Perry – Vega Integration in OpenSearch Dashboards](https://www.youtube.com/watch?v=UZ9RbVi2nLo&t=3s)
 - [Nate Boot – Improving your chances of survival in Cataclysm: Dark Days Ahead with OpenSearch](https://www.youtube.com/watch?v=3kTjMTvw4No)
 
-Additionally, Log.IO, Eliatra, Aiven Oy, and Canonical talked about how they are leveraging OpenSearch within their products. Are you curious for more? You can find all of these amazing talks [here](https://www.youtube.com/watch?v=WPVGfWoR0B8&list=PLzgr9zSpws17ZYDb12UTIgEXq5vrUA4b1).
+Additionally, Logz.io, Eliatra, Aiven Oy, and Canonical talked about how they are leveraging OpenSearch within their
+products. Are you curious for more? You can find all of these amazing
+talks [here](https://www.youtube.com/watch?v=WPVGfWoR0B8&list=PLzgr9zSpws17ZYDb12UTIgEXq5vrUA4b1).
 
 ![conference-attendees](/assets/media/blog-images/2024-11-01-5-Takeaways-of-OpenSearchCon-NA-2024/conference-attendees.jpg){:class="img-centered"}
 
