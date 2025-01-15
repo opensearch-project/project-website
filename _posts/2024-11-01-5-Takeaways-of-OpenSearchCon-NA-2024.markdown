@@ -14,7 +14,6 @@ meta_keywords: OpenSearchCon, OpenSearch Project, Adobe, Linux Foundation, GenAI
 ---
 
 
-In a far away land, where search experts meet to discussion the art state of the most wonderful search engine of all: OpenSearch. A tool that does not belong to the royals, but to everyone, and everyone can help to use it and build it. It’s time to talk about the OpenSearchCon North America 2024.
 
 This year, OpenSearchCon North America took place in San Francisco. The city, being the heart of innovation, felt like
 the ideal place to talk about important topics like search and machine learning. The conference was held from September
