@@ -1,7 +1,7 @@
 ---
 
-name: Elastio
-name_long: Elastio
+name: Elestio
+name_long: Elestio
 
 main_office_location:  |
   Dublin, Ireland
@@ -12,8 +12,8 @@ link: https://elest.io/
 
 contact: contact@elest.io
 
-logo: /assets/media/partners/elastio/elastio.png
-logo_large: /assets/media/partners/elastio/elastio-logo.png
+logo: /assets/media/partners/elestio/elestio.png
+logo_large: /assets/media/partners/elestio/elestio-logo.png
 
 
 
