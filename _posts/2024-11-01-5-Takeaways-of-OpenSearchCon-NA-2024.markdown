@@ -50,7 +50,7 @@ Maybe next time you can also join us and share your thoughts. 💬
 
 No conference succeeds without talks and the exchange of knowledge, and OpenSearchCon North America was no exception.
 
-Across 4 rooms, attendees experienced 41 insightful talks delivered by 54 speakers from around the globe. These speakers shared their expertise on topics such as Search, Analytics, Observability, Security, and Community, and of course, OpenSearch.
+Across 4 rooms, attendees experienced 41 insightful talks delivered by 54 speakers from around the globe. These speakers shared their expertise on topics such as search, analytics, observability, security, community, and, of course, OpenSearch.
 
 Many companies and partners were presenting and sharing knowledge. Some that you can be interested in: 
 - [Aruna Govindaraju, Eric Pugh & Stavros Macracis – You've Deployed User Behavior Insights. Now What?](https://www.youtube.com/watch?v=xi261oUamXc&t=20s)
