@@ -57,7 +57,7 @@ Many companies and partners were presenting and sharing knowledge. Some that you
 - [Aparna Sundar & Lior Perry – Vega Integration in OpenSearch Dashboards](https://www.youtube.com/watch?v=UZ9RbVi2nLo&t=3s)
 - [Nate Boot – Improving your chances of survival in Cataclysm: Dark Days Ahead with OpenSearch](https://www.youtube.com/watch?v=3kTjMTvw4No)
 
-Log.IO, Eliatra, Aiven Oy, and Canonical are leveraging OpenSearch within their products. Are you curious for more? You can find all those amazing talks [here](https://www.youtube.com/watch?v=WPVGfWoR0B8&list=PLzgr9zSpws17ZYDb12UTIgEXq5vrUA4b1).
+Additionally, Log.IO, Eliatra, Aiven Oy, and Canonical talked about how they are leveraging OpenSearch within their products. Are you curious for more? You can find all of these amazing talks [here](https://www.youtube.com/watch?v=WPVGfWoR0B8&list=PLzgr9zSpws17ZYDb12UTIgEXq5vrUA4b1).
 
 ![conference-attendees](/assets/media/blog-images/2024-11-01-5-Takeaways-of-OpenSearchCon-NA-2024/conference-attendees.jpg){:class="img-centered"}
 
