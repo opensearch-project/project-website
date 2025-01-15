@@ -38,7 +38,7 @@ While conference formats are nice, sometimes what you really need is an "Unconfe
 
 ## Unconference
 
-The fun of the Unconference lies in its format: anyone can propose a topic, participants vote, and the most popular topics are presented which leads to thoughtful conversations in this open idea-sharing approach. You can call it an organized chaos full of interesting discussions and learnings about the search world! 
+The fun of the Unconference lies in its format: anyone can propose a topic, participants vote, and the most popular topics are presented, which leads to thoughtful conversations and sharing of ideas. 
 
 Some of our favorite Unconference topics were: 
 - [Michael Froh: OpenSearch is a database?](https://www.youtube.com/watch?v=HFItXRGumq8)
