@@ -44,7 +44,7 @@ These were some of our favorite Unconference topics:
 - [Michael Froh: OpenSearch is a database?](https://www.youtube.com/watch?v=HFItXRGumq8)
 - [Scott Stults & Eric Pugh: Lessons in Rebooting a Plugin](https://www.youtube.com/watch?v=S_dc8l2P1ew)
 
-Maybe next time you can also join us and share your thoughts. 💬
+Maybe next time you can join us and share your thoughts!
 
 ## Talks
 
