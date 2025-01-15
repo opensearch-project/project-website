@@ -27,9 +27,9 @@ class="img-centered"}
 There is no present without a past, which Eli Fisher highlighted in his keynote address about the history of the
 OpenSearch Project. He showed how contributions shape such a complex project, helping to keep it stable.
 
-Continuing with Anupam Chaturvedi talking about Generative AI and OpenSearch interacting with predominantly technologies
-like information stored in PDF. This reminds us that new technologies have to consider also, the past ones. But how do
-ensure the future of OpenSearch?
+Then Anupam Chaturvedi talked about generative AI and OpenSearch interacting with technologies like information stored
+in PDF format. This reminds us that new technologies have to consider past ones. But how do we ensure the future of
+OpenSearch?
 
 OpenSearch is open source, and we all know that modern technology wouldn't exist without open-source software. From a long-term perspective, around OpenSearch and other open-source projects, we need flexibility and neutrality. The Linux Foundation, as a non-profit organization, supports the sustainable growth of the OpenSearch Project in this way. Jim Zemlin, Executive Director of the Linux Foundation, shared how this works in practice. 
 
