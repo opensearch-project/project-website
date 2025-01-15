@@ -48,7 +48,7 @@ Maybe next time you can also join us and share your thoughts. 💬
 
 ## Talks
 
-No conference thrives without talks and the exchange of knowledge, agree? OpenSearchCon North America was no exception!
+No conference succeeds without talks and the exchange of knowledge, and OpenSearchCon North America was no exception.
 
 Across 4 rooms, attendees experienced 41 insightful talks delivered by 54 speakers from around the globe. These speakers shared their expertise on topics such as Search, Analytics, Observability, Security, and Community, and of course, OpenSearch.
 
