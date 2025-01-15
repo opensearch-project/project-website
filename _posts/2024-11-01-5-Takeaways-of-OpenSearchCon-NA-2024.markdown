@@ -53,7 +53,7 @@ No conference thrives without talks and the exchange of knowledge, agree? OpenSe
 Across 4 rooms, attendees experienced 41 insightful talks delivered by 54 speakers from around the globe. These speakers shared their expertise on topics such as Search, Analytics, Observability, Security, and Community, and of course, OpenSearch.
 
 Many companies and partners were presenting and sharing knowledge. Some that you can be interested in: 
-- [Aruna Govindaraju, Eric Pugh & Stavros Macracis – You’ve Deployed User Behavior Insights. Now What?](https://www.youtube.com/watch?v=xi261oUamXc&t=20s)
+- [Aruna Govindaraju, Eric Pugh & Stavros Macracis – You've Deployed User Behavior Insights. Now What?](https://www.youtube.com/watch?v=xi261oUamXc&t=20s)
 - [Aparna Sundar & Lior Perry – Vega Integration in OpenSearch Dashboards](https://www.youtube.com/watch?v=UZ9RbVi2nLo&t=3s)
 - [Nate Boot – Improving your chances of survival in Cataclysm: Dark Days Ahead with OpenSearch](https://www.youtube.com/watch?v=3kTjMTvw4No)
 
