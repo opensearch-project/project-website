@@ -40,7 +40,7 @@ While conference formats are nice, sometimes what you really need is an "Unconfe
 
 The fun of the Unconference lies in its format: anyone can propose a topic, participants vote, and the most popular topics are presented, which leads to thoughtful conversations and sharing of ideas. 
 
-Some of our favorite Unconference topics were: 
+These were some of our favorite Unconference topics: 
 - [Michael Froh: OpenSearch is a database?](https://www.youtube.com/watch?v=HFItXRGumq8)
 - [Scott Stults & Eric Pugh: Lessons in Rebooting a Plugin](https://www.youtube.com/watch?v=S_dc8l2P1ew)
 
