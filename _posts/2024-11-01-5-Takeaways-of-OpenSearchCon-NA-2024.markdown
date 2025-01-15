@@ -32,7 +32,7 @@ OpenSearch is open source, and we all know that modern technology wouldn't exist
 
 Overall, we learned about the past, present, and future of OpenSearch in one inspiring keynote presentation.
 
-While conference formats are nice, sometimes what you really need is an Unconference. Time to explain what actually happened there.
+While conference formats are nice, sometimes what you really need is an "Unconference." Here's what happened at this event.
 
 ![uncoference](/assets/media/blog-images/2024-11-01-5-Takeaways-of-OpenSearchCon-NA-2024/unconference.jpg){:class="img-centered"}
 
