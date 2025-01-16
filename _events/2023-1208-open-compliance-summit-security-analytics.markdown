@@ -3,6 +3,7 @@ calendar_date: '2023-12-08'
 eventdate: 2023-12-08 00:00:00 +0900
 title: Open Compliance Summit 2023 - 2023-12-08
 online: true
+tz: Asia/Tokyo
 signup:
     url: https://ocs2023.sched.com/event/1Ttz9
     title: Learn more
