@@ -18,7 +18,7 @@
                     "URL": "https://opensearch.org/docs/latest/"
                 },
                 {
-                    "Name": "Data Prepper",
+                    "Name": "OpenSearch Data Prepper",
                     "URL": "/docs/latest/data-prepper/"
                 },
                 {
@@ -96,7 +96,7 @@
                     "URL": "/docs/latest/benchmark/"
                 },
                 {
-                    "Name": "Data Prepper",
+                    "Name": "OpenSearch Data Prepper",
                     "URL": "/docs/latest/data-prepper/"
                 },
                 {
@@ -142,7 +142,7 @@
                             "Icon": "OpenSearch-Dashboards-condensedImage"
                         },
                         {
-                            "Name": "Data Prepper",
+                            "Name": "OpenSearch Data Prepper",
                             "ClassValue" : "drawer-content-subheader-link",
                             "SubText": "A server-side data collector designed to enrich, transform, and aggregate data for downstream analytics with OpenSearch.",
                             "URL": "/docs/latest/data-prepper/",
@@ -391,7 +391,7 @@
                             "Icon": "OpenSearch-PerformanceBenchmarks-condensedImage"
                         },
                         {
-                            "Name": "Data Prepper",
+                            "Name": "OpenSearch Data Prepper",
                             "SubText": "Filter, mutate, and sample your data for ingestion into OpenSearch.",
                             "URL": "/docs/latest/data-prepper/",
                             "ClassValue" : "drawer-content-subheader-link",

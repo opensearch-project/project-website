@@ -46,7 +46,7 @@ items:
     children:
       - label: OpenSearch and Dashboards
         url: /docs/latest/about/
-      - label: Data Prepper
+      - label: OpenSearch Data Prepper
         url: /docs/latest/data-prepper/
       - label: Clients
         url: /docs/latest/clients/

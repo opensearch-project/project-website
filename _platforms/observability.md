@@ -37,7 +37,7 @@ key_features_list:
   - name: Integrations
     description: 'Create out-of-the-box analysis and dashboards for common log types like AWS CloudTrail, Nginx, and popular databases.'
   - name: Ingestion pipelines
-    description: 'Manage observability data collections cost efficiently and at scale with built-in transformations, routing, sampling, and anomaly detection provided by <a href="https://opensearch.org/docs/latest/data-prepper/index/" target="_blank">Data Prepper</a> ingestion tools.'
+    description: 'Manage observability data collections cost efficiently and at scale with built-in transformations, routing, sampling, and anomaly detection provided by <a href="https://opensearch.org/docs/latest/data-prepper/index/" target="_blank">OpenSearch Data Prepper</a> ingestion tools.'
   - name: Anomaly detection
     description: 'Detect anomalies and analyze streaming data with rich transformation and aggregation.'
 permalink: '/platform/observability/index.html'

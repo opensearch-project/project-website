@@ -134,8 +134,8 @@
     - title: Developer Guide
       url: https://github.com/opensearch-project/dashboards-visualizations/blob/main/DEVELOPER_GUIDE.md
 - shortname: data-prepper
-  title: Data Prepper
-  description: Data Prepper is a component of the OpenSearch project that accepts,
+  title: OpenSearch Data Prepper
+  description: OpenSearch Data Prepper is a component of the OpenSearch Project that accepts,
     filters, transforms, enriches, and routes data at scale.
   categories:
     - ingest
