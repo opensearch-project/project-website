@@ -22,7 +22,7 @@ resources:
     aspect_ratio: '16∶9'
     type: 'product'
   - url: ' https://mcplusa.com/insights/'
-    title: 'MC+A's Insights'
+    title: "MC+A's Insights"
     thumbnail: '/assets/media/partners/mcplusa/mcplusa-blog-thumbnail.png'
     aspect_ratio: '16:9'
     type: 'blog'
