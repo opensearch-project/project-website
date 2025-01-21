@@ -4,11 +4,11 @@ title:  "Introducing OpenSearch JavaScript client 3.0"
 authors:
  - theotr
  - kolchfa
-date: 2025-01-09
+date: 2025-01-22
 categories:
  - release
-meta_keywords: javascript, typescript, client, api, opensearch, release, codegen, api generator
-meta_description: Release announcement for OpenSearch JS Client 3.0.0, a major overhaul of the client's API for better readability, consistency, and a more complete and accurate interface to interact with OpenSearch clusters.
+meta_keywords: OpenSearch JavaScript client 3.0, node.js client, typescript support, api generator, OpenSearch API
+meta_description: Upgrade your OpenSearch development with JavaScript Client 3.0, featuring enhanced TypeScript support and consistency, automated updates, and an intuitive API interface for faster, more reliable applications.
 has_math: false
 has_science_table: false
 ---
