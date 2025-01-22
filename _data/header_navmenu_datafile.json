@@ -169,7 +169,7 @@
                                 },
                                 {
                                     "Name": "Anomaly Detection",
-                                    "URL": "/docs/latest/observing-your-data/ad/index/"
+                                    "URL": "/AnomalyDetection/"
                                 }
                             ]
                         },
