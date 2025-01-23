@@ -22,4 +22,4 @@ permalink: '/community/members/theo-truong.html'
 redirect_from: '/authors/theotr/'
 ---
 
-**Theo Truong** is a Software Engineer at AWS working on OpenSearch clients and API specification.
+**Theo Truong** is a Software Engineer at AWS working on OpenSearch clients and API specification. He set the foundation for the OpenSearch Specification, and overhauled the OpenSearch Ruby and OpenSearch JavaScript clients with API code generators. He is also helping the OpenSearch documentation team with tooling and automation.

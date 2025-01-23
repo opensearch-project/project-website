@@ -21,4 +21,4 @@ permalink: '/community/members/vacha-shah.html'
 redirect_from: '/authors/vachshah/'
 ---
 
-**Vacha Shah** is a Software Engineer at AWS working on the OpenSearch project.
+**Vacha Shah** is a Software Engineer at AWS, and a former team lead of the OpenSearch clients team.
