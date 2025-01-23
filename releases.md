@@ -29,15 +29,16 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 | Release Number | First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Manager                                      | Tracking Issue                                                             |
 |:---------------|:------------------------------------------|:-----------------------------------------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------|
 | 2.19.0         | January 28th, 2025                        | February 11th, 2025                                  |                                                      | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) | 
-| 3.0.0-alpha    | February 17th, 2025                       | March 17th, 2025                                     |                                                      |                                                                            | 
-| 3.0.0-beta     | March 24th, 2025                          | March 31st, 2025                                     |                                                      |                                                                            | 
-| 3.0.0          | April 1st, 2025                           | April 8th, 2025                                      |                                                      | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
-| 3.1.0          | May 20th, 2025                            | June 3rd, 2025                                       |                                                      |                                                                            | 
-| 2.19.1         | June 17th, 2025                           | June 24th, 2025                                      |                                                      |                                                                            | 
-| 3.2.0          | July 15th, 2025                           | July 29th, 2025                                      |                                                      |                                                                            | 
-| 3.3.0          | September 9th, 2025                       | September 23rd, 2025                                 |                                                      |                                                                            | 
-| 2.19.2         | October 14th, 2025                        | October 21st, 2025                                   |                                                      |                                                                            | 
-| 3.4.0          | November 4th, 2025                        | November 18th, 2025                                  |                                                      |                                                                            | 
+| 3.0.0-alpha1   | March 4th, 2025                           | March 18th, 2025                                     |                                                      | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 3.0.0-beta1    | April 1st, 2025                           | April 8th, 2025                                      |                                                      | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 2.19.1         | April 8th, 2025                           | April 15th, 2025                                     |                                                      |                                                                            | 
+| 3.0.0 (GA)     | April 22nd, 2025                          | April 29th, 2025                                     |                                                      | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 3.1.0          | June 10th, 2025                           | June 24th, 2025                                      |                                                      |                                                                            | 
+| 2.19.2         | July 15th, 2025                           | July 22th, 2025                                      |                                                      |                                                                            | 
+| 3.2.0          | August 5th, 2025                          | August 19th, 2025                                    |                                                      |                                                                            | 
+| 3.3.0          | September 30th, 2025                      | October 14th, 2025                                   |                                                      |                                                                            | 
+| 2.19.3         | October 28th, 2025                        | November 4th, 2025                                   |                                                      |                                                                            | 
+| 3.4.0          | December 2nd, 2025                        | December 16th, 2025                                  |                                                      |                                                                            | 
 | 3.5.0          | January 27th, 2026                        | February 10th, 2026                                  |                                                      |                                                                            | 
 {: .desktop-release-schedule-table}
 
@@ -66,8 +67,8 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Major Version | Latest Minor Version |   Status    | Initial Release   | Maintenance Window Start   | Maintenance Window End |
 |:--------------|:---------------------|:------------|:------------------|:---------------------------|:-----------------------|
-| 1             | 1.3.20               | Maintenance |  July 12th, 2021  | May 26th, 2022             | April 08th, 2025       |
-| 2             | 2.18.0               | Current     |  May 26th, 2022   | April 08th, 2025           | GA release of 4.0.     |
+| 1             | 1.3.20               | Maintenance |  July 12th, 2021  | May 26th, 2022             | April 29th, 2025       |
+| 2             | 2.18.0               | Current     |  May 26th, 2022   | April 29th, 2025           | GA release of 4.0.     |
 | 3             | 3.0.0-alpha          | In-flight   |  March 17th, 2025 | N/A                        | N/A                    |
 {: .desktop-maintenance-policy-table}
 
