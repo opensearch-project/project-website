@@ -12,14 +12,22 @@ permalink: /community/
 
     
   <!-- MAIN DATAFILE -->
-  {% assign AnomalyDetection_pageContent = site.data.usecases.page_anomalyDetection_datafile['AnomalyDetection'] %}
+  {% assign Community_pageContent = site.data.page_community_datafile['Community'] %}
 
-  {% assign data_HeroBanner = AnomalyDetection_pageContent['HeroBanner']  %}
-  {% assign data_MainBody = AnomalyDetection_pageContent['MainBody']  %}
-  {% assign data_MainBody_threeCard_Array = data_MainBody['ThreeCard_row']  %}
+  {% assign data_HeroBanner = Community_pageContent['HeroBanner']  %}
+  {% assign data_MainBody = Community_pageContent['MainBody']  %}
+
+  {% assign data_MainBody_FourImage_Array_Desktop = data_MainBody['Image_Row_Desktop']  %}
+  {% assign data_MainBody_TwoImage_Array_Mobile = data_MainBody['Image_Row_Mobile']  %}
+
+
+  {% assign data_MainBody_EventsRow = data_MainBody['TwoColumn_Events_row']  %}
+
+
+
   {% assign data_MainBody_AnomalyRow = data_MainBody['ImageRight_row']  %}
   {% assign data_MainBody_FurtherResourcesRow = data_MainBody['TwoColumn_FurtherResources_row']  %}
-  {% assign data_MainBody_FeatureListRow = data_MainBody['TwoColumn_FeatureList_row']  %}
+  
   {% assign data_MainBody_GetStartedBannerRow = data_MainBody['GetStartedBanner_row']  %}
   {% assign data_MainBody_PlaygroundsRow = data_MainBody['ImageLeft_row']  %}
 
@@ -34,46 +42,39 @@ permalink: /community/
   {% assign data_SearchBar_FilterButton = data_SearchBar['FilterButton']  %} -->
 
     <!-- MOBILE HERO -->
-    <div class="container-fluid usecase-hero-banner-background-mobile-wrapper d-block d-lg-none">
-      <div class="container usecase-hero-heading-background-container d-flex flex-column justify-content-center align-items start pt-2 px-0">
+    <div class="container-fluid community-hero-banner-background-mobile-wrapper d-block d-lg-none">
+      <div class="container community-hero-heading-background-container d-flex flex-column justify-content-center align-items start pt-2 px-0">
 
-        <span class="h4--category-text mb-4">{{ data_HeroBanner.Category }}</span>
         <h1 class="h1--hero-heading">{{ data_HeroBanner.Title }}</h1>
-        <p class="h4--text-hero-subtext m-0">{{ data_HeroBanner.SubText }}</p>
 
       </div>
     </div>
 
     <!-- DESKTOP HERO -->
-    <div class="container-fluid usecase-hero-banner-background-wrapper d-none d-lg-block">
-        <div class="container ps-5 usecase-hero-heading-background-container d-flex flex-column align-items-start justify-content-center">
+    <div class="container-fluid community-hero-banner-background-wrapper d-none d-lg-block">
+        <div class="container ps-5 community-hero-heading-background-container d-flex flex-column align-items-start justify-content-center">
 
-          <span class="h4--category-text mb-4">{{ data_HeroBanner.Category }}</span>
           <h1 class="h1--hero-heading">{{ data_HeroBanner.Title }}</h1>
-          <p class="h4--text-hero-subtext m-0">{{ data_HeroBanner.SubText }}</p>
 
         </div>
     </div>
 
 
   <!-- MAIN SECTION -->
-  <div class="container usecase-mainbody-container p-0">
+  <div class="container community-mainbody-container p-0">
 
     <!-- OPENING PARAGRAPH -->
-    <p class="h4--text pt-3 px-4">{{ data_MainBody.BeginningParagraph }}</p>
+    <p class="h4--text pt-4 pb-3 px-5">{{ data_MainBody.BeginningParagraph }}</p>
 
-    <!-- THREE CARDS -->
+    <!-- FOUR IMAGE ARRAY -->
     <div class="container pb-5 px-3 px-md-5">
-      <div class="row row-cols-1 row-cols-lg-3 g-5">
+      <div class="row row-cols-1 row-cols-lg-4 g-3">
 
-        {% for usecase-card in data_MainBody_threeCard_Array %}
+        {% for community-image in data_MainBody_FourImage_Array_Desktop %}
             <div class="col">
-                <card class="card card-usecase-img-top shadow d-flex">
+                <card class="card community-img-card shadow d-flex">
 
-                    <img src="{{ usecase-card.ImagePath }}" class="{{ usecase-card.ClassValue }}">
-                    <div class="card-body d-flex flex-column">
-                        <span class="card-text">{{ usecase-card.SubText }}</span>
-                    </div>
+                    <img class="full-width-image" src="{{ community-image.ImagePath }}">
 
                 </card>
             </div>
@@ -83,78 +84,150 @@ permalink: /community/
       </div>
     </div>
 
-    <!-- DETECTION TWO COLUMN LAYOUT -- MOBILE -->
-    <div class="container-fluid two-column-purpleBackground-container d-block d-lg-none p-0">
-      <div class="d-flex flex-column">
-        <div class="primary-section d-flex flex-column align-items-start justify-content-center p-4">
-
-          <h2 class="h2--subheader-secondary">{{ data_MainBody_AnomalyRow.Subheader }}</h2>
-          <p class="bodycontent--text-secondary">{{ data_MainBody_AnomalyRow.SubText }}</p>
-
+    <!-- EVENTS SECONDARY BACKGROUND -- MOBILE  -->
+    <div class="container-fluid community-two-column-blueBackground-container  d-block d-lg-none p-0">
+        <div class="d-flex flex-column">
+            <div class="primary-section d-flex flex-column align-items-start justify-content-center p-4">
+            <div class="card community-events-card">
+                <p class="card-body h4--text p-4 ">{{ data_MainBody_FeatureListRow['left_Paragraph'].Text }}</p>
+            </div>
+            
+    
+            </div>
+            <div class="secondary-section p-4">
+            <div class="row row-cols-1 row-cols-lg-2 g-5">
+                {% for feature in data_MainBody_FeatureListRow['right_FeatureList'].Feature_array %}
+                <div class="col pt-3 mt-4">
+                    <div class="d-flex flex-column justify-content-center align-items-start">
+    
+                    <h2 class="h2--subheader-secondary">{{ feature.Title }}</h2>
+                    <p class="bodycontent--text-secondary p-0 m-0">{{ feature.SubText }}</p>
+                    
+                    </div>
+                </div>
+    
+                {% endfor %}
+            </div> 
+    
+            </div>
         </div>
-        <div class="secondary-section d-flex flex-column justify-content-center align-items-center p-4">
+    </div>
 
-          <img src="{{ data_MainBody_AnomalyRow.ImagePath }}" alt="Anomaly image" class="flex-image">
+    <!-- EVENTS SECONDARY BACKGROUND -- DESKTOP  -->
+    <div class="container community-two-column-blueBackground-container  d-none d-lg-block">
+        <div class="row">
+            <div class="col-4 primary-section d-flex flex-column align-items-start justify-content-center p-5">
+                <div class="card community-events-card p-4">
+                    <h2 class="header--h1-primary">{{ data_MainBody_EventsRow['left_Card'].Title }}</h2>
+                    <p class="card-body h4--text mt-0 mb-4 p-0 ">{{ data_MainBody_EventsRow['left_Card'].SubText }}</p>
 
+                    <!-- EVENT LIST -->
+                    {% for event-type in data_MainBody_EventsRow['left_Card'].EventType_array %}
+                    <div class="col">
+                        <div class="d-flex flex-column justify-content-center align-items-start my-2">
+
+                            <div class="d-flex flex-row justify-content-center align-items-start">
+                                <!-- ICON -->
+                                <!-- <div class="community-event-calendar-icon">{{ event-type.IconPath }}</div> -->
+                                <img src="{{ event-type.IconPath }}" alt="Usecase icon" class="flex-image community-event-calendar-icon me-4">
+
+                                <!-- TITLE -->
+                                <div class="community-event-categories p-0">{{ event-type.Title }}</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                    <!-- BUTTON -->
+
+                    <div class="d-flex flex-column justify-content-center align-items-center mt-4 mb-2">
+                        <a class="btn btn-primary-dark-community shadow " href="{{ data_MainBody_EventsRow['left_Card'].Button.ButtonLink }}" aria-current="Events button">
+                    
+                            <div class="row button-content justify-content-center">
+                                <div class="button-content-text col-auto">
+                                    {{  data_MainBody_EventsRow['left_Card'].Button.ButtonText }}
+                                </div>
+                                <div class="button-content-icon col-auto px-0 ms-1 me-1 align-self-center">
+                                    {% include icons_navbar.html type='chevron-in-circle' %}
+                                </div>
+                            </div>
+                
+                        </a>
+
+                    </div>
+
+
+
+                </div>
+
+
+            
+
+            </div>
+            <div class="col-8 secondary-section p-5">
+                <div class="row row-cols-1 row-cols-lg-2 g-5">
+                    {% for feature in data_MainBody_FeatureListRow['right_FeatureList'].Feature_array %}
+                    <div class="col">
+                        <div class="d-flex flex-column justify-content-center align-items-start">
+
+                            
+                            <h2 class="h2--subheader-secondary">{{ feature.Title }}</h2>
+                            <p class="bodycontent--text-secondary p-0">{{ feature.SubText }}</p>
+                            
+
+                        
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div> 
+
+
+            </div>
         </div>
-      </div>
     </div>
 
 
-    <!-- DETECTION TWO COLUMN LAYOUT -- DESKTOP -->
-    <div class="container two-column-purpleBackground-container d-none d-lg-block">
-      <div class="row">
-        <div class="col-4 primary-section d-flex flex-column align-items-start justify-content-center p-5">
-
-          <h2 class="h2--subheader-secondary">{{ data_MainBody_AnomalyRow.Subheader }}</h2>
-          <p class="bodycontent--text-secondary">{{ data_MainBody_AnomalyRow.SubText }}</p>
-
-        </div>
-        <div class="col-8 secondary-section d-flex flex-column justify-content-center align-items-center p-5">
-
-          <img src="{{ data_MainBody_AnomalyRow.ImagePath }}" alt="Anomaly image" class="flex-image">
-
-        </div>
-      </div>
-    </div>
 
 
-    <!-- FURTHER RESOURCES SECTION -- MOBILE-->
+    <!-- OPENSEARCH CON SECTION -- MOBILE-->
     <div class="container two-column-primary-container d-block d-lg-none">
 
         <div class="d-flex flex-column justify-content-center align-items-center pt-5">
 
-          <h2 class="h2--subheader align-self-start">{{ data_MainBody_FurtherResourcesRow['left_BlogColumn'].Title }}</h2>
-          <div class="d-flex flex-column justify-content-center align-items-center px-1">
+            <h2 class="h2--subheader align-self-start">{{ data_MainBody_FurtherResourcesRow['left_BlogColumn'].Title }}</h2>
+            <div class="d-flex flex-column justify-content-center align-items-center px-1">
             {% for resourceCard in data_MainBody_FurtherResourcesRow.left_BlogColumn['Blog_array'] %}
             <div class="col mb-5">
-              <card class="card blog-card shadow">
+                <card class="card blog-card shadow">
 
                 <div class="card-body d-flex flex-column  p-4">
-                  <a href="{{ resourceCard.Link }}" class="stretched-link"></a>
-                  <span class="card-text">{{ resourceCard.Type }}</span>
-                  <h5 class="card-title py-2">{{ resourceCard.Title }}</h5>
-                  <span class="card-subtext">{{ resourceCard.SubText }}</span>
+                    <a href="{{ resourceCard.Link }}" class="stretched-link"></a>
+                    <span class="card-text">{{ resourceCard.Type }}</span>
+                    <h5 class="card-title py-2">{{ resourceCard.Title }}</h5>
+                    <span class="card-subtext">{{ resourceCard.SubText }}</span>
                 </div>
 
-              </card>
+                </card>
             </div>
 
             {% endfor %}
-          </div>
-          
+            </div>
+            
             
         </div>
 
         <div class="d-flex flex-column justify-content-start align-items-start py-5">
 
-          <h2 class="h2--subheader">{{ data_MainBody_FurtherResourcesRow['right_LargeImageColumn'].Title }}</h2>
-          <div class="d-flex flex-column justify-content-center align-items-center px-1">
+            <h2 class="h2--subheader">{{ data_MainBody_FurtherResourcesRow['right_LargeImageColumn'].Title }}</h2>
+            <div class="d-flex flex-column justify-content-center align-items-center px-1">
 
             {% for resourceGraphic in data_MainBody_FurtherResourcesRow.right_LargeImageColumn['Feature_array'] %}
 
             <div class="col mt-4">
-              <div class="d-flex flex-column justify-content-start align-items-start">
+                <div class="d-flex flex-column justify-content-start align-items-start">
 
                 <!-- ICON -->
                 <img src="{{ resourceGraphic.Icon }}" alt="Usecase icon" class="flex-image usecase-icon  align-self-center">
@@ -163,27 +236,27 @@ permalink: /community/
                 <span class="usecase-subtext">{{ resourceGraphic.SubText }}</span>
                 
 
-              </div>
+                </div>
             </div>
 
             {% endfor %}
 
-          </div>
+            </div>
 
         </div>
-      
+        
     </div>
 
     <!-- FURTHER RESOURCES SECTION -- DESKTOP-->
     <div class="container two-column-primary-container d-none d-lg-block">
-      <div class="row">
+        <div class="row">
 
         <div class="col-8 d-flex flex-column justify-content-start align-items-start  py-5 px-4">
 
-          <h2 class="h2--subheader pe-5">{{ data_MainBody_FurtherResourcesRow['right_LargeImageColumn'].Title }}</h2>
+            <h2 class="h2--subheader pe-5">{{ data_MainBody_FurtherResourcesRow['right_LargeImageColumn'].Title }}</h2>
 
-          <!-- <img src="{{ data_MainBody_AnomalyRow.ImagePath }}" alt="Anomaly image" class="flex-image"> -->
-          <div class="d-flex flex-column justify-content-center align-items-center px-3">
+            <!-- <img src="{{ data_MainBody_AnomalyRow.ImagePath }}" alt="Anomaly image" class="flex-image"> -->
+            <div class="d-flex flex-column justify-content-center align-items-center px-3">
 
             {% for resourceGraphic in data_MainBody_FurtherResourcesRow.right_LargeImageColumn['Feature_array'] %}
 
@@ -195,18 +268,18 @@ permalink: /community/
             
             <div class="col mt-4">
 
-              <div class="d-flex flex-row">
-                <!-- ICON -->
-                <img src="{{ resourceGraphic.Icon }}" alt="Usecase icon" class="flex-image usecase-icon me-4">
+                <div class="d-flex flex-row">
+                    <!-- ICON -->
+                    <img src="{{ resourceGraphic.Icon }}" alt="Usecase icon" class="flex-image usecase-icon me-4">
 
-                <!-- CONTENT -->
-                <div class="flex-grow">
-                  <div class="d-flex flex-column">
-                    <span class="usecase-header mb-2">{{ resourceGraphic.Title }}</span>
-                    <span class="usecase-subtext">{{ resourceGraphic.SubText }}</span>
-                  </div>
+                    <!-- CONTENT -->
+                    <div class="flex-grow">
+                        <div class="d-flex flex-column">
+                        <span class="usecase-header mb-2">{{ resourceGraphic.Title }}</span>
+                        <span class="usecase-subtext">{{ resourceGraphic.SubText }}</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
 
             </div>
 
@@ -219,96 +292,43 @@ permalink: /community/
 
             {% endfor %}
 
-          </div>
+            </div>
 
         </div>
         <div class="col-4 d-flex flex-column align-items-start justify-content-start py-5">
 
-          <h2 class="h2--subheader">{{ data_MainBody_FurtherResourcesRow['left_BlogColumn'].Title }}</h2>
-          <div class="d-flex flex-column justify-content-center align-items-center px-4">
+            <h2 class="h2--subheader">{{ data_MainBody_FurtherResourcesRow['left_BlogColumn'].Title }}</h2>
+            <div class="d-flex flex-column justify-content-center align-items-center px-4">
             {% for resourceCard in data_MainBody_FurtherResourcesRow.left_BlogColumn['Blog_array'] %}
             <div class="col mt-4 mb-4">
-              <card class="card blog-card shadow">
+                <card class="card blog-card shadow">
 
                 <div class="card-body d-flex flex-column p-4">
-                  <a href="{{ resourceCard.Link }}" class="stretched-link"></a>
-                  <span class="card-text">{{ resourceCard.Type }}</span>
-                  <h5 class="card-title py-2">{{ resourceCard.Title }}</h5>
-                  <span class="card-subtext">{{ resourceCard.SubText }}</span>
+                    <a href="{{ resourceCard.Link }}" class="stretched-link"></a>
+                    <span class="card-text">{{ resourceCard.Type }}</span>
+                    <h5 class="card-title py-2">{{ resourceCard.Title }}</h5>
+                    <span class="card-subtext">{{ resourceCard.SubText }}</span>
                 </div>
 
-              </card>
+                </card>
             </div>
 
             {% endfor %}
-          </div>
-          
+            </div>
+            
             
         </div>
 
 
-      </div>
+        </div>
     </div>
 
 
-    <!-- FEATURE LIST SECONDARY BACKGROUND -- MOBILE  -->
-    <div class="container-fluid two-column-purpleBackground-container  d-block d-lg-none p-0">
-      <div class="d-flex flex-column">
-        <div class="primary-section d-flex flex-column align-items-start justify-content-center p-4">
-          <div class="card card-greenBorderLeft">
-            <p class="card-body h4--text p-4 ">{{ data_MainBody_FeatureListRow['left_Paragraph'].Text }}</p>
-          </div>
-          
-
-        </div>
-        <div class="secondary-section p-4">
-          <div class="row row-cols-1 row-cols-lg-2 g-5">
-            {% for feature in data_MainBody_FeatureListRow['right_FeatureList'].Feature_array %}
-              <div class="col pt-3 mt-4">
-                <div class="d-flex flex-column justify-content-center align-items-start">
-
-                  <h2 class="h2--subheader-secondary">{{ feature.Title }}</h2>
-                  <p class="bodycontent--text-secondary p-0 m-0">{{ feature.SubText }}</p>
-                
-                </div>
-              </div>
-
-            {% endfor %}
-          </div> 
-
-        </div>
-      </div>
-    </div>
-
-    <!-- FEATURE LIST SECONDARY BACKGROUND -- DESKTOP  -->
-    <div class="container two-column-purpleBackground-container  d-none d-lg-block">
-      <div class="row">
-        <div class="col-4 primary-section d-flex flex-column align-items-start justify-content-center p-5">
-          <div class="card card-greenBorderLeft">
-            <p class="card-body h4--text p-4">{{ data_MainBody_FeatureListRow['left_Paragraph'].Text }}</p>
-          </div>
-          
-
-        </div>
-        <div class="col-8 secondary-section p-5">
-          <div class="row row-cols-1 row-cols-lg-2 g-5">
-            {% for feature in data_MainBody_FeatureListRow['right_FeatureList'].Feature_array %}
-              <div class="col">
-                <div class="d-flex flex-column justify-content-center align-items-start">
-
-                  <h2 class="h2--subheader-secondary">{{ feature.Title }}</h2>
-                  <p class="bodycontent--text-secondary p-0">{{ feature.SubText }}</p>
-                
-                </div>
-              </div>
-
-            {% endfor %}
-          </div> 
 
 
-        </div>
-      </div>
-    </div>
+
+
+
 
 
     <!-- GET STARTED BANNER -- MOBILE -->

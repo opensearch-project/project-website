@@ -1,3 +1,289 @@
+// Community Page
+
+
+
+// HEROBANNER
+$mobile-banner-height: 200px;
+$desktop-banner-height: 450px;
+.community-hero-banner-background-wrapper {
+    position: relative;
+    height: $desktop-banner-height;
+    overflow: hidden;
+    background-image: url(/assets/img/pageAssets_communityPage/Herobanner-CommunityPage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    .community-hero-heading-background-container {
+        height: $desktop-banner-height;
+    }
+
+    .h1--hero-heading {
+        color: white;
+        font-size: 64px;
+        font-family: Open Sans;
+        font-weight: 800;
+        line-height: 72px;
+        word-wrap: break-word;
+    }
+
+    // Bottom Border
+    &::after {
+        content: "";
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background-color: $secondary-golden-poppy;
+        bottom: 0px;
+        left: 0;
+    }
+}
+.community-hero-banner-background-mobile-wrapper{
+    position: relative;
+    height: $mobile-banner-height;
+    overflow: hidden;
+    background-image: url(/assets/img/pageAssets_communityPage/Herobanner-CommunityPage-Mobile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    .community-hero-heading-background-container {
+        height: $mobile-banner-height;
+    }
+
+    .h1--hero-heading {
+        color: white;
+        font-size: 32px;
+        font-family: Open Sans;
+        font-weight: 800;
+        line-height: 32px;
+        word-wrap: break-word;
+    }
+
+
+    // Bottom Border
+    &::after {
+        content: "";
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background-color: $secondary-golden-poppy;
+        bottom: 0px;
+        left: 0;
+    }
+}
+
+
+
+.community-mainbody-container {
+
+    .community-img-card {
+        max-width: 500px;
+        --bs-card-border-radius: 0;
+        border-width: 0px;
+        // .full-width-image {
+        //     width: 95%;
+        // }
+    }
+    .community-icon-card {
+        max-width: 500px;
+        --bs-card-border-radius: 0;
+        border-color: $secondary-purple-sage-t1;
+        border-top-width: 6px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+
+    }
+
+
+    .community-two-column-blueBackground-container {
+        .primary-section {
+            background-color: $primary-pacific-blue-t1;
+        }
+        .secondary-section {
+            background-color: $primary-open-sky-t3;
+        }
+    }
+}
+.flex-image{
+    width: 100%;
+}
+.community-events-card {
+    --bs-card-border-radius: 0;
+    background-color: white;
+    // border-color: $secondary-seafoam-mint-t1;
+    // border-top-width: 0px;
+    // border-left-width: 6px;
+    // border-right-width: 0px;
+    // border-bottom-width: 0px;
+    .community-event-calendar-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .community-event-categories {
+        color: $secondary-sanfrancisco-fog-s4;
+        font-size: 21px;
+        font-family: Open Sans;
+        font-weight: 700;
+        line-height: 36px;
+        word-wrap: break-word; 
+    }
+    .h4--text{
+        font-size: 20px;
+    }
+}
+.green-background-container {
+    background-color: $secondary-seafoam-mint-t1;
+}
+
+
+
+.usecase-icon{
+    width: 130px;
+    height: 130px;
+}
+.community-card-header{
+    color: #963CBD;
+    font-size: 20px;
+    font-family: Open Sans;
+    font-weight: 700;
+    line-height: 30px;
+    word-wrap: break-word; 
+}
+.usecase-subtext{
+    color: black;
+    font-size: 18px;
+    font-family: Open Sans;
+    font-weight: 400;
+    line-height: 30px;
+    word-wrap: break-word; 
+}
+
+
+
+
+// buttons
+.btn-dark-tertiary-midnight{
+
+    --bs-btn-padding-y: 15px;
+    --bs-btn-padding-x: 40px;
+    background-color: $primary-open-sky-s3; 
+    color: $secondary-sanfrancisco-fog-t1;
+    
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    border-radius: 30px;
+    text-wrap: nowrap;
+
+
+    &:active {
+        color: $secondary-golden-poppy;
+
+    }
+    &:hover {
+        background-color: $primary-open-sky-s2;
+        color: $secondary-sanfrancisco-fog-t1;
+    }
+    &:visited {
+        color: $secondary-sanfrancisco-fog-t1;
+    }  
+}
+
+
+.btn-primary-dark-community{
+
+    --bs-btn-padding-y: 5px;
+    --bs-btn-padding-x: 20px;
+    min-width: 250px;
+    max-width: 325px;
+    background-color: $primary-open-sky-s1;
+    color: $secondary-sanfrancisco-fog-t1;
+    
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 35px;
+    border-radius: 40px;
+    text-wrap: nowrap;
+
+    > .button-content-icon-svg {
+        fill: $secondary-sanfrancisco-fog-t1;
+        margin-bottom: 2px;
+    }
+    &:active {
+        background-color: $primary-open-sky-s3 !important;
+    }
+    &:hover {
+        background-color: $primary-open-sky-s3;
+        color: $secondary-sanfrancisco-fog-t1;
+    }
+    &:active > .button-content {
+
+        > .button-content-icon {
+            > .button-content-icon-svg{
+                fill: $secondary-golden-poppy;
+            }
+        }
+        > .button-content-text {
+            color: $secondary-golden-poppy;
+        }
+
+    }
+    &:visited {
+        color: $secondary-sanfrancisco-fog-t1;
+    }
+}
+
+
+// TYPOGRAPHY
+
+.header--h1-primary {
+    color: $primary-open-sky-s3;
+    font-family: 'Open Sans Condensed';
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 1;
+}
+.h2--subheader {
+    color: #003551;
+    font-size: 24px;
+    font-family: 'Open Sans Condensed';
+    font-weight: 700;
+    line-height: 42px;
+    word-wrap: break-word;
+}
+.h2--subheader-secondary {
+    color: $secondary-seafoam-mint;
+    font-size: 24px;
+    font-family: 'Open Sans Condensed';
+    font-weight: 700;
+    line-height: 42px;
+    word-wrap: break-word; 
+}
+.h4--text{
+    color: black;
+    font-size: 24px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    line-height: 48px;
+    word-wrap: break-word; 
+}
+.bodycontent--text-secondary {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    font-family: 'Open Sans';
+    word-wrap: break-word;
+    text-decoration: none;
+    z-index: 1;
+}
+
+
+
+
+
+
+
+// Community Member pages
 .community-members--member-cards {
     display: grid;
     @media screen and (min-width: $two-column-min-width) {
