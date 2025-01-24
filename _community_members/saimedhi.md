@@ -22,4 +22,4 @@ permalink: '/community/members/sai-medhini-reddy-maryada.html'
 redirect_from: '/authors/saimedhi/'
 ---
 
-**Sai Medhini Reddy Maryada** is a Software Engineer at AWS working on OpenSearch. She retrofitted the legacy OpenSearch Python and PHP API generators to work with the modern OpenSearch API Specification. These generators also acted as proof of concept for the API Code Generator project, which were used to make the spec more friendly for code generation purposes.
+**Sai Medhini Reddy Maryada** is a Software Engineer at AWS working on OpenSearch. She retrofitted the legacy OpenSearch Python and PHP API generators to work with the modern OpenSearch API specification. These generators also acted as proof of concept for the API Code Generator project, which were used to make the spec more friendly for code generation purposes.

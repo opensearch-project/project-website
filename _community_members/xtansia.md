@@ -23,4 +23,4 @@ permalink: '/community/members/thomas-farr.html'
 redirect_from: '/authors/xtansia/'
 ---
 
-**Thomas Farr** is a Software Development Engineer at AWS working on the OpenSearch Clients team, maintaining the Java, .NET, and Rust clients. Thomas plays pivotal roles in the development of the OpenSearch Java client, API specification, and the API Code Generation project.
+**Thomas Farr** is a Software Development Engineer at AWS working on the OpenSearch Clients team, maintaining the Java, .NET, and Rust clients. Thomas plays a pivotal role in the development of the OpenSearch Java client, API specification, and the API Code Generation project.
