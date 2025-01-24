@@ -9,10 +9,10 @@ authors:
  - saimedhi
  - vachshah
  - kolchfa
- - nbower
-date: 2025-01-20
+ - naarcha
+date: 2025-01-24
 categories:
- - newsletter
+ - community
 meta_keywords: API Specification, OpenSearch Clients, OpenSearch Documentation, Code Generation, Automation
 meta_description: The OpenSearch API Specification has become the authoritative reference, bridging the gaps between clients, documentation, and the server. By adopting and extending the OpenAPI Specification, we've achieved modularity, testability, and automation, transforming how APIs are described, tested, and implemented. This unified approach has revolutionized client development and documentation, ensuring consistency, accuracy, and rapid adaptability across OpenSearch.
 has_math: false
