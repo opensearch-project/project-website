@@ -2,7 +2,7 @@
 name: maxcluster
 name_long: maxcluster GmbH
 
-logo: /assets/media/partners//maxcluster/maxcluster.png
+logo: /assets/media/partners/maxcluster/maxcluster.png
 link: https://maxcluster.de
 logo_large: /assets/media/partners/maxcluster/maxcluster-logo.svg
 
