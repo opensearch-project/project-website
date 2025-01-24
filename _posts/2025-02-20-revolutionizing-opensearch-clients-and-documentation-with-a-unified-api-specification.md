@@ -41,7 +41,7 @@ Historically, maintaining OpenSearch clients was a tedious and error-prone proce
 
 With the unified OpenSearch API specification, we've begun generating API functions directly from the specification. This approach eliminates manual updates, improves consistency, and ensures all clients stay synchronized with the latest server capabilities.  
 
-Here are some highlights:  
+Here are the key milestones:  
 
 - We updated legacy API generators for [PHP](https://github.com/opensearch-project/opensearch-php/pull/203), [.NET](https://github.com/opensearch-project/opensearch-net/pull/228), and [Python](https://github.com/opensearch-project/opensearch-py/pull/721) clients to read and parse the OpenAPI specification.  
 - In December, we released a new major version of the JavaScript client. This JavaScript client version's API functions  aregenerated entirely from the specification. The client also includes a complete set of request and response types for each API function, which was the most requested feature from our TypeScript users. For more information, see [this blog post](https://opensearch.org/blog/Introducing-OpenSearch-JS-Client-3.0/). 
