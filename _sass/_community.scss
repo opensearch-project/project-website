@@ -52,7 +52,7 @@ $desktop-banner-height: 450px;
         font-size: 32px;
         font-family: Open Sans;
         font-weight: 800;
-        line-height: 32px;
+        line-height: 48px;
         word-wrap: break-word;
     }
 
@@ -119,7 +119,7 @@ $desktop-banner-height: 450px;
                 color: $secondary-golden-poppy;
             }
             .community-active-link{
-                color: $primary-open-sky-t1;
+                color: #9BCFED;
             }
             .grayedOut-no-link {
                 display: list-item;
@@ -132,9 +132,6 @@ $desktop-banner-height: 450px;
     }
 
 
-}
-.flex-image{
-    width: 100%;
 }
 .community-events-card {
     --bs-card-border-radius: 0;
@@ -156,6 +153,14 @@ $desktop-banner-height: 450px;
         line-height: 36px;
         word-wrap: break-word; 
     }
+    .community-event-categories-mobile {
+        color: $secondary-sanfrancisco-fog-s4;
+        font-size: 18px;
+        font-family: Open Sans;
+        font-weight: 700;
+        line-height: 36px;
+        word-wrap: break-word; 
+    }
 }
 .green-background-container {
     background-color: $secondary-seafoam-mint-t1;
@@ -165,31 +170,68 @@ $desktop-banner-height: 450px;
 .community-twoColumn-contributing-container {
     .primary-section {
         background-color: $primary-open-sky-t3;
-
+        .community-page-iconCard {
+            width: 100px;
+            height: 100px;
+        }
         .card_bottomBorder_black {
             background-color: white;
-            max-width: 250px;
+            height: 225px;
+            // width: 200px;
+            --bs-card-border-radius: 0;
+            border-color: black;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 7px;
         }
         .card_bottomBorder_yellow {
             background-color: white;
-            max-width: 250px;
+            --bs-card-border-radius: 0;
+            height: 225px;
+            // width: 250px;
+            border-color: $secondary-golden-poppy;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 7px;
         }
         .card_bottomBorder_blue {
             background-color: white;
-            max-width: 250px;
+            --bs-card-border-radius: 0;
+            height: 225px;
+            // width: 250px;
+            border-color: $primary-open-sky;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 7px;
         }
         .card_bottomBorder_purple {
             background-color: white;
-            max-width: 250px;
+            --bs-card-border-radius: 0;
+            height: 225px;
+            // width: 250px;
+            border-color: $secondary-purple-sage;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 7px;
         }
     }
 
     .secondary-section {
         background-color: white;
+
+        .btn-primary-dark-community{
+            max-width: 400px;
+        }
     }
 }
 
-
+.blue-background-container {
+    background-color: $primary-open-sky;
+}
 
 
 .community-card-header{
@@ -276,6 +318,55 @@ $desktop-banner-height: 450px;
     }
 }
 
+.btn-primary-dark-community-smallerText {
+
+    --bs-btn-padding-y: 5px;
+    --bs-btn-padding-x: 30px;
+    min-width: 250px;
+    background-color: $primary-open-sky-s1;
+    color: $secondary-sanfrancisco-fog-t1;
+    
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 35px;
+    border-radius: 40px;
+    text-wrap: nowrap;
+
+    > .button-content-icon-svg {
+        fill: $secondary-sanfrancisco-fog-t1;
+        margin-bottom: 2px;
+    }
+    &:active {
+        background-color: $primary-open-sky-s3 !important;
+    }
+    &:hover {
+        background-color: $primary-open-sky-s3;
+        color: $secondary-sanfrancisco-fog-t1;
+    }
+    &:active > .button-content {
+
+        > .button-content-icon {
+            > .button-content-icon-svg{
+                fill: $secondary-golden-poppy;
+            }
+        }
+        > .button-content-text {
+            color: $secondary-golden-poppy;
+        }
+
+    }
+    &:visited {
+        color: $secondary-sanfrancisco-fog-t1;
+    }
+}
+
+.icon-div-box-Large {
+    width: 75px;
+    height: 75px;
+    padding: 0px;
+}
+
+
 
 // TYPOGRAPHY
 
@@ -322,7 +413,14 @@ $desktop-banner-height: 450px;
     z-index: 1;
 }
 
-
+.header--h1-secondary {
+    color: white;
+    font-family: 'Open Sans Condensed';
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 1;
+}
 
 
 

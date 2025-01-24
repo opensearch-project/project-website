@@ -186,7 +186,7 @@
                         },
                         {
                             "Name": "Write a blog post",
-                            "IconPath": "/assets/img/iconography/OpenSearch-Forum.png",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Blog-Icon.png",
                             "URL": "/blog/",
                             "ClassValue": "icon-homepage-community-withSurroundingCircle",
                             "card_ClassValue" : "card_bottomBorder_purple"
@@ -199,15 +199,17 @@
                     "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-BuildersWanted.png",
                     "Button" : {
                         "ButtonText": "Find a User Group near you",
+                        "ButtonText-Mobile": "User Group's near you",
                         "ButtonLink": "/user-groups/"
                     }
                 }
             },
 
-            "GetStartedBanner_row" : {
-                "Text": "See what you can accomplish with OpenSearch anomaly detection.",
+            "UserGroupBanner_row" : {
+                "Text": "Want to start an OpenSearch user group in your city?",
+                "IconPath": "/assets/img/iconography/OpenSearch-Forum.png",
                 "ButtonText": "Get started ",
-                "ButtonLink": "/docs/latest/observing-your-data/ad/index/"
+                "ButtonLink": "/usergroups/"
             },
             "ImageLeft_row" : {
                 "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-NextGenPlaygrounds.png",

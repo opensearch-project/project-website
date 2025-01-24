@@ -46,6 +46,19 @@
         text-decoration: underline;
     }
 }    
+.subheader--h3-link-mobile {
+    color: $primary-open-sky-s2;
+    font-family: 'Open Sans Condensed';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 42px;
+    text-decoration: underline;
+    z-index: 1;
+    &:hover {
+        color: $primary-open-sky;
+        text-decoration: underline;
+    }
+}  
 .subheading--text {
     color: black;
     font-size: 24px;
@@ -95,8 +108,8 @@
 }
 
 .text--listItem-darkBackground{
-    color: $primary-open-sky-t1;
-    
+    // color: #4FB3E3;
+    color: #9BCFED;
     font-size: 21px;
     font-family: 'Open Sans';
     font-weight: 400;

@@ -29,27 +29,15 @@ permalink: /community/
 
   {% assign data_MainBody_Contributing_Row = data_MainBody['TwoColumn_Contributing_row']  %}
 
+  {% assign data_MainBody_UserGroupBanner_Row = data_MainBody['UserGroupBanner_row']  %}
 
-
-  {% assign data_MainBody_AnomalyRow = data_MainBody['ImageRight_row']  %}
-  {% assign data_MainBody_FurtherResourcesRow = data_MainBody['TwoColumn_FurtherResources_row']  %}
-  
-  {% assign data_MainBody_GetStartedBannerRow = data_MainBody['GetStartedBanner_row']  %}
   {% assign data_MainBody_PlaygroundsRow = data_MainBody['ImageLeft_row']  %}
 
-  
-  <!-- {% assign data_CTABanner = solutionProviders_pageContent['Banner_CallToAction']  %}
-  
-  
-  {% assign data_SearchBar = solutionProviders_pageContent['SearchBar']  %}
-  {% assign data_SearchBar_ProviderType = data_SearchBar['ProviderType_Dropdown']  %}
-  {% assign data_SearchBar_OpenSearchSpeciality = data_SearchBar['OpenSearchSpecialization_Dropdown']  %}
-  {% assign data_SearchBar_Region = data_SearchBar['Regions_Dropdown']  %}
-  {% assign data_SearchBar_FilterButton = data_SearchBar['FilterButton']  %} -->
+
 
     <!-- MOBILE HERO -->
     <div class="container-fluid community-hero-banner-background-mobile-wrapper d-block d-lg-none">
-      <div class="container community-hero-heading-background-container d-flex flex-column justify-content-center align-items start pt-2 px-0">
+      <div class="container community-hero-heading-background-container d-flex flex-column justify-content-center align-items-center pt-2 px-4">
 
         <h1 class="h1--hero-heading">{{ data_HeroBanner.Title }}</h1>
 
@@ -70,10 +58,25 @@ permalink: /community/
   <div class="container community-mainbody-container p-0">
 
     <!-- COMPLETE OPENING PARAGRAPH -->
-    <p class="h4--text pt-4 pb-3 px-5">{{ data_MainBody.BeginningParagraph }}</p>
+    <p class="h4--text pt-4 pb-3 px-3 px-lg-5">{{ data_MainBody.BeginningParagraph }}</p>
 
-    <!-- COMPLETE FOUR IMAGE ARRAY -->
-    <div class="container pb-5 px-3 px-md-5">
+    <!-- COMPLETE FOUR IMAGE ARRAY -- MOBILE -->
+    <div class="container pb-5 px-3 d-block d-lg-none">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            {% for community-image in data_MainBody_TwoImage_Array_Mobile %}
+                <div class="col mt-4">
+                    <card class="card community-img-card shadow d-flex">
+    
+                        <img class="full-width-image" src="{{ community-image.ImagePath }}">
+    
+                    </card>
+                </div>
+    
+            {% endfor %}
+        </div>        
+    </div>
+    <!-- COMPLETE FOUR IMAGE ARRAY -- DESKTOP -->
+    <div class="container pb-5 px-5 d-none d-lg-block">
       <div class="row row-cols-1 row-cols-lg-4 g-3">
 
         {% for community-image in data_MainBody_FourImage_Array_Desktop %}
@@ -90,36 +93,94 @@ permalink: /community/
       </div>
     </div>
 
-    <!--         EVENTS SECONDARY BACKGROUND -- MOBILE  -->
-    <div class="container-fluid community-two-column-blueBackground-container  d-block d-xl-none p-0">
-        <div class="d-flex flex-column">
-            <div class="primary-section d-flex flex-column align-items-start justify-content-center p-4">
-            <div class="card community-events-card">
-                <p class="card-body h4--text p-4 ">{{ data_MainBody_FeatureListRow['left_Paragraph'].Text }}</p>
-            </div>
-            
-    
-            </div>
-            <div class="secondary-section p-4">
-            <div class="row row-cols-1 row-cols-lg-2 g-5">
-                {% for feature in data_MainBody_FeatureListRow['right_FeatureList'].Feature_array %}
-                <div class="col pt-3 mt-4">
-                    <div class="d-flex flex-column justify-content-center align-items-start">
-    
-                    <h2 class="h2--subheader-secondary">{{ feature.Title }}</h2>
-                    <p class="bodycontent--text-secondary p-0 m-0">{{ feature.SubText }}</p>
-                    
+
+    <!-- EVENTS SECONDARY BACKGROUND -- MOBILE  -->
+    <div class="container-fluid community-two-column-blueBackground-container  d-block d-xl-none p-0 mt-3">
+
+        <div class="primary-section d-flex flex-column align-items-center justify-content-center p-4">
+            <div class="card community-events-card p-4 shadow">
+                <h2 class="header--h1-primary">{{ data_MainBody_EventsRow['left_Card'].Title }}</h2>
+                <p class="card-body h4--text-smallerFont mt-0 mb-4 p-0 ">{{ data_MainBody_EventsRow['left_Card'].SubText }}</p>
+
+                <!-- EVENT LIST -->
+                {% for event-type in data_MainBody_EventsRow['left_Card'].EventType_array %}
+                <div class="col">
+                    <div class="d-flex flex-column justify-content-center align-items-start my-2">
+
+                        <div class="d-flex flex-row justify-content-center align-items-start">
+                            <!-- ICON -->
+                            <img src="{{ event-type.IconPath }}" alt="Usecase icon" class="flex-image community-event-calendar-icon me-4">
+
+                            <!-- TITLE -->
+                            <div class="community-event-categories-mobile p-0">{{ event-type.Title }}</div>
+                        </div>
+
                     </div>
                 </div>
-    
+                {% endfor %}
+
+                <!-- BUTTON -->
+                <div class="d-flex flex-column justify-content-center align-items-center mt-4 mb-2">
+                    <a class="btn btn-primary-dark-community shadow " href="{{ data_MainBody_EventsRow['left_Card'].Button.ButtonLink }}" aria-current="Events button">
+                
+                        <div class="row button-content justify-content-center">
+                            <div class="button-content-text col-auto">
+                                {{  data_MainBody_EventsRow['left_Card'].Button.ButtonText }}
+                            </div>
+                            <div class="button-content-icon col-auto px-0 ms-1 me-1 align-self-center">
+                                {% include icons_navbar.html type='chevron-in-circle' %}
+                            </div>
+                        </div>
+            
+                    </a>
+
+                </div>
+
+
+
+            </div>
+
+
+        
+
+        </div>
+
+        <div class="secondary-section p-4">
+            <div class="d-flex flex-column justify-content-start align-items-start">
+
+                <h1 class="header--h1-primary">{{ data_MainBody_EventsRow['right_Section'].Title }}</h1>
+                <p class="subheading--text p-0 mt-1">{{ data_MainBody_EventsRow['right_Section'].SubText }}</p>
+            </div>
+            <div class="row row-cols-1 g-5 mt-2">
+                {% for CommunityType in data_MainBody_EventsRow['right_Section'].CommunityType_array %}
+                    <div class="row mb-4 px-3">
+                        <!-- ICON -->
+                        <div class="col-4 icon-div-box">
+                            {% include icons_navbar.html type=CommunityType.Icon class='object-fit-contain' %}
+                        </div>
+                        <!-- HEADING -->
+                        <div class="col pe-0">
+
+                            <div class="row mb-1">
+                                <a href='{{ CommunityType.URL }}' class="subheader--h3-link">{{ CommunityType.Name }}</a>
+                            </div>
+
+                            <div class="row">
+                                <span class="mb-0 pe-0 "h4--text-smallerFont">{{ CommunityType.SubText }}</span>
+                            </div>
+
+
+
+                        </div>
+                    </div>
                 {% endfor %}
             </div> 
-    
-            </div>
+
+
         </div>
     </div>
 
-    <!-- COMPLETE EVENTS SECONDARY BACKGROUND -- DESKTOP  -->
+    <!-- EVENTS SECONDARY BACKGROUND -- DESKTOP  -->
     <div class="container community-two-column-blueBackground-container  d-none d-xl-block">
         <div class="row">
             <div class="col-4 primary-section d-flex flex-column align-items-center justify-content-center p-4">
@@ -208,60 +269,42 @@ permalink: /community/
         </div>
     </div>
 
-
-
-
     <!-- OPENSEARCH CON SECTION -- MOBILE-->
-    <div class="container two-column-primary-container d-block d-xxl-none">
+    <div class="container community-two-column-primary-container d-block d-xxl-none">
 
-        <div class="d-flex flex-column justify-content-center align-items-center pt-5">
+        <div class="d-flex flex-column justify-content-start align-items-start  py-5 px-4">
 
-            <h2 class="h2--subheader align-self-start">{{ data_MainBody_FurtherResourcesRow['left_BlogColumn'].Title }}</h2>
-            <div class="d-flex flex-column justify-content-center align-items-center px-1">
-            {% for resourceCard in data_MainBody_FurtherResourcesRow.left_BlogColumn['Blog_array'] %}
-            <div class="col mb-5">
-                <card class="card blog-card shadow">
+            <h1 class="header--h1-primary">{{ data_MainBody_OpenSearchCon_Row['left_LargeImage_Column'].Title }}</h1>
 
-                <div class="card-body d-flex flex-column  p-4">
-                    <a href="{{ resourceCard.Link }}" class="stretched-link"></a>
-                    <span class="card-text">{{ resourceCard.Type }}</span>
-                    <h5 class="card-title py-2">{{ resourceCard.Title }}</h5>
-                    <span class="card-subtext">{{ resourceCard.SubText }}</span>
+            <div class=" d-flex flex-column justify-content-center align-items-center">
+                <div class=" py-3">
+
+                    <img src="{{ data_MainBody_OpenSearchCon_Row['left_LargeImage_Column'].ImagePath }}" alt="OpenSearch keynote image" class="flex-image shadow">
+        
                 </div>
-
-                </card>
+                <div class="py-3">
+        
+                    <div class="h4--text m-0">{{ data_MainBody_OpenSearchCon_Row['left_LargeImage_Column'].Text }}</div>
+                    
+                </div>
             </div>
 
-            {% endfor %}
-            </div>
-            
-            
+
         </div>
 
-        <div class="d-flex flex-column justify-content-start align-items-start py-5">
-
-            <h2 class="h2--subheader">{{ data_MainBody_FurtherResourcesRow['right_LargeImageColumn'].Title }}</h2>
-            <div class="d-flex flex-column justify-content-center align-items-center px-1">
-
-            {% for resourceGraphic in data_MainBody_FurtherResourcesRow.right_LargeImageColumn['Feature_array'] %}
-
-            <div class="col mt-4">
-                <div class="d-flex flex-column justify-content-start align-items-start">
-
-                <!-- ICON -->
-                <img src="{{ resourceGraphic.Icon }}" alt="Usecase icon" class="flex-image usecase-icon  align-self-center">
-                <!-- CONTENT -->
-                <span class="usecase-header mb-2">{{ resourceGraphic.Title }}</span>
-                <span class="usecase-subtext">{{ resourceGraphic.SubText }}</span>
-                
-
-                </div>
+        <div class="secondarySection-dark-background d-flex flex-column align-items-start justify-content-start px-3 py-5">
+            <!-- HEADER AND ICON -->
+            <div class="d-flex flex-row align-items-start justify-content-center">
+                <span class="header--h1-primary">{{ data_MainBody_OpenSearchCon_Row['right_OpenSearchConSchedule_Column'].Title }}</span>
             </div>
 
-            {% endfor %}
-
-            </div>
-
+            <!-- OPENSEARCH CON LIST -->
+            <ul class="mx-4">
+                {% for Conference in data_MainBody_OpenSearchCon_Row['right_OpenSearchConSchedule_Column'].Conferance_array %}
+                    <li class="text--listItem-darkBackground"><a href="{{ Conference.URL }}"" class="{{ Conference.ClassValue }} ">{{ Conference.Name }}</a></li>
+                {% endfor %}
+            </ul>
+            
         </div>
         
     </div>
@@ -315,9 +358,80 @@ permalink: /community/
         </div>
     </div>
 
+    <!-- CONTRIBUTING SECTION -- MOBILE-->
+    <div class="container community-twoColumn-contributing-container d-block d-lg-none">
+
+
+        <div class="primary-section ">
+            <div class="d-flex flex-column justify-content-start align-items-start  py-5 px-3">
+
+                <h1 class="header--h1-primary">{{ data_MainBody_Contributing_Row['left_Column'].Title }}</h1>
+                <div class="h4--text-smallerFont p-0 mt-1">{{ data_MainBody_Contributing_Row['left_Column'].SubText }}</div>
+
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center px-5 pb-4">
+                <div class="row row-cols-1 g-4">
+                    {% for ContributionType in data_MainBody_Contributing_Row['left_Column'].contributingCards_grid %}
+                        <div class="col">
+                            <div class="card d-flex flex-column justify-content-center align-items-center shadow {{ ContributionType.card_ClassValue }}">
+        
+                                <img src="{{ContributionType.IconPath}}" alt="OpenSearch {{ContributionType.Name}}" class="iconography card-icon community-page-iconCard {{ContributionType.ClassValue}}">
+                                <span class="card-title text-center subheader--h3-link-mobile pt-2 px-3">{{ ContributionType.Name }}</span>
+                                <a href="{{ ContributionType.URL }}" class="stretched-link"></a>
+    
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
 
 
 
+
+        </div>
+        
+        <div class="secondary-section px-3 py-5">
+
+            <div class="d-flex flex-column justify-content-start align-items-start">
+
+                <h1 class="header--h1-primary">{{ data_MainBody_Contributing_Row['right_Column'].Title }}</h1>
+                <div class="h4--text-smallerFont p-0 mt-1">{{ data_MainBody_Contributing_Row['right_Column'].SubText }}</div>
+
+            </div>
+            <!-- HEADER AND ICON -->
+            <div class="d-flex flex-column align-items-center justify-content-center px-1 pt-4">
+
+                <img src="{{ data_MainBody_Contributing_Row['right_Column'].ImagePath }}" alt="Builders wanted image" class="flex-image">
+                
+                <!-- BUTTON -->
+                <div class="d-flex flex-column justify-content-center align-items-center pt-5 mb-2">
+                    <a class="btn btn-primary-dark-community-smallerText shadow" href="{{ data_MainBody_Contributing_Row['right_Column'].Button.ButtonLink }}" aria-current="User Groups button">
+                
+                        <div class="row button-content justify-content-center">
+                            <div class="button-content-text col-auto">
+                                {{  data_MainBody_Contributing_Row['right_Column'].Button.ButtonText-Mobile }}
+                            </div>
+                            <div class="button-content-icon col-auto px-0 align-self-center">
+                                {% include icons_navbar.html type='chevron-in-circle' %}
+                            </div>
+                        </div>
+            
+                    </a>
+
+                </div>
+    
+            </div>
+
+
+            
+            
+        </div>
+
+
+        
+    </div>
 
 
 
@@ -332,39 +446,44 @@ permalink: /community/
                     <div class="h4--text-smallerFont p-0 mt-1">{{ data_MainBody_Contributing_Row['left_Column'].SubText }}</div>
 
                 </div>
+                <div class="d-flex flex-column justify-content-center align-items-center px-2 px-lg-4 pb-lg-4 pb-2">
+                    <div class="row row-cols-2 g-4">
+                        {% for ContributionType in data_MainBody_Contributing_Row['left_Column'].contributingCards_grid %}
+                            <div class="col">
+                                <div class="card d-flex flex-column justify-content-center align-items-center shadow {{ ContributionType.card_ClassValue }}">
+         
+                                    <img src="{{ContributionType.IconPath}}" alt="OpenSearch {{ContributionType.Name}}" class="iconography card-icon community-page-iconCard {{ContributionType.ClassValue}}">
+                                    <span class="card-title text-center subheader--h3-link pt-2 px-3">{{ ContributionType.Name }}</span>
+                                    <a href="{{ ContributionType.URL }}" class="stretched-link"></a>
+        
+                                </div>
+                            </div>
 
-                <div class="row row-cols-1 row-cols-lg-2 g-5 mt-3">
-                    {% for ContributionType in data_MainBody_Contributing_Row['left_Column'].contributingCards_grid %}
+                        {% endfor %}
+                    </div>
 
-                        <div class="card card-verticallystacked-icon homepage-community-icon-card {{ ContributionType.card_ClassValue }}">
-     
-                            <img src="{{ContributionType.IconPath}}" alt="OpenSearch {{ContributionType.Name}}" class="iconography card-icon {{ContributionType.ClassValue}}">
-                            <span class="card-title">{{ ContributionType.Name }}</span>
-                            <a href="{{ ContributionType.URL }}" class="stretched-link"></a>
-
-                        </div>
-                    {% endfor %}
                 </div>
+
 
 
 
             </div>
             
-            <div class="secondary-section col-6 d-flex flex-column align-items-start justify-content-start px-3 py-5">
+            <div class="secondary-section col-6 px-3 py-5">
 
-                <div class="d-flex flex-column justify-content-start align-items-start  py-5 px-4">
+                <div class="d-flex flex-column justify-content-start align-items-start px-4">
 
                     <h1 class="header--h1-primary">{{ data_MainBody_Contributing_Row['right_Column'].Title }}</h1>
                     <div class="h4--text-smallerFont p-0 mt-1">{{ data_MainBody_Contributing_Row['right_Column'].SubText }}</div>
 
                 </div>
                 <!-- HEADER AND ICON -->
-                <div class="col d-flex flex-column align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center justify-content-center px-4 pt-4">
     
-                    <img src="{{ data_MainBody_Contributing_Row['right_Column'].ImagePath }}" alt="Builders wanted image" class="flex-image">
+                    <img src="{{ data_MainBody_Contributing_Row['right_Column'].ImagePath }}" alt="Builders wanted image" class="flex-image p-4">
                     
                     <!-- BUTTON -->
-                    <div class="d-flex flex-column justify-content-center align-items-center mt-4 mb-2">
+                    <div class="d-flex flex-column justify-content-center align-items-center pt-5 mb-2">
                         <a class="btn btn-primary-dark-community shadow " href="{{ data_MainBody_Contributing_Row['right_Column'].Button.ButtonLink }}" aria-current="User Groups button">
                     
                             <div class="row button-content justify-content-center">
@@ -391,48 +510,15 @@ permalink: /community/
         
     </div>
 
-
-
-
-
-    <!-- GET STARTED BANNER -- MOBILE -->
-    <div class="container-fluid green-background-container d-flex flex-column justify-content-center align-items-center py-3 d-block d-lg-none shadow">
-      <h1 class="header--h1-primary m-0 px-2 pb-3 text-center" >{{ data_MainBody_GetStartedBannerRow.Text }}</h1>
-      <a class="btn shadow rounded-pill btn-dark-tertiary-midnight" href="{{ data_MainBody_GetStartedBannerRow.ButtonLink }}">{{ data_MainBody_GetStartedBannerRow.ButtonText }}</a>
-    </div>
-    <!-- GET STARTED BANNER -- DESKTOP -->
-    <div class="green-background-container py-4 d-none d-lg-block shadow">
+    <!-- USER GROUP BANNER -- DESKTOP -->
+    <div class="blue-background-container py-4 d-none d-lg-block shadow">
       <div class="d-flex flex-row justify-content-center align-items-center">
-        <h1 class="header--h1-primary m-0 flex-grow" >{{ data_MainBody_GetStartedBannerRow.Text }}</h1>
-        <a class="ms-4 btn shadow rounded-pill btn-dark-tertiary-midnight" href="{{ data_MainBody_GetStartedBannerRow.ButtonLink }}">{{ data_MainBody_GetStartedBannerRow.ButtonText }}</a>
+        <img src="{{ data_MainBody_UserGroupBanner_Row.IconPath }}" alt="OpenSearch {{data_MainBody_UserGroupBanner_Row.Text}}" class="icon-homepage-community-withSurroundingCircle icon-div-box-Large me-3">
+        <h1 class="header--h1-secondary m-0 flex-grow px-2" >{{ data_MainBody_UserGroupBanner_Row.Text }}</h1>
+        <a class=" btn shadow rounded-pill btn-dark-tertiary-midnight" href="{{ data_MainBody_UserGroupBanner_Row.ButtonLink }}">{{ data_MainBody_UserGroupBanner_Row.ButtonText }}</a>
       </div>
 
     </div>
-
-
-
-    <!-- PLAYGROUNDS -- MOBILE-->
-    <div class="container d-block d-lg-none">
-      <div class="d-flex flex-column justify-content-center align-items-center py-5">
-        
-        <h2 class="h2--subheader pb-3">{{ data_MainBody_PlaygroundsRow.Subheader }}</h2>
-        <img src="{{ data_MainBody_PlaygroundsRow.ImagePath }}" alt="Playgrounds image" class="flex-image shadow pb-4 px-2">
-        <p class="h4--text m-0 pt-2 pb-4 text-center">{{ data_MainBody_PlaygroundsRow.SubText }}</p>
-        <a class="btn btn-primary-dark-usecase shadow " href="{{ data_MainBody_PlaygroundsRow.ButtonLink }}" aria-current="Playground button">           
-          <div class="row button-content">
-              <div class="button-content-text col-auto">
-                {{ data_MainBody_PlaygroundsRow.ButtonText }}
-              </div>
-              <div class="button-content-icon col-auto px-0 ms-1 me-1 align-self-center">
-                  {% include icons_navbar.html type='chevron-in-circle' %}
-              </div>
-          </div>
-        </a>
-
-
-      </div>
-    </div>
-
 
     <!-- PLAYGROUNDS -- DESKTOP-->
     <div class="container d-none d-lg-block">
