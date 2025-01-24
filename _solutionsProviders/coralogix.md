@@ -12,7 +12,7 @@ description: 'Harmonious, Full-Stack Observability at Scale. As data volumes con
 
 region:           Global
 industries:       Software and Technology
-business_type:    Independent Software Vendor (ISV),Managed Services Provider (MSP)
+business_type:    Independent Software Vendor (ISV),Managed Service Provider (MSP)
 opensearch_tech:  Search,Observability,Analytics,Security
 
 products:

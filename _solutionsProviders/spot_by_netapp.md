@@ -9,7 +9,7 @@ contact: '+1 408 822 6000, nfo@spot.io, https://spot.io/contact/'
 
 region:           Global
 industries:       Software and Technology,Financial Services
-business_type:    Managed Services Provider (MSP),Professional Services
+business_type:    Managed Service Provider (MSP),Professional Services
 opensearch_tech:  Search,Observability,Machine Learning and AI,Logs and Metrics,Migration,Analytics,Security
 
 

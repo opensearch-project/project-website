@@ -10,7 +10,7 @@ product_image: '/assets/media/partners/maxcluster/maxcluster-product.jpg'
 description: 'maxcluster operates scalable, fail-safe and high-performance managed web clusters for e-commerce businesses. This includes 24/7/365 support by trained Linux administrators and a tech stack designed for the continuous operation of shop systems such as Magento or Shopware. Applications can be set up via the administration interface using pre-configured presets.'
 
 opensearch_tech: Search,Security
-business_type: Managed Services Provider (MSP)
+business_type: Managed Service Provider (MSP)
 region: Europe
 industries: Business Services
 

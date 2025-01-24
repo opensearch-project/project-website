@@ -21,7 +21,7 @@ contact_phone: 3-363-232-0964
 
 region:           Europe
 industries:       Software and Technology
-business_type:    Consultancy,Managed Services Provider (MSP),Systems Inegrator,Training,Professional Services
+business_type:    Consultancy,Managed Service Provider (MSP),Systems Inegrator,Training,Professional Services
 opensearch_tech:  Search,Observability,Logs and Metrics,Machine Learning and AI
 
 
