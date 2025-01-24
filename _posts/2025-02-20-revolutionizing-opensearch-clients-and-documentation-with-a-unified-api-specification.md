@@ -9,7 +9,7 @@ authors:
  - saimedhi
  - vachshah
  - kolchfa
- - nbower
+ - naarcha
 date: 2025-02-20
 categories:
  - newsletter
