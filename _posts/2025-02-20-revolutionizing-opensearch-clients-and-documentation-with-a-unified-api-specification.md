@@ -54,7 +54,7 @@ Looking ahead, having a complete specification will enable us to rapidly develop
 
 ## Generating documentation from the specification  
 
-Like the clients, OpenSearch documentation faced challenges keeping pace with rapid development. The process of manually writing and updating descriptions for each API's parameters, requests, and responses was time-consuming and error-prone. Documentation would occasionally become inconsistent with both the clients and the server, causing user confusion. These inconsistencies created a poor experience for our users made it more difficult for new applications to adopt OpenSearch.
+Like the clients, OpenSearch documentation faced challenges keeping pace with the rapid development of OpenSearch server and plugins. The process of manually writing and updating descriptions for each API's parameters, requests, and responses was time-consuming and error-prone. Documentation would occasionally become inconsistent with both the clients and the server, causing user confusion. These inconsistencies created a poor experience for our users made it more difficult for new applications to adopt OpenSearch.
 
 We've begun addressing this by generating documentation components directly from the OpenSearch API specification. For example, [path and query parameter tables are now generated from the spec](https://github.com/opensearch-project/documentation-website/pull/8692), replacing handwritten tables. This process has also helped uncover and correct spec errors.  
 
@@ -72,7 +72,7 @@ Over the past year, it has been rewarding to witness the evolution and improveme
 
 We couldn't have achieved this without the dedication of our contributors. Their feedback, suggestions, and contributions have been invaluable to the project. The Amazon OpenSearch team would like to give a special thanks to the following contributors for their outstanding work on the OpenSearch API specification:
 
-* [Niyazbek Torekeldi](https://github.com/Tokesh): For his work on completing the OpenSearch API specification by adding missing APIs and fixing numerous spec errors. Tokesh also helped us reach 100% test coverage for the spec.
+* [Niyazbek Torekeldi](https://github.com/Tokesh): For backfilling the OpenSearch API specification with missing APIs and fixing numerous spec errors. Tokesh also helped us reach 100% test coverage for the spec.
 * [Andriy Redko](https://github.com/reta): For his many contributions to the OpenSearch project, especially for sharing his expertise during many discussions about the spec repository.
 
 ## Looking ahead  
