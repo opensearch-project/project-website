@@ -101,6 +101,37 @@ $desktop-banner-height: 450px;
             background-color: $primary-open-sky-t3;
         }
     }
+
+    .community-two-column-primary-container{
+        background-color: $secondary-sanfrancisco-fog-t1;
+        .largeImage-twoColumn{
+            
+            min-width: 450px;
+        }
+        .h4--text-smallerFont{
+            font-size: 21px;
+            line-height: 36px;
+        }
+        .secondarySection-dark-background {
+            background-color: $primary-open-sky-s3;
+
+            .header--h1-primary {
+                color: $secondary-golden-poppy;
+            }
+            .community-active-link{
+                color: $primary-open-sky-t1;
+            }
+            .grayedOut-no-link {
+                display: list-item;
+                list-style-type: none;
+                text-decoration: none;
+                pointer-events: none;
+                color: white;
+            }
+        }
+    }
+
+
 }
 .flex-image{
     width: 100%;
@@ -125,33 +156,47 @@ $desktop-banner-height: 450px;
         line-height: 36px;
         word-wrap: break-word; 
     }
-    .h4--text{
-        font-size: 20px;
-    }
 }
 .green-background-container {
     background-color: $secondary-seafoam-mint-t1;
 }
 
 
+.community-twoColumn-contributing-container {
+    .primary-section {
+        background-color: $primary-open-sky-t3;
 
-.usecase-icon{
-    width: 130px;
-    height: 130px;
+        .card_bottomBorder_black {
+            background-color: white;
+            max-width: 250px;
+        }
+        .card_bottomBorder_yellow {
+            background-color: white;
+            max-width: 250px;
+        }
+        .card_bottomBorder_blue {
+            background-color: white;
+            max-width: 250px;
+        }
+        .card_bottomBorder_purple {
+            background-color: white;
+            max-width: 250px;
+        }
+    }
+
+    .secondary-section {
+        background-color: white;
+    }
 }
+
+
+
+
 .community-card-header{
     color: #963CBD;
     font-size: 20px;
     font-family: Open Sans;
     font-weight: 700;
-    line-height: 30px;
-    word-wrap: break-word; 
-}
-.usecase-subtext{
-    color: black;
-    font-size: 18px;
-    font-family: Open Sans;
-    font-weight: 400;
     line-height: 30px;
     word-wrap: break-word; 
 }

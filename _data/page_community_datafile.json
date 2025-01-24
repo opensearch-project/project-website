@@ -62,87 +62,145 @@
                         "ButtonLink": "/events/"
                     }
                 },
-                "right_FeatureList" : {
-                    "Feature_array": [
+                "right_Section" : {
+                    "Title": "Ways to get involved ",
+                    "SubText": "Find answers and join the conversation",
+                    "CommunityType_array": [
                         {
-                            "Title": "Proactive issue identification",
-                            "SubText": "Quickly detect anomalies in your data to identify and address potential issues before they escalate, reducing the impact on business operations and customer experience."
-                        }, 
+                            "Name": "Forum",
+                            "SubText": "Find answers to your questions and help others in the community",
+                            "URL": "https://forum.opensearch.org/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Forum-Icon-condensedImage"
+                        },
                         {
-                            "Title": "Enhanced security and compliance",
-                            "SubText": "Identify and investigate security threats and demonstrate compliance with industry regulations and standards."
-                        }, 
+                            "Name": "Community Members",
+                            "SubText": "Community member profiles.",
+                            "URL": "/community/members/index.html",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Members-Icon-condensedImage"
+                        },
                         {
-                            "Title": "Scalability and future-proofing",
-                            "SubText": "Scalable and flexible architecture expands your anomaly detection capabilities seamlessly as data volume grows alongside infrastructure complexity."
-                        }, 
+                            "Name": "Events",
+                            "SubText": "See all of our upcoming live and virtual events",
+                            "URL": "/events/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Events-condensedImage",
+                            "ID": "events-link"
+                        },
                         {
-                            "Title": "Improved operational efficiency",
-                            "SubText": "Gain an AI advantage that helps you rapidly identify and resolve anomalies to optimize processes, reduce manual troubleshooting, and smooth operations."
-                        }, 
+                            "Name": "Projects",
+                            "SubText": "Highlights of projects built by the community.",
+                            "URL": "/community_projects/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Projects-Icon-condensedImage"
+                        },
                         {
-                            "Title": "Informed decision-making",
-                            "SubText": "OpenSearch delivers the insights and contextual information you need to make data-driven decisions, optimize resource allocation, and improve strategic planning."
+                            "Name": "User Groups",
+                            "SubText": "Join the OpenSearch Project Meetup Network",
+                            "URL": "/usergroups/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-UserGroups-Icon-condensedImage"
+                        },
+                        {
+                            "Name": "Slack",
+                            "SubText": "Chat with other developers",
+                            "URL": "/slack.html",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Slack-condensedImage"
+                        }
+
+
+
+
+                    ],
+                    "Button" : {
+                        "ButtonText": "Find an event",
+                        "ButtonLink": "/events/"
+                    }
+                }
+            }, 
+            "TwoColumn_OpenSearchCon_row" : {
+                "left_LargeImage_Column" : {
+                    "Title": "OpenSearchCon User Conferences",
+                    "Text": "OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by the OpenSearch community. <br/>Find an OpenSearchCon near you!",
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-Keynote.png"
+                },
+                "right_OpenSearchConSchedule_Column" : {
+                    "Title": "Upcoming OpenSearchCons",
+                    "IconPath": "/assets/img/iconography/OpenSearch-Community.png",
+                    "Conferance_array": [
+                        {
+                            "Name": "Europe - April 30 - May 1, Amsterdam",
+                            "ClassValue": "community-active-link",
+                            "URL": "https://events.linuxfoundation.org/opensearchcon-europe/"
+                        },
+                        {
+                            "Name": "India - June 3 - 4, Bengaluru",
+                            "ClassValue": "community-active-link",
+                            "URL": "https://events.linuxfoundation.org/opensearchcon-india/"
+                        },
+                        {
+                            "Name": "North America | TBD",
+                            "ClassValue": "grayedOut-no-link",
+                            "URL": "#"
+                        },
+                        {
+                            "Name": "China | TBD",
+                            "ClassValue": "grayedOut-no-link",
+                            "URL": "#"
+                        },
+                        {
+                            "Name": "Japan | TBD",
+                            "ClassValue": "grayedOut-no-link",
+                            "URL": "#"
                         }
                     ]
                 }
-            }, 
-            "TwoColumn_FurtherResources_row" : {
-                "left_BlogColumn" : {
-                    "Title": "Explore further resources",
-                    "Blog_array": [
+            },
+            "TwoColumn_Contributing_row" : {
+                "left_Column" : {
+                    "Title": "Start contributing",
+                    "SubText": "Get involved with the project today!",
+                    "contributingCards_grid": [
                         {
-                            "Type": "OpenSearch Blog",
-                            "Title": "Overlaying anomalies and alters on OpenSearch Dashboards visualizations",
-                            "Link": "",
-                            "Icon": "/assets/img/iconography/OpenSearch-AI.png",
-                            "SubText": "Wed, Aug 2, 2023"
+                            "Name" : "Join the project on GitHub",
+                            "URL": "https://github.com/opensearch-project",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Github.png",
+                            "card_ClassValue" : "card_bottomBorder_black",
+                            "ClassValue": "icon-homepage-community-socialLink"
                         },
                         {
-                            "Type": "OpenSearch Video",
-                            "Title": "Leveraging anomaly detection for UEBA at Graylog",
-                            "Link": "",
-                            "Icon": "/assets/img/iconography/Youtube-frame.png",
-                            "SubText": "Watch on YouTube"
+                            "Name" : "Submit a feature request",
+                            "URL": "https://github.com/opensearch-project/project-website/issues",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Clients.png",
+                            "card_ClassValue" : "card_bottomBorder_yellow",
+                            "ClassValue": "icon-homepage-community-socialLink"
                         },
                         {
-                            "Type": "OpenSearch Blog",
-                            "Title": "Anomaly detection for historical data and real-time streaming...",
-                            "Link": "",
-                            "Icon": "/assets/img/iconography/OpenSearch-AI.png",
-                            "SubText": "Thu, Nov 18, 2021"
+                            "Name" : "Become a Solutions Provider",
+                            "URL": "/https://github.com/opensearch-project/project-website/issues/new?template=solutionsProvider_add_new_solutionsProvider.yml/",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Providers-Icon.png",
+                            "card_ClassValue" : "card_bottomBorder_blue",
+                            "ClassValue": "icon-homepage-community-socialLink"
+                        },
+                        {
+                            "Name": "Write a blog post",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Forum.png",
+                            "URL": "/blog/",
+                            "ClassValue": "icon-homepage-community-withSurroundingCircle",
+                            "card_ClassValue" : "card_bottomBorder_purple"
                         }
                     ]
                 },
-                "right_LargeImageColumn" : {
-                    "Title": "Custom anomaly detection workflows powered by intelligent, scalable, highly adaptable features",
-                    "Feature_array": [
-                        {
-                            "Title": "Real time data ingestion and indexing",
-                            "SubText": "Continuously collect and index data from multiple sources to ensure you’re conducting anomaly detection on the most up-to-date information.",
-                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-DataConsumer-PurpleMint.png"
-                        },
-                        {
-                            "Title": "Advanced anomaly detection algorithms",
-                            "SubText": "Leverage cutting-edge AI and machine learning algorithms to identify problems in your ingested data, including univariate, multivariate, and contextual anomalies.",
-                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-AI-MachineLearning-PurpleMint.png"
-                        },
-                        {
-                            "Title": "Flexible alerting and notifications",
-                            "SubText": "Our Anomaly Detection tools enable customizable alerts and notifications you can use to inform your stakeholders and resolve issues proactively.",
-                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-DataProducer-PurpleMint.png"
-                        },
-                        {
-                            "Title": "Scalable and distributed architecture",
-                            "SubText": "OpenSearch’s distributed, highly scalable nature helps you ingest, process, and analyze large volumes of data without compromising performance.",
-                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-Infrastructure-PurpleMint.png"
-                        },
-                        {
-                            "Title": "Seamless integration with existing toolsets",
-                            "SubText": "Easily integrate OpenSearch into the monitoring, observability, and IT service management (ITSM) tools you already use to maintain seamless continuity with existing technology investments and workflows.",
-                            "Icon": "/assets/img/pageAssets_usecasepages/pageGraphic-Icon-Platform-PurpleMint.png"
-                        }
-                    ]
+                "right_Column" : {
+                    "Title": "OpenSearch User Groups",
+                    "SubText": "Meet other community members across the world. Join virtual or in-person meetups, triages, technical discussions and more!",
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-BuildersWanted.png",
+                    "Button" : {
+                        "ButtonText": "Find a User Group near you",
+                        "ButtonLink": "/user-groups/"
+                    }
                 }
             },
 

@@ -46,6 +46,14 @@
         text-decoration: underline;
     }
 }    
+.subheading--text {
+    color: black;
+    font-size: 24px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    line-height: 48px;
+    word-wrap: break-word; 
+}
 .bodycontent--text {
     color: $primary-open-sky-s3;
     font-size: 15px;
@@ -68,4 +76,30 @@
         color: $primary-open-sky;
         text-decoration: underline;
     }
+}
+.h4--text{
+    color: black;
+    font-size: 24px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    line-height: 48px;
+    word-wrap: break-word; 
+}
+.h4--text-smallerFont{
+    color: black;
+    font-size: 18px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    line-height: 27px;
+    word-wrap: break-word; 
+}
+
+.text--listItem-darkBackground{
+    color: $primary-open-sky-t1;
+    
+    font-size: 21px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    line-height: 40px;
+    word-wrap: break-word; 
 }
