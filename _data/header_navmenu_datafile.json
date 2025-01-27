@@ -270,7 +270,8 @@
             "LeftColumn": [
                 {
                     "Title": "OpenSearch Community",
-                    "ClassValue": "drawer-content-header",
+                    "ClassValue" : "drawer-content-header-link",
+                    "URL": "/community/",
                     "SubNav": [
                         {
                             "Name": "Forum",
@@ -280,7 +281,7 @@
                             "Icon": "OpenSearch-Forum-Icon-condensedImage"
                         },
                         {
-                            "Name": "Providers",
+                            "Name": "Solution Providers",
                             "SubText": "Find open-source providers offering solutions and services.",
                             "URL": "/solutionsProviders/",
                             "ClassValue" : "drawer-content-subheader-link",
@@ -309,7 +310,7 @@
                             "Icon": "OpenSearch-Members-Icon-condensedImage"
                         },
                         {
-                            "Name": "UserGroups",
+                            "Name": "User Groups",
                             "SubText": "Join the OpenSearch Project Meetup Network",
                             "URL": "/usergroups/",
                             "ClassValue" : "drawer-content-subheader-link",
@@ -324,7 +325,7 @@
                     "SubNav": [
                         {
                             "Name": "Slack",
-                            "SubText": "Speak with other developers.",
+                            "SubText": "Speak with other developers in the OpenSearch community in our public Slack.",
                             "URL": "/slack.html",
                             "ClassValue" : "drawer-content-subheader-link",
                             "Icon": "OpenSearch-Slack-condensedImage"

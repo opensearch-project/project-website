@@ -13,7 +13,7 @@ contact: 'grant.herbon@oracle.com'
 
 region:           Global
 industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
-business_type:    Managed Services Provider (MSP), Independent Software Vendor (ISV)
+business_type:    Managed Service Provider (MSP), Independent Software Vendor (ISV)
 opensearch_tech:  Search,Observability,Analytics,Machine Learning and AI,Security,Migration
 
 
