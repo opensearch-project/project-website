@@ -22,4 +22,4 @@ permalink: '/community/members/william-beckler.html'
 redirect_from: '/authors/wbeckler/'
 ---
 
-**William Beckler** is a former Software Development Manager at AWS working on OpenSearch. He helped lay the groundwork for AWS OpenSearch to transfer to the Linux Foundation. William also spearheaded the Client API Generation project. 
+**William Beckler** is a former Software Development Manager at AWS working on OpenSearch. He helped lay the groundwork for the OpenSearch Project to transfer to the Linux Foundation. William also spearheaded the Client API Generation project. 
