@@ -1,7 +1,7 @@
 ---
 name: initMAX s.r.o.
 name_long: initMAX s.r.o.
-logo: '/assets/media/partners//initmax/initmax.png'
+logo: '/assets/media/partners/initmax/initmax.png'
 link: 'https://www.initmax.com'
 logo_large: '/assets/media/partners/initmax/logo_large.png'
 product_image: '/assets/media/partners/initmax/initmax-product.png'

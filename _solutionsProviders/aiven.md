@@ -12,7 +12,7 @@ contact: 'https://aiven.io/contact'
 opensearch_tech:  Search,Observability,Analytics,Logs and Metrics
 region:           Global
 industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
-business_type:    Managed Services Provider (MSP)
+business_type:    Managed Service Provider (MSP)
 
 
 

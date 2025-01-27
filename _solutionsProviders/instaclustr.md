@@ -13,7 +13,7 @@ contact: 'support@instaclustr.com'
 
 region:           Global
 industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
-business_type:    Managed Services Provider (MSP)
+business_type:    Managed Service Provider (MSP)
 opensearch_tech:  Search,Analytics,Observability,Security,Logs and Metrics
 
 

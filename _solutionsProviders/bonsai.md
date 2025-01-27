@@ -13,7 +13,7 @@ contact: 'team@bonsai.io'
 
 region:           Global
 industries:       Education,Healthcare,Media and Entertainment,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
-business_type:    Managed Services Provider (MSP)
+business_type:    Managed Service Provider (MSP)
 opensearch_tech:  Search
 
 

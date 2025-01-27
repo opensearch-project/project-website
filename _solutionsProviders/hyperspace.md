@@ -13,7 +13,7 @@ contact: amits@hyper-space.io
 
 region:           Global
 industries:       Education,Financial Services,Healthcare,Media and Entertainment,Retail and e-Commerce,Non-Profit,Software and Technology
-business_type:    Managed Services Provider (MSP)
+business_type:    Managed Service Provider (MSP)
 opensearch_tech:  Search
 
 
