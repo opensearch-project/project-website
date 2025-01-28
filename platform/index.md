@@ -21,7 +21,7 @@ platform_products:
   collection:
     - OpenSearch Core
     - OpenSearch Dashboards
-    - Data Prepper
+    - OpenSearch Data Prepper
 feature_area_category_name: Platform
 feature_area_solution_name: Core
 hero_images:

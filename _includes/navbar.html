@@ -20,7 +20,7 @@
 {% assign datafile = "header_navmenu_datafile.json" %}
 {% assign data_mobile_nav = site.data.header_navmenu_datafile.Mobile  %}
 <!-- MOBILE ACCORDION NAV MENU -->
-<div class="mobile-nav-topLevel-wrapper d-block d-lg-none mb-5">
+<div class="mobile-nav-topLevel-wrapper d-block d-lg-none">
     <div class="accordion accordion-flush mobile-nav-topLevel-accordion" id="mobile-nav-topLevel">
 
         <!-- OPENSEARCH ICON AND TOP LEVEL NAV ICON -->
@@ -357,11 +357,11 @@
                                                 {% assign post_metadata_date_string = "" %}
 
                                                 <!-- Date -->
-                                                {% assign post_metadata_date_string = post_metadata_date_string | append: post.date | date: "%b %d, %Y" %}
+                                                {% assign post_metadata_date_string = post_metadata_date_string | append: post.date | date: "%b %d" %}
                             
 
                                                 <tr>
-                                                    <td scope="row"><a class="megamenu-blog-title" href="{{  post.url }}" >{{ post.title }}</a></td>
+                                                    <td ><a class="megamenu-blog-title" href="{{  post.url }}" >{{ post.title | truncate: 80 }}</a></td>
                                                     <td class="megamenu-blog-date">{{ post_metadata_date_string }}</td>
                                                 </tr>
 
@@ -460,7 +460,7 @@
                                     {% for nav_link in content_section.SubNav %}
                                         <div class="row mb-4">
                                             <div class="col-4 icon-div-box">
-                                                {% include icons.html type=nav_link.Icon class='object-fit-contain' %}
+                                                {% include icons_navbar.html type=nav_link.Icon class='object-fit-contain' %}
                                             </div>
                                             <div class="col pe-0">
 
@@ -700,7 +700,7 @@
 
 </div>
 
-<script type="module">
+<!-- <script type="module">
 
     // Initialize the calendar view menu item to target the current month's calendar
     document.addEventListener('DOMContentLoaded', () => {
@@ -712,5 +712,5 @@
         eventsLinkSelector.setAttribute("href", `/events/calendar/${year}/${month.toLowerCase()}/`);
 
     });
-</script>
+</script> -->
 

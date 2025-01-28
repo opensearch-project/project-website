@@ -1,0 +1,169 @@
+
+
+{
+
+    "SolutionProviders": {
+        "MobileFilterBar": {
+            "ButtonTitile": "Filters",
+            "OffcanvasTitle": "Filters",
+            "FilterButtonCategoryCountID": "MobileFilterButton_CategoryCount"
+        },
+        "HeroBanner": {
+            "Title": "OpenSearch Solutions Providers",
+            "SubText": "Find the right provider to achieve your business goals, extend your products, and better serve your customers",
+            "PathHeroImageDesktop": "/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_desktop.png", 
+            "PathHeroImageMobile": "/assets/img/pageAssets_solutionsProviders/banner_solutionsProviders_hero_mobile.png"
+        },
+        "Banner_CallToAction": {
+            "Text_startSpan": "Become an OpenSearch Solutions Provider! ",
+            "Link_Text": "Submit your application",
+            "Link_URL": "https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=enhancement%2C+untriaged&projects=opensearch-project%2FWebsite+Update+Project%2Copensearch-project%2FPartner+Updates+and+Additions&template=solutionsProvider_add_new_solutionsProvider.yml&title=%5BSolutionsProvider%5D++",
+            "Text_endSpan": " through Github."
+        },  
+        "MainBody": {
+            "Title": "Find your next Solutions Provider",
+            "ClassValue": "header--h2",
+            "Pagination": 15
+        },    
+
+        "SearchBar": {
+            "ProviderType_Dropdown": {
+                "Title": "Provider type",
+                "ButtonCategoryCountID": "ProviderType_CategoryCount",
+                "ButtonCategoryCountID_MobileFilters": "ProviderType_CategoryCount_Mobile",
+                "AccordionMobileFilters_TargetDataAttribute": "ProviderTypeFilters",
+                "Categories": [
+                    {
+                        "Name": "Consultancy",
+                        "DataAttribute": "Consultancy"
+                    },
+                    {
+                        "Name": "Independent Software Vendor",
+                        "DataAttribute": "Independent Software Vendor (ISV)"
+                    },
+                    {
+                        "Name": "Managed Service Provider",
+                        "DataAttribute": "Managed Service Provider (MSP)"
+                    },
+                    {
+                        "Name": "Platform Integrator",
+                        "DataAttribute": "Platform Integrator"
+                    },
+                    {
+                        "Name": "Professional Services",
+                        "DataAttribute": "Professional Services"
+                    },
+                    {
+                        "Name": "Support",
+                        "DataAttribute": "Support"
+                    },
+                    {
+                        "Name": "Systems Integrator",
+                        "DataAttribute": "Systems Integrator"
+                    },
+                    {
+                        "Name": "Training",
+                        "DataAttribute": "Training"
+                    }
+
+                ]
+            }, 
+            "OpenSearchSpecialization_Dropdown": {
+                "Title": "OpenSearch solutions",
+                "ButtonCategoryCountID": "Specialization_CategoryCount",
+                "ButtonCategoryCountID_MobileFilters": "Specialization_CategoryCount_Mobile",
+                "AccordionMobileFilters_TargetDataAttribute": "SpecializationFilters",
+                "Categories": [
+                    {
+                        "Name": "Analytics",
+                        "DataAttribute": "Analytics"
+                    },
+                    {
+                        "Name": "Logs & Metrics",
+                        "DataAttribute": "Logs and Metrics"
+                    },
+                    {
+                        "Name": "Migrations",
+                        "DataAttribute": "Migration"
+                    },
+                    {
+                        "Name": "ML & AI",
+                        "DataAttribute": "Machine Learning and AI"
+                    },
+                    {
+                        "Name": "Observability",
+                        "DataAttribute": "Observability"
+                    },
+                    {
+                        "Name": "Other",
+                        "DataAttribute": "Other"
+                    },
+                    {
+                        "Name": "Search",
+                        "DataAttribute": "Search"
+                    },
+                    {
+                        "Name": "Security",
+                        "DataAttribute": "Security"
+                    }
+                ]
+            },          
+            "Regions_Dropdown" : {
+                "Title": "Regions",
+                "ButtonCategoryCountID": "Region_CategoryCount",
+                "ButtonCategoryCountID_MobileFilters": "Region_CategoryCount_Mobile",
+                "AccordionMobileFilters_TargetDataAttribute": "RegionFilters",
+                "Categories": [
+                    {
+                        "Name": "Global",
+                        "DataAttribute": "Global"
+                    },
+                    {
+                        "Name": "Africa",
+                        "DataAttribute": "Africa"
+                    },
+                    {
+                        "Name": "Asia Pacific",
+                        "DataAttribute": "Asia Pacific"
+                    },
+                    {
+                        "Name": "Australia & NZ",
+                        "DataAttribute": "Australia"
+                    },
+                    {
+                        "Name": "Central America",
+                        "DataAttribute": "Central America"
+                    },
+                    {
+                        "Name": "Europe",
+                        "DataAttribute": "Europe"
+                    },
+                    {
+                        "Name": "Middle East",
+                        "DataAttribute": "Middle East"
+                    },
+                    {
+                        "Name": "North America",
+                        "DataAttribute": "North America"
+                    },
+                    {
+                        "Name": "South America",
+                        "DataAttribute": "South America"
+                    }
+                ]
+            },
+            "FilterButton": {
+                "ButtonText": "Apply filters",
+                "ClassValue": ""
+            }
+
+        }
+
+
+
+    }
+}
+
+
+
+

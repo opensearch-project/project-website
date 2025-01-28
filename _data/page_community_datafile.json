@@ -1,0 +1,231 @@
+
+
+
+
+{
+
+    "Community": {
+        "HeroBanner": {
+            "Title": "Join the OpenSearch <br/> Community",
+            "PathHeroImageDesktop": "", 
+            "PathHeroImageMobile": ""
+        },
+        "MainBody": {
+            "BeginningParagraph": "Whether you code, write, test, or just have ideas to offer, there's a place for you. Join us in shaping the future of OpenSearch—one commit, doc, or bug report at a time. Get started with one of our user groups, contribute to the conversation on our forum, grab a <a href='https://github.com/opensearch-project/project-website/issues'>good first issue</a>, help us build out documentation, or attend a community or triage meeting!",
+
+            "Image_Row_Desktop" : [
+                {
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-Image1.png"
+                }, 
+                {
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-Image2.png"
+                }, 
+                {
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-Image3.png"
+                }, 
+                {
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-Image4.png"
+                }
+            ],
+            "Image_Row_Mobile" : [
+                {
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-Image1.png"
+                }, 
+                {
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-Image3.png"
+                }
+            ],
+            "TwoColumn_Events_row" : {
+                "left_Card" : {
+                    "Title": "OpenSearch Events",
+                    "SubText": "Learn, listen, and contribute!",
+                    "EventType_array": [
+                        {
+                            "IconPath": "/assets/img/pageAssets_communityPage/Icon-Community-Meetings.png",
+                            "Title": "Community Meetings"
+                        }, 
+                        {
+                            "IconPath": "/assets/img/pageAssets_communityPage/Icon-Triage-Backlog.png",
+                            "Title": "Triage and Backlog"
+                        }, 
+                        {
+                            "IconPath": "/assets/img/pageAssets_communityPage/Icon-Technical-Discussions.png",
+                            "Title": "Technical Discussions"
+                        }, 
+                        {
+                            "IconPath": "/assets/img/pageAssets_communityPage/Icon-Conferences.png",
+                            "Title": "Conferences"
+                        }
+                    ],
+                    "Button" : {
+                        "ButtonText": "Find an event",
+                        "ButtonLink": "/events/"
+                    }
+                },
+                "right_Section" : {
+                    "Title": "Ways to get involved ",
+                    "SubText": "Find answers and join the conversation",
+                    "CommunityType_array": [
+                        {
+                            "Name": "Forum",
+                            "SubText": "Find answers to your questions and help others in the community",
+                            "URL": "https://forum.opensearch.org/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Forum-Icon-condensedImage"
+                        },
+                        {
+                            "Name": "Community Members",
+                            "SubText": "Community member profiles.",
+                            "URL": "/community/members/index.html",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Members-Icon-condensedImage"
+                        },
+                        {
+                            "Name": "Events",
+                            "SubText": "See all of our upcoming live and virtual events",
+                            "URL": "/events/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Events-condensedImage",
+                            "ID": "events-link"
+                        },
+                        {
+                            "Name": "Projects",
+                            "SubText": "Highlights of projects built by the community.",
+                            "URL": "/community_projects/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Projects-Icon-condensedImage"
+                        },
+                        {
+                            "Name": "User Groups",
+                            "SubText": "Join the OpenSearch Project Meetup Network",
+                            "URL": "/usergroups/",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-UserGroups-Icon-condensedImage"
+                        },
+                        {
+                            "Name": "Slack",
+                            "SubText": "Chat with other developers",
+                            "URL": "/slack.html",
+                            "ClassValue" : "drawer-content-subheader-link",
+                            "Icon": "OpenSearch-Slack-condensedImage"
+                        }
+
+
+
+
+                    ],
+                    "Button" : {
+                        "ButtonText": "Find an event",
+                        "ButtonLink": "/events/"
+                    }
+                }
+            }, 
+            "TwoColumn_OpenSearchCon_row" : {
+                "left_LargeImage_Column" : {
+                    "Title": "OpenSearchCon User Conferences",
+                    "Text": "OpenSearchCon is where you come to hear compelling stories, learn differentiated use cases, and gain educational insights shared by the OpenSearch community. <br/>Find an OpenSearchCon near you!",
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-Keynote.png"
+                },
+                "right_OpenSearchConSchedule_Column" : {
+                    "Title": "Upcoming OpenSearchCons",
+                    "IconPath": "/assets/img/iconography/OpenSearch-Community.png",
+                    "Conferance_array": [
+                        {
+                            "Name": "Europe - April 30 - May 1, Amsterdam",
+                            "ClassValue": "community-active-link",
+                            "URL": "https://events.linuxfoundation.org/opensearchcon-europe/"
+                        },
+                        {
+                            "Name": "India - June 3 - 4, Bengaluru",
+                            "ClassValue": "community-active-link",
+                            "URL": "https://events.linuxfoundation.org/opensearchcon-india/"
+                        },
+                        {
+                            "Name": "North America | TBD",
+                            "ClassValue": "grayedOut-no-link",
+                            "URL": "#"
+                        },
+                        {
+                            "Name": "China | TBD",
+                            "ClassValue": "grayedOut-no-link",
+                            "URL": "#"
+                        },
+                        {
+                            "Name": "Japan | TBD",
+                            "ClassValue": "grayedOut-no-link",
+                            "URL": "#"
+                        }
+                    ]
+                }
+            },
+            "TwoColumn_Contributing_row" : {
+                "left_Column" : {
+                    "Title": "Start contributing",
+                    "SubText": "Get involved with the project today!",
+                    "contributingCards_grid": [
+                        {
+                            "Name" : "Join the project on GitHub",
+                            "URL": "https://github.com/opensearch-project",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Github.png",
+                            "card_ClassValue" : "card_bottomBorder_black",
+                            "ClassValue": "icon-homepage-community-socialLink"
+                        },
+                        {
+                            "Name" : "Submit a feature request",
+                            "URL": "https://github.com/opensearch-project/project-website/issues",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Clients.png",
+                            "card_ClassValue" : "card_bottomBorder_yellow",
+                            "ClassValue": "icon-homepage-community-socialLink"
+                        },
+                        {
+                            "Name" : "Become a Solutions Provider",
+                            "URL": "/https://github.com/opensearch-project/project-website/issues/new?template=solutionsProvider_add_new_solutionsProvider.yml/",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Providers-Icon.png",
+                            "card_ClassValue" : "card_bottomBorder_blue",
+                            "ClassValue": "icon-homepage-community-socialLink"
+                        },
+                        {
+                            "Name": "Write a blog post",
+                            "IconPath": "/assets/img/iconography/OpenSearch-Blog-Icon.png",
+                            "URL": "/blog/",
+                            "ClassValue": "icon-homepage-community-withSurroundingCircle",
+                            "card_ClassValue" : "card_bottomBorder_purple"
+                        }
+                    ]
+                },
+                "right_Column" : {
+                    "Title": "OpenSearch User Groups",
+                    "SubText": "Meet other community members across the world. Join virtual or in-person meetups, triages, technical discussions and more!",
+                    "ImagePath": "/assets/img/pageAssets_communityPage/pageGraphic-OpenSearchCon-BuildersWanted.png",
+                    "Button" : {
+                        "ButtonText": "Find a User Group near you",
+                        "ButtonText-Mobile": "User Group's near you",
+                        "ButtonLink": "/user-groups/"
+                    }
+                }
+            },
+
+            "UserGroupBanner_row" : {
+                "Text": "Want to start an OpenSearch user group in your city?",
+                "IconPath": "/assets/img/iconography/OpenSearch-Forum.png",
+                "ButtonText": "Get started ",
+                "ButtonLink": "/usergroups/"
+            },
+            "ImageLeft_row" : {
+                "ImagePath": "/assets/img/pageAssets_usecasepages/pageGraphic-AnomalyDetection-NextGenPlaygrounds.png",
+                "Subheader": "OpenSearch Dashboards Playground",
+                "SubText": "Experience OpenSearch anomaly detection in our free demo environment.",
+                "ButtonText": "Jump into our sandbox",
+                "ButtonLink": "/playgrounds/"
+            }
+
+        }
+  
+
+
+
+
+
+    }
+}
+
