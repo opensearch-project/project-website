@@ -42,7 +42,7 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 | 2.17.1         | September 24th, 2024                      | October 1st, 2024                                    | [Divya Madala](https://github.com/Divyaasm/)         | [5046](https://github.com/opensearch-project/opensearch-build/issues/5046) |
 | 2.18.0         | October 22nd, 2024                        | November 05th, 2024                                  | [Rishabh Singh](https://github.com/rishabh6788/)     | [5004](https://github.com/opensearch-project/opensearch-build/issues/5004) |
 | 1.3.20         | December 03rd, 2024                       | December ~~10th~~ 11th, 2024                         | [Brandon Shien](https://github.com/bshien)           | [4990](https://github.com/opensearch-project/opensearch-build/issues/4990) |
-| 2.19.0         | January 28th, 2025                        | Feb 11th, 2025                                       |                                                      |                                                                            | 
+| 2.19.0         | January 28th, 2025                        | Feb 11th, 2025                                       | [Rishabh Singh](https://github.com/rishabh6788)      | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) | 
 {: .desktop-release-schedule-table}
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
