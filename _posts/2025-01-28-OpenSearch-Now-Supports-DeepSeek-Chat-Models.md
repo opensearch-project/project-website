@@ -13,13 +13,13 @@ meta_keywords: OpenSearch DeepSeek integration, LLM integration, RAG, AI search,
 meta_description: Explore how OpenSearch's integration with DeepSeek R1 LLM models enables cost-effective Retrieval-Augmented Generation (RAG) while maintaining high performance comparable to leading LLMs.
 ---
 
-We're excited to announce that OpenSearch now supports DeepSeek integration, , providing powerful and cost-effective AI capabilities. DeepSeek R1 is a recently released open-source large language model (LLM) that delivers **similar benchmarking performance** to leading LLMs like OpenAI O1 ([report](https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf)) at a significantly **lower cost** ([DeepSeek API pricing](https://api-docs.deepseek.com/quick_start/pricing)). Because DeepSeek R1 is open source, you can download and deploy it on your preferred infrastructure. This enables OpenSearch you to build more cost-effective and sustainable Retrieval-Augmented Generation (RAG) solutions.
+We're excited to announce that OpenSearch now supports DeepSeek integration, providing powerful and cost-effective AI capabilities. DeepSeek R1 is a recently released open-source large language model (LLM) that delivers **similar benchmarking performance** to leading LLMs like OpenAI O1 ([report](https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf)) at a significantly **lower cost** ([DeepSeek API pricing](https://api-docs.deepseek.com/quick_start/pricing)). Because DeepSeek R1 is open source, you can download and deploy it to your preferred infrastructure. This enables you to build more cost-effective and sustainable retrieval-augmented generation (RAG) solutions.
 
-OpenSearch gives you the flexibility to connect to any remote inference service, such as DeepSeek or OpenAI, using ML connectors. You can use [prebuilt connector blueprints](https://github.com/opensearch-project/ml-commons/tree/main/docs/remote_inference_blueprints) or customize connectors based on your requirements. For more information about connector blueprints, see [Blueprints](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/blueprints/).  
+OpenSearch gives you the flexibility to connect to any remote inference service, such as DeepSeek or OpenAI, using machine learning (ML) connectors. You can use [prebuilt connector blueprints](https://github.com/opensearch-project/ml-commons/tree/main/docs/remote_inference_blueprints) or customize connectors based on your requirements. For more information about connector blueprints, see [Blueprints](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/blueprints/).  
 
-We've added a new [connector blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/deepseek_connector_chat_blueprint.md) for the DeepSeek R1 model. This integration, combined with OpenSearch's built-in vector database capabilities, makes it easier and more cost-effective to build [RAG applications](https://opensearch.org/docs/latest/search-plugins/conversational-search) in OpenSearch.  
+We've added a new [connector blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/deepseek_connector_chat_blueprint.md) for the DeepSeek R1 model. This integration, combined with OpenSearch's built-in vector database capabilities, makes it easier and more cost effective to build [RAG applications](https://opensearch.org/docs/latest/search-plugins/conversational-search) in OpenSearch.  
 
-The following example implements RAG with DeepSeek in OpenSearch's vector database. This example guides you through creating a connector for the [DeepSeek chat Model](https://api-docs.deepseek.com/api/create-chat-completion) and setting up an [RAG pipeline](https://opensearch.org/docs/latest/search-plugins/search-pipelines/rag-processor/) in OpenSearch.
+The following example shows you how to implement RAG with DeepSeek in OpenSearch's vector database. This example guides you through creating a connector for the [DeepSeek chat model](https://api-docs.deepseek.com/api/create-chat-completion) and setting up a [RAG pipeline](https://opensearch.org/docs/latest/search-plugins/search-pipelines/rag-processor/) in OpenSearch.
 
 ### 1. Create a connector for DeepSeek
 
@@ -112,7 +112,7 @@ The response contains the model ID:
 }
 ```
 
-To make sure the connector is working as expected, test the model:
+To ensure that the connector is working as expected, test the model:
 
 ```json
 POST /_plugins/_ml/models/oUdPqZQBQwAL8-GOCZYL/_predict
@@ -203,7 +203,7 @@ For more information, see [Conversational search](https://opensearch.org/docs/la
 
 ### 5. Create a conversation memory
 
-Assuming you created a k-NN index and ingested the data, you can now create a conversation memory. For more information about creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/). For more information about ingesting data, see [Ingest RAG data into an index](https://opensearch.org/docs/latest/search-plugins/conversational-search/#step-4-ingest-rag-data-into-an-index).
+Assuming that you created a k-NN index and ingested the data, you can now create a conversation memory. For more information about creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/). For more information about ingesting data, see [Ingest RAG data into an index](https://opensearch.org/docs/latest/search-plugins/conversational-search/#step-4-ingest-rag-data-into-an-index).
 
 Create a conversation memory to store all messages from a conversation:
 

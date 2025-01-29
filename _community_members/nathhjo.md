@@ -21,4 +21,4 @@ permalink: '/community/members/nathalie-jonathan.html'
 redirect_from: '/authors/nathhjo/'
 ---
 
-**Nathalie Jonathan** is a Software Engineer at AWS working on OpenSearch ML Commons team.
+**Nathalie Jonathan** is a Software Engineer at AWS working on the OpenSearch ML Commons team.
