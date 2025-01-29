@@ -13,7 +13,7 @@ meta_keywords: OpenSearch DeepSeek integration, LLM integration, RAG, AI search,
 meta_description: Explore how OpenSearch's integration with DeepSeek R1 LLM models enables cost-effective Retrieval-Augmented Generation (RAG) while maintaining high performance comparable to leading LLMs.
 ---
 
-We're excited to announce that OpenSearch now supports DeepSeek integration, providing powerful and cost-effective AI capabilities. DeepSeek R1 is a recently released open-source large language model (LLM) that delivers **similar benchmarking performance** to leading LLMs like OpenAI O1 ([report](https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf)) at a significantly **lower cost** ([DeepSeek API pricing](https://api-docs.deepseek.com/quick_start/pricing)). Because DeepSeek R1 is open source, you can download and deploy it to your preferred infrastructure. This enables you to build more cost-effective and sustainable retrieval-augmented generation (RAG) solutions.
+We're excited to announce that OpenSearch now supports DeepSeek integration, providing powerful and cost-effective AI capabilities. DeepSeek R1 is a recently released open-source large language model (LLM) that delivers **similar benchmarking performance** to leading LLMs like OpenAI O1 ([report](https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf)) at a significantly **lower cost** ([DeepSeek API pricing](https://api-docs.deepseek.com/quick_start/pricing)). Because DeepSeek R1 is open source, you can download and deploy it to your preferred infrastructure. This enables you to build more cost-effective and sustainable retrieval-augmented generation (RAG) solutions in OpenSearch's vector database.
 
 OpenSearch gives you the flexibility to connect to any remote inference service, such as DeepSeek or OpenAI, using machine learning (ML) connectors. You can use [prebuilt connector blueprints](https://github.com/opensearch-project/ml-commons/tree/main/docs/remote_inference_blueprints) or customize connectors based on your requirements. For more information about connector blueprints, see [Blueprints](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/blueprints/).  
 
@@ -128,8 +128,7 @@ POST /_plugins/_ml/models/oUdPqZQBQwAL8-GOCZYL/_predict
         "content": "Hello!"
       }
     ]
-  },
-  "stream": false
+  }
 }
 ```
 
@@ -187,9 +186,9 @@ PUT /_search/pipeline/rag_pipeline
   "response_processors": [
     {
       "retrieval_augmented_generation": {
-        "tag": "openai_pipeline_demo",
-        "description": "Demo pipeline Using OpenAI Connector",
-        "model_id": "oUdPqZQBQwAL8-GOCZY",
+        "tag": "deepseek_pipeline_demo",
+        "description": "Demo pipeline Using DeepSeek Connector",
+        "model_id": "oUdPqZQBQwAL8-GOCZYL",
         "context_field_list": ["text"],
         "system_prompt": "You are a helpful assistant",
         "user_instructions": "Generate a concise and informative answer in less than 100 words for the given question"
@@ -203,7 +202,7 @@ For more information, see [Conversational search](https://opensearch.org/docs/la
 
 ### 5. Create a conversation memory
 
-Assuming that you created a k-NN index and ingested the data, you can now create a conversation memory. For more information about creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/). For more information about ingesting data, see [Ingest RAG data into an index](https://opensearch.org/docs/latest/search-plugins/conversational-search/#step-4-ingest-rag-data-into-an-index).
+Assuming that you created a k-NN index and ingested the data to use vector search, you can now create a conversation memory. For more information about creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/). For more information about vector search, see [Vector search](https://opensearch.org/docs/latest/search-plugins/vector-search/). For more information about ingesting data, see [Ingest RAG data into an index](https://opensearch.org/docs/latest/search-plugins/conversational-search/#step-4-ingest-rag-data-into-an-index).
 
 Create a conversation memory to store all messages from a conversation:
 
@@ -236,7 +235,7 @@ GET /my_rag_test_data/_search
   },
   "ext": {
     "generative_qa_parameters": {
-      "llm_model": "gpt-3.5-turbo",
+      "llm_model": "deepseek-chat",
       "llm_question": "What's the population of NYC metro area in 2023",
       "memory_id": "znCqcI0BfUsSoeNTntd7",
       "context_size": 5,
