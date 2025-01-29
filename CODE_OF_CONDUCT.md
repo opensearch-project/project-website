@@ -20,4 +20,4 @@ This code of conduct applies to all spaces provided by the OpenSource project in
   
 **Enforcement and Reporting Code of Conduct Issues:**
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported. [Contact us](mailto:opensource-codeofconduct@amazon.com). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported. [Contact us](mailto:conduct@opensearch.foundation). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.
