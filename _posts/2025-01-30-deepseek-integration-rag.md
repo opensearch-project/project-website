@@ -16,7 +16,7 @@ OpenSearch now [integrates with DeepSeek](https://opensearch.org/blog/OpenSearch
 
 ## RAG with OpenSearch and DeepSeek
 
-The following diagram presents the RAG workflow in OpenSearch using the DeepSeek model.
+The following diagram depicts the RAG workflow in OpenSearch using the DeepSeek model.
 
 ![RAG workflow in OpenSearch](/assets/media/blog-images/2025-01-30-deepseek-integration-rag/DeepSeek2.png)
 
@@ -47,12 +47,12 @@ To install required packages, run the following command:
 pip install opensearch-py transformers torch sentence-transformers
 ```
 
-These packages form the backbone of our RAG system:
+These packages form the backbone of the RAG system:
 
-* `opensearch-py`: The official Python client for OpenSearch.
-* `transformers`: Hugging Face's library for working with transformer models.
-* `torch`: PyTorch library for deep learning operations.
-* `sentence-transformers`: Used for creating embeddings.
+* `opensearch-py`: The official Python client for OpenSearch
+* `transformers`: Hugging Face's library for working with transformer models
+* `torch`: PyTorch library for deep learning operations
+* `sentence-transformers`: Used for creating embeddings
 
 ## Step 3: Initialize the OpenSearch client and create an index
 
@@ -126,8 +126,8 @@ client.indices.create(index=index_name, body=index_body)
 
 In this step, you'll initialize two key components:
 
-- The SentenceTransformer model for creating document embeddings
-- The DeepSeek model for generating responses. The MiniLM-L6-v2 model provides a good balance between performance and accuracy for embeddings.
+- The SentenceTransformer model for creating document embeddings.
+- The DeepSeek model for generating responses. The MiniLM-L6-v2 model provides a good balance between embedding performance and accuracy.
 
 ```python
 *from* transformers *import* AutoTokenizer, AutoModelForCausalLM 
@@ -141,7 +141,7 @@ model = AutoModelForCausalLM.from_pretrained("deepseek-ai/deepseek-coder-6.7b-ba
 The RAG pipeline consists of two main functions:
 
 * `index_document`: Converts text into embeddings and stores them in OpenSearch.
-* `query_documents`: Performs similarity search using k-NN to find relevant documents. In this example, k-NN search returns the 3 most similar documents; you can adjust this number based on your needs.
+* `query_documents`: Performs similarity search using k-NN to find relevant documents. In this example, k-NN search returns the three most similar documents; you can adjust this number based on your needs.
 
 ```python
 # Step 5: Normalize Embeddings for Inner Product
@@ -248,7 +248,7 @@ for query in queries:
 
 ## Try it out
 
-The following complete one-click script contains all preceding steps. Save this script as `deepseek_rag.py`:
+The following complete one-click script contains all of the preceding steps. Save this script as `deepseek_rag.py`:
 
 ```python
 import time
@@ -472,7 +472,7 @@ while inner product is the dot product of two vectors.
 
 This simple RAG implementation combines the power of OpenSearch's vector search capabilities with DeepSeek's advanced language understanding. While this is a basic setup, it provides a foundation that you can build upon for more complex applications.
 
-Key benefits of this implementation:
+The following are some key benefits of this implementation:
 
 * Fast and efficient vector search with OpenSearch
 * High-quality language understanding with DeepSeek

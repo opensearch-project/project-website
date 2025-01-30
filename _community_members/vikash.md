@@ -22,4 +22,4 @@ permalink: '/community/members/vikash-tiwari.html'
 redirect_from: '/authors/vikash/'
 ---
 
-**Vikash Tiwari** is a Senior Software Development Engineer at Amazon Web Services, specializing in OpenSearch Vector Search. He is passionate about distributed systems, large-scale machine learning, scalable search architectures, and database internals. His expertise spans vector search, indexing optimizations, and efficient data retrieval, and he is deeply interested in learning and enhancing modern database systems.
+**Vikash Tiwari** is a Senior Software Development Engineer at AWS, specializing in OpenSearch vector search. He is passionate about distributed systems, large-scale machine learning, scalable search architectures, and database internals. His expertise spans vector search, indexing optimizations, and efficient data retrieval, and he is deeply interested in learning and enhancing modern database systems.
