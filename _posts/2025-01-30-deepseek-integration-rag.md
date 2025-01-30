@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Zero to RAG: A quick OpenSearch and DeepSeek integration guide"
+title:  "Zero to RAG: A quick OpenSearch vector database and DeepSeek integration guide"
 authors:
    - vikash
    - vamshin
