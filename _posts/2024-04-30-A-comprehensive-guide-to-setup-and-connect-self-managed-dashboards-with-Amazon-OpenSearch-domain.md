@@ -12,8 +12,12 @@ has_math: true
 has_science_table: true
 ---
 
-> [!NOTE]
-> Before you proceed, Amazon OpenSearch Service has introduced the next-generation OpenSearch UI designed to address this purpose. To learn more, check out: https://aws.amazon.com/blogs/big-data/amazon-opensearch-service-launches-the-next-generation-opensearch-ui
+---
+
+## **Launch Update 🚀**
+Before you proceed, Amazon OpenSearch Service has launched the next-generation OpenSearch UI, called [Centralized OpenSearch Dashboards](https://aws.amazon.com/blogs/big-data/amazon-opensearch-service-launches-the-next-generation-opensearch-ui), designed to serve this purpose.
+
+---
 
 [OpenSearch](https://opensearch.org/) is a scalable, flexible, and extensible open-source software suite for search, analytics, security monitoring, and observability applications, licensed under Apache 2.0. [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/) is a powerful and flexible data visualization and exploration platform that enables users to analyze and visualize large volumes of data. It is open-source software that provides a user-friendly interface for creating interactive dashboards, charts, and graphs, allowing users to gain valuable insights from their data.
 
