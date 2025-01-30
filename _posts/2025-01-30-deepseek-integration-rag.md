@@ -8,8 +8,8 @@ authors:
 date: 2025-01-30
 categories:
   - technical-posts
-meta_keywords: OpenSearch DeepSeek integration, LLM integration, RAG, AI search, machine learning, natural language processing, open-source LLM
-meta_description: Explore how OpenSearch's integration with DeepSeek R1 LLM models enables cost-effective Retrieval-Augmented Generation (RAG) while maintaining high performance comparable to leading LLMs.
+meta_keywords: RAG augmentation with OpenSearch vector database, DeepSeek integration guide, RAG implementation, vector search, AI application, LLM, OpenSearch vector database
+meta_description: Learn how to build a retrieval-augmented generation (RAG) system using OpenSearch and DeepSeek in just 5 minutes. A practical guide to implementing efficient AI-powered information retrieval.
 ---
 
 OpenSearch now [integrates with DeepSeek](https://opensearch.org/blog/OpenSearch-Now-Supports-DeepSeek-Chat-Models/), offering powerful and cost-effective AI capabilities. In this blog post, we'll guide you through setting up a retrieval-augmented generation (RAG) system using OpenSearch and the DeepSeek model in just 5 minutes. This combination provides a robust and efficient way to build AI applications with accurate information retrieval.
