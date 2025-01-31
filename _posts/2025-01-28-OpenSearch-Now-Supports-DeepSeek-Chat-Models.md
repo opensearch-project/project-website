@@ -15,8 +15,6 @@ meta_description: Explore how OpenSearch's integration with DeepSeek-R1 LLM mode
 
 We're excited to announce that OpenSearch now supports DeepSeek integration, providing powerful and cost-effective AI capabilities. DeepSeek-R1 is a recently released open-source large language model (LLM) that delivers **similar benchmarking performance** to leading LLMs like OpenAI O1 ([report](https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf)) at a significantly **lower cost** ([DeepSeek API pricing](https://api-docs.deepseek.com/quick_start/pricing)). Because DeepSeek-R1 is open source, you can download and deploy it to your preferred infrastructure. This enables you to build more cost-effective and sustainable retrieval-augmented generation (RAG) solutions in OpenSearch's vector database.
 
-**Note**: Because DeepSeek-R1 is open source, you can host it on AWS (see [DeepSeek-R1 models now available on AWS](http://aws.amazon.com/blogs/aws/deepseek-r1-models-now-available-on-aws)). To connect to your hosted model, update the `endpoint` and `credentials` parameters in your configuration. For detailed deployment instructions, please refer to the guides at the end of this blog post.
-
 OpenSearch gives you the flexibility to connect to any remote inference service, such as DeepSeek or OpenAI, using machine learning (ML) connectors. You can use [prebuilt connector blueprints](https://github.com/opensearch-project/ml-commons/tree/main/docs/remote_inference_blueprints) or customize connectors based on your requirements. For more information about connector blueprints, see [Blueprints](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/blueprints/).  
 
 We've added a new [connector blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/deepseek_connector_chat_blueprint.md) for the DeepSeek-R1 model. This integration, combined with OpenSearch's built-in vector database capabilities, makes it easier and more cost effective to build [RAG applications](https://opensearch.org/docs/latest/search-plugins/conversational-search) in OpenSearch.  
@@ -65,6 +63,8 @@ The response contains a connector ID for the newly created connector:
 ```
 
 For more information, see [Connecting to externally hosted models](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/index/).
+
+**Note**: Because DeepSeek-R1 is open source, you can host it on AWS (see [DeepSeek-R1 models now available on AWS](http://aws.amazon.com/blogs/aws/deepseek-r1-models-now-available-on-aws)). To connect to your hosted model, update the `endpoint` and `credentials` parameters in your configuration.
 
 ### 2. Create a model group
 
