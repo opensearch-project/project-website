@@ -14,24 +14,24 @@ meta_keywords: OpenSearch DeepSeek integration, LLM integration, RAG, AI search,
 meta_description: Learn how to enable DeepSeek LLM integration in OpenSearch with just one API call using the Flow Framework plugin, simplifying the setup process for conversational search and RAG.
 ---
 
-In an [earlier blog post](https://opensearch.org/blog/OpenSearch-Now-Supports-DeepSeek-Chat-Models/), we introduced OpenSearch's support for the DeepSeek LLM. This post focuses on simplifying DeepSeek LLM integration using the OpenSearch Flow Framework plugin. With just one API call, you can provision the entire integration—creating connectors, registering models, deploying them, and setting up agents and tools. Automated templates handle the setup, eliminating the need to call multiple APIs or manage complex orchestration.
+In an [earlier blog post](https://opensearch.org/blog/OpenSearch-Now-Supports-DeepSeek-Chat-Models/), we introduced OpenSearch's support for the DeepSeek large language model (LLM). This post focuses on simplifying DeepSeek LLM integration using the OpenSearch Flow Framework plugin. With just one API call, you can provision the entire integration—creating connectors, registering models, deploying them, and setting up agents and tools. Automated templates handle the setup, eliminating the need to call multiple APIs or manage complex orchestration.
 
 
 ## Manual setup
 
-In our [earlier blog post](https://opensearch.org/blog/OpenSearch-Now-Supports-DeepSeek-Chat-Models/), setting up the DeepSeek model—--or any LLM—--required four separate API calls:  
+In our [earlier blog post](https://opensearch.org/blog/OpenSearch-Now-Supports-DeepSeek-Chat-Models/), setting up the DeepSeek model—or any LLM—required four separate API calls:  
 
 1. Creating a connector for the DeepSeek model  
 2. Creating a model group  
 3. Registering the model using the connector ID  
-4. Creating a search pipeline for RAG  
+4. Creating a search pipeline for retrieval-augmented generation (RAG)  
 
 With the OpenSearch Flow Framework plugin, this process is now streamlined into a single API call. In the following example, we'll present a simplified setup using the conversational search example from the earlier blog post.
 
 
 ## One-click deployment
 
-In the following example, you will configure the `conversational_search_with_llm_deploy` workflow template to implement RAG with DeepSeek in OpenSearch. The workflow created using this template performs following configuration steps:
+In the following example, you will configure the `conversational_search_with_llm_deploy` workflow template to implement RAG with DeepSeek in OpenSearch. The workflow created using this template performs the following configuration steps:
 
 * Deploys an externally hosted DeepSeek model
 * Registers and deploys the model
@@ -171,10 +171,10 @@ The response contains the model output:
 
 ## Additional use cases
 
-The example we've covered is just one of many possible workflows. Flow Framework comes with a variety of pre-built templates designed for different scenarios. You can explore our [substitution templates](https://github.com/opensearch-project/flow-framework/tree/2.13/src/main/resources/substitutionTemplates) for various workflows and review their corresponding [default configurations](https://github.com/opensearch-project/flow-framework/tree/2.13/src/main/resources/defaults).
+The preceding example represents just one of many possible workflows. The Flow Framework plugin comes with a variety of prebuilt templates designed for different scenarios. You can explore our [substitution templates](https://github.com/opensearch-project/flow-framework/tree/2.13/src/main/resources/substitutionTemplates) for various workflows and review their corresponding [default configurations](https://github.com/opensearch-project/flow-framework/tree/2.13/src/main/resources/defaults).
 
 These resources will help you discover and implement other automated workflows that best suit your needs.
 
 ## Conclusion
 
-By using the Flow Framework plugin, we've transformed a complex, multi-step setup process into a simple, single API call. This simplification isn't limited to DeepSeek—--you can use the same streamlined approach to deploy models from other leading LLM providers like Cohere and OpenAI. Whether you're experimenting with different models or setting up production environments, the Flow Framework makes LLM integration faster and more reliable.
+By using the Flow Framework plugin, we've transformed a complex, multi-step setup process into a single, simple API call. This simplification isn't limited to DeepSeek—you can use the same streamlined approach to deploy models from other leading LLM providers like Cohere and OpenAI. Whether you're experimenting with different models or setting up production environments, the Flow Framework plugin makes LLM integration faster and more reliable.
