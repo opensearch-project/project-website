@@ -108,8 +108,6 @@ GET _plugins/_flow_framework/workflow/204SuZQB3ZvYMDlU9PQh/_status
 
 **Note**: If you skip this step and don't create a conversation memory, a new conversation will be created automatically.
 
-Assuming that you created a k-NN index and ingested the data to use vector search, you can now create a conversation memory. For more information about creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/). For more information about vector search, see [Vector search](https://opensearch.org/docs/latest/search-plugins/vector-search/). For more information about ingesting data, see [Ingest RAG data into an index](https://opensearch.org/docs/latest/search-plugins/conversational-search/#step-4-ingest-rag-data-into-an-index).
-
 Create a conversation memory to store all messages from a conversation:
 
 ```json
@@ -131,6 +129,7 @@ The response contains a memory ID for the created memory:
 
 ### Step 3: Use the pipeline for RAG
 
+Assuming that you created a k-NN index and ingested the data to use vector search. For more information about creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/). For more information about vector search, see [Vector search](https://opensearch.org/docs/latest/search-plugins/vector-search/). For more information about ingesting data, see [Ingest RAG data into an index](https://opensearch.org/docs/latest/search-plugins/conversational-search/#step-4-ingest-rag-data-into-an-index).
 
 Send a query to OpenSearch and provide additional parameters in the `ext.generative_qa_parameters` object:
 
