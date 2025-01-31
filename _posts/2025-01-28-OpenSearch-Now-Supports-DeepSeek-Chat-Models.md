@@ -255,7 +255,7 @@ The response contains the model output:
   ...
   "ext": {
     "retrieval_augmented_generation": {
-      "answer": "The population of the New York City metro area in 2022 was 18,867,000.",
+      "answer": "The population of the New York City metro area in 2023 was 18,867,000.",
       "message_id": "p3CvcI0BfUsSoeNTj9iH"
     }
   }
