@@ -34,6 +34,8 @@ To address these challenges, we've implemented significant improvements in OpenS
 
 The suppression rules feature is particularly powerful for handling common scenarios that previously generated false positives. For example, in monitoring transaction volumes, EBSCO could configure rules to suppress alerts when variations stay within expected thresholds (such as ignoring drops less than 25% and increases greater than 50% above normal levels), while still detecting significant drops that might indicate real issues.
 
+Additionally, in OpenSearch 2.19 and above, we have added the capability for users to add more general criteria for what a detector will consider as an anomaly. Each feature in a detector can now be configured so that we only look at either spikes or dips in the data for that feature. For example, if a user is configuring a feature which looks at CPU data across their fleet, they can configure their features so anomalies are only detected if the actual values are higher than the expected values because of a spike in CPU. A dip in CPU in this case would not trigger anomalies.
+
 ## Implementation and Results
 After implementing these improvements, EBSCO saw significant enhancements in their anomaly detection capabilities:
 
@@ -54,15 +56,13 @@ Initially without rule-based AD, the system reported multiple anomalies—even f
 By configuring a rule to only flag anomalies that deviate at least 10% (either above or below) from the expected value, we filtered out the noise. This ensures that only the meaningful spikes or dips are detected.  
 Note: The user interface for setting rules may change. Refer to the [latest documentation page](https://opensearch.org/docs/latest/observing-your-data/ad/index/) for details.
 
-![rule](/assets/media/blog-images/2025-01-23-ad-rule-cx-success/rule.png){:class="img-centered"}
+![rule](/assets/media/blog-images/2025-01-23-ad-rule-cx-success/new_rule.png){:class="img-centered"}
 
 Anomaly result with rule:
 
 ![result-after](/assets/media/blog-images/2025-01-23-ad-rule-cx-success/result-after.png){:class="img-centered"}
 
 Note, if no custom rule is specified, AD defaults to a built-in filter that suppresses anomalies with less than a 20% deviation from the expected value for each enabled feature.
-
-Additionally, in OpenSearch 2.19 and above, we have added the capability for users to add more general criteria for what a detector will consider as an anomaly. Each feature in a detector can now be configured so that we only look at either spikes or dips in the data for that feature. For example, if a user is configuring a feature which looks at CPU data across their fleet, they can configure their features so anomalies are only detected if the actual values are higher than the expected values because of a spike in CPU. A dip in CPU in this case would not trigger anomalies.
 
 ## Technical Details
 The core of suppression rules is expected normal values. To build an expected value for an anomalous point, Random Cut Forest (RCF), the algorithm behind OpenSearch Anomaly Detection, replaces the anomalous point’s most suspicious dimension with a typical value learned from historical data. Here, each dimension corresponds to a metric value within a context or recent-history window, and the overall anomaly score depends on these dimensions.  
