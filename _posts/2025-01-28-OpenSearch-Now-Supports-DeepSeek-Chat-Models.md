@@ -10,7 +10,7 @@ date: 2025-01-29
 categories:
   - technical-posts
 meta_keywords: OpenSearch DeepSeek integration, LLM integration, RAG, AI search, machine learning, natural language processing, open-source LLM
-meta_description: Explore how OpenSearch's integration with DeepSeek R1 LLM models enables cost-effective Retrieval-Augmented Generation (RAG) while maintaining high performance comparable to leading LLMs.
+meta_description: Explore how OpenSearch's integration with DeepSeek-R1 LLM models enables cost-effective Retrieval-Augmented Generation (RAG) while maintaining high performance comparable to leading LLMs.
 ---
 
 We're excited to announce that OpenSearch now supports DeepSeek integration, providing powerful and cost-effective AI capabilities. DeepSeek-R1 is a recently released open-source large language model (LLM) that delivers **similar benchmarking performance** to leading LLMs like OpenAI O1 ([report](https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf)) at a significantly **lower cost** ([DeepSeek API pricing](https://api-docs.deepseek.com/quick_start/pricing)). Because DeepSeek-R1 is open source, you can download and deploy it to your preferred infrastructure. This enables you to build more cost-effective and sustainable retrieval-augmented generation (RAG) solutions in OpenSearch's vector database.
@@ -263,16 +263,16 @@ The response contains the model output:
 ```
 ## Tutorials
 
-The following tutorials guide you through integrating RAG in OpenSearch with the [DeepSeek chat model](https://api-docs.deepseek.com/api/create-chat-completion) and [DeepSeek R1 model](https://huggingface.co/deepseek-ai/DeepSeek-R1):
+The following tutorials guide you through integrating RAG in OpenSearch with the [DeepSeek chat model](https://api-docs.deepseek.com/api/create-chat-completion) and [DeepSeek-R1 model](https://huggingface.co/deepseek-ai/DeepSeek-R1):
 
 - [OpenSearch + DeepSeek Chat Service API](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/RAG_with_DeepSeek_Chat_model.md)
-- [OpenSearch + DeepSeek R1 on Amazon Bedrock](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/RAG_with_DeepSeek_R1_model_on_Bedrock.md)
-- [OpenSearch + DeepSeek R1 on Amazon SageMaker](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/RAG_with_DeepSeek_R1_model_on_Sagemaker.md)
+- [OpenSearch + DeepSeek-R1 on Amazon Bedrock](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/RAG_with_DeepSeek_R1_model_on_Bedrock.md)
+- [OpenSearch + DeepSeek-R1 on Amazon SageMaker](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/RAG_with_DeepSeek_R1_model_on_Sagemaker.md)
 
 ## Wrapping up
 
-By integrating DeepSeek R1, OpenSearch continues its mission to democratize AI-powered search and analytics—offering developers **more choice, greater flexibility, and lower costs**.
+By integrating DeepSeek-R1, OpenSearch continues its mission to democratize AI-powered search and analytics—offering developers **more choice, greater flexibility, and lower costs**.
 
-**Try DeepSeek R1 now!**
+**Try DeepSeek-R1 now!**
 
 As always, we welcome your feedback, and we'd love to hear from you on the [OpenSearch forum](https://forum.opensearch.org/).
