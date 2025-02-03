@@ -265,7 +265,7 @@ The response contains the model output:
 
 The following tutorials guide you through integrating RAG in OpenSearch with the [DeepSeek chat model](https://api-docs.deepseek.com/api/create-chat-completion) and [DeepSeek-R1 model](https://huggingface.co/deepseek-ai/DeepSeek-R1):
 
-- [OpenSearch + DeepSeek Demo Notebook](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/DeepSeek_demo_notebook_for_RAG.ipynb)
+- [OpenSearch + DeepSeek demo notebook](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/DeepSeek_demo_notebook_for_RAG.ipynb)
 - [OpenSearch + DeepSeek Chat Service API](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/RAG_with_DeepSeek_Chat_model.md)
 - [OpenSearch + DeepSeek-R1 on Amazon Bedrock](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/RAG_with_DeepSeek_R1_model_on_Bedrock.md)
 - [OpenSearch + DeepSeek-R1 on Amazon SageMaker](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/RAG_with_DeepSeek_R1_model_on_Sagemaker.md)
