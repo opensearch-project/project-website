@@ -15,7 +15,7 @@ breadcrumbs:
       url: '/community/members/william-beckler.html'
 github: wbeckler
 linkedin: thegeneral
-job_title_and_company: 'Former Software Development Manager at AWS working on OpenSearch'
+job_title_and_company: 'Former Senior Software Development Manager at AWS working on OpenSearch'
 personas:
   - author
 permalink: '/community/members/william-beckler.html'
