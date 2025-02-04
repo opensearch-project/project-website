@@ -13,7 +13,7 @@ meta_keywords: anomaly detection, false positives, algorithmic improvements, Ope
 meta_description: Explore how recent algorithmic improvements in RCF reduces false positives in OpenSearch Anomaly Detection. Illustrate the improvements with NAB benchmark.
 ---
 
-The Anomaly Detection (AD) plugin in OpenSearch is powered by the [Random Cut Forest (RCF)](https://github.com/aws/random-cut-forest-by-aws/) algorithm. Although RCF is powerful, false alarms reduce its practical value, since users must spend time verifying and dismissing them—an effort that does not scale well. To address this issue, in OpenSearch 2.17, The AD team has introduced four major enhancements to RCF, significantly reducing false positives. In this blog post, we'll explore four major algorithmic improvements to OpenSearch's Random Cut Forest (RCF) algorithm that have resulted in a 94.3% reduction in false positives while maintaining high detection accuracy, demonstrate these improvements through real-world case studies, and provide a detailed comparison with previous OpenSearch versions.
+The Anomaly Detection (AD) plugin in OpenSearch is powered by the [Random Cut Forest (RCF)](https://github.com/aws/random-cut-forest-by-aws/) algorithm. Although RCF is a powerful algorithm, false alarms reduce its practical value because users must spend time verifying and dismissing the alarms, which does not scale well. To address this issue, in OpenSearch 2.17, The AD team has introduced four major enhancements to RCF, significantly reducing false positives. In this blog post, we'll explore four major algorithmic improvements to OpenSearch's Random Cut Forest (RCF) algorithm that have resulted in a 94.3% reduction in false positives while maintaining high detection accuracy, demonstrate these improvements through real-world case studies, and provide a detailed comparison with previous OpenSearch versions.
 
 <style>
 
@@ -42,36 +42,40 @@ th {
 
 </style>
 
-## Problems
+## RCF limitations
 
-### Recurring Periodic Spikes
-Detecting anomalies in data with strong daily or weekly patterns can be challenging. In the first chart below, RCF struggles to filter out regularly occurring spikes—it flags these normal, repeating events as anomalies.
+RCF has the following limitations that we needed to address.
+
+### Recurring periodic spikes
+
+Detecting anomalies in data with strong daily or weekly patterns can be challenging. RCF struggles to filter out regularly occurring spikes, flagging these normal, repeating events as anomalies, as shown in the following figure.
 
 ![periodic](/assets/media/blog-images/2024-12-26-Reducing-false-positives-through-algorithmic-improvements/periodic.png){:class="img-centered"}
 
-A natural approach to capturing seasonal behavior is to increase the shingle size so the model observes a full cycle—in this dataset, a day. Because data was collected every five minutes, one day corresponds to 288 data points. In the previous figure, the default shingle size of 8 (in OpenSearch AD) was used, whereas in the second chart, it was increased to 288 to capture a full day. Although this larger shingle size helps the model learn daily patterns, it can also introduce false negatives: RCF now overlooks two genuinely anomalous spikes—one unusually large and one unusually small.
+A natural approach to capturing seasonal behavior is to increase the shingle size so the model observes a full cycle---in this dataset, a day. Because data was collected every five minutes, one day corresponds to 288 data points. In the previous figure, the default shingle size of 8 (in OpenSearch AD) was used. In the following figure, the shingle size was increased to 288 in order to capture a full day of data. Although this larger shingle size helps the model learn daily patterns, it can also introduce false negatives: RCF now overlooks two genuinely anomalous spikes—--one unusually large and one unusually small---as shown in the following figure.
 
 ![periodic_shingle](/assets/media/blog-images/2024-12-26-Reducing-false-positives-through-algorithmic-improvements/periodic_shingle.png){:class="img-centered"}
 
-### Transition period during Data Drift and Level Shift
-Data can exhibit gradual changes in its distribution (data drift) or sudden shifts in its baseline (level shift). Although RCF is designed to adapt to these changes through streaming and continuous learning, it still needs time to adjust. In the figure below, after a level shift occurs, RCF generates four false positives before stabilizing and accepting the new baseline.
+### Transition period during data drift and level shift
+
+Data can exhibit gradual changes in its distribution (data drift) or sudden shifts in its baseline (level shift). Although RCF is designed to adapt to these changes through streaming and continuous learning, it still needs time to adjust. In the following figure, after a level shift occurs, RCF generates four false positives before stabilizing and accepting the new baseline.
 
 ![level_shift](/assets/media/blog-images/2024-12-26-Reducing-false-positives-through-algorithmic-improvements/level_shift.png){:class="img-centered"}
 
-### Normal Fluctuations vs. Anomalies
+### Normal fluctuations compared to true anomalies
 
-Data often exhibits regular fluctuations that should not be mistaken for true anomalies. Initially, RCF may be overly sensitive and flag these normal variations as anomalies. However, if changes remain within a typical variance range around the mean, they represent normal behavior rather than genuine anomalies. In the chart below, even though disk‐write spikes appear large around March 17–18, they fall within the expected range and thus are not actual anomalies.
+Data often exhibits regular fluctuations that should not be mistaken for true anomalies. Initially, RCF may be overly sensitive and flag these normal variations as anomalies. However, if changes remain within a typical variance range around the mean, they represent normal behavior rather than genuine anomalies. In the following figure, even though disk write spikes appear large around March 17--18, they fall within the expected range and thus are not actual anomalies.
 
 ![variance](/assets/media/blog-images/2024-12-26-Reducing-false-positives-through-algorithmic-improvements/variance.png){:class="img-centered"}
 
 
-## Solutions
+## Overcoming RCF limitations
 
 OpenSearch 2.17 introduced the following improvements in the RCF algorithm to address the above problems.
 
 ### Statistical tracking of candidate anomalies
 
-To address recurring periodic spikes, the model employs statistical tracking specifically for points that appear unusual—those with high RCF scores. Rather than updating global statistics on every data point, RCF maintains a running mean and variance (with exponential decay) for this smaller set of candidate anomalies. Then, when a high‐score event occurs, the model checks whether it resembles prior high-score observations by comparing two sets of values:
+To address recurring periodic spikes, the model employs statistical tracking specifically for points that appear unusual---those with high RCF scores. Rather than updating global statistics for every data point, RCF maintains a running mean and variance (with exponential decay) for this smaller set of candidate anomalies. When a high-score event occurs, the model checks whether it resembles prior high-score observations by comparing two sets of values:
 
 - **Actual observations and their running mean**: RCF verifies whether the observed data remains near its running mean within acceptable limits.
 
@@ -85,21 +89,18 @@ To handle transitional periods during data drift or a level shift, the algorithm
 
 ### Using approximate nearest neighbors for anomaly detection
 
-When deciding whether a candidate event is a true anomaly or merely a normal fluctuation, RCF leverages approximate nearest neighbors:
+When deciding whether a candidate event is a true anomaly or merely a normal fluctuation, RCF considers approximate nearest neighbors using the following approach:
 
-1. Build an Expected Value Vector
-    RCF creates a “normal” version of the queried point by replacing suspicious features with typical historical values.
+1. **Build an expected value vector**: RCF creates a “normal” version of the queried point by replacing suspicious features with typical historical values.
 
-2. Find Neighbors in Each Tree
-    For every tree, RCF follows the splitting dimensions to locate a leaf node close to the expected vector. If enough trees (e.g., ≥ 10%) identify neighbors within C times the average distance, the candidate event is deemed likely not unusual. For illustration, one might choose C = 1.1.
+2. **Find neighbors in each tree**: RCF traverses each tree along its splitting dimensions to find a leaf node close to the expected vector. Closeness is measured using a scaling factor $$C$$ (for example, $$C$$ = 1.1), which determines the threshold for how far neighbors can be from the expected vector. If a sufficient number of trees (for example, at least 10%) detect neighbors within $$C$$ multiplied by the average distance, the event is considered likely normal.
 
-3. Check the “Safe Box”
-    RCF also defines a “safe box” around the original point, based on factors such as recent noise levels and average deviations. If most neighbors lie within this box, the point is deemed “explainable.” If too few neighbors fall inside, the point is flagged as an anomaly.
+3. **Determine the “safe box”**: RCF also defines a “safe box” around the original point, based on factors such as recent noise levels and average deviations. If most neighbors lie within this box, the point is deemed “explainable.” If too few neighbors fall inside, the point is flagged as an anomaly.
 
 
 ### Rescoring using expected value vectors
 
-To further reduce false positives caused by minor fluctuations and during transitional periods (such as data drifts or level shifts), RCF rescales the anomaly score using an expected value vector. Essentially, it replaces potentially anomalous segments with similar historical values to compute a new score. If the difference between this “expected” score and the original score remains below a scaled threshold (factoring in the prior anomaly’s score and the current threshold), RCF decides not to raise another alert. This strategy helps avoid repeated notifications for the same anomaly.
+To further reduce false positives caused by minor fluctuations and during transitional periods (such as data drifts or level shifts), RCF rescales the anomaly score using an expected value vector. Essentially, it replaces potentially anomalous segments with similar historical values in order to compute a new score. If the difference between this “expected” score and the original score remains below a scaled threshold (factoring in the prior anomaly’s score and the current threshold), RCF decides not to raise another alert. This strategy helps avoid repeated notifications for the same anomaly.
 
 ## Evaluating RCF using the Numenta Anomaly Benchmark
 
@@ -116,7 +117,7 @@ We used the following RCF configuration for testing:
 
 These settings match the default RCF parameters in the OpenSearch AD plugin.
 
-Furthermore, RCF assigns an anomaly grade ranging from 0 to 1 for each data point. A grade of 0 indicates a normal event, while any value above 0 represents a potential anomaly. The closer the grade is to 1, the higher the likelihood of an anomaly. In our case study, we used a threshold of 0.5 to filter out lower‐likelihood anomalies.
+Furthermore, RCF assigns an anomaly grade ranging from $$0$$ to $$1$$ for each data point. A grade of $$0$$ indicates a normal event, while any value above $$0$$ represents a potential anomaly. The closer the grade is to $$1$$, the higher the likelihood of an anomaly. In our case study, we used a threshold of $$0.5$$ to filter out lower-likelihood anomalies.
 
 ### Results 
 
@@ -177,10 +178,10 @@ The following sections provide test results for various metrics.
 
 ## Precision and recall
 
-Before we present results, let's define two key concepts in machine learning evaluation:
+Before we present the results, let's define two key concepts in machine learning evaluation:
 
-- **Precision**: The proportion of detected anomalies that are correct: of all the anomalies the algorithm detected, how many were true anomalies? High precision means few mistaken identifications. For example, if the algorithm detects 10 anomalies and 8 are actually anomalies, then the precision is 8 / 10 = 0.8, or 80%.  
-- **Recall**: The proportion of true anomalies that are detected: of all true anomalies, how many did the algorithm detect? High recall means few missed anomalies. For example, if there are 10 true anomalies and the algorithm detects 8 of them, then the recall is 8 / 10 = 0.8, or 80%.  
+- **Precision**: The proportion of detected anomalies that are correct: of all the anomalies the algorithm detected, how many were true anomalies? High precision means few mistaken identifications. For example, if the algorithm detects 10 anomalies and 8 are actually anomalies, then the precision is $$8 / 10 = 0.8$$, or 80%.  
+- **Recall**: The proportion of true anomalies that are detected: of all true anomalies, how many did the algorithm detect? High recall means few missed anomalies. For example, if there are 10 true anomalies and the algorithm detects 8 of them, then the recall is $$8 / 10 = 0.8$$, or 80%.  
 
 ### Results
 
@@ -196,7 +197,7 @@ The following table summarizes RCF's precision and recall performance using the 
 
 Overall, RCF demonstrated strong recall, correctly detecting 7 out of 8 anomalies across the datasets. Notably, it achieved perfect recall in four of the five datasets. 
 
-RCF also maintains both high precision. Most false positives occur early in the time series, before the model has accumulated sufficient historical data for accurate predictions. For example, in the following graph, the anomaly detected around April 12 at 3:14 for the `ec2_network_in_257a54` dataset is particularly noteworthy. It deviates from the previously observed pattern of uniform double spikes. Earlier patterns show the second spike declining within approximately five minutes, whereas this anomalous spike exhibits an extended decline lasting around ten minutes. 
+RCF also maintains high precision. Most false positives occur early in the time series, before the model has accumulated sufficient historical data for accurate predictions. For example, in the following graph, the anomaly detected around April 12 at 3:14 for the `ec2_network_in_257a54` dataset is particularly noteworthy. It deviates from the previously observed pattern of uniform double spikes. Earlier patterns show the second spike declining within approximately five minutes, whereas this anomalous spike exhibits an extended decline lasting around ten minutes. 
 
 ![network_zoom_in](/assets/media/blog-images/2024-12-26-Reducing-false-positives-through-algorithmic-improvements/network_zoom_in_1.png){:class="img-centered"}
 When excluding the first 20% of data as a probation period, precision improves across datasets. This adjustment highlights how RCF becomes more accurate after observing enough historical data. The results of the last 80% of the dataset are summarized in the following table.
@@ -240,7 +241,7 @@ Version 2.17 showed an overall reduction in false alerts and an increase in true
 
 OpenSearch 2.9 flagged 112 anomalies, but only 6 were true anomalies, resulting in a high false positive rate. After algorithmic improvements in OpenSearch 2.17, only 13 anomalies were flagged, with 7 being true anomalies. This reflects a significant increase in precision, from 5.4% (6/112) to 53.8% (7/13) and increase in recall from 75% (6/8) to 87.5% (7/8).
 
-In comparison, OpenSearch 2.9 produced 106 false positives, while OpenSearch 2.17 produced just 6—--representing a **94.3% reduction in false positives**. This percent reduction can be calculated using the following formulas:
+In comparison, OpenSearch 2.9 produced 106 false positives, while OpenSearch 2.17 produced just 6—--representing a **94.3% reduction in false positives**. This percent reduction can be calculated using the following formula:
 
 $$
 \text{Percent Reduction in FP} 
@@ -260,4 +261,4 @@ Overall, OpenSearch 2.17 significantly decreased both false positives and false 
 
 ## Conclusions
 
-The enhancements to the RCF algorithm in OpenSearch 2.17 improve anomaly detection by greatly reducing false positives. By tracking the history of candidate anomalies, implementing grouped alerting, suppresses redundant signals using nearest neighbors, and refining scores through expected value comparisons, the updated approach addresses real-world challenges like periodic spikes, while maintaining high recall. Empirical tests using the NAB CloudWatch benchmarks validate its effectiveness, showing a 94.3% reduction in false positives and a 50% reduction in false negatives.
+The enhancements to the RCF algorithm in OpenSearch 2.17 improve anomaly detection by greatly reducing false positives. By tracking the history of candidate anomalies, implementing grouped alerting, suppressing redundant signals using nearest neighbors, and refining scores through expected value comparisons, the updated approach addresses real-world challenges like periodic spikes, while maintaining high recall. Empirical tests using the NAB CloudWatch benchmarks validate its effectiveness, showing a 94.3% reduction in false positives and a 50% reduction in false negatives.
