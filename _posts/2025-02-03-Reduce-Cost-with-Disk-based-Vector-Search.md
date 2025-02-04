@@ -207,8 +207,8 @@ We chose four different cluster configurations to test against and used [opensea
 |-------------|-----------------|----------------|---------------------|---------------------|----------|---------------------|----------------|-------------------|
 | in_memory   | 8               | r6g.8xlarge    | 300                 | EBS                 | 32       | 40                  | 1              | 1x                |
 | on_disk_8x  | 10              | r6gd.2xlarge   | 474                 | Instance            | 32       | 15                  | 1              | 8x                |
-| on_disk_16x | 6               | r6gd.2xlarge   | 474                 | Instance            | 32  9    | 1                   | 16x            |
-| on_disk_32x | 4               | r6gd.2xlarge   | 474                 | Instance            | 32  6    | 1                   | 32x            |
+| on_disk_16x | 6               | r6gd.2xlarge   | 474                 | Instance            | 32 | 9    | 1                   | 16x            |
+| on_disk_32x | 4               | r6gd.2xlarge   | 474                 | Instance            | 32 | 6    | 1                   | 32x            |
 
 From then above table, you can see that the higher level of compression clusters use substantially less resources than the non-compressed.
 
