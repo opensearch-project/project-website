@@ -202,10 +202,18 @@ PUT /_search/pipeline/rag_pipeline
 
 For more information, see [Conversational search](https://opensearch.org/docs/latest/search-plugins/conversational-search).
 
-### 5. Create a conversation memory
+### 5. Create a vector database
+Follow the [neural search tutorial](https://opensearch.org/docs/latest/search-plugins/neural-search-tutorial/) to create an embedding model and a k-NN index. Then ingest data into the index:
+```json
+POST _bulk
+{"index": {"_index": "my_rag_test_data", "_id": "1"}}
+{"text": "Abraham Lincoln was born on February 12, 1809, the second child of Thomas Lincoln and Nancy Hanks Lincoln, in a log cabin on Sinking Spring Farm near Hodgenville, Kentucky.[2] He was a descendant of Samuel Lincoln, an Englishman who migrated from Hingham, Norfolk, to its namesake, Hingham, Massachusetts, in 1638. The family then migrated west, passing through New Jersey, Pennsylvania, and Virginia.[3] Lincoln was also a descendant of the Harrison family of Virginia; his paternal grandfather and namesake, Captain Abraham Lincoln and wife Bathsheba (née Herring) moved the family from Virginia to Jefferson County, Kentucky.[b] The captain was killed in an Indian raid in 1786.[5] His children, including eight-year-old Thomas, Abraham's father, witnessed the attack.[6][c] Thomas then worked at odd jobs in Kentucky and Tennessee before the family settled in Hardin County, Kentucky, in the early 1800s."}
+{"index": {"_index": "my_rag_test_data", "_id": "2"}}
+{"text": "Chart and table of population level and growth rate for the New York City metro area from 1950 to 2023. United Nations population projections are also included through the year 2035.\\nThe current metro area population of New York City in 2023 is 18,937,000, a 0.37% increase from 2022.\\nThe metro area population of New York City in 2022 was 18,867,000, a 0.23% increase from 2021.\\nThe metro area population of New York City in 2021 was 18,823,000, a 0.1% increase from 2020.\\nThe metro area population of New York City in 2020 was 18,804,000, a 0.01% decline from 2019."}
+```
+For more information about creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/). For more information about vector search, see [Vector search](https://opensearch.org/docs/latest/search-plugins/vector-search/). For more information about ingesting data, see [Ingest RAG data into an index](https://opensearch.org/docs/latest/search-plugins/conversational-search/#step-4-ingest-rag-data-into-an-index).
 
-Assuming that you created a k-NN index and ingested the data to use vector search, you can now create a conversation memory. For more information about creating a k-NN index, see [k-NN index](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/). For more information about vector search, see [Vector search](https://opensearch.org/docs/latest/search-plugins/vector-search/). For more information about ingesting data, see [Ingest RAG data into an index](https://opensearch.org/docs/latest/search-plugins/conversational-search/#step-4-ingest-rag-data-into-an-index).
-
+### 6. Create a conversation memory
 Create a conversation memory to store all messages from a conversation:
 
 ```json
@@ -223,7 +231,7 @@ The response contains a memory ID for the created memory:
 }
 ```
 
-### 6. Use the pipeline for RAG
+### 7. Use the pipeline for RAG
 
 Send a query to OpenSearch and provide additional parameters in the `ext.generative_qa_parameters` object:
 
@@ -231,14 +239,22 @@ Send a query to OpenSearch and provide additional parameters in the `ext.generat
 GET /my_rag_test_data/_search
 {
   "query": {
-    "match": {
-      "text": "What's the population of NYC metro area in 2023"
+    "neural": {
+      "passage_embedding": {
+        "query_text": "What's the population of NYC metro area in 2023?",
+        "model_id": "USkHsZQBts7fa6bybx3G",
+        "k": 5
+      }
     }
   },
+  "size": 2,
+  "_source": [
+    "text"
+  ],
   "ext": {
     "generative_qa_parameters": {
       "llm_model": "deepseek-chat",
-      "llm_question": "What's the population of NYC metro area in 2023",
+      "llm_question": "What's the population of NYC metro area in 2023?",
       "memory_id": "znCqcI0BfUsSoeNTntd7",
       "context_size": 5,
       "message_size": 5,
