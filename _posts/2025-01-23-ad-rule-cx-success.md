@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Enhancing Anomaly Detection in Amazon OpenSearch Service: A Customer Success Story"
+title:  "Enhancing anomaly detection in Amazon OpenSearch Service: A customer success story"
 authors:
  - kaituo
  - kentonparton
@@ -73,7 +73,7 @@ Note: If no custom rule is specified, AD defaults to a built-in filter that supp
 ## Technical details
 
 The core of suppression rules is expected normal values. To build an expected value for an anomalous point, Random Cut Forest (RCF), the algorithm behind OpenSearch Anomaly Detection, replaces the anomalous point’s most suspicious dimension with a typical value learned from historical data. Here, each dimension corresponds to a metric value within a context or recent-history window, and the overall anomaly score depends on these dimensions.  
-RCF partitions the data by selecting a dimension $i$ with probability proportional to its range, then choosing a random cut value within that range. If $l_i$ is the difference between the maximum and minimum values observed in dimension $i$, the probability of cutting along $i$ is $\frac{l_i}{\sum_j l_j}$. These random cuts isolate anomalous points, and RCF sums the anomaly scores across all dimensions to compute the final anomaly score. To identify which dimension contributes most to an anomaly, RCF tracks each dimension’s portion of the total anomaly score. The dimension with the highest contribution is deemed the most suspicious.  
+RCF partitions the data by selecting a dimension $$i$$ with probability proportional to its range, then choosing a random cut value within that range. If $$l_i$$ is the difference between the maximum and minimum values observed in dimension $$i$$, the probability of cutting along $$i$$ is $$\frac{l_i}{\sum_j l_j}$$. These random cuts isolate anomalous points, and RCF sums the anomaly scores across all dimensions to compute the final anomaly score. To identify which dimension contributes most to an anomaly, RCF tracks each dimension’s portion of the total anomaly score. The dimension with the highest contribution is deemed the most suspicious.  
 
 RCF then imputes a more “normal” value for this suspicious dimension by treating it as if it were missing in the queried point. Specifically, the algorithm performs the following steps:  
 - **Root to leaf** – RCF starts at the root of each tree in the forest and traverses downward toward a leaf.  
