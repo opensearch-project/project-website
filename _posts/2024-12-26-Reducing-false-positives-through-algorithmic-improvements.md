@@ -180,8 +180,8 @@ The following sections provide test results for various metrics.
 
 Before we present the results, let's define two key concepts in machine learning evaluation:
 
-- **Precision**: The proportion of detected anomalies that are correct: of all the anomalies the algorithm detected, how many were true anomalies? High precision means few mistaken identifications. For example, if the algorithm detects 10 anomalies and 8 are actually anomalies, then the precision is $$8 / 10 = 0.8$$, or 80%.  
-- **Recall**: The proportion of true anomalies that are detected: of all true anomalies, how many did the algorithm detect? High recall means few missed anomalies. For example, if there are 10 true anomalies and the algorithm detects 8 of them, then the recall is $$8 / 10 = 0.8$$, or 80%.  
+- **Precision**: The proportion of detected anomalies that are correct: of all the anomalies the algorithm detected, how many were true anomalies? High precision means few mistaken identifications. For example, if the algorithm detects 10 anomalies and 8 are actually anomalies, then the precision is $$8 / 10 = 0.8$$, or $$80%$$.  
+- **Recall**: The proportion of true anomalies that are detected: of all true anomalies, how many did the algorithm detect? High recall means few missed anomalies. For example, if there are 10 true anomalies and the algorithm detects 8 of them, then the recall is $$8 / 10 = 0.8$$, or $$80%$$.  
 
 ### Results
 
@@ -202,7 +202,7 @@ RCF also maintains high precision. Most false positives occur early in the time 
 ![network_zoom_in](/assets/media/blog-images/2024-12-26-Reducing-false-positives-through-algorithmic-improvements/network_zoom_in_1.png){:class="img-centered"}
 When excluding the first 20% of data as a probation period, precision improves across datasets. This adjustment highlights how RCF becomes more accurate after observing enough historical data. The results of the last 80% of the dataset are summarized in the following table.
 
-| Data Set | Precision | Recall |
+| Dataset | Precision | Recall |
 |----------|-----------|--------|
 | AWS ec2_cpu_utilization_24ae8d | 1 | 1 |
 | AWS ec2_network_in_257a54 | 0.5 | 1 |
@@ -218,8 +218,8 @@ Another type of false positive occurs when detected anomalies seem valid based o
 
 Let's examine how OpenSearch 2.17 has improved its anomaly detection performance relative to OpenSearch 2.9. Before we present the results, let's define the following key concepts:
 
-- **True positive (correct detection)**: An true anomolous event correctly flagged as anomalous by the algorithm.  
-- **False positive (false alarm)**: A non-anomalous event incorrectly flagged as anomalous by the algoritm.  
+- **True positive (correct detection)**: An true anomalous event correctly flagged as anomalous by the algorithm.  
+- **False positive (false alarm)**: A non-anomalous event incorrectly flagged as anomalous by the algorithm.  
 - **False negative (missed anomaly)**: An anomalous event that the system fails to flag as anomalous.
 
 ### Results
@@ -261,4 +261,4 @@ Overall, OpenSearch 2.17 significantly decreased both false positives and false 
 
 ## Conclusions
 
-The enhancements to the RCF algorithm in OpenSearch 2.17 improve anomaly detection by greatly reducing false positives. By tracking the history of candidate anomalies, implementing grouped alerting, suppressing redundant signals using nearest neighbors, and refining scores through expected value comparisons, the updated approach addresses real-world challenges like periodic spikes, while maintaining high recall. Empirical tests using the NAB CloudWatch benchmarks validate its effectiveness, showing a 94.3% reduction in false positives and a 50% reduction in false negatives.
+The enhancements to the RCF algorithm in OpenSearch 2.17 significantly improve anomaly detection by reducing false positives. Key improvements include tracking the history of candidate anomalies, implementing grouped alerting, suppressing redundant signals with nearest neighbors, and refining scores through expected value comparisons. These updates help address real-world challenges like periodic spikes while maintaining high recall. Empirical tests using the NAB CloudWatch benchmarks demonstrate their effectiveness, with a **94.3% reduction in false positives** and a **50% reduction in false negatives**.
