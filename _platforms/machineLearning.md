@@ -22,7 +22,7 @@ key_benefits_list:
   - name: 'Open and flexible'
     description: 'Take advantage of open-source integrations into popular open frameworks and use managed services from major cloud providers.'
   - name: 'Built for the future'
-    description: 'Prepare your AI applications for future innovations with vector, lexical, and hybrid search, as well as analytics and observability capabilities, all in one software suite..'
+    description: 'Prepare your AI applications for future innovations with vector, lexical, and hybrid search, as well as analytics and observability capabilities, all in one software suite.'
 
 key_features_list:
   - name: 'Vector database'
