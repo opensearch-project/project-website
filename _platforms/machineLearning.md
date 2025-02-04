@@ -12,7 +12,7 @@ feature_area_category_name: MachineLearning
 feature_area_solution_name: ''
 has_hero: true
 
-overview_header_text: 'Build flexible, scalable, and future-proof machine learning and artificial intelligence applications'
+overview_header_text: 'Build flexible, scalable, and future-ready machine learning and artificial intelligence applications'
 
 key_benefits_list:
   - name: 'Proven in production'
@@ -22,19 +22,19 @@ key_benefits_list:
   - name: 'Open and flexible'
     description: 'Take advantage of open-source integrations into popular open frameworks and use managed services from major cloud providers.'
   - name: 'Built for the future'
-    description: 'Future-proof your AI applications with vector, lexical, and hybrid search, analytics, and observability capabilities, all in one software suite.'
+    description: 'Prepare your AI applications for future innovations with vector, lexical, and hybrid search, as well as analytics and observability capabilities, all in one software suite..'
 
 key_features_list:
   - name: 'Vector database'
     description: 'Use low-latency queries to discover assets by degree of similarity through k-nearest neighbors (k-NN) functionality.'
   - name: 'Neural search'
-    description: 'Create semantic search applications by running human-language instead of vector-based queries.'
+    description: 'Improve accuracy and relevancy for human language queries through searches that consider context and relationships.'
   - name: 'Extensible ML framework'
-    description: 'Power neural search through integrated models that share a unified API, whether they run on-cluster or externally.'
+    description: 'Power neural search through OpenSearch’s pre-trained models, upload your own, or connect to externally hosted models.'
   - name: 'Anomaly detection'
-    description: 'Detect anomalies in your OpenSearch data automatically, in near real time, using the Random Cut Forest (RCF) algorithm.'
+    description: 'Automatically detect unusual behavior in your data in near real time using the Random Cut Forest (RCF) algorithm.'
   - name: 'Efficient filtering'
-    description: 'Intelligently evaluate strategies to optimize between recall and latency.'
+    description: 'Apply intelligent strategies to optimize recall and latency for vector search.'
   - name: 'Vector quantization support'
     description: 'Improve performance and cost by reducing your index size and query latency with minimal impact on recall.'
   
@@ -49,8 +49,9 @@ hero_images:
     alt: 'OpenSearch platform for search applications hero banner.'
 ---
 
-The artificial intelligence (AI) revolution has transformed process optimization, analytics, and customer experiences. Now, machine learning (ML) models are powering the next leap forward through vector search. By embedding models that can encode the meaning and context of documents, images, and audio into vectors for similarity-driven searches, this framework unlocks powerful ML and AI tooling and capabilities.
+Artificial intelligence (AI) has transformed process optimization, analytics, and customer experiences. Now, machine learning (ML) models are powering the next leap forward through vector search. By embedding models that can encode the meaning and context of documents, images, and audio into vectors for similarity-driven searches, vector search unlocks powerful ML and AI tooling and capabilities.
 
-OpenSearch brings traditional search, analytics, and vector search together in one complete solution. By reducing the effort you need to operationalize, manage, and integrate AI-generated assets, OpenSearch’s vector database capabilities accelerate ML and AI application development. Built-in performance and scalability power vector, lexical, and hybrid search and analytics across all your models, vectors, and metadata. Enhance information retrieval and analytics, improve efficiency and stability, and give your generative AI models a greater pool of data using OpenSearch.
+OpenSearch brings traditional search, analytics, and vector search together in one solution. By reducing the effort you need to operationalize, manage, and integrate AI-generated assets, OpenSearch’s vector database capabilities accelerate ML and AI application development. Built-in performance and scalability allow you to power vector, lexical, and hybrid search and analytics across all your models, vectors, and metadata. Enhance information retrieval and analytics, improve efficiency and stability, and give your generative AI models the resources to deliver more accurate and intelligent responses.
+
 
 
