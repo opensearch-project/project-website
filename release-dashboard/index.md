@@ -12,6 +12,9 @@ breadcrumbs:
 omit_from_search: true
 
 release_versions:
+  - version: 2.19.0
+    release_issue: 5152
+    release_retro_issue: 5153
   - version: 3.0.0
     release_issue: 3747
     release_retro_issue: 5174

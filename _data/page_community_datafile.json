@@ -141,9 +141,9 @@
                             "URL": "https://events.linuxfoundation.org/opensearchcon-india/"
                         },
                         {
-                            "Name": "North America | TBD",
-                            "ClassValue": "grayedOut-no-link",
-                            "URL": "#"
+                            "Name": "North America - September 8 - 10, San Jose, CA",
+                            "ClassValue": "community-active-link",
+                            "URL": "https://events.linuxfoundation.org/opensearchcon-north-america/"
                         },
                         {
                             "Name": "China | TBD",
@@ -179,7 +179,7 @@
                         },
                         {
                             "Name" : "Become a Solutions Provider",
-                            "URL": "/https://github.com/opensearch-project/project-website/issues/new?template=solutionsProvider_add_new_solutionsProvider.yml/",
+                            "URL": "https://github.com/opensearch-project/project-website/issues/new?template=solutionsProvider_add_new_solutionsProvider.yml",
                             "IconPath": "/assets/img/iconography/OpenSearch-Providers-Icon.png",
                             "card_ClassValue" : "card_bottomBorder_blue",
                             "ClassValue": "icon-homepage-community-socialLink"
@@ -187,7 +187,7 @@
                         {
                             "Name": "Write a blog post",
                             "IconPath": "/assets/img/iconography/OpenSearch-Blog-Icon.png",
-                            "URL": "/blog/",
+                            "URL": "https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml",
                             "ClassValue": "icon-homepage-community-withSurroundingCircle",
                             "card_ClassValue" : "card_bottomBorder_purple"
                         }
