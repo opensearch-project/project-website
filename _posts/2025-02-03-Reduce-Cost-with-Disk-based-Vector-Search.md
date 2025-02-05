@@ -247,11 +247,11 @@ We obtained the following large-scale test results.
 |-----------------------------------|-----------|------------|--------------|-------------|---------------|-------------|---------------|
 | recall@100 (ratio)                | 0.95      | 0.98       | 0.98         | 0.97        | 0.96          | 0.94        | 0.95          |
 | 1-client p90 search latency (ms)  | 24.02     | 96.31      | 28.90        | 108.05      | 29.79         | 104.421     | 47.2906       |
-| 1-client mean t/p (QPS)           | 40.64     | 11.03      | 42.33        | 10.06       | 43.95         | 10.65       | 31.83         |
+| 1-client mean throughput (QPS)           | 40.64     | 11.03      | 42.33        | 10.06       | 43.95         | 10.65       | 31.83         |
 | 4-client p90 search latency (ms)  | 25.82     | 97.19      | 20.40        | 220.19      | 18.09         | 244.52      | 46.13         |
-| 4-client mean t/p (QPS)           | 162.80    | 45.86      | 204.62       | 25.80       | 193.27        | 25.28       | 146.77        |
+| 4-client mean throughput (QPS)           | 162.80    | 45.86      | 204.62       | 25.80       | 193.27        | 25.28       | 146.77        |
 | 8-client p90 search latency (ms) | 27.69     | 95.05      | 30.88        | 414.20      | 27.94         | 429.79      | 25.07         |
-| 8-client mean t/p (QPS)           | 306.70    | 95.22      | 305.86       | 26.34       | 343.95        | 25.75       | 376.60        |
+| 8-client mean throughput (QPS)           | 306.70    | 95.22      | 305.86       | 26.34       | 343.95        | 25.75       | 376.60        |
 
 Interestingly, for this dataset, the on-disk approach with rescoring produces similar recall to the in-memory approach without rescoring, but the in-memory approach is substantially faster. This is most likely because the Cohere v3 model has been optimized to work very well with binary quantized data (see this [blog](https://cohere.com/blog/int8-binary-embeddings)).
 
