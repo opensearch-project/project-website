@@ -261,6 +261,6 @@ Interestingly, for this dataset, the on-disk approach with rescoring produces si
 
 Our testing shows that the two-phase ANN approach performs effectively in low-memory environments, though results vary significantly by dataset. When running your own experiments, we recommend testing with both enabled and disabled `index.knn.disk.vector.shard_level_rescoring_disabled` setting to measure the performance benefit for your use case. Additionally, with disk-based search, ensure that the secondary storage is optimized for high read traffic---we found that SSDs generally provide the best results.
 
-## Whats next?
+## What's next?
 
 We have many new and exciting features coming for vector search in OpenSearch. In the future releases, we'll focus on improving quantization performance for all datasets, eliminating the need for fine-tuning. Follow our [GitHub repo](https://github.com/opensearch-project/k-NN) for continued improvements in both performance and functionality. As always, we welcome and appreciate your contributions and feature requests!
