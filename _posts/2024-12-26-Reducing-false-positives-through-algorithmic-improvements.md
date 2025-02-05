@@ -4,13 +4,13 @@ title: "Enhancing OpenSearch anomaly detection: Reducing false positives through
 authors:
   - kaituo
   - kolchfa
-date: 2024-12-26
+date: 2024-02-05
 categories:
   - technical-posts
 has_math: true
 has_science_table: true
-meta_keywords: anomaly detection, false positives, algorithmic improvements, OpenSearch, nab benchmark
-meta_description: Explore how recent algorithmic improvements in RCF reduces false positives in OpenSearch Anomaly Detection. Illustrate the improvements with NAB benchmark.
+meta_keywords: anomaly detection, OpenSearch RCF algorithm, Random Cut Forest, value vectors, Numenta Anomaly Benchmark, algorithmic improvements in OpenSearch
+meta_description: Explore how OpenSearch 2.17 enhanced the Random Cut Forest algorithm, making is possible to reduce false positives by 94.3% while maintaining detection accuracy. Get benchmark results and read practical studies.
 ---
 
 The OpenSearch Anomaly Detection plugin is powered by the [Random Cut Forest (RCF)](https://github.com/aws/random-cut-forest-by-aws/) algorithm. Although RCF is a powerful algorithm, false alarms reduce its practical value because users must spend time verifying and dismissing the alarms. To address this issue, in OpenSearch 2.17, The Anomaly Detection team has introduced four major enhancements to RCF, significantly reducing false positives. In this blog post, we'll explore four major algorithmic improvements to OpenSearch's RCF algorithm that have resulted in a 94.3% reduction in false positives while maintaining high detection accuracy, demonstrate these improvements through real-world case studies, and provide a detailed comparison with previous OpenSearch versions.
