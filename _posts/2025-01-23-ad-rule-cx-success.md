@@ -19,7 +19,7 @@ As organizations increasingly rely on cloud services, monitoring and detecting a
 
 ## Introduction
 
-Amazon OpenSearch Service's AD helps users automatically identify unusual patterns in their data. While the feature has proven valuable for many users, we recognized opportunities for improvement based on customer feedback. This post details significant updates to the AD plugin model,s focusing on rule-based anomaly detection and its real-world applications.
+Amazon OpenSearch Service's AD helps users automatically identify unusual patterns in their data. While the feature has proven valuable for many users, we recognized opportunities for improvement based on customer feedback. This post details significant updates to the AD plugin model, focusing on rule-based anomaly detection and its real-world applications.
 
 ## The challenge
 
