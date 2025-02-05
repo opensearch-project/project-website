@@ -253,7 +253,7 @@ We obtained the following large-scale test results.
 | 8-client p90 search latency (ms) | 27.69     | 95.05      | 30.88        | 414.20      | 27.94         | 429.79      | 25.07         |
 | 8-client mean throughput (QPS)           | 306.70    | 95.22      | 305.86       | 26.34       | 343.95        | 25.75       | 376.60        |
 
-Interestingly, for this dataset, the on-disk approach with rescoring produces similar recall to the in-memory approach without rescoring, but the in-memory approach is substantially faster. This is most likely because the Cohere v3 model has been optimized to work very well with binary quantized data (see this [blog](https://cohere.com/blog/int8-binary-embeddings)).
+Interestingly, for this dataset, the on-disk approach with rescoring produces similar recall to the in-memory approach without rescoring, but the in-memory approach is substantially faster. This is most likely because the Cohere v3 model has been optimized to work very well with binary quantized data (see [this blog post](https://cohere.com/blog/int8-binary-embeddings)).
 
 ## Learnings
 
