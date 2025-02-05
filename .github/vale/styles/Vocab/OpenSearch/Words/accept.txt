@@ -111,7 +111,7 @@ pebibyte
 [Rr]epo
 [Rr]erank(er|ed|ing)?
 [Rr]erankers?
-[Rr]escor(er|ed|ing)?
+[Rr]escor(e|ed|ing)?
 [Rr]ewriters?
 [Rr]ollout
 [Rr]ollup
