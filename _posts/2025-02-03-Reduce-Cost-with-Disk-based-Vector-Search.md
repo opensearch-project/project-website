@@ -191,7 +191,7 @@ We ran several different tests on a [single node OpenSearch cluster](https://git
 | `sNowflake-msmarco` | `l2`           | Yes            | 768       | 8,841,823          | Used [`snowflake-arctic-embed-m`](https://huggingface.co/Snowflake/snowflake-arctic-embed-m) to encode a larger sample of `ms-marco`. |
 | `clip-flickr`       | `l2`           | No             | 512       | 6,637,685          | Used the `clip` model to encode a random sample of images from Flickr.                                                                         |
 
-We conducted experiments comparing `in_memory` and `on_disk` modes using both `16x` and `32x` compression levels. Key testing parameters included:
+We conducted experiments comparing `in_memory` and `on_disk` modes using `1x`, `2x`, `4x`, `8x`, `16x` and `32x` compression levels. Key testing parameters included:
 
 - `on_disk` mode: Includes a rescoring stage
 - `in_memory` mode: No rescoring stage
@@ -204,7 +204,7 @@ We obtained the following results, comparing recall to compression level.
 
 ![Million Vector Results](/assets/media/blog-images/2025-02-03-Reduce-Cost-with-Disk-based-Vector-Search/mill-results.png){:class="img-centered"}
 
-The results show that combining binary quantization with full-precision rescoring can significantly improve recall while maintaining reasonable latency in low-memory environments. However, performance varies by dataset. For example, while this approach improves the `sift` dataset performance, the recall remains relatively low. We recommend testing with your specific dataset to determine the optimal configuration.
+The results show that combining quantization with full-precision rescoring can significantly improve recall while maintaining reasonable latency in low-memory environments. However, performance varies by dataset. For example, while this approach improves the `sift` dataset performance, the recall remains relatively low. We recommend testing with your specific dataset to determine the optimal configuration.
 
 ### Large-scale tests
 
