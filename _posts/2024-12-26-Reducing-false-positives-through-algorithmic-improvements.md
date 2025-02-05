@@ -4,7 +4,7 @@ title: "Enhancing OpenSearch anomaly detection: Reducing false positives through
 authors:
   - kaituo
   - kolchfa
-date: 2024-02-05
+date: 2025-02-05
 categories:
   - technical-posts
 has_math: true
