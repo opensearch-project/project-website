@@ -74,13 +74,11 @@ The preceding set of vectors produces the following calculated mean:
 Mean = [-0.19, 0.08, 0.29, 0.03, 0.18, -0.12, 0.25, -0.34]
 ```
 
-#### 2. Quantization rule
+#### 2. Quantization of a new vector
 
 The quantization rule for each dimension j of a vector is given by the following logic:
 
 ![Quantization Formula](/assets/media/blog-images/2025-02-03-Reduce-Cost-with-Disk-based-Vector-Search/quantization.png){:class="img-centered"  width="500px"}
-
-#### 3. Quantization of a new vector
 
 Consider a new vector:
 
