@@ -54,7 +54,7 @@ As part of this feature, we also expanded our quantization support. Previously, 
 
 Consider the following 8-dimensional vectors of 32-bit floating point numbers: 
 
-```
+```python
 v1 = [0.56, 0.85, 0.53, 0.25, 0.46, 0.01, 0.63, 0.73]
 v2 = [-0.99, -0.79, 0.23, -0.62, 0.87, -0.06, -0.24, -0.75]
 v3 = [-0.15, 0.17, 0.10, 0.46, -0.79, -0.31, 0.36, -1.00]
@@ -70,7 +70,7 @@ The mean for each dimension j is calculated using the following formula:
 
 The preceding set of vectors produces the following calculated mean:
 
-```
+```python
 Mean = [-0.19, 0.08, 0.29, 0.03, 0.18, -0.12, 0.25, -0.34]
 ```
 
@@ -82,7 +82,7 @@ The quantization rule for each dimension j of a vector is given by the following
 
 Consider a new vector:
 
-```
+```python
 v_new = [0.45, -0.30, 0.67, 0.12, 0.25, -0.50, 0.80, 0.55]
 ```
 
