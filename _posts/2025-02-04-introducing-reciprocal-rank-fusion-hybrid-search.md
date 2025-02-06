@@ -1,88 +1,114 @@
 ---
 layout: post
-title:  Introducing Reciprocal Rank Fusion for Hybrid Search
+title:  Introducing Reciprocal Rank Fusion for hybrid search
 authors:
-  - rbogan
+  - ryanbogan
   - gaievski
   - minalsha
   - kolchfa
-date:
+date: 2025-02-05
+has_science_table: true
 categories:
   - technical-posts
-meta_keywords:
-meta_description:
+meta_keywords: OpenSearch hybrid search, reciprocal rank fusion, RRF, search ranking, score normalization, Min-max normalization, L2 normalization, ranking algorithms, data normalization
+meta_description: Discover how Reciprocal Rank Fusion (RRF) in OpenSearch 2.19 enhances hybrid search by merging ranked results from multiple query sources. Learn how RRF improves search relevance, benchmarks against traditional normalization techniques, and offers performance benefits for various applications.
 ---
 
-OpenSearch 2.19 introduces reciprocal rank fusion (RRF), a new feature in the neural-search plugin designed to enhance Hybrid search. RRF merges ranked results from diverse query sources like neural, k-NN, and boolean, into a single unified relevance-optimized set. By prioritizing documents consistently ranked highly across multiple sources, RRF ensures the most relevant items appear prominently in the final results, addressing limitations of traditional score normalization techniques.
+OpenSearch 2.19 introduces reciprocal rank fusion (RRF), a new feature in the neural-search plugin that enhances hybrid search. RRF merges ranked results from multiple query sources, such as neural search, k-NN, and Boolean queries, into a single relevance-optimized list. By prioritizing documents that consistently rank highly across different sources, RRF improves search relevance without relying on traditional score normalization techniques.
 
-## Applicability and advantages of RRF in hybrid search
-RRF is particularly advantageous for aggregating ranked results from diverse query methods. Unlike traditional score, normalization techniques like Min-max or L2 normalization, RRF employs a rank-based aggregation strategy that inherently addresses several limitations of score-centric methods.
+## Why use RRF for hybrid search?
 
-### Addressing limitations of score normalization methods
-1. #### Score distribution sensitivity:
-   Techniques like Min-max normalization map scores to a common range, but when combining results from different query methods, their varying score patterns can lead to unbalanced final rankings. Such unbalanced rankings can compromise search quality by allowing one query method’s scoring pattern to dominate the results, regardless of actual relevance. L2 normalization scales scores proportionally, yet remains influenced by score distribution within individual queries. RRF bypasses these limitations by focusing exclusively on rank positions, enabling consistent treatment of results across disparate data sources.
-2. #### Outlier robustness:
-   Both Min-max and L2 normalization are susceptible to outliers, where extreme scores disproportionately affect normalized rankings. By aggregating rankings rather than scores, RRF ensures that relevance is determined by positional consistency, not anomalous values.
-3. #### Relevance consistency:
-   L2 normalization aligns scores to a shared scale but lacks a mechanism to reward documents appearing consistently across multiple queries. RRF excels by prioritizing items ranked highly across diverse queries, ensuring robust handling of multidimensional relevance signals.
+RRF is particularly useful for aggregating ranked results from diverse query methods. Unlike traditional normalization techniques such as min-max or L2 normalization, which adjust scores to a shared scale, RRF uses a rank-based aggregation strategy. This approach addresses several challenges associated with score-based methods.
 
-### Real-world applications
-RRF demonstrates advantages over existing normalization techniques in scenarios where datasets exhibit specific challenges:
-#### Score variability across query methods
-Query methods like BM25, neural search, and k-NN often produce scores on incompatible scales. Techniques like L2 or Min-max normalization are sensitive to these differences, leading to suboptimal rankings. RRF sidesteps this issue by emphasizing rank consistency rather than absolute score alignment.
+### How RRF solves score normalization challenges
 
-* **Example:** In multimodal search pipelines, where text-based queries generate wide score ranges, and visual features produce narrower ranges, RRF prevents smaller-scale signals from being overshadowed.
+RRF overcomes key challenges associated with traditional score normalization methods, ensuring more balanced and effective ranking across diverse query methods.
 
-#### Sparse behavioral signals in e-commerce
-E-commerce datasets often include sparse behavioral signals, such as user clicks or purchases, which disproportionately benefit from rank-based aggregation.
-* **Example:** Merging behavioral data with metadata, RRF highlights niche products ranked highly in semantic or metadata relevance, even with limited engagement data—an area where L2 and Min-max struggle to balance sparse signals.
+#### Sensitivity to score distribution
 
-#### Noisy or outlier-prone data
-Datasets with high variance or outliers—such as scientific research or log data—challenge score-based methods like Min-max or L2 normalization. By focusing solely on rank positions, RRF avoids distortions introduced by outliers.
-* **Example:** In scientific datasets, where metadata from top-tier journals often skews scores, RRF integrates these results without overemphasizing outliers, ensuring more balanced and relevant rankings.
+Traditional normalization techniques like min-max adjust scores from different query methods so that they fit within a standardized scale. However, when merging results from different query methods, variations in score distributions can lead to unbalanced rankings. One method’s scoring pattern may dominate, reducing search quality. L2 normalization scales scores proportionally but remains influenced by score distributions within individual queries. RRF avoids these issues by focusing exclusively on rank positions, ensuring consistent treatment of results across disparate data sources.
 
-#### Dynamic or evolving data
-Streaming data or rapidly changing datasets often necessitate recalibration for L2 and Min-max normalization, which can introduce latency or instability. RRF maintains stable rankings by aggregating based on static rank positions.
-* **Example:** In log search pipelines, RRF ensures consistent prioritization of frequently occurring patterns, even as scoring distributions evolve.
+#### Resistance to outliers
 
-### Example Scores
-These scores were calculated from the same query using a standard hybrid search pipeline with min_max and arithmetic_mean compared against an RRF hybrid search pipeline. The top three and bottom three results from the query were selected.  The RRF scores show greater consistency across all documents because they are based on document position rather than raw scoring values.
+Min-max and L2 normalization are sensitive to outliers, meaning extreme scores can disproportionately impact final rankings. Since RRF aggregates rankings rather than scores, it prevents anomalous values from distorting relevance.
 
-| Min_Max and Arithmetic Mean | RRF      |
-|-----------------------------|----------|
-| 0.5	                        | 0.01639  |
-| 0.29481                     | 	0.01613 |
-| 0.28132                     | 	0.01587 |
-| 0.01396                     | 	0.01471 |
-| 0.00386                     | 	0.01449 |
-| 0.0005	                     | 0.01429  |
+#### Consistency in relevance ranking
 
-## How does RRF work?
-First, the documents are sorted on each shard by score for every query within the hybrid search:
+L2 normalization aligns scores to a common scale but lacks a mechanism to prioritize documents that appear across multiple queries. RRF excels at this by favoring items that rank highly across diverse query methods, ensuring more reliable relevance ranking.
 
-![Initial document scores on each shard](/assets/media/blog-images/2025-02-04-introducing-reciprocal-rank-fusion-hybrid-search/RRFInitialShardScores.png){: .img-fluid}
+## Practical applications of RRF
 
-Next, the documents are ranked by score for each query:
+RRF is particularly effective in search scenarios where datasets present specific challenges.
 
-![Document rankings for each query](/assets/media/blog-images/2025-02-04-introducing-reciprocal-rank-fusion-hybrid-search/RRFQueryDocRankings.png){: .img-fluid}
+### Handling score variability across query methods
 
-The general formula for RRF, where k = rank constant and query_j_rank is the ranking for a document when it is returned in a query method in hybrid query, is as follows:
-```
-rankScore(document_i) = sum((1/(k + query_1_rank), (1/(k + query_2_rank), ..., (1/(k + query_j_rank))
-```
+Different search methods—such as BM25, neural search, and k-NN—produce scores on incompatible scales. Techniques like L2 or Min-max normalization attempt to standardize these scores but can lead to suboptimal rankings. RRF sidesteps this issue by emphasizing rank consistency rather than absolute score alignment.
 
-The inner calculation of this formula is applied with the rankings displayed in the diagram above.  In this case, we will use the default rank constant of 60.
+**Example:** In multimodal search pipelines, where text-based queries produce a wide range of scores while visual features generate a narrower range, RRF ensures that smaller-scale signals are not overshadowed.
 
-![Application of the inner calculation of the RRF formula](/assets/media/blog-images/2025-02-04-introducing-reciprocal-rank-fusion-hybrid-search/RRFNormalization.png){: .img-fluid}
+### Enhancing e-commerce search with sparse behavioral signals
 
-Finally, we combine the rank calculations and execute the sum function in the formula above, sorting by rank score in decreasing order.
+E-commerce datasets often contain sparse behavioral signals, such as user clicks or purchases, which can be difficult to incorporate into search rankings. Rank-based aggregation helps highlight relevant products even when engagement data is limited.
 
-![Final rank score calculations](/assets/media/blog-images/2025-02-04-introducing-reciprocal-rank-fusion-hybrid-search/RRFFinalScoreCalculations.png){: .img-fluid}
+**Example:** When merging behavioral data with metadata, RRF ensures that niche products with high semantic or metadata relevance remain visible, whereas min-max and L2 normalization may struggle with sparse signals.
 
-The top results are then returned based on the size of the query.
+### Managing noisy or outlier-prone data
 
-## How to use RRF?
-The only change necessary to use RRF is to create a search pipeline with RRF as the specified technique:
+Datasets with high variance or frequent outliers---such as scientific research or log data---pose challenges for score-based methods like min-max or L2. RRF prevents outliers from distorting search results by focusing on rank rather than score.
+
+**Example:** In scientific datasets, metadata from top-tier journals often skews scores. RRF integrates these results without overemphasizing outliers, leading to more balanced rankings.
+
+### Supporting dynamic or evolving data
+
+Rapidly changing datasets, such as streaming logs, require frequent recalibration for L2 and min-max normalization, which can introduce instability or latency. RRF maintains stable rankings by aggregating based on static rank positions.
+
+**Example:** In log search pipelines, RRF consistently prioritizes frequently occurring patterns, even as scoring distributions shift over time.
+
+## Comparing RRF with score-based methods
+
+The following table compares two hybrid search approaches using the same query: a standard hybrid search pipeline and an RRF-based hybrid search pipeline. We selected the top three and bottom three results for comparison. Notice that RRF provides more consistent scores across documents because it ranks them based on relative rank (position) of a document within each query result rather than raw scores.
+
+| `min_max` and `arithmetic_mean` | RRF      |
+|---------------------------------|----------|
+| 0.5	                           | 0.01639  |
+| 0.29481                        | 0.01613  |
+| 0.28132                        | 0.01587  |
+| 0.01396                        | 0.01471  |
+| 0.00386                        | 0.01449  |
+| 0.0005	                       | 0.01429  |
+
+## How RRF works
+
+RRF ranks documents by performing the following steps:
+
+1. **Sort documents by score**: Each query method sorts documents by score on every shard.
+
+   ![Initial document scores on each shard](/assets/media/blog-images/2025-02-04-introducing-reciprocal-rank-fusion-hybrid-search/RRFInitialShardScores.png){: .img-fluid}
+
+2. **Assign rank positions**: Documents are ranked based on score for each query.
+
+   ![Document rankings for each query](/assets/media/blog-images/2025-02-04-introducing-reciprocal-rank-fusion-hybrid-search/RRFQueryDocRankings.png){: .img-fluid}
+
+3. **Apply the RRF formula**: The RRF score is computed using the following formula:
+   
+   ```python
+   rankScore(document_i) = sum((1/(k + query_1_rank), (1/(k + query_2_rank), ..., (1/(k + query_j_rank)))
+   ```
+   
+   In this formula, `k` is a rank constant, and `query_j_rank` represents the ranking of a document in a particular query method. The example in the following diagram applies this formula using the default rank constant of 60.
+
+   ![Applying RRF formula](/assets/media/blog-images/2025-02-04-introducing-reciprocal-rank-fusion-hybrid-search/RRFNormalization.png){: .img-fluid}
+
+4. **Add rank contributions:** Rank calculations are combined, and documents are sorted by decreasing rank score.
+
+   ![Final rank score calculations](/assets/media/blog-images/2025-02-04-introducing-reciprocal-rank-fusion-hybrid-search/RRFFinalScoreCalculations.png){: .img-fluid}
+
+5. **Return the top results:** The highest-ranked documents are retrieved based on the query size.
+
+## How to use RRF
+
+To use RRF, create a search pipeline and specify `rrf` as the `technique`:
+
 ```json
 PUT /_search/pipeline/rrf-pipeline
 {
@@ -98,7 +124,9 @@ PUT /_search/pipeline/rrf-pipeline
   ]
 }
 ```
-The rank constant can be specified as part of the pipeline but cannot be less than 1.  Larger rank constants make the scores more uniform, reducing the impact of top ranks. Smaller rank constants create steeper differences between ranks, giving much more weight to top-ranked items. By default, rank constant is set to 60 if not specified. 
+
+You can also specify the rank constant as part of the pipeline; the rank constant must be `1` or greater. Larger rank constants make the scores more uniform, reducing the impact of top-ranked items. Smaller rank constants create steeper differences between ranks, giving much more weight to top-ranked items. By default, the rank constant is set to `60`: 
+
 ```json
 PUT /_search/pipeline/rrf-pipeline
 {
@@ -115,7 +143,9 @@ PUT /_search/pipeline/rrf-pipeline
   ]
 }
 ```
-Next, create a standard hybrid query:
+
+Next, create a hybrid query and apply the pipeline to it:
+
 ```json
 POST my_index/_search?search_pipeline=rrf-pipeline
 {
@@ -128,39 +158,49 @@ POST my_index/_search?search_pipeline=rrf-pipeline
    }
 }
 ```
-## Benchmarks
-Benchmark experiments were conducted using an OpenSearch cluster, consisting of a single r6g.8xlarge instance serving as the coordinator node, complemented by three r6g.8xlarge instances functioning as data nodes. To comprehensively assess RRF performance, we measured three critical metrics across six distinct datasets.  The exact datasets used can be found [here](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/). Search relevance was quantified using the industry-standard Normalized Discounted Cumulative Gain at rank 10 (NDCG@10), while system performance was tracked through search latency measurements. Additionally, we monitored CPU utilization to understand resource consumption patterns during the experiments. This configuration provided a robust foundation for evaluating both search quality and operational efficiency.
 
-### NDCG@10:
-|            | BM25     | Neural  | Hybrid  | Hybrid with RRF | Percent Difference |
+## Benchmarking RRF Performance
+
+Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes. To assess RRF’s performance comprehensively, we measured three key metrics across six distinct datasets. For information about datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
+
+Search relevance was quantified using the industry-standard Normalized Discounted Cumulative Gain at rank 10 (NDCG@10). We also tracked system performance using search latency measurements and monitored CPU utilization to analyze resource consumption during the experiments. This setup provided a strong foundation for evaluating both search quality and operational efficiency.
+
+### NDCG@10
+
+The following table compares the NDCG@10 scores across different search methods (BM25, Neural, Hybrid, and Hybrid with RRF) for various datasets. The percent difference column shows the relative performance change between Hybrid and Hybrid with RRF approaches.
+
+|            | BM25     | Neural  | Hybrid  | Hybrid with RRF | Percent difference |
 |------------|----------|---------|---------|-----------------|--------------------|
-| Nfcorpus   | 	0.3065  | 	0.2174 | 	0.3076 | 	0.2977         | 	3.22%             |
-| Arguana    | 	0.4258  | 	0.4239 | 	0.4507 | 	0.4476         | 	0.69%             |
-| fiqa	      | 0.2389	  | 0.2004	 | 0.2693  | 	0.2474         | 	8.13%             |
-| Trec-covid | 	0.6087	 | 0.2718  | 	0.5905 | 	0.5877         | 	0.47%             |
-| Scidocs    | 	0.155   | 	0.1075 | 	0.1602 | 	0.1525         | 	4.81%             |
+| NFCorpus   | 	0.3065  | 	0.2174 | 	0.3076 | 	0.2977         | 	3.22%             |
+| ArguAna    | 	0.4258  | 	0.4239 | 	0.4507 | 	0.4476         | 	0.69%             |
+| FIQA	      | 0.2389	  | 0.2004	 | 0.2693  | 	0.2474         | 	8.13%             |
+| Trec-Covid | 	0.6087	 | 0.2718  | 	0.5905 | 	0.5877         | 	0.47%             |
+| SciDocs    | 	0.155   | 	0.1075 | 	0.1602 | 	0.1525         | 	4.81%             |
 | Quora	     | 0.7424	  | 0.8256	 | 0.8452	 | 0.796	          | 5.82%              |
 |            |          |         |         | **Average:**	   | 3.86%              |
 
-### Search latency (ms):
+### Search latency 
+
+The following table presents search latency measurements in milliseconds at different percentiles (p50, p90, and p99) for both Hybrid and RRF approaches. The percent difference columns show the relative performance impact between these methods.
+
 <table>
   <tr>
     <th></th>
-    <th colspan="3"><b>P50</b></th>
-    <th colspan="3"><b>P90</b></th>
-    <th colspan="3"><b>P99</b></th>
+    <th colspan="3"><b>p50</b></th>
+    <th colspan="3"><b>p90</b></th>
+    <th colspan="3"><b>p99</b></th>
   </tr>
   <tr>
     <td></td>
     <td><b>Hybrid</b></td>
     <td><b>RRF</b></td>
-    <td><b>Percent Difference</b></td>
+    <td><b>Percent difference</b></td>
     <td><b>Hybrid</b></td>
     <td><b>RRF</b></td>
-    <td><b>Percent Difference</b></td>
+    <td><b>Percent difference</b></td>
     <td><b>Hybrid</b></td>
     <td><b>RRF</b></td>
-    <td><b>Percent Difference</b></td>
+    <td><b>Percent difference</b></td>
   </tr>
   <tr>
     <td>NFCorpus</td>
@@ -175,7 +215,7 @@ Benchmark experiments were conducted using an OpenSearch cluster, consisting of 
     <td>2.91%</td>
   </tr>
   <tr>
-    <td>Arguana</td>
+    <td>ArguAna</td>
     <td>390.5</td>
     <td>390</td>
     <td>0.13%</td>
@@ -187,7 +227,7 @@ Benchmark experiments were conducted using an OpenSearch cluster, consisting of 
     <td>0.21%</td>
   </tr>
   <tr>
-    <td>Fiqa</td>
+    <td>FIQA</td>
     <td>109</td>
     <td>105.25</td>
     <td>3.44%</td>
@@ -199,7 +239,7 @@ Benchmark experiments were conducted using an OpenSearch cluster, consisting of 
     <td>3.00%</td>
   </tr>
   <tr>
-    <td>Trec-covid</td>
+    <td>Trec-Covid</td>
     <td>165.5</td>
     <td>159.75</td>
     <td>3.47%</td>
@@ -211,7 +251,7 @@ Benchmark experiments were conducted using an OpenSearch cluster, consisting of 
     <td>1.23%</td>
   </tr>
   <tr>
-    <td>Scidocs</td>
+    <td>SciDocs</td>
     <td>103</td>
     <td>103.5</td>
     <td>-0.49%</td>
@@ -248,62 +288,60 @@ Benchmark experiments were conducted using an OpenSearch cluster, consisting of 
   </tr>
 </table>
 
-### CPU utilization on coordinator node
-|            | Hybrid  | RRF          | Percent Difference |
+### CPU utilization
+
+The following table shows CPU utilization measurements on the coordinator node, comparing hybrid and RRF approaches. The percent difference column indicates the relative change in CPU usage between the two methods.
+
+|            | Hybrid  | RRF          | Percent difference |
 |------------|---------|--------------|--------------------|
 | NFCorpus	  | 0.783%  | 	0.838%      | 	0.055%            |
 | ArguAna	   | 0.844%	 | 0.853%       | 	0.008%            |
-| Fiqa	      | 0.835%	 | 0.851%       | 	0.016%            |
-| Trec-covid | 	1.406% | 	0.979%      | 	-0.427%           |
-| Scidocs	   | 0.745%	 | 0.873%       | 	0.128%            |
+| FIQA	      | 0.835%	 | 0.851%       | 	0.016%            |
+| Trec-Covid | 	1.406% | 	0.979%      | 	-0.427%           |
+| SciDocs	   | 0.745%	 | 0.873%       | 	0.128%            |
 | Quora	     | 1.054%	 | 1.076%       | 	0.022%            |
 |            |         | **Average:** | -0.033%            |
 
 ## Conclusions
-Our benchmark experiments reveal insight into RRF's trade-offs and advantages compared to conventional hybrid search approaches:
-* Search Quality 
-  * Measured across six datasets using NDCG@10 metrics
-  * RRF scores 3.86% lower than traditional score-centric methods
-* Latency
-  * RRF consistently outperforms traditional normalization techniques\
+
+Our benchmark experiments highlight the following RRF’s advantages and trade-offs compared to conventional hybrid search approaches:
+
+* **Search quality** (measured using NDCG@10 across six datasets):  
+  * RRF scores 3.86% lower than traditional score-centric methods.  
+
+* **Latency improvements**:  
+  * RRF consistently outperforms traditional normalization techniques, as shown in the following table.  
   
-|     | **Percent Faster** |
-|-----|--------------------|
-| P50 | 1.62%              |
-| P90 | 1.42%              |
-| P99 | 0.78%              |
+  |  Latency percentile   | Percent improvement |
+  |-----|--------------------|
+  | p50 | 1.62%              |
+  | p90 | 1.42%              |
+  | p99 | 0.78%              |
 
-* Resource Efficiency
-  * Coordinator Node: Similar CPU usage
-  * All node types: More efficient resource distribution across the system
+* **Resource efficiency**: 
+  * Similar CPU usage on the coordinator node
+  * More efficient resource distribution across all node types
 
-RRF emerges as a compelling alternative to traditional hybrid search methods, offering enhanced performance and resource efficiency with only a marginal impact on search quality. The significant latency improvements make it particularly suitable for high-throughput search applications.
+RRF offers a compelling alternative to traditional hybrid search methods, delivering improved performance and resource efficiency with minimal impact on search quality. It also provides significant latency improvements, making it particularly suitable for high-throughput search applications.
 
-## Next Steps for Hybrid Search
-With the introduction of this new feature, our roadmap for RRF includes several important enhancements:
-* **Customizable Weights**
-  * We plan to implement weight support similar to score-based ranking techniques, allowing more nuanced control over the ranking algorithm.
-  * https://github.com/opensearch-project/neural-search/issues/1152
-* **Better Handling of Missing Items**
-  * Currently, missing items default to a score of 0.0, but this may not be optimal for all use cases. We're exploring multiple approaches for handling missing items, such as configurable default values, the option to use `max_rank + 1` for missing items, or the ability to completely ignore missing items in calculations
-  * https://github.com/opensearch-project/neural-search/issues/1153
+## What's next?
 
-We are also working to enhance OpenSearch's hybrid search capabilities beyond RRF with two significant improvements to our normalization framework:
+Our roadmap includes several important enhancements to RRF:
 
-* **Z-Score Normalization Implementation**
-  * Adds the popular z-score normalization technique
-  * [View Implementation Details](https://github.com/opensearch-project/neural-search/pull/470)
-* **Custom Normalization Functions**
-  * Enables users to define their own normalization logic
-  * Allows fine-tuning of search result ranking
-  * [Track Development Progress](https://github.com/opensearch-project/neural-search/issues/994)
+* **Customizable weights**: We plan to implement weight support similar to score-based ranking techniques, allowing more nuanced control over the ranking algorithm. For more information, see [this issue](https://github.com/opensearch-project/neural-search/issues/1152). 
 
-These improvements will give developers more control over search result ranking while ensuring reliable and consistent hybrid search outcomes. Stay tuned for more information!
+* **Better handling of missing items**: Currently, missing items default to a score of 0.0, but this may not be optimal for all use cases. We're exploring multiple approaches for handling missing items, such as configurable default values, using `max_rank + 1` for missing items, or completely ignoring missing items in calculations. For more information, see [this issue](https://github.com/opensearch-project/neural-search/issues/1153).
+
+We are also expanding OpenSearch's hybrid search capabilities beyond RRF by planning the following improvements to our normalization framework:
+* **Z-score normalization**: Adds the popular z-score normalization technique. For more information, see [this PR](https://github.com/opensearch-project/neural-search/pull/470).
+* **Custom normalization functions**: Enables you to define your own normalization logic and allows fine-tuning of search result rankings. For more information, see [this issue](https://github.com/opensearch-project/neural-search/issues/994)
+
+These improvements will provide more control over search result ranking while ensuring reliable and consistent hybrid search outcomes. Stay tuned for more information!
 
 ## References
 
 1. [[RFC] Design for Incorporating Reciprocal Rank Fusion into Neural Search](https://github.com/opensearch-project/neural-search/issues/865)
-2. [Beir benchmarking for Information Retrieval](https://github.com/beir-cellar/beir)
+2. [BEIR benchmarking for Information Retrieval](https://github.com/beir-cellar/beir)
 3. [Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf)
 4. [Risk-Reward Trade-offs in Rank Fusion](https://rodgerbenham.github.io/bc17-adcs.pdf)
 5. [The ABCs of semantic search in OpenSearch: Architectures, benchmarks, and combination strategies](https://opensearch.org/blog/semantic-science-benchmarks)
