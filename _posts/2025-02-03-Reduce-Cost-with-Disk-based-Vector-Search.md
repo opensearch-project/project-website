@@ -216,7 +216,7 @@ In addition to the smaller-scale tests, we also ran a test on a larger dataset, 
 | Space type | Cosine (inner product over normalized data)                              |
 | Index vectors | 113M                                                                     |
 
-We tested four different cluster configurations using [opensearch-cluster-cdk](https://github.com/opensearch-project/opensearch-cluster-cdk) with OpenSearch 2.18. We selected the cluster and index configuration to follow production recommendations. For example, we configured replica shards and dedicated cluster manager nodes. In addition, we targeted a shard count that provides 2 to 3 vCPUs per shard. The following table presents the configurations for these tests.
+We tested four different cluster configurations using the [opensearch-cluster-cdk](https://github.com/opensearch-project/opensearch-cluster-cdk) with OpenSearch 2.18. We selected the cluster and index configuration to follow production recommendations. For example, we configured replica shards and dedicated cluster manager nodes. In addition, we targeted a shard count that provides 2 to 3 vCPUs per shard. The following table presents the configurations for these tests.
 
 | Name        | Data node count | Data node type | Data node disk size | Data node disk type | JVM size | Primary shard count | Replica shards | Compression level |
 |-------------|-----------------|----------------|---------------------|---------------------|----------|---------------------|----------------|-------------------|
