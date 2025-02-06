@@ -238,7 +238,7 @@ We ran all tests using OpenSearch Benchmark [vector search workloads](https://gi
 2. Force merge the index to 5 segments per shard.
 3. Run warm-up queries to load the index into memory.
 4. Run the single-client latency test.
-5. Run the multi-client throughput tests.
+5. Run the multi-client throughput test.
 6. Repeat steps 4 and 5 with disk-based rescoring disabled to measure performance on a compressed index without rescoring.
 
 We obtained the following large-scale test results.
