@@ -257,7 +257,7 @@ Interestingly, for this dataset, the on-disk approach with rescoring produces si
 
 ## Learnings
 
-Our testing shows that the two-phase ANN approach performs effectively in low-memory environments, though results vary significantly by dataset. When running your own experiments, we recommend testing with the `index.knn.disk.vector.shard_level_rescoring_disabled` setting both enabled and disabled to measure the performance benefit for your use case. Additionally, with disk-based search, ensure that your secondary storage is optimized for high read traffic---we found that SSDs generally provide the best results.
+Our testing shows that the two-phase approximate nearest neighbor approach performs effectively in low-memory environments, though results vary significantly by dataset. When running your own experiments, we recommend testing with the `index.knn.disk.vector.shard_level_rescoring_disabled` setting both enabled and disabled to measure the performance benefit for your use case. Additionally, with disk-based search, ensure that your secondary storage is optimized for high read traffic---we found that SSDs generally provide the best results.
 
 ## What's next?
 
