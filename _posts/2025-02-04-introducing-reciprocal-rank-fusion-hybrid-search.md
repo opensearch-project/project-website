@@ -18,21 +18,17 @@ OpenSearch 2.19 introduces reciprocal rank fusion (RRF), a new feature in the ne
 
 ## Why use RRF for hybrid search?
 
-RRF is particularly useful for aggregating ranked results from diverse query methods. Unlike traditional normalization techniques such as min-max or L2 normalization, which adjust scores to a shared scale, RRF uses a rank-based aggregation strategy. This approach addresses several challenges associated with score-based methods.
+RRF is particularly useful for aggregating ranked results from diverse query methods. Unlike traditional normalization techniques such as min-max or L2 normalization, which adjust scores to a shared scale, RRF uses a rank-based aggregation strategy. This approach delivers the following advantages over score-based methods, enhancing stability and relevance in hybrid search.
 
-### How RRF solves score normalization challenges
-
-RRF overcomes key challenges associated with traditional score normalization methods, ensuring more balanced and effective ranking across diverse query methods.
-
-#### Sensitivity to score distribution
+### Stability across varying score distributions
 
 Traditional normalization techniques like min-max adjust scores from different query methods so that they fit within a standardized scale. However, when merging results from different query methods, variations in score distributions can lead to unbalanced rankings. One method’s scoring pattern may dominate, reducing search quality. L2 normalization scales scores proportionally but remains influenced by score distributions within individual queries. RRF avoids these issues by focusing exclusively on rank positions, ensuring consistent treatment of results across disparate data sources.
 
-#### Resistance to outliers
+### Resistance to outliers
 
 Min-max and L2 normalization are sensitive to outliers, meaning extreme scores can disproportionately impact final rankings. Since RRF aggregates rankings rather than scores, it prevents anomalous values from distorting relevance.
 
-#### Consistency in relevance ranking
+### Consistency in relevance ranking
 
 L2 normalization aligns scores to a common scale but lacks a mechanism to prioritize documents that appear across multiple queries. RRF excels at this by favoring items that rank highly across diverse query methods, ensuring more reliable relevance ranking.
 
