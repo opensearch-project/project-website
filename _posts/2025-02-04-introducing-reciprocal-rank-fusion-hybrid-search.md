@@ -307,7 +307,7 @@ The following table shows CPU utilization measurements on the coordinator node, 
 Our benchmark experiments highlight the following RRF’s advantages and trade-offs compared to conventional hybrid search approaches:
 
 * **Search quality** (measured using NDCG@10 across six datasets):  
-  * RRF scores 3.86% lower than traditional score-centric methods.  
+  * RRF scores 3.86% lower than traditional score-based methods.  
 
 * **Latency improvements**:  
   * RRF consistently outperforms traditional normalization techniques, as shown in the following table.  
