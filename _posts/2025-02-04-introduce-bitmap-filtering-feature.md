@@ -123,7 +123,7 @@ OpenSearch 2.19 introduced an index-based bitmap query that automatically select
 - **Consistently low query times** even with millions of IDs.
 - **Stable performance** across all filter sizes.
 
-The following figure shows the query time comparison 
+The following figure shows the query time comparison of bitmap filtering with document values and with indexed fields.
 
 ![Optimized bitmap filtering performance](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/query_time_comparison_bitmap_index_docvalues.png){:class="img-centered"}  
 *Figure 2: Optimized bitmap filtering performance*
