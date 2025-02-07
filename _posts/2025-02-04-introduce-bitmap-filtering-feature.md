@@ -15,7 +15,7 @@ meta_description: Introduce the bitmap filtering feature about its usage and per
 
 OpenSearch is a powerful open-source search and analytics engine that enables you to efficiently search and filter large datasets. A common search pattern involves filtering documents based on whether a field matches any value in a large set. While the existing `terms` query works well for smaller sets, its performance degrades significantly when handling thousands or millions of terms.
 
-In OpenSearch 2.17, we introduced _bitmap filtering_ to address this issue, providing a more efficient way to handle large-scale filtering operations. OpenSearch 2.19 further enhances this feature with a new index-based bitmap query that improves performance for smaller queries and optimizes their efficiency.
+In OpenSearch 2.17, we introduced _bitmap filtering_ to address this issue, providing a more efficient way to handle large-scale filtering operations. OpenSearch 2.19 further enhances this feature with a new index-based bitmap query that improves performance for smaller queries and optimizes the overall efficiency.
 
 ## The challenge of large-scale filtering
 
@@ -34,7 +34,7 @@ These limitations negatively affect both performance and scalability, particular
 
 ## Bitmap filtering: An optimized approach
 
-Bitmap filtering improves query performance and scalability when filtering by integer sets, such as product IDs or ISBN numbers. It uses Roaring Bitmap, an efficient data structure for handling integer sets:
+Bitmap filtering improves query performance and scalability when filtering by integer sets, such as product IDs or ISBN numbers. It uses [Roaring Bitmap](https://github.com/RoaringBitmap/RoaringBitmap), an efficient data structure for handling integer sets:
 
 - Roaring Bitmap automatically selects the most efficient internal representation based on data characteristics. It provides excellent compression for sparse integer sets while maintaining fast lookup speeds.
 - Set operations (for example, intersection, or union) can be computed efficiently using the Roaring Bitmap library before sending queries to OpenSearch.
@@ -101,27 +101,27 @@ We conducted performance tests on an index containing 100 million documents, com
 
 We compared the following approaches:
 
-- Query using a list of IDs (traditional `terms` query) with document values (OpenSearch 2.17)
-- Query using a list of IDs (traditional `terms` query) with an indexed field (OpenSearch 2.17)
-- Query using bitmap filtering with document values (OpenSearch 2.17)
-- Query using bitmap filtering with an indexed field (OpenSearch 2.19)
+- Query using a list of IDs (standard `terms` query) on a document values only field (OpenSearch 2.17)
+- Query using a list of IDs (standard `terms` query) on an indexed field (OpenSearch 2.17)
+- Query using bitmap filtering on a document values only field (OpenSearch 2.17)
+- Query using bitmap filtering on an indexed field (OpenSearch 2.19)
 
 The following figure shows the query time comparison of these approaches.
 
 ![Traditional and bitmap query performance](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/query_time_comparison.png){:class="img-centered"}  
 *Figure 1: Traditional and bitmap filtering query performance*
 
-For small filter sizes (up to 100,000 IDs), all approaches performed similarly. However, traditional methods degraded rapidly for larger filter sizes, while bitmap filtering maintained stable performance even with millions of IDs.
+For small filter sizes (up to 100,000 IDs), standard and bitmap approaches performed similarly. However, standard methods degraded rapidly for larger filter sizes, while bitmap filtering maintained stable performance even with millions of IDs.
 
 ### Optimized bitmap filtering comparison
 
-OpenSearch 2.19 introduced an index-based bitmap query that automatically selects the most efficient execution strategy based on the query context and cost estimation. Compared to the original document-value-based bitmap implementation, the new implementation delivers remarkable improvements:
+OpenSearch 2.19 introduced an index-based bitmap query. Now bitmap query can automatically select the efficient execution strategy---index or doc value query---based on the query context and cost estimation when used in a Boolean query with other filters. Compared to the original document-value-based bitmap implementation, the new implementation delivers remarkable improvements in the benchmark experiments:
 
 - **1000x speed improvement** for smaller filter sizes.
 - **Consistently low query times** even with millions of IDs.
 - **Stable performance** across all filter sizes.
 
-The following figure shows the query time comparison of bitmap filtering with document values and with indexed fields.
+The following figure shows the query time comparison of a Boolean query with a 100K ID filter and a bitmap query on a doc-values-only field and on an indexed field.
 
 ![Optimized bitmap filtering performance](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/query_time_comparison_bitmap_index_docvalues.png){:class="img-centered"}  
 *Figure 2: Optimized bitmap filtering performance*
