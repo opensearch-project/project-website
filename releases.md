@@ -28,21 +28,18 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 
 | Release Number | First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Manager                                      | Tracking Issue                                                             |
 |:---------------|:------------------------------------------|:-----------------------------------------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------|
-| 2.12.0         | February 6th, 2024                        | February 20th, 2024                                  | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [4115](https://github.com/opensearch-project/opensearch-build/issues/4115) |
-| 1.3.15         | Feb 27 2024                               | March 05 2024                                        | [Jeff Lu](https://github.com/jordarlu)               | [4294](https://github.com/opensearch-project/opensearch-build/issues/4294) |
-| 2.13.0         | March 19th, 2024                          | April 2nd, 2024                                      | [Sayali Gaikawad](https://github.com/gaiksaya)       | [4433](https://github.com/opensearch-project/opensearch-build/issues/4433) |
-| 1.3.16         | April 16th, 2024                          | April 23rd, 2024                                     | [Zelin Hao](https://github.com/zelinh/)              | [4531](https://github.com/opensearch-project/opensearch-build/issues/4531) |
-| 2.14.0         | April 30th, 2024                          | May 14th, 2024                                       | [Rishabh Singh](https://github.com/rishabh6788/)     | [4562](https://github.com/opensearch-project/opensearch-build/issues/4562) |
-| 1.3.17         | May 28th, 2024                            | June 06th, 2024                                      | [Divya Madala](https://github.com/Divyaasm/)         | [4659](https://github.com/opensearch-project/opensearch-build/issues/4659) |
-| 2.15.0         | June ~~10th~~ 11th, 2024                  | June 25th, 2024                                      | [Peter Zhu](https://github.com/peterzhuamazon)       | [4681](https://github.com/opensearch-project/opensearch-build/issues/4681) |
-| 1.3.18         | July 09th, 2024                           | July 16th, 2024                                      | [Zelin Hao](https://github.com/zelinh/)              | [4763](https://github.com/opensearch-project/opensearch-build/issues/4763) |
-| 2.16.0         | July 23rd, 2024                           | August ~~06th~~ 07th 2024                            | [Prudhvi Godithi](https://github.com/prudhvigodithi) | [4771](https://github.com/opensearch-project/opensearch-build/issues/4771) |
-| 1.3.19         | Aug 20th, 2024                            | August 27th, 2024                                    | [Brandon Shien](https://github.com/bshien)           | [4888](https://github.com/opensearch-project/opensearch-build/issues/4888) |
-| 2.17.0         | September ~~04th~~ 05th, 2024             | September 17th, 2024                                 | [Sayali Gaikawad](https://github.com/gaiksaya/)      | [4908](https://github.com/opensearch-project/opensearch-build/issues/4908) |
-| 2.17.1         | September 24th, 2024                      | October 1st, 2024                                    | [Divya Madala](https://github.com/Divyaasm/)         | [5046](https://github.com/opensearch-project/opensearch-build/issues/5046) |
-| 2.18.0         | October 22nd, 2024                        | November 05th, 2024                                  | [Rishabh Singh](https://github.com/rishabh6788/)     | [5004](https://github.com/opensearch-project/opensearch-build/issues/5004) |
-| 1.3.20         | December 03rd, 2024                       | December ~~10th~~ 11th, 2024                         | [Brandon Shien](https://github.com/bshien)           | [4990](https://github.com/opensearch-project/opensearch-build/issues/4990) |
-| 2.19.0         | January 28th, 2025                        | Feb 11th, 2025                                       | [Rishabh Singh](https://github.com/rishabh6788)      | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) | 
+| 2.19.0         | January 28th, 2025                        | February 11th, 2025                                  | [Rishabh Singh](https://github.com/rishabh6788)      | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) | 
+| 3.0.0-alpha1   | March 04th, 2025                          | March 18th, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 3.0.0-beta1    | April 01st, 2025                          | April 08th, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 2.19.1         | April 08th, 2025                          | April 15th, 2025                                     |                                                      |                                                                            | 
+| 3.0.0 (GA)     | April 22nd, 2025                          | April 29th, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 3.1.0          | June 10th, 2025                           | June 24th, 2025                                      |                                                      |                                                                            | 
+| 2.19.2         | July 15th, 2025                           | July 22th, 2025                                      |                                                      |                                                                            | 
+| 3.2.0          | August 05th, 2025                         | August 19th, 2025                                    |                                                      |                                                                            | 
+| 3.3.0          | September 30th, 2025                      | October 14th, 2025                                   |                                                      |                                                                            | 
+| 2.19.3         | October 28th, 2025                        | November 04th, 2025                                  |                                                      |                                                                            | 
+| 3.4.0          | December 02nd, 2025                       | December 16th, 2025                                  |                                                      |                                                                            | 
+| 3.5.0          | January 27th, 2026                        | February 10th, 2026                                  |                                                      |                                                                            | 
 {: .desktop-release-schedule-table}
 
 OpenSearch [follows semver](https://opensearch.org/blog/technical-post/2021/08/what-is-semver/), which means we will only release breaking changes in major versions.  All minor versions are compatible with every other minor version for that major.  For example, 1.2.0 will work with 1.3.2, 1.4.1, etc, but may not work with 2.0.
@@ -68,10 +65,11 @@ The duration of the maintenance window will vary from product to product and rel
 The software maintainers will not back-port fixes or features to versions outside of the maintenance window. That said, PRs with said back-ports are welcome and will follow the project’s [review process](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md#review-process). No new releases will result from these changes, but interested parties can [create their own distribution](https://github.com/opensearch-project/opensearch-build#building-and-testing-an-opensearch-distribution) from the updated source after the PRs are merged.
 
 
-| Major Version | Latest Minor Version |   Status    | Initial Release | Maintenance Window Start | Maintenance Window End             |
-|:--------------|:---------------------|:------------|:----------------|:-------------------------|:-----------------------            |
-| 1             | 1.3.20               | Maintenance |  July 12, 2021  | May 26, 2022             | GA release of 3.0.                 |
-| 2             | 2.18.0               | Current     |  May 26, 2022   | N/A                      | N/A                                |
+| Major Version | Latest Minor Version |   Status    | Initial GA Release   | Maintenance Window Start   | Maintenance Window End |
+|:--------------|:---------------------|:------------|:---------------------|:---------------------------|:-----------------------|
+| 1             | 1.3.20               | Maintenance |  July 12th, 2021     | May 26th, 2022             | April 29th, 2025       |
+| 2             | 2.18.0               | Current     |  May 26th, 2022      | April 29th, 2025           | GA release of 4.0.     |
+| 3             | 3.0.0-alpha1         | In-flight   |  April 29th, 2025    | N/A                        | N/A                    |
 {: .desktop-maintenance-policy-table}
 
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date
@@ -82,8 +80,8 @@ The software maintainers will not back-port fixes or features to versions outsid
 | Release Number | Release Date         | Release Manager                                                                                                                                 | Tracking Issue |
 |:---------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
 | 1.3.20         | December 11th, 2024  | [Brandon Shien](https://github.com/bshien), [Zelin Hao](https://github.com/zelinh/) & [Peter Zhu](https://github.com/peterzhuamazon)            | [4990](https://github.com/opensearch-project/opensearch-build/issues/4990) |
-| 2.18.0         | November 5th, 2024   | [Rishabh Singh](https://github.com/rishabh6788/)                                                                                                | [5004](https://github.com/opensearch-project/opensearch-build/issues/5004) |
-| 2.17.1         | October 1st, 2024    | [Divya Madala](https://github.com/Divyaasm/) & [Peter Zhu](https://github.com/peterzhuamazon)                                                   | [5046](https://github.com/opensearch-project/opensearch-build/issues/5046) |
+| 2.18.0         | November 05th, 2024  | [Rishabh Singh](https://github.com/rishabh6788/)                                                                                                | [5004](https://github.com/opensearch-project/opensearch-build/issues/5004) |
+| 2.17.1         | October 01st, 2024   | [Divya Madala](https://github.com/Divyaasm/) & [Peter Zhu](https://github.com/peterzhuamazon)                                                   | [5046](https://github.com/opensearch-project/opensearch-build/issues/5046) |
 | 2.17.0         | September 17th, 2024 | [Sayali Gaikawad](https://github.com/gaiksaya/)                                                                                                 | [4908](https://github.com/opensearch-project/opensearch-build/issues/4908) |
 | 1.3.19         | August 27th, 2024    | [Brandon Shien](https://github.com/bshien)                                                                                                      | [4888](https://github.com/opensearch-project/opensearch-build/issues/4888) |
 | 2.16.0         | August 07th 2024     | [Prudhvi Godithi](https://github.com/prudhvigodithi)                                                                                            | [4771](https://github.com/opensearch-project/opensearch-build/issues/4771) |
@@ -138,28 +136,29 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Date                 | Change | Reason          |
 |:---------------------|:-------|:----------------|
-| July 1st, 2022       |        | Initial Version |
-| October 20th, 2022   | Increased time between 2.5 code freeze and release | 7 days is standard, and there were only 2 days for 2.5 |
-| October 20th,2022    | Added Initial 2023 schedule|Current schedule was running out|
-| January 13th, 2023   | Update to 2.5.0 release date  | Maps team found last minute issue, moving to accommodate resolution  |
-| January 19th, 2023   | Update to 2.5.0 release date  | Docs team due diligence, moving to accommodate  |
-| April 26th, 2023     | Update to 2.7.0 release date  | Found CVE to resolve, fix issues found in regression tests  |
-| July 17th, 2023      | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
-| July 20th, 2023      | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
-| August 14th, 2023    | Updated release table to reflect release windows | per adoption of <https://github.com/opensearch-project/project-website/pull/1866> |
-| September 5th, 2023  | Updated 2.10 date  |  Original release date was too close to US Labor Day Holiday |
-| September 6th, 2023  | Updated 2.10 date  |  8 hour github outage last night - moving to accomodate a few final fixes |
-| September 11th, 2023 | Link to RELEASING.md  |  updated link from proposal to releasing documentation |
-| September 29th, 2023 | Updated 2.11 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/3955) |
-| January 4th, 2024    | Updated 2.12 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/4290) |
-| February 2nd, 2024   | Enhancement | Added Release Manager & Tracking issue for each release back through 2023 to add clarity for the community. Reversed release history - latest is at the top |
-| February 15th, 2024  | Updated 2024 release schedule                  | Per [Proposal - 186](https://github.com/opensearch-project/.github/issues/186)   |
-| February 21st, 2024  | Update release manager for 1.3.15 release          | [1.3.15 release issue](https://github.com/opensearch-project/opensearch-build/issues/4294)       |                                                                           
-| April 26th, 2024     | Update release manager for 1.3.16 release          | [1.3.16 release issue](https://github.com/opensearch-project/opensearch-build/issues/4531)       |
-| August 28th, 2024    | Update release history from February to August 2024 | Update page |
-| September 3rd, 2024  | Update release history from 2021 to 2023 | Update page |
-| September 4th, 2024  | Update release candidate generation date for 2.17.0 | Too many last minute PRs causing CI build issues |
-| October 25th, 2024   | Update release history for 2.17.1 release and current progress of release 2.18.0 | Update page |
-| November 19th, 2024  | Update release history for 2.18.0 release and updated release manager for 1.3.20  | [1.3.20 release issue](https://github.com/opensearch-project/opensearch-build/issues/4990) |
+| February 07th, 2025  | Update release schedule for year 2025 | Update Page |
 | December 11th, 2024  | Update release history for 1.3.20 release | Update Page |
+| November 19th, 2024  | Update release history for 2.18.0 release and updated release manager for 1.3.20  | [1.3.20 release issue](https://github.com/opensearch-project/opensearch-build/issues/4990) |
+| October 25th, 2024   | Update release history for 2.17.1 release and current progress of release 2.18.0 | Update page |
+| September 04th, 2024 | Update release candidate generation date for 2.17.0 | Too many last minute PRs causing CI build issues |
+| September 03rd, 2024 | Update release history from 2021 to 2023 | Update page |
+| August 28th, 2024    | Update release history from February to August 2024 | Update page |
+| April 26th, 2024     | Update release manager for 1.3.16 release          | [1.3.16 release issue](https://github.com/opensearch-project/opensearch-build/issues/4531)       |
+| February 21st, 2024  | Update release manager for 1.3.15 release          | [1.3.15 release issue](https://github.com/opensearch-project/opensearch-build/issues/4294)       |
+| February 15th, 2024  | Updated 2024 release schedule                  | Per [Proposal - 186](https://github.com/opensearch-project/.github/issues/186)   |
+| February 02nd, 2024  | Enhancement | Added Release Manager & Tracking issue for each release back through 2023 to add clarity for the community. Reversed release history - latest is at the top |
+| January 04th, 2024   | Updated 2.12 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/4290) |
+| September 29th, 2023 | Updated 2.11 date | Per discussion [in this issue](https://github.com/opensearch-project/opensearch-build/issues/3955) |
+| September 11th, 2023 | Link to RELEASING.md  |  updated link from proposal to releasing documentation |
+| September 06th, 2023 | Updated 2.10 date  |  8 hour github outage last night - moving to accomodate a few final fixes |
+| September 05th, 2023 | Updated 2.10 date  |  Original release date was too close to US Labor Day Holiday |
+| August 14th, 2023    | Updated release table to reflect release windows | per adoption of <https://github.com/opensearch-project/project-website/pull/1866> |
+| July 20th, 2023      | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
+| July 17th, 2023      | Update to 2.9.0 release date  | No-Go on the release meeting call - build issues  |
+| April 26th, 2023     | Update to 2.7.0 release date  | Found CVE to resolve, fix issues found in regression tests  |
+| January 19th, 2023   | Update to 2.5.0 release date  | Docs team due diligence, moving to accommodate  |
+| January 13th, 2023   | Update to 2.5.0 release date  | Maps team found last minute issue, moving to accommodate resolution  |
+| October 20th,2022    | Added Initial 2023 schedule|Current schedule was running out|
+| October 20th, 2022   | Increased time between 2.5 code freeze and release | 7 days is standard, and there were only 2 days for 2.5 |
+| July 01st, 2022      |        | Initial Version |
 {: .desktop-change-log-table}
