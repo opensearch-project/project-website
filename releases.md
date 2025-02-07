@@ -28,11 +28,11 @@ Note:  We have not added a major release to the 2024 schedule yet.  If/when we a
 
 | Release Number | First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Manager                                      | Tracking Issue                                                             |
 |:---------------|:------------------------------------------|:-----------------------------------------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------|
-| 2.19.0         | January 28th, 2025                        | February 11th, 2025                                  |                                                      | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) | 
-| 3.0.0-alpha1   | March 4th, 2025                           | March 18th, 2025                                     |                                                      | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
-| 3.0.0-beta1    | April 1st, 2025                           | April 8th, 2025                                      |                                                      | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 2.19.0         | January 28th, 2025                        | February 11th, 2025                                  | [Rishabh Singh](https://github.com/rishabh6788)      | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) | 
+| 3.0.0-alpha1   | March 4th, 2025                           | March 18th, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 3.0.0-beta1    | April 1st, 2025                           | April 8th, 2025                                      | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
 | 2.19.1         | April 8th, 2025                           | April 15th, 2025                                     |                                                      |                                                                            | 
-| 3.0.0 (GA)     | April 22nd, 2025                          | April 29th, 2025                                     |                                                      | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 3.0.0 (GA)     | April 22nd, 2025                          | April 29th, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
 | 3.1.0          | June 10th, 2025                           | June 24th, 2025                                      |                                                      |                                                                            | 
 | 2.19.2         | July 15th, 2025                           | July 22th, 2025                                      |                                                      |                                                                            | 
 | 3.2.0          | August 5th, 2025                          | August 19th, 2025                                    |                                                      |                                                                            | 
@@ -65,11 +65,11 @@ The duration of the maintenance window will vary from product to product and rel
 The software maintainers will not back-port fixes or features to versions outside of the maintenance window. That said, PRs with said back-ports are welcome and will follow the project’s [review process](https://github.com/opensearch-project/OpenSearch/blob/main/CONTRIBUTING.md#review-process). No new releases will result from these changes, but interested parties can [create their own distribution](https://github.com/opensearch-project/opensearch-build#building-and-testing-an-opensearch-distribution) from the updated source after the PRs are merged.
 
 
-| Major Version | Latest Minor Version |   Status    | Initial Release   | Maintenance Window Start   | Maintenance Window End |
-|:--------------|:---------------------|:------------|:------------------|:---------------------------|:-----------------------|
-| 1             | 1.3.20               | Maintenance |  July 12th, 2021  | May 26th, 2022             | April 29th, 2025       |
-| 2             | 2.18.0               | Current     |  May 26th, 2022   | April 29th, 2025           | GA release of 4.0.     |
-| 3             | 3.0.0-alpha          | In-flight   |  March 17th, 2025 | N/A                        | N/A                    |
+| Major Version | Latest Minor Version |   Status    | Initial GA Release   | Maintenance Window Start   | Maintenance Window End |
+|:--------------|:---------------------|:------------|:---------------------|:---------------------------|:-----------------------|
+| 1             | 1.3.20               | Maintenance |  July 12th, 2021     | May 26th, 2022             | April 29th, 2025       |
+| 2             | 2.18.0               | Current     |  May 26th, 2022      | April 29th, 2025           | GA release of 4.0.     |
+| 3             | 3.0.0-alpha1         | In-flight   |  April 29th, 2025    | N/A                        | N/A                    |
 {: .desktop-maintenance-policy-table}
 
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date
