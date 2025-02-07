@@ -18,7 +18,7 @@ logo_large: /assets/media/partners/Lucenia/Lucenia_Logo_Stacked.png
 
 region:           Global
 industries:       Business Services,Education,Public Sector,Government ,Software and Technology
-business_type:    Managed Services Provider (MSP),Independent Software Vendor (ISV)
+business_type:    Managed Service Provider (MSP),Independent Software Vendor (ISV)
 opensearch_tech:  Search,Observability,Analytics,Security,Machine Learning and AI,Logs and Metrics
 
 

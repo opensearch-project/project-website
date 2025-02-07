@@ -1,12 +1,12 @@
 ---
 
-name: Oamelda CloudS ervices
-name_long: Oamelda CloudS ervices
+name: Oamelda Cloud Services
+name_long: Oamelda Cloud Services
 
 main_office_location:  |
   Torrance, California
 
-description: We are a web hosting hosting provider
+description: We are a web hosting provider
 
 link: https://oamelda.us
 

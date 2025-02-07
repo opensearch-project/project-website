@@ -10,7 +10,7 @@ contact: 'team@cohere.ai'
 
 region:           Global
 industries:       Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Software and Technology,Business Services,Financial Services
-business_type:    Professional Services,Managed Services Provider (MSP)
+business_type:    Professional Services,Managed Service Provider (MSP)
 opensearch_tech:  Machine Learning and AI,Search
 
 
