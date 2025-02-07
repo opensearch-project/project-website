@@ -1,14 +1,14 @@
 ---
-name: Instaclustr
-name_long: 'Instaclustr, now part of Spot by NetApp'
+name: NetApp Instaclustr
+name_long: NetApp Instaclustr
 
-logo: /assets/media/partners/instaclustr/instaclustr.png
+logo: /assets/media/partners/instaclustr/NetAppInstaclustr-logo.png
 link: https://www.instaclustr.com/
-logo_large: /assets/media/partners/instaclustr/logo-large.svg
+logo_large: /assets/media/partners/instaclustr/NetAppInstaclustr-logo.png
 
 description: |
-  <p>Instaclustr helps organizations deliver applications at scale by operating and supporting their data infrastructure through its SaaS platform for open source technologies, whether on-prem or in their cloud of choice.
-  </p><p>In addition to managed platforms, Instaclustr also offers 24x7 support services, consulting and training for numerous open source technologies.</p>
+  <p>NetApp Instaclustr helps organizations deliver applications at scale by operating and supporting their data infrastructure through its SaaS platform for open source technologies, whether on-prem or in their cloud of choice.
+  </p><p>In addition to managed platforms, NetApp Instaclustr also offers 24x7 support services, consulting and training for numerous open source technologies.</p>
 contact: 'support@instaclustr.com'
 
 region:           Global
@@ -21,21 +21,21 @@ main_office_location:  |
   Canberra, Australia
   San Jose, California, US
 resources:
-  - url: 'https://www.instaclustr.com/blog/opensearch-feature-update/'
-    title: 'OpenSearch Feature Update'
+  - url: 'https://www.instaclustr.com/blog/cross-cluster-replication-for-opensearch/'
+    title: 'Cross-cluster replication for OpenSearch®'
     thumbnail: '/assets/media/partners/instaclustr/opensearch-update-blog.png'
     aspect_ratio: '218∶115'
     type: 'blog'
-  - url: 'https://www.instaclustr.com/blog/opensearch-2-now-in-preview-release/'
-    title: 'OpenSearch 2.0 Now in Preview Release'
+  - url: 'https://www.instaclustr.com/blog/searchable-snapshots-now-available-for-opensearch-on-the-instaclustr-managed-platform/'
+    title: 'Searchable Snapshots Now Available for OpenSearch® on the Instaclustr Managed Platform'
     thumbnail: '/assets/media/partners/instaclustr/opensearch-2.0-blog.png'
     aspect_ratio: '109∶57'
     type: 'blog'
-  - url: 'https://www.instaclustr.com/blog/instaclustr-updates-nodes-types-for-opensearch-offering/'
-    title: 'Instaclustr Updates Nodes Types for OpenSearch Offering'
+  - url: 'https://www.instaclustr.com/blog/introducing-instaclustr-managed-opensearch-with-netapp-storagegrid/'
+    title: 'Introducing Instaclustr Managed OpenSearch® with NetApp StorageGRID®'
     thumbnail: '/assets/media/partners/instaclustr/opensearch-nodes-blog.png'
     aspect_ratio: '109∶57'
     type: 'blog'
 products:
-  - description: 'Instaclustr provides a fully managed and hosted service for OpenSearch on your cloud provider of choice under the Apache 2.0 License.'
+  - description: 'NetApp Instaclustr provides a fully managed and hosted service for OpenSearch on your cloud provider of choice under the Apache 2.0 License.'
 ---
