@@ -91,7 +91,7 @@ Bitmap filtering integrates seamlessly with OpenSearch’s existing query infras
 
 - The `value_type: "bitmap"` parameter allows you to specify bitmap filters in `terms` queries.
 - Enhanced `terms` lookup enables efficient retrieval of stored bitmap filters.
--  You can combine bitmap filters with other query types in Boolean queries, making them a flexible tool for large-scale filtering.
+- You can combine bitmap filters with other query types in Boolean queries, making them a flexible tool for large-scale filtering.
 
 These enhancements enable you to adopt bitmap filtering with minimal changes to your existing OpenSearch queries while gaining significant performance benefits for large-scale filtering operations.
 
