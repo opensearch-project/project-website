@@ -85,7 +85,7 @@ POST products/_search
 
 In this case, the bitmap must be base64-encoded before being included in the query. This approach is useful when you have precomputed bitmaps or need to perform bitmap operations on the client side before querying OpenSearch.
 
-### Key advantages of bitmap filtering
+## Key advantages of bitmap filtering
 
 Bitmap filtering integrates seamlessly with OpenSearch’s existing query infrastructure:
 
