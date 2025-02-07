@@ -141,4 +141,4 @@ Bitmap filtering in OpenSearch provides an efficient way to filter documents usi
 - Digital content platforms filtering large document collections based on user entitlements.
 - E-commerce platforms matching product IDs against customer libraries.
 
-To determine whether bitmap filtering or standard `terms` queries best suit your needs, see [Performance benchmarks](#performance-benchmarks). If you're using bitmap filtering in large-scale applications, we welcome your feedback to help shape future improvements.
+To determine whether bitmap filtering or standard `terms` queries best suit your needs, see [Performance benchmarks](#performance-benchmarks). If you're using bitmap filtering in large-scale applications, we welcome your feedback on the [OpenSearch forum](https://forum.opensearch.org/) to help shape future improvements.
