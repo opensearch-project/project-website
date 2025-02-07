@@ -46,7 +46,7 @@ OpenSearch integrates bitmap filtering seamlessly into its query infrastructure:
 - A new `value_type` parameter in `terms` queries allows specifying a filter list using a base64-encoded Roaring Bitmap.
 - `terms` lookup is enhanced to fetch values from stored fields instead of the entire `_source`.
 
-### Example: Filtering a customer’s purchased products
+## Example: Filtering a customer’s purchased products
 
 Suppose you run an e-commerce marketplace with 1 million products and 100,000 customers. Each customer has a digital library containing their purchased products. You maintain a bitmap for each customer representing their product ownership. Using bitmap filtering, you can efficiently retrieve the products owned by a specific customer as follows:
 
@@ -68,8 +68,6 @@ POST products/_search
 ```
 
 In this example, the bitmap filter is applied to the `product_id` field in the `products` index to retrieve products owned by a specific customer. The bitmap filter data is stored in the `customers` index under the document ID `customer123`, in the field `customer_filter`. This binary field is optimized for fast retrieval and efficient processing. During query execution, the bitmap filter is loaded into memory and applied to the filtering operation.
-
-### Alternative: Providing the bitmap directly
 
 In addition to using a `terms` lookup, as shown in the previous example, you can provide the bitmap directly in the query:
 
