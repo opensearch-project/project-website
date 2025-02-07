@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduce Bitmap Filtering Feature"
+title:  "Efficient large-scale filtering with bitmap filtering in OpenSearch"
 authors:
    - bowenlan-amzn
    - macrakis
@@ -13,37 +13,44 @@ meta_keywords: bitmap
 meta_description: Introduce the bitmap filtering feature about its usage and performance
 ---
 
-## Introduction
+OpenSearch is a powerful open-source search and analytics engine that enables you to efficiently search and filter large datasets. A common search pattern involves filtering documents based on whether a field matches any value in a large set. While the existing `terms` query works well for smaller sets, its performance degrades significantly when handling thousands or millions of terms.
 
-OpenSearch is a powerful open-source search and analytics engine that enables users to efficiently search and filter large datasets. A common search pattern requires filtering documents based on whether a field matches any value in a large set. While the existing terms query works well for smaller sets, its performance degrades significantly when dealing with thousands or millions of terms. In OpenSearch 2.17, we introduced bitmap filtering to efficiently handle these large-scale filtering operations. Version 2.19 further enhances this feature with a new index-based bitmap query that delivers performance improvement for small queries and fixes efficiency gaps.
+In OpenSearch 2.17, we introduced _bitmap filtering_ to address this issue, providing a more efficient way to handle large-scale filtering operations. OpenSearch 2.19 further enhances this feature with a new index-based bitmap query that improves performance for smaller queries and optimizes their efficiency.
 
-## The Challenge
+## The challenge of large-scale filtering
 
-Many applications need to filter documents by checking if their numeric identifiers match any value in a large set. For example, an e-commerce platform might filter a product catalog to show only items in a customer's digital library (matching product IDs against a list of thousands of purchased item IDs); user want to find all books from one store of a chain bookstore (matching book IDs against a list of thousands of ISBNs). Using terms queries for these large sets of identifiers can cause:
+Many applications need to filter documents by checking if a numeric identifier matches any value in a large set. Consider these examples:
 
-1. Performance degradation due to increased query size
-2. Scalability issues from high memory and CPU consumption
-3. Network overhead from transmitting extensive filter lists
+- An e-commerce platform filtering a product catalog to display only items in a customer's digital library (matching product IDs against a list of thousands of purchased items).
+- A bookstore chain searching for all books from a specific store (matching book IDs against a list of thousands of ISBNs).
 
-These limitations harm performance and scalability, especially for large-scale datasets and high-traffic workloads.
+Using `terms` queries for large sets of identifiers can cause the following issues:
 
-## Bitmap Filtering: A New Approach
+- Performance degradation as query size increases.
+- Scalability challenges because of high memory and CPU consumption.
+- Network overhead from transmitting extensive filter lists.
 
-When filtering by sets of integers, such as product IDs or ISBN numbers, we can significantly improve query performance and scalability by using Roaring Bitmap - a highly optimized data structure for representing integer sets.
+These limitations negatively affect both performance and scalability, particularly for large datasets and high-traffic workloads.
 
-* Roaring Bitmap automatically selects the most efficient internal representation based on the data characteristics. It provides excellent compression for sparse integer sets while maintaining fast lookup speeds.
-* Set operations (intersection, union) between filters can be computed efficiently using the Roaring Bitmap library before sending the query to OpenSearch.
+## Bitmap filtering: An optimized approach
 
-## Implementation in OpenSearch
+Bitmap filtering improves query performance and scalability when filtering by integer sets, such as product IDs or ISBN numbers. It uses Roaring Bitmap, an efficient data structure for handling integer sets:
 
-We've enhanced the existing query infrastructure to integrate bitmap filtering seamlessly:
+- Roaring Bitmap automatically selects the most efficient internal representation based on data characteristics. It provides excellent compression for sparse integer sets while maintaining fast lookup speeds.
+- Set operations (for example, intersection, or union) can be computed efficiently using the Roaring Bitmap library before sending queries to OpenSearch.
 
-* Introduced a new value_type parameter in terms queries, set to "bitmap" to specify a filter list using a base64-encoded Roaring Bitmap representation
-* Added a parameter in terms lookup to fetch values from stored fields instead of the entire _source
+## How OpenSearch implements bitmap filtering
 
-Let's look at a practical example. Suppose you run an e-commerce marketplace with 1 million products and 100,000 customers. Each customer has their own digital library containing their purchased products. To efficiently query which products a customer owns, you maintain a bitmap for each customer representing their product ownership. Here's how you can use bitmap filtering to fetch all products owned by a specific customer:
+OpenSearch integrates bitmap filtering seamlessly into its query infrastructure:
 
-```
+- A new `value_type` parameter in `terms` queries allows specifying a filter list using a base64-encoded Roaring Bitmap.
+- `terms` lookup is enhanced to fetch values from stored fields instead of the entire `_source`.
+
+### Example: Filtering a customer’s purchased products
+
+Suppose you run an e-commerce marketplace with 1 million products and 100,000 customers. Each customer has a digital library containing their purchased products. You maintain a bitmap for each customer representing their product ownership. Using bitmap filtering, you can efficiently retrieve the products owned by a specific customer as follows:
+
+```json
 POST products/_search
 {
   "query": {
@@ -60,11 +67,13 @@ POST products/_search
 }
 ```
 
-In this example, the bitmap filter is applied to the "product_id" field of the "products" index to retrieve the products owned by a specific customer. The bitmap filter data is retrieved from a different index "customers" using the document ID "customer123" and the field path "customer_filter". The bitmap data is stored in a binary field type optimized for fast retrieval and efficient processing. During query execution, the bitmap filter is loaded into memory and applied to the filtering operation.
+In this example, the bitmap filter is applied to the `product_id` field in the `products` index to retrieve products owned by a specific customer. The bitmap filter data is stored in the `customers` index under the document ID `customer123`, in the field `customer_filter`. This binary field is optimized for fast retrieval and efficient processing. During query execution, the bitmap filter is loaded into memory and applied to the filtering operation.
 
-Users have two options for providing bitmap filters. The first is using terms lookup as shown in the previous example, and the second is providing the bitmap directly in the query:
+### Alternative: Providing the bitmap directly
 
-```
+In addition to using a `terms` lookup, as shown in the previous example, you can provide the bitmap directly in the query:
+
+```json
 POST products/_search
 {
   "query": {
@@ -76,39 +85,62 @@ POST products/_search
 }
 ```
 
-Note that in this case, the bitmap needs to be base64-encoded before being included in the query. This direct approach is particularly useful when you have pre-computed bitmaps or want to perform bitmap operations client-side before sending the query.
+In this case, the bitmap must be base64-encoded before being included in the query. This approach is useful when you have precomputed bitmaps or need to perform bitmap operations on the client side before querying OpenSearch.
 
-The flexibility of bitmap filtering comes from its seamless integration with OpenSearch's existing query infrastructure:
+### Key advantages of bitmap filtering
 
-1. The new value_type: "bitmap" parameter allows you to specify bitmap filters within standard terms queries
-2. The enhanced terms lookup feature lets you efficiently retrieve stored bitmap filters
-3. Bitmap filters can be freely combined with other query types in boolean queries, making them a versatile addition to your query toolkit
+Bitmap filtering integrates seamlessly with OpenSearch’s existing query infrastructure:
+
+- The `value_type: "bitmap"` parameter allows you to specify bitmap filters in `terms` queries.
+- Enhanced `terms` lookup enables efficient retrieval of stored bitmap filters.
+-  You can combine bitmap filters with other query types in Boolean queries, making them a flexible tool for large-scale filtering.
 
 These enhancements enable you to adopt bitmap filtering with minimal changes to your existing OpenSearch queries while gaining significant performance benefits for large-scale filtering operations.
 
-## Performance Benchmark
+## Performance benchmarks
 
-![Figure 1](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/query_time_comparison.png){:class="img-centered"} Figure 1
-![Figure 2](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/query_time_comparison_bitmap_index_docvalues.png){:class="img-centered"} Figure 2
+We conducted performance tests on an index containing 100 million documents, comparing different filtering approaches across filter sizes ranging from 100 to 10 million random IDs.
 
-We conducted multiple performance testings using an index containing 100 million documents, comparing different filtering approaches across various filter sizes (from 100 to 10 million random IDs).
-In version 2.17 (Figure 1), we compared three approaches:
+We compared the following approaches:
 
-* Standard terms query using document values
-* Standard terms query using field index
-* Our new bitmap filtering approach based on document values
+- Query using a list of IDs (traditional `terms` query) with document values (OpenSearch 2.17)
+- Query using a list of IDs (traditional `terms` query) with an indexed field (OpenSearch 2.17)
+- Query using bitmap filtering with document values (OpenSearch 2.17)
+- Query using bitmap filtering with an indexed field (OpenSearch 2.19)
 
-As shown in the first graph, while all approaches performed similarly for small filter sizes (up to 100,000 IDs), the traditional approaches showed quick performance degradation with larger filter sizes. In contrast, bitmap filtering maintained consistent performance even with millions of IDs.
-Version 2.19 (Figure 2) brought another leap forward. The new index or docvalues bitmap query (shown as "Encoded Bitmap (Index)" in the second graph) automatically chooses the most efficient execution strategy based on the query context and cost estimation. When compared to the previous bitmap implementation, it shows remarkable improvements:
+The following figure shows the query time comparison of these approaches.
 
-* Thousand times faster for smaller filter sizes
-* Maintains stable performance across all filter sizes
-* Consistently low query times even with millions of IDs
+![Traditional and bitmap query performance](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/query_time_comparison.png){:class="img-centered"}  
+*Figure 1: Traditional and bitmap filtering query performance*
 
-Beyond query performance, bitmap filtering also provides significant space efficiency. From Figure 3, a filter containing 10 million IDs requires only 16 MB when encoded as a bitmap, compared to 360 MB as a raw ID list. This compact representation leads to reduced network transfer times, lower disk I/O, and better memory utilization.
+For small filter sizes (up to 100,000 IDs), all approaches performed similarly. However, traditional methods degraded rapidly for larger filter sizes, while bitmap filtering maintained stable performance even with millions of IDs.
 
-![Figure 2](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/query_time_comparison_bitmap_index_docvalues.png){:class="img-centered"} Figure 3
+### Optimized bitmap filtering comparison
+
+OpenSearch 2.19 introduced an index-based bitmap query that automatically selects the most efficient execution strategy based on the query context and cost estimation. Compared to the original document-value-based bitmap implementation, the new implementation delivers remarkable improvements:
+
+- **1000x speed improvement** for smaller filter sizes.
+- **Consistently low query times** even with millions of IDs.
+- **Stable performance** across all filter sizes.
+
+The following figure shows the query time comparison 
+
+![Optimized bitmap filtering performance](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/query_time_comparison_bitmap_index_docvalues.png){:class="img-centered"}  
+*Figure 2: Optimized bitmap filtering performance*
+
+Bitmap filtering is not only faster but also more space-efficient. A filter containing 10 million IDs requires only **16 MB** of storage when encoded as a bitmap, compared to **360 MB** as a raw ID list. This compact representation reduces network transfer times, disk I/O, and memory usage.
+
+The following figure shows the space efficiency comparison of bitmap filtering with document values and with indexed fields.
+
+![Space efficiency comparison](/assets/media/blog-images/2025-02-04-introduce-bitmap-filtering-feature/data_size_comparison.png){:class="img-centered"}  
+*Figure 3: Optimized bitmap filtering space efficiency*
+
 
 ## Conclusion
 
-Bitmap filtering in OpenSearch is particularly valuable when filtering documents using large sets of numeric identifiers (thousands to millions scale). Implemented as part of terms query and terms lookup feature, this new feature can benefit scenarios like digital content platforms filtering large document corpus against different user entitlements, or e-commerce systems matching product IDs against customer libraries. PPlease check the Performance Benchmark section to determine if bitmap filtering or standard terms query better suits your needs. We welcome feedback from users implementing this feature in their large-scale filtering applications to help guide future improvements.
+Bitmap filtering in OpenSearch provides an efficient way to filter documents using large sets of numeric identifiers (thousands to millions). Integrated into `terms` queries and `terms` lookup, it is especially useful for scenarios such as:
+
+- Digital content platforms filtering large document collections based on user entitlements.
+- E-commerce platforms matching product IDs against customer libraries.
+
+To determine whether bitmap filtering or standard `terms` queries best suit your needs, see [Performance benchmarks](#performance-benchmarks). If you're using bitmap filtering in large-scale applications, we welcome your feedback to help shape future improvements.
