@@ -12,8 +12,6 @@ breadcrumbs:
 include_mobile_tables: true
 ---
 
-##### Updated August 28, 2024
-
 - [Release Schedule](#release-schedule)
 - [Maintenance Policy](#maintenance-policy)
 - [Release History](#release-history)
@@ -23,7 +21,7 @@ include_mobile_tables: true
 
 For more information on the changes planned for each release, please see the [Project Roadmap](https://github.com/orgs/opensearch-project/projects/206)
 
-Note:  We have not added a major release to the 2024 schedule yet.  If/when we add one, it will replace a minor release in the 2.x line.  See below for criteria for a major releases.
+See below for criteria for a major releases.
 
 
 | Release Number | First RC Generated (release window opens) | Latest Possible Release Date (release window closes) | Release Manager                                      | Tracking Issue                                                             |
