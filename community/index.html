@@ -346,7 +346,7 @@ permalink: /community/
                 <!-- OPENSEARCH CON LIST -->
                 <ul class="mx-4">
                     {% for Conference in data_MainBody_OpenSearchCon_Row['right_OpenSearchConSchedule_Column'].Conferance_array %}
-                        <li class="text--listItem-darkBackground"><a href="{{ Conference.URL }}"" class="{{ Conference.ClassValue }} ">{{ Conference.Name }}</a></li>
+                        <li class="text--listItem-darkBackground"><a href="{{ Conference.URL }}" target="_blank" class="{{ Conference.ClassValue }}">{{ Conference.Name }}</a></li>
                     {% endfor %}
 
                 </ul>
