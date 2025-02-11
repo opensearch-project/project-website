@@ -216,7 +216,7 @@
                 "Subheader": "OpenSearch Dashboards Playground",
                 "SubText": "Experience OpenSearch anomaly detection in our free demo environment.",
                 "ButtonText": "Jump into our sandbox",
-                "ButtonLink": "/playgrounds/"
+                "ButtonLink": "https://playground.opensearch.org/"
             }
 
         }
