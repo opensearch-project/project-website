@@ -1,8 +1,8 @@
 ---
 date: "2025-02-11"
 product: opensearch
-version: '2.19'
-release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.19.md
+version: '2.19.0'
+release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.19.0.md
 version_sort: 2.19-ga
 components:
   - role: daemon
