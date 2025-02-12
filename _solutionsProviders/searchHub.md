@@ -26,15 +26,15 @@ industries:       Software and Technology
 resources:
   - url: 'https://www.searchhub.io/neuralinfusion-a-blueprint-towards-more-relevant-and-efficient-ecommerce-vector-retrieval-part-1/'
     title: 'NeuralInfusion™ — a blueprint towards more relevant and efficient ecommerce vector retrieval — Part 1'
-    thumbnail: ''
+    thumbnail: '/assets/media/partners/searchHub/blog-1.webp'
     type: 'blog'
   - url: 'https://www.searchhub.io/neuralinfusion-a-blueprint-towards-relevant-and-efficient-ecommerce-vector-retrieval-part-2/'
     title: 'NeuralInfusion™ – a blueprint towards relevant and efficient eCommerce vector retrieval – Part 2'
-    thumbnail: ''
+    thumbnail: '/assets/media/partners/searchHub/blog-1.webp'
     type: 'blog'
   - url: 'https://www.searchhub.io/tesuto-how-we-created-a-unique-experimentation-stack-for-search/'
     title: 'TESUTO: How We Created a Unique Experimentation Stack for Search'
-    thumbnail: ''
+    thumbnail: '/assets/media/partners/searchHub/blog-1.webp'
     type: 'blog'
 
 
