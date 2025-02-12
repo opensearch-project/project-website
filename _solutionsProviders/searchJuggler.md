@@ -1,6 +1,6 @@
 ---
 
-name: Search Juggler
+name: The Search Juggler
 name_long: The Search Juggler Limited
 
 main_office_location:  |
