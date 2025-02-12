@@ -11,8 +11,8 @@ description: The Pulse team draws from over a decade of experience in building, 
 link: https://pulse.support/
 
 
-logo: /assets/media/partners/pulse/pulse-logo.png
-logo_large: /assets/media/partners/pulse/pulse-logo.png
+logo: /assets/media/partners/pulse/pulse.png
+logo_large: /assets/media/partners/pulse/pulse.png
 
 
 
