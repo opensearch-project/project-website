@@ -6,12 +6,12 @@ authors:
   - gaievski
   - minalsha
   - kolchfa
-date: 2025-02-05
+date: 2025-02-12
 has_science_table: true
 categories:
   - technical-posts
-meta_keywords: OpenSearch hybrid search, reciprocal rank fusion, RRF, search ranking, score normalization, Min-max normalization, L2 normalization, ranking algorithms, data normalization
-meta_description: Discover how Reciprocal Rank Fusion (RRF) in OpenSearch 2.19 enhances hybrid search by merging ranked results from multiple query sources. Learn how RRF improves search relevance, benchmarks against traditional normalization techniques, and offers performance benefits for various applications.
+meta_keywords: reciprocal rank fusion, OpenSearch 2.19, neural search plugin, hybrid search, relevance ranking, search normalization, k-nn search, L2 normalization, how reciprocal rank fusion works
+meta_description: Learn about reciprocal rank fusion (RRF) using the Neural Search plugin in OpenSearch 2.19. Discover how this new approach to hybrid search merges results from multiple query sources for improved relevance.
 ---
 
 OpenSearch 2.19 introduces reciprocal rank fusion (RRF), a new feature in the Neural Search plugin that enhances hybrid search. RRF merges ranked results from multiple query sources, such as neural search, k-NN, and Boolean queries, into a single relevance-optimized list. By prioritizing documents that consistently rank highly across different sources, RRF improves search relevance without relying on traditional score normalization techniques.
