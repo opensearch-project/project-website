@@ -10,7 +10,7 @@ authors:
  - vachshah
  - kolchfa
  - naarcha
-date: 2025-01-24
+date: 2025-02-20
 categories:
  - community
 meta_keywords: OpenSearch API, OpenAPI specification, API documentation, API generators, OpenSearch documentation, OpenSearch clients
