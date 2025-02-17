@@ -24,23 +24,19 @@ button_stack:
     <tbody>
         <tr>
             <td>Search</td>
-            <td>Power visual, semantic, and multimodal search using models that work best for your key scenarios.</td>
+            <td>Power multimodal search and accommodate different data types using the models that work best for your key scenarios.</td>
         </tr>
         <tr>
             <td>Generative AI agents</td>
-            <td>Use generative AI to build intelligent agents that deliver better results for chatbots or automated conversation entities.</td>
+            <td>Use large language models (LLMs) and generative AI to build intelligent agents that deliver better results for chatbots or automated conversation entities.</td>
         </tr>
         <tr>
             <td>Recommendation engine</td>
-            <td>Generate product and user embeddings using collaborative filtering techniques.</td>
+            <td>Generate product and user embeddings through collaborative filtering techniques.</td>
         </tr>
         <tr>
             <td>User-level content targeting</td>
-            <td>Personalize web pages by retrieving content ranked by user propensities through embeddings trained on user interactions.</td>
-        </tr>
-        <tr>
-            <td>Automated pattern matching and de-duplication</td>
-            <td>Enhance your data quality processes by using similarity search to automate pattern matching and duplication discovery in data.</td>
+            <td>Personalize web pages by retrieving content ranked by user propensities with embeddings trained on human interactions.</td>
         </tr>
         <tr>
             <td>Data and ML platforms</td>
