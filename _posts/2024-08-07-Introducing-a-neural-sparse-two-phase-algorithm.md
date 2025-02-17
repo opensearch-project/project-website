@@ -125,5 +125,5 @@ For more information about the two-phase processor, see [Neural sparse query two
 Read more about neural sparse search:
 
 1. [Improving document retrieval with sparse semantic encoders]({{site.baseurl}}/blog/improving-document-retrieval-with-sparse-semantic-encoders)
-1. [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12]({{site.baseurl}}/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12)
+1. [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12]({{site.baseurl}}/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/)
 1. [Advancing Search Quality and Inference Speed with v2 Series Neural Sparse Models]({{site.baseurl}}/blog/neural-sparse-v2-models)
