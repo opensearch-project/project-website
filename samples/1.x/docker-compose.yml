@@ -1,3 +1,4 @@
+---
 services:
   opensearch-node1:
     image: opensearchproject/opensearch:1
