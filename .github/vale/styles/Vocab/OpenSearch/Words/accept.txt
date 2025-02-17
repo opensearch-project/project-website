@@ -82,6 +82,7 @@ Levenshtein
 [Mm]ultiword
 [Nn]amespace
 [Oo]nboarding
+[Oo]versampl(e|ing)
 p\d{2}
 pebibyte
 [Pp]erformant
@@ -110,6 +111,7 @@ pebibyte
 [Rr]epo
 [Rr]erank(er|ed|ing)?
 [Rr]erankers?
+[Rr]escor(e|ed|ing)?
 [Rr]ewriters?
 [Rr]ollout
 [Rr]ollup
