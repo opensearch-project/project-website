@@ -136,7 +136,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Date                 | Change | Reason          |
 |:---------------------|:-------|:----------------|
-| February 18th, 2025  | Update 2.19.1 release date and shift following patch releases date for 2.19.x and 2.19.0 release history | [2.19.1 release issue](https://github.com/opensearch-project/opensearch-build/issues/5323) |
+| February 18th, 2025  | Update 2.19.1 release date and shift following patch releases date for 2.19.x, also update the 2.19.0 release history | [2.19.1 release issue](https://github.com/opensearch-project/opensearch-build/issues/5323) |
 | February 07th, 2025  | Update release schedule for year 2025 | Update Page |
 | December 11th, 2024  | Update release history for 1.3.20 release | Update Page |
 | November 19th, 2024  | Update release history for 2.18.0 release and updated release manager for 1.3.20  | [1.3.20 release issue](https://github.com/opensearch-project/opensearch-build/issues/4990) |
