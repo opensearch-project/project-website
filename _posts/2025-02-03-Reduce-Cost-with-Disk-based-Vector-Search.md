@@ -6,12 +6,12 @@ authors:
    - vikash
    - vamshin
    - kolchfa
-date: 2025-02-03
+date: 2025-02-19
 has_science_table: true
 categories:
   - technical-posts
-meta_keywords: Disk-based vector search in OpenSearch, quantization, ANN search, compression, performance testing, binary quantization
-meta_description: Learn how to reduce your OpenSearch costs for vector search using the new disk-based vector search.
+meta_keywords: disk based vector search, vector search, vector quantization techniques, OpenSearch 2.17, binary quantization, natural language embedding models
+meta_description: Learn how OpenSearch significantly reduces vector search costs using disk-based methods. Discover quantization techniques and practical implementation strategies for efficient large-scale vector search operations.
 ---
 
 Vector search has gained significant attention in the area of information retrieval thanks to advances in natural language embedding models. These models map domain-specific data into a vector space, where similar pieces of data are positioned close to each other. When you run a search, the query is embedded into this space, and a nearest neighbor search identifies the most similar results based on distance calculations.
