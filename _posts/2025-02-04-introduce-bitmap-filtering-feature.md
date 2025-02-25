@@ -6,11 +6,11 @@ authors:
    - macrakis
    - msfroh
    - kolchfa
-date: 2025-02-04
+date: 2025-02-25
 categories:
   - technical-posts
-meta_keywords: bitmap
-meta_description: Introduce the bitmap filtering feature about its usage and performance
+meta_keywords: bitmap filtering, OpenSearch 2.17, filtering large datasets, RoaringBitmap, OpenSearch queries, e-commerce search. search performance
+meta_description: Discover how the bitmap filtering feature in OpenSearch optimizes large-scale filtering operations, and improves query performance and efficiency for datasets with thousands to millions of terms
 ---
 
 OpenSearch is a powerful open-source search and analytics engine that enables you to efficiently search and filter large datasets. A common search pattern involves filtering documents based on whether a field matches any value in a large set. While the existing `terms` query works well for smaller sets, its performance degrades significantly when handling thousands or millions of terms.
