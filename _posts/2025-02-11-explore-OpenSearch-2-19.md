@@ -97,7 +97,10 @@ OpenSearch 2.19 also brings performance improvements to the experimental [disk-t
 ## Deprecation notices
 
 ### Deprecating support for Ubuntu Linux 20.04
-Please note that OpenSearch will deprecate support for Ubuntu Linux 20.04 as a continuous integration build image and supported operating system in an upcoming version, as Ubuntu Linux 20.04 will reach end-of-life with standard support as of April 2025 (refer to [this notice](https://ubuntu.com/blog/ubuntu-20-04-lts-end-of-life-standard-support-is-coming-to-an-end-heres-how-to-prepare) from Canonical Ubuntu). For a list of OpenSearch's compatible operating systems, [visit here](https://opensearch.org/docs/latest/install-and-configure/os-comp/).
+Please note that OpenSearch and OpenSearch Dashboards will deprecate support for Ubuntu Linux 20.04 as a continuous integration build image and supported operating system in an upcoming version, as Ubuntu Linux 20.04 will reach end-of-life with standard support as of April 2025 (refer to [this notice](https://ubuntu.com/blog/ubuntu-20-04-lts-end-of-life-standard-support-is-coming-to-an-end-heres-how-to-prepare) from Canonical Ubuntu). For a list of the compatible operating systems, [visit here](https://opensearch.org/docs/latest/install-and-configure/os-comp/).
+
+### Deprecating support for Amazon Linux 2 on OpenSearch Dashboards
+Please note that OpenSearch Dashboards will deprecate support for Amazon Linux 2 as a continuous integration build image and supported operating system in an upcoming version, as Node.js 18 will reach end-of-life with support as of April 2025 (refer to [this notice](https://nodejs.org/en/blog/announcements/v18-release-announce) from nodejs.org) and newer version of Node.js LTS version (20+) will not support runtime on Amazon Linux 2. For a list of the compatible operating systems, [visit here](https://opensearch.org/docs/latest/install-and-configure/os-comp/).
 
 ### Deprecating support for features and plugins in OpenSearch 3.0.0
 Please note that OpenSearch and OpenSearch Dashboards will deprecate support for the following features and plugins in [OpenSearch 3.0.0](https://github.com/opensearch-project/opensearch-build/issues/3747):
@@ -107,6 +110,9 @@ Please note that OpenSearch and OpenSearch Dashboards will deprecate support for
 * [Dashboards-Observability](https://github.com/opensearch-project/dashboards-observability/issues/2311): Support will be removed for legacy notebooks from observability indexes.
 * [SQL](https://github.com/opensearch-project/sql/issues/3248): OpenSearch 3.0.0 will deprecate the OpenSearch DSL format as well as several settings, remove the SparkSQL connector, and remove DELETE statement support in SQL.
 * [k-NN](https://github.com/opensearch-project/k-NN/issues/2396): OpenSearch 3.0.0 will deprecate the NMSLIB engine. Users will be advised to use the Faiss or Lucene engines instead.
+
+
+For more updates on breaking changes and deprecated/removed features in version 3.0.0, please see details in the [meta issues](https://github.com/opensearch-project/opensearch-build/issues/5243).
 
 ### Getting started with OpenSearch 2.19
 You can download the latest version of OpenSearch [here](https://www.opensearch.org/downloads.html) and explore OpenSearch Dashboards live on [OpenSearch Playground](https://playground.opensearch.org/app/home#/). For more information about this release, review the [release notes](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.19.0.md) and the [documentation release notes](https://github.com/opensearch-project/documentation-website/blob/main/release-notes/opensearch-documentation-release-notes-2.19.0.md). Your feedback on this release is appreciated—please visit our [community forum](https://forum.opensearch.org/) to share your thoughts.
