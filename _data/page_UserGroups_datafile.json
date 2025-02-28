@@ -103,6 +103,12 @@
                 "Link": "https://www.meetup.com/opensearch-project-seoul/"
             }, 
             {
+                "Name": "Tokyo, Japan",
+                "Location": "Asia",
+                "ImagePath": "/assets/img/usergroups-assets/OpenSearch-TokyoUG-v2-01.png",
+                "Link": "https://www.meetup.com/opensearch-project-tokyo/"
+            }, 
+            {
                 "Name": "Vancouver, Canada",
                 "Location": "North America",
                 "ImagePath": "/assets/img/usergroups-assets/OpenSearch_Vancouver_UserGroup.png",
