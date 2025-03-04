@@ -21,4 +21,4 @@ permalink: '/community/members/kentonparton.html'
 redirect_from: '/authors/kentonparton/'
 ---
 
-Kenton Parton is a Technical Lead at EBSCO Information Services, where he oversees transaction logging and other business intelligence processes with his awesome team.
+Kenton Parton is a Senior Software Engineer II at EBSCO Information Services, where he oversees transaction logging and other business intelligence processes with his awesome team.

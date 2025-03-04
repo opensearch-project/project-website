@@ -1,5 +1,6 @@
 ---
 layout: post
+
 title:  "Enhancing anomaly detection in Amazon OpenSearch Service: A customer success story"
 authors:
  - kaituo
@@ -23,7 +24,7 @@ Anomaly detection in Amazon OpenSearch Service helps users automatically identif
 
 ## The challenge
 
-EBSCO Information Services, a leading provider of research databases and discovery services, uses Amazon OpenSearch Service to monitor transaction logging across their entire product suite. This monitoring plays a vital role in understanding customer engagement with EBSCO products and helps users make informed decisions about database subscriptions through detailed usage reporting.
+EBSCO Information Services is a leading provider of research databases and discovery services. While EBSCO's core search engine is proprietary, the company leverages Amazon OpenSearch Service specifically for monitoring transaction logging across their product suite. This monitoring capability plays a vital role in understanding customer engagement with EBSCO products and helps users make informed decisions about database subscriptions through detailed usage reporting.
 
 While activity levels across EBSCO's products naturally fluctuate, significant and sustained changes in usage patterns can indicate potential issues. Most commonly, these changes result from transaction producers inadvertently modifying their application or logging logic. In these cases, particularly when there are substantial drops in activity, EBSCO needs to quickly identify the change and alert the responsible development team.
 
@@ -72,13 +73,14 @@ The following image shows the anomaly results generated when the rule was applie
 
 ## Technical details
 
-The foundation of suppression rules is expected normal values. To build an expected value for an anomalous point, Random Cut Forest (RCF), the algorithm behind OpenSearch anomaly detection, replaces the anomalous point's most suspicious dimension with a typical value learned from historical data. Here, each dimension corresponds to a metric value within a context or recent-history window, and the overall anomaly score depends on these dimensions.  
+The foundation of suppression rules is expected normal values. To build an expected value for an anomalous point, Random Cut Forest (RCF), the algorithm behind OpenSearch anomaly detection, replaces the anomalous point's most suspicious dimension with a typical value learned from historical data. Here, each dimension corresponds to a metric value within a context or recent-history window, and the overall anomaly score depends on these dimensions.
+
 RCF partitions the data by selecting a dimension $$i$$ with a probability proportional to its range and then choosing a random cut value within that range. If $$l_i$$ is the difference between the maximum and minimum values observed in dimension $$i$$, the probability of cutting along $$i$$ is $$\frac{l_i}{\sum_j l_j}$$. These random cuts isolate anomalous points, and RCF sums the anomaly scores across all dimensions to compute the final anomaly score. To identify which dimension contributes most to an anomaly, RCF tracks each dimension's portion of the total anomaly score. The dimension with the highest contribution is deemed the most suspicious.  
 
 RCF then imputes a more "normal" value for this suspicious dimension by treating it as if it were missing in the queried point. Specifically, the algorithm performs the following steps:  
 - **Root to leaf**: RCF starts at the root of each tree in the forest and traverses downward toward a leaf.  
 - **Splitting normally**: At each node, if the node's split dimension is present in the query point, RCF follows that branch.  
-- **Missing dimension**: If the split dimension is "missing" (that is, the dimension is to be replaced), RCF explores both child nodes and selects the path with the lower anomaly score. Each internal node has two children---one on the left side of the random cut and one on the right.  
+- **Missing dimension**: If the split dimension is “missing” (that is, the dimension must be replaced), the algorithm considers both child nodes—one on either side of the random cut—and then follows whichever path has the lower anomaly score. In essence, we are searching for an expected plausible value, and a lower score indicates that following that path is less likely to lead to an anomaly. By selecting the lower-score path, we ensure the resulting completion is more consistent with previously observed data and thus is less likely to be an anomaly.
 - **Arriving at a leaf**: Eventually, RCF reaches a leaf node deemed relatively normal. The algorithm uses that leaf's value for the suspicious dimension, creating a "corrected" version of the anomalous point.  
 - **Final imputation**: RCF gathers these candidate values from all trees and takes their median as the final expected value for the anomalous dimension.
 
