@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  GPU Accelerated Vector Search Opensearch New Frontier 
+title:  "GPU-accelerated vector search in Opensearch: A new frontier" 
 authors:
   - navneev
   - cnolet
@@ -9,7 +9,7 @@ authors:
   - nwstephens
   - vamshin
 date: 2025-03-03
-has_science_table: false
+has_science_table: true
 categories:
   - technical-posts
 meta_keywords: Vector Database, Vector Engine, k-NN plugin,  OpenSearch 3.0, k-nn search, Vector Search, Semantics Search, Index Build
@@ -18,11 +18,14 @@ meta_description: Learn about how OpenSearch Vector Engine is going to use GPU f
 
 OpenSearch's adoption as a vector database has grown significantly with the rise of generative AI applications. Vector search workloads are scaling from millions to billions of vectors, making traditional CPU-based indexing both time-consuming and cost-intensive. To address this challenge, OpenSearch is introducing GPU acceleration as a [preview feature](https://github.com/opensearch-project/k-NN/issues/2293) for its Vector Engine in the upcoming 3.0 release by using [NVIDIA cuVS](https://github.com/rapidsai/cuvs). By leveraging the massive parallel processing capabilities of GPUs, this new feature dramatically reduces index building time, significantly lowering operational costs while delivering superior performance for large-scale vector workloads.
 
-### Why use GPU Acceleration?
+### Why use GPU acceleration?
+
 The OpenSearch Vector Engine has made [significant strides](https://github.com/opensearch-project/k-NN/issues/1599) in 2024, implementing various optimizations including [AVX512 SIMD support](https://github.com/opensearch-project/k-NN/issues/2056), segment replication, [efficient vector formats](https://github.com/opensearch-project/k-NN/issues/1853) for reading and writing vectors, [iterative index builds](https://github.com/opensearch-project/k-NN/issues/1938), [intelligent graph builds](https://github.com/opensearch-project/k-NN/issues/1942), and [derived source](https://github.com/opensearch-project/k-NN/issues/2377) for vectors. While these features and optimizations delivered incremental improvements in indexing times, they primarily enhanced the peripheral components of vector search rather than addressing the fundamental performance bottleneck in core vector operations.
+
 Vector operations, particularly distance calculations, are computationally intensive tasks that are ideally suited for parallel processing. GPUs excel in this domain due to their massively parallel architecture, capable of performing thousands of calculations simultaneously. By leveraging GPU acceleration for these compute-heavy vector operations, OpenSearch can dramatically reduce index build times. This not only improves performance but also translates to significant cost savings, as shorter processing times mean reduced resource utilization and lower operational expenses. The GPUs ability to efficiently handle these parallel computations makes it a natural fit for accelerating vector search operations, offering a compelling solution for organizations dealing with large-scale vector datasets.
 
-## New Architecture
+## The new architecture
+
 The streamlined, decoupled GPU-accelerated indexing system comprises three core components:
 
 1. **Vector Index Build Service** – A dedicated GPU-powered fleet that specializes in high-performance vector index construction. This service operates independently for optimal GPU resource utilization.
@@ -50,7 +53,9 @@ The new system uses the following workflow:
   - Completes the segment creation process.
 
 If any step encounters an error, the system automatically falls back to CPU-based index building to ensure continuous operation. For more information, see the [technical design documents](https://github.com/opensearch-project/k-NN/issues/2293) and [architecture diagrams](https://github.com/opensearch-project/k-NN/issues/2294).
-### Vector Index Builds using CAGRA Algorithm
+
+### Vector index builds using the CAGRA algorithm
+
 The GPU workers leverage [NVIDIA cuVS](https://github.com/rapidsai/cuvs) CAGRA algorithm integrated through the [Faiss](https://github.com/facebookresearch/faiss) library. [CAGRA](https://arxiv.org/abs/2308.15136), or (C)UDA (A)NNS (GRA)ph-based, is a novel approach for graph-based indexing that was built from the ground up for GPU acceleration. CAGRA constructs a graph representation by first building a k-NN graph using either [IVF-PQ](https://developer.nvidia.com/blog/accelerating-vector-search-nvidia-cuvs-ivf-pq-deep-dive-part-1/) or [NN-DESCENT](https://docs.rapids.ai/api/cuvs/nightly/cpp_api/neighbors_nn_descent/) and then removing redundant paths between neighbors.
 
 When a Vector Index Build request arrives at the GPU workers, it carries all necessary parameters for constructing the segment-specific vector index. The Vector Index Build component initiates the process by retrieving the vector file from the object store and loading it into CPU memory. These vectors are then inserted in the CAGRA index through Faiss. Upon completion of the index construction, the system automatically converts the CAGRA index into an HNSW-based format, ensuring compatibility with CPU-based search operations. The converted index is then uploaded to the object store, marking the successful completion of the build request. This ensures that indexes built on GPUs can be efficiently searched on CPU machines while maintaining index building performance benefits.
@@ -61,7 +66,7 @@ When a Vector Index Build request arrives at the GPU workers, it carries all nec
 
 ## Benchmark results
 
-Initial benchmarking shows significant improvements in indexing performance and cost efficiency. The experiments used a [10M 768D dataset](https://github.com/opensearch-project/opensearch-benchmark-workloads/blob/main/vectorsearch/workload.json#L54-L64) and [OpenSearch Benchmarks](https://opensearch.org/docs/latest/benchmark/). The OpenSearch distribution is available [here](https://github.com/navneet1v/k-NN/releases/download/stagging-remote-index-build-v3/opensearch-2.19.0-SNAPSHOT-linux-arm64.tar.gz).
+Initial benchmarking shows significant improvements in indexing performance and cost efficiency. The experiments used a [10M 768D dataset](https://github.com/opensearch-project/opensearch-benchmark-workloads/blob/main/vectorsearch/workload.json#L54-L64) and [OpenSearch Benchmark](https://opensearch.org/docs/latest/benchmark/). The OpenSearch distribution is available [here](https://github.com/navneet1v/k-NN/releases/download/stagging-remote-index-build-v3/opensearch-2.19.0-SNAPSHOT-linux-arm64.tar.gz).
 
 ### Test setup
 
