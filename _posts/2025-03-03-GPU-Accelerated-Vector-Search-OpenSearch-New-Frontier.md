@@ -94,8 +94,8 @@ Below are the results of the experiments which were conducted.
 
 
 The above results provides a significant evidence that:
-1. We are able to achieve a 9.3x improvement in indexing performance with 3.75x less cost.
-2. The CPU utilization is 2.5x less than the baseline with 2x improvement in indexing traffic since no vector index builds are happening on CPUs, ensuring that OpenSearch cluster can take more indexing traffic or the need to scale OpenSearch cluster for heavy indexing traffic.
+1. We are able to achieve a **9.3x** improvement in indexing performance with **3.75x** less cost.
+2. The CPU utilization is **2.5x** less than the baseline with 2x improvement in indexing traffic since no vector index builds are happening on CPUs, ensuring that OpenSearch cluster can take more indexing traffic or the need to scale OpenSearch cluster for heavy indexing traffic.
 
 ## Key Benefits
 * Decoupled Architecture: With OpenSearch and GPU workers operating independently, both components can evolve separately, allowing for continuous optimization of price-performance ratios without interdependency constraints. Decoupled architecture allows multiple OpenSearch clusters to leverage the same GPU resources in a time-shared manner.
