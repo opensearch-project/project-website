@@ -2,9 +2,9 @@
 layout: post
 title:  "Efficient large-scale filtering with bitmap filtering in OpenSearch"
 authors:
-   - bowenlan-amzn
+   - bowenlan
    - macrakis
-   - msfroh
+   - mfroh
    - kolchfa
 date: 2025-02-25
 categories:
