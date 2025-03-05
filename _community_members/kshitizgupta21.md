@@ -14,11 +14,11 @@ breadcrumbs:
     - title: 'Kshitiz Gupta&apos;s Profile'
       url: '/community/members/kshitizgupta21.html'
 github: kshitizgupta21
-job_title_and_company: 'Deep learning solutions architect at NVIDIA'
+job_title_and_company: 'Deep Learning Solutions Architect at NVIDIA'
 personas:
   - author
 permalink: '/community/members/kshitizgupta21.html'
 redirect_from: '/authors/kshitizgupta21/'
 ---
 
-Kshitiz Gupta is a deep learning solutions architect at NVIDIA helping customers solve their business problems with GPU-accelerated AI across different industries. Kshitiz earned his bachelor's degree from UC Berkeley where he studied statistics and machine learning. Outside of work, he enjoys traveling and hiking 
+Kshitiz Gupta is a Deep Learning Solutions Architect at NVIDIA, helping customers solve their business problems with GPU-accelerated AI across different industries. Kshitiz earned his bachelor's degree from UC, Berkeley, where he studied statistics and machine learning. Outside of work, he enjoys traveling and hiking. 

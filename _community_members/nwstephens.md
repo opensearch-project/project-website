@@ -21,4 +21,4 @@ permalink: '/community/members/nwstephens.html'
 redirect_from: '/authors/nwstephens/'
 ---
 
-Nathan Stephens works in developer relations at NVIDIA, building the ecosystem for GPU accelerated vector search. His background is in data and data science. He has experience building data science teams, architecting analytic infrastructure, and delivering innovative data products. Nathan is a longtime advocate for operationalizing data science using open source software. 
+Nathan Stephens works in developer relations at NVIDIA, building the ecosystem for GPU-accelerated vector search. His background is in data and data science. He has experience building data science teams, architecting analytic infrastructure, and delivering innovative data products. Nathan is a longtime advocate for operationalizing data science using open-source software. 
