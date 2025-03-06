@@ -8,15 +8,15 @@ authors:
   - dylantong
   - nwstephens
   - vamshin
-date: 2025-03-03
+date: 2025-03-18
 has_science_table: true
 categories:
   - technical-posts
-meta_keywords: Vector Database, Vector Engine, k-NN plugin,  OpenSearch 3.0, k-nn search, Vector Search, Semantics Search, Index Build
-meta_description: Learn about how OpenSearch Vector Engine is going to use GPU for accelerating its Vector Index Builds
+meta_keywords: vector database, GPU acceleration, OpenSearch vector engine, why use GPU acceleration, NVIDIA cuVS, CAGRA algorithm, improved indexing speed, large-scale vector search
+meta_description: Discover how the GPU acceleration feature in OpenSearch dramatically improves vector search performance, reducing indexing time by 9.3x and costs by 3.75x using NVIDIA cuVS technology
 ---
 
-OpenSearch's adoption as a vector database has grown significantly with the rise of generative AI applications. Vector search workloads are scaling from millions to billions of vectors, making traditional CPU-based indexing both time consuming and cost intensive. To address this challenge, OpenSearch is introducing GPU acceleration as a [preview feature](https://github.com/opensearch-project/k-NN/issues/2293) for the OpenSearch Vector Engine in the upcoming 3.0 release by using [NVIDIA cuVS](https://github.com/rapidsai/cuvs). By leveraging the massive parallel processing capabilities of GPUs, this new feature dramatically reduces index building time, significantly lowering operational costs while delivering superior performance for large-scale vector workloads.
+OpenSearch's adoption as a [vector database](https://opensearch.org/platform/search/vector-database.html) has grown significantly with the rise of generative AI applications. Vector search workloads are scaling from millions to billions of vectors, making traditional CPU-based indexing both time consuming and cost intensive. To address this challenge, OpenSearch is introducing GPU acceleration as a [preview feature](https://github.com/opensearch-project/k-NN/issues/2293) for the OpenSearch Vector Engine in the upcoming 3.0 release by using [NVIDIA cuVS](https://github.com/rapidsai/cuvs). By leveraging the massive parallel processing capabilities of GPUs, this new feature dramatically reduces index building time, significantly lowering operational costs while delivering superior performance for large-scale vector workloads.
 
 ### Why use GPU acceleration?
 
@@ -34,7 +34,7 @@ The streamlined, decoupled GPU-accelerated indexing system comprises three core 
 
 The following image illustrates the new architecture.
 
-![High Level Architecture](/assets/media/blog-images/2025-03-03-GPU-Accelerated-Vector-Search-OpenSearch-New-Frontier/high-level-arch.png){: .img-fluid}
+![High Level Architecture](/assets/media/blog-images/2025-03-18-GPU-Accelerated-Vector-Search-OpenSearch-New-Frontier/high-level-arch.png){: .img-fluid}
 
 The new system uses the following workflow:
 
@@ -60,7 +60,7 @@ The GPU workers leverage the [NVIDIA cuVS](https://github.com/rapidsai/cuvs) CAG
 
 The following image illustrates the CAGRA algorithm. When a Vector Index Build request is received by the GPU workers, it carries all necessary parameters for constructing the segment-specific vector index. The Vector Index Build component initiates the process by retrieving the vector file from the object store and loading it into CPU memory. These vectors are then inserted into the CAGRA index through Faiss. Upon completion of the index construction, the system automatically converts the CAGRA index into an HNSW-based format, ensuring compatibility with CPU-based search operations. The converted index is then uploaded to the object store, marking the successful completion of the build request. This ensures that indexes built on GPUs can be efficiently searched on CPU machines while maintaining index building performance benefits.
 
-![CAGRA-ALGO](/assets/media/blog-images/2025-03-03-GPU-Accelerated-Vector-Search-OpenSearch-New-Frontier/cagra-algo-explained.png){: .img-fluid}
+![CAGRA-ALGO](/assets/media/blog-images/2025-03-18-GPU-Accelerated-Vector-Search-OpenSearch-New-Frontier/cagra-algo-explained.png){: .img-fluid}
 
 **Source: [CAGRA: Highly Parallel Graph Construction and Approximate Nearest Neighbor Search for GPUs](https://arxiv.org/pdf/2308.15136)**
 
@@ -120,7 +120,7 @@ The **decoupled design** ensures flexibility, allowing OpenSearch to adopt futur
 
 ## What's next?
 
-The initial GPU-based index release will support **FP32** for GPU-based index acceleration. Upcoming releases will introduce **FP16 and byte** support to further improve price-performance. Additionally, the OpenSearch community continues to enhance vector engine capabilities in order to enable low-latency, high-throughput retrieval, unlocking new possibilities for vector search at scale.
+The initial GPU-based index build algorithm release will support **FP32** for GPU-based index acceleration. Upcoming releases will introduce **FP16 and byte** support to further improve price-performance. Additionally, the OpenSearch community continues to enhance vector engine capabilities in order to enable low-latency, high-throughput retrieval, unlocking new possibilities for vector search at scale.
 
 ## References
 
