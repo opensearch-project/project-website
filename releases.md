@@ -78,6 +78,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Release Number | Release Date         | Release Manager                                                                                                                                 | Tracking Issue |
 |:---------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+| 2.19.1         | February 20th, 2025  | [Divya Madala](https://github.com/Divyaasm/) & [Peter Zhu](https://github.com/peterzhuamazon)                                                   | [5323](https://github.com/opensearch-project/opensearch-build/issues/5323) | 
 | 2.19.0         | February 11th, 2025  | [Rishabh Singh](https://github.com/rishabh6788/), [Divya Madala](https://github.com/Divyaasm/) & [Peter Zhu](https://github.com/peterzhuamazon) | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) |
 | 1.3.20         | December 11th, 2024  | [Brandon Shien](https://github.com/bshien), [Zelin Hao](https://github.com/zelinh/) & [Peter Zhu](https://github.com/peterzhuamazon)            | [4990](https://github.com/opensearch-project/opensearch-build/issues/4990) |
 | 2.18.0         | November 05th, 2024  | [Rishabh Singh](https://github.com/rishabh6788/)                                                                                                | [5004](https://github.com/opensearch-project/opensearch-build/issues/5004) |
@@ -136,6 +137,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Date                 | Change | Reason          |
 |:---------------------|:-------|:----------------|
+| March 5th, 2025      | Update 2.19.1 release history | Update Page |
 | February 18th, 2025  | Update 2.19.1 release date and shift following patch releases date for 2.19.x, also update the 2.19.0 release history | [2.19.1 release issue](https://github.com/opensearch-project/opensearch-build/issues/5323) |
 | February 07th, 2025  | Update release schedule for year 2025 | Update Page |
 | December 11th, 2024  | Update release history for 1.3.20 release | Update Page |
