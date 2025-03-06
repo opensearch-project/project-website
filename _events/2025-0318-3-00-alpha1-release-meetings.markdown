@@ -5,7 +5,7 @@ title: OpenSearch 3.0.0-alpha1 Release Meetings
 primary_title: OpenSearch 3.0.0-alpha1 Release Meetings
 online: true
 signup:
-  url: https://chime.aws/<Pending>
+  url: https://chime.aws/5881945197
   title: Join on Chime
 category: development
 ---
@@ -40,7 +40,7 @@ On-going release discussions in the [#releases](https://opensearch.slack.com/arc
 
 **Join Meeting**
 
-**Click to join the meeting: <https://chime.aws/Pending>**
+**Click to join the meeting: <https://chime.aws/5881945197>**
 
 **Meeting ID: Pending**
 
@@ -50,7 +50,7 @@ Call in using your phone:
 - United States Toll-Free (1): +1 855-552-4463
 - United States (1): +1 206-462-5569
 - International: https://chime.aws/dialinnumbers/
-- One-click Mobile Dial-in (United States (1)): +1 206-462-5569,,,4954731245#
+- One-click Mobile Dial-in (United States (1)): +1 206-462-5569,,,5881945197#
 
 Dial-in attendees must enter *7 to mute or unmute themselves.
 
