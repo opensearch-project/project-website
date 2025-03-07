@@ -1,17 +1,17 @@
 ---
 layout: post
 
-title:  "Enhancing anomaly detection in Amazon OpenSearch Service: A customer success story"
+title:  "Solution Provider Highlight - Enhancing anomaly detection in Amazon OpenSearch Service: A customer success story"
 authors:
  - kaituo
  - kentonparton
  - amitgalitz
-date: 2025-01-22
+date: 2025-03-07
 categories:
  - technical-posts
  - community
-meta_keywords: OpenSearch anomaly detection, rule, expected value, ratio, customer success
-meta_description: By collaborating closely with customers like EBSCO, we released rule-based anomaly detection to deliver more accurate, actionable, and customizable monitoring solutions.
+meta_keywords: OpenSearch anomaly detection, EBSCO, anomaly detection plugin, configure anomaly detection rules, logging system monitoring
+meta_description: Learn how Amazon OpenSearch Service's enhanced anomaly detection helped EBSCO reduce false positives and improve system monitoring through new rule-based detection capabilities. Explore practical implementations of these features and their impact on cloud service reliability.
 has_math: true
 has_science_table: false
 ---
