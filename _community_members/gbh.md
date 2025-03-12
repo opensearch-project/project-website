@@ -14,7 +14,7 @@ breadcrumbs:
     - title: 'Bharathwaj G&apos;s Profile'
       url: '/community/members/bharathwaj-g.html'
 github: bharath-techie
-linkedin: https://www.linkedin.com/in/bharathwaj-g-a4045b80/
+linkedin: bharathwaj-g-a4045b80
 job_title_and_company: 'Software Engineer working on OpenSearch'
 personas:
   - author

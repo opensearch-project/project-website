@@ -24,12 +24,19 @@ conference_id: '2024-north-america'
 
 presenters: 
   - prabhat-chaturvedi
+  - shikhar
 
 
 
 ---
-The presentation will be slides only. The slides will entail different ways the customers can use the ABAC to achieve their solutions for their varied use-cases. This feature just a thought currently, going to raise a RFC this week and aligns with the RFC Theme for security. The ABAC can make the current FGAC much more dynamic based on multiple attributes -> temporal, spatial, role based, profile based, limit based, etc.
-In the future it can be some language like OPA, etc. and then also be drag and drop based which can be configured graphically.
+In this presentation, we will explore various industry-standard access control mechanisms and briefly cover the evolution of authorization. We'll focus on different access control methods, such as Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC), within the context of OpenSearch Security plugin's fine-grained access control features.
 
-The Authorization engine also can be made more robust, extensive and decentralized with well known industry standards by introducing components like  PAP(Policy Administration Point) - place where all the policies are kept and managed, PDP (Policy Decision Point) - place where the decision of a action is calculated or infered based on all the policies applicable for that user and resource with an ALLOW or DENY and finally PEP(Policy Enforcement Point) - this is the actual enforcement point which intercepts the incoming request and enforces the AuthZ based on above decision.
+We'll delve into how the current features—including roles, document-level security, and field-level security with dynamic substitution—can be leveraged to address diverse use cases, such as segregating results based on entity attributes.
+
+Additionally, we'll discuss future enhancements planned for the OpenSearch Security plugin. These proposed improvements aim to provide more robust context-based access control (ABAC) and expand support for a wider range of use cases.
+
+By the end of this talk, attendees will have a comprehensive understanding of:
+1. The evolution of access control mechanisms
+2. Current OpenSearch Security plugin features and their applications
+3. Upcoming developments in access control for OpenSearch
 

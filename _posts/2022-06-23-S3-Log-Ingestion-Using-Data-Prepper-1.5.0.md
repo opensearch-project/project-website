@@ -135,7 +135,7 @@ add the concept of codecs to Data Prepper.
 
 ## What's next
 
-The [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1) is the best place to see what 
+The [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projects/221) is the best place to see what
 is coming next. The maintainers are working toward Data Prepper 2.0, which will include 
 [conditional routing](https://github.com/opensearch-project/data-prepper/issues/1007) of events and 
 [core peer forwarding](https://github.com/opensearch-project/data-prepper/issues/700) for log aggregations.

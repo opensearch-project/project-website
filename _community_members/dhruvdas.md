@@ -1,7 +1,7 @@
 ---
 short_name: dhruvdas
 name: Dhrubajyoti Das
-linkedin: https://www.linkedin.com/in/dhrubajyoti-das-39433354/
+linkedin: dhrubajyoti-das-39433354
 photo: "/assets/media/community/members/dhruvdas.jpg"
 title: 'OpenSearch Community Member: Dhrubajyoti Das'
 primary_title: Dhrubajyoti Das

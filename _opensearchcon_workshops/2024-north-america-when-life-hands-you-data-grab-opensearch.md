@@ -15,7 +15,7 @@ permalink: '/events/opensearchcon/2024/north-america/workshops/when-life-hands-y
 ---
 ### Title: When Life Hands You Data, Grab OpenSearch!
 
-**Date:** Wednesday, September 26, 2024  
+**Date:** Thursday, September 26, 2024  
 **Time:** 9:00AM to 12:00PM  
 **Location:** Continental Ballroom 2
 

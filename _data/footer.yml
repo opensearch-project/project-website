@@ -22,14 +22,14 @@ columns:
         url: /connect.html
 
   -
-    title: Partners
+    title: Providers
     links:
       -
-        title: Become a Partner
-        url: https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=enhancement%2C+untriaged&projects=opensearch-project%2FWebsite+Update+Project%2Copensearch-project%2FPartner+Updates+and+Additions&template=partner_add_new_partner.yml&title=%5BPARTNER%5D+%7B%7B+Company+name+%7D%7D+
+        title: Become a Provider
+        url: https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=enhancement%2C+untriaged&projects=opensearch-project%2FWebsite+Update+Project%2Copensearch-project%2FPartner+Updates+and+Additions&template=solutionsProvider_add_new_solutionsProvider.yml&title=%5BSolutionsProvider%5D++
       -
-        title: Find a Partner
-        url: https://opensearch.org/partners/
+        title: Find a Provider
+        url: https://opensearch.org/solutionsProviders/
   
   -
     title: Resources
@@ -62,24 +62,3 @@ columns:
         title: Privacy
         url: https://aws.amazon.com/privacy/
 
-  # -
-  #   title: 'Contact Us'
-  #   links:
-  #     -
-  #       title: 'Connect'
-  #       url: '/connect.html'
-  #     -
-  #       title: 'Twitter'
-  #       url: 'https://twitter.com/OpenSearchProj'
-  #     -
-  #       title: 'LinkedIn'
-  #       url: 'https://www.linkedin.com/company/opensearch-project/'
-  #     -
-  #       title: 'YouTube'
-  #       url: 'https://www.youtube.com/c/OpenSearchProject'
-  #     -
-  #       title: 'Meetup'
-  #       url: 'https://www.meetup.com/pro/opensearchproject/'
-  #     -
-  #       title: 'Facebook'
-  #       url: 'https://www.facebook.com/OpenSearchProject/'  

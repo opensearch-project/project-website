@@ -1,0 +1,20 @@
+
+
+// BUTTONS
+.btn-OpenSearch-primary {
+    color: $primary-open-sky-s1;
+    border-color: $primary-open-sky-s1;
+    background-color: $secondary-sanfrancisco-fog-t1;
+    font-family: 'Open Sans Condensed';
+    font-size: 24px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    &:hover {
+        background-color: $primary-open-sky-s1;
+        color: $secondary-sanfrancisco-fog-t1;
+    }
+}
+
+
+// BUTTON GROUPS

@@ -13,7 +13,7 @@ speaker_talk_title: 'OpenSearch - Conversations with Context'
 primary_title: 'OpenSearch - Conversations with Context'
 
 # Page document title displayed in the browser title bar.
-title: 'OpenSearchCon 2024 Session: OpenSearch - Conversations with Context'
+title: 'OpenSearchCon 2024 North America Session: OpenSearch - Conversations with Context'
 
 
 # Session date / time

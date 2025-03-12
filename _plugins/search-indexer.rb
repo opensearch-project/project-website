@@ -100,7 +100,7 @@ module Jekyll::ContentIndexer
       # Appropriately assign types based on collection
       case page.collection&.label
       when 'posts'
-        type = 'News'
+        type = 'Blogs'
       when 'authors'
         type = 'Authors'
       when 'events'

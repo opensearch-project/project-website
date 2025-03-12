@@ -21,4 +21,4 @@ personas:
 redirect_from: '/authors/wronghuy/'
 ---
 
-`Huy Nguyen` is a Software Engineer at Amazon Web Services working on the OpenSearch Project.
+**Huy Nguyen** is a Software Engineer at Amazon Web Services working on the OpenSearch Project.

@@ -18,7 +18,7 @@ speaker_talk_title: 'A deep dive into OpenSearch Serverless'
 primary_title: 'A deep dive into OpenSearch Serverless'
 
 # Page document title displayed in the browser title bar.
-title: 'OpenSearchCon 2024 Session: A deep dive into OpenSearch Serverless'
+title: 'OpenSearchCon 2024 North America Session: A deep dive into OpenSearch Serverless'
 
 
 # Session date / time

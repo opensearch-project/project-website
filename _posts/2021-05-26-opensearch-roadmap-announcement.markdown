@@ -8,7 +8,7 @@ categories: update
 redirect_from: "/blog/update/2021/05/opensearch-roadmap-announcement/"
 ---
 
-I wanted to share that a new public roadmap was published to the OpenSearch [project’s GitHub](https://github.com/orgs/opensearch-project/projects/1). The roadmap shows the next several months of planned features and releases. Going forward, this roadmap will show what the maintainers and contributors of the various components of the project intend to work on and when that work aims to launch.
+I wanted to share that a new public roadmap was published to the OpenSearch [project’s GitHub](https://github.com/orgs/opensearch-project/projects/206). The roadmap shows the next several months of planned features and releases. Going forward, this roadmap will show what the maintainers and contributors of the various components of the project intend to work on and when that work aims to launch.
 
 ![OpenSearch roadmap slide on GitHub from 5/25/2021](/assets/media/blog-images/2021-05-26-opensearch-roadmap-announcement/opensearch-roadmap.png){: .img-fluid}
 

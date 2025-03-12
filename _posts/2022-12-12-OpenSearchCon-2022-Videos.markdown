@@ -113,7 +113,7 @@ In modern search, our databases can be any modality—text, images, or tabular. 
 #### OpenSearch Project Roadmap 2022 and Beyond
 
 ***Charlotte Henkle, Senior Software Development Manager, OpenSearch***
-The OpenSearch Project has grown tremendously over the past year. In this session, we take a look ahead at the [OpenSearch roadmap](https://github.com/orgs/opensearch-project/projects/1) and share more with you about what we have planned for the next release, the far-off foggy future, and everything in between. 
+The OpenSearch Project has grown tremendously over the past year. In this session, we take a look ahead at the [OpenSearch roadmap](https://github.com/orgs/opensearch-project/projects/206) and share more with you about what we have planned for the next release, the far-off foggy future, and everything in between. 
 
 {% include youtube-player.html id=page.charlotte %}
 

@@ -55,9 +55,9 @@ Now that OpenSearch has added test automation, built infrastructure, made update
 * OpenSearch will support cross cluster replication to allow you to deploy for higher availability. 
 * To help you better understand your data, ML features such as FAISS library integrations and root cause analysis support will be added. 
 
-...among many others on the [roadmap](https://github.com/orgs/opensearch-project/projects/1). 
+...among many others on the [roadmap](https://github.com/orgs/opensearch-project/projects/206). 
 
-The next major milestone is OpenSearch 1.1, which is expected to release on August 30. In addition to more artifact coverage (e.g. RPM X64, DEB X64, DEB ARM64), OpenSearch 1.1 will include improvements to anomaly detection (ex. [universal flow](https://github.com/opendistro-for-elasticsearch/anomaly-detection/issues/380)), [indexing pressure protection](https://github.com/opensearch-project/OpenSearch/issues/478), and [notification support](https://github.com/opensearch-project/notifications/issues/181) among others. Check out the [public roadmap](https://github.com/orgs/opensearch-project/projects/1) for more details.
+The next major milestone is OpenSearch 1.1, which is expected to release on August 30. In addition to more artifact coverage (e.g. RPM X64, DEB X64, DEB ARM64), OpenSearch 1.1 will include improvements to anomaly detection (ex. [universal flow](https://github.com/opendistro-for-elasticsearch/anomaly-detection/issues/380)), [indexing pressure protection](https://github.com/opensearch-project/OpenSearch/issues/478), and [notification support](https://github.com/opensearch-project/notifications/issues/181) among others. Check out the [public roadmap](https://github.com/orgs/opensearch-project/projects/206) for more details.
 
 ### **How can you help?**
 

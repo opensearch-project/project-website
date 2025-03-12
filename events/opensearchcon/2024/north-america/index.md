@@ -14,6 +14,8 @@ hero_images:
 #    path: /assets/media/opensearchcon/2024/OSC2024_NASF_Web-banner_1440x360.png
 #    alt: OpenSearchCon 2024 hero banner image.
 conference_sections_button_stack:
+  - label: Schedule
+    url: /events/opensearchcon/2024/north-america/schedule.html
   - label: Capture the Flag
     url: /events/opensearchcon/2024/north-america/capture-the-flag.html
   - label: Search Relevance Training
@@ -37,22 +39,7 @@ related_articles:
     url: /blog/opensearchcon-san-francisco-schedule-and-cfp-updates/
     category: community
     date: 'Fri, Jul 21, 2024'
-#featured_sessions:
-#  - title: Opening Keynote
-#    url: /events/opensearchcon/2022/north-america/sessions/keynote.html
-#    date: Wednesday 09/21/2022
-#    thumbnail: /assets/media/opensearchcon/2022-keynote-thumbnail.png
-#    category: Community
-#  - title: Getting Started with the OpenSearch Core Codebase
-#    url: >-
-#      /events/opensearchcon/2022/north-america/sessions/getting-started-with-opensearch-core-codebase.html
-#    date: Wednesday 9/21/2022
-#    thumbnail: /assets/media/opensearchcon/2022-getting-started.png
-#  - title: OpenSearch Project Roadmap 2022 and Beyond
-#    url: >-
-#      /events/opensearchcon/2022/north-america/sessions/opensearch-project-roadmap-2022-and-beyond.html
-#    date: Wednesday 09/21/2022
-#    thumbnail: /assets/media/opensearchcon/2022-roadmap-and-beyond.png
+
 ---
 
 ### **Join us in San Francisco, September 24-26, 2024 for OpenSearchCon North America!**
@@ -100,16 +87,3 @@ OpenSearchCon is the annual conference that brings the OpenSearch community toge
 We have watched OpenSearchCon North America grow from its humble beginnings as a single-track, one-day event to a three-day, multi-track open source community experience that includes an unconference, training and workshops, a partner round table, and other exciting networking and partner opportunities.
 
 We hope to see  you in San Francisco!
-
-
-
-
-
-
-
-
-
-
-
-
-

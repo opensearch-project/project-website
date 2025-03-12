@@ -69,7 +69,7 @@ defaults:
       permalink: :collection/:slug.html
 
 collections:
-  partners:
+  solutionsProviders:
   community_projects:
   javadocs:
     output: true
