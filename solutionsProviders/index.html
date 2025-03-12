@@ -1,0 +1,796 @@
+---
+layout: default
+title: SolutionsProviders
+primary_title: SolutionsProviders
+body_class: SolutionsProviders-page
+
+---
+
+
+<main>
+
+    
+  <!-- MAIN DATAFILE -->
+  {% assign solutionProviders_pageContent = site.data.page_SolutionProviders_datafile['SolutionProviders'] %}
+
+  {% assign data_HeroBanner = solutionProviders_pageContent['HeroBanner']  %}
+  {% assign data_CTABanner = solutionProviders_pageContent['Banner_CallToAction']  %}
+  
+  {% assign data_MainBody = solutionProviders_pageContent['MainBody']  %}
+  {% assign data_SearchBar = solutionProviders_pageContent['SearchBar']  %}
+  {% assign data_SearchBar_ProviderType = data_SearchBar['ProviderType_Dropdown']  %}
+  {% assign data_SearchBar_OpenSearchSpeciality = data_SearchBar['OpenSearchSpecialization_Dropdown']  %}
+  {% assign data_SearchBar_Region = data_SearchBar['Regions_Dropdown']  %}
+  {% assign data_SearchBar_FilterButton = data_SearchBar['FilterButton']  %}
+
+  {% assign data_MobileFilterBar = solutionProviders_pageContent['MobileFilterBar']  %}
+
+
+  <!-- SOLUTIONS PROVIDERS HERO BANNERS -->
+  
+  <!-- DESKTOP HERO -->
+  <div class="container-fluid solutionsProviders-hero-banner-background-wrapper d-none d-lg-block">
+      <div class="container solutionsProviders-hero-heading-background-container d-flex px-5">
+        <div class="align-self-center">
+          <h1 class="solutionsProviders-hero-heading display-2">{{ data_HeroBanner.Title }}</h1>
+          <p class="solutionsProviders-hero-subtext ps-3">{{ data_HeroBanner.SubText }}</p>
+        </div>
+      </div>
+  </div>
+  <!-- MOBILE HERO -->
+  <div class="container-fluid solutionsProviders-hero-banner-background-mobile-wrapper d-block d-lg-none">
+      <div class="container solutionsProviders-hero-heading-background-container d-flex pt-2 px-0">
+          <div class="align-self-center">
+              <h1 class="solutionsProviders-hero-heading display-5">{{ data_HeroBanner.Title }}</h1>
+              <p class="solutionsProviders-hero-subtext m-0">{{ data_HeroBanner.SubText }}</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="container-fluid OpenSearch-banner-dark-backgroundBanner shadow py-1">
+    <div class="container OpenSearch-banner-dark-backgroundBanner-container px-1 px-md-5">
+      <div class="row justify-content-center">
+          <div class="col-12 col-lg-11 col-xl-10 col-xxl-8 px-0">
+            <p class="text-center my-1">
+              <span class="openSearch-banner-dark-bannerText">{{ data_CTABanner.Text_startSpan }}</span>
+              <a href="{{ data_CTABanner.Link_URL }}" class="openSearch-banner-dark-bannerLink link-offset-1 link-offset-2-hover"> {{ data_CTABanner.Link_Text }}</a>
+              <span class="openSearch-banner-dark-bannerText">{{ data_CTABanner.Text_endSpan }}</span>
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="album py-5 solutionsProviders-mainContent-wrapper">
+
+
+    
+    <!-- FILTER BAR -->
+    <div class="container">
+
+      <!-- DESKTOP FILTER BAR -->
+      <div class="d-none d-lg-block">
+        <div class="filter-bar-wrapper input-group justify-content-center mb-5 px-2" id="filter-bar">
+
+          <!-- Provider Type dropdown -->
+          <div>
+            <button type="button" class="filter-bar-button btn-group-rounded-left btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+              <span class="md-width-empty-span"></span>
+              {{data_SearchBar_ProviderType.Title}} 
+              <span class="" id="{{data_SearchBar_ProviderType.ButtonCategoryCountID}}"></span>
+              <span class="md-width-empty-span"></span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+  
+            <ul class="dropdown-menu dropdown-menu-end w-35 px-4 shadow">
+              <li><h5 class="dropdown-header solutionsProviders-dropdownHeader">Select all that apply</h5></li>
+
+              {% for category in data_SearchBar_ProviderType.Categories %}
+                <div class="form-check">
+                  <input 
+                    type="checkbox" 
+                      class="form-check-input fs-base" 
+                      id="{{category.DataAttribute}}" 
+                      autocomplete="off"
+                      onclick="updateFilterCount('{{ data_SearchBar_ProviderType.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
+                      data-count-id="{{ data_SearchBar_ProviderType.ButtonCategoryCountID }}">
+                  <label 
+                    for="{{category.DataAttribute}}" 
+                    class="form-check-label d-flex align-items-end">
+                    {{ category.Name }}
+                  </label>
+                </div>
+              {% endfor %}
+
+            </ul>
+          </div>
+
+          <!-- OpenSearch Specialization dropdown -->
+          <div>
+            <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+              <span class="md-width-empty-span"></span>
+              {{data_SearchBar_OpenSearchSpeciality.Title}} 
+              <span class="" id="{{data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID}}"></span>
+              <span class="md-width-empty-span"></span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+    
+            <ul class="dropdown-menu dropdown-menu-end w-15 px-4 shadow">
+              <li><h5 class="dropdown-header solutionsProviders-dropdownHeader">Select all that apply</h5></li>
+              {% for category in data_SearchBar_OpenSearchSpeciality.Categories %}
+                <div class="form-check">
+                  <input 
+                    type="checkbox" 
+                      class="form-check-input fs-base" 
+                      id="{{category.DataAttribute}}" 
+                      autocomplete="off"
+                      onclick="updateFilterCount('{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
+                      data-count-id="{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID }}">
+                  <label 
+                    for="{{category.DataAttribute}}" 
+                    class="form-check-label d-flex align-items-end">
+                    {{ category.Name }}
+                  </label>
+                </div>
+              {% endfor %}
+    
+            </ul>   
+          </div>
+      
+          <!-- Region dropdown -->
+          <div>
+            <button type="button" class="filter-bar-button btn-group-middle-element btn btn-outline-primary dropdown-bs-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+              <span class="md-width-empty-span"></span>
+              {{data_SearchBar_Region.Title}} 
+              <span class="" id="{{data_SearchBar_Region.ButtonCategoryCountID}}"></span>
+              <span class="md-width-empty-span"></span>
+              <i class="fa-solid fa-chevron-down"></i>
+              
+            </button>
+    
+            <ul class="dropdown-menu dropdown-menu-end w-15 px-4 shadow">
+              <li><h5 class="dropdown-header solutionsProviders-dropdownHeader">Select all that apply</h5></li>
+              {% for category in data_SearchBar_Region.Categories %}
+                <div class="form-check">
+                  <input 
+                    type="checkbox" 
+                      class="form-check-input fs-base" 
+                      id="{{category.DataAttribute}}" 
+                      autocomplete="off"
+                      onclick="updateFilterCount('{{ data_SearchBar_Region.ButtonCategoryCountID }}', '{{category.DataAttribute}}')" 
+                      data-count-id="{{ data_SearchBar_Region.ButtonCategoryCountID }}">
+                  <label 
+                    for="{{category.DataAttribute}}" 
+                    class="form-check-label d-flex align-items-end">
+                    {{ category.Name }}
+                  </label>
+                </div>
+              {% endfor %}
+    
+            </ul>  
+          </div>
+
+          <!-- Search button -->
+          <div>
+            <button 
+              type="button" 
+              class="filter-bar-button btn-group-rounded-right btn btn-outline-primary"
+              onclick="onScreenElements_ApplyFilters()" >
+              <span class="md-width-empty-span"></span>
+              {{ data_SearchBar_FilterButton.ButtonText }}
+              <span class="md-width-empty-span"></span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MOBILE FILTER BAR -->
+      <div class="d-block d-lg-none">
+
+          <!-- Mobile filters offcanvas toggle -->
+          <nav class="nav justify-content-center mb-4">
+            <button class="btn btn-OpenSearch-primary rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilterSelection" aria-controls="offcanvasFilterSelection">
+              {{ data_MobileFilterBar.ButtonTitile }}
+              <span class="" id="{{data_MobileFilterBar.FilterButtonCategoryCountID}}"></span>
+            </button>
+          </nav>
+
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFilterSelection" aria-labelledby="offcanvasFilterSelectionLabel">
+
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasFilterSelectionLabel">{{ data_MobileFilterBar.OffcanvasTitle }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+
+
+              <div class="accordion accordion-OpenSearch-light" id="filters">
+
+                <!-- Provider Type filters -->
+                <div class="accordion-item">
+
+                  <h6 class="accordion-header" id="headingCategory">
+                    <button type="button" class="accordion-button fw-medium collapsed" data-bs-toggle="collapse" data-bs-target="#{{ data_SearchBar_ProviderType.AccordionMobileFilters_TargetDataAttribute }}" aria-expanded="false" aria-controls="{{ data_SearchBar_ProviderType.AccordionMobileFilters_TargetDataAttribute }}">
+                      <span class="d-flex align-items-end">
+                        {{data_SearchBar_ProviderType.Title}} 
+                        <span class="md-width-empty-span"></span>
+                        <span class="" id="{{data_SearchBar_ProviderType.ButtonCategoryCountID_MobileFilters}}"></span>
+                      </span>
+                    </button>
+                  </h6>
+
+                  <div class="accordion-collapse collapse" id="{{ data_SearchBar_ProviderType.AccordionMobileFilters_TargetDataAttribute }}" aria-labelledby="headingCategory" data-bs-parent="#filters">
+                    <div class="accordion-body d-flex flex-column gap-2 px-4">
+
+
+                      {% for category in data_SearchBar_ProviderType.Categories %}
+                        <div class="form-check">
+                          <input 
+                            type="checkbox" 
+                              class="form-check-input" 
+                              id="{{category.DataAttribute}}-mobile" 
+                              autocomplete="off"
+                              onclick= "updateFilterCount_Mobile('{{ data_SearchBar_ProviderType.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}', '{{data_MobileFilterBar.FilterButtonCategoryCountID}}')" 
+                              data-count-id="{{ data_SearchBar_ProviderType.ButtonCategoryCountID_MobileFilters }}">
+                          <label 
+                            for="{{category.DataAttribute}}" 
+                            class="form-check-label d-flex align-items-end">
+                            {{ category.Name }}
+                          </label>
+                        </div>
+                      {% endfor %}
+
+
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Specialization filters -->
+                <div class="accordion-item">
+
+                  <h6 class="accordion-header" id="headingCategory">
+                    <button type="button" class="accordion-button fw-medium collapsed" data-bs-toggle="collapse" data-bs-target="#{{ data_SearchBar_OpenSearchSpeciality.AccordionMobileFilters_TargetDataAttribute }}" aria-expanded="false" aria-controls="{{ data_SearchBar_OpenSearchSpeciality.AccordionMobileFilters_TargetDataAttribute }}">
+                      <span class="d-flex align-items-end">
+                        {{data_SearchBar_OpenSearchSpeciality.Title}} 
+                        <span class="md-width-empty-span"></span>
+                        <span class="" id="{{data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID_MobileFilters}}"></span>
+                      </span>
+                    </button>
+                  </h6>
+
+                  <div class="accordion-collapse collapse" id="{{ data_SearchBar_OpenSearchSpeciality.AccordionMobileFilters_TargetDataAttribute }}" aria-labelledby="headingCategory" data-bs-parent="#filters">
+                    <div class="accordion-body d-flex flex-column gap-2 px-4">
+
+
+                      {% for category in data_SearchBar_OpenSearchSpeciality.Categories %}
+                        <div class="form-check">
+                          <input 
+                            type="checkbox" 
+                              class="form-check-input" 
+                              id="{{category.DataAttribute}}-mobile" 
+                              autocomplete="off"
+                              onclick= "updateFilterCount_Mobile('{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}', '{{data_MobileFilterBar.FilterButtonCategoryCountID}}')" 
+                              data-count-id="{{ data_SearchBar_OpenSearchSpeciality.ButtonCategoryCountID_MobileFilters }}">
+                          <label 
+                            for="{{category.DataAttribute}}" 
+                            class="form-check-label d-flex align-items-end">
+                            {{ category.Name }}
+                          </label>
+                        </div>
+                      {% endfor %}
+
+
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Region filters -->
+                <div class="accordion-item">
+
+                  <h6 class="accordion-header" id="headingCategory">
+                    <button type="button" class="accordion-button fw-medium collapsed" data-bs-toggle="collapse" data-bs-target="#{{ data_SearchBar_Region.AccordionMobileFilters_TargetDataAttribute }}" aria-expanded="false" aria-controls="{{ data_SearchBar_Region.AccordionMobileFilters_TargetDataAttribute }}">
+                      <span class="d-flex align-items-end">
+                        {{data_SearchBar_Region.Title}} 
+                        <span class="md-width-empty-span"></span>
+                        <span class="" id="{{data_SearchBar_Region.ButtonCategoryCountID_MobileFilters}}"></span>
+                      </span>
+                    </button>
+                  </h6>
+
+                  <div class="accordion-collapse collapse" id="{{ data_SearchBar_Region.AccordionMobileFilters_TargetDataAttribute }}" aria-labelledby="headingCategory" data-bs-parent="#filters">
+                    <div class="accordion-body d-flex flex-column gap-2 px-4">
+
+
+                      {% for category in data_SearchBar_Region.Categories %}
+                        <div class="form-check">
+                          <input 
+                            type="checkbox" 
+                              class="form-check-input" 
+                              id="{{category.DataAttribute}}-mobile" 
+                              autocomplete="off"
+                              onclick= "updateFilterCount_Mobile('{{ data_SearchBar_Region.ButtonCategoryCountID_MobileFilters }}', '{{category.DataAttribute}}', '{{data_MobileFilterBar.FilterButtonCategoryCountID}}')" 
+                              data-count-id="{{ data_SearchBar_Region.ButtonCategoryCountID_MobileFilters }}">
+                          <label 
+                            for="{{category.DataAttribute}}" 
+                            class="form-check-label d-flex align-items-end">
+                            {{ category.Name }}
+                          </label>
+                        </div>
+                      {% endfor %}
+
+
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Search button -->
+              <div class="d-flex justify-content-center mt-4">
+                <button 
+                  type="button" 
+                  class="btn btn-OpenSearch-primary rounded-pill"
+                  onclick="onScreenElements_ApplyFilters_Mobile()" >
+                  {{ data_SearchBar_FilterButton.ButtonText }}
+                </button>
+                
+              </div>
+
+
+
+
+            </div>
+          </div>
+
+
+      </div>
+
+      <!-- APPLIED FILTERS  -->
+      <!-- <div class="filter-criteria-selection-wrapper mb-5 d-none d-lg-block">
+        <div class="row ">
+          <div class="col-2"></div>
+          <div class="col-8 d-flex flex-row align-items-center">
+            <span class="bodycontent--text me-3">Filters:</span>
+            <span id="filters-applied-resultString" class="bodycontent--text"></span>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div> -->
+      
+    </div>
+
+    <!-- SOLUTIONS PROVIDERS RESULTS  -->
+    <div class="container title-wrapper">
+      
+      <div class="d-flex flex-column flex-lg-row">
+
+        <!-- Page title -->
+        <h1 class="flex-grow-1 mx-auto {{data_MainBody.ClassValue }}">{{ data_MainBody.Title }}</h1>
+
+        <!-- Returned results -->
+        <div class="returned-results-wrapper mx-auto">
+          <p class="returned-solutions-providers-text m-0">
+            <span>Viewing </span>
+            <span id="solutions-providers-returned-results" class="solutions-providers-returned-results-count"></span>
+            <span> Solutions Providers</span>
+          </p>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+
+    <div class="container px-3 px-md-5">
+      <hr/>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-sm-4">
+
+        {% for partner in site.solutionsProviders %}
+          <div 
+            class="col card-solutionsProvider-wrapper"
+            id="{{partner.name}}-id"
+            data-partner-name = "{{partner.name}}"
+            data-partner-specializations = "{{ partner.opensearch_tech }}"
+            data-partner-providerTypes = "{{ partner.business_type }}"
+            data-partner-regions = "{{ partner.region }}"
+          >
+            <card 
+              class="card card-solutionsProvider shadow-sm d-flex show px-0">
+
+                <a href="{{ partner.url | relative_url }}" class="stretched-link p-4">
+                  {% if partner.logo %}
+                    <!-- If the partner has a favicon logo attached to their profile. -->
+                    <img src="{{ partner.logo }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
+                  {% else %}
+                    <!-- otherwise use the full width -->
+                    <img src="{{ partner.logo_large }}" alt="{{ partner.name }} Logo" class="partner-logo card-img-top"/>
+                  {% endif %}
+                </a>
+                
+                <div class="card-footer">
+                  <h5 class="card-title ps-2 ps-md-3 m-0">{{ partner.name }}</h5>
+                </div>
+
+                
+            </card>
+          </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+
+  </div>
+</main>
+
+    
+<script>
+    let partnerArray = [];
+    let specializationFilters = [];
+    let providerTypeFilters = [];
+    let regionFilters = [];
+    let specializationFilters_mobile = [];
+    let providerTypeFilters_mobile = [];
+    let regionFilters_mobile = [];
+    let resultsObject;
+    
+    window.onload = () => {
+      
+
+      // find all partners and enter each partner object into the partnerArray
+      let partnerObjectsOnScreen = document.querySelectorAll(`div.card-solutionsProvider-wrapper`);
+      let count_partnerObjects = partnerObjectsOnScreen.length;
+      // console.log("PARTNER COUNT:")
+      // console.log(count_partnerObjects)
+
+      partnerObjectsOnScreen.forEach(partnerObject => {
+        let partnerName = partnerObject.getAttribute('data-partner-name');
+        let partnerSpecializationArray = partnerObject.getAttribute('data-partner-specializations');
+        let partnerProviderTypeArray = partnerObject.getAttribute('data-partner-providerTypes');
+        let partnerRegionArray = partnerObject.getAttribute('data-partner-regions');
+        let partnerId = partnerObject.getAttribute('id');
+        partnerArray.push(
+          { name: partnerName, 
+            id: partnerId, 
+            specializations: partnerSpecializationArray,
+            providerTypes: partnerProviderTypeArray,
+            regions: partnerRegionArray
+          });
+      });
+
+      resultsObject = document.getElementById(`solutions-providers-returned-results`);
+      resultsObject.innerText = partnerArray.length;
+      // console.log(resultsObject);
+      
+      
+    }
+
+    // DESKTOP
+    // Update the filter counts on the filter bar buttons
+    const updateFilterCount = (countId, filterName) => {
+      // console.log(countId, filterName);
+      const filtersAppliedResultsElement = document.getElementById('filters-applied-resultString');
+      const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`);
+      const countElement = document.getElementById(countId);
+
+      if (checkedCheckboxes.length > 0) {
+          countElement.textContent = '(' + checkedCheckboxes.length + ')'
+      } else {
+          countElement.textContent = ''
+      }
+
+      // update the backend filter array with this element
+      switch (countId) {
+        case 'Specialization_CategoryCount':
+          // Check if filterName is already present in specializationFilters array
+          let indexSpecialization = specializationFilters.indexOf(filterName);
+          if (indexSpecialization > -1){
+            specializationFilters.splice(indexSpecialization,1);
+          } else {
+            specializationFilters.push(filterName);
+          }
+          // console.log(`SpecializationFilters: ${specializationFilters}.`);
+          break;
+
+        case 'ProviderType_CategoryCount':
+          let indexProvider = providerTypeFilters.indexOf(filterName);
+          if (indexProvider > -1){
+            providerTypeFilters.splice(indexProvider,1);
+          } else {
+            providerTypeFilters.push(filterName);
+          }
+          // console.log(`ProviderTypeFilters: ${providerTypeFilters}.`);
+          break;
+
+        case 'Region_CategoryCount':
+          let indexRegion = regionFilters.indexOf(filterName);
+          if (indexRegion > -1){
+            regionFilters.splice(indexRegion,1);
+          } else {
+            regionFilters.push(filterName);
+          }
+          // console.log(`RegionFilters: ${regionFilters}.`);
+          break;
+
+        case 'Specialization_CategoryCount_Mobile':
+          // Check if filterName is already present in specializationFilters array
+          let indexSpecialization_mobile = specializationFilters_mobile.indexOf(filterName);
+          if (indexSpecialization_mobile > -1){
+            specializationFilters_mobile.splice(indexSpecialization_mobile,1);
+          } else {
+            specializationFilters_mobile.push(filterName);
+          }
+          // console.log(`SpecializationFilters: ${specializationFilters_mobile}.`);
+          break;
+
+        case 'ProviderType_CategoryCount_Mobile':
+          let indexProvider_mobile = providerTypeFilters_mobile.indexOf(filterName);
+          if (indexProvider_mobile > -1){
+            providerTypeFilters_mobile.splice(indexProvider_mobile,1);
+          } else {
+            providerTypeFilters_mobile.push(filterName);
+          }
+          // console.log(`ProviderTypeFilters: ${providerTypeFilters_mobile}.`);
+          break;
+
+        case 'Region_CategoryCount_Mobile':
+          let indexRegion_mobile = regionFilters_mobile.indexOf(filterName);
+          if (indexRegion_mobile > -1){
+            regionFilters_mobile.splice(indexRegion_mobile,1);
+          } else {
+            regionFilters_mobile.push(filterName);
+          }
+          // console.log(`RegionFilters: ${regionFilters_mobile}.`);
+          break;
+
+
+        default: 
+          console.log(`ID not found for filter: ${countId}.`);
+      }
+
+      // let numberFiltersApplied = specializationFilters.length + providerTypeFilters.length + regionFilters.length;
+      // Something was just clicked... we need to update the filters applied screen. If the filters applied is now zero, the string should also be zero. 
+      // if (numberFiltersApplied > 0) {
+      //   filtersAppliedResultsElement.textContent = specializationFilters + providerTypeFilters + regionFilters;
+      // } else {
+      //   filtersAppliedResultsElement.textContent = '';
+      // }
+
+    }
+
+    // MOBILE
+    const updateFilterCount_Mobile = (countId, filterName, filterButtonID) => {
+      // console.log(countId, filterName);
+
+      const checkedCheckboxes = document.querySelectorAll(`[data-count-id="${countId}"]:checked`);
+      const countElement = document.getElementById(countId);
+      if (checkedCheckboxes.length > 0) {
+          countElement.textContent = '(' + checkedCheckboxes.length + ')';
+      } else {
+          countElement.textContent = '';
+      }
+
+      // update the backend filter array with this element
+      switch (countId) {
+
+        case 'Specialization_CategoryCount_Mobile':
+          // Check if filterName is already present in specializationFilters array
+          let indexSpecialization_mobile = specializationFilters_mobile.indexOf(filterName);
+          if (indexSpecialization_mobile > -1){
+            specializationFilters_mobile.splice(indexSpecialization_mobile,1);
+          } else {
+            specializationFilters_mobile.push(filterName);
+          }
+          // console.log(`SpecializationFilters: ${specializationFilters_mobile}.`);
+          break;
+
+        case 'ProviderType_CategoryCount_Mobile':
+          let indexProvider_mobile = providerTypeFilters_mobile.indexOf(filterName);
+          if (indexProvider_mobile > -1){
+            providerTypeFilters_mobile.splice(indexProvider_mobile,1);
+          } else {
+            providerTypeFilters_mobile.push(filterName);
+          }
+          // console.log(`ProviderTypeFilters: ${providerTypeFilters_mobile}.`);
+          break;
+
+        case 'Region_CategoryCount_Mobile':
+          let indexRegion_mobile = regionFilters_mobile.indexOf(filterName);
+          if (indexRegion_mobile > -1){
+            regionFilters_mobile.splice(indexRegion_mobile,1);
+          } else {
+            regionFilters_mobile.push(filterName);
+          }
+          // console.log(`RegionFilters: ${regionFilters_mobile}.`);
+          break;
+
+
+        default: 
+          console.log(`ID not found for filter: ${countId}.`);
+      }
+      
+
+      let numberFiltersApplied = specializationFilters_mobile.length + providerTypeFilters_mobile.length + regionFilters_mobile.length;
+      const filterButton_countElement = document.getElementById(filterButtonID);
+      if (numberFiltersApplied > 0) {
+        filterButton_countElement.textContent = '(' + numberFiltersApplied + ')';
+      } else {
+        filterButton_countElement.textContent = '';
+      }
+
+    }
+
+    let onScreenElements_ApplyFilters = () => {
+      // allElements
+      // filterSelectionArray - and we need to know what type of filter it is... 
+      // we need to build the array of elements, that meet the criteria... and then its like a waterfall. At the end we show all the elements that are in the array that survived. 
+      
+      // Hide every item on screen
+      let items = partnerArray;
+      // console.log(items)
+      items.forEach((item) => {
+        const card = document.getElementById(`${item.name}-id`);
+        card.classList.remove("card-show");
+        card.classList.add("card-hide");
+      });
+
+      // show current filters to the console
+      // console.log(providerTypeFilters);
+      // console.log(specializationFilters);
+      // console.log(regionFilters);
+
+
+      //
+      //
+      //  iterate through the items in the array. If the specializationFilters.length is zero, we do nothing. 
+      // otherwise, remove the items from the array that do not meet the filter criteria.
+      let temp_specializationArray_filteredItems = [];
+      if (specializationFilters.length !== 0) {
+        items.forEach((item) => {
+          let containsSpecializationTag = specializationFilters.some(filter => item.specializations.includes(filter));
+          if (containsSpecializationTag) {
+            temp_specializationArray_filteredItems.push(item);
+            // if the item contains the specializationTag...push it onto the temp array
+          }
+        });
+      } else {
+        temp_specializationArray_filteredItems = items;
+      }
+      // console.log()
+      let temp_providerTypeArray_filteredItems = [];
+      if (providerTypeFilters.length !== 0) {
+        temp_specializationArray_filteredItems.forEach((item) => {
+          let containsProviderTag = providerTypeFilters.some(filter => item.providerTypes.includes(filter));
+          if (containsProviderTag) {
+            temp_providerTypeArray_filteredItems.push(item);
+          }
+        });
+      } else {
+        temp_providerTypeArray_filteredItems = temp_specializationArray_filteredItems;
+      }
+
+      let temp_regionArray_filteredItems = [];
+      if (regionFilters.length !== 0) {
+        temp_providerTypeArray_filteredItems.forEach((item) => {
+          let containsRegionTag = regionFilters.some(filter => item.regions.includes(filter));
+          if (containsRegionTag) {
+            temp_regionArray_filteredItems.push(item);
+          }
+        });
+      } else {
+        temp_regionArray_filteredItems = temp_providerTypeArray_filteredItems;
+      }
+
+      // Finally, show all the items that survived the filtering process. 
+      temp_regionArray_filteredItems.forEach((item) => {
+          const card = document.getElementById(`${item.name}-id`);
+          card.classList.remove("card-hide");
+          card.classList.add("card-show");
+        });
+      
+      resultsObject.innerText = temp_regionArray_filteredItems.length;
+
+    }
+
+    let onScreenElements_ApplyFilters_Mobile = () => {
+      // allElements
+      // filterSelectionArray - and we need to know what type of filter it is... 
+      // we need to build the array of elements, that meet the criteria... and then its like a waterfall. At the end we show all the elements that are in the array that survived. 
+      
+      // Hide every item on screen
+      let items = partnerArray;
+      // console.log(items)
+      items.forEach((item) => {
+        const card = document.getElementById(`${item.name}-id`);
+        card.classList.remove("card-show");
+        card.classList.add("card-hide");
+      });
+
+      // show current filters to the console
+      // console.log(providerTypeFilters_mobile);
+      // console.log(specializationFilters_mobile);
+      // console.log(regionFilters_mobile);
+
+
+      //
+      //
+      //  iterate through the items in the array. If the specializationFilters.length is zero, we do nothing. 
+      // otherwise, remove the items from the array that do not meet the filter criteria.
+      let temp_specializationArray_filteredItems = [];
+      if (specializationFilters_mobile.length !== 0) {
+        items.forEach((item) => {
+          let containsSpecializationTag = specializationFilters_mobile.some(filter => item.specializations.includes(filter));
+          if (containsSpecializationTag) {
+            temp_specializationArray_filteredItems.push(item);
+            // if the item contains the specializationTag...push it onto the temp array
+          }
+        });
+      } else {
+        temp_specializationArray_filteredItems = items;
+      }
+      // console.log()
+      let temp_providerTypeArray_filteredItems = [];
+      if (providerTypeFilters_mobile.length !== 0) {
+        temp_specializationArray_filteredItems.forEach((item) => {
+          let containsProviderTag = providerTypeFilters_mobile.some(filter => item.providerTypes.includes(filter));
+          if (containsProviderTag) {
+            temp_providerTypeArray_filteredItems.push(item);
+          }
+        });
+      } else {
+        temp_providerTypeArray_filteredItems = temp_specializationArray_filteredItems;
+      }
+
+      let temp_regionArray_filteredItems = [];
+      if (regionFilters_mobile.length !== 0) {
+        temp_providerTypeArray_filteredItems.forEach((item) => {
+          let containsRegionTag = regionFilters_mobile.some(filter => item.regions.includes(filter));
+          if (containsRegionTag) {
+            temp_regionArray_filteredItems.push(item);
+          }
+        });
+      } else {
+        temp_regionArray_filteredItems = temp_providerTypeArray_filteredItems;
+      }
+
+      // Finally, show all the items that survived the filtering process. 
+      temp_regionArray_filteredItems.forEach((item) => {
+          const card = document.getElementById(`${item.name}-id`);
+          card.classList.remove("card-hide");
+          card.classList.add("card-show");
+        });
+      
+      resultsObject.innerText = temp_regionArray_filteredItems.length;
+
+    }
+
+
+    
+
+
+</script>
+    
+        
+

@@ -134,7 +134,7 @@ With Data Prepper 1.2.0 out, the team is already working on
 [Data Prepper 1.3.0](https://github.com/opensearch-project/data-prepper/milestone/2). 
 This release will focus on more ways to enrich log data. Current community needs drive the list of prioritized features.
 
-What do you want to see in Data Prepper? You can impact the [project roadmap](https://github.com/opensearch-project/data-prepper/projects/1) 
+What do you want to see in Data Prepper? You can impact the [project roadmap](https://github.com/orgs/opensearch-project/projects/221)
 in a few ways. First, comment on or up-vote issues in GitHub which you find valuable. Second, if you 
 don’t see it on the roadmap, please [create a Feature request](https://github.com/opensearch-project/data-prepper/issues/new/choose). 
 Finally, Data Prepper is open-source and [open to contributions](https://github.com/opensearch-project/data-prepper/blob/main/CONTRIBUTING.md). 

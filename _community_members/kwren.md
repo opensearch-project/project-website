@@ -5,7 +5,7 @@ title: "OpenSearch Project Community Member: Kassian Wren "
 primary_title: Kassian Wren
 permalink: /community/members/kassian-wren.html
 photo: /assets/media/community/members/kassian-wren.png
-job_title_and_company: "OpenSource Tech Evangelist at Instacluster"
+job_title_and_company: "OpenSource Tech Evangelist at Instaclustr"
 
 
 conference_id:

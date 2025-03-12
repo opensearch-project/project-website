@@ -190,6 +190,16 @@
     line-height: 21px;
 }
 
+@mixin header-large($color: $primary-pacific-blue-s3) {
+    color: $color;
+    font-family: 'Open Sans Condensed';
+    font-size: 84px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -2px;
+}
+
 @mixin header-level2($color: $primary-pacific-blue-s3) {
     color: $color;
     font-family: 'Open Sans Condensed';
@@ -435,6 +445,12 @@
     border: 3px solid $border-color;
     background: $fill-color;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    .landing-page-hero--call-to-action--arrow__normal-focused {
+        display: block;
+    }
+    .landing-page-hero--call-to-action--arrow__hover-active {
+        display: none;
+    }
 }
 
 @mixin hover-hero-call-to-action-button($fill-color, $text-color) {
@@ -443,12 +459,24 @@
     a {
         color: $text-color;
     }
+    .landing-page-hero--call-to-action--arrow__normal-focused {
+        display: none;
+    }
+    .landing-page-hero--call-to-action--arrow__hover-active {
+        display: block;
+    }
 }
 @mixin active-call-to-action-button($border-color, $fill-color, $text-color) {
     background: $fill-color;
     border: 1px solid $border-color;
     a {
         color: $text-color;
+    }
+    .landing-page-hero--call-to-action--arrow__normal-focused {
+        display: none;
+    }
+    .landing-page-hero--call-to-action--arrow__hover-active {
+        display: block;
     }
 }
 
@@ -478,6 +506,12 @@
     }
     a:hover {
         background: unset;
+    }
+    .landing-page-hero--call-to-action--arrow__normal-focused {
+        display: block;
+    }
+    .landing-page-hero--call-to-action--arrow__hover-active {
+        display: none;
     }
 }
 

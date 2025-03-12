@@ -62,6 +62,6 @@ One consequence of SemVer is that OpenSearch may end up with a much higher versi
 
 As a user, this means that OpenSearch will be released predictably and you can judge if a release is an upgrade path for your situation just by glancing at the version number compared to yours. For the developers of OpenSearch it gives clear instruction on what constitutes a major, minor, and patch version.
 
-Now that you’re armed with this knowledge, it’s a great time to take a look at the [roadmap](https://github.com/orgs/opensearch-project/projects/1) and see what is in store for the OpenSearch project!
+Now that you’re armed with this knowledge, it’s a great time to take a look at the [roadmap](https://github.com/orgs/opensearch-project/projects/206) and see what is in store for the OpenSearch project!
 
 

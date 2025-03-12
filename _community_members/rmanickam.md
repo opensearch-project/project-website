@@ -6,7 +6,7 @@ primary_title: Ramesh Kumar Manickam
 permalink: /community/members/rameshkumar-manickam.html
 photo: "/assets/media/community/members/Ramesh.jpg"
 
-job_title_and_company: "Sr Director at Transunion"
+job_title_and_company: "Senior Director, TransUnion Global Capability Center Bangalore"
 
 
 conference_id:
@@ -22,3 +22,4 @@ personas:
 linkedin: ramesh-kumar-manickam-60b90a14
 
 ---
+Ramesh heads the TruContact Enterprise Product Engineering group in Bangalore and brings 24+ years of Industry experience building Software Products & Engineering Centres of Excellence cutting across TravelTech, FinTech and CommTech.

@@ -171,7 +171,7 @@ Future versions of Data Prepper will include:
 * The ability to [migrate](https://github.com/opensearch-project/data-prepper/issues/1985) from older versions of OpenSearch.
 * The ability to write to Amazon Simple Notification Service (Amazon SNS) using an [SNS sink](https://github.com/opensearch-project/data-prepper/issues/2938).
 
-For a list of additional features we plan to include in future releases, see the [project roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
+For a list of additional features we plan to include in future releases, see the [project roadmap](https://github.com/orgs/opensearch-project/projects/221).
 
 
 ## Getting started

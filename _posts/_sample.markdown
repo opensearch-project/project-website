@@ -23,6 +23,9 @@ has_math: true
 # Setting to true will result in the inclusion of CSS styles specific to using borders for the table, for table header cells, and table data cells. scientific data tables. For reference see: _includes/science-table-styles.html.
 has_science_table: true
 
+# Provide additional info to be added to the bottom of the right column, after the author bios. Useful for including more authors, reviewers, or developers, to whom you want to give credit for the blog post.
+additional_author_info: Any additional information you want to include.
+
 # The layout template to use for rendering the content.
 # Options are default, fullwidth, homepage, and post.
 layout: post

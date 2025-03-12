@@ -14,8 +14,8 @@ breadcrumbs:
       url: /community/members/index.html
     - title: "Jochen Kressin&apos;s Profile"
       url: '/community/members/jochen-kressin.html'
-twitter: "https://twitter.com/eliatra_ire"
-linkedin: "https://www.linkedin.com/in/jkressin/"
+twitter: eliatra_ire
+linkedin: jkressin
 keynote_speaker: false
 session_track: 
   - conference_id: "2023-north-america"

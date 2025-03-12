@@ -1,25 +1,14 @@
 items:
   - label: OpenSearchCon
     children:
-      - label: 2024 Europe
-        url: /events/opensearchcon/2024/europe/index.html
       - label: 2024 North America
         url: /events/opensearchcon/2024/north-america/index.html
-#        children:
-#          - label: Speakers
-#            url: /events/opensearchcon/2024/north-america/speakers/index.html
-#          - label: Sessions
-#            url: /events/opensearchcon/2024/north-america/sessions/index.html
-#          - label: Exhibitors
-#            url: /events/opensearchcon/2024/north-america/exhibitors/index.html
-#          - label: Workshops
-#            url: /events/opensearchcon/2024/north-america/workshops/index.html
-#          - label: Unconference
-#            url: /events/opensearchcon/2024/north-america/unconference/index.html
-      - label: 2024 India
-        url: /events/opensearchcon/2024/india/index.html
       - label: Archive
         children:
+          - label: 2024 India
+            url: /events/opensearchcon/2024/india/index.html
+          - label: 2024 Europe
+            url: /events/opensearchcon/2024/europe/index.html
           - label: 2023 North America
             url: /events/opensearchcon/2023/north-america/index.html
           - label: 2022 North America
@@ -32,7 +21,7 @@ items:
       - label: Releases
         url: /releases.html
       - label: Roadmap
-        url: https://github.com/orgs/opensearch-project/projects/1
+        url: https://github.com/orgs/opensearch-project/projects/206
       - label: FAQ
         url: /faq/
   - label: Community
@@ -57,7 +46,7 @@ items:
     children:
       - label: OpenSearch and Dashboards
         url: /docs/latest/about/
-      - label: Data Prepper
+      - label: OpenSearch Data Prepper
         url: /docs/latest/data-prepper/
       - label: Clients
         url: /docs/latest/clients/
@@ -78,3 +67,5 @@ items:
         url: https://playground.opensearch.org/
       - label: Performance Benchmarks
         url: /benchmarks/
+      - label: Release Dashboard
+        url: /release-dashboard/

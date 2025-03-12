@@ -13,7 +13,7 @@ breadcrumbs:
     - title: 'Ajay Kumar Movva&apos;s Profile'
       url: '/community/members/ajay-kumar-movva.html'
 github: ajaymovva
-linkedin: https://www.linkedin.com/in/ajaykumar-movva-ab97a3164/
+linkedin: ajaykumar-movva-ab97a3164
 photo: "/assets/media/community/members/movvaam.png"
 job_title_and_company: 'Software Engineer at Amazon Web Services'
 personas:

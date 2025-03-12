@@ -55,7 +55,7 @@ collection, giving Amazon OpenSearch Serverless users the ability to use Data Pr
 
 * To download Data Prepper, see the [OpenSearch downloads](https://opensearch.org/downloads.html) page.
 * For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/2.6/data-prepper/getting-started/).
-* To learn more about the work in progress for Data Prepper 2.3, see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1).
+* To learn more about the work in progress for Data Prepper 2.3, see the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projects/221).
 
 
 ## Thanks to our contributors!

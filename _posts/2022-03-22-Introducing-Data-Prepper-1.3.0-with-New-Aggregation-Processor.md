@@ -216,7 +216,7 @@ has other important features coming. We’d especially like to highlight the fol
 * Data Prepper will begin to support metrics thanks to a [community contribution](https://github.com/opensearch-project/data-prepper/pull/1154).
 * Many users have asked for a way to route different Events to different Sinks. Data Prepper’s [Conditional Routing](https://github.com/opensearch-project/data-prepper/issues/1007) will allow users to route based on our new Data Prepper Expression syntax.
 
-You can see the [Data Prepper roadmap](https://github.com/opensearch-project/data-prepper/projects/1) to see other 
+You can see the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projects/221) to see other
 upcoming changes. If there are any features on the roadmap that you are most interested in, please comment on the 
 issue to help the team prioritize issues. You can also request any changes by creating a 
 [GitHub issue](https://github.com/opensearch-project/data-prepper/issues/new/choose). This project is open source 
