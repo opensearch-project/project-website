@@ -9,7 +9,7 @@ Its built-in [Security Analytics](https://opensearch.org/docs/latest/security-an
 
 Security Analytics provides an out-of-the-box solution that is automatically included with any OpenSearch distribution. It includes the tools and features necessary for defining detection parameters, generating alerts, and responding effectively to potential threats.[1](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats)
 
-Below, we discuss how OpenSearch addresses key SIEM use cases – Threat Detection, Log Analysis, and Compliance Monitoring.
+Below, we discuss how OpenSearch addresses three key SIEM use cases: Threat Detection, Log Analysis, and Compliance Monitoring.
 
 ## Threat Detection with OpenSearch
 
