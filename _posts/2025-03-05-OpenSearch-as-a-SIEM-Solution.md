@@ -47,7 +47,7 @@ Security teams benefit from being able to query recent and historical logs in on
 ### <u>Data normalization</u>
 Data normalization is important for building generalizable detection rules and dashboards that work across different log sources. When aggregating logs from many sources, a commonly encountered challenge is that each source has its own format (different field names and structures). OpenSearch's Security Analytics plugin includes field mappings for common log types.[1](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats) Additionally, OpenSearch allows users to define mappings and ingest pipelines to normalize data. 
 
-### <u>Data Visualization.</u>
+### <u>Data visualization</u>
 Once logs are indexed and normalized, analysts can create visualizations with OpenSearch Dashboards to enhance situational awareness. For example, users can build charts showing trends of failed logins over time or a geographic map of login locations. 
 
 ### <u>Search.</u>
