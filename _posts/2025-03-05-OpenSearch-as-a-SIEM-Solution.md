@@ -75,7 +75,7 @@ Compliance monitoring isn't just about historical audits. It also requires conti
 ### <u>Audit logging and access control</u>
 OpenSearch includes features that help ensure the integrity and security of log data. It provides audit logging capabilities that track access to the OpenSearch cluster and any changes made. This logging is useful for demonstrating that the SIEM data is protected.[4](https://opensearch.org/docs/latest/security/audit-logs/index/#:~:text=Audit%20logs%20let%20you%20track,where%20to%20store%20the%20logs)  
 
-OpenSearch can log events like user login to the SIEM, attempts to query or delete data, and changes to roles/permissions. These audit logs help answer “who watched the watchers” – ensuring that all access to sensitive logs is recorded. In a compliance context, this means users can show that only authorized individuals accessed the audit data and that every access is traceable. 
+OpenSearch can log events like user logins to the SIEM system, attempts to query or delete data, and changes to roles/permissions. These audit logs help answer "who watched the watchers"—ensuring that all access to sensitive logs is recorded. In a compliance context, this means that users can show that only authorized individuals accessed the audit data and that every access attempt was logged. 
 
 ### <u>Reporting and retention</u>
 Compliance audits often require the generation of reports. With OpenSearch Dashboards, teams can create saved queries and visualization panels that serve as compliance reports. These can be exported or shown to auditors to satisfy evidence requirements. 
