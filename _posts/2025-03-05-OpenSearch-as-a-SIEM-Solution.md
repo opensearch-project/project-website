@@ -73,7 +73,7 @@ Using OpenSearch, an organization can aggregate all of its audit logs into one p
 Compliance monitoring isn’t just about historical audits. It also requires continuous monitoring to ensure violations or suspicious activities are caught early. OpenSearch detectors and rules can be written not only for security threats but also for compliance policies. For instance, a user could create a rule to alert if any database containing customer data is accessed outside of business hours. 
 
 ### <u>Audit Logging and Access Control.</u>
-OpenSearch includes features to ensure the integrity and security of the log data. It provides audit logging capabilities that track access to the OpenSearch cluster and any changes made. This logging is useful for demonstrating that the SIEM data is protected.[4](https://opensearch.org/docs/latest/security/audit-logs/index/#:~:text=Audit%20logs%20let%20you%20track,where%20to%20store%20the%20logs)  
+OpenSearch includes features that help ensure the integrity and security of log data. It provides audit logging capabilities that track access to the OpenSearch cluster and any changes made. This logging is useful for demonstrating that the SIEM data is protected.[4](https://opensearch.org/docs/latest/security/audit-logs/index/#:~:text=Audit%20logs%20let%20you%20track,where%20to%20store%20the%20logs)  
 
 OpenSearch can log events like user login to the SIEM, attempts to query or delete data, and changes to roles/permissions. These audit logs help answer “who watched the watchers” – ensuring that all access to sensitive logs is recorded. In a compliance context, this means users can show that only authorized individuals accessed the audit data and that every access is traceable. 
 
