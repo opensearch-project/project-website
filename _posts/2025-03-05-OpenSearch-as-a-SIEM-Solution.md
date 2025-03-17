@@ -13,7 +13,7 @@ Below, we discuss how OpenSearch addresses three key SIEM use cases: Threat Dete
 
 ## Threat detection with OpenSearch
 
-The Security Analytics plugin can monitor logs for anomalous activity and detect potential security threats in real-time. And when threats are identified, OpenSearch can trigger alerting. 
+The Security Analytics plugin can monitor logs for anomalous activity and detect potential security threats in real time. And when threats are identified, OpenSearch can trigger alerts. 
 
 This workflow from log ingestion to alerting is achieved through a combination of detection rules and automation.
 
