@@ -53,7 +53,7 @@ Once logs are indexed and normalized, analysts can create visualizations with Op
 ### <u>Search</u>
 OpenSearch Dashboards supports interactive querying. A security analyst can filter the view to display a specific time frame or drill down on a particular host or user to see all related events. 
 
-OpenSearch’s search capabilities also enable ad-hoc log analysis and threat hunting. Analysts can run queries to hunt for subtle signs of compromise that might not trigger an alert, such as searching across all logs for a particular filename associated with malware. 
+OpenSearch's search capabilities also enable ad hoc log analysis and threat hunting. Analysts can run queries to hunt for subtle signs of compromise that might not trigger an alert, such as searching across all logs for a particular file name associated with malware. 
 
 ### <u>Event Correlation.</u>
 OpenSearch can also perform cross-source event correlation. Even outside of the automated correlation engine for alerts, an analyst can manually cross-correlate by querying for related identifiers. For instance, after spotting an unusual login in authentication logs, the analyst might search the VPN logs and DNS logs for the same user or IP around that time. This process is facilitated by the SIEM having all logs indexed in one system. 
