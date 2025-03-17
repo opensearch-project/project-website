@@ -25,7 +25,7 @@ Threat detection rules define the logic for identifying security incidents. A li
 OpenSearch can also incorporate anomaly detection using machine learning (through its ML Commons plugin[3](https://opensearch.org/docs/latest/ml-commons-plugin/)) to identify outliers in log patterns. Such ML-based detectors could, for example, learn normal login times for each user and generate alerts in response to deviations.
 
 ### <u>Findings and alerts</u>
-When a detector’s rule condition is met by incoming log data, the system generates a security finding to highlight that event.  Not every finding is a confirmed incident, but each represents an event worth investigating. Security analysts can search and filter these findings by severity or log type to prioritize their analysis. 
+When a detector's rule condition is met by incoming log data, the system generates a security finding to highlight that event. Not every finding is a confirmed incident, but each represents an event worth investigating. Security analysts can search and filter these findings by severity or log type to prioritize their analysis. 
 
 OpenSearch gives users the ability to define alerting conditions. When such conditions are met, OpenSearch sends an alert to the designated channel (email, Slack, PagerDuty etc.). Alerts can be tailored to trigger on single-rule matches or only when multiple rules are detected.
 
