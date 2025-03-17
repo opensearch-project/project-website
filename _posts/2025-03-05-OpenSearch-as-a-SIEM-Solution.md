@@ -82,6 +82,6 @@ Compliance audits often require the generation of reports. With OpenSearch Dashb
 
 * * *
 
-In summary, OpenSearch can serve as a the backbone to a comprehensive SIEM solution.  Its ability to index, normalize, store, and make searchable logs from disparate sources makes it a powerful tool.  Using Sigma Rules and ML-commons, users can identify and alert on security threats.  Additionally, the visualization tools included in OpenSearch Dashboards increase situational awareness and make compliance reporting easier. 
+In summary, OpenSearch can serve as the backbone for a comprehensive SIEM solution. Its ability to index, normalize, store, and create searchable logs from disparate sources makes it a powerful tool. Using Sigma rules and the ML Commons plugin, users can identify and generate alerts for security threats. Additionally, the visualization tools included in OpenSearch Dashboards increase situational awareness and make compliance reporting easier. 
 
 Keep in mind that OpenSearch is not as plug-and-play as other SIEM solutions. Reach out to trusted providers, such as [Dattell](https://dattell.com/), for more information about implementing and managing an OpenSearch SIEM solution. See [OpenSearch SIEM Support](https://dattell.com/data-architecture-blog/opensearch-siem-support-service/) to learn more about Dattell's OpenSearch SIEM Support service.
