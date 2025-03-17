@@ -77,7 +77,7 @@ OpenSearch includes features to ensure the integrity and security of the log dat
 
 OpenSearch can log events like user login to the SIEM, attempts to query or delete data, and changes to roles/permissions. These audit logs help answer “who watched the watchers” – ensuring that all access to sensitive logs is recorded. In a compliance context, this means users can show that only authorized individuals accessed the audit data and that every access is traceable. 
 
-### <u>Reporting and Retention.</u>
+### <u>Reporting and retention</u>
 Compliance audits often require the generation of reports. With OpenSearch Dashboards, teams can create saved queries and visualization panels that serve as compliance reports. These can be exported or shown to auditors to satisfy evidence requirements. 
 
 * * *
