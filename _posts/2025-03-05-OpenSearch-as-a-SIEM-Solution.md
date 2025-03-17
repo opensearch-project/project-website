@@ -38,7 +38,7 @@ The correlation engine uses defined rules ("correlation rules") to specify these
 
 This cross-log correlation increases confidence that an alert represents a real incident by combining clues from various sources. Such capabilities, typically found in advanced SIEMs, help analysts see the bigger picture of an attack and reduce false positives.
 
-## Log Analysis with OpenSearch
+## Log analysis with OpenSearch
 
 OpenSearch is well-suited for log analysis because it can ingest and index massive amounts of data from numerous sources, and then query that data quickly. 
 
