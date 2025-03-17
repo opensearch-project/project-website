@@ -15,7 +15,7 @@ Below, we discuss how OpenSearch addresses three key SIEM use cases: Threat Dete
 
 The Security Analytics plugin can monitor logs for anomalous activity and detect potential security threats in real time. And when threats are identified, OpenSearch can trigger alerts. 
 
-This workflow from log ingestion to alerting is achieved through a combination of detection rules and automation.
+This workflow, from log ingestion to alerting, is achieved through a combination of detection rules and automation.
 
 ### <u>Detectors, Rules, and Anomalies.</u>
 Detectors are used to identify threat patterns in log data. Each detector targets a particular type of log (network logs, authentication logs, etc.) and is mapped to known adversary tactics.  OpenSearch leverages the MITRE ATT\&CK organization’s collection of “adversary tactics and techniques”.[2](https://attack.mitre.org/)  
