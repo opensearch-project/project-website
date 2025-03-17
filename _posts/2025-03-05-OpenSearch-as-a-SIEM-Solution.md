@@ -22,7 +22,7 @@ Detectors are used to identify threat patterns in log data. Each detector target
 
 Threat detection rules define the logic for identifying security incidents. A library of Sigma rules is included with OpenSearch's Security Analytics package. Two examples of rules are (1) flagging multiple failed logins followed by a successful admin login or (2) identifying the presence of known malicious IP addresses in firewall logs.
 
-OpenSearch can also incorporate anomaly detection using machine learning (via its ML Commons plugin[3](https://opensearch.org/docs/latest/ml-commons-plugin/)) to identify outliers in log patterns. Such ML-based detectors could, for example, learn normal login times for each user and alert on deviations.
+OpenSearch can also incorporate anomaly detection using machine learning (through its ML Commons plugin[3](https://opensearch.org/docs/latest/ml-commons-plugin/)) to identify outliers in log patterns. Such ML-based detectors could, for example, learn normal login times for each user and generate alerts in response to deviations.
 
 ### <u>Findings and Alerts.</u>
 When a detector’s rule condition is met by incoming log data, the system generates a security finding to highlight that event.  Not every finding is a confirmed incident, but each represents an event worth investigating. Security analysts can search and filter these findings by severity or log type to prioritize their analysis. 
