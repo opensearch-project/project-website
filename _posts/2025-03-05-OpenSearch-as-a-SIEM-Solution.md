@@ -18,7 +18,7 @@ The Security Analytics plugin can monitor logs for anomalous activity and detect
 This workflow, from log ingestion to alerting, is achieved through a combination of detection rules and automation.
 
 ### <u>Detectors, rules, and anomalies</u>
-Detectors are used to identify threat patterns in log data. Each detector targets a particular type of log (network logs, authentication logs, etc.) and is mapped to known adversary tactics.  OpenSearch leverages the MITRE ATT\&CK organization’s collection of “adversary tactics and techniques”.[2](https://attack.mitre.org/)  
+Detectors are used to identify threat patterns in log data. Each detector targets a particular type of log (network logs, authentication logs, etc.) and is mapped to known adversary tactics. OpenSearch leverages the MITRE ATT\&CK organization's collection of "adversary tactics and techniques."[2](https://attack.mitre.org/)  
 
 Threat detection rules define the logic for identifying security incidents.  A library of Sigma rules is included with OpenSearch’s Security Analytics package. Two examples of rules are (1) flagging multiple failed logins followed by a successful admin login or (2) identifying the presence of known malicious IP addresses in firewall logs.
 
