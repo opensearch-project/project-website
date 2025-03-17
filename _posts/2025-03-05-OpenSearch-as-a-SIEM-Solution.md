@@ -44,7 +44,7 @@ OpenSearch is well suited for log analysis because it can ingest and index massi
 
 Security teams benefit from being able to query recent and historical logs in one place. For example, an analyst can query web server logs, DNS logs, and authentication logs simultaneously to investigate an incident, something that would be cumbersome if those logs resided in separate silos. 
 
-### <u>Data Normalization.</u>
+### <u>Data normalization</u>
 Data normalization is important for building generalizable detection rules and dashboards that work across different log sources. When aggregating logs from many sources, a common challenge is that each source has its own format (different field names and structures). OpenSearch’s Security Analytics plugin includes field mappings for common log types.[1](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats)  Additionally, OpenSearch allows users to define mappings and ingest pipelines to normalize data. 
 
 ### <u>Data Visualization.</u>
