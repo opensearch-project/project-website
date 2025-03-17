@@ -69,7 +69,7 @@ Beyond threat detection, a SIEM system is also useful for compliance monitoring 
 ### <u>Centralized audit trails</u>
 Using OpenSearch, an organization can aggregate all of its audit logs into one place. Auditors or security teams can easily query the data to answer questions like *"Who accessed sensitive finance records in the last 6 months?"* or *"Have there been any changes to firewall rules, and were they authorized?"*. 
 
-### <u>Real-Time Compliance Alerting.</u>
+### <u>Real-time compliance alerting</u>
 Compliance monitoring isn’t just about historical audits. It also requires continuous monitoring to ensure violations or suspicious activities are caught early. OpenSearch detectors and rules can be written not only for security threats but also for compliance policies. For instance, a user could create a rule to alert if any database containing customer data is accessed outside of business hours. 
 
 ### <u>Audit Logging and Access Control.</u>
