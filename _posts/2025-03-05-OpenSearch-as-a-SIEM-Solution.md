@@ -11,7 +11,7 @@ Security Analytics provides an out-of-the-box solution that is automatically inc
 
 Below, we discuss how OpenSearch addresses three key SIEM use cases: Threat Detection, Log Analysis, and Compliance Monitoring.
 
-## Threat Detection with OpenSearch
+## Threat detection with OpenSearch
 
 The Security Analytics plugin can monitor logs for anomalous activity and detect potential security threats in real-time. And when threats are identified, OpenSearch can trigger alerting. 
 
