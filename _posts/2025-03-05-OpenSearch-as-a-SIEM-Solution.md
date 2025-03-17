@@ -29,7 +29,7 @@ When a detector's rule condition is met by incoming log data, the system generat
 
 OpenSearch gives users the ability to define alerting conditions. When such conditions are met, OpenSearch sends an alert to the designated channel (email, Slack, PagerDuty, etc.). Alerts can be tailored to trigger on single-rule matches or only when multiple rules are detected.
 
-### <u>Correlation of Events.</u>
+### <u>Correlation of events</u>
 A powerful feature of OpenSearch Security Analytics is its ability to correlate multiple signals across different log sources. The built-in correlation engine can link findings from different types of logs to identify complex attack patterns spanning multiple systems.[1](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats) 
 
 For example, a sequence of events like a VPN login from a new location, followed by a privileged action in a server log, and an abnormal outbound network connection could be correlated into one incident. 
