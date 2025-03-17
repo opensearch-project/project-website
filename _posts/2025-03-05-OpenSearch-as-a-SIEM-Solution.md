@@ -50,7 +50,7 @@ Data normalization is important for building generalizable detection rules and d
 ### <u>Data visualization</u>
 Once logs are indexed and normalized, analysts can create visualizations with OpenSearch Dashboards to enhance situational awareness. For example, users can build charts showing trends for failed logins over time or a geographic map of login locations. 
 
-### <u>Search.</u>
+### <u>Search</u>
 OpenSearch Dashboards supports interactive querying.  A security analyst can filter the view to a specific timeframe or drill down on a particular host or user to see all related events. 
 
 OpenSearch’s search capabilities also enable ad-hoc log analysis and threat hunting. Analysts can run queries to hunt for subtle signs of compromise that might not trigger an alert, such as searching across all logs for a particular filename associated with malware. 
