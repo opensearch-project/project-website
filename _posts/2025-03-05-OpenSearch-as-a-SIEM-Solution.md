@@ -27,7 +27,7 @@ OpenSearch can also incorporate anomaly detection using machine learning (throug
 ### <u>Findings and alerts</u>
 When a detector's rule condition is met by incoming log data, the system generates a security finding to highlight that event. Not every finding is a confirmed incident, but each represents an event worth investigating. Security analysts can search and filter these findings by severity or log type to prioritize their analysis. 
 
-OpenSearch gives users the ability to define alerting conditions. When such conditions are met, OpenSearch sends an alert to the designated channel (email, Slack, PagerDuty etc.). Alerts can be tailored to trigger on single-rule matches or only when multiple rules are detected.
+OpenSearch gives users the ability to define alerting conditions. When such conditions are met, OpenSearch sends an alert to the designated channel (email, Slack, PagerDuty, etc.). Alerts can be tailored to trigger on single-rule matches or only when multiple rules are detected.
 
 ### <u>Correlation of Events.</u>
 A powerful feature of OpenSearch Security Analytics is its ability to correlate multiple signals across different log sources. The built-in correlation engine can link findings from different types of logs to identify complex attack patterns spanning multiple systems.[1](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats) 
