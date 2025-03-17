@@ -80,7 +80,7 @@ OpenSearch can log events like user login to the SIEM, attempts to query or dele
 ### <u>Reporting and Retention.</u>
 Compliance audits often require the generation of reports. With OpenSearch Dashboards, teams can create saved queries and visualization panels that serve as compliance reports. These can be exported or shown to auditors to satisfy evidence requirements. 
 
-–
+* * *
 
 In summary, OpenSearch can serve as a the backbone to a comprehensive SIEM solution.  Its ability to index, normalize, store, and make searchable logs from disparate sources makes it a powerful tool.  Using Sigma Rules and ML-commons, users can identify and alert on security threats.  Additionally, the visualization tools included in OpenSearch Dashboards increase situational awareness and make compliance reporting easier. 
 
