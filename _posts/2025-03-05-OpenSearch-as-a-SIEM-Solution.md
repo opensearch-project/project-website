@@ -1,6 +1,6 @@
 # OpenSearch as a SIEM solution
 
-OpenSearch is a scalable open-source search and analytics platform that can serve as the core of a Security Information and Event Management (SIEM) system.  OpenSearch can centralize logs from diverse sources, apply detection rules, and generate alerts for suspicious activities. 
+OpenSearch is a scalable open-source search and analytics platform that can serve as the core of a Security Information and Event Management (SIEM) system.  OpenSearch can centralize logs from diverse sources, apply detection rules, and generate alerts in response to suspicious activities. 
 
 ![OpenSearch-SIEM-Funnel](/assets/media/blog-images/2025-03-05-OpenSearch-as-a-SIEM-Solution/OpenSearch-SIEM-Funnel.png){:class="img-centered"}
 Figure 1\. OpenSearch can serve as the core of a SIEM system.
