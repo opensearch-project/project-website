@@ -5,7 +5,7 @@ OpenSearch is a scalable open-source search and analytics platform that can serv
 ![OpenSearch-SIEM-Funnel](/assets/media/blog-images/2025-03-05-OpenSearch-as-a-SIEM-Solution/OpenSearch-SIEM-Funnel.png){:class="img-centered"}
 Figure 1\. OpenSearch can serve as the core of a SIEM system.
 
-Its built-in [Security Analytics](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats) package provides SIEM capabilities to investigate, detect, analyze, and address security threats in real-time:
+Its built-in [Security Analytics](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats) package provides SIEM capabilities for investigating, detecting, analyzing, and addressing security threats in real time.
 
 Security Analytics provides an out-of-the-box solution that installs automatically with any OpenSearch distribution. It includes the tools and features necessary for defining detection parameters, generating alerts, and responding effectively to potential threats.[1](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats)
 
