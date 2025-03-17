@@ -32,7 +32,7 @@ OpenSearch gives users the ability to define alerting conditions. When such cond
 ### <u>Correlation of events</u>
 A powerful feature of OpenSearch Security Analytics is its ability to correlate multiple signals across different log sources. The built-in correlation engine can link findings from different types of logs to identify complex attack patterns spanning multiple systems.[1](https://opensearch.org/docs/latest/security-analytics/#:~:text=Security%20Analytics%20is%20a%20security,responding%20effectively%20to%20potential%20threats) 
 
-For example, a sequence of events like a VPN login from a new location, followed by a privileged action in a server log, and an abnormal outbound network connection could be correlated into one incident. 
+For example, a sequence of events like a VPN login from a new location followed by a privileged action in a server log and an abnormal outbound network connection could be correlated into one incident. 
 
 The correlation engine uses defined rules (“correlation rules”) to specify these multi-step threat scenarios and can display a visualization (a “correlation graph”) of how disparate events relate to each other. 
 
