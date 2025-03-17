@@ -34,7 +34,7 @@ A powerful feature of OpenSearch Security Analytics is its ability to correlate 
 
 For example, a sequence of events like a VPN login from a new location followed by a privileged action in a server log and an abnormal outbound network connection could be correlated into one incident. 
 
-The correlation engine uses defined rules (“correlation rules”) to specify these multi-step threat scenarios and can display a visualization (a “correlation graph”) of how disparate events relate to each other. 
+The correlation engine uses defined rules ("correlation rules") to specify these multi-step threat scenarios and can display a visualization (a "correlation graph") of how disparate events relate to each other. 
 
 This cross-log correlation increases confidence that an alert represents a real incident by combining clues from various sources. Such capabilities, typically found in advanced SIEMs, help analysts see the bigger picture of an attack and reduce false positives.
 
