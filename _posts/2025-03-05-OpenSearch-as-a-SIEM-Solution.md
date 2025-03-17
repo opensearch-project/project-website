@@ -62,7 +62,7 @@ OpenSearch's ability to search multiple indexes and correlate events from differ
 
 
 
-## Compliance Monitoring with OpenSearch
+## Compliance monitoring with OpenSearch
 
 Beyond threat detection, a SIEM is also valuable for compliance monitoring and auditing. Many regulations and standards (such as PCI-DSS, HIPAA, GDPR, ISO 27001\) mandate that organizations log certain security-related events and keep audit trails of system activity. OpenSearch helps organizations meet these requirements by centrally collecting and retaining required logs, and by providing tools to review and report on those logs for compliance purposes.
 
