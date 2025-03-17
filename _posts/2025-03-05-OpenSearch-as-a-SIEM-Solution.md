@@ -36,7 +36,7 @@ For example, a sequence of events like a VPN login from a new location followed 
 
 The correlation engine uses defined rules ("correlation rules") to specify these multi-step threat scenarios and can display a visualization (a "correlation graph") of how disparate events relate to each other. 
 
-This cross-log correlation increases confidence that an alert represents a real incident by combining clues from various sources. Such capabilities, typically found in advanced SIEMs, help analysts see the bigger picture of an attack and reduce false positives.
+This cross-log correlation increases confidence that an alert represents a real incident by combining clues from various sources. Such capabilities, typically found in advanced SIEM systems, help analysts see the bigger picture of an attack and reduce false positives.
 
 ## Log analysis with OpenSearch
 
