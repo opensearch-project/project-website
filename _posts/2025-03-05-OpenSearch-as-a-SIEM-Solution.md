@@ -40,7 +40,7 @@ This cross-log correlation increases confidence that an alert represents a real 
 
 ## Log analysis with OpenSearch
 
-OpenSearch is well-suited for log analysis because it can ingest and index massive amounts of data from numerous sources, and then query that data quickly. 
+OpenSearch is well suited for log analysis because it can ingest and index massive amounts of data from numerous sources and then query that data quickly. 
 
 Security teams benefit from being able to query recent and historical logs in one place. For example, an analyst can query web server logs, DNS logs, and authentication logs simultaneously to investigate an incident, something that would be cumbersome if those logs resided in separate silos. 
 
