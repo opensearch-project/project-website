@@ -2,7 +2,7 @@
 date: "2025-03-18"
 product: opensearch
 version: '3.0.0-alpha1'
-release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.0.0.md
+release_notes: https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.0.0-alpha1.md
 version_sort: 3.0.0-alpha1
 components:
   - role: daemon
