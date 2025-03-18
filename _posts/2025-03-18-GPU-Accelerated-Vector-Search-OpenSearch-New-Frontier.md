@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "GPU-accelerated vector search in Opensearch: A new frontier" 
+title:  "GPU-accelerated vector search in OpenSearch: A new frontier" 
 authors:
   - navneev
   - cnolet
