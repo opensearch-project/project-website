@@ -14,6 +14,7 @@ categories:
   - technical-posts
 meta_keywords: vector database, GPU acceleration, OpenSearch vector engine, why use GPU acceleration, NVIDIA cuVS, CAGRA algorithm, improved indexing speed, large-scale vector search
 meta_description: Discover how the GPU acceleration feature in OpenSearch dramatically improves vector search performance, reducing indexing time by 9.3x and costs by 3.75x using NVIDIA cuVS technology
+permalink: '/blog/GPU-Accelerated-Vector-Search-OpenSearch-New-Frontier/'
 ---
 
 OpenSearch's adoption as a [vector database](https://opensearch.org/platform/search/vector-database.html) has grown significantly with the rise of generative AI applications. Vector search workloads are scaling from millions to billions of vectors, making traditional CPU-based indexing both time consuming and cost intensive. To address this challenge, OpenSearch is introducing GPU acceleration as a [preview feature](https://github.com/opensearch-project/k-NN/issues/2293) for the OpenSearch Vector Engine in the upcoming 3.0 release by using [NVIDIA cuVS](https://github.com/rapidsai/cuvs). By leveraging the massive parallel processing capabilities of GPUs, this new feature dramatically reduces index building time, significantly lowering operational costs while delivering superior performance for large-scale vector workloads.
