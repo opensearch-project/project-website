@@ -12,7 +12,9 @@ description: |
 
 link: https://shi-gmbh.com/
 
-contact: info@shi-gmbh.com (+49 821 7482633-0)
+contact: |
+  info@shi-gmbh.com<br/>
+  +49 821 7482633-0
 
 logo: /assets/media/partners/shi-gmbh/shi-small.png
 logo_large: /assets/media/partners/shi-gmbh/shi-gmbh-logo.png
@@ -23,7 +25,7 @@ industries:       Software and Technology
 
 resources:
   - url: 'https://shi-gmbh.com/wissen/blog/search/opensearch-vs-elasticsearch/'
-    title: 'OpenSearch vs. ElasticSearch'
+    title: 'OpenSearch vs. Elasticsearch'
     thumbnail: '/assets/media/blog-category-images/OpenSearch_WebGraphic_Generic-02.png'
     type: 'blog'
 
@@ -37,8 +39,8 @@ products:
         <li>Apache NiFi: A tool for automating and integrating data flows, ideal for processing and distributing large amounts of data.</li>
         <li>Elastic Stack: A collection of tools, including Elasticsearch, Logstash, and Kibana, for real-time data analysis.</li>
         <li>Lucidworks Fusion: An enterprise search solution built on Elasticsearch with advanced machine learning capabilities.</li>
-        <li>Opensearch: A community-driven, Apache 2.0-licensed open source search and analytics suite.</li>
-        <li>These technologies offer customizability, flexibility, compatibility and cost savings.</li>
+        <li>Opensearch: A community-driven, Apache 2.0-licensed open source search and analytics suite.</li></ul>
+     These technologies offer customizability, flexibility, compatibility and cost savings.
         
 social_links:
   - url: 'https://x.com/shiengineers'
