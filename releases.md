@@ -29,9 +29,9 @@ See below for criteria for a major releases.
 | 2.19.0         | January 28th, 2025                        | February 11th, 2025                                  | [Rishabh Singh](https://github.com/rishabh6788)      | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) | 
 | 2.19.1         | February 20th, 2025                       | February 27th, 2025                                  | [Divya Madala](https://github.com/Divyaasm/)         | [5323](https://github.com/opensearch-project/opensearch-build/issues/5323) | 
 | 3.0.0-alpha1   | March 04th, 2025                          | March 18th, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
-| 3.0.0-beta1    | April 01st, 2025                          | April 08th, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
-| 2.19.2         | April 08th, 2025                          | April 15th, 2025                                     |                                                      |                                                                            | 
-| 3.0.0 (GA)     | April 22nd, 2025                          | April 29th, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 3.0.0-beta1    | April 08th, 2025                          | April 22nd, 2025                                     | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
+| 2.19.2         | April 22nd, 2025                          | April 29th, 2025                                     |                                                      |                                                                            | 
+| 3.0.0 (GA)     | April 29th, 2025                          | May 06th, 2025                                       | [Peter Zhu](https://github.com/peterzhuamazon)       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
 | 3.1.0          | June 10th, 2025                           | June 24th, 2025                                      |                                                      |                                                                            | 
 | 2.19.3         | July 15th, 2025                           | July 22th, 2025                                      |                                                      |                                                                            | 
 | 3.2.0          | August 05th, 2025                         | August 19th, 2025                                    |                                                      |                                                                            | 
@@ -68,7 +68,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 |:--------------|:---------------------|:------------|:---------------------|:---------------------------|:-----------------------|
 | 1             | 1.3.20               | Maintenance |  July 12th, 2021     | May 26th, 2022             | April 29th, 2025       |
 | 2             | 2.19.0               | Current     |  May 26th, 2022      | April 29th, 2025           | GA release of 4.0.     |
-| 3             | 3.0.0-alpha1         | In-flight   |  April 29th, 2025    | N/A                        | N/A                    |
+| 3             | 3.0.0-beta1          | In-flight   |  April 29th, 2025    | N/A                        | N/A                    |
 {: .desktop-maintenance-policy-table}
 
 *Note that the length of the maintenance window is an estimated minimum and the project may, at its discretion, extend it _to a later_ date
@@ -78,6 +78,7 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Release Number | Release Date         | Release Manager                                                                                                                                 | Tracking Issue |
 |:---------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+| 3.0.0-alpha1   | March 18th, 2025     | [Peter Zhu](https://github.com/peterzhuamazon)i & [Zelin Hao](https://github.com/zelinh/)                                                       | [3747](https://github.com/opensearch-project/opensearch-build/issues/3747) | 
 | 2.19.1         | February 20th, 2025  | [Divya Madala](https://github.com/Divyaasm/) & [Peter Zhu](https://github.com/peterzhuamazon)                                                   | [5323](https://github.com/opensearch-project/opensearch-build/issues/5323) | 
 | 2.19.0         | February 11th, 2025  | [Rishabh Singh](https://github.com/rishabh6788/), [Divya Madala](https://github.com/Divyaasm/) & [Peter Zhu](https://github.com/peterzhuamazon) | [5152](https://github.com/opensearch-project/opensearch-build/issues/5152) |
 | 1.3.20         | December 11th, 2024  | [Brandon Shien](https://github.com/bshien), [Zelin Hao](https://github.com/zelinh/) & [Peter Zhu](https://github.com/peterzhuamazon)            | [4990](https://github.com/opensearch-project/opensearch-build/issues/4990) |
