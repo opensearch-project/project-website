@@ -138,7 +138,8 @@ The software maintainers will not back-port fixes or features to versions outsid
 
 | Date                 | Change | Reason          |
 |:---------------------|:-------|:----------------|
-| March 5th, 2025      | Update 2.19.1 release history | Update Page |
+| March 19th, 2025     | Update 3.0.0-beta1 and 3.0.0 GA schedule | [[PROPOSAL] Delay OpenSearch 3.0 Beta (by 2 weeks)](https://github.com/opensearch-project/.github/issues/300) |
+| March 05th, 2025     | Update 2.19.1 release history | Update Page |
 | February 18th, 2025  | Update 2.19.1 release date and shift following patch releases date for 2.19.x, also update the 2.19.0 release history | [2.19.1 release issue](https://github.com/opensearch-project/opensearch-build/issues/5323) |
 | February 07th, 2025  | Update release schedule for year 2025 | Update Page |
 | December 11th, 2024  | Update release history for 1.3.20 release | Update Page |
