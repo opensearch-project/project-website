@@ -3,11 +3,11 @@ layout: post
 title:  "OpenSearch as a SIEM Solution"
 authors:
  - mhatfield
-date: 2025-03-17
+date: 2025-03-20
 categories:
  - technical-post
-meta_keywords: OpenSearch SIEM, Compliance Monitoring, Log Analysis, Event Correlation, Threat Detection, Audit Trails, Compliance Alerting, Access Control
-meta_description: OpenSearch is a scalable open-source search and analytics platform that can serve as the core of a Security Information and Event Management (SIEM) system.
+meta_keywords: OpenSearch SIEM, real time threat detection, log analysis, compliance monitoring, OpenSearch security analytics, MITRE ATT&CK, Sigma rules, security alerts, log correlation, data normalization, security dashboards, ML Commons, open-source search and analytics platform
+meta_description: Discover how OpenSearch serves as a powerful SIEM solution, offering comprehensive threat detection, log analysis, and compliance monitoring capabilities. Learn about its Security Analytics package, real-time alerts, and extensive visualization tools for effective security management.
 excerpt: OpenSearch is a scalable open-source search and analytics platform that can serve as the core of a Security Information and Event Management (SIEM) system. OpenSearch can centralize logs from diverse sources, apply detection rules, and generate alerts for suspicious activities. Its built-in Security Analytics package provides SIEM capabilities for investigating, detecting, analyzing, and addressing security threats in real time. In this blog post, we discuss how OpenSearch addresses key SIEM use cases: Threat Detection, Log Analysis, and Compliance Monitoring.
 ---
 
