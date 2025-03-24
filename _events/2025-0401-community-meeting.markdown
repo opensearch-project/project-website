@@ -1,14 +1,17 @@
 ---
-calendar_date: '2025-04-01'
-eventdate: 2025-04-01 15:00:00 -0700
+calendar_date: '2025-04-08'
+eventdate: 2025-04-08 15:00:00 -0700
 
-title: OpenSearch Community Meeting - 2025-04-01
+title: OpenSearch Community Meeting - 2025-04-08
 online: true
 signup:
     url: https://www.meetup.com/opensearch/events/305186451
     title: Join on Meetup
 category: community
 ---
+
+**Rescheduled from April 1 to April 8 due to conflict with [KubeCon](https://opensearch.org/events/2025-0401-kubecon-cloudnativecon-europe-2025/).**
+_Thank you for your understanding_
 
 Join us for our online community meeting.
 
