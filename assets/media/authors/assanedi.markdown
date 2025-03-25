@@ -2,7 +2,6 @@
 name: Assane Diop
 short_name: Assane
 photo: '/assets/media/authors/assanedi.jpg'
-github: assanedi
 linkedin: assane-diop-intel
 ---
 
