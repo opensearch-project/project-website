@@ -3,7 +3,7 @@ layout: post
 title:  "Generative AI: OpenSearch's journey as an open-source search engine" 
 authors:
   - pallp
-date: 2025-03-24
+date: 2025-03-26
 categories:
   - community
 meta_keywords: 
