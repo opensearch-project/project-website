@@ -7,7 +7,7 @@ date: 2025-03-26
 categories:
   - community
 meta_keywords: OpenSearch, generative AI, vector search, vector database, semantic search, RAG workflows, Linux Foundation, open source, AI search, ML Commons, LLM integration, Flow Framework
-meta_description: 
+meta_description: Explore OpenSearch's transformation into an AI-powered search platform, from its Linux Foundation transition to implementing vector search, RAG workflows, and multimodal capabilities.
 ---
 
 The rise of generative AI has transformed search technology, evolving it from simple keyword-based retrieval to intelligent, multimodal search experiences powered by deep learning. In [this keynote address](https://www.youtube.com/watch?v=VjbwdhVYcQI&t=4749s) at the [Linux Foundation Member Summit 2025](https://events.linuxfoundation.org/lf-member-summit/program/featured-speakers/), I covered the journey of OpenSearch---an Apache 2.0--licensed, open-source search and analytics engine---and how community-led innovation has transformed it into a generative-AI-powered search platform supporting vector search, semantic search, and retrieval-augmented generation (RAG) workflows.
