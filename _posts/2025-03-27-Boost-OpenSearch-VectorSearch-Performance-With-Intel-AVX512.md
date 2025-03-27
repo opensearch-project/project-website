@@ -179,20 +179,20 @@ Benchmark setup configuration is listed below:
 
 | Dataset | COHERE-1M | GIST1M | COHERE-10M |
 | :---- | ----- | :---- | :---- |
-| OpenSearch version | 2.18 |  
-| Engine | faiss |  
+| OpenSearch version <td colspan=3>  2.18 |
+| Engine <td colspan=3>  faiss |
 | Vector dimension | 768 | 960 | 768 |
 | Ingest vectors | 1M |  | 10M |
 | Query vectors | 10K | 1K | 10K |
 | Primary shards | 4 |  | 6 |
-| Replica shards | 1 |  
+| Replica shards <td colspan=3>  1 |
 | Data nodes | 2 |  | 3 |
-| Cluster manager nodes | 1 |  
-| Data node instance type | r7i.2xlarge |  
-| Client instance | m6id.16xlarge |  
-| Indexing clients | 20 |  
-| Query clients | 20 |  
-| Force merge segments | 1 | 
+| Cluster manager nodes <td colspan=3> 1 |
+| Data node instance type <td colspan=3> r7i.2xlarge |
+| Client instance <td colspan=3> m6id.16xlarge |
+| Indexing clients<td colspan=3> 20 |
+| Query clients <td colspan=3> 20 |
+| Force merge segments <td colspan=3> 1 |
 
 ## 
 
