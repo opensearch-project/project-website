@@ -6,6 +6,7 @@ authors:
   - ashankaran
   - mulugetam
   - noahstavely
+  - navtat
 date: 2025-03-27
 has_science_table: true
 categories:
