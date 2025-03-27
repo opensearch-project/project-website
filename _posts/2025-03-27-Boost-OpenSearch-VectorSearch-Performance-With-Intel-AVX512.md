@@ -13,8 +13,8 @@ date: 2025-03-27
 has_science_table: true
 categories:
   - technical-posts
-meta_keywords: 
-meta_description: 
+meta_keywords: OpenSearch vector search, Intel AVX-512, FAISS library optimization, vector search performance, vector search benchmarks, vectorization in OpenSearch, COHERE-1M with fp32, gist-1m dataset is 
+meta_description: Discover how Intel AVX-512 accelerates OpenSearch vector search performance with up to 18% faster search operations and 15% improved indexing throughput compared to AVX2.
 ---
 
 # Introduction
