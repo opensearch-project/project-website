@@ -2,13 +2,14 @@
 layout: post
 title:  "Boost OpenSearch Vector Search performance with Intel® AVX-512"
 authors:
-- assanedi
-- ashankaran
-- mulugetam
+  - assanedi
+  - ashankaran
+  - mulugetam
+  - noahstavely
 date: 2025-03-27
 has_science_table: true
 categories:
-- technical-posts
+  - technical-posts
 meta_keywords: 
 meta_description: 
 ---
