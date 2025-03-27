@@ -7,6 +7,8 @@ authors:
   - mulugetam
   - noahstavely
   - navtat
+  - vamshin
+  - dylantong
 date: 2025-03-27
 has_science_table: true
 categories:
