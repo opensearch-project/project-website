@@ -76,7 +76,7 @@ To achieve this, we use 15 vector search datasets spanning various modalities, e
 | [Word2bits](https://github.com/agnusmaximus/Word2BitsD199572657/)      | 800          | 399,000      | 1,000       |         100 | Hamming       | Word2Vec with quantized parameter              | Language, English Wikipedia   |                                                       
 | [GIST](http://corpus-texmex.irisa.fr/)         | 960          | 1,000,000    | 1,000       |         100 | Euclidean     | GIST descriptors, INRIA C implementation       | Image                         |                                                        
 | [MS MARCO](https://microsoft.github.io/msmarco/)        | 384          | 1,000,000    | 50,000      |         100 | Euclidean     | MiniLLM                                        | Language, Question answering  |                                                           
-| [openai-dbpedia](https://huggingface.co/datasets/Qdrant/dbpedia-entities-openai3-text-embedding-3-large-1536-1M) | 1,536        | 950,000      | 50,000      |         100 | Euclidean     | text-embedding-3-large                         | Language, DBpedia             | 
+| [openai-dbpedia](https://huggingface.co/datasets/Qdrant/dbpedia-entities-openai3-text-embedding-3-large-1536-1M) | 1,536        | 950,000      | 50,000      |         100 | Euclidean     | text-embedding-3-large                         | Language, DBPedia             | 
 
 
 For each dataset, we evaluated a grid of 80 HNSW configurations based on the following search space:
@@ -89,7 +89,7 @@ search_space = {
 }
 ```
 
-For these experiments, we used an OpenSearch 2.15 cluster with three master nodes and six data nodes, each running on an `r6g.4xlarge.search` instance. We evaluated test vectors in batches of 100 and recorded query throughput and recall@10 for each HNSW configuration. In the next section, we'll introduce the algorithm used to learn the portfolio.  
+For these experiments, we used an OpenSearch 2.15 cluster with three cluster manager nodes and six data nodes, each running on an `r6g.4xlarge.search` instance. We evaluated test vectors in batches of 100 and recorded query throughput and recall@10 for each HNSW configuration. In the next section, we'll introduce the algorithm used to learn the portfolio.  
 
 ### Method  
 
