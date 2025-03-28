@@ -20,4 +20,4 @@ permalink: '/community/members/huibin-shen.html'
 redirect_from: '/authors/huibishe/'
 ---
 
-**Huibin Shen** is a scientist at AWS interested in machine learning and its application.
+**Huibin Shen** is a scientist at AWS interested in machine learning and its applications.
