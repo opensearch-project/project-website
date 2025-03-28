@@ -108,8 +108,8 @@ We used the following weighting profiles for recall and throughput. We did not a
 
 |              |   0 |   1 |   2 |   3 |   4 |
 |:-------------|----:|----:|----:|----:|----:|
-| w_recall     | 0.9 | 0.8 | 0.7 | 0.6 | 0.5 |
-| w_throughput | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 |
+| `w_recall`     | 0.9 | 0.8 | 0.7 | 0.6 | 0.5 |
+| `w_throughput` | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 |
 
 ## Evaluation  
 
