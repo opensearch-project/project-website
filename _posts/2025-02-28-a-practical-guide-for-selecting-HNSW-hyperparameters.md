@@ -136,7 +136,7 @@ The MAEs for throughput are larger, likely because throughput measurements tend 
 
 For this evaluation, we applied our method to the 15 training datasets and tested the resulting configurations on 3 datasets using the Cohere-embed-english-v3 embedding model. Our goal was to ensure that the learned configurations align with the Pareto front, representing different trade-offs between recall and throughput.  
 
-The following bar plot depicts the recall and throughput for the learned configurations in different colors, with other configurations displayed in gray.  
+The following plot depicts the recall and throughput for the learned configurations in different colors, with other configurations displayed in gray.  
 
 ![Trade-off of the 5 configurations](/assets/media/blog-images/2025-02-28-a-pratical-guide-for-selecting-HNSW-hyperparameters/tradeoff.png){:class="img-centered"}  
 
