@@ -157,8 +157,6 @@ These results show how the Intel AVX-512 optimizations in the FAISS library can 
 
 # **Conclusion**
 
-When it comes to software performance for Opensearch, we base our work on the metrics: indexing throughput, search latencies and queries per second (qps) which are important to OpenSearch users. 
-
 We highlighted some hot functions that show up when performing vector search using FAISS, and how Intel AVX-512 accelerator provides a significant performance boost to OpenSearch by optimizing them.  
 
 Our experiments showed a performance boost to throughput of up to 15% for indexing and up to 18% for vector search in OpenSearch, when compared to previous generation AVX2 accelerators. Gains are seen across multiple vector dimensions and vector space types, and also improves workload latencies by up to 12%. These accelerators are present on Intel instances in most cloud environments including AWS, and can be used seamlessly with OpenSearch. 
