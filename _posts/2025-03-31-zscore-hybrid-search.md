@@ -146,16 +146,10 @@ Our benchmark experiments highlight the following advantages and trade-offs of Z
 
 * There's a slight trade-off between search quality and latency. Z-score normalization offers a improvement in search relevance (2.08% increase in NDCG@10) at the cost of a marginal increase in latency (0.50% to 0.72% across different percentiles).
 
-**Consistency**:
-
-* The impact of Z-score normalization varies across datasets, with some showing more significant improvements in search quality than others.
-* Latency impact is relatively consistent across datasets, with most showing small increases or no change
-
-
 **Overall assessment**:
 
 * Z-score normalization provides a modest improvement in search quality with a negligible impact on latency.
-* The choice between Z-score and min-max normalization may depend on specific use cases, with Z-score potentially being preferred when even improvements in search relevance are valuable and the slight latency increase is acceptable.
+* The choice between Z-score and min-max normalization may depend on specific use cases, with Z-score potentially being preferred where improvements in search relevance are valuable and the slight latency increase is acceptable.
 
 These findings suggest that Z-score normalization could be a viable alternative to min-max normalization in hybrid search approaches, particularly in scenarios where optimizing search relevance is a priority and the system can tolerate minimal latency increases
 
@@ -173,6 +167,6 @@ These enhancements will provide more control over search result ranking while en
 
 ### References
 
-1. https://www.codecademy.com/article/normalization
-2. https://towardsdatascience.com/hybrid-search-2-0-the-pursuit-of-better-search-ce44d6f20c08/
-3. https://github.com/opensearch-project/neural-search/issues/1209
+1. [Normalization](https://www.codecademy.com/article/normalization)
+2. [Hybrid Search 2.0: The Pursuit of Better Search](https://towardsdatascience.com/hybrid-search-2-0-the-pursuit-of-better-search-ce44d6f20c08/)
+3. [[RFC] Z Score Normalization Technique for Normalization Processor](https://github.com/opensearch-project/neural-search/issues/1209)
