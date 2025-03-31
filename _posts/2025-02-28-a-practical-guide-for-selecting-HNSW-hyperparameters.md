@@ -239,7 +239,7 @@ from requests_aws4auth import AWS4Auth
 
 #### Modify the data loading function to load your own data
 
-The following function assumes an `hdf5` file with the keys `"documents"`, `"queries"`, and `"ground_truth_l2"`:
+The following function assumes an `hdf5` file with the keys `"documents"`, `"queries"`, and `"ground_truth"`:
 
 ```python
 def load_data(local_file_path: str) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -259,7 +259,7 @@ def load_data(local_file_path: str) -> Tuple[np.ndarray, np.ndarray, np.ndarray]
     hdf5_file = h5py.File(local_file_path, "r")
     vectors = hdf5_file["documents"]
     query_vectors = hdf5_file["queries"]
-    neighbors = hdf5_file["ground_truth_l2"]
+    neighbors = hdf5_file["ground_truth"]
     return vectors, query_vectors, neighbors
 ```
 
