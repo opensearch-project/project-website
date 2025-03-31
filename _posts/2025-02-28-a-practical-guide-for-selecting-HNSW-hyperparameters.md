@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A practical guide for selecting HNSW hyperparameters"
+title:  "A practical guide to selecting HNSW hyperparameters"
 authors:
    - huibishe
    - jmazane
@@ -13,7 +13,7 @@ meta_keywords: HNSW, hyperparameters
 meta_description: Learn how to select optimal HNSW hyperparameters by balancing recall and throughput. This guide explores portfolio learning, evaluation methods, and practical implementation in OpenSearch.
 ---
 
-Vector search plays a crucial role in many machine learning (ML) and data science pipelines. In the context of large language models (LLMs), vector search powers [retrieval-augmented generation (RAG)](https://aws.amazon.com/what-is/retrieval-augmented-generation/), a technique that retrieves relevant content from a large document collection to improve LLM responses. Because finding exact k-nearest neighbors (k-NN) is computationally expensive on large datasets, approximate nearest neighbor (ANN) search methods, such as [Hierarchical Navigable Small Worlds (HNSW)](https://arxiv.org/pdf/1603.09320), are often used to improve efficiency [1].  
+Vector search plays a crucial role in many machine learning (ML) and data science pipelines. In the context of large language models (LLMs), vector search powers [retrieval-augmented generation (RAG)](https://aws.amazon.com/what-is/retrieval-augmented-generation/), a technique that retrieves relevant content from a large document collection to improve LLM responses. Because finding exact k-nearest neighbors (k-NN) is computationally expensive for large datasets, approximate nearest neighbor (ANN) search methods, such as [Hierarchical Navigable Small Worlds (HNSW)](https://arxiv.org/pdf/1603.09320), are often used to improve efficiency [1].  
 
 ### Optimizing HNSW: Balancing search quality and speed  
 
@@ -22,7 +22,7 @@ Configuring HNSW effectively is a multi-objective problem. This blog post focuse
 - **Search quality**, measured by recall@k---the fraction of the top k ground truth neighbors that appear in the k results returned by HNSW.  
 - **Search speed**, measured by query throughput---the number of queries executed per second.  
 
-While index build time and index size are also important, we leave those aspects for future discussion.  
+While index build time and index size are also important, we will leave those aspects for future discussion.  
 
 The structure of the HNSW graph is controlled by its hyperparameters, which determine how densely vectors are connected. A denser graph generally improves recall but reduces query throughput, while a sparser graph has the opposite effect. Finding the right balance requires testing multiple configurations, yet there is limited guidance on how to do this efficiently.  
 
@@ -32,13 +32,13 @@ The three most important hyperparameters in HNSW are:
 
 - **`M`** – The maximum number of graph edges per vector. Higher values increase memory usage but may improve search quality.  
 - **`efSearch`** – The size of the candidate queue during search. Larger values may improve search quality but increase search latency.  
-- **`efConstruction`** – Similar to `efSearch`, but used during index construction. Higher values improve search quality but increase index build time.  
+- **`efConstruction`** – Similar to `efSearch` but used during index construction. Higher values improve search quality but increase index build time.  
 
 ### Finding effective configurations  
 
 One approach to tuning these hyperparameters is **hyperparameter optimization (HPO)**, an automated technique that searches for the optimal configuration of a black-box function [5, 6]. However, HPO can be computationally expensive while providing limited benefits [3], especially in cases where the underlying algorithm is well understood.  
 
-An alternative is **transfer learning**, where knowledge from optimizing one dataset is applied to another. This approach helps identify configurations that approximate optimal results while maintaining efficiency [3, 4].  
+An alternative is **transfer learning**, where knowledge gained from optimizing one dataset is applied to another. This approach helps identify configurations that approximate optimal results while maintaining efficiency [3, 4].  
 
 ### Recommended HNSW configurations  
 
@@ -56,9 +56,9 @@ To optimize your search performance, you can **evaluate these five configuration
 
 ## Portfolio learning for HNSW  
 
-Portfolio learning [2, 3, 4] selects a set of complementary configurations so that at least one performs well on average when evaluated across different scenarios. Applying this approach to HNSW, we aim to identify a set of configurations that balance recall and query throughput.  
+Portfolio learning [2, 3, 4] selects a set of complementary configurations so that at least one performs well on average when evaluated across different scenarios. Applying this approach to HNSW, we aimed to identify a set of configurations that balance recall and query throughput.  
 
-To achieve this, we use 15 vector search datasets spanning various modalities, embedding models, and distance functions. For each dataset, we establish ground truth by computing the top 10 nearest neighbors for every query in the test set using exact k-NN search.  
+To achieve this, we used 15 vector search datasets spanning various modalities, embedding models, and distance functions, presented in the following table. For each dataset, we established ground truth by computing the top 10 nearest neighbors for every query in the test set using exact k-NN search.  
 
 | Dataset        | Dimensions   | Train size   | Test size   |   Neighbors | Distance      | Embedding                                      | Domain                        |
 |:---------------|:-------------|:-------------|:------------|------------:|:--------------|:-----------------------------------------------|:------------------------------|
@@ -89,14 +89,14 @@ search_space = {
 }
 ```
 
-For these experiments, we used an OpenSearch 2.15 cluster with three cluster manager nodes and six data nodes, each running on an `r6g.4xlarge.search` instance. We evaluated test vectors in batches of 100 and recorded query throughput and recall@10 for each HNSW configuration. In the next section, we'll introduce the algorithm used to learn the portfolio.  
+For these experiments, we used an OpenSearch 2.15 cluster with three cluster manager nodes and six data nodes, each running on an `r6g.4xlarge.search` instance. We evaluated test vectors in batches of 100 and recorded query throughput and recall@10 for each HNSW configuration. In the next section, we introduce the algorithm used to learn the portfolio.  
 
 ### Method  
 
 To capture different trade-offs between recall and throughput, we used a simple linearization approach, assigning values between 0 and 1, inclusive, to both recall and throughput. Given a specific weighting, we identified the configuration that maximizes the linearized object using the following four steps:  
 
 1. **Normalize recall and throughput** – Apply min-max scaling within each dataset so that recall and throughput values are comparable.  
-2. **Compute weighted metric** – Combine the normalized recall and throughput using the assigned weights into a new weighted metric.  
+2. **Compute weighted metric** – Using the assigned weights, combine the normalized recall and throughput into a new weighted metric.  
 3. **Average across datasets** – Calculate the average weighted metric across datasets.  
 4. **Select the best configuration** – Identify the configuration that maximizes the average weighted metric.  
 
@@ -113,38 +113,38 @@ We used the following weighting profiles for recall and throughput. We did not a
 
 ## Evaluation  
 
-We evaluated our method in two scenarios:  
+We evaluated our method using two scenarios:  
 
-1) **Leave-one-out evaluation** – One of the 15 datasets is used as the test dataset while the remaining datasets serve as the training set.  
-2) **Deployment evaluation** – All 15 datasets are used for training, and the method is tested on four additional datasets using a new embedding model, [Cohere-embed-english-v3](https://huggingface.co/Cohere/Cohere-embed-english-v3.0), which was not part of the training set.  
+1. **Leave-one-out evaluation** – One of the 15 datasets is used as the test dataset while the remaining datasets serve as the training set.  
+2. **Deployment evaluation** – All 15 datasets are used for training, and the method is tested on 4 additional datasets using a new embedding model, [Cohere-embed-english-v3](https://huggingface.co/Cohere/Cohere-embed-english-v3.0), that was not part of the training set.  
 
-The first scenario mimics cross-validation in machine learning, while the second simulates an evaluation in which the complete training dataset is used for model deployment.  
+The first scenario mimics cross-validation in ML, while the second simulates an evaluation in which the complete training dataset is used for model deployment.  
 
 ### Leave-one-out evaluation  
 
-For this evaluation, we determined the ground-truth configurations under different weightings by applying our method to the test dataset. We then compared these with the predicted configurations derived from the training datasets using the same method.  
+For this evaluation, we determined the ground truth configurations under different weightings by applying our method to the test dataset. We then compared these with the predicted configurations derived from the training datasets using the same method.  
 
-We calculated the mean absolute error (MAE) between the predicted and ground-truth configurations for normalized (min-max scaled) recall and throughput. The following bar plot shows the average MAE across all 15 datasets in the leave-one-out evaluation:  
+We calculated the mean absolute error (MAE) between the predicted and ground truth configurations for normalized (min-max scaled) recall and throughput. The following bar plot shows the average MAE across all 15 datasets in the leave-one-out evaluation.  
 
 ![MAE compared with ground truth](/assets/media/blog-images/2025-02-28-a-pratical-guide-for-selecting-HNSW-hyperparameters/mae.png){:class="img-centered"}  
 
-The results show that the average MAEs for normalized recall are below 0.1. For context, if recall values range from 0.5 to 0.95 on a dataset, an MAE of 0.1 translates to a raw recall difference of only 0.045. This suggests that the predicted configurations closely match the ground-truth configurations, particularly for high-recall weightings.  
+The results show that the average MAEs for normalized recall are below 0.1. For context, if dataset recall values range from 0.5 to 0.95, an MAE of 0.1 translates to a raw recall difference of only 0.045. This suggests that the predicted configurations closely match the ground truth configurations, particularly for high-recall weightings.  
 
 The MAEs for throughput are larger, likely because throughput measurements tend to be noisier than recall measurements. However, the MAEs decrease when higher weight is assigned to throughput.  
 
 ### Deployment evaluation  
 
-For this evaluation, we applied our method to the 15 training datasets and tested the resulting configurations on three datasets using the Cohere-embed-english-v3 embedding model. Our goal was to ensure that the learned configurations align with the Pareto front, representing different trade-offs between recall and throughput.  
+For this evaluation, we applied our method to the 15 training datasets and tested the resulting configurations on 3 datasets using the Cohere-embed-english-v3 embedding model. Our goal was to ensure that the learned configurations align with the Pareto front, representing different trade-offs between recall and throughput.  
 
-The following plot depicts the recall and throughput for the learned configurations in different colors, with other configurations displayed in gray.  
+The following bar plot depicts the recall and throughput for the learned configurations in different colors, with other configurations displayed in gray.  
 
 ![Trade-off of the 5 configurations](/assets/media/blog-images/2025-02-28-a-pratical-guide-for-selecting-HNSW-hyperparameters/tradeoff.png){:class="img-centered"}  
 
-The results show that the five selected configurations effectively cover the high-recall and high-throughput regions. Since we did not assign high weights to throughput, the learned configurations do not extend into the low-recall, high-throughput area.
+The results show that the five selected configurations effectively cover the high-recall and high-throughput regions. Because we did not assign high weights to throughput, the learned configurations do not extend into the low-recall, high-throughput area.
 
 ## How to apply the configurations in OpenSearch
 
-To try out these configurations, first create an index. You must specify the index build parameters when creating the index because the parameters are not dynamic:
+To try these configurations, first create an index. You must specify the index build parameters when creating the index because the parameters are not dynamic:
 
 ```json
 curl -X PUT "localhost:9200/test-index" -H 'Content-Type: application/json' -d'
@@ -187,7 +187,7 @@ curl -X PUT "localhost:9200/_bulk" -H 'Content-Type: application/json' -d'
 '
 ```
 
-Last, run a search:
+Lastly, run a search:
 
 ```json
 curl -X GET "localhost:9200/test-index/_search?pretty&_source_excludes=my_vector" -H 'Content-Type: application/json' -d'
@@ -603,10 +603,10 @@ def eval_config(
 
 #### Define the variables for your experiments
 
-For your experiments, define the following variables:
+Define the following variables for your experiments:
 
 - OpenSearch domain and engine
-- AWS region and AWS profile
+- AWS Region and AWS profile
 - Local file path
 - Dataset dimension
 - Space to use in HNSW
@@ -639,7 +639,7 @@ for i, config in enumerate([
     metrics.append(metric)
 ```
 
-You will see following output in the terminal:
+You will see the following output in the terminal:
 
 ```
 Indexing vectors: 100%|██████████| 8674/8674 [00:26<00:00, 321.72it/s]
@@ -667,7 +667,7 @@ The following image depicts an example metric visualization.
 
 ## Limitations and future work
 
-This blog post focused on optimizing for two key objectives: recall and throughput. However, to further adjust the size of the HNSW graph, exploring different values for `ef_construction` could provide additional insights.
+This blog post focuses on optimizing HNSW for two key objectives: recall and throughput. However, to further adjust the size of the HNSW graph, exploring different values for `ef_construction` could provide additional insights.
 
 Our method currently generates the same set of configurations across all datasets, but this approach can potentially be improved. By considering the specific characteristics of each dataset, we could create more targeted recommendations. Additionally, the current set of configurations is based on 15 datasets. Incorporating a broader range of datasets into the training process would enhance the generalization of the learned configurations.
 
