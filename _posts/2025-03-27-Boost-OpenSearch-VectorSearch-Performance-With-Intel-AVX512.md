@@ -172,7 +172,7 @@ To get the most out of your OpenSearch cluster in AWS, consider using the Intel 
 
 # **Future Scope**
 
-To take this work further, we plan to use advanced features available on Intel 4th Generation Xeon Scalable and newer server processors. One of them will be leveraging [AVX512-fp16](https://www.intel.com/content/www/us/en/content-details/669773/intel-avx-512-fp16-instruction-set-for-intel-xeon-processor-based-products-technology-guide.html) arithmetic for the scalar quantizer which is expected to further reduce search latencies and improve indexing throughput of Faiss SQfp16 (or 2x compression with 'on_disk' mode). 
+To take this work further, we plan to use advanced features available on Intel 4th Generation Xeon Scalable and newer server processors. One of them will be leveraging [AVX512-fp16](https://www.intel.com/content/www/us/en/content-details/669773/intel-avx-512-fp16-instruction-set-for-intel-xeon-processor-based-products-technology-guide.html) arithmetic for the scalar quantizer which is expected to further reduce search latencies and improve indexing throughput of Faiss SQfp16 (or 2x compression with `on_disk` mode). 
 
 # **Appendix1**
 
