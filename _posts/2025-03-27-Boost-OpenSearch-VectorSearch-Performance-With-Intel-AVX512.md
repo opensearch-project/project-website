@@ -14,12 +14,12 @@ has_science_table: true
 categories:
   - technical-posts
 meta_keywords: OpenSearch vector search, Intel AVX-512, Faiss library optimization, vector search performance, vector search benchmarks, vectorization in OpenSearch, COHERE-1M with fp32, gist-1m dataset is 
-meta_description: Discover how Intel AVX-512 accelerates OpenSearch vector search performance with up to 18% faster search operations and 15% improved indexing throughput compared to AVX2.
+meta_description: Discover how Intel AVX-512 accelerates OpenSearch vector search performance with up to 13% faster search operations and 15% improved indexing throughput compared to AVX2.
 ---
 
 # Introduction
 
-Intel® Advanced Vector Extensions 512 (Intel AVX-512) is a set of new instructions that can accelerate performance of vector workloads, and was introduced in OpenSearch 2.18. Vector search benchmarks using OpenSearch showed performance boosts up to 15% for indexing and up to 18% for search tasks, when compared to performance of the same workloads using AVX2, a predecessor of the technology. 
+Intel® Advanced Vector Extensions 512 (Intel AVX-512) is a set of new instructions that can accelerate performance of vector workloads, and was introduced in OpenSearch 2.18. Vector search benchmarks using OpenSearch showed performance boosts up to 15% for indexing and up to 13% for search tasks, when compared to performance of the same workloads using AVX2, a predecessor of the technology. 
 
 Increasingly, application builders are using vector search to improve the search quality of their applications. This modern technique involves encoding content into numerical representations (vectors) that can be used to find similarities between content. With the rise in usage of Large Language Models (LLMs) and Generative AI (GenAI), the workloads have increased from millions to billions of vectors. With the rise in vector data, maintaining ingestion and query performance on such huge workloads becomes critical.
 
@@ -150,7 +150,7 @@ Indexing operations see a 8% boost, while search latencies show 5% improvement c
 
 ### **COHERE-10M WITH SQfp16**
 
-SQfp16 encoding with AVX-512 delivers a 6% performance boost in indexing and a 5% improvement in search latencies. Scaling search clients from 20-280 clients for throughput analysis shows up to an 18% QPS boost, with 10% lower latencies on average due to AVX-512.
+SQfp16 encoding with AVX-512 delivers a 6% performance boost in indexing and a 5% improvement in search latencies. Scaling search clients from 20-280 clients for throughput analysis shows up to a 13% QPS boost, with 10% lower latencies on average due to AVX-512.
 
 ![Search latencies fp16 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-search-latencies-fp16.png){: .img-fluid}
 
@@ -166,7 +166,7 @@ These results show how the Intel AVX-512 optimizations in the Faiss library can 
 
 We highlighted some hot functions that show up when performing vector search using Faiss, and how Intel AVX-512 accelerator provides a significant performance boost to OpenSearch by optimizing them.  
 
-Our experiments showed a performance boost to throughput of up to 15% for indexing and up to 18% for vector search in OpenSearch, when compared to previous generation AVX2 accelerators. Gains are seen across multiple vector dimensions and vector space types, and also improves query latencies by up to 12%. These accelerators are present on Intel instances in most cloud environments including AWS, and can be used seamlessly with OpenSearch. 
+Our experiments showed a performance boost to throughput of up to 15% for indexing and up to 13% for vector search in OpenSearch, when compared to previous generation AVX2 accelerators. Gains are seen across multiple vector dimensions and vector space types, and also improves query latencies 10% on average. These accelerators are present on Intel instances in most cloud environments including AWS, and can be used seamlessly with OpenSearch. 
 
 To get the most out of your OpenSearch cluster in AWS, consider using the Intel [C7i, M7i, R7i instances](https://aws.amazon.com/ec2/instance-types/) which contain the latest AVX-512 accelerators making them a great choice for vector search workloads. 
 
