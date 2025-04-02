@@ -178,26 +178,7 @@ To take this work further, we plan to use advanced features available on Intel 4
 
 [https://github.com/opensearch-project/project-website/issues/3697](https://github.com/opensearch-project/project-website/issues/3697)
 
-Benchmark setup configuration is listed below: 
-
-## Configuration
-
-| Dataset | COHERE-1M | GIST1M | COHERE-10M |
-| :---- | ----- | :---- | :---- |
-| OpenSearch version <td colspan=3>  2.18 |
-| Engine <td colspan=3>  faiss |
-| Vector dimension | 768 | 960 | 768 |
-| Ingest vectors | 1M |  | 10M |
-| Query vectors | 10K | 1K | 10K |
-| Primary shards | 4 |  | 6 |
-| Replica shards <td colspan=3>  1 |
-| Data nodes | 2 |  | 3 |
-| Cluster manager nodes <td colspan=3> 1 |
-| Data node instance type <td colspan=3> r7i.2xlarge |
-| Client instance <td colspan=3> m6id.16xlarge |
-| Indexing clients<td colspan=3> 20 |
-| Query clients <td colspan=3> 20 |
-| Force merge segments <td colspan=3> 1 |
+Learn more on the [Benchmark configuration](https://github.com/opensearch-project/project-website/issues/3697#issuecomment-2771024897) 
 
 ## 
 
