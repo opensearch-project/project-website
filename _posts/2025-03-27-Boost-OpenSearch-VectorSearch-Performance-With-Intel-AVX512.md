@@ -88,7 +88,7 @@ AVX-512, due to Single Input Multiple Data (SIMD) processing, helps reduce cycle
 
 Starting with OpenSearch version 2.18, AVX-512 is enabled by default. As of March 2025, OpenSearch has shown best performance for AVX-512 on AWS r7i instances. 
 
-The next section describes benchmark results that were run with AVX2 and AVX-512 versions of the Faiss library shipped for x64 architecture ([Documentation](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/#supported-lucene-methods:~:text=multiple%20of%208.-,x64%20architecture,libopensearchknn_faiss.so%3A%20The%20non%2Doptimized%20Faiss%20library%20without%20SIMD%20instructions.,-When%20using%20the)). These benchmarks were run using [OpenSearch Benchmark (OSB) vector search workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) using configuration in appendix1.
+The next section describes benchmark results that were run with AVX2 and AVX-512 versions of the Faiss library shipped for x64 architecture ([Documentation](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/#supported-lucene-methods:~:text=multiple%20of%208.-,x64%20architecture,libopensearchknn_faiss.so%3A%20The%20non%2Doptimized%20Faiss%20library%20without%20SIMD%20instructions.,-When%20using%20the)). These benchmarks were run using [OpenSearch Benchmark (OSB) vector search workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) using the following [Benchmark Configuration](https://github.com/opensearch-project/project-website/issues/3697#issuecomment-2771024897)
 
 ## **Results**
 
@@ -173,12 +173,6 @@ To get the most out of your OpenSearch cluster in AWS, consider using the Intel 
 # **Future Scope**
 
 To take this work further, we plan to use advanced features available on Intel 4th Generation Xeon Scalable and newer server processors. One of them will be leveraging [AVX512-fp16](https://www.intel.com/content/www/us/en/content-details/669773/intel-avx-512-fp16-instruction-set-for-intel-xeon-processor-based-products-technology-guide.html) arithmetic for the scalar quantizer which is expected to further reduce search latencies and improve indexing throughput of Faiss SQfp16 (or 2x compression with `on_disk` mode). 
-
-# **Appendix1**
-
-[https://github.com/opensearch-project/project-website/issues/3697](https://github.com/opensearch-project/project-website/issues/3697)
-
-Learn more on the [Benchmark configuration](https://github.com/opensearch-project/project-website/issues/3697#issuecomment-2771024897) 
 
 ## 
 
