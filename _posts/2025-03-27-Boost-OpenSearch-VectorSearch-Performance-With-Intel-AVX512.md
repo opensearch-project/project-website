@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Boost OpenSearch Vector Search performance with Intel® AVX-512"
+title:  "Boost OpenSearch Vector Search performance with Intel AVX-512"
 authors:
   - assanedi
   - ashankaran
@@ -17,13 +17,11 @@ meta_keywords: OpenSearch vector search, Intel AVX-512, Faiss library optimizati
 meta_description: Discover how Intel AVX-512 accelerates OpenSearch vector search performance with up to 13% faster search operations and 15% improved indexing throughput compared to AVX2.
 ---
 
-# Introduction
+Introduced in OpenSearch 2.18, Intel Advanced Vector Extensions 512 (Intel AVX-512) is a set of new instructions that can accelerate vector workload performance. Vector search benchmarks using OpenSearch Benchmark showed performance boosts of up to 15% for indexing and up to 13% for search tasks when compared to the same workloads' performance using AVX2, a predecessor of the technology.
 
-Intel® Advanced Vector Extensions 512 (Intel AVX-512) is a set of new instructions that can accelerate performance of vector workloads, and was introduced in OpenSearch 2.18. Vector search benchmarks using OpenSearch showed performance boosts up to 15% for indexing and up to 13% for search tasks, when compared to performance of the same workloads using AVX2, a predecessor of the technology. 
+Increasingly, application builders are using vector search to improve the search quality of their applications. This modern technique involves encoding content into numerical representations (vectors) that can be used to find similarities between content. With the rise in usage of large language models (LLMs) and generative AI, the workloads have increased from millions to billions of vectors. Maintaining ingestion and query performance on such huge workloads becomes critical given the increase in vector data size.
 
-Increasingly, application builders are using vector search to improve the search quality of their applications. This modern technique involves encoding content into numerical representations (vectors) that can be used to find similarities between content. With the rise in usage of Large Language Models (LLMs) and Generative AI (GenAI), the workloads have increased from millions to billions of vectors. With the rise in vector data, maintaining ingestion and query performance on such huge workloads becomes critical.
-
-In this blog, we will share some results of some popular OpenSearch workloads using Intel AVX-512 vs AVX2, and compare their performance. The benchmarks were ran using  [OpenSearch Benchmark (OSB)](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and showcase how Intel AVX-512 provides a performance boost over AVX2, for fp32 and fp16 quantization uing the Faiss library. The hardware accelerators are widely available on AWS, and 4th Generation Intel Xeon Scalable processors available as r7i were used for these benchmarks. 
+In this blog post, we will share the results of some popular OpenSearch workloads using Intel AVX-512 compared to AVX2, and compare their performance. The benchmarks were run using  [OpenSearch Benchmark (OSB)](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and showcase how Intel AVX-512 provides a performance boost over AVX2 for `fp32` and `fp16` quantization using the Faiss library. The hardware accelerators are widely available on AWS, and 4th Generation Intel Xeon Scalable processors available as r7i were used for these benchmarks. 
 
 # Importance of vectorization in OpenSearch vector search
 
