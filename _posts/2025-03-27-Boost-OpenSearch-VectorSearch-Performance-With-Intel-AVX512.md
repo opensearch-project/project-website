@@ -55,6 +55,13 @@ Because of single instruction multiple data (SIMD) processing, AVX-512 helps red
     * Indexing: Up to 39% reduction in cycles.  
     * Search: Up to 11% reduction in cycles.
 
+|  | Encoding | Function | %Cycle Spent (AVX2) | %Cycle Spent (AVX512) |
+| ----- | :---- | :---- | :---- | :---- |
+| Indexing | fp32 | fvec\_inner\_product | 28.86 | 7.32 |
+| Indexing | SQfp16 | query\_to\_code | 17.95 | 10.94 |
+| Search | fp32 | fvec\_inner\_product\_batch\_4 | 34.66 | 31.74 |
+| Search | SQfp16 | query\_to\_code | 42.24 | 37.73 |
+
 ### L2 (Euclidean) space type
 
 * **FP32 encoding:**  
@@ -69,13 +76,6 @@ Because of single instruction multiple data (SIMD) processing, AVX-512 helps red
   * Benefits of AVX-512:  
     * Indexing: Up to 17% reduction in cycles.  
     * Search: Up to 6% reduction in cycles.
-
-|  | Encoding | Function | %Cycle Spent (AVX2) | %Cycle Spent (AVX512) |
-| ----- | :---- | :---- | :---- | :---- |
-| Indexing | fp32 | fvec\_inner\_product | 28.86 | 7.32 |
-| Indexing | SQfp16 | query\_to\_code | 17.95 | 10.94 |
-| Search | fp32 | fvec\_inner\_product\_batch\_4 | 34.66 | 31.74 |
-| Search | SQfp16 | query\_to\_code | 42.24 | 37.73 |
 
 |  | Encoding | Function | %Cycle Spent (AVX2) | %Cycle Spent (AVX512) |
 | ----- | :---- | :---- | :---- | :---- |
