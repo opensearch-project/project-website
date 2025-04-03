@@ -6,7 +6,7 @@ authors:
   - ashankaran
   - mulugetam
   - noahstavely
-  - navtat
+  - naveen
   - vamshin
   - dylantong
 date: 2025-03-27
