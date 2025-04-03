@@ -1,5 +1,5 @@
 ---
-short_name: Assane
+short_name: assanedi
 name: Assane Diop
 photo: '/assets/media/community/members/assanedi.jpg'
 job_title_and_company: 'Cloud Software Development Engineer, Intel'

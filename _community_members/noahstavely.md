@@ -1,5 +1,5 @@
 ---
-short_name: Noah
+short_name: noahstavely
 name: Noah Staveley
 photo: '/assets/media/community/members/noahstavely.png'
 job_title_and_company: 'Cloud Software Development Engineer, Intel'
