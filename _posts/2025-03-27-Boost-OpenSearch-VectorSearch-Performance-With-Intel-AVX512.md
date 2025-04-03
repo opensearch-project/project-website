@@ -23,7 +23,7 @@ Increasingly, application builders are using vector search to improve the search
 
 In this blog post, we will share the results of some popular OpenSearch workloads using Intel AVX-512 compared to AVX2, and compare their performance. The benchmarks were run using  [OpenSearch Benchmark (OSB)](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and showcase how Intel AVX-512 provides a performance boost over AVX2 for `fp32` and `fp16` quantization using the Faiss library. The hardware accelerators are widely available on AWS, and 4th Generation Intel Xeon Scalable processors available as r7i were used for these benchmarks. 
 
-# Importance of vectorization in OpenSearch vector search
+## The importance of vectorization in OpenSearch vector search
 
 Vector search uses advanced techniques like cosine similarity, euclidean distance etc. to quickly and efficiently find similar items. This is especially useful in large datasets where traditional search methods would be slower. Furthermore vectorized data can be processed in parallel, making it highly scalable and ensuring that as the dataset grows, the search performance remains optimal. Intel AVX-512 can further improve the vector search throughput by processing more vectors. 
 
