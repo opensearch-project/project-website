@@ -102,7 +102,7 @@ A greater performance improvement is observed between AVX-512 and AVX2 on FP16 b
 
 A general observation across all benchmarks is that AVX-512 improves performance because of a significant reduction in [path length](https://en.wikipedia.org/wiki/Instruction_path_length)---the number of machine instructions needed to execute a workload. 
 
-### COHERE-1M with fp32
+### COHERE-1M with FP32
 
 Indexing operations demonstrate a 9% boost, while search throughput and latencies demonstrate a 7% and 6% improvement, respectively, compared to AVX2.
 
