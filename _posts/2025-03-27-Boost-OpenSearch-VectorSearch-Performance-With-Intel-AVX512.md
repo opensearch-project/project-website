@@ -38,7 +38,7 @@ Thus, in vector search using k-nearest neighbors (k-NN), index build times and v
 
 ## The hot spot in OpenSearch vector search
 
-Because of single instruction multiple data (SIMD) processing, AVX-512 helps reduce the number of cycles spent on hot functions during indexing and search for both inner product and L2 (Euclidean) space types, which is especially notable in the FP32-encoded indexing. The next section describes the hot functions observed during an OpenSearch benchmark execution, and the corresponding improvements observed when the hot functions were vectorized using AVX-512. The baseline used is the AVX2 version of the Faiss library. **% Cycles spent** represents the percentage of time spent by the CPU on the particular function during the benchmark run.
+Because of single instruction, multiple data (SIMD) processing, AVX-512 helps reduce the number of cycles spent on hot functions during indexing and search for both inner product and L2 (Euclidean) space types, which is especially notable in the FP32-encoded indexing. The next section describes the hot functions observed during an OpenSearch benchmark execution and the corresponding improvements observed when the hot functions were vectorized using AVX-512. The baseline used is the AVX2 version of the Faiss library. **% Cycles spent** represents the percentage of time spent by the CPU on the particular function during the benchmark run.
 
 ### Inner product space type
 
