@@ -25,7 +25,7 @@ In this blog post, we will share the results of some popular OpenSearch workload
 
 ## The importance of vectorization in OpenSearch vector search
 
-Vector search uses advanced techniques like cosine similarity or Euclidean distance to quickly and efficiently find similar items. This is especially useful in the context of large datasets, for  which traditional search methods are slower. Furthermore, vectorized data can be processed in parallel, making it highly scalable and ensuring that as the dataset grows, search performance remains optimal. Intel AVX-512 can further improve the vector search throughput by processing more vectors. 
+Vector search uses advanced techniques like cosine similarity or Euclidean distance to quickly and efficiently find similar items. This is especially useful in the context of large datasets, for which traditional search methods are slower. Furthermore, vectorized data can be processed in parallel, making it highly scalable and ensuring that as the dataset grows, search performance remains optimal. Intel AVX-512 can further improve the vector search throughput by processing more vectors. 
 
 ## Why Intel AVX-512 performs better
 
