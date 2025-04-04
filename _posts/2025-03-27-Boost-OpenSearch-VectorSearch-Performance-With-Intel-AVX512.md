@@ -142,7 +142,7 @@ Indexing operations demonstrate a 15% boost, while search throughput and latenci
 
 ![Indexing throughput fp16 for gist-1m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/gist-1m-indexing-fp16.png){: .img-fluid}
 
-### COHERE-10M with fp32
+### COHERE-10M with FP32
 
 Indexing operations demonstrate a 8% boost, while search latencies demonstrate a 5% improvement compared to AVX2. Scaling search clients from 20 to 280 shows a QPS boost of up to 12% with AVX-512.
 
