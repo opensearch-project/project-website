@@ -81,7 +81,7 @@ The following table shows the percentage of total CPU cycles spent on key functi
 
 The following table shows the percentage of total CPU cycles spent on key functions for indexing and search operations, comparing AVX2 and AVX-512 implementations.
 
-|  | Encoding | Function | %Cycles spent (AVX2) | %Cycles spent (AVX-512) |
+|  | Encoding | Function | % Cycles spent (AVX2) | % Cycles spent (AVX-512) |
 | ----- | :---- | :---- | :---- | :---- |
 | Indexing | FP32 | fvec\_L2sqr | 36.76 | 16.75 |
 | Indexing | SQfp16 | query\_to\_code | 26.18 | 21.61 |
