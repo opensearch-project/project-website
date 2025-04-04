@@ -45,17 +45,19 @@ Because of single instruction multiple data (SIMD) processing, AVX-512 helps red
 * **FP32 encoding:**  
   * Hot functions:  
     * *faiss::fvec\_inner\_product*   
-    * *faiss::fvec\_inner\_product\_batch\_4*.  
+    * *faiss::fvec\_inner\_product\_batch\_4* 
   * Benefits of AVX-512:  
-    * Indexing: Up to 75% reduction in cycles.  
-    * Search: Up to 8% reduction in cycles.  
+    * Indexing: Up to 75% reduction in cycles
+    * Search: Up to 8% reduction in cycles
 * **SQFP16 encoding:**  
-  * Hot function: *faiss::query\_to\_code*.  
+  * Hot function: *faiss::query\_to\_code*
   * Benefits of AVX-512:  
-    * Indexing: Up to 39% reduction in cycles.  
-    * Search: Up to 11% reduction in cycles.
+    * Indexing: Up to 39% reduction in cycles
+    * Search: Up to 11% reduction in cycles
 
-|  | Encoding | Function | %Cycle Spent (AVX2) | %Cycle Spent (AVX512) |
+The following table shows the percentage of total CPU cycles spent in key functions for indexing and search operations, comparing AVX2 and AVX-512 implementations.
+
+|  | Encoding | Function | %Cycles spent (AVX2) | %Cycles spent (AVX512) |
 | ----- | :---- | :---- | :---- | :---- |
 | Indexing | fp32 | fvec\_inner\_product | 28.86 | 7.32 |
 | Indexing | SQfp16 | query\_to\_code | 17.95 | 10.94 |
@@ -67,17 +69,19 @@ Because of single instruction multiple data (SIMD) processing, AVX-512 helps red
 * **FP32 encoding:**  
   * Hot functions:   
     * *faiss::fvec\_L2sqr*   
-    * *faiss::fvec\_L2sqrt\_batch\_4*.  
+    * *faiss::fvec\_L2sqrt\_batch\_4*
   * Benefits of AVX-512:  
-    * Indexing: Up to 54% reduction in cycles.  
-    * Search: Up to 11% reduction in cycles.  
+    * Indexing: Up to 54% reduction in cycles
+    * Search: Up to 11% reduction in cycles
 * **SQFP16 encoding:**  
-  * Hot function: *faiss::query\_to\_code*.  
+  * Hot function: *faiss::query\_to\_code*
   * Benefits of AVX-512:  
-    * Indexing: Up to 17% reduction in cycles.  
-    * Search: Up to 6% reduction in cycles.
+    * Indexing: Up to 17% reduction in cycles
+    * Search: Up to 6% reduction in cycles
 
-|  | Encoding | Function | %Cycle Spent (AVX2) | %Cycle Spent (AVX512) |
+The following table shows the percentage of total CPU cycles spent in key functions for indexing and search operations, comparing AVX2 and AVX-512 implementations.
+
+|  | Encoding | Function | %Cycles spent (AVX2) | %Cycles spent (AVX512) |
 | ----- | :---- | :---- | :---- | :---- |
 | Indexing | fp32 | fvec\_L2sqr | 36.76 | 16.75 |
 | Indexing | SQfp16 | query\_to\_code | 26.18 | 21.61 |
