@@ -122,7 +122,7 @@ Indexing operations demonstrate an 11% boost, while search operations and latenc
 
 ![Indexing throughput fp16 for cohere-1m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-1m-indexing-fp16.png){: .img-fluid}
 
-### GIST-1M with fp32
+### GIST-1M with FP32
 
 Indexing operations demonstrate a 5% boost, while search throughput and latencies demonstrate a 2% and 6% improvement, respectively, compared to AVX2. While search throughput with the `gist-1m` dataset is not comparable to that of the `cohere-1m` dataset, the latency boost is maintained.
 
