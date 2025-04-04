@@ -57,7 +57,7 @@ Because of single instruction, multiple data (SIMD) processing, AVX-512 helps re
 
 The following table shows the percentage of total CPU cycles spent on key functions for indexing and search operations, comparing AVX2 and AVX-512 implementations.
 
-|  | Encoding | Function | %Cycles spent (AVX2) | %Cycles spent (AVX-512) |
+|  | Encoding | Function | % Cycles spent (AVX2) | % Cycles spent (AVX-512) |
 | ----- | :---- | :---- | :---- | :---- |
 | Indexing | FP32 | fvec\_inner\_product | 28.86 | 7.32 |
 | Indexing | SQfp16 | query\_to\_code | 17.95 | 10.94 |
