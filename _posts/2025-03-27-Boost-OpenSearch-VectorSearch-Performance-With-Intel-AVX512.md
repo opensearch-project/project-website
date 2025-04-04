@@ -30,15 +30,15 @@ Vector search uses advanced techniques like cosine similarity or Euclidean dista
 ## Why Intel AVX-512 performs better
 
 The techniques used in vector search are computationally expensive, and Intel AVX-512 is well-positioned to tackle these challenges. The accelerator can be used directly in several ways: 
-- Writing native code using intrinsics
+- For writing native code using intrinsics
 - In compiler optimizations, such as auto-vectorization
-The corresponding optimized assembly instructions are generated when the accelerator is correctly utilized. AVX2 generates instructions using YMM registers, and AVX512 generates instructions using ZMM registers. The performance is enhanced by allowing ZMM registers to handle 32 double-precision and 64 single-precision floating-point operations per clock cycle within 512-bit vectors. Additionally, these registers can process eight 64-bit and sixteen 32-bit integers. With up to two 512-bit fused-multiply add (FMA) units, AVX-512 effectively doubles the width of data registers, the number of registers, and the width of FMA units compared to Intel AVX2 YMM registers. Beyond these improvements, Intel AVX-512 offers increased parallelism, which leads to faster data processing and improved performance in compute-intensive applications such as scientific simulations, analytics, and machine learning. It also provides enhanced support for complex number calculations and accelerates tasks like cryptography and data compression. Furthermore, AVX-512 includes new instructions that improve the efficiency of certain algorithms, reduce power consumption, and optimize resource utilization, making it a powerful tool for modern computing needs.
-By registering double width to 512 bits, the use of ZMM registers over YMM registers can potentially double the data throughput and computational power. When AVX-512 extension is detected, the Faiss distance and scalar quantizer functions  process 16 vectors per loop compared to 8 vectors per loop for AVX2 extension. 
+The corresponding optimized assembly instructions are generated when the accelerator is correctly utilized. AVX2 generates instructions using YMM registers, and AVX-512 generates instructions using ZMM registers. Performance is enhanced by allowing ZMM registers to handle 32 double-precision and 64 single-precision floating-point operations per clock cycle within 512-bit vectors. Additionally, these registers can process eight 64-bit and sixteen 32-bit integers. With up to two 512-bit fused-multiply-add (FMA) units, AVX-512 effectively doubles the width of data registers, the number of registers, and the width of FMA units compared to Intel AVX2 YMM registers. Beyond these improvements, Intel AVX-512 offers increased parallelism, which leads to faster data processing and improved performance in compute-intensive applications such as scientific simulations, analytics, and machine learning. It also provides enhanced support for complex number calculations and accelerates tasks like cryptography and data compression. Furthermore, AVX-512 includes new instructions that improve the efficiency of certain algorithms, reduce power consumption, and optimize resource utilization, making it a powerful tool for modern computing needs.
+By registering double width to 512 bits, the use of ZMM registers instead of YMM registers can potentially double the data throughput and computational power. When the AVX-512 extension is detected, the Faiss distance and scalar quantizer functions  process 16 vectors per loop compared to 8 vectors per loop for the AVX2 extension. 
 Thus, in vector search using k-nearest neighbors (k-NN), index build times and vector search performance can be enhanced with the use of these new hardware extensions.
 
 ## The hot spot in OpenSearch vector search
 
-Because of single instruction multiple data (SIMD) processing, AVX-512 helps reduce cycles spent in hot functions during indexing and search for both inner product and L2 (Euclidean) space types, especially notable in the FP32-encoded indexing. The next section describes the hot functions observed during an OpenSearch benchmark execution, and the corresponding improvements observed when the hot functions are vectorized using AVX-512. The baseline used is the AVX2 version of the Faiss library. The **% cycles spent** is the percentage of time spent by the CPU on the particular function during the benchmark run.
+Because of single instruction multiple data (SIMD) processing, AVX-512 helps reduce the number of cycles spent on hot functions during indexing and search for both inner product and L2 (Euclidean) space types, which is especially notable in the FP32-encoded indexing. The next section describes the hot functions observed during an OpenSearch benchmark execution, and the corresponding improvements observed when the hot functions were vectorized using AVX-512. The baseline used is the AVX2 version of the Faiss library. **% Cycles spent** represents the percentage of time spent by the CPU on the particular function during the benchmark run.
 
 ### Inner product space type
 
@@ -49,19 +49,19 @@ Because of single instruction multiple data (SIMD) processing, AVX-512 helps red
   * Benefits of AVX-512:  
     * Indexing: Up to 75% reduction in cycles
     * Search: Up to 8% reduction in cycles
-* **SQFP16 encoding:**  
+* **SQfp16 encoding:**  
   * Hot function: *faiss::query\_to\_code*
   * Benefits of AVX-512:  
     * Indexing: Up to 39% reduction in cycles
     * Search: Up to 11% reduction in cycles
 
-The following table shows the percentage of total CPU cycles spent in key functions for indexing and search operations, comparing AVX2 and AVX-512 implementations.
+The following table shows the percentage of total CPU cycles spent on key functions for indexing and search operations, comparing AVX2 and AVX-512 implementations.
 
-|  | Encoding | Function | %Cycles spent (AVX2) | %Cycles spent (AVX512) |
+|  | Encoding | Function | %Cycles spent (AVX2) | %Cycles spent (AVX-512) |
 | ----- | :---- | :---- | :---- | :---- |
-| Indexing | fp32 | fvec\_inner\_product | 28.86 | 7.32 |
+| Indexing | FP32 | fvec\_inner\_product | 28.86 | 7.32 |
 | Indexing | SQfp16 | query\_to\_code | 17.95 | 10.94 |
-| Search | fp32 | fvec\_inner\_product\_batch\_4 | 34.66 | 31.74 |
+| Search | FP32 | fvec\_inner\_product\_batch\_4 | 34.66 | 31.74 |
 | Search | SQfp16 | query\_to\_code | 42.24 | 37.73 |
 
 ### L2 (Euclidean) space type
@@ -79,26 +79,26 @@ The following table shows the percentage of total CPU cycles spent in key functi
     * Indexing: Up to 17% reduction in cycles
     * Search: Up to 6% reduction in cycles
 
-The following table shows the percentage of total CPU cycles spent in key functions for indexing and search operations, comparing AVX2 and AVX-512 implementations.
+The following table shows the percentage of total CPU cycles spent on key functions for indexing and search operations, comparing AVX2 and AVX-512 implementations.
 
-|  | Encoding | Function | %Cycles spent (AVX2) | %Cycles spent (AVX512) |
+|  | Encoding | Function | %Cycles spent (AVX2) | %Cycles spent (AVX-512) |
 | ----- | :---- | :---- | :---- | :---- |
-| Indexing | fp32 | fvec\_L2sqr | 36.76 | 16.75 |
+| Indexing | FP32 | fvec\_L2sqr | 36.76 | 16.75 |
 | Indexing | SQfp16 | query\_to\_code | 26.18 | 21.61 |
-| Search | fp32 | fvec\_L2sqr\_bactch\_4 | 31.80 | 28.32 |
+| Search | FP32 | fvec\_L2sqr\_bactch\_4 | 31.80 | 28.32 |
 | Search | SQfp16 | query\_to\_code | 36.99 | 34.72 |
 
 Starting with OpenSearch version 2.18, AVX-512 is enabled by default. As of March 2025, OpenSearch has shown the best performance for AVX-512 on AWS r7i instances. 
 
-The next section describes results of benchmarks run with AVX2 and AVX-512 versions of the Faiss library shipped for x64 architecture (for more information, see [SIMD optimization](https://opensearch.org/docs/latest/field-types/supported-field-types/knn-methods-engines/#simd-optimization). These benchmarks were run using the [OSB vector search workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and the following [benchmark configuration](https://github.com/opensearch-project/project-website/issues/3697#issuecomment-2771024897).
+The next section describes the results of benchmarks run with AVX2 and AVX-512 versions of the Faiss library shipped for x64 architecture (for more information, see [SIMD optimization](https://opensearch.org/docs/latest/field-types/supported-field-types/knn-methods-engines/#simd-optimization). These benchmarks were run using the [OpenSearch Benchmarj vector search workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and the following [benchmark configuration](https://github.com/opensearch-project/project-website/issues/3697#issuecomment-2771024897).
 
 ## Results
 
-The results show that the time spent in hot functions of the distance calculation is significantly reduced when using AVX-512, and the OpenSearch cluster shows higher throughput on search and indexing. 
+The results show that the time spent on hot functions of the distance calculation is significantly reduced when using AVX-512, and the OpenSearch cluster shows higher throughput for search and indexing. 
 
-SQfp16 encoding provided by the Faiss library further helps with faster computation and efficient storage by compressing the 32-bit floating-point vectors into 16-bit floating-point format. The smaller memory footprint allows for more vectors to be stored in the same amount of memory. Additionally, the operations on the 16-bits floats are typically faster than those on 32-bit floats, leading to faster similarity searches. 
+SQfp16 encoding provided by the Faiss library further helps with faster computation and efficient storage by compressing the 32-bit floating-point vectors into 16-bit floating-point format. The smaller memory footprint allows for more vectors to be stored in the same amount of memory. Additionally, the operations on the 16-bit floats are typically faster than those on 32-bit floats, leading to faster similarity searches. 
 
-A greater performance improvement is observed between AVX512 and AVX2 on fp16 because of code optimizations and the use of AVX-512 intrinsics in Faiss, which are not present on AVX2. 
+A greater performance improvement is observed between AVX-512 and AVX2 on FP16 because of code optimizations and the use of AVX-512 intrinsics in Faiss, which are not present in AVX2. 
 
 A general observation across all benchmarks is that AVX-512 improves performance because of a significant reduction in [path length](https://en.wikipedia.org/wiki/Instruction_path_length)---the number of machine instructions needed to execute a workload. 
 
