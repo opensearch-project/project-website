@@ -73,7 +73,7 @@ The following table shows the percentage of total CPU cycles spent on key functi
   * Benefits of AVX-512:  
     * Indexing: Up to 54% reduction in cycles
     * Search: Up to 11% reduction in cycles
-* **SQFP16 encoding:**  
+* **SQfp16 encoding:**  
   * Hot function: *faiss::query\_to\_code*
   * Benefits of AVX-512:  
     * Indexing: Up to 17% reduction in cycles
