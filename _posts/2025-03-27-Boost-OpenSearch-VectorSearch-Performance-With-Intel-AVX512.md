@@ -90,7 +90,7 @@ The following table shows the percentage of total CPU cycles spent on key functi
 
 Starting with OpenSearch version 2.18, AVX-512 is enabled by default. As of March 2025, OpenSearch has shown the best performance for AVX-512 on AWS r7i instances. 
 
-The next section describes the results of benchmarks run with AVX2 and AVX-512 versions of the Faiss library shipped for x64 architecture (for more information, see [SIMD optimization](https://opensearch.org/docs/latest/field-types/supported-field-types/knn-methods-engines/#simd-optimization). These benchmarks were run using the [OpenSearch Benchmarj vector search workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and the following [benchmark configuration](https://github.com/opensearch-project/project-website/issues/3697#issuecomment-2771024897).
+The next section describes the results of benchmarks run with AVX2 and AVX-512 versions of the Faiss library shipped for x64 architecture (for more information, see [SIMD optimization](https://opensearch.org/docs/latest/field-types/supported-field-types/knn-methods-engines/#simd-optimization). These benchmarks were run using the [OpenSearch Benchmark vector search workload](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and the following [benchmark configuration](https://github.com/opensearch-project/project-website/issues/3697#issuecomment-2771024897).
 
 ## Results
 
