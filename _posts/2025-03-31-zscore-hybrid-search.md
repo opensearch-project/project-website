@@ -1,52 +1,56 @@
 ---
 layout: post
-title:  Z Score Normalization Technique for Hybrid Search
+title:  Introducing z-score normalization technique for hybrid search
 authors:
   - kazabdu
   - gaievski
   - minalsha
-date: 2025-04-22
+  - kolchfa
+date: 2025-03-22
 has_science_table: true
 categories:
   - technical-posts
-meta_keywords: z score normalization, OpenSearch 3.0-beta1, neural search plugin, hybrid search, relevance ranking, search normalization, k-nn search, L2 normalization, how reciprocal rank fusion works
-meta_description: Learn about z score normalization using the Neural Search plugin in OpenSearch 3.0-beta1. Discover how this new approach to hybrid search merges results from multiple query sources for improved relevance.
+meta_keywords: z-score normalization, OpenSearch 3.0-beta1, neural search plugin, hybrid search, relevance ranking, search normalization, k-nn search, L2 normalization, how reciprocal rank fusion works
+meta_description: Learn about z-score normalization in OpenSearch 3.0-beta1. Discover how this new approach to hybrid search merges results from multiple query sources for improved relevance.
 ---
 
-In the world of search engines and machine learning, data normalization plays a crucial role in ensuring fair and accurate comparisons between different features or scores. 
-Hybrid query uses multiple normalization techniques for preparing final results, main two types are score based normalization and rank base combination. In score base normalization, min-max normalization(default normalization technique) doesn’t work well with outliers (Outliers are data points that significantly differ from other observations in a dataset. 
-In the context of normalization techniques like Min-Max scaling and Z-score (Standard Score) normalization, outliers can have a substantial impact on the results). In this blogpost we would introduce another normalization technique called as z-score which was added in OpenSearch 3.0-beta1 release. 
-Let's dive into what Z-score normalization is, why it's important, and how it's being used in OpenSearch.
+In search engines and machine learning, **data normalization** is essential for making fair and accurate comparisons between different features or scores.  
 
-## What is Z-Score Normalization?
+**Hybrid queries** use multiple normalization techniques to prepare final results. The two main types are **score-based normalization** and **rank-based combination**. In score-based normalization, the default method—**min-max normalization**—doesn't handle outliers well. *(Outliers are data points that significantly differ from the rest of a dataset. In techniques like min-max scaling and Z-score normalization, outliers can greatly impact results.)*  
 
-Z-score normalization, also known as standardization, is a method of scaling data using mean and standard deviation. The formula for calculating the Z-score is:
-Z = (X - μ) / σ
-Where:
+In this blog post, we'll introduce **z-score normalization**, a technique added in OpenSearch 3.0-beta1. We'll explore what it is, why it matters, and how OpenSearch uses it.  
+
+## What is z-score normalization?
+
+_Z-score normalization_, also known as _standardization_, is a method of scaling data using mean and standard deviation. The formula for calculating the Z-score is:
+
+Z = (X - μ) / σ,
+
+where:
 
 * X is the original value
-* μ is the mean of the population
+* μ is the population mean
 * σ is the standard deviation of the population
 
-## When to use Z Score?
+## When to use z-score normalization
 
-Considering your index’s structure can help you decide which one to choose since each has advantages of its own. If your documents are more similar to one another and the top-k results of a typical query return documents that are very similar to one another and clustered together within the index, as seen in the graph below, Min-Max may be a better option.
+Your index's structure can help you decide which normalization technique to use, as each has its own advantages. If your documents are highly similar and a typical query returns top-k results that are closely clustered together within the index (as shown in the following graph), min-max normalization may be the better choice.
 
-![Image for min max distribution](/assets/media/blog-images/2025-03-31-zscore-hybrid-search/blogpost1.jpg){: .img-fluid}
+![Image for min-max distribution](/assets/media/blog-images/2025-03-31-zscore-hybrid-search/blogpost1.jpg){: .img-fluid}
 
-However, Z-Score is more suited if the results are more evenly distributed and have some characteristics of a normal distribution, as shown in the example below.
+However, z-score normalization is a better choice if the results are more evenly distributed and follow a pattern similar to a normal distribution, as shown in the following graph.
 
 ![Image for zscore distribution](/assets/media/blog-images/2025-03-31-zscore-hybrid-search/blogpost2.jpg){: .img-fluid}
 
-The basic flow to use between min max and z score looks like below:
+The basic process for choosing between min-max and z-score normalization is outlined in the following diagram.
 
 ![Image for flow](/assets/media/blog-images/2025-03-31-zscore-hybrid-search/blogpost3.png){: .img-fluid}
 
-### How to use Z Score?
+## How to use z-score normalization
 
-To use z_score, create a search pipeline and specify `z_score` as the `technique`:
+To use z-score normalization, create a search pipeline and specify `z_score` as the `technique`:
 
-```
+```json
 PUT /_search/pipeline/z_score-pipeline
 {
     "description": "Zscore processor for hybrid search",
@@ -62,11 +66,9 @@ PUT /_search/pipeline/z_score-pipeline
 }
 ```
 
-Next, create a hybrid query and apply the pipeline to it
+Next, create a hybrid query and apply the pipeline to the query:
 
-```
-
-
+```json
 POST my_index/_search?search_pipeline=z_score-pipeline
 {
    "query": {
@@ -79,11 +81,13 @@ POST my_index/_search?search_pipeline=z_score-pipeline
 }
 ```
 
+## Benchmarking z-score normalization performance
 
+Benchmark experiments were conducted on an OpenSearch cluster with one **r6g.8xlarge** instance as the coordinator node and three **r6g.8xlarge** instances as data nodes. To evaluate z-score normalization comprehensively, we measured two key metrics across five distinct datasets.  
 
 ## Benchmarking Z Score for Development Environment
 
-Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 1 shard. To assess Z Score’s performance comprehensively, we measured two key metrics across five distinct datasets. For information about the datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
+Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 1 shard. To assess Z Score’s performance comprehensively, we measured two key metrics across five distinct datasets. For more information about the datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
 
 ### Sample queries and passages
 
@@ -91,63 +95,66 @@ The following table provides sample queries and passages for each dataset.
 
 |Dataset	|Sample query	|Sample passage	|
 |:---	|:---	|:---	|
-|Scidocs	|CFD Analysis of Convective Heat Transfer Coefficient on External Surfaces of Buildings	|`This paper provides an overview of the application of CFD in building performance simulation for the outdoor environment, focused on four topics...`	|
+|SciDocs	|CFD Analysis of Convective Heat Transfer Coefficient on External Surfaces of Buildings	|`This paper provides an overview of the application of CFD in building performance simulation for the outdoor environment, focused on four topics...`	|
 |FiQA	|“Business day” and “due date” for bills	|`I don't believe Saturday is a business day either. When I deposit a check at a bank's drive-in after 4pm Friday, the receipt tells me it will credit as if I deposited on Monday. If a business' computer doesn't adjust their billing to have a weekday due date ...	`|
-|nq |what is non controlling interest on balance sheet |`In accounting, minority interest (or non-controlling interest) is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. The magnitude of the minority interest in the subsidiary company is generally less than 50% of outstanding shares, or the corporation would generally cease to be a subsidiary of the parent`|
+|NQ |what is non controlling interest on balance sheet |`In accounting, minority interest (or non-controlling interest) is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. The magnitude of the minority interest in the subsidiary company is generally less than 50% of outstanding shares, or the corporation would generally cease to be a subsidiary of the parent`|
 |ArguAna	|Poaching is becoming more advanced A stronger, militarised approach is needed as poaching is becoming ...	|`Tougher protection of Africa\u2019s nature reserves will only result in more bloodshed. Every time the military upgrade their weaponry, tactics and logistic, the poachers improve their own methods to counter ...`	|
 |touche2020	|Is a college education worth it?	|`The resolution used by Pro *assumes* that Australia isn't already a 'significant' country - however, in actual reality, it is. Firstly we should clarify what significance means: 1.a the state or quality of being significant1.b of consequence or..`	|
 
 
-Search relevance was quantified using the industry-standard Normalized Discounted Cumulative Gain at rank 10 (NDCG@10). We also tracked system performance using search latency measurements. This setup provided a strong foundation for evaluating both search quality and operational efficiency.
+Search relevance was quantified using the industry-standard normalized discounted cumulative gain at rank 10 (NDCG@10). We also tracked system performance using search latency measurements. This setup provided a strong foundation for evaluating both search quality and operational efficiency.
 
 
 ### NDCG@10
 
-|dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent diff	|
+The following table compares NDCG@10 scores for hybrid search using min-max normalization and z-score normalization, showing the percent difference in search relevance across five datasets.
+
+|Dataset	|Hybrid (min-max)	|Hybrid (z-score)	|Percent difference	|
 |---	|---	|---	|---	|
-|scidocs	|0.1591	|0.1633	|+2.45%	|
-|fiqa	|0.2747	|0.2768	|+0.77%	|
-|nq	|0.3665	|0.374	|+2.05%	|
-|arguana	|0.4507	|0.467	|+3.62%	|
+|SciDocs	|0.1591	|0.1633	|+2.45%	|
+|FiQA	|0.2747	|0.2768	|+0.77%	|
+|NQ	|0.3665	|0.374	|+2.05%	|
+|ArguAna	|0.4507	|0.467	|+3.62%	|
 |touche2020	|0.841	|0.8542	|+1.54%	|
 |	|	|Average	|2.08%	|
 
 ### Search latency
 
 
-The following table presents search latency measurements in milliseconds at different percentiles (p50, p90, and p99) for both the Hybrid with min max and z score approaches. The *Percent difference* columns show the relative performance impact between these methods.
+The following table presents search latency measurements in milliseconds at different percentiles (p50, p90, and p99) for hybrid search using min-max and z-score normalization. The *Percent difference* columns indicate the relative performance impact between these methods.
 
-<table> <tr> <th></th> <th colspan="3"><b>p50</b></th> <th colspan="3"><b>p90</b></th> <th colspan="3"><b>p99</b></th> </tr> <tr> <td></td> <td><b>Hybrid (min max)</b></td> <td><b>Hybrid (z score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min max)</b></td> <td><b>Hybrid (z score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min max)</b></td> <td><b>Hybrid (z score)</b></td> <td><b>Percent difference</b></td> </tr> <tr> <td>scidocs</td> <td>76.25</td> <td>77.5</td> <td>1.64%</td> <td>99</td> <td>100.5</td> <td>1.52%</td> <td>129.54</td> <td>133.04</td> <td>2.70%</td> </tr> <tr> <td>fiqa</td> <td>80</td> <td>81</td> <td>1.25%</td> <td>104.5</td> <td>105</td> <td>0.48%</td> <td>123.236</td> <td>124</td> <td>0.62%</td> </tr> <tr> <td>nq</td> <td>117</td> <td>117</td> <td>0%</td> <td>140</td> <td>140</td> <td>0%</td> <td>166.74</td> <td>165.24</td> <td>-0.90%</td> </tr> <tr> <td>arguana</td> <td>349</td> <td>349</td> <td>0%</td> <td>382</td> <td>382</td> <td>0%</td> <td>417.975</td> <td>418.475</td> <td>0.12%</td> </tr> <tr> <td>touche2020</td> <td>77</td> <td>77.5</td> <td>0.64%</td> <td>100</td> <td>100.5</td> <td>0.50%</td> <td>140</td> <td>140</td> <td>0%</td> </tr> <tr> <td></td> <td></td> <td><b>Average:</b></td> <td>0.70%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> </tr> </table>
+<table> <tr> <th></th> <th colspan="3"><b>p50</b></th> <th colspan="3"><b>p90</b></th> <th colspan="3"><b>p99</b></th> </tr> <tr> <td></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> </tr> <tr> <td>SciDocs</td> <td>76.25</td> <td>77.5</td> <td>1.64%</td> <td>99</td> <td>100.5</td> <td>1.52%</td> <td>129.54</td> <td>133.04</td> <td>2.70%</td> </tr> <tr> <td>FIQA</td> <td>80</td> <td>81</td> <td>1.25%</td> <td>104.5</td> <td>105</td> <td>0.48%</td> <td>123.236</td> <td>124</td> <td>0.62%</td> </tr> <tr> <td>NQ</td> <td>117</td> <td>117</td> <td>0%</td> <td>140</td> <td>140</td> <td>0%</td> <td>166.74</td> <td>165.24</td> <td>-0.90%</td> </tr> <tr> <td>ArguAna</td> <td>349</td> <td>349</td> <td>0%</td> <td>382</td> <td>382</td> <td>0%</td> <td>417.975</td> <td>418.475</td> <td>0.12%</td> </tr> <tr> <td>touche2020</td> <td>77</td> <td>77.5</td> <td>0.64%</td> <td>100</td> <td>100.5</td> <td>0.50%</td> <td>140</td> <td>140</td> <td>0%</td> </tr> <tr> <td></td> <td></td> <td><b>Average:</b></td> <td>0.70%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> </tr> </table>
 
 ### Conclusions
 
-Our benchmark experiments for development environment highlight the following advantages and trade-offs of Z-score normalization compared to min-max normalization in hybrid search approaches:
+Our benchmark experiments highlight the following advantages and trade-offs of using z-score normalization compared to min-max normalization in hybrid search:
 
-**Search quality (measured using NDCG@10 across four datasets)**:
+- **Search quality (measured using NDCG@10 across four datasets)**:
 
-* Z-score normalization shows a modest improvement in search quality, with an average increase of 2.08% in NDCG@10 scores.
-* This suggests that Z-score normalization may provide slightly better relevance in search results compared to the default normalization technique min-max.
+  * Z-score normalization shows a modest improvement in search quality, with an average increase of 2.08% in NDCG@10 scores.
+  * This suggests that Z-score normalization may provide slightly better relevance in search results compared to the default min-max normalization.
 
-**Latency impact**:
 
-* Z-score normalization shows a small increase in latency across different percentiles, as shown in the following table:
+- **Latency impact**:
 
-|Latency percentile	|Percent difference	|
-|---	|---	|
-|p50	|0.70%	|
-|p90	|0.50%	|
-|p99	|0.50%	|
+  * Z-score normalization shows a small increase in latency across different percentiles, as shown in the following table.
 
-* The positive percentages indicate that Z-score normalization has slightly higher latency compared to min-max normalization, but the differences are minimal (less than 1% on average).
+  |Latency percentile	|Percent difference	|
+  |---	|---	|
+  |p50	|0.70%	|
+  |p90	|0.50%	|
+  |p99	|0.50%	|
 
-**Trade-offs**:
+  * The positive percentages indicate that Z-score normalization has slightly higher latency compared to min-max normalization, but the differences are minimal (less than 1% on average).
 
-* There's a slight trade-off between search quality and latency. Z-score normalization offers a improvement in search relevance (2.08% increase in NDCG@10) at the cost of a marginal increase in latency (0.50% to 0.72% across different percentiles).
+- **Trade-offs**:
 
-**Overall assessment**:
+  * There's a slight trade-off between search quality and latency. Z-score normalization offers an improvement in search relevance (2.08% increase in NDCG@10) at the cost of a marginal increase in latency (0.50% to 0.72% across different percentiles).
 
-* Z-score normalization provides a modest improvement in search quality with a negligible impact on latency.
-* The choice between Z-score and min-max normalization may depend on specific use cases, with Z-score potentially being preferred where improvements in search relevance are valuable and the slight latency increase is acceptable.
+- **Overall assessment**:
+
+  * Z-score normalization provides a modest improvement in search quality with a negligible impact on latency.
+  * The choice between Z-score and min-max normalization may depend on your use case. If search relevance is a priority, z-score normalization may be the better option, especially if your system can tolerate a small latency increase.
 
 ## Benchmarking Z Score for Production Scenario
 
@@ -170,7 +177,6 @@ Benchmark experiments were conducted using an OpenSearch cluster consisting of a
 |arguana	|0.0878	|0.0878	|0%	|
 |touche2020	|0.2364	|0.2318	|-1.95%	|
 |	|	|Average	|-0.59%	|
-
 
 ### Conclusions
 
@@ -195,18 +201,13 @@ Our production experiments highlight the following aspects of Z-score normalizat
 
 These findings indicate that while Z-score normalization remains a viable option, min-max normalization demonstrates more reliable performance in production scenarios. The choice between methods should be based on thorough testing with specific datasets and use cases.
 
-## What’s next?
 
-We are also expanding OpenSearch’s hybrid search capabilities beyond z score by planning the following enhancements to our normalization framework:
+## What's next?
 
-**Custom normalization functions**: Enables you to define your own normalization logic and allows fine-tuning of search result rankings. For more information, see [this issue](https://github.com/opensearch-project/neural-search/issues/994).
-
-These enhancements will provide more control over search result ranking while ensuring reliable and consistent hybrid search outcomes. Stay tuned for more information!
-
-
+We're continuing to enhance OpenSearch's hybrid search capabilities beyond Z-score by planning to implement **custom normalization functions**. These will enable you to define your own normalization logic and allow fine-tuning of search result rankings. For more information, see [this issue](https://github.com/opensearch-project/neural-search/issues/994).
 
 ### References
 
 1. [Normalization](https://www.codecademy.com/article/normalization)
 2. [Hybrid Search 2.0: The Pursuit of Better Search](https://towardsdatascience.com/hybrid-search-2-0-the-pursuit-of-better-search-ce44d6f20c08/)
-3. [[RFC] Z Score Normalization Technique for Normalization Processor](https://github.com/opensearch-project/neural-search/issues/1209)
+3. [[RFC] Z-Score Normalization Technique for Normalization Processor](https://github.com/opensearch-project/neural-search/issues/1209)
