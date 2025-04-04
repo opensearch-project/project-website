@@ -19,13 +19,13 @@ meta_description: Discover how Intel AVX-512 accelerates OpenSearch vector searc
 
 Introduced in OpenSearch 2.18, Intel Advanced Vector Extensions 512 (Intel AVX-512) is a set of new instructions that can accelerate vector workload performance. Vector search benchmarks using OpenSearch Benchmark showed performance boosts of up to 15% for indexing and up to 13% for search tasks when compared to the same workloads' performance using AVX2, a predecessor of the technology.
 
-Increasingly, application builders are using vector search to improve the search quality of their applications. This modern technique involves encoding content into numerical representations (vectors) that can be used to find similarities between content. With the rise in usage of large language models (LLMs) and generative AI, the workloads have increased from millions to billions of vectors. Maintaining ingestion and query performance on such huge workloads becomes critical given the increase in vector data size.
+Increasingly, application builders are using vector search to improve the search quality of their applications. This modern technique involves encoding content into numerical representations (vectors) that can be used to find similarities between content. With the rise in usage of large language models (LLMs) and generative AI, the workloads have increased from millions to billions of vectors. Maintaining ingestion and query performance for such huge workloads becomes critical given the increase in vector data size.
 
-In this blog post, we will share the results of some popular OpenSearch workloads using Intel AVX-512 compared to AVX2, and compare their performance. The benchmarks were run using  [OpenSearch Benchmark (OSB)](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and showcase how Intel AVX-512 provides a performance boost over AVX2 for `fp32` and `fp16` quantization using the Faiss library. The hardware accelerators are widely available on AWS, and 4th Generation Intel Xeon Scalable processors available as r7i were used for these benchmarks. 
+In this blog post, we will share the results of some popular OpenSearch workloads using Intel AVX-512 compared to AVX2 and compare their performance. The benchmarks were run using  [OpenSearch Benchmark](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and showcase how Intel AVX-512 provides a performance boost over AVX2 for `fp32` and `fp16` quantization using the Faiss library. The hardware accelerators are widely available on AWS, and 4th Generation Intel Xeon Scalable processors available as r7i were used for these benchmarks. 
 
 ## The importance of vectorization in OpenSearch vector search
 
-Vector search uses advanced techniques like cosine similarity or Euclidean distance to quickly and efficiently find similar items. This is especially useful in large datasets, in which traditional search methods are slower. Furthermore, vectorized data can be processed in parallel, making it highly scalable and ensuring that as the dataset grows, the search performance remains optimal. Intel AVX-512 can further improve the vector search throughput by processing more vectors. 
+Vector search uses advanced techniques like cosine similarity or Euclidean distance to quickly and efficiently find similar items. This is especially useful in the context of large datasets, for  which traditional search methods are slower. Furthermore, vectorized data can be processed in parallel, making it highly scalable and ensuring that as the dataset grows, search performance remains optimal. Intel AVX-512 can further improve the vector search throughput by processing more vectors. 
 
 ## Why Intel AVX-512 performs better
 
@@ -102,7 +102,7 @@ A greater performance improvement is observed between AVX512 and AVX2 on fp16 be
 
 A general observation across all benchmarks is that AVX-512 improves performance because of a significant reduction in [path length](https://en.wikipedia.org/wiki/Instruction_path_length)---the number of machine instructions needed to execute a workload. 
 
-### COHERE-1M WITH fp32
+### COHERE-1M with fp32
 
 Indexing operations demonstrate a 9% boost, while search throughput and latencies demonstrate a 7% and 6% improvement, respectively, compared to AVX2.
 
@@ -112,7 +112,7 @@ Indexing operations demonstrate a 9% boost, while search throughput and latencie
 
 ![Indexing throughput fp32 for cohere-1m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-1m-indexing-fp32.png){: .img-fluid}
 
-### COHERE-1M WITH SQfp16
+### COHERE-1M with SQfp16
 
 Indexing operations demonstrate an 11% boost, while search operations and latencies both demonstrate a 10% improvement when using AVX-512 compared to AVX2. 
 
@@ -122,7 +122,7 @@ Indexing operations demonstrate an 11% boost, while search operations and latenc
 
 ![Indexing throughput fp16 for cohere-1m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-1m-indexing-fp16.png){: .img-fluid}
 
-### GIST-1M WITH fp32
+### GIST-1M with fp32
 
 Indexing operations demonstrate a 5% boost, while search throughput and latencies demonstrate a 2% and 6% improvement, respectively, compared to AVX2. While search throughput with the `gist-1m` dataset is not comparable to that of the `cohere-1m` dataset, the latency boost is maintained.
 
@@ -132,7 +132,7 @@ Indexing operations demonstrate a 5% boost, while search throughput and latencie
 
 ![Indexing throughput fp32 for gist-1m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/gist-1m-indexing-fp32.png){: .img-fluid}
 
-### GIST-1M WITH SQfp16
+### GIST-1M with SQfp16
 
 Indexing operations demonstrate a 15% boost, while search throughput and latencies both demonstrate a 7% improvement compared to AVX2.
 
@@ -142,17 +142,17 @@ Indexing operations demonstrate a 15% boost, while search throughput and latenci
 
 ![Indexing throughput fp16 for gist-1m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/gist-1m-indexing-fp16.png){: .img-fluid}
 
-### COHERE-10M WITH fp32
+### COHERE-10M with fp32
 
-Indexing operations demonstrate a 8% boost, while search latencies demonstrate a 5% improvement compared to AVX2. Scaling search clients from 20 to 280 shows up to 12% QPS boost with AVX-512.
+Indexing operations demonstrate a 8% boost, while search latencies demonstrate a 5% improvement compared to AVX2. Scaling search clients from 20 to 280 shows a QPS boost of up to 12% with AVX-512.
 
 ![Scaling search QPS fp32 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-search-scaling-fp32.png){: .img-fluid}
 
 ![Indexing throughput fp32 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-indexing-fp32.png){: .img-fluid}
 
-### COHERE-10M WITH SQfp16
+### COHERE-10M with SQfp16
 
-SQfp16 encoding with AVX-512 delivers a 6% performance boost in indexing and a 5% improvement in search latencies. Scaling search clients from 20 to 280 clients for throughput analysis shows up to a 13% QPS boost, with 10% lower latencies on average when using AVX-512.
+SQfp16 encoding with AVX-512 delivers a 6% performance boost in indexing and a 5% improvement in search latencies. Scaling search clients from 20 to 280 for throughput analysis shows a QPS boost of up to a 13%, with 10% lower latencies on average when using AVX-512.
 
 ![Search latencies fp16 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-search-latencies-fp16.png){: .img-fluid}
 
@@ -162,13 +162,13 @@ SQfp16 encoding with AVX-512 delivers a 6% performance boost in indexing and a 5
 
 ![Indexing throughput fp16 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-indexing-fp16.png){: .img-fluid}
 
-These results show how the Intel AVX-512 optimizations in the Faiss library can help improve the performance of vector search in multiple OpenSearch workloads, with different dimensions and space types.
+These results show how the Intel AVX-512 optimizations in the Faiss library can help improve the performance of vector search in multiple OpenSearch workloads with different dimensions and space types.
 
 ## Conclusion
 
 In this blog post, we highlighted some hot functions that appear during vector search using the Faiss library and showed how the Intel AVX-512 accelerator significantly boosts OpenSearch performance by optimizing these functions.  
 
-Our experiments showed a throughput increase of up to 15% for indexing and up to 13% for vector search in OpenSearch, when compared to previous-generation AVX2 accelerators. Gains are seen across multiple vector dimensions and vector space types, and query latencies are improved by 10% on average. These accelerators are present on Intel instances in most cloud environments including AWS and can be used seamlessly with OpenSearch. 
+Our experiments showed a throughput increase of up to 15% for indexing and up to 13% for vector search in OpenSearch, when compared to previous-generation AVX2 accelerators. Gains are seen across multiple vector dimensions and vector space types, and query latencies are improved by 10% on average. These accelerators are present on Intel instances in most cloud environments, including AWS, and can be used seamlessly with OpenSearch. 
 
 To maximize performance in your OpenSearch cluster on AWS, consider using the Intel [C7i, M7i, or R7i instances](https://aws.amazon.com/ec2/instance-types/), which contain the latest AVX-512 accelerators, making them a great choice for vector search workloads. 
 

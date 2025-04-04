@@ -8,5 +8,5 @@ title: 'OpenSearch Community Member: Mulugeta Mammo'
 linkedin: mulugetamammo
 ---
 
-**Mulugeta Mammo** is a Senior Software Engineer, currently leading the OpenSearch Optimization team at Intel.
+**Mulugeta Mammo** is a Senior Software Engineer currently leading the OpenSearch Optimization team at Intel.
 
