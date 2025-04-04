@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Boost OpenSearch Vector Search performance with Intel AVX-512"
+title:  "Boost OpenSearch vector search performance with Intel AVX-512"
 authors:
   - assanedi
   - ashankaran
