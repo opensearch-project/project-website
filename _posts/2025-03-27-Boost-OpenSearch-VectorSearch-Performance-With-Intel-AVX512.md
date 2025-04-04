@@ -96,7 +96,7 @@ The next section describes the results of benchmarks run with AVX2 and AVX-512 v
 
 The results show that the time spent on hot functions of the distance calculation is significantly reduced when using AVX-512, and the OpenSearch cluster shows higher throughput for search and indexing. 
 
-SQfp16 encoding provided by the Faiss library further helps with faster computation and efficient storage by compressing the 32-bit floating-point vectors into 16-bit floating-point format. The smaller memory footprint allows for more vectors to be stored in the same amount of memory. Additionally, the operations on the 16-bit floats are typically faster than those on 32-bit floats, leading to faster similarity searches. 
+SQfp16 encoding provided by the Faiss library further helps with faster computation and efficient storage by compressing the 32-bit floating-point vectors into 16-bit floating-point format. The smaller memory footprint allows for more vectors to be stored in the same amount of memory. Additionally, the operations on the 16-bit floats are typically faster than those on the 32-bit floats, leading to faster similarity searches. 
 
 A greater performance improvement is observed between AVX-512 and AVX2 on FP16 because of code optimizations and the use of AVX-512 intrinsics in Faiss, which are not present in AVX2. 
 
