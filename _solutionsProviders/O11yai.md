@@ -78,5 +78,8 @@ products:
   - url: 'https://o11yai.com/'
     name: 'Observability Centre of Excellence'
     description: 'Quarterly on-site sessions to review your observability roadmap, ensure alignment with business goals, and increase team engagement.'
+  - url: 'https://o11yai.com/generative-ai-search-solutions/'
+    name: 'Generative AI Search Enablement'
+    description: 'Accelerate your adoption of LLM-powered search with expert-led consulting, implementation, and integration support. We help teams build secure, performant generative search workflows using OpenSearch, Elasticsearch, and vector-based retrieval. From vector index tuning to LLM orchestration and RAG pipelines, we deliver practical solutions tailored to your data and domain.'
 
 ---
