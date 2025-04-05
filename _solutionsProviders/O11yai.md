@@ -14,6 +14,8 @@ description: |
 
   Our approach focuses on empowering your teams with tailored solutions, actionable guidance, and the tools to monitor, optimize, and innovate effectively. From setup to long-term optimization, we’re here to make sure your observability investments deliver measurable business value. O11yAI is a UK-based consultancy with a global reach, serving industries that demand reliability, scalability, and speed.
 
+  As a featured OpenSearch training partner, we help teams rapidly gain operational confidence through structured, expert-led training built for real-world observability.
+
 link: https://o11yai.com/
 
 contact: https://o11yai.com/get-in-touch/
@@ -67,9 +69,9 @@ products:
   - url: 'https://o11yai.com/'
     name: 'Cost Management and Optimization'
     description: 'Leverage FinOps best practices to optimize data ingestion, manage operational costs, and maximize the value of your observability tools.'
-  - url: 'https://o11yai.com/'
-    name: 'Observability Training and Support'
-    description: 'Upskill your teams with hands-on training sessions, certifications, and workshops designed to embed observability practices into your organization.'
+  - url: 'https://o11yai.com/opensearch-operations-training-program/'
+    name: 'OpenSearch Training Programs'
+    description: 'O11yAI offers structured OpenSearch training programs for DevOps, SREs, platform, and security teams — from foundational concepts to advanced performance tuning, scaling, and machine learning. Our Level 1 and Level 2 courses include hands-on labs, real-world troubleshooting, and live remote delivery. Post-training support is also available via Slack and follow-up consulting.'
   - url: 'https://o11yai.com/'
     name: 'Observability Centre of Excellence'
     description: 'Quarterly on-site sessions to review your observability roadmap, ensure alignment with business goals, and increase team engagement.'
