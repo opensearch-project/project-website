@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Enhancing Query Analysis Capabilities within OpenSearch Query Insights"
+title: "What's new in OpenSearch Query Insights: Advanced grouping, dashboards, and historical analysis"
 authors:
    - chenyang
    - kolchfa
@@ -12,17 +12,17 @@ meta_keywords: OpenSearch query insights, query grouping, query similarity, quer
 meta_description: Explore recent advancements in OpenSearch Query Insights, featuring query grouping by similarity, a dedicated Dashboards plugin for visualization and configuration, a local index exporter for historical analysis, and new plugin health monitoring capabilities.
 ---
 
-OpenSearch Query Insights provides essential visibility into search query performance, helping teams understand how queries execute and consume resources within their clusters. Since introducing [Query Insights](https://opensearch.org/blog/query-insights/), our goal has been to equip users with tools to identify performance bottlenecks and optimize queries, ultimately improving the end-user search experience. Effective query analysis is fundamental to maintaining efficient search operations.
+OpenSearch Query Insights gives you essential visibility into how search queries perform, helping you understand how queries run and how they use cluster resources. Since introducing [Query Insights](https://opensearch.org/blog/query-insights/), we've aimed to provide tools that help you identify performance bottlenecks and optimize your queries---ultimately improving the search experience for your users. Analyzing queries effectively is key to maintaining fast, efficient search operations.
 
-Building on that foundation and incorporating user feedback, we have continued to develop Query Insights. This post highlights several significant new features designed to deliver deeper analytical capabilities through advanced grouping, improve usability via a dedicated dashboard interface, enable historical analysis with new export options, and provide better operational monitoring for the Query Insights system itself.
+Based on that foundation and shaped by your feedback, we've continued to develop Query Insights. This post introduces several new features that bring deeper analytical capabilities through advanced query grouping, improved usability with a dedicated dashboard, historical analysis using export options, and better operational monitoring of the Query Insights system itself.
 
-### Refining Analysis with Query Grouping by Similarity
+## Grouping similar queries to improve analysis
 
-A common observation when analyzing Top N query lists (ranked by latency, CPU, or memory usage) is the prevalence of multiple entries representing structurally similar queries that differ only in literal parameter values. This can obscure other distinct, resource-intensive queries deserving attention.
+When reviewing top N query lists---ranked by latency, CPU usage, or memory---you might notice that many entries represent queries that are structurally similar but differ only in literal parameter values. These repeated patterns can make it harder to spot other unique, resource-intensive queries that need attention.
 
-To address this, Query Insights now supports **Query Grouping by Similarity**. This feature allows the system to aggregate queries based on their fundamental structure, abstracting away variations in specific search terms or filter values.
+To address this, Query Insights now supports **query grouping by similarity**. This feature lets the system group queries based on their core structure, ignoring variations in specific values like search terms or filters.
 
-**Mechanism:** When enabled, Query Insights parses incoming queries to identify their core operational structure. For instance, consider these two queries targeting the `user_id` field:
+**How it works:** When enabled, Query Insights analyzes incoming queries to extract their core structure. For example, these two queries target the same field but use different values:
 
 ```json
 // Query 1
@@ -32,12 +32,11 @@ To address this, Query Insights now supports **Query Grouping by Similarity**. T
 { "query": { "term": { "user_id": "valueB" } } }
 ```
 
-With similarity grouping activated, both would be categorized under the same group defined by the `query -> term -> user_id` structure. Query Insights then reports aggregate metrics for this group, such as the average latency, total execution count, and combined resource usage, alongside a representative example query from the group.
+With similarity grouping enabled, both queries are placed in the same group, defined by the structure `query → term → user_id`. Query Insights then shows aggregate metrics for the group, such as average latency, total execution count, and combined resource usage, along with a representative query example.
 
-**Configuration:** To enable this feature, update the cluster settings. The default behavior (`none`) performs no grouping.
+**How to enable it:** You can turn on similarity grouping by updating your cluster settings. The default value (`none`) disables grouping:
 
 ```json
-// Enable grouping by similarity
 PUT _cluster/settings
 {
   "persistent" : {
@@ -46,68 +45,81 @@ PUT _cluster/settings
 }
 ```
 
-Optionally, you can also configure attributes like whether field names or types contribute to the similarity structure, providing finer control over grouping behavior. Refer to the [Grouping top N queries documentation](https://opensearch.org/docs/latest/observing-your-data/query-insights/grouping-top-n-queries/) for advanced configuration.
+You can also fine-tune grouping behavior by configuring whether field names or types influence the similarity structure. For more information, see [Grouping top N queries](https://opensearch.org/docs/latest/observing-your-data/query-insights/grouping-top-n-queries/).
 
-**Benefit:** This approach shifts the focus from individual query instances to underlying query patterns, facilitating more effective root cause analysis and optimization of common, high-impact query structures.
+**Why it matters:** This feature shifts the focus from individual queries to shared query patterns. It helps you find and improve high-impact query structures more effectively, making root cause analysis and performance tuning easier.
 
-### Visualization and Interaction: The Query Insights Dashboards Plugin
+## Explore query insights using a visual dashboard
 
-While the Query Insights API provides programmatic access to performance data, a visual interface often simplifies exploration and configuration. We are pleased to introduce the **Query Insights Dashboards plugin**, a dedicated interface within OpenSearch Dashboards.
+The Query Insights API gives you direct access to performance data, but a visual interface can make it easier to spot patterns and fine-tune settings. That’s why we’ve added **Query Insights to OpenSearch Dashboards**---a dedicated experience built into the Dashboards interface.
 
-This plugin offers several key functionalities:
+This view includes several key features:
 
-1.  **Top N Queries View:** Presents a sortable and filterable list of the top N queries or query groups based on selected metrics (latency, CPU, memory). Users can filter by time range, indexes, search type, and coordinator node ID. Key performance indicators are displayed clearly in a tabular format.
-![Query Insights Dashboards - Top Queries Overview](/assets/media/blog-images/2025-03-31-query-insights-updates/top-queries-overview.png)
-2.  **Query Details Page:** Selecting a query ID navigates to a detailed view. For individual queries, this includes the full query body, specific execution timestamps, resource consumption breakdowns (CPU, memory), phase latencies, and associated metadata (index, node, shards). For query groups, it displays aggregate statistics (e.g., average latency, total count) and provides details for a sample query representative of the group.
-![Query Insights Dashboards - Details Page](/assets/media/blog-images/2025-03-31-query-insights-updates/top-queries-details.png)
-3.  **Configuration Interface:** Offers a user interface within the dashboard as an alternative to API-based configuration. Users can enable/disable Top N monitoring per metric, define the monitoring window size (`window_size`) and the number of queries to track (`top_n_size`), select the grouping strategy (`group_by`), and configure data export settings – all through intuitive controls.
-![Query Insights Dashboards - Configuration Page](/assets/media/blog-images/2025-03-31-query-insights-updates/query-insights-dashboards-config.png)
+- **Top N queries view:** See a sortable, filterable list of the top N queries or query groups, ranked by metrics like latency, CPU usage, or memory. You can filter results by time range, index, search type, and coordinator node ID. Key performance data is displayed in a clear table layout, as shown in the following image.  
+   ![Query Insights Dashboards - Top Queries Overview](/assets/media/blog-images/2025-03-31-query-insights-updates/top-queries-overview.png)
 
+- **Query details page:** Click a query ID to view detailed information. For individual queries, you'll see the full query body, execution timestamps, CPU and memory usage, phase-level latency, and metadata such as index, node, and shards. For grouped queries, the page presents aggregate metrics like average latency and total count, along with a representative query example, as shown in the following image.  
+   ![Query Insights Dashboards - Details Page](/assets/media/blog-images/2025-03-31-query-insights-updates/top-queries-details.png)
 
-**Benefit:** The Dashboards plugin significantly lowers the barrier to entry for utilizing Query Insights, offering an accessible way for administrators and developers to monitor performance, diagnose issues, and manage settings without relying solely on API interactions. Check out the [Query insights dashboards documentation](https://opensearch.org/docs/latest/observing-your-data/query-insights/query-insights-dashboard/) for setup and usage guidance.
+- **Configuration interface:** Adjust settings directly from the dashboard instead of using the API. You can enable or disable monitoring for specific metrics, set the monitoring window (`window_size`), control how many queries to track (`top_n_size`), choose the grouping strategy (`group_by`), and configure export settings—all through simple, interactive controls, as shown in the following image.  
+   ![Query Insights Dashboards - Configuration Page](/assets/media/blog-images/2025-03-31-query-insights-updates/query-insights-dashboards-config.png)
 
-### Enabling Historical Analysis: The Local Index Exporter
+**Why it matters:** Query Insights in OpenSearch Dashboards makes it easier to monitor search performance---whether you're an administrator monitoring query performance or a developer investigating specific query issues. You can quickly visualize data, explore individual queries, and adjust settings without needing to interact with the API. For setup instructions and usage tips, see [Query Insights dashboards](https://opensearch.org/docs/latest/observing-your-data/query-insights/query-insights-dashboard/).
 
-Real-time monitoring addresses immediate performance concerns, but understanding trends and investigating past incidents requires historical data. The **Local Index Exporter** capability addresses this need.
+## Analyze historical trends using the local index exporter
 
-When configured, Query Insights persists Top N query records (individual or grouped) into dedicated OpenSearch indexes within the same cluster.
+Real-time monitoring helps you address performance issues as they happen. However, to understand long-term trends or investigate past incidents, you need access to historical data. The **local index exporter** helps you achieve this.
 
-**Mechanism:** Set the exporter type to `local_index` via cluster settings. The system then automatically creates daily indexes using a standardized naming convention (e.g., `top_queries-YYYY.MM.dd-hashcode`). Data lifecycle management is supported through the `delete_after_days` setting, which configures automatic deletion of these indexes after a specified retention period (defaulting to 7 days).
+When configured to persist historical data, Query Insights stores Top N query records---either individual queries or grouped ones---in dedicated OpenSearch indexes within your cluster.
+
+**How it works:** Set the exporter type to `local_index` in your cluster settings. OpenSearch then creates a new index each day using a standardized naming format, such as `top_queries-YYYY.MM.dd-hashcode`. You can control data retention using the `delete_after_days` setting, which removes older indexes after a defined number of days (default is `7`). For example, to configure the local index exporter to store latency data, use the following request. Optionally, you can set the retention period to a custom value (in this example, 30 days):
 
 ```json
-// Configure the local index exporter (example for latency data)
 PUT _cluster/settings
 {
   "persistent" : {
     "search.insights.top_queries.exporter.type" : "local_index",
-    // Optional: Set retention period to 30 days
-    "search.insights.top_queries.exporter.delete_after_days" : 30
+        "search.insights.top_queries.exporter.delete_after_days" : 30
   }
 }
 ```
 
-**Benefit:** Storing performance data locally allows for retrospective analysis. Historical Top N data can be queried using the standard `/_insights/top_queries` API endpoint by specifying `from` and `to` timestamp parameters. For example, to retrieve the top latency queries recorded between 10:00 AM and 12:00 PM UTC on November 5th, 2024, you would send a request like this:
+**Why it matters:** By storing data locally, you can query historical Top N data through the same `/_insights/top_queries` API—just add `from` and `to` timestamp parameters. For example, to get latency-related queries between 10:00 AM and 12:00 PM UTC on November 5, 2024, run the following request:
+
 ```
 GET /_insights/top_queries?type=latency&from=2024-11-05T10:00:00.000Z&to=2024-11-05T12:00:00.000Z
 ```
-This capability to query specific historical windows is crucial for trend analysis over time, conducting post-mortem investigations into past performance degradations, and informing capacity planning based on historical load patterns. Further details on configuration and querying are available in the [Exporting top N query data section](https://opensearch.org/docs/latest/observing-your-data/query-insights/top-n-queries/#exporting-top-n-query-data).
 
-### Monitoring Plugin Health and Performance
+This makes it easy to track performance over time, conduct post-incident reviews, and make data-driven decisions about scaling and capacity planning. For more information, see [Exporting top N query data](https://opensearch.org/docs/latest/observing-your-data/query-insights/top-n-queries/#exporting-top-n-query-data).
 
-As Query Insights performs its data collection, aggregation, and export functions, it consumes cluster resources. To ensure its own operational health and diagnose potential issues related to the plugin itself, we have introduced dedicated monitoring capabilities:
+## Monitor plugin health and resource usage
 
-1.  **Health Stats API:** The `GET /_insights/health_stats` endpoint returns operational metrics for the Query Insights plugin instance on each node. This data includes the status and configuration of its internal thread pool (`query_insights_executor`), the current size of the queue buffering incoming query records (`QueryRecordsQueueSize`), performance statistics for internal caches (e.g., `FieldTypeCacheStats` used during grouping), and resource usage details specific to the Top N collectors.
-2.  **OpenTelemetry Error Metrics:** When OpenTelemetry metric collection is enabled in the cluster, Query Insights emits specific error counters. These metrics track operational failures within the plugin, such as `LOCAL_INDEX_READER_PARSING_EXCEPTIONS`, `DATA_INGEST_EXCEPTIONS`, `LOCAL_INDEX_EXPORTER_BULK_FAILURES`, and `QUERY_CATEGORIZE_EXCEPTIONS`.
+The query monitoring functionality is provided by the Query Insights plugin. As Query Insights collects, aggregates, and exports data, it naturally uses some cluster resources. To help you monitor its internal health and identify issues early, Query Insights now includes dedicated monitoring features:
 
-**Benefit:** These monitoring points provide transparency into the plugin's internal state and resource footprint. They are valuable diagnostic tools if insights data seems incomplete or delayed, or if the plugin itself is suspected of contributing to cluster load. The [Query Insights plugin health documentation](https://opensearch.org/docs/latest/observing-your-data/query-insights/health/) provides a full list of metrics and API fields.
+1. **Health Stats API:** Use the `GET /_insights/health_stats` endpoint to retrieve operational metrics from each node running the plugin. This includes:
+   - Status and settings for the internal thread pool (`query_insights_executor`)
+   - Current size of the queue that buffers incoming query records (`QueryRecordsQueueSize`)
+   - Cache performance stats, such as `FieldTypeCacheStats` used during query grouping
+   - Resource usage for Top N query collectors
 
+2. **OpenTelemetry error metrics:** If OpenTelemetry is enabled in your cluster, Query Insights reports plugin-specific error counters. These metrics track operational failures within the plugin, such as
+   - `LOCAL_INDEX_READER_PARSING_EXCEPTIONS`
+   - `DATA_INGEST_EXCEPTIONS`
+   - `LOCAL_INDEX_EXPORTER_BULK_FAILURES`
+   - `QUERY_CATEGORIZE_EXCEPTIONS`
 
-### Conclusion: A More Cohesive Query Analysis Workflow
+**Why it matters:** These monitoring tools provide visibility into the plugin's behavior and resource impact. They're especially useful if you notice missing insights data, delays in reporting, or suspect that Query Insights might be affecting overall cluster performance.
 
-OpenSearch Query Insights continues to evolve, driven by the goal of providing clear, actionable visibility into search query performance. The recent enhancements—**Query Grouping by Similarity**, the **Query Insights Dashboard**, the **Local Index Exporter**, and **Plugin Health Monitoring**—represent significant steps toward achieving this goal.
+To explore all available metrics and fields, see  [Query Insights plugin health](https://opensearch.org/docs/latest/observing-your-data/query-insights/health/).
 
-More importantly, these features are designed to function cohesively, creating a more integrated and effective workflow. The dashboard now serves as a central point for both visualizing Top N queries (or groups) and intuitively configuring features like grouping and the local exporter. This exporter, in turn, enables powerful historical analysis, allowing you to query specific time ranges via the enhanced API using data persisted directly within your cluster. Throughout this process, the health monitoring tools provide confidence that the insights system itself is operating reliably.
+## Conclusion: A more cohesive query analysis workflow
 
-Together, these advancements provide a more complete and user-friendly toolkit for understanding and optimizing query behavior. Whether you are diagnosing a sudden latency spike using historical data, identifying common inefficient query patterns through grouping, or simply configuring monitoring via the new dashboard interface, Query Insights offers enhanced capabilities to maintain performant and efficient search operations.
+Query Insights continues to evolve, driven by one clear goal: providing actionable visibility into search query performance. The latest enhancements---**query grouping by similarity**, the **Query Insights in OpenSearch Dashboards**, the **local index exporter**, and **plugin health monitoring**---represent major steps toward that goal.
 
-We encourage you to explore these new features by updating to the latest OpenSearch versions and installing or updating the Query Insights and Query Insights Dashboards plugins. Detailed usage instructions and configuration options are available in the [OpenSearch Query Insights documentation](https://opensearch.org/docs/latest/observing-your-data/query-insights/index/). Your feedback on these enhancements is invaluable as we continue to refine search observability within OpenSearch.
+These features are designed to function cohesively, creating a more integrated and effective workflow. The dashboard provides a central place to visualize top N queries or query groups and to configure monitoring settings with just a few clicks. The local index exporter enables historical analysis, letting you explore trends or investigate past issues through persisted data. Throughout this process, the health monitoring tools provide confidence that the insights system itself is operating reliably.
+
+Together, these improvements give you a more complete and user-friendly workflow for understanding and optimizing query behavior. Whether you're investigating a latency spike using historical data, identifying recurring patterns in inefficient queries using grouping, or configuring monitoring parameters in OpenSearch Dashboards, Query Insights now makes it easier and more intuitive to tune your search.
+
+To get started, update to the latest OpenSearch version, which provides the newest Query Insights and Query Insights Dashboards plugins. For setup guides, API references, and examples, check out the [Query Insights documentation](https://opensearch.org/docs/latest/observing-your-data/query-insights/index/). 
+
+As always, your feedback helps us continue improving observability in OpenSearch. We encourage you to explore this new functionality and share your thoughts on the [OpenSearch forum](https://forum.opensearch.org/).
