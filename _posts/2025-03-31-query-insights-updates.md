@@ -79,7 +79,7 @@ PUT _cluster/settings
 {
   "persistent" : {
     "search.insights.top_queries.exporter.type" : "local_index",
-        "search.insights.top_queries.exporter.delete_after_days" : 30
+    "search.insights.top_queries.exporter.delete_after_days" : 30
   }
 }
 ```
