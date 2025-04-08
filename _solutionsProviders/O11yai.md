@@ -10,9 +10,11 @@ main_office_location:  |
   United Kingdom
 
 description: |
-  O11yAI is your trusted partner in transforming observability into a strategic advantage. We help organizations implement, optimize, and scale observability frameworks to improve system reliability, reduce operational costs, and unlock actionable insights. <br/><br/>
+  O11yAI is your trusted partner in turning observability into a strategic advantage. We help organizations implement, optimize, and scale observability frameworks using OpenSearch and other open technologies — improving system reliability, reducing costs, and unlocking actionable insights.
 
-  Our approach focuses on empowering your teams with tailored solutions, actionable guidance, and the tools to monitor, optimize, and innovate effectively. From setup to long-term optimization, we’re here to make sure your observability investments deliver measurable business value. O11yAI is a UK-based consultancy with a global reach, serving industries that demand reliability, scalability, and speed.
+  Our approach combines hands-on training, tailored implementation, and domain-specific consulting across observability, performance engineering, and generative AI search. From onboarding and upskilling to long-term optimization, we equip your teams with the tools, practices, and support to monitor, innovate, and operate at scale.
+
+  O11yAI is a UK-based consultancy with global reach, trusted by teams in industries where reliability, scalability, and speed are mission-critical.
 
 link: https://o11yai.com/
 
@@ -70,8 +72,14 @@ products:
   - url: 'https://o11yai.com/'
     name: 'Observability Training and Support'
     description: 'Upskill your teams with hands-on training sessions, certifications, and workshops designed to embed observability practices into your organization.'
+  - url: 'https://o11yai.com/opensearch-operations-training-program/'
+    name: 'OpenSearch Training Programs'
+    description: 'O11yAI offers structured OpenSearch training programs for DevOps, SREs, platform, and security teams — from foundational concepts to advanced performance tuning, scaling, and machine learning. Our Level 1 and Level 2 courses include hands-on labs, real-world troubleshooting, and live remote delivery. Post-training support is also available via Slack and follow-up consulting.'
   - url: 'https://o11yai.com/'
     name: 'Observability Centre of Excellence'
     description: 'Quarterly on-site sessions to review your observability roadmap, ensure alignment with business goals, and increase team engagement.'
+  - url: 'https://o11yai.com/generative-ai-search-solutions/'
+    name: 'Generative AI Search Enablement'
+    description: 'Accelerate your adoption of LLM-powered search with expert-led consulting, implementation, and integration support. We help teams build secure, performant generative search workflows using OpenSearch, Elasticsearch, and vector-based retrieval. From vector index tuning to LLM orchestration and RAG pipelines, we deliver practical solutions tailored to your data and domain.'
 
 ---
