@@ -70,7 +70,7 @@ products:
     name: 'Cost Management and Optimization'
     description: 'Leverage FinOps best practices to optimize data ingestion, manage operational costs, and maximize the value of your observability tools.'
   - url: 'https://o11yai.com/'
-    name: 'c'
+    name: 'Observability Training and Support'
     description: 'Upskill your teams with hands-on training sessions, certifications, and workshops designed to embed observability practices into your organization.'
   - url: 'https://o11yai.com/opensearch-operations-training-program/'
     name: 'OpenSearch Training Programs'
