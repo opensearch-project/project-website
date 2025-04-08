@@ -158,7 +158,7 @@ SQfp16 encoding with AVX-512 delivers a 6% performance boost in indexing and a 5
 
 ![Search latencies fp16 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-search-latencies-fp16.png){: .img-fluid}
 
-![Scaling search QPS fp16 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-search-scaling-fp16.png){: .img-fluid}
+![Scaling search QPS fp16 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-search-qps-scaling-fp16.png){: .img-fluid}
 
 ![Scaling search latencies fp16 for cohere-10m dataset](/assets/media/blog-images/2025-03-24-Boost-OpenSearch-VectorSearch-Performance-With-Intel-AVX512/cohere-10m-search-latencies-scaling-fp16.png){: .img-fluid}
 
