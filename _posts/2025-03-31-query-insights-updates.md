@@ -51,7 +51,7 @@ You can also fine-tune grouping behavior by configuring whether field names or t
 
 ## Explore query insights using a visual dashboard
 
-The Query Insights API gives you direct access to performance data, but a visual interface can make it easier to spot patterns and fine-tune settings. That's why **we've added Query Insights to OpenSearch Dashboards**---a dedicated experience built into the Dashboards interface.
+The Query Insights API gives you direct access to performance data, but a visual interface can make it easier to spot patterns and fine-tune settings. That's why **we've added Query Insights to OpenSearch Dashboards**, a dedicated experience built into the Dashboards interface.
 
 This interface includes several key features:
 
