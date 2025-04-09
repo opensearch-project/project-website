@@ -19,7 +19,7 @@ In the evolving world of search technology, OpenSearch stands out with its power
 
 #### Lexical Search (BM25) 
 
-BM25 (Best Matching 25) is a probabilistic retrieval framework used as the default scoring algorithm in many search engines, including OpenSearch. In OpenSearch, BM25 is implemented as part of the standard full-text search capabilities. It can be easily applied across multiple fields using the multi match, range or term queries allowing for field-specific boosting and flexible matching criteria. This makes it a versatile choice for a wide range of search applications, from e-commerce product searches to document retrieval systems.
+BM25 (Best Matching 25) is a probabilistic retrieval framework used as the default scoring algorithm in OpenSearch. It is implemented as part of the standard full-text search capabilities. Queries like multi match, range or term queries allowing for field-specific boosting and flexible matching criteria uses BM25 scoring technique. This makes it a versatile choice for a wide range of search applications, from e-commerce product searches to document retrieval systems.
 
 API Request:
 
@@ -39,8 +39,7 @@ GET /bookstore_catalog/_search
 
 #### Semantic Search
 
-
-Semantic search in OpenSearch represents a significant advancement in search technology, leveraging the power of machine learning and natural language processing. This approach uses dense vector embeddings to represent both documents and queries in a high-dimensional space, allowing for semantic similarity comparisons that go beyond simple keyword matching. At the core of semantic search is the concept of text embeddings - dense vector representations of text that capture semantic meaning. These embeddings are typically generated using large language models trained on vast corpora of text. In OpenSearch, these embeddings are stored as dense vector fields and can be efficiently searched using k nearest neighbor algorithms. At search time, the user's query is similarly transformed into a vector embedding. The system then finds documents whose vector representations are closest to the query vector, typically using cosine similarity or Euclidean distance.
+Semantic search in OpenSearch represents a significant advancement in search technology, leveraging the power of machine learning and natural language processing. This approach uses dense vector embeddings to represent both documents and queries in a high-dimensional space, allowing for semantic similarity comparisons that go beyond simple keyword matching. At the core of semantic search is the concept of text embeddings - dense vector representations of text that capture semantic meaning. These embeddings are typically generated using large language models trained on vast corpora of text. In OpenSearch, these embeddings are stored as dense vector fields and can be efficiently searched using k nearest neighbor algorithms. At search time, the user's query is similarly transformed into a vector embedding. The system then finds documents whose vector representations are closest to the query vector, using various similarity measures such as inner product, cosine similarity, and others to calculate the proximity between the query and document embeddings.
 
 API Request:
 
@@ -71,17 +70,19 @@ This query uses:
 
 In summary, lexical search algorithms like BM25 provide precise keyword matching. They are fast and efficient but do not incorporate semantic meaning. On the other hand, semantic search understands meaning and context, handling natural language queries well. However, it may miss important keywords, especially for fact-based queries. As we enter the era of Generative AI, an increasing number of use cases require both keyword matching and semantic understanding. Hybrid search is OpenSearch's solution to address this need, combining the strengths of both approaches.
 
-### 2. Hybrid Search: Solving the Problem and Options
+### 2. Hybrid Search: Combining Lexical and Semantic searches
 
-Hybrid search often involves combining scores from different search methods (e.g., BM25 for keyword search and semantics for vector search). However, these scores can have vastly different scales and distributions. Normalization helps to bring these scores into a common range, allowing for fair comparison and combination. OpenSearch offers various normalization techniques that can be broadly categorized into two main types: Score-based and Rank-based. Let's explore these categories and their specific techniques in detail.
+Hybrid search integrates results from multiple search methods, such as BM25 for keyword matching and vector search for semantic understanding, to provide more comprehensive and accurate results. However, these scores can have vastly different scales and distributions. Normalization helps to bring these scores into a common range, allowing for fair comparison and combination. OpenSearch offers various normalization techniques that can be broadly categorized into two main types: Score-based and Rank-based. Let's explore these categories and their specific techniques in detail.
 
-Score-based techniques directly manipulate the raw scores returned by search algorithms. These methods are useful when the actual score values carry meaningful information that should be preserved in some form. There are 3 different types of score based normalization technique: Min max, L2 and z_score (will be released in 3.0-beta1). In this section, we would talk about min max normalization.
+Score-based techniques directly manipulate the raw scores returned by search algorithms. These methods are useful when the actual score values carry meaningful information that should be preserved in some form. There are 3 different types of score based normalization technique: Min max, L2 and z-score (will be released in 3.0). In this section, we would talk about min max normalization.
 
 #### Hybrid Search with Min-Max Normalization Technique
 
-Min-Max normalization scales scores to a fixed range, typically [0, 1], preserving the relative distribution of scores.
+Min-Max normalization scales individual subquery result scores to a fixed range, typically [0, 1], preserving the relative distribution of scores. For example, lexical search results are scored on a BM25 scale, which does not have a defined range. After normalization, these scores will be within a range of 0 to 1.
 
+Formula to calculate min max normalization:
 `normalized_score = (score - min_score) / (max_score - min_score)`
+Where `score` is the subquery's score, and `min_score` and `max_score` are the subquery's minimum and maximum scores respectively.
 
 First, we need to define a search pipeline for min-max normalization:
 
@@ -117,11 +118,6 @@ Use the same search pipeline with the search request
 ```
 GET /bookstore_catalog/_search?search_pipeline=min_max-search-pipeline
 {
-  "_source": {
-    "exclude": [
-      "title_embedding"
-    ]
-  },
   "query": {
     "hybrid": {
       "queries": [
@@ -160,14 +156,14 @@ How it works:
 
 1. OpenSearch executes both the `match` and `neural` queries.
 2. The `min_max-search-pipeline` normalizes scores using min-max scaling.
-3. Normalized scores are combined using a weighted arithmetic mean (30% lexical, 70% neural in this case which were defined in the search pipeline).
+3. Normalized scores are combined using a weighted arithmetic mean to determine the final hybrid score (30% lexical, 70% neural in this case which were defined in the search pipeline).
 
 
 **When to use score normalization:**
 
 * **When You Can Calibrate or Train Weights:** If you have a reliable way to normalize scores (e.g. using min-max or L2 norms) and **tune the weight of each retrieval method**, a linear score combination can slightly outperform rank fusion in relevance metrics
 * **Emphasizing a Superior Signal:** Score normalization allows you to explicitly emphasize the more reliable model for your use case. In a general document search, some queries might be answered mostly by keyword matching while others need semantic understanding. By adjusting weights (or using query-dependent logic), you can give BM25 or the neural model more influence when appropriate. 
-* **Controlled Merging (Fewer False Positives):** A normalized linear combination gives more continuous control over how results merge, which can reduce the chance of a less relevant document being boosted solely due to one method. For instance, if a semantic model returns a somewhat off-target result at a high rank, RRF would still elevate it because of its rank. A score-based approach can mitigate this by yielding a lower normalized relevance score for that document (since BM25 might give it 0, and the semantic score alone may not be enough to beat other combined scores). Thus, in a well-tuned hybrid system, score normalization can lead to a more precise top-10 ranking, as each document’s final score reflects a balance of both lexical and semantic relevance.
+* **Controlled Merging (Fewer False Positives):** A normalized linear combination gives more control over how results merge, which can reduce the chance of a less relevant document being boosted solely due to one method. For instance, if a semantic model returns a somewhat off-target result at a high rank, RRF(mentioned in the next section) would still elevate it because of its rank. A score-based approach can mitigate this by yielding a lower normalized relevance score for that document (since BM25 might give it 0, and the semantic score alone may not be enough to beat other combined scores). Thus, in a well-tuned hybrid system, score normalization can lead to a more precise top-10 ranking, as each document’s final score reflects a balance of both lexical and semantic relevance.
 
 
 
@@ -192,16 +188,9 @@ PUT /_search/pipeline/rrf-pipeline
 }
 ```
 
-
-
 ```
 GET /bookstore_catalog/_search?search_pipeline=rrf-pipeline
 {
-  "_source": {
-    "exclude": [
-      "title_embedding"
-    ]
-  },
   "query": {
     "hybrid": {
       "queries": [
@@ -237,7 +226,7 @@ This query uses:
 How RRF works:
 
 
-1. **Sort documents by score**: Each query method sorts documents by score on every shard.
+1. **Sort documents by score**: Each query method sorts documents by score.
 2. **Assign rank positions**: Documents are ranked based on score for each query.
 3. **Apply the RRF formula**: The RRF score is computed using the following formula:
 
@@ -256,6 +245,7 @@ In this formula, `k` is a rank constant, and `query_j_rank` represents the ranki
 * **Heterogeneous Score Distributions:** Rank fusion (especially RRF) excels when BM25 and semantic models produce scores on incompatible scales or with outliers. It avoids complex score calibration by using result ranks only. This yields *stable rankings* even if one query method’s scores would otherwise dominate after normalization.
 * **No Tuning or Calibration Needed:** RRF is a *“plug & play”* method – it requires no pre-training, weight tuning, or knowledge of score ranges. In general-purpose search systems (with diverse queries and content), it’s often impractical to hand-tune weighting for every scenario. Rank fusion performs robustly out-of-the-box, making it a strong default when labeled data for calibration is unavailable
 * **Robust to Outliers and Domain Shifts:** Because RRF ignores absolute score magnitude, an extreme scoring outlier won’t skew the results. This is useful in general collections where some queries or documents might produce anomalously high scores under one model. Similarly, if the data distribution or query mix changes over time, RRF remains stable without needing re-calibration, since it always works off relative rank positions
+* **Adaptable to Changing Environments:** In scenarios where the nature of queries and/or data evolves over time, score-based methods often require continuous fine-tuning of weights to maintain high relevancy. RRF eliminates this need for ongoing maintenance, as it relies on relative rankings rather than absolute scores. This makes it particularly valuable in dynamic environments where keeping up with changes through constant recalibration would be resource-intensive or impractical.
 
 ### Conclusion
 
