@@ -69,7 +69,7 @@
             {
                 "Name": "London, England",
                 "Location": "Europe",
-                "ImagePath": "/assets/img/usergroups-assets/London_UserGroup.png",
+                "ImagePath": "/assets/img/usergroups-assets/Search-AI-London.png",
                 "Link": "https://www.meetup.com/opensearch-project-london/"
             }, 
             {
@@ -102,6 +102,12 @@
                 "ImagePath": "/assets/img/usergroups-assets/AWS-Seoul-Skyline.png",
                 "Link": "https://www.meetup.com/opensearch-project-seoul/"
             }, 
+            {
+                "Name": "Tel Aviv, Israel",
+                "Location": "Asia",
+                "ImagePath": "/assets/img/usergroups-assets/OpenSearch-TelAvivUG.png",
+                "Link": "https://www.meetup.com/opensearch-project-tel-aviv-yafo"
+            },
             {
                 "Name": "Tokyo, Japan",
                 "Location": "Asia",
