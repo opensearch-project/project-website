@@ -88,6 +88,8 @@ Certificate Fingerprint:
 
 ## Change Log ##
 
+
+Signature Email: `opensearch@amazon.com`
 <div class="table-styler"></div>
 
 | Date       | Issue | Created    | Expires    |
@@ -97,6 +99,12 @@ Certificate Fingerprint:
 | 2023-06-21 | [Issue 97](https://github.com/opensearch-project/sql-jdbc/issues/97){:target="_blank"}  | 2023-04-13 | 2031-11-09 |
 | 2023-07-17 | [Issue 3633](https://github.com/opensearch-project/opensearch-build/issues/3633){:target="_blank"}  | 2023-07-05 | 2027-06-28 |
 | 2024-05-07 | [Issue 3468](https://github.com/opensearch-project/opensearch-build/issues/3468){:target="_blank"}  | 2024-05-01 | 2025-05-12 |
+
+Signature Email: `release@opensearch.org`
+<div class="table-styler"></div>
+
+| Date       | Issue | Created    | Expires    |
+|:-----------|:-------|:-----------|:-----------|
 | 2025-04-22 | [Issue 5308](https://github.com/opensearch-project/opensearch-build/issues/5308){:target="_blank"}  | 2025-03-06 | 2027-03-06 |
 
 <br>
