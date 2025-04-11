@@ -235,7 +235,7 @@ rankScore(document_i) = sum((1/(k + query_1_rank), (1/(k + query_2_rank), ..., (
 
 ```
 
-In this formula, `k` is a rank constant, and `query_j_rank` represents the ranking of a document in a particular query method. The example in the following diagram applies this formula using the default rank constant of 60.
+In this formula, `k` is a rank constant, and `query_j_rank` represents the ranking of a document in a particular query method.
 
 1. **Add rank contributions**: Rank calculations are combined, and documents are sorted by decreasing rank score.
 2. **Return the top results**: The highest-ranked documents are retrieved based on the query size.
