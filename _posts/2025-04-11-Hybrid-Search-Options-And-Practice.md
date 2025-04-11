@@ -92,7 +92,7 @@ OpenSearch supports two main categories of normalization techniques:
 
 In the next sections, we'll present [score-based normalization using the min-max technique](#hybrid-search-using-score-based-min-max-normalization) and [rank normalization using reciprocal rank fusion (RRF)](#hybrid-search-using-reciprocal-rank-fusion).
 
-## Hybrid search using score-based min-max normalization 
+## Hybrid search using min-max normalization 
 
 Min-max normalization scales individual subquery scores to a fixed range, typically [0, 1], while preserving their relative distribution. For example, BM25 scores don't have a fixed range, but after normalization, their values will fall within a range of 0 to 1.
 
@@ -168,12 +168,12 @@ This query uses:
 - `hybrid`: OpenSearch's built-in hybrid query type
 - `search_pipeline`: Applies the min-max normalization and weighted score combination
 
-### How score-based min-max normalization works
+### How min-max normalization works
 
-Score-based min-max normalization works as follows:
+Min-max normalization works as follows:
 
 1. OpenSearch runs both the `match` and `neural` queries.
-1. The pipeline normalizes each result set using a score-based min-max technique (in this example, min-max scaling).
+1. The pipeline normalizes each result set using a min-max technique (in this example, min-max scaling).
 1. Normalized scores are combined using a weighted average to produce the final score.
 
 In this example, the final document scores are calculated as:  
@@ -268,9 +268,9 @@ RRF works as follows:
 1. **Add rank contributions**: Rank calculations are combined, and documents are sorted by decreasing rank score.
 1. **Return the top results**: The highest-ranked documents are retrieved based on the query size.
 
-### When to use RRF
+### When to use rank based normalization
 
-Consider using RRF in the following situations:
+Consider using rank based in the following situations:
 
 - **Heterogeneous score distributions**: Rank fusion (especially RRF) excels when BM25 and semantic models produce scores on incompatible scales or with outliers. It avoids complex score calibration by using result ranks only. This yields *stable rankings* even if one query method’s scores would otherwise dominate after normalization.
 - **No tuning or calibration needed**: RRF is an out-of-the-box method: it requires no pre-training, weight tuning, or knowledge of score ranges. In general-purpose search systems (with diverse queries and content), it's often impractical to hand-tune weighting for every scenario. Rank fusion is a robust default when labeled data for calibration is unavailable.
@@ -279,7 +279,7 @@ Consider using RRF in the following situations:
 
 ## Conclusion
 
-Search in OpenSearch has evolved to meet a wide range of needs from precise keyword matching with BM25 to deep contextual retrieval with semantic models. Hybrid search brings these strengths together, offering a flexible, powerful approach to information retrieval. By combining lexical and semantic methods, it balances relevance, recall, and ranking stability.
+Search in OpenSearch has evolved to meet a wide range of needs, from precise keyword matching with BM25 to deep contextual retrieval with semantic models. Hybrid search brings these strengths together, offering a flexible, powerful approach to information retrieval. By combining lexical and semantic methods, it balances relevance, recall, and ranking stability.
 
 When implementing hybrid search, use the following **best practices**:
 
