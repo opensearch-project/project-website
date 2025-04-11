@@ -264,8 +264,6 @@ RRF works as follows:
     where:
     -  `k` is a rank constant 
     - `query_j_rank` represents the ranking of a document in a particular query method. 
-    
-    The example in the following diagram applies this formula using the default rank constant of 60. <!-- TODO: insert diagram -->
 
 1. **Add rank contributions**: Rank calculations are combined, and documents are sorted by decreasing rank score.
 1. **Return the top results**: The highest-ranked documents are retrieved based on the query size.
