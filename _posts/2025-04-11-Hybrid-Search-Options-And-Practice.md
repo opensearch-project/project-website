@@ -279,7 +279,7 @@ Consider using RRF in the following situations:
 
 ## Conclusion
 
-Search in OpenSearch has evolved to meet a wide range of needs---from precise keyword matching with BM25 to deep contextual retrieval with semantic models. Hybrid search brings these strengths together, offering a flexible, powerful approach to information retrieval. By combining lexical and semantic methods, it balances relevance, recall, and ranking stability.
+Search in OpenSearch has evolved to meet a wide range of needs from precise keyword matching with BM25 to deep contextual retrieval with semantic models. Hybrid search brings these strengths together, offering a flexible, powerful approach to information retrieval. By combining lexical and semantic methods, it balances relevance, recall, and ranking stability.
 
 When implementing hybrid search, use the following **best practices**:
 
