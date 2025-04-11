@@ -168,7 +168,7 @@ This query uses:
 - `hybrid`: OpenSearch's built-in hybrid query type
 - `search_pipeline`: Applies the min-max normalization and weighted score combination
 
-### How score-based normalization works
+### How min-max normalization works
 
 Min-max normalization works as follows:
 
