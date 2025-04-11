@@ -12,73 +12,88 @@ meta_keywords: hybrid queries, semantic search, lexical search, search relevance
 meta_description: Explore how pagination works in hybrid queries by leveraging pagination_depth to efficiently paginate over the result set.
 ---
 
-Since the introduction of hybrid query in OpenSearch 2.10, it has become increasingly popular among customers who want to improve the relevance of their semantic search results. Hybrid queries combine full-text lexical search and semantic search to provide better results than either method alone for a wide variety of applications in e-commerce, document search, log analytics, and data exploration. Our earlier blog “[Improve search relevance with hybrid search](https://opensearch.org/blog/hybrid-search/)” introduces hybrid search and presents quality and performance results.
+OpenSearch 2.10 introduced hybrid query, which has become a popular choice for improving semantic search relevance. By combining full-text lexical search with semantic search, hybrid queries deliver better results than either method alone across various applications, including e-commerce, document search, log analytics, and data exploration. Our [earlier blog](https://opensearch.org/blog/hybrid-search/) introduced this feature and presented quality and performance results.
 
-OpenSearch has been continuously enhancing its Hybrid query capabilities and performance with powerful features like post-filters, aggregations, query parallelization, explain and sorting. Building on this momentum, OpenSearch 2.19 brings another significant advancement by introducing pagination support through the new 'pagination_depth' parameter. When used in conjunction with traditional from and size parameters, this enhancement enables users to efficiently navigate through hybrid query result sets. For example, in browsing scenarios, users can paginate through thousands of search results without being overwhelmed by too many options at once.
+OpenSearch continues to enhance its hybrid query capabilities with features like post-filters, aggregations, query parallelization, explain, and sorting. Building on this momentum, OpenSearch 2.19 introduces pagination support through the new 'pagination_depth' parameter. When used with traditional from and size parameters, this enhancement helps you efficiently navigate through hybrid query result sets. For example, you can now paginate through thousands of search results one page at a time.
 
-In this blog, we will first learn about what is pagination and  pagination_depth. Later, we will walk through why do we need it in context of hybrid query for enabling pagination feature. Then we will show how to use this feature in a query and finally assess the benchmarking results.
+In this blog post, we'll explain pagination and the `pagination_depth` parameter. We'll explore why pagination depth is necessary for hybrid queries, show you how to use this feature, and share benchmarking results.
 
-## What is pagination?
-OpenSearch uses pagination to divide large result sets into smaller, manageable pages. Each page contains the number of search results equal to the size parameter value sent in the search request. In a nutshell, OpenSearch supports four different types of pagination techniques: the from and size parameters, the scroll search operation, the search_after parameter, and point in time with search_after. To know more about them, please checkout the [OpenSearch documentation](https://opensearch.org/docs/latest/search-plugins/searching-data/paginate/).
+## Understanding pagination
 
-In this blog, we will dive deeply into the `from` and `size` parameters technique by leveraging `pagination_depth` parameter in hybrid query.
+OpenSearch uses pagination to divide large result sets into manageable pages. Each page contains the number of search results specified by the size parameter in your search request. OpenSearch supports four pagination techniques:
+- `from` and `size` parameters
+- Scroll search operation
+- `search_after` parameter
+- Point in Time with `search_after`
 
-## What is pagination_depth?
-The pagination_depth parameter lets users specify the maximum number of search results to retrieve from each shard for every subquery. This enables precise control over the number of results to hybridize for each subquery.
+For more information about these techniques, see the [OpenSearch documentation](https://opensearch.org/docs/latest/search-plugins/searching-data/paginate/).
 
-The figure below illustrates an index with three shards. The user sends a hybrid query search request that includes two subqueries under the hybrid clause: a match query and a k-NN query. The request also specifies `pagination_depth = 20`, `size = 10`, and `from = 5`.
+This blog focuses on using the `from` and `size` parameters with the new `pagination_depth` parameter in hybrid queries.
 
-![pagintion-depth](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/pagination-depth.png){:class="img-centered"}
+## How pagination_depth works
 
-1. User has set pagination_depth = 20, meaning that a maximum of 20 results will be retrieved for both the match query and the k-NN query individually from each shard. (For this example, we assume that each shard contains at least 20 results for each query.)
-2. The coordinator node will receive a total of 120 results (60 for match query and 60 for k-nn query). These results are then sent for hybridization (which includes normalization and score combination).
-3. During hybridization, any duplicate results appearing in both subqueries will be merged. That is, out of the 120 results (match + k-NN), duplicate entries will be combined into a single result.
-4. The final search results will contain the hybridized results, which are then trimmed to size = 10 and start from the 5th entry, as specified by from = 5.
+The `pagination_depth` parameter specifies the maximum number of search results to retrieve from each shard for every subquery. This gives you precise control over how many results to hybridize for each subquery.
 
-This process ensures that Hybrid Search efficiently merges and ranks results from multiple subqueries while respecting pagination constraints.
+The following figure presents an index with three shards. The example hybrid query search request includes two subqueries (a match query and a k-NN query), with `pagination_depth = 20`, `size = 10`, and `from = 5`.
 
-## Why do we need pagination_depth for applying pagination with traditional from and size?
-In traditional queries like match, term etc, pagination is applied using the from + size formula to determine the maximum number of search results retrieved from each shard. However, when applying the same formula to Hybrid Search, several challenges arise, impacting the ground truth of the search results. Ground truth refers to information provided by direct observation rather than inference, though in practice it often represents the best available test or benchmark under reasonable conditions. It serves as a foundation for validating data accuracy, where the information can come from direct customer feedback, human labels, or the best available testing methods even when the classifications may be imperfect.
+![pagination-depth](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/pagination-depth.png){:class="img-centered"}
 
-Lets understand with the help of following example. A user sent the hybrid query search request with the following parameters from =0 and size = 3. The search request contains two subqueries under the hybrid clause: the match query and the k-nn query. The normalization processor is configured to add more weight to match query than k-nn query i.e 0.7 and 0.3 respectively.
+Here's how this example works:
+
+1. With `pagination_depth` set to 20, each shard retrieves up to 20 results for both the match query and the k-NN query (this example assumes that each shard contains at least 20 results per query.)
+2. The coordinator node receives 120 total results (60 for the match query and 60 for the k-NN query) and processes them using hybrid search techniques, including normalization and score combination.
+3. When applying hybrid search techniques, any duplicate results appearing in both subqueries are merged into a single result.
+4. The final results are trimmed according to top 10 results ( because of `size = 10`), starting from the 5th entry (because of `from = 5`).
+
+This process ensures that hybrid search efficiently merges and ranks results from multiple subqueries while respecting pagination constraints.
+
+## Why pagination_depth matters
+Traditional queries (like match and term) use a simple `from` + `size` formula to determine the maximum number of search results to retrieve from each shard. However, applying this same formula to hybrid search creates challenges that affect result accuracy, or _ground truth_. Ground truth refers to information from direct observation rather than inference; in practice, it represents the best available test or benchmark under reasonable conditions. This serves as a foundation for validating data accuracy, whether through customer feedback, human labels, or the most reliable available testing methods even when classification may be imperfect.
+
+Let's examine an example. Consider a hybrid query search request with these parameters:
+- `from = 0` 
+- `size = 3`
+
+The request contains two subqueries under the hybrid clause: a match query and a k-NN query. The normalization processor is configured to assign a greater weight to the match query (0.7) higher than the k-NN query (0.3), as shown in the following diagram.
 
 ![higher-weightage](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/higher-weightage.png){:class="img-centered"}
 
-### Why ground truth changes by using formula of from + size ?
-Modifying from or size values increases the number of results retrieved for each subquery from a shard, as determined by the from + size formula. However, instead of being appended to the last page, these new results tend to appear earlier in the ranked list, altering the ground truth on which the user intends to paginate. This issue occurs in two key scenarios:
+### How the from + size formula affects ground truth
+Modifying `from` or ``size`` values increases the number of results retrieved for each subquery from a shard. However, these new results don't simply append to the last page. They can appear earlier in the ranked list, changing the ground truth you're trying to paginate through. This happens in the following two main scenarios:
 
-1. Impact of Higher Weightage Subqueries
-    1. If a subquery with higher weightage introduces new results, they may receive higher rankings after the score combination process.
-    2. As a result, these new entries may appear earlier in the final result set—either on the first few pages or somewhere in the middle—rather than at the end, disrupting the expected pagination order.
+1. **Higher-weighted subquery effect**:
+  - New results from a higher-weighted subquery may rank higher after score combination.
+  - As a result, these new entries may appear earlier in the final result set---either on the first few pages or somewhere in the middle---rather than at the end, disrupting the expected pagination order.
 
-In continuation with the earlier example, when user increases the size = 4 the newer query 1 result docId 14 does not get added on the last page of the hybrid search response. Instead, it becomes the top 4th document due to higher weight of query 1 during normalization.
+  In our example, increasing size to 4 causes an unexpected result: the new Query 1 result (document ID 14) appears as the fourth document instead of at the end, because of Query 1's higher weight during normalization, as shown in the following diagram.
 
-![more-weightage](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/more-weightage.png){:class="img-centered"}
+  ![more-weightage](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/more-weightage.png){:class="img-centered"}
 
-2. Impact of Duplicate Results
-    1. Newly retrieved results can become duplicates, meaning they exist in both subquery results.
-    2. After the score combination process, the combined score of a duplicate entry increases, making it more relevant.
-    3. If both subqueries have equal weightage, the duplicate result will rank higher, shifting its position earlier in the search results rather than appearing where the user expects it.
+2. **Duplicate result effect**:
+  - Newly retrieved results can become duplicates, meaning they exist in both subquery results.
+  - After the score combination process, the combined score of a duplicate entry increases, making it more relevant.
+  - With equal subquery weights, duplicate results rank higher than expected, appearing earlier in search results.
 
-In the following diagram, docId 0 and 12 are the duplicate results that are part of both match and k-nn subqueries. The hybrid score of duplicate documents are generally higher than the single occurrence documents. Therefore, the duplicate documents will appear higher in the single occurrence documents in the search response and it will break the consistent pagination experience.
+  In the following diagram, documents with IDs 0 and 12 are duplicate results appearing in both match and k-NN subqueries. Because duplicate documents typically receive higher hybrid scores than single-occurrence documents, they appear higher in the results, disrupting the expected pagination order.
 
-![duplicate-results](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/duplicate-results.png){:class="img-centered"}
+  ![duplicate-results](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/duplicate-results.png){:class="img-centered"}
 
 ### Addressing the ground truth problem
-To prevent changes in the ground truth, `pagination_depth` parameter is introduced. It ensures a consistent number of results are retrieved per shard. This adjustment eliminates dependency on from and size during result retrieval, ensuring that the same set of search results is always returned. The from and size parameters are then applied after hybridization to trim the results and determine how many should be displayed on each page.
+The `pagination_depth` parameter solves these issues by ensuring a consistent number of results per shard. This removes the dependency on from and size during result retrieval, ensuring that the same set of search results every time. The `from` and `size` parameters are applied after hybrid techniques to trim the results and determine how many should be displayed on each page.
 
-#### Key Takeaway
-* Maintaining the same `pagination_depth` while navigating between pages (by modifying `from` and `size`) helps maintaining consistent search results.
-* If `pagination_depth` is changed while paginating, the search results will become inconsistent.
+#### Key takeaways
 
-By implementing `pagination_depth`, Hybrid Search ensures stable and consistent pagination, preserving the integrity of ranked search results across multiple pages.
+Note the following key takeaways:
 
-In the earlier example, to address the ground truth issue user sends `pagination_depth = 5` in the search request. Match query and k-nn query will return up to 5 results from an individual shard to the coordinator node to hybridize the subqueries results. The `from` and `size` parameters will trim the hybrid search response as per the user requirement.
+* Keep `pagination_depth` constant while navigating between pages to maintain consistent results.
+* Changing `pagination_depth` during pagination will lead to inconsistent results.
+
+In our earlier example, setting `pagination_depth = 5` addresses the ground truth issue. Both match query and k-NN query will return up to 5 results from each shard to the coordinator node so it can apply hybrid techniques to the subquery results. The `from` and `size` parameters then determine how to trim the hybrid search results, as shown in the following diagram.
 
 ![ground-truth-problem-addressing](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/ground-truth-problem-addressing.png){:class="img-centered"}
 
-## How to apply pagination by using from, size and pagination_depth?
-To navigate between pages, user have to provide `pagination_depth` under the hybrid query clause. Following example has `pagination_depth = 10`, `from = 0` and `size = 5`.  (Please note: We have also provided a detailed explanation of the above example in the official [documentation](https://opensearch.org/docs/latest/vector-search/ai-search/hybrid-search/pagination/). We recommend reading it for a more comprehensive understanding.
+## How to use pagination with hybrid queries
+To navigate between pages, specify the `pagination_depth` parameter in your hybrid query clause. The following example sets `pagination_depth = 10`, `from = 0`, and `size = 5`:
 
 ```json
 GET /my-nlp-index/_search?search_pipeline=nlp-search-pipeline
@@ -116,75 +131,86 @@ GET /my-nlp-index/_search?search_pipeline=nlp-search-pipeline
 }
 ```
 
-## Impact on Performance
-The goal of the benchmarking is to assess how different values of `pagination_depth` affect cpu utilization and latency. We conducted benchmarking by using the [noaa_semantic_search](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/noaa_semantic_search)) dataset present in [opensearch-benchmark-workloads](https://github.com/opensearch-project/opensearch-benchmark-workloads) to evaluate the impact on performance.
+For a detailed explanation of this example, see [Paginating hybrid query results](https://opensearch.org/docs/latest/vector-search/ai-search/hybrid-search/pagination/).
+
+## Performance impact
+We conducted benchmarking to evaluate how different `pagination_depth` values affect CPU utilization and latency. Our tests used the [`noaa_semantic_search`](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/noaa_semantic_search) dataset from [`opensearch-benchmark-workloads`](https://github.com/opensearch-project/opensearch-benchmark-workloads).
 
 ### Benchmarking scenarios
-1. `pagination_depth = 50` when `from = 100` and `size = 100`. (Returns 2nd page of the search result where each page contains 100 results by using pagination_depth = 50 to capture the shard results).
-2. `pagination_depth = 100` when `from = 100` and `size = 100`. (Returns 2nd page of the search result where each page contains 100 results by using pagination_depth = 100 to capture the shard results).
-3. `pagination_depth = 500` when `from = 100` and `size = 100`. (Returns 2nd page of the search result where each page contains 100 results by using pagination_depth = 500 to capture the shard results).
-4. `pagination_depth = 1000` when `from = 100` and `size = 100`. (Returns 2nd page of the search result where each page contains 100 results by using pagination_depth = 1000 to capture the shard results).
-5. `pagination_depth = 5000` when `from = 100` and `size = 100`. (Returns 2nd page of the search result where each page contains 100 results by using pagination_depth = 5000 to capture the shard results).
-6. `pagination_depth = 10000` when `from = 100` and `size = 100`. (Returns 2nd page of the search result where each page contains 100 results by using pagination_depth = 10000 to capture the shard results).
+We tested six configurations, all returning the second page of results (from = 100, size = 100) with varying pagination_depth values:
+- 50
+- 100
+- 500
+- 1,000
+- 5,000
+- 10,000
 
-### Different query shapes used during benchmarking
-At high level, two different types of queries are used.
+### Query types tested
+We evaluated two query types:
+1. A hybrid query that contains three subqueries: term, range, and date
+2. A metric aggregation when applied to a hybrid query that contains three subqueries: term, range, and date
 
-1. hybrid query that contains 3 subqueries: term, range and date
-2. metric aggregation when applied with hybrid query that contains 3 subqueries: term, range and date
+The complete query definitions are available in [`hybrid_search.json`](https://github.com/opensearch-project/opensearch-benchmark-workloads/blob/main/noaa_semantic_search/operations/hybrid_search.json). Benchmarking was performed using the [`hybrid-query-aggs-light`](https://github.com/opensearch-project/opensearch-benchmark-workloads/blob/main/noaa_semantic_search/test_procedures/hybrid_search.json#L2) procedure.
 
-The query shapes used for benchmarking can be found in [hybrid_search.json](https://github.com/opensearch-project/opensearch-benchmark-workloads/blob/main/noaa_semantic_search/operations/hybrid_search.json). The procedure used for benchmarking is [hybrid-query-aggs-light](https://github.com/opensearch-project/opensearch-benchmark-workloads/blob/main/noaa_semantic_search/test_procedures/hybrid_search.json#L2).
+### Results
+Our tests used an index containing 134 million documents (four copies of the `noaa_semantic_search` dataset).
 
-### Graphs
-Index contains 134 million documents when noaa_semantic_search dataset is indexed four times.
+The following graph presents the results of running a hybrid query containing three BM25 subqueries: term, range, and date.
 
-#### Hybrid query containing three BM25 subqueries: term, range and date
 ![Performance-graph-of-hybrid-query-with-pagination](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/Performance-graph-of-hybrid-query-with-pagination.png){:class="img-centered"}
 
-#### Metric aggregation with hybrid query containing BM25 three subqueries: term, range and date
+The following graph presents the results of running a metric aggregation with a hybrid query containing BM25 three subqueries: term, range, and date.
+
 ![metric-aggregation-performance-graph](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/metric-aggregation-performance-graph.png){:class="img-centered"}
 
-#### CPU Utilization
+The following graph presents the CPU utilization results.
+
 ![cpu-utilization](/assets/media/blog-images/2025-04-19-navigating-pagination-with-hybrid-query/cpu-utilization.png){:class="img-centered"}
 
-#### Conclusion
-As evident from the graphs, there are no significant spikes in latencies or CPU utilization. The p50, p90, p99, p100 latency metrics and CPU utilization consistently increases when increasing the pagination depth. 
+### Performance summary
+The results show gradual, predictable performance changes:
+- No significant latency or CPU utilization spikes.
+- Latency metrics (p50, p90, p99, p100) and CPU utilization increase steadily with increasing pagination depth.
 
-## Best practices for applying `pagination_depth` with hybrid queries
+## Best practices for using pagination_depth
 
-The benchmarking results from the previous section indicate no significant regression when fetching the second page, even with the highest `pagination_depth` value of 10,000. However, as pagination depth increases, both latency and CPU utilization tend to rise. To optimize performance, consider the following recommendations.
+Our benchmarking shows no significant performance impact when fetching the second page, even with a `pagination_depth` of 10,000. However, both latency and CPU utilization increase with pagination depth. To optimize performance, consider the following recommendations.
 
-### Optimizing `pagination_depth` based on Data Distribution
+### Optimize pagination depth based on data distribution
+The efficiency of pagination depends on how evenly your data is distributed across shards. You can check this distribution using the `_cat/shards` API. If the documents are equally distributed amongst shards, then even a smaller `pagination_depth` can provide more hybridized search results per subquery.
 
-Efficient pagination depends on how evenly data is distributed across shards. The distribution of the data can be checked by using _cat/shards api. If the documents are equally distributed amongst shards, then even a smaller `pagination_depth` can yield a higher number of hybridized search results per subquery.
-For example, in our earlier discussion:
+For example:
+* With `pagination_depth = 20` across three shards, you can hybridize up to 60 results per subquery.
+* This assumes each shard contains at least 20 results per subquery (thus, the data is evenly distributed).
+* If there are no duplicate entries between subqueries, you can paginate through up to 120 hybridized search results.
 
-* With `pagination_depth = 20`, users can hybridize up to 60 results per subquery across three shards.
-* This assumes each shard contains at least 20 results per subquery, meaning data is evenly distributed.
-* If no result entries are common between subqueries, the final result count would be 120, allowing users to paginate through 120 hybridized search results.
-
-### Considerations with Uneven Data Distribution
-
-If data is not equally distributed across shards due to custom routing to specific shards, the following scenarios may occur:
-the shard does not contain any relevant results, it will return zero results, reducing the total number of hybridized results.
-
+### Handle uneven data distribution
+Custom routing can lead to uneven data distribution across shards, resulting in:
+* Some shards returning zero results, reducing the total number of hybridized results.
 ### Some shards may contain all the relevant results
 
 If a shard contains more than 20 results per subquery, it can still return only 20 results (based on `pagination_depth`).
 
 As a result, the coordinator node will receive fewer results for hybridization, reducing the final search result size.
 
-### Key Recommendations
+### Recommendations
 
-* Avoid deep pagination: Hybrid Search is designed to return the most relevant results, not to perform exhaustive pagination. If deep pagination is required, consider using traditional search like bool, match.
-* Distribute data evenly: Proper shard balancing during indexing ensures better query efficiency and reduces the need for excessively high `pagination_depth` values.
+Follow these best practices to optimize hybrid search for efficiency, ensuring high relevance while maintaining performance:
 
-By following these best practices, users can optimize Hybrid Search for efficiency, ensuring high relevance while maintaining performance.
+* **Avoid deep pagination**: Hybrid search is optimized for relevance, not exhaustive pagination. For deep pagination needs, consider using traditional search methods like `bool` or `match` queries.
+* **Distribute data evenly**: Balance shards during indexing for better query efficiency and to minimize the need for high `pagination_depth` values.
+
+
+
 
 ## Limitations
-While navigating between pages, users may encounter following exception: “Reached end of search results. Increase `pagination_depth` value to see more results.”
+You may see this error while navigating between pages: "Reached end of search results. Increase pagination_depth value to see more results."
 
-As discussed in the Key Takeaway section, maintaining a consistent `pagination_depth` while paginating ensures stable and predictable search results. However, this also means that the user is paginating within a fixed final search result set. Once the user reaches the last page of the available search results corresponding to the specified `pagination_depth`, system will trigger an exception indicating that the end of the search results has been reached. This indicates that user has exhausted the search results for the given `pagination_depth`. To retrieve additional results beyond this limit, user must increase the `pagination_depth`, effectively expanding the search reference by including more results in the final result set.
+As noted in [Key takeaways](#key-takeaways), maintaining a consistent `pagination_depth` ensures stable results but limits you to a fixed result set. When you reach the last available page for your specified `pagination_depth`, OpenSearch will return an error indicating that the end of the search results has been reached. At this point, you have exhausted the search results for the given `pagination_depth`. To retrieve additional results beyond this limit, you must increase the `pagination_depth`, effectively expanding the search reference by including more results in the final result set.
+## Wrapping up
+In this blog post, we've explored how `pagination_depth` resolves the ground truth issues that occur when using `from` and `size` parameters alone for pagination. We also examined how `pagination_depth` impacts the performance of retrieving the top pages of the final search result. As discussed, applying pagination to retrieve a higher number of pages can degrade search performance, as it increases both computation time and cost. To help you optimize performance, we've provided best practices for using `pagination_depth` with hybrid search. 
 
-## Wrapping Up
-In this discussion, we explored the need for pagination_depth and how it resolves the changing ground truth issue associated with pagination using the `from` and `size` parameters. We also examined the performance impact of `pagination_depth` on retrieving the top pages of the final search result. However, applying pagination to retrieve a higher number of pages can degrade search performance, as it increases both computation time and cost. To address this, we reviewed best practices for applying `pagination_depth` to ensure optimal results in Hybrid Search. More features like [inner_hits](https://github.com/opensearch-project/neural-search/issues/718), [collapse](https://github.com/opensearch-project/neural-search/issues/665), [filters](https://github.com/opensearch-project/neural-search/issues/282) will soon be introduced to make Hybrid Queries even more flexible and powerful.
+Looking ahead, we'll be adding the following features to make hybrid queries even more flexible and powerful:
+* [Inner hits](https://github.com/opensearch-project/neural-search/issues/718)
+* [Collapse](https://github.com/opensearch-project/neural-search/issues/665)
+* [Filters](https://github.com/opensearch-project/neural-search/issues/282)
