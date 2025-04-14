@@ -1,0 +1,2 @@
+---
+BUNDLE_BUILD__EVENTMACHINE: "--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
