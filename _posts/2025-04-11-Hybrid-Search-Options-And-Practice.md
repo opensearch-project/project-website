@@ -268,7 +268,7 @@ RRF works as follows:
 1. **Add rank contributions**: Rank calculations are combined, and documents are sorted by decreasing rank score.
 1. **Return the top results**: The highest-ranked documents are retrieved based on the query size.
 
-### When to use rank based normalization
+## When to use rank-based normalization
 
 Consider using rank based in the following situations:
 
