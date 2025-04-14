@@ -270,7 +270,7 @@ RRF works as follows:
 
 ## When to use rank-based normalization
 
-Consider using rank based in the following situations:
+Consider using rank-based normalization in the following situations:
 
 - **Heterogeneous score distributions**: Rank fusion (especially RRF) excels when BM25 and semantic models produce scores on incompatible scales or with outliers. It avoids complex score calibration by using result ranks only. This yields *stable rankings* even if one query method’s scores would otherwise dominate after normalization.
 - **No tuning or calibration needed**: RRF is an out-of-the-box method: it requires no pre-training, weight tuning, or knowledge of score ranges. In general-purpose search systems (with diverse queries and content), it's often impractical to hand-tune weighting for every scenario. Rank fusion is a robust default when labeled data for calibration is unavailable.
