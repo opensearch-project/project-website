@@ -163,7 +163,7 @@ GET /bookstore_catalog/_search?search_pipeline=min_max-search-pipeline
 }
 ```
 
-This query uses:
+This query uses  the following parameters:
 
 - `hybrid`: OpenSearch's built-in hybrid query type
 - `search_pipeline`: Applies the min-max normalization and weighted score combination
