@@ -173,7 +173,7 @@ This query uses  the following parameters:
 Min-max normalization works as follows:
 
 1. OpenSearch runs both the `match` and `neural` queries.
-1. The pipeline normalizes each result set using a min-max technique (in this example, min-max scaling).
+1. The pipeline normalizes each result set using min-max scaling.
 1. Normalized scores are combined using a weighted average to produce the final score.
 
 In this example, the final document scores are calculated as:  
