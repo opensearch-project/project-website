@@ -195,7 +195,7 @@ Score-based normalization is useful in scenarios where you want fine-tuned contr
 
 Rank-based techniques focus on a document's position in the result set rather than its raw score. These techniques are especially useful when combining results from different retrieval methods whose scores aren't directly comparable. 
 
-**Reciprocal Rank Fusion (RRF)** is one such technique. It uses the rank of each document in individual query results to calculate a combined score, making it resilient to mismatched scoring scales across methods like BM25 and semantic search.
+**Reciprocal Rank Fusion (RRF)** is one such technique. It uses the rank of each document in individual query results to calculate a combined score, making it resilient against mismatched scoring scales across methods like BM25 and semantic search.
 
 First, define the RRF search pipeline:
 
