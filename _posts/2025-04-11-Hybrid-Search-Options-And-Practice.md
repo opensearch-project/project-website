@@ -83,7 +83,7 @@ As more use cases demand both keyword precision and semantic understanding, espe
 
 ## Hybrid search: Combining lexical and semantic search
 
-Hybrid search integrates results from multiple search methods, such as BM25 for keyword matching and vector search for semantic understanding, to provide more comprehensive and accurate results. Because these methods produce scores on different scales, normalization helps bring them into a common range. This allows OpenSearch to fairly compare and combine them.
+Hybrid search integrates results from multiple search methods, such as BM25 for keyword matching and vector search for semantic understanding, to provide more comprehensive and accurate results. Because these methods produce scores using different scales, normalization converts them so that they are on the same scale. This allows OpenSearch to fairly compare and combine them.
 
 OpenSearch supports two main categories of normalization techniques:
 
