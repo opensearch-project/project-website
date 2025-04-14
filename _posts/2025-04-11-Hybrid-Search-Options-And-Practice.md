@@ -182,7 +182,7 @@ In this example, the final document scores are calculated as:
 0.3 * normalized_BM25_score + 0.7 * normalized_neural_score
 ```
 
-### When to use score-based normalization
+## When to use score-based normalization
 
 Score normalization is useful in scenarios where you want fine-tuned control over how results from different methods are combined. Consider using it when:
 
