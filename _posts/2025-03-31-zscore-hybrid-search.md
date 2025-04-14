@@ -81,9 +81,9 @@ POST my_index/_search?search_pipeline=z_score-pipeline
 
 
 
-## Benchmarking Z Score performance
+## Benchmarking Z Score for Development Environment
 
-Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes. To assess Z Score’s performance comprehensively, we measured two key metrics across five distinct datasets. For information about the datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
+Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 1 shard. To assess Z Score’s performance comprehensively, we measured two key metrics across five distinct datasets. For information about the datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
 
 ### Sample queries and passages
 
@@ -121,14 +121,12 @@ The following table presents search latency measurements in milliseconds at diff
 
 ### Conclusions
 
-
-Our benchmark experiments highlight the following advantages and trade-offs of Z-score normalization compared to min-max normalization in hybrid search approaches:
+Our benchmark experiments for development environment highlight the following advantages and trade-offs of Z-score normalization compared to min-max normalization in hybrid search approaches:
 
 **Search quality (measured using NDCG@10 across four datasets)**:
 
 * Z-score normalization shows a modest improvement in search quality, with an average increase of 2.08% in NDCG@10 scores.
 * This suggests that Z-score normalization may provide slightly better relevance in search results compared to the default normalization technique min-max.
-
 
 **Latency impact**:
 
@@ -151,9 +149,51 @@ Our benchmark experiments highlight the following advantages and trade-offs of Z
 * Z-score normalization provides a modest improvement in search quality with a negligible impact on latency.
 * The choice between Z-score and min-max normalization may depend on specific use cases, with Z-score potentially being preferred where improvements in search relevance are valuable and the slight latency increase is acceptable.
 
-These findings suggest that Z-score normalization could be a viable alternative to min-max normalization in hybrid search approaches, particularly in scenarios where optimizing search relevance is a priority and the system can tolerate minimal latency increases
+## Benchmarking Z Score for Production Scenario
+
+Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 12 shards.
+
+### NDCG@mean
+|dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent diff	|
+|---	|---	|---	|---	|
+|fiqa	|0.3105	|0.3120	|+0.48%	|
+|nq	|0.4563	| 0.4540	|-0.50%|
+|arguana	|0.4713	|0.4700	|-0.28%	|
+|touche2020	|0.3788	|0.3719	|-1.82%	|
+|	|	|Average	|-0.53%	|
+
+### P@mean
+|dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent diff	|
+|---	|---	|---	|---	|
+|fiqa	|0.0921	|0.0925	|+0.43%	|
+|nq	|0.0943	| 0.0935	|-0.85%|
+|arguana	|0.0878	|0.0878	|0%	|
+|touche2020	|0.2364	|0.2318	|-1.95%	|
+|	|	|Average	|-0.59%	|
 
 
+### Conclusions
+
+Our production experiments highlight the following aspects of Z-score normalization compared to min-max normalization in hybrid search approaches:
+
+**Search quality**:
+* Z-score normalization shows a slight decline in search quality, with an average decrease of 0.53% in NDCG@mean scores
+* P@mean results show a similar trend with a 0.59% average decrease across datasets
+* Only FIQA dataset demonstrated consistent improvements (+0.48% NDCG@mean, +0.43% P@mean)
+* Largest decline observed in Touche2020 dataset (-1.82% NDCG@mean, -1.95% P@mean)
+
+**Trade-offs**:
+* Production metrics indicate consistent but minor degradation in search relevance
+* Dataset size appears to influence performance, with larger datasets showing more pronounced decreases  
+* FIQA dataset demonstrates that Z-score can outperform min-max in specific scenarios
+* Performance impact varies significantly across different datasets
+
+**Overall assessment**:
+* Z-score normalization performs marginally below min-max normalization in production settings
+* Results suggest dataset characteristics significantly influence normalization effectiveness
+* Implementation decisions should prioritize specific use case requirements and dataset characteristics
+
+These findings indicate that while Z-score normalization remains a viable option, min-max normalization demonstrates more reliable performance in production scenarios. The choice between methods should be based on thorough testing with specific datasets and use cases.
 
 ## What’s next?
 
