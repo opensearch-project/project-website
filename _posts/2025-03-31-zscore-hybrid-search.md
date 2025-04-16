@@ -85,9 +85,9 @@ POST my_index/_search?search_pipeline=z_score-pipeline
 
 Benchmark experiments were conducted on an OpenSearch cluster with one **r6g.8xlarge** instance as the coordinator node and three **r6g.8xlarge** instances as data nodes. To evaluate z-score normalization comprehensively, we measured two key metrics across five distinct datasets.  
 
-## Benchmarking Z Score for Development Environment
+## Benchmarking z-score normalization for the development environment
 
-Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 1 shard. To assess Z Score’s performance comprehensively, we measured two key metrics across five distinct datasets. For more information about the datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
+Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 1 shard. To assess z -score normalization performance comprehensively, we measured two key metrics across five distinct datasets. For more information about the datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
 
 ### Sample queries and passages
 
@@ -156,25 +156,31 @@ Our benchmark experiments highlight the following advantages and trade-offs of u
   * Z-score normalization provides a modest improvement in search quality with a negligible impact on latency.
   * The choice between z-score and min-max normalization may depend on your use case. If search relevance is a priority, z-score normalization may be the better option, especially if your system can tolerate a small latency increase.
 
-## Benchmarking Z Score for Production Scenario
+## Benchmarking z-score normalization for the production environment
 
 Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 12 shards.
 
 ### NDCG@mean
-|dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent diff	|
+
+The following table compares NDCG@mean scores for hybrid search using min-max normalization and z-score normalization, showing the percent difference in search relevance across five datasets.
+
+|Dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent difference	|
 |---	|---	|---	|---	|
-|fiqa	|0.3105	|0.3120	|+0.48%	|
-|nq	|0.4563	| 0.4540	|-0.50%|
-|arguana	|0.4713	|0.4700	|-0.28%	|
+|FiQA	|0.3105	|0.3120	|+0.48%	|
+|NQ	|0.4563	| 0.4540	|-0.50%|
+|ArguAna	|0.4713	|0.4700	|-0.28%	|
 |touche2020	|0.3788	|0.3719	|-1.82%	|
 |	|	|Average	|-0.53%	|
 
 ### P@mean
-|dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent diff	|
+
+The following table compares precision at mean (P@mean) scores for hybrid search using min-max normalization and z-score normalization, showing the percent difference in search relevance across four datasets.
+
+|Dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent difference	|
 |---	|---	|---	|---	|
-|fiqa	|0.0921	|0.0925	|+0.43%	|
-|nq	|0.0943	| 0.0935	|-0.85%|
-|arguana	|0.0878	|0.0878	|0%	|
+|FiQA	|0.0921	|0.0925	|+0.43%	|
+|NQ	|0.0943	| 0.0935	|-0.85%|
+|ArguAna	|0.0878	|0.0878	|0%	|
 |touche2020	|0.2364	|0.2318	|-1.95%	|
 |	|	|Average	|-0.59%	|
 
