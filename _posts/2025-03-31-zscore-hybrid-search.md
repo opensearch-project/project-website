@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Introducing z-score normalization technique for hybrid search
+title:  Introducing the z-score normalization technique for hybrid search
 authors:
   - kazabdu
   - gaievski
@@ -16,21 +16,21 @@ meta_description: Learn about z-score normalization in OpenSearch 3.0-beta1. Dis
 
 In search engines and machine learning, **data normalization** is essential for making fair and accurate comparisons between different features or scores.  
 
-**Hybrid queries** use multiple normalization techniques to prepare final results. The two main types are **score-based normalization** and **rank-based combination**. In score-based normalization, the default method—**min-max normalization**—doesn't handle outliers well. *(Outliers are data points that significantly differ from the rest of a dataset. In techniques like min-max scaling and Z-score normalization, outliers can greatly impact results.)*  
+**Hybrid queries** use multiple normalization techniques to prepare final results. The two main types are **score-based normalization** and **rank-based combination**. In score-based normalization, the default method—**min-max normalization**—doesn't handle outliers well. *(Outliers are data points that significantly differ from the rest of a dataset. In techniques like min-max scaling and z-score normalization, outliers can greatly impact results.)*  
 
 In this blog post, we'll introduce **z-score normalization**, a technique added in OpenSearch 3.0-beta1. We'll explore what it is, why it matters, and how OpenSearch uses it.  
 
 ## What is z-score normalization?
 
-_Z-score normalization_, also known as _standardization_, is a method of scaling data using mean and standard deviation. The formula for calculating the Z-score is:
+_Z-score normalization_, also known as _standardization_, is a method of scaling data using mean and standard deviation. The formula for calculating the z-score is:
 
 Z = (X - μ) / σ,
 
 where:
 
-* X is the original value
-* μ is the population mean
-* σ is the standard deviation of the population
+* X is the original value.
+* μ is the population mean.
+* σ is the standard deviation of the population.
 
 ## When to use z-score normalization
 
@@ -96,7 +96,7 @@ The following table provides sample queries and passages for each dataset.
 |Dataset	|Sample query	|Sample passage	|
 |:---	|:---	|:---	|
 |SciDocs	|CFD Analysis of Convective Heat Transfer Coefficient on External Surfaces of Buildings	|`This paper provides an overview of the application of CFD in building performance simulation for the outdoor environment, focused on four topics...`	|
-|FiQA	|“Business day” and “due date” for bills	|`I don't believe Saturday is a business day either. When I deposit a check at a bank's drive-in after 4pm Friday, the receipt tells me it will credit as if I deposited on Monday. If a business' computer doesn't adjust their billing to have a weekday due date ...	`|
+|FiQA	|"Business day" and "due date" for bills	|`I don't believe Saturday is a business day either. When I deposit a check at a bank's drive-in after 4pm Friday, the receipt tells me it will credit as if I deposited on Monday. If a business' computer doesn't adjust their billing to have a weekday due date ...	`|
 |NQ |what is non controlling interest on balance sheet |`In accounting, minority interest (or non-controlling interest) is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. The magnitude of the minority interest in the subsidiary company is generally less than 50% of outstanding shares, or the corporation would generally cease to be a subsidiary of the parent`|
 |ArguAna	|Poaching is becoming more advanced A stronger, militarised approach is needed as poaching is becoming ...	|`Tougher protection of Africa\u2019s nature reserves will only result in more bloodshed. Every time the military upgrade their weaponry, tactics and logistic, the poachers improve their own methods to counter ...`	|
 |touche2020	|Is a college education worth it?	|`The resolution used by Pro *assumes* that Australia isn't already a 'significant' country - however, in actual reality, it is. Firstly we should clarify what significance means: 1.a the state or quality of being significant1.b of consequence or..`	|
@@ -121,7 +121,7 @@ The following table compares NDCG@10 scores for hybrid search using min-max norm
 ### Search latency
 
 
-The following table presents search latency measurements in milliseconds at different percentiles (p50, p90, and p99) for hybrid search using min-max and z-score normalization. The *Percent difference* columns indicate the relative performance impact between these methods.
+The following table presents search latency measurements in milliseconds at different percentiles (p50, p90, and p99) for hybrid search using min-max and z-score normalization. The *Percent difference* columns indicate the relative performance impact of these methods.
 
 <table> <tr> <th></th> <th colspan="3"><b>p50</b></th> <th colspan="3"><b>p90</b></th> <th colspan="3"><b>p99</b></th> </tr> <tr> <td></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> </tr> <tr> <td>SciDocs</td> <td>76.25</td> <td>77.5</td> <td>1.64%</td> <td>99</td> <td>100.5</td> <td>1.52%</td> <td>129.54</td> <td>133.04</td> <td>2.70%</td> </tr> <tr> <td>FIQA</td> <td>80</td> <td>81</td> <td>1.25%</td> <td>104.5</td> <td>105</td> <td>0.48%</td> <td>123.236</td> <td>124</td> <td>0.62%</td> </tr> <tr> <td>NQ</td> <td>117</td> <td>117</td> <td>0%</td> <td>140</td> <td>140</td> <td>0%</td> <td>166.74</td> <td>165.24</td> <td>-0.90%</td> </tr> <tr> <td>ArguAna</td> <td>349</td> <td>349</td> <td>0%</td> <td>382</td> <td>382</td> <td>0%</td> <td>417.975</td> <td>418.475</td> <td>0.12%</td> </tr> <tr> <td>touche2020</td> <td>77</td> <td>77.5</td> <td>0.64%</td> <td>100</td> <td>100.5</td> <td>0.50%</td> <td>140</td> <td>140</td> <td>0%</td> </tr> <tr> <td></td> <td></td> <td><b>Average:</b></td> <td>0.70%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> </tr> </table>
 
@@ -132,7 +132,7 @@ Our benchmark experiments highlight the following advantages and trade-offs of u
 - **Search quality (measured using NDCG@10 across four datasets)**:
 
   * Z-score normalization shows a modest improvement in search quality, with an average increase of 2.08% in NDCG@10 scores.
-  * This suggests that Z-score normalization may provide slightly better relevance in search results compared to the default min-max normalization.
+  * This suggests that z-score normalization may provide slightly better search result relevance compared to the default min-max normalization.
 
 
 - **Latency impact**:
@@ -145,7 +145,7 @@ Our benchmark experiments highlight the following advantages and trade-offs of u
   |p90	|0.50%	|
   |p99	|0.50%	|
 
-  * The positive percentages indicate that Z-score normalization has slightly higher latency compared to min-max normalization, but the differences are minimal (less than 1% on average).
+  * The positive percentages indicate that z-score normalization has slightly higher latency compared to min-max normalization, but the differences are minimal (less than 1% on average).
 
 - **Trade-offs**:
 
@@ -154,7 +154,7 @@ Our benchmark experiments highlight the following advantages and trade-offs of u
 - **Overall assessment**:
 
   * Z-score normalization provides a modest improvement in search quality with a negligible impact on latency.
-  * The choice between Z-score and min-max normalization may depend on your use case. If search relevance is a priority, z-score normalization may be the better option, especially if your system can tolerate a small latency increase.
+  * The choice between z-score and min-max normalization may depend on your use case. If search relevance is a priority, z-score normalization may be the better option, especially if your system can tolerate a small latency increase.
 
 ## Benchmarking Z Score for Production Scenario
 
@@ -204,7 +204,7 @@ These findings indicate that while Z-score normalization remains a viable option
 
 ## What's next?
 
-We're continuing to enhance OpenSearch's hybrid search capabilities beyond Z-score by planning to implement **custom normalization functions**. These will enable you to define your own normalization logic and allow fine-tuning of search result rankings. For more information, see [this issue](https://github.com/opensearch-project/neural-search/issues/994).
+We're continuing to enhance OpenSearch's hybrid search capabilities beyond z-score normalization by implementing **custom normalization functions**. These will enable you to define your own normalization logic and allow fine-tuning of search result rankings. This enhancement will provide you more control over search result ranking while ensuring reliable and consistent hybrid search outcomes. For more information, see [this issue](https://github.com/opensearch-project/neural-search/issues/994).
 
 ### References
 
