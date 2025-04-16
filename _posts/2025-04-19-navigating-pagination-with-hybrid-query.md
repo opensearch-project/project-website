@@ -4,6 +4,7 @@ title:  "Navigating pagination in hybrid queries with the pagination_depth param
 authors:
 - varunudr
 - minalsha
+- seanzheng
 - kolchfa
 date: 2025-04-16
 categories:
