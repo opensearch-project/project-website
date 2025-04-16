@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Building effective hybrid Search in OpenSearch: Techniques and best practices"
+title:  "Building effective hybrid search in OpenSearch: Techniques and best practices"
 authors:
   - kazabdu
   - seanzheng
   - kolchfa
-date: 2025-04-11
+date: 2025-04-17
 has_science_table: true
 categories:
   - technical-posts
