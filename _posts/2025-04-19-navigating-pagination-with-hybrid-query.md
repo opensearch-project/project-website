@@ -82,7 +82,7 @@ Modifying `from` or ``size`` values increases the number of results retrieved fo
 
 ### Addressing the ground truth problem
 
-The `pagination_depth` parameter solves these issues by ensuring a consistent number of results per shard. This removes the dependency on from and size during result retrieval, ensuring that the same set of search results every time. The `from` and `size` parameters are applied after hybrid techniques to trim the results and determine how many should be displayed on each page.
+The `pagination_depth` parameter solves these issues by ensuring a consistent number of results per shard. This removes the dependency on from and size during result retrieval, ensuring that the same set of search results every time. The `from` and `size` parameters are applied after hybrid techniques to trim the results and determine how many results should be displayed on each page.
 
 ### Key takeaways
 
