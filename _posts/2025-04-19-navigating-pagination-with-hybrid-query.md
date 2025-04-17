@@ -199,14 +199,12 @@ For example:
 
 Custom routing can lead to uneven data distribution across shards, resulting in some shards returning zero results, which reduces the total number of hybridized results.
 
-### Some shards may contain all the relevant results
-
-If a shard contains more than 20 results per subquery, it can still return only 20 results (based on `pagination_depth`). As a result, the coordinator node will receive fewer results for hybridization, reducing the final search result size.
+Additionally, some shards may contain all the relevant results. If a shard contains more than 20 results per subquery, it can still return only 20 results (based on `pagination_depth`). As a result, the coordinator node will receive fewer results for hybridization, reducing the final search result size.
 
 
-### Recommendations
+### Summary: Recommendations
 
-Follow these recommendations to optimize hybrid search for efficiency, ensuring high relevance while maintaining performance:
+In summary, follow these recommendations to optimize hybrid search for efficiency, ensuring high relevance while maintaining performance:
 
 * **Avoid deep pagination**: Hybrid search is optimized for relevance, not exhaustive pagination. For deep pagination needs, consider using traditional search methods like `bool` or `match` queries.
 * **Distribute data evenly**: Balance shards during indexing to ensure better query efficiency and minimize the need for high `pagination_depth` values.
