@@ -111,7 +111,7 @@ The following table compares NDCG@10 scores for hybrid search using min-max norm
 |FiQA	|0.2747	|0.2768	|+0.77%	|
 |NQ	|0.3665	|0.374	|+2.05%	|
 |ArguAna	|0.4507	|0.467	|+3.62%	|
-|Touche2020	|0.841	|0.8542	|+1.54%	|
+|Touche-2020	|0.841	|0.8542	|+1.54%	|
 |	|	|Average	|2.08%	|
 
 ### Search latency
