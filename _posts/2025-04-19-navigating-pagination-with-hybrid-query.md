@@ -199,7 +199,7 @@ For example:
 
 Custom routing can lead to uneven data distribution across shards, resulting in some shards returning zero results, which reduces the total number of hybridized results.
 
-Additionally, some shards may contain all the relevant results. If a shard contains more than 20 results per subquery, it can still return only 20 results (based on `pagination_depth`). As a result, the coordinator node will receive fewer results for hybridization, reducing the final search result size.
+Additionally, some shards may contain all the relevant results because of custom routing. Continuing the earlier example, if a shard contains more than 20 results per subquery, it can still return only 20 results (based on `pagination_depth`). As a result, the coordinator node will receive fewer results for hybridization, reducing the final search result size.
 
 
 ### Summary: Recommendations
