@@ -184,7 +184,7 @@ The results show gradual, predictable performance changes:
 
 ## Best practices for using pagination_depth
 
-Our benchmarking shows no significant performance impact when fetching the second page, even with a `pagination_depth` of 10,000. However, both latency and CPU utilization increase with pagination depth. To optimize performance, consider the following recommendations.
+Our benchmarking shows no significant performance impact when fetching the second page, even with a `pagination_depth` of 10,000. However, both latency and CPU utilization increase with pagination depth. To optimize performance, consider the following best practices.
 
 ### Optimize pagination depth based on data distribution
 
