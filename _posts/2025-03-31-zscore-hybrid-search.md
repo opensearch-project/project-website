@@ -177,7 +177,7 @@ The following table compares precision at mean (P@mean) scores for hybrid search
 |FiQA	|0.0921	|0.0925	|+0.43%	|
 |NQ	|0.0943	| 0.0935	|-0.85%|
 |ArguAna	|0.0878	|0.0878	|0%	|
-|Touche2020	|0.2364	|0.2318	|-1.95%	|
+|Touche-2020	|0.2364	|0.2318	|-1.95%	|
 |	|	|Average	|-0.59%	|
 
 ### Conclusions
