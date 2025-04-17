@@ -188,7 +188,7 @@ Our production experiments highlight the following aspects of z-score normalizat
 * Z-score normalization shows a slight decline in search quality, with an average decrease of 0.53% in NDCG@mean scores.
 * P@mean results show a similar trend, with a 0.59% average decrease across datasets.
 * Only the FIQA dataset demonstrated consistent improvements (+0.48% NDCG@mean, +0.43% P@mean).
-* The largest decline was observed in the Touche2020 dataset (-1.82% NDCG@mean, -1.95% P@mean).
+* The largest decline was observed in the Touche-2020 dataset (-1.82% NDCG@mean, -1.95% P@mean).
 
 **Trade-offs**:
 * Production metrics indicate consistent but minor degradation in search relevance.
