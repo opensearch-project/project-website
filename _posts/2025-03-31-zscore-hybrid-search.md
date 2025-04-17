@@ -193,7 +193,7 @@ Our production experiments highlight the following aspects of z-score normalizat
 **Trade-offs**:
 * Production metrics indicate consistent but minor degradation in search relevance.
 * Dataset size appears to influence performance, with larger datasets showing more pronounced decreases.
-* The FIQA dataset demonstrates that z-score can outperform min-max normalization in specific scenarios.
+* The FIQA dataset demonstrates that z-score normalization can outperform min-max normalization in specific scenarios.
 * Performance impact varies significantly across different datasets.
 
 **Overall assessment**:
