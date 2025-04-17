@@ -81,13 +81,9 @@ POST my_index/_search?search_pipeline=z_score-pipeline
 }
 ```
 
-## Benchmarking z-score normalization performance
-
-Benchmark experiments were conducted on an OpenSearch cluster with one **r6g.8xlarge** instance as the coordinator node and three **r6g.8xlarge** instances as data nodes. To evaluate z-score normalization comprehensively, we measured two key metrics across five distinct datasets.  
-
 ## Benchmarking z-score normalization for the development environment
 
-Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 1 shard. To assess z -score normalization performance comprehensively, we measured two key metrics across five distinct datasets. For more information about the datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
+Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node along with three r6g.8xlarge instances as data nodes with one shard. To assess z-score normalization performance comprehensively, we measured two key metrics across five distinct datasets. For more information about the datasets used, see [Datasets](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/).
 
 ### Sample queries and passages
 
@@ -99,7 +95,7 @@ The following table provides sample queries and passages for each dataset.
 |FiQA	|"Business day" and "due date" for bills	|`I don't believe Saturday is a business day either. When I deposit a check at a bank's drive-in after 4pm Friday, the receipt tells me it will credit as if I deposited on Monday. If a business' computer doesn't adjust their billing to have a weekday due date ...	`|
 |NQ |what is non controlling interest on balance sheet |`In accounting, minority interest (or non-controlling interest) is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. The magnitude of the minority interest in the subsidiary company is generally less than 50% of outstanding shares, or the corporation would generally cease to be a subsidiary of the parent`|
 |ArguAna	|Poaching is becoming more advanced A stronger, militarised approach is needed as poaching is becoming ...	|`Tougher protection of Africa\u2019s nature reserves will only result in more bloodshed. Every time the military upgrade their weaponry, tactics and logistic, the poachers improve their own methods to counter ...`	|
-|touche2020	|Is a college education worth it?	|`The resolution used by Pro *assumes* that Australia isn't already a 'significant' country - however, in actual reality, it is. Firstly we should clarify what significance means: 1.a the state or quality of being significant1.b of consequence or..`	|
+|Touche2020	|Is a college education worth it?	|`The resolution used by Pro *assumes* that Australia isn't already a 'significant' country - however, in actual reality, it is. Firstly we should clarify what significance means: 1.a the state or quality of being significant1.b of consequence or..`	|
 
 
 Search relevance was quantified using the industry-standard normalized discounted cumulative gain at rank 10 (NDCG@10). We also tracked system performance using search latency measurements. This setup provided a strong foundation for evaluating both search quality and operational efficiency.
@@ -115,7 +111,7 @@ The following table compares NDCG@10 scores for hybrid search using min-max norm
 |FiQA	|0.2747	|0.2768	|+0.77%	|
 |NQ	|0.3665	|0.374	|+2.05%	|
 |ArguAna	|0.4507	|0.467	|+3.62%	|
-|touche2020	|0.841	|0.8542	|+1.54%	|
+|Touche2020	|0.841	|0.8542	|+1.54%	|
 |	|	|Average	|2.08%	|
 
 ### Search latency
@@ -123,11 +119,11 @@ The following table compares NDCG@10 scores for hybrid search using min-max norm
 
 The following table presents search latency measurements in milliseconds at different percentiles (p50, p90, and p99) for hybrid search using min-max and z-score normalization. The *Percent difference* columns indicate the relative performance impact of these methods.
 
-<table> <tr> <th></th> <th colspan="3"><b>p50</b></th> <th colspan="3"><b>p90</b></th> <th colspan="3"><b>p99</b></th> </tr> <tr> <td></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> </tr> <tr> <td>SciDocs</td> <td>76.25</td> <td>77.5</td> <td>1.64%</td> <td>99</td> <td>100.5</td> <td>1.52%</td> <td>129.54</td> <td>133.04</td> <td>2.70%</td> </tr> <tr> <td>FIQA</td> <td>80</td> <td>81</td> <td>1.25%</td> <td>104.5</td> <td>105</td> <td>0.48%</td> <td>123.236</td> <td>124</td> <td>0.62%</td> </tr> <tr> <td>NQ</td> <td>117</td> <td>117</td> <td>0%</td> <td>140</td> <td>140</td> <td>0%</td> <td>166.74</td> <td>165.24</td> <td>-0.90%</td> </tr> <tr> <td>ArguAna</td> <td>349</td> <td>349</td> <td>0%</td> <td>382</td> <td>382</td> <td>0%</td> <td>417.975</td> <td>418.475</td> <td>0.12%</td> </tr> <tr> <td>touche2020</td> <td>77</td> <td>77.5</td> <td>0.64%</td> <td>100</td> <td>100.5</td> <td>0.50%</td> <td>140</td> <td>140</td> <td>0%</td> </tr> <tr> <td></td> <td></td> <td><b>Average:</b></td> <td>0.70%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> </tr> </table>
+<table> <tr> <th></th> <th colspan="3"><b>p50</b></th> <th colspan="3"><b>p90</b></th> <th colspan="3"><b>p99</b></th> </tr> <tr> <td></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> <td><b>Hybrid (min-max)</b></td> <td><b>Hybrid (z-score)</b></td> <td><b>Percent difference</b></td> </tr> <tr> <td>SciDocs</td> <td>76.25</td> <td>77.5</td> <td>1.64%</td> <td>99</td> <td>100.5</td> <td>1.52%</td> <td>129.54</td> <td>133.04</td> <td>2.70%</td> </tr> <tr> <td>FIQA</td> <td>80</td> <td>81</td> <td>1.25%</td> <td>104.5</td> <td>105</td> <td>0.48%</td> <td>123.236</td> <td>124</td> <td>0.62%</td> </tr> <tr> <td>NQ</td> <td>117</td> <td>117</td> <td>0%</td> <td>140</td> <td>140</td> <td>0%</td> <td>166.74</td> <td>165.24</td> <td>-0.90%</td> </tr> <tr> <td>ArguAna</td> <td>349</td> <td>349</td> <td>0%</td> <td>382</td> <td>382</td> <td>0%</td> <td>417.975</td> <td>418.475</td> <td>0.12%</td> </tr> <tr> <td>Touche2020</td> <td>77</td> <td>77.5</td> <td>0.64%</td> <td>100</td> <td>100.5</td> <td>0.50%</td> <td>140</td> <td>140</td> <td>0%</td> </tr> <tr> <td></td> <td></td> <td><b>Average:</b></td> <td>0.70%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> <td></td> <td><b>Average:</b></td> <td>0.50%</td> </tr> </table>
 
 ### Conclusions
 
-Our benchmark experiments highlight the following advantages and trade-offs of using z-score normalization compared to min-max normalization in hybrid search:
+Our benchmark experiments highlight the following advantages and trade-offs of using z-score normalization instead of min-max normalization in hybrid search:
 
 - **Search quality (measured using NDCG@10 across four datasets)**:
 
@@ -158,54 +154,54 @@ Our benchmark experiments highlight the following advantages and trade-offs of u
 
 ## Benchmarking z-score normalization for the production environment
 
-Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node, along with three r6g.8xlarge instances as data nodes with 12 shards.
+Benchmark experiments were conducted using an OpenSearch cluster consisting of a single r6g.8xlarge instance as the coordinator node along with 3 r6g.8xlarge instances as data nodes with 12 shards.
 
 ### NDCG@mean
 
 The following table compares NDCG@mean scores for hybrid search using min-max normalization and z-score normalization, showing the percent difference in search relevance across five datasets.
 
-|Dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent difference	|
+|Dataset	|Hybrid (min-max)	|Hybrid (z-score)	|Percent difference	|
 |---	|---	|---	|---	|
 |FiQA	|0.3105	|0.3120	|+0.48%	|
 |NQ	|0.4563	| 0.4540	|-0.50%|
 |ArguAna	|0.4713	|0.4700	|-0.28%	|
-|touche2020	|0.3788	|0.3719	|-1.82%	|
+|Touche2020	|0.3788	|0.3719	|-1.82%	|
 |	|	|Average	|-0.53%	|
 
 ### P@mean
 
 The following table compares precision at mean (P@mean) scores for hybrid search using min-max normalization and z-score normalization, showing the percent difference in search relevance across four datasets.
 
-|Dataset	|Hybrid (min max)	|Hybrid (z score)	|Percent difference	|
+|Dataset	|Hybrid (min-max)	|Hybrid (z-score)	|Percent difference	|
 |---	|---	|---	|---	|
 |FiQA	|0.0921	|0.0925	|+0.43%	|
 |NQ	|0.0943	| 0.0935	|-0.85%|
 |ArguAna	|0.0878	|0.0878	|0%	|
-|touche2020	|0.2364	|0.2318	|-1.95%	|
+|Touche2020	|0.2364	|0.2318	|-1.95%	|
 |	|	|Average	|-0.59%	|
 
 ### Conclusions
 
-Our production experiments highlight the following aspects of Z-score normalization compared to min-max normalization in hybrid search approaches:
+Our production experiments highlight the following aspects of z-score normalization compared to min-max normalization in hybrid search approaches:
 
 **Search quality**:
-* Z-score normalization shows a slight decline in search quality, with an average decrease of 0.53% in NDCG@mean scores
-* P@mean results show a similar trend with a 0.59% average decrease across datasets
-* Only FIQA dataset demonstrated consistent improvements (+0.48% NDCG@mean, +0.43% P@mean)
-* Largest decline observed in Touche2020 dataset (-1.82% NDCG@mean, -1.95% P@mean)
+* Z-score normalization shows a slight decline in search quality, with an average decrease of 0.53% in NDCG@mean scores.
+* P@mean results show a similar trend, with a 0.59% average decrease across datasets.
+* Only the FIQA dataset demonstrated consistent improvements (+0.48% NDCG@mean, +0.43% P@mean).
+* The largest decline was observed in the Touche2020 dataset (-1.82% NDCG@mean, -1.95% P@mean).
 
 **Trade-offs**:
-* Production metrics indicate consistent but minor degradation in search relevance
-* Dataset size appears to influence performance, with larger datasets showing more pronounced decreases  
-* FIQA dataset demonstrates that Z-score can outperform min-max in specific scenarios
-* Performance impact varies significantly across different datasets
+* Production metrics indicate consistent but minor degradation in search relevance.
+* Dataset size appears to influence performance, with larger datasets showing more pronounced decreases.
+* The FIQA dataset demonstrates that z-score can outperform min-max normalization in specific scenarios.
+* Performance impact varies significantly across different datasets.
 
 **Overall assessment**:
-* Z-score normalization performs marginally below min-max normalization in production settings
-* Results suggest dataset characteristics significantly influence normalization effectiveness
-* Implementation decisions should prioritize specific use case requirements and dataset characteristics
+* Z-score normalization performs marginally below min-max normalization in production settings.
+* Results suggest dataset characteristics significantly influence normalization effectiveness.
+* Implementation decisions should prioritize specific use case requirements and dataset characteristics.
 
-These findings indicate that while Z-score normalization remains a viable option, min-max normalization demonstrates more reliable performance in production scenarios. The choice between methods should be based on thorough testing with specific datasets and use cases.
+These findings indicate that while z-score normalization remains a viable option, min-max normalization demonstrates more reliable performance in production scenarios. The choice between methods should be based on thorough testing with specific datasets and use cases.
 
 
 ## What's next?
