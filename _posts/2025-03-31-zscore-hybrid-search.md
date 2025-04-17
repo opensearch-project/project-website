@@ -165,7 +165,7 @@ The following table compares NDCG@mean scores for hybrid search using min-max no
 |FiQA	|0.3105	|0.3120	|+0.48%	|
 |NQ	|0.4563	| 0.4540	|-0.50%|
 |ArguAna	|0.4713	|0.4700	|-0.28%	|
-|Touche2020	|0.3788	|0.3719	|-1.82%	|
+|Touche-2020	|0.3788	|0.3719	|-1.82%	|
 |	|	|Average	|-0.53%	|
 
 ### P@mean
