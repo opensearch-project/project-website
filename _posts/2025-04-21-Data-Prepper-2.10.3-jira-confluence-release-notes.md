@@ -68,9 +68,9 @@ extension:
           secret_id: <<secret-arn>>
           region: <<secrets-region>>
           sts_role_arn: <<role-to-access-secret>>
-jira-pipeline:
+confluence-pipeline:
   source:
-    jira:
+    confluence:
       hosts: ["<<Atlassian-host-url>>"]
       authentication: 
         basic:
