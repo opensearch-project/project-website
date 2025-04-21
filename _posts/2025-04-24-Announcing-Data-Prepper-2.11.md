@@ -9,9 +9,9 @@ authors:
 date: 2025-04-17 12:30:00 -0600
 categories:
   - releases
-excerpt: 
-meta_keywords: 
-meta_description: 
+excerpt: Data Prepper 2.10.0 offers better OpenTelemetry support and new integrations with external sources.
+meta_keywords: Data Prepper, OpenTelemetry, Atlassian Jira, Atlassian Confluent, Amazon Aurora, Amazon RDS, Amazon SQS
+meta_description: Data Prepper 2.10.0 offers better OpenTelemetry support and new integrations with Jira, Confluent, Amazon Aurora/RDS, and Amazon SQS.
 ---
 
 ## Introduction
@@ -40,32 +40,26 @@ The `rds` source currently supports Aurora MySQL, Aurora PostgreSQL, RDS MySQL, 
 
 The following is an example configuration:
 
-```
+```yaml
 aurora-mysql-pipeline:
   source:
     rds:
-      db_identifier: "<<cluster-id>>"
-      engine: aurora-mysql
-      database: "<<database-name>>"
-      # Optional: use include/exclude options to specify the tables to ingest
-      # tables:
-        # include:
-        #   - "<<table1>>"
-        #   - "<<table2>>"
-        # exclude:
-        #   - "<<table3>>"
-        #   - "<<table4>>"
-      s3_bucket: "<<bucket-name>>"
-      s3_region: "<<bucket-region>>"
-      # Optional s3_prefix for Opensearch ingestion to write the records
-      # s3_prefix: "<<path_prefix>>"
+      db_identifier: "my-aurora-cluster"
+      engine: "aurora-mysql"
+      database: "hr_db"
+      tables:
+        include:
+          - "employees"
+          - "departments"
+      s3_bucket: "my-s3-bucket"
+      s3_prefix: "pipeline-data"
       export:
-        kms_key_id: "<<kms-key-id>>"
-        export_role_arn: "<<arn:aws:iam::123456789012:role/Export-Role>>"
+        kms_key_id: "1234abcd-1234-abcd-1234-123456abcdef"
+        export_role_arn: "arn:aws:iam::123456789012:role/ExportRole"
       stream: true
       aws:
-        sts_role_arn: "<<arn:aws:iam::123456789012:role/Example-Role>>"
-        region: "<<us-east-1>>"
+        sts_role_arn: "arn:aws:iam::123456789012:role/PipelineRole"
+        region: "us-east-1"
       authentication:
         username: ${{aws_secrets:secret:username}}
         password: ${{aws_secrets:secret:password}}
@@ -86,16 +80,25 @@ Using this approach reduces your SQS costs by combining data into SQS messages a
 To take this approach you must design your sending application to send SQS messages to SQS in a format available as a [Data Prepper codec](https://docs.opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#codec).
 Then you configure your Data Prepper pipeline to use that codec to parse the message into multiple events.
 
-
 ## Other features and improvements
 
-TODO: David
+This release includes another of other features to help you create pipelines for your needs.
+
+* The `rename_keys` processor can now rename keys with variable names using a regex pattern.
+* The `opensearch` sink now supports new index types for OTel Logs and Metrics.
+* Data Prepper expressions now support names with `/` using escaping of the `/` character.
 
 
 ## Next steps
 
-TODO: David
+Working is continuing on Data Prepper with a few new features coming.
+
+One exciting feature is the integration with ML-Commons and Amazon Bedrock in Data Prepper pipelines.
+This feature is provided through a new ML inference processor and the Amazon S3 source and sink.
+The feature is currently in development and is available for experimental usage in 2.11.
+
+See the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projects/221/views/1) for more information on upcoming features.
 
 ## Thanks to our contributors!
 
-TODO: David
+TODO: We will add this shortly
