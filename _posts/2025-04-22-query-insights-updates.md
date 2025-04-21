@@ -5,11 +5,11 @@ title: "What's new in OpenSearch Query Insights: Advanced grouping, dashboards, 
 authors:
    - chenyang
    - kolchfa
-date: 2025-03-31
+date: 2025-04-22
 categories:
   - technical-posts
-meta_keywords: OpenSearch query insights, query grouping, query similarity, query dashboards, search performance, query optimization, query latency, search analytics, resource monitoring, OpenSearch Dashboards
-meta_description: Explore recent advancements in OpenSearch Query Insights, featuring query grouping by similarity, a dedicated OpenSearch Dashboards plugin for visualization and configuration, a local index exporter for historical analysis, and new plugin health monitoring capabilities.
+meta_keywords: Query insights, query performance, OpenSearch Dashboards, query grouping by similarity, advanced query grouping, query monitoring, search optimization, monitor plugin health, local index exporter
+meta_description: Learn how the latest enhancements to OpenSearch Query Insights, including advanced query grouping, dedicated dashboards, historical analysis capabilities, and improved plugin health monitoring, improve performance.
 ---
 
 OpenSearch Query Insights gives you essential visibility into how search queries perform, helping you understand how queries run and how they use cluster resources. Since introducing [Query Insights](https://opensearch.org/blog/query-insights/), we've aimed to provide tools that help you identify performance bottlenecks and optimize your queries---ultimately improving the search experience for your users. Analyzing queries effectively is key to maintaining fast, efficient search operations.
@@ -56,13 +56,13 @@ The Query Insights API gives you direct access to performance data, but a visual
 This interface includes several key features:
 
 - **Top N queries view**: See a sortable, filterable list of the top N queries or query groups ranked by metrics like latency, CPU usage, or memory. You can filter results by time range, index, search type, or coordinator node ID. Key performance data is displayed in a clear table layout, as shown in the following image.  
-   ![Query Insights Dashboards - Top Queries Overview](/assets/media/blog-images/2025-03-31-query-insights-updates/top-queries-overview.png)
+   ![Query Insights Dashboards - Top Queries Overview](/assets/media/blog-images/2025-04-22-query-insights-updates/top-queries-overview.png)
 
 - **Query details page**: Select a query ID to view detailed information. For individual queries, you'll see the full query body, execution timestamps, CPU and memory usage, phase-level latency, and metadata such as the index, node, and shards. For grouped queries, the page presents aggregate metrics like average latency and total count, along with a representative query example, as shown in the following image.  
-   ![Query Insights Dashboards - Details Page](/assets/media/blog-images/2025-03-31-query-insights-updates/top-queries-details.png)
+   ![Query Insights Dashboards - Details Page](/assets/media/blog-images/2025-04-22-query-insights-updates/top-queries-details.png)
 
 - **Configuration interface**: Adjust settings directly from the dashboard instead of using the API. You can enable or disable monitoring for specific metrics, set the monitoring window (`window_size`), control how many queries to track (`top_n_size`), choose the grouping strategy (`group_by`), and configure export settings—all through simple, interactive controls, as shown in the following image.  
-   ![Query Insights Dashboards - Configuration Page](/assets/media/blog-images/2025-03-31-query-insights-updates/query-insights-dashboards-config.png)
+   ![Query Insights Dashboards - Configuration Page](/assets/media/blog-images/2025-04-22-query-insights-updates/query-insights-dashboards-config.png)
 
 **Why it matters**: Query Insights in OpenSearch Dashboards makes it easier to monitor search performance---whether you're an administrator monitoring query performance or a developer investigating specific query issues. You can quickly visualize data, explore individual queries, and adjust settings without needing to interact with the API. For setup instructions and usage tips, see [Query Insights dashboards](https://opensearch.org/docs/latest/observing-your-data/query-insights/query-insights-dashboard/).
 
