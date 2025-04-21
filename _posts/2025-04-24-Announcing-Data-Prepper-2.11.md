@@ -21,10 +21,53 @@ This release includes a number of great improvements to help you ingest data int
 Some major changes include new sources for data and better OpenTelemetry support.
 
 
-## Open Telemetry improvements
+## OpenTelemetry improvements
 
-TODO: Krishna
+Currently, the design and implementation of OTEL sources were tightly coupled with the OpenSearch data mapping model and ease of integration with Opensearch Dashboards, leading to including the following functionality in OTEL sources -
 
+* Replacing dot(.) s in attributes with at(@)
+* Merging and flattening of attributes
+    * resource attributes, scope attributes, and log/metric/span attributes are all merged and put in the root of the event
+* Addition of non-standard fields
+    * Non standard fields like service name, trace group and trace group fields are added
+
+Data Prepper is modified to support generation of events compliant to OTEL standard specification
+To support generation of OTEL standard compliant events, the following changes are made
+
+* Added a new config option output_format under each OTEL source, which by default assigned opensearch and can be configured to otel to generate OTEL standard complaint events
+* Renamed OTelProtoCodec.java to OTelProtoOpensearchCodec.java to support default behavior and added OTelProtoStandardCodec.java to support the new config option
+* OTelProtoStandardCodec.java removed all the non-standard behavior and removed non-standard fields instead puts non-standard fields in event’s Metadata. Span API like getServiceName() are modified to return data from metadata when it is present in metadata. This enables otel_traces and service_map processors to work as expected without any changes.
+* All missing OTEL standard fields are added
+* Added index templates in opensearch sink  for mapping the fields correctly for log, metric and span documents in opensearch index
+
+With these changes, the OTEL sources configuration file for generating OTEL-compliant events from OTel Logs is as follows:
+
+```
+source:
+  otel_logs_source:
+      output_format: otel
+sink:
+  - opensearch:
+        hosts: [ "https://..." ]
+        aws:
+            region: "<<region>>"
+            sts_role_arn: "<<role-arn>>"
+        index_type: "log-analytics-plain"
+```
+
+
+Users who need to transform data before sending it to the OpenSearch sink can leverage existing Data Prepper processors. For instance, to nest severityText and severityNumber under a severity field in OTEL logs, the following configuration can be added prior to the sink stage.
+
+```
+- add_entries:
+       entries:
+         - key: "severity/number"
+           format: "${/severityNumber}"
+         - key: "severity/text"
+           format: "${/severityText}"
+- delete_entries:
+    with_keys: ["severityNumber", "severityText"]
+```
 
 ## Atlassian Jira as a source
 
@@ -134,10 +177,10 @@ confluence-pipeline:
 
 ## Amazon Aurora/RDS as a source
 
-[Amazon Aurora](https://aws.amazon.com/rds/aurora/) and [Amazon RDS](https://aws.amazon.com/rds/) are fully managed relational database services that make it easier to set up, operate, and scale a relational database in the AWS Cloud. 
+[Amazon Aurora](https://aws.amazon.com/rds/aurora/) and [Amazon RDS](https://aws.amazon.com/rds/) are fully managed relational database services that make it easier to set up, operate, and scale a relational database in the AWS Cloud.
 For those who want to take advantage of advanced search capabilities like full-text and vector search on the transactional data in Amazon Aurora/RDS, you can now use Data Prepper to synchronize data from Aurora and RDS to OpenSearch.
 
-Data Prepper’s new `rds` source first exports existing data from Amazon Aurora/RDS tables to OpenSearch indices, then streams incremental changes from those tables to keep the data consistent between the relational database and OpenSearch. 
+Data Prepper’s new `rds` source first exports existing data from Amazon Aurora/RDS tables to OpenSearch indices, then streams incremental changes from those tables to keep the data consistent between the relational database and OpenSearch.
 The `rds` source currently supports Aurora MySQL, Aurora PostgreSQL, RDS MySQL, and RDS PostgreSQL engines.
 
 
@@ -204,7 +247,7 @@ See the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projec
 
 ## Thanks to our contributors!
 
-Thanks to these community members who contributed toward this release! 
+Thanks to these community members who contributed toward this release!
 
 * [akshay0709](https://github.com/akshay0709) -- Akshay Pawar
 * [chenqi0805](https://github.com/chenqi0805) -- Qi Chen
