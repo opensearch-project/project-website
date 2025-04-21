@@ -204,4 +204,30 @@ See the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projec
 
 ## Thanks to our contributors!
 
-TODO: We will add this shortly
+Thanks to these community members who contributed toward this release! 
+
+* [akshay0709](https://github.com/akshay0709) -- Akshay Pawar
+* [chenqi0805](https://github.com/chenqi0805) -- Qi Chen
+* [dinujoh](https://github.com/dinujoh) -- Dinu John
+* [divbok](https://github.com/divbok) -- Divyansh Bokadia
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [FedericoBrignola](https://github.com/FedericoBrignola)
+* [Galactus22625](https://github.com/Galactus22625) -- Maxwell Brown
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [janhoy](https://github.com/janhoy) -- Jan Høydahl
+* [jmsusanto](https://github.com/jmsusanto) -- Jeremy Michael
+* [juergen-walter](https://github.com/juergen-walter) -- Jürgen Walter
+* [KarstenSchnitter](https://github.com/KarstenSchnitter) -- Karsten Schnitter
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [MohammedAghil](https://github.com/MohammedAghil) -- Mohammed Aghil Puthiyottil
+* [oeyh](https://github.com/oeyh) -- Hai Yan
+* [RashmiRam](https://github.com/RashmiRam) -- Rashmi
+* [Rishikesh1159](https://github.com/Rishikesh1159) -- Rishikesh
+* [saketh-pallempati](https://github.com/saketh-pallempati) -- Saketh Pallempati
+* [san81](https://github.com/san81) -- Santhosh Gandhe
+* [sb2k16](https://github.com/sb2k16) -- Souvik Bose
+* [seschis](https://github.com/seschis) -- Shane Schisler
+* [shenkw1](https://github.com/shenkw1) -- Katherine Shen
+* [srikanthjg](https://github.com/srikanthjg) -- Srikanth Govindarajan
+* [TomasLongo](https://github.com/TomasLongo) -- Tomas
+* [Zhangxunmt](https://github.com/Zhangxunmt) -- Xun Zhang
