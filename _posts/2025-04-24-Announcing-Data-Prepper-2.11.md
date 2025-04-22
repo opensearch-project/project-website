@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Announcing Data Prepper 2.11
+title: Announcing OpenSearch Data Prepper 2.11
 authors:
 - san81
 - kkondaka
@@ -16,7 +16,7 @@ meta_description: Data Prepper 2.10.0 offers better OpenTelemetry support and ne
 
 ## Introduction
 
-Data Prepper 2.11 is now available for download!
+OpenSearch Data Prepper 2.11 is now available for download!
 This release includes a number of great improvements to help you ingest data into OpenSearch.
 Some major changes include new sources for data and better OpenTelemetry support.
 
@@ -194,43 +194,40 @@ aurora-mysql-pipeline:
         password: ${{aws_secrets:secret:password}}
 ```
 
-## SQS as a source
+## Amazon SQS as a source
 
-Data Prepper now supports a new Amazon Simple Queue Service (SQS) source for reading events from SQS queues.
+Data Prepper now supports a new Amazon Simple Queue Service (Amazon SQS) source for reading events from SQS queues.
 Amazon SQS is a fully managed message queue.
-The new SQS source in Data Prepper efficiently receives messages from SQS to create events you can route to sinks such as OpenSearch.
+The new SQS source in Data Prepper efficiently receives messages from Amazon SQS to create events that you can route to sinks.
 
-Data Prepper receives SQS messages from an SQS queue in batches, then creates Data Prepper events from those SQS messages.
+Data Prepper receives SQS messages from an SQS queue in batches and then creates Data Prepper events from those SQS messages.
 By default, Data Prepper will create a single Data Prepper event per SQS message.
 Data Prepper provides a robust collection of [processors](https://docs.opensearch.org/docs/latest/data-prepper/pipelines/configuration/processors/processors/) that you can use to parse or grok, depending on the format of your message.
 
-To help reduce your SQS costs, you can instead design your SQS data and Data Prepper to support multiple events per message.
-Using this approach reduces your SQS costs by combining data into SQS messages allowing for fewer SQS sends and receives.
-To take this approach you must design your sending application to send SQS messages to SQS in a format available as a [Data Prepper codec](https://docs.opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#codec).
-Then you configure your Data Prepper pipeline to use that codec to parse the message into multiple events.
+To help reduce your Amazon SQS costs, you can instead design your SQS data and configure Data Prepper to support multiple events per message.
+Using this approach reduces your Amazon SQS costs by combining data into SQS messages, allowing for fewer SQS sends and receives.
+To take this approach, you must design your sending application to send SQS messages to Amazon SQS in a format available as a [Data Prepper codec](https://docs.opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#codec).
+Then you can configure your Data Prepper pipeline to use that codec to parse the message into multiple events.
 
 ## Other features and improvements
 
-This release includes another of other features to help you create pipelines for your needs.
+This release also includes several additional features to help you create pipelines:
 
 * The `rename_keys` processor can now rename keys with variable names using a regex pattern.
-* The `opensearch` sink now supports new index types for OTel Logs and Metrics.
-* Data Prepper expressions now support names with `/` using escaping of the `/` character.
+* The `opensearch` sink now supports new index types for OTel logs and metrics.
+* Data Prepper expressions now support names with `/` by escaping the `/` character.
 
 
 ## Next steps
 
-Working is continuing on Data Prepper with a few new features coming.
+Work is continuing on Data Prepper, with a few new features upcoming. One exciting feature is the integration of ML Commons and Amazon Bedrock into Data Prepper pipelines. This feature is provided through a new machine learning (ML) inference processor and the Amazon Simple Storage Service (Amazon S3) source and sink. The feature is currently in development and is available for experimental use in version 2.11.
 
-One exciting feature is the integration with ML-Commons and Amazon Bedrock in Data Prepper pipelines.
-This feature is provided through a new ML inference processor and the Amazon S3 source and sink.
-The feature is currently in development and is available for experimental usage in 2.11.
 
-See the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projects/221/views/1) for more information on upcoming features.
+See the [Data Prepper Project Roadmap](https://github.com/orgs/opensearch-project/projects/221/views/1) for more information on upcoming features.
 
 ## Thanks to our contributors!
 
-Thanks to these community members who contributed toward this release!
+Thanks to the following community members who contributed to this release!
 
 * [akshay0709](https://github.com/akshay0709) -- Akshay Pawar
 * [chenqi0805](https://github.com/chenqi0805) -- Qi Chen
