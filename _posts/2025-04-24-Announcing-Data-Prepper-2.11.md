@@ -162,9 +162,9 @@ confluence-pipeline:
 ## Amazon Aurora/Amazon RDS as a source
 
 [Amazon Aurora](https://aws.amazon.com/rds/aurora/) and [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/) are fully managed relational database services that make it easier to set up, operate, and scale a relational database in the AWS Cloud.
-For those who want to take advantage of advanced search capabilities like full-text and vector search on the transactional data in Amazon Aurora/RDS, you can now use Data Prepper to synchronize data from Aurora and RDS to OpenSearch.
+If you want to take advantage of advanced search capabilities like full-text and vector search on the transactional data in Aurora/Amazon RDS, you can now use Data Prepper to synchronize data from Aurora and Amazon RDS with OpenSearch.
 
-Data Prepper’s new `rds` source first exports existing data from Amazon Aurora/RDS tables to OpenSearch indices, then streams incremental changes from those tables to keep the data consistent between the relational database and OpenSearch.
+Data Prepper's new `rds` source first exports existing data from Aurora/Amazon RDS tables to OpenSearch indexes and then streams incremental changes from those tables in order to maintain data consistency between the relational database and OpenSearch.
 The `rds` source currently supports the Aurora MySQL, Aurora PostgreSQL, RDS MySQL, and RDS PostgreSQL engines.
 
 The following is an example configuration:
