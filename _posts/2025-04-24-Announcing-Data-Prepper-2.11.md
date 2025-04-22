@@ -16,9 +16,7 @@ meta_description: Data Prepper 2.10.0 offers better OpenTelemetry support and ne
 
 ## Introduction
 
-OpenSearch Data Prepper 2.11 is now available for download!
-This release includes a number of great improvements to help you ingest data into OpenSearch.
-Some major changes include new sources for data and better OpenTelemetry support.
+OpenSearch Data Prepper 2.11 is now available for download! This release includes a number of great improvements to help you ingest data into OpenSearch.  Some major changes include new sources for data and better OpenTelemetry support.
 
 
 ## OpenTelemetry improvements
@@ -198,7 +196,7 @@ aurora-mysql-pipeline:
 
 Data Prepper now supports a new Amazon Simple Queue Service (Amazon SQS) source for reading events from SQS queues.
 Amazon SQS is a fully managed message queue.
-The new SQS source in Data Prepper efficiently receives messages from Amazon SQS to create events that you can route to sinks.
+The new `sqs` source in Data Prepper efficiently receives messages from Amazon SQS to create events that you can route to sinks.
 
 Data Prepper receives SQS messages from an SQS queue in batches and then creates Data Prepper events from those SQS messages.
 By default, Data Prepper will create a single Data Prepper event per SQS message.
@@ -215,7 +213,7 @@ This release also includes several additional features to help you create pipeli
 
 * The `rename_keys` processor can now rename keys with variable names using a regex pattern.
 * The `opensearch` sink now supports new index types for OTel logs and metrics.
-* Data Prepper expressions now support names with `/` by escaping the `/` character.
+* Data Prepper expressions now support slashes (`/`) in the key by allowing you to escape the `/` character.
 
 
 ## Next steps
