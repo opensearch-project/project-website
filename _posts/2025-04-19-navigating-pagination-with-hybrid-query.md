@@ -9,13 +9,13 @@ authors:
 date: 2025-04-16
 categories:
   - technical-posts
-meta_keywords: hybrid queries, semantic search, lexical search, search relevance, query execution workflow, OpenSearch hybrid search, Pagination
-meta_description: Explore how pagination works in hybrid queries by using pagination depth to efficiently paginate over the result set.
+meta_keywords: hybrid query, OpenSearch, understanding pagination, pagination depth, hybrid search, search performance, best practices for using pagination_depth, query optimization, search relevance
+meta_description: Discover how to optimize OpenSearch hybrid queries using the pagination_depth parameter. Learn implementation guidelines and performance best practices for efficient search result navigation in OpenSearch 2.19.
 ---
 
 OpenSearch 2.10 introduced hybrid queries, which have become a popular choice for improving semantic search relevance. By combining full-text lexical search with semantic search, hybrid queries deliver better results than either method alone across various applications, including e-commerce, document search, log analytics, and data exploration. Our [earlier blog post](https://opensearch.org/blog/hybrid-search/) introduced this feature and presented quality and performance results.
 
-OpenSearch continues to enhance its hybrid query capabilities with features like post-filters, aggregations, query parallelization, the `explain` parameter, and sorting. Building on this momentum, OpenSearch 2.19 introduced pagination support through the new `pagination_depth` parameter. When used with traditional `from` and `size` parameters, this enhancement helps you efficiently navigate through hybrid query result sets. For example, you can now paginate through thousands of search results one page at a time.
+OpenSearch continues to enhance its hybrid query capabilities with features like post-filters, aggregations, query parallelization, the `explain` parameter, and sorting. Building on this momentum, [OpenSearch 2.19](https://opensearch.org/blog/explore-opensearch-2-19/) introduced pagination support through the new `pagination_depth` parameter. When used with traditional `from` and `size` parameters, this enhancement helps you efficiently navigate through hybrid query result sets. For example, you can now paginate through thousands of search results one page at a time.
 
 In this blog post, we'll explain pagination and the `pagination_depth` parameter. We'll explore why pagination depth is necessary for hybrid queries, show you how to use this feature, and share benchmarking results.
 
