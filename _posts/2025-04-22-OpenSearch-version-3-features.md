@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "OpenSearch® version 3.0: New features, breaking changes from Apache Lucene™ 10, and what to expect"
+title:  "OpenSearch version 3.0: New features, breaking changes from Apache Lucene 10, and what to expect"
 authors:
  - kwren
 date: 2025-04-22
