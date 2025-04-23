@@ -19,7 +19,7 @@ meta_description: Data Prepper 2.11.0 offers better OpenTelemetry support and ne
 OpenSearch Data Prepper 2.11 is now available for download! This release includes a number of improvements to help you ingest data into OpenSearch. Some major changes include new sources for data and better OpenTelemetry (OTel) support.
 
 
-## OpenTelemetry improvements
+## OTel improvements
 
 Previously, the design and implementation of OTel sources were tightly coupled with the OpenSearch data mapping model and ease of integration with OpenSearch Dashboards, necessitating the following functionality in OTel sources:
 
