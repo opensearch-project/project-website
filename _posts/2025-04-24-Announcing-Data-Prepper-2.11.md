@@ -16,22 +16,22 @@ meta_description: Data Prepper 2.11.0 offers better OpenTelemetry support and ne
 
 ## Introduction
 
-OpenSearch Data Prepper 2.11 is now available for download! This release includes a number of great improvements to help you ingest data into OpenSearch.  Some major changes include new sources for data and better OpenTelemetry support.
+OpenSearch Data Prepper 2.11 is now available for download! This release includes a number of improvements to help you ingest data into OpenSearch. Some major changes include new sources for data and better OpenTelemetry (OTel) support.
 
 
 ## OpenTelemetry improvements
 
-Previously, the design and implementation of OpenTelemetry (OTel) sources were tightly coupled with the OpenSearch data mapping model and ease of integration with OpenSearch Dashboards, necessitating the following functionality in OTel sources:
+Previously, the design and implementation of OTel sources were tightly coupled with the OpenSearch data mapping model and ease of integration with OpenSearch Dashboards, necessitating the following functionality in OTel sources:
 
-* Replacing dot(.) s in attributes with the at symbol (@).
+* Replacing dots (.) in attributes with the at symbol (@).
 * Merging and flattening of attributes -- Resource attributes, scope attributes, and log/metric/span attributes are all merged and stored in the root of the event.
 * Addition of non-standard fields -- Non-standard fields, like service name and trace group fields, are added.
 
 Data Prepper has now been modified to support the generation of events compliant with the OTel standard specification. To support this, the following changes have been implemented:
 
 * A new `output_format` configuration option has been added under each OTel source, with OpenSearch as the default, and can be configured to generate OTel-compliant events.
-* OTelProtoCodec.java has been renamed to OTelProtoOpensearchCodec.java to support the default behavior and the new configuration option.
-* All the non-standard behavior and fields have been removed from OTelProtoStandardCodec.java in favor of storing non-standard fields in an event's metadata. Span APIs like `getServiceName()` have been modified to return data from metadata when it is available. This enables the `otel_traces` and `service_map` processors to work as expected without any changes.
+* `OTelProtoCodec.java` has been renamed to `OTelProtoOpensearchCodec.java` to support the default behavior and the new configuration option.
+* All the non-standard behavior and fields have been removed from `OTelProtoStandardCodec.java` in favor of storing non-standard fields in an event's metadata. Span APIs like `getServiceName()` have been modified to return data from metadata when it is available. This enables the `otel_traces` and `service_map` processors to work as expected without any changes.
 * All missing OTel standard fields have been added.
 * Index templates have been added to the `opensearch` sink to facilitate correct field mapping for log, metric, and span documents in OpenSearch indexes.
 
@@ -115,6 +115,7 @@ jira-pipeline:
 ## Atlassian Confluence as a source
 
 You can now also elevate your team's knowledge management and collaboration capabilities by seamlessly integrating [Atlassian Confluence](https://www.atlassian.com/software/confluence) content into OpenSearch through Data Prepper's new Confluence source plugin. This integration enables organizations to create a centralized, searchable repository of their collective knowledge, fostering improved information discovery and team productivity. By synchronizing Confluence content and continuously monitoring for updates, the plugin ensures that your OpenSearch index remains an up-to-date, comprehensive reflection of your organization's shared knowledge base. The integration offers flexible filtering options, allowing you to selectively import content from specific spaces or page types, tailoring the synchronized content to your organization's needs. The plugin supports both basic API key and OAuth 2.0 authentication methods, with the added option of securely managing credentials through AWS Secrets Manager. Furthermore, the plugin's automatic token renewal feature guarantees uninterrupted access and seamless operation. Built on Atlassian's Confluence [api-version](https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#auth), this integration empowers teams to leverage OpenSearch's advanced search capabilities across their Confluence content, dramatically enhancing information accessibility and utilization. 
+
 Here's how to get started:
 
 ```
