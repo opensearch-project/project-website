@@ -30,8 +30,7 @@ Previously, the design and implementation of OTel sources were tightly coupled w
 Data Prepper has now been modified to support the generation of events compliant with the OTel standard specification. To support this, the following changes have been implemented:
 
 * A new `output_format` configuration option has been added under each OTel source, with OpenSearch as the default, and can be configured to generate OTel-compliant events.
-* `OTelProtoCodec.java` has been renamed to `OTelProtoOpensearchCodec.java` to support the default behavior and the new configuration option.
-* All the non-standard behavior and fields have been removed from `OTelProtoStandardCodec.java` in favor of storing non-standard fields in an event's metadata. Span APIs like `getServiceName()` have been modified to return data from metadata when it is available. This enables the `otel_traces` and `service_map` processors to work as expected without any changes.
+* The OpenTelemetry codec has been renamed to reflect support for default behavior and new configuration options. Non-standard fields are now stored in event metadata, enabling compatibility with trace and service map processors without additional changes.
 * All missing OTel standard fields have been added.
 * Index templates have been added to the `opensearch` sink to facilitate correct field mapping for log, metric, and span documents in OpenSearch indexes.
 
