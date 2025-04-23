@@ -21,24 +21,21 @@ OpenSearch Data Prepper 2.11 is now available for download! This release include
 
 ## OpenTelemetry improvements
 
-Currently, the design and implementation of OTEL sources were tightly coupled with the OpenSearch data mapping model and ease of integration with Opensearch Dashboards, leading to including the following functionality in OTEL sources -
+Previously, the design and implementation of OpenTelemetry (OTel) sources were tightly coupled with the OpenSearch data mapping model and ease of integration with OpenSearch Dashboards, necessitating the following functionality in OTel sources:
 
-* Replacing dot(.) s in attributes with at(@)
-* Merging and flattening of attributes
-    * resource attributes, scope attributes, and log/metric/span attributes are all merged and put in the root of the event
-* Addition of non-standard fields
-    * Non standard fields like service name, trace group and trace group fields are added
+* Replacing dot(.) s in attributes with the at symbol (@).
+* Merging and flattening of attributes -- Resource attributes, scope attributes, and log/metric/span attributes are all merged and stored in the root of the event.
+* Addition of non-standard fields -- Non-standard fields, like service name and trace group fields, are added.
 
-Data Prepper is modified to support generation of events compliant to OTEL standard specification
-To support generation of OTEL standard compliant events, the following changes are made
+Data Prepper has now been modified to support the generation of events compliant with the OTel standard specification. To support this, the following changes have been implemented:
 
-* Added a new config option output_format under each OTEL source, which by default assigned opensearch and can be configured to otel to generate OTEL standard complaint events
-* Renamed OTelProtoCodec.java to OTelProtoOpensearchCodec.java to support default behavior and added OTelProtoStandardCodec.java to support the new config option
-* OTelProtoStandardCodec.java removed all the non-standard behavior and removed non-standard fields instead puts non-standard fields in event’s Metadata. Span API like getServiceName() are modified to return data from metadata when it is present in metadata. This enables otel_traces and service_map processors to work as expected without any changes.
-* All missing OTEL standard fields are added
-* Added index templates in opensearch sink  for mapping the fields correctly for log, metric and span documents in opensearch index
+* A new `output_format` configuration option has been added under each OTel source, with OpenSearch as the default, and can be configured to generate OTel-compliant events.
+* OTelProtoCodec.java has been renamed to OTelProtoOpensearchCodec.java to support the default behavior and the new configuration option.
+* All the non-standard behavior and fields have been removed from OTelProtoStandardCodec.java in favor of storing non-standard fields in an event's metadata. Span APIs like `getServiceName()` have been modified to return data from metadata when it is available. This enables the `otel_traces` and `service_map` processors to work as expected without any changes.
+* All missing OTel standard fields have been added.
+* Index templates have been added to the `opensearch` sink to facilitate correct field mapping for log, metric, and span documents in OpenSearch indexes.
 
-With these changes, the OTEL sources configuration file for generating OTEL-compliant events from OTel Logs is as follows:
+With these changes, the OTel source configuration file for generating OTel-compliant events from OTel logs is as follows:
 
 ```
 source:
@@ -54,7 +51,7 @@ sink:
 ```
 
 
-Users who need to transform data before sending it to the OpenSearch sink can leverage existing Data Prepper processors. For instance, to nest severityText and severityNumber under a severity field in OTEL logs, the following configuration can be added prior to the sink stage.
+Users who need to transform data before sending it to the `opensearch` sink can leverage existing Data Prepper processors. For instance, to nest `severityText` and `severityNumber` under a severity field in OTel logs, the following configuration can be added prior to the sink stage:
 
 ```
 - add_entries:
