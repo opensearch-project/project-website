@@ -9,9 +9,9 @@ authors:
 date: 2025-04-17 12:30:00 -0600
 categories:
   - releases
-excerpt: Data Prepper 2.10.0 offers better OpenTelemetry support and new integrations with external sources.
+excerpt: Data Prepper 2.11.0 offers better OpenTelemetry support and new integrations with external sources.
 meta_keywords: Data Prepper, OpenTelemetry, Atlassian Jira, Atlassian Confluent, Amazon Aurora, Amazon RDS, Amazon SQS
-meta_description: Data Prepper 2.10.0 offers better OpenTelemetry support and new integrations with Jira, Confluent, Amazon Aurora/RDS, and Amazon SQS.
+meta_description: Data Prepper 2.11.0 offers better OpenTelemetry support and new integrations with Jira, Confluent, Amazon Aurora/RDS, and Amazon SQS.
 ---
 
 ## Introduction
