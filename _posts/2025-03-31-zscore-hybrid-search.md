@@ -10,8 +10,8 @@ date: 2025-03-22
 has_science_table: true
 categories:
   - technical-posts
-meta_keywords: z-score normalization, OpenSearch 3.0-beta1, neural search plugin, hybrid search, relevance ranking, search normalization, k-nn search, L2 normalization, how reciprocal rank fusion works
-meta_description: Learn about z-score normalization in OpenSearch 3.0-beta1. Discover how this new approach to hybrid search merges results from multiple query sources for improved relevance.
+meta_keywords: z-score normalization, hybrid search, data normalization, OpenSearch search latency, search relevance, hybrid search score normalization
+meta_description: Explore z-score normalization in OpenSearch 3.0-beta1 for hybrid search. Learn how this technique compares to min-max normalization through benchmarks on search relevance and performance.
 ---
 
 In search engines and machine learning, **data normalization** is essential for making fair and accurate comparisons between different features or scores.  
