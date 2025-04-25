@@ -56,6 +56,10 @@ The initial optimization introduced a filter rewrite strategy. It preemptively c
 
 These filters could then leverage the BKD tree to determine counts for each bucket faster than document value iteration. This approach was also applied to auto date histogram, composite aggregation on date histogram source and later on, numeric range aggregation provided with consecutive ranges.
 
+![Bucketing using index](/assets/media/blog-images/2025-04-23-optimizing-date-histogram-aggregation-using-index/bucket-on-index.png){:class="img-centered"}  
+
+When doing date histogram bucketing, the algorithm can quickly retrieve this information from the node's metadata (like the "4 docs" shown in [1,1] node) without examining any individual values. However, when actual values from the leaf nodes need to be accessed (like [4|5] node for bucket [3,4] and [5,6]), the algorithm must perform a sequential scan of all values in that node.
+
 #### Phase 2: Addressing Scalability with Multi-Range Traversal (OpenSearch 2.14)
 
 While effective in many cases, the filter rewrite approach faced challenges. A performance regression was observed in [13087](https://github.com/opensearch-project/OpenSearch/issues/13087), particularly when the number of buckets became very large (i.e., small intervals). The overhead of managing numerous filters and the increased likelihood of needing to access leaf nodes in the BKD tree could negate the benefits.
