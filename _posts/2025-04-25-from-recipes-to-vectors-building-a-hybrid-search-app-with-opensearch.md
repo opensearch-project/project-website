@@ -250,7 +250,7 @@ Breaking down the parameters of the knn query:
 
 OpenSearch also allows you to omit k if you specify either `max_distance` or `min_score` as alternative ways to control the amount of documents to search semantically.
 
-This approach allows OpenSearch to find recipes that may not contain the exact words "noodles and peanuts" explicitly but definitely fit into the Asian category — such as "Kung Pao Chiken”.
+This approach allows OpenSearch to find recipes that may not contain the exact words "noodles and peanuts" explicitly but definitely fit into the Asian category—such as "Kung Pao Chiken".
 
 ### Hybrid search
 
