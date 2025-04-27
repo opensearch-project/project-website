@@ -296,4 +296,4 @@ In this case OpenSearch filters out only desserts and then looks for the most re
 
 ## Summary
 
-In this article, we explored a hands-on tutorial on using OpenSearch as a vector database. We started by selecting a dataset and an embedding model, then configured an index for semantic search, reviewing key configuration parameters along the way. Next, we prepared and ingested data, ensuring it was optimized for retrieval. Finally, we executed various search techniques, including keyword search, semantic search, and hybrid search, demonstrating how OpenSearch can combine traditional and AI-driven retrieval methods.
+In this blog post, we explored a hands-on tutorial for using OpenSearch as a vector database. We started by selecting a dataset and an embedding model, then configured an index for semantic search, and reviewed key configuration parameters along the way. Next, we prepared and ingested data, ensuring it was optimized for retrieval. Finally, we executed various search techniques, including keyword search, semantic search, and hybrid search, demonstrating how OpenSearch can combine traditional and AI-driven retrieval methods.
