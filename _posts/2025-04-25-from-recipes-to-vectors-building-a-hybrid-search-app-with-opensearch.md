@@ -10,7 +10,7 @@ meta_keywords: hybrid search, vector search, semantic search, OpenSearch
 meta_description: Learn how to build a hybrid search application from scratch using a publiclly available recipe data set from Kaggle. This guide explores data preparation, vectorization, and the use of OpenSearch for efficient search and retrieval.
 ---
 
-Ever wondered if OpenSearch can double as a vector database? Spoiler: it absolutely can. Whether you're building a modern search experience, exploring hybrid retrieval, or just curious about embeddings, OpenSearch makes it surprisingly straightforward to combine traditional relevance with semantic understanding. In this post, we’ll explore how to implement vector and hybrid search using a real-world recipe dataset from Kaggle — step by step, and fully in your control.
+Ever wondered if OpenSearch can double as a vector database? Spoiler: it absolutely can. Whether you're building a modern search experience, exploring hybrid retrieval, or just curious about embeddings, OpenSearch makes it surprisingly straightforward to combine traditional relevance with semantic understanding. In this post, we'll explore how to implement vector and hybrid search using a real-world recipe dataset from Kaggle—step by step, and fully in your control.
 
 ## Follow along
 
