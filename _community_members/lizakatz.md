@@ -8,5 +8,5 @@ personas:
   - author
 ---
 
-**Liza Katz** is a software engineer and team lead who loves open source, search infrastructure, generative AI — and cats, obviously.
+**Liza Katz** is a software engineer and team lead who loves open source, search infrastructure, generative AI—and cats, obviously.
 
