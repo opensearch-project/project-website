@@ -292,7 +292,7 @@ Apple Pudding
 
 ```
 
-In this case OpenSearch filters out only Desserts and then looks for the most relevant results **semantically**. We could also use a should query to boost desserts in the search results but not exclude them entirely (*because maybe sweet potato soup IS a dessert after all?*)
+In this case OpenSearch filters out only desserts and then looks for the most relevant results **semantically**. We could also use a should query to boost desserts in the search results but not exclude them entirely (*because maybe sweet potato soup IS a dessert after all?*).
 
 ## Summary
 
