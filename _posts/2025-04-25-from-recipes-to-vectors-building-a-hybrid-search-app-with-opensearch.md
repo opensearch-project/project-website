@@ -257,7 +257,7 @@ This approach allows OpenSearch to find recipes that may not contain the exact w
 
 Lastly, let’s say we wanted to cook a low sugar dessert. If I searched for this semantically, I might get good results, but some other low sugar dishes might creep in (*Is sweet potato soup a dessert?*). In this case I could use hybrid search and combine the two types of queries together.
 
-Here’s an example of how to structure this query:
+Here's an example of how to structure this query:
 
 ```
 POST /recipes/_search 
