@@ -16,7 +16,7 @@ Ever wondered if OpenSearch can double as a vector database? Spoiler: it absolut
 
 All the code in this article is available on [GitHub](https://github.com/BigDataBoutique/opensearch-semantic-search-tutorial) for reference.
 To follow along, you'll need:
-* A kaggle account and API token
+* A Kaggle account and API token.
 * A Cohere account and API token
 * An OpenSearch 2.17 cluster. You can easily set it up on [AWS](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gsg.html).
 
