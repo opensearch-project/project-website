@@ -40,7 +40,7 @@ Another reason I picked this dataset is that it is already clean, so we don't ne
 
 Once we have our dataset, the next step is to choose an embedding model for turning our text into vectors. This choice affects search quality and system performance, so it's important to think about pricing, supported languages, input size limits, and output vector size. These things depend on how complex and long your text is. For example, models with larger input limits are better for long documents, while higher-dimensional vectors can improve search accuracy but need more storage and processing power.
 
-Sometimes, you may need to fine-tune an embedding model if the available ones do not understand your specific domain or terminology well. This is useful for technical, medical, or legal texts, where general models may not capture important details. However, fine-tuning requires a lot of labeled data and extra training costs, so it is best when standard models do not give good results.
+Sometimes, you may need to fine-tune an embedding model if the available ones do not understand your specific domain or terminology well. This is useful for technical, medical, or legal texts, where general models may not capture important details. However, fine-tuning requires thousands to hundreds of thousands of labeled examples, as well as additional training costs. It’s often best to first benchmark a pre-trained model on your data before committing to a fine-tuning effort.
 
 For this tutorial, I chose to use Cohere's `embed-english-v3` model because our text is in English, and Cohere offers free tokens for testing, making it easy to try out.
 
