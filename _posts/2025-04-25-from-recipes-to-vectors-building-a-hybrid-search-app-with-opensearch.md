@@ -20,7 +20,7 @@ To follow along, you'll need:
 * A Cohere account and API token
 * An OpenSearch 2.17 cluster. You can easily set it up on [AWS](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gsg.html).
 
-## Choosing a Dataset
+## Choosing a dataset
 
 Your dataset might already be stored in OpenSearch, be in another database, or you might not have created it yet. For this article, I’ll use a publicly available **recipe** dataset from Kaggle.
 We'll be working with the following columns:
