@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Recipes to Vectors: Building a Hybrid Search App with OpenSearch"
+title:  "Recipes to vectors: Building a hybrid search app with OpenSearch"
 authors:
    - lizozom
 date: 2025-04-25
