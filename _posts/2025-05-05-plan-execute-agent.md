@@ -8,9 +8,9 @@ date: 2025-05-05
 categories:
   - technical-posts
 meta_keywords: Plan and Execute, OpenSearch, AI, Agents, Function calling, Claude
-meta_description: Learn about OpenSearch 3.0's Agent Fraemwork Enhancements and utilize the plan-execute-reflect agent to resolve an observability use case
+meta_description: Learn about OpenSearch 3.0's Agent Framework Enhancements and utilize the plan-execute-reflect agent to resolve an observability use case
 ---
-OpenSearch 3.0 introduces a powerful Plan-Execute-Reflect agent that can break down complex problems into manageable steps, automatically select and execute appropriate tools, and optimize its approach through reflection. This blog demonstrates how this agent can automate root cause analysis in observability scenarios.
+OpenSearch 3.0 introduces the Plan–Execute–Reflect agent—a powerful new capability that breaks down complex problems, selects and executes tools autonomously, and adapts through reflection. In this post, we’ll show how this agent automates root cause analysis in observability workflows.
 
 ## Introduction
 
@@ -36,6 +36,8 @@ You'll see how the agent can:
 
 Whether you're managing cloud infrastructure, developing applications, or building AI-powered solutions, this new capability can help streamline your workflows and enhance your problem-solving capabilities. Let's dive in and see how it works.
 
+Now that we’ve seen the key features in 3.0, let’s dive into the capabilities and workflow of the Plan–Execute–Reflect agent.
+
 ## What is the Plan–Execute–And-Reflect Agent?
 
 The Plan–Execute–Reflect agent is a long-running agent designed for complex, multi-step tasks. This agent is capable of breaking down a complex task into a series of simple steps (plan), executing each step and optimizing its plan based on intermediate step results. It uses a separate executor agent for the execution of sub steps.
@@ -49,7 +51,7 @@ Key features:
 * Relies on function calling for tool execution thereby standardizing communication between the tool and model.
 * Supports custom prompts. This allows users to tune this agent for specific use cases. Example: Observability Agent, Research Agent (via WebSearchTool), etc.
 
-Execution workflow is depicted in the below diagram
+The diagram below illustrates the execution flow of the Plan–Execute–Reflect agent.
 
 ![PlanExecuteReflect Agent Execution Workflow](/assets/media/blog-images/2025-05-05-plan-execute-agent/per-agent-execution-workflow.png){: .img-fluid}
 
@@ -70,11 +72,11 @@ Let’s watch the agent in action by simulating a real-world failure and root ca
 
 ## Simulating a Real-World Failure with the OpenTelemetry Demo App
 
-Modern distributed systems are complex. Microservices often communicate with each other in unpredictable ways, and information about what’s happening is spread across logs, traces, and metrics. When something breaks, engineers need to look through all these signals to figure out what went wrong. This process is generally slow and tedious. 
+Modern distributed systems are complex. Microservices often communicate with each other in unpredictable ways, and information about what’s happening is spread across logs, traces, and metrics. OpenSearch offers a powerful suite of observability tools—including dashboards for metrics, logs, and traces—to help users monitor and troubleshoot distributed systems. However, when debugging complex failures, users are often left manually correlating signals across services and infrastructure layers. This process is generally slow and tedious. This is where Agents come in. By combining OpenSearch's observability data with reasoning and planning capabilities, these agents can automate root cause analysis, generate actionable insights, and significantly enhance the troubleshooting experience.
 
 We'll demonstrate how to use the Plan-Execute-Reflect agent to build an observability agent capable of root-causing an issue in a microservices application. We'll show you how to register the agent, run a task, and interpret the output—all with minimal setup and natural language input.
 
-We’ll simulate a failure in a micro services environment: a cart failure in an e-commerce application. For this, we’ll use the OpenTelemetry Demo application, a reference application that mimics a real-world system.
+We’ll simulate a failure in a microservices environment: a cart failure in an e-commerce application. For this, we’ll use the OpenTelemetry Demo application, a reference application that mimics a real-world system.
 
 This application emits telemetry data—including logs, traces, and metrics—to OpenSearch, giving us rich observability signals. We’ll trigger a cart failure, then ask our observability agent to diagnose the root cause using these signals.
 
@@ -197,7 +199,7 @@ Opensearch 3.0 introduces the ability to execute agents asynchronously. As this 
 POST /_plugins/_ml/agents/your_agent_id/_execute?async=true
 {
   "parameters": {
-    "question": "My users are complaining about the cart service. It is showing some unexpected behavior. When I click on empty cart it doesn't do anything. Can you investigate the root cause of this? You are part of an opensearch cluster that is connected to OpenTelemetry. There are spans and logs you can use to conduct your investigation."
+    "question": "My users are complaining about the cart service. It is showing some unexpected behavior. When I click on empty cart it doesn't do anything. Can you investigate the root cause of this? There are spans and logs you can use to conduct your investigation."
   }
 }
 ```
