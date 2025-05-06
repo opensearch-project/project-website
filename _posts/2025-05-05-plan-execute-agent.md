@@ -10,7 +10,7 @@ categories:
 meta_keywords: Plan and Execute, OpenSearch, AI, Agents, Function calling, Claude
 meta_description: Learn about OpenSearch 3.0's Agent Framework Enhancements and utilize the plan-execute-reflect agent to resolve an observability use case
 ---
-OpenSearch 3.0 introduces the Plan–Execute–Reflect agent—a powerful new capability that breaks down complex problems, selects and executes tools autonomously, and adapts through reflection. In this post, we’ll show how this agent automates root cause analysis in observability workflows.
+OpenSearch 3.0 introduces the [Plan–Execute–Reflect](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) agent—a powerful new capability that breaks down complex problems, selects and executes tools autonomously, and adapts through reflection. In this post, we’ll show how this agent automates root cause analysis in observability workflows.
 
 ## Introduction
 
@@ -40,7 +40,7 @@ Now that we’ve seen the key features in 3.0, let’s dive into the capabilitie
 
 ## What is the Plan–Execute–And-Reflect Agent?
 
-The Plan–Execute–Reflect agent is a long-running agent designed for complex, multi-step tasks. This agent is capable of breaking down a complex task into a series of simple steps (plan), executing each step and optimizing its plan based on intermediate step results. It uses a separate executor agent for the execution of sub steps.
+The [Plan–Execute–Reflect](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) agent is a long-running agent designed for complex, multi-step tasks. This agent is capable of breaking down a complex task into a series of simple steps (plan), executing each step and optimizing its plan based on intermediate step results. It uses a separate executor agent for the execution of sub steps.
 
 Key features: 
 
@@ -389,11 +389,11 @@ For more details about memory and traces, see [Memory](https://docs.opensearch.o
 
 ## Extending the Agent with More Tools and MCP Support
 
-The power of the Plan–Execute–And-Reflect agent lies in its flexibility. While our example uses a basic set of tools to investigate a cart failure, the agent can support a wide range of tools. For the list of available tools, see Tools.
-
-In addition, this agent acts as an MCP client, meaning it can connect to an MCP (Model Coordination Protocol) server. This allows the agent to retrieve tools and configurations dynamically and participate in more complex workflows.
+The power of the Plan–Execute–And-Reflect agent lies in its flexibility. While our example uses a basic set of tools to investigate a cart failure, the agent can support a wide range of tools. For the list of available tools, see [Tools](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/index/).
 
 One such example would be to use the [WebSearchTool](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/web-search-tool/) to perform deep-research tasks. 
+
+In addition, this agent acts as an MCP client, meaning it can connect to an MCP (Model Coordination Protocol) server. This allows the agent to retrieve tools and configurations dynamically and participate in more complex workflows.
 
 If you’d like to connect your agent to an MCP server, refer to this [document](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/) for detailed instructions.
 
