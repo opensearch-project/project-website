@@ -2,8 +2,8 @@
 layout: post
 title: "Introducing MCP in OpenSearch"
 authors:
-  - ylwu
   - rithinp
+  - ylwu
 date: 2025-05-05
 categories:
   - technical-posts
