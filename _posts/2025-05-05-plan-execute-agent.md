@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Plan Execute Agent Blog"
+title: "OpenSearch 3.0: Observability meets Agentic AI"
 authors:
   - pyek-bot
   - ylwu
 date: 2025-05-05
 categories:
   - technical-posts
-meta_keywords: Plan and Execute, OpenSearch, AI Agents, Function calling, Claude
-meta_description: Learn about OpenSearch's new plan-execute-reflect agent and use it as an observability agent
+meta_keywords: Plan and Execute, OpenSearch, AI, Agents, Function calling, Claude
+meta_description: Learn about OpenSearch 3.0's Agent Fraemwork Enhancements and utilize the plan-execute-reflect agent to resolve an observability use case
 ---
 OpenSearch 3.0 introduces a powerful Plan-Execute-Reflect agent that can break down complex problems into manageable steps, automatically select and execute appropriate tools, and optimize its approach through reflection. This blog demonstrates how this agent can automate root cause analysis in observability scenarios.
 
