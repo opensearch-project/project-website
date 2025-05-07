@@ -21,7 +21,7 @@ OpenSearch ML Commons has been at the forefront of this transformation, providin
 ## What's new in OpenSearch 3.0's agent framework?
 
 * A Plan-Execute-Reflect agent for executing complex multi-step tasks.
-* Native MCP (Model Coordination Protocol) support for seamless integration with external AI tools.
+* Native MCP (Model Context Protocol) support for seamless integration with external AI tools.
 * Enhanced tool selection and execution capabilities.
 * Asynchronous execution support for long-running tasks.
 
@@ -34,9 +34,9 @@ You'll see how the agent can:
 * Analyze multiple data sources (logs, traces, metrics)
 * Provide clear, actionable insights
 
-Whether you're managing cloud infrastructure, developing applications, or building AI-powered solutions, this new capability can help streamline your workflows and enhance your problem-solving capabilities. Let's dive in and see how it works.
+Whether you're managing cloud infrastructure, developing applications, or building AI-powered solutions, this new capability can help streamline your workflows and enhance your problem-solving capabilities.
 
-Now that we’ve seen the key features in 3.0, let’s dive into the capabilities and workflow of the Plan–Execute–Reflect agent.
+Now that we’ve seen the key features in 3.0, let’s understand the capabilities and workflow of the Plan–Execute–Reflect agent.
 
 ## What is the Plan–Execute–And-Reflect Agent?
 
@@ -315,6 +315,29 @@ The agent identifies that the root cause is a Redis connection issue. It highlig
 
 Let's validate the results by querying the logs:
 ```json
+GET ss4o_logs-*/_search
+{
+  "size": 10,
+  "sort": [
+    { "time": { "order": "desc" } }
+  ],
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "serviceName": "cart" } }
+      ],
+      "should": [
+        { "term": { "severityText.keyword": "Error" } },
+        { "wildcard": { "body.keyword": "*Error*" } }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+```
+
+Response:
+```json
 {
     "_index": "ss4o_logs-2025.05.03",
     "_id": "jKd4mJYBJr85Uiku-gbe",
@@ -393,7 +416,7 @@ The power of the Plan–Execute–And-Reflect agent lies in its flexibility. Whi
 
 One such example would be to use the [WebSearchTool](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/web-search-tool/) to perform deep-research tasks. 
 
-In addition, this agent acts as an MCP client, meaning it can connect to an MCP (Model Coordination Protocol) server. This allows the agent to retrieve tools and configurations dynamically and participate in more complex workflows.
+In addition, this agent acts as an MCP client, meaning it can connect to an MCP (Model Context Protocol) server. This allows the agent to retrieve tools and configurations dynamically and participate in more complex workflows.
 
 If you’d like to connect your agent to an MCP server, refer to this [document](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/) for detailed instructions.
 
