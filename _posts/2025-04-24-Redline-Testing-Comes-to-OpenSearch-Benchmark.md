@@ -129,7 +129,10 @@ After execution, OSB will log:
 - The maximum number of stable clients  
 - All pause/unpause actions  
 - Reasoning for scaling back  
-- Performance metrics: throughput, latency, service time  
+- Performance metrics: throughput, latency, service time
+
+Here's how your clusters' latency might look during the test:
+![Screenshot showing a clusters' latency increasing in steps over time](/assets/media/blog-images/2025-04-24-Redline-Testing-Comes-to-OpenSearch-Benchmark/dashboards-latency-over-time.png){: .img-fluid}
 
 ## What’s Next?
 
