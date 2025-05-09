@@ -26,19 +26,28 @@ To separate indexing and search workloads, we've introduced new shard roles:
 
 For hardware separation between indexing and search workloads, we've introduced a new **search node role**. Primary shards and write replicas can be allocated to any node with the `data` role, while search replicas are allocated only to nodes with the `search` role. Nodes with the search role act as dedicated search-serving nodes.
 
-The following diagram shows how data and search workloads are separated across node types in the cluster:
+The following diagram shows an OpenSearch cluster with two coordinator nodes, two data nodes, and two search nodes, forming an indexing fleet and a search fleet. The index includes one primary shard, one write replica, and two search replicas. The primary shard and write replica are assigned to the data nodes, while the search replicas are assigned to the search nodes.
+
+Each component is configured to perform the following:
+
+- The remote store stores segment files and transaction logs. All replicas—including the write replica and search replicas download segments from the remote store.
+- The primary shard writes both segments and transaction logs to the remote store.
+- The write replica downloads segments after the primary completes writing.
+- The search replicas continuously poll the remote store for new segments.
 
 ![OpenSearch cluster architecture for search and indexing separation](/assets/media/blog-images/2025-05-09-search-index-separation/rw-separation-architecture.png)
 
-## Benefits
+## Benefits 
 
 Separating indexing and search workloads provides the following benefits:
 
-- **Parallel and isolated processing**: Improve throughput and predictability by isolating indexing and search.
-- **Independent scalability**: Scale indexing and search independently by adding data or search nodes.
-- **Failure resilience**: Indexing and search failures are isolated, improving availability.
-- **Cost efficiency and performance**: Use specialized hardware—compute-optimized for indexing, memory-optimized for search.
-- **Tuning flexibility**: Optimize performance settings like buffers and caches independently for indexing and search.
+* **Parallel and isolated processing**: Improve throughput and predictability by isolating indexing and search.
+* **Independent scalability**: Scale indexing and search independently by adding `data` or `search` nodes.
+* **Failure resilience**:  Indexing and search failures are isolated, improving availability.
+* **Cost efficiency and performance**: Use specialized hardware—compute-optimized for indexing, memory-optimized for search.
+* **Tuning flexibility**: Optimize performance settings like buffers and caches independently for indexing and search.
+* **Failure isolation**: Indexing and search issues are separated, which helps troubleshoot failures
+* **Scalable design**: Scale indexing and search independently of each other
 
 ## Enabling indexing and search separation
 
@@ -46,11 +55,9 @@ For detailed instructions, see [Separate index and search workloads](https://doc
 
 ## Scale to zero with reader/writer separation: The search-only mode
 
-In write-once, read-many scenarios—like log analytics or frozen time-series data—you can reduce resource use after indexing completes. OpenSearch now supports a **search-only mode** through the `_scale` API, allowing you to disable primary shards and write replicas, leaving only search replicas active.
+In write-once, read-many scenarios—like log analytics or frozen time-series data—you can reduce resource use after indexing completes. OpenSearch now supports a **search-only mode** through the `_scale` API, allowing you to disable primary shards and write replicas, leaving only search replicas active. 
 
-This significantly reduces storage and compute costs while maintaining full search capabilities.
-
-### Search-only mode benefits:
+This significantly reduces storage and compute costs while maintaining full search capabilities and provides the following benefits:
 
 - Scale down indexing capacity when writes are no longer needed
 - Free up disk and memory by removing unnecessary write paths
@@ -61,55 +68,108 @@ This significantly reduces storage and compute costs while maintaining full sear
 - Scale back up at any time to resume indexing
 - Scale search replicas based on search traffic during search-only mode
 
+When `search-only` mode is active, OpenSearch maintains cluster health as GREEN when search-only mode is active despite disabling primaries and write replicas, This is because only search replicas are expected to be allocated, and they are all successfully assigned. This ensures operational stability and full search availability.
+
 ### How it works
 
-When the `_scale` API is called with `{ "search_only": true }`, OpenSearch:
+When the `_scale` API is called with `{ "search_only": true }`, OpenSearch performs the following index:
 
 1. Adds an internal search-only block to the index
 2. Scales down all primaries and write replicas
 3. Keeps only search replicas active
 
-To resume indexing, call `_scale` with `{ "search_only": false }`, and OpenSearch restores the original index state. Even in search-only mode, cluster health remains green because all expected search replicas are allocated.
+To resume indexing, run the `_scale` operation with `{ "search_only": false }`. OpenSearch restores the original index state. Even in search-only mode, cluster health remains green because all expected search replicas are allocated.
 
 ## Benchmark comparison
 
 We benchmarked indexing throughput and query latency across three cluster configurations using the `http_logs` workload in OpenSearch Benchmark. The test ran 50% of indexing first, followed by simultaneous indexing and an expensive multi-term aggregation query.
 
-### Indexing throughput
+### Cluster configurations
 
-The chart below compares indexing throughput across the three cluster configurations:
+Using [opensearch-cluster-cdk](https://github.com/opensearch-project/opensearch-cluster-cdk), we set up three different clusters in AWS. The followings table show the node roles and associated costs based on the EC2 instance types used. Instance pricing is from [AWS EC2 instance types](https://aws.amazon.com/ec2/instance-types/).
+
+
+#### Cluster 1 (c1-r6g): Standard Cluster with Memory optimized instances for data nodes
+
+| Node Role	| Number of Nodes	| Instance Type	| Hourly Cost	| Total Hourly Cost	|
+|---	|---	|---	|---	|---	|
+|Data	|4	|r6g.xlarge	|$0.20	|$0.81	|
+|Coordinator	|2	|r6g.xlarge	|$0.20	|$0.40	|
+|Cluster Manager	|3	|c6g.xlarge	|$0.14	|$0.41	|
+|	|	|	|	|$1.62	|
+
+#### Cluster 2 (c2-c6g): Standard Cluster with Compute optimized instances for data nodes 
+
+| Node Role	| Number of Nodes	| Instance Type	| Hourly Cost	| Total Hourly Cost	|
+|---	|---	|---	|---	|---	|
+|Data	|4	|c6g.xlarge	|$0.14	|$0.54	|
+|Coordinator	|2	|r6g.xlarge	|$0.20	|$0.40	|
+|Cluster Manager	|3	|c6g.xlarge	|$0.14	|$0.41	|
+|	|	|	|	|$1.36	|
+
+#### Cluster 3 (c3-indexing-search):  Indexing and Search separated cluster with Compute and Memory optimized instances for data and search nodes
+
+| Node Role	| Nubmer of Nodes	| Instance Type	| Hourly Cost	| Total Hourly Cost	|
+|---	|---	|---	|---	|---	|
+|Data	|2	|c6g.xlarge	|$0.14	|$0.27	|
+|Search	|2	|r6g.xlarge	|$0.20	|$0.40	|
+|Coordinator	|2	|r6g.xlarge	|$0.20	|$0.40	|
+|Cluster Manager	|3	|c6g.xlarge	|$0.14	|$0.41	|
+|	|	|	|	|$1.49	|
+
+### Result visualizations
+
+The following graphs shows the indexing throughput and the query latency differences in these three clusters. 
+
+The following chart compares indexing throughput across the three cluster configurations:
 
 ![Indexing throughput comparison](/assets/media/blog-images/2025-05-09-search-index-separation/indexing-throughput-compare-run.png)
 
-### Query latency
-
-The chart below shows how separating workloads improves query latency:
+The chart following shows how separating workloads improves query latency:
 
 ![Query latency comparison](/assets/media/blog-images/2025-05-09-search-index-separation/query-latency.png)
 
-### Cluster configurations
+The results show that Cluster 3 slightly outperforms others for simultaneous indexing and search, while significantly reducing query latency and lowering cost.
 
-| Cluster | Node roles                        | EC2 Types Used               | Hourly Cost |
-|---------|-----------------------------------|------------------------------|--------------|
-| Cluster 1 | 4 data (r6g), 2 coord (r6g), 3 mgr (c6g) | r6g.xlarge, c6g.xlarge | $1.62        |
-| Cluster 2 | 4 data (c6g), 2 coord (r6g), 3 mgr (c6g) | c6g.xlarge, r6g.xlarge | $1.36        |
-| Cluster 3 | 2 data (c6g), 2 search (r6g), 2 coord (r6g), 3 mgr (c6g) | mix | $1.49        |
+### Result metrics and comparisons
 
-### Performance results summary
+The following tables provided comparisons between each cluster's benchmark results:
 
-| Metric                    | Cluster 1     | Cluster 3     | Difference (%) |
-|---------------------------|---------------|---------------|----------------|
-| Index throughput (median) | 58523.95      | 59818.80      | +2.16          |
-| Query latency p50 (ms)    | 6725.73       | 5358.19       | -25.52         |
-| Query latency p99 (ms)    | 8073.81       | 6180.44       | -30.63         |
-| Hourly cost               | $1.62         | $1.49         | -8.72          |
 
-Cluster 3 slightly outperforms others for simultaneous indexing and search, while significantly reducing query latency and lowering cost.
+**Comparing Cluster 1 and Cluster 3**
 
-## Additional benefits of separated clusters
+|	|	|Cluster 1(5P, 3R)	|Cluster 3 (5P, 1R, 1S)	|Difference	|
+|---	|---	|---	|---	|---	|
+|Index Throughput	|Median	|58523.95095	|59818.80119	|2.16462	|
+|	|Maximum	|58777.10938	|60240.02344	|2.42848	|
+|	|	|	|	|	|
+|Query Latency	|p50	|6725.72925	|5358.19263	|-25.52235	|
+|	|p90	|7218.57544	|5875.875	|-22.85107	|
+|	|p99	|8073.80762	|6180.44385	|-30.63475	|
+|	|p100	|8575.49512	|6312.8374	|-35.84217	|
+|	|	|	|	|	|
+|Cost/hr 	|	|1.62	|1.49	|-8.72483	|
 
-- **Failure isolation**: Indexing and search issues are contained
-- **Scalable design**: Easily scale indexing and search independently
+**Comparing Cluster 2 and Cluster 3**
+
+|	|	|Cluster 2(5P, 3R)	|Cluster 3 (5P, 1R, 1S)	|Difference	|
+|---	|---	|---	|---	|---	|
+|Index Throughput	|Median	|58520.82413	|59818.80119	|2.16985	|
+|	|Maximum	|59169.29297	|60240.02344	|1.77744	|
+|	|	|	|	|	|
+|	|	|	|	|	|
+|Query Latency	|p50	|6842.04297	|5358.19263	|-27.69311	|
+|	|p90	|7708.91797	|5875.875	|-31.19609	|
+|	|p99	|8328.41211	|6180.44385	|-34.75427	|
+|	|p100	|8438.39258	|6312.8374	|-33.67036	|
+|	|	|	|	|	|
+|Cost/hr 	|	|1.36	|1.49	|8.72483	|
+
+
+### Result summary
+
+From these comparisons, we can see that for simultaneous indexing and search workloads, Cluster 3 is slightly better (~2% improvement) and query latency in Cluster 3 is much lower (~34% improvement). This is achieved with ~8% less cost per hour compared to Cluster 1.
+
 
 ## Conclusion
 
