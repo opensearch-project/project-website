@@ -8,7 +8,7 @@ categories:
   - community
 excerpt: OpenSearch Benchmark is the performance benchmarking tool for OpenSearch.
 meta_keywords: OpenSearch Benchmark, workloads, k-NN, big5
-meta_description: OpenSearch Benchmark has come a long way and there is so much more ahead.
+meta_description: OpenSearch Benchmark has come a long way, and there is so much more ahead.
 ---
 
 
