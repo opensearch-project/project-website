@@ -4,43 +4,51 @@ title: "Introducing MCP in OpenSearch"
 authors:
   - rithinp
   - ylwu
+  - kolchfa
 date: 2025-05-05
 categories:
   - technical-posts
 meta_keywords: MCP, OpenSearch, AI agents, tool calling, LangChain, Claude
 meta_description: Learn about OpenSearch's new MCP (Model Control Protocol) support, enabling AI agents to safely and efficiently interact with your search data through standardized tool interfaces.
 ---
-[The Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is a standardized communication framework that solves the integration complexity between AI agents and external tools. Without MCP, developers face significant technical overhead as each tool integration requires implementing custom code for specific API endpoints, parameter schemas, response formats, and error handling patterns. This fragmentation creates maintenance challenges and slows development velocity. MCP addresses these issues by providing a unified protocol layer with consistent interfaces for tool discovery, parameter validation, response formatting, and error handling. The protocol establishes a contract between AI applications and tool providers' servers, enabling seamless interoperability through standardized JSON payloads and well-defined behavioral expectations. This standardization means developers can integrate new tools with minimal code changes, as the agent only needs to communicate with MCP's consistent interface rather than learning each tool's proprietary API structure.
 
-This diagram shows the difference:
+[The Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is a standardized communication framework that solves the integration complexity between AI agents and external tools. Without MCP, you may face significant technical overhead, because each tool integration requires implementing custom code for specific API endpoints, parameter schemas, response formats, and error handling patterns. This fragmentation creates maintenance challenges and slows development velocity. MCP addresses these issues by providing a unified protocol layer with consistent interfaces for tool discovery, parameter validation, response formatting, and error handling. The protocol establishes a contract between AI applications and tool providers' servers, enabling seamless interoperability through standardized JSON payloads and well-defined behavioral expectations. This standardization means that you can integrate new tools with minimal code changes, because the agent only needs to communicate with the consistent MCP interface rather than adapting to each tool's proprietary API structure.
 
-On the left, the agent connects directly to each tool, requiring custom integration for every connection.
-
-On the right, LLM uses Model Context Protocol to connect with the tools exposed. MCP serves as an intermediary layer, simplifying communication and creating a cleaner, more scalable architecture.
+Here’s a side-by-side look at the two approaches. On the left, the agent connects directly to each tool, requiring custom integration for every connection. On the right, a large language model (LLM) uses Model Context Protocol to connect with the tools exposed. MCP serves as an intermediary layer, simplifying communication and creating a cleaner, more scalable architecture.
 
 ![MCP Architecture Comparison](/assets/media/blog-images/2025-05-05-Introducing-MCP-in-OpenSearch/MCP-Before-After.png){: .img-fluid}
 
-# Section 1: OpenSearch MCP Server
+## Section 1: OpenSearch MCP Server
 
-## Section 1.1: Built in MCP Server
+OpenSearch provides two ways to run an MCP server: a [built-in option](#section-11-built-in-mcp-server) starting in version 3.0, and a [standalone option](#section-12-standalone-opensearch-mcp-server) for earlier versions or external deployments.
 
-OpenSearch 3.0 ships an experimental MCP Server inside the ML Commons plugin. The server publishes a core set of tools as first‑class MCP endpoints over a streaming SSE interface (`/_plugins/_ml/mcp/sse`). An LLM agent —for example, LangChain's ReAct agent—can simply connect and discover what the server offers, and then invoke the tools with JSON arguments without you writing any adapter code or opening up ad-hoc REST endpoints.
+### Section 1.1: Built-in MCP server
 
-The OpenSearch MCP Server solves the last-mile problem of giving agents safe and real-time access to your search data. In practice this means that every index in the cluster - your product catalog, logs, or vector store can all be queried, summarized, or cross-referenced by whatever agent framework you prefer via the MCP server.
+OpenSearch 3.0 ships an experimental MCP Server as part of the ML Commons plugin. The server publishes a core set of tools as first‑class MCP endpoints over a streaming Server-Sent Events (SSE) interface (`/_plugins/_ml/mcp/sse`). An LLM agent ---for example, LangChain's ReAct agent---can simply connect and discover the tools the server offers, and then invoke the tools using JSON arguments. No custom adapter code or extra REST endpoints required.
+
+The OpenSearch MCP Server solves the last-mile problem of giving agents safe, real-time access to your search data. In practice, this means that every index in the cluster, whether your product catalog, logs, or vector store, can be queried, summarized, or cross-referenced by your preferred agent framework using the MCP server, as shown in the following illustration.
 
 ![MCP Server Architecture](/assets/media/blog-images/2025-05-05-Introducing-MCP-in-OpenSearch/mcp-server-architecture.png){: .img-fluid}
 
 For comprehensive API documentation and implementation details, visit the [MCP Server APIs documentation](https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/mcp-server-apis/index/).
 
-### Quick Start:
+Key benefits of using the built-in server include:
 
-To setup the MCP server inside OpenSearch, follow these steps:
+* **Unified data platform integration**: Provides native capabilities that let AI agents seamlessly perform search, analytics, and vector store operations.
+* **Streamlined infrastructure**: Fully integrated into OpenSearch; no need to deploy, host, or maintain a separate MCP server.
+* **Enterprise-grade security**: Uses OpenSearch security for authentication and enforces consistent access control across tools.
+* **Enhanced development efficiency**: Offers a standard interface for all tools, removing the need for custom integration code.
+* **Framework flexibility**: Works with leading AI frameworks like LangChain, Bedrock, and others.
 
-**Step 1:** Enable the Experimental Streaming feature to support SSE:
+#### Quickstart
 
-Follow the steps in this [document](https://docs.opensearch.org/docs/latest/install-and-configure/configuring-opensearch/network-settings/#selecting-the-transport) to install the `transport-reactor-netty4` plugin and enable Experimental Streaming.
+To set up the built-in MCP server in OpenSearch, follow these steps.
 
-**Step 2:** Enable the experimental MCP Server:
+**Step 1:** Enable the experimental streaming feature to support SSE
+
+Follow the steps in the [documentation](https://docs.opensearch.org/docs/latest/install-and-configure/configuring-opensearch/network-settings/#selecting-the-transport) to install the `transport-reactor-netty4` plugin and enable experimental streaming.
+
+**Step 2:** Enable the experimental MCP Server
 
 ```json
 PUT /_cluster/settings/
@@ -51,9 +59,9 @@ PUT /_cluster/settings/
 }
 ```
 
-**Step 3:** Register tools:
+**Step 3:** Register tools
 
-The server starts empty, so you register whichever tools you want it to expose. Here is a minimal example that activates the `ListIndexTool` and `SearchIndexTool`. 
+When the server starts, it doesn't expose any tools. You can register the tools you want it to expose. Here is a minimal example that activates the `ListIndexTool` and `SearchIndexTool`: 
 
 ```json
 POST /_plugins/_ml/mcp/tools/_register
@@ -102,13 +110,13 @@ That's it! The `ListIndexTool` and the `SearchIndexTool` are ready to be used my
 * MCP server base url: `/_plugins/_ml/mcp`
 * Message endpoint used internally by the MCP Client: `/_plugins/_ml/mcp/sse/message?sessionId=...`
 
-Note: For Python MCP Clients, use this URL to establish the connection: `/_plugins/_ml/mcp/sse?append_to_base_url=true`
+**Note**: For Python MCP clients, use this URL to establish the connection: `/_plugins/_ml/mcp/sse?append_to_base_url=true`.
 
-#### Available tools:
+#### Available tools
 
-OpenSearch provides a comprehensive suite of tools that can be registered with OpenSearch MCP server. You can find the list of supported tools [here](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/index/).
+OpenSearch provides a comprehensive suite of tools that can be registered with the OpenSearch MCP server. For a list of supported tools, see [Tools](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/index/).
 
-#### Authentication:
+#### Authentication
 
 When connecting to the MCP Server, you'll need to include appropriate authentication headers based on your OpenSearch security setup. The example below shows how to add headers in a LangChain client:
 
@@ -129,9 +137,9 @@ client = MultiServerMCPClient({
 })
 ```
 
-### End‑to‑end example with LangChain
+#### End‑to‑end example with LangChain
 
-The short script demonstrates how to initialize a LangChain agent, discovers available MCP tools, and asks the agent to list all indices in the cluster. While this example uses gpt-4o, the script is compatible with any LLM that integrates with LangChain and tool calling.
+This short script initializes a LangChain agent, discovers available MCP tools, and asks the agent to list all indexes in the cluster. While this example uses `gpt-4o`, the script is compatible with any LLM that integrates with LangChain and tool calling:
 
 ```python
 import asyncio
@@ -176,9 +184,9 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-When executed with a sample "products" index in OpenSearch, the agent demonstrates intelligent tool use. First, it calls `ListIndexTool` to discover available indices, then uses `SearchIndexTool` on the products index to retrieve and present the product information in a structured format. This workflow shows how LLMs can autonomously navigate OpenSearch data through MCP tools.
+When executed with a sample `products` index in OpenSearch, the agent demonstrates intelligent tool use. First, it calls the `ListIndexTool` to discover available indexes and then uses the `SearchIndexTool` on the `products` index to retrieve and present the product information in a structured format. This workflow shows how LLMs can autonomously navigate OpenSearch data through MCP tools:
 
-```
+```markdown
 > Entering new AgentExecutor chain...
 Invoking: `ListIndexTool` with `{'indices': []}`
 # Tool finds available indices including "products" index
@@ -192,42 +200,42 @@ Here are the products listed in the OpenSearch index:
 2. **Product B**: Eco-friendly bamboo toothbrush
 ...
 ```
-### Conclusion
 
-The OpenSearch MCP Server represents a significant advancement in how AI agents can interact with your search and analytics data. By providing a standardized interface, it eliminates the need for custom integration code and allows for faster, more secure deployment of Agentic search and analytics applications.
-Key benefits include:
+### Section 1.2: Standalone OpenSearch MCP server
 
-* **Unified Data Platform Integration**: OpenSearch provides native capabilities for AI agents to seamlessly perform search, analytics and vector store capabilities.
-* **Streamlined Infrastructure**: Built directly into OpenSearch, eliminating separate MCP server deployment, hosting, and maintenance requirements.
-* **Enterprise-Grade Security**: Integrated authentication through OpenSearch security; Consistent access control mechanisms.
-* **Enhanced Development Efficiency**: Standard interface across all tools; Elimination of custom integration code.
-* **Framework Flexibility**: Compatible with leading AI frameworks like LangChain, Bedrock etc.
+The built-in MCP server in OpenSearch, described in section 1.1, is only available starting with version 3.0. To use MCP with older versions, you can run the standalone MCP server outside the OpenSearch cluster.
 
-While currently experimental, the MCP Server in OpenSearch 3.0 lays the groundwork for more sophisticated AI agent interactions with your valuable search data.
+The standalone architecture uses a straightforward flow:
 
-## Section 1.2: Standalone OpenSearch MCP server
+1. The agent initiates a tool call.
 
-Built-in MCP server in OpenSearch, described in section 1.1, is only available from version 3.0. To use MCP with older versions, you can run the Standalone MCP Server outside OpenSearch cluster.
+1. The call is forwarded to the standalone MCP server.
 
-The standalone architecture follows a simple flow: the agent triggers a tool call, which is forwarded to the OpenSearch MCP server. The server then performs REST calls to the OpenSearch cluster, retrieves the required data, formats it, and returns the result back to the client.
+1. The MCP server makes REST requests to the OpenSearch cluster, retrieves the necessary data, formats the response, and returns it to the agent.
+
+The flow is shown in the following illustration.
 
 ![Standalone MCP Server Architecture](/assets/media/blog-images/2025-05-05-Introducing-MCP-in-OpenSearch/standalone-mcp-architecture.png){: .img-fluid}
 
-This new Standalone MCP Server will be officially released soon. But you can test the demo version [here](https://github.com/rithin-pullela-aws/opensearch-mcp-server)
+This new standalone MCP server will be officially released soon. But you can test the demo version [here](https://github.com/rithin-pullela-aws/opensearch-mcp-server). For more information about the standalone OpenSearch MCP server, see the [RFC](https://github.com/opensearch-project/ml-commons/issues/3749).
 
-You can find more details about the Standalone OpenSearch MCP server in the [RFC](https://github.com/opensearch-project/ml-commons/issues/3749)
+Key benefits of using a standalone server include:
 
-Key Benefits of the Standalone Approach
+- **Independent operation**: Runs as a separate process outside the OpenSearch cluster.
 
-* Runs Independently: Operates as a separate process outside the OpenSearch cluster
-* Independent Release Cycle: Updates don't depend on OpenSearch releases
-* Flexible Communication: Supports both SSE and stdio protocols
-* Simple Integration: Works with solutions like Claude Desktop which integrate with MCP servers
-* Broad Version Compatibility: Works with various OpenSearch versions through REST API calls
+- **Decoupled release cycle**: Can be updated independently of OpenSearch version releases.
 
-### Quick Start Guide:
+- **Flexible communication**: Supports both SSE and `stdio` protocols for agent connectivity.
 
-#### Installation
+- **Seamless integration**: Compatible with tools like Claude Desktop that connect to MCP servers.
+
+- **Broad version support**: Interacts with multiple OpenSearch versions through REST API calls.
+
+#### Quickstart
+
+To set up the standalone MCP server in OpenSearch, follow these steps.
+
+**Step 1: Install the demo PyPI package**
 
 Install our demo PyPI package (official release coming soon):
 
@@ -235,63 +243,63 @@ Install our demo PyPI package (official release coming soon):
 pip install test-opensearch-mcp
 ```
 
-#### Starting the MCP Server
+**Step 2: Start the MCP Server**
 
-* For stdio protocol (recommended for Claude desktop):
+For the `stdio` protocol (recommended for Claude desktop), run this command:
 
 ```bash
 python -m mcp_server_opensearch
 ```
 
-* For SSE protocol (runs on port 9900):
+For the SSE protocol (runs on port 9900), run this command:
 
 ```bash
 python -m mcp_server_opensearch --transport sse
 ```
 
-#### Authentication Methods:
+#### Authentication methods
 
 Configure your environment variables to connect the MCP server to your OpenSearch cluster:
 
-* Basic Authentication
+* Basic authentication:
 
-```bash
-export OPENSEARCH_URL="<your_opensearch_domain_url>"
-export OPENSEARCH_USERNAME="<your_opensearch_domain_username>"
-export OPENSEARCH_PASSWORD="<your_opensearch_domain_password>"
-```
+    ```bash
+    export OPENSEARCH_URL="<your_opensearch_domain_url>"
+    export OPENSEARCH_USERNAME="<your_opensearch_domain_username>"
+    export OPENSEARCH_PASSWORD="<your_opensearch_domain_password>"
+    ```
 
-* IAM Role Authentication
+* IAM role authentication:
 
-```bash
-export OPENSEARCH_URL="<your_opensearch_domain_url>"
-export AWS_REGION="<your_aws_region>"
-export AWS_ACCESS_KEY="<your_aws_access_key>"
-export AWS_SECRET_ACCESS_KEY="<your_aws_secret_access_key>"
-export AWS_SESSION_TOKEN="<your_aws_session_token>"
-```
+    ```bash
+    export OPENSEARCH_URL="<your_opensearch_domain_url>"
+    export AWS_REGION="<your_aws_region>"
+    export AWS_ACCESS_KEY="<your_aws_access_key>"
+    export AWS_SECRET_ACCESS_KEY="<your_aws_secret_access_key>"
+    export AWS_SESSION_TOKEN="<your_aws_session_token>"
+    ```
 
-#### Available Tools
+#### Available tools
 
-Currently these 4 tools are available:
+Currently, these tools are available:
 
-* ListIndexTool: Lists all indices in OpenSearch.
-* IndexMappingTool: Retrieves index mapping and setting information for an index in OpenSearch.
-* SearchIndexTool: Searches an index using a query in OpenSearch.
-* GetShardsTool: Gets information about shards in OpenSearch.
+* `ListIndexTool`: Lists all indexes in OpenSearch.
+* `IndexMappingTool`: Retrieves index mapping and setting information for an index in OpenSearch.
+* `SearchIndexTool`: Searches an index using a query in OpenSearch.
+* `GetShardsTool`: Gets information about shards in OpenSearch.
 
 For full tool documentation, see the [available tools guide](https://github.com/rithin-pullela-aws/opensearch-mcp-server/blob/main/README.md#available-tools).
 
 We welcome community contributions! Please review our [developer guide](https://github.com/rithin-pullela-aws/opensearch-mcp-server/blob/main/DEVELOPER_GUIDE.md) to learn how to add new tools or enhance existing ones.
 
-### Claude desktop Integration:
+#### Claude Desktop integration
 
-Claude desktop natively supports MCP via stdio protocol, making integration straightforward:
+Claude Desktop natively supports MCP through the `stdio` protocol, making integration straightforward. To integrate Claude Desktop with the MCP server, follow these steps.
 
-**Step1: Configure the Claude Desktop**
+**Step 1: Configure Claude Desktop**
 
-* Go to `Settings > Developer > Edit Config`
-* Add the OpenSearch MCP server in the `claude_desktop_config.json` file
+* In Claude Desktop, go to **Settings** > **Developer** > **Edit Config**
+* Add the OpenSearch MCP server in the `claude_desktop_config.json` file:
 
 ```json
 {
@@ -322,30 +330,24 @@ Claude desktop natively supports MCP via stdio protocol, making integration stra
 
 **Step 2: Chat away!**
 
-Open a new chat in Claude desktop, and you'll see the available OpenSearch tools appear in your chat window. You can immediately start asking questions about your OpenSearch data.
+Open a new chat in Claude Desktop; you'll see the available OpenSearch tools appear in your chat window. You can immediately start asking questions about your OpenSearch data. A sample chat is shown in the following image:
 
-**Demo**
 ![Claude Desktop Demo](/assets/media/blog-images/2025-05-05-Introducing-MCP-in-OpenSearch/claude-desktop-demo.png){: .img-fluid}
 
-### Conclusion
+## Section 2: OpenSearch MCP client
 
-The Standalone OpenSearch MCP Server bridges the gap between advanced AI capabilities and earlier versions of OpenSearch. Organizations can leverage the power of AI agents with their existing OpenSearch deployments without upgrading to version 3.0. Whether you're using Claude, LangChain, or other agent frameworks, the standalone server offers a standardized way to connect AI models with your valuable search data.
+As part of our comprehensive MCP support, we're also adding MCP client capabilities to the agents in OpenSearch as an experimental feature. Starting with OpenSearch 3.0, the [conversational agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/conversational/) and the newly introduced [plan-execute-reflect agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) can connect to external MCP servers and use their tools. Support for additional agent types will be available soon!
 
-The current implementation provides access to core search functionality, with future plans to enhance version-specific tool compatibility. We invite you to explore the demo version and share your feedback as we prepare for the official release. Your input will help shape this solution to better meet the community's needs.
-
-# Section 2: OpenSearch MCP Client
-
-As part of our comprehensive MCP support, we're also adding MCP Client capabilities to the Agents within OpenSearch as an experimental feature. Starting with OpenSearch 3.0, the [Conversational Agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/conversational/) and the newly introduced [Plan, Execute, and Reflect agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) can connect to external MCP servers and leverage their tools. Support for additional agent types will be available soon!
-
-### Quick Start Guide:
+### Quickstart
 
 While the [full documentation](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/) provides detailed step-by-step instructions, here's a simplified view of the process:
 
-**Step 1: Create an MCP Connector** - This stores connection details to your MCP server
+**Step 1: Create an MCP connector**: The connector stores connection details to your MCP server.
 
-**Step 2: Register a Large Language Model** - This powers your agent's reasoning capabilities
+**Step 2: Register an LLM**: The LLM powers your agent's reasoning capabilities.
 
-**Step 3: Configure an Agent with MCP Tools** - Here's where the magic happens:
+**Step 3: Configure an agent with MCP tools**: The AI agent integrates the LLM with OpenSearch's powerful data retrieval capabilities:
+
 ```json
  "parameters": {
     "_llm_interface": "openai/v1/chat/completions",
@@ -361,41 +363,42 @@ While the [full documentation](https://docs.opensearch.org/docs/latest/ml-common
   }
   ```
 
-The tool_filters parameter is particularly powerful - it allows you to precisely control which external tools your agent can access. You can use Java-style regular expressions to:
+The `tool_filters` parameter is particularly powerful. It allows you to precisely control which external tools your agent can access. You can use Java-style regular expressions to select the tools to expose:
   * Allow all tools from the MCP server (empty array)
   * Select tools by exact name (`search_indices`)
-  * Select tools by regular expression pattern (`^get_forecast` for all tools starting with "`get_forecast`")
+  * Select tools by a regular expression pattern (`^get_forecast` for all tools starting with "`get_forecast`")
 
-**Step 4: Execute the Agent** - Invoke the registered agent by calling the Execute Agent API
+**Step 4: Execute the agent**: Invoke the registered agent by calling the Execute Agent API.
 
-The agent uses both OpenSearch tools specified in the tools array and selected tools from the MCP server based on your tool filters.
+The agent uses both OpenSearch tools specified in the `tools` array and selected tools from the MCP server based on your tool filters.
 
-### End-to-End Example: Cross-Cluster Data Access
+### End-to-end example: Cross-cluster data access
 
 This example demonstrates how MCP enables agents to access data across multiple OpenSearch clusters.
 
-**Scenario:**
+**Scenario**:
 
-* Cluster A contains product catalog data in a 'products' index
-* Cluster B contains product ratings data in a 'product_ratings' index
-* Goal: Enable an agent in Cluster A to answer questions requiring data from both clusters
+* Cluster A contains product catalog data in a `products` index
+* Cluster B contains product ratings data in a `product_ratings` index
+* Goal: Enable an agent in Cluster A to answer questions based on data from both clusters
 
-**Setup:**
+**Setup**:
 
-* Dataset: Mock product data from [here](https://github.com/rithin-pullela-aws/opensearch-mock-data)
+* Dataset: [Mock product data](https://github.com/rithin-pullela-aws/opensearch-mock-data)
 * Cluster A tools: `ListIndexTool_ClusterA`, `IndexMappingTool_ClusterA`, `SearchIndexTool_ClusterA`
-* Cluster B tools (accessed via MCP): `ListIndexTool_ClusterB`, `IndexMappingTool_ClusterB`, `SearchIndexTool_ClusterB`
+* Cluster B tools (accessed through MCP): `ListIndexTool_ClusterB`, `IndexMappingTool_ClusterB`, `SearchIndexTool_ClusterB`
 
-**Agent Execution:**
+**Agent execution**:
 
-Using the [Plan, Execute, and Reflect agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/), we asked the question:
+Using the [plan-execute-reflect agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/), we asked the question:
 
 ```json
-You have access to data from 2 OpenSearch clusters, Cluster A and Cluster B. Using data from these clusters, answer me this: List me 10 kid toy products with high rating.
+You have access to data from 2 OpenSearch clusters, Cluster A and Cluster B. Using data from these clusters, answer this: List 10 kid toy products with high ratings.
 ```
 
-**Response of the Plan, Execute, and Reflect agent with detailed steps breakdown**
-```
+**Agent response with a detailed steps breakdown**:
+
+```markdown
 # Top 10 Kid Toy Products with High Ratings
 
 
@@ -453,6 +456,18 @@ The final list includes a diverse selection of toys across multiple categories i
 
 ```
 
-### Conclusion
+## Conclusion
 
-The OpenSearch MCP Client functionality allows OpenSearch agents to connect to external tool providers through the MCP protocol, significantly expanding their capabilities beyond native OpenSearch functions. Rather than being limited to built-in tools, agents can now leverage specialized external services like weather forecasts, translation APIs, document processing tools, and more. This interoperability helps position OpenSearch agents as versatile orchestrators that can coordinate across diverse systems and data sources. As this experimental feature matures, we anticipate a growing ecosystem of MCP-compatible tools that will make OpenSearch agents increasingly powerful for solving complex, multi-step tasks. We invite you to explore these capabilities in OpenSearch 3.0 and contribute to the development of this emerging standard.
+MCP represents a transformative approach to AI-search integration, standardizing how AI agents interact with OpenSearch data and external tools.
+
+The **built-in OpenSearch MCP server** represents a significant advancement in how AI agents can interact with your search and analytics data. By providing a standardized interface, it eliminates the need for custom integration code and allows for faster, more secure deployment of Agentic search and analytics applications. While currently experimental, the MCP Server in OpenSearch 3.0 lays the groundwork for more sophisticated AI agent interactions with your valuable search data.
+
+The **standalone OpenSearch MCP server** bridges the gap between advanced AI capabilities and earlier versions of OpenSearch. You can use the power of AI agents with your existing OpenSearch deployment without upgrading to version 3.0. Whether you're using Claude, LangChain, or other agent frameworks, the standalone server offers a standardized way to connect AI models with your valuable search data.
+
+The current implementation provides access to the core search functionality, with future plans to enhance version-specific tool compatibility. We invite you to explore the demo version and share your feedback as we prepare for the official release. Your input will help shape this solution to better meet the community's needs.
+
+The **OpenSearch MCP client** allows OpenSearch agents to connect to external tool providers through the MCP protocol, significantly expanding their capabilities beyond native OpenSearch functions. Rather than being limited to built-in tools, agents can use specialized external services like weather forecasts, translation APIs, document processing tools, and more. This interoperability helps position OpenSearch agents as versatile orchestrators that can coordinate across diverse systems and data sources. As this experimental feature matures, we anticipate a growing ecosystem of MCP-compatible tools that will make OpenSearch agents increasingly powerful for solving complex, multi-step tasks. 
+
+## Try MCP 
+
+To transform how your AI agents interact with data, try MCP and let us know what you think. We invite you to not only explore these capabilities in OpenSearch 3.0 but also contribute to the development of this emerging standard. We welcome your feedback in the [ML Commons repository](https://github.com/opensearch-project/ml-commons/) or on the [OpenSearch forum](https://forum.opensearch.org/)!
