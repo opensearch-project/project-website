@@ -51,7 +51,7 @@ Separating indexing and search workloads provides the following benefits:
 
 ## Enabling indexing and search separation
 
-For detailed instructions, see [Separate index and search workloads](https://docs.opensearch.org/docs/latest/search-plugins/index-management/index-and-search-separation/).
+For detailed instructions, see [Separate index and search workloads](https://docs.opensearch.org/docs/latest/tuning-your-cluster/seperate-index-and-search-workloads/).
 
 ## Scale to zero with reader/writer separation: The search-only mode
 
