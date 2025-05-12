@@ -3,12 +3,12 @@ layout: post
 title: OpenSearch Benchmark: An update
 authors:
 - govkamat
-date: 2025-04-21 12:30:00 -0600
+date: 2025-05-12 12:30:00 -0600
 categories:
   - community
 excerpt: OpenSearch Benchmark is the performance benchmarking tool for OpenSearch.
-meta_keywords: OpenSearch Benchmark, workloads, k-NN, big5
-meta_description: OpenSearch Benchmark has come a long way, and there is so much more ahead.
+meta_keywords: OpenSearch benchmark, performance testing, benchmarking tool, big5 workloads, OpenSearch benchmark roadmap
+meta_description: Explore OpenSearch Benchmark's latest updates, including new generative AI workloads and enhanced testing features. Learn how this performance testing tool helps optimize OpenSearch deployments and ways to contribute.
 ---
 
 
