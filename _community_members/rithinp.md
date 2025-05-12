@@ -21,4 +21,4 @@ permalink: '/community/members/rithin-pullela.html'
 redirect_from: '/authors/rithinp/'
 ---
 
-**Rithin Pullela** is a Software Engineer at AWS working on the OpenSearch Project. He primarily works on OpenSearch ML Commons and Learning-to-Rank. He is passionate about Machine Learning, and Distributed Systems.
+**Rithin Pullela** is a Software Engineer at AWS working on the OpenSearch Project. He primarily works on OpenSearch ML Commons and Learning-to-Rank. He is passionate about machine learning and distributed systems.
