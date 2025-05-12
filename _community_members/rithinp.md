@@ -2,7 +2,7 @@
 name: Rithin Pullela
 short_name: rithinp
 photo: "/assets/media/community/members/rithinp.jpg"
-title: 'OpenSearch Community Member: Rithin Pullela'
+title: 'OpenSearch community member: Rithin Pullela'
 primary_title: Rithin Pullela
 breadcrumbs:
   icon: community
