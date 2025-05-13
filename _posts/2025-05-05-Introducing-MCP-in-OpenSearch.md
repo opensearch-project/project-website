@@ -3,7 +3,9 @@ layout: post
 title: "Introducing MCP in OpenSearch"
 authors:
   - rithinp
+  - zanniu
   - ylwu
+  - yych
   - kolchfa
 date: 2025-05-05
 categories:
@@ -83,11 +85,7 @@ POST /_plugins/_ml/mcp/tools/_register
                             },
                             "query": {
                                 "type": "object",
-                                "description": "OpenSearch search index query. You need to get index mapping to write correct search query. It must be a valid OpenSearch query. Valid value:
-{\"query\":{\"match\":{\"population_description\":\"seattle 2023 population\"}},\"size\":2,\"_source\":\"population_description\"}
-Invalid value: 
-{\"match\":{\"population_description\":\"seattle 2023 population\"}}
-The value is invalid because the match not wrapped by \"query\".",
+                                "description": "...",
                                 "additionalProperties": false
                             }
                         }
@@ -451,6 +449,9 @@ I conducted this analysis through the following steps:
 4. I cross-referenced the product IDs of toy items with their ratings from Cluster B
 
 5. I compiled and sorted the results by rating to identify the top 10 highest-rated kid toy products
+
+6. 
+...
 
 The final list includes a diverse selection of toys across multiple categories including educational toys, plush toys, puzzles, dolls, building sets, vehicles, action toys, and board games. The two products with perfect 10/10 ratings (Fisher-Price Laugh & Learn Smart Stages Puppy and Melissa & Doug Farm Animals Sound Puzzle) are both educational toys designed for younger children.
 
