@@ -1,33 +1,36 @@
 ---
 layout: post
-title: "OpenSearch 3.0: Observability meets Agentic AI"
+title: "OpenSearch 3.0: Observability meets agentic AI"
 authors:
   - pyek-bot
   - ylwu
+  - kolchfa
 date: 2025-05-05
 categories:
   - technical-posts
 meta_keywords: Plan and Execute, OpenSearch, AI, Agents, Function calling, Claude
 meta_description: Learn about OpenSearch 3.0's Agent Framework Enhancements and utilize the plan-execute-reflect agent to resolve an observability use case
 ---
-OpenSearch 3.0 introduces the [Plan–Execute–Reflect](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) agent—a powerful new capability that breaks down complex problems, selects and executes tools autonomously, and adapts through reflection. In this post, we’ll show how this agent automates root cause analysis in observability workflows.
+OpenSearch 3.0 introduces the [_plan–execute–reflect agent_](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/)---a powerful new capability that breaks down complex problems, selects and executes tools autonomously, and adapts through reflection. In this post, we'll show you how this agent automates root cause analysis in observability workflows.
 
 ## Introduction
 
-In the era of AI, agents have emerged as a powerful way to make Large Language Models (LLMs) more practical and useful. By connecting LLMs with specific tools and capabilities, agents can transform natural language requests into concrete actions and meaningful results. 
+In the era of AI, agents have emerged as a powerful way to make large language models (LLMs) more practical and useful. By connecting LLMs to specific tools and capabilities, agents can transform natural language requests into concrete actions leading to meaningful results. 
 
-OpenSearch ML Commons has been at the forefront of this transformation, providing a robust agent framework that allows users to orchestrate tools and automate workflows. With OpenSearch 3.0, we're taking a significant leap forward by introducing the Plan-Execute-Reflect agent designed for complex, multi-step reasoning tasks.
+OpenSearch ML Commons has been at the forefront of this transformation, providing a robust agent framework that allows you to orchestrate tools and automate workflows. With OpenSearch 3.0, we're taking a significant leap forward by introducing the plan-execute-reflect agent designed for complex, multi-step reasoning tasks.
 
 ## What's new in OpenSearch 3.0's agent framework?
 
-* A Plan-Execute-Reflect agent for executing complex multi-step tasks.
-* Native MCP (Model Context Protocol) support for seamless integration with external AI tools.
-* Enhanced tool selection and execution capabilities.
-* Asynchronous execution support for long-running tasks.
+OpenSearch 3.0 introduces an improved agent framework that enhances how you can interact with your data and address complex problems. The primary addition is a plan-execute-reflect agent designed to handle multi-step tasks methodically.
 
-In this blog, we'll showcase the power of this new agent through a practical observability use case: Automatically investigating a service failure in a microservices application. 
+The new agent framework includes several notable improvements:
 
-You'll see how the agent can:
+- A plan-execute-reflect agent that systematically breaks down and executes complex multi-step tasks
+- Native MCP (Model Context Protocol) support for integration with external AI tools
+- Enhanced tool selection and execution capabilities that select appropriate tools for each task
+- Asynchronous execution support for managing long-running tasks efficiently
+
+In this blog, we'll dive into a practical observability use case that showcases the true power of this new agent framework. You'll see firsthand how it can automatically investigate service failures in a microservices application—a typically time-consuming and complex process. You'll see how the agent can:
 
 * Break down a complex investigation into logical steps
 * Automatically select and use appropriate tools
@@ -36,78 +39,78 @@ You'll see how the agent can:
 
 Whether you're managing cloud infrastructure, developing applications, or building AI-powered solutions, this new capability can help streamline your workflows and enhance your problem-solving capabilities.
 
-Now that we’ve seen the key features in 3.0, let’s understand the capabilities and workflow of the Plan–Execute–Reflect agent.
+Now let's explore the capabilities and workflow of the plan-execute-reflect agent.
 
-## What is the Plan–Execute–And-Reflect Agent?
+## What is the plan-execute-reflect agent?
 
-The [Plan–Execute–Reflect](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) agent is a long-running agent designed for complex, multi-step tasks. This agent is capable of breaking down a complex task into a series of simple steps (plan), executing each step and optimizing its plan based on intermediate step results. It uses a separate executor agent for the execution of sub steps.
+The [plan-execute-reflect](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) agent is a long-running agent designed for complex, multi-step tasks. This agent is capable of breaking down a complex task into a series of simple steps (plan), executing each step, and optimizing its plan based on intermediate step results. It uses a separate executor agent for the execution of substeps.
 
-Key features: 
+Key features of this agent include the following:
 
-* Reflects on intermediate results to optimize the original plan.
-* Allows using separate models for planning and execution by providing your own executor agent during registration. By default, a [conversational](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/conversational/) agent is used as the executor.
-* Executes asynchronously, allowing it to handle long-running workflows via background execution (async=true).
-* Acts as an MCP client that can connect to multiple MCP servers.
-* Relies on function calling for tool execution thereby standardizing communication between the tool and model.
-* Supports custom prompts. This allows users to tune this agent for specific use cases. Example: Observability Agent, Research Agent (via WebSearchTool), etc.
+* Adaptive planning that evolves based on intermediate results
+* Flexibility to use different models for planning and execution phases by specifying your own executor agent during registration (uses a [conversational](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/conversational/) agent by default)
+* Asynchronous execution capability for handling long-running workflows in the background (when `async=true`)
+* Built-in MCP client functionality allowing connections to multiple MCP servers
+* Standardized tool communication through function calling
+* Support for custom prompts, enabling specialization for specific use cases such as Observability Agent or Research Agent (using WebSearchTool)
 
-The diagram below illustrates the execution flow of the Plan–Execute–Reflect agent.
+The following diagram illustrates the execution flow of the plan-execute-reflect agent.
 
 ![PlanExecuteReflect Agent Execution Workflow](/assets/media/blog-images/2025-05-05-plan-execute-agent/per-agent-execution-workflow.png){: .img-fluid}
 
-The workflow is as follows:
+The workflow consists of the following steps:
 
-1. User provides the Plan-Execute-Reflect agent with a task.
-2. Plan-Execute-Reflect agent forwards the task to the planner LLM
-3. LLM returns with a plan (a series of steps to execute)
-4. Plan-Execute-Reflect forwards the first step of the plan to the executor agent
-5. Executor agent executes the steps and returns the response
-6. Plan-Execute-Reflect agent forwards the result of executed step and the original plan to the planner-LLM
-7. Planner-LLM either returns the final result or a refined plan.
-8. If the planner-LLM returns the final result, it is returned to the user. Else, the planner-LLM returns a new plan and execute the steps (4-7) until it has enough information to complete the task and return the result.
+1. A user provides the plan-execute-reflect agent with a task.
+2. The plan-execute-reflect agent forwards the task to the planner LLM.
+3. The LLM returns a plan (a series of steps to execute).
+4. The plan-execute-reflect agent forwards the first step of the plan to the executor agent.
+5. The executor agent executes the steps and returns the response.
+6. The plan-execute-reflect agent forwards the result of the executed step and the original plan to the planner LLM.
+7. The planner LLM either returns the final result or a refined plan.
+8. If the planner LLM returns the final result, the results is returned to the user. Otherwise, the planner LLM returns a new plan and executes the steps (steps 4--7 on the diagram) until it has enough information to complete the task and return the result.
 
-For more technical details, visit this Github [issue](https://github.com/opensearch-project/ml-commons/issues/3745)
+For more technical details, see [this issue](https://github.com/opensearch-project/ml-commons/issues/3745).
 
-Let’s watch the agent in action by simulating a real-world failure and root causing an issue.
+Now let's see the plan-execute-reflect agent in action by simulating a real-world scenario. We'll walk through how it handles a practical problem by identifying an issue in a system and finding its root cause.
 
-## Simulating a Real-World Failure with the OpenTelemetry Demo App
+## Simulating a real-world failure using the OpenTelemetry demo app
 
-Modern distributed systems are complex. Microservices often communicate with each other in unpredictable ways, and information about what’s happening is spread across logs, traces, and metrics. OpenSearch offers a powerful suite of observability tools—including dashboards for metrics, logs, and traces—to help users monitor and troubleshoot distributed systems. However, when debugging complex failures, users are often left manually correlating signals across services and infrastructure layers. This process is generally slow and tedious. This is where Agents come in. By combining OpenSearch's observability data with reasoning and planning capabilities, these agents can automate root cause analysis, generate actionable insights, and significantly enhance the troubleshooting experience.
+Modern distributed systems are complex and present significant monitoring challenges. Microservices often communicate with each other in unpredictable ways, and information about what's happening is spread across logs, traces, and metrics. OpenSearch offers a powerful suite of observability tools, including dashboards for metrics, logs, and traces, to help you monitor and troubleshoot distributed systems. However, when debugging complex failures, you are often left manually correlating signals across services and infrastructure layers. This process is generally slow and tedious. This is where agents come in. By combining OpenSearch's observability data with reasoning and planning capabilities, these agents can automate root cause analysis, generate actionable insights, and significantly enhance the troubleshooting experience.
 
-We'll demonstrate how to use the Plan-Execute-Reflect agent to build an observability agent capable of root-causing an issue in a microservices application. We'll show you how to register the agent, run a task, and interpret the output—all with minimal setup and natural language input.
+We'll demonstrate how to use the plan-execute-reflect agent to build an observability agent capable of root-causing an issue in a microservices application. We'll show you how to register the agent, run a task, and interpret the output, using natural language input with minimal setup.
 
-We’ll simulate a failure in a microservices environment: a cart failure in an e-commerce application. For this, we’ll use the OpenTelemetry Demo application, a reference application that mimics a real-world system.
+We'll simulate a failure in a microservices environment: a cart failure in an e-commerce application. For this, we'll use the OpenTelemetry demo application, a reference application that mimics a real-world system.
 
-This application emits telemetry data—including logs, traces, and metrics—to OpenSearch, giving us rich observability signals. We’ll trigger a cart failure, then ask our observability agent to diagnose the root cause using these signals.
+This application emits telemetry data, including logs, traces, and metrics, to OpenSearch, giving us rich observability signals. We'll trigger a cart failure, then ask our observability agent to diagnose the root cause using these signals.
 
-For more details about the demo application, see [OpenTelemetry-Demo](https://opentelemetry.io/docs/demo/)
+For more information about the demo application, see [OpenTelemetry-Demo](https://opentelemetry.io/docs/demo/).
 
-### Triggering the Cart Failure
+### Triggering a cart failure
 
-The OpenTelemetry Demo uses flagd, a simple feature-flag service, to manage built-in fault scenarios. Flag values can be toggled through a web UI or by editing the demo’s configuration file directly.
+The OpenTelemetry Demo uses `flagd`, a simple feature-flag service, to manage built-in fault scenarios. You can toggle flag values using a web UI or by editing the demo's configuration file directly. To simulate a cart failure, perform the following steps:
 
-1. Deploy the application and navigate to the feature-flags dashboard at http://localhost:8080/feature
-2. Find cartFailure and toggle it On, then click Save.
-3. Once enabled, the Empty Cart button in the frontend UI will stop working. http://localhost:8080/cart
-4. Once you add an item to the cart and hit the Empty Cart button, you’ll start seeing error spans and logs in OpenSearch corresponding to the Cart Service failures. 
+1. Deploy the OpenTelemetry Demo application and navigate to the feature flag dashboard at[http://localhost:8080/feature](http://localhost:8080/feature).
+2. Find **cartFailure** and toggle it to the **On** position, then select **Save**.
+3. To access the cart, go to [http://localhost:8080/cart](http://localhost:8080/cart). Once the flag is enabled, the **Empty Cart** button in the frontend UI will stop working. 
+4. To generate the error condition, add at least one item to your shopping cart and then select the **Empty Cart** button.
 
-With the cart failure now active, the demo application will emit error-level spans and log entries for the Cart Service. These signals form the basis of our root-cause analysis.
+The operation will fail, triggering error spans and logs in OpenSearch corresponding to the Cart Service failures. 
 
-## Investigating the Issue with an Observability Agent
+With the cart failure now active, the demo application will emit error-level spans and log entries for the Cart Service. These signals form the basis of our root cause analysis.
 
-Let’s now try to identify the root cause of this issue using OpenSearch’s new Plan–Execute–Reflect agent. Instead of manually querying logs or sifting through traces, we’ll describe the problem to the agent and let it do the investigation. Let’s setup the agent.
+## Investigating the issue using an observability agent
 
-For more details about the agent, see [Plan-Execute-Reflect Agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/)
+Let's now try to identify the root cause of this issue using OpenSearch's new plan-execute-reflect agent. Instead of manually querying logs or sifting through traces, we'll describe the problem to the agent and let it do the investigation. Let's set up the agent using the following steps.
 
-### Step 1. Register the LLM
+For more information about the agent, see [Plan-execute-reflect agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/).
 
-Let’s register the LLM to be used with the agent. 
+### Step 1: Register the LLM
 
-In this example, we will be using a Claude 3.7-sonnet model deployed on Amazon Bedrock.
+Register the LLM to be used with the agent. In this example, we will be using a Claude 3.7 Sonnet model deployed on Amazon Bedrock.
 
-For more information about connecting your LLM to the agent, see [Connecting to LLMs](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/#supported-llms)
+For more information about connecting your LLM to the agent, see [Connecting to LLMs](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/#supported-llms).
 
-#### 1.1 Register the connector
+#### Step 1.1: Register the connector
 
 ```json
 POST /_plugins/_ml/connectors/_create
@@ -140,9 +143,9 @@ POST /_plugins/_ml/connectors/_create
 }
 ```
 
-Note the connector ID; you will use it to register the model
+Note the connector ID; you'll use it to register the model.
 
-#### 1.2 Register the model
+#### Step 1.2: Register the model
 
 ```json
 POST /_plugins/_ml/models/_register
@@ -154,9 +157,9 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-Note the model ID; you will use to register the agent
+Note the model ID; you'll use to register the agent.
 
-### Step 2. Register the Agent
+### Step 2: Register the agent
 
 ```json
 POST _plugins/_ml/agents/_register
@@ -189,11 +192,11 @@ POST _plugins/_ml/agents/_register
 }
 ```
 
-Note the agent ID; you’ll use it to execute the agent
+Note the agent ID; you'll use it to execute the agent.
 
 ### Step 3. Execute the agent
 
-Opensearch 3.0 introduces the ability to execute agents asynchronously. As this agent is a long-running agent, let's execute it asynchronously by using the `async=true` query parameter. 
+OpenSearch 3.0 introduces the ability to execute agents asynchronously. Because this agent is long running, let's execute it asynchronously by providing the `async=true` query parameter:
 
 ```json
 POST /_plugins/_ml/agents/your_agent_id/_execute?async=true
@@ -204,7 +207,8 @@ POST /_plugins/_ml/agents/your_agent_id/_execute?async=true
 }
 ```
 
-Example response
+OpenSearch responds with the task information:
+
 ```json
 {
   "task_id": "waIQmJYBJr85UikuxTKC",
@@ -214,20 +218,18 @@ Example response
   }
 }
 ```
-Note the task ID and memory ID; 
+Note the task ID and memory ID. You'll use task ID to query for the result and the memory ID to track interactions between the agent and the LLM. 
 
-We will use task ID to query for the result and the memory ID to track interactions between the agent and the LLM. 
+### Step 4. Analyze the results
 
-### Step 4. Analyze the result
+Let's check the status of the task by querying the `tasks` endpoint:
 
-Let’s check the status of the task:
-
-Query the task to see execution status:
 ```json
 GET _plugins/_ml/tasks/your_task_id
 ```
 
-Once the agent has completed execution, you should see the below response:
+Once the agent has completed execution, you should see the following response:
+
 ```json
 {
   "task_type": "AGENT_EXECUTION",
@@ -311,9 +313,10 @@ To resolve this issue:
 }
 ```
 
-The agent identifies that the root cause is a Redis connection issue. It highlights repeated failures to connect to the Redis backend, visible in the service logs and traces, and links to specific log entries showing ECONNREFUSED errors. The response also includes a step-by-step explanation of how it analyzed the traces and logs to pinpoint the failure. Therefore, by automating the root cause analysis, the agent effectively reduces the time spent on manual troubleshooting, showcasing how it can resolve complex issues and empower teams to quickly find solutions.
+The agent identifies that the root cause of the problem is a Redis connection issue. It highlights repeated failures to connect to the Redis backend, visible in the service logs and traces, and links to specific log entries showing `ECONNREFUSED` errors. The response also includes a step-by-step explanation of how the agent analyzed the traces and logs to pinpoint the failure. By automating the root cause analysis, the agent effectively reduces the time spent on manual troubleshooting, showcasing how it can resolve complex issues and empower teams to quickly find solutions.
 
 Let's validate the results by querying the logs:
+
 ```json
 GET ss4o_logs-*/_search
 {
@@ -336,7 +339,8 @@ GET ss4o_logs-*/_search
 }
 ```
 
-Response:
+The response clearly points to a Redis connection issue as the root cause:
+
 ```json
 {
     "_index": "ss4o_logs-2025.05.03",
@@ -398,36 +402,33 @@ at cart.cartstore.ValkeyCartStore.EmptyCartAsync(String userId) in /usr/src/app/
 }
 ```
 
-As seen, the root cause clearly points to a Redis connection issue. 
+For more information about agent registration and execution, see [this tutorial](https://docs.opensearch.org/docs/latest/tutorials/gen-ai/agents/build-plan-execute-reflect-agent/).
 
-For more details on agent registration and execution, see this [tutorial](https://docs.opensearch.org/docs/latest/tutorials/gen-ai/agents/build-plan-execute-reflect-agent/).
+If you want to see the intermediate results, you can query the memory index and memory traces to understand the interactions between the agent and the LLM:
 
-If you wish to look at intermediate results, you can query the memory index and memory traces to understand the interactions between the agent and the LLM. 
-
-Fetch message traces
 ```json
 GET /_plugins/_ml/memory/message/your_message_id/traces
 ```
-For more details about memory and traces, see [Memory](https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/memory-apis/index/).
+For more information about memory and traces, see [Memory APIs](https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/memory-apis/index/).
 
-## Extending the Agent with More Tools and MCP Support
+## Extending the agent with more tools and MCP Support
 
-The power of the Plan–Execute–And-Reflect agent lies in its flexibility. While our example uses a basic set of tools to investigate a cart failure, the agent can support a wide range of tools. For the list of available tools, see [Tools](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/index/).
+The power of the plan-execute-reflect agent lies in its flexibility. While our example uses a basic set of tools to investigate a cart failure, the agent can support a wide range of tools. For the list of available tools, see [Tools](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/index/).
 
 One such example would be to use the [WebSearchTool](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/web-search-tool/) to perform deep-research tasks. 
 
-In addition, this agent acts as an MCP client, meaning it can connect to an MCP (Model Context Protocol) server. This allows the agent to retrieve tools and configurations dynamically and participate in more complex workflows.
+Additionally, this agent functions as an model context protocol (MCP) client, enabling it to connect to MCP servers. This capability allows the agent to dynamically retrieve tools and configurations and participate in more complex workflows.
 
-If you’d like to connect your agent to an MCP server, refer to this [document](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/) for detailed instructions.
+To learn how too connect your agent to an MCP server, see [Connecting to an external MCP server](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/).
 
 ### Recommendations and troubleshooting
 
-* If you notice your agent getting throttled by your model, enable retries via the [connector configuration](https://docs.opensearch.org/docs/latest/ml-commons-plugin/remote-models/blueprints/#configuration-parameters).
-* If the agent stops with max_steps executed, then you can increase the [max_steps](https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/agent-apis/register-agent/#request-body-fields) or specify it during execution via the `parameters.max_steps` field.
+* If you notice your agent getting throttled by your model, enable retries using the [connector configuration](https://docs.opensearch.org/docs/latest/ml-commons-plugin/remote-models/blueprints/#configuration-parameters).
+* If the agent stops after executing `max_steps` steps, increase the [`max_steps` value](https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/agent-apis/register-agent/#request-body-fields) or specify it during execution in the `parameters.max_steps` field.
 
-Note: This is an experimental feature and will continue to evolve with future enhancements.
+### Future enhancements
 
-### Future Enhancements
+Currently, the plan-execute-reflect agent is an experimental feature. We are planning to continue evolving it with these potential future enhancements:
 
 * Support parallel tool execution
 * Support multiple reflection strategies
@@ -435,12 +436,12 @@ Note: This is an experimental feature and will continue to evolve with future en
 * Ability to cancel a running task
 * Agent execution checkpointing 
 
-For updates on the progress of the feature or if you want to leave feedback, see the associated GitHub [issue](https://github.com/opensearch-project/ml-commons/issues/3745).
+For updates on the progress of the feature or if you want to leave feedback, see the associated [GitHub issue](https://github.com/opensearch-project/ml-commons/issues/3745).
 
 ## Conclusion
 
-In this tutorial, we demonstrated how to use the Plan–Execute–Reflect agent to troubleshoot and identify the root cause of a cart failure in the opentelemetry-demo application. By breaking down a high-level task into smaller steps and executing them iteratively, the agent provides a powerful and flexible way to automate complex reasoning workflows. This approach is particularly useful for observability and operational intelligence use cases where multi-step diagnosis is needed.
+In this tutorial, we showed you how to use the plan-execute-reflect agent to troubleshoot and identify the root cause of a cart failure in the OpenTelemetry demo application. By breaking down a high-level task into smaller steps and executing them iteratively, the agent provides a powerful and flexible way to automate complex reasoning workflows. This approach is particularly useful for observability and operational intelligence use cases where multi-step diagnosis is needed.
 
-The Plan–Execute–Reflect agent demonstrates how intelligent automation can simplify root cause analysis. By combining OpenTelemetry observability data with LLM-based reasoning, OpenSearch can now assist engineers in debugging complex, multi-service systems with just a single prompt.
+The plan-execute-reflect agent demonstrates how intelligent automation can simplify root cause analysis. By combining OpenTelemetry observability data with LLM-based reasoning, OpenSearch can now assist you in debugging complex, multi-service systems with just a single prompt.
 
 Want to try it yourself? Check out this [tutorial](https://docs.opensearch.org/docs/latest/tutorials/gen-ai/agents/build-plan-execute-reflect-agent/) and deploy the agent in your own stack.
