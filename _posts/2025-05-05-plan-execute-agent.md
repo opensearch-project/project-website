@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenSearch 3.0: Observability meets agentic AI"
+title: "Intelligent troubleshooting using OpenSearch 3.0's plan-execute-reflect agent"
 authors:
   - pyek-bot
   - ylwu
