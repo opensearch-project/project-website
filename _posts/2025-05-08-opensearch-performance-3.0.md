@@ -8,12 +8,12 @@ authors:
     - vamshin
     - seanzheng
     - kolchfa
-date: 2025-05-08
+date: 2025-05-14
 categories:
         - technical-posts
         - community
-meta_keywords: OpenSearch performance, benchmarking, query optimization, vector search, text queries, aggregations, OpenSearch roadmap
-meta_description: Explore the significant performance gains up through OpenSearch 3.0. Explore optimizations in text search, aggregations, range queries, and vector operations, and get a preview of the OpenSearch 2025 roadmap.
+meta_keywords: OpenSearch 3.0, query performance improvement, Lucene 10, concurrent segment search, star-tree index, vector search performance, AI/ML workloads, indexing throughput, neural sparse search, OpenSearch benchmark
+meta_description: OpenSearch 3.0 delivers major performance improvements, including 10x faster search queries, 2.5x vector search boost, and GPU acceleration. Learn about key enhancements and the future roadmap.
 has_science_table: true
 excerpt: Learn more about the strategic enhancements and performance features that OpenSearch has delivered up to version 3.0.
 featured_blog_post: false
