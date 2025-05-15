@@ -136,9 +136,9 @@ To override the default max clients (1000), add a number to the `--redline-test`
 --redline-test=1500
 ```
 
-This is useful if your cluster can sustain more than 1000 clients for your workload.
+Users can customize redline test parameters such as the maximum number of clients, the client ramp-up rate, the percentage of clients to pause during back-off, and the wait time before resuming scale-up.
 
-After the test, OpenSearch Benchmark logs the following data:
+During testing, OpenSearch Benchmark logs the following data:
 
 - Maximum number of stable clients  
 - All pause and unpause events  
