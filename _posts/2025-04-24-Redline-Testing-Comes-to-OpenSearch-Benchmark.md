@@ -138,12 +138,15 @@ To override the default max clients (1000), add a number to the `--redline-test`
 
 Users can customize redline test parameters such as the maximum number of clients, the client ramp-up rate, the percentage of clients to pause during back-off, and the wait time before resuming scale-up.
 
-During testing, OpenSearch Benchmark logs the following data:
+OpenSearch Benchmark captures the following log information:
+- During the test:
+  - The current number of clients.
+  - The pause/unpause events.
+  - The reasons for scaling back
+- After the test:
+  - The maximim number of clients reached
+  - Any performance metrics
 
-- Maximum number of stable clients  
-- All pause and unpause events  
-- Reasons for scaling back  
-- Performance metrics (throughput, latency, service time)  
 
 The following chart shows how redline testing in OpenSearch Benchmark incrementally increases client load during a timed test. Each step represents a controlled ramp-up, allowing the system to observe when performance begins to degrade. In this example image, throughput steadily rises until it plateaus—indicating the cluster’s redline has been reached. This automated feedback loop removes guesswork and enables precise load testing in a single run.
 
