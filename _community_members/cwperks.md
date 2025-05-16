@@ -1,7 +1,7 @@
 ---
 name: Craig Perkins
 short_name: cwperks
-photo: '/assets/media/community/members/cwperks.jpg'
+photo: '/assets/media/community/members/cwperks.png'
 title: 'OpenSearch Community Member: Craig Perkins'
 primary_title: Craig Perkins
 breadcrumbs:
