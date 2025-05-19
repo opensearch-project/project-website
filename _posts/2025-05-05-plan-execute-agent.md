@@ -5,13 +5,13 @@ authors:
   - pyek-bot
   - ylwu
   - kolchfa
-date: 2025-05-05
+date: 2025-05-19
 categories:
   - technical-posts
-meta_keywords: Plan and Execute, OpenSearch, AI, Agents, Function calling, Claude
-meta_description: Learn about OpenSearch 3.0's agent framework enhancements and utilize the plan-execute-reflect agent to resolve an observability use case.
+meta_keywords: OpenSearch 3.0, plan-execute-reflect agent, root cause analysis, ML Commons, native Model Context Protocol, MCP client, OpenTelemetry, LLM integration, observability agent
+meta_description: Explore how the plan-execute-reflect agent in OpenSearch 3.0 transforms troubleshooting by automatically investigating system issues. See this AI agent in action as it analyzes data and provides solutions through a real-world debugging example.
 ---
-OpenSearch 3.0 introduces the [_plan–execute–reflect agent_](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/)---a powerful new capability that breaks down complex problems, selects and executes tools autonomously, and adapts through reflection. In this post, we'll show you how this agent automates root cause analysis in observability workflows.
+[OpenSearch 3.0](https://opensearch.org/blog/unveiling-opensearch-3-0/) introduces the [_plan–execute–reflect agent_](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/)---a powerful new capability that breaks down complex problems, selects and executes tools autonomously, and adapts through reflection. In this post, we'll show you how this agent automates root cause analysis in observability workflows.
 
 ## Introduction
 
@@ -26,7 +26,7 @@ OpenSearch 3.0 introduces an improved agent framework that enhances how you can 
 The new agent framework includes several notable improvements:
 
 - A plan-execute-reflect agent that systematically breaks down and executes complex multi-step tasks
-- Native Model Context Protocol (MCP) support for integration with external AI tools
+- Native [Model Context Protocol](https://opensearch.org/blog/introducing-mcp-in-opensearch/) (MCP) support for integration with external AI tools
 - Enhanced tool selection and execution capabilities
 - Asynchronous execution support for managing long-running tasks efficiently
 
