@@ -132,7 +132,7 @@ opensearch-benchmark execute-test \
 
 Users can customize redline test parameters such as the maximum number of clients, the client ramp-up rate, the percentage of clients to pause during back-off, and the wait time before resuming scale-up with the following flags:
 
-`--redline-scale-step`: controls how many clients to unpause per scaling iteration
+`--redline-scale-step`: Specifies the number of clients to unpause in each scaling iteration.
 `--redline-scaledown-percentage`: controls what percentage of clients to pause when an error occurs
 `--redline-post-scaledown-sleep`: controls how many seconds the feedback actor waits before scaling up again after a scale down
 `--redline-max-clients`: controls the max number of clients to allow during redline testing. If this one is unset, OSB will default to the number of clients defined in the test procedure
