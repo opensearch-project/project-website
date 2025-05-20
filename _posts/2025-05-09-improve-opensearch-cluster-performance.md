@@ -3,7 +3,7 @@ layout: post
 title: "Improve OpenSearch cluster performance by separating search and indexing workloads"
 authors:
   - naarcha
-  - pudyoda
+  - pudyodu
 date: 2025-05-09
 categories:
   - technical-posts
