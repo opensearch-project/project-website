@@ -130,13 +130,13 @@ opensearch-benchmark execute-test \
   --redline-test
 ```
 
-To override the default max clients (1000), add a number to the `--redline-test` flag, as shown in the following example:
+Users can customize redline test parameters—such as the maximum number of clients, the client ramp-up rate, the percentage of clients to pause during back-off, and the wait time before resuming scale-up—using the following flags:
 
-```bash
---redline-test=1500
-```
 
-Users can customize redline test parameters such as the maximum number of clients, the client ramp-up rate, the percentage of clients to pause during back-off, and the wait time before resuming scale-up.
+`--redline-scale-step`: Specifies the number of clients to unpause in each scaling iteration.
+`--redline-scaledown-percentage`: Specifies the percentage of clients to pause when an error occurs.
+- `--redline-post-scaledown-sleep`: Specifies the number of seconds the feedback actor waits before initiating a scale-up after scaling down.
+- `--redline-max-clients`: Specifies the maximum number of clients allowed during redline testing. If unset, OpenSearch Benchmark defaults to the number of clients defined in the test procedure.
 
 OpenSearch Benchmark captures the following log information:
 - During the test:
@@ -144,7 +144,7 @@ OpenSearch Benchmark captures the following log information:
   - The pause/unpause events
   - The reasons for scaling back
 - After the test:
-  - The maximim number of clients reached
+  - The maximum number of clients reached
   - Any performance metrics
 
 
