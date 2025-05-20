@@ -11,11 +11,11 @@ meta_description: Learn how the new redline testing feature in OpenSearch Benchm
 
 # Redline testing now available in OpenSearch Benchmark
 
-**Automatically determine your OpenSearch cluster’s throughput limits—no guesswork required**
+**Automatically determine your OpenSearch cluster's throughput limits—no guesswork required**
 
-“How much traffic can my cluster really handle?” is a question many OpenSearch users face before moving to production. Until now, finding your cluster’s **redline**—the point beyond which it can no longer maintain acceptable service levels—required trial and error, guesswork, or time-consuming manual tuning.
+"How much traffic can my cluster really handle?" is a question many OpenSearch users face before moving to production. Until now, finding your cluster's **redline**—the point beyond which it can no longer maintain acceptable service levels—required trial and error, guesswork, or time-consuming manual tuning.
 
-With redline testing in OpenSearch Benchmark , you can now dynamically scale client load based on real-time cluster performance to automatically identify your cluster’s throughput ceiling.
+With redline testing in OpenSearch Benchmark, you can now dynamically scale client load based on real-time cluster performance to automatically identify your cluster's throughput ceiling.
 
 
 ## The challenge of guessing thresholds
@@ -35,13 +35,13 @@ Redline testing automates the following:
 - A **Feedback Actor** to monitor request failures in real time  
 - A **self-adjusting load mechanism** to pause or unpause clients based on observed behavior  
 
-This enables OpenSearch Benchmark to perform following actions:
+This enables OpenSearch Benchmark to perform the following actions:
 
 - Ramp up active clients  
 - Detect when failures begin  
 - Scale back automatically, wait for recovery, and resume testing  
 
-The result: OpenSearch Benchmark can now determine your cluster’s redline in a single test run.
+The result: OpenSearch Benchmark can now determine your cluster's redline in a single test run.
 
 ## How it works
 
@@ -49,7 +49,7 @@ The following diagram provides a high-level overview of the actor-based executio
 
 - **BenchmarkActor**: Initiates the benchmarking process.  
 - **WorkerCoordinatorActor**: Manages worker lifecycle and task distribution using an allocation matrix from the **Allocator**.  
-- **Workers (Worker1 through WorkerN)**: Execute tasks by managing clients via the **AsyncIoAdapter**.  
+- **Workers (Worker1 through WorkerN)**: Executes tasks by managing clients via the **AsyncIoAdapter**.  
 - **Clients (Client1 through ClientN)**: Uses the `AsyncExecutor` class to perform operations against the target host in parallel.  
 
 ![Flowchart for OpenSearch Benchmark's actor system](/assets/media/blog-images/2025-04-24-Redline-Testing-Comes-to-OpenSearch-Benchmark/OpenSearch Benchmark-system-architecture.jpg){: .img-fluid}
@@ -75,9 +75,9 @@ OpenSearch Benchmark supports the following two modes for redline testing:
 
 Redline testing uses timed mode to perform the following actions:
 
-1. Ramp up client load until errors occur  
-2. Scale down in response to failures  
-3. Wait for recovery and ramp up again  
+1. Ramp up client load until errors occur.
+2. Scale down in response to failures.
+3. Wait for recovery and ramp up again.
 
 ### Feedback Actor and shared state
 
@@ -94,13 +94,13 @@ The following settings reflect these client states:
 - `true` = active  
 - `false` = paused  
 
-This state is shared using Python’s `multiprocessing` module. Each client checks the dictionary before sending a request—paused clients skip execution.
+This state is shared using Python's `multiprocessing` module. Each client checks the dictionary before sending a request—paused clients skip execution.
 
 For more technical details, see the [RFC on redline testing](https://github.com/opensearch-project/opensearch-benchmark/issues/785#issue-2898221524).
 
 ## Getting started with redline testing
 
-Getting started with redline testing begins with a timed test procedure that defines the duration, target throughput, and number of clients. Once configured, you can run the benchmark with a single command—and optionally customize the maximum number of clients to match your cluster’s capacity.
+Getting started with redline testing begins with a timed test procedure that defines the duration, target throughput, and number of clients. Once configured, you can run the benchmark with a single command—and optionally customize the maximum number of clients to match your cluster's capacity.
 
 Create a timed test procedure using the following settings:
 
@@ -130,7 +130,7 @@ opensearch-benchmark execute-test \
   --redline-test
 ```
 
-To override the default max clients (1000), add a number to the `--redline-test` flag, similar to the following example:
+To override the default max clients (1000), add a number to the `--redline-test` flag, as shown in the following example:
 
 ```bash
 --redline-test=1500
@@ -141,23 +141,23 @@ Users can customize redline test parameters such as the maximum number of client
 OpenSearch Benchmark captures the following log information:
 - During the test:
   - The current number of clients.
-  - The pause/unpause events.
+  - The pause/unpause events
   - The reasons for scaling back
 - After the test:
   - The maximim number of clients reached
   - Any performance metrics
 
 
-The following chart shows how redline testing in OpenSearch Benchmark incrementally increases client load during a timed test. Each step represents a controlled ramp-up, allowing the system to observe when performance begins to degrade. In this example image, throughput steadily rises until it plateaus—indicating the cluster’s redline has been reached. This automated feedback loop removes guesswork and enables precise load testing in a single run.
+The following chart shows how redline testing in OpenSearch Benchmark incrementally increases client load during a timed test. Each step represents a controlled ramp-up, allowing the system to observe when performance begins to degrade. In this example image, throughput steadily rises until it plateaus—indicating that the cluster's redline has been reached. This automated feedback loop removes guesswork and enables precise load testing in a single run.
 
 
 ![Latency over time](/assets/media/blog-images/2025-04-24-Redline-Testing-Comes-to-OpenSearch-Benchmark/dashboards-latency-over-time.png){: .img-fluid}
 
-## What’s next?
+## What's next?
 
-Upcoming improvements to redline testing might include:
+Upcoming improvements to redline testing may include:
 
 - Smarter ramp-up strategies, such as binary or exponential search.  
 - Scaling based on latency or service time, not just request failures.  
 
-Redline testing is available now in OpenSearch Benchmark. Try it out and share your feedback by making a [GitHub issue](https://github.com/opensearch-project/OpenSearch-Benchmark/issues)!
+Redline testing is available now in OpenSearch Benchmark. Try it out and share your feedback by creating a [GitHub issue](https://github.com/opensearch-project/OpenSearch-Benchmark/issues)!
