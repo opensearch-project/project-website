@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Do More with Less: Derived Source for Efficient Vector Storage"
+title:  "Do More with Less: Save Up to 3x on Storage with Derived Vector Source"
 authors:
    - jmazane
    - vamshin
@@ -16,7 +16,7 @@ meta_description: Learn about the new Derived Source for Vectors feature release
 
 When a user uploads a JSON document to an OpenSearch cluster, it doesn't just sit there as-is. Behind the scenes, the system kicks off an indexing process—a crucial step that transforms raw data into optimized structures that make search fast and efficient. For example, if the document contains vector data, OpenSearch builds HNSW (Hierarchical Navigable Small World) graphs. These specialized data structures power Approximate Nearest Neighbor (ANN) Search, allowing for quick and accurate similarity searches across large datasets.
 
-![Indexing Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Derived-Source-for-Efficient-Vector-Storage/indexing-process.png){:class="img-centered"}
+![Indexing Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/indexing-process.png){:class="img-centered"}
 
 One important thing to keep in mind about the indexing process is that it often increases the size of the data stored in the cluster compared to what was originally ingested. That’s because OpenSearch prepares the data for different types of search and analytics operations, each requiring its own optimized structure. For example, full-text search relies on inverted indexes, while fast streaming or aggregation over text fields might use a columnar store. To support these diverse needs, the system may store multiple representations of the same data—resulting in increased storage usage.
 
@@ -27,7 +27,7 @@ When it comes to vector data, OpenSearch typically stores it in two or three dif
 
 In an experiment with 10k 128-dimensional vectors, the size break down of these files was:
 
-![Storage Breakdown](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Derived-Source-for-Efficient-Vector-Storage/storage-breakdown.png){:class="img-centered"}
+![Storage Breakdown](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/storage-breakdown.png){:class="img-centered"}
 
 Surprisingly, the _source field consumes more than half the storage for the index. In addition to the increase in index size, storing the _source for an index can also hamper performance in indexing, merging, recovery, and even search. Lets dig a little bit deeper into the _source field.
 
@@ -69,7 +69,7 @@ A simple question is, if we are already storing the vectors in the vector values
 
 The idea is fairly simple: on write, before serializing the source to disk, we replace the massive vector with a single byte (apply a mask). Then, on read, if the vector is required, we read it from the vector values and put it back in the source. 
 
-![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Derived-Source-for-Efficient-Vector-Storage/derived-process.png){:class="img-centered"}
+![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/derived-process.png){:class="img-centered"}
 
 From a user perspective, deriving the source is completely transparent. It is enabled and disabled via an index setting:
 ```
@@ -87,17 +87,17 @@ PUT /my_index
 
 index.knn must be set to true in order to use the feature. By default, derived source is enabled for vector indices created on or after version  3.0.0.
 
-With this change, we saw many performance benefits from our nightly benchmarks. First and foremost, the index size decreased drastically:
+With this change, we saw many performance benefits from our nightly benchmarks. First and foremost, we saw a 3x decrease in storage size.
 
-![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Derived-Source-for-Efficient-Vector-Storage/bench-store-size.png){:class="img-centered"}
+![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/bench-store-size.png){:class="img-centered"}
 
-Additionally, we saw force merging time decrease as well. This can be explained by the fact that less data needs to be copied and processed to create a new segment.
+Additionally, we saw force merging time decrease by about 10%. This can be explained by the fact that less data needs to be copied and processed to create a new segment.
 
-![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Derived-Source-for-Efficient-Vector-Storage/bench-force-merge.png){:class="img-centered"}
+![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/bench-force-merge.png){:class="img-centered"}
 
-Lastly, and perhaps most surprisingly, we observed a significant drop in search latency with the Lucene engine. This is likely due to a cold start issue, where the vector data loaded into the page cache during the merge process must be replaced by the vector data actually used during search.
+Lastly, and perhaps most surprisingly, we observed a 90% drop in search latency with the Lucene engine. This is likely due to a cold start issue, where the vector data loaded into the page cache during the merge process must be replaced by the vector data actually used during search.
 
-![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Derived-Source-for-Efficient-Vector-Storage/bench-search-latency.png){:class="img-centered"}
+![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/bench-search-latency.png){:class="img-centered"}
 
 Simply put, working with smaller shard sizes often yields surprising performance improvements.
 
