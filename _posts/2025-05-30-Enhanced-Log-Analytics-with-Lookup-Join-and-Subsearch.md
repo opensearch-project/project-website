@@ -1,48 +1,57 @@
-# [DRAFT] **OpenSearch 3.0 PPL Released: Enhanced Log Analytics with Lookup, Join, and Subsearch**
+---
+layout: post
+title:  "OpenSearch 3.0 PPL Released: Enhanced Log Analytics with Lookup, Join, and Subsearch"
+authors:
+   - penghuo
+   - LantaoJin
+   - model-collapse
+date: 2025-05-30
+categories:
+  - technical-posts
+meta_keywords: PPL
+meta_description: "Discover powerful new PPL features in OpenSearch 3.0, including lookup, join, and subsearch commands for enriched log analytics, powered by Apache Calcite."
+---
 
-OpenSearch 3.0 introduces powerful new capabilities to Piped Processing Language (PPL) with the addition of `lookup`, `join`, and `subsearch` commands. These features enable users—especially those in observability and security domains—to enrich, correlate, and filter logs more efficiently across large datasets. For example, security engineers can now join authentication and application logs to investigate incidents or use lookup to enrich logs with geo-context in real time.
+OpenSearch 3.0 introduces powerful new capabilities to Piped Processing Language (PPL) with the addition of `lookup`, `join`, and `subsearch` commands. These features enable users—especially those in observability and log analytics domains—to enrich, correlate, and filter logs more efficiently across large datasets. For example, engineers can now join authentication and application logs to investigate incidents or use lookup to enrich logs with geo-context in real time.
 Backed by Apache Calcite, these enhancements also bring improved query planning and execution, laying the groundwork for more advanced analytics capabilities in future releases. This release marks a significant step forward in making PPL a more expressive and performant language for interactive data exploration.
 To learn more, see [PPL Command Reference](https://docs.opensearch.org/docs/latest/search-plugins/sql/ppl/functions/).
 
-## **New Features in OpenSearch 3.0 PPL: Lookup, Join, and Subsearch**
+## New Features in OpenSearch 3.0 PPL: Lookup, Join, and Subsearch
 
-Security analysts are often faced with the daunting task of sifting through vast amounts of log data to identify and respond to potential threats. The introduction of OpenSearch 3.0 PPL's `lookup`, `join`, and `subsearch` commands has revolutionized this process, enabling analysts to perform complex queries with ease and efficiency.
+Log analysts are often faced with the daunting task of shifting through vast amounts of log data to identify and respond to potential threats. The introduction of OpenSearch 3.0 PPL's `lookup`, `join`, and `subsearch` commands has revolutionized this process, enabling analysts to perform complex queries with ease and efficiency.
 
 ### Understanding the Dataset
 
 Before diving into the queries, it's essential to understand the structure of the datasets involved. Here are two sample datasets:
 
-* Authentication Logs (**auth_logs**), **** This dataset records user login attempts, capturing details such as:
+* Authentication Logs (auth_logs), This dataset records user login attempts, capturing details such as:
 
 |timestamp	|user_id	|status	|ip_address	|
 |---	|---	|---	|---	|
 |2024-04-29T10:00:00Z	|jdoe	|success	|192.168.1.1	|
-|---	|---	|---	|---	|
 |2024-04-29T10:05:00Z	|asmith	|failed	|192.168.1.2	|
 |2024-04-29T10:10:00Z	|jdoe	|success	|192.168.1.1	|
 
-* Application Logs (**`app_logs`**)**,** This dataset captures user interactions with applications, including:
+* Application Logs (`app_logs`), This dataset captures user interactions with applications, including:
 
 |timestamp	|user_id	|action	|session_id	|
 |---	|---	|---	|---	|
 |2024-04-29T10:00:05Z	|jdoe	|login	|abc123	|
-|---	|---	|---	|---	|
 |2024-04-29T10:05:10Z	|asmith	|login	|def456	|
 |2024-04-29T10:10:15Z	|jdoe	|logout	|abc123	|
 
-* **User Information (`user_info`),** This reference dataset provides additional context about users:
+* User Information (`user_info`), This reference dataset provides additional context about users:
 
 |user_id	|department	|role	|
 |---	|---	|---	|
 |jdoe	|HR	|Manager	|
-|---	|---	|---	|
 |asmith	|IT	|Analyst	|
 
 ### Querying the Data
 
 The `lookup`, `join`, and `subsearch` commands are experimental features. To use them, enable Calcite in your OpenSearch instance by running the following command:
 
-```
+``` shell
 curl -H 'Content-Type: application/json' -X PUT localhost:9200/_plugins/_query/settings -d '{
   "transient" : {
     "plugins.calcite.enabled" : true
@@ -66,7 +75,6 @@ Result:
 |timestamp	|user_id	|status	|ip_address	|department	|
 |---	|---	|---	|---	|---	|
 |2024-04-29T10:05:00Z	|asmith	|failed	|192.168.1.2	|IT	|
-|---	|---	|---	|---	|---	|
 
 #### Correlating Authentication and Application Logs
 
@@ -85,13 +93,12 @@ Result
 |timestamp	|user_id	|action	|status	|
 |---	|---	|---	|---	|
 |2024-04-29T10:00:00Z	|jdoe	|login	|success	|
-|---	|---	|---	|---	|
 |2024-04-29T10:05:00Z	|asmith	|login	|failed	|
 |2024-04-29T10:10:00Z	|jdoe	|logout	|success	|
 
 #### Investigating Suspicious Activities
 
-To detect potential security incidents, we can identify users who have failed login attempts and then performed sensitive actions. This query highlights users who may have attempted unauthorized actions, enabling timely intervention.
+To detect potential incidents, we can identify users who have failed login attempts and then performed sensitive actions. This query highlights users who may have attempted unauthorized actions, enabling timely intervention.
 **Query:**
 
 ```
@@ -104,7 +111,6 @@ source=auth_logs
 |timestamp	|user_id	|status	|
 |---	|---	|---	|
 |2024-04-29T10:05:00Z	|asmith	|failed	|
-|---	|---	|---	|
 
 ### **When to Use Which Command?**
 
@@ -120,7 +126,7 @@ OpenSearch PPL 3.0 integrates Apache Calcite, a robust SQL parsing and optimizat
 
 The current PPL grammar and existing query AST have widely used (both in OpenSearch PPL and PPL-on-Spark). The ANTLR4 grammar is used in polyglot validators in fronted and backend (Java validator, J/S validator, Python validator). To keep the ANTLR4 grammar and reuse existing AST, the architecture of integration looks
 
-![Query Lifecycle](/assets/media/blog-images/2025-05-30-Enhanced-Log-Analytics-with-Lookup,-Join-and-Subsearch/query_lifecycle.png){:class="img-centered"}
+![Query Lifecycle](/assets/media/blog-images/2025-05-30-Enhanced-Log-Analytics-with-Lookup-Join-and-Subsearch/query_lifecycle.png){:class="img-centered"}
 
 The query processing consists of several transformation stages, converting the original query text through different intermediate representations before final execution. Here are the key stages:
 
@@ -128,15 +134,15 @@ The query processing consists of several transformation stages, converting the o
 
 The SQL query text is first parsed by ANTLR4, which converts the raw query statement into a parse tree. This parse tree is then transformed into an Abstract Syntax Tree (AST), representing the hierarchical syntactic structure of the query in a more abstract form.
 
-1. Plan Conversion
+2. Plan Conversion
 
 The AST is transformed into Calcite's RelNode tree through RelBuilder and a series of visitors.. RelNode is Calcite's internal representation of relational operations, forming a logical plan tree where each node represents a relational algebra operation (e.g., filter, project, join). 
 
-1. Optimization and Transformation
+3. Optimization and Transformation
 
 The RelNode tree undergoes optimization through Calcite's optimizer, applying various transformation rules. The optimized RelNode tree is then converted to OpenSearchEnumerableRel nodes, which are OpenSearch-specific implementations of Calcite's relational operators that can be mapped to Linq4j expressions.
 
-1. Code Generation and Execution
+4. Code Generation and Execution
 
 Linq4j serves as a bridge framework, providing templates and expressions to transform relational operators into executable Java code. This code processes data in a row-by-row manner in memory. For performance optimization, when possible, operators or sub-trees of the plan (such as filters and aggregations) are pushed down and converted into native OpenSearch QueryBuilder API calls, which are then executed directly by the OpenSearch engine.
 
@@ -172,8 +178,6 @@ In this plan, Calcite identifies the need to filter records where the `status` i
 The physical plan describes how the operations in the logical plan will be executed, detailing the specific steps and strategies used. After optimization, the physical plan might appear as follows:
 
 ```
-bash
-Copy
 EnumerableCalc(expr#0..5=[{inputs}], proj#0..4=[{exprs}])
   EnumerableMergeJoin(condition=[=($1, $5)], joinType=[left])
     EnumerableSort(sort0=[$1], dir0=[ASC])
