@@ -4,11 +4,11 @@ title: "Improve OpenSearch cluster performance by separating search and indexing
 authors:
   - naarcha
   - pudyodu
-date: 2025-05-09
+date: 2025-05-27
 categories:
   - technical-posts
-meta_keywords: OpenSearch, shard roles, indexing, search separation, performance tuning
-meta_description: Learn how separating indexing and search workloads in OpenSearch can improve performance, scalability, and cost efficiency using dedicated roles and node types.
+meta_keywords: OpenSearch cluster performance, index shards, search workloads, node roles, indexing and search separation, OpenSearch benchmark, performance tuning, optimizing your cluster
+meta_description: Optimize OpenSearch cluster performance by separating indexing and search operations. Discover write/search replicas and dedicated search nodes, with benchmark data showing 34% lower query latency through workload separation.
 ---
 
 All OpenSearch indexes consist of shards, with each document in an index stored in a shard.
