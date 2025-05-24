@@ -215,7 +215,7 @@ The flow is shown in the following illustration.
 
 ![Standalone MCP Server Architecture](/assets/media/blog-images/2025-05-05-Introducing-MCP-in-OpenSearch/standalone-mcp-architecture.png){: .img-fluid}
 
-This new standalone MCP server will be officially released soon, but you can test the demo version [here](https://github.com/rithin-pullela-aws/opensearch-mcp-server). For more information about the standalone OpenSearch MCP server, see the [RFC](https://github.com/opensearch-project/ml-commons/issues/3749).
+This new standalone MCP server is available [here](https://github.com/opensearch-project/opensearch-mcp-server-py). For more information about the standalone OpenSearch MCP server, see the [RFC](https://github.com/opensearch-project/ml-commons/issues/3749).
 
 Key benefits of using a standalone server include:
 
@@ -233,12 +233,12 @@ Key benefits of using a standalone server include:
 
 To set up the standalone MCP server in OpenSearch, follow these steps.
 
-**Step 1: Install the demo PyPI package**
+**Step 1: Install the PyPI package**
 
-Install our demo PyPI package (official release coming soon):
+Install the official OpenSearch MCP server package:
 
 ```bash
-pip install test-opensearch-mcp
+pip install opensearch-mcp-server-py
 ```
 
 **Step 2: Start the MCP server**
@@ -254,6 +254,8 @@ For the SSE protocol (runs on port 9900), run this command:
 ```bash
 python -m mcp_server_opensearch --transport sse
 ```
+
+For detailed setup instructions, refer to our comprehensive [user guide](https://github.com/opensearch-project/opensearch-mcp-server-py/blob/main/USER_GUIDE.md).
 
 #### Authentication methods
 
@@ -272,7 +274,7 @@ Configure your environment variables to connect the MCP server to your OpenSearc
     ```bash
     export OPENSEARCH_URL="<your_opensearch_domain_url>"
     export AWS_REGION="<your_aws_region>"
-    export AWS_ACCESS_KEY="<your_aws_access_key>"
+    export AWS_ACCESS_KEY_ID="<your_aws_access_key>"
     export AWS_SECRET_ACCESS_KEY="<your_aws_secret_access_key>"
     export AWS_SESSION_TOKEN="<your_aws_session_token>"
     ```
@@ -286,9 +288,9 @@ These tools are currently available:
 * `SearchIndexTool`: Searches an index using a query in OpenSearch.
 * `GetShardsTool`: Gets information about shards in OpenSearch.
 
-For full tool documentation, see the [available tools guide](https://github.com/rithin-pullela-aws/opensearch-mcp-server/blob/main/README.md#available-tools).
+For full tool documentation, see the [available tools guide](https://github.com/opensearch-project/opensearch-mcp-server-py#available-tools).
 
-We welcome community contributions! Please review our [developer guide](https://github.com/rithin-pullela-aws/opensearch-mcp-server/blob/main/DEVELOPER_GUIDE.md) to learn how to add new tools or enhance existing ones.
+We welcome community contributions! Please review our [developer guide](https://github.com/opensearch-project/opensearch-mcp-server-py/blob/main/DEVELOPER_GUIDE.md#opensearch-mcp-server-py-developer-guide) to learn how to add new tools or enhance existing ones.
 
 #### Claude for Desktop integration
 
@@ -317,7 +319,7 @@ Claude for Desktop natively supports MCP through the `stdio` protocol, making in
 
                 // For IAM Role Authentication
                 "AWS_REGION": "<your_aws_region>",
-                "AWS_ACCESS_KEY": "<your_aws_access_key>",
+                "AWS_ACCESS_KEY_ID": "<your_aws_access_key>",
                 "AWS_SECRET_ACCESS_KEY": "<your_aws_secret_access_key>",
                 "AWS_SESSION_TOKEN": "<your_aws_session_token>"
             }
