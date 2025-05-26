@@ -12,7 +12,6 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | Kris Freedain    | [krisfreedain](https://github.com/krisfreedain)     | Amazon      |
 | Peter Zhu        | [peterzhuamazon](https://github.com/peterzhuamazon) | Amazon      |
 | Charlotte Henkle | [CEHENKLE](https://github.com/CEHENKLE)             | Amazon      |
-| David Tippett    | [dtaivpp](https://github.com/dtaivpp)               | Independent Consultant |
 | Fanit Kolchina   | [kolchfa-aws](https://github.com/kolchfa-aws)       | Amazon      |
 | Nate Boot        | [nateynateynate](https://github.com/nateynateynate) | Amazon      |
 | Nathan Bower        | [natebower](https://github.com/natebower)        | Amazon      |
@@ -22,4 +21,5 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | Maintainer    | GitHub ID                                     | Affiliation |
 | ------------- | --------------------------------------------- | ----------- |
 | Kyle J. Davis | [stockholmux](https://github.com/stockholmux) | Amazon      |
+| David Tippett | [dtaivpp](https://github.com/dtaivpp)         | GitHub |
 
