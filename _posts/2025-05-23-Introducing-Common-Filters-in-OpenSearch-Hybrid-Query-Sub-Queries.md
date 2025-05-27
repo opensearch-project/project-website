@@ -1,17 +1,41 @@
-# Introducing Common Filter Support for Hybrid Search Queries
+---
+layout: post
+title: "Introducing common filter support for hybrid search queries"
+layout: post
+authors:
+    - 
+date: 2025-05-23
+categories:
+  - technical-posts
+meta_keywords: hybrid search in OpenSearch, hybrid query, filtering results, common filter in OpenSearch 3.0
+meta_description: Learn how to simplify hybrid search filtering with common filter support in OpenSearch 3.0.
+---
 
-Hybrid search in OpenSearch allows combining multiple queries (for example, a keyword query and a vector query) into one set of results ([Hybrid - OpenSearch Documentation](https://opensearch.org/docs/latest/query-dsl/compound/hybrid/#:~:text=You%20can%20use%20a%20hybrid,order%20to%20avoid%20duplicate%20computations)). Until now, applying a filter across all parts of a hybrid query meant duplicating the same filter in each sub-query. This was tedious and error-prone – if you wanted to restrict results to a certain category or date range, you had to add that filter to every sub-query by hand. In OpenSearch 3.0, a new common filter support for hybrid queries addresses this challenge. In this blog post, we’ll introduce common filters for hybrid search, explain how they work under the hood, and discuss why they’re useful for real-world search applications.
 
-## The Challenge of Filtering in Hybrid Search
+[Hybrid search](https://docs.opensearch.org/docs/latest/vector-search/ai-search/hybrid-search/index/) in OpenSearch enables you to combine different query types, such as lexical (keyword) and semantic (vector) queries, to produce one result set. This powerful capability is ideal for modern applications like semantic product search, document retrieval, and multimodal experiences.
 
-A hybrid query merges results from multiple sub-queries (e.g., a text match and a vector similarity). Previously, there was no simple way to specify a single filter for all these sub-queries. For example, imagine a search that combines a semantic vector search with a traditional keyword search, but only wants results where `category = "shoes"`. In OpenSearch 2.x, you would have to include the same term filter for `"category": "shoes"` inside each sub-query’s DSL. This led to duplicate filter clauses, making queries longer and harder to maintain. It also left room for mistakes if one sub-query missed the filter or used a slightly different filter logic.
-One workaround was to use a **post_filter** on the overall hybrid results, but that had drawbacks. The `post_filter` clause in OpenSearch is applied after the search results are retrieved and scored ([Hybrid search with post-filtering - OpenSearch Documentation](https://opensearch.org/docs/latest/vector-search/ai-search/hybrid-search/post-filtering/#:~:text=The%20,the%20order%20of%20the%20results)). While post-filtering can remove unwanted documents from the final results, it doesn’t narrow down the search during query execution. In other words, the sub-queries would retrieve and score documents regardless of the filter, and only afterwards would the filter remove some. This means extra work is done scoring documents that ultimately get thrown out, and in the case of vector searches, some relevant results could be missed (for example, if you only retrieve the top k vectors globally and then filter, you might drop results that were just outside the top k because they didn’t meet the filter). Clearly, a better solution was needed to apply filters within hybrid queries themselves.
+However, until OpenSearch 3.0, applying filters to hybrid queries required manually duplicating the same filter in each subquery. This approach was tedious, error-prone, and difficult to maintain. OpenSearch 3.0 introduces **common filter support** for hybrid queries, which simplifies query construction and improves performance.
 
-## What Is Common Filter Support for Hybrid Queries?
+In this post, we'll introduce common filters for hybrid search, explain how they work, and discuss why they're useful for real-world search applications.
 
-**Common filter support** is a new feature (introduced in OpenSearch 3.0) that lets you specify a single filter at the top level of a hybrid query. This filter is then applied to all sub-queries automatically. Instead of repeating the same filter clause for each sub-query, you include it once, and OpenSearch ensures every sub-query only considers documents that pass the common filter.
-Here’s how you can use a common filter in a hybrid query. Suppose we have an e-commerce product search that combines a lexical match on product description with a vector similarity search on product embeddings. We want to restrict results to the “shoes” category. With common filter support, the query JSON would look like this:
-```
+## The challenge: Repeated filters in hybrid queries
+
+Hybrid queries merge results from multiple subqueries---for example, a text match and a vector similarity search. Before OpenSearch 3.0, there was no simple way to specify a single filter for all subqueries. Imagine that you want to combine a semantic vector search with a traditional keyword search, but only return results in which `category = "shoes"`. In OpenSearch 2.x, to limit the results to only shoes, you'd need apply the `category = "shoes"` filter in each subquery. This led to verbose queries and increased the risk of inconsistent logic between subqueries.
+
+A common workaround was to use a `post_filter` on the overall hybrid results. However, this approach has limitations. In OpenSearch, `post_filter` is applied _after_ documents have been retrieved and scored ( see [Hybrid search with post-filtering](https://opensearch.org/docs/latest/vector-search/ai-search/hybrid-search/post-filtering/#:~:text=The%20,the%20order%20of%20the%20results)). While it can remove unwanted results from the final output, it doesn't affect which documents are considered during query execution.
+
+As a result, subqueries still score documents that will later be filtered out, wasting compute resources. In vector search, this can also impact relevance: if you retrieve only the top k vectors and then apply a filter, you might discard relevant results that were just outside the top k because they didn’t meet the filter conditions.
+
+Clearly, a better approach was needed, one that allows filters to be applied earlier, within the hybrid query itself.
+
+
+## Introducing common filters for hybrid queries
+
+OpenSearch 3.0 adds **common filter support** to the hybrid query DSL. You can now define a top-level `filter` in your hybrid query, and OpenSearch automatically applies it to all subqueries. This avoids duplication and ensures consistent filtering across your query logic.
+
+Here's an example of a hybrid query using a common filter to restrict results to the `shoes` category:
+
+```json
 POST /products/_search
 {
   "query": {
@@ -21,9 +45,9 @@ POST /products/_search
       },
       "queries": [
         { 
-            "match": { "description": "running shoes" } 
+            "match": { "description": "running shoes" }, 
             "filter" : {
-                "term": {"category": "nike"}
+                "term": {"brand": "nike"}
             }
         },
         { "knn": {
@@ -39,9 +63,9 @@ POST /products/_search
 }
 ```
 
-The above query is equivalent to original query:
+The preceding query is equivalent to the following OpenSearch 2.x query that applies the filter to each subquery:
 
-```
+```json
 POST /products/_search
 {
   "query": {
@@ -50,7 +74,7 @@ POST /products/_search
         { 
             "match": { "description": "running shoes" } 
             "filter" : {
-                "term": {"category": "nike"},
+                "term": {"brand": "nike"},
                 "term": {"category": "shoes"}
             }
         },
@@ -70,24 +94,25 @@ POST /products/_search
 }
 ```
 
-We also support other types of filter as well:
+You can also combine common filters with subquery-specific filters. OpenSearch will apply both filters using logical `AND`:
 
-```
+```json
 POST /products/_search
 {
   "query": {
     "hybrid": {
       "filter": {
-        "range": {"field_name": {"gte": 10,"lte": 20}}
+        "range": { "price": { "gte": 50, "lte": 200 } }
       },
       "queries": [
-        { 
-            "match": { "description": "running shoes" } 
-            "filter" : {
-                "term": {"category": "nike"}
-            }
+        {
+          "match": { "description": "running shoes" },
+          "filter": {
+            "term": { "brand": "nike" }
+          }
         },
-        { "knn": {
+        {
+          "knn": {
             "embedding": {
               "vector": [1.23, 0.45, 0.67, ...],
               "k": 10
@@ -99,33 +124,59 @@ POST /products/_search
   }
 }
 ```
-In the above example, the top-level `filter (category: shoes)` is applied to both the `match` query and the `knn` vector query. The OpenSearch engine will ensure that **only documents in the "shoes" category are considered** by either sub-query. This dramatically simplifies the query logic for the user. You no longer need to wrap each sub-query in a bool with the same filter or duplicate the filter under multiple query clauses – the common filter does it for you.
 
-## How It Works Under the Hood
-When OpenSearch processes a hybrid query with a common filter, it effectively pushes that filter down into each sub-query at execution time. Internally, each sub-query is combined with the common filter using an AND logic. If a sub-query itself already has its own filter criteria, the common filter will be ANDed with those existing conditions (further narrowing the results of that sub-query). If the sub-query has no filter of its own, the engine will apply the common filter directly. In practice, this might be implemented by wrapping the sub-query in a boolean query with the filter, or by utilizing the filter capabilities of the sub-query type (for example, the k-NN engine can apply a pre-filter on documents before vector similarity search).
-How a common filter `F` is applied to all sub-queries in a hybrid search query. The filter is distributed to each sub-query (Q1, Q2), ensuring that each individual query only searches within the filtered subset of documents before the results are combined.
-![Image](https://github.com/user-attachments/assets/2ec88dfc-1997-436e-a8c0-2757a1d9e3f1)
-By applying the filter at the sub-query level, OpenSearch ensures that each query is only searching through the permitted subset of documents from the start. The diagram above illustrates this process: a hybrid query with filter **F** sends **F** to each of its sub-queries (Q1, Q2). Each sub-query returns results that already satisfy **F**, and then those results are merged and ranked together. The final result set inherently respects the filter without any extra post-processing. This design means that filtering is done early, avoiding unnecessary computation on filtered-out items and preventing any loss of relevant results due to late-stage filtering.
+In this example, the top-level `filter (category: shoes)` is applied to both the `match` query and the `knn` vector query. OpenSearch ensures that **only documents in the "shoes" category are considered** by either subquery. This dramatically simplifies the query logic: you no longer need to wrap each subquery in a Boolean filter or duplicate the filter under multiple query clauses---the common filter does it for you.
 
-## Real-World Use Case: Unified Filtering in E-commerce Searches
-Consider an e-commerce website with a search feature that uses hybrid search to combine keyword and semantic vector queries. A user search for **“running shoes”** might use a traditional text match to find products with “running” or “shoes” in their descriptions, along with a vector similarity search to find products related to the concept of running (even if the exact words aren’t present). Without common filters, if the user also wants to filter by **category = Shoes** and **in_stock = true**, the application would have to inject those filters into both the keyword query and the vector query separately. This not only makes the query construction more complex, but it could also lead to inconsistent results if one of the sub-queries handled the filter differently.
-With common filter support, the developer can specify those filters just once at the hybrid query level. For example, the query can ensure **only in-stock shoes** are considered by adding a common filter clause for` {"term": {"category": "shoes"}} `and `{"term": {"in_stock": true}}` alongside the sub-queries. All underlying search logic (whether lexical or vector-based) will automatically be constrained to in-stock shoes. The benefits in this use case are clear: it simplifies the search code and guarantees that no matter how many sub-query types are combined (perhaps textual title match, full-text description match, vector embedding match, etc.), they all respect the exact same filtering criteria. As a result, the user gets a coherent result list of running shoes that are in stock, powered by both keyword relevance and semantic relevance, without any stray results from other categories.
+## How common filters work
 
-## Benefits and Improvements
-Common filter support for hybrid queries brings several benefits over the previous approach:
 
-* **Simpler Queries:** Query DSL becomes cleaner and easier to read. You write the filter once, reducing repetition. This makes maintaining search queries (or search templates) easier, especially as you add more sub-queries or change the filter criteria over time.
-* **Consistency:** By centralizing the filter, you eliminate the risk of mismatched filters across sub-queries. There’s no chance that one sub-query misses a filter or uses a slightly different filter logic. The filtering is uniformly applied to all parts of the hybrid search.
-* **Performance Efficiency:** Filtering earlier in the query execution can reduce the amount of data each sub-query needs to sift through. Each sub-query ignores documents that don’t meet the filter from the outset, which can save CPU and I/O. In contrast, using a post_filter might waste resources scoring documents only to throw them away later. For vector searches, pushing the filter down means you don’t fetch a bunch of nearest neighbors that you’ll later discard; the vector search can focus only on vectors from the filtered subset, potentially improving speed.
-* **Result Accuracy:** Applying filters at the sub-query level also preserves the accuracy of hybrid scoring. If you were using post-filtering as a workaround, you might have encountered situations where the overall top results were filtered out, leaving fewer results or requiring fetching more results than needed. The common filter approach avoids this by ensuring that the scoring of each sub-query only considers valid candidates. This way, the combined ranking isn’t skewed by later filtering, and you won’t miss relevant items that happen to fall outside an unfiltered top-K selection.
+When OpenSearch processes a hybrid query with a common filter, it effectively pushes that filter down into each subquery at execution time. Internally, each subquery is combined with the common filter using an `AND` logic. If a subquery already has its own filter criteria, the common filter is combined with the existing conditions using a logical `AND` (further narrowing the results of that subquery). If the subquery has no filter of its own, the engine applies the common filter directly. In practice, this might be implemented by wrapping the subquery in a Boolean query with the filter or by using the filtering capabilities of the subquery type (for example, the k-NN engine can apply a pre-filter on documents before vector similarity search).
+
+The following diagram illustrates how a common filter `F` is applied in a hybrid search query. OpenSearch distributes the filter to each subquery (`Q1`, `Q2`), ensuring that each individual query only searches within the filtered subset of documents prior to combining the results. Each subquery returns results that already satisfy **F**, and then those results are merged and ranked. The final result set inherently respects the filter conditions without the need for additional post-processing. By filtering early, this design avoids unnecessary computation on filtered-out items and prevents any loss of relevant results because of late-stage filtering.
+
+![How common filters are applied](/assets/media/blog-images/2025-05-23-introducing-common-filters-in-hybrid-query/filter-query.png)
+
+## Real-world example: Filtering in an e-commerce search
+
+Consider an e-commerce site that uses hybrid search to power its product search. When a user searches for **“running shoes”**, the system might combine a keyword match on product descriptions with a semantic vector search to capture broader meaning—even if the exact words aren’t present.
+
+Now imagine the user wants to see only items that are **in stock** and belong to the **"shoes"** category. Without common filter support, these filters would need to be manually added to each subquery. This makes query construction more complex and increases the risk of inconsistent filtering, especially if different subqueries apply filters differently or omit them by mistake.
+
+With **common filter support** in OpenSearch 3.0, you can define these filters once at the top level of the hybrid query. For example, adding a common filter similar to the following ensures that all subqueries, whether keyword-based or vector-based, are constrained to in-stock shoes:
+
+```json
+"filter": [
+  { "term": { "category": "shoes" }},
+  { "term": { "in_stock": true }}
+]
+```
+
+This makes the query logic simpler, reduces the chance of errors, and ensures a consistent filtering experience across all search paths. As a result, users receive a unified and relevant result set, which accurately reflecting their search intent, without irrelevant items from other categories or out-of-stock products.
+
+## Why common filters matter: Key benefits
+
+Enabling common filter support in hybrid queries offers several important advantages over the previous approach:
+
+* **Simpler query definitions:** You define the filter once at the top level, eliminating repetitive filter clauses in each subquery. This makes query DSL easier to read and maintain—especially as you add more subqueries or update filter criteria over time.
+
+* **Consistent filtering behavior:** Centralizing the filter ensures that all subqueries apply the same constraints. This eliminates the risk of missed or inconsistent filters, helping you avoid subtle bugs and maintain uniform logic across the query.
+
+* **Better performance:** Filters are applied early in query execution, so subqueries can skip irrelevant documents from the start. This reduces unnecessary computation and I/O. In contrast, a `post_filter` applies only after scoring, which wastes resources evaluating documents that may be discarded later. For vector search, early filtering also narrows the candidate pool, improving speed and relevance.
+
+* **More accurate results:** Filtering at the subquery level ensures that only eligible documents are scored. This avoids the risk of missing relevant results that get filtered out after scoring (a common issue when using post-filtering with top-*k* vector retrieval). The result is a cleaner, more reliable ranking that accurately reflects the user's intent.
 
 ## Summary
-Overall, common filter support for hybrid search queries is a quality-of-life improvement for OpenSearch users building advanced search solutions. It provides a more intuitive way to constrain hybrid search results, aligning with how users expect filters to behave in multi-faceted searches. By reducing duplicated query logic and handling filtering in the engine, this feature makes it easier to build powerful hybrid search experiences—such as semantic e-commerce searches, multimedia searches, and more—while confidently applying global filters to meet your application needs. With OpenSearch 3.0, you can take advantage of this new capability and simplify your hybrid search queries without sacrificing performance or relevance.
 
-## Whats next?
-A new enhancement is under discussion to make common filters even more flexible. Currently, a hybrid query’s top-level common filter is always combined with each sub-query’s filter using a logical `AND` (that is, a document must satisfy both filters). [GitHub issue #1323](https://github.com/opensearch-project/neural-search/issues/1323) proposes adding two new modes: `OR` and `REPLACE`. These would let the common filter be applied in different ways with sub-query filters.
+Common filter support in OpenSearch 3.0 is a valuable enhancement for anyone building hybrid search applications. It streamlines your query definitions, reduces maintenance burden, and delivers more accurate and efficient results. Whether you're working on semantic product discovery, document search, or multimodal retrieval, this feature makes hybrid search more powerful and easier to use.
 
-* **Logical OR:** Use `OR` logic to combine the common filter with a sub-query’s filter, so that documents matching either filter are returned. In other words, a hit needs to satisfy the common filter or the sub-query filter (not necessarily both).
-* **Logical REPLACE:** Completely replace the sub-query’s filter with the common filter. In this mode, only the common filter is applied and the original sub-query filter is ignored.
+## What's next?
 
-This proposal (still in the design stage) would let users choose how common filters interact with individual query filters. If you’d like to see these options in a future release, please visit [GitHub issue #1323](https://github.com/opensearch-project/neural-search/issues/1323) in the neural-search repository and share your feedback (for example, by adding a 👍 reaction or a comment). Community input will help prioritize this enhancement and ensure it meets real-world needs.
+Currently, the common filter is always combined with subquery filters using logical `AND`. A proposed enhancement would introduce two new modes for more flexible behavior:
+
+* **Logical OR:** Combines the common filter and the subquery filter using OR logic. A document is included if it matches **either** the common filter **or** the subquery filter—useful when broadening result criteria while still applying some global filtering.
+
+* **Logical REPLACE:** Replaces any filter in the subquery with the common filter. Only the common filter is applied, and the subquery’s original filter is ignored—useful when you want to enforce consistent filtering across all subqueries regardless of their individual logic.
+
+
+This feature is under discussion in [GitHub issue #1323](https://github.com/opensearch-project/neural-search/issues/1323). If you'd like to see support for these modes in a future release, add a 👍 or comment on the issue to share your feedback. Your input helps guide future improvements to OpenSearch search capabilities.
+
