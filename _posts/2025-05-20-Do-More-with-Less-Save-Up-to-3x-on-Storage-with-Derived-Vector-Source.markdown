@@ -118,7 +118,7 @@ These improvements all stem from reducing the amount of data stored and read fro
 
 ## What's next?
 
-We're excited to share that we're not limiting derived source to just vector fields. Upcoming releases will expand support for derived source to all field types, unlocking even more flexibility when you work with OpenSearch.
+We're excited to share that we're not limiting derived source to just vector fields. Upcoming versions will expand support for derived source to all field types, unlocking even more flexibility when you work with OpenSearch.
 
 Interested in how the feature is progressing or want to get involved? Follow the development of the feature and join the conversation on [this GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/9568).
 
