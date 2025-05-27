@@ -68,7 +68,7 @@ POST /my_index/_search
 
 If you're not already doing this, give it a try; you'll likely see noticeable performance improvements. 
 
-For even greater performance gains, you can remove the vector from `_source` storage altogether. This reduces the overall index size, which in turn leads to smaller shard sizes. Smaller shards are faster to relocate between nodes, helping your cluster recover more quickly and reliably during events like node restarts or rebalancing. Additionally, reading less data from disk reduces memory usage, which improves page cache efficiency and can lead to lower search latency.
+For even greater performance gains, you can remove the vector from `_source` storage altogether. This reduces the overall index size, which in turn leads to smaller shard sizes. Smaller shards can be more quickly relocated between nodes, helping your cluster recover more quickly and reliably during events like node restarts or rebalancing. Additionally, reading less data from disk reduces memory usage, which improves page cache efficiency and can lead to lower search latency.
 
 However, disabling `_source` storage entirely means losing important functionality, such as the ability to update documents, reindex data, or recover from failures. For many use cases, this trade-off isn't practical.
 
