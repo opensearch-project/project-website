@@ -27,7 +27,7 @@ When it comes to vector data, OpenSearch typically stores it in two or three dif
 2. **Vector values** – Stored in a columnar format, these raw vectors are often used during the final ranking phase of a search or for exact calculations.
 3. **`_source` field** – This field contains the original ingested JSON document, preserving the full context and metadata of the data for retrieval or reindexing.
 
-To better understand how vector data impacts storage, we conducted experiments using a test dataset of 10k 128-dimensional vectors. The measured size of different storage components in OpenSearch is shown in the following image.
+To better understand how vector data impacts storage, we conducted experiments using a test dataset of 10K 128-dimensional vectors. The measured size of different storage components in OpenSearch is shown in the following image.
 
 ![Storage Breakdown](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/storage-breakdown.png){:class="img-centered"}
 
