@@ -228,7 +228,7 @@ The following table presents the benchmarking test results for the `sparse_encod
 
 As demonstrated by the cost and performance results, the `skip_existing` optimization significantly reduces redundant inference operations, which translates to lower costs and improved system performance. By reusing existing embeddings when input fields remain unchanged, ingest pipelines can process updates faster and more efficiently. This strategy improves system performance, enhances scalability, and delivers more cost-effective embedding retrieval at scale.
 
-## What’s next
+## What's next
 
 If you use the Bulk API with ingest pipelines, it's important to understand how different operations behave.
 
