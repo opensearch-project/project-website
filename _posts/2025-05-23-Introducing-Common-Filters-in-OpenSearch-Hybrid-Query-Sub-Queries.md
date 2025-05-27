@@ -3,7 +3,8 @@ layout: post
 title: "Introducing common filter support for hybrid search queries"
 layout: post
 authors:
-    - 
+    - chloe
+    - kolchfa
 date: 2025-05-23
 categories:
   - technical-posts
