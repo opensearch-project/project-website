@@ -21,4 +21,4 @@ permalink: '/community/members/will-hwang.html'
 redirect_from: '/authors/will-hwang/'
 ---
 
-**Will Hwang** is a Software Engineer working at AWS working on neural search in OpenSearch.
+**Will Hwang** is a Software Engineer at AWS who focuses on neural search development in OpenSearch.
