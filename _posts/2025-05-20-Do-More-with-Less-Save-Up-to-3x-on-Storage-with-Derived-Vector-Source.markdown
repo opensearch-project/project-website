@@ -75,7 +75,7 @@ However, disabling `_source` storage entirely means losing important functionali
 
 ## The best of both worlds: Derived source
 
-If you're already storing vectors in the vector values file, you might wonder: can't OpenSearch just retrieve them from there when needed, instead of storing them in `_source` too? As of OpenSearch 3.0, the answer is yes.
+If you're already storing vectors in the vector values file, you might wonder: Can't OpenSearch just retrieve the vectors from the file when needed instead of also storing them in `_source`? As of OpenSearch 3.0, the answer is yes.
 
 Designed for vector indexes, derived source allows OpenSearch to transparently pull vectors from the vector values file when needed without requiring any changes on your part.
 
