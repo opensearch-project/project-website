@@ -110,7 +110,7 @@ Force merge times also improved, decreasing by about 10%, as shown in the follow
 
 ![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/bench-force-merge.png){:class="img-centered"}
 
-Perhaps most surprisingly, we saw a 90% reduction in search latency when using the Lucene engine, as shown in the following graph. One possible explanation is a cold start effect: during merges, unnecessary vector data gets loaded into the page cache and later evicted, only to be reloaded again when actually needed during search.
+Perhaps most surprisingly, we saw a 90% reduction in search latency when using the Lucene engine, as shown in the following graph. One possible explanation is a cold start effect: during merges, unnecessary vector data is loaded into the page cache and later evicted, only to be reloaded when it is actually needed during search.
 
 ![Derived Process](/assets/media/blog-images/2025-05-20-Do-More-with-Less-Save-Up-to-3x-on-Storage-with-Derived-Vector-Source/bench-search-latency.png){:class="img-centered"}
 
