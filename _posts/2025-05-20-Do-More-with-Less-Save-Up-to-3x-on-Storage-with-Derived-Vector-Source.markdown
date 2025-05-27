@@ -9,7 +9,7 @@ date: 2025-05-20
 categories:
   - technical-posts
 meta_keywords: todo
-meta_description: "Learn about derived source for vectors introduced in OpenSearch 3.0: why it matters, how it works, and how to start using it to improve performance and reduce storage costs."
+meta_description: "Learn about derived source for vectors, introduced in OpenSearch 3.0: why it matters, how it works, and how to start using it to improve performance and reduce storage costs."
 ---
 
 If you're working with modern applications, from semantic search to recommendation systems, you're likely implementing vector search. While you might focus on the accuracy and speed of vector similarity searches, you may be overlooking a critical aspect: how these vectors are actually stored and managed within the system. To ensure efficient implementation, you need to understand how OpenSearch handles vector data behind the scenes. In this post, we'll dive deep into OpenSearch's vector storage mechanisms and introduce _derived source for vectors_---a new feature that can significantly reduce your storage costs and improve performance.
