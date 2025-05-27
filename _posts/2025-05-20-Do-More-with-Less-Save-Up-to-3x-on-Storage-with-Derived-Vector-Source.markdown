@@ -16,7 +16,7 @@ If you're working with modern applications, from semantic search to recommendati
 
 ## How vector data is stored in OpenSearch
 
-When you upload a JSON document to an OpenSearch cluster, the system starts an indexing process---a crucial step that transforms raw data into optimized structures that make search fast and efficient. For example, if the document contains vector data, OpenSearch builds HNSW (Hierarchical Navigable Small World) graphs, depicted in the following image. These specialized data structures power approximate nearest neighbor (ANN) search, allowing for quick and accurate similarity searches across large datasets.
+When you upload a JSON document to an OpenSearch cluster, the system starts an indexing process---a crucial step that transforms raw data into optimized structures that make search fast and efficient. For example, if the document contains vector data, OpenSearch builds Hierarchical Navigable Small World (HNSW) graphs, depicted in the following image. These specialized data structures power approximate nearest neighbor (ANN) search, allowing for quick and accurate similarity searches across large datasets.
 
 The indexing process often increases the size of the data stored in the cluster compared to the size of the data originally ingested. That's because OpenSearch prepares the data for different types of search and analytics operations, each requiring its own optimized structure. For example, full-text search relies on inverted indexes, while fast streaming or aggregation over text fields might use a columnar store. To support these diverse needs, the system may store multiple representations of the same data, shown in the following image, resulting in increased storage usage.
 
