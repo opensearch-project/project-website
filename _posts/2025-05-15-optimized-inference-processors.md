@@ -160,7 +160,7 @@ The following table presents the benchmarking test results for the `text_embeddi
 * **Model**: `amazon.titan-embed-image-v1`
 * **Dataset**: [Flickr Image](https://www.kaggle.com/datasets/hsankesara/flickr-image-dataset)
 
-**Sample requests**:
+**Sample requests**
 
 Single document:
 
