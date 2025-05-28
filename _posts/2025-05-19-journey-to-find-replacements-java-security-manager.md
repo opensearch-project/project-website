@@ -83,14 +83,12 @@ In the block above, there is the usage of `SpecialPermission.check()` before the
 
 For cluster administrators, they are prompted about permissions that a plugin requests at installation time. Below is a snippet from the Security plugin that contains grants that allow it to perform actions like adding the BouncyCastle provider.
 
-```
+```console
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @     WARNING: plugin requires additional permissions     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 * java.io.FilePermission /proc/sys/net/core/somaxconn#plus read
 * java.lang.RuntimePermission accessDeclaredMembers
-
-```
 
 ### Replacement for the Java Security Manager
 
