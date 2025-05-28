@@ -27,11 +27,11 @@ In December 2021, an [issue](https://github.com/opensearch-project/OpenSearch/is
 
 Many different options were considered with notable highlights including:
 
-1. A radical change to [OpenSearch extensibility](https://opensearch.org/blog/technical-roadmap-opensearch-extensibility/) through out-of-process extensions. 
-2. GraalVM
-3. Systemd hardening
-4. Java agent
-5. Remove the Security Manager altogether
+1. A radical change to [OpenSearch extensibility](https://opensearch.org/blog/technical-roadmap-opensearch-extensibility/) through out-of-process extensions.
+2. Replace JVM with GraalVM.
+3. Security hardening with the use of systemd.
+4. Introduce a separate Java agent.
+5. Completely remove the Java Security Manager and related functionalities.
 
 ### Purpose of Java Security Manager
 
