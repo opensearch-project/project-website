@@ -158,7 +158,7 @@ The following table presents the benchmarking test results for the `text_embeddi
 ### Text/image embedding processor
 
 * **Model**: `amazon.titan-embed-image-v1`
-* **Dataset**: [Flickr Images](https://www.kaggle.com/datasets/hsankesara/flickr-image-dataset)
+* **Dataset**: [Flickr Image](https://www.kaggle.com/datasets/hsankesara/flickr-image-dataset)
 
 **Sample requests**:
 
