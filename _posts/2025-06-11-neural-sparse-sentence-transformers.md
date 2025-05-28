@@ -25,11 +25,11 @@ Now we are thrilled to announce that, through a collaborative effort between the
 
 <img src="/assets/media/blog-images/2025-06-11-neural-sparse-sentence-transformers/image.png"/>
 
-## Neural Sparse models in SentenceTransformer
+## Neural Sparse models in Sentence Transformers
 
 Compared to dense embedding models, sparse models have a more complex structure, requiring post-processing layers for vector sparsification and complex tensor-to-map conversions for OpenSearch compatibility. These factors collectively increase the technical barrier to using and deploying neural sparse models in Python.
 
-SentenceTransformer offers a streamlined user experience. All encoding details of OpenSearch neural sparse models are abstracted away. Configuration aspects like bi-encoder or doc-only (inference-free) mode and activation functions are handled internally. Model initialization and text encoding require just 1-2 lines of code.
+Sentence Transformers offers a streamlined user experience. All encoding details of OpenSearch neural sparse models are abstracted away. Configuration aspects like bi-encoder or doc-only (inference-free) mode and activation functions are handled internally. Model initialization and text encoding require just 1-2 lines of code.
 
 Now let's explore neural sparse in Sentence Transformers with hands-on coding examples!
 
