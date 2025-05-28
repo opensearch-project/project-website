@@ -15,7 +15,7 @@ meta_description: Learn how to optimize inference processors in OpenSearch to re
 
 Inference processors, such as `text_embedding`, `text_image_embedding`, and `sparse_encoding`, enable the generation of vector embeddings during document ingestion or updates. Today, these processors invoke model inference every time a document is ingested or updated, even if the embedding source fields remain unchanged. This can lead to unnecessary compute usage and increased costs.
 
-This blog post introduces a new inference processor optimization that reduces redundant inference calls, reducing costs and improving overall performance.
+This blog post introduces a new inference processor optimization that reduces redundant inference calls, lowering costs and improving overall performance.
 
 ## How the optimization works
 
