@@ -12,7 +12,7 @@ meta_description: The Java Security Manager (JSM) has long been a foundational s
 ---
 
 
-[OpenSearch 3.0.0](https://opensearch.org/blog/unveiling-opensearch-3-0/) introduced many innovative features that continue to push the frontier with significant advancements in performance, data management, vector database functionality, and more. In the announcement we shared that OpenSearch replaced the Security Manager provided by Java and wanted to share more details about this notable effort.
+[OpenSearch 3.0.0](https://opensearch.org/blog/unveiling-opensearch-3-0/) introduced many innovative features that continue to push the frontier with significant advancements in performance, data management, vector database functionality, and more. In the announcement, we shared that OpenSearch has replaced Java’s Security Manager feature due to its upcoming deprecation, and we’d like to share more details about the notable efforts that enable this transition.
 
 The decision to remove JSM in 3.0 was carefully considered and primarily driven by two factors:
 
