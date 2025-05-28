@@ -127,7 +127,7 @@ We used the following cluster setup to run benchmarking tests.
 * **Model**: `huggingface/sentence-transformers/msmarco-distilbert-base-tas-b`
 * **Dataset**: [Trec-Covid](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/trec-covid.zip)
 
-**Sample requests**:
+**Sample requests**
 
 Single document:
 
