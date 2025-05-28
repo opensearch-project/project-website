@@ -88,7 +88,7 @@ print(dict(query_embedding))
 # Then we use decode method to convert torch.sparse_coo tensor to (token, weight) pairs
 
 doc_tensor = sparse_model.encode([{"doc": "Currently New York is rainy."}])
-doc_embedding = sparse_model.decode(doc_tensor)
+doc_embedding = sparse_model.decode(doc_tensor)[0]
 
 print(dict(doc_embedding))
 ```
