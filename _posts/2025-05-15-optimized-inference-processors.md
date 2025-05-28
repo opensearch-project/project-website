@@ -196,7 +196,7 @@ The following table presents the benchmarking test results for the `text_image_e
 * **Dataset**: [Trec-Covid](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/trec-covid.zip)
 * **Prune method**: `max_ratio`, **ratio**: `0.1`
 
-**Sample requests**:
+**Sample requests**
 
 Single document:
 
