@@ -39,7 +39,7 @@ pip install sentence-transformers==4.2.0
 
 ### Model Initialization
 
-Initialize the sparse model with a single line of code:
+See OpenSearch's [Hugging Face repo](https://huggingface.co/opensearch-project) for all available model ids.
 
 ```python
 # Here we initialize a model directly from model_id.
