@@ -232,7 +232,7 @@ As demonstrated by the cost and performance results, the `skip_existing` optimiz
 
 If you use the Bulk API with ingest pipelines, it's important to understand how different operations behave.
 
-The Bulk API supports two operations: `index` and `update`:
+The Bulk API supports two operations---`index` and `update`:
 
 * The `index` operation replaces the entire document and **does** trigger ingest pipelines.
 * The `update` operation modifies only the specified fields but **does not** currently trigger ingest pipelines.
