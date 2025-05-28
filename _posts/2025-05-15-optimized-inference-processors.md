@@ -85,7 +85,7 @@ PUT /_ingest/pipeline/optimized-ingest-pipeline
 
 ### Sparse encoding processor
 
-The [`sparse_encoding` processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/sparse-encoding/) generates sparse vectors from text fields, used in neural sparse retrieval.
+The [`sparse_encoding` processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/sparse-encoding/) generates sparse vectors from text fields used in neural sparse retrieval.
 
 * **Optimization behavior**: If the text fields in `field_map` are unchanged, the processor skips inference and reuses the existing sparse encoding.
 
