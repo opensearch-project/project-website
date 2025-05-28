@@ -237,5 +237,5 @@ The Bulk API supports two operations---`index` and `update`:
 * The `index` operation replaces the entire document and **does** trigger ingest pipelines.
 * The `update` operation modifies only the specified fields but **does not** currently trigger ingest pipelines.
 
-If you'd like to see ingest pipeline support for the `update` operation in Bulk API requests, consider supporting [this GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/17494) by adding a +1.
+If you'd like to see ingest pipeline support added to the `update` operation in Bulk API requests, consider supporting [this GitHub issue](https://github.com/opensearch-project/OpenSearch/issues/17494) by adding a +1.
 
