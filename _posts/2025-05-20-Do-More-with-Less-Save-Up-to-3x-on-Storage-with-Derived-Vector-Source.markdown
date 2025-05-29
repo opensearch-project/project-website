@@ -47,7 +47,7 @@ In Lucene, the `_source` is implemented as a _stored field_---a structure design
 
 With vector search, you usually don't need to retrieve the vector itself: a list of floating-point numbers doesn't convey much meaning to a typical user. For example, if you're searching for a romantic poem, you don't care how the poem is semantically represented—you just want the right text, fast.
 
-Vector fields are very large, and including them in responses adds noise to the response and slows down search requests. In production, we typically recommend [excluding vector fields from the returned `_source`](https://docs.opensearch.org/docs/latest/vector-search/performance-tuning-search/#avoid-reading-stored-fields) to improve performance:
+Vector fields are very large, and including them in responses adds noise to the response and slows down search requests. In production, we typically recommend [excluding vector fields from the returned `_source`](https://docs.opensearch.org/docs/latest/vector-search/performance-tuning-search/#exclude-vectors-from-search-results) to improve performance:
 
 ```json
 POST /my_index/_search
