@@ -21,4 +21,4 @@ permalink: '/community/members/craig-perkins.html'
 redirect_from: '/authors/craigperkins/'
 ---
 
-**Craig Perkins** is an AWS Software Development Engineer working on the OpenSearch project.
+**Craig Perkins** is an AWS Software Development Engineer working on the OpenSearch Project.
