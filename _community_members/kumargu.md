@@ -1,5 +1,5 @@
 ---
-name: Gulshan
+name: Gulshan Kumar
 short_name: kumargu
 photo: '/assets/media/community/members/kumargu.jpg'
 title: 'OpenSearch Community Member: Gulshan Kumar'
