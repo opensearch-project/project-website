@@ -19,7 +19,7 @@ featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 
 OpenSearch's neural sparse feature transforms text into sparse token-weight pairs using transformer models, combining semantic search capabilities with efficient inverted indexing. This approach delivers high retrieval accuracy with low latency and minimal resource usage, offering a scalable alternative to dense vector search. The inference-free mode eliminates query encoding overhead, enabling extremely fast search. OpenSearch provides state-of-the-art pre-trained models that consistently lead the [BEIR](https://github.com/beir-cellar/beir) benchmark for sparse retrievers, and has yield over **10M+ downloads** on Hugging Face!
 
-The [Sentence Transformers](https://huggingface.co/sentence-transformers)(a.k.a. SBERT) library, developed by [UKPLab](https://www.tu-darmstadt.de/) and maintained by [Hugging Face](https://huggingface.co/), is a Python framework designed to generate semantically meaningful embeddings for sentences, paragraphs, and images. The library is now widely adopted in the natural language processing (NLP) tasks such as semantic search, clustering, paraphrase mining, and retrieval-augmented generation.
+The [Sentence Transformers](https://github.com/UKPLab/sentence-transformers) (a.k.a. SBERT) library, developed by [UKPLab](https://www.tu-darmstadt.de/) and maintained by [Hugging Face](https://huggingface.co/), is a Python framework designed to generate semantically meaningful embeddings for sentences, paragraphs, and images. The library is now widely adopted in the natural language processing (NLP) tasks such as semantic search, clustering, paraphrase mining, and retrieval-augmented generation.
 
 Now we are thrilled to announce that, through a collaborative effort between the OpenSearch and Hugging Face teams, neural sparse is now available in the Sentence Transformers library! This integration enables the encoding of sentences into sparse vectors directly within the library. This collaboration establishes OpenSearch as an officially supported vector search engine for both dense and sparse vector operations.
 
@@ -35,7 +35,7 @@ Now let's explore neural sparse in Sentence Transformers with hands-on coding ex
 
 ### Install python dependencies
 ```
-pip install sentence-transformers==4.2.0
+pip install sentence-transformers==5.0.0
 ```
 
 ### Model Initialization
