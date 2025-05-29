@@ -1,8 +1,8 @@
 ---
 layout: post
-title: OpenSearch Benchmark: An update
+title: "OpenSearch Benchmark: An update"
 authors:
-- govkamat
+  - govkamat
 date: 2025-05-12 12:30:00 -0600
 categories:
   - community

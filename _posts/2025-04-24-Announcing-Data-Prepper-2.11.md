@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 'Announcing OpenSearch Data Prepper 2.11: Supercharged OpenTelemetry and even more sources'
+title: "Announcing OpenSearch Data Prepper 2.11: Supercharged OpenTelemetry and even more sources"
 authors:
-- san81
-- kkondaka
-- dvenable
-- oeyh
+  - san81
+  - kkondaka
+  - dvenable
+  - oeyh
 date: 2025-04-17 12:30:00 -0600
 categories:
   - releases
@@ -83,8 +83,8 @@ jira-pipeline:
       hosts: ["<<Atlassian-host-url>>"]
       authentication: 
         basic:
-          username: ${{aws_secrets:jira-account-credentials:jiraId}}
-          password: ${{aws_secrets:jira-account-credentials:jiraCredential}}
+          username: {%raw%}${{aws_secrets:jira-account-credentials:jiraId}}{%endraw %}
+          password: {%raw%}${{aws_secrets:jira-account-credentials:jiraCredential}}{%endraw %}
       filter:
         project:
           key:
@@ -132,8 +132,8 @@ confluence-pipeline:
       hosts: ["<<Atlassian-host-url>>"]
       authentication: 
         basic:
-          username: ${{aws_secrets:confluence-account-credentials:confluenceId}}
-          password: ${{aws_secrets:confluence-account-credentials:confluenceCredential}}
+          username: ${%raw %}{{aws_secrets:confluence-account-credentials:confluenceId}}{%endraw %}
+          password: ${%raw %}{{aws_secrets:confluence-account-credentials:confluenceCredential}}{%endraw %}
       filter:
         space:
           key:
@@ -185,8 +185,8 @@ aurora-mysql-pipeline:
         sts_role_arn: "arn:aws:iam::123456789012:role/PipelineRole"
         region: "us-east-1"
       authentication:
-        username: ${{aws_secrets:secret:username}}
-        password: ${{aws_secrets:secret:password}}
+        username: ${%raw %}{{aws_secrets:secret:username}}{%endraw %}
+        password: ${%raw %}{{aws_secrets:secret:password}}{%endraw %}
 ```
 
 ## Amazon SQS as a source
