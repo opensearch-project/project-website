@@ -15,7 +15,7 @@ breadcrumbs:
       url: '/community/members/kumar.html'
 github: kumargu
 linkedin: gulshan-kumar-b69017a9
-job_title_and_company: 'Snr Software Engineer AWS'
+job_title_and_company: 'Senior Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/kumar.html'
