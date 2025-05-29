@@ -3,14 +3,15 @@ layout: post
 title: "Optimizing inference processors for cost efficiency and performance"
 authors:
   - will-hwang
-  - heemin
+  - heemin-kim
   - kolchfa
-date: 2025-05-15
+date: 2025-05-29
 has_science_table: true
 categories:
   - technical-posts
-meta_keywords: OpenSearch, inference processors, vector embeddings, text embedding, sparse encoding, image embedding, ingest pipeline optimization, skip_existing, performance tuning, semantic search, multimodal search, machine learning inference, cost reduction, bulk API, document updates
-meta_description: Learn how to optimize inference processors in OpenSearch to reduce redundant model calls, lower costs, and improve ingestion performance.
+meta_keywords: inference processors, vector embeddings, OpenSearch text embedding, text image embedding, sparse encoding, caching mechanism, ingest pipeline, OpenSearch optimization
+meta_description: Learn about a new OpenSearch optimization for inference processors that reduces redundant calls, lowering costs and improving performance in vector embedding generation.
+
 ---
 
 Inference processors, such as `text_embedding`, `text_image_embedding`, and `sparse_encoding`, enable the generation of vector embeddings during document ingestion or updates. Today, these processors invoke model inference every time a document is ingested or updated, even if the embedding source fields remain unchanged. This can lead to unnecessary compute usage and increased costs.
