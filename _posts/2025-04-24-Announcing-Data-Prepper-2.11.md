@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Announcing OpenSearch Data Prepper 2.11: Supercharged OpenTelemetry and even more sources'
+title: "Announcing OpenSearch Data Prepper 2.11: Supercharged OpenTelemetry and even more sources"
 authors:
 - san81
 - kkondaka
