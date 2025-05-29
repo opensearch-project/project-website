@@ -21,4 +21,4 @@ personas:
 permalink: '/community/members/kumar.html'
 ---
 
-**Gulshan** is a Software Development Engineer working on OpenSearch at Amazon Web Services, primarily focused on security features in OpenSearch. 
+**Gulshan** is a Software Development Engineer working on OpenSearch at AWS, primarily focused on security features in OpenSearch. 
