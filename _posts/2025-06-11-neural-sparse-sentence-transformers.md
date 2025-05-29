@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Neural Sparse is now available in HuggingFace Sentence Transformers
+title:  Neural Sparse is now available in Hugging Face Sentence Transformers
 authors:
   - zhichaog
   - yych
@@ -17,7 +17,7 @@ featured_blog_post: false
 featured_image: false # /assets/media/blog-images/__example__image__name.jpg
 ---
 
-OpenSearch's neural sparse feature transforms text into sparse token-weight pairs using transformer models, combining semantic search capabilities with efficient inverted indexing. This approach delivers high retrieval accuracy with low latency and minimal resource usage, offering a scalable alternative to dense vector search. The inference-free mode eliminates query encoding overhead, enabling extremely fast search. OpenSearch provides state-of-the-art pre-trained models that consistently lead the [BEIR](https://github.com/beir-cellar/beir) benchmark for sparse retrievers, and has yield over **10M+ downloads** on Hugging Face!
+OpenSearch's neural sparse feature transforms text into sparse token-weight pairs using transformer models, combining semantic search capabilities with efficient inverted indexing. This approach delivers high retrieval accuracy with low latency and minimal resource usage, offering a scalable alternative to dense vector search. The inference-free mode eliminates query encoding overhead, enabling extremely fast search. OpenSearch provides state-of-the-art pretrained models that consistently lead the [BEIR](https://github.com/beir-cellar/beir) benchmark for sparse retrievers, and has yield over **10M+ downloads** on Hugging Face!
 
 The [Sentence Transformers](https://github.com/UKPLab/sentence-transformers) (a.k.a. SBERT) library, developed by [UKPLab](https://www.tu-darmstadt.de/) and maintained by [Hugging Face](https://huggingface.co/), is a Python framework designed to generate semantically meaningful embeddings for sentences, paragraphs, and images. The library is now widely adopted in the natural language processing (NLP) tasks such as semantic search, clustering, paraphrase mining, and retrieval-augmented generation.
 
@@ -33,7 +33,7 @@ Sentence Transformers offers a streamlined user experience. All encoding details
 
 Now let's explore neural sparse in Sentence Transformers with hands-on coding examples!
 
-### Install python dependencies
+### Install Python dependencies
 ```
 pip install sentence-transformers==5.0.0
 ```
@@ -117,7 +117,7 @@ print(dict(doc_embedding))
 ```
 ### Integrate with OpenSearch
 
-After we get the sparse embedding using Sentence Transformers, it's quite easy to index and search these sparse embeddings using OpenSearch. See OpenSearch [documentation](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-raw-vectors/) for more details. We also provide example python scripts to use OpenSearch with Sentence Transformers for both [sparse](http://github.com/arthurbr11/sentence-transformers/blob/feature_branch/examples/sparse_encoder/applications/semantic_search/semantic_search_opensearch.py) and [dense](https://github.com/UKPLab/sentence-transformers/blob/master/examples/sentence_transformer/applications/semantic-search/semantic_search_nq_opensearch.py) embeddings.
+After we get the sparse embedding using Sentence Transformers, it's quite easy to index and search these sparse embeddings using OpenSearch. See OpenSearch [documentation](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-raw-vectors/) for more details. We also provide example Python scripts to use OpenSearch with Sentence Transformers for both [sparse](http://github.com/arthurbr11/sentence-transformers/blob/feature_branch/examples/sparse_encoder/applications/semantic_search/semantic_search_opensearch.py) and [dense](https://github.com/UKPLab/sentence-transformers/blob/master/examples/sentence_transformer/applications/semantic-search/semantic_search_nq_opensearch.py) embeddings.
 
 ## OpenSearch's Innovations in Sentence Transformers for Inference-free Models
 
@@ -133,7 +133,7 @@ With this enhancement, inference-free retrievers significantly outperform baseli
 
 ### Usage in Sentence Transformers
 
-The IDF enhancement is built as a [module](https://github.com/arthurbr11/sentence-transformers/blob/feature_branch/sentence_transformers/sparse_encoder/models/IDF.py) in Sentence Transformers. Users can built inference-free sparse models with IDF enhancement via simply stacking the module.
+The IDF enhancement is built as a [module](https://github.com/arthurbr11/sentence-transformers/blob/feature_branch/sentence_transformers/sparse_encoder/models/IDF.py) in Sentence Transformers. Users can built inference-free sparse models with IDF enhancement through simply stacking the module.
 
 ```python
 from sentence_transformers import SparseEncoder, models
@@ -172,7 +172,7 @@ Models using these ℓ0-inspired techniques demonstrate superior performance whi
 
 ### Usage in Sentence Transformers
 
-Both [ℓ0 Mask Loss](https://github.com/arthurbr11/sentence-transformers/blob/58ea46e18d13ee56b723a96c77abbaba876d63ce/sentence_transformers/sparse_encoder/losses/FlopsLoss.py#L24) and [ℓ0 Approximation Activation](https://github.com/arthurbr11/sentence-transformers/blob/58ea46e18d13ee56b723a96c77abbaba876d63ce/sentence_transformers/sparse_encoder/models/SpladePooling.py#L34) are integrated in Sentence Transformers models and training pipelines. Users can easily adopt these techniques via configuring parameters.
+Both [ℓ0 Mask Loss](https://github.com/arthurbr11/sentence-transformers/blob/58ea46e18d13ee56b723a96c77abbaba876d63ce/sentence_transformers/sparse_encoder/losses/FlopsLoss.py#L24) and [ℓ0 Approximation Activation](https://github.com/arthurbr11/sentence-transformers/blob/58ea46e18d13ee56b723a96c77abbaba876d63ce/sentence_transformers/sparse_encoder/models/SpladePooling.py#L34) are integrated in Sentence Transformers models and training pipelines. Users can easily adopt these techniques through configuring parameters.
 
 ```python
 # ℓ0 Mask Loss use threshold 150

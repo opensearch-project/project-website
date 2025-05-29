@@ -173,7 +173,7 @@ For more information about neural sparse search, see these previous blog posts:
 - [Improving document retrieval with sparse semantic encoders]({{site.baseurl}}/blog/improving-document-retrieval-with-sparse-semantic-encoders)
 - [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12]({{site.baseurl}}/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/)
 - [Introducing the neural sparse two-phase algorithm]({{site.baseurl}}/blog/Introducing-a-neural-sparse-two-phase-algorithm)
-- [Neural Sparse is now available in HuggingFace SentenceTransformers]({{site.baseurl}}/blog/neural-sparse-sentence-transformers)
+- [Neural Sparse is now available in Hugging Face Sentence Transformers]({{site.baseurl}}/blog/neural-sparse-sentence-transformers)
 
 ---
 
