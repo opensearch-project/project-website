@@ -3,7 +3,7 @@ name: Arthur Bresnu
 short_name: arthurbr11
 photo: '/assets/media/community/members/arthurbr11.png'
 title: 'OpenSearch Community Member: Arthur Bresnu'
-primary_title: Arthur BRESNU
+primary_title: Arthur Bresnu
 
 github: arthurbr11
 job_title_and_company: 'MLE Intern @ 🤗 working on Sentence Transformers'
