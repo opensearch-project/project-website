@@ -14,4 +14,4 @@ permalink: '/community/members/arthur-bresnu.html'
 redirect_from: '/authors/arthurbr11/'
 ---
 
-**Arthur BRESNU** MLE Intern @ 🤗 working on Sentence Transformers
+**Arthur Bresnu** MLE Intern @ 🤗 working on Sentence Transformers
