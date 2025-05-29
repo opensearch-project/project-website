@@ -2,7 +2,7 @@
 name: Gulshan
 short_name: kumargu
 photo: '/assets/media/community/members/kumargu.jpg'
-title: 'Snr Software Engineer AWS: Gulshan'
+title: 'OpenSearch Community Member: Gulshan Kumar'
 primary_title: Gulshan Kumar
 breadcrumbs:
   icon: community
