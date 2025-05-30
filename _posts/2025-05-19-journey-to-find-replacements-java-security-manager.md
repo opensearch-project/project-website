@@ -130,5 +130,5 @@ We specifically chose to avoid over-instrumentation because of performance and m
 
 JSM deprecation is a significant turning point for the Java ecosystem and OpenSearch alike. While no single solution can fully replicate the functionality that JSM provided, OpenSearch's two-pronged approach---using operating-system-level protections through systemd and introducing a lightweight Java agent for plugin-level access control---provides a robust and extensible foundation for securing the platform going forward.
 
-We believe this approach ensures that OpenSearch remains secure, performant, and compatible with the evolving Java ecosystem, while retaining its extensibility and plugin ecosystem that users rely on.
+This approach ensures that OpenSearch remains secure, performant, and compatible with the evolving Java ecosystem while retaining the extensibility and plugin ecosystem that users rely on.
 
