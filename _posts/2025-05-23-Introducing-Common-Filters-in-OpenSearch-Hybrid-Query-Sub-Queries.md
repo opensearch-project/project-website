@@ -3,7 +3,7 @@ layout: post
 title: "Introducing common filter support for hybrid search queries"
 layout: post
 authors:
-    - chloe
+    - chloewq
     - kolchfa
 date: 2025-05-23
 categories:
@@ -180,4 +180,7 @@ Currently, the common filter is always combined with subquery filters using logi
 
 
 This feature is under discussion in [GitHub issue #1323](https://github.com/opensearch-project/neural-search/issues/1323). If you'd like to see support for these modes in a future release, add a 👍 or comment on the issue to share your feedback. Your input helps guide future improvements to OpenSearch search capabilities.
+
+
+
 
