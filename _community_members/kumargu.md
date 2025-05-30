@@ -1,7 +1,7 @@
 ---
 name: Gulshan Kumar
 short_name: kumargu
-photo: '/assets/media/community/members/kumargu.jpg'
+photo: '/assets/media/community/members/kumargu.png'
 title: 'OpenSearch Community Member: Gulshan Kumar'
 primary_title: Gulshan Kumar
 breadcrumbs:
