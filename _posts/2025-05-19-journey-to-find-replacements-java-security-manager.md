@@ -120,7 +120,7 @@ OpenSearch's Java Agent uses the ByteBuddy Instrumentation API to intercept and 
 
 - Creating, reading, or writing files
 
-These interceptors inspect the current call stack to determine the originating code, then evaluate whether it has been granted the required permissions based on the existing `plugin-security.policy` file. This mirrors the existing Java Security Manager model with minimal disruption for plugin developers and administrators.
+These interceptors inspect the current call stack to identify the originating code and then evaluate whether it has been granted the required permissions based on the existing `plugin-security.policy` file. This mirrors the existing JSM model, with minimal disruption for plugin developers and administrators.
 
 While the agent does not cover all permission types previously supported by JSM (for example, reflection and thread context access), it focuses on the most sensitive operations, such as file and network access, which pose the highest security risks. Other security controls are delegated to the operating system using `systemd`. The agent is also designed to be extensible, allowing for the addition of more interceptors as needed.
 
