@@ -124,7 +124,7 @@ These interceptors inspect the current call stack to identify the originating co
 
 While the agent does not cover all permission types previously supported by JSM (for example, reflection and thread context access), it focuses on the most sensitive operations, such as file and network access, which pose the highest security risks. Other security controls are delegated to the operating system using `systemd`. The agent is also designed to be extensible, allowing for the addition of more interceptors as needed.
 
-We specifically chose to avoid over-instrumentation because of performance and maintainability concerns. Instrumenting every possible permission check would significantly slow down performance and require excessive amounts of repetitive code.
+We specifically chose to avoid over-instrumentation because of performance and maintainability concerns. Instrumenting every possible permission check would significantly decrease performance and require an excessive amount of repetitive code.
 
 ## Final thoughts
 
