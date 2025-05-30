@@ -9,7 +9,7 @@ date: 2025-05-19
 categories:
   - technical-posts
 meta_keywords: Opensearch security, Java security manager, OpenSearch 3.0, security, sandboxing.
-meta_description: The Java Security Manager (JSM) has long been a foundational security mechanism in OpenSearch. With its deprecation underway, this blog explores the alternative technologies adopted to replace JSM, with the trade-offs considered maintaining a very high bar for OpenSearch's security posture.
+meta_description: The Java Security Manager (JSM) has long been a foundational security mechanism in OpenSearch. With its deprecation underway, this blog post explores the alternative technologies adopted to replace JSM.
 ---
 
 [OpenSearch 3.0.0](https://opensearch.org/blog/unveiling-opensearch-3-0/) introduced many innovative features that continue to push the frontier with significant advancements in performance, data management, vector database functionality, and more. In the announcement, we shared that OpenSearch has replaced JSM (JSM) because of its upcoming deprecation. In this blog post, and we'll to share more details about the efforts that enabled this transition.
