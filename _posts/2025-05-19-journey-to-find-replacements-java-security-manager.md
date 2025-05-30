@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Journey to find a replacement to JSM in OpenSearch 3.0"
+title: "Finding a replacement for JSM in OpenSearch 3.0"
 authors:
    - cwperks
    - kumargu
