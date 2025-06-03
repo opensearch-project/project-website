@@ -116,7 +116,6 @@ Create a timed test procedure using settings similar to the following:
 ```
 
 You can modify the [default parameter](https://docs.opensearch.org/docs/latest/benchmark/reference/workloads/test-procedures/) values to match your workload.
-Documentation about the parameters is available at our [documentation website](https://docs.opensearch.org/docs/latest/benchmark/)
 
 Once you have a test procedure ready, you can run the benchmark test with the following command:
 
