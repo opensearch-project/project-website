@@ -94,7 +94,7 @@ This approach allows the benchmark to automatically throttle parts of the load w
 
 For more technical details, see the [RFC on redline testing](https://github.com/opensearch-project/opensearch-benchmark/issues/785#issue-2898221524).
 
-## How to run a workload in redline testing mode
+## Run a workload in redline testing mode
 
 Getting started with redline testing begins with creating a timed test procedure that defines the duration, target throughput, and number of clients. Once configured, you can run the benchmark with a single command—and optionally customize the maximum number of clients to match your cluster's capacity.
 
