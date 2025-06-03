@@ -39,7 +39,7 @@ These time-consuming tasks made it difficult to pinpoint the maximum sustainable
 Redline testing automates the following:
 
 - A control module to monitor request throughput and failures in real time.
-- A **self-adjusting load mechanism** to pause or unpause clients based on observed behavior  
+- A **self-adjusting load mechanism** to pause or unpause clients based on observed behavior.
 
 This enables OpenSearch Benchmark to perform the following actions:
 
