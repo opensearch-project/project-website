@@ -17,6 +17,7 @@ session_track:
 
 personas:
   - conference_speaker
+  - author
 
 github: nodebotanist
 linkedin: nodebotanist
