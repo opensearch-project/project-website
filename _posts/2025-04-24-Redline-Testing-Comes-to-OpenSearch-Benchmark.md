@@ -88,7 +88,7 @@ When the system is healthy, clients remain in the **running** state and continue
 
 If failures begin to accumulate, the feedback actor can pause individual clients to reduce pressure on the system.
 
-Once things stabilize, those paused clients are switched back to “running.”
+Once stability is restored, the paused clients return to the **running** state.
 
 This lets the benchmark automatically throttle back parts of the load when problems occur—and ramp them up again when things recover—so you get a more realistic picture of how your cluster handles hiccups.
 
