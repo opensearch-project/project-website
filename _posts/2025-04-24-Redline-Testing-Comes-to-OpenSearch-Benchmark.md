@@ -25,7 +25,11 @@ OpenSearch Benchmark recently introduced support for ramping up clients and thro
 - Estimate what amount of load would break the cluster.
 - Convert the estimate to the appropriate number of client threads and the desired target throughput.
 - Manually watch for failures in the OSB logs or cluster dashboards.
-- Raise the estimate if failures did not materialize, lower it if a sufficient number of errors were encountered
+OpenSearch Benchmark recently added support for ramping up clients and throughput during a benchmark run. However, users still had to complete several manual steps when benchmarking:
+
+- Estimate the amount of load that could break the cluster, then convert that estimate into the appropriate number of client threads and target throughput.
+- Monitor the Benchmark logs or cluster dashboard for failures and adjust the load estimate based on the number of errors—raising it if no failures occurred, or lowering it if a significant number were encountered.
+- Rerun the benchmark with different parameters and loads until reaching the maximum sustainable threshold for the workload.
 - Iterate until the breaking point and maximum steady state workload intensities are identified 
 
 These time-consuming tasks made it difficult to pinpoint the maximum sustainable throughput.
