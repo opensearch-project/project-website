@@ -143,7 +143,7 @@ OpenSearch Benchmark captures the following log information:
   - The reasons for scaling back.
 - After the test:
   - The maximum number of clients reached.
-  - A summary of test result metrics like service time, throughput, latency, and more.
+  - A summary of test result metrics such as service time, throughput, and latency.
 
 
 The following chart shows how redline testing in OpenSearch Benchmark incrementally increases client load during a timed test. Each step represents a controlled ramp-up, allowing the system to observe when performance begins to degrade. In this example image, throughput steadily rises until it plateaus—indicating that the cluster's redline has been reached. This automated feedback loop removes guesswork and enables precise load testing in a single run.
