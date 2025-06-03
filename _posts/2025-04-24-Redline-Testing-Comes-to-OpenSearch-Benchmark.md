@@ -90,7 +90,7 @@ If failures begin to accumulate, the feedback actor can pause individual clients
 
 Once stability is restored, the paused clients return to the **running** state.
 
-This lets the benchmark automatically throttle back parts of the load when problems occur—and ramp them up again when things recover—so you get a more realistic picture of how your cluster handles hiccups.
+This approach allows the benchmark to automatically throttle parts of the load when issues arise and ramp them back up when conditions improve—providing a more realistic view of how your cluster handles intermittent problems.
 
 For more technical details, see the [RFC on redline testing](https://github.com/opensearch-project/opensearch-benchmark/issues/785#issue-2898221524).
 
