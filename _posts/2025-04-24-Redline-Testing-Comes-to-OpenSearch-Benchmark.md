@@ -61,7 +61,7 @@ The following diagram provides a high-level overview of the actor-based executio
 
 OpenSearch Benchmark uses the **Actor Model**, which structures concurrent, distributed systems around isolated, message-passing components.
 
-Normally, OpenSearch Benchmark starts with a fixed number of 'clients' that all send requests at the same rate throughout a test.
+Normally, OpenSearch Benchmark starts with a fixed number of clients, each sending requests at a constant rate for the duration of the test.
 With the new ramp-up feature, the tool can automatically adjust the number of clients during the test—adding more to increase load or reducing them to ease off.
 
 This allows you to observe how your OpenSearch cluster responds to changing load pressure, rather than a single fixed level, resulting in a more realistic and flexible benchmark that reflects real-world traffic patterns.
