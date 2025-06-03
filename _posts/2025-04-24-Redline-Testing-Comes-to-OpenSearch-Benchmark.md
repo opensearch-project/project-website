@@ -158,4 +158,5 @@ Upcoming improvements to redline testing may include:
 - Smarter ramp-up strategies, such as binary or exponential search.  
 - Scaling based on latency or service time, not just request failures.  
 
-Redline testing is available now in OpenSearch Benchmark. We hope you find it useful and look forward to your feedback in the [OpenSearch forum](https://forum.opensearch.org/) or at the OpenSearch Benchmark [community meetup](https://www.meetup.com/opensearch/events/307446531/?eventOrigin=group_upcoming_events)!
+Redline testing is now available in OpenSearch Benchmark. We hope you find this feature useful and welcome your feedback in the [OpenSearch forum](https://forum.opensearch.org/) or at the upcoming OpenSearch Benchmark [community meetup](https://www.meetup.com/opensearch/events/307446531/?eventOrigin=group_upcoming_events)!
+
