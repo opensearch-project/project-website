@@ -85,7 +85,8 @@ During a redline test, a **feedback actor** monitors the test for errors in real
 
 When the system is healthy, clients remain in the **running** state and continue sending requests.
 
-If failures start piling up, the feedback component can “pause” individual clients to give the system a breather.
+
+If failures begin to accumulate, the feedback actor can pause individual clients to reduce pressure on the system.
 
 Once things stabilize, those paused clients are switched back to “running.”
 
