@@ -142,7 +142,7 @@ OpenSearch Benchmark captures the following log information:
   - The pause/unpause events.
   - The reasons for scaling back.
 - After the test:
-  - The maximum number of clients reached
+  - The maximum number of clients reached.
   - A summary of test result metrics like service time, throughput, latency, and more.
 
 
