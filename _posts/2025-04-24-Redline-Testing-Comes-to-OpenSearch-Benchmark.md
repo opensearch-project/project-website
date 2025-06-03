@@ -81,7 +81,7 @@ Redline testing operates only in the timed mode. It performs the following actio
 
 ### How the feedback component manages clients
 
-A special “feedback” actor watches for errors as the test runs. It keeps a simple list of every worker and their clients, marking each one as either “running” or “paused.”
+During a redline test, a **feedback actor** monitors the test for errors in real time. It tracks each worker and their associated clients, marking their status as either running or paused.
 
 When everything is healthy, clients stay “running” and keep sending requests.
 
