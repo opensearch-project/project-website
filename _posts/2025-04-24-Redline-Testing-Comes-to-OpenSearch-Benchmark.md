@@ -79,7 +79,7 @@ Redline testing operates only in the timed mode. It performs the following actio
 2. Scale down in response to failures.
 3. Wait for recovery and ramp up again.
 
-### How the Feedback Component Manages Clients
+### How the feedback component manages clients
 
 A special “feedback” actor watches for errors as the test runs. It keeps a simple list of every worker and their clients, marking each one as either “running” or “paused.”
 
