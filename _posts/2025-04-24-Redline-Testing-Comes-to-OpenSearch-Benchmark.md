@@ -23,7 +23,7 @@ With redline testing in OpenSearch Benchmark, you can now dynamically scale clie
 OpenSearch Benchmark recently introduced support for ramping up clients and throughput during a benchmark run. However, users still needed to perform the following actions when benchmarking:
 
 - Estimate what amount of load would break the cluster.
-- Convert the estimate into the appropriate number of client threads and target throughput
+- Convert the estimate to the appropriate number of client threads and the desired target throughput.
 - Manually watch for failures in the OSB logs or cluster dashboards.
 - Raise the estimate if failures did not materialize, lower it if a sufficient number of errors were encountered
 - Iterate until the breaking point and maximum steady state workload intensities are identified 
