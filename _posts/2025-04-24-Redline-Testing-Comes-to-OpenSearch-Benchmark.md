@@ -139,7 +139,7 @@ Users can customize redline test parameters—such as the maximum number of clie
 OpenSearch Benchmark captures the following log information:
 - During the test:
   - The current number of clients.
-  - The pause/unpause events
+  - The pause/unpause events.
   - The reasons for scaling back
 - After the test:
   - The maximum number of clients reached
