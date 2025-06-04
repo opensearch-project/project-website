@@ -14,15 +14,15 @@ meta_keywords: PPL
 meta_description: "Learn how to use OpenSearch 3.0's new PPL commands to enhance your log analysis. Explore practical examples and understand the Calcite-powered optimization."
 ---
 
-OpenSearch 3.0 introduces powerful new capabilities to the Piped Processing Language (PPL) with the addition of the `lookup`, `join`, and `subsearch` commands. These commands help you enrich, correlate, and filter logs more efficiently. They are particularly useful in observability and log analytics scenarios. For example, you can join authentication and application logs to investigate security incidents, or use the `lookup` command to add geolocation context to logs in real time. To learn more about supported PPL commands, see the [PPL command reference](https://docs.opensearch.org/docs/latest/search-plugins/sql/ppl/functions/).
+OpenSearch 3.0 introduced powerful new capabilities to the Piped Processing Language (PPL) with the addition of the `lookup`, `join`, and `subsearch` commands. These commands help you enrich, correlate, and filter logs more efficiently. They are particularly useful in observability and log analytics scenarios. For example, you can join authentication and application logs to investigate security incidents or use the `lookup` command to add geolocation context to logs in real time. To learn more about supported PPL commands, see the [PPL command reference](https://docs.opensearch.org/docs/latest/search-plugins/sql/ppl/functions/).
 
-These enhancements are powered by Apache Calcite, which also improves query planning and execution. Together, they lay the foundation for more advanced analytics in future releases. With this update, PPL becomes an even more expressive and efficient language for interactive data exploration. 
+These enhancements are powered by Apache Calcite, which also improves query planning and execution. Together, they lay the foundation for more advanced analytics in future versions. With this update, PPL becomes an even more expressive and efficient language for interactive data exploration. 
 
 Let's explore these new features in detail and see how they can enhance your log analysis workflows.
 
 ## What's new in OpenSearch 3.0 PPL: Lookup, join, and subsearch
 
-If you analyze logs regularly, you know how challenging it can be to sift through large volumes of data in order to detect and investigate potential issues. OpenSearch 3.0 introduces three new PPL commands---`lookup`, `join`, and `subsearch`. These commands simplify complex log queries and improve efficiency.
+If you analyze logs regularly, you know how challenging it can be to sift through large volumes of data in order to detect and investigate potential issues. OpenSearch 3.0 introduced three new PPL commands---`lookup`, `join`, and `subsearch`. These commands simplify complex log queries and improve efficiency.
 
 The `lookup`, `join`, and `subsearch` commands are experimental features. To use them, you need to enable Calcite in your OpenSearch instance. You can do this using the following request:
 
@@ -36,7 +36,7 @@ curl -H 'Content-Type: application/json' -X PUT localhost:9200/_plugins/_query/s
 
 Before diving into the new commands, let's look at the sample datasets we'll use throughout this blog post.
 
-## Sample datasets used in this blog post
+## Sample datasets used in this post
 
 To demonstrate how the new commands work, we'll use the following sample datasets. Understanding their structure will help you follow the examples more easily.
 
@@ -69,7 +69,7 @@ This reference dataset contains additional details about users, such as their de
 | jdoe     | HR         | Manager |
 | asmith   | IT         | Analyst |
 
-Now that you're familiar with the datasets, let's explore how to use these new PPL commands to analyze the data.
+Now that you're familiar with the datasets, let's explore how to use the new PPL commands to analyze the data.
 
 ## Lookup: Enrich authentication logs with user information
 
@@ -108,7 +108,7 @@ A sample result appears as follows.
 
 ## Subsearch: Investigate suspicious activity using subsearch
 
-You can use the `subsearch` command to identify users who had failed login attempts and later performed specific actions, such as logging in successfully. This helps surface potentially unauthorized access attempts for further investigation:
+You can use the `subsearch` command to identify users who experienced failed login attempts and later performed specific actions, such as logging in successfully. This helps surface potentially unauthorized access attempts for further investigation:
 
 ```
 source=auth_logs 
@@ -127,7 +127,7 @@ A sample result appears as follows.
 Each command is designed for a specific type of log analysis task. Here's a quick guide to help you choose the right one:
 
 * **`lookup`** – Best for enriching logs with external reference data.
-* **`join`** – Ideal for correlating and combining logs from distinct indices.
+* **`join`** – Ideal for correlating and combining logs from distinct indexes.
 * **`subsearch`** – Excellent for dynamic query conditions based on results from another query.
 
 To fully appreciate these new capabilities, it's helpful to understand how Calcite integration works.
@@ -151,14 +151,14 @@ The query processing workflow consists of several transformation stages, convert
    The AST is transformed into Calcite's `RelNode` tree using `RelBuilder` and a series of visitors. `RelNode` is Calcite's internal representation of relational operations. `RelNode` objects form a logical plan tree, where each node represents a relational algebra operation such as filter, project, or join. 
 
 3. **Optimization and transformation**:
-   Calcite's optimizer applies various transformation rules to the `RelNode` tree. The optimized tree is then converted into `OpenSearchEnumerableRel` nodes---OpenSearch-specific implementations of Calcite's relational operators, which can be mapped to `Linq4j` expressions.
+   Calcite's optimizer applies various transformation rules to the `RelNode` tree. The optimized tree is then converted into `OpenSearchEnumerableRel` nodes---OpenSearch-specific implementations of Calcite's relational operators---that can be mapped to `Linq4j` expressions.
 
 4. **Code generation and execution**:
-   Linq4j serves as a bridge framework, providing templates and expressions to transform relational operators into executable Java code. This code processes data in a row-by-row manner in memory. For performance optimization, when possible, operators or subtrees of the plan (such as filters and aggregations) are pushed down and converted into native OpenSearch `QueryBuilder` API calls, which are then executed directly by the OpenSearch engine.
+   Linq4j serves as a bridge framework, providing templates and expressions for transforming relational operators into executable Java code. This code processes data in a row-by-row manner in memory. For performance optimization, when possible, operators or subtrees of the plan (such as filters and aggregations) are pushed down and converted into native OpenSearch `QueryBuilder` API calls, which are then executed directly by the OpenSearch engine.
 
 ### How the Calcite optimizer works
 
-When you run a query, Apache Calcite acts as the query optimizer, transforming your SQL statements into an efficient execution plan. One of the core optimization strategies it applies is **filter pushdown**---a technique that moves filter conditions as close as possible to the data retrieval operations. This reduces the amount of data processed and transferred, leading to significant performance improvements.
+When you run a query, Calcite acts as the query optimizer, transforming your SQL statements into an efficient execution plan. One of the core optimization strategies it applies is **filter pushdown**---a technique that moves filter conditions as close as possible to the data retrieval operations. This reduces the amount of data processed and transferred, leading to significant performance improvements.
 
 #### Use the explain command to inspect query plans
 
@@ -198,14 +198,14 @@ EnumerableCalc(expr#0..5=[{inputs}], proj#0..4=[{exprs}])
         CalciteEnumerableIndexScan(table=[[OpenSearch, user_info]])
 ```
 
-In this plan, Calcite pushed down the filter condition `status='failed'` to the `CalciteEnumerableIndexScan` operation for the `auth_logs` table. The filter is then converted to OpenSearch query DSL. This means that filtering occurs directly at the data retrieval stage, minimizing the amount of data loaded into memory and processed by subsequent operations.
+In this plan, Calcite pushed down the filter condition `status='failed'` to the `CalciteEnumerableIndexScan` operation for the `auth_logs` table. The filter is then converted to OpenSearch query domain-specific language (DSL). This means that filtering occurs directly at the data retrieval stage, minimizing the amount of data loaded into memory and processed by subsequent operations.
 
 ## What's next
 
 The OpenSearch community is continuing to build on the Calcite integration and expand PPL's capabilities. Here's what's planned:
 
 * **Migrate SQL to the Calcite framework** – Unifying SQL and PPL under the Calcite optimizer will streamline query processing and enable more consistent behavior across query languages.
-* **Add more PPL commands** – New commands such as `eventstats` and `streamstats` are planned to support advanced analytical use cases.
+* **Add more PPL commands** – New commands, such as `eventstats` and `streamstats`, are planned in order to support advanced analytical use cases.
 
-We invite you to explore the new features in OpenSearch PPL 3.0, share feedback, and contribute to future improvements. Try out the new PPL 3.0 features in your OpenSearch cluster and see how they can improve your log analysis and query workflows. Your input helps shape the direction of the project and ensure it meets the needs of the community.
+We invite you to explore the new features in OpenSearch PPL 3.0, share feedback, and contribute to future improvements. Try out the new PPL 3.0 features in your OpenSearch cluster and see how they can improve your log analysis and query workflows. Your input helps shape the direction of the project and ensure that it meets the needs of the community.
 
