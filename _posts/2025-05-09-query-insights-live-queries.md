@@ -74,7 +74,6 @@ To find the top five queries currently consuming the most CPU, you can provide t
 ```json
 GET /_insights/live_queries?verbose=false&sort=cpu&size=5
 ```
-{% include copy-curl.html %}
 
 ### Understanding the response
 
