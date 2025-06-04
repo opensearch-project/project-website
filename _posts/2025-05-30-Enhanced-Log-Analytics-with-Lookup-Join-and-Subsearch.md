@@ -130,7 +130,7 @@ Each command is designed for a specific type of log analysis task. Here's a quic
 * **`join`** – Ideal for correlating and combining logs from distinct indices.
 * **`subsearch`** – Excellent for dynamic query conditions based on results from another query.
 
-To fully appreciate these new capabilities, it's helpful to understand how they work.
+To fully appreciate these new capabilities, it's helpful to understand how Calcite integration works.
 
 ## How it works: Calcite integration
 
@@ -142,7 +142,7 @@ OpenSearch PPL reuses its existing query grammar and abstract syntax tree (AST),
 
 ![Query Lifecycle](/assets/media/blog-images/2025-05-30-Enhanced-Log-Analytics-with-Lookup-Join-and-Subsearch/query_lifecycle.png){:class="img-centered"}
 
-The query processing workflow consists of several transformation stages, converting a query from raw text into various intermediate representations before the final form that is executed. Here's a breakdown of the main stages:
+The query processing workflow consists of several transformation stages, converting a query from raw text into various intermediate representations and then the final form that is ultimately executed. Here's a breakdown of the main stages:
 
 1. **Query parsing**:
    First, the SQL query text is parsed using ANTLR4, which converts the raw query into a parse tree. This tree is then transformed into an AST, which represents the hierarchical syntactic structure of the query in a more abstract form.
