@@ -34,9 +34,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Thank you for submitting a blog!
+            Thank you for submitting a blog post!
             
-            The blog process is Submit a PR -> (Optional) Peer review -> Doc review -> Editorial review -> Marketing review -> Published.
+            The blog post review process is: Submit a PR -> (Optional) Peer review -> Doc review -> Editorial review -> Marketing review -> Published.
 
       - name: Check for linked issues
         if: steps.check-new-blog.outputs.is_new_blog == 'true'
@@ -59,9 +59,9 @@ jobs:
           body: |
             Hi @${{ github.event.pull_request.user.login }}, 
             
-            Looks like you're adding a new blog post and you don't have an issue mentioned. Please link this PR to an open issue using one of these keywords in the PR description:
+            It looks like you're adding a new blog post but don't have an issue mentioned. Please link this PR to an open issue using one of these keywords in the PR description:
             - Closes #issue-number
             - Fixes #issue-number
             - Resolves #issue-number
             
-            If there isn't an issue yet, please [create one](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) and then link it to this PR.
+            If an issue hasn't been created yet, please [create one](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) and then link it to this PR.
