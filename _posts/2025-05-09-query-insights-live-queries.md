@@ -61,14 +61,12 @@ GET /_insights/live_queries
 
 ### Customizing your view using query parameters
 
-You can tailor the output using several optional query parameters.
+You can tailor the Live Queries API response using the following optional parameters:
+- `verbose` -- Includes detailed query information, such as the query source.
+- `nodeId` -- Filters results by a comma-separated list of node IDs.
+- `sort` -- Sorts results by a specific metric, such as latency, CPU usage, or memory usage.
+- `size` -- Limits the number of query records returned.
 
-| Parameter | Data type | Description                                                                                                |
-| :-------- | :-------- | :--------------------------------------------------------------------------------------------------------- |
-| `verbose` | Boolean   | Whether to include detailed query information (like the query source) in the output. Default is `true`.    |
-| `nodeId`  | String    | A comma-separated list of node IDs used to filter results. If omitted, queries from all nodes are returned.     |
-| `sort`    | String    | The metric by which to sort results. Valid values: `latency`, `cpu`, or `memory`. Default is `latency`.          |
-| `size`    | Integer   | The number of query records to return. Default is `100`.                                                     |
 
 ### Example: Finding CPU-intensive live queries
 
