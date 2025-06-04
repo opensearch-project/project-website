@@ -26,6 +26,17 @@ jobs:
           else
             echo "is_new_blog=false" >> $GITHUB_OUTPUT
           fi
+    
+      - name: Add blog process comment
+        if: steps.check-new-blog.outputs.is_new_blog == 'true'
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Thank you for submitting a blog!
+            
+            The blog process is Submit a PR -> (Optional) Peer review -> Doc review -> Editorial review -> Marketing review -> Published.
 
       - name: Check for linked issues
         if: steps.check-new-blog.outputs.is_new_blog == 'true'
