@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Redline testing now available in OpenSearch Benchmark
-authors: Michael Oviedo
+authors:
+   - moviedo
+   - rishabhsi
 date: 2025-04-24 12:30:00 -0600
 categories:
   - technical-posts
