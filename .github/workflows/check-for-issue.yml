@@ -1,0 +1,45 @@
+name: PR Checklist
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  check-linked-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get PR body
+        id: pr-body
+        run: |
+          body="${{ github.event.pull_request.body }}"
+          echo "body=${body}" >> $GITHUB_OUTPUT
+
+      - name: Check for linked issues
+        id: check-issues
+        run: |
+          body="${{ github.event.pull_request.body }}"
+          if echo "$body" | grep -iE "(closes|fixes|resolves|references|ref|close|fix|resolve) #[0-9]+"; then
+            echo "has_issue=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_issue=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment if no linked issue
+        if: steps.check-issues.outputs.has_issue == 'false'
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Hi @${{ github.event.pull_request.user.login }}, 
+            
+            Looks like there is no issue linked in this PR. Please link this PR to an open issue using one of these keywords in the PR description:
+            - Closes #issue-number
+            - Fixes #issue-number
+            - Resolves #issue-number
+            
+            If there isn't an issue yet, please create one first and then link it to this PR.
