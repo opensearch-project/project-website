@@ -67,7 +67,6 @@ You can tailor the Live Queries API response using the following optional parame
 - `sort`: Sorts results by a specific metric, such as latency, CPU usage, or memory usage.
 - `size`: Limits the number of query records returned.
 
-
 ### Example: Finding CPU-intensive live queries
 
 To find the top five queries currently consuming the most CPU, you can provide the following query parameters:
