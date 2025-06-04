@@ -24,13 +24,13 @@ OpenSearch Benchmark recently introduced support for ramping up clients and thro
 
 - Estimate what amount of load would break the cluster.
 - Convert the estimate to the appropriate number of client threads and the desired target throughput.
-- Manually watch for failures in the OSB logs or cluster dashboards.
+- Manually monitor for failures in the OpenSearch Benchmark logs or cluster dashboards.
 OpenSearch Benchmark recently added support for ramping up clients and throughput during a benchmark run. However, users still had to complete several manual steps when benchmarking:
 
-- Estimate the amount of load that could break the cluster, then convert that estimate into the appropriate number of client threads and target throughput.
-- Monitor the Benchmark logs or cluster dashboard for failures and adjust the load estimate based on the number of errors—raising it if no failures occurred, or lowering it if a significant number were encountered.
-- Rerun the benchmark with different parameters and loads until reaching the maximum sustainable threshold for the workload.
-- Iterate until the breaking point and maximum steady state workload intensities are identified 
+- Estimate the amount of load that could break the cluster, and then convert that estimate into the appropriate number of client threads and target throughput.
+- Monitor the benchmark logs or cluster dashboard for failures and adjust the load estimate based on the number of errors—raising it if no failures occurred or lowering it if a significant number were encountered.
+- Rerun the benchmark with different parameters and loads until the maximum sustainable threshold for the workload is reached.
+- Iterate until the breaking point and maximum steady-state workload intensities are identified. 
 
 These time-consuming tasks made it difficult to pinpoint the maximum sustainable throughput.
 
@@ -43,9 +43,9 @@ Redline testing automates the following:
 
 This enables OpenSearch Benchmark to perform the following actions:
 
-- Ramp up active clients  
-- Detect when failures begin  
-- Scale back automatically, wait for recovery, and resume testing  
+- Ramp up active clients.
+- Detect when failures begin.
+- Scale back automatically, wait for recovery, and resume testing.
 
 The result: OpenSearch Benchmark can now determine your cluster's redline point in a single test run.
 
@@ -55,14 +55,13 @@ The following diagram provides a high-level overview of the actor-based executio
 
 - **BenchmarkActor**: Initiates the benchmarking process.  
 - **WorkerCoordinatorActor**: Manages worker lifecycle and task distribution using an allocation matrix from the **Allocator**.  
-- **Workers (Worker1 through WorkerN)**: Executes tasks by managing clients via the **AsyncIoAdapter**.  
+- **Workers (Worker1 through WorkerN)**: Executes tasks by managing clients through the **AsyncIoAdapter**.  
 - **Clients (Client1 through ClientN)**: Uses the `AsyncExecutor` class to perform operations against the target host in parallel. 
 ![Flowchart for OpenSearch Benchmark's actor system](/assets/media/blog-images/2025-04-24-Redline-Testing-Comes-to-OpenSearch-Benchmark/OpenSearch Benchmark-system-architecture.jpg){: .img-fluid}
 
 OpenSearch Benchmark uses the **Actor Model**, which structures concurrent, distributed systems around isolated, message-passing components.
 
-Normally, OpenSearch Benchmark starts with a fixed number of clients, each sending requests at a constant rate for the duration of the test.
-With the new ramp-up feature, the tool can automatically adjust the number of clients during the test—adding more to increase load or reducing them to ease off.
+Normally, OpenSearch Benchmark starts with a fixed number of clients, each sending requests at a constant rate for the duration of the test. With the new ramp-up feature, the tool can automatically adjust the number of clients during the test—adding clients to increase load or removing them to decrease it.
 
 This allows you to observe how your OpenSearch cluster responds to changing load pressure, rather than a single fixed level, resulting in a more realistic and flexible benchmark that reflects real-world traffic patterns.
 
@@ -96,7 +95,7 @@ For more technical details, see the [RFC on redline testing](https://github.com/
 
 ## Run a workload in redline testing mode
 
-Getting started with redline testing begins with creating a timed test procedure that defines the duration, target throughput, and number of clients. Once configured, you can run the benchmark with a single command—and optionally customize the maximum number of clients to match your cluster's capacity.
+You can get started with redline testing by creating a timed test procedure that defines the duration, target throughput, and number of clients. Once configured, you can run the benchmark with a single command—and optionally customize the maximum number of clients to match your cluster's capacity.
 
 Create a timed test procedure using settings similar to the following:
 
@@ -128,7 +127,7 @@ opensearch-benchmark execute-test \
   --redline-test
 ```
 
-Users can customize redline test parameters—such as the maximum number of clients, the client ramp-up rate, the percentage of clients to pause during back-off, and the wait time before resuming scale-up—using the following flags:
+Users can customize redline test parameters—such as the maximum number of clients, the client ramp-up rate, the percentage of clients to pause during backoff, and the amount of time to wait before resuming scale-up—using the following flags:
 
 
 `--redline-scale-step`: Specifies the number of clients to unpause in each scaling iteration (integer value).
@@ -138,15 +137,15 @@ Users can customize redline test parameters—such as the maximum number of clie
 
 OpenSearch Benchmark captures the following log information:
 - During the test:
-  - The current number of clients.
-  - The pause/unpause events.
-  - The reasons for scaling back.
+  - The current number of clients
+  - The pause/unpause events
+  - The reasons for scaling back
 - After the test:
-  - The maximum number of clients reached.
-  - A summary of test result metrics such as service time, throughput, and latency.
+  - The maximum number of clients reached
+  - A summary of test result metrics, such as service time, throughput, and latency
 
 
-The following chart shows how redline testing in OpenSearch Benchmark incrementally increases client load during a timed test. Each step represents a controlled ramp-up, allowing the system to observe when performance begins to degrade. In this example image, throughput steadily rises until it plateaus—indicating that the cluster's redline has been reached. This automated feedback loop removes guesswork and enables precise load testing in a single run.
+The following chart shows how redline testing in OpenSearch Benchmark incrementally increases client load during a timed test. Each step represents a controlled ramp-up, allowing the system to observe when performance begins to degrade. In the following example image, throughput steadily rises until it plateaus—indicating that the cluster's redline has been reached. This automated feedback loop removes guesswork and enables precise load testing in a single run.
 
 
 ![Latency over time](/assets/media/blog-images/2025-04-24-Redline-Testing-Comes-to-OpenSearch-Benchmark/dashboards-latency-over-time.png){: .img-fluid}
@@ -158,5 +157,5 @@ Upcoming improvements to redline testing may include:
 - Smarter ramp-up strategies, such as binary or exponential search.  
 - Scaling based on latency or service time, not just request failures.  
 
-Redline testing is now available in OpenSearch Benchmark. We hope you find this feature useful and welcome your feedback in the [OpenSearch forum](https://forum.opensearch.org/) or at the upcoming OpenSearch Benchmark [community meetup](https://www.meetup.com/opensearch/events/307446531/?eventOrigin=group_upcoming_events)!
+Redline testing is now available in OpenSearch Benchmark. We hope you find this feature useful and welcome your feedback on the [OpenSearch forum](https://forum.opensearch.org/) or at the upcoming OpenSearch Benchmark [community meetup](https://www.meetup.com/opensearch/events/307446531/?eventOrigin=group_upcoming_events)!
 

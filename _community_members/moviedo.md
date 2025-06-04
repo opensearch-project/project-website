@@ -75,4 +75,4 @@ linkedin: michael-oviedo-00669a198
 #  name: mastodonusername
 ---
 
-Michael Oviedo is a software engineer at AWS working on performance and benchmarking for the OpenSearch project. Outside of work he enjoys playing golf, trying new foods, and binge-watching TV shows.
+Michael Oviedo is a software engineer at AWS working on performance and benchmarking for the OpenSearch Project. Outside of work he enjoys playing golf, trying new foods, and binge-watching TV shows.
