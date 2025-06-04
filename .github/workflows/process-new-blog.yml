@@ -1,4 +1,4 @@
-name: Check for blog issue 
+name: Process a new blog
 
 on:
   pull_request_target:
