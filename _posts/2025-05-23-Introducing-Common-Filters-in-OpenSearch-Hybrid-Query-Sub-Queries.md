@@ -25,7 +25,7 @@ Hybrid queries merge results from multiple subqueries---for example, a text matc
 
 A common workaround was to use a `post_filter` on the overall hybrid results. However, this approach has limitations. In OpenSearch, `post_filter` is applied _after_ documents have been retrieved and scored ( see [Hybrid search with post-filtering](https://opensearch.org/docs/latest/vector-search/ai-search/hybrid-search/post-filtering/#:~:text=The%20,the%20order%20of%20the%20results)). While it can remove unwanted results from the final output, it doesn't affect which documents are considered during query execution.
 
-As a result, subqueries still score documents that will later be filtered out, wasting compute resources. In vector search, this can also impact relevance: if you retrieve only the top k vectors and then apply a filter, you might discard relevant results that were just outside the top k because they didn’t meet the filter conditions.
+As a result, subqueries still score documents that will later be filtered out, wasting compute resources. In vector search, this can also impact relevance: if you retrieve only the top k vectors and then apply a filter, you might discard relevant results that were just outside the top k because they didn't meet the filter conditions.
 
 Clearly, a better approach was needed, one that allows filters to be applied earlier, within the hybrid query itself.
 
