@@ -172,7 +172,7 @@ Common filter support in OpenSearch 3.0 is a valuable enhancement for anyone bui
 
 ## What's next?
 
-Currently, the common filter is always combined with subquery filters using logical `AND`. A proposed enhancement would introduce two new modes for more flexible behavior:
+Currently, the common filter is always combined with subquery filters using logical `AND`. A proposed enhancement would introduce two new modes intended to provide more flexible behavior:
 
 * **Logical OR:** Combines the common filter and the subquery filter using OR logic. A document is included if it matches **either** the common filter **or** the subquery filter—useful when broadening result criteria while still applying some global filtering.
 
