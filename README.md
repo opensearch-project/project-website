@@ -36,7 +36,20 @@ If you are a partner, you are welcome to add your logo/link to our partners page
 
 ### Writing a blog
 
-If you'd like to contribute a blog, see the [BLOG_GUIDE](BLOG_GUIDE.md) to learn about formatting the blog contents and adding authors. For writing guidelines, see the [OpenSearch Project Style Guidelines](https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md).
+The blog post review process is as follows:
+
+1. [Submit a GitHub issue for the blog post](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) so that it can be added to the publishing schedule.
+1. Create a PR containing the blog post content. See the [BLOG_GUIDE](BLOG_GUIDE.md) to learn how to format a blog post and add authors. 
+1. (Optional) Have one of your peers conduct a technical review.
+1. A technical writer performs a doc review.
+1. The editor performs an editorial review.
+1. Marketing conducts a final review and provides the blog meta.
+1. The blog is published.
+
+
+For writing guidelines, see the [OpenSearch Project Style Guidelines](https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md).
+
+If you need help, contact [pajuric](https://github.com/pajuric).
 
 ### Building the website
 
