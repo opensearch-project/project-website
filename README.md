@@ -36,10 +36,10 @@ If you are a partner, you are welcome to add your logo/link to our partners page
 
 ### Writing a blog
 
-The blog process is as follows:
+The blog post review process is as follows:
 
-1. [Submit a GitHub issue for the blog](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) so the blog can be added to the publishing schedule.
-1. Create a PR with the blog contents. See the [BLOG_GUIDE](BLOG_GUIDE.md) to learn about formatting the blog contents and adding authors. 
+1. [Submit a GitHub issue for the blog post](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) so that it can be added to the publishing schedule.
+1. Create a PR containing the blog post content. See the [BLOG_GUIDE](BLOG_GUIDE.md) to learn how to format a blog post and add authors. 
 1. (Optional) Have one of your peers conduct a technical review.
 1. A technical writer performs a doc review.
 1. The editor performs an editorial review.
