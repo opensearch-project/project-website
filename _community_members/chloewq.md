@@ -22,4 +22,4 @@ permalink: '/community/members/chloe-gao.html'
 redirect_from: '/authors/chloewq/'
 ---
 
-**Chloe Gao** is a Software Development Engineer at AWS OpenSearch, working on neural search development.
+**Chloe Gao** is a Software Development Engineer at AWS working on neural search development for the OpenSearch Project.
