@@ -95,7 +95,7 @@ POST /products/_search
 }
 ```
 
-You can also combine common filters with subquery-specific filters. OpenSearch will apply both filters using logical `AND`:
+You can also combine common filters with subquery-specific filters. OpenSearch will apply both filters using a logical `AND`:
 
 ```json
 POST /products/_search
