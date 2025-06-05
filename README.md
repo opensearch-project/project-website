@@ -38,7 +38,7 @@ If you are a partner, you are welcome to add your logo/link to our partners page
 
 The blog process is as follows:
 
-1. [Submit a GitHub issue for the blog] so the blog can be added to the publishing schedule.
+1. [Submit a GitHub issue for the blog](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) so the blog can be added to the publishing schedule.
 1. Create a PR with the blog contents. See the [BLOG_GUIDE](BLOG_GUIDE.md) to learn about formatting the blog contents and adding authors. 
 1. (Optional) Have one of your peers conduct a technical review.
 1. A technical writer performs a doc review.
