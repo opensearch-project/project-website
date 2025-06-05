@@ -15,7 +15,7 @@ breadcrumbs:
       url: '/community/members/chloe-gao.html'
 linkedin: TBD
 github: chloewq
-job_title_and_company: 'Software Engineer at AWS OpenSearch'
+job_title_and_company: 'Software Engineer at AWS'
 personas:
   - author
 permalink: '/community/members/chloe-gao.html'
