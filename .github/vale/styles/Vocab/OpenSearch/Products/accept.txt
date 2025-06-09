@@ -6,6 +6,7 @@ Amazon
 Amazon Bedrock
 Amazon OpenSearch Serverless
 Amazon OpenSearch Service
+Amazon Q Developer
 Ansible
 Apache
 Arenadata
