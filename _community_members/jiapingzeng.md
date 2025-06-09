@@ -13,7 +13,7 @@ breadcrumbs:
       url: /community/members/index.html
     - title: 'Jiaping Zeng&apos;s Profile'
       url: '/community/members/jiapingzeng.html'
-github: arjunkumargiri
+github: jiapingzeng
 job_title_and_company: 'Software engineer at Amazon Web Services'
 personas:
   - author
