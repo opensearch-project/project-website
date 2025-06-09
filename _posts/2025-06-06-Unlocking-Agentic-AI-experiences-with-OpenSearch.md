@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Unlocking Agentic AI experiences with OpenSearch"
+title: "Unlocking agentic AI experiences with OpenSearch"
 authors:
   - arjunkumargiri
   - jiapingzeng
@@ -8,10 +8,10 @@ date: 2025-06-09
 categories:
   - technical-posts
 meta_keywords: MCP, Agentic, Agent, Model context protocol, root cause analysis, MCP client, OpenTelemetry, LLM integration, observability agent
-meta_description: Learn how to integrate Amazon Q Developer CLI with OpenSearch's agentic AI tools via Model Context Protocol (MCP) to extract analytics and insights using natural language queries. This guide demonstrates setup, configuration and usage examples for developers and data engineers.
+meta_description: Learn how to integrate the Amazon Q Developer CLI with OpenSearch's agentic AI tools through the Model Context Protocol (MCP) to extract analytics and insights using natural language queries. This guide demonstrates setup and configuration and provides usage examples for developers and data engineers.
 ---
 
-As search evolves from text-based inputs to conversational, interactive experiences, the power of agentic AI is unlocking new ways to connect with systems, applications, and large language models (LLMs). Recently, we released a [Model Context Protocol](https://opensearch.org/blog/introducing-mcp-in-opensearch/) (MCP) server for OpenSearch as an open-source solution. In this blog post, we'll show you how you can integrate the [Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html)command line interface (CLI) with OpenSearch's agentic AI tools using MCP. W'll demonstrate step-by-step how you can extract impactful analytics and insights into your applications using natural language.
+As search evolves from text-based inputs to conversational, interactive experiences, the power of agentic AI is unlocking new ways to connect with systems, applications, and large language models (LLMs). Recently, we released a [Model Context Protocol](https://opensearch.org/blog/introducing-mcp-in-opensearch/) (MCP) server for OpenSearch as an open-source solution. In this blog post, we'll show you how you can integrate the [Amazon Q Developer CLI](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html) with OpenSearch's agentic AI tools using MCP. We'll demonstrate step by step how you can extract impactful analytics and insights into your applications using natural language.
 
 Whether you're a developer, data engineer, or solutions architect, this guide will walk you through the transformative potential of AI-powered capabilities in OpenSearch, helping you deliver more intelligent and efficient search experiences.
 
@@ -19,7 +19,7 @@ Whether you're a developer, data engineer, or solutions architect, this guide wi
 
 * [Amazon Q Developer CLI](https://github.com/aws/amazon-q-developer-cli)
 * Python 3.10+
-* OpenSearch cluster, either self-managed or Amazon OpenSearch Service.
+* OpenSearch cluster, either self-managed or Amazon OpenSearch Service
 
 ## Setup
 
@@ -33,9 +33,9 @@ First, install the `uv` package manager, which is a required tool for running th
 pip install uv
 ```
 
-### 2. Configure Amazon Q Developer CLI
+### 2. Configure the Amazon Q Developer CLI
 
-Create or edit the MCP configuration file for Amazon Q Developer CLI at `~/.aws/amazonq/mcp.json` . To connect Q Developer CLI with Amazon OpenSearch Service, provide the cluster endpoint and AWS credentials with permissions to access the cluster:
+Create or edit the MCP configuration file for the Amazon Q Developer CLI at `~/.aws/amazonq/mcp.json`. To connect the Amazon Q Developer CLI to Amazon OpenSearch Service, provide the cluster endpoint and AWS credentials with permissions to access the cluster:
 
 ```json
 {
@@ -59,11 +59,11 @@ Create or edit the MCP configuration file for Amazon Q Developer CLI at `~/.aws/
 }
 ```
 
-Alternatively, you can set up the OpenSearch URL and IAM authentication credentials directly as environment variables in your terminal session instead of using the `mcp.json` configuration file.
+Alternatively, you can set up the OpenSearch URL and AWS Identity and Access Management (IAM) authentication credentials directly as environment variables in your terminal session instead of using the `mcp.json` configuration file.
 
-### 3. Use Amazon Q Developer CLI
+### 3. Use the Amazon Q Developer CLI
 
-Start a chat session with Q Developer CLI using `q chat`. You should see that it has successfully loaded the `opensearch_mcp_server`:
+Start a chat session with the Amazon Q Developer CLI using `q chat`. You should see that it has successfully loaded the `opensearch_mcp_server`:
 
 ```bash
 > q  
@@ -71,9 +71,9 @@ Start a chat session with Q Developer CLI using `q chat`. You should see that it
 ✓ 1 of 1 mcp servers initialized.
 ```
 
-Using the `/tools` command within Q, you can verify that four OpenSearch tools are loaded: `GetShardsTool`, `IndexMappingTool`, `ListIndexTool`, and `SearchIndexTool`. Additional OpenSearch tools will be added in future releases to expand the capabilities and functionalities of the system.
+Using the `/tools` command within Amazon Q, you can verify that four OpenSearch tools are loaded: `GetShardsTool`, `IndexMappingTool`, `ListIndexTool`, and `SearchIndexTool`. Additional OpenSearch tools will be added in future versions to expand the capabilities and functionalities of the system.
 
-Note that by default, newly added tools are not trusted, meaning that Q will ask for confirmation any time it tries to use the tool. Optionally, you can specify to trust the tools using `/tools trust <full_tool_name>` or `/tools trustall` to skip the confirmations:
+Note that by default, newly added tools are not trusted, meaning that Amazon Q will ask for confirmation any time it tries to use the tools. Optionally, you can specify that the tools should be trusted using `/tools trust <full_tool_name>` or `/tools trustall` to skip the confirmations:
 
 ```bash
 > /tools
@@ -94,9 +94,9 @@ Note that by default, newly added tools are not trusted, meaning that Q will ask
 - opensearch_mcp_server___SearchIndexTool  * not trusted
 ```
 
-## Using OpenSearch with Q CLI
+## Using OpenSearch with the Amazon Q Developer CLI
 
-Now that you have configured Q CLI with the OpenSearch MCP server, you can start querying OpenSearch data:
+Now that you have configured the Amazon Q Developer CLI with the OpenSearch MCP server, you can start querying OpenSearch data:
 
 ```bash
 > list indices
@@ -124,7 +124,7 @@ Here are the indices in your OpenSearch cluster:
 ...
 ```
 
-With the ability to list and search indexes, you can now use Q Developer CLI for more advanced use cases, such as data summary:
+With the ability to list and search indexes, you can now use the Amazon Q Developer CLI for more advanced use cases, such as data summarization:
 
 ```bash
 > give me a quick summary of my eCommerce data
@@ -165,7 +165,7 @@ This data appears to be a sample dataset with a focus on clothing and accessorie
 even gender distribution among customers.
 ```
 
-If working with OpenSearch observability, you can use Q Developer CLI to perform detailed investigations of your system's performance, as shown in this example:
+If working with OpenSearch observability, you can use the Amazon Q Developer CLI to perform detailed investigations of your system's performance, as shown in this example:
 
 ```bash
 > check my otel traces, show me latency by service name
@@ -220,7 +220,7 @@ recommendationservice, and checkoutservice have the highest average latencies. T
 appears to be the most efficient with the lowest average latency.
 ```
 
-After receiving the initial analysis of OpenTelemetry traces and latency data, you can ask follow-up questions for a deeper investigation. In this example, you can investigate why the `loadgenerator` has high average latencies:
+After receiving the initial analysis of OpenTelemetry traces and latency data, you can ask follow-up questions to perform a deeper investigation. The following example shows an investigation into why the `loadgenerator` has high average latencies:
 
 ```bash
 > why does loadgenerator have high average latencies?
@@ -300,6 +300,6 @@ includes all downstream service processing and network overhead.
 
 ## Conclusion
 
-OpenSearch's agentic AI capabilities features provide real-world value by enabling advanced analytics, investigation, summarization, and reporting. The integration shown in this post not only enhances traditional search capabilities but also provides deeper insights into system performance and data analysis, offering a valuable tool for developers and data engineers. 
+OpenSearch's agentic AI capabilities provide real-world value by enabling advanced analytics, investigation, summarization, and reporting. The integration shown in this post not only enhances traditional search capabilities but also provides deeper insights into system performance and data analysis, offering a valuable tool for developers and data engineers. 
 
-To learn more about using agentic AI in OpenSearch, read our recent [MCP blog post](https://opensearch.org/blog/introducing-mcp-in-opensearch/). We welcome your feedback and contributions in the [OpenSearch MCP repo](https://github.com/opensearch-project/opensearch-mcp-server-py/tree/main).
+To learn more about using agentic AI in OpenSearch, read our recent blog post [Introducing MCP in OpenSearch](https://opensearch.org/blog/introducing-mcp-in-opensearch/). We welcome your feedback and contributions in the [OpenSearch MCP repo](https://github.com/opensearch-project/opensearch-mcp-server-py/tree/main).
