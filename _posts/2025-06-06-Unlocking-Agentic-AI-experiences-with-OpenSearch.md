@@ -11,9 +11,7 @@ meta_keywords: MCP, Agentic, Agent, Model context protocol, root cause analysis,
 meta_description: Learn how to integrate Amazon Q Developer CLI with OpenSearch's agentic AI tools via Model Context Protocol (MCP) to extract analytics and insights using natural language queries. This guide demonstrates setup, configuration and usage examples for developers and data engineers.
 ---
 
-## Overview
-
-As search evolves from text-based inputs to conversational, interactive experiences, the power of Agentic AI is unlocking new ways to connect with systems, applications, and large language models (LLMs). Recently, we released a [Model Context Protocol](https://opensearch.org/blog/introducing-mcp-in-opensearch/) (MCP) server for OpenSearch as an open source solution. In this blog post, we’ll illustrate how you can integrate the [Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html)command line interface (CLI) with OpenSearch’s agentic AI tools via MCP. With a step-by-step approach, we’ll demonstrate you how you can extract impactful analytics and insights into your applications using natural language.
+As search evolves from text-based inputs to conversational, interactive experiences, the power of agentic AI is unlocking new ways to connect with systems, applications, and large language models (LLMs). Recently, we released a [Model Context Protocol](https://opensearch.org/blog/introducing-mcp-in-opensearch/) (MCP) server for OpenSearch as an open-source solution. In this blog post, we'll show you how you can integrate the [Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html)command line interface (CLI) with OpenSearch's agentic AI tools using MCP. W'll demonstrate step-by-step how you can extract impactful analytics and insights into your applications using natural language.
 
 Whether you're a developer, data engineer, or solutions architect, this guide will walk you through the transformative potential of AI-powered capabilities in OpenSearch, helping you deliver more intelligent and efficient search experiences.
 
@@ -25,17 +23,19 @@ Whether you're a developer, data engineer, or solutions architect, this guide wi
 
 ## Setup
 
-### 1. Install Required Tools
+To start using agentic AI in OpenSearch, use the following steps.
+
+### 1. Install the required tools
 
 First, install the `uv` package manager, which is a required tool for running the OpenSearch MCP server:
 
-```
+```bash
 pip install uv
 ```
 
-### 2. Configure Q Developer CLI
+### 2. Configure Amazon Q Developer CLI
 
-Create or edit the MCP configuration file for Amazon Q Developer CLI at `~/.aws/amazonq/mcp.json` . To connect Q dev CLI with Amazon OpenSearch Service, provide the cluster endpoint and AWS credentials with permissions to access the cluster.
+Create or edit the MCP configuration file for Amazon Q Developer CLI at `~/.aws/amazonq/mcp.json` . To connect Q Developer CLI with Amazon OpenSearch Service, provide the cluster endpoint and AWS credentials with permissions to access the cluster:
 
 ```json
 {
@@ -59,11 +59,11 @@ Create or edit the MCP configuration file for Amazon Q Developer CLI at `~/.aws/
 }
 ```
 
-Alternatively, you can set up the OpenSearch URL and IAM authentication credentials directly as environment variables in your terminal session instead of using the mcp.json configuration file.
+Alternatively, you can set up the OpenSearch URL and IAM authentication credentials directly as environment variables in your terminal session instead of using the `mcp.json` configuration file.
 
-### 3. Using Q Developer CLI
+### 3. Use Amazon Q Developer CLI
 
-Start a chat session with Q Developer CLI via `q chat`. We should see that it has successfully loaded the `opensearch_mcp_server`:
+Start a chat session with Q Developer CLI using `q chat`. You should see that it has successfully loaded the `opensearch_mcp_server`:
 
 ```bash
 > q  
@@ -73,7 +73,7 @@ Start a chat session with Q Developer CLI via `q chat`. We should see that it ha
 
 Using the `/tools` command within Q, you can verify that four OpenSearch tools are loaded: `GetShardsTool`, `IndexMappingTool`, `ListIndexTool`, and `SearchIndexTool`. Additional OpenSearch tools will be added in future releases to expand the capabilities and functionalities of the system.
 
-Note that by default, new tools added are not trusted, meaning that Q will ask for confirmation any time it tries to use the tool. Optionally, we can trust the tools via `/tools trust <full_tool_name>` or `/tools trustall` to skip the confirmations.
+Note that by default, newly added tools are not trusted, meaning that Q will ask for confirmation any time it tries to use the tool. Optionally, you can specify to trust the tools using `/tools trust <full_tool_name>` or `/tools trustall` to skip the confirmations:
 
 ```bash
 > /tools
@@ -96,7 +96,7 @@ Note that by default, new tools added are not trusted, meaning that Q will ask f
 
 ## Using OpenSearch with Q CLI
 
-Now that we have configured Q CLI with the OpenSearch MCP server, we can start querying OpenSearch data:
+Now that you have configured Q CLI with the OpenSearch MCP server, you can start querying OpenSearch data:
 
 ```bash
 > list indices
@@ -124,7 +124,7 @@ Here are the indices in your OpenSearch cluster:
 ...
 ```
 
-With the ability to list and search indices, we can now use Q Developer CLI for more advanced use cases, such as data summary:
+With the ability to list and search indexes, you can now use Q Developer CLI for more advanced use cases, such as data summary:
 
 ```bash
 > give me a quick summary of my eCommerce data
@@ -165,7 +165,7 @@ This data appears to be a sample dataset with a focus on clothing and accessorie
 even gender distribution among customers.
 ```
 
-OpenSearch observability customers can make use of Q dev CLI to perform detailed investigations of their system performance, as shown in this example:
+If working with OpenSearch observability, you can use Q Developer CLI to perform detailed investigations of your system's performance, as shown in this example:
 
 ```bash
 > check my otel traces, show me latency by service name
@@ -220,7 +220,7 @@ recommendationservice, and checkoutservice have the highest average latencies. T
 appears to be the most efficient with the lowest average latency.
 ```
 
-After getting the initial analysis of OpenTelemetry traces and latency data, we can ask follow-up questions for deeper investigation, as demonstrated in the following example where we investigate why the loadgenerator has high average latencies.
+After receiving the initial analysis of OpenTelemetry traces and latency data, you can ask follow-up questions for a deeper investigation. In this example, you can investigate why the `loadgenerator` has high average latencies:
 
 ```bash
 > why does loadgenerator have high average latencies?
@@ -300,4 +300,6 @@ includes all downstream service processing and network overhead.
 
 ## Conclusion
 
-OpenSearch’s Agentic AI capabilities demonstrates real-world value through powerful capabilities for analytics, investigation, summarization, and reporting. The integration demonstrated here not only enhances traditional search capabilities but also provides deeper insights into system performance and data analysis, offering a valuable tool for developers and data engineers. If you’d like to learn more, you can find more details in our recent [blog post](https://opensearch.org/blog/introducing-mcp-in-opensearch/) on MCP, and we welcome conversation and contributions on the [OpenSearch MCP repo](https://github.com/opensearch-project/opensearch-mcp-server-py/tree/main).
+OpenSearch's agentic AI capabilities features provide real-world value by enabling advanced analytics, investigation, summarization, and reporting. The integration shown in this post not only enhances traditional search capabilities but also provides deeper insights into system performance and data analysis, offering a valuable tool for developers and data engineers. 
+
+To learn more about using agentic AI in OpenSearch, read our recent [MCP blog post](https://opensearch.org/blog/introducing-mcp-in-opensearch/). We welcome your feedback and contributions in the [OpenSearch MCP repo](https://github.com/opensearch-project/opensearch-mcp-server-py/tree/main).

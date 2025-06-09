@@ -1,6 +1,6 @@
 ---
 name: Arjun kumar Giri
-short_name: Arjun
+short_name: arjunkumargiri
 photo: "/assets/media/community/members/arjunkumargiri.jpg"
 title: 'OpenSearch Community Member: Arjun kumar Giri'
 primary_title: Arjun kumar Giri
@@ -21,4 +21,4 @@ permalink: '/community/members/arjunkumargiri.html'
 redirect_from: '/authors/arjunkumargiri/'
 ---
 
-**Arjun kumar Giri** is a Principal Engineer at AWS working on the OpenSearch Project. He primarily works on OpenSearch's AI/ML and semantic search feature. He is passionate about AI, ML and building scalable systems.
+**Arjun kumar Giri** is a Principal Engineer at AWS working on the OpenSearch Project. He primarily works on OpenSearch's artificial intelligence and machine learning (AI/ML) and semantic search features. He is passionate about AI, ML, and building scalable systems.

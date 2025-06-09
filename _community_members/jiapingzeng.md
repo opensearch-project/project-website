@@ -1,6 +1,6 @@
 ---
 name: Jiaping Zeng
-short_name: Jiaping
+short_name: jiapingzeng
 photo: "/assets/media/community/members/jiapingzeng.jpg"
 title: 'OpenSearch Community Member: Jiaping Zeng'
 primary_title: Jiaping Zeng
@@ -21,4 +21,4 @@ permalink: '/community/members/jiapingzeng.html'
 redirect_from: '/authors/jiapingzeng/'
 ---
 
-**Jiaping Zeng** is a Software Engineer at AWS working on the OpenSearch Project. He primarily works on OpenSearch's AI/ML and semantic search feature. He is passionate about AI, ML and building scalable systems.
+**Jiaping Zeng** is a Software Engineer at AWS working on the OpenSearch Project. He primarily works on OpenSearch's AI/ML and semantic search features. He is passionate about AI, ML and building scalable systems.
