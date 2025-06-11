@@ -3,7 +3,7 @@ layout: post
 title:  "Enhanced log analysis with OpenSearch PPL: Introducing lookup, join, and subsearch"
 authors:
    - penghuo
-   - LantaoJin
+   - ltjin
    - yych
    - kolchfa
 date: 2025-05-30
