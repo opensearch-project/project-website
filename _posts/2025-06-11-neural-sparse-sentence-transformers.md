@@ -59,8 +59,8 @@ The model supports encoding for both documents and queries.
 # We first use encode method to convert text to torch.sparse_coo tensor (it's inference-free here)
 # Then we use decode method to convert torch.sparse_coo tensor to (token, weight) pairs
 
-query_tensor = sparse_model.encode([{"query": "What's the weather in ny now?"}])
-query_embedding = sparse_model.decode(query_tensor)[0]
+query_tensor = sparse_model.encode_query("What's the weather in ny now?")
+query_embedding = sparse_model.decode(query_tensor)
 
 print(dict(query_embedding))
 ```
@@ -85,10 +85,10 @@ print(dict(query_embedding))
 #### Document Encoding
 ```python
 # We first use encode method to convert text to torch.sparse_coo tensor
-# Then we use decode method to convert torch.sparse_coo tensor to (token, weight) pairs
+# Then we use decode method to convert torch.sparse_coo tensor to (token, weight) pairs and obtain tokens with top-10 weights
 
-doc_tensor = sparse_model.encode([{"doc": "Currently New York is rainy."}])
-doc_embedding = sparse_model.decode(doc_tensor)[0]
+doc_tensor = sparse_model.encode_document("Currently New York is rainy.")
+doc_embedding = sparse_model.decode(doc_tensor, topk=10)
 
 print(dict(doc_embedding))
 ```
@@ -108,11 +108,6 @@ print(dict(doc_embedding))
     "new": 0.6556974053382874,
     "raining": 0.5904556512832642,
     "current": 0.5838088393211365,
-    "precipitation": 0.5767719149589539,
-    "wet": 0.5764500498771667,
-    "temperature": 0.5684300661087036,
-    "climate": 0.5606307983398438,
-    ...
 }
 ```
 ### Integrate with OpenSearch
