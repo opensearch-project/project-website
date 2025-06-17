@@ -144,7 +144,7 @@ asym = models.Asym(
                 frozen=True,
             ),
         ],
-        "doc": [
+        "document": [
             doc_encoder,
             SpladePooling(),
         ],
