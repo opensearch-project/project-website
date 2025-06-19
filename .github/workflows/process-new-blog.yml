@@ -1,0 +1,67 @@
+name: Process a new blog
+
+on:
+  pull_request_target:
+    types: [opened]
+    paths:
+      - '_posts/**'
+
+permissions:
+  pull-requests: write
+
+jobs:
+  check-linked-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if PR adds new blog
+        id: check-new-blog
+        run: |
+          files_added=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
+            | jq -r '.[] | select(.status == "added" and (.filename | startswith("_posts/"))) | .filename')
+          
+          if [ ! -z "$files_added" ]; then
+            echo "is_new_blog=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_new_blog=false" >> $GITHUB_OUTPUT
+          fi
+    
+      - name: Add blog process comment
+        if: steps.check-new-blog.outputs.is_new_blog == 'true'
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Thank you for submitting a blog post!
+            
+            The blog post review process is: Submit a PR -> (Optional) Peer review -> Doc review -> Editorial review -> Marketing review -> Published.
+
+      - name: Check for linked issues
+        if: steps.check-new-blog.outputs.is_new_blog == 'true'
+        id: check-issues
+        run: |
+          echo "${{ github.event.pull_request.body }}" > pr_body.txt
+          if grep -iE "(closes|fixes|resolves|references|ref|close|fix|resolve) #[0-9]+" pr_body.txt > /dev/null; then
+            echo "has_issue=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_issue=false" >> $GITHUB_OUTPUT
+          fi
+          rm pr_body.txt
+
+      - name: Comment if no linked issue
+        if: steps.check-new-blog.outputs.is_new_blog == 'true' && steps.check-issues.outputs.has_issue == 'false'
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Hi @${{ github.event.pull_request.user.login }}, 
+            
+            It looks like you're adding a new blog post but don't have an issue mentioned. Please link this PR to an open issue using one of these keywords in the PR description:
+            - Closes #issue-number
+            - Fixes #issue-number
+            - Resolves #issue-number
+            
+            If an issue hasn't been created yet, please [create one](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) and then link it to this PR.
