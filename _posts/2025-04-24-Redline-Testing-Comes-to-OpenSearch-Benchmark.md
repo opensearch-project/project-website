@@ -7,8 +7,8 @@ authors:
 date: 2025-04-24 12:30:00 -0600
 categories:
   - technical-posts
-meta_keywords: OpenSearch Benchmark, OpenSearch Benchmark, workloads, redline testing
-meta_description: Learn how the new redline testing feature in OpenSearch Benchmark helps you automatically determine the maximum throughput your cluster can handle—no guesswork required.
+meta_keywords: OpenSearch Benchmark, redline-test, actor model framework, redline testing, cluster performance, Iteration mode, search engine testing
+meta_description: OpenSearch Benchmark's new redline testing feature automatically determines cluster throughput limits through dynamic load scaling and real-time monitoring. Eliminate manual tuning and discover your true performance ceiling.
 ---
 
 # Redline testing now available in OpenSearch Benchmark
