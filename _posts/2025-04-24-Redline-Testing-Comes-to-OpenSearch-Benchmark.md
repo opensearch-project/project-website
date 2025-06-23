@@ -4,7 +4,7 @@ title: Redline testing now available in OpenSearch Benchmark
 authors:
    - moviedo
    - rishabhsi
-date: 2025-04-24 12:30:00 -0600
+date: 2025-06-23 12:30:00 -0600
 categories:
   - technical-posts
 meta_keywords: OpenSearch Benchmark, redline-test, actor model framework, redline testing, cluster performance, Iteration mode, search engine testing
