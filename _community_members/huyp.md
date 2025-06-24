@@ -18,4 +18,4 @@ linkedin: 'huy-pham-9a5b0152'
 github: 'huypham612'
 permalink: '/community/members/huy-pham.html'
 ---
-Huy is a software development engineer working at Amazon. He is a contributor to the Data Prepper project.
+Huy is a software development engineer working at Amazon. He is a contributor to the OpenSearch Data Prepper project.
