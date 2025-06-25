@@ -68,13 +68,13 @@ The following Maven groups are available to the community:
 * Data Prepper expressions now support the modulus operator (`%`).
 * Data Prepper can now authorize with OpenSearch using an API token. The new parameter `api_token` sets a bearer token and can be used with a JWT to access OpenSearch.
 * You can now enable specific experimental plugins rather than enabling all or none.
-* You can now disable Data Prepper metrics to reduce the overall metrics that Data Prepper reports.
+* You can now disable reporting of specific Data Prepper metrics. This can help reduce the overall quantity of metrics when there are some you don't need to monitor.
 
 ## Getting started
 
 * To download Data Prepper, visit the [OpenSearch downloads](https://opensearch.org/downloads.html) page.
 * For instructions on how to get started with Data Prepper, see [Getting started with Data Prepper](https://opensearch.org/docs/latest/data-prepper/getting-started/).
-* To learn more about the work in progress for Data Prepper 2.10 and other releases, see the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projects/221).
+* To learn more about the work in progress for Data Prepper 2.13 and other releases, see the [Data Prepper roadmap](https://github.com/orgs/opensearch-project/projects/221).
 
 ## Thanks to our contributors!
 
