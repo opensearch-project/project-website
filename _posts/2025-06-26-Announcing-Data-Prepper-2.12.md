@@ -19,9 +19,11 @@ OpenSearch Data Prepper 2.12 is now available for download!
 This release includes two new sinks and other improvements to Data Prepper to improve your data ingestion.
 
 
-## SQS sink
+## Amazon SQS sink
 
-TODO: Krishna
+Data Prepper now supports Amazon Simple Queue Service (Amazon SQS) as output sink. Amazon SQS is a widely adopted message queuing service designed for decoupling producers and consumers in distributed systems. It is especially suited for lightweight, structured messages that require timely delivery and reliable processing.
+
+Sending Data Prepper output to SQS enables seamless communication between producers and consumers of data. Sending data directly to SQS is significantly faster and more efficient than traditional approaches such as sending output to an S3 bucket and configuring an SQS notification on that bucket. With the new SQS sink, Data Prepper bypasses the overhead of writing to S3 and triggering SQS indirectly, reducing latency and improving responsiveness. This eliminates the need to configure S3 event notifications, write intermediate files, or manage bucket lifecycle rules. You can now go straight from processing to queuing with a clean, minimal configuration.
 
 ## OTLP sink for Amazon X-Ray
 
