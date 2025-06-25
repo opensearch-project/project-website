@@ -13,12 +13,12 @@ breadcrumbs:
     - title: Members
       url: /community/members/index.html
     - title: "Shenoy Pratik Gurudatt&apos;s Profile"
-      url: "/community/members/pshenoy.html"
+      url: "/community/members/shenoy-pratik-gurudatt.html"
 keynote_speaker: false
 
 linkedin: "pshenoy36"
 github: "ps48"
-permalink: "/community/members/pshenoy.html"
+permalink: "/community/members/shenoy-pratik-gurudatt.html"
 
 personas:
   - author
