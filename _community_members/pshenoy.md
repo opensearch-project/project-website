@@ -2,7 +2,7 @@
 short_name: "pshenoy"
 name: "Shenoy Pratik Gurudatt"
 photo: "/assets/media/community/members/pshenoy.jpg"
-job_title_and_company: "Software Development Engineer at AWS - OpenSearch"
+job_title_and_company: "Software Development Engineer at AWS"
 primary_title: "Shenoy Pratik Gurudatt"
 title: "OpenSearch Community Member: Shenoy Pratik Gurudatt"
 breadcrumbs:
@@ -25,4 +25,4 @@ personas:
 redirect_from: "/authors/pshenoy/"
 ---
 
-Shenoy Pratik is a software engineer working on observability in OpenSearch at Amazon Web Services. He maintains multiple plugins, including OpenSearch Observability, Reporting, and Query Workbench. Prior to joining AWS, he worked at SAP, focusing on computer vision and machine learning.
+Shenoy Pratik is a software engineer at AWS working on observability for the OpenSearch Project. He maintains multiple plugins, including OpenSearch Observability, Reporting, and Query Workbench. Prior to joining AWS, he worked at SAP, focusing on computer vision and machine learning.
