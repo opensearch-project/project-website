@@ -6,7 +6,7 @@ authors:
   - huyp
   - pshenoy
   - dvenable
-date: 2025-06-26 12:30:00 -0600
+date: 2025-06-26 14:00:00 -0600
 categories:
   - releases
 excerpt: Data Prepper 2.12.0 offers an improved OTel source and two new sinks for improved data ingestion as well as additional features and improvements.
