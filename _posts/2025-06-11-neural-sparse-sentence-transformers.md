@@ -132,13 +132,13 @@ The IDF enhancement is built as a [module](https://github.com/arthurbr11/sentenc
 
 ```python
 from sentence_transformers import SparseEncoder, models
-from sentence_transformers.sparse_encoder.models import IDF, MLMTransformer, SpladePooling
+from sentence_transformers.sparse_encoder.models import SparseStaticEmbedding, MLMTransformer, SpladePooling
 
 doc_encoder = MLMTransformer(model_id)
-asym = models.Asym(
+router = models.Router(
     {
         "query": [
-            IDF.from_json(
+            SparseStaticEmbedding.from_json(
                 model_id,
                 tokenizer=doc_encoder.tokenizer,
                 frozen=True,
@@ -152,7 +152,7 @@ asym = models.Asym(
 )
 
 sparse_model = SparseEncoder(
-    modules=[asym],
+    modules=[router],
     similarity_fn_name="dot",
 )
 ```
