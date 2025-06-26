@@ -1,23 +1,42 @@
 ---
 layout: post
-title: "Announcing OpenSearch Data Prepper 2.12: Additional sinks for your data ingestion needs"
+title: "Announcing OpenSearch Data Prepper 2.12: Additional source and sinks for your data ingestion needs"
 authors:
   - kkondaka
   - huyp
+  - pshenoy
   - dvenable
 date: 2025-06-26 12:30:00 -0600
 categories:
   - releases
-excerpt: Data Prepper 2.12.0 offers two new sinks for improved data ingestion as well as additional features and improvements.
-meta_keywords: Data Prepper, OpenTelemetry, Amazon SQS, AWS X-Ray
-meta_description: Data Prepper 2.12.0 offers two new sinks for improved data ingestion---an Amazon SQS sink and an OTLP sink for AWS X-Ray---as well as additional features and improvements.
+excerpt: Data Prepper 2.12.0 offers an improved OTel source and two new sinks for improved data ingestion as well as additional features and improvements.
+meta_keywords: Data Prepper, OpenTelemetry, OTLP, Amazon SQS, AWS X-Ray
+meta_description: Data Prepper 2.12.0 offers an improved OTel ingestion experience and two new sinks for improved data ingestion---an Amazon SQS sink and an OTLP sink for AWS X-Ray---as well as additional features and improvements.
 ---
 
 ## Introduction
 
 OpenSearch Data Prepper 2.12 is now available for download!
-This release includes two new sinks and additional data ingestion improvements.
+This release includes a new way to ingest OpenTelemetry (OTel) data as well as two new sinks.
 
+## Unified OTLP Source
+
+Data Prepper now includes a unified OpenTelemetry Protocol (OTLP) source that streamlines telemetry data ingestion through a single, consolidated configuration. This source supports multiple protocols, seamlessly handling both gRPC and HTTP (with proto encoding) endpoints. It enables ingestion of OpenTelemetry logs, traces, and metrics via exposed OTLP endpoints, simplifying configuration management and improving the efficiency of the data processing pipeline.
+
+Additionally, to help you process the different signal types that OTel provides, Data Prepper now includes the `getEventType()` function. 
+This feature enables dynamic classification and conditional routing of events within pipelines for more flexible and intelligent processing. 
+Specifically for the `otlp` source, you can use this route the different types to different pipelines.
+
+This sample pipeline shows a basic `otlp` source that routes logs, metrics, and traces to three different pipelines for processing.
+
+```
+source:
+  otlp:
+  route:
+    - logs: 'getEventType() == "LOG"'
+    - traces: 'getEventType() == "TRACE"'
+    - metrics: 'getEventType() == "METRIC"'
+```
 
 ## Amazon SQS sink
 
