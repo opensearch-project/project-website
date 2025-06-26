@@ -97,4 +97,27 @@ The following Maven groups are available to the community:
 
 ## Thanks to our contributors!
 
-TODO: David
+Thanks to the following community members who contributed to this release!
+
+* [alparish](https://github.com/alparish)
+* [chenqi0805](https://github.com/chenqi0805) -- Qi Chen
+* [Davidding4718](https://github.com/Davidding4718) -- Siqi Ding
+* [derek-ho](https://github.com/derek-ho) -- Derek Ho
+* [divbok](https://github.com/divbok) -- Divyansh Bokadia
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [gaiksaya](https://github.com/gaiksaya) -- Sayali Gaikawad
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [huypham612](https://github.com/huypham612) -- huyPham
+* [jeffreyAaron](https://github.com/jeffreyAaron) -- Jeffrey Aaron Jeyasingh
+* [KarstenSchnitter](https://github.com/KarstenSchnitter) -- Karsten Schnitter
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [MohammedAghil](https://github.com/MohammedAghil) -- Mohammed Aghil Puthiyottil
+* [nsgupta1](https://github.com/nsgupta1) -- Neha Gupta
+* [oeyh](https://github.com/oeyh) -- Hai Yan
+* [ps48](https://github.com/ps48) -- Shenoy Pratik
+* [saketh-pallempati](https://github.com/saketh-pallempati) -- Saketh Pallempati
+* [san81](https://github.com/san81) -- Santhosh Gandhe
+* [savit-aluri](https://github.com/savit-aluri) -- Savit Aluri
+* [sb2k16](https://github.com/sb2k16) -- Souvik Bose
+* [shenkw1](https://github.com/shenkw1) -- Katherine Shen
+* [Zhangxunmt](https://github.com/Zhangxunmt) -- Xun Zhang
