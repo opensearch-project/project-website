@@ -3,6 +3,7 @@ calendar_date: '2023-06-13'
 eventdate: 2023-06-13 09:00:00 -0700
 title: Submitting your first CFP workshop
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/294042369/
     title: Join on Meetup
