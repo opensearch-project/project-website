@@ -45,9 +45,9 @@ See OpenSearch's [Hugging Face repo](https://huggingface.co/opensearch-project) 
 ```python
 # Here we initialize a model directly from model_id.
 # All settings like inference-free and l0 activation are bind with model_id and handled silently.
-from sentence_transformers import SparseEncoder
+from sentence_transformers.sparse_encoder import SparseEncoder
 
-sparse_model = SparseEncoder("opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill")
+sparse_model = SparseEncoder("opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte", trust_remote_code=True)
 ```
 
 ### Encoding Examples
@@ -88,7 +88,7 @@ print(dict(query_embedding))
 # Then we use decode method to convert torch.sparse_coo tensor to (token, weight) pairs and obtain tokens with top-10 weights
 
 doc_tensor = sparse_model.encode_document("Currently New York is rainy.")
-doc_embedding = sparse_model.decode(doc_tensor, topk=10)
+doc_embedding = sparse_model.decode(doc_tensor, top_k=10)
 
 print(dict(doc_embedding))
 ```
@@ -98,16 +98,16 @@ print(dict(doc_embedding))
 # this format is compatible with OpenSearch index and search
 
 {
-    "weather": 0.9710425138473511,
-    "york": 0.8649968504905701,
-    "rain": 0.8370056748390198,
-    "ny": 0.8048510551452637,
-    "rainy": 0.7947040796279907,
-    "nyc": 0.6949161291122437,
-    "rainfall": 0.6676556468009949,
-    "new": 0.6556974053382874,
-    "raining": 0.5904556512832642,
-    "current": 0.5838088393211365,
+    'weather': 1.0386661291122437,
+    'york': 1.0295677185058594,
+    'ny': 0.9702811241149902,
+    'rain': 0.9549840092658997,
+    'rainy': 0.9479081630706787,
+    'nyc': 0.8448441624641418,
+    'new': 0.687921404838562,
+    'raining': 0.6790128350257874,
+    'current': 0.6762210130691528,
+    'wet': 0.6448971629142761
 }
 ```
 ### Integrate with OpenSearch
@@ -128,7 +128,7 @@ With this enhancement, inference-free retrievers significantly outperform baseli
 
 ### Usage in Sentence Transformers
 
-The IDF enhancement is built as a [module](https://github.com/arthurbr11/sentence-transformers/blob/feature_branch/sentence_transformers/sparse_encoder/models/IDF.py) in Sentence Transformers. Users can built inference-free sparse models with IDF enhancement through simply stacking the module.
+The IDF enhancement is built as a [module](https://github.com/arthurbr11/sentence-transformers/blob/sparse_implementation/sentence_transformers/sparse_encoder/models/SparseStaticEmbedding.py) in Sentence Transformers. Users can built inference-free sparse models with IDF enhancement through simply stacking the module.
 
 ```python
 from sentence_transformers import SparseEncoder, models
@@ -163,7 +163,8 @@ sparse_model = SparseEncoder(
 
 Achieving optimal balance between sparsity and relevance has been a persistent challenge for inference-free retrievers. The OpenSearch team addressed this by developing two novel ℓ0-inspired sparsification approaches[^2] (accepted to SIGIR 2025): ℓ0 Mask Loss, which excludes already-sparse documents from further regularization, and ℓ0 Approximation Activation, which uses log transformations to alter the penalty on tokens with lower activations.
 
-Models using these ℓ0-inspired techniques demonstrate superior performance while significantly improving efficiency and sparsity. The ℓ0 Mask Loss also streamlines the training process by eliminating the need for multiple attempts at tuning the flops lambda hyperparameter. Our [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill) model incorporates these enhancements, delivering state-of-the-art performance.
+Models using these ℓ0-inspired techniques demonstrate superior performance while significantly improving efficiency and sparsity. The ℓ0 Mask Loss also streamlines the training process by eliminating the need for multiple attempts at tuning the flops lambda hyperparameter.
+Our [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill), [doc-v3-gte](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte) model incorporates these enhancements, delivering state-of-the-art performance.
 
 ### Usage in Sentence Transformers
 
@@ -194,4 +195,4 @@ For more information about neural sparse search, see these previous blog posts:
 
 [^2]: Shen, X., Geng, Z., & Yang, Y. (2025). Exploring ℓ0 Sparsification for Inference-free Sparse Retrievers. SIGIR 2025. [https://arxiv.org/pdf/2504.14839](https://arxiv.org/pdf/2504.14839)
 
-[^3]: Available models: [doc-v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v1), [doc-v2-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill), [doc-v2-mini](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini), [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill), [multilingual-doc-v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-multilingual-v1)
+[^3]: Available models: [doc-v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v1), [doc-v2-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill), [doc-v2-mini](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini), [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill), [doc-v3-gte](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte), [multilingual-doc-v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-multilingual-v1)
