@@ -112,7 +112,7 @@ print(dict(doc_embedding))
 ```
 ### Integrate with OpenSearch
 
-After we get the sparse embedding using Sentence Transformers, it's quite easy to index and search these sparse embeddings using OpenSearch. See OpenSearch [documentation](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-raw-vectors/) for more details. We also provide example Python scripts to use OpenSearch with Sentence Transformers for both [sparse](http://github.com/arthurbr11/sentence-transformers/blob/feature_branch/examples/sparse_encoder/applications/semantic_search/semantic_search_opensearch.py) and [dense](https://github.com/UKPLab/sentence-transformers/blob/master/examples/sentence_transformer/applications/semantic-search/semantic_search_nq_opensearch.py) embeddings.
+After we get the sparse embedding using Sentence Transformers, it's quite easy to index and search these sparse embeddings using OpenSearch. See OpenSearch [documentation](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-raw-vectors/) for more details. We also provide example Python scripts to use OpenSearch with Sentence Transformers for both [sparse](https://github.com/UKPLab/sentence-transformers/blob/master/examples/sparse_encoder/applications/semantic_search/semantic_search_opensearch.py) and [dense](https://github.com/UKPLab/sentence-transformers/blob/master/examples/sentence_transformer/applications/semantic-search/semantic_search_nq_opensearch.py) embeddings.
 
 ## OpenSearch's Innovations in Sentence Transformers for Inference-free Models
 
@@ -128,7 +128,7 @@ With this enhancement, inference-free retrievers significantly outperform baseli
 
 ### Usage in Sentence Transformers
 
-The IDF enhancement is built as a [module](https://github.com/arthurbr11/sentence-transformers/blob/sparse_implementation/sentence_transformers/sparse_encoder/models/SparseStaticEmbedding.py) in Sentence Transformers. Users can built inference-free sparse models with IDF enhancement through simply stacking the module.
+The IDF enhancement is built as a [module](https://github.com/UKPLab/sentence-transformers/blob/v5.0-release/sentence_transformers/sparse_encoder/models/SparseStaticEmbedding.py) in Sentence Transformers. Users can built inference-free sparse models with IDF enhancement through simply stacking the module.
 
 ```python
 from sentence_transformers import SparseEncoder, models
@@ -168,7 +168,7 @@ Our [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural
 
 ### Usage in Sentence Transformers
 
-Both [ℓ0 Mask Loss](https://github.com/arthurbr11/sentence-transformers/blob/58ea46e18d13ee56b723a96c77abbaba876d63ce/sentence_transformers/sparse_encoder/losses/FlopsLoss.py#L24) and [ℓ0 Approximation Activation](https://github.com/arthurbr11/sentence-transformers/blob/58ea46e18d13ee56b723a96c77abbaba876d63ce/sentence_transformers/sparse_encoder/models/SpladePooling.py#L34) are integrated in Sentence Transformers models and training pipelines. Users can easily adopt these techniques through configuring parameters.
+Both [ℓ0 Mask Loss](https://github.com/UKPLab/sentence-transformers/blob/14afc4b6681f0b83bded05fe91a8fd3320d453f9/sentence_transformers/sparse_encoder/losses/FlopsLoss.py#L24) and [ℓ0 Approximation Activation](https://github.com/UKPLab/sentence-transformers/blob/14afc4b6681f0b83bded05fe91a8fd3320d453f9/sentence_transformers/sparse_encoder/models/SpladePooling.py#L34) are integrated in Sentence Transformers models and training pipelines. Users can easily adopt these techniques through configuring parameters.
 
 ```python
 # ℓ0 Mask Loss use threshold 150
