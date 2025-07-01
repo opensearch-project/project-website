@@ -14,4 +14,4 @@ permalink: '/community/members/arthur-bresnu.html'
 redirect_from: '/authors/arthurbr11/'
 ---
 
-**Arthur Bresnu** MLE Intern @ 🤗 working on Sentence Transformers
+**Arthur Bresnu** is an MLE intern at Hugging Face 🤗 working on sentence transformers.

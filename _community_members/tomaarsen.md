@@ -14,4 +14,4 @@ permalink: '/community/members/tom-aarsen.html'
 redirect_from: '/authors/tomaarsen/'
 ---
 
-**Tom Aarsen** Sentence Transformers, SetFit & NLTK maintainer, ML Engineer & Fellow @ 🤗Hugging Face
+**Tom Aarsen** is a Sentence Transformers, SetFit, and NLTK maintainer, ML Engineer and fellow @ Hugging Face 🤗.
