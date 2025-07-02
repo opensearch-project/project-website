@@ -125,8 +125,14 @@ We used diverse datasets and related OpenSearch Benchmark workloads to evaluate 
 
 We set up the OpenSearch cluster using the [OpenSearch Cluster CDK](https://github.com/opensearch-project/opensearch-cluster-cdk) with the following parameters:
 
-* 3 data nodes (varying instance types)
+* 3 data nodes using various EC2 instance types (C5.2xlarge, R5.xlarge, R5.4xlarge) running x64 architecture
 * 3 manager nodes (c5.xlarge EC2 instances)
+* All cluster nodes were deployed within a single AWS Availability Zone to minimize network latency effects
+
+We took several steps to ensure consistent and reliable benchmark results:
+
+* All index segments were force-merged before running the tests to eliminate background merge operations
+* We verified no other concurrent workloads were running on the cluster during testing
 
 We ingested documents into an index configured with:
 
