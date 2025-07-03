@@ -202,7 +202,7 @@ For more information about neural sparse search, see these previous blog posts:
 - [Improving document retrieval with sparse semantic encoders](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders)
 - [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12](https://opensearch.org/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12/)
 - [Introducing the neural sparse two-phase algorithm](https://opensearch.org/blog/Introducing-a-neural-sparse-two-phase-algorithm)
-- [Advancing Search Quality and Inference Speed with v2 Series Neural Sparse Models](https://opensearch.org/blog/neural-sparse-v2-models)
+- [Advancing search quality and inference speed with v2 series neural sparse models](https://opensearch.org/blog/neural-sparse-v2-models)
 
 ---
 
