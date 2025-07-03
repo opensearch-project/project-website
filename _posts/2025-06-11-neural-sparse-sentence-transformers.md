@@ -91,7 +91,7 @@ print(dict(query_embedding))
 
 #### Encode a document
 
-You can also encode documents the same way, optionally limiting the output to top-weighted tokens:
+You can also encode documents in the same way, optionally limiting the output to top-weighted tokens:
 
 ```python
 # First, use the encode method to convert text to torch.sparse_coo tensor
