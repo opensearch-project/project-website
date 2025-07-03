@@ -6,7 +6,7 @@ title: 'OpenSearch Community Member: Tom Aarsen'
 primary_title: Tom Aarsen
 
 github: tomaarsen
-job_title_and_company: 'Sentence Transformers, SetFit & NLTK maintainer, ML Engineer & Fellow @ 🤗Hugging Face'
+job_title_and_company: 'Sentence Transformers, SetFit & NLTK maintainer, ML Engineer, and Fellow @ 🤗Hugging Face'
 personas:
   - author
 
