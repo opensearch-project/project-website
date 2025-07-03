@@ -183,7 +183,7 @@ Hugging Face's [doc-v3-distill](https://huggingface.co/opensearch-project/opense
 
 #### How to apply ℓ0-inspired sparsification in Sentence Transformers
 
-Both [ℓ0 mask loss](https://github.com/UKPLab/sentence-transformers/blob/14afc4b6681f0b83bded05fe91a8fd3320d453f9/sentence_transformers/sparse_encoder/losses/FlopsLoss.py#L24) and [ℓ0 Approximation Activation](https://github.com/UKPLab/sentence-transformers/blob/14afc4b6681f0b83bded05fe91a8fd3320d453f9/sentence_transformers/sparse_encoder/models/SpladePooling.py#L34) are integrated in Sentence Transformers models and training pipelines. You can easily adopt these techniques through configuring the following parameters:
+Both [ℓ0 mask loss](https://github.com/UKPLab/sentence-transformers/blob/14afc4b6681f0b83bded05fe91a8fd3320d453f9/sentence_transformers/sparse_encoder/losses/FlopsLoss.py#L24) and [ℓ0 Approximation Activation](https://github.com/UKPLab/sentence-transformers/blob/14afc4b6681f0b83bded05fe91a8fd3320d453f9/sentence_transformers/sparse_encoder/models/SpladePooling.py#L34) are integrated in Sentence Transformers models and training pipelines. You can easily adopt these techniques by configuring the following parameters:
 
 ```python
 # ℓ0 Mask Loss use threshold 150
