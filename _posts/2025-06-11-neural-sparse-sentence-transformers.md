@@ -137,7 +137,7 @@ You can also explore example scripts for working with the following embedding ty
 
 OpenSearch is driving innovation in learned sparse retrieval. Our research into inference-free sparse encoders [^1][^2] is increasingly adopted as standard practice across the industry. The following techniques have now been integrated into the Sentence Transformers library, making them more accessible to the broader community.
 
-### IDF-aware Penalty: Enhancing Relevance and Efficiency
+### IDF-aware penalty: Enhancing relevance and efficiency
 
 Traditional sparse retrievers apply uniform penalties to all tokens during training, ignoring the varying importance of different terms. To address this limitation, OpenSearch researchers introduced IDF-aware penalty[^1], which modulates the penalty based on token significance. This approach applies stronger penalties to common tokens while preserving rare, information-rich tokens that carry more distinctive meaning.
 
