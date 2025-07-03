@@ -135,7 +135,7 @@ You can also explore example scripts for working with the following embedding ty
 
 ## OpenSearch's contributions to inference-free models in Sentence Transformers
 
-The OpenSearch team is leading innovation in learned sparse retrieval. Our research in inference-free sparse encoders [^1][^2] is increasingly adopted as standard practice across the industry. The following techniques have now been integrated into the Sentence Transformers library, making them more accessible to the broader community.
+OpenSearch is driving innovation in learned sparse retrieval. Our research into inference-free sparse encoders [^1][^2] is increasingly adopted as standard practice across the industry. The following techniques have now been integrated into the Sentence Transformers library, making them more accessible to the broader community.
 
 ### IDF-aware Penalty: Enhancing Relevance and Efficiency
 
