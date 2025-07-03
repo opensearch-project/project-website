@@ -21,7 +21,7 @@ OpenSearch's neural sparse search transforms text into sparse token-weight pairs
 
 The [Sentence Transformers](https://github.com/UKPLab/sentence-transformers) (also known as SBERT) library, developed by [UKPLab](https://www.tu-darmstadt.de/) and maintained by [Hugging Face](https://huggingface.co/), is a Python framework designed to generate semantically meaningful embeddings for sentences, paragraphs, and images. The library is now widely adopted in natural language processing (NLP) tasks such as semantic search, clustering, paraphrase mining, and retrieval-augmented generation.
 
-We are thrilled to announce that, through a collaborative effort between the OpenSearch and Hugging Face teams, neural sparse models are now available in the Sentence Transformers library. You can now encode sentences into sparse vectors within the same framework. This collaboration establishes OpenSearch as an officially supported vector search engine for both dense and sparse vector operations.
+We are thrilled to announce that, through a collaborative effort between OpenSearch and Hugging Face, neural sparse models are now available in the Sentence Transformers library. You can now encode sentences into sparse vectors within the same framework. This collaboration establishes OpenSearch as an officially supported vector search engine for both dense and sparse vector operations.
 
 <img src="/assets/media/blog-images/2025-06-11-neural-sparse-sentence-transformers/image.png"/>
 
