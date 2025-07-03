@@ -179,7 +179,7 @@ sparse_model = SparseEncoder(
 Achieving optimal balance between sparsity and relevance has been a persistent challenge for inference-free retrievers. OpenSearch addressed this by developing two novel ℓ0-inspired sparsification approaches[^2] (accepted to SIGIR 2025): ℓ0 mask loss, which excludes already-sparse documents from further regularization, and ℓ0 Approximation Activation, which uses log transformations to alter the penalty on tokens with lower activations.
 
 Models using these ℓ0-inspired techniques demonstrate superior performance while significantly improving efficiency and sparsity. The ℓ0 mask loss also streamlines the training process by eliminating the need for multiple attempts at tuning the FLOPS lambda hyperparameter.
-Our [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill) and [doc-v3-gte](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte) models incorporate these enhancements, delivering state-of-the-art performance.
+Hugging Face's [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill) and [doc-v3-gte](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte) models incorporate these enhancements, delivering state-of-the-art performance.
 
 #### How to apply ℓ0-inspired sparsification in Sentence Transformers
 
