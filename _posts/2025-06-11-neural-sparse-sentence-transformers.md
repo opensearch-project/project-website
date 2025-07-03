@@ -43,7 +43,7 @@ pip install sentence-transformers==5.0.0
 
 ### Step 2: Initialize a neural sparse model
 
-Import the SparseEncoder class and load a pretrained model. You can find more models in OpenSearch's [Hugging Face repo](https://huggingface.co/opensearch-project):
+Import the SparseEncoder class and load a pretrained model. You can find more models in OpenSearch's [Hugging Face repository](https://huggingface.co/opensearch-project):
 
 ```python
 # Here we initialize a model directly from model_id.
