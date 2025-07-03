@@ -139,9 +139,9 @@ OpenSearch is driving innovation in learned sparse retrieval. Our research into 
 
 ### IDF-aware penalty: Enhancing relevance and efficiency
 
-Traditional sparse retrievers apply uniform penalties to all tokens during training, ignoring the varying importance of different terms. To address this limitation, OpenSearch researchers introduced IDF-aware penalty[^1], which modulates the penalty based on token significance. This approach applies stronger penalties to common tokens while preserving rare, information-rich tokens that carry more distinctive meaning.
+Traditional sparse retrievers apply uniform penalties to all tokens during training, ignoring the varying importance of different terms. To address this limitation, OpenSearch researchers introduced the IDF-aware penalty[^1], which scales penalty strength inversely with token frequency.
 
-With this enhancement, inference-free retrievers significantly outperform baselines on zero-shot retrieval. The IDF-aware penalty also improves search efficiency by reducing average FLOPs on inverted indexes. Importantly, this enhancement serves as a prerequisite for implementing the powerful [two-phase search](https://opensearch.org/blog/Introducing-a-neural-sparse-two-phase-algorithm) methodology. All inference-free models[^3] released by our team incorporate this enhancement.
+With this enhancement, inference-free retrievers significantly outperform baselines on zero-shot retrieval. The IDF-aware penalty also improves search efficiency by reducing average FLOPs on inverted indexes. Importantly, this enhancement serves as a prerequisite for implementing the powerful [two-phase search](https://opensearch.org/blog/Introducing-a-neural-sparse-two-phase-algorithm) methodology. All inference-free models[^3] released by OpenSearch incorporate this enhancement.
 
 #### How to apply the IDF-aware penalty in Sentence Transformers
 
