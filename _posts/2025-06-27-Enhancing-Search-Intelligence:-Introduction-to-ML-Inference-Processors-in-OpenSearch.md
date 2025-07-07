@@ -1,52 +1,52 @@
 ---
 layout: post
-title: "Unlocking agentic AI experiences with OpenSearch"
+title: "Introduction to ML inference processors in OpenSearch: Review summarization and semantic search"
 authors:
-  - mingshil
+  - mingshiliu
+  - kolchfa
 date: 2025-06-27
 categories:
   - technical-posts
 meta_keywords: ML Inference Processors, Semantic Search, Search Summarization , LLM integration,
-meta_description: Introduction to ML inference processors. This guide demonstrates setup and configuration and provides usage examples for semantic search and summarization.
+meta_description: Learn how to use ML inference processors to implement semantic search and summarization in OpenSearch.
 ---
-# Enhancing Search Intelligence: Introduction to ML Inference Processors in OpenSearch - Review Summarization and Semantic Search Use Case
 
-## Introduction
+In an era of AI revolutionizing how we interact with information, traditional keyword-based search has become increasingly insufficient. Users expect search engines to understand context, interpret natural language, and deliver intelligent results, so the ability to integrate machine learning (ML) capabilities directly into search operations has become increasingly crucial. OpenSearch's ML inference processors solve this problem by allowing seamless integration of ML models into your ingest and search workflows. Whether you're building a next-generation enterprise search platform or enhancing your existing search infrastructure with AI capabilities, ML inference processors provide the foundation for intelligent search experiences that meet modern user expectations.
 
-In an era where AI is revolutionizing how we interact with information, traditional keyword-based search has become increasingly insufficient. Users expect search engines to understand context, interpret natural language, and deliver intelligent results, the ability to integrate machine learning capabilities directly into search operations has become increasingly crucial. OpenSearch's Machine Learning(ML) inference processors provide a powerful solution to this need, allowing seamless integration of machine learning models into your ingest and search workflows. Whether you're looking to enhance search relevance, implement semantic search, or add intelligent document processing, ML inference processors offer a flexible and efficient approach. Whether you're building a next-generation enterprise search platform or enhancing your existing search infrastructure with AI capabilities, ML inference processors provide the foundation for intelligent search experiences that meet modern user expectations.
-
-## What are ML Inference Processors?
+## What are ML inference processors?
 
 OpenSearch provides three types of ML inference processors, each serving a specific purpose in the ingest pipeline or search pipeline:
 
-* ML Inference Ingest Processors: (Released 2.14): These processors run model inference during document indexing, allowing you to enrich or transform documents with ML model predictions before they're stored. For example, you could generate text embeddings or add sentiment labels to documents during indexing.
-* ML Search Request Processors: (Released 2.16): These processors run model inference while operating on search queries before they're executed, enabling query enhancement or transformation. They can rewrite queries based on ML model output, making them particularly useful for query understanding and expansion.
-* ML Search Response Processors(Released 2.16): These processors run model inference and enriched search results before they're returned to the user, enabling features like result reranking or adding ML-generated summaries to search results.
+* **ML inference ingest processors** (released 2.14): These processors run model inference during document indexing, allowing you to use ML models to enrich or transform documents before they're stored. For example, you can generate text embeddings or add sentiment labels to documents during indexing.
+* **ML search request processors** (released 2.16): These processors run model inference on search queries before they're executed, enabling query enhancement or transformation. They can rewrite queries based on ML model output, making them particularly useful for query understanding and expansion.
+* **ML search response processors** (released 2.16): These processors run model inference to enrich search results before they're returned to the user, enabling features like result reranking or adding ML-generated summaries to search results.
 
-## Key Benefits
+## Key benefits
 
-1. Flexibility: Support for both local and external ML models
-2. Real-time Processing: ML inference happens during ingest and search operations
-3. Customizable: Extensive configuration options for input/output mapping
-4. Easy-to-apply: Configure once in the search/ingest pipeline, auto applies in every ingest/search operations
+ML inference processors offer the following key benefits:
 
-## Common Use Cases
+- Flexibility: Support for both local and external ML models.
+- Real-time processing: ML inference occurs during ingest and search operations.
+- Customization: Extensive configuration options for input/output mapping.
+- Ease of use: Once you configure ML inference processors in the search/ingest pipeline, they are applied automatically to every ingest/search operation.
+
+## Common use cases
 
 ML inference processors enable various advanced search capabilities:
 
-* Semantic Search: Generate and search with text embeddings
-* Multi-Modal Search: Combine text and image features
-* Query Understanding: Enhance queries with ML-based understanding
-* Result Ranking: Improve result relevance using ML models
-* Document Enrichment: Add ML-generated metadata during indexing
+* Semantic search: Generate and search documents using text embeddings.
+* Multimodal search: Combine text and image search.
+* Query understanding: Enhance queries with ML-based understanding.
+* Result ranking: Improve result relevance using ML models.
+* Document enrichment: Add ML-generated metadata during indexing.
 
-## A Simple Example: Search And Summarization Pipeline
+## Geting started: Search and summarization pipeline
 
-Let's walk through a practical example of using ML inference search response processors to implement semantic search with text embedding model and generate summarization with Large Language Model(LLM). 
+Let's walk through a practical example of using ML inference search response processors to implement semantic search using a text embedding model and generate summarization using a large language model (LLM). 
 
-### Step 1:  Register models in OpenSearch
+### Step 1: Register models in OpenSearch
 
-We would need a text embedding model and a large language model for summarization, in this example, we would use amazon.titan-embed-text-v2:0  and  us.anthropic.claude-3-7-sonnet-20250219-v1:0 . 
+First, you need to register two models: a text embedding model for generating embeddings and an LLM for summarization. In this example, you'll use the `amazon.titan-embed-text-v2:0` text embedding model and the `us.anthropic.claude-3-7-sonnet-20250219-v1:0` LLM. 
 
 Register a text embedding model: 
 
@@ -62,7 +62,7 @@ POST /_plugins/_ml/connectors/_create
     "version": 1,
     "protocol": "aws_sigv4",
     "parameters": {
-        "region": "{{aws_region}}",
+        "region": "{% raw %}{{aws_region}}{% endraw %}",
         "service_name": "bedrock",
         "model": "amazon.titan-embed-text-v2:0",
         "dimensions": 1024,
@@ -70,9 +70,9 @@ POST /_plugins/_ml/connectors/_create
         "embeddingTypes": ["float"]
     },
     "credential": {
-        "access_key": "{{access_key}}",
-        "secret_key": "{{secret_key}}",
-        "session_token": "{{session_token}}"
+        "access_key": "{% raw %}{{access_key}}{% endraw %}",
+        "secret_key": "{% raw %}{{secret_key}}{% endraw %}",
+        "session_token": "{% raw %}{{session_token}}{% endraw %}"
     },
     "actions": [
         {
@@ -91,7 +91,7 @@ POST /_plugins/_ml/connectors/_create
 }
 ```
 
-Note the model id from response:
+Note the model ID in the response; you'll use it in the following steps:
 
 ```json
 {
@@ -99,11 +99,9 @@ Note the model id from response:
     "status": "CREATED",
     "model_id": "B0fyvJcBIkSrvQFRJf_j"
 }
-
 ```
 
-Sample Prediction
-This model is expected model input schema as follow:
+This model requires the following model input schema. To generate embeddings from input text, run the following request. Provide the model ID of the text embedding model in the request:
 
 ```json 
 POST /_plugins/_ml/models/B0fyvJcBIkSrvQFRJf_j/_predict
@@ -112,10 +110,9 @@ POST /_plugins/_ml/models/B0fyvJcBIkSrvQFRJf_j/_predict
     "inputText": "cute women jacket"
   }
 }
-
 ```
 
-Note the model output schema from response:
+Note the model output schema in the response:
 
 ```json 
 {
@@ -145,9 +142,9 @@ Note the model output schema from response:
         }
     ]
 }
-
 ```
-Register a llm model:
+
+Next, register the LLM:
 
 ```json 
 POST /_plugins/_ml/connectors/_create
@@ -161,7 +158,7 @@ POST /_plugins/_ml/connectors/_create
     "version": 1,
     "protocol": "aws_sigv4",
     "parameters": {
-        "region": "{{aws_region}}",
+        "region": "{% raw %}{{aws_region}}{% endraw %}",
         "service_name": "bedrock",
         "max_tokens": 8000,
         "temperature": 1,
@@ -169,9 +166,9 @@ POST /_plugins/_ml/connectors/_create
         "model": "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
     },
     "credential": {
-        "access_key": "{{access_key}}",
-        "secret_key": "{{secret_key}}",
-        "session_token": "{{session_token}}"
+        "access_key": "{% raw %}{{access_key}}{% endraw %}",
+        "secret_key": "{% raw %}{{secret_key}}{% endraw %}",
+        "session_token": "{% raw %}{{session_token}}{% endraw %}"
     },
     "actions": [
         {
@@ -186,10 +183,9 @@ POST /_plugins/_ml/connectors/_create
     ]
   }
 }
-
 ```
 
-Note the model id from response:
+Note the model ID in the response:
 
 ```json
 {
@@ -197,12 +193,9 @@ Note the model id from response:
     "status": "CREATED",
     "model_id": "A0favJcBIkSrvQFRP_-N"
 }
-
 ```
 
-Sample Prediction
-This model is expected model input schema as follow:
-
+This model requires the following model input schema:
 
 ```json 
 POST /_plugins/_ml/models/A0favJcBIkSrvQFRP_-N/_predict
@@ -222,10 +215,9 @@ POST /_plugins/_ml/models/A0favJcBIkSrvQFRP_-N/_predict
         ]
     }
 }
-
 ```
 
-Note the model output schema from response:
+Note the model output schema in the response:
 
 
 ```json 
@@ -260,15 +252,14 @@ Note the model output schema from response:
         }
     ]
 }
-
 ```
 
-### Step 1: Create ingest pipeline
-Now we can create an ingest pipeline with ml inference ingest processor using the embedding model id that you create above. This ingest pipeline will take each `review-text` field mapped to inputText field sending to embedding model, get the `embedding` field from model prediction, and add `review_embedding` field to you ingested document.
+### Step 2: Create an ingest pipeline
+
+Next, create an ingest pipeline that automatically generates embeddings for your documents. This pipeline uses an ML inference processor to extract text from the `review_text` field in each incoming document, send that text to your registered text embedding model, retrieve the generated embedding from the model's response, and add the embedding to the document as a new `review_embedding` field:
 
 ```json 
 PUT /_ingest/pipeline/titan_embedding_pipeline
-
 {
   "description": "Generate review_embedding for ingested documents",
   "processors": [
@@ -289,13 +280,12 @@ PUT /_ingest/pipeline/titan_embedding_pipeline
     }
   ]
 }
-
 ```
 
-Create the index binding with the titan_embedding_pipeline ingest pipeline with knn index defined:
+Create an index that automatically applies the embedding pipeline to all ingested documents and configures a k-NN search:
+
 ```json
 PUT /product-search-and-summarize
-
 {
   "settings": {
     "index": {
@@ -313,13 +303,13 @@ PUT /product-search-and-summarize
     }
   }
 }
-
 ```
-### Step 2: Ingest sample document
+### Step 3: Ingest sample documents
 
-Now we can index product_review documents:
+Index sample product review documents to test the pipeline. The embeddings are generated automatically:
 
 ```json
+POST /_bulk
 {
   "index": {
     "_index": "clothing_reviews",
@@ -358,18 +348,21 @@ Now we can index product_review documents:
   "department_name": "Jackets",
   "class_name": "Jackets"
 }
-
 ```
 
-### Step 3: Setting up Search Pipeline
-To enhance search queries, we'll create a search pipeline that generates summary during search response, use the model_id created.
-The ml_inference search request processor is configured to rewrite the match query into a kNN query using the `review_embedding` field. It maps the `query.match.review_text.query` to the `inputText` parameter for the embedding model, which generates a vector representation of the review text. The output of this processor is stored in `embedding`, which is then used in the kNN query to find similar reviews based on their embeddings.
-The ml_inference search response processor configuration establishes a three-part mapping process for generating summaries using ML inference. First, the input_map takes the `review_text` field from each search result and maps it to a context variable for the model. Then, the `model_config` formats this input into a structured `messages` for the Claude model, using `${parameters.context}` as a placeholder for the actual review text. Finally, the output_map directs the model's response (found at `content[0].text` in Claude's output) to be stored in `review_summary` in the search results. This complete flow allows the pipeline to automatically process search results through the ML model and attach generated summaries to the response, all configured through a single pipeline definition.
+### Step 4: Configure a search pipeline
+
+To enhance search queries, you'll create a search pipeline that generates a summary of a search response using the configured LLM.
+
+The `ml_inference` search request processor is configured to rewrite the match query into a k-NN query using the `review_embedding` field. It maps the `query.match.review_text.query` to the `inputText` parameter for the embedding model, which generates a vector representation of the review text. The output of this processor is stored in `embedding`, which is then used in the k-NN query to find similar reviews based on their embeddings.
+
+The `ml_inference` search response processor configuration establishes a three-part mapping process for generating summaries using ML inference. First, the `input_map` takes the `review_text` field from each search result and maps it to a context variable for the model. Then the `model_config` formats this input into a structured `messages` for the Claude model, using `${parameters.context}` as a placeholder for the actual review text. Finally, the `output_map` directs the model's response (found at `content[0].text` in Claude's output) to be stored in `review_summary` in the search results. This complete flow allows the pipeline to automatically process search results through the ML model and attach generated summaries to the response, all configured through a single pipeline definition.
+
+Create a search pipeline that combines semantic search with automatic summarization by configuring both request and response processors:
 
 
 ```json
 PUT /_search/pipeline/summarization_pipeline
-
 {
     "description": "conduct semantic search for product review and summarize reviews",
     "request_processors": [
@@ -418,16 +411,14 @@ PUT /_search/pipeline/summarization_pipeline
         }
     ]
 }
-
 ```
 
-### Step 4: Search documents
+### Step 5: Search the documents
 
-Finally, we can perform searches using our ML-enhanced pipeline:
+You can now run searches using your ML-enhanced pipeline. Run a semantic search query that will automatically convert your natural language question into vector embeddings and find similar reviews:
 
 ```json
 GET /product-search-and-summarize/_search?search_pipeline=summarization_search_pipeline
-
 {
     "query": {
         "match": {
@@ -437,7 +428,7 @@ GET /product-search-and-summarize/_search?search_pipeline=summarization_search_p
 }
 ```
 
-Now, the search response not only return the documents related to the natural language question, but also summarize the long review_text showing in review_summary field in 20 words:
+The search response returns semantically relevant documents along with AI-generated summaries in the `review_summary` field, demonstrating both the vector similarity matching and automatic text summarization:
 
 ```json
 {
@@ -515,22 +506,16 @@ Now, the search response not only return the documents related to the natural la
 
 ```
 
-### Conclusion
-ML inference processors in OpenSearch represent a significant leap forward in search technology, bridging the gap between traditional search capabilities and modern AI-powered experiences. Through the practical example demonstrated in this post, we've seen how these processors can seamlessly integrate embedding models for semantic search and LLMs for review summarization, creating a more intelligent and user-friendly search experience.
+## Conclusion
 
-The combination of ingest-time processing for embeddings and search-time processing for summarization showcases the flexibility and power of OpenSearch's ML inference processors. This architecture not only improves search relevance but also enhances the user experience by providing concise, meaningful summaries of search results.
+ML inference processors in OpenSearch represent a significant leap forward in search technology, bridging the gap between traditional keyword-based search and modern AI-powered experiences. Through the practical example demonstrated in this post, you've seen how these processors can seamlessly integrate embedding models for semantic search and LLMs for content summarization, creating a more intelligent and user-friendly search experience.
 
-As organizations continue to deal with growing volumes of unstructured data, the ability to leverage ML models directly within search operations becomes increasingly valuable. OpenSearch's ML inference processors provide a robust foundation for building next-generation search applications that can understand context, interpret user intent, and deliver more meaningful results.
+The combination of ingest-time processing for embeddings and search-time processing for summarization showcases the flexibility and power of OpenSearch's ML inference processors. This architecture not only improves search relevance through vector similarity matching but also enhances the user experience by providing concise, AI-generated summaries of search results.
 
-Whether you're looking to enhance product discovery, improve document search, or create more sophisticated search experiences, ML inference processors offer a powerful and practical solution that can be implemented today. As the technology continues to evolve, we can expect even more innovative applications that further bridge the gap between traditional search and AI-powered information retrieval.
+## Next steps
 
-### Related Resources:
+For more information about ML inference processors, see [ML inference processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ml-inference/), [ML inference search request processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/ml-inference-search-request/), and [ML inference search response processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/ml-inference-search-response/) documentation.
 
-Here is the list of tutorials for common use case, if you have build up other use cases using ml inference processors, feel free to contribute to the following Github folder.
+For a specific use case, see [Semantic search tutorials](https://docs.opensearch.org/docs/latest/tutorials/vector-search/semantic-search/index/) documentation.
 
-* Semantic Search with Long Document Tutorial: https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/ml_inference/semantic_search/semantic_search_for_long_document.md
-* Integrating Cohere compression embedding Tutorial: https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/ml_inference/semantic_search/optimize_vector_search_with_cohere_compressed_embedding.md
-*  Asymmetric Semantic Search within OpenSearch Tutorial: https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/ml_inference/semantic_search/asymmetric_embedding_model.md
-* Rerank Search Result with Cohere Rerank Model Tutorial: https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/ml_inference/rerank/ml_Inference_with_Cohere_Rerank_model.md
-* Multi-modal Search Tutorial https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/ml_inference/semantic_search/bedrock_titan_multi-modal_embedding_model.md
-
+We welcome your contributions: if you have a use case to share, consider adding a tutorial for it to the documentation.
