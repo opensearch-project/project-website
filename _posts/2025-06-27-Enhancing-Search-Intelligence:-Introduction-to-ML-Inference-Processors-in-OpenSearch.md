@@ -2,7 +2,7 @@
 layout: post
 title: "Introduction to ML inference processors in OpenSearch: Review summarization and semantic search"
 authors:
-  - mingshiliu
+  - mingshl
   - kolchfa
 date: 2025-06-27
 categories:
