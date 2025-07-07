@@ -40,7 +40,7 @@ ML inference processors enable various advanced search capabilities:
 * Result ranking: Improve result relevance using ML models.
 * Document enrichment: Add ML-generated metadata during indexing.
 
-## Geting started: Search and summarization pipeline
+## Getting started: Search and summarization pipeline
 
 Let's walk through a practical example of using ML inference search response processors to implement semantic search using a text embedding model and generate summarization using a large language model (LLM). 
 
@@ -53,9 +53,9 @@ Register a text embedding model:
 ```json
 POST /_plugins/_ml/connectors/_create
 {
-  "name": "Amazon Bedrock: claude-3-7-sonnet-20250219-v1:0",
+  "name": "Amazon Bedrock: amazon.titan-embed-text-v2:0",
   "function_name": "remote",
-  "description": "claude-3-7-sonnet-20250219-v1:0 model to generate review summary",
+  "description": "amazon.titan-embed-text-v2:0 model to generate embeddings",
   "connector": {
     "name": "Amazon Bedrock Connector: embedding",
     "description": "The connector to bedrock Titan embedding model",
