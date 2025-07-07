@@ -15,41 +15,43 @@ meta_description: OpenSearch 3.1 delivers up to 3.8x faster hybrid query through
 has_science_table: true
 ---
 
-Hybrid queries combine the precision of traditional lexical search with the semantic power of vector search. In OpenSearch 3.1, we’ve delivered significant latency reductions for hybrid queries by redesigning how scores are collected across sub-queries. This improvement builds on the concurrent segment search capabilities already present in OpenSearch and introduces a low-level, efficient bulk scorer tailored for hybrid workloads.
+Hybrid queries combine the precision of traditional lexical search with the semantic power of vector search. In OpenSearch 3.1, we've delivered significant latency reductions for hybrid queries by redesigning how scores are collected across subqueries. This improvement builds on the concurrent segment search capabilities already present in OpenSearch and introduces a low-level, efficient bulk scorer tailored for hybrid workloads.
 
 ### Background: Bottleneck in hybrid scoring
 
-The new score collection enhances performance through optimized parallel execution and efficient score aggregation across query branches. Prior to 3.1, it worked as follows:
+Prior to OpenSearch 3.1, score collection worked as follows:
 
-* each query branch (for example, a `match` clause and a `neural` clause) had to score documents separately.
-* score collection was performed in a serialized manner, even though the OpenSearch core already supported concurrent segment-level search.
-* sub-query scorers introduced additional overhead due to redundant control logic and per-document operations.
+* Each query branch (for example, a `match` clause and a `neural` clause) scored documents separately.
+* Score collection was performed in a serialized manner, even though the OpenSearch core already supported concurrent segment-level search.
+* Subquery scorers introduced additional overhead because of redundant control logic and per-document operations.
+
+The new score collection enhances performance by using optimized parallel execution and efficient score aggregation across query branches. 
 
 ### Optimization: Smarter score collection and batch processing
 
-In OpenSearch 3.1, we introduced a **custom bulk scorer** for hybrid queries. This scorer is designed to work with OpenSearch’s **concurrent segment search**, where different segments of an index are searched in parallel by design. Our focus was on minimizing overhead within each segment’s execution.
+In OpenSearch 3.1, we introduced a **custom bulk scorer** for hybrid queries. This scorer is designed to work with OpenSearch's **concurrent segment search**, in which different segments of an index are searched in parallel by design. Our focus was on minimizing overhead within each segment's execution.
 
-Key improvements include:
+To achieve this goal, we introduced the following key improvements:
 
-* **Single leaf collector** per segment: Sub-query scorers now share one leaf collector instance, eliminating redundant score collection infrastructure and improving cache locality.
-* **Small batch processing**: Scorer processes documents in small, fixed-size windows (for example, 4096 documents at a time), allowing strict loops with reduced memory overhead.
-* **Bit set merging**: Document IDs across sub-query scorers are tracked using efficient bit sets, which reduce memory allocations and simplify score merging.
-* **Low-level control flow**: We replaced priority queues and dynamic collections with arrays and preallocated structures to minimize GC pressure and avoid runtime branching.
+* **Single leaf collector** per segment: Subquery scorers now share one leaf collector instance, eliminating redundant score collection infrastructure and improving cache locality.
+* **Small batch processing**: The scorer processes documents in small, fixed-size windows (for example, 4096 documents at a time), allowing strict loops with reduced memory overhead.
+* **Bit set merging**: Document IDs across subquery scorers are tracked using efficient bit sets, which reduce memory allocations and simplify score merging.
+* **Low-level control flow**: We replaced priority queues and dynamic collections with arrays and preallocated structures to minimize garbage collection pressure and avoid runtime branching.
 
-The following diagram shows the high-level architecture of the hybrid query execution path before and after introducing the custom bulk scorer:
+The following diagram shows the high-level architecture of the hybrid query execution path before and after introducing the custom bulk scorer.
 
 ![Custom bulk scorer - flow diagram](/assets/media/blog-images/2025-06-27-hybrid-query-performance-31/custom_bulk_scorer_flow_diagram.png)
 
-This design allows hybrid queries to leverage the natural parallelism of OpenSearch's indexing structure (segments) without introducing thread-level concurrency within scorers, which often adds more overhead than benefit.
+This design allows hybrid queries to use the natural parallelism of OpenSearch's indexing structure (segments) without introducing thread-level concurrency within scorers, which often adds more overhead than benefit.
 
 ### Implementation details
 
-Our custom bulk scorer operates on the principle of coordinated iteration across multiple sub-query scorers. Here's how it works:
+Our custom bulk scorer operates on the principle of coordinated iteration across multiple subquery scorers. Here's how it works:
 
-* **Document ID discovery**: For each segment, we first identify candidate document IDs that match at least one sub-query.
+* **Document ID discovery**: For each segment, we first identify candidate document IDs that match at least one subquery.
 * **Batch processing**: Rather than processing documents one at a time, we collect them in fixed-size batches. We chose a batch size of 2^12 = 4096, which provides an optimal balance between frequency of score collection and memory usage.
-* **Coordinated scoring**: For each batch, we score all matching documents across all sub-queries in a tightly optimized loop, maintaining better cache locality.
-* **Score combination**: Within the same iteration, scores from different sub-queries are combined according to the hybrid query's weight settings.
+* **Coordinated scoring**: For each batch, we score all matching documents across all subqueries in a tightly optimized loop, maintaining better cache locality.
+* **Score combination**: Within the same iteration, scores from different subqueries are combined according to the hybrid query's weight settings.
 
 This approach minimizes the overhead of document iteration while maximizing the benefits of OpenSearch's segment-level concurrency model.
 
@@ -79,15 +81,15 @@ We evaluated the improved hybrid scorer against OpenSearch 3.0 using diverse wor
 |  |  | p99 | 407 | 799 | 49% |
 
 
-These gains were consistent under both benchmark and steady-load conditions (25 QPS), with performance improving even further when concurrent segment search was enabled.
+These gains were consistent under both benchmark and steady-load conditions (25 queries per second), with performance improving even further when concurrent segment search was enabled.
 
 Tail latencies (p99) improved by up to 49 percent even on large instances, making hybrid search more reliable under high load.
 
-The following graph highlights improvements in response times for different datasets and query types:
+The following graph presents the improvements in response times for different datasets and query types.
 
 ![Bar chart showing performance improvements](/assets/media/blog-images/2025-06-27-hybrid-query-performance-31/bar_chart_performance_improvements.jpg)
 
-New bulk scorer positively impacts system throughput. Following table shows improvements in search throughput depending on type of machine used as data nodes.
+The new bulk scorer positively impacts system throughput. The following table shows improvements in search throughput depending on the type of machine used as a data node.
 
 | Dataset | Instance type | Query complexity | Throughput gain |
 |---------|----------------|------------------|------------------|
@@ -102,26 +104,26 @@ New bulk scorer positively impacts system throughput. Following table shows impr
 |  | R5.4xlarge | 1 keyword query, 10M matches | 63% |
 |  | R5.4xlarge | 3 keyword queries, 15M matches | 151% |
 
-The following graph illustrates these throughput improvements:
+The following graph illustrates these throughput improvements.
 
 ![Throughput bar chart](/assets/media/blog-images/2025-06-27-hybrid-query-performance-31/hybrid_query_throughput_improvement.png)
 
 ### Scaling behavior: Better utilization, more predictable performance
 
-The improved scorer not only speeds up individual queries—it also scales more gracefully with increased hardware. On larger instances such as R5.4xlarge:
+The improved scorer not only speeds up individual queries; it also scales more gracefully with increased hardware. On larger instances such as R5.4xlarge, we observed the following performance improvements:
 
-* Throughput for hybrid queries with multiple keyword-based sub-queries increased by 234 percent over 3.0 when concurrent segment search was enabled.
-* Hybrid and complex hybrid queries showed up to 27 percent improvement in throughput.
-* p99 latency was reduced by over 60 percent for most complex cases.
+* **Throughput** for hybrid queries with multiple keyword-based subqueries **increased by 234 percent** in OpenSearch 3.1 compared to 3.0 when concurrent segment search was enabled.
+* Hybrid and complex hybrid queries showed up to **27 percent improvement in throughput**.
+* p99 **latency was reduced by over 60 percent** for most complex cases.
 
 These results suggest that the custom scorer improves core efficiency rather than simply consuming more hardware.
 
 ### How we ran benchmarks
 
-We used diverse datasets and related OpenSearch Benchmark workloads to evaluate performance of the new solution with the custom bulk scorer.
+We used diverse datasets and related OpenSearch Benchmark workloads to evaluate the performance of the new solution with the custom bulk scorer:
 
-* **AI Search** workload, based on the Quora dataset, includes semantic and hybrid queries with both text and vector data.
-* **Semantic Search** workload, based on the NOAA dataset, includes hybrid queries over lexical and numeric fields.
+* **AI search workload**: Based on the Quora dataset, includes semantic and hybrid queries with both text and vector data.
+* **Semantic search workload**: Based on the NOAA dataset, includes hybrid queries over lexical and numeric fields.
 
 We set up the OpenSearch cluster using the [OpenSearch Cluster CDK](https://github.com/opensearch-project/opensearch-cluster-cdk) with the following parameters:
 
@@ -132,9 +134,9 @@ We set up the OpenSearch cluster using the [OpenSearch Cluster CDK](https://gith
 We took several steps to ensure consistent and reliable benchmark results:
 
 * All index segments were force-merged before running the tests to eliminate background merge operations
-* We verified no other concurrent workloads were running on the cluster during testing
+* We verified that no other concurrent workloads were running on the cluster during testing
 
-We ingested documents into an index configured with:
+We ingested documents into an index configured as follows:
 
 * `number_of_shards`: 6  
 * `number_of_segments`: 8 (per shard; total = 48)
@@ -143,8 +145,8 @@ We ingested documents into an index configured with:
 
 These improvements lay the groundwork for further innovation in hybrid search, including:
 
-* Adaptive batch sizing based on query complexity and segment size
-* Collecting scores in parallel within an OpenSearch segment for each sub-query
+* Adaptive batch sizing based on query complexity and segment size.
+* Collecting scores in parallel within an OpenSearch segment for each subquery.
 
 If you use hybrid queries in production or are building search features that blend lexical and vector semantics, upgrading to OpenSearch 3.1 is a great way to benefit from faster response times and more efficient resource usage.
 
