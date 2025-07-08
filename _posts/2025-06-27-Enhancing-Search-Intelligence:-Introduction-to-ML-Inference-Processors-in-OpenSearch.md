@@ -358,9 +358,9 @@ POST /_bulk
 
 To enhance search queries, you'll create a search pipeline that generates a summary of a search response using the configured LLM.
 
-The `ml_inference` search request processor is configured to rewrite the match query into a k-NN query using the `review_embedding` field. It maps the `query.match.review_text.query` to the `inputText` parameter for the embedding model, which generates a vector representation of the review text. The output of this processor is stored in `embedding`, which is then used in the k-NN query to find similar reviews based on their embeddings.
+The `ml_inference` search request processor is configured to rewrite the match query as a k-NN query using the `review_embedding` field. It maps the `query.match.review_text.query` to the `inputText` parameter for the embedding model, which generates a vector representation of the review text. The output of this processor is stored in `embedding`, which is then used in the k-NN query to find similar reviews based on their embeddings.
 
-The `ml_inference` search response processor configuration establishes a three-part mapping process for generating summaries using ML inference. First, the `input_map` takes the `review_text` field from each search result and maps it to a context variable for the model. Then the `model_config` formats this input into a structured `messages` for the Claude model, using `${parameters.context}` as a placeholder for the actual review text. Finally, the `output_map` directs the model's response (found at `content[0].text` in Claude's output) to be stored in `review_summary` in the search results. This complete flow allows the pipeline to automatically process search results through the ML model and attach generated summaries to the response, all configured through a single pipeline definition.
+The `ml_inference` search response processor configuration establishes a three-part mapping process for generating summaries using ML inference. First, the `input_map` takes the `review_text` field from each search result and maps it to a context variable for the model. Then the `model_config` formats this input as a structured `messages` array for the Claude model, using `${parameters.context}` as a placeholder for the actual review text. Finally, the `output_map` directs the model's response (found at `content[0].text` in Claude's output) to be stored in `review_summary` in the search results. This complete flow allows the pipeline to automatically process search results through the ML model and attach generated summaries to the response, all configured through a single pipeline definition.
 
 Create a search pipeline that combines semantic search with automatic summarization by configuring both request and response processors:
 
@@ -432,7 +432,7 @@ GET /product-search-and-summarize/_search?search_pipeline=summarization_search_p
 }
 ```
 
-The search response returns semantically relevant documents along with AI-generated summaries in the `review_summary` field, demonstrating both the vector similarity matching and automatic text summarization:
+The search response returns semantically relevant documents along with AI-generated summaries in the `review_summary` field, demonstrating both vector similarity matching and automatic text summarization:
 
 ```json
 {
@@ -518,8 +518,8 @@ The combination of ingest-time processing for embeddings and search-time process
 
 ## Next steps
 
-For more information about ML inference processors, see [ML inference processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ml-inference/), [ML inference search request processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/ml-inference-search-request/), and [ML inference search response processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/ml-inference-search-response/) documentation.
+For more information about ML inference processors, see the [ML inference processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ml-inference/), [ML inference search request processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/ml-inference-search-request/), and [ML inference search response processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/ml-inference-search-response/) documentation.
 
-For a specific use case, see [Semantic search tutorials](https://docs.opensearch.org/docs/latest/tutorials/vector-search/semantic-search/index/) documentation.
+For a specific use case, see [Semantic search tutorials](https://docs.opensearch.org/docs/latest/tutorials/vector-search/semantic-search/index/).
 
-We welcome your contributions: if you have a use case to share, consider adding a tutorial for it to the documentation.
+We welcome your contributions! If you have a use case to share, consider adding a corresponding tutorial to the documentation.
