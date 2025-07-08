@@ -124,18 +124,24 @@
                 if (!Array.isArray(data?.results) || data.results.length === 0) {
                     return showNoResults();
                 }
-                const chunks = data.results.map(result => result
-                    ? `
+                const chunks = data.results.map(result => {
+                    if (!result) return '';
+                    
+                    let url = result.url;
+                    if (result.type === 'Blogs' || result.type === 'Events' || url.startsWith('/blog/') || url.startsWith('/events/')) {
+                        url = 'https://opensearch.org' + url;
+                    }
+                    
+                    return `
                     <div class="${searchResultClassName}">
-                        <a href="${sanitizeAttribute(result.url)}">
+                        <a href="${sanitizeAttribute(url)}">
                             <cite>${getBreadcrumbs(result)}</cite>
                             ${sanitizeText(result.title || 'Unnamed Document')}
                         </a>
                         <span>${sanitizeText(result.content?.replace?.(/\n/g, '&hellip; '))}</span>
                     </div>
-                    `
-                    : ''
-                );
+                    `;
+                });
 
                 emptyResults();
                 elResults.appendChild(document.createRange().createContextualFragment(chunks.join('')));
