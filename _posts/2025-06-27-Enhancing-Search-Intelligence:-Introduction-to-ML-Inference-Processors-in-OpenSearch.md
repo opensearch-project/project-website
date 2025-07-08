@@ -21,7 +21,9 @@ OpenSearch provides three types of ML inference processors, each serving a speci
 * **ML search request processors** (released 2.16): These processors run model inference on search queries before they're executed, enabling query enhancement or transformation. They can rewrite queries based on ML model output, making them particularly useful for query understanding and expansion.
 * **ML search response processors** (released 2.16): These processors run model inference to enrich search results before they're returned to the user, enabling features like result reranking or adding ML-generated summaries to search results.
 
-![ML Inference Processor Workflow](assets/media/blog-images/2025-06-27-Enhancing-Search-Intelligence-Introduction-to-ML-Inference-Processors-in-OpenSearch/ml inference processors.png){: .img-fluid}
+The following diagram illustrates how ML inference processors integrate with indexing, querying, and search result handling in OpenSearch. It shows the full end-to-end flow, including a user query or document, model invocation, and enriched responses.
+
+![ML Inference Processor Workflow](/assets/media/blog-images/2025-06-27-intro-to-ml-processors/ml-inference-processors.png){: .img-fluid}
 
 ## Key benefits
 
