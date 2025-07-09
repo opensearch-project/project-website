@@ -4,7 +4,7 @@ title: "Introducing semantic highlighting in OpenSearch"
 authors:
  - junqiu
  - agtunnell
- - Supriya Nagesh
+ - nsupriy
  - nmishra
  - heemin
  - seanzheng
