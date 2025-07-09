@@ -24,7 +24,7 @@ OpenSearch 3.0 introduces [semantic highlighting](https://docs.opensearch.org/do
 
 Highlighting is a search feature that extracts the parts of a document most relevant to a query. Semantic highlighting introduces a new highlighter in OpenSearch that works differently from existing ones in two key ways: it measures relevance based on semantic similarity between the query and the text, and it highlights spans of text rather than exact keyword matches. An AI model evaluates each sentence, using context from both the query and surrounding text to determine relevance.
 
-This feature is designed for semantic and hybrid search use cases, where users care more about the meaning of their query than the exact words. Semantic highlighting extends that idea by surfacing the most meaningful passages within documents.
+This feature is designed for AI search use cases, where users care more about the meaning of their query than the exact words. Semantic highlighting extends that idea by surfacing the most meaningful passages within documents.
 
 ## How is semantic highlighting different from lexical highlighting?
 
@@ -86,7 +86,7 @@ This approach is straightforward but runs on your cluster's CPU resources, which
 
 **Option B: External deployment (recommended for production)**
 
-For production workloads that require high performance, we recommend deploying the model on a remote GPU-accelerated endpoint, such as AWS SageMaker. Benchmarks show that GPU-based deployments are about 4.5 times faster than local CPU deployments. For detailed setup instructions, see [the blueprint](https://github.com/opensearch-project/ml-commons/blob/c237c4ea8902e79fce6163ac52650a032e7a78ca/docs/remote_inference_blueprints/standard_blueprints/sagemaker_semantic_highlighter_standard_blueprint.md).
+For production workloads that require high performance, we recommend deploying the model on a remote GPU-accelerated endpoint, such as AWS SageMaker. Benchmarks show that GPU-based deployments are about 4.5 times faster than local CPU deployments. For detailed setup instructions, see [the blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/standard_blueprints/sagemaker_semantic_highlighter_standard_blueprint.md).
 
 ### Step 2: Enable semantic highlighting in your search
 
