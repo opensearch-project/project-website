@@ -46,6 +46,7 @@ The blog post review process is as follows:
 1. Marketing conducts a final review and provides the blog meta.
 1. The blog is published.
 
+**NOTE**: To update an existing blog post, submit a PR with the updates. Do not update existing blog posts as part of a new blog post PR.
 
 For writing guidelines, see the [OpenSearch Project Style Guidelines](https://github.com/opensearch-project/documentation-website/blob/main/STYLE_GUIDE.md).
 
