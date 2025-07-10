@@ -9,7 +9,7 @@ categories:
  - technical-post
 meta_keywords: "multimodal search, opensearch, semantic search, vector search, image search"
 meta_description: "Learn how to build a multimodal search engine in OpenSearch using the ML inference ingest and search request processors to search across text and images."
-excerpt: "Go beyond keyword search and learn how to build a multimodal search engine in OpenSearch. This post will show you how to implement it in OpenSearch using the ML inference ingest and search request processors."
+excerpt: "Go beyond keyword search and learn how to build a multimodal search engine in OpenSearch. This post will show you how to implement one in OpenSearch using the ML inference ingest and search request processors."
 has_science_table: true
 ---
 
@@ -17,29 +17,29 @@ In today's data-rich world, information isn't just text anymore. It's images, vi
 
 Building on the foundation of semantic search, which understands the meaning behind queries rather than just literal keywords, multimodal search takes this a step further by processing and understanding information from multiple data types simultaneously. Imagine searching for "Wild West" and not only getting relevant text documents but also images and videos of cowboys and rodeos, even if the keywords aren't explicitly present in the visual metadata.
 
-In this post, we'll explore the power of multimodal search and show you how to implement it in OpenSearch using the ML inference ingest and search request processors.
+In this post, we'll explore the power of multimodal search and show you how to implement it in OpenSearch using the machine learning (ML) inference ingest and search request processors.
 
 ## The evolution of search: From keywords to multimodality
 
-Let's quickly recap the journey of search:
+Let's quickly recap the evolution of search:
 
-**Keyword Search**: Traditional search engines rely on matching exact keywords. While effective for precise queries, they often miss relevant results that use different phrasing or where the context isn't explicitly textual.
+**Keyword search**: Traditional search engines rely on matching exact keywords. While effective for precise queries, they often miss relevant results that use different phrasing or where the context isn't explicitly textual.
 
-**Semantic Search**: As discussed in our [previous blog post](https://opensearch.org/blog/semantic-search-solutions/), semantic search uses deep neural networks (DNNs) to understand the meaning and context of queries. This allows for more human-like search experiences, returning results even if there's no direct keyword overlap. The concept of embeddings is central here, where text (and other data) is transformed into high-dimensional vectors, and similar items are mapped closer together in this embedding space.
+**Semantic search**: As discussed in our [previous blog post](https://opensearch.org/blog/semantic-search-solutions/), semantic search uses deep neural networks (DNNs) to understand the meaning and context of queries. This allows for more human-like search experiences, returning results even if there's no direct keyword overlap. The concept of embeddings is central here, where text (and other data) is transformed into high-dimensional vectors, and similar items are mapped closer together in this embedding space.
 
 However, a purely semantic text search still has limitations when dealing with diverse datasets containing images, audio, or video. Consider a dataset of public images with captions. A query for "historic landmarks" might return text documents about them, but what if you want to see images of those landmarks directly, regardless of their captions? This is where multimodal search becomes indispensable.
 
-## Search in multimodal embedding space
+## Search in a multimodal embedding space
 
 Just as a DNN represents text as vectors in a high-dimensional space for semantic search, multimodal models extend this concept to other data types. A multimodal DNN learns to create unified vector embeddings for different modalities—text, images, and potentially more—in the same shared embedding space.
 
 This means that a text description of "Central Park" and an actual image of Central Park, when processed by a multimodal model, returns vectors that are close to each other in the embedding space. This allows for the following functionality:
 
-* **Text-to-image search**: Querying using text and finding relevant images.
-* **Image-to-text search**: Querying using an image and finding relevant text documents.
+* **Text-to-image search**: Querying using text to find relevant images.
+* **Image-to-text search**: Querying using an image to find relevant text documents.
 * **Multimodal search**: Combining text and image (or other modalities) into a single query in order to find the most relevant results across different data types.
 
-The quality of this multimodal search depends on the ability of the underlying model to learn rich, expressive embeddings that capture the relationships between different data modalities. Models like Amazon Bedrock Titan Multimodal Embedding are specifically designed for this purpose.
+The quality of multimodal search depends on the ability of the underlying model to learn rich, expressive embeddings that capture the relationships between different data modalities. Amazon Titan Multimodal Embeddings models are specifically designed for this purpose.
 
 ## Building multimodal search in OpenSearch
 
@@ -49,7 +49,7 @@ Here's a step-by-step guide to setting up multimodal search in OpenSearch.
 
 ### 1. Create and deploy your multimodal embedding model
 
-First, set up your multimodal embedding model. For this tutorial, we'll use the Bedrock Titan Multimodal Embedding model.
+First, set up your multimodal embedding model. For this tutorial, we'll use the Titan Multimodal Embeddings model.
 
 #### Create a connector
 
@@ -89,7 +89,7 @@ POST _plugins/_ml/connectors/_create
 
 #### Register and deploy the model
 
-Once the connector is created, you can register and deploy the Bedrock Titan model in OpenSearch. This makes the model available for inference operations:
+Once the connector is created, you can register and deploy the Titan model in OpenSearch. This makes the model available for inference operations:
 
 ```json
 POST _plugins/_ml/models/_register?deploy=true
@@ -178,7 +178,7 @@ This ingest pipeline automatically generates a `multimodal_embedding` vector for
 
 ### 3. Create a vector index
 
-Now, create a vector index and define a `knn_vector` field for your multimodal embeddings. This field will store the vectors generated by the ingest pipeline:
+Now create a vector index and define a `knn_vector` field for your multimodal embeddings. This field will store the vectors generated by the ingest pipeline:
 
 ```json
 PUT test-index-area
@@ -203,7 +203,7 @@ PUT test-index-area
 
 ### 4. Load your multimodal data
 
-You can now start ingesting your data into the index. The ingest pipeline automatically processes the `name` (text) and `image` (Base64-encoded image) fields to generate the `multimodal_embedding`. To ingest a document containing text only, use the following request:
+You can now start ingesting your data into the index. The ingest pipeline automatically processes the `name` (text) and `image` (Base64-encoded image) fields to generate the `multimodal_embedding`. To ingest a document containing only text, use the following request:
 
 
 ```json
@@ -226,7 +226,7 @@ PUT test-index-area/_doc/2
 }
 ```
 
-If you ingest a document with no text or image, the processor is skipped:
+If you ingest a document that doesn't contain any text or images, the processor is skipped:
 
 
 ```json
@@ -240,7 +240,7 @@ You can verify that the documents now contain the `multimodal_embedding` field b
 
 ### 5. Search using the ML inference search request processor
 
-Finally, create a search pipeline with an `ml_inference` request processor. This processor takes your text and/or image query, generates an embedding using your multimodal model, and then rewrites the query into a vector search against the `multimodal_embedding` field:
+Finally, create a search pipeline with an `ml_inference` request processor. This processor takes your text and/or image query, generates an embedding using your multimodal model, and then rewrites the query as a vector search against the `multimodal_embedding` field:
 
 ```json
 PUT _search/pipeline/multimodal_semantic_search_pipeline
@@ -292,18 +292,18 @@ GET test-index-area/_search?search_pipeline=multimodal_semantic_search_pipeline
 }
 ```
 
-This query returns documents, in which the `multimodal_embedding` is closest to the embedding of your text query, effectively finding relevant documents whether they contain matching text or visually similar content.
+This query returns documents in which the `multimodal_embedding` is closest to the embedding of your text query, effectively finding relevant documents whether they contain matching text or visually similar content.
 
 ## Conclusion
 
-Multimodal search enables more flexible ways to retrieve information, especially when working with diverse types of data, from e-commerce products to digital assets. Using OpenSearch, you can build highly intelligent and flexible search experiences, useful in a range of applications—from searching for products using images to organizing digital assets using text-based queries. 
+Multimodal search enables more flexible ways to retrieve information, especially when working with diverse types of data. Using OpenSearch, you can build highly intelligent and flexible search experiences that are useful in a range of applications—from searching for products using images to organizing digital assets using text-based queries. 
 
 We encourage you to experiment with different multimodal models and datasets to unlock the full potential of multimodal search in OpenSearch.
 
 
 ## Next steps
 
-- Try multimodal search using [an example Python notebook](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/ml_inference/ecommerce_demo.ipynb) 
-- See the [multimodal search documentation](https://docs.opensearch.org/docs/latest/vector-search/ai-search/multimodal-search/)
-- Explore multimodal [models](https://docs.opensearch.org/docs/latest/ml-commons-plugin/integrating-ml-models/#choosing-a-model) available for integration with OpenSearch
-- Share your feedback and experiences on the [OpenSearch forum](https://forum.opensearch.org/)
+- Try multimodal search using [an example Python notebook](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/ml_inference/ecommerce_demo.ipynb).
+- See the [multimodal search documentation](https://docs.opensearch.org/docs/latest/vector-search/ai-search/multimodal-search/).
+- Explore multimodal [models](https://docs.opensearch.org/docs/latest/ml-commons-plugin/integrating-ml-models/#choosing-a-model) available for integration with OpenSearch.
+- Share your feedback on the [OpenSearch forum](https://forum.opensearch.org/).
