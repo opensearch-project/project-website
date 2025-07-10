@@ -9,12 +9,12 @@ date: 2025-07-11
 categories:
   - technical-posts
 meta_keywords: semantic field, neural search, semantic search, dense embeddings, sparse embeddings, semantic vector search, OpenSearch 3.1
-meta_description: Learn how to use the new semantic field in OpenSearch to simplify semantic search with pre-trained dense and sparse models. Automatically generate embeddings, index documents, and run neural search queries without a custom ingest pipeline.
+meta_description: Learn how to use the new semantic field in OpenSearch to simplify semantic search with pretrained dense and sparse models. Automatically generate embeddings, index documents, and run neural search queries without a custom ingest pipeline.
 ---
 
 Semantic search improves result relevance by using a machine learning (ML) model to generate dense or sparse vector embeddings from unstructured text. Traditionally, enabling semantic search has required several manual steps: defining an embedding field, setting up an ingest pipeline, and including the model ID in every query. 
 
-OpenSearch 3.1 streamlines this process with the `semantic` field type. Now, you only need to register and deploy your ML model, then reference its ID in the index mapping. OpenSearch handles the rest of the work: it automatically creates the necessary embedding field, generates embeddings during ingestion, and resolves the model during query execution. The following diagram illustrates semantic search using a `semantic` field.
+OpenSearch 3.1 streamlines this process with the `semantic` field type. Now you only need to register and deploy your ML model and then reference its ID in the index mapping. OpenSearch handles the rest of the work: it automatically creates the necessary embedding field, generates embeddings during ingestion, and resolves the model during query execution. The following diagram illustrates semantic search using a `semantic` field.
 
 ![Diff of using semantic field](/assets/media/blog-images/2025-07-11-Semantic-field-basics-Simplifying-semantic-search-in-OpenSearch/semantic_field_future_state.png)
 
@@ -22,10 +22,10 @@ OpenSearch 3.1 streamlines this process with the `semantic` field type. Now, you
 
 To use a `semantic` field, follow these steps:
 
-1. **Register and deploy a model**: Register and deploy a ML model, such as one from Hugging Face, in OpenSearch.
-2. **Create an index with a semantic field**: Define an index mapping that includes a semantic field and link it to the model using the model ID.
-3. **Index documents**: Index raw text documents directly: OpenSearch will automatically generate and store the embeddings.
-4. **Run a semantic search query**: Use a `neural` query to search semantically over your data without manually handling embeddings.
+1. **Register and deploy a model**: Register and deploy an ML model, such as one from Hugging Face, in OpenSearch.
+2. **Create an index with a `semantic` field**: Define an index mapping that includes a `semantic` field and link it to the model using the model ID.
+3. **Index documents**: Index raw text documents directly---OpenSearch will automatically generate and store the embeddings.
+4. **Run a semantic search query**: Use a `neural` query to semantically search your data without manually handling embeddings.
 
 Each of these steps is detailed in the next sections.
 
@@ -349,7 +349,7 @@ GET /my-nlp-index
 
 ## Using built-in analyzers
 
-You also can optionally specify a built-in [search analyzer](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#sparse-encoding-modelanalyzer-compatibility) for sparse queries. This approach provides faster retrieval at the cost of a slight decrease in search relevance:
+You can also optionally specify a built-in [search analyzer](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#sparse-encoding-modelanalyzer-compatibility) for sparse queries. This approach provides faster retrieval at the cost of a slight decrease in search relevance:
 
 ```json
 {
@@ -374,4 +374,4 @@ The `semantic` field makes it easy to bring semantic search into your OpenSearch
 
 ## What's next?
 
-In our next blog post about the `semantic` field, we'll describe advanced usage of the semantic field in OpenSearch. We'll dive into advanced capabilities like chunking long text, using externally hosted or custom models, implementing cross-cluster support, and updating the model ID. Stay tuned for this blog post to deepen your understanding and unlock more powerful search capabilities!
+In our next blog post about the `semantic` field, we'll describe advanced usage of the `semantic` field in OpenSearch. We'll dive into advanced capabilities like chunking long text, using externally hosted or custom models, implementing cross-cluster support, and updating the model ID. Stay tuned for this blog post to deepen your understanding and unlock more powerful search capabilities!
