@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Advanced usage of the `semantic` field in OpenSearch"
+title: "Advanced usage of the semantic field in OpenSearch"
 layout: post
 authors:
     - bzhangam
     - kolchfa
-date: 2025-07-11
+date: 2025-07-10
 categories:
   - technical-posts
-meta_keywords: `semantic` field, semantic search, chunking, custom models, remote models, cross-cluster search, update model ID, OpenSearch 3.1
-meta_description: Explore advanced `semantic` field features in OpenSearch, including text chunking, support for remote and custom models, cross-cluster usage, and updating model references.
+meta_keywords: semantic field, semantic search, chunking, custom models, remote models, cross-cluster search, update model ID, OpenSearch 3.1
+meta_description: Explore advanced semantic field features in OpenSearch, including text chunking, support for externally hosted and custom models, cross-cluster usage, and updating model references.
 ---
 
 In our [previous blog post](https://opensearch.org/blog/semantic-field-basics-simplifying-semantic-search-in-opensearch/), we introduced the new `semantic` field in OpenSearch and went over its basic setup. In this post, we'll explore advanced configurations of the `semantic` field, including how to enable text chunking, work with remote clusters, use custom or externally hosted models, and update the model ID associated with a field. We'll also provide more details about the field's current limitations. 
