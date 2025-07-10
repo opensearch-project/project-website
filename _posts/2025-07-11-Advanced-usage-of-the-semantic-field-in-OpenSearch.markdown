@@ -14,7 +14,7 @@ meta_description: Explore advanced `semantic` field features in OpenSearch, incl
 
 In our [previous blog post](https://opensearch.org/blog/semantic-field-basics-simplifying-semantic-search-in-opensearch/), we introduced the new `semantic` field in OpenSearch and went over its basic setup. In this post, we'll explore advanced configurations of the `semantic` field, including how to enable text chunking, work with remote clusters, use custom or externally hosted models, and update the model ID associated with a field. We'll also provide more details about the field's current limitations. 
 
-## How to use the `semantic` field with text chunking
+## How to use `semantic` fields with text chunking
 
 In real-world use cases, input text may exceed the model's maximum length, which can lead to truncation and degraded relevance. To address this, you can enable automatic text chunking.
 
@@ -213,7 +213,7 @@ When working with sparse embeddings, the `semantic` field allows you to use the 
 As a workaround, you can bypass the `semantic` field and run a `neural_sparse` query directly against the underlying `embedding` field (for example, `text_semantic_info.embedding`). Similarly to the approach used for cross-cluster search, this approach allows you to use the `neural_sparse_two_phase_processor` while still benefiting from automatic embedding generation during indexing.
 
 
-## Using the `semantic` field with custom or externally hosted models
+## Using `semantic` fields with custom or externally hosted models
 
 To use a [custom](https://docs.opensearch.org/docs/latest/ml-commons-plugin/custom-local-models/) or [externally hosted](https://docs.opensearch.org/docs/latest/ml-commons-plugin/remote-models/index/) model, provide the required model configuration when registering the model. OpenSearch uses this metadata to construct the appropriate `knn_vector` or `rank_features` field.
 
