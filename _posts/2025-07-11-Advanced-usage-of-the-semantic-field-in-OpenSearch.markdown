@@ -14,7 +14,7 @@ meta_description: Explore advanced `semantic` field features in OpenSearch, incl
 
 In our [previous blog post](https://opensearch.org/blog/semantic-field-basics-simplifying-semantic-search-in-opensearch/), we introduced the new `semantic` field in OpenSearch and went over its basic setup. In this post, we'll explore advanced configurations of the `semantic` field, including how to enable text chunking, work with remote clusters, use custom or externally hosted models, and update the model ID associated with a field. We'll also provide more details about the field's current limitations. 
 
-## How to use `semantic` fields with text chunking
+## How to use semantic fields with text chunking
 
 In real-world use cases, input text may exceed the model's maximum length, which can lead to truncation and degraded relevance. To address this, you can enable automatic text chunking.
 
@@ -206,20 +206,20 @@ GET /my-nlp-index/_search
 }
 ```
 
-## Using `semantic` fields with neural sparse two-phase processor
+## Using semantic fields with a neural sparse two-phase processor
 
 When working with sparse embeddings, the `semantic` field allows you to use the `neural` query without manually specifying the model or analyzer. In this case, OpenSearch automatically resolves them based on the field mapping. However, this convenience comes with a limitation: the [neural_sparse_two_phase_processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/neural-sparse-query-two-phase-processor/), which can improve search latency, is not currently supported when querying the `semantic` field directly.
 
 As a workaround, you can bypass the `semantic` field and run a `neural_sparse` query directly against the underlying `embedding` field (for example, `text_semantic_info.embedding`). Similarly to the approach used for cross-cluster search, this approach allows you to use the `neural_sparse_two_phase_processor` while still benefiting from automatic embedding generation during indexing.
 
 
-## Using `semantic` fields with custom or externally hosted models
+## Using semantic fields with custom or externally hosted models
 
 To use a [custom](https://docs.opensearch.org/docs/latest/ml-commons-plugin/custom-local-models/) or [externally hosted](https://docs.opensearch.org/docs/latest/ml-commons-plugin/remote-models/index/) model, provide the required model configuration when registering the model. OpenSearch uses this metadata to construct the appropriate `knn_vector` or `rank_features` field.
 
 ### Register a custom model
 
-You must set the `function_name` to `TEXT_EMBEDDING` for dense models, or to `SPARSE_ENCODING` or `SPARSE_TOKENIZE` for sparse models, depending on the model's functionality.
+You must set the `function_name` to `TEXT_EMBEDDING` for dense models or to `SPARSE_ENCODING` or `SPARSE_TOKENIZE` for sparse models, depending on the model's functionality.
 
 **Example: Registering a dense model**
 
@@ -288,7 +288,7 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-## Updating the model ID for a `semantic` field
+## Updating the model ID for a semantic field
 
 You can update the model ID used by a `semantic` field. This is useful when:
 
@@ -306,15 +306,15 @@ The `semantic` field is designed to simplify semantic search, but it currently h
 * **Sparse model pruning**: For sparse models, OpenSearch applies a default prune ratio of `0.1` during embedding generation. This value is not currently configurable. Additionally, the `neural_sparse_two_phase_processor` is not supported with `semantic` fields, which limits sparse query optimization.
 * **Remote cluster support**: Neural queries on `semantic` fields are not supported in cross-cluster search. While documents can be retrieved from remote indexes, semantic queries require access to local model configuration and index mappings.
 * **Repeated inference behavior**: When updating a document, OpenSearch will rerun inference for the `semantic` field even if the field's content has not changed. Currently, there is no support for reusing existing embeddings to avoid redundant inference.
-* **Mapping constraints**: The `semantic` field does not support dynamic mapping. You must define it explicitly in the index mapping. Additionally, you cannot use a `semantic` field in the `fields` section of another field, meaning multi-field configurations are not supported.
+* **Mapping constraints**: The `semantic` field does not support dynamic mapping. You must define it explicitly in the index mapping. Additionally, you cannot use a `semantic` field in the `fields` section of another field, meaning that multi-field configurations are not supported.
 
 ## Summary
 
-The `semantic` field in OpenSearch streamlines the development of neural search applications by handling model inference, embedding generation, and field mapping in a single, declarative step. It supports both dense and sparse models and removes the need for custom ingest pipelines. In this post, we explored advanced features such as text chunking, cross-cluster search and custom or remote model integration. While the feature has some limitations, it significantly lowers the barrier to implementing semantic search. We look forward to continued improvements based on community feedback.
+The `semantic` field in OpenSearch streamlines the development of neural search applications by handling model inference, embedding generation, and field mapping in a single, declarative step. It supports both dense and sparse models and removes the need for custom ingest pipelines. In this post, we explored advanced features such as text chunking, cross-cluster search, and custom or remote model integration. While the feature has some limitations, it significantly lowers the barrier to implementing semantic search. We look forward to continued improvements based on community feedback.
 
 ## What's next?
 
-To address the current limitations, the OpenSearch team is working on several enhancements to improve semantic search capabilities:
+To address the current limitations, we are working on several improvements to the existing semantic search capabilities:
 
 * [Configurable embedding field parameters](https://github.com/opensearch-project/neural-search/issues/1356): Enable customization of `knn_vector` parameters beyond `dimension` and `space_type`.
 * [Configurable chunking strategies](https://github.com/opensearch-project/neural-search/issues/1340): Provide options to customize the way text is chunked, such as the chunking algorithm and controlling the chunk size and overlap.
