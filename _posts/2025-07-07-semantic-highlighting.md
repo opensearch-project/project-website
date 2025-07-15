@@ -49,7 +49,7 @@ In this example, the lexical highlighter finds a direct word match ("pasta") but
 
 ## When to use semantic highlighting
 
-Semantic highlighting is especially useful in these scenarios:
+Semantic highlighting is useful in a wide variety of scenarios. Some examples include:
 
 1. **Legal document search**: Efficiently pinpoint relevant clauses or sections in lengthy contracts or legal texts, even when terminology varies.
 2. **Customer support**: Improve customer agent efficiency and self-service portals by highlighting the most relevant sentences in knowledge base articles or support tickets that address a customer's issue.
