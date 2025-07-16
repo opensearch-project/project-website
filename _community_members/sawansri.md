@@ -21,5 +21,5 @@ personas:
 permalink: '/community/members/sawan.html'
 ---
 
-**Sawan Srivastava** is a Software Development Engineer Intern at AWS working on the Core Search team in OpenSearch.
+**Sawan Srivastava** is a Software Development Engineer Intern at AWS working on the Core Search team for the OpenSearch Project.
 
