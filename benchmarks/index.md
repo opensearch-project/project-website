@@ -123,6 +123,18 @@ benchmark_height_mobile: 6000
     <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/f3f89730-fb73-11ee-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'NOAA Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Concurrent Segment Search NOAA</a>
 </li>
 
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/01b25d30-5216-11f0-b39d-2363e77eb224?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Neural Search Sparse Search Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Neural Sparse Search</a>
+</li>
+
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/ee8742a0-52b7-11f0-b39d-2363e77eb224?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Neural Search Semantic Search Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Neural Semantic Search</a>
+</li>
+
+<li>
+    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/8d469750-52b4-11f0-b987-7598f5347746?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Neural Search Hybrid Search Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Neural Hybrid Search</a>
+</li>
+
 </ul>
 </div>
 
