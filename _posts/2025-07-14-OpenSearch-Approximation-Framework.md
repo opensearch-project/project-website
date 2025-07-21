@@ -95,7 +95,7 @@ Instead of using Lucene's standard tree traversal that visits all matching docum
 
 The following example illustrates a BKD tree traversal with approximation.
 
-#### `intersectLeft` traversal 
+#### intersectLeft traversal 
 
 The following diagram illustrates how the Approximation Framework performs a BKD tree traversal for a query with the following parameters:
 
@@ -117,7 +117,7 @@ Root → Left1 → Left2 → L1 → L2 → Right2 → L3 → Done
 * Nodes like `Right1`, `Left3`, `Right3` and all their children (`L5`–`L8`) are entirely skipped, because enough documents were already collected from the left side of the tree.
 * This demonstrates how the framework avoids visiting unnecessary subtrees, reducing query latency while still returning accurate top-N results.
 
-### `intersectRight` traversal
+### intersectRight traversal
 
 The following diagram illustrates how the Approximation Framework performs a descending sort (`SortOrder.DESC`) traversal for a query with the following parameters:
 
@@ -176,7 +176,7 @@ Seen improvement from **~20ms** to **~10ms**
 ![http_logs asc_sort_timestamp query](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/http_logs-asc_sort_timestamp-query-with-approximation.png)
 
 
-### Additional improvements:
+### Additional improvements
 
 Further improvements, particularly in sort query performance, were observed in the OpenSearch 3.1 release and are shared in detail in the [3.1.0 release issue](https://github.com/opensearch-project/opensearch-build/issues/5487#issuecomment-2989202040).
  
@@ -192,43 +192,43 @@ The following are some of the upcoming improvements planned for the 3.2.0 releas
 
 ![http_logs performance comparison](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/http_logs-performance-comparison.png)
 
-### http_logs: range_with_asc_sort (between 2.19.1 and 3.2.0) 
+### http_logs: range_with_asc_sort (2.19.1--3.2.0) 
 
-Seen improvement from **~300ms** to **~30ms**
+`range_with_asc_sort` queries have shown improvement from **~300ms** to **~30ms**, as shown in the following graph. 
 
 ![http_logs range_with_asc_sort query](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/http_logs-range_with_asc_sort-query-with-approximation.png)
 
-### http_logs: range_size:  (between 2.19.1 and 3.2.0) 
+### http_logs: range_size (2.19.1--3.2.0) 
 
-Seen improvement from **~48ms** to **~8ms**
+`range_size` queries have shown improvement **~48ms** to **~8ms**, as shown in the following graph. 
 
 ![http_logs range_size query](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/http_logs-range_size-query-with-approximation.png)
 
-### http_logs: range_with_desc_sort: (between 2.19.1 and 3.2.0) 
+### http_logs: range_with_desc_sort (2.19.1--3.2.0) 
 
-Seen improvement from **~312ms** to **~31ms**
+`range_with_desc_sort` queries have shown improvement from **~312ms** to **~31ms**, as shown in the following graph. 
 
 ![http_logs range_with_desc_sort query](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/http_logs-range_with_desc_sort-query-with-approximation.png)
 
-### nyc_taxis: desc_sort_passenger_count (between 3.1.0 and 3.2.0) 
+### nyc_taxis: desc_sort_passenger_count (3.1.0--3.2.0) 
 
-Seen improvement from **~17ms** to **~12ms**
+`desc_sort_passenger_count` queries have shown improvement from **~17ms** to **~12ms**, as shown in the following graph. 
 
 ![nyc_taxis desc_sort_passenger_count query](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/nyc_taxis-desc_sort_passenger_count-query-with-approximation.png)
 
 
-### Additioanl Query shapes and types under exploration 
+### Additioanl query shapes and types under exploration 
 
-We're exploring several promising areas for extending the Approximation Framework to additional query types. Here are the types of queries we can target in future releases: 
+We're exploring several promising areas for extending the Approximation Framework to additional query types. Here are the types of queries we can target in future releases. 
 
-#### Term Query
+#### Term query
 
-The proof of concept for extending the framework to top-level term queries on numeric fields has shown approximately **25%** decrease in latency on the `http_logs` dataset. Related [benchmark results](https://github.com/opensearch-project/OpenSearch/pull/18679#issuecomment-3071292692), related [issue](https://github.com/opensearch-project/OpenSearch/issues/18620) with this topic.
+The proof of concept for extending the framework to top-level term queries on numeric fields has shown approximately **25%** decrease in latency on the `http_logs` dataset. See [related benchmark results](https://github.com/opensearch-project/OpenSearch/pull/18679#issuecomment-3071292692) and [related issue](https://github.com/opensearch-project/OpenSearch/issues/18620).
 
-### Boolean Query
+### Boolean query
 
-Related [issue](https://github.com/opensearch-project/OpenSearch/issues/18692) and [RFC](https://github.com/opensearch-project/OpenSearch/issues/18784) on this topic which has some details on implementing `ApproximateBooleanQuery` as proof of concept which can optimize both single and multi-clause boolean queries.
+The [related issue](https://github.com/opensearch-project/OpenSearch/issues/18692) and [RFC](https://github.com/opensearch-project/OpenSearch/issues/18784) provide details about implementing `ApproximateBooleanQuery`, which can optimize both single and multi-clause boolean queries, as proof of concept.
 
 ### Numeric search_after queries
 
-During a proof of concept effort outlined [in this issue](https://github.com/opensearch-project/OpenSearch/issues/18546), observed significant improvements for numeric queries using the `search_after` parameter in OpenSearch, which is designed for efficient deep pagination of large datasets. In tests with `asc_sort_with_after_timestamp`, the P90 latency dropped from **194.828** ms to **8.459** ms, and for `desc_sort_with_after_timestamp`, it dropped from **188.037** ms to **7.09** ms.
+During a proof of concept effort outlined [in this issue](https://github.com/opensearch-project/OpenSearch/issues/18546), we observed significant improvements for numeric queries using the `search_after` parameter, which is designed for efficient deep pagination of large datasets. In tests with `asc_sort_with_after_timestamp`, the P90 latency dropped from **194.828** ms to **8.459** ms and from **188.037** ms to **7.09** ms for `desc_sort_with_after_timestamp`.
