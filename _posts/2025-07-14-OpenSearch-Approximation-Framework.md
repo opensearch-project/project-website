@@ -86,7 +86,7 @@ The framework optimizes left-to-right (`ASC`) or right-to-left (`DESC`) traversa
 
 ## BKD walk (custom BKD tree traversal)
 
-Instead of using Lucene's standard tree traversal that visits all matching documents, the framework implements custom `intersectLeft` and `intersectRight` methods with sort-aware traversal, which ensures collecting the correct top-K documents without visiting unnecessary nodes.
+Instead of using Lucene's standard tree traversal that visits all matching documents, the framework implements custom `intersectLeft` and `intersectRight` methods with sort-aware traversal, which ensures collecting the correct top-N documents without visiting unnecessary nodes.
 
 * **`ASC` sort**: Uses `intersectLeft` to traverse from smallest to largest values. This method is default and used for plain range queries.
 * **`DESC` sort**: Uses `intersectRight` to traverse from largest to smallest values.
@@ -176,9 +176,11 @@ Seen improvement from **~20ms** to **~10ms**
 ![http_logs asc_sort_timestamp query](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/http_logs-asc_sort_timestamp-query-with-approximation.png)
 
 
+### Additional improvements:
+
 Further improvements, particularly in sort query performance, were observed in the OpenSearch 3.1 release and are shared in detail in the [3.1.0 release issue](https://github.com/opensearch-project/opensearch-build/issues/5487#issuecomment-2989202040).
  
-This result comes from a single-segment test for `desc_sort_timestamp`. According to [this comment](https://github.com/opensearch-project/OpenSearch/pull/18439#issuecomment-2961325856), a force merge to a single segment with an optimized custom BKD walk (`intersectRight`) reduced P90 latency dramatically from **450624** ms to **7.86** ms. This improvement is made possible by the Approximation Framework, which enables early termination during BKD traversal, efficiently collecting the most relevant documents with minimal overhead.
+This result comes from a single-segment test for `desc_sort_timestamp`. According to [this comment](https://github.com/opensearch-project/OpenSearch/pull/18439#issuecomment-2961325856), a force merge to a single segment with an optimized custom BKD walk (`intersectRight`) reduced P90 latency dramatically from **2111** ms to **6.1** ms. This improvement is made possible by the Approximation Framework, which enables early termination during BKD traversal, efficiently collecting the most relevant documents with minimal overhead.
 
 As shown in [this comment](https://github.com/opensearch-project/OpenSearch/pull/18439#issuecomment-2942212895), which captures benchmark results from the development phase, several query types showed significant improvements: `http_logs`: `desc_sort_size` showed over **80%** improvement, `http_logs`: `desc_sort_timestamp` improved by more than **80%**, and `asc_sort_timestamp` achieved over **80.55%** improvement in performance.
 
@@ -193,7 +195,6 @@ The following are some of the upcoming improvements planned for the 3.2.0 releas
 ### http_logs: range_with_asc_sort (between 2.19.1 and 3.2.0) 
 
 Seen improvement from **~300ms** to **~30ms**
-
 
 ![http_logs range_with_asc_sort query](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/http_logs-range_with_asc_sort-query-with-approximation.png)
 
@@ -226,4 +227,4 @@ The proof of concept for extending the framework to top-level term queries on nu
 
 ### Boolean Query
 
-Related [issue](https://github.com/opensearch-project/OpenSearch/issues/18692) on this topic which has some details on implementing `ApproximateBooleanQuery` as proof of concept which can optimize both single and multi-clause boolean queries.
+Related [issue](https://github.com/opensearch-project/OpenSearch/issues/18692) and [RFC](https://github.com/opensearch-project/OpenSearch/issues/18784) on this topic which has some details on implementing `ApproximateBooleanQuery` as proof of concept which can optimize both single and multi-clause boolean queries.
