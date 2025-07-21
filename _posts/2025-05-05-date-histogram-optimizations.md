@@ -16,15 +16,7 @@ OpenSearch is widely used for data analytics, especially when working with time-
 
 However, as data volume grows, the computation required for these aggregations can slow down analysis and dashboard responsiveness. Traditionally, aggregations iterated over every relevant document to place it into the correct time bucket, a method that becomes inefficient at scale.
 
-About a year ago, we embarked on an ambitious journey to improve date histogram aggregation performance in OpenSearch. What started as incremental optimizations led to dramatic improvements - in some cases up to 100x faster query responses. This post shares our story of achieved those remarkable results and evolution of those optimization.
-
-## Understanding the Aggregation Types
-
-Before diving into optimizations, let's quickly cover the fundamentals. OpenSearch supports three main types of aggregations:
-1. **Metric Aggregations**: Used for computing statistics like min, max, sum, or average
-2. **Bucket Aggregations**: Groups documents together (by date, terms, or ranges)
-3. **Pipeline Aggregations**: Combines multiple aggregations, using output from one as input to another
-As part of this blog, we will mainly focus on Date Histogram aggregations which is subtype of Bucket Aggregations
+About a year ago, we embarked on an ambitious journey to improve date histogram aggregation performance in OpenSearch. What started as incremental optimizations led to dramatic improvements - in some cases up to 100x faster query responses. This post shares our story of achieving those remarkable results and evolution of those optimizations.
 
 ## Why optimize Date Histograms: Use cases and benefits
 
@@ -40,22 +32,24 @@ Optimizing date histogram performance offers the following benefits:
 - **Faster analysis**: Reduced dashboard load times for time-series visualizations.
 - **Improved scalability**: Efficient handling of large data volumes without sacrificing performance.
 
+To fully appreciate these optimization opportunities, it's essential to understand the underlying architecture. The next couple of sections explore the data layout and default execution flow in Lucene and OpenSearch, providing the foundation needed to grasp the important optimization details that follow.
+
 ## How numeric data is stored in OpenSearch
 
-To address these inefficiency challenges, OpenSearch introduced optimizations that use the underlying index structure of date fields to significantly accelerate aggregation performance. To understand the optimizations better, let's review how OpenSearch stores numeric data like timestamps (using Lucene). Numeric data is stored in two main structures:
+To address performance challenges effectively, OpenSearch introduced optimizations that leverage the underlying index structure of date fields to significantly accelerate aggregation performance. Before diving into these optimizations, let's examine how OpenSearch stores numeric data like timestamps (using Lucene). Numeric data is stored in two main structures:
 
 1. **Document values (doc values)**: A columnar structure optimized for operations like sorting and aggregations. The traditional aggregation algorithm iterates over these values.
 2. **Index tree (BKD tree)**: A specialized index structure (a one-dimensional BKD tree for date fields) designed for fast range filtering. An index tree consists of inner nodes and leaf nodes. Values are stored only in leaf nodes, while inner nodes store the bounding ranges of their children. This structure allows efficient traversal in a sorted order to find documents within specific ranges.
 
 ## How Aggregation works in OpenSearch
 
-![Aggregation execution flow](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/Aggregation_Execution_Flow.png){:class="img-centered" width="650px"}
+Building on our understanding of data storage, let's explore how OpenSearch processes aggregations. By default, OpenSearch handles aggregations by first evaluating each query condition on every shard using Lucene, which builds iterators that identify matching document IDs. These iterators are then combined (e.g., using logical AND) to find documents that satisfy all query filters. The resulting set of matching document IDs is streamed to the aggregation framework, where each document flows through one or more aggregators. These aggregators use Lucene’s doc values (explained above) to efficiently retrieve the field values needed for computation (e.g., for calculating averages or counts). This streaming model is hierarchical—documents pass through a pipeline of aggregators, allowing them to be grouped into top-level and nested buckets simultaneously. For example, a document can first be bucketed by month, then further aggregated by HTTP status code within that month. This design enables OpenSearch to process complex, multi-level aggregations efficiently in a single pass over the matching documents.
 
-By default, OpenSearch processes aggregations by first evaluating each query condition on every shard using Lucene, which builds iterators that identify matching document IDs. These iterators are then combined (e.g., using logical AND) to find documents that satisfy all query filters. The resulting set of matching document IDs is streamed to the aggregation framework, where each document flows through one or more aggregators. These aggregators use Lucene’s doc values (explained above) to efficiently retrieve the field values needed for computation (e.g., for calculating averages or counts). This streaming model is hierarchical—documents pass through a pipeline of aggregators, allowing them to be grouped into top-level and nested buckets simultaneously. For example, a document can first be bucketed by month, then further aggregated by HTTP status code within that month. This design enables OpenSearch to process complex, multi-level aggregations efficiently in a single pass over the matching documents.
+![Aggregation execution flow](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/Aggregation_Execution_Flow.png){:class="img-centered" width="650px"}
 
 ## Understanding the setup
 
-We primarily used the nyc_taxis workload of opensearch-benchmark-workloads for understanding the bottlenecks during the execution of date histogram aggregations and  measuring the performance benefits using the optimizations. The query chosen was range query over dropoff time for an year with monthly date histogram aggregation:
+To validate these concepts and measure the impact of optimizations in real-world scenarios, we conducted performance testing using the nyc_taxis workload from opensearch-benchmark-workloads. Specifically, we focused on analyzing date histogram aggregation performance using the following query:
 
 ```json
 {
@@ -78,29 +72,34 @@ We primarily used the nyc_taxis workload of opensearch-benchmark-workloads for u
   }
 }
 ```
-While the number of nodes does not matter, we worked with single node cluster containing all the data of nyc_taxis dataset across 1 shard without any replicas. 
+
+This query filters documents using a range query on the dropoff time for a one-year period and computes a date histogram with monthly buckets for the matching documents. Although the number of nodes in a cluster doesn't significantly impact the results (as the performance bottleneck occurs at the shard level), we conducted our tests using a single-node cluster. This cluster contained the entire nyc_taxis dataset distributed across a single shard without replicas, allowing us to focus on the core aggregation performance.
 
 ## Performance Bottlenecks
 
-When we began analyzing performance, we started single date histogram aggregation query execution in loop and collected flame graphs during the execution [9310](https://github.com/opensearch-project/OpenSearch/issues/9310). The flame graph primarily indicated towards two key limitations:
+With our test environment in place, we turned our attention to identifying the primary performance bottlenecks. We began by running a single date histogram aggregation query in a loop and collecting flame graphs during the execution [9310](https://github.com/opensearch-project/OpenSearch/issues/9310). This analysis revealed two key limitations:
+
 1. **Data Volume Dependency**: Query latency was directly proportional to data volume. For example, a one-month aggregation taking 1 second would take 12 seconds for a year's worth of data.
 2. **Bucket Count Impact**: Large numbers of buckets (like in minute-level aggregations) led to hash collision issues, further degrading performance.
 
+These findings provided crucial insights into the areas requiring optimization, setting the stage for our improvement efforts.
+
 ## Optimization Journey
 
-The following sections outline how the optimization evolved over time, starting with initial enhancements in OpenSearch 2.12 and culminating in broader support in OpenSearch 3.0.
+Armed with a clear understanding of the performance bottlenecks, we embarked on a journey to enhance date histogram aggregation performance. The following sections outline how our optimization efforts evolved over time, starting with initial enhancements in OpenSearch 2.12 and culminating in broader support in OpenSearch 3.0.
 
 ### Initial Attempts
-While based on our understanding of aggregation execution flow, the bottlenecks made lot of sense, but we were still surprised and curious. After all, we are just counting number of documents each month over a year and taking 7-8 seconds to return 12 count values seemed far too long!! So, we made some naive optimization attempts like:
+
+While the identified bottlenecks aligned with our understanding of the aggregation execution flow, we were still surprised by the extent of the performance issues. After all, simply counting the number of documents for each month over a year shouldn't take 7-8 seconds to return 12 count values! Intrigued by this discrepancy, we initiated some naive optimization attempts:
 
 #### Data Partitioning
 
-Our first attempt involved splitting the 12 month query into concurrent 6 month operations, since the response from 2 operations can easily be merged together. While this reduced query time from 8 to 4 seconds [9310#issuecomment-1682647724](https://github.com/opensearch-project/OpenSearch/issues/9310#issuecomment-1682647724), the community feedback was this being zero-sum game - we weren't really reducing CPU cycles, just running them in parallel. With concurrent segment search feature, already providing these benefits, there was not much to be gained from this.
+Our first attempt involved splitting the 12 month query into concurrent 6 month operations, since the response from 2 operations can easily be merged together. While this reduced query time from 8 to 4 seconds [9310#issuecomment-1682647724](https://github.com/opensearch-project/OpenSearch/issues/9310#issuecomment-1682647724), the community feedback was this being zero-sum game - we weren't really reducing CPU cycles, just running them in parallel. With concurrent segment search feature, already providing these benefits, this approach offered limited value.
 
 
 #### Data Slicing
 
-We then tried a different approach - data slicing. Instead of getting the count using aggregation query, we rewrote into normal range query with track all documents to get the documents for single month. This reduced query time dramatically, to about 150 ms for 1 month [9310#issuecomment-1682627380](https://github.com/opensearch-project/OpenSearch/issues/9310#issuecomment-1682627380). Hence, even if we were to do individual operation for each month, the overall query time comes down from 8 seconds to around 2 seconds for whole year without increasing the concurrency and overall cpu cycles.
+Building on our learnings from the first attempt, we explored a different strategy - data slicing. Instead of using an aggregation query to get the count, we restructured the approach to use a normal range query with track_total_hits enabled to count documents for a single month. The results were dramatic - query time dropped to about 150 ms for 1 month [9310#issuecomment-1682627380](https://github.com/opensearch-project/OpenSearch/issues/9310#issuecomment-1682627380). This meant that even sequential monthly queries would complete in around 2 seconds for the whole year, a significant improvement from the original 8 seconds, without increasing concurrency or overall CPU cycles.
 
 ```json
 {
@@ -117,11 +116,11 @@ We then tried a different approach - data slicing. Instead of getting the count 
 }
 ```
 
-A major breakthrough came after we spent sometime to understand the execution of this query and why it is much faster than the aggregation query over same time range!!
+This remarkable performance difference led us to dive deeper into understanding why this query executed so much faster than the equivalent aggregation query. Our investigation yielded a crucial insight that would shape our next optimization approach.
 
 ### Phase 1: Filter Rewrite
 
-Based on our understanding of range query execution, we came up with Filter Rewrite approach. It preemptively created a series of range filters, one for each bucket, in the requested date histogram. For example, the monthly aggregation over year can be rewritten as below:
+Drawing from our analysis of the range query's superior performance, we developed the Filter Rewrite approach. This method works by preemptively creating a series of range filters, one for each bucket in the requested date histogram. For example, the monthly aggregation over a year can be rewritten as follows:
 
 ```json
 {
@@ -164,9 +163,12 @@ This date histogram aggregation query generates filter corresponding to each buc
 
 ![Performance_Improvements_Initial.png](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/Performance_Improvements_Initial.png)
 
-The following diagrams illustrate how documents are counted per histogram bucket using the index tree. To efficiently count documents matching a range (e.g., 351 to 771), the traversal begins at the root, checking whether the target range intersects with the node’s range. If it does, the algorithm recursively explores the left and right subtrees. An important optimization is skipping entire subtrees: if a node’s range falls completely outside the query range (e.g., 1–200), it is ignored. Conversely, if a node’s range is fully contained within the query range (e.g., 401–600), the algorithm can return the document count from that node directly without traversing its children. This allows the engine to avoid visiting all leaf nodes, focusing only on nodes with partial overlaps. As a result, the operation becomes significantly faster—reducing complexity from linear (O(N)) to logarithmic (O(log N)) in many cases—since it leverages the hierarchical structure to skip large irrelevant portions of the tree and aggregate counts efficiently.
+The following diagrams illustrate how documents are counted per histogram bucket using the index tree. To efficiently count documents matching a range (e.g., 351 to 771), the traversal begins at the root, checking whether the target range intersects with the node’s range. If it does, the algorithm recursively explores the left and right subtrees.
 
 ![Filter_Rewrite_Initial.png](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/Filter_Rewrite_Initial.png)
+
+An important optimization is skipping entire subtrees: if a node’s range falls completely outside the query range (e.g., 1–200), it is ignored. Conversely, if a node’s range is fully contained within the query range (e.g., 401–600), the algorithm can return the document count from that node directly without traversing its children. This allows the engine to avoid visiting all leaf nodes, focusing only on nodes with partial overlaps. As a result, the operation becomes significantly faster—reducing complexity from linear (O(N)) to logarithmic (O(log N)) in many cases—since it leverages the hierarchical structure to skip large irrelevant portions of the tree and aggregate counts efficiently.
+
 ![Filter_Rewrite_Final.png](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/Filter_Rewrite_Final.png)
 
 ### Phase 2: Addressing scalability using multi-range traversal (OpenSearch 2.14)
@@ -177,10 +179,16 @@ This approach proved especially effective for minute-level aggregations, where t
 
 ![Performance_Improvements_Final.png](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/Performance_Improvements_Final.png)
 
-The following diagrams illustrate how documents are counted per histogram bucket using multi range traversal. Instead of restarting the traversal from the top for each bucket, it uses a two-pointer approach: one pointer tracks the current position in the tree, while the other tracks the active bucket. As the tree is traversed in sorted order, the algorithm checks whether the current value falls within the range of the active bucket. If it does, the document is collected; if the value exceeds the bucket’s upper bound, the pointer advances to the next bucket. This seamless transition between buckets avoids restarting the traversal and reduces redundant work. For example, if a node’s range (like 300–400) doesn't overlap with any target bucket, it’s entirely skipped. Similarly, nodes that are fully contained within a bucket (like 401–600) are directly counted without further exploration. This method is especially powerful when dealing with thousands of fine-grained buckets, such as minute-level aggregations, and dramatically reduces processing time by minimizing unnecessary operations.
+The following diagrams illustrate how documents are counted per histogram bucket using multi range traversal. Instead of restarting the traversal from the top for each bucket, it uses a two-pointer approach: one pointer tracks the current position in the tree, while the other tracks the active bucket.
 
 ![MRT_Initial.png](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/MRT_Initial.png)
+
+As the tree is traversed in sorted order, the algorithm checks whether the current value falls within the range of the active bucket. If it does, the document is collected (above diagram); if the value exceeds the bucket’s upper bound, the pointer advances to the next bucket (below diagram). This seamless transition between buckets avoids restarting the traversal and reduces redundant work. For example, if a node’s range (like 300–400) doesn't overlap with any target bucket, it’s entirely skipped.
+
 ![MRT_Middle.png](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/MRT_Middle.png)
+
+Similarly, nodes that are fully contained within a bucket (like 401–600) are directly counted without further exploration. This method is especially powerful when dealing with thousands of fine-grained buckets, such as minute-level aggregations, and dramatically reduces processing time by minimizing unnecessary operations.
+
 ![MRT_Final.png](../assets/media/blog-images/2025-05-05-date-histogram-optimizations/MRT_Final.png)
 
 ### Phase 3: Expanding support for sub-aggregations (OpenSearch 3.0)
