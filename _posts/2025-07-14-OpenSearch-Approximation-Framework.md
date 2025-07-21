@@ -26,7 +26,7 @@ Starting with version 3.0.0, OpenSearch includes the Approximation Framework as 
 
 ## Overview
 
-The OpenSearch Approximation Framework is a query optimization technique that implements custom BKD tree traversal with early termination. The key insight is that for queries with a size limit, we don't need to visit all matching documents; we can stop as soon as we've collected enough results.
+The OpenSearch Approximation Framework is a query optimization technique that implements custom BKD tree traversal with early termination. The key insight is that for queries with a size limit, the Approximation Framework doesn't need to visit all matching documents; it can stop as soon as it has collected enough results.
 
 The framework creates custom versions of standard Lucene queries (like `PointRangeQuery`) that have the following features:
 
