@@ -228,3 +228,7 @@ The proof of concept for extending the framework to top-level term queries on nu
 ### Boolean Query
 
 Related [issue](https://github.com/opensearch-project/OpenSearch/issues/18692) and [RFC](https://github.com/opensearch-project/OpenSearch/issues/18784) on this topic which has some details on implementing `ApproximateBooleanQuery` as proof of concept which can optimize both single and multi-clause boolean queries.
+
+### Numeric search_after queries
+
+During a proof of concept effort outlined [in this issue](https://github.com/opensearch-project/OpenSearch/issues/18546), observed significant improvements for numeric queries using the `search_after` parameter in OpenSearch, which is designed for efficient deep pagination of large datasets. In tests with `asc_sort_with_after_timestamp`, the P90 latency dropped from **194.828** ms to **8.459** ms, and for `desc_sort_with_after_timestamp`, it dropped from **188.037** ms to **7.09** ms.
