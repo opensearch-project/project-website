@@ -163,7 +163,7 @@ Drawing from our analysis of the range query's superior performance, we develope
 }
 ```
 
-This date histogram aggregation query generates a filter corresponding to each bucket and uses Lucene's Points Index, which is based on BKD trees, to significantly optimize the aggregation. This tree-based structure organizes data into nodes representing value ranges with associated document counts, enabling efficient traversal. By skipping irrelevant subtrees and using early termination, the system reduces unnecessary disk reads and avoids visiting individual documents. The counts for each bucket are determined using the index tree, similarly to a `range` query, which is faster than iterating over document values. We also applied this approach to the auto-date histogram, composite aggregation on date histogram source, and, later on, numeric range aggregation with non-overlapping ranges. The below graph shows the performance improvement for daily and hourly date histogram aggregations compared to OS 2.7 and OS 2.11. Also, notice that the minutely aggregation (gray bar in below graph) could not initially benefit from this optimization. We talk about that in more detail in the next section.
+This date histogram aggregation query generates a filter corresponding to each bucket and uses Lucene's Points Index, which is based on BKD trees, to significantly optimize the aggregation. This tree-based structure organizes data into nodes representing value ranges with associated document counts, enabling efficient traversal. By skipping irrelevant subtrees and using early termination, the system reduces unnecessary disk reads and avoids visiting individual documents. The counts for each bucket are determined using the index tree, similarly to a `range` query, which is faster than iterating over document values. We also applied this approach to the auto-date histogram, composite aggregation on date histogram source, and, later on, numeric range aggregation with non-overlapping ranges. The following graph shows the performance improvement for daily and hourly date histogram aggregations compared to OpenSearch 2.7 and 2.11. Also notice that the minute-level aggregation (gray bar in the graph) could not initially benefit from this optimization. We discuss this in more detail in the next section.
 
 ![Performance_Improvements_Initial.png](/assets/media/blog-images/2025-05-05-date-histogram-optimizations/Performance_Improvements_Initial.png)
 
@@ -222,9 +222,9 @@ This journey shows how iterative improvements, deep system understanding, and co
 
 ## Looking forward
 
-These optimizations have been contributed upstream to Lucene (see [this pull request](https://github.com/apache/lucene/pull/14439)) so that other search systems such as Elasticsearch and Solr can also benefit from these improvements. Looking ahead, we’re continuing to explore and implement further performance enhancements, particularly in the following areas:
+These optimizations have been contributed upstream to Lucene (see [this pull request](https://github.com/apache/lucene/pull/14439)) so that other search systems such as Elasticsearch and Solr can also benefit from these improvements. Looking ahead, we're continuing to explore and implement further performance enhancements, particularly in the following areas:
 * Nested aggregations
 * Multi-field queries
 * More efficient handling of deleted documents
 
-If you're interested in collaborating or discussing these topics further, feel free to reach out via GitHub or Slack—we’d love to connect.
+If you're interested in collaborating or discussing these topics further, feel free to reach out on GitHub or Slack—we'd love to connect!
