@@ -163,7 +163,7 @@ Drawing from our analysis of the range query's superior performance, we develope
 }
 ```
 
-This date histogram aggregation query generates a filter corresponding to each bucket and uses Lucene's Points Index, which is based on BKD trees, to significantly optimize the aggregation. This tree-based structure organizes data into nodes representing value ranges with associated document counts, enabling efficient traversal. By skipping irrelevant subtrees and using early termination, the system reduces unnecessary disk reads and avoids visiting individual documents. The counts for each bucket are determined using the index tree, similarly to a `range` query, which is faster than iterating over document values. We also applied this approach to the auto-date histogram, composite aggregation on date histogram source, and, later on, numeric range aggregation with non-overlapping ranges.
+This date histogram aggregation query generates a filter corresponding to each bucket and uses Lucene's Points Index, which is based on BKD trees, to significantly optimize the aggregation. This tree-based structure organizes data into nodes representing value ranges with associated document counts, enabling efficient traversal. By skipping irrelevant subtrees and using early termination, the system reduces unnecessary disk reads and avoids visiting individual documents. The counts for each bucket are determined using the index tree, similarly to a `range` query, which is faster than iterating over document values. We also applied this approach to the auto-date histogram, composite aggregation on date histogram source, and, later on, numeric range aggregation with non-overlapping ranges. The below graph shows the performance improvement for daily and hourly date histogram aggregations compared to OS 2.7 and OS 2.11. Also, notice that the minutely aggregation (gray bar in below graph) could not initially benefit from this optimization. We talk about that in more detail in the next section.
 
 ![Performance_Improvements_Initial.png](/assets/media/blog-images/2025-05-05-date-histogram-optimizations/Performance_Improvements_Initial.png)
 
@@ -214,15 +214,17 @@ While these improvements offer strong performance gains, it's important to under
 * The filter rewrite optimization primarily applies to `match_all` queries or simple `range` queries compatible with the index tree computation; it does not support arbitrary top-level queries. While [segment-level `match_all`](https://github.com/opensearch-project/OpenSearch/pull/12073) has been implemented, complex query interactions might still limit filter rewrite applicability.
 * While multi-range traversal significantly reduced overhead, extremely fine-grained histograms over sparse datasets can potentially still encounter performance regressions.
 
-## Looking forward
-
-These optimizations have been contributed back to Lucene (see [this pull request](https://github.com/apache/lucene/pull/14439)) so that other search systems like Elasticsearch and Solr can benefit from these improvements. We are continuing to work on performance improvements to address the limitations in these areas:
-* Nested aggregations
-* Multi-field queries
-* More efficient handling of deleted documents
-
 ## Conclusion
 
 Index-based optimization for date histogram aggregations in OpenSearch significantly enhances the performance of time-series analysis and visualization. It is applied automatically to eligible aggregations, streamlining your workflows without added manual effort. As OpenSearch evolves, these improvements ensure that you can efficiently gain insights from your data, with less concern about scale.
 
 This journey shows how iterative improvements, deep system understanding, and community collaboration can lead to breakthrough performance gains. While we initially didn't expect such dramatic results, our commitment to continuous optimization paid off in ways we couldn't have imagined.
+
+## Looking forward
+
+These optimizations have been contributed upstream to Lucene (see [this pull request](https://github.com/apache/lucene/pull/14439)) so that other search systems such as Elasticsearch and Solr can also benefit from these improvements. Looking ahead, we’re continuing to explore and implement further performance enhancements, particularly in the following areas:
+* Nested aggregations
+* Multi-field queries
+* More efficient handling of deleted documents
+
+If you're interested in collaborating or discussing these topics further, feel free to reach out via GitHub or Slack—we’d love to connect.
