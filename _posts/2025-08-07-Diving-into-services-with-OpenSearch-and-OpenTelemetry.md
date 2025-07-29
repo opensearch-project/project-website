@@ -15,7 +15,7 @@ meta_description: Learn how to use OpenSearch 3.1 and OpenTelemetry for end-to-e
 
 In modern distributed systems, understanding the interactions between microservices is crucial for identifying performance bottlenecks and diagnosing failures. In this blog, we’ll leverage the new features introduced in Trace Analytics plugin in OpenSearch version 3.1 such as enhanced service map visualizations, advanced span grouping, and latency distribution charts alongside OpenTelemetry to collect and instrument traces. We’ll then use OpenSearch and OpenSearch Dashboards to explore, visualize, and analyze an Observability investigation workflow. 
 
-## Demo Setup
+## Setting up the demo
 
 We’ll use the OpenTelemetry demo for the Astronomy Shop, an e‑commerce site composed of multiple microservices. This demo is available at https://github.com/opensearch-project/opentelemetry-demo. A Docker Compose setup launches the Astronomy Shop services alongside:
 
@@ -25,13 +25,13 @@ We’ll use the OpenTelemetry demo for the Astronomy Shop, an e‑commerce site 
 
 ![OpenSearch Observability with OpenTelemetry](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/os-observability-architecture.png)
 
-### Astronomy Shop
+### OpenTelemetry Demo & Astronomy Shop
 The Astronomy Shop includes services such as Frontend, Cart, Ad, Accounting, Currency, Payment, and Checkout. Each service is implemented in a different language and uses the OpenTelemetry SDK to emit spans and metrics.
 
 ![OTel Astronomy Shop](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/otel-demo-astronomy-shop.gif)
 
-### Feature Flags 
-The demo includes a feature-flag service to simulate failures, including adServiceHighCpu, cartServiceFailure, productCatalogFailure, paymentServiceFailure and more. In this walkthrough, we will focus on the Ad service, triggering a high error rate scenario to illustrate how to detect and diagnose faults.
+### Feature Flags in the OpenTelemetry Demo
+The demo includes a feature-flag service to simulate failures, including adServiceHighCpu, cartServiceFailure, productCatalogFailure, paymentServiceFailure, and more. In this walkthrough, we will focus on the Ad service, triggering a high error rate scenario to illustrate how to detect and diagnose faults.
 
 ![OTel Demo feature flags](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/otel-demo-feature-flag.png)
 
@@ -42,14 +42,14 @@ OpenSearch Dashboards includes several observability plugins; for this demo, ena
 2. **Query Enhancements**: Adds autocomplete, syntax highlighting, and AI‑powered suggestions.
 3. **Query Assist**: Enables natural language and AI‑driven query generation.
 
-Below are some key plugins we setup in the demo:
+Below are some key plugins we set up in the demo:
 
 * **Services**: Shows RED (Rate, Errors, Duration) metrics, service maps, and links to logs and traces.
-* **Traces**: Allows exploration of individual traces, trace groups and spans, displays gantt charts, cumulative service timing, and trace payloads.
+* **Traces**: Allows exploration of individual traces, trace groups and spans, displays Gantt charts, cumulative service timing, and trace payloads.
 * **Discover**: Offers ad‑hoc querying of logs and metrics using PPL, SQL, Lucene, or DQL.
 
 ### Setting up correlated log indexes 
-The recent update in OpenSearch 3.1 for trace analytics plugin allows users to setup traces and service maps indexes, along with correlated log indexes with custom field mappings to support non-OTel log schemas.
+The recent update in OpenSearch 3.1 for Trace Analytics plugin allows users to set up traces and service maps indexes, along with correlated log indexes with custom field mappings to support non-OTel log schemas.
 
 ![Correlations setup](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlations-setup.gif)
 
@@ -131,8 +131,8 @@ For more advanced investigation, you can use natural language capabilities to qu
 
 This systematic approach provides:
 
-* *Rapid issue identification* through service-level metrics
-* *Precise error location* via distributed tracing
+* *Rapid issue identification* by accessing service-level metrics
+* *Precise error location* using distributed tracing
 * *Root cause analysis* through detailed log examination
 * *Efficient investigation* using natural language queries
 
