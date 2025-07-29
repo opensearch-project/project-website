@@ -23,17 +23,17 @@ We’ll use the OpenTelemetry demo for the Astronomy Shop, an e‑commerce site 
 * **OpenSearch**: Stores telemetry data and serves as the search engine.
 * **OpenSearch Dashboards**: Provides a unified UI for logs, metrics, and traces.
 
-![OpenSearch Observability with OpenTelemetry](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/os-observability-architecture.png)
+![OpenSearch Observability with OpenTelemetry](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/os-observability-architecture.png){:class="img-centered"}
 
 ### OpenTelemetry Demo & Astronomy Shop
 The Astronomy Shop includes services such as Frontend, Cart, Ad, Accounting, Currency, Payment, and Checkout. Each service is implemented in a different language and uses the OpenTelemetry SDK to emit spans and metrics.
 
-![OTel Astronomy Shop](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/otel-demo-astronomy-shop.gif)
+![OTel Astronomy Shop](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/otel-demo-astronomy-shop.gif){:class="img-centered"}
 
 ### Feature Flags in the OpenTelemetry Demo
 The demo includes a feature-flag service to simulate failures, including adServiceHighCpu, cartServiceFailure, productCatalogFailure, paymentServiceFailure, and more. In this walkthrough, we will focus on the Ad service, triggering a high error rate scenario to illustrate how to detect and diagnose faults.
 
-![OTel Demo feature flags](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/otel-demo-feature-flag.png)
+![OTel Demo feature flags](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/otel-demo-feature-flag.png){:class="img-centered"}
 
 ### OpenSearch Dashboards 
 OpenSearch Dashboards includes several observability plugins; for this demo, enable:
@@ -51,7 +51,7 @@ Below are some key plugins we set up in the demo:
 ### Setting up correlated log indexes 
 The recent update in OpenSearch 3.1 for Trace Analytics plugin allows users to set up traces and service maps indexes, along with correlated log indexes with custom field mappings to support non-OTel log schemas.
 
-![Correlations setup](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlations-setup.gif)
+![Correlations setup](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlations-setup.gif){:class="img-centered"}
 
 ### Natural Language Features
 Two AI‑driven capabilities streamline investigation:
@@ -70,18 +70,18 @@ When monitoring services in production, a systematic approach to identifying and
 
 Starting from the Services page, you can get a high-level overview of all services and their health status. 
 
-![OpenSearch Dashboards services page](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/opensearch-services.png)
+![OpenSearch Dashboards services page](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/opensearch-services.png){:class="img-centered"}
 
 
 To quickly identify problematic services, sort by error rate to identify services with the highest failure rates. Alternatively, you can view the service map with the errors tab selected to visualize which services are experiencing issues and how they're interconnected.
 
-![OpenSearch Dashboards services page demo](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/opensearch-services-demo.gif)
+![OpenSearch Dashboards services page demo](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/opensearch-services-demo.gif){:class="img-centered"}
 
 ### Step 2: Navigate to the problem service
 
 After identifying that the ad service has a significantly high error rate, select it to navigate to its dedicated service page. This provides a more focused view of the problematic service.
 
-![Selected Ad service](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/highlighted-ad-service.png)
+![Selected Ad service](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/highlighted-ad-service.png){:class="img-centered"}
 
 ### Step 3: Analyze service overview
 
@@ -108,24 +108,24 @@ Select a specific Trace ID to redirect to the trace details page where you can e
 The trace detail page provides a Gantt chart visualization showing the complete request flow across services, timing information for each service call, error locations within the trace, and service dependencies and call patterns.
 Focus on the ad service span and select it to access more detailed information about the specific error.
 
-![Trace details page](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/trace-details-page.gif)
+![Trace details page](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/trace-details-page.gif){:class="img-centered"}
 
 ### Step 6: Examine error logs
 
 To understand the root cause, navigate to the logs page, which shows all log entries related to the error span. 
 
-![Jump to correlated logs from spans](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlated-logs-from-spans.png)
+![Jump to correlated logs from spans](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlated-logs-from-spans.png){:class="img-centered"}
 
 By selecting the body field, you can quickly see the specific error message and context that led to the failure.
 
-![Correlated logs for errored spans](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlated-logs.png)
+![Correlated logs for errored spans](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlated-logs.png){:class="img-centered"}
 
 ### Step 7: Use natural language querying
 
 For more advanced investigation, you can use natural language capabilities to query the data. Using a prompt such as "Show me the logs for span id '475dc023cbf02058' and summarize the body field," the system generates the appropriate query and provides a summary of the findings, making it easier to understand complex error patterns without writing manual queries.
 
 
-![natural language query generation and summarization](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/nlqg-summary-ad-service.gif)
+![natural language query generation and summarization](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/nlqg-summary-ad-service.gif){:class="img-centered"}
 
 ## Key takeaways from this workflow
 
