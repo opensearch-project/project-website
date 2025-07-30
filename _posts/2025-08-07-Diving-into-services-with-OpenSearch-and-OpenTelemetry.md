@@ -6,7 +6,7 @@ tags: [observability, traces, services, opentelemetry, opensearch-3-1]
 authors:
     - pshenoy
     - tackadam
-date: 2025-07-07
+date: 2025-08-07
 categories:
   - technical-posts
 meta_keywords: observability, traces, services, OpenTelemetry, OpenSearch 3.1, Investigation, 
