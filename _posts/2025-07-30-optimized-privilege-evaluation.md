@@ -38,7 +38,7 @@ Also, the number of roles can be nicely seen in the chart: When comparing a rest
 
 Of course, one needs to ask the question: Are clusters with 300 or even 3000 indexes a realistic thing? Clusters with 300 indexes are easy to achieve - it is common practice to configure ingestion to start a new index every day. Thus, without further index life-cycle management, you’ll have 300 indexes with a single application after less than a year. Clusters with 3000 indexes are a more rare thing, but they still are a thing that can be observed “in the wild”. Clusters with even more indexes are really rare - likely because of the performance issues they will face.
 
-The correlation between performance and the number of indexes on the cluster is kind of a nasty thing: Initially, each cluster starts with only few indexes. The performance you are observing will be fine. Only with progressing time, more and more indexes will accumulate on a cluster. Then, very slowly, the performance will deteriorate. At one point one will wonder: Hasn’t it been faster once?
+The correlation between performance and the number of indexes on the cluster is kind of a nasty thing: Initially, each cluster starts with only few indexes. The performance you are observing will be fine. Only with progressing time, more and more indexes will accumulate on a cluster. Then very slowly, the performance will deteriorate. At one point one will wonder: Hasn’t it been faster once?
 
 For search operations, the benchmark results shown in the following chart look similar; this chart features one more line: The purple line represents the throughput seen by a user with roles which impose Document Level Security (DLS) restrictions. As DLS is only available for reading operations, we can only consider it here. 
 
@@ -46,7 +46,7 @@ For search operations, the benchmark results shown in the following chart look s
 
 You can see in these benchmarks that in older versions of OpenSearch it's reasonable to have clusters with up to 300 indexes. Having more indexes on the cluster however would significantly affect the performance.
 
-## Optimized Action Privilege Evaluation
+## Optimized action privilege evaluation
 
 In order to address these performance issues, we worked on the [Optimized Privilege Evaluation project](https://github.com/opensearch-project/security/issues/3870). Analyzing the code that was responsible for privilege evaluation showed the use of quite a few nested loops on roles, privileges, and indexes. Speaking mathematically, the code was in the *O(n²)* complexity class, where *n* is the number of indexes.
 
@@ -57,7 +57,7 @@ Our goal was to build new privilege evaluation code which achieves a better comp
 For achieving optimal performance, we have designed a new data structure which forms the core of the optimized privilege evaluation. When designing the data structure, we applied a number of fundamental strategies in order to ensure optimal results:
 - Use of fast data structures: hash tables give optimal performance with amortized *O(1)* computational complexity 
 - Use of denormalized data structures: The role configuration allows very compact specification of privileges by using pattern expressions on indexes and actions and by using grouping. However, doing privilege evaluations directly on this data structure is not too efficient. In such cases, de-normalization is used to achieve maximum performance. We expand the role configuration into a big de-normalized data structure by resolving index and action patterns to concrete actions and “multiplying out” the index/action grouping.
- - Use of as few loops as possible: The most perfect performance would be gained if the privilege evaluation could be done without any loops. Then, one would have a true *O(1)* complexity. In reality, it is rarely possible to avoid loops altogether, but minimizing them is always a great idea. If a loop cannot be avoided, one should be sure to minimize the total number of iterations spent inside the loops.
+ - Use of as few loops as possible: The most perfect performance would be gained if the privilege evaluation could be done without any loops. Then one would have a true *O(1)* complexity. In reality, it is rarely possible to avoid loops altogether, but minimizing them is always a great idea. If a loop cannot be avoided, one should be sure to minimize the total number of iterations spent inside the loops.
 - This leads us directly to the next strategy: Reduce the problem space as quickly as possible. Identify the most selective criteria and apply these first. This helps with reducing the number of necessary iterations and also with the performance of hash tables.
 - Finally: One downside of de-normalization is: It can create quite a lot of data. In order to keep the amount of data manageable, we again had to use techniques which reduced the amount of data to reasonable numbers.
 
@@ -74,7 +74,7 @@ You can nicely see the strong performance improvement; we can see two properties
 
 The best news: The optimized action privilege evaluation code was already released with OpenSearch 2.19.0. So, if you keep your OpenSearch version up to date, you are already getting the better performance.
 
-## Optimized Privilege Evaluation for DLS/FLS
+## Optimized privilege evaluation for DLS/FLS
 
 The optimizations described above only tackled the action access control; that is the decision for the question *“is user X allowed to execute action Y (on index Z)”*. Document Level Security (DLS) and Field Level Security (FLS) however offer more fine grained access controls. These require a separate privilege evaluation and access control implementation.
 
@@ -92,13 +92,13 @@ Again, the purple lines represent users with active DLS restrictions. You can se
 
 Also here the best news: The optimized privilege evaluation for DLS/FLS was already released with OpenSearch 3.0.0.
 
-## User Object Optimizations
+## User object optimizations
 
 After having finished the work on privilege evaluation, we looked at another central component of the security layer: the user object. Interestingly, the performance of OpenSearch can also depend on the size of the user object. The size of the user object is mostly dependent on the number of roles of the user and the number of user attributes. While in many cases we will have only very few roles and attributes, there are some surprising cases: especially in environments using LDAP, users can have large amounts of roles and attributes.
 
 One process that suffers quite strongly from big user objects is the exchange of the user object between nodes during inter-node communication. This is especially caused by the necessary serialization and deserialization of the user data. We aimed at reducing these processes in the [immutable user object project](https://github.com/opensearch-project/security/pull/5212). By making the user object immutable, we gained the possibility to reuse the serialized form regularly, reducing the number of necessary serializations. Caches help us to reduce the number of deserialization processes.
 
-We also performed [benchmarks](https://github.com/opensearch-project/security/pull/5212#issuecomment-2804401414) on these optimizations.  While the gains are not as huge as for the optimized privilege evaluation, we also get some good results.
+We also performed [benchmarks](https://github.com/opensearch-project/security/pull/5212#issuecomment-2804401414) on these optimizations. While the gains are not as huge as for the optimized privilege evaluation, we also get some good results.
 
 ![Benchmark for search with user object optimizations](/assets/media/blog-images/2025-07-30-optimized-privilege-evaluation/benchmark-immutable-user-object.svg)
 
@@ -106,7 +106,7 @@ We see here the throughput of a search operation on 20 indexes. Again, the dashe
 
 The user object optimizations have been recently released with OpenSearch 3.1.0.
 
-## Improved Index Resolution
+## Improved index resolution
 
 And this is not the end yet. We are now working on the another facet of the security layer: In the [Index pattern resolution improvements project](https://github.com/opensearch-project/security/issues/5367) we are now working on the code that tells the security layer which indexes an action request is about to access. We believe to gain further performance improvements by doing optimizations here.
 
@@ -116,10 +116,11 @@ The recent OpenSearch versions bring huge performance improvements on the securi
 
 From the perspective of a software engineer, the results show: it takes the right data structures and with the right algorithms to max out the potential of your infrastructure. OpenSearch and Lucene are actually full of such great applications of efficient algorithms and data structures, especially in the indexing and search core. It is really cool that we could move even more forward now.
 
+Yet, we also see that creating efficient and scalable components is difficult, especially in distributed systems. Eliatra, a founding member of the OpenSearch Software Foundation, has the deep expertise and engineering capacity to address such challenges. Eliatra’s team actively drives innovation and contributes production-grade improvements to OpenSearch. If you're running large-scale OpenSearch clusters and need advanced tuning, architectural guidance, or custom features; Eliatra ready to help.
 
 ## Resources
 
-- [Blog article: Performance Improvements for the Access Control Layer of OpenSearch: An In-depth Technical Look](https://eliatra.com/blog/performance-improvements-for-the-access-control-layer-of-opensearch/); [part 2](https://eliatra.com/blog/performance-improvements-for-the-access-control-layer-of-opensearch-2/)
+- [Blog article at Eliatra: Performance Improvements for the Access Control Layer of OpenSearch: An In-depth Technical Look](https://eliatra.com/blog/performance-improvements-for-the-access-control-layer-of-opensearch/); [part 2](https://eliatra.com/blog/performance-improvements-for-the-access-control-layer-of-opensearch-2/)
 - [Issue: Optimized privilege evaluation](https://github.com/opensearch-project/security/issues/3870)
 - [Issue: Make user object immutable](https://github.com/opensearch-project/security/issues/5168)
 - [Issue: Index pattern resolution improvements](https://github.com/opensearch-project/security/issues/5367)
