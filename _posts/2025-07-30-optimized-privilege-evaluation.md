@@ -116,7 +116,7 @@ The recent OpenSearch versions bring huge performance improvements on the securi
 
 From the perspective of a software engineer, the results show: it takes the right data structures and with the right algorithms to max out the potential of your infrastructure. OpenSearch and Lucene are actually full of such great applications of efficient algorithms and data structures, especially in the indexing and search core. It is really cool that we could move even more forward now.
 
-Yet, we also see that creating efficient and scalable components is difficult, especially in distributed systems. Eliatra, a founding member of the OpenSearch Software Foundation, has the deep expertise and engineering capacity to address such challenges. Eliatra’s team actively drives innovation and contributes production-grade improvements to OpenSearch. If you're running large-scale OpenSearch clusters and need advanced tuning, architectural guidance, or custom features; Eliatra ready to help.
+Yet, we also see that creating efficient and scalable components is difficult, especially in distributed systems. [Eliatra](https://eliatra.com/), a founding member of the OpenSearch Software Foundation, has the deep expertise and engineering capacity to address such challenges. Eliatra’s team actively drives innovation and contributes production-grade improvements to OpenSearch. If you're running large-scale OpenSearch clusters and need advanced tuning, architectural guidance, or custom features; Eliatra ready to help.
 
 ## Resources
 
