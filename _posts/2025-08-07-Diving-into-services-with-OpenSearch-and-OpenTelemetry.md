@@ -143,3 +143,13 @@ This systematic approach provides the following benefits:
 * *Efficient investigation* using natural language queries
 
 By following this workflow, you can quickly move from detecting a service issue to understanding its root cause, enabling faster resolution and improved system reliability.
+
+## What's next?
+
+Ready to take your observability practice further? Here are some next steps:
+
+* **Try the OpenTelemetry demo yourself**: Set up the Astronomy Shop demo and experiment with service errors, tracing, and log correlation.
+* **Explore natural language features**: Dive deeper into AI-powered features like natural language queries and data summarization.
+* **Integrate with your own services**: Instrument your microservices with OpenTelemetry SDKs and connect them to OpenSearch for deeper insights.
+
+For more resources and documentation on the updates for traces & services in version 3.1, visit [OpenSearch Trace Analytics](https://docs.opensearch.org/latest/observing-your-data/trace/ta-dashboards/#support-for-custom-index-names-and-cross-cluster-indexes) and [OpenSearch Data Prepper](https://docs.opensearch.org/latest/data-prepper/common-use-cases/trace-analytics/)
