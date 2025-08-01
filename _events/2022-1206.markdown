@@ -3,6 +3,7 @@ calendar_date: '2022-12-06'
 eventdate: 2022-12-06 15:00:00 -0800
 title: OpenSearch Community Meeting - 2022-12-06
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/289915764/
     title: Join on Meetup
