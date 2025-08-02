@@ -92,7 +92,7 @@ After identifying that the Ad service has a high error rate, select it to naviga
 
 ### Step 3: Analyze service overview
 
-On the ad service page, you can view comprehensive overview metrics, including high-level performance indicators, error rate trends over time, service health patterns, and key performance metrics, as shown in the following image. The trends section helps you understand whether this is a recent issue or an ongoing problem.
+On the Ad service page, you can view comprehensive overview metrics, including high-level performance indicators, error rate trends over time, service health patterns, and key performance metrics, as shown in the following image. The trends section helps you understand whether this is a recent issue or an ongoing problem.
 
 ![Ad service details](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/ad-service-details.gif)
 
