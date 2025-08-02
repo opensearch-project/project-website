@@ -13,7 +13,7 @@ meta_keywords: observability, traces, services, OpenTelemetry, OpenSearch 3.1, I
 meta_description: Learn how to use OpenSearch 3.1 and OpenTelemetry for end-to-end observability, troubleshooting, and root cause analysis in distributed microservices. This blog post demonstrates a practical workflow for identifying, investigating, and resolving service issues using advanced tracing, service maps, and AI-powered features in OpenSearch Dashboards.
 ---
 
-In modern distributed systems, understanding the interactions between microservices is crucial for identifying performance bottlenecks and diagnosing failures. In this blog, we'll demonstrate the new features introduced in Trace Analytics plugin in OpenSearch version 3.1, such as enhanced service map visualizations, advanced span grouping, and latency distribution charts alongside OpenTelemetry to collect and instrument traces. We'll then show how to use OpenSearch and OpenSearch Dashboards to explore, visualize, and analyze an Observability investigation workflow. 
+In modern distributed systems, understanding the interactions between microservices is crucial for identifying performance bottlenecks and diagnosing failures. In this blog post, we'll demonstrate the new features introduced in the Trace Analytics plugin in OpenSearch version 3.1, such as enhanced service map visualizations, advanced span grouping, and latency distribution charts alongside OpenTelemetry (OTel) to collect and instrument traces. We'll then show how to use OpenSearch and OpenSearch Dashboards to explore, visualize, and analyze an observability investigation workflow. 
 
 ## Setting up the demo
 
