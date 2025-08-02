@@ -86,7 +86,7 @@ To quickly identify problematic services, sort by error rate to identify service
 
 ### Step 2: Navigate to the problem service
 
-After identifying that the ad service has a significantly high error rate, select it to navigate to its dedicated service page. This page provides a more focused view of the problematic service, shown in the following image.
+After identifying that the Ad service has a high error rate, select it to navigate to its dedicated service page. This page provides a more focused view of the problematic service, shown in the following image.
 
 ![Selected Ad service](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/highlighted-ad-service.png){:class="img-centered"}
 
