@@ -55,7 +55,7 @@ For the demo, we also configured the following plugins:
 
 ### Setting up correlated log indexes 
 
-The recent update in OpenSearch 3.1 for Trace Analytics plugin allows you to set up traces and service maps indexes, along with correlated log indexes with custom field mappings to support non-OTel log schemas, as shown in the following image.
+In OpenSearch 3.1, the Trace Analytics plugin now allows you to set up traces and service maps indexes, along with correlated log indexes with custom field mappings to support non-OTel log schemas, as shown in the following image.
 
 ![Correlations setup](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlations-setup.gif){:class="img-centered"}
 
