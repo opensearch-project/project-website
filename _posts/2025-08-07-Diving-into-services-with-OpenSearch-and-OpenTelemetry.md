@@ -71,7 +71,7 @@ To learn more about OpenSearch Dashboards AI capabilities, see [OpenSearch Assis
 
 ## Observability workflow
 
-When monitoring services in production, a systematic approach to identifying and resolving issues is crucial. This walkthrough demonstrates how to use OpenSearch Observability tools to quickly pinpoint and investigate service errors.
+When monitoring services in production, a systematic approach to identifying and resolving issues is crucial. This walkthrough demonstrates how to use OpenSearch observability tools to quickly pinpoint and investigate service errors.
 
 ### Step 1: Identify problem services
 
