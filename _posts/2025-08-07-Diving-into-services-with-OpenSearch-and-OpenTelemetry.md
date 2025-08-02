@@ -128,7 +128,7 @@ By selecting the **body** field, you can quickly see the specific error message 
 
 ### Step 7: Use natural language querying
 
-For more advanced investigation, you can use natural language capabilities to query the data. Using a prompt such as "Show me the logs for span id '475dc023cbf02058' and summarize the body field," the system generates the appropriate query and provides a summary of the findings, as shown in the following image. This makes it easier to understand complex error patterns without writing manual queries.
+For more advanced investigations, you can use natural language capabilities to query the data. Using a prompt such as "Show me the logs for span id '475dc023cbf02058' and summarize the body field", the system generates the appropriate query and provides a summary of the findings, as shown in the following image. This makes it easier to understand complex error patterns without writing manual queries.
 
 
 ![natural language query generation and summarization](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/nlqg-summary-ad-service.gif){:class="img-centered"}
