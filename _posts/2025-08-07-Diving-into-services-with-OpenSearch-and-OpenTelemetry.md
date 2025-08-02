@@ -51,7 +51,7 @@ For the demo, we also configured the following plugins:
 
 * **Services**: Shows Rate, Errors, Duration (RED) metrics, service maps, and links to logs and traces.
 * **Traces**: Allows exploration of individual traces, trace groups, and spans, and displays Gantt charts, cumulative service timing, and trace payloads.
-* **Discover**: Offers ad‑hoc querying of logs and metrics using PPL, SQL, Lucene, or DQL.
+* **Discover**: Offers ad hoc querying of logs and metrics using Piped Processing Language (PPL), SQL, Lucene, or Dashboards Query Language (DQL).
 
 ### Setting up correlated log indexes 
 
