@@ -122,7 +122,7 @@ To understand the root cause, navigate to the **Logs** page, which shows all log
 
 ![Jump to correlated logs from spans](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlated-logs-from-spans.png){:class="img-centered"}
 
-By selecting the **body** field, you can quickly see the specific error message and context that led to the failure, as shown in the following image.
+By selecting the `body` field, you can quickly see the specific error message and context that led to the failure, as shown in the following image.
 
 ![Correlated logs for errored spans](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/correlated-logs.png){:class="img-centered"}
 
