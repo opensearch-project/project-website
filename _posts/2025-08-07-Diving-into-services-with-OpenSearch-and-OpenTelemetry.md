@@ -64,7 +64,7 @@ In OpenSearch 3.1, the Trace Analytics plugin now allows you to set up traces an
 The following AI‑driven capabilities streamline investigation:
 
 1. **Text-to-PPL**: Converts plain‑language questions into PPL queries.
-2. **Data Summarization**: Provides concise summaries of query results and log fields.
+2. **Data summarization**: Provides concise summaries of query results and log fields.
 
 To learn more about OpenSearch Dashboards AI capabilities, see [OpenSearch Assistant for OpenSearch Dashboards](https://docs.opensearch.org/docs/latest/dashboards/dashboards-assistant/index/).
 
