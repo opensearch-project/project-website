@@ -80,7 +80,7 @@ On the **Services** page, shown in the following image, you can get a high-level
 ![OpenSearch Dashboards services page](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/opensearch-services.png){:class="img-centered"}
 
 
-To quickly identify problematic services, sort by error rate to identify services with the highest failure rates. Alternatively, you can view the service map with the errors tab selected to visualize which services are experiencing issues and how they're interconnected, as shown in the following image.
+To quickly identify problematic services, sort by error rate to identify services with the highest failure rates. Alternatively, you can view the service map with the **Errors** tab selected to visualize which services are experiencing issues and how they're interconnected, as shown in the following image.
 
 ![OpenSearch Dashboards services page demo](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/opensearch-services-demo.gif){:class="img-centered"}
 
