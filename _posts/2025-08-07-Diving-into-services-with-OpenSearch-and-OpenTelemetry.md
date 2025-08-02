@@ -75,7 +75,7 @@ When monitoring services in production, a systematic approach to identifying and
 
 ### Step 1: Identify problem services
 
-In the **Services** page, shown in the following image, you can get a high-level overview of all services and their health status. 
+On the **Services** page, shown in the following image, you can get a high-level overview of all services and their health status. 
 
 ![OpenSearch Dashboards services page](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/opensearch-services.png){:class="img-centered"}
 
