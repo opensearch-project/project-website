@@ -153,4 +153,4 @@ Ready to take your observability practice further? Here are some next steps:
 * **Explore natural language features**: Dive deeper into AI-powered features like natural language queries and data summarization.
 * **Integrate with your own services**: Instrument your microservices with OTel SDKs and connect them to OpenSearch for deeper insights.
 
-For more resources and documentation on the updates for traces and services in OpenSearch 3.1, see [OpenSearch Trace Analytics](https://docs.opensearch.org/latest/observing-your-data/trace/ta-dashboards/) and [OpenSearch Data Prepper](https://docs.opensearch.org/latest/data-prepper/common-use-cases/trace-analytics/).
+For more resources and documentation on the updates for traces and services in OpenSearch 3.1, see [Trace Analytics plugin for OpenSearch Dashboards](https://docs.opensearch.org/latest/observing-your-data/trace/ta-dashboards/) and [Trace analytics](https://docs.opensearch.org/latest/data-prepper/common-use-cases/trace-analytics/).
