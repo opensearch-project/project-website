@@ -109,7 +109,7 @@ This is where you can examine individual requests and their execution paths. On 
 
 ### Step 5: Analyze the trace timeline
 
-Select a specific trace ID to redirect to the Trace details page. On this page, you can examine the detailed execution flow of that particular request, as shown in the following image. 
+Select a specific trace ID to redirect to the **Trace details** page. On this page, you can examine the detailed execution flow of that particular request, as shown in the following image. 
 
 ![Selected error trace](/assets/media/blog-images/2025-08-07-Diving-into-services-with-OpenSearch-and-OpenTelemetry/selected-error-trace.png)
 
