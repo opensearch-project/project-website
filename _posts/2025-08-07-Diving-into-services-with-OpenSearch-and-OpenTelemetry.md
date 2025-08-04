@@ -18,7 +18,7 @@ In modern distributed systems, understanding the interactions between microservi
 
 ## Setting up the demo
 
-We'll use the OpenTelemetry Astronomy Shop, an e-commerce site composed of multiple microservices. This demo is available at [OpenTelemetry demo](https://github.com/opensearch-project/opentelemetry-demo). A Docker Compose setup launches the Astronomy Shop services and the following components:
+We'll use the OpenTelemetry Astronomy Shop, an e-commerce site composed of multiple microservices. This demo is available at [opentelemetry-demo](https://github.com/opensearch-project/opentelemetry-demo). A Docker Compose setup launches the Astronomy Shop services and the following components:
 
 * **OpenSearch Data Prepper**: Ingests logs and traces into OpenSearch.
 * **OpenSearch**: Stores telemetry data and serves as the search engine.
