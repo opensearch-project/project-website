@@ -123,7 +123,7 @@ We are now working on yet another facet of the security layer: through the [Inde
 
 ## Conclusion
 
-The most recent OpenSearch versions include significant performance improvements to the security layer. Especially if you have a cluster with many indexes, upgrading to the most recent OpenSearch version will bring you a higher indexing throughput, a reduced query latency and a generally reduced cluster CPU utilization.
+The most recent OpenSearch versions include significant performance improvements to the security layer. Especially if you have a cluster with many indexes, upgrading to the most recent OpenSearch version will provide you higher indexing throughput, reduced query latency, and a generally reduced cluster CPU utilization.
 
 The results show that it takes the right data structures with the right algorithms to maximize the potential of your infrastructure. OpenSearch and Lucene include many such applications of efficient algorithms and data structures, especially in the indexing and search core.
 
