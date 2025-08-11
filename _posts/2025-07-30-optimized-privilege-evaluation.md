@@ -115,7 +115,7 @@ We are now working on yet another facet of the security layer: through the [Inde
 
 The most recent OpenSearch versions include significant performance improvements to the security layer. Especially if you have a cluster with many indexes, upgrading to the most recent OpenSearch version will offer you many advantages. 
 
-From the perspective of a software engineer, the results show: it takes the right data structures and with the right algorithms to max out the potential of your infrastructure. OpenSearch and Lucene are actually full of such great applications of efficient algorithms and data structures, especially in the indexing and search core. It is really cool that we could move even more forward now.
+The results show that it takes the right data structures with the right algorithms to maximize the potential of your infrastructure. OpenSearch and Lucene include many such applications of efficient algorithms and data structures, especially in the indexing and search core.
 
 Yet creating efficient and scalable components can be challenging, especially in distributed systems. [Eliatra](https://eliatra.com/), a founding member of the OpenSearch Software Foundation, has the deep expertise and engineering capacity to address such challenges. Eliatra's team actively drives innovation and contributes production-grade improvements to OpenSearch. If you're running large-scale OpenSearch clusters and need advanced tuning, architectural guidance, or custom features, Eliatra is ready to help.
 
