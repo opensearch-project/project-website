@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Offline Batch ML Inference and Ingestion for 1 Billion Requests using OpenSearch Ingestion"
+title:  "Scaling vector generation: Batch ML inference with OpenSearch Ingestion and ML Commons"
 authors:
  - xunzh
  - kolchfa
@@ -13,43 +13,44 @@ excerpt: "Perform offline batch AI inference within Amazon OpenSearch Ingestion 
 has_science_table: true
 ---
 
-In the era of large-scale machine learning applications, one of the most significant challenges organizations face is efficiently generating vector embeddings during data ingestion into OpenSearch. The process of transforming millions or even billions of documents into high-dimensional vectors through ML models has become a critical bottleneck in building effective neural search applications. While traditional real-time APIs offer a straightforward approach to vector generation, they present substantial limitations when dealing with large-scale ingestion workflows.
+In the era of large-scale machine learning applications, one of the most significant challenges  is efficiently generating vector embeddings during data ingestion into OpenSearch. The process of transforming millions or even billions of documents into high-dimensional vectors using ML models has become a critical bottleneck in building effective neural search applications. While traditional real-time APIs offer a straightforward approach to vector generation, they present substantial limitations when dealing with large-scale ingestion workflows.
 
-The real-time vector generation approaches often incur higher costs per inference and are constrained by lower rate limits, creating significant bottlenecks during the ingestion phase. As organizations attempt to vectorize massive document collections, these limitations result in extended ingestion times and increased operational costs. The challenge is further compounded by the complexity of orchestrating the entire pipeline - from initial document processing to vector generation and final indexing into OpenSearch.
+Real-time vector generation approaches often incur higher costs per inference and are constrained by lower rate limits, creating significant bottlenecks during the ingestion phase. As you attempt to vectorize massive document collections, these limitations result in extended ingestion times and increased operational costs. The challenge is further compounded by the complexity of orchestrating the entire pipeline---from initial document processing to vector generation and final indexing into OpenSearch.
 
-To address these vector generation challenges and streamline the ingestion workflow, we're excited to introduce a powerful integration between OpenSearch Ingestion (OSI) and ML Commons. This integration enables seamless batch ML inference processing in offline mode, revolutionizing how organizations can generate vectors for large-scale document collections. By optimizing the vector generation phase of the ingestion pipeline, we're making it easier than ever to build and scale neural search applications efficiently.
+To address these vector generation challenges and streamline the ingestion workflow, we're excited to introduce a powerful integration between OpenSearch Ingestion (OSI) and ML Commons. This integration enables seamless batch ML inference processing in offline mode, allowing you to generate vectors for large-scale document collections. By optimizing the vector generation phase of the ingestion pipeline, we're making it easier than ever to build and scale neural search applications efficiently.
 
-## How does ml_commons integrate with OSI?
-A new “ml_inference” processor is added in OSI to interact with ml_commons to create offline batch inference jobs. Ml-Commons has released the batch_predict API since OpenSearch 2.17, which perform inference on large datasets in an offline asynchronous mode using a model deployed on external model servers in BedRock, SageMaker, Cohere, and OpenAI. The integration between ml_commons with OSI essentially couples this batch_predict API into the OSI ecosystem, offering additional superpower for OSI pipelines to leverage batch inference jobs in the ingestion. The diagram below shows the end-to-end solution of a OSI pipeline that orchestrates different components to achieve this goal. 
+## How does ML Commons integrate with OSI?
+
+We have added a new [`ml_inference` processor](https://docs.opensearch.org/latest/data-prepper/pipelines/configuration/processors/ml-inference/) to OSI in order to integrate with ML Commons for creating offline batch inference jobs. Since OpenSearch 2.17, ML Commons has provided the [Batch Predict API](https://docs.opensearch.org/latestml-commons-plugin/api/model-apis/batch-predict/), which performs inference on large datasets in offline, asynchronous mode using models deployed on external model servers such as Amazon Bedrock, Amazon SageMaker, Cohere, and OpenAI. Integrating ML Commons with OSI incorporates the Batch Predict API into OSI, enabling OSI pipelines to run batch inference jobs during ingestion. The following diagram shows an OSI pipeline that orchestrates multiple components to perform this process end to end.
 
 ![OSI Integration with Ml-Commons](/assets/media/blog-images/2025-07-30-Offline-Batch-ML-Inference-and-Ingestion-for-1-Billion-Requests-using-OpenSearch-Ingestion/OSI_Ml_Commons_Integration.png){: .img-fluid}
 
-In the solution, a S3 source is added into the system which monitors events for any new file generated in the inference pipeline, and sends the new file name as an input to ml-commons for batch_inference. There are three sub pipelines, each performing distinct tasks in the data flow: 
+In this solution, an S3 source monitors events for any new file generated in the inference pipeline. It then sends the new file name as an input to ML Commons for batch inference. The architecture contains three subpipelines, each performing distinct tasks in the data flow: 
 
-* **Pipeline 1 (Data preparation and transformation)** 
-	1. Source: Data is ingested from an external source provided by customer and supported by data prepper.
+* **Pipeline 1 (prepares and transforms data)** 
+	1. Source: Data is ingested from an external source provided by you and supported by Data Prepper.
 	2. Data Transformation Processors: The raw data is processed and transformed, preparing it in the correct format for batch inference in the remote AI server.
 	3. S3 (sink): The transformed data is then stored in an S3 bucket as the input to the AI server, acting as an intermediary storage layer. 
 
-* **Pipeline 2 (Trigger ml batch_inference)** 
-	1. Source: The S3 Scan that monitors the S3 file generated in the pipeline 1
-	2. Ml_inference processor: The new processor that calls ml-commons batch_predict API to create batch jobs.
+* **Pipeline 2 (triggers ML batch inference)** 
+	1. Source: The S3 Scan monitors events for any new S3 file generated by Pipeline 1.
+	2. `ml_inference` processor: Calls the ML Commons Batch Predict API to create batch jobs.
 	3. Task ID: Each batch job is associated with a Task ID for tracking and management.
-	4. OpenSearch ML Commons: The plugin that hosts the model for real time neural search, manage the connectors to remote AI servers, and serves the APIs for batch_inference and jobs management.
-	5. AI Services: OpenSearch ML Commons interacts with AI services (e.g., SageMaker, Bedrock) to perform batch inference on the data, producing predictions or insights. The results will be saved asynchronously into a separate S3 file.
+	4. OpenSearch ML Commons: Hosts the model for real-time neural search, manages connectors to remote AI servers, and serves the APIs for batch iference and job management.
+	5. AI Services: Perform batch inference on the data, producing predictions or insights. OpenSearch ML Commons interacts with these AI services (such as Amazon SageMaker or Amazon Bedrock). The results are saved asynchronously into a separate S3 file.
 
-* **Pipeline 3 (Bulk Ingestion)** 
-    1. S3 (source): The results of the batch jobs are stored in S3, which is the source of this pipeline.
-    2. Data Transformation Processors: Further processing and transformation are applied to the batch inference output before ingestion. This is to ensure the data is mapped correctly in the OpenSearch index.
-    3. OpenSearch Index (sink): The processed results are then indexed into OpenSearch for storage, search, and further analysis.
+* **Pipeline 3 (performs bulk ingestion)** 
+    1. S3 (source): Stores the results of the batch jobs. The S3 is the source of this pipeline.
+    2. Data transformation processors: Further process and transform the batch inference output before ingestion to ensure that the data is mapped correctly in the OpenSearch index.
+    3. OpenSearch index (sink): Indexes the processed results into OpenSearch for storage, search, and further analysis.
 
-## What is the ml_inference processor in OSI and how to use it
-The current OpenSearch Ingestion (OSI) implementation features a specialized integration between the S3 Scan source and ML inference processor for batch processing. In this initial release, the S3 Scan operates in metadata-only mode, efficiently collecting S3 file information without reading the actual file contents. The ML inference processor then utilizes these S3 file URLs to coordinate with ML Commons for batch processing. This design choice optimizes the batch inference workflow by minimizing unnecessary data transfer during the scanning phase.
+## How to use the ml_inference processor
 
-Looking ahead, we plan to extend the ML inference processor's capabilities to support real-time model predictions. This enhancement will introduce a new operating mode for the S3 Scan source, where it will fully read and process the contents of input files, enabling immediate vector generation through real-time inference. This dual-mode functionality will provide users with the flexibility to choose between efficient batch processing for large-scale operations and real-time processing for immediate inference needs.
+The current OpenSearch Ingestion (OSI) implementation features a specialized integration between the S3 Scan source and `ml_inference` processor for batch processing. In this initial release, the S3 Scan operates in metadata-only mode, efficiently collecting S3 file information without reading the actual file contents. The `ml_inference` processor then uses the S3 file URLs to coordinate with ML Commons for batch processing. This design optimizes the batch inference workflow by minimizing unnecessary data transfer during the scanning phase.
 
-The ml_inference processor can be defined with parameters:
-```json
+The `ml_inference` processor can be defined with the following parameters:
+
+```yaml
 processor:
     - ml_inference:
         # The endpoint URL of your OpenSearch domain
@@ -80,26 +81,30 @@ processor:
         # In this case, only process when bucket matches "xunzh-offlinebatch"
         ml_when: /bucket == "xunzh-offlinebatch"
 ```
-## Ingestion Performance Boost by the ml_inference Processor
 
-The OSI ml_inference processor significantly enhances data ingestion performance for ML-enabled search functionalities. It's ideally suited for use cases requiring ML model generated data, including Semantic search, Multimodal search, Document enrichment, and Query understanding. In Semantic Search scenarios, the processor can accelerate the creation and ingestion of large-volume, high-dimensional vectors by an order of magnitude.
+## Ingestion performance improvements using the ml_inference processor
 
-The processor's offline batch inference capability offers distinct advantages over real-time model invocation. While real-time processing requires a live model server with capacity limitations, batch inference dynamically scales compute resources on demand and processes data in parallel. For example, when the OSI pipeline received 1 billion source data requests, it created 100 S3 files for ML batch inference input. The ml_inference processor then initiated a SageMaker batch job using 100 ml.m4.xlarge EC2 instances, completing the vectorization of 1 billion requests in 14 hours - a task that would be virtually impossible to accomplish in real-time mode
+The OSI `ml_inference` processor significantly enhances data ingestion performance for ML-enabled search. It's ideally suited for use cases requiring ML-model-generated data, including semantic search, multimodal search, document enrichment, and query understanding. In semantic search, the processor can accelerate the creation and ingestion of large-volume, high-dimensional vectors by an order of magnitude.
 
-This solution offers excellent scalability by allowing linear reduction in processing time through the addition of more workers. For example, while the initial setup with 100 ml.m4.xlarge EC2 instances processed 1 billion document requests in 14 hours, doubling the worker count to 200 instances could potentially reduce the processing time to 7 hours. This linear scaling capability demonstrates the solution's flexibility in meeting various performance requirements by simply adjusting the worker count and instance type, enabling organizations to optimize their processing time based on their specific needs and urgency.
-
-In addition, most AI server provides the batch inference API with a 50% lower price, meaning that you can achieve a better performance with half the price.
+The processor's offline batch inference capability offers distinct advantages over real-time model invocation. While real-time processing requires a live model server with capacity limitations, batch inference dynamically scales compute resources on demand and processes data in parallel. For example, when the OSI pipeline receives 1 billion source data requests, it creates 100 S3 files for ML batch inference input. The `ml_inference` processor then initiates a SageMaker batch job using 100 `ml.m4.xlarge` EC2 instances, completing the vectorization of 1 billion requests in 14 hours---a task that would be virtually impossible to accomplish in real-time mode. This process is illustrated in the following diagram.
 
 ![SageMaker Batch Job](/assets/media/blog-images/2025-07-30-Offline-Batch-ML-Inference-and-Ingestion-for-1-Billion-Requests-using-OpenSearch-Ingestion/SageMaker_Batch_Job.png){: .img-fluid}
 
-## Getting started: Create an OSI pipeline with ml_inference processor
-Let’s walk through a practical example of using OSI ML inference processor to ingest 1 billion requests of data for semantic search using a text embedding model. 
+This solution offers excellent scalability by allowing linear reduction in processing time through the addition of more workers. For example, while the initial setup with 100 `ml.m4.xlarge` EC2 instances processed 1 billion document requests in 14 hours, doubling the worker count to 200 instances could potentially reduce the processing time to 7 hours. This linear scaling capability demonstrates the solution's flexibility in meeting various performance requirements by simply adjusting the worker count and instance type, enabling you to optimize your processing time based on your specific needs and urgency.
 
-### Step 1: Create connectors and Register models in OpenSearch
+Additionally, most AI servers offer a batch inference API at about 50% lower cost, enabling similar performance at half the price.
 
-Follow the tutorial to create the connector and model in ml-commons. https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md
+## Getting started
+
+Let's walk through a practical example of using OSI `ml_inference` processor to ingest 1 billion requests of data for semantic search using a text embedding model. 
+
+### Step 1: Create connectors and register models in OpenSearch
+
+Use [this blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md) to create a connector and model in SageMaker. 
+
+Create a Deep Java Library (DJL) ML Model in SageMaker for batch transform:
+
 ```json
-# Create DJL ML Model in SageMaker for batch transform
 POST https://api.sagemaker.us-east-1.amazonaws.com/CreateModel
 {
    "ExecutionRoleArn": "arn:aws:iam::419213735998:role/aos_ml_invoke_sagemaker",
@@ -113,7 +118,8 @@ POST https://api.sagemaker.us-east-1.amazonaws.com/CreateModel
 }
 ```
 
-Create a connector with the batch_predict as the new action type in the actions.
+Create a connector with `batch_predict` as the new `action` type in the `actions` field:
+
 ```json
 POST /_plugins/_ml/connectors/_create
 {
@@ -201,9 +207,9 @@ POST /_plugins/_ml/connectors/_create
 }
 ```
 
-Note the connector ID in the response; you’ll use it to register the model:
+Use the returned connector ID to register the SageMaker model:
+
 ```json
-# Register the SageMaker model
 POST /_plugins/_ml/models/_register
 {
     "name": "SageMaker model for batch",
@@ -212,7 +218,9 @@ POST /_plugins/_ml/models/_register
     "connector_id": "a3Y8O5IBOcD45O-eoq1g"
 }
 ```
-Invoke the model with the "batch_predict" action type
+
+Invoke the model with the `batch_predict` action type:
+
 ```json
 POST /_plugins/_ml/models/teHr3JABBiEvs-eod7sn/_batch_predict
 {
@@ -220,17 +228,26 @@ POST /_plugins/_ml/models/teHr3JABBiEvs-eod7sn/_batch_predict
     "TransformJobName": "SM-offline-batch-transform"
   }
 }
-// Response
+```
+
+The response contains a task ID for the batch job:
+
+```json
 {
  "task_id": "oSWbv5EB_tT1A82ZnO8k",
  "status": "CREATED"
 }
 ```
 
-You can get batch job status using get task API
+To check the batch job status, use the Get Task API and provide the task ID:
+
 ```json
 GET /_plugins/_ml/tasks/oSWbv5EB_tT1A82ZnO8k
-// Response
+```
+
+The response contains the task status:
+
+```json
 {
   "model_id": "nyWbv5EB_tT1A82ZCu-e",
   "task_type": "BATCH_PREDICTION",
@@ -279,18 +296,25 @@ GET /_plugins/_ml/tasks/oSWbv5EB_tT1A82ZnO8k
   }
 }
 ```
-### Step 1 alternative: Use CloudFormation Template Integration to simply the ml model creation
 
-Refer to this AWS doc https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cfn-template.html to deploy a CloudFormation stack which creates all the required SageMaker mode and connectors/models for you. 
-![CloudFormation Console Integration](/assets/media/blog-images/2025-07-30-Offline-Batch-ML-Inference-and-Ingestion-for-1-Billion-Requests-using-OpenSearch-Ingestion/CFN_Console_Integration.png){: .img-fluid}
+### Step 1 (alternative): Use CloudFormation 
 
-Once you started the CFN template deployment, please ensure that you have the parameter “Enable Offline Batch Inference” toggled to be true. 
-![CloudFormation Parameters](/assets/media/blog-images/2025-07-30-Offline-Batch-ML-Inference-and-Ingestion-for-1-Billion-Requests-using-OpenSearch-Ingestion/CFN_Parameters.png){: .img-fluid}
+You can use AWS CloudFormation to automatically create all required SageMaker connectors and models for ML inference. This approach simplifies setup by using a preconfigured template available in the OpenSearch Service console. For more information, see [Using AWS CloudFormation to set up remote inference for semantic search](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cfn-template.html).
 
-After the CFN stack is created, you will find the connector_id and model_id in the output.
+To deploy a CloudFormation stack that creates all the required SageMaker connectors and models, use the following steps: 
 
-### Step 2: Define and Create an OSI pipeline for Ingestion
-Create your OSI pipeline using code with a configuration editor.
+1. In the OpenSearch Service console, go to **Integrations** and search for `SageMaker`.
+1. Select **Integration with text embedding models through Amazon SageMaker**.
+1. Choose **Configure domain**, then select **Configure VPC domain** or **Configure public domain** as appropriate, as shown in the following image.
+    ![CloudFormation Console Integration](/assets/media/blog-images/2025-07-30-Offline-Batch-ML-Inference-and-Ingestion-for-1-Billion-Requests-using-OpenSearch-Ingestion/CFN_Console_Integration.png){: .img-fluid}
+1. When starting the stack deployment, set the **Enable Offline Batch Inference** dropdown list to `true` to provision resources for offline batch processing, as shown in the following image.
+    ![CloudFormation Parameters](/assets/media/blog-images/2025-07-30-Offline-Batch-ML-Inference-and-Ingestion-for-1-Billion-Requests-using-OpenSearch-Ingestion/CFN_Parameters.png){: .img-fluid}
+1. After the CloudFormation stack is created, open the **Outputs** tab in the CloudFormation console to find the `connector_id` and `model_id`. You will need these values for later pipeline configuration steps.
+
+### Step 2: Create an OSI pipeline for ingestion
+
+Create your OSI pipeline using the following code in the configuration editor:
+
 ```json
 version: '2'
 extension:
@@ -369,7 +393,8 @@ sagemaker-batch-job-pipeline:
 
 ### Step 3: Prepare your data for ingestion
 
-The implementation uses MSMARCO dataset(https://microsoft.github.io/msmarco/Datasets.html.), a collection of real user queries, for natural language processing tasks. The dataset is structured in JSONL format, where each line represents a request to the ML embedding model:
+This example uses the [MSMARCO dataset](https://microsoft.github.io/msmarco/Datasets.html), a collection of real user queries, for natural language processing tasks. The dataset is structured in JSONL format, where each line represents a request to the ML embedding model:
+
 ```json
 {"_id": "1185869", "text": ")what was the immediate impact of the success of the manhattan project?", "metadata": {"world war 2"}}
 {"_id": "1185868", "text": "_________ justice is designed to repair the harm to victim, the community and the offender caused by the offender criminal act. question 19 options:", "metadata": {"law"}}
@@ -377,12 +402,14 @@ The implementation uses MSMARCO dataset(https://microsoft.github.io/msmarco/Data
 {"_id": "403613", "text": "is autoimmune hepatitis a bile acid synthesis disorder", "metadata": {"self immune"}}
 ...
 ```
-For this test, we constructed 1 billion input requests distributed across 100 files, each containing 10 million requests. These files are stored in S3 with the prefix s3://offlinebatch/sagemaker/sagemaker_djl_batch_input/. The OSI pipeline scans these 100 files simultaneously and initiates a SageMaker batch job with 100 workers for parallel processing, enabling efficient vectorization and ingestion of the 1 billion documents into OpenSearch service.
 
-In production environments, customers can leverage OSI pipeline to generate S3 files for batch inference input. The pipeline supports various data sources (documented at https://docs.opensearch.org/latest/data-prepper/pipelines/configuration/sources/sources/), and operates on a schedule, continuously transforming source data into S3 files. These files are then automatically processed by AI servers through scheduled offline batch jobs, ensuring continuous data processing and ingestion.
+For this test, we constructed 1 billion input requests distributed across 100 files, each containing 10 million requests. These files are stored in S3 with the prefix `s3://offlinebatch/sagemaker/sagemaker_djl_batch_input/`. The OSI pipeline scans these 100 files simultaneously and initiates a SageMaker batch job with 100 workers for parallel processing, enabling efficient vectorization and ingestion of the 1 billion documents into OpenSearch Service.
 
-### Step 4: Monitor the batch_inference jobs
-You can monitor the batch_inference jobs through the SageMaker Console, cli or directly use the GetTask API provided by ml_commons for more details. 
+In production environments, you can use an OSI pipeline to generate S3 files for batch inference input. The pipeline supports various data sources (see [source documentation](https://docs.opensearch.org/latest/data-prepper/pipelines/configuration/sources/sources/)) and operates on a schedule, continuously transforming source data into S3 files. These files are then automatically processed by AI servers through scheduled offline batch jobs, ensuring continuous data processing and ingestion.
+
+### Step 4: Monitor the batch inference jobs
+
+You can monitor the batch inference jobs using the SageMaker Console or CLI. Alternatively, you can use the Get Task API to monitor batch jobs:
 
 ```json
 GET /_plugins/_ml/tasks/_search
@@ -400,9 +427,9 @@ GET /_plugins/_ml/tasks/_search
   },
   "_source": ["model_id", "state", "task_type", "create_time", "last_update_time"]
 }
-
 ```
-A list of the active tasks of batch jobs will be listed
+
+This API returns a list of batch job active tasks:
 
 ```json
 {
@@ -462,8 +489,9 @@ A list of the active tasks of batch jobs will be listed
 }
 ```
 
-### Step 5: Run Semantic search query against your 1 billion vectorized data
-To search raw vectors, use the knn query type, provide the vector array as input, and specify the number of returned results k:
+### Step 5: Run semantic search 
+
+Now you can run a semantic search against your 1 billion vectorized data points. To search raw vectors, use the `knn` query type, provide the `vector` array as input, and specify the number of returned results `k`:
 
 ```json
 GET /my-raw-vector-index/_search
@@ -479,7 +507,8 @@ GET /my-raw-vector-index/_search
 }
 ```
 
-To run an AI-powered search, use the neural query type. Specify the query_text input, the model ID of the embedding model you configured in the OSI pipeline, and the number of returned results k. To exclude embeddings from being returned in search results, specify the embedding field in the _source.excludes parameter:
+To run an AI-powered search, use the `neural` query type. Specify the `query_text` input, the `model_id` of the embedding model you configured in the OSI pipeline, and the number of returned results `k`. To exclude embeddings from being returned in search results, specify the name of the embedding field in the `_source.excludes` parameter:
+
 ```json
 GET /my-ai-search-index/_search
 {
@@ -502,4 +531,10 @@ GET /my-ai-search-index/_search
 
 ## Conclusion
 
-The integration of ml_commons with OSI through the ml_inference processor marks a significant advancement in large-scale ML data processing and ingestion. The solution's multi-pipeline architecture efficiently orchestrates data preparation, batch inference, and ingestion, while supporting multiple AI services including Bedrock, SageMaker in the first launch. The system demonstrates remarkable performance capabilities, as evidenced by its ability to process 1 billion requests through parallel processing and dynamic resource allocation, while offering cost benefits through 50% lower pricing for batch inference APIs compared to real-time processing. Looking ahead, the planned expansion to support real-time inference alongside batch processing will provide greater flexibility for various use cases. This makes the solution particularly valuable for applications such as semantic search, multimodal search, and document enrichment, where efficient vector creation and ingestion at scale are crucial. Overall, this integration represents a significant milestone in making large-scale ML operations more accessible, efficient, and cost-effective within the OpenSearch ecosystem, offering organizations a powerful tool for handling their ML-driven search and analytics needs.
+The integration of ML Commons with OSIis a big step forward for large-scale ML data processing and ingestion. Its multi-pipeline design handles data preparation, batch inference, and ingestion efficiently, supporting AI services like Bedrock and SageMaker. The system can process 1 billion requests with parallel processing and dynamic resource use, while cutting batch inference costs by 50% compared to real-time processing. This makes the solution ideal for tasks like semantic search, multimodal search, and document enrichment, where fast and large-scale vector creation is key. Overall, this integration improves  ML-powered search and analytics in OpenSearch, making it more accessible, efficient, and cost-effective.
+
+## What's next
+
+Looking ahead, we plan to extend the `ml_inference` processor's capabilities to support real-time model predictions. This enhancement will introduce a new operating mode for the S3 Scan source. In this mode, the processor will fully read and process the contents of input files, enabling immediate vector generation through real-time inference. This dual-mode functionality will provide you with the flexibility to choose between efficient batch processing for large-scale operations and real-time processing for immediate inference needs.
+
+For more information, see [the `ml_inference` processor documentation]((https://docs.opensearch.org/latest/data-prepper/pipelines/configuration/processors/ml-inference/)). We welcome your feedback on the [OpenSearch forum](https://forum.opensearch.org/).
