@@ -20,6 +20,16 @@ However, other processes running in an OpenSearch cluster might not be so obviou
 
 Over the past year, we have worked on a number of different optimizations to the OpenSearch security layer; these have been gradually released in OpenSearch 2.19, OpenSearch 3.0, and OpenSearch 3.1. More work is in the pipeline.
 
+## Quick overview
+
+In this article, we cover the following optimizations:
+
+- The [optimized privilege evaluation](#optimized-privilege-evaluation) uses highly efficient, hash table–based logic, reducing performance degradation as the number of indexes grows. This is especially important on clusters with 300 or more indices.
+- The [optimized document- and field-level security](#optimized-privilege-evaluation-for-document--and-field-level-security) reduces internal cluster communication traffic by moving privilege evaluation to the shard level. This is relevant whenever DLS restrictions are in effect for a user.
+- The [user object optimizations](#user-object-optimizations) bring generally high performance benefits; still, especially users with many roles and attributes will observe noticeable improvements.
+
+Upgrading to OpenSearch 3.1 ensures you benefit from all of these optimizations.
+
 ## Performance factors in earlier versions of OpenSearch  
 
 Let's first look at the initial state before the performance improvements: one possibly surprising performance characteristic of the OpenSearch security layer was that performance not only depended on the complexity of the security configuration (for example, the number of roles) but also on the number of indexes in a cluster. 
