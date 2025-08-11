@@ -6,14 +6,14 @@ tags: [observability, traces, services, opentelemetry, opensearch-3-1]
 authors:
     - pshenoy
     - tackadam
-date: 2025-08-07
+date: 2025-08-11
 categories:
   - technical-posts
-meta_keywords: observability, traces, services, OpenTelemetry, OpenSearch 3.1, Investigation, 
-meta_description: Learn how to use OpenSearch 3.1 and OpenTelemetry for end-to-end observability, troubleshooting, and root cause analysis in distributed microservices. This blog post demonstrates a practical workflow for identifying, investigating, and resolving service issues using advanced tracing, service maps, and AI-powered features in OpenSearch Dashboards.
+meta_keywords: trace analytics, OpenSearch 3.1, OpenTelemetry, distributed tracing, observability workflow, OTel collector, distributed microservices, Data Prepper, OpenSearch Dashboards, OpenTelemetry Astronomy Shop, natural language querying, trace analytics plugin
+meta_description: Explore distributed tracing with OpenSearch 3.1 and OpenTelemetry, featuring enhanced service maps and trace analytics. Learn how to collect and analyze telemetry data using OpenSearch Dashboards for effective microservices monitoring.
 ---
 
-In modern distributed systems, understanding the interactions between microservices is crucial for identifying performance bottlenecks and diagnosing failures. In this blog post, we'll demonstrate the new features introduced in the Trace Analytics plugin in OpenSearch version 3.1, such as enhanced service map visualizations, advanced span grouping, and latency distribution charts. We'll also show how OpenTelemetry (OTel) Collector with OpenSearch Data Prepper can be used to instrument, collect, and ingest telemetry data into OpenSearch. Then, we'll walk through how to use OpenSearch Dashboards to explore, visualize, and analyze an observability investigation workflow. 
+In modern distributed systems, understanding the interactions between microservices is crucial for identifying performance bottlenecks and diagnosing failures. In this blog post, we'll demonstrate the new features introduced in the Trace Analytics plugin in [OpenSearch version 3.1](https://opensearch.org/blog/get-started-with-opensearch-3-1/), such as enhanced service map visualizations, advanced span grouping, and latency distribution charts. We'll also show how OpenTelemetry (OTel) Collector with OpenSearch Data Prepper can be used to instrument, collect, and ingest telemetry data into OpenSearch. Then, we'll walk through how to use OpenSearch Dashboards to explore, visualize, and analyze an observability investigation workflow. 
 
 
 ## Setting up the demo
