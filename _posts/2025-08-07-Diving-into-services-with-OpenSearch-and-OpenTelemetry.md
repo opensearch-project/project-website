@@ -6,7 +6,7 @@ tags: [observability, traces, services, opentelemetry, opensearch-3-1]
 authors:
     - pshenoy
     - tackadam
-date: 2025-08-11
+date: 2025-08-12
 categories:
   - technical-posts
 meta_keywords: trace analytics, OpenSearch 3.1, OpenTelemetry, distributed tracing, observability workflow, OTel collector, distributed microservices, Data Prepper, OpenSearch Dashboards, OpenTelemetry Astronomy Shop, natural language querying, trace analytics plugin
