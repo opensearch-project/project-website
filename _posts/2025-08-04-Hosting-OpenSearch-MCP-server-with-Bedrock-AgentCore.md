@@ -10,13 +10,14 @@ meta_keywords: "MCP, Agentic, Agent, Model context protocol, MCP server, LLM int
 meta_description: "Learn how to deploy OpenSearch MCP Server with Amazon Bedrock AgentCore Runtime."
 ---
 
-The [OpenSearch MCP Server](https://github.com/opensearch-project/opensearch-mcp-server-py) enables AI agents to interact with OpenSearch clusters through the Model Context Protocol (MCP). While you can run it locally, hosting it on AWS Bedrock AgentCore Runtime provides a scalable, managed solution that's accessible from anywhere.
+The [OpenSearch MCP Server](https://github.com/opensearch-project/opensearch-mcp-server-py) enables AI agents to interact with OpenSearch clusters through the Model Context Protocol (MCP). While you can run the OpenSearch MCP Server locally, hosting it on AWS Bedrock AgentCore Runtime provides a scalable, managed solution that's accessible from anywhere.
 
-In this post, we'll walk through two approaches to deploy the OpenSearch MCP Server on Bedrock AgentCore: using a CloudFormation template for quick setup, or manually configuring it with the AgentCore CLI.
+In this post, we'll walk through two approaches to deploy the OpenSearch MCP Server on Bedrock AgentCore: using a CloudFormation template for a quick setup and manually configuring it using the AgentCore CLI.
 
 ## Prerequisites
 
-Before we begin, ensure you have:
+Before you begin, ensure that you have the following:
+
 - An OpenSearch cluster
 - Access to one of the supported Bedrock AgentCore regions: `us-east-1`, `us-west-2`, `eu-west-1`, or `ap-southeast-2`
 
@@ -24,38 +25,38 @@ Before we begin, ensure you have:
 
 ## Method 1: Using CloudFormation Template (available for Amazon OpenSearch Service users)
 
-The fastest way to get started is with the OpenSearch MCP Server CloudFormation template, which automatically provisions all necessary resources.
+The fastest way to get started is to use the OpenSearch MCP Server CloudFormation template, which automatically provisions all necessary resources.
 
-### Deploying the Template
+### Deploying the template
 
 The CloudFormation template requires these parameters:
 
 **Required:**
-- **Agent Name**: Name for your MCP server
-- **OpenSearch Endpoint**: Your cluster's endpoint URL
-- **OpenSearch Region**: The AWS region where your cluster is located
+- **Agent Name**: A name for your MCP server.
+- **OpenSearch Endpoint**: Your cluster's endpoint URL.
+- **OpenSearch Region**: The AWS region where your cluster is located.
 
 **Optional:**
-- **DiscoveryUrl, AllowedClients, AllowedAudience**: OAuth2 configuration. If not provided, the template creates Cognito resources automatically
-- **ECR Repository**: For storing the container image, auto-created if not specified
-- **Execution Role**: IAM role for AgentCore Runtime, auto-created with proper permissions if not specified
+- **DiscoveryUrl, AllowedClients, AllowedAudience**: OAuth2 configuration. If not provided, the template creates Cognito resources automatically.
+- **ECR Repository**: For storing the container image, auto-created if not specified.
+- **Execution Role**: An IAM role for AgentCore Runtime, auto-created with proper permissions if not specified.
 
-### Understanding the Outputs
+### Understanding the outputs
 
-Once deployment completes, you'll find these key outputs:
+Once deployment completes, it produces these key outputs:
 
-- **AgentArn**: The ARN of your Bedrock AgentCore Runtime
-- **DiscoveryURL**: OAuth discovery endpoint
-- **TokenEndpoint**: Token endpoint obtained from your discovery endpoint
-- **McpUrl**: The URL of your hosted MCP server
+- **AgentArn**: The ARN of your Bedrock AgentCore Runtime.
+- **DiscoveryURL**: The OAuth discovery endpoint.
+- **TokenEndpoint**: The token endpoint obtained from your discovery endpoint.
+- **McpUrl**: The URL of your hosted MCP server.
 
-### Obtaining an Access Token
+### Obtaining an access token
 
-To use your MCP server, you'll need a JWT token from the OAuth authorizer. If you used the auto-created Cognito setup:
+To use your MCP server, you'll need a JWT token from the OAuth authorizer. If you used the auto-created Cognito setup, follow these steps to obtain the token:
 
-1. Navigate to the CloudFormation Resources tab
-2. Find `CognitoUserPool` and click its Physical ID
-3. Go to "App clients" and note the Client ID and Client Secret
+1. Navigate to the **CloudFormation Resources** tab.
+2. Find **CognitoUserPool** and select its **Physical ID**.
+3. Go to **App clients** and note the **Client ID** and **Client Secret**.
 
 Then obtain a token:
 
@@ -69,7 +70,8 @@ curl --http1.1 -X POST $TOKEN_ENDPOINT \
   -d "grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET"
 ```
 
-Sample response:
+The response contains the token:
+
 ```json
 {"access_token":"xxxxx","expires_in":3600,"token_type":"Bearer"}
 ```
@@ -80,7 +82,7 @@ Sample response:
 
 You can also use the AgentCore CLI directly.
 
-### Creating the MCP Server Code
+### Creating the MCP Server code
 
 First, create your MCP server implementation:
 
@@ -98,16 +100,16 @@ if __name__ == "__main__":
 ```
 
 **Important Notes:**
-1. `stateless=True` is necessary for AgentCore Runtime. OpenSearch MCP server currently defaults to `stateless=False`. As a workaround, clone the repo and make these changes: https://github.com/opensearch-project/opensearch-mcp-server-py/pull/86/files
+1. `stateless=True` is necessary for AgentCore Runtime. OpenSearch MCP server currently defaults to `stateless=False`. As a workaround, clone the repo and make the changes described in [this pull request](https://github.com/opensearch-project/opensearch-mcp-server-py/pull/86/files).
 
-2. `AWS_REGION` here is optional if the OpenSearch cluster and AgentCore runtime are in the same region. The Dockerfile generated by AgentCore will have `AWS_REGION` as an environment variable.
+2. `AWS_REGION` is optional if the OpenSearch cluster and AgentCore runtime are in the same region. The Dockerfile generated by AgentCore will have `AWS_REGION` as an environment variable.
 
 **requirements.txt**
 ```
 opensearch-mcp-server-py
 ```
 
-With the workaround mentioned in note 1, you'll need to add the dependencies of opensearch-mcp-server-py directly instead:
+With the workaround mentioned in Note 1, you'll need to add the dependencies of opensearch-mcp-server-py directly instead:
 
 **requirements.txt (with workaround)**
 ```
@@ -121,11 +123,11 @@ requests-aws4auth>=1.3.1
 semver>=3.0.4
 ```
 
-### Setting Up OAuth (Optional)
+### Setting up OAuth (Optional)
 
-If you don't have an existing OAuth authorizer, create one using Amazon Cognito following the [Bedrock AgentCore documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp.html#runtime-mcp-appendix).
+If you don't have an existing OAuth authorizer, create one using Amazon Cognito by following the [Bedrock AgentCore documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp.html#runtime-mcp-appendix).
 
-### Configuring AgentCore Deployment
+### Configuring AgentCore deployment
 
 Install the AgentCore toolkit:
 
@@ -139,13 +141,13 @@ Configure your deployment:
 agentcore configure -e opensearch_mcp_server.py --protocol MCP
 ```
 
-Follow the prompts to:
-- Auto-create execution role (or specify existing)
-- Auto-create ECR repository (or specify existing)
-- Select your requirements.txt file
-- Configure OAuth authorizer with discovery URL and client ID
+Follow the prompts to perform the following actions:
+- Auto-create an execution role (or specify an existing one)
+- Auto-create an ECR repository (or specify an existing one)
+- Select your `requirements.txt` file
+- Configure the OAuth authorizer with the discovery URL and client ID
 
-### Deploying to AgentCore Runtime
+### Deploying to AgentCore runtime
 
 Deploy your MCP server:
 
@@ -162,9 +164,9 @@ export ENCODED_AGENT_ARN=$(echo $AGENT_ARN | sed 's/:/%3A/g; s/\//%2F/g')
 echo "https://bedrock-agentcore.$AWS_REGION.amazonaws.com/runtimes/$ENCODED_AGENT_ARN/invocations?qualifier=DEFAULT"
 ```
 
-## Configuring OpenSearch Access
+## Configuring OpenSearch access
 
-Regardless of which deployment method you used, you need to map your AgentCore execution role to an OpenSearch backend role so the MCP server can access your data.
+Regardless of the deployment method you used, you need to map your AgentCore execution role to an OpenSearch backend role so the MCP server can access your data.
 
 Follow the [OpenSearch fine-grained access control guide](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-access-control) to configure the appropriate backend role mapping.
 
@@ -200,7 +202,7 @@ $ q
 ✓ opensearch-mcp-server loaded in 3.22 s
 ```
 
-Verify the tools are available:
+Verify that the tools are available:
 
 ```bash
 > /tools
@@ -224,9 +226,9 @@ opensearch-mcp-server (MCP):
 - SearchIndexTool      * not trusted
 ```
 
-Now you can ask questions about your OpenSearch data! For examples of what you can do, check out our previous blog post: [Unlocking Agentic AI Experiences with OpenSearch](https://opensearch.org/blog/unlocking-agentic-ai-experiences-with-opensearch/).
+Now you can ask questions about your OpenSearch data! For examples of what you can do, check out [Unlocking Agentic AI Experiences with OpenSearch](https://opensearch.org/blog/unlocking-agentic-ai-experiences-with-opensearch/).
 
-### Using with Custom Agents
+### Using custom agents
 
 You can integrate your hosted MCP server with any MCP-compatible agent. Here's an example using the Strands Agent framework:
 
@@ -278,6 +280,6 @@ if __name__ == "__main__":
 
 Hosting your OpenSearch MCP Server on AWS Bedrock AgentCore Runtime provides a scalable, managed solution for integrating OpenSearch with AI agents. Whether you choose the quick CloudFormation deployment or the CLI approach, you'll have a robust, cloud-hosted MCP server that can serve multiple agents and applications.
 
-The hosted approach eliminates the need to manage infrastructure while providing enterprise-grade security through OAuth authentication and fine-grained access controls. This makes it ideal for production deployments where you need reliable, scalable access to your OpenSearch data from AI agents.
+The hosted approach eliminates the need to manage infrastructure while providing enterprise-grade security through OAuth authentication and fine-grained access control. This makes it ideal for production deployments where you need reliable, scalable access to your OpenSearch data from AI agents.
 
 Ready to get started? Try the CloudFormation template for the fastest setup, or use the CLI method if you need more control over your deployment configuration.
