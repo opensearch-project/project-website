@@ -5,7 +5,7 @@ authors:
    - akjain
    - bowenlan
    - kolchfa
-date: 2025-05-05
+date: 2025-08-05
 categories:
   - technical-posts
 meta_keywords: date histogram, aggregation, performance, bucket
