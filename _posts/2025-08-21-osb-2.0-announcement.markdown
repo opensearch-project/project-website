@@ -4,16 +4,13 @@ title:  "Introducing OpenSearch Benchmark 2.0"
 authors:
  - hoangia
 date: 2025-08-21
-categories:
- - update
-meta_keywords: semantic search engine, neural search engine, keyword and natural language search, search relevance, benchmarking tests, synthetic data generation, data streaming, scale testing, visualizing performance
+categories: update, community, community-updates, releases, feature
+meta_keywords:
 meta_description:
-excerpt: OpenSearch Benchmark 2.0 redefines its user experience and introduces long-awaited features to better help users identify performance bottlenecks and benchmark their OpenSearch use-cases.
+excerpt: OpenSearch Benchmark 2.0 redefines the benchmarking experience and introduces long-awaited features that offer users the essential tools needed to measure, track, and optimize OpenSearch performance.
 has_math: False
 has_science_table: True
 ---
-
-# Introducing OpenSearch Benchmark 2.0
 
 OpenSearch Benchmark has been the cornerstone of performance testing in the OpenSearch ecosystem for the last two years. It’s been adopted by developers and organizations to measure, track, and optimize their OpenSearch deployments. Today, we’re thrilled to announce the launch of OpenSearch Benchmark 2.0 — a bolder and better version that comes packed with improvements and expands benchmarking capabilities on several fronts.
 
