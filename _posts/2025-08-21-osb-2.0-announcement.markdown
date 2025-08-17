@@ -12,19 +12,18 @@ has_math: False
 has_science_table: True
 ---
 
-OpenSearch Benchmark has been the cornerstone of performance testing in the OpenSearch ecosystem for the last two years. It’s been adopted by developers and organizations to measure, track, and optimize their OpenSearch deployments. Today, we’re thrilled to announce the launch of OpenSearch Benchmark 2.0 — a bolder and better version that comes packed with improvements and expands benchmarking capabilities on several fronts.
+OpenSearch Benchmark has been the reference application for performance testing in the OpenSearch ecosystem right from the inception of OpenSearch. It has been widely adopted by developers and organizations to measure, track, and optimize the performance of their OpenSearch deployments. Today, we’re thrilled to announce the launch of OpenSearch Benchmark 2.0 — a bolder and better version that comes packed with improvements and expands benchmarking capabilities on several fronts.
 
 ## Legacy
 
-OpenSearch Benchmark emerged onto the scene alongside OpenSearch at the time of the fork. Since its first major release in May 2023, the project is widely used for performance testing and evaluating new OpenSearch features and has established itself as a definitive benchmarking tool by achieving several milestones.
-
-These milestones include:
+OpenSearch Benchmark first emerged onto the scene alongside OpenSearch at around the same time the latter was forked. Since its first major release in May 2023, the project has been widely used for performance testing and evaluating new OpenSearch features.  It has firmly established itself as the definitive benchmarking tool for OpenSearch as indicated by the following:
 
 * 265,000+ downloads on PyPi across 15 minor versions
-* Becoming the go-to solution for discovering query regressions and identifying optimal configurations in OpenSearch
-* Enhancing capabilities for benchmarking against serverless offerings, stress testing, and simulating production workloads
-* Expanding workload coverage by adding one comprehensive search workload ([big5](https://github.com/IanHoang/opensearch-benchmark-workloads/tree/main/big5)) and four generative AI workloads (such as [vector search](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and [neural search](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/neural_search))
-* Growing community engagement, as seen with the 3x increase in maintainers, 5x growth in contributors, and regularly occurring community meetings and office hours
+* Used for nearly all OpenSearch performance metrics quoted in blog posts
+* The go-to solution for discovering query regressions and identifying optimal configurations in OpenSearch
+* Featuring new capabilities including load and stress testing, benchmarking against serverless offerings, and simulating production workloads
+* Including expanded workload coverage with the widely-used comprehensive search workload ([big5](https://github.com/IanHoang/opensearch-benchmark-workloads/tree/main/big5)) and four generative AI workloads (such as [vector search](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and [neural search](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/neural_search))
+* Growing community engagement, evident with the 3x increase in maintainers, 5x growth in contributors, and regularly occurring community meetings and office hours
 
 The project’s influence goes beyond the tool itself. The team behind OpenSearch Benchmark is responsible for [regularly publishing benchmark results](https://opensearch.org/benchmarks/) that the community relies on to track the progression of OpenSearch. The team has also been sharing performance tooling insights and expertise at conferences as seen in the following tech talks:
 
@@ -32,25 +31,25 @@ The project’s influence goes beyond the tool itself. The team behind OpenSearc
 * [Maximizing OpenSearch Cluster Performance: A Comprehensive Benchmarking Approach at OpenSearchCon EU 2025 in Amsterdam](https://www.youtube.com/watch?v=yMIOeXuFN6U)
 * [Recreating Workload Behavior is an Art, Not a Science at OpenSearchCon EU 2025 in Amsterdam](https://www.youtube.com/watch?v=vMeaAklGFwg)
 
-OpenSearch Benchmark 2.0 continues to build on top of this foundation by enhancing the user experience and adding long-awaited capabilities. Next, we’ll dive into what’s different in 2.0.
+OpenSearch Benchmark 2.0 continues to build on top of this strong foundation by enhancing the user experience and adding several long-awaited capabilities.
 
-## What’s different?
+## What’s New in OSB 2.0?
 
 ### Synthetic Data Generation
 
-OpenSearch Benchmark comes with 17 pre-packaged workloads containing generalized data corpora and canned queries that cover common OpenSearch use-cases. While these pre-packaged workloads are suitable for baseline comparisons and tracking OpenSearch development, they share a common limitation with traditional benchmarking tools -- they cannot capture the unique characteristics and behaviors of real production environments.
+OpenSearch Benchmark comes packaged with 17 workloads containing generalized data corpora, with included queries that cover most common OpenSearch use-cases. While these pre-packaged workloads are suitable for baseline performance comparisons and tracking performance improvements across OpenSearch releases, they share a common limitation with traditional benchmarking tools — they cannot capture the unique characteristics and behaviors of real production environments.
 
-OpenSearch Benchmark addresses this limitation with the help of synthetic data. Starting in 2.0, users can now create privacy-compliant datasets at scale by simply providing an OpenSearch index mapping. This powerful feature supports workloads of any complexity, allowing organizations to mimic their production scenarios without exposing sensitive data.
+OpenSearch Benchmark addresses this limitation with the help of synthetic data generation. Starting in 2.0, users can now create privacy-compliant datasets, at scale, by simply providing an OpenSearch index mapping. This powerful feature supports workloads of any complexity, allowing organizations to mimic their production scenarios without exposing sensitive data.
 
 ### Data Streaming
 
-Scale testing with large amounts of data has also been another challenge in benchmarking. While previous versions of OpenSearch Benchmark offered workarounds, like the expand-data-corpus feature in the http_logs workload, these solutions had their own limitations.
+Load and scale testing with large amounts of data has also been another challenge in benchmarking.   One of the limitations of OSB has been the relatively small size of data corpora included with the packaged workloads.  As users migrate to ever larger deployments, both with traditional clusters and with serverless offerings, they seek to evaluate performance at scale.  Synthetic data generation helps with this, but managing large data sets is extremely cumbersome.  Downloading, decompressing and partitioning such corpora can take hours, not to mention running out of disk space on the load generation host.
 
-In OpenSearch Benchmark 2.0, users can now ingest documents from an infinite stream of documents at a high rate without relying on a locally-stored static corpus. This overcomes previous data volume constraints and enables users to perform true scale testing with OpenSearch deployments. When paired with synthetic data generation, users can now conduct scale testing for any business scenario.
+OSB 2.0 features Streaming Ingestion, which permits users to ingest documents continually from a data stream at a high rate.  This feature scales to multi-terabytes a day using a single load generation host, without relying on a locally-stored static corpus. This overcomes the previous constraints mentioned above, and enables users to perform performance testing at production scale on OpenSearch deployments. When paired with Synthetic Data Generation, users have a unified solution for conducting scale testing for any business scenario.
 
 ### Cloud Agnostic
 
-OpenSearch Benchmark 2.0 has decoupled cloud provider logic from its primary workflow, making the tool truly cloud-agnostic. This opens up the opportunity to support authentication from all types of cloud providers such as AWS, GCP, and Azure and makes benchmarking more flexible.
+OpenSearch Benchmark 2.0 has decoupled cloud provider logic from its primary workflow, making the tool truly cloud-agnostic. This opens up the opportunity to the community to add support for a variety of cloud providers such as AWS, GCP, and Azure and makes benchmarking more flexible.
 
 ### Visualizations
 
@@ -58,7 +57,7 @@ OpenSearch Benchmark 2.0 introduces visual reporting capabilities, allowing user
 
 ### Improved User Experience
 
-Lastly, we have renamed a select group of terms in OpenSearch Benchmark 2.0. The following table shows these terms from 1.X and what they have been renamed to in 2.X. We believe that simplifying these terms will enhance the user experience and provide more intuitive benchmarking workflows.
+OSB 2.0 offers a much more intuitive command line interface than version 1.X, with simpler terminology that is common in the area of benchmarking.  This enables users to create more readable scripts for their performance testing.
 
 1.X Term | 2.X Term |
 :--- | :--- |
@@ -67,11 +66,11 @@ results_publishing, results_publisher | reporting, publisher |
 provision-configs, provision-config-instances | cluster-configs, cluster-config-instances
 load-worker-coordinator-hosts | worker-ips |
 
-These new additions and changes collectively transform OpenSearch Benchmark from a pure benchmarking tool into a comprehensive performance testing suite. Whether it’s running traditional benchmarks, determining your cluster’s breaking point, or scale testing streams of synthetic data, OpenSearch Benchmark 2.0 provides the essential tools needed to optimize your OpenSearch deployments and meet your business requirements.
+These new additions and changes collectively transform OpenSearch Benchmark from a simple and constrained benchmarking tool into a comprehensive performance testing suite. Whether it’s running traditional benchmarks, determining your cluster’s breaking point, or scale testing streams of synthetic data, OpenSearch Benchmark 2.0 provides the essential tools needed to optimize your OpenSearch deployments and meet your business requirements.
 
 ## Looking Ahead
 
-OpenSearch Benchmark 2.0 is packed with new updates, but there are still more enhancements on the way. To track new developments and see what’s coming in future versions, we recommend reviewing [the OpenSearch Benchmark Roadmap](https://github.com/orgs/opensearch-project/projects/219) periodically and [tracking RFCs and GitHub issues](https://github.com/opensearch-project/opensearch-benchmark/issues) in the project repository.
+OpenSearch Benchmark 2.0 is packed with new updates, but there are even more enhancements on the way. To track new developments and see what’s coming in future versions, we recommend reviewing the [the OpenSearch Benchmark Roadmap](https://github.com/orgs/opensearch-project/projects/219)  periodically and tracking [tracking RFCs and GitHub issues](https://github.com/opensearch-project/opensearch-benchmark/issues) in the project repository.
 
 ## Getting Started
 
@@ -79,4 +78,4 @@ OpenSearch Benchmark 2.0 is now available on [PyPi](https://pypi.org/project/ope
 
 ## Interested in getting involved?
 
-In the world of performance, there’s always more work to be done. If you’re interested in contributing, see the OpenSearch Benchmark [contribution guide](https://github.com/opensearch-project/opensearch-benchmark/blob/main/CONTRIBUTING.md) or attend [the OpenSearch Benchmark community meetup](https://www.meetup.com/opensearch/events/307446531/?eventOrigin=group_upcoming_events).
+In the world of performance testing and innovation, there’s always more work to be done. If you’re interested in contributing, see the OpenSearch Benchmark [contribution guide](https://github.com/opensearch-project/opensearch-benchmark/blob/main/CONTRIBUTING.md) or attend [the OpenSearch Benchmark community meetup](https://www.meetup.com/opensearch/events/307446531/?eventOrigin=group_upcoming_events).
