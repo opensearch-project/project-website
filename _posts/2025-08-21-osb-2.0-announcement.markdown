@@ -78,4 +78,4 @@ OpenSearch Benchmark 2.0 is now available on [PyPi](https://pypi.org/project/ope
 
 ## Interested in getting involved?
 
-In the world of performance testing and innovation, there’s always more work to be done. If you’re interested in contributing, see the OpenSearch Benchmark [contribution guide](https://github.com/opensearch-project/opensearch-benchmark/blob/main/CONTRIBUTING.md) or attend [the OpenSearch Benchmark community meetup](https://www.meetup.com/opensearch/events/307446531/?eventOrigin=group_upcoming_events).
+In the world of performance testing and innovation, there's always more work to be done. If you're interested in contributing, see the OpenSearch Benchmark [contributing guide](https://github.com/opensearch-project/opensearch-benchmark/blob/main/CONTRIBUTING.md) or attend the [OpenSearch Benchmark community meetup](https://www.meetup.com/opensearch/events/307446531/?eventOrigin=group_upcoming_events).
