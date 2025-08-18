@@ -1,0 +1,56 @@
+From 386ff75cc17d337b6e5f540dd4c3ab620677b062 Mon Sep 17 00:00:00 2001
+From: Chhaya Gunawat <chhayag@amazon.com>
+Date: Tue, 22 Jul 2025 10:43:48 +0530
+Subject: [PATCH] Add profile for cgunawat
+
+---
+ _community_members/cgunawat.md               | 28 ++++++++++++++++++++
+ assets/media/community/members/cgunawat.jpeg |  1 +
+ 2 files changed, 29 insertions(+)
+ create mode 100644 _community_members/cgunawat.md
+ create mode 100644 assets/media/community/members/cgunawat.jpeg
+
+diff --git a/_community_members/cgunawat.md b/_community_members/cgunawat.md
+new file mode 100644
+index 00000000..7c45a350
+--- /dev/null
++++ b/_community_members/cgunawat.md
+@@ -0,0 +1,28 @@
++---
++short_name: "cgunawat"
++name: "Chhaya Gunawat"
++photo: "/assets/media/community/members/cgunawat.jpeg"
++job_title_and_company: "Software Engineer"
++primary_title: "Chhaya Gunawat"
++title: "OpenSearch Community Member: Chhaya Gunawat"
++breadcrumbs:
++  icon: community
++  items:
++    - title: Community
++      url: /community/index.html
++    - title: Members
++      url: /community/members/index.html
++    - title: "Chhaya Gunawat's Profile"
++      url: "/community/members/chhaya-gunawat.html"
++keynote_speaker: false
++
++linkedin: "chhaya-gunawat"
++github: "cgunawat"
++permalink: "/community/members/chhaya-gunawat.html"
++
++personas:
++  - author
++redirect_from: "/authors/cgunawat/"
++---
++
++Chhaya Gunawat is a software engineer contributing to the OpenSearch Project. With expertise in search technologies and distributed systems, Chhaya is passionate about building scalable and efficient search solutions.
+diff --git a/assets/media/community/members/cgunawat.jpeg b/assets/media/community/members/cgunawat.jpeg
+new file mode 100644
+index 00000000..74fe8147
+--- /dev/null
++++ b/assets/media/community/members/cgunawat.jpeg
+@@ -0,0 +1 @@
++You'll need to replace this with your actual profile photo
+-- 
+2.39.5 (Apple Git-154)
+
