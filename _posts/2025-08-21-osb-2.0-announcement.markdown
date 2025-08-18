@@ -27,7 +27,7 @@ OpenSearch Benchmark first emerged onto the scene alongside OpenSearch at around
 
 The project’s influence goes beyond the tool itself. The team behind OpenSearch Benchmark is responsible for [regularly publishing benchmark results](https://opensearch.org/benchmarks/) that the community relies on to track the progression of OpenSearch. The team has also been sharing performance tooling insights and expertise at conferences as seen in the following tech talks:
 
-* [Unleash Your Cluster’s Potential with OpenSearch Benchmark at OpenSearchCon EU 2024 in Berlin](https://www.youtube.com/watch?v=IKkZ0cQuMLI)
+* [Unleash Your Cluster's Potential with OpenSearch Benchmark at OpenSearchCon EU 2024 in Berlin](https://www.youtube.com/watch?v=IKkZ0cQuMLI)
 * [Maximizing OpenSearch Cluster Performance: A Comprehensive Benchmarking Approach at OpenSearchCon EU 2025 in Amsterdam](https://www.youtube.com/watch?v=yMIOeXuFN6U)
 * [Recreating Workload Behavior is an Art, Not a Science at OpenSearchCon EU 2025 in Amsterdam](https://www.youtube.com/watch?v=vMeaAklGFwg)
 
