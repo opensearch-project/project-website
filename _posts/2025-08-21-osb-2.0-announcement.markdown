@@ -59,7 +59,7 @@ OpenSearch Benchmark 2.0 introduces visual reporting capabilities, allowing user
 
 OSB 2.0 offers a much more intuitive command line interface than version 1.X, with simpler terminology that is common in the area of benchmarking.  This enables users to create more readable scripts for their performance testing.
 
-1.X Term | 2.X Term |
+1.X term | 2.X term |
 :--- | :--- |
 execute-test, test-execution-id, TestExecution | run, test-run, TestRun |
 results_publishing, results_publisher | reporting, publisher |
