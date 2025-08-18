@@ -31,7 +31,7 @@ The project’s influence goes beyond the tool itself. The team behind OpenSearc
 * [Maximizing OpenSearch Cluster Performance: A Comprehensive Benchmarking Approach at OpenSearchCon EU 2025 in Amsterdam](https://www.youtube.com/watch?v=yMIOeXuFN6U)
 * [Recreating Workload Behavior is an Art, Not a Science at OpenSearchCon EU 2025 in Amsterdam](https://www.youtube.com/watch?v=vMeaAklGFwg)
 
-OpenSearch Benchmark 2.0 continues to build on top of this strong foundation by enhancing the user experience and adding several long-awaited capabilities.
+OpenSearch Benchmark 2.0 continues to build on this strong foundation by enhancing the user experience and adding several long-awaited capabilities.
 
 ## What’s New in OSB 2.0?
 
