@@ -33,7 +33,7 @@ The project’s influence goes beyond the tool itself. The team behind OpenSearc
 
 OpenSearch Benchmark 2.0 continues to build on this strong foundation by enhancing the user experience and adding several long-awaited capabilities.
 
-## What’s New in OSB 2.0?
+## What’s New in OpenSearch Benchmark 2.0?
 
 ### Synthetic Data Generation
 
