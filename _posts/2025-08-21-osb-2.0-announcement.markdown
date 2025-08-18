@@ -74,7 +74,7 @@ OpenSearch Benchmark 2.0 is packed with new updates, but there are even more enh
 
 ## Getting Started
 
-OpenSearch Benchmark 2.0 is now available on [PyPi](https://pypi.org/project/opensearch-benchmark/), [Docker Hub](https://hub.docker.com/r/opensearchproject/opensearch-benchmark), and [Amazon Elastic Container Registry (ECR)](https://gallery.ecr.aws/opensearchproject/opensearch-benchmark).
+OpenSearch Benchmark 2.0 is now available on [PyPi](https://pypi.org/project/opensearch-benchmark/), [Docker Hub](https://hub.docker.com/r/opensearchproject/opensearch-benchmark), and [Amazon Elastic Container Registry (Amazon ECR)](https://gallery.ecr.aws/opensearchproject/opensearch-benchmark).
 
 ## Interested in getting involved?
 
