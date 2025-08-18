@@ -39,7 +39,7 @@ OpenSearch Benchmark 2.0 continues to build on top of this strong foundation by 
 
 OpenSearch Benchmark comes packaged with 17 workloads containing generalized data corpora, with included queries that cover most common OpenSearch use-cases. While these pre-packaged workloads are suitable for baseline performance comparisons and tracking performance improvements across OpenSearch releases, they share a common limitation with traditional benchmarking tools — they cannot capture the unique characteristics and behaviors of real production environments.
 
-OpenSearch Benchmark addresses this limitation with the help of synthetic data generation. Starting in 2.0, users can now create privacy-compliant datasets, at scale, by simply providing an OpenSearch index mapping. This powerful feature supports workloads of any complexity, allowing organizations to mimic their production scenarios without exposing sensitive data.
+OpenSearch Benchmark addresses this limitation with the help of Synthetic Data Generation. Starting in 2.0, users can now create privacy-compliant datasets, at scale, by simply providing an OpenSearch index mapping. This powerful feature supports workloads of any complexity, allowing organizations to mimic their production scenarios without exposing sensitive data.
 
 ### Data Streaming
 
