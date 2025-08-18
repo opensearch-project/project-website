@@ -18,7 +18,7 @@ OpenSearch Benchmark has been the reference application for performance testing 
 
 OpenSearch Benchmark first emerged onto the scene alongside OpenSearch at around the same time the latter was forked. Since its first major release in May 2023, the project has been widely used for performance testing and evaluating new OpenSearch features. It has firmly established itself as the definitive benchmarking tool for OpenSearch, as indicated by the following:
 
-* 265,000+ downloads on PyPi across 15 minor versions
+* 265,000+ downloads on PyPi across 15 minor versions.
 * Used for nearly all OpenSearch performance metrics quoted in blog posts.
 * The go-to solution for discovering query regressions and identifying optimal configurations in OpenSearch.
 * Featuring new capabilities including load and stress testing, benchmarking against serverless offerings, and simulating production workloads
