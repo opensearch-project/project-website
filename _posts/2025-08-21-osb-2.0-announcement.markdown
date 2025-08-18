@@ -20,7 +20,7 @@ OpenSearch Benchmark first emerged onto the scene alongside OpenSearch at around
 
 * 265,000+ downloads on PyPi across 15 minor versions
 * Used for nearly all OpenSearch performance metrics quoted in blog posts
-* The go-to solution for discovering query regressions and identifying optimal configurations in OpenSearch
+* The go-to solution for discovering query regressions and identifying optimal configurations in OpenSearch.
 * Featuring new capabilities including load and stress testing, benchmarking against serverless offerings, and simulating production workloads
 * Including expanded workload coverage with the widely-used comprehensive search workload ([big5](https://github.com/IanHoang/opensearch-benchmark-workloads/tree/main/big5)) and four generative AI workloads (such as [vector search](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/vectorsearch) and [neural search](https://github.com/opensearch-project/opensearch-benchmark-workloads/tree/main/neural_search))
 * Growing community engagement, evident with the 3x increase in maintainers, 5x growth in contributors, and regularly occurring community meetings and office hours
