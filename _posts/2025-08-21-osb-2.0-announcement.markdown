@@ -70,7 +70,7 @@ These new additions and changes collectively transform OpenSearch Benchmark from
 
 ## Looking Ahead
 
-OpenSearch Benchmark 2.0 is packed with new updates, but there are even more enhancements on the way. To track new developments and see what’s coming in future versions, we recommend reviewing the [the OpenSearch Benchmark Roadmap](https://github.com/orgs/opensearch-project/projects/219)  periodically and tracking [tracking RFCs and GitHub issues](https://github.com/opensearch-project/opensearch-benchmark/issues) in the project repository.
+OpenSearch Benchmark 2.0 is packed with new updates, but there are even more enhancements on the way. To track new developments and see what's coming in future versions, we recommend reviewing the [OpenSearch Benchmark Roadmap](https://github.com/orgs/opensearch-project/projects/219) periodically and tracking [RFCs and GitHub issues](https://github.com/opensearch-project/opensearch-benchmark/issues) in the project repository.
 
 ## Getting started
 
