@@ -66,7 +66,7 @@ results_publishing, results_publisher | reporting, publisher |
 provision-configs, provision-config-instances | cluster-configs, cluster-config-instances
 load-worker-coordinator-hosts | worker-ips |
 
-These new additions and changes collectively transform OpenSearch Benchmark from a simple and constrained benchmarking tool into a comprehensive performance testing suite. Whether it’s running traditional benchmarks, determining your cluster’s breaking point, or scale testing streams of synthetic data, OpenSearch Benchmark 2.0 provides the essential tools needed to optimize your OpenSearch deployments and meet your business requirements.
+These new additions and changes collectively transform OpenSearch Benchmark from a simple and constrained benchmarking tool into a comprehensive performance testing suite. Whether you're running traditional benchmarks, determining your cluster's breaking point, or scale testing streams of synthetic data, OpenSearch Benchmark 2.0 provides the essential tools needed to optimize your OpenSearch deployments and meet your business requirements.
 
 ## Looking ahead
 
