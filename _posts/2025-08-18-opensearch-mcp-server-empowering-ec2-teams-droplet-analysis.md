@@ -3,6 +3,8 @@ layout: post
 title: "OpenSearch MCP Server: Empowering EC2 Team's Droplet Analysis"
 authors:
     - arjunkumargiri
+    - cgunawat
+    - ylwu
     - rithinp    
 date: 2025-08-18
 categories:
