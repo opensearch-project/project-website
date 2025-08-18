@@ -12,7 +12,7 @@ has_math: False
 has_science_table: True
 ---
 
-OpenSearch Benchmark has been the reference application for performance testing in the OpenSearch ecosystem right from the inception of OpenSearch. It has been widely adopted by developers and organizations to measure, track, and optimize the performance of their OpenSearch deployments. Today, we’re thrilled to announce the launch of OpenSearch Benchmark 2.0 — a bolder and better version that comes packed with improvements and expands benchmarking capabilities on several fronts.
+OpenSearch Benchmark has been the reference application for performance testing in the OpenSearch ecosystem from the inception of OpenSearch. It has been widely adopted by developers and organizations to measure, track, and optimize the performance of their OpenSearch deployments. Today, we're thrilled to announce the launch of OpenSearch Benchmark 2.0—a bolder and better version that comes packed with improvements and expands benchmarking capabilities on several fronts.
 
 ## Legacy
 
