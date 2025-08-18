@@ -68,7 +68,7 @@ load-worker-coordinator-hosts | worker-ips |
 
 These new additions and changes collectively transform OpenSearch Benchmark from a simple and constrained benchmarking tool into a comprehensive performance testing suite. Whether it’s running traditional benchmarks, determining your cluster’s breaking point, or scale testing streams of synthetic data, OpenSearch Benchmark 2.0 provides the essential tools needed to optimize your OpenSearch deployments and meet your business requirements.
 
-## Looking Ahead
+## Looking ahead
 
 OpenSearch Benchmark 2.0 is packed with new updates, but there are even more enhancements on the way. To track new developments and see what's coming in future versions, we recommend reviewing the [OpenSearch Benchmark Roadmap](https://github.com/orgs/opensearch-project/projects/219) periodically and tracking [RFCs and GitHub issues](https://github.com/opensearch-project/opensearch-benchmark/issues) in the project repository.
 
