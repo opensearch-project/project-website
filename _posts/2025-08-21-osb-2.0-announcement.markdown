@@ -35,6 +35,8 @@ OpenSearch Benchmark 2.0 continues to build on this strong foundation by enhanci
 
 ## What’s New in OpenSearch Benchmark 2.0?
 
+OpenSearch Benchmark 2.0 includes the following enhancements.
+
 ### Synthetic data generation
 
 OpenSearch Benchmark comes packaged with 17 workloads containing generalized data corpora, with included queries that cover most common OpenSearch use cases. While these prepackaged workloads are suitable for baseline performance comparisons and tracking performance improvements across OpenSearch versions, they share a common limitation with traditional benchmarking tools—they cannot capture the unique characteristics and behaviors of real production environments.
