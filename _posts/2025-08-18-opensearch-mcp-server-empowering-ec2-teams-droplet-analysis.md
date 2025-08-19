@@ -36,6 +36,8 @@ This process required extensive domain knowledge about where to search and what 
 
 The EC2 team implemented a solution combining:
 * **Amazon Q CLI** as the intelligent agent to analyze data and provide insights
+
+> **Note:** While this blog demonstrates the solution with Amazon Q CLI, you can replace it with any other agentic solution such as Claude, OpenAI, or other AI agents that support the Model Context Protocol
 * **OpenSearch MCP server** as the connectivity layer to multiple OpenSearch domains
 * **AWS profiles** for secure authentication to different clusters
 
