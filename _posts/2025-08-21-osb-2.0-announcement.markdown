@@ -43,7 +43,7 @@ OpenSearch Benchmark comes packaged with 17 workloads containing generalized dat
 
 OpenSearch Benchmark addresses this limitation with the help of synthetic data generation. Starting in 2.0, users can create privacy-compliant datasets, at scale, by simply providing an OpenSearch index mapping. This powerful feature supports workloads of any complexity, allowing organizations to mimic their production scenarios without exposing sensitive data.
 
-### Data streaming
+### Streaming Ingestion
 
 Load and scale testing with large amounts of data has been another challenge in benchmarking. One of the limitations of OpenSearch Benchmark has been the relatively small size of data corpora included with the packaged workloads. As users migrate to ever-larger deployments, both with traditional clusters and with serverless offerings, they seek to evaluate performance at scale. Synthetic data generation helps with this, but managing large datasets can be cumbersome. Downloading, decompressing, and partitioning such corpora can take hours, not to mention potentially running out of disk space on the load generation host.
 
