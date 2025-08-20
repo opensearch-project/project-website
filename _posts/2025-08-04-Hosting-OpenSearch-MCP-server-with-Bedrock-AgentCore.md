@@ -19,7 +19,7 @@ In this post, we'll walk you through two approaches to deploying the OpenSearch 
 Before you begin, ensure that you have the following:
 
 - An OpenSearch cluster
-- Access to one of the supported Bedrock AgentCore Regions: `us-east-1`, `us-west-2`, `eu-west-1`, or `ap-southeast-2`
+- Access to one of the supported Bedrock AgentCore Regions: `us-east-1`, `us-west-2`, `eu-central-1`, or `ap-southeast-2`
 
 **Note**: While Bedrock AgentCore is only available in these four AWS Regions, your MCP server can connect to OpenSearch clusters in other Regions over the public internet.
 
