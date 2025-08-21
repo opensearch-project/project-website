@@ -1,8 +1,9 @@
 ---
 calendar_date: '2023-10-18'
-eventdate: 2023-11-07 11:00:00 -0700
+eventdate: 2023-11-07 11:00:00 -0800
 title: OpenSearch 2.11.0 Release Meetings
 online: true
+tz: America/Los_Angeles
 signup:
   url: https://chime.aws/4325833489
   title: Join on Chime
