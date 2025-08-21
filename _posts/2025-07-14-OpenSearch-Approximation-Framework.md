@@ -30,7 +30,7 @@ The OpenSearch Approximation Framework is a query optimization technique that im
 
 The framework creates custom versions of standard Lucene queries (like `PointRangeQuery`) that have the following features:
 
-* **Early terminattion** of the BKD tree traversal once the size limit is reached.
+* **Early termination** of the BKD tree traversal once the size limit is reached.
 * **Returning exact results**, so the documents returned are always correct matches.
 * **Optimized traversal order** based on sort requirements.
 
@@ -217,7 +217,7 @@ The following are some of the upcoming improvements planned for the 3.2.0 releas
 ![nyc_taxis desc_sort_passenger_count query](/assets/media/blog-images/2025-07-14-OpenSearch-Approximation-Framework/nyc_taxis-desc_sort_passenger_count-query-with-approximation.png)
 
 
-### Additioanl query shapes and types under exploration 
+### Additional query shapes and types under exploration
 
 We're exploring several promising extensions of the Approximation Framework to additional query types. Here are the types of queries we can target in future releases. 
 
