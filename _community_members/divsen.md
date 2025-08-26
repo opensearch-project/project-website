@@ -2,7 +2,7 @@
 short_name: 'divsen'
 name: 'Divyam Sengar'
 photo: '/assets/media/community/members/divyamsengar.png'
-job_title_and_company: 'Software Development Engineer Intern at AWS - OpenSearch'
+job_title_and_company: 'Software Development Engineer Intern at AWS -- OpenSearch'
 primary_title: 'Divyam Sengar'
 title: 'OpenSearch Community Member: Divyam Sengar'
 breadcrumbs:
@@ -22,4 +22,4 @@ personas:
   - author
 ---
 
-**Divyam Sengar** is a software development engineer intern at AWS working on the OpenSearch Project. He works on Automation, AI Infrastructure, & OSCAR for OpenSearch, leading Agentic AI into simplifying tasks for OpenSearch.
+**Divyam Sengar** is a software development engineer intern at AWS working on the OpenSearch Project. He works on automation, AI infrastructure, and OSCAR for OpenSearch.
