@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenSearch MCP Server: Empowering EC2 Team's Droplet Analysis"
+title: "OpenSearch MCP server: Empowering the Amazon EC2 team's droplet analysis"
 authors:
     - arjunkumargiri
     - cgunawat
