@@ -21,7 +21,7 @@ twittercard:
 
 The Amazon Elastic Compute Cloud (Amazon EC2) team recently leveraged the OpenSearch Model Context Protocol (MCP) server to revolutionize their droplet quality investigations. By connecting Amazon Q with multiple OpenSearch clusters simultaneously, they've transformed a previously manual, time-consuming process into an efficient, automated workflow. This blog post explores how the Amazon EC2 team implemented this solution, the technical setup involved, and the impressive results they've achieved.
 
-# The Challenge
+## The challenge
 
 The EC2 team manages droplet quality across their fleet, investigating failures and impairments to maintain reliability. Their data was distributed across multiple OpenSearch clusters in various regions, each storing logs for different components. Engineers faced a multi-step process when troubleshooting:
 
