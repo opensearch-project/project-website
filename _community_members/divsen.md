@@ -2,7 +2,7 @@
 short_name: 'divsen'
 name: 'Divyam Sengar'
 photo: '/assets/media/community/members/divyamsengar.png'
-job_title_and_company: 'Software Development Engineer Intern at AWS -- OpenSearch'
+job_title_and_company: 'Software Development Engineer Intern at AWS - OpenSearch'
 primary_title: 'Divyam Sengar'
 title: 'OpenSearch Community Member: Divyam Sengar'
 breadcrumbs:
