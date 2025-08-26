@@ -10,7 +10,7 @@ date: 2025-08-18
 categories:
     - technical-posts
 meta_keywords: "OpenSearch MCP server, Amazon Q, EC2 droplet analysis, multi-cluster connectivity, operational automation, Model Context Protocol"
-meta_description: "Learn how Amazon's EC2 team implemented OpenSearch MCP server with Amazon Q to automate droplet failure analysis across multiple OpenSearch clusters, reducing investigation time from hours to minutes."
+meta_description: "Learn how the Amazon EC2 team implemented OpenSearch MCP server with Amazon Q to automate droplet failure analysis across multiple OpenSearch clusters, reducing investigation time from hours to minutes."
 twittercard:
     description: "Amazon EC2 team revolutionized droplet quality investigations using OpenSearch MCP server with Amazon Q, transforming manual processes into efficient automated workflows."
     image: /assets/img/opensearch-logo-themed.svg
