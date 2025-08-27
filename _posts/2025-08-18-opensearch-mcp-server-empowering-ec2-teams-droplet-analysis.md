@@ -42,9 +42,13 @@ The EC2 team implemented a solution combining:
 * An **EC2 instance** running the agent with an attached instance role for secure cluster access.
 * **AWS Identity and Access Management (IAM)-based authentication** for secure authentication to different clusters.
 
+The following architecture diagram illustrates how these components work together:
+
 ![OpenSearch MCP Server Architecture](/assets/media/blog-images/2025-08-18-opensearch-mcp-server-empowering-ec2-teams-droplet-analysis/mcp-architecture-diagram.png){: .img-fluid}
 
-The key innovation was leveraging the OpenSearch MCP server's multi-cluster connectivity feature, which allowed them to interact with multiple OpenSearch clusters through a single interface, avoiding tool proliferation that could overwhelm the agent.
+*The architecture shows Amazon Q CLI connecting to an EC2 instance that runs the OpenSearch MCP server. The OpenSearch MCP server retrieves credentials from the EC2 instance profile and dynamically assumes the appropriate IAM role at runtime based on the query, providing access to the corresponding OpenSearch cluster (hardware-logs, droplet-metrics, or system-events).*
+
+The key innovation was leveraging the OpenSearch MCP server's multi-cluster connectivity feature, which allowed the EC2 team to interact with multiple OpenSearch clusters through a single interface, avoiding tool proliferation that could overwhelm the agent.
 
 ## Implementation steps
 
@@ -206,7 +210,7 @@ The authentication for each cluster was managed through the instance role attach
 * **AWS best practices**: Follows recommended security patterns for production environments
 * **Automatic credential rotation**: Credentials refreshed automatically by AWS
 
-The OpenSearch MCP Server supports various other authentication methods like basic authentication (username/password), direct AWS credentials authentication, etc. Explore more authentication options in the [OpenSearch MCP Server documentation](https://github.com/opensearch-project/opensearch-mcp-server-py/blob/main/USER_GUIDE.md#authentication)
+The OpenSearch MCP server supports various other authentication methods, like basic authentication (username/password) and direct AWS credential authentication. You can explore more authentication options in the [OpenSearch MCP Server User Guide](https://github.com/opensearch-project/opensearch-mcp-server-py/blob/main/USER_GUIDE.md#authentication)
 
 ### Step 4: Provide context to Amazon Q
 
