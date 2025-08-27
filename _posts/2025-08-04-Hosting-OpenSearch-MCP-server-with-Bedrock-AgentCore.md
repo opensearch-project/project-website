@@ -3,11 +3,11 @@ layout: post
 title: "Hosting the OpenSearch MCP server with Amazon Bedrock AgentCore"
 authors:
  - jiapingzeng
-date: 2025-08-04
+date: 2025-08-27
 categories:
  - technical-post
-meta_keywords: "MCP, Agentic, Agent, Model context protocol, MCP server, LLM integration, observability agent, Bedrock AgentCore, hosted MCP server"
-meta_description: "Learn how to deploy the OpenSearch MCP server with Amazon Bedrock AgentCore Runtime."
+meta_keywords: OpenSearch MCP Server, Model Context Protocol, OpenSearch clusters, Amazon Bedrock, Bedrock AgentCore, AWS CloudFormation, OpenSearch integration, AI agents
+meta_description: Learn to deploy OpenSearch MCP server on Bedrock AgentCore Runtime to securely connect AI agents with OpenSearch clusters using CloudFormation or CLI methods.
 ---
 
 The [OpenSearch MCP server](https://github.com/opensearch-project/opensearch-mcp-server-py) enables AI agents to interact with OpenSearch clusters through the Model Context Protocol (MCP). While you can run the OpenSearch MCP server locally, hosting it on Amazon Bedrock AgentCore Runtime provides a scalable, managed solution that's accessible from anywhere.
