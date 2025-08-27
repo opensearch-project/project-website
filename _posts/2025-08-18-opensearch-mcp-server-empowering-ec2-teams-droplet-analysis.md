@@ -66,86 +66,89 @@ To securely access these distributed clusters, the team implemented an EC2-insta
 
 1. Create the three cluster access roles (in cluster accounts): First, the EC2 team created the three IAM roles, in their respective AWS accounts, that would have access to each OpenSearch cluster. Each role needed a trust policy that would allow the EC2 instance role from the main account to assume it.
 
-**Example -- Hardware logs cluster role (Account: 123456789012)**:
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
+    **Example — Hardware logs cluster role (Account: 123456789012):**
+    
+    ```json
     {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::111111111111:role/EC2InstanceRole"
-      },
-      "Action": "sts:AssumeRole"
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "AWS": "arn:aws:iam::111111111111:role/EC2InstanceRole"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
-**Note**: The team created similar trust policies for the remaining two cluster roles in their respective accounts (234567890123 and 345678901234).
+    **Note**: The team created similar trust policies for the remaining two cluster roles in their respective accounts (234567890123 and 345678901234).
 
-Each role also needed a permissions policy for OpenSearch access:
+    Each role also needed a permissions policy for OpenSearch access:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
+    ```json
     {
-      "Effect": "Allow",
-      "Action": [
-        "es:ESHttpGet",
-        "es:ESHttpPost",
-        "es:ESHttpPut",
-        "es:ESHttpDelete"
-      ],
-      "Resource": "arn:aws:es:REGION:ACCOUNT_ID:domain/CLUSTER_NAME/*"
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": [
+            "es:ESHttpGet",
+            "es:ESHttpPost",
+            "es:ESHttpPut",
+            "es:ESHttpDelete"
+          ],
+          "Resource": "arn:aws:es:REGION:ACCOUNT_ID:domain/CLUSTER_NAME/*"
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 2. Create the EC2 instance role.
-The team created an IAM role for the EC2 instance with the following trust policy:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
+    The team created an IAM role for the EC2 instance with the following trust policy:
+
+    ```json
     {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "ec2.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 3. Attach an assume role policy.
 
-The team attached the following policy to the EC2 instance role to allow it to assume the cluster access roles across different AWS accounts:
+    The team attached the following policy to the EC2 instance role to allow it to assume the cluster access roles across different AWS accounts:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
+    ```json
     {
-      "Effect": "Allow",
-      "Action": "sts:AssumeRole",
-      "Resource": [
-        "arn:aws:iam::123456789012:role/hardwareLogsClusterAccessRole",
-        "arn:aws:iam::234567890123:role/dropletMetricsClusterAccessRole",
-        "arn:aws:iam::345678901234:role/systemEventsClusterAccessRole"
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": "sts:AssumeRole",
+          "Resource": [
+            "arn:aws:iam::123456789012:role/hardwareLogsClusterAccessRole",
+            "arn:aws:iam::234567890123:role/dropletMetricsClusterAccessRole",
+            "arn:aws:iam::345678901234:role/systemEventsClusterAccessRole"
+          ]
+        }
       ]
     }
-  ]
-}
-```
+    ```
 
-**Note**: This policy allows the EC2 instance role to assume roles in the three cluster accounts.
+    **Note**: This policy allows the EC2 instance role to assume roles in the three cluster accounts.
 
 4. Create an instance profile: The EC2 team created an instance profile and attached it to their EC2 instance during launch.
+
 
 ### Step 2: Configure Amazon Q CLI to use the OpenSearch MCP server
 
