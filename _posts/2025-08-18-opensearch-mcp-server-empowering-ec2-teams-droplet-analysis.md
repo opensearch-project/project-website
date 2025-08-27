@@ -104,7 +104,7 @@ Each role also needed a permissions policy for OpenSearch access:
 }
 ```
 
-1. Create the EC2 instance role.
+2. Create the EC2 instance role.
 The team created an IAM role for the EC2 instance with the following trust policy:
 
 ```json
@@ -122,7 +122,7 @@ The team created an IAM role for the EC2 instance with the following trust polic
 }
 ```
 
-1. Attach an assume role policy.
+3. Attach an assume role policy.
 
 The team attached the following policy to the EC2 instance role to allow it to assume the cluster access roles across different AWS accounts:
 
@@ -145,7 +145,7 @@ The team attached the following policy to the EC2 instance role to allow it to a
 
 **Note**: This policy allows the EC2 instance role to assume roles in the three cluster accounts.
 
-1. Create an instance profile: The EC2 team created an instance profile and attached it to their EC2 instance during launch.
+4. Create an instance profile: The EC2 team created an instance profile and attached it to their EC2 instance during launch.
 
 ### Step 2: Configure Amazon Q CLI to use the OpenSearch MCP server
 
