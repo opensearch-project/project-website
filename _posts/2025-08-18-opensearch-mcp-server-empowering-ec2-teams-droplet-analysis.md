@@ -23,47 +23,46 @@ The Amazon Elastic Compute Cloud (Amazon EC2) team recently leveraged the OpenSe
 
 ## The challenge
 
-The EC2 team manages droplet quality across their fleet, investigating failures and impairments to maintain reliability. Their data was distributed across multiple OpenSearch clusters in various regions, each storing logs for different components. Engineers faced a multi-step process when troubleshooting:
+The EC2 team manages droplet quality across their fleet, investigating failures and impairments to maintain reliability. Their data was distributed across multiple OpenSearch clusters in various AWS Regions, each storing logs for different components. Engineers faced a multi-step process when troubleshooting:
 
-* Search in one cluster to find initial information
-* Use those findings to query another cluster
-* Correlate data across multiple sources
-* Repeat until root cause is identified
+* Search in one cluster to find initial information.
+* Use those findings to query another cluster.
+* Correlate data across multiple sources.
+* Repeat until the root cause is identified.
 
 This manual process required deep knowledge of data locations and search patterns. The team realized their engineers' time would be better spent solving problems rather than hunting for and correlating data across systems.
 
-# The Solution
+## The solution
 
 The EC2 team implemented a solution combining:
-* **Amazon Q CLI** as the intelligent agent to analyze data and provide insights
+* **Amazon Q CLI** as the intelligent agent for analyzing data and providing insights.
 
-> **Note:** While this blog demonstrates the solution with Amazon Q CLI, you can replace it with any other agentic solution such as Claude, OpenAI, or other AI agents that support the Model Context Protocol
-* **OpenSearch MCP Server** as the connectivity layer to multiple OpenSearch clusters
-* **EC2 instance** running the agent with an attached instance role for secure cluster access
-* **IAM-based Authentication** for secure authentication to different clusters
+> **Note**: While this post demonstrates the solution with Amazon Q CLI, you can also use any other agentic solution, such as Claude, OpenAI, or other AI agents that support MCP.
+* **OpenSearch MCP server** as the connectivity layer for multiple OpenSearch clusters.
+* An **EC2 instance** running the agent with an attached instance role for secure cluster access.
+* **AWS Identity and Access Management (IAM)-based authentication** for secure authentication to different clusters.
 
 ![OpenSearch MCP Server Architecture](/assets/media/blog-images/2025-08-18-opensearch-mcp-server-empowering-ec2-teams-droplet-analysis/mcp-architecture-diagram.png){: .img-fluid}
 
-The key innovation was leveraging OpenSearch MCP Server's multi-cluster connectivity feature, which allowed them to interact with multiple OpenSearch clusters through a single interface, avoiding tool proliferation that could overwhelm the agent.
+The key innovation was leveraging the OpenSearch MCP server's multi-cluster connectivity feature, which allowed them to interact with multiple OpenSearch clusters through a single interface, avoiding tool proliferation that could overwhelm the agent.
 
-# Implementation Steps
+## Implementation steps
 
-## Step 1: Set Up IAM Authentication
+### Step 1: Set up IAM authentication
 
 The EC2 team's infrastructure spans three OpenSearch clusters across different AWS accounts:
 
 1. **hardware-logs**: Stores hardware engineering data and failure events
 2. **droplet-metrics**: Contains performance metrics and system telemetry  
-3. **system-events**: Holds lifecycle events and administrative actions
+3. **system-events**: Stores lifecycle events and administrative actions
 
-To securely access these distributed clusters, the team implemented an EC2 instance-based authentication solution that allows them to connect to all three clusters from a single location while maintaining proper security controls.
+To securely access these distributed clusters, the team implemented an EC2-instance-based authentication solution that allows them to connect to all three clusters from a single location while maintaining proper security controls.
 
-### IAM Setup Steps:
+**IAM setup steps**:
 
-#### 1.1 Create the Three Cluster Access Roles (in Cluster Accounts)
-First, the EC2 team created the three IAM roles in their respective AWS accounts that would have access to each OpenSearch cluster. Each role needed a trust policy that would allow the EC2 instance role from the main account to assume it.
+1. Create the three cluster access roles (in cluster accounts): First, the EC2 team created the three IAM roles, in their respective AWS accounts, that would have access to each OpenSearch cluster. Each role needed a trust policy that would allow the EC2 instance role from the main account to assume it.
 
-**Example: Hardware Logs Cluster Role (Account: 123456789012):**
+**Example -- Hardware logs cluster role (Account: 123456789012)**:
 ```json
 {
   "Version": "2012-10-17",
@@ -79,7 +78,7 @@ First, the EC2 team created the three IAM roles in their respective AWS accounts
 }
 ```
 
-**Note:** The team created similar trust policies for the remaining two cluster roles in their respective accounts (234567890123 and 345678901234).
+**Note**: The team created similar trust policies for the remaining two cluster roles in their respective accounts (234567890123 and 345678901234).
 
 Each role also needed a permissions policy for OpenSearch access:
 
@@ -101,7 +100,7 @@ Each role also needed a permissions policy for OpenSearch access:
 }
 ```
 
-#### 1.2 Create the EC2 Instance Role
+1. Create the EC2 instance role.
 The team created an IAM role for the EC2 instance with the following trust policy:
 
 ```json
@@ -119,7 +118,8 @@ The team created an IAM role for the EC2 instance with the following trust polic
 }
 ```
 
-#### 1.3 Attach Assume Role Policy
+1. Attach an assume role policy.
+
 The team attached the following policy to the EC2 instance role to allow it to assume the cluster access roles across different AWS accounts:
 
 ```json
@@ -139,14 +139,13 @@ The team attached the following policy to the EC2 instance role to allow it to a
 }
 ```
 
-**Note:** This policy allows the EC2 instance role to assume roles in the three cluster accounts.
+**Note**: This policy allows the EC2 instance role to assume roles in the three cluster accounts.
 
-#### 1.4 Create Instance Profile
-The EC2 team created an instance profile and attached it to their EC2 instance during launch.
+1. Create an instance profile: The EC2 team created an instance profile and attached it to their EC2 instance during launch.
 
-## Step 2: Configure Q CLI to use OpenSearch MCP Server
+### Step 2: Configure Amazon Q CLI to use the OpenSearch MCP server
 
-Next, the team configured Amazon Q CLI running on the EC2 instance to use the OpenSearch MCP Server by editing the `~/.aws/amazonq/mcp.json` file:
+Next, the team configured Amazon Q CLI running on the EC2 instance to use the OpenSearch MCP server by editing the `~/.aws/amazonq/mcp.json` file:
 
 ```json
 {
@@ -164,7 +163,7 @@ Next, the team configured Amazon Q CLI running on the EC2 instance to use the Op
 }
 ```
 
-## Step 3: Define OpenSearch Clusters Configuration
+### Step 3: Define OpenSearch cluster configuration
 
 Next, they created a YAML configuration file (`clusters.yml`) defining all their OpenSearch clusters:
 
@@ -192,28 +191,27 @@ clusters:
     aws_region: "eu-west-1"
 ```
 
-The authentication for each cluster was managed through the instance role attached to the EC2 instance. Since the clusters were in different AWS accounts, the OpenSearch MCP Server used the following authentication flow:
+The authentication for each cluster was managed through the instance role attached to the EC2 instance. Since the clusters were in different AWS accounts, the OpenSearch MCP server used the following authentication flow:
 
 * Gets credentials from the attached IAM instance role
-* Assumes the provided IAM ARN for each cluster across account boundaries
+* Assumes the provided IAM Amazon Resource Name (ARN) for each cluster across account boundaries
 
-**Note:** This authentication flow works because the following trust relationships were established during infrastructure setup:
-* EC2 instance role needs permissions to assume target IAM roles (configured in Step 1.3)
-* Each target role needs to trust the EC2 instance role (configured in Step 1.1)
+**Note**: This authentication flow works because the following trust relationships were established during infrastructure setup:
+* The EC2 instance role needs permissions to assume target IAM roles (configured in Step 1).
+* Each target role needs to trust the EC2 instance role (configured in Step 1).
 
-**Key Benefits of This Solution:**
-* **Enhanced Security**: No static credentials stored on instances
-* **Simplified Management**: Centralized access control through IAM roles
-* **AWS Best Practices**: Follows recommended security patterns for production environments
-* **Automatic Credential Rotation**: Credentials are refreshed automatically by AWS
+**Key benefits of this solution**:
+* **Enhanced security**: No static credentials stored on instances
+* **Simplified management**: Centralized access control through IAM roles
+* **AWS best practices**: Follows recommended security patterns for production environments
+* **Automatic credential rotation**: Credentials refreshed automatically by AWS
 
 The OpenSearch MCP Server supports various other authentication methods like basic authentication (username/password), direct AWS credentials authentication, etc. Explore more authentication options in the [OpenSearch MCP Server documentation](https://github.com/opensearch-project/opensearch-mcp-server-py/blob/main/USER_GUIDE.md#authentication)
 
-## Step 4: Provide Context to Amazon Q
+### Step 4: Provide context to Amazon Q
 
 To help Amazon Q make intelligent decisions about which clusters to query, the team provided the following context prompt to Amazon Q about the available clusters and their contents:
 
-**Context Prompt Given to Amazon Q:**
 ```
 The following OpenSearch clusters are available:
 
@@ -226,16 +224,15 @@ When investigating droplet failures, first check system-events for any lifecycle
 
 This context prompt enables Amazon Q to understand the data structure and develop an intelligent investigation strategy.
 
-# The Workflow in Action
+## The workflow in action
 
 With this setup, the EC2 team could now ask Amazon Q to investigate droplet issues. Here's an example interaction:
 
-**User Query:**
-Analyze droplet failure for hardware ID ABC123 that occurred yesterday.
+**User Query**: Analyze droplet failure for hardware ID ABC123 that occurred yesterday.
 
-Amazon Q's Process:
-* Amazon Q determines it needs to check multiple OpenSearch clusters
-* It makes tool calls to the OpenSearch MCP Server, specifying which cluster to query:
+**Amazon Q process**:
+* Amazon Q determines it needs to check multiple OpenSearch clusters.
+* It makes tool calls to the OpenSearch MCP server, specifying which cluster to query:
 
 ```json
 {
@@ -295,7 +292,7 @@ Amazon Q's Process:
 }
 ```
 
-**Example Response:**
+**Example response**:
 Analysis of droplet failure for hardware ID ABC123:
 
 **Root Cause:** Voltage irregularity detected prior to failure
@@ -311,18 +308,18 @@ Analysis of droplet failure for hardware ID ABC123:
 
 **Recommendation:** Investigate power delivery system for hardware ID ABC123. Similar voltage irregularities were observed in ticket P12345678.
 
-# Results and Impact
+## Results and impact
 
 The implementation has delivered significant benefits to the EC2 team:
-* **Reduced investigation time:** What previously took hours of manual correlation now happens in minutes
-* **Improved accuracy:** The systematic approach eliminates human error in data gathering
-* **Knowledge democratization:** Less experienced engineers can now investigate complex issues
-* **Pattern recognition:** Successfully classified approximately 30 previously "unknown" failures
-* **Standardized analysis:** Consistent format for all investigations improves team communication
+* **Reduced investigation time**: What previously required hours of manual correlation now happens in minutes.
+* **Improved accuracy**: The systematic approach eliminates human error in data gathering.
+* **Knowledge democratization**: Less experienced engineers can now investigate complex issues.
+* **Pattern recognition**: Successfully classified approximately 30 previously "unknown" failures.
+* **Standardized analysis**: A consistent format for all investigations improves team collaboration.
 
 ## Conclusion
 
-The EC2 team has developed a system that can perform this analysis by combining OpenSearch MCP Server with Amazon Q to address real-world operational challenges. Through the integration of multi-cluster connectivity features and AWS IAM authentication, they've created a powerful solution designed to rapidly diagnose issues and provide resolution recommendations, which will significantly improve droplet quality across their fleet.
+The EC2 team has developed a system that can perform this analysis by combining the OpenSearch MCP server with Amazon Q to address real-world operational challenges. Through the integration of multi-cluster connectivity features and IAM authentication, they've created a powerful solution designed to rapidly diagnose issues and provide resolution recommendations, which will significantly improve droplet quality across their fleet.
 
-This approach can be adapted by other teams facing similar challenges with distributed data sources, showing the flexibility and power of OpenSearch MCP Server as a critical component in AI-assisted operations. Teams can enhance performance by implementing automated pipelines, expanding context prompts with investigation examples, and continuously refining prompts for better recommendations.
+This approach can be adapted by other teams facing similar challenges with distributed data sources, showing the flexibility and power of the OpenSearch MCP server as a critical component in AI-assisted operations. Teams can enhance performance by implementing automated pipelines, expanding context prompts with investigation examples, and continually refining prompts to generate better recommendations.
 
