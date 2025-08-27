@@ -29,14 +29,14 @@ We are excited to announce the release of our v3 neural sparse models:
 
 All models achieve **better search relevance** than their v2 counterparts. The table below compares search relevance across generations. All v3 models are now available in both [OpenSearch](https://docs.opensearch.org/latest/ml-commons-plugin/pretrained-models/) and [HuggingFace](https://huggingface.co/opensearch-projecthttps://huggingface.co/opensearch-project).
 
----
+
 | Model                            | [v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-v1)   | [v2-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-v2-distill) | [doc-v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v1) | [doc-v2-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill) | [doc-v2-mini](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini) | [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill) | [doc-v3-gte](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte) |
 |----------------------------------|------|------------|--------|----------------|-------------|----------------|------------|
 | Inference-free                   |      |            | ✔️     | ✔️             | ✔️          | ✔️             | ✔️         |
 | Model Parameters                 | 133M | 67M        | 133M   | 67M            | 23M         | 67M            | 133M       |
 | AVG NDCG@10                      | 0.524| 0.528      | 0.490  | 0.504          | 0.497       | 0.517          | 0.546      |
 | AVG FLOPS                        | 11.4 | 8.3        | 2.3    | 1.8            | 1.7         | 1.8            | 1.7        |
----
+
 ## From v2 to v3 series models
 
 The transition from v2 to v3 models in OpenSearch represents a significant leap forward in neural sparse search relevance while maintaining the hallmark efficiency of the v2 series.
@@ -79,7 +79,7 @@ With these advancements, the v3 series delivers substantial improvements in sear
 
 Similar to the tests described in our previous blog post, we evaluated the search relevance of the models on BEIR benchmark. The search relevance results are shown in the table below. All v3‑series models outperform their v2 and v1 counterparts, with v3‑gte achieving the highest relevance scores across all tests and setting a new record for OpenSearch neural sparse retrieval models.  Notably,  v3-gte sets a new state-of-the-art among publicly available sparse models.
 
----
+
 | Model                                      | Average | Trec-Covid | NFCorpus | NQ    | HotpotQA | FiQA  | ArguAna | Touche | DBPedia | SciDocs | FEVER | ClimateFEVER | SciFact | Quora |
 |-------------------------------------------|---------|------------|----------|-------|----------|-------|----------|--------|---------|---------|--------|----------------|---------|--------|
 | [v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-v1) | 0.524   | 0.771      | 0.360    | 0.553 | 0.697    | 0.376 | 0.508    | 0.278  | 0.447   | 0.164   | 0.821  | 0.263          | 0.723   | 0.856  |
@@ -90,7 +90,7 @@ Similar to the tests described in our previous blog post, we evaluated the searc
 | [doc-v3-distill](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill) | 0.517 | 0.724 | 0.345    | 0.544 | 0.694    | 0.356 | 0.520    | 0.294  | 0.424   | 0.163   | 0.845  | 0.239          | 0.708   | 0.863  |
 | [doc-v3-gte](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte) | **0.546** | **0.734** | **0.360** | **0.582** | **0.716** | **0.407** | **0.520** | **0.389** | **0.455** | **0.167** | **0.860** | **0.312** | **0.725** | **0.873** |
 
----
+
 <br><br>
 
 # Multilingual sparse retrieval
@@ -98,13 +98,14 @@ Similar to the tests described in our previous blog post, we evaluated the searc
 We are proud to unveil **multilingual-v1**, the first multilingual neural sparse retrieval model in OpenSearch. Leveraging the same proven training techniques as the English v2 series, multilingual-v1 brings high‑quality sparse retrieval to a wide range of languages, achieving strong relevance across multilingual benchmarks while maintaining the same efficiency as our English models.
 The table below shows the detailed search relevance of **multilingual-v1** across different languages, compared to BM25. Results are reported on MIRACL benchmark. **multilingual-v1** delivers substantial improvements over BM25 in all languages, demonstrating the effectiveness of applying our neural sparse retrieval techniques beyond English. We also report results for a pruned version of multilingual-v1 with a prune ratio of 0.1, which maintains competitive relevance while reducing index size.
 
----
+
+
 | Model                                                  | Average | bn   | te   | es   | fr   | id   | hi   | ru   | ar   | zh   | fa   | ja   | fi   | sw   | ko   | en   |
 |--------------------------------------------------------|---------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
 | BM25                                                 | 0.305   | 0.482| 0.383| 0.077| 0.115| 0.297| 0.350| 0.256| 0.395| 0.175| 0.287| 0.312| 0.458| 0.351| 0.371| 0.267 |
 | [multilingual-v1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-multilingual-v1)    | **0.629** | **0.670** | **0.740** | **0.542** | **0.558** | **0.582** | **0.486** | **0.658** | **0.740** | **0.562** | **0.514** | **0.669** | **0.767** | **0.768** | **0.607** | **0.575** |
 | [multilingual-v1; prune_ratio 0.1](https://huggingface.co/opensearch-project/opensearch-neural-sparse-encoding-multilingual-v1)                     | 0.626   | 0.667| 0.740| 0.537| 0.555| 0.576| 0.481| 0.655| 0.737| 0.558| 0.511| 0.664| 0.761| 0.766| 0.604| 0.572 |
----
+
 
 <br><br>
 # Further reading
@@ -112,6 +113,7 @@ The table below shows the detailed search relevance of **multilingual-v1** acros
 For more information about neural sparse search, see these previous blog posts:
 
 
+* [Neural sparse models are now available in Hugging Face Sentence Transformers](https://opensearch.org/blog/neural-sparse-models-are-now-available-in-hugging-face-sentence-transformers/)
 * [Improving search efficiency and accuracy with the newest v2 neural sparse models](https://opensearch.org/blog/neural-sparse-v2-models/)
 * [Improving document retrieval with sparse semantic encoders](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders)
 * [A deep dive into faster semantic sparse retrieval in OpenSearch 2.12](https://opensearch.org/blog/A-deep-dive-into-faster-semantic-sparse-retrieval-in-OS-2.12)
