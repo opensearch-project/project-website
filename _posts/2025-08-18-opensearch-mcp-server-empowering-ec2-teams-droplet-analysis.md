@@ -42,7 +42,7 @@ The EC2 team implemented a solution combining:
 * An **EC2 instance** running the agent with an attached instance role for secure cluster access.
 * **AWS Identity and Access Management (IAM)-based authentication** for secure authentication to different clusters.
 
-The following architecture diagram illustrates how these components work together:
+The following architecture diagram illustrates how these components work together.
 
 ![OpenSearch MCP Server Architecture](/assets/media/blog-images/2025-08-18-opensearch-mcp-server-empowering-ec2-teams-droplet-analysis/mcp-architecture-diagram.png){: .img-fluid}
 
