@@ -54,17 +54,17 @@ These limitations motivated us to rethink both training strategies and model arc
 
 For the v3 series, our primary goal was to push search relevance to a new level while retaining the lightweight and low-latency characteristics of v2. Key advancements include:
 
-* **v3-distill**: Builds on v2-distill by incorporating [$L_0$-based sparsification techniques](https://arxiv.org/abs/2504.14839) and training with a larger and more diverse dataset. This combination improves search relevance while maintaining the same lightweight architecture for fast ingestion and low memory usage.
+* **v3-distill**: Builds on v2-distill by incorporating [ℓ0-based sparsification techniques](https://arxiv.org/abs/2504.14839) and training with a larger and more diverse dataset. This combination improves search relevance while maintaining the same lightweight architecture for fast ingestion and low memory usage.
 * **v3-gte**: Replaces the v3-distill backbone with a General Text Embedding (GTE) architecture, providing stronger semantic representation and support for 8192-token context windows. It also leverages LLM teacher models, capturing richer semantic nuances and setting a new benchmark for sparse retrieval relevance in OpenSearch.
 
 ## Behind the improvements: Technology highlights
 
-### $L_0$-based sparsification
+### ℓ0-based sparsification
 
-The $L_0$-based approach selectively sparsifies document-side representations to balance efficiency and ranking quality:
+The ℓ0-based approach selectively sparsifies document-side representations to balance efficiency and ranking quality:
 
-* **$L_0$ mask loss**: Regularizes only document vectors exceeding the desired sparsity threshold.
-* **$L_0$ approximation activation**: Provides a differentiable approximation for $L_0$, enabling precise sparsity control during training.
+* **ℓ0 mask loss**: Regularizes only document vectors exceeding the desired sparsity threshold.
+* **ℓ0 approximation activation**: Provides a differentiable approximation for ℓ0, enabling precise sparsity control during training.
 
 Combined with expanded training data, this enables v3-distill to achieve higher relevance without sacrificing efficiency.
 
