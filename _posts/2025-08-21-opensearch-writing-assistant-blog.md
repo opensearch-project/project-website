@@ -14,15 +14,13 @@ meta_description: Learn how the OpenSearch Writing Assistant helps contributors 
 excerpt: Learn how the OpenSearch Writing Assistant helps contributors draft clear, accurate blog posts faster, with practical tips and real before-and-after examples.
 ---
 
-# How to write better blog posts with the OpenSearch Writing Assistant
+Writing high-quality content for the OpenSearch community takes time and effort. Whether it's a blog post written from scratch or a revision of an existing draft, the process often requires balancing technical accuracy with clear communication. That's where the [OpenSearch Writing Assistant](https://chatgpt.com/g/g-681b53b8fe34819193c9963091613551-opensearch-writing-assistant) comes in.
 
-Writing high-quality content for the OpenSearch community takes time and effort. Whether it's a blog post from scratch or a revision of an existing draft, the process often requires balancing technical accuracy with clear communication. That's where the [OpenSearch Writing Assistant](https://chatgpt.com/g/g-681b53b8fe34819193c9963091613551-opensearch-writing-assistant) comes in.
-
-The OpenSearch Writing Assistant is a custom GPT trained specifically to support OpenSearch contributors. It helps draft clear, accurate content, even if you don't have much writing experience. Think of it as a collaborative partner that helps you structure ideas, refine language, and apply OpenSearch style and terminology guidelines.
+The OpenSearch Writing Assistant is a custom GPT trained specifically to support OpenSearch contributors. It helps draft clear, well-structured content, even if you don't have much writing experience. Think of it as a collaborative partner that helps you structure ideas, refine language, and apply OpenSearch style and terminology guidelines.
 
 ## Why use the writing assistant
 
-The OpenSearch Writing Assistant makes it easier for contributors to start writing, stay productive, and share their ideas more clearly with the community. It can:
+The OpenSearch Writing Assistant makes it easier for you to start writing, stay productive, and share your ideas more clearly with the community. It can:
 - Save time by generating outlines and first drafts.
 - Suggest revisions that improve clarity.
 - Ensure consistency with OpenSearch style and terminology.
@@ -36,7 +34,7 @@ Before you dive in, keep these limitations in mind:
 - You'll need a ChatGPT account to use the OpenSearch Writing Assistant. It works best with a paid account.
 - If you're using a free account, the assistant will consume your limited GPT-5 access.
 - The assistant won't remember your settings or instructions between sessions and cannot generate working code samples.
-- The assistant is not intended to produce a final, publishable draft. It's designed to help you brainstorm, generate outlines, draft content, or revise existing material. All blog posts created with its help should still go through editorial review before being published.
+- The assistant is not intended to produce a final, publishable draft. It's designed to help you brainstorm, generate outlines, draft content, or revise existing material. All blog posts created with its help must go through editorial review before being published.
 
 ## Tips for making the most of the assistant
 
