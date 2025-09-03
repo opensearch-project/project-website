@@ -26,17 +26,17 @@ resources:
 products:
   - name: 'Welkin by Elastisys: The Application Platform for Software Critical to Society'
     description: |
-    <p>Welkin is a cloud-agnostic, secure-by-design application platform built to meet the highest European standards for resilience, privacy, and regulatory compliance. It supports deployment across environments, from public cloud to on-premise and even air-gapped systems, making it ideal for regulated industries and critical systems.</p>
-    <p>Welkin includes integrated observability powered by OpenSearch, providing out-of-the-box log management, security audit trails, and operational visibility.</p>
-    <p>
-    Key features:
-      <ul>
-        <li>Turnkey Kubernetes-based application platform</li>
-        <li>Built-in observability using OpenSearch</li>
-        <li>Full lifecycle management with compliance-first defaults</li>
-        <li>Backed by a team of certified Kubernetes experts</li>
-        <li>Offered as a managed service or self-hosted solution</li>
-      </ul>
-    </p>
-    <p>With Welkin, teams can build and run modern applications at scale—without compromising on control, security, or sovereignty.</p>
+      <p>Welkin is a cloud-agnostic, secure-by-design application platform built to meet the highest European standards for resilience, privacy, and regulatory compliance. It supports deployment across environments, from public cloud to on-premise and even air-gapped systems, making it ideal for regulated industries and critical systems.</p>
+      <p>Welkin includes integrated observability powered by OpenSearch, providing out-of-the-box log management, security audit trails, and operational visibility.</p>
+      <p>
+      Key features:
+        <ul>
+          <li>Turnkey Kubernetes-based application platform</li>
+          <li>Built-in observability using OpenSearch</li>
+          <li>Full lifecycle management with compliance-first defaults</li>
+          <li>Backed by a team of certified Kubernetes experts</li>
+          <li>Offered as a managed service or self-hosted solution</li>
+        </ul>
+      </p>
+      <p>With Welkin, teams can build and run modern applications at scale—without compromising on control, security, or sovereignty.</p>
 ---
