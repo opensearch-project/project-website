@@ -110,7 +110,7 @@ Create a timed test procedure using settings similar to the following:
       "warmup-time-period": {% raw %} {{ warmup_time | default(300) | tojson }}{% endraw %},
       "time-period": {% raw %} {{ time_period | default(900) | tojson }}{% endraw %},
       "target-throughput": {% raw %} {{ target_throughput | default(20) | tojson }}{% endraw %},
-      "clients":{% raw %}  {{ search_clients | default(20) }}
+      "clients":{% raw %}  {{ search_clients | default(20) }} {% endraw %}
     }
   ]
 }
