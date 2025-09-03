@@ -58,7 +58,7 @@ OSCAR's architecture implements a dual-agent security model where privileged use
 ### Component Flow for a Release Workflow - Jenkins Query
 
 ![Jenkins Workflow Image](/assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/jenkins_query_flow.png)
-
+OSCAR employs communication between multiple components, including multiple agents, dynamo DB, and knowledge bases.
 ## OSCAR in Action: 3.2.0 Release Success Stories
 
 During the OpenSearch 3.2.0 release, we launched a beta version of OSCAR internally, and demonstrated its value across three critical areas:
