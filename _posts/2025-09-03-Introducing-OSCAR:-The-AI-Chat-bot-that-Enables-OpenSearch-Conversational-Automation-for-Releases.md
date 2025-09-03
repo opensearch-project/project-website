@@ -52,12 +52,12 @@ Built on AWS Bedrock Agents with a dual-supervisor agent architecture, OSCAR ser
 
 ### Architectural Overview
 
-![OSCAR Architecture Image](assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/oscar_architecture.png)
+![OSCAR Architecture Image](/assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/oscar_architecture.png)
 OSCAR's architecture implements a dual-agent security model where privileged users access full system capabilities while standard users receive read-only assistance, ensuring both accessibility and security.
 
 ### Component Flow for a Release Workflow - Jenkins Query
 
-![Jenkins Workflow Image](assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/jenkins_query_flow.png)
+![Jenkins Workflow Image](/assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/jenkins_query_flow.png)
 
 ## OSCAR in Action: 3.2.0 Release Success Stories
 
@@ -65,8 +65,8 @@ During the OpenSearch 3.2.0 release, we launched a beta version of OSCAR interna
 
 ### 1. Metrics Integration and Analysis
 
-![Metrics Integ Test Example Image](assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/integ_test_ex.png)
-![Metrics Integ Test Components Example Image](assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/integ_test_coverage_ex.png)
+![Metrics Integ Test Example Image](/assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/integ_test_ex.png)
+![Metrics Integ Test Components Example Image](/assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/integ_test_coverage_ex.png)
 OSCAR transformed how release managers interact with complex build and test data. Instead of manually querying multiple OpenSearch clusters and interpreting raw data, release managers could simply ask:
 
 ***Example Query**: "@OSCAR-beta Show me integration test results for RC 6 on version 3.2.0 for OpenSearch Dashboards"*
@@ -83,7 +83,7 @@ OSCAR's metrics system will automatically:
 
 ### 2. Workflow Automation with Jenkins Integration
 
-![Docker Scan Example Image](assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/docker_scan_ex.png)
+![Docker Scan Example Image](/assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/docker_scan_ex.png)
 OSCAR triggers Jenkins workflow execution by natural language with built-in security controls.
 
 ***Example Command**: "@OSCAR-beta Run central release promotion workflow on Jenkins with 3.2.0"*
@@ -99,7 +99,7 @@ OSCAR's Jenkins workflow automation:
 
 ### 3. Release Communication Automation
 
-![Communication Orchestration Example Image](assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/communication_automation_ex.png)
+![Communication Orchestration Example Image](/assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/communication_automation_ex.png)
 OSCAR streamlined release communications by automating message generation and multi-channel broadcasting.
 
 **Capabilities Demonstrated**:
@@ -116,7 +116,7 @@ OSCAR's development was relatively smooth, building a layered, secure modular ar
 **Architectural Evolution**: We started with a simple LLM + knowledge base model but quickly realized release management required orchestrating multiple complex systems. This drove us to refactor toward an agentic approach with specialized collaborators for Jenkins, metrics analysis, and communications.
 
 **Security-First Design**: Our dual-agent architecture (privileged vs. limited access) with mandatory confirmation workflows proved essential for enterprise adoption. Implementing security controls from day one avoided costly retrofitting later.
-![Authorization/Security Flow Image](assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/user_auth_ex.png)
+![Authorization/Security Flow Image](/assets/media/blog-images/2025-09-03-Introducing-OSCAR:-The-AI-Chat-bot-that-Enables-OpenSearch-Conversational-Automation-for-Releases/user_auth_ex.png)
 **Modular Infrastructure**: Using AWS CDK with separate stacks enabled rapid iteration on individual components. The serverless Lambda architecture automatically handled scaling during release periods, while DynamoDB's TTL features managed conversation context without manual cleanup.
 
 **Real-World Complexity**: The 3.2.0 release revealed gaps between assumptions and actual needs. Users required intelligent deduplication, automatic parameter resolution, and context-aware formatting → driving sophisticated query routing and specialized response logic.
