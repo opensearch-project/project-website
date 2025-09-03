@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Lucene-On-Faiss : Powering OpenSearch's high-performance, memory-efficient vector search"
+title:  "Lucene-On-Faiss: Powering OpenSearch's high-performance, memory-efficient vector search"
 authors:
  - kdooyong
  - vamshin
