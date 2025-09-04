@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducing OSCAR: The AI Chat-bot that Enables OpenSearch Conversational Automation for Releases"
+title: "Introducing OSCAR: The AI chatbot enabling conversational automation for OpenSearch releases"
 category: blog
 tags: [opensearch-3-2]
 authors:
