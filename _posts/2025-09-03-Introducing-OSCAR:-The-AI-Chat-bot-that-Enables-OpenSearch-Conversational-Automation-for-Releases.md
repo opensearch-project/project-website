@@ -13,7 +13,7 @@ meta_keywords: AI Chatbot, Conversational AI, Release Automation, OpenSearch Com
 meta_description: Discover OSCAR, the AI chatbot designed to automate and democratize the OpenSearch release process. Learn how this multi-agent system uses AI to provide intelligent assistance, automate Jenkins workflows, and simplify release management for developers and community contributors.
 ---
 
-OpenSearch is an open-source search and analytics suite, used as a platform for website search, log analytics, and application monitoring. It is powered by the OpenSearch core engine, OpenSearch Dashboards for visualization, and a suite of plugin applications that solve different use cases.
+OpenSearch is an open-source search and analytics suite used as a platform for website search, log analytics, and application monitoring. It is powered by the OpenSearch core engine, OpenSearch Dashboards for visualization, and a suite of plugin applications that solve different use cases.
 
 The OpenSearch project is a community-driven initiative, announced in January 2021 and adopted by the Linux Foundation since September 2024. This initiative oversees the open governance, collaboration, innovation, and development for the entire OpenSearch suite, including OpenSearch core and OpenSearch Dashboards.
 
