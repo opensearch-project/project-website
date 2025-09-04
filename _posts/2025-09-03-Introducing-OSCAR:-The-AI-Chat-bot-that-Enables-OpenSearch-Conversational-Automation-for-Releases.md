@@ -137,7 +137,7 @@ While OSCAR’s development progressed smoothly and produced a layered, secure m
 
 OSCAR is currently in beta, actively supporting OpenSearch release processes while the development team refines features and gathers user feedback. The system has proven its value during the 3.2.0 release cycle, demonstrating significant improvements in efficiency and accessibility.
 
-### How Can I Use OSCAR?
+### How can I use OSCAR?
 
 OSCAR supports both community contributors, maintainers, and release managers, offering tailored capabilities for each group.  
 
