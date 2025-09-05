@@ -6,6 +6,7 @@ tags: [opensearch-3-2]
 authors:
     - divsen
     - zhujiaxiang
+    - sisurab
 date: 2025-09-03
 categories:
   - technical-posts
