@@ -226,11 +226,13 @@ These improvements aim to centralize and intelligently surface OpenSearch knowle
 * **Version-aware knowledge**: Intelligent routing of documentation based on user context and version requirements
 * **Self-healing infrastructure**: Autonomous issue detection and resolution with pattern recognition and predictive maintenance
 
+### Public Slack integration
+* The beta version of OSCAR is now available in the public OpenSearch Slack channel [release-bot-oscar](https://opensearch.slack.com/archives/C09DQ17A3AR). You can use @oscar-beta for channel interactions. The bot is still in development, so not all features are available yet. If you have any feedback regarding OSCAR's performance, please let us know with a comment in the same channel.
+
 ### Upcoming milestones
 
 These are the next steps in rolling out OSCAR to the community, expanding access, and improving adoption:
 
-* **Public Slack integration**: Making OSCAR available in public OpenSearch Slack channels
 * **Community access**: Expanded access for external contributors and community release managers
 * **Enhanced documentation**: Comprehensive guides for community adoption and contribution
 
