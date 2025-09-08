@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Advancing search with OpenSearch v3 neural sparse models and multilingual retrieval model
+title: Advancing search with OpenSearch v3 neural sparse models and a multilingual retrieval model
 authors: 
     - wanyiwe
     - zhichaog
@@ -16,19 +16,19 @@ meta_description: Enhancing OpenSearch neural sparse models with GTE and LLM tea
 has_science_table: true
 ---
 
-Neural sparse search is a powerful and efficient method for semantic retrieval in OpenSearch. It encodes text into (token, weight) entries, allowing OpenSearch to index and search efficiently using Lucene’s inverted index. Since its introduction in [OpenSearch 2.11](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/) and the improvements brought by the [v2 series](https://opensearch.org/blog/neural-sparse-v2-models/), neural sparse search has delivered strong search relevance alongside the efficiency benefits of inference‑free retrieval.
-Today, we’re excited to share two major advancements:
+Neural sparse search is a powerful and efficient method for semantic retrieval in OpenSearch. It encodes text into (token, weight) entries, allowing OpenSearch to index and search efficiently using Lucene's inverted index. Since its introduction in [OpenSearch 2.11](https://opensearch.org/blog/improving-document-retrieval-with-sparse-semantic-encoders/) and the improvements brought by the [v2 series](https://opensearch.org/blog/neural-sparse-v2-models/), neural sparse search has delivered strong search relevance alongside the efficiency benefits of inference‑free retrieval.
+Today, we're excited to share two major advancements:
 
-* **The v3 series of neural sparse models** – our most accurate sparse retrieval models to date, delivering substantial gains in search relevance while maintaining lightweight, inference‑free efficiency.
-* **A new multilingual retrieval model** – the first multilingual neural sparse retrieval model in OpenSearch.
+* **The v3 series of neural sparse models** – Our most accurate sparse retrieval models to date, delivering substantial gains in search relevance while maintaining lightweight, inference‑free efficiency.
+* **A new multilingual retrieval model** – The first multilingual neural sparse retrieval model in OpenSearch.
 
 
 ## Neural sparse search v3 models: Advancing search relevance
 
 We are excited to announce the release of our v3 neural sparse models:
 
-* **v3-distill**: Building on the success of the v2-distill model, v3-distill delivers higher search relevance (0.517 NDCG@10 vs. 0.504 for v2-distill) through improved training, while retaining its lightweight architecture for fast ingestion and low memory usage.
-* **v3-gte**: Our most accurate v3 model, offering the best search relevance across all benchmarks (0.546 NDCG@10 vs. 0.517 for v3-distill), while maintaining the high efficiency and low-latency performance of doc-only sparse retrieval.
+* **v3-distill**: Building on the success of the v2-distill model, v3-distill delivers higher search relevance (0.517 NDCG@10 vs. 0.504 for v2-distill) through improved training while retaining its lightweight architecture for fast ingestion and low memory usage.
+* **v3-gte**: Our most accurate v3 model, offering the best search relevance across all benchmarks (0.546 NDCG@10 vs. 0.517 for v3-distill) while maintaining the high efficiency and low-latency performance of doc-only sparse retrieval.
 
 The v3 models are now available in both [OpenSearch](https://docs.opensearch.org/latest/ml-commons-plugin/pretrained-models/) and [Hugging Face](https://huggingface.co/opensearch-projecthttps://huggingface.co/opensearch-project).
 
@@ -47,23 +47,23 @@ The transition from v2 to v3 models in OpenSearch represents a significant leap 
 
 ### Limitations of v2 models
 
-The v2 series models made neural sparse search widely accessible by significantly reducing the number of model parameters and improving ingestion throughput, while maintaining nearly the same search relevance. However, as search workloads and datasets have grown in complexity, certain challenges emerged:
+The v2 series models made neural sparse search widely accessible by significantly reducing the number of model parameters and improving ingestion throughput while maintaining nearly the same search relevance. However, as search workloads and datasets grew in complexity, certain challenges emerged:
 
 * **Relevance bottleneck**: While v2 models delivered strong efficiency and solid performance, their inference-free design still trailed behind well-trained Siamese dense or sparse retrievers in retrieval quality.
 * **Limited teacher guidance**: v2 models relied primarily on heterogeneous bi-encoder teachers for distillation, without using the richer ranking signals from stronger models, such as large language models (LLMs).
 
-These limitations motivated us to rethink both training strategies and model architecture for the next generation models.
+These limitations motivated us to rethink both training strategies and model architecture for the next-generation models.
 
 ### Advancements in v3 models
 
-For the v3 series, our primary goal was to push search relevance to a new level while retaining the lightweight and low-latency characteristics of v2 models. Key advancements include:
+For the v3 series, our primary goal was to push search relevance to a new level while retaining the lightweight and low-latency characteristics of v2 models. Key advancements include the following:
 
 * **v3-distill**: Builds on v2-distill by incorporating [ℓ0-based sparsification techniques](https://arxiv.org/abs/2504.14839) and training on a larger and more diverse dataset. This combination improves search relevance while maintaining the same lightweight architecture for fast ingestion and low memory usage.
 * **v3-gte**: Replaces the v3-distill backbone with a General Text Embedding (GTE) architecture, providing stronger semantic representation and support for 8192-token context windows. This model employs LLM teacher models, capturing richer semantic nuances and setting a new benchmark for sparse retrieval relevance in OpenSearch.
 
 ## The technology behind v3 models
 
-Two core techniques drive the technology improvements for v3 models: ℓ0-based sparsification for efficient document representation and GTE architecture with LLM teachers for enhanced training quality.
+Two core techniques drive the technology improvements in v3 models: ℓ0-based sparsification for efficient document representation and GTE architecture with LLM teachers for enhanced training quality.
 
 With these advancements, the v3 series delivers substantial improvements in search relevance while preserving the hallmark speed, efficiency, and inference-free advantages of previous generations. This ensures that you can achieve state-of-the-art retrieval performance without compromising scalability or latency.
 
@@ -82,7 +82,7 @@ The GTE architecture strengthens semantic representation and handles much longer
 
 ## Search relevance benchmarks
 
-Similar to the tests described in our [previous blog post](https://opensearch.org/blog/neural-sparse-v2-models/), we evaluated the search relevance of the models on the BEIR benchmark. The search relevance results are shown in the following table. All v3 series models outperform their v2 and v1 counterparts, with v3‑gte achieving the highest relevance scores across all tests and setting a new record for OpenSearch neural sparse retrieval models. 
+Similarly to the tests described in our [previous blog post](https://opensearch.org/blog/neural-sparse-v2-models/), we evaluated the search relevance of the models on the BEIR benchmark. The search relevance results are shown in the following table. All v3 series models outperform their v2 and v1 counterparts, with v3‑gte achieving the highest relevance scores across all tests and setting a new record for OpenSearch neural sparse retrieval models. 
 
 
 | Model                                      | Average | Trec-Covid | NFCorpus | NQ    | HotpotQA | FiQA  | ArguAna | Touche | DBPedia | SciDocs | FEVER | ClimateFEVER | SciFact | Quora |
@@ -98,7 +98,7 @@ Similar to the tests described in our [previous blog post](https://opensearch.or
 
 ## Multilingual sparse retrieval
 
-We are proud to unveil **multilingual-v1**, the first multilingual neural sparse retrieval model in OpenSearch. Using the same proven training techniques as the English-language v2 series, multilingual-v1 brings high‑quality sparse retrieval to a wide range of languages, achieving strong relevance across multilingual benchmarks while maintaining the same efficiency as our English-language models.
+We are also excited to announce **multilingual-v1**, the first multilingual neural sparse retrieval model in OpenSearch. Using the same proven training techniques as the English-language v2 series, multilingual-v1 brings high‑quality sparse retrieval to a wide range of languages, achieving strong relevance across multilingual benchmarks while maintaining the same efficiency as our English-language models.
 
 The following table shows the detailed search relevance evaluation of **multilingual-v1** across different languages, compared to BM25. Results are reported using the MIRACL benchmark. **multilingual-v1** delivers substantial improvements over BM25 in all languages, demonstrating the effectiveness of applying our neural sparse retrieval techniques beyond the English language. The table also presents results for a pruned version of multilingual-v1 (using a prune ratio of 0.1), which maintains competitive relevance while reducing index size.
 
@@ -122,4 +122,4 @@ For more information about neural sparse search, see these previous blog posts:
 
 ## Next steps
 
-Try our newest v3 neural sparse models in your OpenSearch cluster and share your experience with us on the [OpenSearch forum](https://forum.opensearch.org/). Your feedback helps us improve future releases.
+Try our newest v3 neural sparse models in your OpenSearch cluster and share your experience with us on the [OpenSearch forum](https://forum.opensearch.org/). Your feedback helps us improve future versions.
