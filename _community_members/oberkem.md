@@ -1,7 +1,6 @@
 ---
 short_name: "oberkem"
 name: "Orcun Berkem"
-# TODO check photo
 photo: "/assets/media/community/members/oberkem.jpeg"
 primary_title: "Orcun Berkem"
 title: "OpenSearch Project Community Member: Orcun Berkem"
