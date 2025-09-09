@@ -22,4 +22,4 @@ github: "oberkem"
 linkedin: oberkem
 ---
 
-Orcun is a principal engineer at AWS working on open source observability including but not limited to OpenSearch, Prometheus, Cortex, OpenTelemetry.
+Orcun is a principal engineer at AWS working on open-source observability, including OpenSearch, Prometheus, Cortex, and OpenTelemetry.
