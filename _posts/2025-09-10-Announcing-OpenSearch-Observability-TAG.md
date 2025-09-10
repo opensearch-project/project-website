@@ -6,7 +6,7 @@ tags: [opensearch-observability]
 authors:
     - pshenoy
     - dotan
-    - orcun
+    - oberkem
 date: 2025-09-10
 categories:
   - technical-posts
