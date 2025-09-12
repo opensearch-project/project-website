@@ -25,7 +25,7 @@ Before you begin, ensure that you have the following:
 
 ## Method 1: Using a CloudFormation template (available to Amazon OpenSearch Service users)
 
-The fastest way to get started is to use the OpenSearch MCP server CloudFormation template, which automatically provisions all necessary resources.
+The fastest way to get started is to use the [OpenSearch MCP server CloudFormation template](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cfn-template-mcp-server.html), which automatically provisions all necessary resources.
 
 ### Deploying the template
 
