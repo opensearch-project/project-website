@@ -4,12 +4,13 @@ title:  "Lucene-on-Faiss: Powering OpenSearch's high-performance, memory-efficie
 authors:
  - kdooyong
  - vamshin
-date: 2025-08-01
+date: 2025-09-15
 categories:
  - technical-posts
  - community
-meta_keywords: OpenSearch vector engine, vector search, pluggable storage, Faiss, k-NN search, LuceneOnFaiss, performance optimization
-meta_description: Learn how a hybrid approach that takes the best from Lucene and Faiss achieves better performance.
+meta_keywords: OpenSearch vector database, Lucene, Faiss, vector search, approximate nearest neighbors, HNSW graph indexes, combining Lucene and Faiss, machine learning, SIMD, vector indexing, semantic search, AI retrieval, distributed search
+meta_description: OpenSearch's Lucene-on-Faiss integration combines powerful vector search engines to deliver 2X faster performance while solving memory constraints for AI applications.
+
 has_math: false
 has_science_table: true
 ---
