@@ -10,8 +10,8 @@ authors:
 date: 2025-09-10
 categories:
   - technical-posts
-meta_keywords: observability TAG, open-source observability, OpenSearch observability deployments, OpenTelemetry, observability standards, CNCF, Prometheus, Jaeger, Fluent Bit, observability best practices, og analytics, distributed tracing, cloud monitoring, application monitoring
-meta_description: OpenSearch launches the Observability Technical Advisory Group (TAG) to advance open-source observability solutions and standards through industry-wide collaboration.
+meta_keywords: observability TAG, open source observability, OpenSearch observability deployments, OpenTelemetry, observability standards, CNCF, Prometheus, Jaeger, Fluent Bit, observability best practices, og analytics, distributed tracing, cloud monitoring, application monitoring
+meta_description: OpenSearch launches Observability Technical Advisory Group (TAG) to advance open source observability solutions and standards through industry-wide collaboration.
 ---
 
 OpenSearch is helping developers gain the visibility they need into their applications and infrastructure, making it easier to monitor, debug, and optimize systems. With its powerful search capabilities and flexible design, OpenSearch has become the platform of choice for handling observability data like logs, metrics, and traces. This success is backed by a vibrant open-source community and rapidly expanding ecosystem of 50+ solution providers and partners.
