@@ -1,8 +1,10 @@
 ---
 name: PGSync
-description: PGSync is a middleware for syncing data from Postgres to OpenSearch
+description: PGSync syncs PostgreSQL to OpenSearch/Elasticsearch with near real-time change capture and fast bulk backfills which is built to minimize primary DB load and support production use (read replicas, schema mapping, deletes/UPSERTs).
 owner: Tolu Aina
-link: https://pgsync.com/
-license: GNU General Public License v3.0
-license_link: https://github.com/toluaina/pgsync/blob/main/LICENSE
+owner_link: https://pgsync.com
+link: https://github.com/toluaina/pgsync
+license: MIT
+license_link: https://raw.githubusercontent.com/toluaina/pgsync/main/LICENSE
+icon: /assets/media/community_projects/pgsync.png
 ---
