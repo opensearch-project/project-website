@@ -3,7 +3,7 @@ layout: post
 title:  "Introducing OpenSearch AI demos in Hugging Face: Your all-in-one AI search playground"
 authors:
   - pmprasad
-  - bouhajer
+  - hajer
   - jhandler
 date: 2025-09-23
 categories:

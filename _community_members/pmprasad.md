@@ -5,6 +5,7 @@ photo: '/assets/media/community/members/pmprasad.jpg'
 job_title_and_company: 'Analytics Specialist @ AWS - OpenSearch'
 primary_title: 'Praveen Mohan Prasad'
 title: 'OpenSearch Community Member: Praveen Mohan Prasad'
+linkedin: praveen-mohanprasad
 breadcrumbs:
   icon: community
   items:
@@ -26,5 +27,4 @@ conference_id:
 redirect_from: '/authors/pmprasad/'
 ---
 
-A search specialist working closely with Amazon OpenSearch service users. I actively research and experiment on using Artificial Intelligence for Search and help OpenSearch users adopt machine learning in OpenSearch and improve search relevance.
-
+**Praveen Mohan Prasad** is a search specialist with data science expertise who actively researches and experiments with using machine Learning to improve search relevance. Praveen helps clients implement and operationalize strategies to improve search experience.
