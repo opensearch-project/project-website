@@ -27,4 +27,4 @@ conference_id:
 redirect_from: '/authors/pmprasad/'
 ---
 
-**Praveen Mohan Prasad** is a search specialist with data science expertise who actively researches and experiments with using machine Learning to improve search relevance. Praveen helps clients implement and operationalize strategies to improve search experience.
+**Praveen Mohan Prasad** is a search specialist with data science expertise who actively researches and experiments with using machine learning to improve search relevance. Praveen helps clients implement and operationalize strategies to improve the search experience.
