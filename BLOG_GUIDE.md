@@ -81,13 +81,13 @@ If you want to specify the image width or another style, use HTML syntax:
 <img src="/assets/media/blog-images/2023-02-13-semantic-search-solutions/vectors.jpg" alt="Similar vectors" width="700"/>
 ```
 
-~~
-To center a Markdown image, specify the `img-centered` class for the image:
+~~To center a Markdown image, specify the `img-centered` class for the image:~~
 
 ```
 ![Similar vectors](/assets/media/blog-images/2023-02-13-semantic-search-solutions/vectors.jpg){:class="img-centered"}
 ```
-~~
+
+
 ^ The markdown convention that Jekyll uses for adding CSS classes causes issues with our publishing process. Please refrain from using it. Use the raw HTML methodology below.
 
 To center an HTML image, include `class="centered"` in the image tag:
