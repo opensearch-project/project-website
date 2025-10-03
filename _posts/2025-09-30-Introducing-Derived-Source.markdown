@@ -13,17 +13,18 @@ meta_keywords: todo
 meta_description: "Learn about derived source, introduced in OpenSearch 3.2: why it matters, how it works, and how to start using it to reduce storage costs."
 ---
 
-Storage is the key factor when deciding on the optimal configuration of OpenSearch cluster hence key factor in driving infrastructure cost of your OpenSearch cluster. As your data grows, storage requirement can increase in multifold factor, given how OpenSearch stores document in multiple formats. Derived source feature is here to optimise storage cost.
+Storage is a key factor driving infrastructure cost of your OpenSearch cluster. As your data grows, storage requirement can increase multifold, based on how OpenSearch stores document in multiple formats. This is where the derived source feature, comes to the rescue, optimising storage cost.
 
-In this blog post, we will describe how documents are stored in OpenSearch and how to use derived source to retrieve those documents without compromising on most of the legacy functionality and with significant storage reduction.
+In this blog post, we will describe how documents are stored in OpenSearch and how to use derived source to retrieve those documents in a cost-effective manner, without compromising on the current functionalities.
 
 ## How documents are stored in OpenSearch?
 
-When documents are ingested, OpenSearch stores the original document body in the [`_source`](https://docs.opensearch.org/latest/field-types/metadata-fields/source/) fields and also document’s fields get stored in various forms like [indexed](https://docs.opensearch.org/latest/field-types/mapping-parameters/index-parameter/), [stored](https://docs.opensearch.org/latest/field-types/mapping-parameters/store/) and [docValues](https://docs.opensearch.org/latest/field-types/mapping-parameters/doc-values/). OpenSearch stores data in different format as each field type requires values to be stored in specific form for optimised search, e.g. full-text search relies on inverted index whereas exact term aggregation on keyword field relies on doc values. As original document gets stored in a separate data-structure comprising all the fields at a single place, it becomes easy to fetch while doing the query rather that fetching individual fields from the various disc locations. With this setup, search latency benefit is there at the expense of storage cost due to duplication of data.
+When documents are ingested, OpenSearch stores the original document body in the [`_source`](https://docs.opensearch.org/latest/field-types/metadata-fields/source/) fields and also document’s fields get stored in various forms like [indexed](https://docs.opensearch.org/latest/field-types/mapping-parameters/index-parameter/), [stored](https://docs.opensearch.org/latest/field-types/mapping-parameters/store/) and [docValues](https://docs.opensearch.org/latest/field-types/mapping-parameters/doc-values/). OpenSearch stores data in different format as each field type requires values to be stored in specific form for optimised search, e.g. full-text search relies on inverted index whereas exact term aggregation on keyword field relies on doc values.  As original document gets stored in a separate data-structure comprising all the fields at a single place, it becomes easy to retrieve in fetch phase. With this setup, search latency benefit is there at the expense of storage cost due to duplication of data.
 
-![Doc-Filed-Values](/assets/media/blog-images/2025-09-30-Introducing-Derived-Source/doc-field-values.png){:class="img-centered"}
+Illustration on how original document and individual fields get stored on disk in different formats
+![Doc-Field-Values](/assets/media/blog-images/2025-09-30-Introducing-Derived-Source/doc-field-values.png){:class="img-centered"}
 
-On one of the experiment performed on a test dataset comprising of ~1B documents in a single index, here is how field distribution looks like:
+On one of the experiment performed on a test dataset comprising ~1B documents in a single index, here is how field distribution looks like:
 
 ![Storage Breakdown](/assets/media/blog-images/2025-09-30-Introducing-Derived-Source/storage-distribution.png){:class="img-centered"}
 
@@ -39,7 +40,7 @@ For aggregation use-cases, where we need various aggregations(min, max, avg, sum
 
 Starting from OpenSearch 3.2.0, for such workload Derived Source can be used to optimise the storage. Derived source is the mode of an index with modified behaviour to not store the `_source` field at the time of ingestion, thus avoiding duplication of the data resulting into less storage requirement. Such documents are retrieved dynamically using various flavours of field stored(docValues, stored field), in an on-demand basis thus fulfilling the search capabilities and other functionalities which relies on `_source` field data like reindex, update, scripted update and recovery without actually storing the `_source` field.
 
-Illustration on how document gets regenerated using docValues:
+With this modification in behaviour of document retrieval, during fetch phase in search query, for each of the documents, it will retrieve the value of each field using various formats like docValues and stored field as illustrated below, and finally it will combine the result.
 
 ![Derived_Source_Generation](/assets/media/blog-images/2025-09-30-Introducing-Derived-Source/derived-source-generation.png){:class="img-centered"}
 
@@ -74,7 +75,7 @@ nyc_taxis | 41% |
 http logs | 43% |
 elb logs | 58% |
 
-Across these benchmarks, we also saw significant reduction in merge time, ranging from 20% to 48%, likely due to smaller size shards requiring reduced time for copying the data in new merged segments. This also has direct impact on improvement of indexing throughput.
+Across these benchmarks, we also saw significant indexing throughput improvements upto 18% and also reduction in merge time, ranging from 20% to 48%, owing to lesser CPU overhead in generating optimised segments, which also helps cut down the merge overhead.
 
 With reduced index size, other benefits can also be observed like smaller shard size leads to faster recovery in event on node restart or shard movement. Further smaller segments will require less disc I/O operations and less page cache swaps, leading to efficient queries.
 
@@ -98,7 +99,7 @@ PUT sample-index1
 
 ## Limitations
 
-While derived source gives substantial storage reduction, there are certain limitations on the generated source in terms of, how it is displayed while querying for it.
+While derived source offers substantial storage reduction, there are certain limitations on the generated source in terms of, how query responses are returned.
 
 ### Representation of [date](https://docs.opensearch.org/latest/field-types/supported-field-types/date/)
 
@@ -140,4 +141,4 @@ Field level details limitations are listed under each [supported fields](https:/
 
 ## What's next?
 
-While we are supporting some most commonly used field type, there are certain limitations around how these field type should be defined in index mapping, we intend to loosen up these limitations and open more use-cases to come under derived source. We are also planning to support some of the field types which are not supported currently like [range](https://docs.opensearch.org/latest/field-types/supported-field-types/range/), [geo-shape](https://docs.opensearch.org/latest/field-types/supported-field-types/geo-shape/), etc. With this, we will also be focusing on optimising the document retrieval strategy to improve search latency while requesting lots of documents. 
+While we are supporting most commonly used field types, there are certain limitations around how these field type should be defined in index mapping, we intend to relax these limitations and open up more use-cases that can leverage derived source. We are also planning to support some of the field types which are not supported currently like [range](https://docs.opensearch.org/latest/field-types/supported-field-types/range/), [geo-shape](https://docs.opensearch.org/latest/field-types/supported-field-types/geo-shape/), etc. With this, we will also be focusing on optimising the document retrieval strategy to improve search latency while requesting lots of documents.
