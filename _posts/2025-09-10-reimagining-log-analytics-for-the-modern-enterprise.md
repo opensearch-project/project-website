@@ -23,12 +23,12 @@ As data volumes surge, so do the licensing fees for legacy log analytics platfor
 
 ## Piped Processing Language: The heart of modern log analysis
 
-For Site Reliability Engineers (SREs) and DevOps teams, log analysis is more than just searching and filtering. It's about uncovering deep insights, detecting anomalies, and maintaining system reliability. [OpenSearch's Piped Processing Language (PPL)](https://github.com/opensearch-project/sql/blob/main/docs/user/ppl/index.rst) is designed to meet these sophisticated needs.
+For site reliability engineers (SREs) and DevOps teams, log analysis is about more than just searching and filtering. It's also about uncovering deep insights, detecting anomalies, and maintaining system reliability. [OpenSearch's Piped Processing Language (PPL)](https://github.com/opensearch-project/sql/blob/main/docs/user/ppl/index.rst) is designed to meet these sophisticated needs.
 
 
 ### Beyond basic search
 
-DQL (dashboard query language) in OpenSearch can be restrictive. PPL expands those capabilities by offering the following features:
+Dashboards Query Language (DQL) in OpenSearch can be restrictive. PPL expands on its capabilities by offering the following features:
 
 * Sequential filtering
 * Advanced analytics capabilities
@@ -40,20 +40,20 @@ DQL (dashboard query language) in OpenSearch can be restrictive. PPL expands tho
 
 We understand that switching log analytics platforms is a challenging task. That's why OpenSearch is making significant investments to:
 
-* Make PPL syntax more familiar
-* Add missing commands and functions
-* Simplify the migration process
+* Make PPL syntax more familiar.
+* Add missing commands and functions.
+* Simplify the migration process.
 
 
 
 ### Enterprise-grade performance with Apache Calcite
 
-Launched in OpenSearch 3.0, [Apache Calcite](https://calcite.apache.org/) represents a breakthrough in log analytics scalability. The platform can now handle enterprise-level data volumes up to 150 TB per day, ensuring performance doesn't compromise insight.
+Launched in OpenSearch 3.0, [Apache Calcite](https://calcite.apache.org/) represents a breakthrough in log analytics scalability. The platform can now handle enterprise-level data volumes of up to 150 TB per day, ensuring performance doesn't compromise insight.
 
 
 ## Unifying the observability experience
 
-If you are an SRE or part of a DevOps team, you know how fragmented the log analytics experience can be. You query your data using **Discover** in OpenSearch Dashboards and then move to **Visualize** in order to build a visualization for your dashboard or **Alerting** in order to build an alert. In both cases, you are using different languages resulting in a disjoined experience. Now, with the new observability experience for logs that we are building, you can query, build visualizations, and create alerts ([RFC](https://github.com/opensearch-project/alerting/issues/1880)) without leaving your core PPL query experience in **Discover**. No more learning multiple languages depending on where you are in OpenSearch. Now, there is one language which flows throughout the log analytics experience.
+If you are an SRE or part of a DevOps team, you know how fragmented the log analytics experience can be. You query your data using **Discover** in OpenSearch Dashboards and then use **Visualize** in order to build a visualization for your dashboard or **Alerting** in order to create an alert. Different languages are used in each case, resulting in a disjointed experience. Now, with the new observability experience for logs, you can query, build visualizations, and create alerts ([RFC](https://github.com/opensearch-project/alerting/issues/1880)) without leaving your core PPL query experience in **Discover**. No more learning multiple languages depending on where you are in OpenSearch---now there is one language across the log analytics experience.
 
 
 ## Getting started
@@ -76,14 +76,8 @@ data.savedQueriesNewUI.enabled: true
 
 
 
-## Why OpenSearch matters
 
-The benefits of OpenSearch extend well beyond cost reduction. They include the following advantages:
 
-* Empowering teams with flexible, powerful analytics
-* Providing enterprise-grade performance
-* Maintaining an open, community-driven approach
-* Delivering insights without complexity
 
 
 
@@ -91,4 +85,4 @@ The benefits of OpenSearch extend well beyond cost reduction. They include the f
 
 OpenSearch is more than a tool---it's a vision for how organizations can transform their observability strategy. By prioritizing user needs, performance, and accessibility, we're creating a platform that grows with your challenges.
 
-*Are you ready to reimagine log analytics?* Explore OpenSearch, check out our [roadmap](https://github.com/orgs/opensearch-project/projects/206) and join the community discussion on the [OpenSearch forum](https://forum.opensearch.org/).
+*Are you ready to reimagine log analytics?* Explore OpenSearch, check out our [roadmap](https://github.com/orgs/opensearch-project/projects/206), and join the community discussion on the [OpenSearch forum](https://forum.opensearch.org/).
