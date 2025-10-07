@@ -53,7 +53,7 @@ Launched in OpenSearch 3.0, [Apache Calcite](https://calcite.apache.org/) repres
 
 ## Unifying the observability experience
 
-If you are an SRE or part of a DevOps team, you know how fragmented the log analytics experience can be. You query your data using **Discover** in OpenSearch Dashboards and then use **Visualize** in order to build a visualization for your dashboard or **Alerting** in order to create an alert. Different languages are used in each case, resulting in a disjointed experience. Now, with the new observability experience for logs, you can query, build visualizations, and create alerts ([RFC](https://github.com/opensearch-project/alerting/issues/1880)) without leaving your core PPL query experience in **Discover**. No more learning multiple languages depending on where you are in OpenSearch---now there is one language across the log analytics experience.
+If you are an SRE or part of a DevOps team, you know how fragmented the log analytics experience can be. You query your data using **Discover** in OpenSearch Dashboards and then use **Visualize** in order to build a visualization for your dashboard or **Alerting** in order to create an alert. Different languages are used in each case, resulting in a disjointed experience. Now, with the new observability experience for [logs](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/9826), you can query, build visualizations, and create alerts ([RFC](https://github.com/opensearch-project/alerting/issues/1880)) without leaving your core PPL query experience in **Discover**. No more learning multiple languages depending on where you are in OpenSearch---now there is one language across the log analytics experience.
 
 
 ## Getting started
@@ -83,6 +83,10 @@ data.savedQueriesNewUI.enabled: true
 
 ## The future of log analytics
 
-OpenSearch is more than a tool---it's a vision for how organizations can transform their observability strategy. By prioritizing user needs, performance, and accessibility, we're creating a platform that grows with your challenges.
+OpenSearch is committed to expanding its log analytics capabilities through several key investments:
 
-*Are you ready to reimagine log analytics?* Explore OpenSearch, check out our [roadmap](https://github.com/orgs/opensearch-project/projects/206), and join the community discussion on the [OpenSearch forum](https://forum.opensearch.org/).
+* Enhanced PPL functionality with new commands and functions to support advanced analytics scenarios.
+* Improved visualization capabilities to help users better understand their log data.
+* Integration of PPL with anomaly detection to streamline the observability workflow.
+
+We believe in building these features together with our community. Your insights and contributions are vital to shaping the future of log analytics in OpenSearch. Join us in this journey by exploring our [roadmap](https://github.com/orgs/opensearch-project/projects/206) and participating in discussions on the OpenSearch Observability channel in [Slack](https://opensearch.org/slack/). Let's collaborate to create the next generation of log analytics solutions.
