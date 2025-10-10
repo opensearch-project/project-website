@@ -32,7 +32,121 @@ The Seismic index consists of two parts: the inverted index and the forward inde
 
 ![Seismic Data Structure](/assets/media/blog-images/025-10-14-From-Billions-To-Miliseconds-The-Approximate-Sparse-Retrieval-Algorithm-For-Scalable-Search/seismic.jpg)
 
-## Benchmark Experiment: Seismic vs. Traditional Approaches
+## Try it out
+
+The following example demonstrates using a `sparse_vector` field type.
+
+### Step 1: Create an index
+
+Create a sparse index by setting `index.sparse` to `true` and define a `sparse_vector` field in the index mapping:
+
+```json
+PUT sparse-vector-index
+{
+  "settings": {
+    "index": {
+      "sparse": true
+    },
+    "mappings": {
+      "properties": {
+        "sparse_embedding": {
+          "type": "sparse_vector",
+          "method": {
+            "name": "seismic",
+            "parameters": {
+              "approximate_threshold": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Step 2: Ingest data into the index
+
+Ingest three documents containing `sparse_vector` fields into your index:
+
+```json
+PUT sparse-vector-index/_doc/1
+{
+  "sparse_embedding" : {
+    "1000": 0.1
+  }
+}
+```
+
+```json
+PUT sparse-vector-index/_doc/2
+{
+  "sparse_embedding" : {
+    "2000": 0.2
+  }
+}
+```
+
+```json
+PUT sparse-vector-index/_doc/3
+{
+  "sparse_embedding" : {
+    "3000": 0.3
+  }
+}
+```
+
+### Step 3: Search the index
+
+You can query the sparse index by providing either raw vectors or natural language using a [`neural_sparse` query](https://docs.opensearch.org/latest/query-dsl/specialized/neural-sparse/).
+
+#### Query using a raw vector
+
+To query using a raw vector, provide the `query_tokens` parameter:
+
+```json
+GET sparse-vector-index/_search
+{
+  "query": {
+    "neural_sparse": {
+      "sparse_embedding": {
+        "query_tokens": {
+          "1000": 5.5
+        },
+        "method_parameters": {
+          "heap_factor": 1.0,
+          "top_n": 10,
+          "k": 10
+        }
+      }
+    }
+  }
+}
+```
+
+#### Query using natural language
+
+To query using natural language, provide the `query_text` and `model_id` parameters:
+
+```json
+GET sparse-vector-index/_search
+{
+  "query": {
+    "neural_sparse": {
+      "sparse_embedding": {
+        "query_text": "<input text>",
+        "model_id": "<model ID>",
+        "method_parameters": {
+          "k": 10,
+          "top_n": 10,
+          "heap_factor": 1.0
+        }
+      }
+    }
+  }
+}
+```
+
+## Benchmark Experiment: Seismic and Traditional Approaches
 
 We conducted a billion-scale benchmark to compare the performance of Seismic and traditional search methods, including BM25, neural sparse search and two phase algorithm.
 
