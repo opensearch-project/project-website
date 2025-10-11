@@ -190,35 +190,35 @@ Following the [Big ANN](https://big-ann-benchmarks.com/neurips23.html) (Approxim
     </tr>
     <tr>
       <td rowspan="5">Single-thread</td>
-      <td>Average took time (ms)</td>
+      <td>Average latency (ms)</td>
       <td>125.12</td>
       <td>45.62</td>
       <td>41.52</td>
       <td><strong>11.77</strong></td>
     </tr>
     <tr>
-      <td>P50 took time (ms)</td>
+      <td>P50 latency (ms)</td>
       <td>109</td>
       <td>34</td>
       <td>28</td>
       <td><strong>11</strong></td>
     </tr>
     <tr>
-      <td>P90 took time (ms)</td>
+      <td>P90 latency (ms)</td>
       <td>226</td>
       <td>100</td>
       <td>90</td>
       <td><strong>16</strong></td>
     </tr>
     <tr>
-      <td>P99 took time (ms)</td>
+      <td>P99 latency (ms)</td>
       <td>397.21</td>
       <td>200.21</td>
       <td>200.21</td>
       <td><strong>27</strong></td>
     </tr>
     <tr>
-      <td>P99.9 took time (ms)</td>
+      <td>P99.9 latency (ms)</td>
       <td>551.15</td>
       <td>296.53</td>
       <td>346.06</td>
