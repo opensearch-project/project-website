@@ -84,6 +84,8 @@ nyc_taxis | 41% |
 http logs | 43% |
 elb logs | 58% |
 
+Search latency showed a regression ranging from 10% (for 1k documents in a terms aggregation) to 100% (for 10k documents in a match-all query). In some queries, however, latency improved, since reading from `doc_values` often avoids the decompression required when accessing the stored `_source` field. 
+
 Across these benchmarks, we observed significant indexing throughput improvements of up to 18%, along with a reduction in merge time ranging from 20% to 48%. This is due to lower CPU overhead when generating optimized segments, which also helps reduce merge overhead.
 
 With a reduced index size, additional benefits become apparent: smaller shards enable faster recovery during node restarts or shard relocations, and smaller segments require less disk I/O and fewer page cache swaps, resulting in more efficient queries.
