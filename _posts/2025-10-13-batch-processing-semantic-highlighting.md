@@ -7,30 +7,24 @@ date: 2025-10-13
 categories:
  - technical-post
 meta_keywords: "semantic highlighting, batch processing, OpenSearch 3.3, ML inference, remote models, performance optimization"
-meta_description: "OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls and delivering 2-14× performance improvements."
-excerpt: "OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls from N to 1 per search query. Our benchmarks demonstrate 2-14× performance improvements depending on document length and result set size."
+meta_description: "OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls and delivering 100-1300% performance improvements."
+excerpt: "OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls from N to 1 per search query. Our benchmarks demonstrate 100-1300% performance improvements depending on document length and result set size."
 has_science_table: true
 ---
 
 We introduced [semantic highlighting](https://opensearch.org/blog/introducing-semantic-highlighting-in-opensearch/) in OpenSearch 3.0—an AI-powered feature that intelligently identifies relevant passages in search results based on meaning rather than exact keyword matches.
 
-OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls from N to 1 per search query. Our benchmarks demonstrate 2-14× performance improvements depending on document length and result set size.
+OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls from N to 1 per search query. Our benchmarks demonstrate 100-1300% performance improvements depending on document length and result set size.
 
-**Try it now:** Experience batch semantic highlighting on the [OpenSearch ML Playground](https://ml.playground.opensearch.org/) [TODO: Add direct link to batch semantic highlighting demo].
+![Semantic highlighting demo]({{ site.baseurl }}/assets/media/blog-images/2025-10-13-batch-processing-semantic-highlighting/semantic-highlighting-demo.gif){: .img-fluid }
+
+**Try it now:** Experience batch semantic highlighting on the [OpenSearch ML Playground](https://ml.playground.opensearch.org/).
 
 ## What's New: Batch Processing for Remote Models
 
-In OpenSearch 3.0, semantic highlighting processes each search result individually, making one ML inference call per result, causing multi-second query latencies. OpenSearch 3.3 introduces a new approach: collect all search results and send them in a single batched ML inference call, reducing overhead latency and improving GPU utilization.
+In OpenSearch 3.0, semantic highlighting processes each search result individually, making one ML inference call per result. For queries returning many results, this sequential approach can add latency that grows with result set size. OpenSearch 3.3 introduces a new approach: collect all search results and send them in a single batched ML inference call, reducing overhead latency and improving GPU utilization.
 
-**Simple Comparison:**
-
-```
-Without Batch Processing:
-Search → 10 results → 10 separate ML calls → Aggregate highlights
-  
-With Batch Processing:
-Search → 10 results → 1 batched ML call → Distribute highlights
-```
+![Batch processing comparison]({{ site.baseurl }}/assets/media/blog-images/2025-10-13-batch-processing-semantic-highlighting/batch-comparison.png){: .img-fluid }
 
 Batch processing currently applies to **remote semantic highlighting models only** (deployed on SageMaker, external endpoints, etc.).
 
