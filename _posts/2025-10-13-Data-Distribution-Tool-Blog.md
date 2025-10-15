@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data Distribution Tool: Statistical data distribution analysis for root cause analysis in OpenSearch 3.3"
+title: "Data Distribution Tool: Statistical data distribution analysis for root cause analysis"
 authors:
   - jiaruj
 date: 2025-10-13
