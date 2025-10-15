@@ -20,4 +20,4 @@ permalink: '/community/members/tanik-pansuriya.html'
 redirect_from: '/authors/tanikp/'
 ---
 
-**Tanik** is a Software Development Engineer working at Amazon OpenSearch Service since 2022. At amazon, Tanik primarily focuses on observability of Amazon OpenSearch service.
+**Tanik** is a Software Development Engineer working at Amazon OpenSearch Service since 2022. At Amazon, Tanik primarily focuses on observability of Amazon OpenSearch service.
