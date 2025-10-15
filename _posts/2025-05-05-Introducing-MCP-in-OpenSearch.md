@@ -307,7 +307,7 @@ Claude for Desktop natively supports MCP through the `stdio` protocol, making in
         "opensearch-mcp-server": {
             "command": "uvx",
             "args": [
-                "test-opensearch-mcp"
+                "opensearch-mcp-server-py"
             ],
             "env": {
                 // Required
@@ -318,6 +318,7 @@ Claude for Desktop natively supports MCP through the `stdio` protocol, making in
                 "OPENSEARCH_PASSWORD": "<your_opensearch_domain_password>",
 
                 // For IAM Role Authentication
+                // these are optional if you already have local credentials or EC2 instance role
                 "AWS_REGION": "<your_aws_region>",
                 "AWS_ACCESS_KEY_ID": "<your_aws_access_key>",
                 "AWS_SECRET_ACCESS_KEY": "<your_aws_secret_access_key>",
