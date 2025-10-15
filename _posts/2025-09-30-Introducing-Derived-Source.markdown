@@ -77,7 +77,6 @@ For more information, see [Derived source](https://docs.opensearch.org/latest/fi
 
 Based on experiment runs, derived source can provide significant storage reduction for certain workloads, shown in the following table.
 
-
 Workload | Storage reduction
 :--- | :---
 nyc_taxis | 41% |
