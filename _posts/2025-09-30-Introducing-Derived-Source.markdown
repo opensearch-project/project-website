@@ -78,7 +78,7 @@ For more information, see [Derived source](https://docs.opensearch.org/latest/fi
 Based on experiment runs, derived source can provide significant storage reduction for certain workloads. Search latency showed a regression ranging from 10% (for 1k documents in a terms aggregation) to 100% (for 10k documents in a match-all query). In some queries, however, latency improved, since reading from `doc_values` often avoids the decompression required when accessing the stored `_source` field. The results are summarized in the following table.
 
 
-Workload | Storage Reduction
+Workload | Storage reduction
 :--- | :---
 nyc_taxis | 41% |
 http logs | 43% |
