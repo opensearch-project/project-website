@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Log Pattern Analysis Tool: Intelligent log pattern analysis for root cause analysis in OpenSearch 3.3"
+title: "Log Pattern Analysis Tool: Powerful log pattern analysis for root cause analysis in OpenSearch 3.3"
 authors:
-  - opensearch-team
+  - ihailong
 date: 2025-10-13
 categories:
   - technical-posts
