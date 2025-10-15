@@ -18,11 +18,11 @@ OpenSearch is helping developers gain the visibility they need into their applic
 
 OpenSearch's growth metrics reflect this widespread adoption and community engagement. The project has achieved over 1 billion downloads, with contributions from more than 1,000 developers across 30+ organizations and expansion to over 140 GitHub repositories. The OpenSearch stack now includes components for observability and use cases such as search, security, and AI/ML workflows. This growth has created the need for an end-to-end technical view of observability across the stack, helping to provide a unified and cost-effective solution that integrates natively with OpenSearch and aligns with evolving standards like OpenTelemetry.
 
-Building on this momentum and our community's growing needs, the OpenSearch Project is excited to announce the creation of the [Observability Technical Advisory Group (TAG)](https://github.com/opensearch-project/technical-steering/tree/main/special-interest-groups/observability-tag). This new group, established under the [Technical Steering Committee](https://github.com/opensearch-project/technical-steering), will provide strategic direction and technical guidance to further strengthen observability solutions within the OpenSearch ecosystem. The Observability TAG (seen in the following image) held its inaugural meeting on September 2, 2025, with participants from AWS, SAP, Apple, and Hilti. The group also includes members from other organizations such as Uber and Paessler, representing a broad cross-section of the observability community.
+Building on this momentum and our community's growing needs, the OpenSearch Project is excited to announce the creation of the [Observability Technical Advisory Group (TAG)](https://github.com/opensearch-project/technical-steering/tree/main/technical-advisory-groups/observability-tag). This new group, established under the [Technical Steering Committee](https://github.com/opensearch-project/technical-steering), will provide strategic direction and technical guidance to further strengthen observability solutions within the OpenSearch ecosystem. The Observability TAG (seen in the following image) held its inaugural meeting on September 2, 2025, with participants from AWS, SAP, Apple, and Hilti. The group also includes members from other organizations such as Uber and Paessler, representing a broad cross-section of the observability community.
 
 ![OpenSearch Observability TAG Kick-off meeting](/assets/media/blog-images/2025-09-10-Announcing-OpenSearch-Observability-TAG/obs-tag-group.jpg)
 
-The purpose of the Observability TAG is to define, advocate for, and spread best practices that help users effectively implement OpenSearch for ingesting, storing, and visualizing different telemetry signals. The group will advise the Technical Steering Committee on observability-related initiatives and ensure OpenSearch aligns with open standards, interoperability, industry trends, and community needs. For more information, see the [Observability TAG Governance Charter](https://github.com/opensearch-project/technical-steering/blob/main/special-interest-groups/observability-tag/charter.md).
+The purpose of the Observability TAG is to define, advocate for, and spread best practices that help users effectively implement OpenSearch for ingesting, storing, and visualizing different telemetry signals. The group will advise the Technical Steering Committee on observability-related initiatives and ensure OpenSearch aligns with open standards, interoperability, industry trends, and community needs. For more information, see the [Observability TAG Governance Charter](https://github.com/opensearch-project/technical-steering/tree/main/technical-advisory-groups/observability-tag/charter.md).
 
 ### Key areas of focus
 
@@ -34,9 +34,9 @@ The Observability TAG will focus on several key areas, including:
 
 ### Membership and participation
 
-The initial [members of the Observability TAG](https://github.com/opensearch-project/technical-steering/blob/main/special-interest-groups/observability-tag/README.md#membership) are Orcun Berkem (Amazon), Michael Froh (Uber), Yupeng Fu (Uber), Shenoy Pratik Gurudatt (Amazon), Dotan Horovits (Amazon), Jonah Kowall (Paessler), Karsten Schnitter (SAP), Mikhail Stepura (Apple), Jürgen Walter (SAP), and Shuyi Zhang (Uber).
+The initial [members of the Observability TAG](https://github.com/opensearch-project/technical-steering/tree/main/technical-advisory-groups/observability-tag/README.md#membership) are Orcun Berkem (Amazon), Michael Froh (Uber), Yupeng Fu (Uber), Shenoy Pratik Gurudatt (Amazon), Dotan Horovits (Amazon), Jonah Kowall (Paessler), Karsten Schnitter (SAP), Mikhail Stepura (Apple), Jürgen Walter (SAP), and Shuyi Zhang (Uber).
 
-Participation in the Observability TAG is open to the community, and meetings are public. If you're interested, you can attend meetings to share perspectives and ideas. You don't need to be a member of the Observability TAG to contribute or help, but if you are interested in becoming a member, [here is how you can get involved](https://github.com/opensearch-project/technical-steering/blob/main/special-interest-groups/observability-tag/charter.md#eligibility).
+Participation in the Observability TAG is open to the community, and meetings are public. If you're interested, you can attend meetings to share perspectives and ideas. You don't need to be a member of the Observability TAG to contribute or help, but if you are interested in becoming a member, [here is how you can get involved](https://github.com/opensearch-project/technical-steering/tree/main/technical-advisory-groups/observability-tag/charter.md#eligibility).
 
 To maintain a respectful and inclusive environment, all participants are expected to adhere to the OpenSearch Software Foundation's Code of Conduct and the Observability TAG operational guidelines.
 
@@ -44,7 +44,7 @@ To maintain a respectful and inclusive environment, all participants are expecte
 
 The Observability TAG is a community effort, and we welcome your participation:
 
-* Review the Observability TAG's [governance charter](https://github.com/opensearch-project/technical-steering/tree/main/special-interest-groups/observability-tag).
+* Review the Observability TAG's [governance charter](https://github.com/opensearch-project/technical-steering/tree/main/technical-advisory-groups/observability-tag).
 * Join us on [Slack](https://opensearch.org/slack/) and participate in the `#observability` channel.
 * Attend the [Observability TAG meetings](https://zoom-lfx.platform.linuxfoundation.org/meetings/os-tag-observability) to share your input.
 * Join the OpenSearch forum and engage in the `observability` category.
