@@ -65,7 +65,6 @@ PUT sparse-vector-index
       }
     }
   }
-}
 ```
 
 ### Step 2: Ingest data into the index
