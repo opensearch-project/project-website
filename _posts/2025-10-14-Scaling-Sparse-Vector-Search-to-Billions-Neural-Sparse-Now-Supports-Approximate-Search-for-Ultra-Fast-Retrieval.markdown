@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducing approximate neural sparse search: ultra-fast search at billion-scale"
+title: "Introducing approximate neural sparse search: Ultra-fast search at billion scale"
 category: blog
 authors:
     - yuye
@@ -19,7 +19,7 @@ excerpt: We're excited to introduce our new algorithm for sparse vector retrieva
 
 Neural sparse search combines the semantic understanding of neural models with the efficiency of sparse vector representations. This technique has proven effective for semantic retrieval while maintaining the advantages of traditional lexical search, offering better explanation and presentation of results through text matching. As these sparse embeddings have gained popularity, the increased index sizes have introduced scalability challenges.
 
-Traditional search methods suffer from increasing query latency as collections grow. This degradation in query throughput can significantly impact user experience. In OpenSearch 2.15, we took an important first step toward addressing this challenge by introducing the [two-phase search processor](https://opensearch.org/blog/introducing-a-neural-sparse-two-phase-algorithm/). By dynamically pruning tokens with negligible weights, this approach reduces the computational load while preserving search relevance.
+Traditional search methods suffer from increasing query latency as collections grow. This degradation in query throughput can significantly impact the user experience. In OpenSearch 2.15, we took an important first step toward addressing this challenge by introducing the [two-phase search processor](https://opensearch.org/blog/introducing-a-neural-sparse-two-phase-algorithm/). By dynamically pruning tokens with negligible weights, this approach reduces the computational load while preserving search relevance.
 
 With this same goal of efficiency and high-quality retrieval, we recently introduced sparse approximate nearest neighbor (ANN) search based on the [SEISMIC](https://dl.acm.org/doi/10.1145/3626772.3657769) (**S**pilled Clust**e**ring of **I**nverted Lists with **S**ummaries for **M**aximum **I**nner Produ**c**t Search) approximate retrieval algorithm for sparse vectors. This algorithm fundamentally changes what's possible in large-scale search. Today, we're excited to announce that the SEISMIC algorithm is now available in OpenSearch 3.3. This algorithm achieves faster query latency than traditional BM25 while preserving the semantic understanding of neural sparse models, representing a fundamental shift in the search performance landscape.
 
@@ -248,7 +248,7 @@ In total, the force merge time was 2 hours, 58 minutes, and 30 seconds. On avera
 Based on our benchmarking results, here are some best practices for working with the SEISMIC algorithm:
 
 1. **Recommended segment size**: Set the approximate threshold to 5M documents and force merge segments to between 5M and 10M documents for best performance.
-2. **Memory planning**: Plan for approximately 1GB of memory per 1 million documents when selecting appropriate instance types and sizing the cluster.
+2. **Memory planning**: Plan for approximately 1 GB of memory per 1M documents when selecting appropriate instance types and sizing the cluster.
 
 These results demonstrate that the SEISMIC algorithm delivers unprecedented performance for billion-scale search applications, outperforming even traditional BM25 while maintaining the semantic understanding of neural sparse models.
 
@@ -256,7 +256,7 @@ These results demonstrate that the SEISMIC algorithm delivers unprecedented perf
 
 In OpenSearch 3.3, we're introducing an approximate retrieval algorithm for sparse vectors. This algorithm delivers faster query times than BM25 while maintaining the semantic understanding of neural sparse models. For billion-scale search applications, it removes key scalability barriers by dramatically reducing query latency, allowing you to achieve better performance with fewer nodes.
 
-The capability to search across billions of documents with latency less than 12 ms changes what's possible in information retrieval. We're excited to see you use this technology to build the next generation of semantic search applications. As always, we'd love to hear your feedback---join the conversation and share your experiences on the [OpenSearch forum](https://forum.opensearch.org/).
+The capability to search across billions of documents with latency of less than 12 ms changes what's possible in information retrieval. We're excited to see you use this technology to build the next generation of semantic search applications. As always, we'd love to hear your feedback---join the conversation and share your experiences on the [OpenSearch forum](https://forum.opensearch.org/).
 
 
 

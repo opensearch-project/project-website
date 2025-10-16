@@ -18,4 +18,4 @@ permalink: '/community/members/yuye-zhu.html'
 redirect_from: '/authors/yuye/'
 ---
 
-**Yuye Zhu** is a Machine Learning Engineer on the OpenSearch Project. His mainly works on neural sparse search, agent framework, text chunking, and retrieval-augmented generation.
+**Yuye Zhu** is a machine learning engineer working on the OpenSearch Project. He primarily works on neural sparse search, agent framework, text chunking, and retrieval-augmented generation.

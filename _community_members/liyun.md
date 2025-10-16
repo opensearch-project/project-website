@@ -12,4 +12,4 @@ permalink: '/community/members/liyun-xiu.html'
 redirect_from: '/authors/liyun/'
 ---
 
-**Liyun Xiu** is an AWS senior engineer working on the OpenSearch Project. He is focusing on building large-scale applications, performance optimization, and neural sparse search.
+**Liyun Xiu** is an AWS senior engineer working on the OpenSearch Project. He focuses on building large-scale applications, performance optimization, and neural sparse search.

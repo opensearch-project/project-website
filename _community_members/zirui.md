@@ -12,4 +12,4 @@ permalink: '/community/members/zirui-song.html'
 redirect_from: '/authors/zirui/'
 ---
 
-**Zirui Song** is a Machine Learning Engineer on the OpenSearch Project. His current work focuses on search relevance modeling, system optimization, and integrating machine learning into modern search infrastructure.
+**Zirui Song** is a machine learning engineer working on the OpenSearch Project. His current work focuses on search relevance modeling, system optimization, and integrating machine learning into modern search infrastructure.
