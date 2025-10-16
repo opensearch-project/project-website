@@ -1,12 +1,13 @@
 ---
 layout: post
-title: "Scaling Sparse Vector Search to Billions: Neural Sparse Now Supports Approximate Search for Ultra-Fast Retrieval"
+title: "Introducing approximate neural sparse search: ultra-fast search at billion-scale"
 category: blog
 authors:
     - yuye
     - liyun
     - zirui
     - yych
+    - kolchfa
 date: 2025-10-14
 categories:
   - technical-posts
@@ -16,11 +17,11 @@ meta_description: Introducing an approximate sparse retrieval algorithm that out
 excerpt: We're excited to introduce our new algorithm for sparse vector retrieval. This is an approximate algorithm that achieves unprecedented performance on billion-scale corpora, delivering query throughput faster than traditional BM25 while maintaining high recall rates.
 ---
 
-Neural sparse search has emerged as a promising approach, combining the semantic understanding of neural models with the efficiency of sparse vector representations. This technique has proven effective for semantic retrieval while maintaining the advantages of traditional lexical search, offering better explanation and presentation of results through text matching. As these sparse embeddings have gained popularity, the increased index sizes has introduced scalability challenges.
+Neural sparse search combines the semantic understanding of neural models with the efficiency of sparse vector representations. This technique has proven effective for semantic retrieval while maintaining the advantages of traditional lexical search, offering better explanation and presentation of results through text matching. As these sparse embeddings have gained popularity, the increased index sizes have introduced scalability challenges.
 
-In essence, traditional search methods suffer from increasing query latency as collections grow. This degradation in query throughput can significantly impact user experience. In OpenSearch 2.15, we took an important first step toward addressing this challenge by introducing the [two-phase search processor](https://opensearch.org/blog/introducing-a-neural-sparse-two-phase-algorithm/). By dynamically pruning tokens with negligible weights, this approach reduces the computational load while preserving search relevance.
+Traditional search methods suffer from increasing query latency as collections grow. This degradation in query throughput can significantly impact user experience. In OpenSearch 2.15, we took an important first step toward addressing this challenge by introducing the [two-phase search processor](https://opensearch.org/blog/introducing-a-neural-sparse-two-phase-algorithm/). By dynamically pruning tokens with negligible weights, this approach reduces the computational load while preserving search relevance.
 
-With this same goal of efficiency and high-quality retrieval, we recently introduced sparse approximate nearest neighbor (ANN) search based on the [SEISMIC](https://dl.acm.org/doi/10.1145/3626772.3657769) (**S**pilled Clust**e**ring of **I**nverted Lists with **S**ummaries for **M**aximum **I**nner Produ**c**t Search) approximate retrieval algorithm for sparse vectors. This algorithm fundamentally changes what's possible in large-scale search. Today, we're excited to announce that the Seismic SEISMIC is now available in OpenSearch 3.3. This algorithm allows to achieve query latency faster than traditional BM25 while preserving the semantic understanding of neural sparse models, representing a fundamental shift in the search performance landscape.
+With this same goal of efficiency and high-quality retrieval, we recently introduced sparse approximate nearest neighbor (ANN) search based on the [SEISMIC](https://dl.acm.org/doi/10.1145/3626772.3657769) (**S**pilled Clust**e**ring of **I**nverted Lists with **S**ummaries for **M**aximum **I**nner Produ**c**t Search) approximate retrieval algorithm for sparse vectors. This algorithm fundamentally changes what's possible in large-scale search. Today, we're excited to announce that the SEISMIC algorithm is now available in OpenSearch 3.3. This algorithm achieves faster query latency than traditional BM25 while preserving the semantic understanding of neural sparse models, representing a fundamental shift in the search performance landscape.
 
 ## The SEISMIC algorithm
 
@@ -48,7 +49,8 @@ PUT sparse-vector-index
   "settings": {
     "index": {
       "sparse": true
-    },
+    }
+  },
     "mappings": {
       "properties": {
         "sparse_embedding": {
@@ -249,7 +251,7 @@ Based on our benchmarking results, here are some best practices for working with
 1. **Recommended segment size**: Set the approximate threshold to 5M documents and force merge segments to between 5M and 10M documents for best performance.
 2. **Memory planning**: Plan for approximately 1GB of memory per 1 million documents when selecting appropriate instance types and sizing the cluster.
 
-These results demonstrate that Seismic delivers unprecedented performance for billion-scale search applications, outperforming even traditional BM25 while maintaining the semantic understanding of neural sparse models.
+These results demonstrate that the SEISMIC algorithm delivers unprecedented performance for billion-scale search applications, outperforming even traditional BM25 while maintaining the semantic understanding of neural sparse models.
 
 ## Conclusion
 
