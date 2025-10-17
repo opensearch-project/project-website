@@ -8,7 +8,7 @@ authors:
     - zirui
     - yych
     - kolchfa
-date: 2025-10-14
+date: 2025-10-21
 categories:
   - technical-posts
 has_science_table: true 
@@ -51,20 +51,20 @@ PUT sparse-vector-index
       "sparse": true
     }
   },
-    "mappings": {
-      "properties": {
-        "sparse_embedding": {
-          "type": "sparse_vector",
-          "method": {
-            "name": "seismic",
-            "parameters": {
-              "approximate_threshold": 1
-            }
+  "mappings": {
+    "properties": {
+      "sparse_embedding": {
+        "type": "sparse_vector",
+        "method": {
+          "name": "seismic",
+          "parameters": {
+            "approximate_threshold": 1
           }
         }
       }
     }
   }
+}
 ```
 
 ### Step 2: Ingest data into the index
