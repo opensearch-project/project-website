@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scaling Sparse Vector Search to Billions: Neural Sparse Now Supports Approximate Search for Ultra-Fast Retrieval"
+title: "Scaling to billions, neural sparse now supports approximate search"
 category: blog
 authors:
     - yuye
