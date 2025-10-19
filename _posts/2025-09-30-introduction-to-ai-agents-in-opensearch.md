@@ -30,7 +30,7 @@ Much like the flow agent, Conversational flow agent runs tools sequentially, in 
 
 However, the conversational flow agent also stores conversation history in its memory index between prompts in the session. This history allows users to ask follow-up questions that the agent can address with that historical context. This makes the conversational agent a great fit for building chatbots. It is a type of a *few-shot prompts* with the conversation history as the context.
 
-The conversation history is stored in an index in the OpenSearch cluster, much like any other data, which makes it conveniently accessible for querying and inspection by agents or humans, for auditing, reasoning and debugging purposes.
+The conversation history is stored in an index in the OpenSearch cluster, much like any other data, which makes it conveniently accessible for querying and inspection by agents or humans, for auditing, reasoning and debugging purposes. The data can be accessed via the [memory-apis API](https://docs.opensearch.org/latest/ml-commons-plugin/api/memory-apis/index/).
 
 ## **Conversational agent**
 
@@ -38,11 +38,13 @@ Unlike the previous agents, the conversational agent isn’t bound by a fixed wo
 
 The conversational agent bases its reasoning on a knowledge base from the LLM, as well as from a set of tools provided to the LLM that enable it to extend beyond its built-in knowledge base and fetch additional context.
 
-Similar to conversational flow agent, conversational agents store conversation history so that users can ask follow-up questions. The workflow of a conversational agent is variable, based on follow-up questions.
-
 For specific questions, the agent uses the *Chain-of-Thought (CoT)* process to select the best tool from the configured tools for providing a response to the question.
 
+Similar to conversational flow agent, conversational agents store conversation history so that users can ask follow-up questions. The workflow of a conversational agent is variable, based on follow-up questions.
+
 Conversational agents are useful for creating a chatbot that employs RAG.
+
+The OpenSearch project itself uses these agents for [Agentic search with natural language queries](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/agentic_search/agentic_search_llm_generated_type.md).
 
 ## **Plan-execute-reflect agent**
 
@@ -52,7 +54,7 @@ Internally, a plan-execute-reflect agent uses the multi-agent pattern in OpenSea
 
 Plan-execute-reflect agent is ideal for long-running, exploratory processes, which benefit from iterative reasoning and adaptive execution, such as conducting research or performing automated root cause analysis (RCA).
 
-The OpenSearch project itself uses these agents for [Agentic search with natural language queries](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/agentic_search/agentic_search_llm_generated_type.md), and for the [release automation agent OSCAR](https://github.com/opensearch-project/oscar-ai-bot).
+The OpenSearch project itself uses these agents for the [release automation agent OSCAR](https://github.com/opensearch-project/oscar-ai-bot).
 
 For more information on the plan-execute-reflect agent type, check out this [blog post](https://opensearch.org/blog/intelligent-troubleshooting-using-opensearch-3-0s-plan-execute-reflect-agent/).
 
