@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scaling to billions, neural sparse now supports approximate search"
+title: "Scaling neural sparse search to billions of vectors with approximate search"
 category: blog
 authors:
     - yuye
