@@ -16,7 +16,7 @@ We introduced [semantic highlighting](https://opensearch.org/blog/introducing-se
 
 OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls from N to 1 per search query. Our benchmarks demonstrate 100-1300% performance improvements depending on document length and result set size.
 
-**Try demo now:** Experience batch semantic highlighting on the [OpenSearch ML Playground](https://ml.playground.opensearch.org/).
+**Try demo now:** Experience semantic highlighting on the [OpenSearch ML Playground](https://ml.playground.opensearch.org/).
 
 ![Semantic highlighting demo]({{ site.baseurl }}/assets/media/blog-images/2025-10-13-batch-processing-semantic-highlighting/semantic-highlighting-demo.gif){: .img-fluid }
 
@@ -90,8 +90,8 @@ Your queries will now use batch processing automatically.
 We evaluated the performance impact of batch processing for semantic highlighting on the [MultiSpanQA dataset](https://multi-span.github.io/). The test environment was configured as follows.
 
 | **OpenSearch cluster** | Version 3.3.0 deployed on AWS (us-east-2) |
-| Data nodes | 3 × r6g.2xlarge (8 vCPUs, 64 GB memory each) |
-| **Coordinator nodes** | 3 × c6g.xlarge (4 vCPUs, 8 GB memory each) |
+| **Data nodes** | 3 × r6g.2xlarge (8 vCPUs, 64 GB memory each) |
+| **Manager nodes** | 3 × c6g.xlarge (4 vCPUs, 8 GB memory each) |
 | **Semantic highlighting model** | `opensearch-semantic-highlighter-v1` deployed remotely at Amazon SageMaker endpoint with **single GPU-based ml.g5.xlarge** |
 | **Embedding model** | `sentence-transformers/all-MiniLM-L6-v2` deployed within OpenSearch cluster |
 | **Benchmark client** | ARM64, 16 cores, 61 GB RAM |
@@ -130,6 +130,7 @@ The benchmarking demonstrates that batch processing reduces the semantic highlig
 * **K=10**: Moderate to significant improvement (46-504% for P50, 46-279% for P90)
 * **K=50**: Dramatic improvement (37-1344% for P50, 33-445% for P90)
 * **Short documents benefit more**: Up to 1344% faster (P50) vs 147% for long documents at k=50
+  * **Why the difference?** Long documents could exceed the model's 512 token limit, requiring multiple chunked inference runs even with batch processing. Short documents can be processed in a single pass, maximizing the benefit of batching.
 * **P50 shows larger gains**: Median latency improves more than tail latency, but both benefit significantly
 
 ### Throughput
@@ -157,7 +158,6 @@ The throughput improvements demonstrate that batch processing not only reduces i
 
 Batch processing in OpenSearch 3.3 brings significant performance improvements to semantic highlighting for remote models. By reducing ML inference calls from N to 1 per search, we've delivered:
 
-* **100-200% faster** for typical workloads (10+ results)
-* **Lower latency** and more predictable performance
-* **Reduced infrastructure costs** (better GPU utilization)
-* **Backward compatible** - existing queries work unchanged
+* Faster response times and higher query throughput when highlighting multiple search results
+* More efficient use of remote model resources
+* Backward compatible with existing queries work unchanged
