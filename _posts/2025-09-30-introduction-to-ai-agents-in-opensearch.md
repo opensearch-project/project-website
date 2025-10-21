@@ -28,7 +28,7 @@ For more information on Flow agents, read [here](https://docs.opensearch.org/lat
 
 Much like the flow agent, Conversational flow agent runs tools sequentially, in the order specified in its configuration, to execute a fixed specified workflow.
 
-However, the conversational flow agent also stores conversation history in its memory index between prompts in the session. This history allows users to ask follow-up questions that the agent can address with that historical context. This makes the conversational agent a great fit for building chatbots. It is a type of a *few-shot prompts* with the conversation history as the context.
+However, the conversational flow agent also stores conversation history in its memory index between prompts in the session. This history allows users to ask follow-up questions that the agent can address with that historical context. The conversational-flow is ideal for a chatbot that needs to execute a predetermined, multi-step process for most of its user interactions, but also needs to remember the context of the conversation for follow-up questions. It is a type of a *few-shot prompts* with the conversation history as the context.
 
 The conversation history is stored in an index in the OpenSearch cluster, much like any other data, which makes it conveniently accessible for querying and inspection by agents or humans, for auditing, reasoning and debugging purposes. The data can be accessed via the [memory-apis API](https://docs.opensearch.org/latest/ml-commons-plugin/api/memory-apis/index/).
 
