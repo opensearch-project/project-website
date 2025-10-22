@@ -77,7 +77,13 @@ Agentic memory, a new feature introduced in [OpenSearch 3.2](https://opensearch.
 
 ## **Agentic experience with MCP server**
 
-The OpenSearch project runs a [built-in MCP server](https://opensearch.org/blog/introducing-mcp-in-opensearch/), which provides agents with real-time and secure access to search data. Agents can invoke tools exposed by the MCP server, such as GetShardsTool, IndexMappingTool, ListIndexTool, and SearchIndexTool, and execute complex data queries and analysis logic with these tools, in combination with other tools and other MCP servers at the agent’s disposal. You can see a detailed example in this [blog post](https://opensearch.org/blog/unlocking-agentic-ai-experiences-with-opensearch/).
+External agents can also benefit from accessing OpenSearch capabilities as tools exposed over standard MCP. The OpenSearch project offers two comprehensive [MCP Server solutions](https://opensearch.org/blog/introducing-mcp-in-opensearch/) to meet diverse integration needs:
+ 
+**Built-in MCP Server**: The [built-in MCP server](https://docs.opensearch.org/latest/ml-commons-plugin/api/mcp-server-apis/index/) provides native integration within OpenSearch, exposing a streamable HTTP MCP API that enables dynamic tool registration and removal. This solution offers seamless access to core OpenSearch capabilities, allowing agents to invoke powerful [tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/) for real-time data queries and analysis. Since it makes direct API calls to OpenSearch via `/_plugins/_ml/mcp`, it natively supports Role-Based Access Control (RBAC), ensuring secure and granular access management.
+ 
+**Standalone MCP Server**: The [standalone MCP server](https://github.com/opensearch-project/opensearch-mcp-server-py/blob/main/USER_GUIDE.md) delivers flexible deployment options through the `opensearch-mcp-server-py` PyPI package. This solution supports multiple protocols including stdio, Streamable HTTP, and Server-Sent Events (SSE), making it compatible with various AI agent frameworks. Advanced features include tool filtering capabilities and multi-cluster connectivity, enabling sophisticated agentic workflows across distributed environments.
+ 
+Both solutions provide agents with secure, real-time access to search data and enable complex analytical operations by combining OpenSearch tools with other MCP servers and external tools. For detailed implementation examples and use cases, see this [comprehensive blog post](https://opensearch.org/blog/unlocking-agentic-ai-experiences-with-opensearch/).
 
 ## **Summary**
 
