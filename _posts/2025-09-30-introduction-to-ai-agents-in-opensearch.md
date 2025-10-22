@@ -58,6 +58,17 @@ The OpenSearch project itself uses these agents for the [release automation agen
 
 For more information on the plan-execute-reflect agent type, check out this [blog post](https://opensearch.org/blog/intelligent-troubleshooting-using-opensearch-3-0s-plan-execute-reflect-agent/).
 
+## **Agent Tools and External Data Integration**
+Agents are only as effective as the portfolio of tools we put at their disposal. OpenSearch's agentic framework enables agents to invoke both built-in and external tools, using standardized protocols.
+
+### **Built-in Agent Tools**
+OpenSearch provides a comprehensive suite of pre-built [tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/) that can be seamlessly configured with the different agent types. These native tools enable agents to efficiently access and manipulate search data within OpenSearch, providing essential capabilities for data retrieval, analysis, and management operations.
+ 
+### **External Data Source Integration via MCP Connectors**
+Model Context Protocol (MCP) has been gaining popularity as a communication standard for agentic workflows, simplifying the way AI agents interact with external tools.
+
+OpenSearch extends agent capabilities through [MCP Connectors](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/mcp/index/), enabling integration with external MCP servers and their associated tools. This powerful feature is supported by Plan-execute-reflect agents and Conversational agents, allowing them to leverage external data sources and services, significantly expanding their analytical and operational capabilities beyond the confines of OpenSearch itself. The connectors support the Streamable HTTP and the Server-Sent Events (SSE) protocols, providing flexibility in connecting to various external MCP servers. These agents can seamlessly combine internal OpenSearch tools with external MCP server tools, creating unified workflows that enable sophisticated multi-source data analysis and decision-making processes across diverse data sources and services.
+
 ## **Agentic memory**
 
 As we saw, agents can use a session cache to store previous prompts as context for the conversation. This means that follow up questions on the same conversation can take the preceding questions and answers into account. This cache, however, is limited to the current session.
@@ -65,8 +76,6 @@ As we saw, agents can use a session cache to store previous prompts as context f
 Agentic memory, a new feature introduced in [OpenSearch 3.2](https://opensearch.org/blog/introducing-opensearch-3-2-next-generation-search-and-anayltics-with-enchanced-ai-capabilities/), enables extending beyond the boundaries of a single session, and maintaining persistent memory across sessions. This enables agents to learn from past conversations, for a deeper level of personalization and context. You can find more information about [agentic memory here](https://docs.opensearch.org/latest/ml-commons-plugin/api/agentic-memory-apis/index/).
 
 ## **Agentic experience with MCP server**
-
-Model Context Protocol (MCP) has been gaining popularity as a communication standard for agentic workflows, simplifying the way AI agents interact with external tools.
 
 The OpenSearch project runs a [built-in MCP server](https://opensearch.org/blog/introducing-mcp-in-opensearch/), which provides agents with real-time and secure access to search data. Agents can invoke tools exposed by the MCP server, such as GetShardsTool, IndexMappingTool, ListIndexTool, and SearchIndexTool, and execute complex data queries and analysis logic with these tools, in combination with other tools and other MCP servers at the agent’s disposal. You can see a detailed example in this [blog post](https://opensearch.org/blog/unlocking-agentic-ai-experiences-with-opensearch/).
 
