@@ -6,11 +6,11 @@ authors:
    - mgodwani
    - bukhtawa
    - kolchfa
-date: 2025-09-30
+date: 2025-10-22
 categories:
   - technical-posts
-meta_keywords: todo
-meta_description: "Learn about derived source, introduced in OpenSearch 3.2: why it matters, how it works, and how to start using it to reduce storage costs."
+meta_keywords: derived source, OpenSearch clusters, _source field storage, what is derived source, storage optimization, data compression, document storage, index settings, storage efficiency, configure derived source
+meta_description: "Learn how to reduce OpenSearch storage costs by up to 2x with derived source functionality, while maintaining core search capabilities and performance."
 ---
 
 Storage is a key factor driving the infrastructure cost of your OpenSearch cluster. As your data grows, storage requirements can increase multifold, depending on whether OpenSearch stores documents in multiple formats. This is where derived source comes to the rescue, optimizing storage costs.
