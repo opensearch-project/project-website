@@ -73,7 +73,7 @@ OpenSearch extends agent capabilities through [MCP Connectors](https://docs.open
 
 As we saw, agents can use a session cache to store previous prompts as context for the conversation. This means that follow up questions on the same conversation can take the preceding questions and answers into account. This cache, however, is limited to the current session.
 
-Agentic memory, a new feature introduced in [OpenSearch 3.2](https://opensearch.org/blog/introducing-opensearch-3-2-next-generation-search-and-anayltics-with-enchanced-ai-capabilities/), enables extending beyond the boundaries of a single session, and maintaining persistent memory across sessions. This enables agents to learn from past conversations, for a deeper level of personalization and context. You can find more information about [agentic memory here](https://docs.opensearch.org/latest/ml-commons-plugin/api/agentic-memory-apis/index/).
+Agentic memory, a new feature introduced in [OpenSearch 3.2](https://opensearch.org/blog/introducing-opensearch-3-2-next-generation-search-and-anayltics-with-enchanced-ai-capabilities/) and reached GA in 3.3, enables extending beyond the boundaries of a single session, and maintaining persistent memory across sessions. This enables agents to learn from past conversations, for a deeper level of personalization and context. You can find more information about [agentic memory here](https://docs.opensearch.org/latest/ml-commons-plugin/api/agentic-memory-apis/index/).
 
 ## **Agentic experience with MCP server**
 
