@@ -17,7 +17,7 @@ The [Log Pattern Analysis Tool](https://docs.opensearch.org/latest/ml-commons-pl
 
 ## Data Distribution Tool Overview
 
-The [Data Distribution Tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/data-distribution-tool/) is an OpenSearch agent tool that analyzes field value distributions within your indices. It generates statistical summaries including value frequencies, percentiles, and distribution metrics to help understand data characteristics and identify potential data quality issues.
+The [Data Distribution Tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/data-distribution-tool/) is an OpenSearch agent tool that analyzes data distribution patterns within datasets and compares distributions between different time periods. It supports both single dataset analysis and comparative analysis to identify significant changes in field value distributions, helping detect anomalies, trends, and data quality issues. The tool generates statistical summaries including value frequencies, percentiles, and distribution metrics to help understand data characteristics and identify potential data quality issues.
 
 ## Amazon Q CLI Integration
 
