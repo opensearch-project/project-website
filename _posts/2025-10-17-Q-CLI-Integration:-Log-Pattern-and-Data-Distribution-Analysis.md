@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Q CLI Integration: Log Pattern and Data Distribution Analysis"
+title: "Amazon Q CLI Integration: Log Pattern and Data Distribution Analysis"
 authors:
   - ihailong
   - jiaruj
 date: 2025-10-17
 categories:
   - technical-posts
-meta_keywords: Q CLI, CLI integration, log pattern analysis, data distribution analysis, OpenSearch CLI, command line interface, log analysis tools, data distribution tools, OpenSearch integration, diagnostic tools, MCP, Agent, Agentic AI, OpenTelemetry
-meta_description: Learn how to integrate Q CLI with OpenSearch's log pattern analysis and data distribution tools for streamlined command-line diagnostics and enhanced system troubleshooting capabilities.
+meta_keywords: Amazon Q CLI, CLI integration, log pattern analysis, data distribution analysis, OpenSearch CLI, command line interface, log analysis tools, data distribution tools, OpenSearch integration, diagnostic tools, MCP, Agent, Agentic AI, OpenTelemetry
+meta_description: Learn how to integrate Amazon Q CLI with OpenSearch's log pattern analysis and data distribution tools for streamlined command-line diagnostics and enhanced system troubleshooting capabilities.
 ---
 
 ## Log Pattern Analysis Tool Overview
@@ -19,9 +19,9 @@ The [Log Pattern Analysis Tool](https://docs.opensearch.org/latest/ml-commons-pl
 
 The [Data Distribution Tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/data-distribution-tool/) is an OpenSearch agent tool that analyzes field value distributions within your indices. It generates statistical summaries including value frequencies, percentiles, and distribution metrics to help understand data characteristics and identify potential data quality issues.
 
-## Q CLI Integration
+## Amazon Q CLI Integration
 
-Q CLI can seamlessly integrate with these OpenSearch analysis tools through the [Model Context Protocol (MCP)](https://opensearch.org/blog/introducing-mcp-in-opensearch/). By configuring the OpenSearch MCP server, you can access both the Log Pattern Analysis Tool and Data Distribution Tool directly from your command line interface. This integration enables natural language queries for log analysis and data distribution insights, making complex diagnostic tasks accessible through simple conversational commands.
+Amazon Q CLI can seamlessly integrate with these OpenSearch analysis tools through the [Model Context Protocol (MCP)](https://opensearch.org/blog/introducing-mcp-in-opensearch/). By configuring the OpenSearch MCP server, you can access both the Log Pattern Analysis Tool and Data Distribution Tool directly from your command line interface. This integration enables natural language queries for log analysis and data distribution insights, making complex diagnostic tasks accessible through simple conversational commands.
 
 ## Real-World Example: OpenTelemetry Demo
 
@@ -31,16 +31,16 @@ To demonstrate the practical application of these integrated tools, we'll use th
 
 In our scenario, users are reporting payment failures during checkout - a critical issue impacting revenue and customer experience. We choose payment failures as our root cause analysis target due to their business-critical impact. The OpenTelemetry Demo can simulate various failure conditions, including payment service disruptions and authentication issues. To resolve this issue, we need to analyze the logs to identify failure patterns and determine whether the issue is related to specific customer segments, authentication problems, or system-level configuration issues.
 
-### Q CLI Investigation Process
+### Amazon Q CLI Investigation Process
 
-Using Q CLI with the integrated OpenSearch tools, we can investigate this issue through natural language queries. Here's how the investigation unfolds:
+Using Amazon Q CLI with the integrated OpenSearch tools, we can investigate this issue through natural language queries. Here's how the investigation unfolds:
 
 **Initial Query:**
 ```
 Users are reporting payment failures during checkout process and we need to investigate the root cause by analyzing logs from the ss4o_logs* index between 2025-08-11 07:29:07.414 and 2025-08-12 07:29:07.414 to identify patterns in checkout service failures related to card charging issues.
 ```
 
-**Q CLI Analysis Results:**
+**Amazon Q CLI Analysis Results:**
 ```
 I'll help you investigate the payment failures by analyzing the logs in the ss4o_logs* index. Let me start by examining the index structure and then search for checkout-related failures.
 > 
