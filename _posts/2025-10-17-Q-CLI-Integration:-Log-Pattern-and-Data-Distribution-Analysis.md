@@ -13,7 +13,7 @@ meta_description: Learn how to integrate Q CLI with OpenSearch's log pattern ana
 
 ## Log Pattern Analysis Tool Overview
 
-The [Log Pattern Analysis Tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/log-pattern-analysis-tool/) is an advanced OpenSearch agent tool that automates root cause analysis through multiple analysis modes. It performs differential pattern analysis between baseline and problem periods, analyzes log sequences using trace correlation, and provides log insights by automatically extracting error patterns and keywords from log data to accelerate troubleshooting.
+The [Log Pattern Analysis Tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/log-pattern-analysis-tool/) is an OpenSearch agent tool that automates log analysis through multiple analysis modes. It performs differential pattern analysis between baseline and problem periods, analyzes log sequences using trace correlation, and provides log insights by automatically extracting error patterns and keywords from log data to accelerate troubleshooting.
 
 ## Data Distribution Tool Overview
 
