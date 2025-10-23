@@ -23,6 +23,77 @@ The [Data Distribution Tool](https://docs.opensearch.org/latest/ml-commons-plugi
 
 Amazon Q CLI can seamlessly integrate with these OpenSearch analysis tools through the [Model Context Protocol (MCP)](https://opensearch.org/blog/introducing-mcp-in-opensearch/). By configuring the OpenSearch MCP server, you can access both the Log Pattern Analysis Tool and Data Distribution Tool directly from your command line interface. This integration enables natural language queries for log analysis and data distribution insights, making complex diagnostic tasks accessible through simple conversational commands.
 
+### Implementation with opensearch-mcp-server-py
+
+This integration is built on the [opensearch-mcp-server-py](https://github.com/opensearch-project/opensearch-mcp-server-py) project, which provides a Python-based MCP server for OpenSearch. To enable the Log Pattern Analysis Tool and Data Distribution Tool integration, you need to clone this project and add custom integration code for both tools, extending the server's capabilities to support these advanced analysis features.
+
+### Complete Integration Workflow
+
+To set up Amazon Q CLI with OpenSearch MCP integration, follow these steps:
+
+1. **Clone and Setup the MCP Server**
+   ```bash
+   git clone https://github.com/opensearch-project/opensearch-mcp-server-py.git
+   cd opensearch-mcp-server-py
+   pip install -e .
+   ```
+
+2. **Add Tool Integration Code**
+   - Implement Log Pattern Analysis Tool integration in the MCP server
+   - Implement Data Distribution Tool integration in the MCP server
+   - Register both tools with the MCP server's tool registry
+
+3. **Configure Amazon Q CLI**
+   - Open your Amazon Q CLI configuration file
+   - Add the MCP server configuration (see below)
+
+4. **Set Environment Variables**
+   - Configure your OpenSearch cluster credentials
+   - Ensure network connectivity to your OpenSearch cluster
+
+5. **Start Using Natural Language Queries**
+   - Launch Amazon Q CLI
+   - Begin querying your OpenSearch data using conversational commands
+
+### MCP Configuration Example
+
+To configure the OpenSearch MCP server for Amazon Q CLI, add the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "opensearch": {
+      "type": "stdio",
+      "url": "",
+      "headers": {},
+      "oauthScopes": [
+        "openid",
+        "email", 
+        "profile",
+        "offline_access"
+      ],
+      "command": "python",
+      "args": [
+        "-m",
+        "mcp_server_opensearch"
+      ],
+      "env": {
+        "OPENSEARCH_URL": "<your-opensearch-cluster-endpoint>",
+        "OPENSEARCH_PASSWORD": "<your-opensearch-password>",
+        "OPENSEARCH_USERNAME": "<your-opensearch-username>"
+      },
+      "timeout": 120000,
+      "disabled": false
+    }
+  }
+}
+```
+
+**Configuration Notes:**
+- `OPENSEARCH_URL`: Replace with your OpenSearch cluster endpoint
+- `OPENSEARCH_PASSWORD`: Replace with your OpenSearch password
+- `OPENSEARCH_USERNAME`: Replace with your OpenSearch username
+
 ## Real-World Example: OpenTelemetry Demo
 
 To demonstrate the practical application of these integrated tools, we'll use the OpenTelemetry Demo as our example scenario. OpenTelemetry is an observability framework that provides a collection of tools, APIs, and SDKs for generating, collecting, and exporting telemetry data (metrics, logs, and traces) from applications. The OpenTelemetry Demo simulates a realistic e-commerce platform with multiple microservices including cart service, checkout service, payment service, and recommendation engine. In this environment, common issues arise such as payment processing failures, cart abandonment errors, recommendation service timeouts, and checkout workflow disruptions, providing excellent opportunities for root cause analysis in a distributed system environment.
