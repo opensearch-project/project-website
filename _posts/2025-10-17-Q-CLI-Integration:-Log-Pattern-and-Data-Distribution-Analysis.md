@@ -54,16 +54,6 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
 >  ⋮ 
 >  ● Completed in 1.187s
 > 
-> > Let me check what indices are available that match the pattern:
-> 
-> 🛠️  Using tool: ListIndexTool (trusted) from mcp server opensearch
->  ⋮ 
->  ● Running ListIndexTool with the param:
->  ⋮  {}
-> 
->  ⋮ 
->  ● Completed in 2.395s
-> 
 > > I can see there are several ss4o_logs-otel-* indices that match the pattern you mentioned. Let me search for logs related to checkout and payment failures in the time range you specified. I'll start by examining the structure of one of these indices and then search for checkout-related failures.
 > 
 > 🛠️  Using tool: IndexMappingTool from mcp server opensearch
