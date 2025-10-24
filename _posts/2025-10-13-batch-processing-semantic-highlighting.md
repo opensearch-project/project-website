@@ -12,36 +12,36 @@ excerpt: "OpenSearch 3.3 introduces batch processing for remote semantic highlig
 has_science_table: true
 ---
 
-We introduced [semantic highlighting](https://opensearch.org/blog/introducing-semantic-highlighting-in-opensearch/) in OpenSearch 3.0—an AI-powered feature that intelligently identifies relevant passages in search results based on meaning rather than exact keyword matches.
+In OpenSearch 3.0, we introduced [semantic highlighting](https://opensearch.org/blog/introducing-semantic-highlighting-in-opensearch/)---an AI-powered feature that intelligently identifies relevant passages in search results based on meaning rather than exact keyword matches.
 
-OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls from N to 1 per search query. Our benchmarks demonstrate 100-1300% performance improvements depending on document length and result set size.
+OpenSearch 3.3 introduces batch processing for externally hosted semantic highlighting models, reducing machine learning (ML) inference calls from N to 1 per search query. Our benchmarks demonstrate 100--1300% performance improvements depending on document length and result set size.
 
-**Try demo now:** Experience semantic highlighting on the [OpenSearch ML Playground](https://ml.playground.opensearch.org/).
+**Try our demo now:** Experience semantic highlighting on the [OpenSearch ML Playground](https://ml.playground.opensearch.org/), presented in the following image.
 
-![Semantic highlighting demo]({{ site.baseurl }}/assets/media/blog-images/2025-10-13-batch-processing-semantic-highlighting/semantic-highlighting-demo.gif){: .img-fluid }
+![Semantic highlighting demo](/assets/media/blog-images/2025-10-13-batch-processing-semantic-highlighting/semantic-highlighting-demo.gif){: .img-fluid }
 
-## What's New: Batch Processing for Remote Models
+## What's new: Batch processing for remote models
 
-In OpenSearch 3.0, semantic highlighting processes each search result individually, making one ML inference call per result. For queries returning many results, this sequential approach can add latency that grows with result set size. OpenSearch 3.3 introduces a new approach: collect all search results and send them in a single batched ML inference call, reducing overhead latency and improving GPU utilization.
+In OpenSearch 3.0, semantic highlighting processes each search result individually, making one ML inference call per result. For queries returning many results, this sequential approach can add latency that grows with result set size. OpenSearch 3.3 introduces a new approach (shown in the following diagram): collecting all search results and sending them in a single batched ML inference call, reducing overhead latency and improving GPU utilization. 
 
-![Batch processing comparison]({{ site.baseurl }}/assets/media/blog-images/2025-10-13-batch-processing-semantic-highlighting/batch-comparison.png){: .img-fluid }
+![Batch processing comparison](/assets/media/blog-images/2025-10-13-batch-processing-semantic-highlighting/batch-comparison.png){: .img-fluid }
 
-Batch processing currently applies to **remote semantic highlighting models only** (deployed on SageMaker, external endpoints, etc.).
+Batch processing currently applies to **remote semantic highlighting models only** (those deployed on Amazon SageMaker or other external endpoints).
 
-## Use batch semantic highlighting in search request
+## Using batch semantic highlighting in search requests
 
-For complete setup, please refer to the [semantic highlighting tutorial](https://docs.opensearch.org/latest/tutorials/vector-search/semantic-highlighting-tutorial/).
+To get started with batch semantic highlighting in your searches, follow these steps. For a complete setup, see the [semantic highlighting tutorial](https://docs.opensearch.org/latest/tutorials/vector-search/semantic-highlighting-tutorial/).
 
-### Setting Up Your Remote Model
+### Step 1: Configure your remote model
 
-To use batch processing, you'll need a remote batch inference supported model deployed on an external endpoint. We provide below example on how to integrate with AWS SageMaker endpoint:
+To use batch processing, you'll need a model that supports remote batch inference deployed on an external endpoint. Here's how to integrate with an Amazon SageMaker endpoint hosted on AWS:
 
-* Create AWS SageMaker model endpoint resources, check [here](https://github.com/opensearch-project/opensearch-py-ml/blob/main/docs/source/examples/semantic_highlighting/README.md).
-* Deploying the model endpoint to OpenSearch ML, check [here](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/standard_blueprints/sagemaker_semantic_highlighter_standard_blueprint.md).
+* Create the necessary Amazon SageMaker model endpoint resources. For more information, see the [README guide](https://github.com/opensearch-project/opensearch-py-ml/blob/main/docs/source/examples/semantic_highlighting/README.md).
+* Deploy the model endpoint to OpenSearch. For more information, see the [Amazon SageMaker blueprint guide](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/standard_blueprints/sagemaker_semantic_highlighter_standard_blueprint.md).
 
-### Enable System-Generated Pipelines
+### Step 2: Enable system-generated pipelines
 
-Add this cluster setting to allow OpenSearch to create the system default batch semantic highlighting search response processing pipeline:
+Add the following cluster setting to enable OpenSearch to automatically create the system-default batch semantic highlighting pipeline for processing search responses:
 
 ```json
 PUT /_cluster/settings
@@ -52,9 +52,9 @@ PUT /_cluster/settings
 }
 ```
 
-### Add the Batch Flag to Your Query
+### Step 3: Add the batch flag to your query
 
-Add your search request to include `batch_inference: true`, here is a example with neural query:
+Include `batch_inference: true` in your search request to enable batch semantic highlighting. The following example uses a `neural` query:
 
 ```json
 POST /neural-search-index/_search
@@ -97,7 +97,7 @@ We evaluated the performance impact of batch processing for semantic highlightin
 | **Benchmark client** | ARM64, 16 cores, 61 GB RAM |
 | **Test configuration** | 10 warmup iterations, 50 test iterations, 3 shards, 0 replicas |
 
-We tested with two document sets with different document length:
+We tested with two document sets with different document lengths.
 
 | Dataset | Document length | Mean tokens | P50 tokens | P90 tokens | Max tokens |
 |---|---|---|---|---|---|
@@ -106,9 +106,9 @@ We tested with two document sets with different document length:
 
 ### Latency
 
-We measured the latency overhead of semantic highlighting by comparing semantic search with and without highlighting enabled. The baseline semantic search latency is approximately 20-25ms across all configurations. The table below shows the highlighting overhead only (values exclude the baseline search time). All latency measurements are service-side took times from OpenSearch responses.
+We measured the latency overhead of semantic highlighting by comparing semantic search highlighting enabled and disabled. The baseline semantic search latency is approximately 20--25 ms across all configurations. The following table shows the highlighting overhead only (values exclude the baseline search time). All latency measurements are service-side `took` times from OpenSearch responses.
 
-| K-value | Search clients | Doc length | Without batch P50 (ms) | With batch P50 (ms) | P50 Improvement | Without batch P90 (ms) | With batch P90 (ms) | P90 Improvement |
+| k value | Search client | Document length | P50 without batch processing (ms) | P50 with batch processing (ms) | P50 improvement | P90 without batch processing (ms) | P90 with batch processing (ms) | P90 improvement |
 |---|---|---|---|---|---|---|---|---|
 | 10 | 1 | Long | 209 | 123 | 70% | 262 | 179 | 46% |
 | 10 | 4 | Long | 378 | 171 | 121% | 487 | 302 | 61% |
@@ -123,19 +123,19 @@ We measured the latency overhead of semantic highlighting by comparing semantic 
 | 50 | 4 | Short | 1,666 | 193 | 763% | 1,971 | 362 | 445% |
 | 50 | 8 | Short | 3,162 | 219 | 1344% | 3,704 | 729 | 408% |
 
-The benchmarking demonstrates that batch processing reduces the semantic highlighting overhead. For short documents with k=50 and 8 clients, batch processing reduces highlighting latency from 3,162ms to just 219ms (P50)—a **1344% improvement**. The P90 latency also shows improvements (408%), demonstrating consistent performance benefits. The semantic search baseline (~25ms) remains constant, so these improvements directly translate to faster end-to-end response times.
+The benchmarking demonstrates that batch processing reduces the semantic highlighting overhead. For short documents with k=50 and 8 clients, batch processing reduces highlighting latency from 3,162ms to just 219 ms (P50)---a **1344% improvement**. The P90 latency also shows improvements (408%), demonstrating consistent performance benefits. The semantic search baseline (~25 ms) remains constant, so these improvements directly translate to faster end-to-end response times.
 
 **Key findings:**
 
-* **K=10**: Moderate to significant improvement (46-504% for P50, 46-279% for P90)
-* **K=50**: Dramatic improvement (37-1344% for P50, 33-445% for P90)
-* **Short documents benefit more**: Up to 1344% faster (P50) vs 147% for long documents at k=50
+* **k=10**: Moderate to significant improvement (46-504% for P50, 46-279% for P90).
+* **k=50**: Dramatic improvement (37-1344% for P50, 33-445% for P90).
+* **Short documents benefit more**: Up to 1344% faster (P50) vs 147% for long documents at k=50.
   * **Why the difference?** Long documents could exceed the model's 512 token limit, requiring multiple chunked inference runs even with batch processing. Short documents can be processed in a single pass, maximizing the benefit of batching.
-* **P50 shows larger gains**: Median latency improves more than tail latency, but both benefit significantly
+* **P50 shows larger gains**: Median latency improves more than tail latency, but both benefit significantly.
 
 ### Throughput
 
-We also measured the throughput (mean operations per second) to understand how batch processing affects the system's capacity to handle concurrent requests. The results show consistent improvements across all configurations.
+To understand how batch processing affects the system's capacity to handle concurrent requests, we also measured the throughput (mean number of operations per second). The results (presented in the following table) show consistent improvements across all configurations.
 
 | K-value | Search clients | Doc length | Without batch (ops/s) | With batch (ops/s) | Improvement |
 |---|---|---|---|---|---|
@@ -152,12 +152,14 @@ We also measured the throughput (mean operations per second) to understand how b
 | 50 | 4 | Short | 2.27 | 11.55 | 409% |
 | 50 | 8 | Short | 2.43 | 14.33 | 490% | |
 
-The throughput improvements demonstrate that batch processing not only reduces individual query latency but also increases the overall system capacity, allowing you to serve more concurrent users with the same infrastructure.
+Throughput improvements demonstrate that batch processing not only reduces individual query latency but also increases the overall system capacity, allowing you to serve more concurrent users with the same infrastructure.
 
 ## Conclusion
 
-Batch processing in OpenSearch 3.3 brings significant performance improvements to semantic highlighting for remote models. By reducing ML inference calls from N to 1 per search, we've delivered:
+Batch processing in OpenSearch 3.3 brings significant performance improvements to semantic highlighting for remote models. By reducing the number of ML inference calls from N to 1 per search, we've delivered:
 
 * Faster response times and higher query throughput when highlighting multiple search results
 * More efficient use of remote model resources
 * Backward compatible with existing queries work unchanged
+
+Try batch processing for semantic highlighting and share your feedback on the [OpenSearch forum](https://forum.opensearch.org/). 
