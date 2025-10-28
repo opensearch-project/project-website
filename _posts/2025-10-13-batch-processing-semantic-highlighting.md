@@ -3,18 +3,18 @@ layout: post
 title: "Batch processing semantic highlighting in OpenSearch 3.3"
 authors:
  - junqiu
-date: 2025-10-13
+date: 2025-10-28
 categories:
  - technical-post
-meta_keywords: "semantic highlighting, batch processing, OpenSearch 3.3, ML inference, remote models, performance optimization"
-meta_description: "OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls and delivering 100--1,300% performance improvements."
+meta_keywords: OpenSearch 3.3, semantic highlighting, batch processing, machine learning, ML inference, search optimization, performance benchmarking, neural search, GPU optimization, search latency, natural language processing, semantic search, MultiSpanQA dataset
+meta_description: "Learn how OpenSearch 3.3's new batch processing for semantic highlighting delivers up to 1,300% performance improvement through reduced ML inference calls and optimized GPU utilization."
 excerpt: "OpenSearch 3.3 introduces batch processing for remote semantic highlighting models, reducing ML inference calls from N to 1 per search query. Our benchmarks demonstrate 100--1,300% performance improvements, depending on document length and result set size."
 has_science_table: true
 ---
 
 In OpenSearch 3.0, we introduced [semantic highlighting](https://opensearch.org/blog/introducing-semantic-highlighting-in-opensearch/)---an AI-powered feature that intelligently identifies relevant passages in search results based on meaning rather than exact keyword matches.
 
-OpenSearch 3.3 introduces batch processing for externally hosted semantic highlighting models, reducing machine learning (ML) inference calls from N to 1 per search query. Our benchmarks demonstrate 100--1,300% performance improvements, depending on document length and result set size.
+[OpenSearch 3.3](https://opensearch.org/blog/explore-opensearch-3-3/) introduces batch processing for externally hosted semantic highlighting models, reducing machine learning (ML) inference calls from N to 1 per search query. Our benchmarks demonstrate 100--1,300% performance improvements, depending on document length and result set size.
 
 **Try our demo now**: Experience semantic highlighting on the [OpenSearch ML Playground](https://ml.playground.opensearch.org/), presented in the following image.
 
