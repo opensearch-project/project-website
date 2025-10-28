@@ -12,11 +12,12 @@ personas:
   - conference_speaker
 conference_id:
   - "2024-north-america"
+  - "2025-north-america"
 session_track: 
   - conference_id: "2024-north-america"
     name: "Search"
-
-
+  - conference_id: "2025-north-america"
+    name: "Growing a Vibrant Open Source OpenSearch Community in China"
 
 permalink: '/community/members/charlie-yang.html'
 redirect_from: '/authors/yych/'
