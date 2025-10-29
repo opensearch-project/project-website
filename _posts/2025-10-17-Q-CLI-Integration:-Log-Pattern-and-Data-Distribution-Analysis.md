@@ -101,12 +101,12 @@ Using Amazon Q CLI with the integrated OpenSearch tools, we can investigate this
 
 **Initial Query:**
 ```
-Users are reporting payment failures during checkout process and we need to investigate the root cause by analyzing logs from the ss4o_logs* index between 2025-08-21 and 2025-08-22 to identify patterns in checkout service failures related to card charging issues.
+Users are reporting payment failures during checkout process and we need to investigate the root cause by analyzing logs from the ss4o_logs* index between 2025-08-21 3pm and 4pm to identify patterns in checkout service failures related to card charging issues.
 ```
 
 **Amazon Q CLI Analysis Results:**
 ```
-I'll help you investigate the payment failures by analyzing the logs in the ss4o_logs* index. Let me start by examining the available indices and then analyze the log patterns during the specified time period.
+I'll help you investigate the payment failures by analyzing the logs from the ss4o_logs* index during the specified time period. Let me start by examining the available indices and then analyze the checkout service failures.
 > 
 > 🛠️  Using tool: ListIndexTool from mcp server opensearch-mcp-server
 >  ⋮ 
@@ -116,9 +116,21 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
 >  ⋮  }
 > 
 >  ⋮ 
->  ● Completed in 2.54s
+>  ● Completed in 2.304s
 > 
-> I can see the ss4o_logs-otel-2025.08.21 index is available for the specified date range. Now let me use the LogPatternAnalysisTool to analyze patterns related to checkout failures and card charging issues:
+> I can see there are ss4o_logs indices available. Let me check the specific index for August 21st, 2025 and examine its structure:
+> 
+> 🛠️  Using tool: IndexMappingTool from mcp server opensearch-mcp-server
+>  ⋮ 
+>  ● Running IndexMappingTool with the param:
+>  ⋮  {
+>  ⋮    "index": "ss4o_logs-otel-2025.08.21"
+>  ⋮  }
+> 
+>  ⋮ 
+>  ● Completed in 1.25s
+> 
+> Perfect! I can see this is an OpenTelemetry logs index with rich payment-related attributes like cardType, amount, lastFourDigits, transactionId, etc. Now let me analyze the checkout service failures during the specified time period (August 21st, 3-4 PM). I'll use the LogPatternAnalysisTool to identify patterns in checkout failures:
 > 
 > 🛠️  Using tool: LogPatternAnalysisTool from mcp server opensearch-mcp-server
 >  ⋮ 
@@ -126,15 +138,15 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
 >  ⋮  {
 >  ⋮    "index": "ss4o_logs-otel-2025.08.21",
 >  ⋮    "logFieldName": "body",
->  ⋮    "selectionTimeRangeStart": "2025-08-21T00:00:00.000Z",
->  ⋮    "selectionTimeRangeEnd": "2025-08-22T00:00:00.000Z",
+>  ⋮    "selectionTimeRangeStart": "2025-08-21T15:00:00Z",
+>  ⋮    "selectionTimeRangeEnd": "2025-08-21T16:00:00Z",
 >  ⋮    "timeField": "time"
 >  ⋮  }
 > 
 >  ⋮ 
->  ● Completed in 1.444s
+>  ● Completed in 0.591s
 > 
-> Excellent! I found significant payment failure patterns. Let me also search for more specific checkout service logs to get a complete picture:
+> Excellent! The log pattern analysis reveals critical insights. Now let me get more detailed information about the checkout failures by searching for specific error patterns:
 > 
 > 🛠️  Using tool: SearchIndexTool from mcp server opensearch-mcp-server
 >  ⋮ 
@@ -148,33 +160,122 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
 >  ⋮            {
 >  ⋮              "range": {
 >  ⋮                "time": {
->  ⋮                  "gte": "2025-08-21T00:00:00.000Z",
->  ⋮                  "lte": "2025-08-22T00:00:00.000Z"
+>  ⋮                  "gte": "2025-08-21T15:00:00Z",
+>  ⋮                  "lte": "2025-08-21T16:00:00Z"
 >  ⋮                }
 >  ⋮              }
 >  ⋮            },
 >  ⋮            {
 >  ⋮              "bool": {
 >  ⋮                "should": [
->  ⋮                  {"match": {"body": "checkout"}},
->  ⋮                  {"match": {"body": "payment"}},
->  ⋮                  {"match": {"body": "card"}},
->  ⋮                  {"match": {"serviceName": "checkoutservice"}}
+>  ⋮                  {
+>  ⋮                    "match": {
+>  ⋮                      "body": "could not charge the card"
+>  ⋮                    }
+>  ⋮                  },
+>  ⋮                  {
+>  ⋮                    "match": {
+>  ⋮                      "body": "Payment request failed"
+>  ⋮                    }
+>  ⋮                  },
+>  ⋮                  {
+>  ⋮                    "match": {
+>  ⋮                      "body": "Invalid token"
+>  ⋮                    }
+>  ⋮                  }
 >  ⋮                ]
 >  ⋮              }
 >  ⋮            }
 >  ⋮          ]
 >  ⋮        }
 >  ⋮      },
->  ⋮      "size": 20,
->  ⋮      "sort": [{"time": {"order": "desc"}}]
+>  ⋮      "aggs": {
+>  ⋮        "service_breakdown": {
+>  ⋮          "terms": {
+>  ⋮            "field": "serviceName",
+>  ⋮            "size": 10
+>  ⋮          }
+>  ⋮        },
+>  ⋮        "card_type_failures": {
+>  ⋮          "terms": {
+>  ⋮            "field": "log.attributes.cardType",
+>  ⋮            "size": 10
+>  ⋮          }
+>  ⋮        },
+>  ⋮        "error_timeline": {
+>  ⋮          "date_histogram": {
+>  ⋮            "field": "time",
+>  ⋮            "fixed_interval": "5m"
+>  ⋮          }
+>  ⋮        }
+>  ⋮      },
+>  ⋮      "size": 5
 >  ⋮    }
 >  ⋮  }
 > 
 >  ⋮ 
->  ● Completed in 1.378s
+>  ● Completed in 1.24s
 > 
-> Now let me get a count of the different types of failures to understand the scale:
+> Now let me search for more specific payment-related information to understand the card charging issues:
+> 
+> 🛠️  Using tool: SearchIndexTool from mcp server opensearch-mcp-server
+>  ⋮ 
+>  ● Running SearchIndexTool with the param:
+>  ⋮  {
+>  ⋮    "index": "ss4o_logs-otel-2025.08.21",
+>  ⋮    "query": {
+>  ⋮      "size": 10,
+>  ⋮      "aggs": {
+>  ⋮        "payment_errors": {
+>  ⋮          "terms": {
+>  ⋮            "field": "body.keyword",
+>  ⋮            "size": 5
+>  ⋮          }
+>  ⋮        },
+>  ⋮        "transaction_failures": {
+>  ⋮          "terms": {
+>  ⋮            "field": "log.attributes.transactionId",
+>  ⋮            "size": 10
+>  ⋮          }
+>  ⋮        },
+>  ⋮        "loyalty_levels": {
+>  ⋮          "terms": {
+>  ⋮            "field": "log.attributes.app@loyalty@level",
+>  ⋮            "size": 5
+>  ⋮          }
+>  ⋮        }
+>  ⋮      },
+>  ⋮      "query": {
+>  ⋮        "bool": {
+>  ⋮          "must": [
+>  ⋮            {
+>  ⋮              "range": {
+>  ⋮                "time": {
+>  ⋮                  "lte": "2025-08-21T16:00:00Z",
+>  ⋮                  "gte": "2025-08-21T15:00:00Z"
+>  ⋮                }
+>  ⋮              }
+>  ⋮            },
+>  ⋮            {
+>  ⋮              "term": {
+>  ⋮                "serviceName": "checkout"
+>  ⋮              }
+>  ⋮            },
+>  ⋮            {
+>  ⋮              "match": {
+>  ⋮                "body": "Invalid token"
+>  ⋮              }
+>  ⋮            }
+>  ⋮          ]
+>  ⋮        }
+>  ⋮      }
+>  ⋮    }
+>  ⋮  }
+> 
+>  ⋮ 
+>  ● Completed in 1.24s
+> 
+> Let me also check for any successful transactions during this period to understand the scope of the issue:
 > 
 > 🛠️  Using tool: CountTool from mcp server opensearch-mcp-server
 >  ⋮ 
@@ -188,14 +289,35 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
 >  ⋮            {
 >  ⋮              "range": {
 >  ⋮                "time": {
->  ⋮                  "lte": "2025-08-22T00:00:00.000Z",
->  ⋮                  "gte": "2025-08-21T00:00:00.000Z"
+>  ⋮                  "gte": "2025-08-21T15:00:00Z",
+>  ⋮                  "lte": "2025-08-21T16:00:00Z"
 >  ⋮                }
 >  ⋮              }
 >  ⋮            },
 >  ⋮            {
->  ⋮              "match": {
->  ⋮                "body": "Payment request failed. Invalid token"
+>  ⋮              "term": {
+>  ⋮                "serviceName": "checkout"
+>  ⋮              }
+>  ⋮            },
+>  ⋮            {
+>  ⋮              "bool": {
+>  ⋮                "should": [
+>  ⋮                  {
+>  ⋮                    "match": {
+>  ⋮                      "body": "success"
+>  ⋮                    }
+>  ⋮                  },
+>  ⋮                  {
+>  ⋮                    "match": {
+>  ⋮                      "body": "completed"
+>  ⋮                    }
+>  ⋮                  },
+>  ⋮                  {
+>  ⋮                    "match": {
+>  ⋮                      "body": "charged successfully"
+>  ⋮                    }
+>  ⋮                  }
+>  ⋮                ]
 >  ⋮              }
 >  ⋮            }
 >  ⋮          ]
@@ -205,102 +327,70 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
 >  ⋮  }
 > 
 >  ⋮ 
->  ● Completed in 0.968s
+>  ● Completed in 0.988s
 > 
-> Let me also check for other types of checkout failures:
-> 
-> 🛠️  Using tool: CountTool from mcp server opensearch-mcp-server
->  ⋮ 
->  ● Running CountTool with the param:
->  ⋮  {
->  ⋮    "body": {
->  ⋮      "query": {
->  ⋮        "bool": {
->  ⋮          "must": [
->  ⋮            {
->  ⋮              "range": {
->  ⋮                "time": {
->  ⋮                  "lte": "2025-08-22T00:00:00.000Z",
->  ⋮                  "gte": "2025-08-21T00:00:00.000Z"
->  ⋮                }
->  ⋮              }
->  ⋮            },
->  ⋮            {
->  ⋮              "match": {
->  ⋮                "body": "failed to get product"
->  ⋮              }
->  ⋮            }
->  ⋮          ]
->  ⋮        }
->  ⋮      }
->  ⋮    },
->  ⋮    "index": "ss4o_logs-otel-2025.08.21"
->  ⋮  }
-> 
->  ⋮ 
->  ● Completed in 0.980s
-> 
-> Let me analyze the distribution of failures over time to understand patterns:
+> Now let me analyze the data distribution to get a comprehensive view of the failures:
 > 
 > 🛠️  Using tool: DataDistributionTool from mcp server opensearch-mcp-server
 >  ⋮ 
 >  ● Running DataDistributionTool with the param:
 >  ⋮  {
 >  ⋮    "index": "ss4o_logs-otel-2025.08.21",
->  ⋮    "selectionTimeRangeStart": "2025-08-21T00:00:00.000Z",
->  ⋮    "selectionTimeRangeEnd": "2025-08-22T00:00:00.000Z",
->  ⋮    "timeField": "time",
->  ⋮    "size": 5000
+>  ⋮    "selectionTimeRangeStart": "2025-08-21T15:00:00Z",
+>  ⋮    "selectionTimeRangeEnd": "2025-08-21T16:00:00Z",
+>  ⋮    "timeField": "time"
 >  ⋮  }
 > 
 >  ⋮ 
->  ● Completed in 0.801s
+>  ● Completed in 0.584s
 > 
-> Based on my analysis of the logs from the ss4o_logs-otel-2025.08.21 index (the closest available data to your requested timeframe), I've identified significant payment failure patterns in the checkout process. Here are the key findings:
+> Based on my comprehensive analysis of the checkout service logs from August 21st, 2025 between 3-4 PM, here are the key findings regarding payment failures:
 > 
 > ## Root Cause Analysis Summary
 > 
-> ### Primary Issue: Payment Token Validation Failures
-> • **7,906 instances** of "Payment request failed. Invalid token" errors
-> • **Pattern**: could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold
+> ### Primary Issue: Invalid Payment Token Errors
+> • **792 total payment-related failures** during the 1-hour period
+> • **189 specific "Invalid token" errors** from the checkout service
+> • **63 instances** of the exact pattern: "Payment request failed. Invalid token. app.loyalty.level=gold"
 > 
-> ### Secondary Issue: Product Catalog Failures  
-> • **123,100 instances** of "failed to get product" errors
-> • **Pattern**: failed to prepare order: failed to get product #"<PRODUCT_ID>"
+> ### Key Patterns Identified
 > 
-> ## Key Patterns Identified
+> 1. Payment Token Validation Failure
+>    • Primary error: "could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token"
+>    • All failures consistently show app.loyalty.level=gold, suggesting the issue specifically affects gold-tier loyalty customers
 > 
-> ### 1. Payment Processing Flow
-> The checkout process follows this sequence:
-> 1. *** CHECKOUT PROCESS STARTED - Will record checkout.result metric at the end ***
-> 2. charge card, amount: currency_code:"USD" units:<amount> nanos:<cents>, paymentInfo: credit_card_number:"<CARD>" credit_card_cvv:<CVV> credit_card_expiration_year:<YEAR> credit_card_expiration_month:<MONTH>
-> 3. FAILURE: could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token
-> 4. failed to charge card: <error details>
-> 5. *** METRIC EVENT: Recording checkout.result=0, status=failure, error=<details> ***
+> 2. Error Distribution Timeline
+>    • Peak failure periods: 15:20-15:25 (82 failures) and 15:45-15:50 (79 failures)
+>    • Consistent failure rate throughout the hour (50-80 failures per 5-minute interval)
+>    • **533 successful transactions** occurred during the same period, indicating partial system functionality
 > 
-> ### 2. Service Distribution
-> • **Checkout service**: 10% of logs (primary failure point)
-> • **Product catalog**: 14% of logs (secondary failure source)
-> • **Frontend proxy**: 15% of logs (showing HTTP 500 errors)
+> 3. Service Impact Breakdown
+>    • **Checkout service**: 471 failures (primary affected service)
+>    • **Kafka service**: 188 failures (likely downstream effects)
+>    • **Ad service**: 133 failures (secondary impact)
 > 
-> ### 3. Error Correlation
-> • All payment failures result in HTTP 500 responses at the frontend-proxy level
-> • Failures consistently occur for users with app.loyalty.level=gold
-> • Each failed checkout generates multiple log entries across the transaction flow
+> ### Secondary Issues
+> • **19 product catalog failures**: "failed to get product #OLJCESPC7Z" indicating inventory system problems
+> • Multiple trace IDs affected, suggesting widespread rather than isolated incidents
 > 
-> ## Recommendations
+> ### Recommendations
 > 
-> ### Immediate Actions
-> 1. Investigate payment service token validation - The "Invalid token" error suggests issues with payment gateway authentication or token generation
-> 2. Check product catalog service stability - High volume of product lookup failures may be causing cascading checkout issues
-> 3. Review loyalty level processing - All observed failures are associated with gold-level users
+> 1. Immediate Actions
+>    • Investigate payment token generation/validation service for gold loyalty customers
+>    • Check payment gateway integration for token handling issues
+>    • Verify loyalty program integration with payment processing
 > 
-> ### Monitoring Improvements
-> 1. Set up alerts for payment token validation failures
-> 2. Monitor checkout success/failure rates by loyalty level
-> 3. Track product catalog service availability and response times
+> 2. System Investigation
+>    • Review payment service logs for token generation failures
+>    • Check authentication/authorization services for gold-tier customers
+>    • Examine any recent changes to loyalty program or payment processing logic
 > 
-> The data shows a systemic issue with payment processing rather than isolated incidents, requiring immediate attention to the payment service's token validation mechanism.
+> 3. Monitoring Enhancement
+>    • Implement specific alerts for payment token validation failures
+>    • Add loyalty-level segmentation to payment monitoring
+>    • Set up proactive monitoring for checkout service error rates
+> 
+> The data clearly shows a systematic issue with payment token validation specifically affecting gold loyalty customers, requiring immediate attention to the payment processing pipeline.
 ```
 
 ### Raw Tool Results
@@ -318,7 +408,7 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
             "logInsights": [
               {
                 "pattern": "*** METRIC EVENT: Recording checkout.result=<*> status=failure error=could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold ***",
-                "count": 1177.0,
+                "count": 63.0,
                 "sampleLogs": [
                   "*** METRIC EVENT: Recording checkout.result=0, status=failure, error=could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold ***",
                   "*** METRIC EVENT: Recording checkout.result=0, status=failure, error=could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold ***"
@@ -326,7 +416,7 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
               },
               {
                 "pattern": "could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold",
-                "count": 1177.0,
+                "count": 63.0,
                 "sampleLogs": [
                   "could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold",
                   "could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold"
@@ -334,7 +424,7 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
               },
               {
                 "pattern": "failed to charge card: could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold",
-                "count": 1177.0,
+                "count": 63.0,
                 "sampleLogs": [
                   "failed to charge card: could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold",
                   "failed to charge card: could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. app.loyalty.level=gold"
@@ -342,7 +432,7 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
               },
               {
                 "pattern": "*** METRIC EVENT: Recording checkout.result=<*> status=failure error=failed to prepare order: failed to get product #\"<*>Z\" ***",
-                "count": 348.0,
+                "count": 19.0,
                 "sampleLogs": [
                   "*** METRIC EVENT: Recording checkout.result=0, status=failure, error=failed to prepare order: failed to get product #\"OLJCESPC7Z\" ***",
                   "*** METRIC EVENT: Recording checkout.result=0, status=failure, error=failed to prepare order: failed to get product #\"OLJCESPC7Z\" ***"
@@ -350,7 +440,7 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
               },
               {
                 "pattern": "failed to get product #\"<*>Z\"",
-                "count": 348.0,
+                "count": 19.0,
                 "sampleLogs": [
                   "failed to get product #\"OLJCESPC7Z\"",
                   "failed to get product #\"OLJCESPC7Z\""
@@ -382,81 +472,125 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
                 "topChanges": [
                   {
                     "value": "0",
-                    "selectionPercentage": 1.0,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 1.0
                   }
                 ]
               },
               {
                 "field": "severityNumber",
-                "divergence": 0.6978,
+                "divergence": 0.689,
                 "topChanges": [
                   {
                     "value": "9",
-                    "selectionPercentage": 0.7,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.69
                   },
                   {
                     "value": "0",
-                    "selectionPercentage": 0.3,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.31
                   }
                 ]
               },
               {
                 "field": "severityText",
-                "divergence": 0.6424,
+                "divergence": 0.609,
                 "topChanges": [
                   {
                     "value": "INFO",
-                    "selectionPercentage": 0.64,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.61
                   },
                   {
                     "value": "",
-                    "selectionPercentage": 0.2,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.18
                   },
                   {
                     "value": "info",
-                    "selectionPercentage": 0.09,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.12
+                  },
+                  {
+                    "value": "Information",
+                    "selectionPercentage": 0.08
                   },
                   {
                     "value": "error",
-                    "selectionPercentage": 0.01,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.01
+                  }
+                ]
+              },
+              {
+                "field": "flags",
+                "divergence": 0.594,
+                "topChanges": [
+                  {
+                    "value": "0",
+                    "selectionPercentage": 0.59
+                  },
+                  {
+                    "value": "1",
+                    "selectionPercentage": 0.41
+                  }
+                ]
+              },
+              {
+                "field": "schemaUrl",
+                "divergence": 0.573,
+                "topChanges": [
+                  {
+                    "value": "",
+                    "selectionPercentage": 0.57
+                  },
+                  {
+                    "value": "https://opentelemetry.io/schemas/1.24.0",
+                    "selectionPercentage": 0.25
+                  },
+                  {
+                    "value": "https://opentelemetry.io/schemas/1.34.0",
+                    "selectionPercentage": 0.18
                   }
                 ]
               },
               {
                 "field": "serviceName",
-                "divergence": 0.2984,
+                "divergence": 0.223,
                 "topChanges": [
                   {
                     "value": "kafka",
-                    "selectionPercentage": 0.3,
-                    "baselinePercentage": 0.0
-                  },
-                  {
-                    "value": "frontend-proxy",
-                    "selectionPercentage": 0.15,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.22
                   },
                   {
                     "value": "product-catalog",
-                    "selectionPercentage": 0.14,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.18
+                  },
+                  {
+                    "value": "frontend-proxy",
+                    "selectionPercentage": 0.15
                   },
                   {
                     "value": "checkout",
-                    "selectionPercentage": 0.1,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.13
                   },
                   {
                     "value": "load-generator",
-                    "selectionPercentage": 0.08,
-                    "baselinePercentage": 0.0
+                    "selectionPercentage": 0.11
+                  },
+                  {
+                    "value": "cart",
+                    "selectionPercentage": 0.08
+                  },
+                  {
+                    "value": "shipping",
+                    "selectionPercentage": 0.04
+                  },
+                  {
+                    "value": "ad",
+                    "selectionPercentage": 0.03
+                  },
+                  {
+                    "value": "currency",
+                    "selectionPercentage": 0.02
+                  },
+                  {
+                    "value": "recommendation",
+                    "selectionPercentage": 0.01
                   }
                 ]
               }
@@ -475,12 +609,12 @@ I'll help you investigate the payment failures by analyzing the logs in the ss4o
 
 The Log Pattern Analysis Tool played a crucial pattern identification role in this payment failure investigation:
 
-1. **Primary Failure Pattern Identification** (1,177 occurrences):
+1. **Primary Failure Pattern Identification** (63 occurrences):
    - Automatically identified three related patterns for payment token validation failures
    - All patterns point to the same root cause: `Payment request failed. Invalid token`
    - Specifically identified that failures are associated with `app.loyalty.level=gold`
 
-2. **Secondary Failure Pattern Identification** (348 occurrences):
+2. **Secondary Failure Pattern Identification** (19 occurrences):
    - Identified two product catalog-related failure patterns
    - Pattern: `failed to get product #"<*>Z"`
    - Provided specific product ID examples: `OLJCESPC7Z`
@@ -490,7 +624,7 @@ The Log Pattern Analysis Tool played a crucial pattern identification role in th
    - Provided exact occurrence count statistics
    - Delivered actual log samples for each pattern for validation
 
-**Value Delivered**: This tool eliminated the need for manual pattern recognition, automatically discovering that payment token validation failures occur 3.4 times more frequently than product catalog issues, clearly establishing primary vs. secondary failure mode priorities.
+**Value Delivered**: This tool eliminated the need for manual pattern recognition, automatically discovering that payment token validation failures occur 3.3 times more frequently than product catalog issues, clearly establishing primary vs. secondary failure mode priorities.
 
 #### Data Distribution Tool's Role in This Investigation
 
@@ -498,25 +632,28 @@ The Log Pattern Analysis Tool played a crucial pattern identification role in th
 
 The Data Distribution Tool provided critical statistical background and field distribution analysis for the investigation:
 
-1. **Service Distribution Analysis** (divergence: 0.2984):
-   - kafka: 30% (highest log volume service)
+1. **Service Distribution Analysis** (divergence: 0.223):
+   - kafka: 22% (highest log volume service)
+   - product-catalog: 18% (secondary failure source)
    - frontend-proxy: 15% (user-facing errors)
-   - product-catalog: 14% (secondary failure source)
-   - checkout: 10% (primary failure point)
-   - Other services: 31%
+   - checkout: 13% (primary failure point)
+   - load-generator: 11%
+   - Other services: 21%
 
-2. **Severity Level Analysis** (divergence: 0.6424):
-   - INFO level: 64% (normal operations)
+2. **Severity Level Analysis** (divergence: 0.609):
+   - INFO level: 61% (normal operations)
    - Error level: Only 1% (concentrated failures)
-   - Empty values: 20%
-   - info level: 9%
+   - Empty values: 18%
+   - info level: 12%
+   - Information level: 8%
 
 3. **Field Anomaly Detection**:
    - `droppedAttributesCount`: divergence = 1.0 (complete anomaly)
-   - `severityNumber`: divergence = 0.6978 (high anomaly)
-   - `flags`: divergence = 0.6498 (moderate anomaly)
+   - `severityNumber`: divergence = 0.689 (high anomaly)
+   - `flags`: divergence = 0.594 (moderate anomaly)
+   - `schemaUrl`: divergence = 0.573 (moderate anomaly)
 
-**Value Delivered**: This tool revealed that despite checkout service representing only 10% of total logs, it contains the highest concentration of critical failures. The severity distribution showed that error-level logs are rare (1%), making the 1,177 payment failures statistically significant. This quantitative context helped prioritize checkout service investigation over higher-volume but less critical services like kafka.
+**Value Delivered**: This tool revealed that despite checkout service representing only 13% of total logs, it contains the highest concentration of critical failures. The severity distribution showed that error-level logs are rare (1%), making the 63 payment failures statistically significant. This quantitative context helped prioritize checkout service investigation over higher-volume but less critical services like kafka.
 
 #### Synergistic Effect of Both Tools
 
@@ -525,7 +662,7 @@ The Data Distribution Tool provided critical statistical background and field di
 3. **Root Cause Validation**: Both tools confirmed payment token validation as the primary issue, with product catalog as secondary
 4. **Actionable Insights**: Together provided specific error messages and statistical significance, supporting clear remediation recommendations
 
-This investigation demonstrates Q CLI's orchestration of multiple OpenSearch tools: ListIndexTool and IndexMappingTool for data discovery, SearchIndexTool for targeted queries, DataDistributionTool for statistical analysis of field patterns, CountTool for quantitative assessment, and LogPatternAnalysisTool for automated pattern extraction. The Log Pattern Analysis Tool provided precise error pattern identification with exact occurrence counts, while the Data Distribution Tool offered statistical context that validated the significance of checkout service failures despite lower log volume. The combination generated a comprehensive root cause analysis that pinpointed invalid payment tokens as the primary issue affecting gold-tier customers, complete with actionable recommendations for token validation, service dependencies, and monitoring improvements.
+This investigation demonstrates Q CLI's orchestration of multiple OpenSearch tools: ListIndexTool and IndexMappingTool for data discovery, SearchIndexTool for targeted queries, DataDistributionTool for statistical analysis of field patterns, CountTool for quantitative assessment, and LogPatternAnalysisTool for automated pattern extraction. The Log Pattern Analysis Tool provided precise error pattern identification with exact occurrence counts (63 payment failures, 19 product catalog issues), while the Data Distribution Tool offered statistical context that validated the significance of checkout service failures despite lower log volume. The combination generated a comprehensive root cause analysis that pinpointed invalid payment tokens as the primary issue affecting gold-tier customers, complete with actionable recommendations for token validation, service dependencies, and monitoring improvements.
 
 ## Conclusion
 
