@@ -22,7 +22,7 @@ Flow agent is the simplest type of agent. It orchestrates multiple tools in a wo
 
 Flow agent is useful for [retrieval-augmented generation (RAG)](https://opensearch.org/blog/using-opensearch-for-retrieval-augmented-generation-rag/), where the agent invokes a tool to retrieve the knowledge base, and then invokes another tool to call the LLM while passing the knowledge base retrieved from the previous step as input, along with the query. This is ideal for implementing *one-shot prompts*.
 
-For more information on Flow agents, read [here](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/agents/flow/).
+For more information about Flow agents, read [here](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/agents/flow/).
 
 ## **Conversational flow agent**
 
@@ -30,7 +30,7 @@ Much like the flow agent, Conversational flow agent runs tools sequentially, in 
 
 However, the conversational flow agent also stores conversation history in its memory index between prompts in the session. This history allows users to ask follow-up questions that the agent can address with that historical context. The conversational-flow is ideal for a chatbot that needs to execute a predetermined, multi-step process for most of its user interactions, but also needs to remember the context of the conversation for follow-up questions. It is a type of a *few-shot prompts* with the conversation history as the context.
 
-The conversation history is stored in an index in the OpenSearch cluster, much like any other data, which makes it conveniently accessible for querying and inspection by agents or humans, for auditing, reasoning and debugging purposes. The data can be accessed via the [memory-apis API](https://docs.opensearch.org/latest/ml-commons-plugin/api/memory-apis/index/).
+The conversation history is stored in an index in the OpenSearch cluster, much like any other data, which makes it conveniently accessible for querying and inspection by agents or humans, for auditing, reasoning and debugging purposes. The data can be accessed using the [memory-apis API](https://docs.opensearch.org/latest/ml-commons-plugin/api/memory-apis/index/). For more information see the "Agentic memory" section below.
 
 ## **Conversational agent**
 
@@ -54,15 +54,15 @@ Internally, a plan-execute-reflect agent uses the multi-agent pattern in OpenSea
 
 Plan-execute-reflect agent is ideal for long-running, exploratory processes, which benefit from iterative reasoning and adaptive execution, such as conducting research or performing automated root cause analysis (RCA).
 
-For more information on the plan-execute-reflect agent type, check out this [blog post](https://opensearch.org/blog/intelligent-troubleshooting-using-opensearch-3-0s-plan-execute-reflect-agent/).
+For more information about the plan-execute-reflect agent type, check out this [blog post](https://opensearch.org/blog/intelligent-troubleshooting-using-opensearch-3-0s-plan-execute-reflect-agent/).
 
-## **Agent Tools and External Data Integration**
+## **Agent tools and external data integration**
 Agents are only as effective as the portfolio of tools we put at their disposal. OpenSearch's agentic framework enables agents to invoke both built-in and external tools, using standardized protocols.
 
-### **Built-in Agent Tools**
+### **Built-in agent tools**
 OpenSearch provides a comprehensive suite of pre-built [tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/) that can be seamlessly configured with the different agent types. These native tools enable agents to efficiently access and manipulate search data within OpenSearch, providing essential capabilities for data retrieval, analysis, and management operations.
  
-### **External Data Source Integration via MCP Connectors**
+### **External data source integration using MCP connectors**
 Model Context Protocol (MCP) has been gaining popularity as a communication standard for agentic workflows, simplifying the way AI agents interact with external tools.
 
 OpenSearch extends agent capabilities through [MCP Connectors](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/mcp/index/), enabling integration with external MCP servers and their associated tools. This powerful feature is supported by Plan-execute-reflect agents and Conversational agents, allowing them to leverage external data sources and services, significantly expanding their analytical and operational capabilities beyond the confines of OpenSearch itself. The connectors support the Streamable HTTP and the Server-Sent Events (SSE) protocols, providing flexibility in connecting to various external MCP servers. These agents can seamlessly combine internal OpenSearch tools with external MCP server tools, creating unified workflows that enable sophisticated multi-source data analysis and decision-making processes across diverse data sources and services.
