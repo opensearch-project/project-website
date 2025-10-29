@@ -12,7 +12,6 @@ meta_keywords: MMR, Maximal Marginal Relevance, search diversity, search ranking
 meta_description: Learn how to use Maximal Marginal Relevance (MMR) in OpenSearch to make your search results more diverse.
 ---
 
-## Improving vector search diversity through native MMR
 
 When it comes to search and recommendation systems, returning highly relevant results is only half the battle. An equally important component is diversity---ensuring that users see a range of results rather than multiple near-duplicates. OpenSearch 3.3 now supports native Maximal Marginal Relevance (MMR) for k-NN and neural queries that makes this easy.
 
