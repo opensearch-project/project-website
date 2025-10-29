@@ -41,6 +41,7 @@ To set up Amazon Q CLI with OpenSearch MCP integration, follow these steps:
    - Implement Log Pattern Analysis Tool integration in the MCP server
    - Implement Data Distribution Tool integration in the MCP server
    - Register both tools with the MCP server's tool registry
+   - For a complete implementation example, see the demo at [opensearch-mcp-server-py/integrate-skill-tool](https://github.com/PauiC/opensearch-mcp-server-py/tree/integrate-skill-tool)
 
 3. **Start the MCP Server**
    ```bash
