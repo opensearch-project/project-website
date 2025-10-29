@@ -54,8 +54,6 @@ Internally, a plan-execute-reflect agent uses the multi-agent pattern in OpenSea
 
 Plan-execute-reflect agent is ideal for long-running, exploratory processes, which benefit from iterative reasoning and adaptive execution, such as conducting research or performing automated root cause analysis (RCA).
 
-The OpenSearch project itself uses these agents for the [release automation agent OSCAR](https://github.com/opensearch-project/oscar-ai-bot).
-
 For more information on the plan-execute-reflect agent type, check out this [blog post](https://opensearch.org/blog/intelligent-troubleshooting-using-opensearch-3-0s-plan-execute-reflect-agent/).
 
 ## **Agent Tools and External Data Integration**
