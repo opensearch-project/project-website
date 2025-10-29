@@ -32,6 +32,7 @@ In vector search, this is particularly useful because embeddings often cluster s
 Previously, MMR could only be implemented externally, requiring custom pipelines and extra coding. Now, OpenSearch supports native MMR directly in k-NN and neural queries using `knn_vector`. This simplifies your setup and reduces latency.
 
 ## How to use MMR
+
 The following sections show you how to use MMR for reranking.
 
 ### Prerequisites
