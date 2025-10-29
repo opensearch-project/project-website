@@ -33,7 +33,7 @@ Previously, MMR could only be implemented externally, requiring custom pipelines
 
 ## How to Use MMR
 
-### Pre-Requisites
+### Prerequisites
 Before using MMR for reranking, make sure the required [system-generated search processor factories](https://docs.opensearch.org/latest/search-plugins/search-pipelines/system-generated-search-processors/) are enabled in your cluster:
 
 ```json
