@@ -13,15 +13,15 @@ meta_description: Learn how to use Maximal Marginal Relevance (MMR) in OpenSearc
 ---
 
 
-When it comes to search and recommendation systems, returning highly relevant results is only half the battle. An equally important component is diversity---ensuring that users see a range of results rather than multiple near-duplicates. OpenSearch 3.3 now supports native Maximal Marginal Relevance (MMR) for k-NN and neural queries that makes this easy.
+When it comes to search and recommendation systems, returning highly relevant results is only half the battle. An equally important component is diversity---ensuring that users see a range of results rather than multiple near-duplicates. OpenSearch 3.3 now supports native Maximal Marginal Relevance (MMR) for k-NN and neural queries, making this easy.
 
 ## What is MMR?
 
 MMR is a reranking algorithm that balances relevance and diversity:
 
- - **Relevance:** How well a result matches the query.
+ - **Relevance**: How well a result matches the query.
 
- - **Diversity:** How different the results are from each other.
+ - **Diversity**: How different the results are from each other.
 
 MMR iteratively selects results that are relevant to the query and not too similar to previously selected results. The trade-off is controlled by the `diversity` parameter (0 = prioritize relevance, 1 = prioritize diversity).
 
@@ -31,7 +31,7 @@ In vector search, this is particularly useful because embeddings often cluster s
 
 Previously, MMR could only be implemented externally, requiring custom pipelines and extra coding. Now, OpenSearch supports native MMR directly in k-NN and neural queries using `knn_vector`. This simplifies your setup and reduces latency.
 
-## How to Use MMR
+## How to use MMR
 
 ### Prerequisites
 Before using MMR for reranking, make sure the required [system-generated search processor factories](https://docs.opensearch.org/latest/search-plugins/search-pipelines/system-generated-search-processors/) are enabled in your cluster:
@@ -132,7 +132,7 @@ Results:
 ]
 ```
 
-By using MMR, you receive more diverse results (like “Crispy apple”) without sacrificing relevance for the top hits.
+By using MMR, you receive more diverse results (like "Crispy apple") without sacrificing relevance for the top hits.
 
 ## Benchmarking MMR reranking in OpenSearch
 
@@ -144,7 +144,7 @@ The following OpenSearch cluster configuration was used:
 
 * Version: OpenSearch 3.3
 * Data nodes: 3 × r6g.2xlarge
-* Master nodes: 3 × c6g.xlarge
+* Cluster manager nodes: 3 × c6g.xlarge
 * Benchmark instance: c6g.large
 
 ### Vector search performance
@@ -180,7 +180,7 @@ For neural search, we used the Quora dataset, containing over 500,000 documents.
 The following performance observations highlight our key findings:
 
 1. MMR adds latency, and the increase grows with the number of MMR candidates and the query size.
-2. k-NN and neural queries without MMR handle increases in k efficiently, with most of the computation time spent on graph traversal (`ef_search`) rather than selecting the top k candidates.
+2. k-NN and neural queries without MMR handle increases in k efficiently, with most of the computation time spent on graph traversal (`ef_search`) rather than selecting the top-k candidates.
 
 Choosing the number of MMR candidates requires balancing diversity and query latency. More candidates improve result diversity but increase latency, so select values appropriate for your workload.
 
@@ -213,10 +213,10 @@ POST /my-index/_search
 
 The query uses the following parameters for MMR configuration:
 
-* `vector_field_path`: The path to the vector field to use for MMR re-ranking.
+* `vector_field_path`: The path to the vector field to use for MMR reranking.
 * `vector_field_data_type`: The data type of the vector (for example, `float`).
 * `vector_field_space_type`: The distance metric used for similarity calculations (for example, `l2`).
-* `candidates` and `diversity`: Same as in local MMR queries, controlling the number of candidates and the diversity weight.
+* `candidates` and `diversity`: The same as in local MMR queries, controlling the number of candidates and the diversity weight.
 
 Providing this information ensures that MMR can correctly compute diversity and rerank results even when querying across remote clusters.
 
@@ -224,7 +224,7 @@ Providing this information ensures that MMR can correctly compute diversity and 
 
 OpenSearch's MMR makes it easy to deliver search results that are both relevant and diverse. By intelligently reranking results, MMR helps return a wider variety of options, reduces redundancy, and creates a richer, more engaging search experience for your users.
 
-If you're looking to improve your vector search diversity, MMR in OpenSearch is a powerful tool to try today.
+If you're looking to improve your vector search diversity, MMR in OpenSearch is a powerful tool that you can try today.
 
 ## What's next
 
