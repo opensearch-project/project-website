@@ -155,7 +155,7 @@ POST /_plugins/_ml/models/yFT0m5kB-SbOBOkMDNIa/_predict/stream
 
 #### Sample response
 
-The streaming format uses Server-Sent Events (SSE), with each chunk containing a portion of the model's response. Each data line represents a separate chunk transmitted in real-time as the model generates output:
+The streaming format uses Server-Sent Events (SSE), with each chunk containing a portion of the model's response. Each data line represents a separate chunk transmitted in real time as the model generates output:
 
 ```json
 data: {"inference_results":[{"output":[{"name":"response","dataAsMap":{"content":"#","is_last":false}}]}]}
@@ -175,8 +175,8 @@ data: {"inference_results":[{"output":[{"name":"response","dataAsMap":{"content"
 
 Each chunk has the following key elements:
 
-* `content` - The text fragment generated in this chunk (for example, a word, or phrase)
-* `is_last` - A Boolean flag indicating whether this is the final chunk (`false` for intermediate chunks, `true` for the last one)
+* `content` -- The text fragment generated in this chunk (for example, a word, or phrase).
+* `is_last` -- A Boolean flag indicating whether this is the final chunk (`false` for intermediate chunks, `true` for the last one).
 
 ### Step 2: Set up agent streaming
 
@@ -291,7 +291,7 @@ POST /_plugins/_ml/agents/37YmxZkBphfsuvK7qIj4/_execute/stream
 
 #### Sample response
 
-The streaming format uses SSE, with each chunk containing a portion of the agent's response. Each data line represents a separate chunk transmitted in real-time as the agent generates output.
+The streaming format uses SSE, with each chunk containing a portion of the agent's response. Each data line represents a separate chunk transmitted in real time as the agent generates output:
 
 ```json
 data: {"inference_results":[{"output":[{"name":"memory_id","result":"LvU1iJkBCzHrriq5hXbN"},{"name":"parent_interaction_id","result":"L_U1iJkBCzHrriq5hXbs"},{"name":"response","dataAsMap":{"content":"[{\"index\":0.0,\"id\":\"call_HjpbrbdQFHK0omPYa6m2DCot\",\"type\":\"function\",\"function\":{\"name\":\"RetrieveIndexMetaTool\",\"arguments\":\"\"}}]","is_last":false}}]}]}
@@ -327,10 +327,10 @@ data: {"inference_results":[{"output":[{"name":"memory_id","result":"LvU1iJkBCzH
 
 Each chunk has the following key elements:
 
-* `content` - The text or data fragment generated in this chunk (for example, a word or phrase).
-* `is_last` - A Boolean flag indicating whether this is the final chunk (`false` for intermediate chunks, `true` for the last one).
-* `memory_id` - A unique identifier for the conversation memory session.
-* `parent_interaction_id` - An identifier linking related interactions in the conversation.
+* `content` -- The text or data fragment generated in this chunk (for example, a word or phrase).
+* `is_last` -- A Boolean flag indicating whether this is the final chunk (`false` for intermediate chunks, `true` for the last one).
+* `memory_id` -- A unique identifier for the conversation memory session.
+* `parent_interaction_id` -- An identifier linking related interactions in the conversation.
 
 ## Conclusion
 
@@ -340,6 +340,6 @@ Streaming capabilities in OpenSearch represent a significant step forward in del
 
 ## What's next?
 
-* Explore the official documentation for [Predict Stream](https://docs.opensearch.org/latest/ml-commons-plugin/api/train-predict/predict-stream/) and [Execute Stream Agent](https://docs.opensearch.org/latest/ml-commons-plugin/api/agent-apis/execute-stream-agent/) API references
-* Share your feedback on [OpenSearch forum](https://forum.opensearch.org/)
-* Stay tuned for updates as streaming support expands in future releases
+* Explore the [Predict Stream](https://docs.opensearch.org/latest/ml-commons-plugin/api/train-predict/predict-stream/) and [Execute Stream Agent](https://docs.opensearch.org/latest/ml-commons-plugin/api/agent-apis/execute-stream-agent/) API references.
+* Share your feedback on the [OpenSearch forum](https://forum.opensearch.org/).
+* Stay tuned for updates as streaming support expands in future releases.
