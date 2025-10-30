@@ -22,14 +22,14 @@ Previously, when building a custom search processor, you needed to explicitly co
 
 In OpenSearch, a standard search pipeline is defined using the [Search Pipeline API](https://docs.opensearch.org/latest/search-plugins/search-pipelines/index/). You must manually configure and reference these pipelines in your search requests.
 
-A system-generated search pipeline works similarly---it executes one or more processors during the search request lifecycle---but you do not configure it manually. Instead, OpenSearch automatically generates the pipeline at query time, based on the registered system processor factories in your plugin and the details of the incoming request.
+A system-generated search pipeline works similarly---it executes one or more processors during the search request lifecycle---but you do not configure it manually. Instead, OpenSearch automatically generates the pipeline at query time based on the registered system processor factories in your plugin and the details of the incoming request.
 
 The following table summarizes the key differences between standard and system-generated search pipelines in OpenSearch.
 
 | **Pipeline type**                    | **How it's defined**                                                                                        | **How it's triggered**                                                                                             | **How to disable it**                                                                                                                         |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------- |--------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| **Standard search pipeline**         | You manually define the pipeline using the Search Pipeline API                                                     | Referenced by name in a search request or set as the default search pipeline in cluster settings                   | Remove the pipeline reference from search requests or clear default pipeline settings                                                         |
-| **System-generated search pipeline** | OpenSearch automatically generates the pipeline based on request evaluation and plugin-registered processor factories | Triggered automatically when the search request matches criteria defined by the system-generated processor factory | All system-generated search processor factories are disabled by default. To enable them, update the `cluster.search.enabled_system_generated_factories` cluster setting before using system-generated pipelines. |
+| **Standard search pipeline**         | You manually define the pipeline using the Search Pipeline API.                                                     | Referenced by name in a search request or set as the default search pipeline in cluster settings.                   | Remove the pipeline reference from search requests or clear default pipeline settings.                                                         |
+| **System-generated search pipeline** | OpenSearch automatically generates the pipeline based on request evaluation and plugin-registered processor factories. | Triggered automatically when the search request matches criteria defined by the system-generated processor factory. | All system-generated search processor factories are disabled by default. To enable them, update the `cluster.search.enabled_system_generated_factories` cluster setting before using system-generated pipelines. |
 
 
 ## How it works
@@ -42,7 +42,7 @@ When OpenSearch receives a search request, it evaluates the request parameters a
 
  - **System-generated search response processors** modify the final response before it is returned to the client.
 
-During the evaluation, OpenSearch dynamically constructs a system-generated search pipeline and merges it with any user-defined pipeline specified in the request. System-generated processors are created only when the request meets specific criteria defined in your plugin's factory implementation—for example, when a query includes certain parameters, or when a specific search type (such as neural or k-NN) is detected.
+During the evaluation, OpenSearch dynamically constructs a system-generated search pipeline and merges it with any user-defined pipeline specified in the request. System-generated processors are created only when the request meets specific criteria defined in your plugin's factory implementation—for example, when a query includes certain parameters or when a specific search type (such as neural or k-NN) is detected.
 
 The following diagram illustrates how OpenSearch resolves system-generated search pipelines during query execution.
 
@@ -60,7 +60,7 @@ The search workflow differs depending on whether system-generated search process
 
 ### With system-generated search processors
 
-When system-generated search processors are enabled, you can immediately take advantage of features like [native MMR support](https://docs.opensearch.org/latest/vector-search/specialized-operations/vector-search-mmr/) without any additional configuration. The processors are automatically applied to relevant queries, which significantly reduces the operational overhead and simplifies your experience. For example, to perform an MMR-based vector search, send the following request:
+When system-generated search processors are enabled, you can immediately take advantage of features like [native maximal marginal relevance (MMR) support](https://docs.opensearch.org/latest/vector-search/specialized-operations/vector-search-mmr/) without any additional configuration. The processors are automatically applied to relevant queries, which significantly reduces operational overhead and simplifies your experience. For example, to perform an MMR-based vector search, send the following request:
 
 ```json
 {
@@ -84,7 +84,7 @@ In this example, OpenSearch automatically handles the setup and orchestration of
 
 ### Without system-generated search processors
 
-If you don't use system-generated processors, you have to manually configure search pipelines to enable MMR or similar post-processing features. This required creating a custom search pipeline, registering it, and either setting it as the default pipeline for an index or specifying it in each search request as follows:
+If you don't use system-generated processors, you have to manually configure search pipelines to enable MMR or similar post-processing features. This requires creating a custom search pipeline, registering it, and either setting it as the default pipeline for an index or specifying it in each search request as follows:
 
 ```json
 PUT /_search/pipeline/my_pipeline
@@ -106,7 +106,7 @@ PUT /_search/pipeline/my_pipeline
 
 You can define custom system-generated search processors in the plugin. To do this, you'll need to:
 
- - **Create a system search processor**: Implement the processor logic by extending one of the search processor interfaces (such as `SearchRequestProcessor`, `SearchPhaseResultProcessor` or `SearchResponseProcessor`).
+ - **Create a system search processor**: Implement the processor logic by extending one of the search processor interfaces (such as `SearchRequestProcessor`, `SearchPhaseResultProcessor`, or `SearchResponseProcessor`).
 
  - **Create a processor factory**: Implement a factory that determines when OpenSearch should generate and attach the processor.
 
@@ -236,7 +236,7 @@ In most cases, a single processor per type and stage is sufficient, but future r
 
 You can also add logic in your processor to detect and handle conflicts between your system-generated processors and user-defined processors. This is useful if your processor cannot coexist with certain user-defined ones or if you need to enforce execution constraints.
 
-The following is an example of handling a conflict between a system-generated search processor and a user defined search processor:
+The following is an example of handling a conflict between a system-generated search processor and a user-defined search processor:
 
 ```java
 @Override
@@ -260,9 +260,9 @@ public void evaluateConflicts(ProcessorConflictEvaluationContext context) throws
 }
 ```
 
-We recommend that you add a validation step to check whether a custom system-generated processor factory is enabled when a search request contains a parameter that would trigger that processor. This ensures that you receive clear error message about which factory is required, rather than having the request silently do nothing. 
+We recommend that you add a validation step to check whether a custom system-generated processor factory is enabled when a search request contains a parameter that would trigger that processor. This ensures that you receive a clear error message about which factory is required rather than having the request silently do nothing. 
 
-Use the following function, defined in the `SearchPipelineService`, to check if a certain factory is enabled:
+Use the following function, defined in the `SearchPipelineService`, to check whether a certain factory is enabled:
 
 ```java
 public boolean isSystemGeneratedFactoryEnabled(String factoryName) {
