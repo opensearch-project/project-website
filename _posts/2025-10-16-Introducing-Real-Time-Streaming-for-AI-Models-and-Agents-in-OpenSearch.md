@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introducing Real-Time Streaming for AI Models and Agents in OpenSearch"
+title:  "Introducing real-time streaming for AI models and agents in OpenSearch"
 authors:
  - nathhjo
 date: 2025-10-16
@@ -10,13 +10,13 @@ meta_keywords: OpenSearch, streaming API, real-time AI, AI models, agents, machi
 meta_description: Learn how to implement streaming APIs in OpenSearch 3.3 for real-time AI responses. Stream model predictions and agent executions with immediate feedback.
 ---
 
-In today’s fast-paced digital world, waiting isn’t an option, especially when it comes to AI-powered applications. Streaming technology has emerged as a critical solution to this challenge, fundamentally changing how systems deliver responses. Instead of waiting for complete outputs before displaying any results, streaming enables incremental data delivery, sending information in chunks as it becomes available. This approach is particularly valuable for AI operations such as model predictions and agent executions, where responses can be lengthy and generation time unpredictable. 
+In today's fast-paced digital world, waiting isn't an option, especially when it comes to AI-powered applications. Streaming technology has emerged as a critical solution to this challenge, fundamentally changing how systems deliver responses. Instead of waiting for complete outputs before displaying any results, streaming enables incremental data delivery, sending information in chunks as it becomes available. This approach is particularly valuable for AI operations such as model predictions and agent executions, where responses can be lengthy and generation time unpredictable. 
 
-OpenSearch now supports streaming capabilities, enabling real-time data processing and continuous query execution. Available as an experimental feature starting in OpenSearch 3.3, the Predict Stream API and Execute Stream Agent API provide this functionality, offering the same core features as their non-streaming counterparts while delivering responses progressively. This new feature allows users to handle live data streams efficiently, making it possible to process and analyze data as it arrives rather than in batches. This makes streaming ideal for applications like remote model predictions and complex agent workflows where users need visibility into multi-step execution processes.
+OpenSearch now supports streaming capabilities, enabling real-time data processing and continuous query execution. Available as an experimental feature starting in OpenSearch 3.3, the Predict Stream API and Execute Stream Agent API provide this functionality, offering the same core features as their non-streaming counterparts while delivering responses progressively. This new feature allows you to handle live data streams efficiently, making it possible to process and analyze data as it arrives rather than in batches. This makes streaming ideal for applications like remote model predictions and complex agent workflows where you need visibility into multi-step execution processes.
 
 ## Prerequisites
 
-Before using this streaming feature, ensure that you have fulfilled the following prerequisites.
+Before using streaming, ensure that you have fulfilled the following prerequisites.
 
 ### 1. Install the required plugins
 
@@ -51,7 +51,7 @@ flight.ssl.enable: true
 transport.ssl.enforce_hostname_verification: false
 ```
 
-_If you’re using the security demo certificates, change `plugins.security.ssl.transport.enforce_hostname_verification: false` to `transport.ssl.enforce_hostname_verification: false` in your `opensearch.yml` file._
+_If you're using the security demo certificates, change `plugins.security.ssl.transport.enforce_hostname_verification: false` to `transport.ssl.enforce_hostname_verification: false` in your `opensearch.yml` file._
 
 For more information about enabling experimental features, see [Experimental feature flags](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/experimental/).
 
@@ -84,9 +84,9 @@ PUT /_cluster/settings
 
 ## Getting started
 
-Once you’ve completed all the prerequisites, follow these steps to implement streaming in OpenSearch:
+Once you've completed all the prerequisites, follow these steps to implement streaming in OpenSearch.
 
-### Section 1: Predict stream
+### Step 1: Set up model prediction streaming
 
 #### 1. Register a compatible externally hosted model
 
@@ -134,14 +134,14 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-#### 2. Run Predict Stream API
+#### 2. Run the Predict Stream API
 
-To use the Predict Stream API, you must include the `_llm_interface` parameter that corresponds to your model type:
+To run the Predict Stream API, you must include the `_llm_interface` parameter that corresponds to your model type:
 
 * OpenAI Chat Completion: `openai/v1/chat/completions`
 * Amazon Bedrock Converse Stream: `bedrock/converse/claude`
 
-To run predict stream, send the following request:
+To run the Predict Stream API, send the following request:
 
 ```json
 POST /_plugins/_ml/models/yFT0m5kB-SbOBOkMDNIa/_predict/stream
@@ -155,12 +155,7 @@ POST /_plugins/_ml/models/yFT0m5kB-SbOBOkMDNIa/_predict/stream
 
 #### Sample response
 
-The streaming format uses Server-Sent Events (SSE), with each chunk containing a portion of the model's response. Each data line represents a separate chunk transmitted in real-time as the model generates output.
-
-Key elements in each chunk:
-
-* `content` - The text fragment generated in this chunk (e.g., a word, or phrase)
-* `is_last` - A boolean flag indicating whether this is the final chunk (`false` for intermediate chunks, `true` for the last one)
+The streaming format uses Server-Sent Events (SSE), with each chunk containing a portion of the model's response. Each data line represents a separate chunk transmitted in real-time as the model generates output:
 
 ```json
 data: {"inference_results":[{"output":[{"name":"response","dataAsMap":{"content":"#","is_last":false}}]}]}
@@ -178,7 +173,12 @@ data: {"inference_results":[{"output":[{"name":"response","dataAsMap":{"content"
 data: {"inference_results":[{"output":[{"name":"response","dataAsMap":{"content":"","is_last":true}}]}]}
 ```
 
-### Section 2: Execute stream agent
+Each chunk has the following key elements:
+
+* `content` - The text fragment generated in this chunk (for example, a word, or phrase)
+* `is_last` - A Boolean flag indicating whether this is the final chunk (`false` for intermediate chunks, `true` for the last one)
+
+### Step 2: Set up agent streaming
 
 _Note: The Execute Stream Agent API currently supports **conversational agents** only. Other agent types are not compatible with streaming at this time._
 
@@ -227,7 +227,7 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-#### 2. Register conversational agent
+#### 2. Register a conversational agent
 
 When registering your agent, you must include the `_llm_interface` parameter that corresponds to your model type:
 
@@ -276,9 +276,9 @@ POST /_plugins/_ml/agents/_register
 }
 ```
 
-#### 3. Run Execute Stream Agent API
+#### 3. Run the Execute Stream Agent API
 
-To run execute stream agent, send the following request:
+To run the Execute Stream Agent API, send the following request:
 
 ```json
 POST /_plugins/_ml/agents/37YmxZkBphfsuvK7qIj4/_execute/stream
@@ -291,14 +291,7 @@ POST /_plugins/_ml/agents/37YmxZkBphfsuvK7qIj4/_execute/stream
 
 #### Sample response
 
-The streaming format uses Server-Sent Events (SSE), with each chunk containing a portion of the agent’s response. Each data line represents a separate chunk transmitted in real-time as the agent generates output.
-
-Key elements in each chunk:
-
-* `content` - The text or data fragment generated in this chunk (e.g., a word, or phrase)
-* `is_last` - A boolean flag indicating whether this is the final chunk (`false` for intermediate chunks, `true` for the last one)
-* `memory_id` - Unique identifier for the conversation memory session
-* `parent_interaction_id` - Identifier linking related interactions in the conversation
+The streaming format uses SSE, with each chunk containing a portion of the agent's response. Each data line represents a separate chunk transmitted in real-time as the agent generates output.
 
 ```json
 data: {"inference_results":[{"output":[{"name":"memory_id","result":"LvU1iJkBCzHrriq5hXbN"},{"name":"parent_interaction_id","result":"L_U1iJkBCzHrriq5hXbs"},{"name":"response","dataAsMap":{"content":"[{\"index\":0.0,\"id\":\"call_HjpbrbdQFHK0omPYa6m2DCot\",\"type\":\"function\",\"function\":{\"name\":\"RetrieveIndexMetaTool\",\"arguments\":\"\"}}]","is_last":false}}]}]}
@@ -332,9 +325,16 @@ data: {"inference_results":[{"output":[{"name":"memory_id","result":"LvU1iJkBCzH
 data: {"inference_results":[{"output":[{"name":"memory_id","result":"LvU1iJkBCzHrriq5hXbN"},{"name":"parent_interaction_id","result":"L_U1iJkBCzHrriq5hXbs"},{"name":"response","dataAsMap":{"content":"","is_last":true}}]}]}
 ```
 
+Each chunk has the following key elements:
+
+* `content` - The text or data fragment generated in this chunk (for example, a word or phrase).
+* `is_last` - A Boolean flag indicating whether this is the final chunk (`false` for intermediate chunks, `true` for the last one).
+* `memory_id` - A unique identifier for the conversation memory session.
+* `parent_interaction_id` - An identifier linking related interactions in the conversation.
+
 ## Conclusion
 
-Streaming capabilities in OpenSearch represent a significant step forward in delivering responsive, real-time AI experiences. By enabling incremental data delivery through the Predict Stream API and Execute Stream Agent API, you can transform how users interact with your AI-powered applications, replacing loading spinners with immediate, progressive feedback. Whether you're building conversational AI interfaces, content generation tools, or agent-based workflows, streaming provides the foundation for more engaging and transparent user experiences.
+Streaming capabilities in OpenSearch represent a significant step forward in delivering responsive, real-time AI experiences. By enabling incremental data delivery through the Predict Stream API and Execute Stream Agent API, you can transform how you interact with your AI-powered applications, replacing loading spinners with immediate, progressive feedback. Whether you're building conversational AI interfaces, content generation tools, or agent-based workflows, streaming provides the foundation for more engaging and transparent user experiences.
 
 **Ready to get started?** Try implementing streaming in your OpenSearch environment and experience the difference firsthand. As this feature evolves from experimental to general availability, we expect to see expanded model and agent support and additional capabilities.
 
