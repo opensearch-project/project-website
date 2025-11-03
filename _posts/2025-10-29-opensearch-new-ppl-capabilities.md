@@ -13,28 +13,26 @@ authors:
   has_science_table: false
 ---
 
-# Better observability , deeper insights: OpenSearch's new Piped Processing Language Capabilities
 OpenSearch's Piped Processing Language (PPL) evolves significantly with new and enhanced capabilities that reshape how you handle log analytics and observability workflows. This comprehensive update streamlines how you troubleshoot applications, monitor system performance, and analyze security events, providing essential tools to extract meaningful insights from your observability data. Through enhanced features and refined functionality, teams can navigate complex log analysis with greater precision and clarity.
 
 ## What's new in OpenSearch PPL?
+Let's explore the new PPL commands and functions through practical examples of common log analytics use cases. These examples demonstrate how PPL enhanced capabilities can help you analyze logs more effectively, from combining multiple data sources to processing unstructured log data and performing time-series analysis. We'll also cover significant performance improvements in this release, including the integration with Apache Calcite as the query engine.
 
 ### 1. New commands and functions
-
-The OpenSearch 3.3 (https://opensearch.org/blog/explore-opensearch-3-3/) release marks a substantial expansion of PPL's functionality with the introduction of 9 new commands, 7 evaluation functions, and 8 statistical functions. The syntax of existing commands has also been refined for improved usability, creating a more intuitive experience for users across various analytical scenarios. Below are scenarios where new commands and functions can help you analyze your data:
+The OpenSearch 3.3 (https://opensearch.org/blog/explore-opensearch-3-3/) release marks a substantial expansion of PPL functionality with the introduction of 9 new commands, 7 evaluation functions, and 8 statistical functions. The syntax of existing commands has also been refined for improved usability, creating a more intuitive experience for users across various analytical scenarios. Below are scenarios where new commands and functions can help you analyze your data:
 
 #### Combine datasets within single queries ####
-This release enhances PPL's data manipulation capabilities with new commands for flexible data combination and field operations. The `append` command combines results from multiple queries into a unified dataset, enabling users to merge data from different sources or time ranges within a single operation. The `join` command combines two datasets together, the left side could be an index or results from a piped commands, the right side could be either an index or a `subsearch`.
+This release enhances PPL data manipulation capabilities with new commands for flexible data combination and field operations. The `append` command combines results from multiple queries into a unified dataset, enabling users to merge data from different sources or time ranges within a single operation. The `join` command combines two datasets together, the left side could be an index or results from a piped commands, the right side could be either an index or a `subsearch`.
 
 Example for using `join`
 
 ```
 # Combines web log data with geographical IP data. 
 # Which allowing you to see which countries generate the most traffic.
-PPL> source=web_logs 
-    | stats count() as request_count by client_ip 
-    | join type=inner client_ip [source=ip_geodata] 
-    | stats sum(request_count) as total_requests by country
-
+PPL> source = web_logs
+  | join type=inner client_ip [source=ip_geodata]
+  | stats count() as total_requests by country
+  
 # Result
 ┏━━━━━━━━━━┳━━━━━━━━━━━━━━┓
 ┃ country  ┃total_requests┃
@@ -61,7 +59,7 @@ PPL> source=demo-logs-otel-v1-*
     | timechart span=1h count() by severityText
 ```
 
-![timechart example ](/assets/media/blog-images/2025-10-29-opensearch-new-ppl-capabilities/timechart.png)
+![Visualization tab in Discover page](/assets/media/blog-images/2025-10-29-opensearch-new-ppl-capabilities/timechart.png)
 
 #### Unstructured log processing at query time #### 
 Text processing features have been included to PPL with the addition of `regex`, `rex`, and `spath` commands. These features enable users to filter, extract, and parse unstructured text directly at query time without requiring data preprocessing. The `regex` command provides pattern-based filtering to isolate relevant log entries, while `rex` extracts structured fields from raw text using regular expressions. The `spath` command extracts fields from JSON data, enabling access to nested objects and arrays. Together, these commands enable instant adaptation to new log formats without requiring reindexing operations, allowing users to analyze previously unstructured data immediately.
@@ -72,7 +70,7 @@ Example for using `rex`:
 # Extracts structured information from the log message using rex like logLevel, 
 # userid and sourceip
 PPL> source=app_logs 
-    | rex field=message '\\[(?<loglevel>\\w+)\\] (?<action>.*) for userId=(?<userid>\\d+).*IP=(?<sourceip>[\\d\\.]+)' 
+    | rex field=message '\[(?<loglevel>\w+)\] (?<action>.*) for userId=(?<userid>\d+).*IP=(?<sourceip>[\d\.]+)' 
     | head 5 
     | fields loglevel, action, userid, sourceip
 
@@ -127,7 +125,7 @@ PPL> source=user_activity
 
 ### 2. Performance enhancements
 
-Using Apache Calcite as the default query engine, PPL brings powerful query optimization capabilities including rule-based and cost-based optimizers. To validate PPL's performance capabilities, we've built a robust benchmarking infrastructure. The PPL Big5 datasets provide standardized performance testing across different analytical scenarios, enabling evaluation of PPL queries under various conditions and workload patterns. Automated nightly benchmarks run to ensure consistent quality and help identify any performance regressions. Public dashboards offer transparency into PPL query performance, giving users visibility into how the query engine performs across different scenarios and query types. You can access the nightly benchmarks for Big5 PPL at the OpenSearch Benchmarks page (https://opensearch.org/benchmarks/).
+Using Apache Calcite as the default query engine, PPL brings powerful query optimization capabilities including rule-based and cost-based optimizers. To validate PPL performance capabilities, we've built a robust benchmarking infrastructure. The PPL Big5 datasets provide standardized performance testing across different analytical scenarios, enabling evaluation of PPL queries under various conditions and workload patterns. Automated nightly benchmarks run to ensure consistent quality and help identify any performance regressions. Public dashboards offer transparency into PPL query performance, giving users visibility into how the query engine performs across different scenarios and query types. You can access the nightly benchmarks for Big5 PPL at the OpenSearch Benchmarks page (https://opensearch.org/benchmarks/).
 
 With Calcite, PPL shows significant performance improvements over the previous version. This includes predicate push-downs to OpenSearch DSL, implementation of composite aggregations, enhanced support for date histogram aggregations, improved memory management for large result sets, and better handling of high-cardinality fields. For example, the Big5 PPL date_histogram_hourly_agg query is now 160x faster, reducing execution time from 2.5 seconds to just 15 milliseconds. These improvements directly benefit common observability use cases such as log analysis and time-series data exploration. For complete benchmark results and performance metrics, visit our nightly [benchmark dashboard](https://opensearch.org/benchmarks/).
 
