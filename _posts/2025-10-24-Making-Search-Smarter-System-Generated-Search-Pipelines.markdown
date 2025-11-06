@@ -63,6 +63,7 @@ The search workflow differs depending on whether system-generated search process
 When system-generated search processors are enabled, you can immediately take advantage of features like [native maximal marginal relevance (MMR) support](https://docs.opensearch.org/latest/vector-search/specialized-operations/vector-search-mmr/) without any additional configuration. The processors are automatically applied to relevant queries, which significantly reduces operational overhead and simplifies your experience. For example, to perform an MMR-based vector search, send the following request:
 
 ```json
+POST /my-index/_search
 {
   "query": {
     "neural": {
