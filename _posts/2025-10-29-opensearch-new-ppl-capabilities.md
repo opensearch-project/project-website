@@ -24,11 +24,8 @@ The OpenSearch 3.3 (https://opensearch.org/blog/explore-opensearch-3-3/) release
 #### Combine datasets within single queries ####
 This release enhances PPL data manipulation capabilities with new commands for flexible data combination and field operations. The `append` command combines results from multiple queries into a unified dataset, enabling users to merge data from different sources or time ranges within a single operation. The `join` command combines two datasets together, the left side could be an index or results from piped commands, the right side could be either an index or a `subsearch`.
 
-Example for using `join`
-
+The following example combines web log data with geographical IP data. Which allows you to see which countries generate the most traffic using `join` command:
 ```
-# Combines web log data with geographical IP data. 
-# Which allows you to see which countries generate the most traffic.
 PPL> source = web_logs
   | join type=inner client_ip [source=ip_geodata]
   | stats count() as total_requests by country
@@ -50,25 +47,21 @@ PPL introduces streamlined temporal and distribution analysis with new `timechar
 
 These commands make temporal pattern analysis and data distribution modeling more accessible within PPL queries, allowing users to identify trends and outliers directly through query operations. The `earliest` and `latest` functions retrieve timestamp-based values, enabling time-series analysis by finding the earliest or latest occurrence of values within groups based on their timestamps.
 
-Example for using `timechart`
-
+The following example groups Logs data into 1-hour intervals and count number of logs for each severity level within these intervals using `timechart` command:
 ```
-# Groups Logs data into 1-hour intervals and count number of logs 
-# for each severity level within these intervals
 PPL> source=demo-logs-otel-v1-* 
     | timechart span=1h count() by severityText
 ```
+When running this query in OpenSearch Dashboards, the visualization shows....
 
 ![Visualization tab in Discover page](/assets/media/blog-images/2025-10-29-opensearch-new-ppl-capabilities/timechart.png)
 
 #### Unstructured log processing at query time #### 
 Text processing features have been included in PPL with the addition of `regex`, `rex`, and `spath` commands. These features enable users to filter, extract, and parse unstructured text directly at query time without requiring data preprocessing. The `regex` command provides pattern-based filtering to isolate relevant log entries, while `rex` extracts structured fields from raw text using regular expressions. The `spath` command extracts fields from JSON data, enabling access to nested objects and arrays. Together, these commands enable instant adaptation to new log formats without requiring reindexing operations, allowing users to analyze previously unstructured data immediately.
 
-Example for using `rex`:
+The following example extracts structured information from the log message like logLevel,userid and sourceip using `rex` command:
 
 ```
-# Extracts structured information from the log message using rex like logLevel, 
-# userid and sourceip
 PPL> source=app_logs 
     | rex field=message '\[(?<loglevel>\w+)\] (?<action>.*) for userId=(?<userid>\d+).*IP=(?<sourceip>[\d\.]+)' 
     | head 5 
@@ -94,11 +87,9 @@ PPL> source=app_logs
 #### Complex data type support
 With these latest upgrades, customers have the ability to perform complex data transformations at *search time* rather than *index time*. The existing PPL function set works well for primitive data types (e.g., strings, numbers, timestamps). We increase the support to cover complex data types with multi-value statistics aggregation functions `(list, values)`. The  `list` and `values` functions collect multiple values into structured arrays during aggregation operations with `list` preserving duplicates while `values `return unique values. The `mvjoin` function combines multi-value fields into single strings using specified delimiters, enabling array manipulation within queries.
 
-Example for using `values`:
+The following example analyze the User journey while they navigate across pages, and identifying common navigation patterns using `values` function:
 
 ```
-# Analyze the User journey while they navigate across pages, 
-# and Identifying common navigation patterns.
 PPL> source=user_activity 
     | stats 
         values(page_url) as navigation_path,
