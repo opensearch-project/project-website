@@ -28,7 +28,7 @@ Example for using `join`
 
 ```
 # Combines web log data with geographical IP data. 
-# Which allowing you to see which countries generate the most traffic.
+# Which allows you to see which countries generate the most traffic.
 PPL> source = web_logs
   | join type=inner client_ip [source=ip_geodata]
   | stats count() as total_requests by country
@@ -124,10 +124,9 @@ PPL> source=user_activity
 ```
 
 ### 2. Performance enhancements
+Historically, we've rolled our own custom query optimizer. In 3.0, we switched the query optimizer to be based on [Apache Calcite](https://opensearch.org/blog/enhanced-log-analysis-with-opensearch-ppl-introducing-lookup-join-and-subsearch/) as an experimental feature. In 3.3, we are using Apache Calcite as the default query optimizer, which brings powerful query optimization capabilities including rule-based and cost-based optimizers. To validate PPL performance capabilities, we've built a robust benchmarking infrastructure. The PPL Big5 datasets provide standardized performance testing across different analytical scenarios, enabling evaluation of PPL queries under various conditions and workload patterns. Automated nightly benchmarks run to ensure consistent quality and help identify any performance regressions. Public dashboards offer transparency into PPL query performance, giving users visibility into how the query engine performs across different scenarios and query types. You can access the nightly benchmarks for Big5 PPL at the OpenSearch Benchmarks page (https://opensearch.org/benchmarks/).
 
-Using Apache Calcite as the default query engine, PPL brings powerful query optimization capabilities including rule-based and cost-based optimizers. To validate PPL performance capabilities, we've built a robust benchmarking infrastructure. The PPL Big5 datasets provide standardized performance testing across different analytical scenarios, enabling evaluation of PPL queries under various conditions and workload patterns. Automated nightly benchmarks run to ensure consistent quality and help identify any performance regressions. Public dashboards offer transparency into PPL query performance, giving users visibility into how the query engine performs across different scenarios and query types. You can access the nightly benchmarks for Big5 PPL at the OpenSearch Benchmarks page (https://opensearch.org/benchmarks/).
-
-With Calcite, PPL shows significant performance improvements over the previous version. This includes predicate push-downs to OpenSearch DSL, implementation of composite aggregations, enhanced support for date histogram aggregations, improved memory management for large result sets, and better handling of high-cardinality fields. For example, the Big5 PPL date_histogram_hourly_agg query is now 160x faster, reducing execution time from 2.5 seconds to just 15 milliseconds. These improvements directly benefit common observability use cases such as log analysis and time-series data exploration. For complete benchmark results and performance metrics, visit our nightly [benchmark dashboard](https://opensearch.org/benchmarks/).
+With Calcite, PPL shows significant performance improvements over the previous version. This includes pushing down the majority of the PPL commands and function execution to OpenSearch DSL and avoiding heavy post-processing, implementation of composite aggregations, enhanced support for date histogram aggregations, improved memory management for large result sets, and better handling of high-cardinality fields. For example, the Big5 PPL date_histogram_hourly_agg query is now 160x faster, reducing execution time from 2.5 seconds to just 15 milliseconds. These improvements directly benefit common observability use cases such as log analysis and time-series data exploration. For complete benchmark results and performance metrics, visit our nightly [benchmark dashboard](https://opensearch.org/benchmarks/).
 
 ## Getting started with the CLI tool
 
