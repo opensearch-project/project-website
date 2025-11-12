@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Better observability , deeper insights: OpenSearch's new Piped Processing Language Capabilities"
+title:  "Better observability, deeper insights: OpenSearch's new Piped Processing Language Capabilities"
 authors:
 - anasalkouz
 - ritvibhatt
@@ -13,16 +13,16 @@ authors:
   has_science_table: false
 ---
 
-OpenSearch's Piped Processing Language (PPL) evolves significantly with new and enhanced capabilities that reshape how you handle log analytics and observability workflows. This comprehensive update streamlines how you troubleshoot applications, monitor system performance, and analyze security events, providing essential tools to extract meaningful insights from your observability data. Through enhanced features and refined functionality, teams can navigate complex log analysis with greater precision and clarity.
+OpenSearch's Piped Processing Language (PPL) evolved significantly with new and enhanced capabilities that reshape how you handle log analytics and observability workflows. This comprehensive update streamlines how you troubleshoot applications, monitor system performance, and analyze security events, providing essential tools to extract meaningful insights from your observability data. Through enhanced features and refined functionality, teams can navigate complex log analysis with greater precision and clarity.
 
 ## What's new in OpenSearch PPL?
 Let's explore the new PPL commands and functions through practical examples of common log analytics use cases. These examples demonstrate how PPL enhanced capabilities can help you analyze logs more effectively, from combining multiple data sources to processing unstructured log data and performing time-series analysis. We'll also cover significant performance improvements in this release, including the integration with Apache Calcite as the query engine.
 
 ### 1. New commands and functions
-The OpenSearch 3.3 (https://opensearch.org/blog/explore-opensearch-3-3/) release marks a substantial expansion of PPL functionality with the introduction of 9 new commands, 7 evaluation functions, and 8 statistical functions. The syntax of existing commands has also been refined for improved usability, creating a more intuitive experience for users across various analytical scenarios. Below are scenarios where new commands and functions can help you analyze your data:
+The OpenSearch 3.3 (https://opensearch.org/blog/explore-opensearch-3-3/) release marks a substantial expansion of PPL functionality with the introduction of 9 new commands and 15 functions. The syntax of existing commands has also been refined for improved usability, creating a more intuitive experience for users across various analytical scenarios. Below are scenarios where new commands and functions can help you analyze your data:
 
 #### Combine datasets within single queries ####
-This release enhances PPL data manipulation capabilities with new commands for flexible data combination and field operations. The `append` command combines results from multiple queries into a unified dataset, enabling users to merge data from different sources or time ranges within a single operation. The `join` command combines two datasets together, the left side could be an index or results from a piped commands, the right side could be either an index or a `subsearch`.
+This release enhances PPL data manipulation capabilities with new commands for flexible data combination and field operations. The `append` command combines results from multiple queries into a unified dataset, enabling users to merge data from different sources or time ranges within a single operation. The `join` command combines two datasets together, the left side could be an index or results from piped commands, the right side could be either an index or a `subsearch`.
 
 Example for using `join`
 
@@ -46,7 +46,7 @@ PPL> source = web_logs
 ```
 
 #### Time-series analysis ####
-PPL introduces streamlined temporal and distribution analysis with new `timechart`, `bin` and `eventstats` commands. The `timechart` command aggregates data over time intervals with flexible span controls, automatically handling time gap filling and result ordering for time-series analysis. It provides visualization-ready formatting with time as the primary axis and supports grouping by additional fields. The `bin` command automatically groups numeric data into ranges or buckets, facilitating distribution analysis for understanding data spread and frequency patterns. The `eventstats` command which is essential for generating summary statistics from fields in events while *preserving* the original events.
+PPL introduces streamlined temporal and distribution analysis with new `timechart`, `bin` and `eventstats` commands. The `timechart` command aggregates data over time intervals with flexible span controls, automatically handling time gap filling and result ordering for time-series analysis. It provides visualization-ready formatting with time as the primary axis and supports grouping by additional fields. The `bin` command automatically groups numeric data into ranges or buckets, facilitating distribution analysis for understanding data spread and frequency patterns. The `eventstats` command, which is essential for generating summary statistics from fields in events while *preserving* the original events.
 
 These commands make temporal pattern analysis and data distribution modeling more accessible within PPL queries, allowing users to identify trends and outliers directly through query operations. The `earliest` and `latest` functions retrieve timestamp-based values, enabling time-series analysis by finding the earliest or latest occurrence of values within groups based on their timestamps.
 
@@ -62,7 +62,7 @@ PPL> source=demo-logs-otel-v1-*
 ![Visualization tab in Discover page](/assets/media/blog-images/2025-10-29-opensearch-new-ppl-capabilities/timechart.png)
 
 #### Unstructured log processing at query time #### 
-Text processing features have been included to PPL with the addition of `regex`, `rex`, and `spath` commands. These features enable users to filter, extract, and parse unstructured text directly at query time without requiring data preprocessing. The `regex` command provides pattern-based filtering to isolate relevant log entries, while `rex` extracts structured fields from raw text using regular expressions. The `spath` command extracts fields from JSON data, enabling access to nested objects and arrays. Together, these commands enable instant adaptation to new log formats without requiring reindexing operations, allowing users to analyze previously unstructured data immediately.
+Text processing features have been included in PPL with the addition of `regex`, `rex`, and `spath` commands. These features enable users to filter, extract, and parse unstructured text directly at query time without requiring data preprocessing. The `regex` command provides pattern-based filtering to isolate relevant log entries, while `rex` extracts structured fields from raw text using regular expressions. The `spath` command extracts fields from JSON data, enabling access to nested objects and arrays. Together, these commands enable instant adaptation to new log formats without requiring reindexing operations, allowing users to analyze previously unstructured data immediately.
 
 Example for using `rex`:
 
@@ -92,12 +92,12 @@ PPL> source=app_logs
 
 
 #### Complex data type support
-With these latest upgrades, customers have the ability to perform complex data transformations at *search time* rather than *index time*. The existing PPL function set works well for primitive data types (e.g., strings, numbers, timestamps). We increase the support to cover complex data types with multi-value statistics aggregation functions `(list, values)`. The  `list` and `values` functions collect multiple values into structured arrays during aggregation operations with `list` preserving duplicates while `values `returns unique values. The `mvjoin` function combines multi-value fields into single strings using specified delimiters, enabling array manipulation within queries.
+With these latest upgrades, customers have the ability to perform complex data transformations at *search time* rather than *index time*. The existing PPL function set works well for primitive data types (e.g., strings, numbers, timestamps). We increase the support to cover complex data types with multi-value statistics aggregation functions `(list, values)`. The  `list` and `values` functions collect multiple values into structured arrays during aggregation operations with `list` preserving duplicates while `values `return unique values. The `mvjoin` function combines multi-value fields into single strings using specified delimiters, enabling array manipulation within queries.
 
 Example for using `values`:
 
 ```
-# Analyize the User journey while they navigate across pages, 
+# Analyze the User journey while they navigate across pages, 
 # and Identifying common navigation patterns.
 PPL> source=user_activity 
     | stats 
@@ -149,7 +149,7 @@ opensearchsql -e https://your-cluster-endpoint:your-port -u username:password
 \____/ .___/\___/_/ /_/____/\___/\__,_/_/   \___/_/ /_/
     /_/
 
-OpenSearch: v2.17
+OpenSearch: v3.1.0
 Endpoint: https://your-cluster-endpoint:your-port
 User: admin
 SQL: v3.3.0.0
@@ -178,7 +178,7 @@ Fetched 3 rows with a total of 3 hits
 
 The future of PPL depends on community involvement and feedback. We encourage users to explore these new features through the CLI tool and share their experiences in the OpenSearch community. Whether you're discovering new use cases or encountering challenges, your input helps shape the future of our observability capabilities. Our [template](https://github.com/opensearch-project/sql/issues/new?template=ppl_bug_report.md) makes reporting simple and effective.
 
-For more information:
+For more information, check out:
 
 * PPL Documentation: https://github.com/opensearch-project/sql/blob/main/docs/user/ppl/index.rst
 * PPL Roadmap: https://github.com/opensearch-project/sql/issues/4287
