@@ -666,11 +666,12 @@ The Data Distribution tool provided critical statistical background and field di
    - Other services: 21%
 
 2. **Severity level analysis** (divergence: 0.609):
-   - INFO level: 61% (normal operations)
-   - Error level: Only 1% (concentrated failures)
+   - `INFO` level: 81% total (same severity, different service formats)
+     - `INFO`: 61% (Java-based services)
+     - `info`: 12% (Python-based services) 
+     - `Information`: 8% (.NET-based services)
+   - `error` level: 1% (concentrated failures)
    - Empty values: 18%
-   - info level: 12%
-   - Information level: 8%
 
 3. **Field anomaly detection**:
    - `droppedAttributesCount`: divergence = 1.0 (complete anomaly)
