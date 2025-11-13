@@ -23,4 +23,4 @@ github: vigyasharma
 linkedin: vigyasharma
 ---
 
-**Vigya Sharma** is a Principal Engineer at Amazon Search, working at the intersection of distributed systems, information retrieval, and AI-powered search. His work focuses on making search more scalable, intelligent, and responsive to how people naturally express what they're looking for. He is a Committer and PMC member on the Apache Lucene project.
+**Vigya Sharma** is a Principal Engineer at Amazon Search, working at the intersection of distributed systems, information retrieval, and AI-powered search. His work focuses on making search more scalable, intelligent, and responsive to how people naturally express what they're looking for. Vigya is a Committer and PMC member on the Apache Lucene project.
