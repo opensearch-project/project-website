@@ -1,7 +1,8 @@
 ---
 short_name: vigyas
 name: Vigya Sharma
-title: 'OpenSearch Community Member: Vigya Sharma'
+photo: '/assets/media/community/members/vigyas.jpg'
+title: 'Principal Engineer – Amazon Search'
 primary_title: Vigya Sharma
 breadcrumbs:
   icon: community
@@ -12,11 +13,14 @@ breadcrumbs:
       url: /community/members/index.html
     - title: 'Vigya Sharma&apos;s Profile'
       url: '/community/members/vigya-sharma.html'
-job_title_and_company: 'Senior Software Engineer at Amazon Web Services'
+job_title_and_company: 'Principal Engineer at Amazon Search'
 personas:
   - author
 permalink: '/community/members/vigya-sharma.html'
 redirect_from: '/authors/vigyas/'
+
+github: vigyasharma
+linkedin: vigyasharma
 ---
 
-**Vigya Sharma** is a Senior Software Engineer at Amazon Web Services. His projects focus on providing a managed service experience to Amazon Elasticsearch Service customers. Vigya is passionate about distributed systems and likes to solve problems around large scale systems. Vigya holds a Masters degree in Computer Science from IIT Delhi.
+**Vigya Sharma** is a Principal Engineer at Amazon Search, working at the intersection of distributed systems, information retrieval, and AI-powered search. His work focuses on making search more scalable, intelligent, and responsive to how people naturally express what they're looking for. He is a Committer and PMC member on the Apache Lucene project.
