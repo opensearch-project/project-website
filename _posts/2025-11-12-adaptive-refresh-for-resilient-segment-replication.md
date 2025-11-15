@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Adaptive Refresh for Resilient Segment Replication"
+title:  "Adaptive refresh for resilient segment replication"
 authors:
  - vigyas
  - noushka
@@ -20,7 +20,7 @@ Highly replicated systems are the foundation of modern distributed computing. In
 A central challenge in replicated systems is how to propagate index changes across all replicas. Real-world document sets change over time: product catalog, availability and price changes in e-commerce search, documents get added and updated in enterprise document search, flight availability changes in airline ticket search, and most commercial search engines require near real-time updates.  
 
 
-## Propagating Changes in Replicated Systems
+## Propagating changes in replicated systems
 
 Traditionally, systems used ‘*document replication’*, where a document is routed to all of the replicas, and each replica independently indexes the document into its search index. "Indexing" refers to a bunch of computational tasks like extracting tokens from a document and creating data structures that enable efficient search at query time, like postings lists, BKD trees, and nearest neighbor graphs. As you can reason, with document replication, this work is repeated on every replica instance. Not only is this computationally wasteful, but since replicas now must do the additional work of indexing documents, each replica has fewer resources to dedicate to search. This lowers the available search throughput per replica, requiring more replicas to support a given search traffic.
 
@@ -31,7 +31,7 @@ With segment replication, a document is indexed only once on a primary indexing 
 With this approach, a document is indexed only once. We save precious computation resources on replicas, and instead leverage the network to copy (replicate) index changes across the entire fleet. By tracking replication checkpoints, we can make sure that each replica is on the same point-in-time view of the index, as opposed to document replication where each replica may index at its own pace. There's also the nice ability to rollback to a known older "good checkpoint" should some bad index changes make their way to production.
 
 
-## A Typical Segment Replication Setup
+## A typical segment replication setup
 
 In classic 'segment replicated' systems, indexers invoke a Lucene `commit` and create segments at fixed time intervals. Each commit is then treated as a replication checkpoint and copied over to replica instances. The frequency of creating checkpoints on indexers is pre-configured, based on the acceptable tolerance for propagating updates.  On receiving a new checkpoint, replicas compare it to their local state, fetch any missing files, and invoke a Lucene `refresh`, so that queries can see the updated index. 
 
@@ -40,7 +40,7 @@ In well architected systems, indexer and replicas are decoupled via remote stora
 Before we go any further, it's worth understanding how Lucene manages searcher refreshes, which forms the basis of segment replicated systems.
 
 
-## Understanding Lucene's Refresh Mechanism
+## Understanding Lucene's refresh mechanism
 
 Lucene exposes a clean refresh story around readers and reference management. The core abstraction is the  **‘ReferenceManager’**. 
 
@@ -80,7 +80,7 @@ The manager then creates an `IndexSearcher` on this new reader, and atomically s
 
 
 
-## Real World Challenges at Scale
+## Real world challenges at scale
 
 As with all things distributed, the real challenges show up at scale. The classic single-commit model has a cliff. Replicas jump from “current” to “latest” in one step. If your indexer gets a burst of updates, during high traffic season for example, the checkpoint created at a point in time can be quite large. Replicas then have to pay the cost of loading these large checkpoints in a single shot. 
 
@@ -98,14 +98,14 @@ The OS page cache must load a large volume of fresh data, triggering page faults
 The single-checkpoint method forces each replica to absorb all accumulated changes in one step. It's simple and correct, but when the gap between checkpoints absorbed by the replica is large, you pay the whole cost at once. This cliff-like behavior is exactly what we set out to smooth out.
 
 
-## Bite-Sized Commits and Adaptive Refresh
+## Bite-sized commits and adaptive refresh
 
 With *“bite-sized commits”*, we rethink how checkpoints are constructed and consumed. Instead of bundling only the newest commit, the writer now keeps a small rolling history of commits and publishes them together as a single checkpoint. On the search side, replicas receive a set of commits instead of a single one. They can step through those commits incrementally, downloading manageable deltas and refreshing in small, predictable cycles. 
 
 Keen readers would note however, that Lucene’s `refreshIfNeeded` API only refreshed on the latest commit by default. We [contributed changes](https://github.com/apache/lucene/pull/14443) to Lucene, that allow `SearcherManager` (and related classes) to intelligently select the candidate commit for refresh. Consumer implementations can add logic to select the right commit, like calculating the bytes difference between current searcher commit and available commits, and selecting the newest commit that fits in the available searcher memory. Replicas can thus *adaptively refresh* on the bite sized commits. If all commits are small enough, they can directly jump to the latest one. At the other extreme, they can incrementally step through all provided commits. These changes are available as part of Lucene 10.3.
 
 
-### Setting up Indexers for Bite Sized Commits
+### Setting up indexers for bite sized commits
 
 On the indexer side, Lucene's IndexWriter continues to operate as before, creating commits on the indexer machine, though you may want to consider increasing commit frequency to keep each commit as a smaller differential from the previous one. For example, instead of creating a commit every minute, you can consider creating one every 15 seconds, giving you 4 incremental hops per minute window that a replica can chose from. Note that this is one of many possible approaches. Another, better way is to accurately trigger commits whenever segment turnover exceeds a configured threshold size.
 
@@ -116,7 +116,7 @@ Finally, your replication checkpoint should be updated to include all the commit
 With this foundation, we set up our indexers to publish multi-commit checkpoints, enabling replicas to make intelligent, adaptive refresh decisions.
 
 
-### Changes on Replicas for Adaptive Refresh
+### Changes on replicas for adaptive refresh
 
 The replica now receives a set of commits with each checkpoint. Our goal is still to finally refresh on the latest commit. However, instead of directly jumping to the latest commit, replica can now plan its path through a series of commits that are safe to refresh on.
 
@@ -141,7 +141,7 @@ It is worth mentioning that you’ll need to handle the edge case where none of 
 Finally, we want to continue this loop until we’ve refreshed on the latest commit. So loop back to step 2 until searcher commit is the same as latest commit in the checkpoint, i.e. index is current with all updates present in the checkpoint.
 
 
-### How this Looks in Action:
+### How this looks in action
 
 Let’s ground this theory in what a real life adaptive refresh scenario looks like. We start with the following setup:
 
