@@ -20,4 +20,4 @@ permalink: '/community/members/anoushka-gade.html'
 redirect_from: '/authors/noushka/'
 ---
 
-**Anoushka Gade** works at Amazon on high-performance Lucene search infrastructure, focusing on index freshness, replication, and bite-sized commit optimizations. Her research spans Retrieval-Augmented Language Models, including temporally-aware retrieval (TempRALM) and a study on retrieval-enhanced math question-answering.
+**Anoushka Gade** works at Amazon on high-performance Lucene search infrastructure, focusing on index freshness, replication, and bite-sized commit optimizations. Her research spans retrieval-augmented language models, including temporally aware retrieval (TempRALM) and a study on retrieval-enhanced math question-answering.
