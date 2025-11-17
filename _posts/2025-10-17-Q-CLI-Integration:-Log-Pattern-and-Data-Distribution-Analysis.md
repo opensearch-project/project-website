@@ -11,29 +11,29 @@ meta_keywords: Amazon Q CLI, CLI integration, log pattern analysis, data distrib
 meta_description: Learn how to integrate Amazon Q CLI with OpenSearch's log pattern analysis and data distribution tools for streamlined command-line diagnostics and enhanced system troubleshooting capabilities.
 ---
 
-Modern distributed systems generate vast amounts of log data that can be challenging to analyze manually. In this blog, we'll explore how you can integrate Amazon Q CLI with OpenSearch's advanced analysis tools to transform complex log investigations into natural language queries. We'll demonstrate the integration of two powerful OpenSearch agent tools---the Log Pattern Analysis Tool and Data Distribution Tool---through the Model Context Protocol (MCP), showing how this combination enables streamlined command-line diagnostics and enhanced system troubleshooting.
+Modern distributed systems generate vast amounts of log data that can be challenging to analyze manually. In this blog post, we'll explore how you can integrate Amazon Q CLI with OpenSearch's advanced analysis tools to transform complex log investigations into natural language queries. We'll demonstrate the integration of two powerful OpenSearch agent tools---the Log Pattern Analysis Tool and Data Distribution Tool---through the Model Context Protocol (MCP), showing how this combination enables streamlined command-line diagnostics and enhanced system troubleshooting.
 
 Through a real-world OpenTelemetry Demo scenario investigating payment failures, you'll learn how to set up the integration, configure the necessary components, and use these tools to perform automated pattern recognition and statistical analysis. By the end of this post, you'll understand how to use conversational commands to quickly identify root causes in distributed system logs, significantly reducing time to resolution for critical issues.
 
 ## Log Pattern Analysis tool
 
-The [Log Pattern Analysis Tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/log-pattern-analysis-tool/) is an OpenSearch agent tool that automates log analysis through multiple analysis modes. It performs differential pattern analysis between baseline and problem periods and analyzes log sequences using trace correlation. The tool provides log insights by automatically extracting error patterns and keywords from log data to accelerate troubleshooting.
+The [Log Pattern Analysis tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/log-pattern-analysis-tool/) is an OpenSearch agent tool that automates log analysis through multiple analysis modes. It performs differential pattern analysis between baseline and problem periods and analyzes log sequences using trace correlation. The tool provides log insights by automatically extracting error patterns and keywords from log data to accelerate troubleshooting.
 
 ## Data Distribution tool
 
-The [Data Distribution Tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/data-distribution-tool/) is an OpenSearch agent tool that analyzes data distribution patterns within datasets and compares distributions between different time periods. It supports both single dataset analysis and comparative analysis to identify significant changes in field value distributions, helping detect anomalies, trends, and data quality issues.
+The [Data Distribution tool](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/data-distribution-tool/) is an OpenSearch agent tool that analyzes data distribution patterns within datasets and compares distributions between different time periods. It supports both single dataset analysis and comparative analysis to identify significant changes in field value distributions, helping detect anomalies, trends, and data quality issues.
 
-The tool generates statistical summaries including value frequencies, percentiles, and distribution metrics to help understand data characteristics and identify potential data quality issues.
+The tool generates statistical summaries, including value frequencies, percentiles, and distribution metrics, to help understand data characteristics and identify potential data quality issues.
 
 ## Amazon Q CLI integration
 
-Amazon Q CLI can seamlessly integrate with these OpenSearch analysis tools through the [Model Context Protocol (MCP)](https://opensearch.org/blog/introducing-mcp-in-opensearch/). By configuring the OpenSearch MCP server, you can access both the Log Pattern Analysis Tool and Data Distribution Tool directly from your command line interface.
+Amazon Q CLI can seamlessly integrate with these OpenSearch analysis tools through [MCP](https://opensearch.org/blog/introducing-mcp-in-opensearch/). By configuring the OpenSearch MCP server, you can access both the Log Pattern Analysis tool and Data Distribution tool directly from your command-line interface.
 
 This integration enables natural language queries for log analysis and data distribution insights, making complex diagnostic tasks accessible through simple conversational commands.
 
 ### Implementation using opensearch-mcp-server-py
 
-This integration is built on the [opensearch-mcp-server-py](https://github.com/opensearch-project/opensearch-mcp-server-py) project, which provides a Python-based MCP server for OpenSearch. To enable the Log Pattern Analysis Tool and Data Distribution Tool integration, you need to clone this project and add custom integration code for both tools. This extends the server's capabilities to support these advanced analysis features.
+This integration is built on the [opensearch-mcp-server-py](https://github.com/opensearch-project/opensearch-mcp-server-py) project, which provides a Python-based MCP server for OpenSearch. To enable the Log Pattern Analysis tool and Data Distribution tool integration, you need to clone this project and add custom integration code for both tools. This extends the server's capabilities to support these advanced analysis features.
 
 ### Complete integration workflow
 
@@ -47,10 +47,10 @@ To set up Amazon Q CLI with OpenSearch MCP integration, follow these steps:
    ```
 
 2. **Add tool integration code**:
-   - Implement Log Pattern Analysis tool integration in the MCP server
-   - Implement Data Distribution tool integration in the MCP server
-   - Register both tools with the MCP server's tool registry
-   - For a complete implementation example, see the demo at [opensearch-mcp-server-py/integrate-skill-tool](https://github.com/PauiC/opensearch-mcp-server-py/tree/integrate-skill-tool)
+   - Implement Log Pattern Analysis tool integration in the MCP server.
+   - Implement Data Distribution tool integration in the MCP server.
+   - Register both tools with the MCP server's tool registry.
+   - For a complete implementation example, see the demo at [opensearch-mcp-server-py/integrate-skill-tool](https://github.com/PauiC/opensearch-mcp-server-py/tree/integrate-skill-tool).
 
 3. **Start the MCP server**:
 
@@ -97,23 +97,23 @@ To configure the OpenSearch MCP server for Amazon Q CLI, add the following confi
 - `OPENSEARCH_PASSWORD`: Specify your OpenSearch password.
 - `OPENSEARCH_USERNAME`: Specify your OpenSearch username.
 
-## Real-world example: OpenTelemetry demo
+## Real-world example: OpenTelemetry Demo
 
 To demonstrate the practical application of these integrated tools, we'll use the OpenTelemetry Demo as our example scenario.
 
-OpenTelemetry is an observability framework that provides a collection of tools, APIs, and SDKs for generating, collecting, and exporting telemetry data (metrics, logs, and traces) from applications. The OpenTelemetry Demo simulates a realistic e-commerce platform with multiple microservices including cart service, checkout service, payment service, and recommendation engine.
+OpenTelemetry is an observability framework that provides a collection of tools, APIs, and SDKs for generating, collecting, and exporting telemetry data (metrics, logs, and traces) from applications. The OpenTelemetry Demo simulates a realistic e-commerce platform with multiple microservices, including a cart service, checkout service, payment service, and recommendation engine.
 
-In this environment, common issues arise such as payment processing failures, cart abandonment errors, recommendation service timeouts, and checkout workflow disruptions. This provides excellent opportunities for root cause analysis in a distributed system environment.
+In this environment, common issues include payment processing failures, cart abandonment errors, recommendation service timeouts, and checkout workflow disruptions. This provides excellent opportunities for root cause analysis in a distributed system environment.
 
 ### Investigating payment failures
 
-In our scenario, users are reporting payment failures during checkout---a critical issue impacting revenue and customer experience. We choose payment failures as our root cause analysis target due to their business-critical impact.
+In our scenario, users are reporting payment failures during checkout---a critical issue impacting revenue and customer experience.
 
-The OpenTelemetry demo can simulate various failure conditions, including payment service disruptions and authentication issues. To resolve this issue, we need to analyze the logs to identify failure patterns and determine whether the issue is related to specific customer segments, authentication problems, or system-level configuration issues.
+The OpenTelemetry Demo can simulate various failure conditions, including payment service disruptions and authentication issues. To resolve this issue, we need to analyze the logs to identify failure patterns and determine whether the issue is related to specific customer segments, authentication problems, or system-level configuration issues.
 
 ### Amazon Q CLI investigation process
 
-Using Amazon Q CLI with the integrated OpenSearch tools, you can investigate this issue through natural language queries. Here's how the investigation unfolds:
+Using Amazon Q CLI with the integrated OpenSearch tools, you can investigate this issue through natural language queries. Here's how the investigation unfolds.
 
 **Initial query**:
 
@@ -623,13 +623,13 @@ The following sections provide the detailed JSON responses from each tool used i
 }
 ```
 
-#### Log Pattern Analysis tool's contribution
+#### Log Pattern Analysis tool contribution
 
 The Log Pattern Analysis tool contributed to identifying the root cause of payment failures in the following ways.
 
 **Core contribution: Automated error pattern recognition**
 
-The Log Pattern Analysis Tool played a crucial pattern identification role in this payment failure investigation:
+The Log Pattern Analysis tool played a crucial pattern identification role in this payment failure investigation:
 
 1. **Primary failure pattern identification** (63 occurrences):
    - Automatically identified three related patterns for payment token validation failures.
@@ -637,7 +637,7 @@ The Log Pattern Analysis Tool played a crucial pattern identification role in th
    - Specifically identified that failures are associated with `app.loyalty.level=gold`.
 
 2. **Secondary failure pattern identification** (19 occurrences):
-   - Identified two product catalog-related failure patterns.
+   - Identified two product-catalog-related failure patterns.
    - Pattern: `failed to get product #"<*>Z"`.
    - Provided specific product ID examples: `OLJCESPC7Z`.
 
@@ -648,7 +648,7 @@ The Log Pattern Analysis Tool played a crucial pattern identification role in th
 
 **Value delivered**: This tool eliminated the need for manual pattern recognition, automatically discovering that payment token validation failures occur 3.3 times more frequently than product catalog issues, clearly establishing primary and secondary failure mode priorities.
 
-#### Data Distribution tool's contribution
+#### Data Distribution tool contribution
 
 
 The Data Distribution tool contributed to identifying the root cause of payment failures in the following ways.
@@ -679,31 +679,31 @@ The Data Distribution tool provided critical statistical background and field di
    - `flags`: divergence = 0.594 (moderate anomaly)
    - `schemaUrl`: divergence = 0.573 (moderate anomaly)
 
-**Value delivered**: This tool revealed that despite checkout service representing only 13% of total logs, it contains the highest concentration of critical failures. The severity distribution showed that error-level logs are rare (1%), making the 63 payment failures statistically significant. This quantitative context helped prioritize checkout service investigation over higher-volume but less critical services like `kafka`.
+**Value delivered**: This tool revealed that despite the checkout service representing only 13% of total logs, it contains the highest concentration of critical failures. The severity distribution showed that error-level logs are rare (1%), making the 63 payment failures statistically significant. This quantitative context helped prioritize the checkout service investigation over higher-volume but less critical services like `kafka`.
 
 #### Both tools working together
 
 The combination of both tools created a synergistic effect that enhanced the investigation's effectiveness:
 
-1. **Qualitative + quantitative analysis**: Log Pattern Analysis tool provided specific error patterns, Data Distribution tool provided statistical validation.
-2. **Priority guidance**: Combined analysis showed checkout service has disproportionately high failure impact despite lower log volume.
-3. **Root cause validation**: Both tools confirmed payment token validation as the primary issue, with product catalog as secondary.
-4. **Actionable insights**: Tools working together provided specific error messages and statistical significance, supporting clear remediation recommendations.
+1. **Qualitative + quantitative analysis**: The Log Pattern Analysis tool provided specific error patterns, while the Data Distribution tool provided statistical validation.
+2. **Priority guidance**: Combined analysis showed the checkout service had disproportionately high failure impact despite lower log volume.
+3. **Root cause validation**: Both tools confirmed payment token validation as the primary issue, with the product catalog as secondary.
+4. **Actionable insights**: The tools worked together to provide specific error messages and statistical significance, supporting clear remediation recommendations.
 
-This investigation demonstrates Q CLI's orchestration of multiple OpenSearch tools: `ListIndexTool` and `IndexMappingTool` for data discovery, `SearchIndexTool` for targeted queries, `DataDistributionTool` for statistical analysis of field patterns, `CountTool` for quantitative assessment, and `LogPatternAnalysisTool` for automated pattern extraction.
+This investigation demonstrates Amazon Q CLI's orchestration of multiple OpenSearch tools: `ListIndexTool` and `IndexMappingTool` for data discovery, `SearchIndexTool` for targeted queries, `DataDistributionTool` for statistical analysis of field patterns, `CountTool` for quantitative assessment, and `LogPatternAnalysisTool` for automated pattern extraction.
 
 The Log Pattern Analysis tool provided precise error pattern identification with exact occurrence counts (63 payment failures, 19 product catalog issues), while the Data Distribution tool offered statistical context that validated the significance of checkout service failures despite lower log volume. The combination generated a comprehensive root cause analysis that pinpointed invalid payment tokens as the primary issue affecting gold-tier customers, complete with actionable recommendations for token validation, service dependencies, and monitoring improvements.
 
 ## Conclusion
 
-The integration of Q CLI with OpenSearch's Log Pattern Analysis tool and Data Distribution tool transforms complex log investigation into conversational analysis. Through the Model Context Protocol (MCP), these tools become accessible via natural language queries, significantly reducing diagnostic complexity.
+The integration of Amazon Q CLI with OpenSearch's Log Pattern Analysis tool and Data Distribution tool transforms complex log investigation into conversational analysis. Through MCP, these tools become accessible via natural language queries, significantly reducing diagnostic complexity.
 
 **Key benefits demonstrated**:
 
 1. **Conversational interface**: Complex log analysis through natural language queries.
 2. **Automated pattern recognition**: No manual log parsing or pattern identification required.
 3. **Statistical validation**: Quantitative analysis supporting qualitative findings.
-4. **Comprehensive investigation**: Multiple tool orchestration in single conversation.
+4. **Comprehensive investigation**: Orchestration of multiple tools in a single conversation.
 5. **Actionable results**: Clear root cause identification with specific recommendations.
 
 Together, these tools delivered comprehensive root cause analysis through simple conversational commands, transforming what traditionally required multiple manual queries and domain expertise into an automated, intelligent investigation process. This integration makes advanced log analysis accessible to broader audiences while significantly reducing time to resolution in distributed system troubleshooting.
