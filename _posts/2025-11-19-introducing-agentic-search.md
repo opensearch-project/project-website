@@ -152,25 +152,7 @@ With the help of [agentic context processor](https://docs.opensearch.org/latest/
 
 >“Find potential fraudulent transactions in the past 24 hours.”
 
-
-**What Happens:**
-
-* The agent uses index like `transactions`  using the ListIndexTool
-* Using mappings, it identifies fields such as amount, location, device_id, merchant, and timestamp.
-* Using the fraud rule engine MCP connected, the agent can gather defined fraud rules, rank results by risk score.
-* It later builds an optimized DSL query that detects anomalies for geo-distance inconsistencies or unusual transaction cadence. 
-
-**Outcome:**
- Automated fraud triage that merges OpenSearch anomaly signals, policy rules, and external enrichment. Dramatically reducing manual investigation effort.
-
-
-
-### Fraud Detection & Risk Investigation
-
-### **User Query:**
-
->“Find potential fraudulent transactions in the past 24 hours.”
-
+**Note**: MCP servers can be used from [MCP Servers](https://mcpservers.org/)
 
 **What Happens:**
 
