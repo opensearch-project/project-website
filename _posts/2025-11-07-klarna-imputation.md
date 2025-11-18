@@ -20,18 +20,19 @@ As companies increasingly depend on real-time insights to maintain reliable oper
 ## Introduction
 
 Anomaly detection in Amazon OpenSearch Service enables users to automatically identify unusual patterns and behaviors in their data streams. This powerful capability has become an essential tool for many organizations seeking to monitor system health, detect issues early, and maintain operational excellence.
+
 However, through continuous customer feedback and real-world usage, we have identified areas where the Anomaly Detection plugin could be further improved, particularly in how it handles scenarios with missing or insufficient input data.
+
 This post highlights key enhancements to the Anomaly Detection plugin model, explains how they address these challenges, and illustrates their impact through practical examples from real-world monitoring use cases.
 
 ## The Challenge
 
-Klarna is a leading global payments and shopping service provider, operating a large ecosystem of consumer and merchant integrations that demand high reliability and real-time insight.
-To maintain the highest level of quality and uptime across this ecosystem, Klarna continuously monitors its integrations and transactions using a variety of systems designed to track performance and detect issues in real time.
-Klarna’s monitoring use cases involve a wide range of business and transactional metrics, analyzed across many dimensions such as markets, regions, product features, and integrations. The combination of these factors results in extremely high-cardinality time series data: a scale where efficient aggregation and anomaly detection become both technically challenging and cost-sensitive.
+Klarna is a leading global payments and shopping service provider, operating a large ecosystem of consumer and merchant integrations that demand high reliability and real-time insight. To maintain the highest level of quality and uptime across this ecosystem, Klarna continuously monitors its integrations and transactions using a variety of systems designed to track performance and detect issues in real time. Klarna’s monitoring use cases involve a wide range of business and transactional metrics, analyzed across many dimensions such as markets, regions, product features, and integrations. The combination of these factors results in extremely high-cardinality time series data: a scale where efficient aggregation and anomaly detection become both technically challenging and cost-sensitive.
+
 When migrating one of their real-time monitoring systems, Klarna evaluated several alternatives and found OpenSearch to be a promising candidate. Its flexible query model and scalable architecture made it particularly appealing for handling complex, high-cardinality data dimensions while maintaining granular visibility across merchant and partner integrations.
-During testing, they confirmed that OpenSearch performed well in detecting many types of anomalies. However, they encountered a limitation in one of their most critical monitoring use cases.
-Imagine a scenario where we want to monitor the transactional flow across multiple systems in real time. The goal is to receive alerts when traffic becomes anomalous, for example, if the transaction rate drops unexpectedly or stops completely.
-When Klarna deployed various OpenSearch Anomaly Detectors, they observed that the detectors successfully identified sudden drops as long as the monitored metric stayed above zero. However, when the traffic for a specific high-cardinality entity stopped entirely, while the overall data stream continued to operate normally, no anomaly notifications were triggered for that entity.
+During testing, they confirmed that OpenSearch performed well in detecting many types of anomalies. 
+
+However, they encountered a limitation in one of their most critical monitoring use cases. Imagine a scenario where we want to monitor the transactional flow across multiple systems in real time. The goal is to receive alerts when traffic becomes anomalous, for example, if the transaction rate drops unexpectedly or stops completely. When Klarna deployed various OpenSearch Anomaly Detectors, they observed that the detectors successfully identified sudden drops as long as the monitored metric stayed above zero. However, when the traffic for a specific high-cardinality entity stopped entirely, while the overall data stream continued to operate normally, no anomaly notifications were triggered for that entity.
 
 ## Example scenario
 
@@ -51,23 +52,23 @@ Upon further investigation, the team found that this behavior was rooted in how 
 
 ## Solution
 
-Klarna's experience highlighted a crucial question in anomaly detection: how should one handle missing data? The first and simplest strategy to consider is often to widen the detector interval. In many monitoring setups, a slightly longer interval is the cleanest way to reduce the number of empty data buckets. However, too long an interval make detection too laggy for real-time use cases.
+Klarna's experience highlighted a crucial question in anomaly detection: how should one handle missing data? The first and simplest strategy to consider is often to widen the detector interval. In many monitoring setups, a slightly longer interval is the cleanest way to reduce the number of empty data buckets. However, too long an interval makes detection too laggy for real-time use cases. When widening the interval is not an option, imputation is the preferred solution, but it must be handled with care—imputing over long gaps can introduce stale, unrepresentative information.
 
-When widening the interval is not an option, imputation is the preferred solution, but it must be handled with care—imputing over long gaps can introduce stale, unrepresentative information, a classic case of “garbage in, garbage out.”
-
-With this context in mind, OpenSearch 2.17 introduced a configurable imputation feature. For Klarna, who needed timely alerts, the solution was to use this feature to treat missing `value_count` metrics as zero, as shown in the detector configuration below:
-
-![mistake](/assets/media/blog-images/2025-11-07-klarna-imputation/setting.png){:class="img-centered"}
-
-This simple change had a powerful effect. As the next image shows, instead of the data gap being ignored, the system now imputes zeros, correctly identifying anomalies as the metric drops:
-
-![mistake](/assets/media/blog-images/2025-11-07-klarna-imputation/sol.png){:class="img-centered"}
+With this caveat in mind, OpenSearch 2.17 introduced a configurable imputation feature. [Studies](https://arxiv.org/html/2511.01196v1#:~:text=data%20where%20missing%20values%20are,in%20the%20presence%20of%20missing) have shown that anomaly detection methods perform significantly better on incomplete data when augmented with imputation techniques versus leaving gaps unfilled, since the imputed data restores the context needed to recognize unusual activity.
 
 ### The “Impute-then-Detect” Pipeline
 
 This new capability is powered by our **“impute-then-detect” pipeline**. At each detection interval, the system first completes the current feature vector using a policy-controlled imputer and only then scores the completed vector. The effectiveness of this pipeline hinges on the chosen imputation policy. Our solution offers three strategies:
-- **`PREVIOUS` (last known value):** This is the best if you want to effectively ignore missing data by carrying the last observation forward.
-- **`ZERO` or `FIXED_VALUES`:** These methods are similar and should be used when you want missing data to be treated as a potential anomaly. By filling in a rare or out-of-range value (like zero or a specific constant), you make the imputed point stand out to the detector. This approach contrasts with `PREVIOUS`, which aims to make missing data blend in.
+- **`PREVIOUS` (last known value):** This is the best option if you want to effectively ignore missing data by carrying the last observation forward. It is particularly valuable for continuous event streams—such as application logs, clickstreams, or transaction logs aggregated by time—which often suffer from dropped events or blank intervals due to network issues, logging failures, or irregular sampling. These gaps can break time-series anomaly detection models or trigger false alarms. Imputing these gaps yields a continuous, regular sequence with no holes, allowing detectors to correctly identify true anomalies (like unexpected spikes or dips) without being thrown off by missing values. Furthermore, this method is especially useful for multi-feature detectors where a single missing feature would otherwise cause the entire tuple to be discarded. By imputing the missing feature, the system can proceed with anomaly detection on a complete feature vector.
+- **`ZERO` or `FIXED_VALUES`:** These methods are similar and should be used when you want missing data to be treated as a potential anomaly. By filling in a value that is rare in the historical distribution (for example, appearing in less than about 0.5% of past observations, such as zero or a specific sentinel constant), you make the imputed point stand out to the detector. This approach contrasts with `PREVIOUS`, which aims to make missing data blend in. This is critical for scenarios like missing data due to outages, where the primary benefit is reliable missing data alerting.
+
+For Klarna, who needed timely alerts, the solution was to use this feature to treat missing `value_count` metrics as zero, as shown in the detector configuration below:
+
+![mistake](/assets/media/blog-images/2025-11-07-klarna-imputation/setting.png){:class="img-centered"}
+
+This change had a telling effect. As the next image shows, instead of the data gap being ignored, the system now imputes zeros, correctly identifying anomalies as the metric drops:
+
+![mistake](/assets/media/blog-images/2025-11-07-klarna-imputation/sol.png){:class="img-centered"}
 
 ### Algorithm sketch
 
@@ -88,7 +89,7 @@ Input: current tuple $x_t$ with missing index set $M_t$, last known complete tup
 
 4. Normalize or difference the completed tuple to put features on a comparable scale and emphasize changes (e.g., per‑feature z‑score or simple $x_t - x_{t-1}$); then update the forest if the imputed fraction is acceptable.
 
-5. Update data-quality metrics so prolonged imputation lowers confidence. We formalize this process in the next subsection.
+5. Update data-quality metrics so prolonged imputation lowers confidence. We formalize this process in the next section.
 
 Output: shingled, scaled point ready for scoring with deterministic imputed coordinates.
 
@@ -221,7 +222,7 @@ For all $t$, we have $0 \le f_t \le 1$ and $0 \le q_t \le 1$.
     n^{\mathrm{imp}}_{t} \;=\; \max\!\bigl(n^{\mathrm{imp}}_{t-1}-1,\; 0\bigr)\quad\text{for all } t\ge t_1,
     $$
     hence $n^{\mathrm{imp}}_t$ is nonincreasing and reaches $0$ in at most $L$ steps; therefore $f_t \downarrow 0$ and $q_t \uparrow 1$ monotonically.
-- *Fractional model*
+- *Fractional model.*
 
   As mentioned above, the exact one-step change is
   $$
@@ -247,18 +248,13 @@ Also, because $q_t$ is always in the range $[0, 1]$, the smoothed statistic $\ma
 
 ## System architecture
 
-Despite a large literature on time-series anomaly detection, 
-much of it targets univariate, regularly sampled, offline 
-settings; support for multivariate, streaming, irregular 
-timestamps, heterogeneous series, and missing 
-data—especially in combination—is thinner in mainstream 
-tools and many academic baselines. Our system is designed for the challenging real-world regime of streaming, multivariate series with irregular timestamps and missing values.
+Despite a large literature on time-series anomaly detection, much of it targets univariate, regularly sampled, offline settings; support for multivariate, streaming, irregular timestamps, heterogeneous series, and missing data—especially in combination—is thinner in mainstream tools and many academic baselines. Our system is designed for the challenging real-world regime of streaming, multivariate series with irregular timestamps and missing values.
 
 With that context, we now turn to the architecture that makes these guarantees concrete at scale. Our system is a distributed pipeline that processes each incoming data point within minutes. At a high level, it consists of three main components:
 
 -   **Coordinator Node:** This node orchestrates the data flow. It retrieves time-stamped records from the source, aggregates them into metric streams, and assigns each stream to a specific Model Node. By using the model ID as the partition key, it ensures that every time series has a **deterministic and stable owner**.
 
--   **Model Nodes:** Each model node hosts tens of thousands of independent model instances. Every instance is dedicated to a single time series and maintains its own state, allowing for embarrassing parallelism. This design allows the system to scale both horizontally (by adding more nodes) and vertically (by adding more CPU and memory per node).
+-   **Model Nodes:** Each model node hosts tens of thousands of independent model instances. Every instance is dedicated to a single time series and maintains its own state, allowing for embarrassingly parallel execution. This design allows the system to scale both horizontally (by adding more nodes) and vertically (by adding more CPU and memory per node).
 
 -   **Inference Queues:** To protect the system from data bursts and processing delays, each Model Node has its own inference queue. The Coordinator pushes data into these queues, and the Model instances pull from them. This decouples data ingestion from scoring, provides backpressure, and, crucially, **preserves the chronological order of data for each time series**.
 
@@ -279,7 +275,7 @@ The sequence diagram below illustrates this flow:
 
 ## Conclusion
 
-Klarna’s experience underscored a simple but easily overlooked truth: in real-world monitoring, **“no data” is sometimes the most important data point of all**. By treating silent intervals as a first-class signal rather than a gap to ignore, we were able to close a blind spot where critical outages could otherwise slip by undetected.
+Klarna’s experience underscored a simple but easily overlooked truth: in real-world monitoring, **“no data” is sometimes the anomaly**. By treating silent intervals as a first-class signal rather than a gap to ignore, we were able to close a blind spot where critical outages could otherwise slip by undetected.
 
 The enhancements introduced in OpenSearch 2.17—configurable imputation, the impute‑then‑detect pipeline, and explicit data‑quality gating—give customers fine‑grained control over how missingness is handled. In many cases, simply widening the detector interval is enough to reduce empty buckets. When that is not acceptable for real‑time use cases, carefully chosen imputation policies (such as treating missing `value_count` as zero) can surface anomalies exactly when traffic disappears, without polluting the model with fabricated data.
 
