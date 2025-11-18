@@ -15,13 +15,13 @@ has_math: true
 has_science_table: false
 ---
 
-As companies increasingly depend on real-time insights to maintain reliable operations, handling missing data correctly has become essential for accurate anomaly detection. In this post, we explore recent improvements to the Amazon OpenSearch Service Anomaly Detection plugin, inspired by Klarna’s real-world monitoring use case, where even “no data” proved to be important data.
+As companies increasingly depend on real-time insights to maintain reliable operations, handling missing data correctly has become essential for accurate anomaly detection. Missing data often tells a story of its own—sometimes it's just noise, but other times it's the most critical signal. This brings to mind the classic example of [survivorship bias](https://en.wikipedia.org/wiki/Survivorship_bias#In_the_military) from World War II: analysts studied bullet holes on planes that made it back from combat and initially wanted to add armor where they saw the most damage, like the wings. A statistician pointed out that the real danger showed up in what they *didn't* see—the planes that never returned because hits to the engine or cockpit had brought them down. Those "missing" planes revealed where the armor was truly needed. Similarly, in modern monitoring, the absence of data can be more significant than the data itself. In this post, we explore recent improvements to the Amazon OpenSearch Service Anomaly Detection plugin, inspired by Klarna’s real-world monitoring use case, where sometimes “no data” proves to be important data.
 
 ## Introduction
 
 Anomaly detection in Amazon OpenSearch Service enables users to automatically identify unusual patterns and behaviors in their data streams. This powerful capability has become an essential tool for many organizations seeking to monitor system health, detect issues early, and maintain operational excellence.
 
-However, through continuous customer feedback and real-world usage, we have identified areas where the Anomaly Detection plugin could be further improved, particularly in how it handles scenarios with missing or insufficient input data.
+However, we identified customer use cases that were not well handled by the Anomaly Detection plugin, particularly scenarios with missing or insufficient input data.
 
 This post highlights key enhancements to the Anomaly Detection plugin model, explains how they address these challenges, and illustrates their impact through practical examples from real-world monitoring use cases.
 
@@ -89,11 +89,48 @@ Input: current tuple $x_t$ with missing index set $M_t$, last known complete tup
 
 4. Normalize or difference the completed tuple to put features on a comparable scale and emphasize changes (e.g., per‑feature z‑score or simple $x_t - x_{t-1}$); then update the forest if the imputed fraction is acceptable.
 
-5. Update data-quality metrics so prolonged imputation lowers confidence. We formalize this process in the next section.
+5. Update data-quality metrics so prolonged imputation lowers confidence. We formalize this process in the appendix.
 
 Output: shingled, scaled point ready for scoring with deterministic imputed coordinates.
 
-## Data-quality formalization
+
+
+## System architecture
+
+Despite a large literature on time-series anomaly detection, much of it targets univariate, regularly sampled, offline settings; support for multivariate, streaming, irregular timestamps, heterogeneous series, and missing data—especially in combination—is thinner in mainstream tools and many academic baselines. Our system is designed for the challenging real-world regime of streaming, multivariate series with irregular timestamps and missing values.
+
+With that context, we now turn to the architecture that makes these guarantees concrete at scale. Our system is a distributed pipeline that processes each incoming data point within minutes. At a high level, it consists of three main components:
+
+-   **Coordinator Node:** This node orchestrates the data flow. It retrieves time-stamped records from the source, aggregates them into metric streams, and assigns each stream to a specific Model Node. By using the model ID as the partition key, it ensures that every time series has a **deterministic and stable owner**.
+
+-   **Model Nodes:** Each model node hosts tens of thousands of independent model instances. Every instance is dedicated to a single time series and maintains its own state, allowing for embarrassingly parallel execution. This design allows the system to scale both horizontally (by adding more nodes) and vertically (by adding more CPU and memory per node).
+
+-   **Inference Queues:** To protect the system from data bursts and processing delays, each Model Node has its own inference queue. The Coordinator pushes data into these queues, and the Model instances pull from them. This decouples data ingestion from scoring, provides backpressure, and, crucially, **preserves the chronological order of data for each time series**.
+
+### Handling Missing Data with Exactly-Once Semantics
+
+The core challenge with streaming imputation is knowing when a data point is truly missing versus just being delayed. Our system solves this with a two-phase, "ACK-then-impute" barrier:
+
+1.  **Real-time Scoring:** For any given time interval *t*, the Coordinator paginates through the source to fetch and sends real records to the appropriate Model Nodes for scoring.
+
+2.  **Synchronization and Imputation:** The Coordinator waits for an acknowledgment (ACK) from all Model Nodes, confirming they have processed the real data for interval *t*. This ACK barrier ensures that no imputation happens prematurely. Once synchronized, the Coordinator sends a control message to trigger the imputation phase for any series that were silent.
+
+Upon receiving this message, each model instance responsible for a silent series checks against a lateness threshold (e.g., one detector interval). If no real data has arrived within this window, the instance **locks the `(series, t)` time slot** and generates an imputed value. This lock is the key to our **exactly-once guarantee**: if the real data point arrives late, the system sees the lock and discards the late record, preventing duplicates and preserving the integrity of the timeline.
+
+The sequence diagram below illustrates this flow:
+
+
+![arch](/assets/media/blog-images/2025-11-07-klarna-imputation/arch.png){:class="img-centered"}
+
+## Conclusion
+
+Klarna’s experience underscored a simple but easily overlooked truth: in real-world monitoring, **“no data” is sometimes the anomaly**. By treating silent intervals as a first-class signal rather than a gap to ignore, we were able to close a blind spot where critical outages could otherwise slip by undetected.
+
+The enhancements introduced in OpenSearch 2.17—configurable imputation, the impute‑then‑detect pipeline, and explicit data‑quality gating—give customers fine‑grained control over how missingness is handled. In many cases, simply widening the detector interval is enough to reduce empty buckets. When that is not acceptable for real‑time use cases, carefully chosen imputation policies (such as treating missing `value_count` as zero) can surface anomalies exactly when traffic disappears, without polluting the model with fabricated data.
+
+Combined with a distributed architecture that maintains deterministic model ownership, per‑node queues, and exactly‑once semantics across real and imputed values, these capabilities help OpenSearch users operate at Klarna’s scale with greater confidence. Whether you are monitoring payments, logs, IoT signals, or application metrics, the same principle applies: define how you want the system to behave when data goes quiet, and make that behavior explicit in your anomaly detector configuration. When you do, “no data” becomes a powerful part of your observability story—not a dangerous blind spot.
+
+## Appendix: Data-quality formalization
 
 We quantify how missingness affects learning and decisions via a bounded, monotone data-quality signal, and expose it so users can judge how much confidence to place in the detector’s outputs—especially when imputation is active and model quality may be degraded—and decide when the data quality is high enough that an alert threshold has truly been met.
 
@@ -245,38 +282,3 @@ The established monotonicity of the imputation fraction $f_t$ directly impacts t
 Generally, any linear filter with nonnegative coefficients preserves the monotonicity of its input sequence (e.g., [EUSIPCO 2000](https://www.eurasip.org/Proceedings/Eusipco/Eusipco2000/SESSIONS/FRIAM/OR1/CR1358.PDF#:~:text=lter%20is%20that%20its%20root,k%20for%20an%20increasing%20sequence)). An exponential moving average is one such filter—it has impulse‑response weights $\{\lambda(1-\lambda)^k : k=0,1,2,\dots\}$, all positive when $0 \lt \lambda \lt 1$. Since $\mathrm{DQ}_t$ is an exponential average of the instantaneous quality $q_t = 1-f_t$, it inherits these monotonic trends. 
 
 Also, because $q_t$ is always in the range $[0, 1]$, the smoothed statistic $\mathrm{DQ}_t$ is also guaranteed to remain within $[0, 1]$. This follows directly from the standard exponential‑smoothing recurrence, where the new value is a convex combination—i.e., a weighted average with nonnegative weights that sum to 1, so it lies between its inputs—of the previous smoothed value $\mathrm{DQ}_{t-1}$ and the current observation $q_t$ (specifically $(1-\lambda)\mathrm{DQ}_{t-1}+\lambda q_t$ with $0 \lt \lambda \lt 1$), ensuring it never leaves the bounds defined by the input signal (see Wikipedia's article on ["Convex combination"](https://en.wikipedia.org/wiki/Convex_combination#:~:text=As%20a%20particular%20example%2C%20every,1)). During a sustained period of missing data, as $f_t$ trends up, $q_t$ trends down, and $\mathrm{DQ}_t$ follows suit, decreasing smoothly. Conversely, when real data returns and $f_t$ trends down, $q_t$ trends up, and $\mathrm{DQ}_t$ reliably recovers towards 1. This ensures the gating mechanism, which relies on these signals, is stable and responds to persistent changes in data quality rather than short-term noise.
-
-## System architecture
-
-Despite a large literature on time-series anomaly detection, much of it targets univariate, regularly sampled, offline settings; support for multivariate, streaming, irregular timestamps, heterogeneous series, and missing data—especially in combination—is thinner in mainstream tools and many academic baselines. Our system is designed for the challenging real-world regime of streaming, multivariate series with irregular timestamps and missing values.
-
-With that context, we now turn to the architecture that makes these guarantees concrete at scale. Our system is a distributed pipeline that processes each incoming data point within minutes. At a high level, it consists of three main components:
-
--   **Coordinator Node:** This node orchestrates the data flow. It retrieves time-stamped records from the source, aggregates them into metric streams, and assigns each stream to a specific Model Node. By using the model ID as the partition key, it ensures that every time series has a **deterministic and stable owner**.
-
--   **Model Nodes:** Each model node hosts tens of thousands of independent model instances. Every instance is dedicated to a single time series and maintains its own state, allowing for embarrassingly parallel execution. This design allows the system to scale both horizontally (by adding more nodes) and vertically (by adding more CPU and memory per node).
-
--   **Inference Queues:** To protect the system from data bursts and processing delays, each Model Node has its own inference queue. The Coordinator pushes data into these queues, and the Model instances pull from them. This decouples data ingestion from scoring, provides backpressure, and, crucially, **preserves the chronological order of data for each time series**.
-
-### Handling Missing Data with Exactly-Once Semantics
-
-The core challenge with streaming imputation is knowing when a data point is truly missing versus just being delayed. Our system solves this with a two-phase, "ACK-then-impute" barrier:
-
-1.  **Real-time Scoring:** For any given time interval *t*, the Coordinator paginates through the source to fetch and sends real records to the appropriate Model Nodes for scoring.
-
-2.  **Synchronization and Imputation:** The Coordinator waits for an acknowledgment (ACK) from all Model Nodes, confirming they have processed the real data for interval *t*. This ACK barrier ensures that no imputation happens prematurely. Once synchronized, the Coordinator sends a control message to trigger the imputation phase for any series that were silent.
-
-Upon receiving this message, each model instance responsible for a silent series checks against a lateness threshold (e.g., one detector interval). If no real data has arrived within this window, the instance **locks the `(series, t)` time slot** and generates an imputed value. This lock is the key to our **exactly-once guarantee**: if the real data point arrives late, the system sees the lock and discards the late record, preventing duplicates and preserving the integrity of the timeline.
-
-The sequence diagram below illustrates this flow:
-
-
-![arch](/assets/media/blog-images/2025-11-07-klarna-imputation/arch.png){:class="img-centered"}
-
-## Conclusion
-
-Klarna’s experience underscored a simple but easily overlooked truth: in real-world monitoring, **“no data” is sometimes the anomaly**. By treating silent intervals as a first-class signal rather than a gap to ignore, we were able to close a blind spot where critical outages could otherwise slip by undetected.
-
-The enhancements introduced in OpenSearch 2.17—configurable imputation, the impute‑then‑detect pipeline, and explicit data‑quality gating—give customers fine‑grained control over how missingness is handled. In many cases, simply widening the detector interval is enough to reduce empty buckets. When that is not acceptable for real‑time use cases, carefully chosen imputation policies (such as treating missing `value_count` as zero) can surface anomalies exactly when traffic disappears, without polluting the model with fabricated data.
-
-Combined with a distributed architecture that maintains deterministic model ownership, per‑node queues, and exactly‑once semantics across real and imputed values, these capabilities help OpenSearch users operate at Klarna’s scale with greater confidence. Whether you are monitoring payments, logs, IoT signals, or application metrics, the same principle applies: define how you want the system to behave when data goes quiet, and make that behavior explicit in your anomaly detector configuration. When you do, “no data” becomes a powerful part of your observability story—not a dangerous blind spot.
