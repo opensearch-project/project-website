@@ -62,7 +62,8 @@ Below is a typical natural language query used to compare agentic search with ke
 Agentic search interprets the intent of the query and understands that the user is looking for sunglasses, returning results aligned with that meaning.
 In contrast, a traditional keyword search focuses on token matches such as “want,” “buy,” “black,” “shades,” or “dad,” which can dilute relevance and lead to less accurate results.
 
-![Agentic Search vs Keyword Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/keyword.png)
+![Agentic Search vs Keyword Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/keyword1.png)
+![Agentic Search vs Keyword Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/keyword2.png)
 
 
 ### Agentic Search vs Neural Search
