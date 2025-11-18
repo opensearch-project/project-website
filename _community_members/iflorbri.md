@@ -20,7 +20,7 @@ breadcrumbs:
     - title: "Brian Flores&apos;s Profile"
       url: '/community/members/brian-flores.html'
 
-job_title_and_company: 'Software Developer Engineer at AWS'
+job_title_and_company: 'Software Development Engineer at AWS'
 
 permalink: '/community/members/brian-flores.html'
 
@@ -34,5 +34,5 @@ linkedin: bflo
 
 ---
 
-**Brian Flores** is a software engineer at AWS working on the OpenSearch project. His current interests include teaching math and computer science (primarily to students), algorithmic art, puzzles, and music. His current work involves serverless feature development and contributing to the ML Plugin.
+**Brian Flores** is a software engineer at AWS working on the OpenSearch Project. His current interests include teaching math and computer science (primarily to students), algorithmic art, puzzles, and music. His current work involves serverless feature development and contributing to the ML Commons plugin.
 
