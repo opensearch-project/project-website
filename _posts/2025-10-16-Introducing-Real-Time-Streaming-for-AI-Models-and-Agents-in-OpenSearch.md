@@ -3,7 +3,7 @@ layout: post
 title:  "Introducing real-time streaming for AI models and agents in OpenSearch"
 authors:
  - nathhjo
-date: 2025-10-16
+date: 2025-11-18
 categories:
   - technical-posts
 meta_keywords: OpenSearch, streaming API, real-time AI, AI models, agents, machine learning, open-source LLM
