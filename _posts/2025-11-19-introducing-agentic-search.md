@@ -113,9 +113,11 @@ The results for agentic search (left) and semantic search (right) are shown in t
 
 ![Agentic search compared to semantic search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/neural.png)
 
-**Agentic search** provides more comprehensive understanding by interpreting the full context and user goal, focusing specifically on black sunglasses suitable for gifting.
+**Agentic search** provides more comprehensive understanding by interpreting the full context and your goal, focusing specifically on black sunglasses suitable for gifting.
 
-**Semantic search** understands semantic meaning and correctly identifies "shades" as sunglasses. However, it may also return results for anything black-colored, because it processes all query terms without understanding the complete user intent.
+**Semantic search** understands semantic meaning and correctly identifies "shades" as sunglasses. However, it may also return results for anything black-colored, because it processes all query terms without understanding your complete intent.
+
+These comparisons illustrate agentic search's core advantage: comprehensive intent understanding that goes beyond keyword matching or semantic similarity.
 
 ## How agentic search works
 
@@ -129,9 +131,7 @@ For example, you can ask questions such as:
 
 The agent then carries out the necessary steps—such as identifying relevant indexes, planning the query, or gathering supplemental information—and returns results aligned with your intent. It also provides a transparent explanation of the tools and decisions involved.
 
-## Agentic search capabilities
-
-OpenSearch 3.3 introduces several powerful capabilities that enable natural, conversational interaction with your data while providing advanced orchestration across systems.
+OpenSearch 3.3 introduces several key capabilities that enable this natural, conversational interaction with your data while providing advanced orchestration across systems.
 
 ### Conversational search experience
 
@@ -150,7 +150,7 @@ If the agent can't find enough information in your indexes, it performs a web se
 
 ### Custom search templates
 
-Advanced users can define custom search templates that capture known query strategies or domain-specific logic. The agent automatically selects and fills in the most appropriate template based on your question and conversation context. This hybrid approach lets experts apply their domain knowledge while still interacting through a natural language interface.
+As an advanced user, you can define custom search templates that capture known query strategies or domain-specific logic. The agent automatically selects and fills in the most appropriate template based on your question and conversation context. This hybrid approach lets you apply your domain knowledge while still interacting through a natural language interface.
 
 ### External system integration
 
