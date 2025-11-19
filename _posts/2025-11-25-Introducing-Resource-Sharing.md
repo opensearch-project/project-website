@@ -76,7 +76,7 @@ For anomaly detection, the setting that controls this model is `plugins.anomaly_
 
 A good mental model for Access Levels is the familiar Google Docs sharing model where the owner of a Google doc can share the doc at 4 different levels.
 
-- Viewer - Users at Viewer level can read the Google document
+- Viewer - Users at Viewer level can read the document
 - Commenter - Users at the Commenter level can read the document and leave comments
 - Editor - Editors can read, comment and edit the document
 - Full Access - Users with Full Access can read, edit, comment and share the document
