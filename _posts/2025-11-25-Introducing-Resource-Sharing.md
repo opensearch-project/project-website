@@ -53,7 +53,7 @@ Resource sharing and access control provides the missing layer—allowing these 
 
 ### Legacy access control model
 
-Historically, many OpenSearch plugins have relied on a coarse, backend-role–based model to control access to plugin-defined resources. In this model—commonly referred to as `filter_by_backend_role`—a resource created by one user becomes visible to another only if both users share at least one backend role. This ties visibility entirely to role overlap, giving the resource owner no ability to control who can or cannot see their resource.
+Historically, many OpenSearch plugins have relied on a coarse, backend-role–based model to control access to plugin-defined resources. In this model—commonly referred to as `filter_by_backend_role`—a resource created by one user becomes visible to another only if both users share at least one backend role. In practice, this means that if two users share a backend role, they automatically see each other’s resources—and the owner has no way to control who gets access or what they can do with it.
 
 This model introduces several limitations:
 
@@ -72,16 +72,14 @@ For anomaly detection, the setting that controls this model is `plugins.anomaly_
 
 ## Access levels
 
-An **access level** defines a set of permissions that apply to an individual resource. Plugins that create sharable resources must declare the access levels associated with each type. Access levels build progressively on one another.
+**Access Level** is a group of permissions that are applicable to a single resource. Each plugin that creates sharable resources must specify a list of access levels associated with the sharable resource. Access Levels progressively give more access to what a user can do with the given resource.
 
-A helpful mental model is the sharing experience in a common collaboration tool:
+A good mental model for Access Levels is the familiar Google Docs sharing model where the owner of a Google doc can share the doc at 4 different levels.
 
-* **Viewer** – Users can view the resource.
-* **Commenter** – Users can view the resource and leave comments.
-* **Editor** – Users can view, comment on, and edit the resource.
-* **Full access** – Users can view, edit, comment on, and share the resource.
-
-In resource sharing, these capabilities map to action groups, which the plugin defines.
+- Viewer - Users at Viewer level can read the Google document
+- Commenter - Users at the Commenter level can read the document and leave comments
+- Editor - Editors can read, comment and edit the document
+- Full Access - Users with Full Access can read, edit, comment and share the document
 
 ---
 
@@ -217,7 +215,6 @@ POST /_plugins/_security/api/resources/migrate
   "source_index": ".sample_resource",
   "username_path": "/owner",
   "backend_roles_path": "/backend_roles",
-  "type_path": "/type",
   "default_access_level": {
     "sample-resource": "read_only",
     "sample-resource-group": "read-only-group"
