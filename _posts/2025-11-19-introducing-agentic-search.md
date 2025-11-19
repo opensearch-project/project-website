@@ -58,12 +58,35 @@ Try out agentic search **today** on the [ML Playground](https://ml.playground.op
 ### Agentic Search vs Keyword Search
 
 Below is a typical natural language query used to compare agentic search with keyword based search:
-“I want to buy black shades for my dad.”
+>“I want to buy black shades for my dad”
+
 Agentic search interprets the intent of the query and understands that the user is looking for sunglasses, returning results aligned with that meaning.
 In contrast, a traditional keyword search focuses on token matches such as “want,” “buy,” “black,” “shades,” or “dad,” which can dilute relevance and lead to less accurate results.
 
-![Agentic Search vs Keyword Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/keyword1.png)
-![Agentic Search vs Keyword Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/keyword2.png)
+Agentic Query
+```
+{
+  "query": {
+    "agentic": {
+      "query_text": "%SearchText%",
+      "query_fields": []
+    }
+  }
+}
+```
+
+Keyword Query
+```
+{
+  "query": {
+    "multi_match": {
+      "query": "%SearchText%"
+    }
+  }
+}
+```
+
+![Agentic Search vs Keyword Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/keyword.png)
 
 
 ### Agentic Search vs Neural Search
@@ -71,8 +94,37 @@ In contrast, a traditional keyword search focuses on token matches such as “wa
 
 Similarly to keyword-based search, neural search can understand the semantics of the word “shades” and retrieve results like sunglasses. However, it still doesn’t fully capture and follow the user’s broader intent in the way agentic search does and show other results for the color.
 
-![Agentic Search vs Neural Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/neural1.png)
-![Agentic Search vs Neural Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/neural2.png)
+Query:
+> "Black shaded similar to tom cruise wears in mission impossible"
+
+Agentic Query
+```
+{
+  "query": {
+    "agentic": {
+      "query_text": "%SearchText%",
+      "query_fields": []
+    }
+  }
+}
+```
+
+Neural Query
+```
+{
+  "query": {
+    "neural": {
+        "content_embedding": {
+          "query_text": "%SearchText%",
+          "k": 100,
+          "model_id": "IX-eM5oBVLB2ECqF42kS"
+        }
+      }
+    }
+}
+```
+
+![Agentic Search vs Neural Search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/neural.png)
 
 ## Key Capabilities in OpenSearch 3.3
 
