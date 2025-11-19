@@ -3,12 +3,12 @@ layout: post
 title: "Introducing resource sharing: A new access control model for OpenSearch"
 authors:
   - cwperks
-  - DarshitChanpura
+  - dchanp
 date: 2025-11-25
 categories:
   - technical-post
 meta_keywords: security, resource sharing, access control, distributed systems, extensibility, plugins, authorization
-meta_description: "Learn how OpenSearch 3.4 introduces resource sharing and access control, a new framework for fine-grained collaboration on plugin-defined resources such as ML models and anomaly detectors."
+meta_description: "Learn how OpenSearch 3.3 introduces resource sharing and access control, a new framework for fine-grained collaboration on plugin-defined resources such as ML models and anomaly detectors."
 tags:
   - security
   - access control
@@ -16,14 +16,14 @@ tags:
   - anomaly detection
   - ml commons
   - dashboards
-  - opensearch 3.4
+  - opensearch 3.3
 ---
 
 # Introducing resource sharing: A new access control model for OpenSearch
 
 Collaboration is at the heart of OpenSearch. Teams often need to share artifacts such as dashboards and visualizations, along with plugin-defined resources such as reports, machine learning (ML) models, and anomaly detectors, across users and roles. At the same time, administrators must ensure that access remains controlled, auditable, and consistent with broader security policies.
 
-Starting in OpenSearch 3.4, the Security plugin introduces **resource sharing and access control**, a framework that enables users to share resources with other users or roles while enforcing fine-grained access rules. This model brings resource-level authorization to higher-level objects defined by plugins and creates a consistent collaboration experience across the OpenSearch ecosystem.
+Starting in OpenSearch 3.3, the Security plugin introduces **resource sharing and access control**, a framework that enables users to share resources with other users or roles while enforcing fine-grained access rules. This model brings resource-level authorization to higher-level objects defined by plugins and creates a consistent collaboration experience across the OpenSearch ecosystem.
 
 ---
 
@@ -160,24 +160,37 @@ PATCH /_plugins/_security/api/resource/share
 
 ---
 
-## Cluster settings in 3.4
+## Cluster settings
 
-Administrators can enable or disable resource sharing at runtime using dynamic cluster settings:
+Resource sharing feature can be enabled through cluster settings.
 
-```curl
+In **OpenSearch 3.3**, resource sharing settings can be changed only by updating `opensearch.yml` and restarting the cluster:
+
+```yaml
+plugins.security.experimental.resource_sharing.enabled: true
+plugins.security.experimental.resource_sharing.protected_types: ["anomaly-detector", "forecaster", "ml-model"]
+```
+
+Starting in **OpenSearch 3.4**, these settings can be updated dynamically at runtime by using the `_cluster/settings` API:
+
+```bash
 PUT _cluster/settings
 {
   "persistent": {
     "plugins.security.experimental.resource_sharing.enabled": "true",
-    "plugins.security.experimental.resource_sharing.protected_types": ["anomaly-detector", "forecaster", "ml-model"]
+    "plugins.security.experimental.resource_sharing.protected_types": [
+      "anomaly-detector",
+      "forecaster",
+      "ml-model"
+    ]
   }
 }
 ```
 
 * `plugins.security.experimental.resource_sharing.enabled`: Enables or disables resource sharing globally.
-* `plugins.security.experimental.resource_sharing.protected_types`: Lists the resource types that use resource-level authorization.
+* `plugins.security.experimental.resource_sharing.protected_types`: Marks the resource types that should use resource-level authorization when the feature is enabled.
 
-By default, resource sharing is disabled so that administrators can opt in intentionally.
+By default, resource sharing is **disabled** so that administrators can opt in intentionally.
 
 ---
 
@@ -233,7 +246,7 @@ Stay tuned for Part 2, where we will look at the underlying metadata model, how 
 
 ## Conclusion
 
-With the introduction of resource sharing and access control in OpenSearch 3.4, teams can collaborate on higher-level resources with greater flexibility and security. Whether you manage report definitions, anomaly detectors, or ML models, you can now share them safely with colleagues and teams.
+With the introduction of resource sharing and access control in OpenSearch 3.3, teams can collaborate on higher-level resources with greater flexibility and security. Whether you manage report definitions, anomaly detectors, or ML models, you can now share them safely with colleagues and teams.
 
 You can try this feature today by enabling it in your cluster settings and exploring the APIs. If you use the Anomaly Detection or ML Commons plugins, consider sharing a detector or model to see how this model simplifies collaboration and security in your environment.
 
