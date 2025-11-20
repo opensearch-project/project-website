@@ -68,7 +68,7 @@ As an advanced user, you can define custom [search templates](https://docs.opens
 
 ### External system integration
 
-Connect to external systems using MCP (Model Context Protocol) connectors (a standardized way to integrate with external data sources and services) to expand search capabilities beyond your OpenSearch cluster. By connecting to external MCP servers or compute environments, the agent can orchestrate broader query planning and execution across multiple systems, enabling advanced workflows that enrich queries with data from third-party services. For more information, see [Using external MCP servers](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/mcp-server/).
+Connect to external systems using Model Context Protocol (MCP) connectors (a standardized way to integrate with external data sources and services) to expand search capabilities beyond your OpenSearch cluster. By connecting to external MCP servers or compute environments, the agent can orchestrate broader query planning and execution across multiple systems, enabling advanced workflows that enrich queries with data from third-party services. For more information, see [Using external MCP servers](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/mcp-server/).
 
 ## How agentic search differs from other search types
 
@@ -154,7 +154,7 @@ The results for agentic search (left) and semantic search (right) are shown in t
 
 **Semantic search** understands semantic meaning and correctly identifies "shades" as sunglasses. However, it may also return results for anything black-colored, because it processes all query terms without understanding your complete intent.
 
-These comparisons illustrate agentic search's core advantage: comprehensive intent understanding that goes beyond keyword matching or semantic similarity.
+These comparisons illustrate agentic search's core advantage: going beyond keyword matching or simple semantic similarity by deeply understanding intent, selecting the right tools, and incorporating external information when needed.
 
 ## Example use cases
 
@@ -221,7 +221,7 @@ To use agentic search in OpenSearch Dashboards, follow these steps:
 1. Navigate to **OpenSearch Plugins** > **AI Search Flows**.
 2. Select **Create new workflow** and then select **Agentic Search**.
 3. Provide a workflow name to save your configuration.
-4. Select **"Create"** to open the agentic search interface.
+4. Select **Create** to open the agentic search interface.
 
 The interface has two main sections:
 - **Left panel**: Configure and create agents
@@ -232,6 +232,7 @@ For detailed instructions, see the [agentic search documentation](https://docs.o
 ## What's next
 
 We're currently implementing further performance optimizations for agentic search, including prompt caching, multi-agent architecture, and improved agent tracing. We're planning to publish additional blog posts that describe our evaluation framework, query accuracy, and user experience.
+
 If you have feedback, questions, or ideas for additional use cases you'd like to see implemented, we'd love to hear from you. Join the discussion on the [OpenSearch forum](https://forum.opensearch.org/t/use-cases-and-general-feedback-for-agentic-search/27488) or in the [OpenSearch Slack](https://opensearch.org/slack/).
 
 To track ongoing development and design updates, see the [Agentic search RFC](https://github.com/opensearch-project/neural-search/issues/1525).
