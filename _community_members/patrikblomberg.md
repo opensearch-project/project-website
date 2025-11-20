@@ -21,4 +21,4 @@ permalink: '/community/members/patrikblomberg.html'
 redirect_from: '/authors/patrikblomberg/'
 ---
 
-Kenton Parton is a Lead Engineer at Klarna, where he oversees near real-time services for predictive analytics and anomaly detection.
+Patrik Blomberg is a Lead Engineer at Klarna, where he oversees near real-time services for predictive analytics and anomaly detection.
