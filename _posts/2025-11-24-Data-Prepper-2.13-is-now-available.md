@@ -80,4 +80,48 @@ Now Data Prepper users can read from multiple buckets in different regions. And 
 ## Thanks to our contributors!
 Thanks to the following community members who contributed to this release!
 
-TODO:
+* [akshay0709](https://github.com/akshay0709) -- Akshay Pawar
+* [alparish](https://github.com/alparish)
+* [chenqi0805](https://github.com/chenqi0805) -- Qi Chen
+* [danhli](https://github.com/danhli) -- Daniel Li
+* [Davidding4718](https://github.com/Davidding4718) -- Siqi Ding
+* [derek-ho](https://github.com/derek-ho) -- Derek Ho
+* [dinujoh](https://github.com/dinujoh) -- Dinu John
+* [divbok](https://github.com/divbok) -- Divyansh Bokadia
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [FedericoBrignola](https://github.com/FedericoBrignola)
+* [franky-m](https://github.com/franky-m)
+* [gaiksaya](https://github.com/gaiksaya) -- Sayali Gaikawad
+* [Galactus22625](https://github.com/Galactus22625) -- Maxwell Brown
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [huypham612](https://github.com/huypham612) -- huyPham
+* [ivan-tse](https://github.com/ivan-tse) -- Ivan Tse
+* [janhoy](https://github.com/janhoy) -- Jan Høydahl
+* [jayeshjeh](https://github.com/jayeshjeh) -- Jayesh Parmar
+* [jeffreyAaron](https://github.com/jeffreyAaron) -- Jeffrey Aaron Jeyasingh
+* [jmsusanto](https://github.com/jmsusanto) -- Jeremy Michael
+* [joelmarty](https://github.com/joelmarty) -- Joël Marty
+* [juergen-walter](https://github.com/juergen-walter) -- Jürgen Walter
+* [KarstenSchnitter](https://github.com/KarstenSchnitter) -- Karsten Schnitter
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [LeeroyHannigan](https://github.com/LeeroyHannigan) -- Lee
+* [linghengqian](https://github.com/linghengqian) -- Ling Hengqian
+* [mishavay-aws](https://github.com/mishavay-aws)
+* [MohammedAghil](https://github.com/MohammedAghil) -- Mohammed Aghil Puthiyottil
+* [niketan16](https://github.com/niketan16) -- Niketan Chandarana
+* [nsgupta1](https://github.com/nsgupta1) -- Neha Gupta
+* [oeyh](https://github.com/oeyh) -- Hai Yan
+* [ps48](https://github.com/ps48) -- Shenoy Pratik
+* [quanghungb](https://github.com/quanghungb) -- qhung
+* [RashmiRam](https://github.com/RashmiRam) -- Rashmi
+* [Rishikesh1159](https://github.com/Rishikesh1159) -- Rishikesh
+* [saketh-pallempati](https://github.com/saketh-pallempati) -- Saketh Pallempati
+* [san81](https://github.com/san81) -- Santhosh Gandhe
+* [savit-aluri](https://github.com/savit-aluri) -- Savit Aluri
+* [sb2k16](https://github.com/sb2k16) -- Souvik Bose
+* [seschis](https://github.com/seschis) -- Shane Schisler
+* [shenkw1](https://github.com/shenkw1) -- Katherine Shen
+* [srikanthjg](https://github.com/srikanthjg) -- Srikanth Govindarajan
+* [timo-mue](https://github.com/timo-mue)
+* [TomasLongo](https://github.com/TomasLongo) -- Tomas
+* [Zhangxunmt](https://github.com/Zhangxunmt) -- Xun Zhang
