@@ -25,7 +25,7 @@ Similarly, in modern monitoring, the absence of data can be more significant tha
 
 Anomaly detection in Amazon OpenSearch Service enables users to automatically identify unusual patterns and behaviors in their data streams. This powerful capability has become an essential tool for many organizations seeking to monitor system health, detect issues early, and maintain operational excellence.
 
-However, we identified customer use cases that were not well-handled by the Anomaly Detection plugin, particularly scenarios with missing or insufficient input data.
+However, we identified customer use cases that were not well handled by the Anomaly Detection plugin, particularly scenarios with missing or insufficient input data.
 
 This post highlights key enhancements to the Anomaly Detection plugin model, explains how they address these challenges, and illustrates their impact through practical examples from real-world monitoring use cases.
 
@@ -33,7 +33,7 @@ This post highlights key enhancements to the Anomaly Detection plugin model, exp
 
 Klarna is a leading global payments and shopping service provider, operating a large ecosystem of consumer and merchant integrations that demand high reliability and real-time insight. To maintain the highest level of quality and uptime across this ecosystem, Klarna continuously monitors its integrations and transactions using various systems designed to track performance and detect issues in real time.
 
-Klarna's monitoring use cases involve a wide range of business and transactional metrics, analyzed across many dimensions such as markets, regions, product features, and integrations. The combination of these factors results in extremely high-cardinality time-series data—a scale where efficient aggregation and anomaly detection become both technically challenging and cost-sensitive.
+Klarna's monitoring use cases involve a wide range of business and transactional metrics, analyzed across many dimensions such as markets, regions, product features, and integrations. The combination of these factors results in extremely high-cardinality time-series data—a scale where efficient aggregation and anomaly detection become both technically challenging and cost sensitive.
 
 When migrating one of their real-time monitoring systems, Klarna evaluated several alternatives and found OpenSearch to be a promising candidate. Its flexible query model and scalable architecture made it particularly appealing for handling complex, high-cardinality data dimensions while maintaining granular visibility across merchant and partner integrations. During testing, they confirmed that OpenSearch performed well in detecting many types of anomalies.
 
@@ -59,9 +59,9 @@ Upon further investigation, the team found that this behavior was rooted in how 
 
 Klarna's experience highlighted a crucial question in anomaly detection: how should you handle missing data? The first and simplest strategy to consider is often to widen the detector interval. In many monitoring setups, a slightly longer interval is the cleanest way to reduce the number of empty data buckets. However, an interval that is too long makes detection too laggy for real-time use cases. When widening the interval is not an option, imputation is the preferred solution, but it must be handled with care—imputing over long gaps can introduce stale, unrepresentative information.
 
-[Studies](https://dl.acm.org/doi/10.1145/3314344.3332490) have shown that anomaly detection methods perform significantly better on incomplete data when augmented with imputation techniques versus leaving gaps unfilled. Using the area under the ROC curve (AUC) as the evaluation metric—which measures the probability that an anomaly detector correctly ranks a randomly-chosen anomaly above a randomly-chosen nominal point—the study demonstrates that as the fraction of missing values $$\rho$$ increases, AUC degrades for all approaches, but imputation methods degrade gracefully while the reduced method (which simply discards missing dimensions) fails catastrophically.
+[Studies](https://dl.acm.org/doi/10.1145/3314344.3332490) have shown that anomaly detection methods perform significantly better on incomplete data when augmented with imputation techniques versus leaving gaps unfilled. Using the area under the ROC curve (AUC) as the evaluation metric—which measures the probability that an anomaly detector correctly ranks a randomly chosen anomaly above a randomly chosen nominal point—the study demonstrates that as the fraction of missing values $$\rho$$ increases, AUC degrades for all approaches, but imputation methods degrade gracefully while the reduced method (which simply discards missing dimensions) fails catastrophically.
 
-Specifically, as $$\rho$$ increases from 0 to 0.8, imputation methods maintain strong performance with AUC declining only from 1.0 to approximately 0.8. In contrast, the reduced method's AUC plummets from 1.0 to 0.5—equivalent to random guessing—at high missingness levels ($$\rho = 0.7, 0.8$$).
+Specifically, as $$\rho$$ increases from 0 to 0.8, imputation methods maintain strong performance, with AUC declining only from 1.0 to approximately 0.8. In contrast, the reduced method's AUC plummets from 1.0 to 0.5—equivalent to random guessing—at high missingness levels ($$\rho = 0.7, 0.8$$).
 
 
 ### The “impute-then-detect” pipeline
@@ -125,9 +125,9 @@ With that context, we now turn to the architecture that makes these guarantees c
 
 The core challenge with streaming imputation is knowing when a data point is truly missing versus just being delayed. The system solves this with a two-phase, "ACK-then-impute" barrier:
 
-1.  **Real-time Scoring**: For any given time interval *t*, the coordinator paginates through the source to fetch real records and sends them to the appropriate model nodes for scoring.
+1.  **Real-time scoring**: For any given time interval *t*, the coordinator paginates through the source to fetch real records and sends them to the appropriate model nodes for scoring.
 
-2.  **Synchronization and Imputation**: The coordinator waits for an acknowledgment (ACK) from all model nodes, confirming they have processed the real data for interval *t*. This ACK barrier ensures that no imputation happens prematurely. Once synchronized, the coordinator sends a control message to trigger the imputation phase for any series that were silent.
+2.  **Synchronization and imputation**: The coordinator waits for an acknowledgment (ACK) from all model nodes, confirming they have processed the real data for interval *t*. This ACK barrier ensures that no imputation happens prematurely. Once synchronized, the coordinator sends a control message to trigger the imputation phase for any series that were silent.
 
 Upon receiving this message, each model instance responsible for a silent series checks against a lateness threshold (e.g., one detector interval). If no real data has arrived within this window, the instance **locks the `(series, t)` time slot** and generates an imputed value. This lock is the key to the **exactly-once guarantee**: if the real data point arrives late, the system sees the lock and discards the late record, preventing duplicates and preserving the integrity of the timeline.
 
@@ -139,13 +139,13 @@ The sequence diagram in the following image illustrates this flow.
 
 Klarna's experience underscored a simple but easily overlooked truth: in real-world monitoring, **"no data" is sometimes the anomaly**. By treating silent intervals as a first-class signal rather than a gap to ignore, we closed a blind spot where critical outages could slip by undetected.
 
-OpenSearch 2.17's configurable imputation—with `PREVIOUS`, `ZERO`, and `FIXED_VALUES` strategies—gives users fine-grained control over missingness. Choose `PREVIOUS` when gaps shouldn't trigger alerts, or `ZERO` and `FIXED_VALUES` when absence itself is the signal. Combined with data-quality gating and exactly-once semantics, these capabilities enable reliable anomaly detection at scale.
+OpenSearch 2.17's configurable imputation—with `PREVIOUS`, `ZERO`, and `FIXED_VALUES` strategies—gives users fine-grained control over missingness. Choose `PREVIOUS` when gaps shouldn't trigger alerts or `ZERO` and `FIXED_VALUES` when absence itself is the signal. Combined with data-quality gating and exactly-once semantics, these capabilities enable reliable anomaly detection at scale.
 
 Looking ahead, more sophisticated imputation methods—such as the [proportional distribution and MAP-based techniques](https://dl.acm.org/doi/pdf/10.1145/3314344.3332490) that achieve even higher AUC under severe missingness—could further enhance detection accuracy in future versions. For now, the principle is clear: define how your system should behave when data goes quiet, and make that explicit in your detector configuration. When you do, "no data" becomes a powerful part of your observability story—not a dangerous blind spot.
 
 ## Appendix: Data quality formalization
 
-We quantify how missingness affects learning and decisions via a bounded, monotone data-quality signal, and expose it so users can judge how much confidence to place in the detector's outputs—especially when imputation is active and model quality may be degraded—and decide when the data quality is high enough that an alert threshold has truly been met.
+We quantify how missingness affects learning and decisions via a bounded, monotone data-quality signal and expose it so users can judge how much confidence to place in the detector's outputs—especially when imputation is active and model quality may be degraded—and decide when the data quality is high enough that an alert threshold has truly been met.
 
 Let the shingle (window) length be $$L$$. A *shingle* is a sliding window of the last $$L$$ observations; at time $$t$$ we form the vector $$s_t = [x_{t-L+1}, \dots, x_t]$$ by concatenating the last $$L$$ tuples (if each $$x_t \in \mathbb{R}^p$$, then $$s_t \in \mathbb{R}^{pL}$$). Each step drops the oldest tuple and appends the newest, letting the detector capture short-term temporal patterns without an explicit state model.
 
