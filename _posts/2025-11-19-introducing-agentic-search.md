@@ -53,7 +53,7 @@ Maintain context across queries using memory IDs, enabling seamless multi-turn i
 
 ### Built-in tools
 
-Agentic search uses built-in tools to retrieve, understand, and enrich information. The `ListIndexTool` identifies which indexes exist in your cluster, while the `IndexMappingTool` helps the agent understand their structure and fields. The `QueryPlanningTool` generates optimized queries from your natural language questions. When a query can't be fully answered from local data, the `WebSearchTool` retrieves relevant external information.
+Agentic search uses [built-in tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/) to retrieve, understand, and enrich information. The `ListIndexTool` identifies which indexes exist in your cluster, while the `IndexMappingTool` helps the agent understand their structure and fields. The `QueryPlanningTool` generates optimized queries from your natural language questions. When a query can't be fully answered from local data, the `WebSearchTool` retrieves relevant external information.
 
 For example, you can ask the following questions:
 
