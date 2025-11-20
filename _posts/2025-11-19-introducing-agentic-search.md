@@ -40,7 +40,7 @@ Agentic search is powered by an intelligent, agent-driven system that interprets
 For example, you can ask questions such as:
 
 * "Find red cars under $30,000"
-* "Show me last quarter's sales trends"
+* "List last quarter's sales trends for shoes"
 * "What are the top performing products in the electronics category?"
 
 The agent then carries out the necessary steps—such as identifying relevant indexes, planning the query, or gathering supplemental information—and returns results aligned with your intent. It also provides a detailed explanation of the tools and decisions involved.
@@ -68,13 +68,13 @@ As an advanced user, you can define custom [search templates](https://docs.opens
 
 ### External system integration
 
-Connect to external systems using MCP (Model Context Protocol) connectors (a standardized way to integrate with external data sources and services) to expand search capabilities beyond your OpenSearch cluster.to expand search capabilities beyond your OpenSearch cluster. By connecting to external MCP servers or compute environments, the agent can orchestrate broader query planning and execution across multiple systems, enabling advanced workflows that enrich queries with data from third-party services. For more information, see [Using external MCP servers](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/mcp-server/).
+Connect to external systems using MCP (Model Context Protocol) connectors (a standardized way to integrate with external data sources and services) to expand search capabilities beyond your OpenSearch cluster. By connecting to external MCP servers or compute environments, the agent can orchestrate broader query planning and execution across multiple systems, enabling advanced workflows that enrich queries with data from third-party services. For more information, see [Using external MCP servers](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/mcp-server/).
 
 ## How agentic search differs from other search types
 
 You can experiment with queries and their results using the Compare Search Results tool in OpenSearch Dashboards. For more information, see [Comparing single queries](https://docs.opensearch.org/latest/search-plugins/search-relevance/compare-search-results/).
 
-To understand why agentic search represents a significant advancement, consider the query "I want to buy black shades for my dad" (entered as `SearchText` in Compare Search Results). The following queries demonstrate these differences in practice.
+To understand why agentic search represents a significant advancement, consider the query "I want to buy black shades for my dad" (entered as `%SearchText%` in Compare Search Results). The following queries demonstrate these differences in practice.
 
 ### Agentic search and keyword search compared
 
@@ -155,29 +155,6 @@ The results for agentic search (left) and semantic search (right) are shown in t
 **Semantic search** understands semantic meaning and correctly identifies "shades" as sunglasses. However, it may also return results for anything black-colored, because it processes all query terms without understanding your complete intent.
 
 These comparisons illustrate agentic search's core advantage: comprehensive intent understanding that goes beyond keyword matching or semantic similarity.
-
-### Conversational search experience
-
-Maintain context across queries using memory IDs, enabling seamless multi-turn interactions that build on previous queries. The agent keeps track of context and updates the query plan accordingly, so you can refine or follow up on queries naturally without repeating details.
-
-### Built-in tools
-
-Agentic search uses built-in tools to retrieve, understand, and enrich information. The `ListIndexTool` identifies which indexes exist in your cluster, while the `IndexMappingTool` helps the agent understand their structure and fields. The `QueryPlanningTool` generates optimized queries from your natural language questions. When a query can't be fully answered from local data, the `WebSearchTool` retrieves relevant external information.
-
-For example, you can ask the following questions:
-
-* "Show me shoes similar to Ronaldo's favorite."
-* "What items do I need to play golf?"
-
-If the agent can't find enough information in your indexes, it performs a web search to gather additional context, then compares that information against your local data to return the most relevant matches.
-
-### Custom search templates
-
-As an advanced user, you can define custom search templates that capture known query strategies or domain-specific logic. The agent automatically selects and fills in the most appropriate template based on your question and conversation context. This hybrid approach lets you apply your domain knowledge while still interacting through a natural language interface.
-
-### External system integration
-
-Connect to external systems using MCP (Model Context Protocol) connectors (a standardized way to integrate with external data sources and services) to expand search capabilities beyond your OpenSearch cluster.to expand search capabilities beyond your OpenSearch cluster. By connecting to external MCP servers or compute environments, the agent can orchestrate broader query planning and execution across multiple systems, enabling advanced workflows that enrich queries with data from third-party services.
 
 ## Example use cases
 
