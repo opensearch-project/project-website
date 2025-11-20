@@ -310,6 +310,7 @@ For all $$t$$, we have $$0 \le f_t \le 1$$ and $$0 \le q_t \le 1$$.
   $$
 
   Hence, a sufficient and necessary single-step condition for recovery (downward move in $$f_t$$) is
+  
   $$
   f_t \text{ decreases } \iff w_t \;<\; w_{t-L}.
   $$
