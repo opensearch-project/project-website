@@ -12,17 +12,15 @@ meta_keywords: Data Prepper, Prometheus, Amazon Managed Prometheus, OTLP, data s
 meta_description: Data Prepper 2.13 adds Prometheus sink, OpenSearch data streams, cross-region S3 support, and 20%+ performance improvements for streamlined metric and log processing.
 ---
 
-# Data Prepper 2.13 is now available
-
 The Data Prepper maintainers are happy to announce the release of Data Prepper 2.13. 
 This release includes a number of improvements that make Data Prepper easier to use and opens new capabilities.
 
-## Prometheus Sink
+## Prometheus sink
 Data Prepper now supports Prometheus as sink with initially supporting only Amazon Managed Prometheus as the external Prometheus sink. 
 This enables capability for exporting metric data processed within Data Prepper pipelines to the Prometheus ecosystem and allows Data Prepper to serve as a bridge between various metric sources (like OpenTelemetry, Logstash, or S3) and Prometheus-compatible monitoring system.
 
 A core aspect of the Prometheus sink is its handling of different metric types. The implementation ensures that Data Prepper's internal metric representations are correctly mapped to Prometheus time series families:
-* **Counters:** For `Sum` metrics with cumulative aggregation temporality and monotinic, the sink generates a single time series using the metric name. The value represents the cumulative count.
+* **Counters:** For `Sum` metrics with cumulative aggregation temporality and monotonic, the sink generates a single time series using the metric name. The value represents the cumulative count.
 * **Gauges:** Similar to counters, `Gauge` metrics are mapped to a single time series with the current value and also for `Sum` metrics which are not mapped to Counters
 * **Summaries:** Support for summary metrics are converted into time series with `quantile` labels, along with corresponding `\_sum` and `\_count` series.
 * **Histograms:** Support for histograms is more complex. The sink generates many distinct types of time series for each histogram metric to fully represent the distribution including `buckets`, `sum`, `count`, `min` and `max`.
@@ -47,7 +45,7 @@ With this change, Data Prepper will look up the index to determine if it is a da
 If so, it will configure the bulk writes to the sink to work directly with data streams.
 
 Prior to this feature, Data Prepper pipeline authors would need to make manual adjustments to the sink configuration to make the support work. 
-Now, customers can create a minimal sink configuration that will setup the sink correctly. 
+Now, customers can create a minimal sink configuration that will set up the sink correctly. 
 Additionally, Data Prepper will set the `@timestamp` field to the time received by Data Prepper automatically if the pipeline does not already set this value.
 
 For example, the configuration could be as simple as the following.
