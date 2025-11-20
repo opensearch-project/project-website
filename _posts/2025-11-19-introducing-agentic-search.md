@@ -31,7 +31,44 @@ An _agent_ is a system powered by a large language model (LLM) that can interpre
 
 ### Tools
 
-_Tools_ are capabilities the agent can invoke, such as listing indexes or performing search. The agent selects the tools to use based on the query intent. For a full list of tools, see [Tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/).
+_Tools_ are capabilities the agent can invoke, such as listing indexes or performing search. The agent selects the tools to use based on the query intent. For a full list of built-in tools, see [Tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/).
+
+## How agentic search works
+
+Agentic search is powered by an intelligent, agent-driven system that interprets your natural language queries, selects the appropriate tools, and generates optimized search strategies automatically. You can run agentic search using the `agentic` query type, allowing you to explore your data without needing to know query syntax or internal data structures.
+
+For example, you can ask questions such as:
+
+* "Find red cars under $30,000"
+* "Show me last quarter's sales trends"
+* "What are the top performing products in the electronics category?"
+
+The agent then carries out the necessary steps—such as identifying relevant indexes, planning the query, or gathering supplemental information—and returns results aligned with your intent. It also provides a detailed explanation of the tools and decisions involved.
+
+OpenSearch 3.3 introduces several key capabilities that enable this natural, conversational interaction with your data while providing advanced orchestration across systems.
+
+### Conversational search experience
+
+Maintain context across queries using memory IDs, enabling seamless multi-turn interactions that build on previous queries. The agent keeps track of context and updates the query plan accordingly, so you can refine or follow up on queries naturally without repeating details. For more information, see [Using conversational agents for agentic search](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/agent-converse/).
+
+### Built-in tools
+
+Agentic search uses built-in tools to retrieve, understand, and enrich information. The `ListIndexTool` identifies which indexes exist in your cluster, while the `IndexMappingTool` helps the agent understand their structure and fields. The `QueryPlanningTool` generates optimized queries from your natural language questions. When a query can't be fully answered from local data, the `WebSearchTool` retrieves relevant external information.
+
+For example, you can ask the following questions:
+
+* "Show me shoes similar to Ronaldo's favorite."
+* "What items do I need to play golf?"
+
+If the agent can't find enough information in your indexes, it performs a web search to gather additional context, then compares that information against your local data to return the most relevant matches.
+
+### Custom search templates
+
+As an advanced user, you can define custom [search templates](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/search-templates/) that capture known query strategies or domain-specific logic. The agent automatically selects and fills in the most appropriate template based on your question and conversation context. This hybrid approach lets you apply your domain knowledge while still interacting through a natural language interface.
+
+### External system integration
+
+Connect to external systems using MCP (Model Context Protocol) connectors (a standardized way to integrate with external data sources and services) to expand search capabilities beyond your OpenSearch cluster.to expand search capabilities beyond your OpenSearch cluster. By connecting to external MCP servers or compute environments, the agent can orchestrate broader query planning and execution across multiple systems, enabling advanced workflows that enrich queries with data from third-party services. For more information, see [Using external MCP servers](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/mcp-server/).
 
 ## How agentic search differs from other search types
 
@@ -72,7 +109,7 @@ The results for agentic search (left) and keyword search (right) are shown in th
 
 ![Agentic search compared to keyword search](/assets/media/blog-images/2025-11-19-introducing-agentic-search/keyword.png)
 
-**Agentic search** interprets the query intent and understands that "shades" means sunglasses, returning relevant eyewear products.
+**Agentic search** accurately interprets intent by recognizing that “shades” means sunglasses and that the request is to buy the item, not to match the word “dad”. It uses the product category in the index to return the correct sunglasses products.
 
 **Keyword search** matches individual tokens like "want", "buy", "black", "shades", and "dad", potentially returning irrelevant results about window shades or other black objects.
 
@@ -119,20 +156,6 @@ The results for agentic search (left) and semantic search (right) are shown in t
 
 These comparisons illustrate agentic search's core advantage: comprehensive intent understanding that goes beyond keyword matching or semantic similarity.
 
-## How agentic search works
-
-Agentic search is powered by an intelligent, agent-driven system that interprets your natural language queries, selects the appropriate tools, and generates optimized search strategies automatically. You can run agentic search using the `agentic` query type, allowing you to explore your data without needing to know query syntax or internal data structures.
-
-For example, you can ask questions such as:
-
-* "Find red cars under $30,000"
-* "Show me last quarter's sales trends"
-* "What are the top performing products in the electronics category?"
-
-The agent then carries out the necessary steps—such as identifying relevant indexes, planning the query, or gathering supplemental information—and returns results aligned with your intent. It also provides a transparent explanation of the tools and decisions involved.
-
-OpenSearch 3.3 introduces several key capabilities that enable this natural, conversational interaction with your data while providing advanced orchestration across systems.
-
 ### Conversational search experience
 
 Maintain context across queries using memory IDs, enabling seamless multi-turn interactions that build on previous queries. The agent keeps track of context and updates the query plan accordingly, so you can refine or follow up on queries naturally without repeating details.
@@ -159,6 +182,8 @@ Connect to external systems using MCP (Model Context Protocol) connectors (a sta
 ## Example use cases
 
 The following examples show how agentic search supports real-world scenarios across industries, without requiring you to understand index structures, query syntax, or search optimization.
+
+**Note**: MCP servers can be sourced from [MCP Servers](https://mcpservers.org/).
 
 ### Personalized shopping recommendations
 
@@ -190,8 +215,6 @@ A complete, correlated view of affected customers, automatically combining logs,
 ### Fraud detection and risk investigation
 
 **Query**: "Find potential fraudulent transactions in the past 24 hours."
-
-**Note**: MCP servers can be sourced from [MCP Servers](https://mcpservers.org/).
 
 **Process**:
 * The agent identifies the `transactions` index using the `ListIndexTool`.
@@ -227,7 +250,7 @@ The interface has two main sections:
 - **Left panel**: Configure and create agents
 - **Right panel**: Run searches and analyze results
 
-Collapse the left panel to focus on testing queries and reviewing results. For detailed instructions, see the [agentic search documentation](https://docs.opensearch.org/latest/vector-search/ai-search/building-agentic-search-flows/).
+For detailed instructions, see the [agentic search documentation](https://docs.opensearch.org/latest/vector-search/ai-search/building-agentic-search-flows/).
 
 ## What's next
 
