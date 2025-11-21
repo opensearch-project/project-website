@@ -44,7 +44,7 @@ Data Prepper now supports OpenSearch data streams natively in the `opensearch` s
 With this change, Data Prepper will look up the index to determine whether it is a data stream. 
 If so, it will configure the bulk writes to the sink so that they work directly with data streams.
 
-Prior to this feature, Data Prepper pipeline authors would need to make manual adjustments to the sink configuration to make the support work. 
+Prior to this feature, Data Prepper pipeline authors would need to make manual adjustments to the sink configuration to write to data stream indexes. 
 Now users can create a minimal sink configuration that will set up the sink correctly. 
 Additionally, Data Prepper will automatically set the `@timestamp` field to the time received by Data Prepper if the pipeline does not already set this value.
 
