@@ -20,7 +20,7 @@ Data Prepper now supports Prometheus as a sink---initially, only Amazon Managed 
 This enables you to export metric data processed within Data Prepper pipelines to the Prometheus ecosystem and allows Data Prepper to serve as a bridge between various metric sources (like OpenTelemetry, Logstash, or Amazon Simple Storage Service [Amazon S3]) and Prometheus-compatible monitoring systems.
 
 A core aspect of the Prometheus sink is its handling of different metric types. The implementation ensures that Data Prepper's internal metric representations are correctly mapped to Prometheus time series families:
-* **Counters**: For `Sum` metrics with cumulative aggregation temporality and monotonic, the sink generates a single time series using the metric name. The value represents the cumulative count.
+* **Counters**: For `Sum` metrics with cumulative aggregation temporality and monotonically increasing values, the sink generates a single time series using the metric name. The value represents the cumulative count.
 * **Gauges**: Similar to counters, `Gauge` metrics are mapped to a single time series with the current value and also for `Sum` metrics that are not mapped to counters.
 * **Summaries**: Summary metrics are converted into a time series with `quantile` labels, along with corresponding `\_sum` and `\_count` series.
 * **Histograms**: Support for histograms is more complex. The sink generates many distinct types of time series for each histogram metric to fully represent the distribution, including `buckets`, `sum`, `count`, `min`, and `max`.
