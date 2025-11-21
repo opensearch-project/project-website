@@ -24,7 +24,7 @@ A core aspect of the Prometheus sink is its handling of different metric types. 
 * **Gauges**: Similar to counters, `Gauge` metrics are mapped to a single time series with the current value and also for `Sum` metrics that are not mapped to counters.
 * **Summaries**: Summary metrics are converted into a time series with `quantile` labels, along with corresponding `\_sum` and `\_count` series.
 * **Histograms**: Support for histograms is more complex. The sink generates many distinct types of time series for each histogram metric to fully represent the distribution, including `buckets`, `sum`, `count`, `min`, and `max`.
-* **Exponential histograms**: Support for histograms is more complex. The sink generates many distinct types of time series for each histogram metric to fully represent the distribution, including `negative/postive``buckets`, `scale`, `zero threshold`, `zero count`, `sum`, `count`, `min`, and `max`.
+* **Exponential histograms**: Support for histograms is more complex. The sink generates many distinct types of time series for each histogram metric to fully represent the distribution, including `scale`, `zero threshold`, `zero count`, `sum`, `count`, `min`, and `max`.
 
 In addition to mapping metrics, the sink handles attribute labeling and name sanitization, creating labels for all metric, resource, and scope attributes.
 
