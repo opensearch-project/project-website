@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introducing agentic search in OpenSearch - Transforming data interaction through natural language"
+title:  "Introducing agentic search in OpenSearch: Transforming data interaction through natural language"
 authors:
   - kazabdu
   - rithinp
@@ -16,10 +16,10 @@ has_science_table: true
 categories:
   - technical-posts
 meta_keywords: agents, tools, agentic, search, LLM, NLQ
-meta_description: Discover how agentic search in OpenSearch 3.3 lets you find data using natural language, without writing complex queries or learning technical syntax.
+meta_description: Discover how agentic search in OpenSearch 3.3 lets you find data using natural language without writing complex queries or learning technical syntax.
 ---
 
-With OpenSearch 3.3, we are excited to introduce _agentic search_, a major evolution in the way you interact with your data. Agentic search lets you explore your data using a natural language interface, without needing to construct DSL queries manually.
+With OpenSearch 3.3, we are excited to introduce _agentic search_, a major evolution in the way you interact with your data. Agentic search lets you explore your data using a natural language interface, without needing to construct query domain-specific language (DSL) queries manually.
 
 ## Agentic search core concepts
 
@@ -39,9 +39,9 @@ Agentic search is powered by an intelligent, agent-driven system that interprets
 
 For example, you can ask questions such as:
 
-* "Find red cars under $30,000"
-* "List last quarter's sales trends for shoes"
-* "What are the top performing products in the electronics category?"
+* "Find red cars under $30,000."
+* "List last quarter's sales trends for shoes."
+* "What are the top-performing products in the electronics category?"
 
 The agent then carries out the necessary steps—such as identifying relevant indexes, planning the query, or gathering supplemental information—and returns results aligned with your intent. It also provides a detailed explanation of the tools and decisions involved.
 
@@ -53,14 +53,14 @@ Maintain context across queries using memory IDs, enabling seamless multi-turn i
 
 ### Built-in tools
 
-Agentic search uses [built-in tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/) to retrieve, understand, and enrich information. The `ListIndexTool` identifies which indexes exist in your cluster, while the `IndexMappingTool` helps the agent understand their structure and fields. The `QueryPlanningTool` generates optimized queries from your natural language questions. When a query can't be fully answered from local data, the `WebSearchTool` retrieves relevant external information.
+Agentic search uses [built-in tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/) to retrieve, understand, and enrich information. The `ListIndexTool` identifies which indexes exist in your cluster, while the `IndexMappingTool` helps the agent understand their structure and fields. The `QueryPlanningTool` generates optimized queries from your natural language questions. When a query can't be fully answered using local data, the `WebSearchTool` retrieves relevant external information.
 
 For example, you can ask the following questions:
 
 * "Show me shoes similar to Ronaldo's favorite."
 * "What items do I need to play golf?"
 
-If the agent can't find enough information in your indexes, it performs a web search to gather additional context, then compares that information against your local data to return the most relevant matches.
+If the agent can't find enough information in your indexes, it performs a web search to gather additional context and then compares that information against your local data to return the most relevant matches.
 
 ### Custom search templates
 
@@ -74,7 +74,7 @@ Connect to external systems using Model Context Protocol (MCP) connectors (a sta
 
 You can experiment with queries and their results using the Compare Search Results tool in OpenSearch Dashboards. For more information, see [Comparing single queries](https://docs.opensearch.org/latest/search-plugins/search-relevance/compare-search-results/).
 
-To understand why agentic search represents a significant advancement, consider the query "I want to buy black shades for my dad" (entered as `%SearchText%` in Compare Search Results). The following queries demonstrate these differences in practice.
+To understand why agentic search represents a significant advancement, consider the query "I want to buy black shades for my dad" (entered as `%SearchText%` in Compare Search Results). The following queries demonstrate how agentic search differs in practice.
 
 ### Agentic search and keyword search compared
 
@@ -152,7 +152,7 @@ The results for agentic search (left) and semantic search (right) are shown in t
 
 **Agentic search** provides more comprehensive understanding by interpreting the full context and your goal, focusing specifically on black sunglasses suitable for gifting.
 
-**Semantic search** understands semantic meaning and correctly identifies "shades" as sunglasses. However, it may also return results for anything black-colored, because it processes all query terms without understanding your complete intent.
+**Semantic search** understands semantic meaning and correctly identifies "shades" as sunglasses. However, it may also return results for anything black in color because it processes all query terms without understanding your complete intent.
 
 These comparisons illustrate agentic search's core advantage: going beyond keyword matching or simple semantic similarity by deeply understanding intent, selecting the right tools, and incorporating external information when needed.
 
@@ -160,7 +160,7 @@ These comparisons illustrate agentic search's core advantage: going beyond keywo
 
 The following examples show how agentic search supports real-world scenarios across industries, without requiring you to understand index structures, query syntax, or search optimization.
 
-**Note**: MCP servers can be sourced from [MCP Servers](https://mcpservers.org/).
+**Note**: MCP servers can be sourced from [Awesome MCP Servers](https://mcpservers.org/).
 
 ### Personalized shopping recommendations
 
@@ -180,13 +180,14 @@ Highly customized, context-aware product recommendations that blend behavioral d
 **Query**: "Show me which customers were impacted by the power outage this morning."
 
 **Process**:
-* The agent selects relevant operational indexes such as `logs`, `metrics`, and `alerts` using the `ListIndexTool`.
+* The agent selects relevant operational indexes, such as `logs`, `metrics`, and `alerts`, using the `ListIndexTool`.
 * Using a custom incident management MCP tool, it retrieves official incident details and correlates them with log data.
 * It uses the `IndexMappingTool` to interpret timestamps, service fields, and customer identifiers.
 * If needed, `WebSearchTool` validates external references such as public outage announcements.
 * The agent then creates a DSL query using the `QueryPlanningTool` that filters logs for the outage window and identifies customers showing error spikes or activity drops.
 
 **Outcome**:
+
 A complete, correlated view of affected customers, automatically combining logs, metrics, incident data, and optional external context.
 
 ### Fraud detection and risk investigation
@@ -200,11 +201,12 @@ A complete, correlated view of affected customers, automatically combining logs,
 * It constructs an optimized DSL query using the `QueryPlanningTool` that detects anomalies—such as geo-distance deviations or unusual transaction frequency.
 
 **Outcome**:
+
 Automated fraud triage that merges OpenSearch anomaly detection, external rule engines, and enrichment—significantly reducing manual investigation time.
 
-## Try agentic search on the playground
+## Try agentic search on the ML Playground
 
-To explore agentic search, use preconfigured agents and sample data on the [machine learning (ML) Playground](https://ml.playground.opensearch.org/app/opensearch-flow#/workflows/yjn5LZoBjktoC8RhTWUk?configureAgent=false).
+To explore agentic search, use preconfigured agents and sample data on the [Machine Learning (ML) Playground](https://ml.playground.opensearch.org/app/opensearch-flow#/workflows/yjn5LZoBjktoC8RhTWUk?configureAgent=false).
 
 ## Set up agentic search locally
 
@@ -224,8 +226,8 @@ To use agentic search in OpenSearch Dashboards, follow these steps:
 4. Select **Create** to open the agentic search interface.
 
 The interface has two main sections:
-- **Left panel**: Configure and create agents
-- **Right panel**: Run searches and analyze results
+- **Left panel**: Configure and create agents.
+- **Right panel**: Run searches and analyze results.
 
 For detailed instructions, see the [agentic search documentation](https://docs.opensearch.org/latest/vector-search/ai-search/building-agentic-search-flows/).
 
@@ -233,7 +235,7 @@ For detailed instructions, see the [agentic search documentation](https://docs.o
 
 We're currently implementing further performance optimizations for agentic search, including prompt caching, multi-agent architecture, and improved agent tracing. We're planning to publish additional blog posts that describe our evaluation framework, query accuracy, and user experience.
 
-If you have feedback, questions, or ideas for additional use cases you'd like to see implemented, we'd love to hear from you. Join the discussion on the [OpenSearch forum](https://forum.opensearch.org/t/use-cases-and-general-feedback-for-agentic-search/27488) or in the [OpenSearch Slack](https://opensearch.org/slack/).
+If you have feedback, questions, or ideas for additional use cases you'd like to see implemented, we'd love to hear from you. Join the discussion on the [OpenSearch forum](https://forum.opensearch.org/t/use-cases-and-general-feedback-for-agentic-search/27488) or [OpenSearch Slack workspace](https://opensearch.org/slack/).
 
-To track ongoing development and design updates, see the [Agentic search RFC](https://github.com/opensearch-project/neural-search/issues/1525).
+To track ongoing development and design updates, see the [agentic search RFC](https://github.com/opensearch-project/neural-search/issues/1525).
 
