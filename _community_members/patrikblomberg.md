@@ -1,7 +1,7 @@
 ---
 short_name: patrikblomberg
 name: Patrik Blomberg
-photo: '/assets/media/community/members/kentonparton.png'
+photo: '/assets/media/community/members/patrikblomberg.jpg'
 title: 'OpenSearch Community Member: Patrik Blomberg'
 primary_title: Patrik Blomberg
 breadcrumbs:
