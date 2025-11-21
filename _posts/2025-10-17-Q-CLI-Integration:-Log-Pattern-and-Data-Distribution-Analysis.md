@@ -4,11 +4,11 @@ title: "Amazon Q CLI integration: Log pattern and data distribution analysis"
 authors:
   - ihailong
   - jiaruj
-date: 2025-10-17
+date: 2025-11-20
 categories:
   - technical-posts
-meta_keywords: Amazon Q CLI, CLI integration, log pattern analysis, data distribution analysis, OpenSearch CLI, command line interface, log analysis tools, data distribution tools, OpenSearch integration, diagnostic tools, MCP, Agent, Agentic AI, OpenTelemetry
-meta_description: Learn how to integrate Amazon Q CLI with OpenSearch's log pattern analysis and data distribution tools for streamlined command-line diagnostics and enhanced system troubleshooting capabilities.
+meta_keywords: log pattern analysis, Amazon Q CLI, CLI integration, OpenSearch agent tool, log analysis, Model Context Protocol, OpenTelemetry, MCP configuration, data distribution tools, observability, distributed systems monitoring, system troubleshooting, natural language queries
+meta_description: Learn how to integrate Amazon Q CLI with OpenSearch's Log Pattern Analysis and Data Distribution tools for efficient log analysis using natural language queries in distributed systems.
 ---
 
 Modern distributed systems generate vast amounts of log data that can be challenging to analyze manually. In this blog post, we'll explore how you can integrate Amazon Q CLI with OpenSearch's advanced analysis tools to transform complex log investigations into natural language queries. We'll demonstrate the integration of two powerful OpenSearch agent tools---the Log Pattern Analysis Tool and Data Distribution Tool---through the Model Context Protocol (MCP), showing how this combination enables streamlined command-line diagnostics and enhanced system troubleshooting.
