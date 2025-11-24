@@ -10,57 +10,108 @@ date: 2025-11-14
 categories:
   - technical-posts
 meta_keywords: late interaction models, vector search, ColBERT, semantic search, multi-vector embeddings, multi-modal search
-meta_description: Learn how late interaction models like ColBERT can improve search accuracy by preserving token-level information while maintaining efficiency in vector search systems.
+meta_description: Learn how late interaction models like ColBERT can improve search relevance by preserving token-level information while maintaining efficiency in vector search systems.
 ---
 
-Vector search has become the foundation of modern semantic search systems. Today's most common approach uses single vector embeddings. Recent state-of-the-art research has discovered that multi-vector representations created by late interaction models can significantly improve search accuracy by preserving fine-grained, token-level information. This blog post will explore what late interaction models are, why they're becoming increasingly important in search applications, and how they can benefit both users and search system developers.
+Vector search has become the foundation of modern semantic search systems. Today's most common approach uses single vector embeddings, but recent state-of-the-art research shows that multi-vector representations created by late interaction models can significantly improve search relevance by preserving fine-grained, token-level information.
+
+Unlike traditional approaches that compress entire documents into single vectors, late interaction models preserve token-level information until the final matching stage, enabling more precise and nuanced search results.
+
+In this blog post, we'll explore what late interaction models are, why they're becoming increasingly important in search applications, and how you can use them in OpenSearch to deliver better search experiences for your users.
 
 ## What is a late interaction model?
 
-To understand late interaction models, it's helpful to first understand the spectrum of query-document interaction approaches in neural search.
+To understand late interaction models, let's first examine the three main approaches for neural search, each offering different trade-offs between efficiency and accuracy.
 
-Interaction is the process of evaluating the relevance between a query and a document by comparing their representations at a fine-grained level. Based on interactions, we explain three main types of interaction models as follows:
+_Interaction_ is the process of evaluating the relevance between a query and a document by comparing their representations at a fine-grained level. The key difference lies in *when* and *how* the system compares queries with documents.
 
-### Bi-Encoder models (no interaction)
+### Bi-encoder models (no interaction)
 
-The most common approach today uses bi-encoder models, which encode queries and documents completely independently. Imagine a search engine processing your query "best hiking trails near Seattle." A bi-encoder would pass this query through an encoder model to produce a single vector representation. Similarly, each document is independently encoded into its own single vector. These encodings happen in isolation—the query encoder never "sees" the document, and vice versa. Relevance is then determined by comparing these pre-computed single vectors using simple similarity metrics like cosine similarity or dot product. This approach is highly efficient because document vectors can be computed offline and stored, but it sacrifices accuracy because there's no interaction between query and document during the encoding process. No interaction models, such as `amazon.titan-embed-text-v2:0`, are great for fast first stage retrieval in vector search, especially for large datasets.
+Bi-encoder models represent today's most common approach, processing queries and documents completely independently.
+
+In this architecture, a query such as "best hiking trails near Seattle" is transformed into a single vector representation through one encoder, while each document is processed separately through another encoder to produce its own single vector representation. These encoding processes occur in isolation—the query encoder has no access to document content, and vice versa. Relevance is subsequently determined by comparing these precomputed single vectors using similarity metrics such as cosine similarity or dot product.
+
+**Advantages**:
+- **High efficiency**: Document vectors can be computed offline and stored in advance
+- **Excellent scalability**: Performs well with large datasets
+- **Fast retrieval**: Enables rapid first-stage filtering of candidates
+
+**Limitations**:
+- **Reduced accuracy**: Lack of interaction between query and document during encoding limits semantic understanding
+
+This approach works particularly well for fast first-stage retrieval in vector search systems. Models like `amazon.titan-embed-text-v2:0` exemplify this methodology. The following diagram illustrates the bi-encoder architecture and its independent processing approach.
 
 ![Bi-Encoder Models](/assets/media/blog-images/2025-11-14-boost-search-relevancy-with-late-interaction-models/bi-encoders.png)
-### Cross-Encoder models (early/full interaction)
 
-At the opposite end of the spectrum are cross-encoder models, which achieve the highest accuracy by enabling full interaction between query and document. For our "best hiking trails near Seattle" query, a cross-encoder would concatenate the query with each candidate document and feed this combined text through a transformer model. The model's attention mechanism allows every query token to attend to every document token during encoding, capturing highly nuanced relationships between them. The model then outputs a single relevance score directly. While this deep interaction produces excellent results, it's computationally expensive—you cannot pre-compute anything, and each query-document pair requires a full forward pass through a large model. Early/Full interaction models are ideal for 'second phase' reranking, where you reorder a small, pre-ranked subset of results to ensure the best hits get to top slots. The result set fed to cross-encoders will depend on the cost, latency, and accuracy requirements of your system, but usually, these models are reserved for a small size of search hits on the first page. OpenSearch supports reranking with cross-encoder models in search pipelines.
+### Cross-encoder models (early/full interaction)
 
-![Cross-Encoder Models](/assets/media/blog-images/2025-11-14-boost-search-relevancy-with-late-interaction-models/cross encoders.png)
+Cross-encoder models occupy the opposite end of the spectrum, achieving the highest accuracy through comprehensive query-document interaction.
+
+In this architecture, the system concatenates the query with each candidate document (for example, "best hiking trails near Seattle" combined with document content) and processes this combined text through a transformer model. The model's attention mechanism enables every query token to attend to every document token during encoding, capturing nuanced relationships between query and document elements. The model then directly outputs a single relevance score for the query-document pair.
+
+**Advantages**:
+- **Highest accuracy**: Deep interaction captures sophisticated semantic relationships
+- **Superior understanding**: Full attention mechanism provides comprehensive query-document analysis
+
+**Limitations**:
+- **Computational intensity**: Each query-document pair requires a complete forward pass through the model
+- **No pre-computation**: Cannot leverage cached embeddings, limiting scalability
+- **Latency concerns**: Processing overhead restricts real-time applications
+
+Cross-encoder models excel in second-phase reranking scenarios, where they reorder a small, pre-selected subset of results to optimize the most relevant matches. The size of the result set processed by cross-encoders typically depends on system requirements for cost, latency, and accuracy, but these models are commonly applied to first-page results only. OpenSearch provides native support for cross-encoder reranking through search pipelines. The following diagram demonstrates the cross-encoder architecture with its comprehensive query-document interaction mechanism.
+
+![Cross-Encoder Models](/assets/media/blog-images/2025-11-14-boost-search-relevancy-with-late-interaction-models/cross-encoders.png)
+
 ### Late interaction models (balanced approach)
 
-Late interaction models like ColBERT (which stands for Contextualized Late Interaction over BERT) strike a balance between these two extremes. They process the query and document independently (like bi-encoders), but instead of producing single vectors, they generate multiple contextualized embeddings—typically one for each token. For our "best hiking trails near Seattle" query, the model creates individual embeddings for "best," "hiking," "trails," "near," and "Seattle," where each embedding is contextualized by the surrounding words. Similarly, documents are encoded into multi-vector representations at the token level. The key innovation is that the interaction between query and document happens after encoding, through fine-grained token-level similarity computations.
+Late interaction models, exemplified by ColBERT (Contextualized Late Interaction over BERT), achieve an optimal balance between the previous two approaches. These models process queries and documents independently, similar to bi-encoders, but generate multiple contextualized embeddings rather than single vectors.
 
-![Late Interaction Models](/assets/media/blog-images/2025-11-14-boost-search-relevancy-with-late-interaction-models/late interactions.png)
-For example, ColBERT, a popular late interaction model, demonstrates this approach clearly. After generating contextualized token embeddings for both query and document, it calculates the maximum similarity between each query token embedding and all document token embeddings. These maximum similarities are then summed to produce a final relevance score. This "late interaction" preserves the efficiency benefits of independent encoding (document embeddings can be pre-computed) while enabling more granular and nuanced matching than simple single-vector comparison.
+In this architecture, a query such as "best hiking trails near Seattle" produces individual embeddings for each token: "best," "hiking," "trails," "near," and "Seattle." Crucially, each embedding is contextualized by the surrounding words through the transformer's attention mechanism. Documents undergo similar processing, resulting in multi-vector representations at the token level.
 
-### The trade-off spectrum
+The fundamental innovation of late interaction models lies in their timing: query-document interaction occurs *after* independent encoding, through detailed token-level similarity computations. This approach preserves the efficiency benefits of independent encoding while enabling more sophisticated matching than single-vector comparison. The following diagram illustrates how late interaction models balance efficiency and accuracy through their unique architecture.
 
-* **Bi-encoders**: Most efficient, least accurate, no interaction
-* **Late interaction models**: Balanced efficiency and accuracy, token-level interaction after encoding
-* **Cross-encoders**: Most accurate, least efficient, full interaction during encoding
+![Late Interaction Models](/assets/media/blog-images/2025-11-14-boost-search-relevancy-with-late-interaction-models/late-interactions.png)
+ColBERT exemplifies this approach through its scoring mechanism. After generating contextualized token embeddings for both query and document, the model calculates the maximum similarity between each query token embedding and all document token embeddings. These maximum similarities are then aggregated to produce a final relevance score.
+
+**Advantages**:
+- **Efficient pre-computation**: Document embeddings can be computed and stored offline
+- **Token-level precision**: Maintains fine-grained semantic information throughout the process
+- **Balanced performance**: Combines speed benefits of bi-encoders with improved accuracy
+
+**Scoring mechanism**: This "late interaction" methodology enables more sophisticated matching than single-vector comparison while retaining computational efficiency.
+
+### The architectural spectrum
+
+The three approaches form a spectrum of trade-offs between computational efficiency and search accuracy:
+
+- **Bi-encoders**: Maximum efficiency, moderate accuracy, no query-document interaction
+- **Late interaction models**: Balanced efficiency and accuracy, token-level interaction after encoding
+- **Cross-encoders**: Maximum accuracy, higher computational cost, full interaction during encoding
+
+Understanding this spectrum helps system architects choose the appropriate approach based on their specific requirements for latency, accuracy, and computational resources.
 
 ## Why use late interaction models in search?
 
 Using late interaction models in search is driven by several compelling advantages:
 
-**Enhanced Semantic Understanding**: Unlike traditional approaches that compress documents into single vectors, late interaction models preserve token-level information until the final matching stage. This enables precise token-level matching that single-vector models miss. For example, when searching "How can the orientation of texture be characterized?" in a multimodal document collection, a late interaction model like ColPali can identify specific sections within PDF pages that discuss texture orientation analysis, even when the exact phrase doesn't appear in the text. The model's token-level embeddings can match "orientation" with related concepts like "directional analysis" and "texture" with "surface patterns" at a granular level, then combine these matches for accurate document ranking. This granular approach is particularly valuable in specialized domains like scientific literature, technical documentation, or legal content where precision is critical.
+- **Enhanced semantic understanding**: Unlike traditional approaches that compress documents into single vectors, late interaction models preserve token-level information until the final matching stage. This enables precise token-level matching that single-vector models cannot achieve. For example, when searching "How can the orientation of texture be characterized?" within a multimodal document collection, a late interaction model like ColPali can identify specific sections within PDF pages discussing texture orientation analysis, even when the exact phrase does not appear in the text. The model's token-level embeddings can match "orientation" with related concepts such as "directional analysis" and connect "texture" with "surface patterns" at a granular level, then aggregate these matches for accurate document ranking. This granular approach proves particularly valuable in specialized domains requiring high precision, such as scientific literature, technical documentation, and legal content.
 
-**Optimal Efficiency-Accuracy Balance**: Late interaction models combine the efficiency of bi-encoders (pre-computed embeddings of documents) with accuracy approaching cross-encoders (early/full interactions).
+- **Optimal efficiency-accuracy balance**: Late interaction models achieve an optimal balance between computational efficiency and search accuracy. They combine the efficiency of bi-encoders (through pre-computed document embeddings) with accuracy levels approaching those of cross-encoders.
 
-**Multimodal Capabilities**: Recent advances like ColPali and ColQwen extend late interaction to images and other media through patch-level embeddings. This enables searches like "charts illustrating quarterly revenue" to pinpoint specific sections within PDFs—a capability difficult for traditional single-vector models.
+- **Multimodal capabilities**: Recent developments such as ColPali and ColQwen extend late interaction principles to images and other media types through patch-level embeddings. This advancement enables sophisticated searches such as "charts illustrating quarterly revenue" to pinpoint specific sections within PDFs—a capability that presents significant challenges for traditional single-vector models.
 
-## How to use the late interaction model in OpenSearch?
+## How to use late interaction models in OpenSearch
 
-The prevailing pattern in the search industry leverages late interaction models through a two-phase search strategy that balances speed and accuracy. First, the system performs a fast approximate k-NN search using single-vector embeddings from a bi-encoder model to identify candidate documents from the larger corpus. This initial retrieval phase quickly narrows down the search space without the computational overhead of multi-vector processing. Then in the reranking phase, late interaction scoring uses multi-vectors to calculate precise token-level relevance for only the candidate set. The final results are documents ranked by these fine-grained similarity scores, capturing nuanced query-document relationships while maintaining high scalability.
+The search industry commonly adopts a two-phase strategy to integrate late interaction models in a way that balances performance and accuracy. 
 
-OpenSearch 3.3 introduced native support for reranking through the `lateInteractionScore` function that calculates document relevance using token-level vector matching. It compares each query vector against all document vectors, finds the maximum similarity for each query vector, and sums these maximum scores to produce the final document score.
+In the **first phase**, the system runs a fast approximate k-NN retrieval using single-vector embeddings from a bi-encoder model to select a small set of candidate documents from the full index. This step reduces the search space without the cost of processing multi-vector representations. 
 
-The following example demonstrates using the `lateInteractionScore` function with cosine similarity to measure vector similarity based on direction rather than distance. In this example, it compares vector similarity between the document vectors named `my_vector` and the query vectors under `params`, named `query_vectors`. To test the function with `lateInteractionScore`, you need multi-vectors generated offline in documents and multi-vectors computed online during the search for queries.
+In the **second phase**, a reranker applies late interaction scoring to those candidates, using token-level multi-vectors to compute more precise relevance scores. The final ranked results reflect these fine-grained similarity calculations, enabling nuanced semantic matching while preserving scalability.
+
+
+OpenSearch 3.3 introduced native support for late interaction reranking using the `lateInteractionScore` function. This function calculates document relevance using token-level vector matching by comparing each query vector against all document vectors, finding the maximum similarity for each query vector, and summing these maximum scores to produce the final document score.
+
+The following example demonstrates using the `lateInteractionScore` function with cosine similarity to measure vector similarity based on direction rather than distance. In this example, the function compares document vectors named `my_vector` with the query vectors specified in the `query_vectors` parameter. To use this function, you need multi-vectors generated offline during document ingestion and multi-vectors computed online during query processing:
 
 ```json
 GET my_index/_search
@@ -80,28 +131,48 @@ GET my_index/_search
 }
 ```
 
-OpenSearch supports the entire workflow for connecting late interaction models, using the model during ingestion, and search. The implementation requires configuring two key components: the ml-inference ingest processor, which generates both single-vector and multi-vector embeddings from text, PDFs, or images during document ingestion, and the ml-inference search request processor, which rewrites queries into k-NN queries with the `lateInteractionScore` function at search time. This configuration enables multimodal search with improved relevance across different content types. For detailed setup instructions, refer to the [tutorial on reranking with externally hosted late interaction models](https://opensearch.org/docs/latest/search-plugins/search-pipelines/rerank-processor/).
+OpenSearch supports the full workflow for using late interaction models—from model connection to ingestion and search. To enable this functionality, you configure two main components. The **ml-inference ingest processor** generates both single-vector and multi-vector embeddings from text, PDFs, or images during document ingestion. The **ml-inference search request processor** rewrites incoming queries into k-NN queries that use the `lateInteractionScore` function at search time. Together, these components enable multimodal search with improved relevance across diverse content types. For detailed configuration steps, see the tutorial on [reranking with externally hosted late interaction models](https://opensearch.org/docs/latest/search-plugins/search-pipelines/rerank-processor/).
 
-To demonstrate the search performance using late interaction models, the [ml-playground](https://ml.playground.opensearch.org/app/searchRelevance#/?config=eyJxdWVyeTEiOnsiaW5kZXgiOiJtdWx0aW1vZGFsX2RvY3MiLCJkc2xfcXVlcnkiOiJ7XG4gIFwicXVlcnlcIjoge1xuICAgIFwidGVybVwiOiB7XG4gICAgICBcImNvbHBhbGlfc2VhcmNoXCI6IHtcbiAgICAgICAgXCJ2YWx1ZVwiOiBcIiVTZWFyY2hUZXh0JVwiXG4gICAgICB9XG4gICAgfVxuICB9XG59Iiwic2VhcmNoX3BpcGVsaW5lIjoiY29scGFsaV9zZWFyY2gifSwicXVlcnkyIjp7ImluZGV4IjoibXVsdGltb2RhbF9kb2NzIiwiZHNsX3F1ZXJ5Ijoie1xuICBcInF1ZXJ5XCI6IHtcbiAgICBcInRlcm1cIjoge1xuICAgICAgXCJ0aXRhbl9lbWJlZGRpbmdfc2VhcmNoXCI6IHtcbiAgICAgICAgXCJ2YWx1ZVwiOiBcIiVTZWFyY2hUZXh0JVwiXG4gICAgICB9XG4gICAgfVxuICB9XG59Iiwic2VhcmNoX3BpcGVsaW5lIjoidGl0YW5fZW1iZWRkaW5nX3NlYXJjaCJ9LCJzZWFyY2giOiIgSG93IGNhbiB0aGUgb3JpZW50YXRpb24gb2YgdGV4dHVyZSBiZSBjaGFyYWN0ZXJpemVkPyJ9) provides a comparison using the [vidore dataset](https://huggingface.co/datasets/vidore/syntheticDocQA_artificial_intelligence_test). This dataset is from the internet with query about "artificial intelligence", and we include 20 pages in the ml-playground `multimodal_docs`index. You can compare search results between a two-phase approach using the [ColPali model](https://huggingface.co/vidore/colpali-v1.3-hf) for late interaction reranking compared to a single-phase baseline using `amazon.titan-embed-image-v1` with no interaction. Try different search queries to see how late interaction models improve relevance ranking for multimodal content.
+To showcase the search performance of late interaction models, the [ML playground](https://ml.playground.opensearch.org/app/searchRelevance#/?config=eyJxdWVyeTEiOnsiaW5kZXgiOiJtdWx0aW1vZGFsX2RvY3MiLCJkc2xfcXVlcnkiOiJ7XG4gIFwicXVlcnlcIjoge1xuICAgIFwidGVybVwiOiB7XG4gICAgICBcImNvbHBhbGlfc2VhcmNoXCI6IHtcbiAgICAgICAgXCJ2YWx1ZVwiOiBcIiVTZWFyY2hUZXh0JVwiXG4gICAgICB9XG4gICAgfVxuICB9XG59Iiwic2VhcmNoX3BpcGVsaW5lIjoiY29scGFsaV9zZWFyY2gifSwicXVlcnkyIjp7ImluZGV4IjoibXVsdGltb2RhbF9kb2NzIiwiZHNsX3F1ZXJ5Ijoie1xuICBcInF1ZXJ5XCI6IHtcbiAgICBcInRlcm1cIjoge1xuICAgICAgXCJ0aXRhbl9lbWJlZGRpbmdfc2VhcmNoXCI6IHtcbiAgICAgICAgXCJ2YWx1ZVwiOiBcIiVTZWFyY2hUZXh0JVwiXG4gICAgICB9XG4gICAgfVxuICB9XG59Iiwic2VhcmNoX3BpcGVsaW5lIjoidGl0YW5fZW1iZWRkaW5nX3NlYXJjaCJ9LCJzZWFyY2giOiIgSG93IGNhbiB0aGUgb3JpZW50YXRpb24gb2YgdGV4dHVyZSBiZSBjaGFyYWN0ZXJpemVkPyJ9) includes a side-by-side comparison using the [Vidore dataset](https://huggingface.co/datasets/vidore/syntheticDocQA_artificial_intelligence_test). The dataset contains internet-sourced text about *artificial intelligence*, and 20 representative pages are indexed in the `multimodal_docs` index in the ML playground environment.
+
+The interface allows you to compare a **two-phase pipeline**—which uses the [ColPali model](https://huggingface.co/vidore/colpali-v1.3-hf) for late interaction reranking—against a **single-phase baseline** that uses `amazon.titan-embed-image-v1` without late interaction. You can experiment with different queries to see how late interaction models improve relevance ranking for multimodal content.
+
 
 ![Late Interaction Models with ml-inference processors](/assets/media/blog-images/2025-11-14-boost-search-relevancy-with-late-interaction-models/auto-ml-inference-search-flow.png)
 
-In the following test running against the query "How can the orientation of texture be characterized?" on the same index `multimodal_docs`, on the left side, it's using the `colpali_search` search pipeline and on the right side, it's using the `titan_embedding_search` search pipeline. The expected result is row 7 page, which tells us the answers about the orientation of texture is characterized by a histogram of orientations. This 'row 7 page' ranks no.1 when using the ColPali model (left panel), but is entirely missing in the search results when using the titan_embedding model (right panel).
+### Comparative results analysis
+
+The following test demonstrates performance differences using the query "How can the orientation of texture be characterized?" against the `multimodal_docs` index. The comparison evaluates two approaches:
+
+- **Left panel**: `colpali_search` search pipeline using ColPali model
+- **Right panel**: `titan_embedding_search` search pipeline using Titan embedding model
+
+The target result appears on page 7, which contains the relevant answer explaining that texture orientation is characterized by a histogram of orientations. The ColPali model ranks this page as the top result (left panel), while the Titan embedding model fails to include it in the search results entirely (right panel). The following screenshot demonstrates this significant difference in search performance between the two approaches.
 
 ![search comparison on ml-playground](/assets/media/blog-images/2025-11-14-boost-search-relevancy-with-late-interaction-models/playground-search-comparison.png)
 
-Additionally, for RAG use cases with ColPali, please refer to the [OpenSearch AI demo app](https://huggingface.co/spaces/opensearch-project/OpenSearch-AI) available through Hugging Face.
+For RAG applications using ColPali, explore the [OpenSearch AI demo app](https://huggingface.co/spaces/opensearch-project/OpenSearch-AI) available through Hugging Face.
 
 ## Challenges and optimization techniques
 
-While late interaction models offer significant advantages, they come with computational and storage challenges that need consideration. The primary challenge is the explosion in storage requirements and computational cost, as these models generate vectors for each token rather than one embedding per document, potentially creating hundreds or thousands of vectors per document and increasing storage requirements by 10-100x compared to traditional approaches. Recent research has developed several techniques to mitigate these challenges, including PLAID (Performance-optimized Late Interaction Driver) which uses centroids and clustering to reduce the number of vectors while maintaining accuracy, quantization techniques that compress multi-vectors using binary or product quantization to reduce memory footprint, smart chunking through strategic document segmentation before embedding generation, and selective token embedding that skips common stop words or uses attention mechanisms to identify the most important tokens. These optimizations make late interaction models more practical for production deployments while preserving their core advantages of token-level semantic matching.
+While late interaction models offer strong retrieval accuracy, they also introduce significant computational and storage considerations. Because these models generate vectors for every token rather than a single embedding per document, they can produce hundreds or thousands of vectors per document—often increasing storage requirements by 10–100× compared to traditional approaches.
 
-## Future work in Lucene and OpenSearch
+Recent research provides several strategies to address these challenges. PLAID (Performance-optimized Late Interaction Driver) uses centroids and clustering to shrink the number of vectors while preserving accuracy. Quantization techniques compress multi-vectors using binary or product quantization to reduce memory use. Smart chunking applies strategic document segmentation before embedding generation, and selective token embedding removes common stop words or uses attention mechanisms to keep only the most important tokens. Together, these optimizations make late interaction models more practical for production environments while maintaining their core advantage: fine-grained, token-level semantic matching.
 
-OpenSearch Vector Engine (k-NN plugin) currently supports late interaction multi-vector rescoring using Painless scripting and the implementation is optimized for SIMD instructions. The current multi-vectors are integrated using the object field and float field type of OpenSearch.
+## Future developments in Lucene and OpenSearch
 
-Additionally, since the 10.3 release, Lucene also provides native support for rescoring results for a search query using late interaction model multi-vectors. This is enabled through the new `LateInteractionField`, which accepts `float[][]` multi-vector embeddings, encodes them to a binary representation, and indexes them as a `BinaryDocValues` field. The field supports multi-vectors with varying numbers of vectors per document, although each composing token vector is required to have the same number of dimensions. These are standard constraints across late interaction models, required to enable similarity comparisons across query and document multi-vectors.
+The OpenSearch vector engine (k-NN plugin) currently supports late interaction multi-vector rescoring using Painless scripting. Rescoring implementation is optimized for SIMD instructions. Multi-vectors are represented using a combination of OpenSearch's `object` field type and `float` field type, which together enable storage and retrieval of token-level vector embeddings used in late interaction models.
 
-Lucene exposes a `LateInteractionRescorer` class to rescore search results using multi-vector similarity on this field. Default support is for `sum(max(vectorSimilarity))`, which takes the sum of maximum similarity between a query token vector and all document token vectors. Essentially, it computes the interaction of a piece (token vector) of the query, with every piece (token vector) of the document, combining their similarity into a meaningful score.
+Since the 10.3 release, Lucene also provides native support for rescoring search results using late interaction model multi-vectors. This capability is implemented through the `LateInteractionField`, which accepts `float[][]` multi-vector embeddings, encodes them into a binary representation, and indexes them as a `BinaryDocValues` field. The field supports multi-vectors with varying numbers of vectors per document; however, each token vector must have the same dimensionality. This requirement is common across late interaction models because it enables consistent similarity comparisons between query and document vectors.
 
-As next steps, we are working on adding support for a multi-vector field in OpenSearch Vector Engine using Lucene's `LateInteractionField` (Ref: [1](https://github.com/opensearch-project/k-NN/issues/2934) [2](https://github.com/opensearch-project/k-NN/pull/2972), [3](https://forum.opensearch.org/t/supporting-late-interaction-in-opensearch-vector-engine-as-a-field-type/27463)). It will directly leverage Lucene's vectorization providers under the hood which auto-vectorize instructions and use SIMD intrinsics when available on underlying hardware. This will allow us to directly fold in any optimizations made in upstream Lucene, and implicitly benefit from improvements in this rapidly evolving space. It also makes late interaction model reranking available to setups that cannot leverage Painless scripts. Patches and PRs are welcome.
+Lucene also includes a `LateInteractionRescorer` class for rescoring results based on multi-vector similarity. The default scoring method is `sum(max(vectorSimilarity))`, which sums the maximum similarity between each query token vector and all document token vectors. In effect, each query token vector is compared against every document token vector, and their strongest interactions are aggregated into a final relevance score.
+
+### Planned enhancements
+
+Development is underway to integrate Lucene’s `LateInteractionField` directly into the OpenSearch vector engine. This work (tracked in the related [GitHub issues and PRs](https://github.com/opensearch-project/k-NN/issues/2934)) will use Lucene's built-in vectorization providers, which automatically vectorize operations and apply SIMD intrinsics when supported by the underlying hardware. With this integration, OpenSearch will inherit performance optimizations from upstream Lucene and benefit from ongoing improvements in this rapidly evolving area. Additionally, this integration enables late interaction model reranking in environments where Painless scripts are not supported.
+
+To support this effort, we welcome your contributions in the form of patches and pull requests.
+
+## Get started with late interaction models
+
+Ready to enhance your search relevance? Start experimenting with late interaction models in your OpenSearch deployment by following the [reranking tutorial](https://docs.opensearch.org/latest/search-plugins/search-relevance/rerank-by-field-late-interaction/). Share your results, ask questions, and provide feedback on the [OpenSearch forum](https://forum.opensearch.org/). Your input helps shape the future development of these capabilities.
