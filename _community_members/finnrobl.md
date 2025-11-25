@@ -1,7 +1,7 @@
 ---
 short_name: finnrobl
 name: Finn Roblin
-photo: '/assets/media/community/memberes/finnrobl.jpg'
+photo: '/assets/media/community/members/finnrobl.jpg'
 twitter: 'FinnRoblin'
 github: finnroblin
 linkedin: 'finn-roblin'
