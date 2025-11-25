@@ -4,7 +4,7 @@ title: Data Prepper 2.13 is now available
 authors:
   - kkondaka
   - dvenable
-date: 2025-11-24 14:00:00 -0600
+date: 2025-11-25 14:00:00 -0600
 categories:
   - releases
 excerpt: Data Prepper 2.13 introduces Amazon Managed Prometheus sink support, native OpenSearch data streams, cross-region S3, and performance improvements delivering.
