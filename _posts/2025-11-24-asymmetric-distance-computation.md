@@ -72,7 +72,7 @@ The downside of SDC is in its impact on *recall*---the fraction of ground-truth 
 
 In the next section, we describe how this weakness is addressed using ADC.
 
-## ADC
+### ADC
 
 Considering SDC, notice that the algorithm introduced error into the distance calculations at two distinct points in the process. First, document vectors in the corpus are quantized to achieve the 32-fold memory savings that binary quantization provides. Second, the query vector is also quantized to match the scale and data type of the quantized documents. 
 
