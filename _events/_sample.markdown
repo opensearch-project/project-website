@@ -2,15 +2,15 @@
 # The date of the event, without time, as a string to appear in the calendar view in the format of YYYY-MM-DD.
 calendar_date: '2021-01-01'
 # put your event date and time (24 hr) here (mind the time-zone and daylight saving time!):
-eventdate: 2021-01-01 12:34:00 -0700
+eventdate: 2021-01-01 12:34:00 -0800
 # If the event last multiple day, also add the end date:
-# enddate: 2021-01-03 20:00:00 -0700
+# enddate: 2021-01-03 20:00:00 -0800
 
 # the title - this is how it will show up in listing and headings on the site:
 title: Your Event Title
 online: true
+tz: America/Los_Angeles
 # If the event is online, remove the next lines, otherwise uncomment and adjust:
-# tz: Pacific/Tahiti
 # location:
 #     city: Papeete
 #     country: French Polynesia
