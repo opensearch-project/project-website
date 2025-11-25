@@ -10,7 +10,7 @@ categories:
  - technical-posts
 meta_keywords: asymmetric distance computation, ADC, binary quantization, vector search, memory compression, k-NN search, OpenSearch
 meta_description: Learn how asymmetric distance computation (ADC) in OpenSearch achieves 32-fold memory compression for vector search while maintaining better recall than traditional binary quantization methods.
-excerpt: Modern RAG setups require searching large vector datasets, but memory constraints can be cost-prohibitive. Standard binary quantization approaches for index compression offer a 32-fold memory savings, but decrease recall. This post explores asymmetric distance computation (ADC), a technique that maintains uncompressed queries while searching compressed indexes, achieving significant memory savings with better recall than traditional binary quantization.
+excerpt: Modern RAG setups require searching large vector datasets, but memory constraints can be cost prohibitive. Standard binary quantization approaches for index compression offer a 32-fold memory savings but decrease recall. This post explores asymmetric distance computation (ADC), a technique that maintains uncompressed queries while searching compressed indexes, achieving significant memory savings with better recall than traditional binary quantization.
 has_math: true
 has_science_table: false
 ---
@@ -39,17 +39,17 @@ The shift-and-quantize process is outlined in the following figure.
 
 ![Mean-Centering](/assets/media/blog-images/2025-11-24-asymmetric-distance-computation/Mean-Centering.png){:class="img-centered"}
 
-*Figure: To compute the binary quantization of a document corpus, we first mean-center the data so that the average document vector rests at the origin, and then convert each coordinate to a ±1 value depending on its sign.*
+*Figure: To compute the binary quantization of a document corpus, we first mean-center the data so that the average document vector rests at the origin and then convert each coordinate to a ±1 value, depending on its sign.*
 
-While two dimensions only allow for four possible quantizations (and thus many vectors necessarily get quantized to the same value), in higher *d*-dimensional spaces the number of binary quantizations typically vastly exceeds the size of the corpus. Therefore, typical high-dimensional datasets tend to have a relatively small number of collisions. For each document, we store its full-precision vector on disk and only the binary quantized vector in RAM. 
+While two dimensions only allow for four possible quantizations (and thus many vectors necessarily get quantized to the same value), in higher *d*-dimensional spaces the number of binary quantizations typically vastly exceeds the size of the corpus. Therefore, typical high-dimensional datasets tend to have a relatively small number of collisions. For each document, we store its full-precision vector on disk and only the binary-quantized vector in RAM. 
 
-Now that we understand how binary quantization works, let's examine two different methods of performing k-NN search using these compressed vectors: **[symmetric distance computation (SDC)](#sdc)** and **[ADC](#adc)**.
+Now that we understand how binary quantization works, let's examine two different methods of performing k-NN search using these compressed vectors: **[symmetric distance computation (SDC)](#symmetric-distance-computation)** and **[asymmetric distance computation (ADC)](#asymmetric-distance-computation)**.
 
-### SDC
+### Symmetric distance computation
 
-The classical way to perform a k-NN search on a binary-quantized index begins by quantizing the query vector using the exact same procedure described previously. Quantizing the query vectors both ensures that they have the same scale and data type as the quantized dataset stored in RAM, and greatly simplifies the process of evaluating the distance between the query and document vectors. 
+The classical way to perform a k-NN search on a binary-quantized index begins by quantizing the query vector using the exact same procedure described previously. Quantizing the query vectors both ensures that they have the same scale and data type as the quantized dataset stored in RAM and greatly simplifies the process of evaluating the distance between the query and document vectors. 
 
-As an illustrative example, let's compute the squared Euclidean distance between two 4-dimensional vectors $$\vec{v}_1 = \left(+1,-1,+1,-1\right)$$ and $$\vec{v}_2 = \left(-1,-1,+1,+1\right)$$. Computed the classical way, this operation involves eleven total operations: four subtraction, four squaring, and three addition operations.
+As an illustrative example, let's compute the squared Euclidean distance between two 4-dimensional vectors, $$\vec{v}_1 = \left(+1,-1,+1,-1\right)$$ and $$\vec{v}_2 = \left(-1,-1,+1,+1\right)$$. Computed the classical way, this operation involves 11 total operations: 4 subtraction, 4 squaring, and 3 addition operations.
 
 $$
 \begin{align*}
@@ -72,29 +72,29 @@ The downside of SDC is in its impact on *recall*---the fraction of ground-truth 
 
 In the next section, we describe how this weakness is addressed using ADC.
 
-### ADC
+### Asymmetric distance computation
 
-Considering SDC, notice that the algorithm introduced error into the distance calculations at two distinct points in the process. First, document vectors in the corpus are quantized to achieve the 32-fold memory savings that binary quantization provides. Second, the query vector is also quantized to match the scale and data type of the quantized documents. 
+Considering SDC, notice that the algorithm introduced errors into the distance calculations at two distinct points in the process. First, document vectors in the corpus are quantized to achieve the 32-fold memory savings that binary quantization provides. Second, the query vector is also quantized to match the scale and data type of the quantized documents. 
 
 However, this second quantization does nothing to meaningfully reduce the memory consumption of k-NN search. Even in extremely high-dimensional datasets, the footprint of the unquantized query is typically only on the order of a few kilobytes. In ADC, recall is improved by preserving the query vector in its original, un-quantized form while still comparing it against binary-quantized document vectors. This asymmetry, keeping one vector in high precision while the other remains binary, allows us to retain more information about the original distance relationships.
 
 The key difficulty that ADC overcomes is that binary quantization treats all values in a dimension identically as long as they have the same sign after mean-centering. This is despite potentially significant differences in their original magnitudes. For example, after mean-centering, both a large positive value of +0.6 and a small positive value of +0.1 would be quantized to +1, even though they represent very different original values. Conversely, the otherwise extremely close -0.1 and +0.1 get quantized to opposite values despite being nearly identical in the original space. 
 
-ADC addresses this limitation by scaling the query vector to match the document vectors while still keeping it in its full-precision form. By comparing the rescaled query---rather than quantized query---directly against binary document vectors, subtle variations in the original query vector are better captured that would otherwise be lost if the query was quantized as well.
+ADC addresses this limitation by scaling the query vector to match the document vectors while still keeping it in its full-precision form. By comparing the rescaled query---rather than the quantized query---directly against binary document vectors, subtle variations in the original query vector are better captured that would otherwise be lost if the query was quantized as well.
 
 ![ADC-Query](/assets/media/blog-images/2025-11-24-asymmetric-distance-computation/ADC-Main.png){:class="img-centered"}
 
-*Figure: For ADC, the document vectors are quantized identically to SDC. However, the query vector is kept in full fp32 precision and does not have to be quantized to a ±1 value.*
+*Figure: For ADC, the document vectors are quantized identically to SDC. However, the query vector is kept in full FP32 precision and does not have to be quantized to a ±1 value.*
 
 #### Rescaling for ADC
 
-Even though we maintain the query vector in its original precision, we still need to ensure that it operates on the same scale as our quantized document vectors. Recall that binary quantization essentially maps all values to ±1 regardless of the initial magnitude of each dimension, thereby inducing an implicit rescaling of the data. For our distance calculations to be meaningful, the query vector must also be recentered using the same dataset means that were used during document quantization, and rescaled to match the scale of binary quantization.
+Even though we maintain the query vector in its original precision, we still need to ensure that it operates on the same scale as our quantized document vectors. Recall that binary quantization essentially maps all values to ±1 regardless of the initial magnitude of each dimension, thereby inducing an implicit rescaling of the data. For our distance calculations to be meaningful, the query vector must also be recentered using the same dataset means that were used during document quantization and rescaled to match the scale of binary quantization.
 
 The following figure shows an example where failing to rescale leads to ADC finding the wrong nearest neighbors. Even when the nearest neighbor documents are close in the original space (the red points in the top-left quadrant), after quantization they might appear further away than does a faraway point (the blue point in the top-right quadrant). By rescaling, we look to reposition the full-precision query vector so that relative closeness is preserved as well as possible.
 
 ![ADC-Rescaling-Importance](/assets/media/blog-images/2025-11-24-asymmetric-distance-computation/ADC-Rescaling-Importance.png){:class="img-centered"}
 
-*Figure: The impact of query rescaling on nearest neighbor search. Document quantization inherently applies a type of coordinate rescaling to the document vectors. Without query rescaling, some points near the query can be moved away from it while points far from the query may be moved nearer. Query rescaling updates the query vector to counteract the impact of repositioning the document vectors.*
+*Figure: The impact of query rescaling on nearest neighbor search. Document quantization inherently applies a type of coordinate rescaling to the document vectors. Without query rescaling, some points near the query can be moved away from it, while points far from the query may be moved nearer. Query rescaling updates the query vector to counteract the impact of repositioning the document vectors.*
 
 To identify the right scale for the query, we look at how a "typical" document was distorted in each dimension. At the time of data indexing, we compute two centroids for each dimension $$i$$ in our dataset:
 
@@ -103,13 +103,13 @@ To identify the right scale for the query, we look at how a "typical" document w
 
 ![ADC-Rescaling-Strategy](/assets/media/blog-images/2025-11-24-asymmetric-distance-computation/ADC-Rescaling-Strategy.png){:class="img-centered"}
 
-*Figure: For each dimension, we compute the mean value that is quantized to each of -1 (for $$\vec{l}_i$$) and +1 (for $$\vec{h}_i$$). In the left figure, we compute the values of $$\vec{l}_x$$ and $$\vec{h}_x$$ as the mean of those quantized negatively or positively, respectively, in the x dimension. Similarly, the right sub-figure computes $$\vec{l}_y$$ and $$\vec{h}_y$$ by examining the means of the positive-vs-negative quantized values in the y dimension.*
+*Figure: For each dimension, we compute the mean value that is quantized to each of -1 (for $$\vec{l}_i$$) and +1 (for $$\vec{h}_i$$). In the figure on the left, we compute the values of $$\vec{l}_x$$ and $$\vec{h}_x$$ as the mean of those quantized negatively or positively, respectively, in the x dimension. Similarly, the sub-figure on the right computes $$\vec{l}_y$$ and $$\vec{h}_y$$ by examining the means of the positive-vs-negative quantized values in the y dimension.*
 
-These centroids represent the "average" values that end up in either of the two quantization buckets for that dimension. Binary quantization ensures that after quantization, the difference between the positively-quantized and negatively-quantized values in each dimension is exactly 2. To reproduce this characteristic in ADC, we want to scale the data such that the average distance between the post-scaling centroids is also 2. That is, we rescale the query vector $$v$$ to a new $$v'$$ such that 
+These centroids represent the "average" values that end up in either of the two quantization buckets for that dimension. Binary quantization ensures that after quantization, the difference between the positively quantized and negatively quantized values in each dimension is exactly 2. To reproduce this characteristic in ADC, we want to scale the data such that the average distance between the post-scaling centroids is also 2. That is, we rescale the query vector $$v$$ to a new $$v'$$ such that 
 
 $$\vec{v}_i' = 2 \frac{\vec{v}_i - \vec{l}_i}{\vec{h}_i - \vec{l}_i} - 1$$
 
-Note that $$\vec{v}_i' = -1$$ whenever $$\vec{v}_i = \vec{l}_i$$, and $$\vec{v}_i' = +1$$ whenever $$\vec{v}_i = \vec{h}_i$$. For all other values of $$\vec{v}_i$$, this scaling interpolates between -1 and +1, potentially falling outside of these bounds when $$\vec{v}_i$$ is either smaller or greater than both centroids in dimension $$i$$. With this rescaled query vector $$v'$$, we are now ready to compute the Euclidean distance to the binary-quantized document vectors with a higher degree of fidelity than would be attainable with a binary-quantized query as in SDC.
+Note that $$\vec{v}_i' = -1$$ whenever $$\vec{v}_i = \vec{l}_i$$, and $$\vec{v}_i' = +1$$ whenever $$\vec{v}_i = \vec{h}_i$$. For all other values of $$\vec{v}_i$$, this scaling interpolates between -1 and +1, potentially falling outside of these bounds when $$\vec{v}_i$$ is either smaller or larger than both centroids in dimension $$i$$. With this rescaled query vector $$v'$$, we are now ready to compute the Euclidean distance to the binary-quantized document vectors with a higher degree of fidelity than would be attainable with a binary-quantized query as in SDC.
 
 One advantage is that the centroid information only needs to be computed once for the entire dataset and requires negligible additional storage compared to the document vectors themselves (comparable to two full-precision vectors). Additionally, at query time, the rescaling only needs to be applied once to the query vector before it can be compared to all document vectors in the corpus.
 
@@ -152,8 +152,8 @@ PUT /vector-index
 
 Once the index is created with ADC enabled, you can perform k-NN searches using the standard OpenSearch query syntax—the ADC optimization happens automatically during search operations.
 
-##  Conclusion
+## Conclusion
 
-ADC represents a significant advancement in vector search optimization, providing a 32-fold reduction in memory usage compared to full-precision vectors while substantially mitigating the recall degradation typically associated with SDC. This technique addresses a critical challenge in large-scale vector search: balancing memory efficiency with search quality. With the release of OpenSearch 3.2, ADC is now available for you to optimize your vector search implementation without compromising result relevance. 
+ADC represents a significant advancement in vector search optimization, providing a 32-fold reduction in memory usage compared to full-precision vectors while substantially mitigating the recall degradation typically associated with SDC. This technique addresses a critical challenge in large-scale vector search: balancing memory efficiency with search quality. Starting with OpenSearch 3.2, ADC is available for you to optimize your vector search implementation without compromising result relevance. 
 
-We invite you to experiment with ADC in your OpenSearch deployments and share your experiences on the [OpenSearch community forum](https://forum.opensearch.org/). Your feedback helps drive continued improvements for vector search capabilities.
+We invite you to experiment with ADC in your OpenSearch deployments and share your experiences on the [OpenSearch community forum](https://forum.opensearch.org/). Your feedback helps drive continued improvements to vector search capabilities.
