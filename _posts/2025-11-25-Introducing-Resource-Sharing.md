@@ -25,17 +25,17 @@ Starting in OpenSearch 3.3, the Security plugin introduces **resource sharing an
 
 ---
 
-## Why resource sharing and access control matters
+## Why resource sharing and access control matter
 
 Traditional role-based access control defines who can query indexes or manage clusters but does not provide a native mechanism for sharing higher-level objects such as ML models, report definitions, and anomaly detectors.
 
 You may need to share higher-level objects across teams to avoid duplication, ensure consistency, and streamline collaboration, for example:
 
 * A central data team might create a report definition that schedules weekly compliance reports. Other teams need to view and run this report without duplicating it.
-* A fraud analytics team could define an anomaly detector for transaction data. Security engineers may need view the detector configuration in order to build alerts or integrate monitoring.
+* A fraud analytics team could define an anomaly detector for transaction data. Security engineers may need to view the detector configuration in order to build alerts or integrate monitoring.
 * Data scientists might train an ML Commons model and want to share it across departments without rebuilding or exporting it.
 
-Resource sharing and access control provides the missing layer by allowing these resources to be owned, shared, and audited with fine-grained control.
+Resource sharing and access control provide the missing layer by allowing these resources to be owned, shared, and audited with fine-grained control.
 
 ---
 
@@ -61,7 +61,7 @@ This model introduces several limitations:
 
 * **Overly broad cluster permissions**: Because permissions are role based rather than resource based, administrators must grant large cluster-level privileges to allow operations that only involve a single resource.
 
-* **Storing user identity snapshots**: Plugins need to persist identity metadata alongside each resource, which adds complexity and tightly couples resource metadata to user lifecycle.
+* **Storing user identity snapshots**: Plugins need to persist identity metadata alongside each resource, which adds complexity and tightly couples resource metadata to the user lifecycle.
 
 For the Anomaly Detection plugin, the setting that controls this model is `plugins.anomaly_detection.filter_by_backend_roles`. For the ML Commons plugin, this setting is `plugins.ml_commons.model_access_control_enabled`.
 
@@ -69,14 +69,14 @@ For the Anomaly Detection plugin, the setting that controls this model is `plugi
 
 ## Access levels
 
-An **access level** is a group of permissions that are applicable to a single resource. Each plugin that creates sharable resources must specify a list of access levels associated with the sharable resource. Access levels define the actions a user can perform on a resource, with each level granting progressively more capabilities.
+An **access level** is a group of permissions that are applicable to a single resource. Each plugin that creates sharable resources must specify a list of access levels associated with the sharable resource. Access levels define the actions a user can perform on a resource, with each increasing level granting additional capabilities.
 
-A good mental model for access levels is the familiar Google Docs sharing model where the owner of a Google Doc can share the document at these levels:
+A good mental model for access levels is the familiar Google Docs sharing model, where the owner of a Google Doc can share the document at these levels:
 
-- **Viewer**: Users at viewer level can read the document.
+- **Viewer**: Users at the viewer level can read the document.
 - **Commenter**: Users at the commenter level can read the document and leave comments.
-- **Editor**: Editors can read, comment, and edit the document.
-- **Full Access**: Users with full access can read, edit, comment, and share the document.
+- **Editor**: Editors can read, comment on, and edit the document.
+- **Full Access**: Users with full access can read, edit, comment on, and share the document.
 
 ---
 
@@ -158,14 +158,14 @@ PATCH /_plugins/_security/api/resource/share
 
 You can enable resource sharing using cluster settings.
 
-In **OpenSearch 3.3**, you can change resource sharing settings only by updating `opensearch.yml` and restarting the cluster:
+In **OpenSearch 3.3**, you can only change resource sharing settings by updating `opensearch.yml` and restarting the cluster:
 
 ```yaml
 plugins.security.experimental.resource_sharing.enabled: true
 plugins.security.experimental.resource_sharing.protected_types: ["anomaly-detector", "forecaster", "ml-model"]
 ```
 
-Starting with **OpenSearch 3.4**, these settings can be updated dynamically at runtime by using the `_cluster/settings` API:
+Starting with **OpenSearch 3.4**, these settings will be able to be updated dynamically at runtime by using the `_cluster/settings` API:
 
 ```json
 PUT _cluster/settings
@@ -181,8 +181,7 @@ PUT _cluster/settings
 }
 ```
 
-* `plugins.security.experimental.resource_sharing.enabled`: Enables or disables resource sharing globally.
-* `plugins.security.experimental.resource_sharing.protected_types`: Marks the resource types that should use resource-level authorization when the feature is enabled.
+`plugins.security.experimental.resource_sharing.enabled` enables or disables resource sharing globally. `plugins.security.experimental.resource_sharing.protected_types` marks the resource types that should use resource-level authorization when the feature is enabled.
 
 By default, resource sharing is **disabled** so that administrators can opt in intentionally.
 
@@ -225,7 +224,7 @@ POST /_plugins/_security/api/resources/migrate
 When implementing resource sharing in your OpenSearch cluster, consider the following recommendations to ensure secure and effective collaboration:
 
 * **Enable cautiously**: Test in a staging environment before enabling resource sharing across a production cluster.
-* **Follow the least privilege model**: Share resources with the minimum required access level.
+* **Follow the least privilege model**: Share resources with the lowest required access level.
 
 ---
 
@@ -233,7 +232,7 @@ When implementing resource sharing in your OpenSearch cluster, consider the foll
 
 As additional plugins adopt this framework, users will gain a consistent, secure, and predictable way to collaborate across the entire OpenSearch experience. Plugin developers will benefit from simpler security integrations and reduced reliance on custom access checks.
 
-As Dashboards, Visualizations, and Reporting plugins adopt the resource sharing model, users will gain a unified, collaboration-friendly sharing model throughout OpenSearch.
+As the Dashboards, Visualizations, and Reporting plugins adopt the resource sharing model, users will gain a unified, collaboration-friendly sharing model throughout OpenSearch.
 
 Stay tuned for Part 2 of this blog post, in which we will review the underlying metadata model, explore how access evaluations work at query time, and discuss the scalability considerations that shape the framework.
 
