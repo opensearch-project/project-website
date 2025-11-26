@@ -51,7 +51,7 @@ To use resource sharing effectively, it's important to understand the key concep
 
 ---
 
-### Legacy access control model
+## Legacy access control model
 
 Historically, many OpenSearch plugins have relied on a coarse, backend-role–based model to control access to plugin-defined resources. In this model---commonly referred to as `filter_by_backend_role`---a resource created by one user becomes visible to another user only if both users share at least one backend role. In practice, this means that when two users share a backend role, they automatically gain access to each other’s resources, and the resource owner cannot control who can view, modify, or use those resources.
 
