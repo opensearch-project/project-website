@@ -10,15 +10,9 @@ meta_keywords: agentic memory, AI agents, OpenSearch, LangChain, LangGraph, agen
 meta_description: "Learn how OpenSearch 3.3's agentic memory enables AI agents to learn, remember, and reason across conversations with persistent memory management, semantic search, and seamless integration with popular agent frameworks."
 ---
 
-Building effective AI agents requires more than just powerful language models—it demands the ability to remember and learn from past interactions. Traditional LLMs process each conversation in isolation, lacking the persistent memory that makes human conversations meaningful and contextual. This limitation forces developers to implement complex workarounds: manually managing conversation history, building custom databases for user preferences, and recreating similar memory solutions across different projects.
+Building effective AI agents requires more than just powerful language models—it demands the ability to remember and learn from past interactions. OpenSearch 3.3 introduces **agentic memory**, a comprehensive persistent memory system that enables AI agents to maintain context, extract knowledge, and build understanding across conversations using OpenSearch's proven search and storage infrastructure.
 
-OpenSearch 3.3 introduces **agentic memory**, a comprehensive persistent memory system that enables AI agents to learn, remember, and reason across conversations and interactions. Unlike simple conversation storage that only keeps message history, agentic memory provides intelligent, searchable storage that helps agents maintain context, extract knowledge, and improve responses over time.
-
-This capability enables agents to build contextual understanding over time rather than treating each interaction as isolated. Agents can remember user preferences, maintain awareness of ongoing projects, and reference previous decisions without requiring users to repeat information in every conversation. 
-
-Agentic memory is designed for seamless integration with external frameworks like Amazon Bedrock Agents, LangChain, LangGraph, and custom agent implementations, enabling developers to add sophisticated memory capabilities to their existing AI applications while leveraging OpenSearch's proven search and storage infrastructure.
-
-In this blog post, we explore the specific s that agentic memory solves, introduce its core concepts, and demonstrate how to integrate it with your agent frameworks.
+In this blog post, we explore the memory challenges facing AI agents, introduce agentic memory's core concepts, and demonstrate how to integrate it with your agent frameworks.
 
 ## The memory problem in AI agents
 
@@ -42,6 +36,8 @@ These technical limitations create user experience problems:
 
 Without effective memory systems, AI conversations remain fragmented rather than building meaningful, continuous relationships.
 
+![Comparison of agents without and with memory enabled](/assets/media/blog-images/2025-10-16-opensearch-agentic-memory-solution/memory-comparison.png){: .img-fluid }
+
 ## Introducing OpenSearch agentic memory
 
 OpenSearch agentic memory addresses these challenges by providing a comprehensive memory management system built on OpenSearch's proven search and storage infrastructure. This solution enables AI agents to maintain both immediate conversational context and persistent knowledge across interactions, creating more intelligent and personalized user experiences.
@@ -62,26 +58,15 @@ The system is designed around several core principles:
 
 OpenSearch agentic memory consists of several key components that work together to provide both short-term context and long-term intelligence for your agents.
 
-```
-External Agent Frameworks (LangChain, LangGraph, Custom)
-                    ↓ (API Integration)
-            Memory Container
-                    ├── Session Memory (temporary context)
-                    ├── Working Memory (active processing) 
-                    ├── Long-term Memory (persistent facts)
-                    └── History Memory (audit trail)
-                    ↓ (indexed storage)
-            OpenSearch Cluster
-            (search engine + vector storage)
-```
+![OpenSearch agentic memory architecture](/assets/media/blog-images/2025-10-16-opensearch-agentic-memory-solution/architecture-diagram.png){: .img-fluid }
 
 ### Memory containers
 
 A **memory container** is a logical container that holds all memory types for a specific use case, such as a chatbot, research assistant, or customer service agent. Each container can be configured with:
 
 - **Text embedding models**: For semantic search capabilities across stored memories
-- **Large language models (LLMs)**: For intelligent knowledge extraction and processing
-- **Memory processing strategies**: For defining how memories are processed and organized
+- **Large language models (LLMs)**: For intelligent knowledge extraction and processing in long-term memory
+- **Memory processing strategies**: For defining how long-term memories are processed and organized
 - **Namespaces**: For partitioning memories by context, user, agent, or session
 
 ```json
@@ -179,31 +164,35 @@ All strategies by default ignore personally identifiable information (PII) data 
 
 ### Namespaces
 
-**Namespaces** are a critical organizational concept that provide hierarchical structure within your memory containers. They function like file system paths and enable you to logically group and categorize memories. These are especially powerful in multi-tenant systems, whether multi-agent, multi-user, or both.
+**Namespaces** are flexible JSON key-value pairs that provide organizational structure within your memory containers. You can define any keys that fit your use case—there is no predefined schema. These keys are completely user-defined and application-specific, giving you full control over how you organize your memory data. This flexibility makes namespaces powerful for multi-tenant systems, whether multi-agent, multi-user, or both.
 
 Namespaces serve several important purposes:
 
 - **Organizational structure**: Separate different types of memories (preferences, summaries, entities) into distinct logical containers
 - **Access control**: Control which memories are accessible to different agents or in different contexts  
-- **Multi-tenant isolation**: Segregate memories for different users or organizations with patterns like `/org_id/user_id/preferences`
+- **Multi-tenant isolation**: Segregate memories for different users or organizations
 - **Focused retrieval**: Query specific types of memories without searching through unrelated information
 
-For example, you might structure namespaces like:
+For example, you might structure namespaces for user and session tracking:
 
-- `/ecommerce-bot/user-456/preferences`: For individual user shopping preferences
-- `/ecommerce-bot/product-catalog`: For shared product information accessible to all users
-- `/ecommerce-bot/user-456/session-789`: For tracking support case progression
+```json
+{
+  "user_id": "user123",
+  "session_id": "session-456"
+}
+```
 
-Dynamic namespace creation uses special placeholder variables in your namespace definitions:
+Or use custom keys tailored to your domain:
 
-- `{user_id}`: Uses the user identifier from the request
-- `{session_id}`: Uses the session identifier from the context
-- `{agent_id}`: Uses the agent identifier for organization
-- `{org_id}`: Uses the organization identifier for granular level
+```json
+{
+  "department": "sales",
+  "region": "us-west",
+  "customer_tier": "enterprise"
+}
+```
 
-These
-
-This allows for elegant namespace structuring without hardcoding identifiers:
+Here's how to use namespaces when storing memories:
 
 ```json
 POST /_plugins/_ml/memory_containers/<memory_container_id>/memories
@@ -231,7 +220,9 @@ POST /_plugins/_ml/memory_containers/<memory_container_id>/memories
 
 ## Integration with agent frameworks
 
-OpenSearch agentic memory is designed to work seamlessly with external agent frameworks like LangChain, LangGraph, and custom implementations. The REST API interface enables straightforward integration without vendor lock-in, allowing you to add persistent memory capabilities to existing agents through standard HTTP requests.
+### Framework-agnostic design
+
+OpenSearch agentic memory is built as a framework-agnostic solution, meaning it works with any agent framework through a standard REST API interface. Whether you're using LangChain, LangGraph, Amazon Bedrock Agents, or building custom implementations, you can integrate persistent memory capabilities through standard HTTP requests without framework-specific dependencies or vendor lock-in.
 
 ## Advanced features
 
@@ -245,7 +236,7 @@ OpenSearch agentic memory supports two inference modes controlled by the `infer`
 
 ### Semantic search capabilities
 
-Built on OpenSearch's powerful search engine, agentic memory provides sophisticated retrieval capabilities:
+Built on OpenSearch's powerful search engine, agentic memory provides sophisticated retrieval capabilities. Agentic memory supports the full OpenSearch Query DSL, giving you complete flexibility to search and retrieve memories using any query type—term queries, range filters, semantic search, aggregations, or any combination of OpenSearch's powerful query capabilities.
 
 ```json
 GET /_plugins/_ml/memory_containers/<memory_container_id>/memories/long-term/_search
@@ -318,7 +309,6 @@ Structure your memory implementation around your agent's specific use cases and 
 - Use **working memory** for immediate conversational context and temporary agent state
 - Leverage **long-term memory** with inference for persistent knowledge and user preferences  
 - Implement namespace patterns that align with your application's user and session management
-- Plan retention policies that balance functionality with privacy and compliance requirements
 
 ### Optimizing memory strategies
 
