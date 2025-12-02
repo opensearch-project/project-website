@@ -24,4 +24,4 @@ linkedin: asimmahmood
 
 ---
 
-**Asim Mahmood** is a senior software engineer at AWS, focused on OpenSearch core search functionality and large-scale distributed systems. He specializes in search performance optimization and Lucene-based implementations. When not improving search systems, you can find him exploring trails on his mountain bike.
+**Asim Mahmood** is a senior software engineer at AWS, focusing on OpenSearch core search functionality and large-scale distributed systems. He specializes in search performance optimization and Lucene-based implementations. When not improving search systems, you can find him exploring trails on his mountain bike.
