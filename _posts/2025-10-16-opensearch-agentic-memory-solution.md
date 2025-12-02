@@ -3,7 +3,7 @@ layout: post
 title: "OpenSearch as an agentic memory solution: Building context-aware agents using persistent memory"
 authors:
   - dhrubo
-date: 2025-10-16
+date: 2025-12-03
 categories:
   - technical-post
 meta_keywords: agentic memory, AI agents, OpenSearch, LangChain, LangGraph, agent frameworks, persistent memory, conversational AI
