@@ -2,7 +2,7 @@
 layout: post
 title: "OpenSearch 3.3: Performance innovations for AI search solutions"
 authors:
-    - asim
+    - asimmahm
     - sisurab
     - kdooyong
     - seanzheng
