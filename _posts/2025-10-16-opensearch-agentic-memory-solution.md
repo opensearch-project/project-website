@@ -3,6 +3,7 @@ layout: post
 title: "OpenSearch as an agentic memory solution: Building context-aware agents using persistent memory"
 authors:
   - dhrubo
+  - ylwu
 date: 2025-12-03
 categories:
   - technical-post
