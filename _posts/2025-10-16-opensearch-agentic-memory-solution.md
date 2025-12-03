@@ -8,8 +8,8 @@ authors:
 date: 2025-12-03
 categories:
   - technical-post
-meta_keywords: agentic memory, AI agents, OpenSearch, LangChain, LangGraph, agent frameworks, persistent memory, conversational AI
-meta_description: "Learn how OpenSearch 3.3's agentic memory enables AI agents to learn, remember, and reason across conversations with persistent memory management, semantic search, and seamless integration with popular agent frameworks."
+meta_keywords: OpenSearch 3.3, agentic memory solution, AI agents, persistent memory, machine learning, agentic memory, context awareness, LLM, language models, memory containers, semantic search, AI development, agent frameworks, intelligent agents, context management.
+meta_description: "Learn how OpenSearch 3.3's agentic memory system enables AI agents to maintain context and learn from past interactions using persistent memory and intelligent processing capabilities."
 ---
 
 Building effective AI agents requires more than just powerful language models—it demands the ability to remember and learn from past interactions. OpenSearch 3.3 introduces _agentic memory_, a comprehensive persistent memory system that enables AI agents to maintain context, extract knowledge, and build understanding across conversations using OpenSearch's proven search and storage infrastructure.
