@@ -4,6 +4,7 @@ title: "OpenSearch as an agentic memory solution: Building context-aware agents 
 authors:
   - dhrubo
   - ylwu
+  - season
 date: 2025-12-03
 categories:
   - technical-post
