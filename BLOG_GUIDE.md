@@ -112,7 +112,7 @@ In this example, the file name is `krisfreedain.markdown`. The author file conta
 ---
 short_name: krisfreedain
 name: Kris Freedain
-photo: '/assets/media/community/memberes/krisfreedain.jpg'
+photo: '/assets/media/community/members/krisfreedain.jpg'
 twitter: 'KrisFreedain'
 github: krisfreedain
 linkedin: 'krisfreedain'
