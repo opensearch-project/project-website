@@ -1,4 +1,5 @@
 ---
+short_name: 'asimmahm'
 name: "Asim Mahmood"
 photo: "/assets/media/community/members/asimmahm.jpg"
 primary_title: 'Asim Mahmood'
@@ -22,6 +23,7 @@ github: asimmahmood1
 
 linkedin: asimmahmood
 
+redirect_from: '/authors/asimmahm/'
 ---
 
 **Asim Mahmood** is a senior software engineer at AWS focusing on OpenSearch core search functionality and large-scale distributed systems. He specializes in search performance optimization and Lucene-based implementations. When not improving search systems, you can find him exploring trails on his mountain bike.
