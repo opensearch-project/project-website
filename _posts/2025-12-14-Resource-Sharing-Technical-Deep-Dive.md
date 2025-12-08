@@ -467,7 +467,7 @@ opensearchplugin {
 
 ### 2. Implement `ResourceSharingExtension` and register it
 
-Create a class that implements `org.opensearch.security.spi.ResourceSharingExtension`. This class tells Security:
+Create a class that implements `org.opensearch.security.spi.resources.ResourceSharingExtension`. This class tells Security:
 
 * Which resource indices you own
 * Which resource types are shareable
