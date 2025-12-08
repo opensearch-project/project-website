@@ -573,7 +573,7 @@ Cluster admins control rollout using two settings:
 
 ```yaml
 plugins.security.experimental.resource_sharing.enabled: true
-plugins.security.experimental.resource_sharing.protected_types: ["anomaly-detector", "forecaster", "ml-model"]
+plugins.security.experimental.resource_sharing.protected_types: ["anomaly-detector", "forecaster", "ml-model", "workflow", "workflow_state"]
 ```
 
 * `enabled` – Master feature flag, disabled by default.
@@ -589,7 +589,9 @@ PUT _cluster/settings
     "plugins.security.experimental.resource_sharing.protected_types": [
       "anomaly-detector",
       "forecaster",
-      "ml-model"
+      "ml-model",
+      "workflow",
+      "workflow_state"
     ]
   }
 }
