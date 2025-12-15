@@ -51,7 +51,7 @@ The backend role approach created several significant problems:
    If two users shared a backend role, they could see each other's resources. This created the following issues:
 
     * No way for the owner to specify *share with Alice, but not with Bob* if both users shared a role.
-    * Removing access required role-mapping changes, not a change on the resource itself.
+    * Removing access required role-mapping changes, not a change to the resource itself.
 
 2. **Overly broad cluster privileges**
 
@@ -82,31 +82,31 @@ When we started designing resource sharing, we focused on the following core pri
 
 2. **Centralized, reusable logic**:
 
-    * One framework inside the Security plugin
-    * Plugins declare what is shareable and the actions that exist
-    * The Security plugin handles how access is evaluated
+    * One framework inside the Security plugin.
+    * Plugins declare what is shareable and the actions that exist.
+    * The Security plugin handles how access is evaluated.
 
 3. **Minimal changes to plugin APIs**
 
    Plugins should maintain their existing approach while integrating with the new framework:
 
-    * Keep exposing their existing REST APIs (such as `/detectors`, `/models`, `/reports`)
-    * Delegate authorization to the Security plugin framework
-    * Avoid copying and pasting "get current user" boilerplate
+    * Keep exposing their existing REST APIs (such as `/detectors`, `/models`, `/reports`).
+    * Delegate authorization to the Security plugin framework.
+    * Avoid copying and pasting "get current user" boilerplate.
 
 4. **Safe migration**
 
    Existing clusters cannot lose access patterns overnight. We needed to provide:
 
-    * A way to import legacy sharing data into the new framework
-    * Feature flags and per-type rollout
-    * A reversible, observable migration step
+    * A way to import legacy sharing data into the new framework.
+    * Feature flags and per-type rollout.
+    * A reversible, observable migration step.
 
 ---
 
 ## High-level architecture
 
-At a high level, resource sharing splits responsibility across three parts:
+At a high level, resource sharing splits responsibility across three elements:
 
 * **Resource plugins**: Own the functional resource (detectors, models, reports, dashboards).
 * **Security plugin**: Owns the sharing model and access evaluation.
@@ -196,9 +196,9 @@ The sharing document contains three key fields:
 
 Each access level under `share_with` defines the following scopes:
 
-* `users` — usernames with this access level
+* `users` — Usernames with this access level
 * `roles` — OpenSearch roles with this access level
-* `backend_roles` — backend roles with this access level
+* `backend_roles` — Backend roles with this access level
 
 ### Access levels as action groups
 
@@ -235,7 +235,7 @@ The `share_with` structure lets you express the following common patterns.
 }
 ```
 
-Visible only to the owner and superadmins.
+The resource is visible only to the owner and superadmins.
 
 **Public**:
 
@@ -265,27 +265,27 @@ Any authenticated user can access the resource at the `default` access level.
 }
 ```
 
-Only the listed principals can access this resource via that access level.
+Only the listed principals can access this resource through that access level.
 
 ---
 
-## Query-time evaluation: how results are filtered
+## Query-time evaluation: How results are filtered
 
-There are two complementary pieces to runtime evaluation:
+There are two complementary aspects of runtime evaluation:
 
-1. **Implicit filtering** for List and Search APIs.
-2. **Explicit checks** for point operations or custom flows.
+1. **Implicit filtering** for List and Search APIs
+2. **Explicit checks** for point operations or custom flows
 
 ### 1. Implicit filtering through all_shared_principals
 
-When a plugin lists resources, we want it to operate without needing to know the current user's identity. The system accomplishes this through the following process:
+When a plugin lists resources, it should operate without needing to know the current user's identity. The system accomplishes this through the following process:
 
 1. The plugin exposes a list or Search API (for example, `GET /_plugins/_reports/definitions`).
 2. Within the handler, the plugin issues a search against its system index using a plugin client (a system-level subject).
-3. The Security plugin attaches a Document-level security (DLS) query behind the scenes.
+3. The Security plugin attaches a document-level security (DLS) query behind the scenes.
 4. This DLS query checks an `all_shared_principals` field on each resource document.
 
-A resource document might look as follows:
+A resource document might appear as follows:
 
 ```json
 {
@@ -341,7 +341,7 @@ public void search(SearchRequest request, String resourceType, ActionListener<Se
 }
 ```
 
-### 2. Explicit checks using ResourceSharingClient
+### 2. Explicit checks using the ResourceSharingClient
 
 For operations that cannot rely solely on DLS (for example, get by ID, update, delete, or non-index-backed resources), plugins call the `ResourceSharingClient` from the SPI.
 
@@ -414,7 +414,7 @@ public void getResourceById(String id, RestChannel channel) {
 }
 ```
 
-If the Security plugin is disabled, the SPI implementation safely becomes a no-op and treats the request as allowed, so your plugin does not have to special-case that.
+If the Security plugin is disabled, the SPI implementation safely becomes a no-op and treats the request as allowed, so your plugin does not have to special-case it.
 
 #### getAccessibleResourceIds: Cross-index flows
 
@@ -469,7 +469,7 @@ opensearchplugin {
 }
 ```
 
-### 2. Implement ResourceSharingExtension and register it
+### 2. Implement the ResourceSharingExtension and register it
 
 Create a class that implements `org.opensearch.security.spi.resources.ResourceSharingExtension`. This class informs the Security plugin about:
 
@@ -510,13 +510,13 @@ resource_types:
         - "cluster:admin/security/resource/share"
 ```
 
-The `resource_types` keys must match the types you declare in `ResourceSharingExtension`.
+The `resource_types` keys must match the types you declare in the `ResourceSharingExtension`.
 
 ### 4. Use system indexes and a plugin client
 
 * Store resources in system indexes and keep system index protection enabled.
 * Use a plugin client when reading or writing those indexes so the Security plugin can apply DLS.
-* Avoid accessing system indexes using ad-hoc `ThreadContext.stashContext` calls; use identity-aware mechanisms instead.
+* Avoid accessing system indexes using ad hoc `ThreadContext.stashContext` calls; use identity-aware mechanisms instead.
 
 ### 5. Wire in the ResourceSharingClient
 
@@ -581,7 +581,7 @@ plugins.security.experimental.resource_sharing.protected_types: ["anomaly-detect
 ```
 
 * `enabled` — The feature flag, disabled by default.
-* `protected_types` — List of resource types that should use resource-level auth.
+* `protected_types` — The list of resource types that should use resource-level auth.
 
 From OpenSearch 3.4 onward, these can be updated dynamically:
 
@@ -603,9 +603,9 @@ PUT _cluster/settings
 
 This approach provides the following capabilities:
 
-* Enabling the framework globally.
-* Opting in specific resource types gradually.
-* Rolling back by clearing the protected types list.
+* Enabling the framework globally
+* Opting in specific resource types gradually
+* Rolling back by clearing the protected types list
 
 ---
 
@@ -621,11 +621,11 @@ POST /_plugins/_security/api/resources/migrate
 
 The API requires the following parameters:
 
-* `source_index` — The index in which the existing resources are located.
-* `username_path` — A JSON pointer to the owner field in each document.
-* `backend_roles_path` — A JSON pointer to the backend roles array.
-* `default_owner` — A fallback when ownership cannot be inferred.
-* `default_access_level` — A map from resource type to default action group.
+* `source_index` — The index in which the existing resources are located
+* `username_path` — A JSON pointer to the owner field in each document
+* `backend_roles_path` — A JSON pointer to the backend roles array
+* `default_owner` — A fallback when ownership cannot be inferred
+* `default_access_level` — A map from resource type to default action group
 
 **Example usage**:
 
@@ -667,9 +667,9 @@ sequenceDiagram
 
 The response summary includes the following information:
 
-* How many resources were migrated.
-* How many were skipped (for missing type or owner).
-* The resources that were assigned `default_owner`.
+* How many resources were migrated
+* How many were skipped (for missing type or owner)
+* The resources that were assigned `default_owner`
 
 Only REST admins or superadmin users can run this API.
 
@@ -688,9 +688,9 @@ Once the framework is enabled and plugins are onboarded, OpenSearch Dashboards b
 
 These APIs enable OpenSearch Dashboards to provide comprehensive resource management capabilities:
 
-* Sharing detectors with specific users and roles.
-* Displaying accessible resources and resharing permissions for the current user.
-* Listing all available resource types and their corresponding access levels.
+* Sharing detectors with specific users and roles
+* Displaying accessible resources and resharing permissions for the current user
+* Listing all available resource types and their corresponding access levels
 
 The Security plugin centralizes the logic; each feature plugin focuses on its own domain (detectors, models, dashboards, or reports).
 
@@ -725,14 +725,14 @@ For plugin authors, it provides:
 
 ## Try resource sharing and share your feedback
 
-Resource sharing and access control is available as an experimental feature in OpenSearch 3.3 and later. If you're developing a plugin and want to adopt resource sharing, start with performing these steps:
+Resource sharing and access control is available as an experimental feature in OpenSearch 3.3 and later. If you're developing a plugin and want to adopt resource sharing, start by performing these steps:
 
-1. Implement `ResourceSharingExtension` and register your plugin as a resource plugin.
+1. Implement the `ResourceSharingExtension` and register your plugin as a resource plugin.
 2. Define your resource action groups in `resource-action-groups.yml`.
 3. Mark your resource indexes as system indexes and use a plugin client for access.
 4. Use `isFeatureEnabledForType` and `verifyAccess` in your handlers.
 5. Enable the feature for your resource type in a test cluster and iterate.
 
-After this, your plugin can inherit a complete, centralized sharing model with consistent behavior across the OpenSearch platform.
+After this, your plugin can inherit a complete, centralized sharing model with consistent behavior across OpenSearch.
 
-Your input helps us improve the feature before it becomes generally available. Please share your experiences, questions, and suggestions on the [OpenSearch Forum](https://forum.opensearch.org/). 
+Your input helps to improve the feature before it becomes generally available, so feel free to share your experiences, questions, and suggestions on the [OpenSearch forum](https://forum.opensearch.org/). 
