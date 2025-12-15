@@ -112,7 +112,7 @@ At a high level, resource sharing splits responsibility across three parts:
 * **Security plugin**: Owns the sharing model and access evaluation.
 * **System indexes**: Store resources and the corresponding sharing metadata.
 
-```mermaid
+```yaml
 flowchart TD
     U[User / OpenSearch Dashboards] -->|Create / Read / Update / Delete| PL[Resource Plugin]
 
@@ -645,7 +645,7 @@ POST /_plugins/_security/api/resources/migrate
 
 The migration flow looks like this:
 
-```mermaid
+```yaml
 sequenceDiagram
     participant Admin as Cluster Admin
     participant MAPI as Migration API
