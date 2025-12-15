@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Under the hood: Designing resource-level access control in OpenSearch"
+title: "Technical deep dive: Designing resource-level access control in OpenSearch"
 authors:
   - dchanp
   - cwperks
@@ -17,18 +17,18 @@ tags:
   - opensearch 3.3
 ---
 
-In [Part 1]({{site.baseurl}}/blog/introducing-resource-sharing), we introduced resource sharing and access control as a new way to collaborate on plugin-defined resources such as anomaly detectors and machine learning (ML) models.
+In [Part 1 of the resource sharing blog series](https://opensearch.org/blog/introducing-resource-sharing/), we introduced resource sharing and access control as a new way to collaborate on plugin-defined resources such as anomaly detectors and machine learning (ML) models.
 
-This post looks under the hood at how that feature is built and how you can adopt it in your own plugins:
+This post examines the underlying architecture of that feature and demonstrates how you can adopt it in your own plugins:
 
-* Why the legacy `filter_by_backend_roles` model was not enough
-* How we designed a resource-centric authorization model
-* How plugins integrate using the new Security SPI
-* How access checks work at query time
-* How to migrate safely from legacy behavior
-* A practical onboarding path for plugin developers
+* The limitations of the legacy `filter_by_backend_roles` model.
+* The design of a resource-centric authorization model.
+* Plugin integration using the new Security SPI.
+* Access check functionality at query time.
+* Safe migration from legacy behavior.
+* A practical onboarding path for plugin developers.
 
-If you are building or operating plugins on OpenSearch, this is the post you probably care about.
+If you're building or operating plugins on OpenSearch, this post provides essential information for your development process.
 
 ---
 
@@ -36,35 +36,37 @@ If you are building or operating plugins on OpenSearch, this is the post you pro
 
 Before resource sharing, most OpenSearch plugins used a simple pattern:
 
-* Each resource (detector, model, report, and so on) stored identity metadata (creator, backend roles).
+* Each resource (for example, detector, model, or report) stored identity metadata (creator, backend roles).
 * Visibility was controlled by checking for backend role overlap between creator and viewer.
-* In Anomaly Detection, this was controlled by `plugins.anomaly_detection.filter_by_backend_roles`. In ML Commons, by `plugins.ml_commons.model_access_control_enabled`.
+* In the Anomaly Detection plugin, visibility control was managed by `plugins.anomaly_detection.filter_by_backend_roles`. In the ML Commons plugin, visibility control was managed by `plugins.ml_commons.model_access_control_enabled`.
 
 This approach worked for basic multi-tenancy but had significant limitations.
 
-### Shortcomings of `filter_by_backend_roles`
+### Shortcomings of filter_by_backend_roles
 
-1. Implicit, role-coupled sharing
+The backend role approach created several significant problems:
 
-   If two users shared a backend role, they could see each other’s resources. That meant:
+1. **Implicit, role-coupled sharing**
 
-    * No way for the owner to say “share with Alice, but not with Bob” if both users shared a role.
+   If two users shared a backend role, they could see each other's resources. This created the following issues:
+
+    * No way for the owner to specify *share with Alice, but not with Bob* if both users shared a role.
     * Removing access required role-mapping changes, not a change on the resource itself.
 
-2. Overly broad cluster privileges
+2. **Overly broad cluster privileges**
 
-   Because access was controlled at the role level, not the resource level:
+   Because access was controlled at the role level rather than the resource level, the following problems arose:
 
     * Roles needed powerful cluster permissions just so users could operate on their own resources.
-    * It was difficult to grant “read-only access to this one detector” without granting broader capabilities.
+    * It was difficult to grant *read-only access to this one detector* without granting broader capabilities.
 
-3. Distributed, plugin-specific metadata
+3. **Distributed, plugin-specific metadata**
 
-   Each plugin implemented its own access logic:
+   Each plugin implemented its own access logic, resulting in:
 
-    * Different JSON shapes for “owner” and “shared with”
-    * Different user experience patterns in OpenSearch Dashboards
-    * No central place to audit “who can see what”
+    * Different JSON shapes for `owner` and `shared with`.
+    * Different user experience patterns in OpenSearch Dashboards.
+    * No central place to audit *access permissions and resource visibility*.
 
 The new framework is designed to fix all of this.
 
@@ -72,29 +74,29 @@ The new framework is designed to fix all of this.
 
 ## Design goals
 
-When we started designing resource sharing, we focused on a few core principles.
+When we started designing resource sharing, we focused on the following core principles:
 
-1. Resource-centric security
+1. **Resource-centric security**
 
    Authorization should be driven by who owns this resource and who it is shared with, not by backend-role overlaps that happen to exist.
 
-2. Centralized, reusable logic
+2. **Centralized, reusable logic**:
 
     * One framework inside the Security plugin
-    * Plugins declare what is shareable and which actions exist
-    * Security handles how access is evaluated
+    * Plugins declare what is shareable and the actions that exist
+    * The Security plugin handles how access is evaluated
 
-3. Minimal changes to plugin APIs
+3. **Minimal changes to plugin APIs**
 
-   Plugins should:
+   Plugins should maintain their existing approach while integrating with the new framework:
 
     * Keep exposing their existing REST APIs (such as `/detectors`, `/models`, `/reports`)
-    * Delegate authorization to the Security framework
-    * Avoid copying and pasting “get current user” boilerplate
+    * Delegate authorization to the Security plugin framework
+    * Avoid copying and pasting "get current user" boilerplate
 
-4. Safe migration
+4. **Safe migration**
 
-   Existing clusters cannot lose access patterns overnight. We needed:
+   Existing clusters cannot lose access patterns overnight. We needed to provide:
 
     * A way to import legacy sharing data into the new framework
     * Feature flags and per-type rollout
@@ -106,9 +108,9 @@ When we started designing resource sharing, we focused on a few core principles.
 
 At a high level, resource sharing splits responsibility across three parts:
 
-* Resource plugins: own the functional resource (detectors, models, reports, dashboards)
-* Security plugin: owns the sharing model and access evaluation
-* System indices: store resources and the corresponding sharing metadata
+* **Resource plugins**: Own the functional resource (detectors, models, reports, dashboards).
+* **Security plugin**: Owns the sharing model and access evaluation.
+* **System indexes**: Store resources and the corresponding sharing metadata.
 
 ```mermaid
 flowchart TD
@@ -120,7 +122,7 @@ flowchart TD
       MAP[Index Mapping & Routing - resource -> sharing index]
     end
 
-    subgraph Data[System Indices - per plugin]
+    subgraph Data[System Indexes - per plugin]
       RIDX1[(Resource Index A)]
       RSIDX1[(Sharing Index A)]
       RIDX2[(Resource Index B)]
@@ -144,9 +146,9 @@ flowchart TD
 
 Key ideas:
 
-* Each resource index (for example, `.opendistro-anomaly-detectors`) is paired with a sharing index owned by Security.
-* Plugins consult the Resource Sharing SPI instead of doing their own access checks.
-* OpenSearch Dashboards uses Security REST endpoints to share, list, and manage resources.
+* Each resource index (for example, `.opendistro-anomaly-detectors`) is paired with a sharing index owned by the Security plugin.
+* Plugins consult the Resource Sharing SPI instead of performing their own access checks.
+* OpenSearch Dashboards uses Security plugin REST endpoints to share, list, and manage resources.
 
 The feature is introduced in the Security plugin as an experimental capability, behind the flag:
 
@@ -158,11 +160,11 @@ plugins.security.experimental.resource_sharing.enabled: true
 
 ## The resource-sharing data model
 
-Resource sharing introduces a dedicated sharing document per resource, stored in a Security-managed index.
+Resource sharing introduces a dedicated sharing document per resource, stored in a Security-plugin-managed index.
 
 ### Sharing document
 
-For each resource, Security stores a document like:
+For each resource, the Security plugin stores a document as follows:
 
 ```json
 {
@@ -186,15 +188,17 @@ For each resource, Security stores a document like:
 }
 ```
 
-* `resource_id` – Unique ID within the plugin’s resource index.
-* `created_by` – Logical owner (user and, optionally, tenant).
-* `share_with` – Map of access levels (action groups) to recipients.
+The sharing document contains three key fields:
 
-Each access level under `share_with` defines three scopes:
+* `resource_id` — A unique ID within the plugin's resource index.
+* `created_by` — The logical owner (user and, optionally, tenant).
+* `share_with` — A map of access levels (action groups) to recipients.
 
-* `users` – usernames with this access level
-* `roles` – OpenSearch roles with this access level
-* `backend_roles` – backend roles with this access level
+Each access level under `share_with` defines the following scopes:
+
+* `users` — usernames with this access level
+* `roles` — OpenSearch roles with this access level
+* `backend_roles` — backend roles with this access level
 
 ### Access levels as action groups
 
@@ -217,13 +221,13 @@ resource_types:
         - "cluster:admin/security/resource/share"
 ```
 
-Security reads this file at startup and uses it to answer questions like, “Does this user have `sample_read_write` on resource X?”
+The Security plugin reads this file at startup and uses it to answer questions like “Does this user have `sample_read_write` on resource X?”
 
-### Public vs private vs restricted
+### Public, private, and restricted sharing patterns
 
-The `share_with` structure lets you express common patterns.
+The `share_with` structure lets you express the following common patterns.
 
-* Private (default)
+**Private (default)**:
 
 ```json
 {
@@ -231,9 +235,9 @@ The `share_with` structure lets you express common patterns.
 }
 ```
 
-Visible only to the owner and super-admins.
+Visible only to the owner and superadmins.
 
-* Public
+**Public**:
 
 ```json
 {
@@ -247,7 +251,7 @@ Visible only to the owner and super-admins.
 
 Any authenticated user can access the resource at the `default` access level.
 
-* Restricted
+**Restricted**:
 
 ```json
 {
@@ -269,19 +273,19 @@ Only the listed principals can access this resource via that access level.
 
 There are two complementary pieces to runtime evaluation:
 
-1. Implicit filtering for list/search APIs
-2. Explicit checks for point operations or custom flows
+1. **Implicit filtering** for List and Search APIs.
+2. **Explicit checks** for point operations or custom flows.
 
-### 1. Implicit filtering through `all_shared_principals`
+### 1. Implicit filtering through all_shared_principals
 
-When a plugin lists resources, we want it to not care about who the current user is. Instead:
+When a plugin lists resources, we want it to operate without needing to know the current user's identity. The system accomplishes this through the following process:
 
-1. The plugin exposes a list or search API (for example, `GET /_plugins/_reports/definitions`).
-2. Inside the handler, the plugin issues a search against its system index using a plugin client (a system-level subject).
+1. The plugin exposes a list or Search API (for example, `GET /_plugins/_reports/definitions`).
+2. Within the handler, the plugin issues a search against its system index using a plugin client (a system-level subject).
 3. The Security plugin attaches a Document-level security (DLS) query behind the scenes.
-4. The DLS query checks an `all_shared_principals` field on each resource document.
+4. This DLS query checks an `all_shared_principals` field on each resource document.
 
-A resource document might look like:
+A resource document might look as follows:
 
 ```json
 {
@@ -304,19 +308,19 @@ If the authenticated user is:
 * `username: resource_sharing_test_user_alice`
 * with role `analytics_team`
 
-then Security limits the result set to documents where `all_shared_principals` contains:
+then the Security plugin limits the result set to documents where `all_shared_principals` contains:
 
 * `user:resource_sharing_test_user_alice`
 * or `role:analytics_team`
 * or a wildcard such as `user:*` for public visibility
 
-To make this work in a future-proof way:
+To make this work in a future-proof way, the implementation follows these principles:
 
-* Plugins declare themselves as `IdentityAwarePlugin` so they can use their plugin subject to access system indices.
+* Plugins declare themselves as `IdentityAwarePlugin` so they can use their plugin subject to access system indexes.
 * The plugin uses its plugin client instead of stashing thread context manually.
 * The Security plugin injects the DLS filter automatically.
 
-Here is a snippet from anomaly-detection plugin for usage of PluginClient to perform search:
+The following is a code snippet from the Anomaly Detection plugin that demonstrates `PluginClient` usage for search operations:
 
 ```java
 public void search(SearchRequest request, String resourceType, ActionListener<SearchResponse> actionListener) {
@@ -337,9 +341,9 @@ public void search(SearchRequest request, String resourceType, ActionListener<Se
 }
 ```
 
-### 2. Explicit checks using `ResourceSharingClient`
+### 2. Explicit checks using ResourceSharingClient
 
-For operations that cannot rely solely on DLS (for example, get-by-id, update, delete, or non-index-backed resources), plugins call the `ResourceSharingClient` from the SPI.
+For operations that cannot rely solely on DLS (for example, get by ID, update, delete, or non-index-backed resources), plugins call the `ResourceSharingClient` from the SPI.
 
 The SPI provides three main methods:
 
@@ -355,9 +359,9 @@ void getAccessibleResourceIds(String resourceIndex,
 boolean isFeatureEnabledForType(String resourceType);
 ```
 
-#### `isFeatureEnabledForType`: guard rails
+#### isFeatureEnabledForType: Guard rails
 
-Use this as your top-level guard:
+Use this method as your top-level guard:
 
 ```java
 public static boolean shouldUseResourceAuthz(String resourceType) {
@@ -366,19 +370,19 @@ public static boolean shouldUseResourceAuthz(String resourceType) {
 }
 ```
 
-If this returns `false`, you can safely fall back to your legacy behavior (for example, `filter_by_backend_roles`).
+If this method returns `false`, you can safely fall back to your legacy behavior (for example, `filter_by_backend_roles`).
 
-#### `verifyAccess`: point checks
+#### verifyAccess: Point checks
 
 Use `verifyAccess` when you want to enforce access on one specific resource and a specific action.
 
-Typical examples:
+**Typical examples**:
 
 * `GET /_plugins/_my_plugin/resources/{id}`
 * `DELETE /_plugins/_my_plugin/resources/{id}`
 * Custom operations such as `/_plugins/_my_plugin/resources/{id}/_search`
 
-Pseudocode:
+**Implementation example**:
 
 ```java
 public void getResourceById(String id, RestChannel channel) {
@@ -412,11 +416,11 @@ public void getResourceById(String id, RestChannel channel) {
 
 If the Security plugin is disabled, the SPI implementation safely becomes a no-op and treats the request as allowed, so your plugin does not have to special-case that.
 
-#### `getAccessibleResourceIds`: cross-index flows
+#### getAccessibleResourceIds: Cross-index flows
 
 When you need to filter by ID but cannot rely on DLS, you can retrieve the set of resource IDs that the current user can access and apply your own filters.
 
-For example:
+**Example implementation**:
 
 ```java
 public void getResources(RestChannel channel) {
@@ -432,20 +436,20 @@ public void getResources(RestChannel channel) {
 }
 ```
 
-This is a good fit for cases where:
+This approach works well for cases where:
 
-* You need a custom query that does not go through the standard DLS filter path, or
-* You are composing results across multiple indices and want to intersect with accessible IDs.
+* You need a custom query that does not go through the standard DLS filter path.
+* You are composing results across multiple indexes and want to intersect with accessible IDs.
 
 ---
 
-## Developer integration: becoming a “resource plugin”
+## Developer integration: Becoming a “resource plugin”
 
-To opt in, a plugin implements the Resource Sharing SPI and follows a few conventions.
+To opt in, a plugin implements the Resource Sharing SPI and follows these conventions.
 
-### 1. Add SPI dependency and extend the Security plugin
+### 1. Add the SPI dependency and extend the Security plugin
 
-In `build.gradle`:
+In `build.gradle`, add the following configuration:
 
 ```gradle
 configurations {
@@ -465,13 +469,13 @@ opensearchplugin {
 }
 ```
 
-### 2. Implement `ResourceSharingExtension` and register it
+### 2. Implement ResourceSharingExtension and register it
 
-Create a class that implements `org.opensearch.security.spi.resources.ResourceSharingExtension`. This class tells Security:
+Create a class that implements `org.opensearch.security.spi.resources.ResourceSharingExtension`. This class informs the Security plugin about:
 
-* Which resource indices you own
-* Which resource types are shareable
-* How those types map to your action groups
+* The resource indexes you own.
+* The resource types that are shareable.
+* How those types map to your action groups.
 
 Then register it using Java’s SPI mechanism:
 
@@ -485,9 +489,9 @@ The file must contain exactly one line with the fully qualified class name, for 
 org.opensearch.sample.SampleResourceSharingExtension
 ```
 
-### 3. Provide `resource-action-groups.yml`
+### 3. Provide resource-action-groups.yml
 
-Define your resource types and action groups:
+Create a configuration file that defines your resource types and action groups:
 
 ```yaml
 resource_types:
@@ -508,15 +512,15 @@ resource_types:
 
 The `resource_types` keys must match the types you declare in `ResourceSharingExtension`.
 
-### 4. Use system indices and a plugin client
+### 4. Use system indexes and a plugin client
 
-* Store resources in system indices and keep system index protection enabled.
-* Use a plugin client when reading or writing those indices so Security can apply DLS.
-* Avoid accessing system indices using ad-hoc `ThreadContext.stashContext` calls; use the identity-aware mechanisms instead.
+* Store resources in system indexes and keep system index protection enabled.
+* Use a plugin client when reading or writing those indexes so the Security plugin can apply DLS.
+* Avoid accessing system indexes using ad-hoc `ThreadContext.stashContext` calls; use identity-aware mechanisms instead.
 
-### 5. Wire in the `ResourceSharingClient`
+### 5. Wire in the ResourceSharingClient
 
-Implement a small accessor to get the SPI client (typically a singleton wrapper):
+Create a small accessor class to obtain the SPI client (typically implemented as a singleton wrapper):
 
 ```java
 public class ResourceSharingClientAccessor {
@@ -538,15 +542,15 @@ public class ResourceSharingClientAccessor {
 }
 ```
 
-During plugin initialization, Security injects the `ResourceSharingClient` for you. Your handlers then call:
+During plugin initialization, the Security plugin automatically injects the `ResourceSharingClient`. Your handlers then call:
 
-* `isFeatureEnabledForType` to decide whether to use resource-level auth
-* `verifyAccess` to guard point operations
-* `getAccessibleResourceIds` for custom flows
+* `isFeatureEnabledForType` to decide whether to use resource-level auth.
+* `verifyAccess` to guard point operations.
+* `getAccessibleResourceIds` for custom flows.
 
 ### 6. Test with resource sharing enabled
 
-In your integration test cluster setup:
+Configure your integration test cluster setup as follows:
 
 ```gradle
 integTest {
@@ -567,21 +571,21 @@ This lets you run tests with resource sharing turned on and verify access behavi
 
 ---
 
-## Cluster controls: feature flags and protected types
+## Cluster controls: Feature flags and protected types
 
-Cluster admins control rollout using two settings:
+Cluster administrators control the rollout using two settings:
 
 ```yaml
 plugins.security.experimental.resource_sharing.enabled: true
 plugins.security.experimental.resource_sharing.protected_types: ["anomaly-detector", "forecaster", "ml-model", "workflow", "workflow_state"]
 ```
 
-* `enabled` – Master feature flag, disabled by default.
-* `protected_types` – List of resource types that should use resource-level auth.
+* `enabled` — The feature flag, disabled by default.
+* `protected_types` — List of resource types that should use resource-level auth.
 
 From OpenSearch 3.4 onward, these can be updated dynamically:
 
-```curl
+```json
 PUT _cluster/settings
 {
   "persistent": {
@@ -597,35 +601,35 @@ PUT _cluster/settings
 }
 ```
 
-This lets you:
+This approach provides the following capabilities:
 
-* Enable the framework globally
-* Opt in specific resource types gradually
-* Roll back by clearing the protected types list
+* Enabling the framework globally.
+* Opting in specific resource types gradually.
+* Rolling back by clearing the protected types list.
 
 ---
 
-## Migration: from legacy metadata to shared resources
+## Migration: From legacy metadata to shared resources
 
-Existing clusters already have detectors, models, and other resources with baked-in backend-role–based access.
+Existing clusters already have detectors, models, and other resources with embedded backend-role–based access control.
 
-To avoid breaking those, the Security plugin exposes a Migration API:
+To avoid disrupting existing functionality, the Security plugin exposes a Migration API:
 
 ```http
 POST /_plugins/_security/api/resources/migrate
 ```
 
-You provide:
+The API requires the following parameters:
 
-* `source_index` – Where the existing resources live
-* `username_path` – JSON pointer to the owner field in each document
-* `backend_roles_path` – JSON pointer to the backend roles array
-* `default_owner` – Fallback when ownership cannot be inferred
-* `default_access_level` – Mapping from resource type to default action group
+* `source_index` — The index in which the existing resources are located.
+* `username_path` — A JSON pointer to the owner field in each document.
+* `backend_roles_path` — A JSON pointer to the backend roles array.
+* `default_owner` — A fallback when ownership cannot be inferred.
+* `default_access_level` — A map from resource type to default action group.
 
-Example:
+**Example usage**:
 
-```curl
+```json
 POST /_plugins/_security/api/resources/migrate
 {
   "source_index": ".sample_resource",
@@ -661,19 +665,19 @@ sequenceDiagram
     Core-->>Admin: 200 OK (summary + skipped IDs)
 ```
 
-The response summary includes:
+The response summary includes the following information:
 
-* How many resources were migrated
-* How many were skipped (for missing type or owner)
-* Which resources ended up using `default_owner`
+* How many resources were migrated.
+* How many were skipped (for missing type or owner).
+* The resources that were assigned `default_owner`.
 
-Only REST admins or super-admin users can run this API.
+Only REST admins or superadmin users can run this API.
 
 ---
 
-## Dashboards: share, list, manage
+## Share, list, and manage resources in OpenSearch Dashboards
 
-Once the framework is enabled and plugins are onboarded, OpenSearch Dashboards builds on top of the Security REST APIs:
+Once the framework is enabled and plugins are onboarded, OpenSearch Dashboards builds on top of the Security plugin REST APIs:
 
 * `PUT /_plugins/_security/api/resource/share`
 * `PATCH /_plugins/_security/api/resource/share`
@@ -682,47 +686,53 @@ Once the framework is enabled and plugins are onboarded, OpenSearch Dashboards b
 * `GET /_plugins/_security/api/resource/list`
 * `GET /_plugins/_security/api/resource/types`
 
-This powers UI experiences like:
+These APIs enable OpenSearch Dashboards to provide comprehensive resource management capabilities:
 
-* “Share this detector with these users and roles.”
-* “Show me resources I can access, and whether I can reshare them.”
-* “List all resource types and their access levels.”
+* Sharing detectors with specific users and roles.
+* Displaying accessible resources and resharing permissions for the current user.
+* Listing all available resource types and their corresponding access levels.
 
-The Security plugin centralizes the logic; each feature plugin focuses on its own domain (detectors, models, dashboards, reports).
+The Security plugin centralizes the logic; each feature plugin focuses on its own domain (detectors, models, dashboards, or reports).
 
 ---
 
-## Putting it all together
+## Framework benefits and adoption
 
 The Resource Sharing and Access Control framework moves OpenSearch from:
 
-* Role-centric visibility
-  “If we share a backend role, we see each other’s stuff.”
+**Role-centric visibility**:
+"If we share a backend role, we see each other's resources."
 
 to:
 
-* Resource-centric control
-  “This detector is owned by X, shared with Y, under access level Z.”
+**Resource-centric control**:
+"This detector is owned by X, shared with Y, under access level Z."
 
 For operators, this means:
 
-* Clearer auditability of who can access what
-* Safer, more incremental rollouts using feature flags and protected types
-* A single, consistent sharing experience in OpenSearch Dashboards
+* Clearer auditability of who can access what.
+* Safer, more incremental rollouts using feature flags and protected types.
+* A single, consistent sharing experience in OpenSearch Dashboards.
 
-For plugin authors, it means:
+For plugin authors, it provides:
 
-* Less boilerplate access-control code
-* A standard SPI to plug into
-* Automatic DLS-based filtering for list and search APIs
-* A migration path from legacy `filter_by_backend_roles` and plugin-specific metadata
+* Less boilerplate access-control code.
+* A standard SPI to plug into.
+* Automatic DLS-based filtering for list and search APIs.
+* A migration path from legacy `filter_by_backend_roles` and plugin-specific metadata.
 
-If you are building a plugin and want to adopt resource sharing, a good starting path is:
+---
+
+## Try resource sharing and share your feedback
+
+Resource sharing and access control is available as an experimental feature in OpenSearch 3.3 and later. If you're developing a plugin and want to adopt resource sharing, start with performing these steps:
 
 1. Implement `ResourceSharingExtension` and register your plugin as a resource plugin.
 2. Define your resource action groups in `resource-action-groups.yml`.
-3. Mark your resource indices as system indices and use a plugin client for access.
+3. Mark your resource indexes as system indexes and use a plugin client for access.
 4. Use `isFeatureEnabledForType` and `verifyAccess` in your handlers.
 5. Enable the feature for your resource type in a test cluster and iterate.
 
-From there, your plugin can inherit a full, centralized sharing model with consistent behavior across the OpenSearch ecosystem.
+After this, your plugin can inherit a complete, centralized sharing model with consistent behavior across the OpenSearch platform.
+
+Your input helps us improve the feature before it becomes generally available. Please share your experiences, questions, and suggestions on the [OpenSearch Forum](https://forum.opensearch.org/). 
