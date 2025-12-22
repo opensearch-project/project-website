@@ -109,7 +109,7 @@ In the **first phase**, the system runs a fast approximate k-NN retrieval using 
 
 In the **second phase**, a reranker applies late interaction scoring to those candidates, using token-level multi-vectors to compute more precise relevance scores. The final ranked results reflect these fine-grained similarity calculations, enabling nuanced semantic matching while preserving scalability.
 
-OpenSearch 3.3 introduced native support for late interaction reranking using the `lateInteractionScore` function. This function calculates document relevance using token-level vector matching by comparing each query vector against all document vectors, finding the maximum similarity for each query vector, and summing these maximum scores to produce the final document score.
+OpenSearch 3.3 introduced native support for late interaction reranking using the [`lateInteractionScore`](https://docs.opensearch.org/latest/query-dsl/specialized/script-score/#late-interaction-score) function. This function calculates document relevance using token-level vector matching by comparing each query vector against all document vectors, finding the maximum similarity for each query vector, and summing these maximum scores to produce the final document score.
 
 The following example demonstrates using the `lateInteractionScore` function with cosine similarity to measure vector similarity based on direction rather than distance. In this example, the function compares document vectors named `my_vector` with the query vectors specified in the `query_vectors` parameter. To use this function, you need multi-vectors generated offline during document ingestion and multi-vectors computed online during query processing:
 
@@ -122,7 +122,7 @@ GET my_index/_search
       "script": {
         "source": "lateInteractionScore(params.query_vectors, 'my_vector', params._source, params.space_type)",
         "params": {
-          "query_vectors": [[[1.0, 0.0]], [[0.0, 1.0]]],
+          "query_vectors": [[1.0, 0.0], [0.0, 1.0]],
           "space_type": "cosinesimil"
         }
       }
@@ -131,7 +131,7 @@ GET my_index/_search
 }
 ```
 
-OpenSearch supports the full workflow for using late interaction models—from model connection to ingestion and search. To enable this functionality, you configure two main components. The **ml-inference ingest processor** generates both single-vector and multi-vector embeddings from text, PDFs, or images during document ingestion. The **ml-inference search request processor** rewrites incoming queries into k-NN queries that use the `lateInteractionScore` function at search time. Together, these components enable multimodal search with improved relevance across diverse content types. For detailed configuration steps, see the tutorial on [reranking with externally hosted late interaction models](https://opensearch.org/docs/latest/search-plugins/search-pipelines/rerank-processor/).
+OpenSearch supports the full workflow for using late interaction models—from model connection to ingestion and search. To enable this functionality, you configure two main components. The **ml-inference ingest processor** generates both single-vector and multi-vector embeddings from text, PDFs, or images during document ingestion. The **ml-inference search request processor** rewrites incoming queries into k-NN queries that use the `lateInteractionScore` function at search time. Together, these components enable multimodal search with improved relevance across diverse content types. For detailed configuration steps, see the tutorial on [reranking with externally hosted late interaction models](https://opensearch.org/docs/latest/search-plugins/search-relevance/rerank-by-field-late-interaction/).
 
 To showcase the search performance of late interaction models, the [ML playground](https://ml.playground.opensearch.org/app/searchRelevance#/?config=eyJxdWVyeTEiOnsiaW5kZXgiOiJtdWx0aW1vZGFsX2RvY3MiLCJkc2xfcXVlcnkiOiJ7XG4gIFwicXVlcnlcIjoge1xuICAgIFwidGVybVwiOiB7XG4gICAgICBcImNvbHBhbGlfc2VhcmNoXCI6IHtcbiAgICAgICAgXCJ2YWx1ZVwiOiBcIiVTZWFyY2hUZXh0JVwiXG4gICAgICB9XG4gICAgfVxuICB9XG59Iiwic2VhcmNoX3BpcGVsaW5lIjoiY29scGFsaV9zZWFyY2gifSwicXVlcnkyIjp7ImluZGV4IjoibXVsdGltb2RhbF9kb2NzIiwiZHNsX3F1ZXJ5Ijoie1xuICBcInF1ZXJ5XCI6IHtcbiAgICBcInRlcm1cIjoge1xuICAgICAgXCJ0aXRhbl9lbWJlZGRpbmdfc2VhcmNoXCI6IHtcbiAgICAgICAgXCJ2YWx1ZVwiOiBcIiVTZWFyY2hUZXh0JVwiXG4gICAgICB9XG4gICAgfVxuICB9XG59Iiwic2VhcmNoX3BpcGVsaW5lIjoidGl0YW5fZW1iZWRkaW5nX3NlYXJjaCJ9LCJzZWFyY2giOiIgSG93IGNhbiB0aGUgb3JpZW50YXRpb24gb2YgdGV4dHVyZSBiZSBjaGFyYWN0ZXJpemVkPyJ9) includes a side-by-side comparison using the [Vidore dataset](https://huggingface.co/datasets/vidore/syntheticDocQA_artificial_intelligence_test). The dataset contains internet-sourced text about *artificial intelligence*, and 20 representative pages are indexed in the `multimodal_docs` index in the ML playground environment.
 
