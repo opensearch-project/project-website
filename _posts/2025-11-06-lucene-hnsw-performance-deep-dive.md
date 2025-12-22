@@ -7,14 +7,14 @@ authors:
   - akhilpathivada
 description: "Understand how Lucene HNSW performance in OpenSearch depends on the OS page cache, not the JVM heap, and learn how to size memory for fast, consistent vector search."
 meta_keywords: "Lucene, HNSW, vector search, performance, OS page cache, OpenSearch, k-NN"
-excerpt: "Learn the deep connection between system RAM and Lucene HNSW query performance, and discover why the OS page cache—not the JVM heap—is the key to sustained, high-speed vector search."
+excerpt: "Learn about the deep connection between system RAM and Lucene HNSW query performance, and discover why the OS page cache—not the JVM heap—is the key to sustained, high-speed vector search."
 ---
 
 You’ve built a powerful vector search application with the [OpenSearch k-NN plugin](https://opensearch.org/docs/latest/search-plugins/knn/index/), and the performance is incredible. Queries are fast and results are relevant. But as you add more data, something changes: query times become slow and unpredictable, and your CPU isn’t even maxed out. You’re left staring at dashboards, wondering what’s going on.
 
-This behavior points not to the JVM heap, but to the most critical and frequently overlooked resource for this workload: the server’s available system RAM.
+This behavior points not to the JVM heap but to the most critical and frequently overlooked resource for this workload: the server’s available system RAM.
 
-By the end of this article, you’ll understand the deep connection between this system RAM, your Lucene segments, and k-NN query performance. You’ll learn why the familiar JVM heap isn’t the main story here, and how to diagnose bottlenecks and configure your cluster for optimal, sustained speed.
+By the end of this post, you’ll understand the deep connection between this system RAM, your Lucene segments, and k-NN query performance. You’ll learn why the familiar JVM heap isn’t the main story here and how to diagnose bottlenecks and configure your cluster for optimal, sustained speed.
 
 ---
 
@@ -32,10 +32,10 @@ This rule—that every segment must be checked—is the foundation for everythin
 
 This division of memory is the key to performance. Here’s a simple breakdown of how the physical RAM is shared:
 
-*   **A portion for the JVM Heap:** The OpenSearch process uses this for its own operations.
-*   **The rest for the OS Page Cache:** This is where the operating system loads the HNSW graph files for high-speed access.
+*   **A portion for the JVM heap**: The OpenSearch process uses this for its own operations.
+*   **The rest for the OS page cache**: This is where the operating system loads the HNSW graph files for high-speed access.
 
-This illustrates why the total available system RAM, not just the JVM heap, is the critical resource for Lucene HNSW performance.
+This illustrates why the total available system RAM, not just the JVM heap, is a critical resource for Lucene HNSW performance.
 
 ## The invisible hero: How the OS page cache does the work
 
@@ -43,9 +43,9 @@ When using the default Lucene HNSW engine, the k-NN plugin relies on a more effi
 
 Here’s how it works:
 
-1. **A virtual shortcut is created:** When a shard opens, Lucene instructs the operating system to map the on-disk HNSW graph files into the OpenSearch process’s **virtual memory space**. This creates a fast “shortcut” to the files on disk without actually loading them into RAM.  
-2. **Data is loaded on demand:** As a query traverses the graph, it accesses these virtual memory addresses. The first time a page is needed, the operating system intercepts the access, reads that portion of the file from disk into the **page cache**, and then returns it to the process.  
-3. **Subsequent access is from RAM:** Future requests for that same page are served directly from the page cache at memory speed, completely bypassing the disk.  
+1. **A virtual shortcut is created**: When a shard opens, Lucene instructs the operating system to map the on-disk HNSW graph files into the OpenSearch process’s **virtual memory space**. This creates a fast “shortcut” to the files on disk without actually loading them into RAM.  
+2. **Data is loaded on demand**: As a query traverses the graph, it accesses these virtual memory addresses. The first time a page is needed, the operating system intercepts the access, reads that portion of the file from disk into the **page cache**, and then returns it to the process.  
+3. **Subsequent access is from RAM**: Future requests for that same page are served directly from the page cache at memory speed, completely bypassing the disk.  
 
 This model delegates memory management to the operating system, which is highly optimized for the task. However, performance depends entirely on the size of the page cache.
 
@@ -59,13 +59,13 @@ Your k-NN workload will fall into one of two distinct performance scenarios base
 
 In this scenario, the RAM available for the OS page cache is sufficient to hold the active HNSW graphs. After an initial warm-up, the required data pages reside in physical RAM. When a query runs, the CPU can access this data directly, and performance is bound only by the speed of the CPU’s calculations.
 
-**Result:** Fast, consistent, and **CPU-bound** performance. This is the goal state.
+**Result**: Fast, consistent, and **CPU-bound** performance. This is the goal state.
 
 ### World 2: The traffic jam (I/O-bound performance)
 
 This occurs when your HNSW graph files are larger than the available page cache. To handle a new memory access, the OS must evict the Least Recently Used (LRU) page from the cache to make room. As a query iterates through segments, it constantly requests pages that aren’t in the cache, forcing the OS to read from disk. This inefficient cycle, where the system is bottlenecked by the storage device’s speed, is called **cache thrashing**.
 
-**Result:** Slow, unpredictable, and **I/O-bound** performance. The CPU spends most of its time waiting for the disk.
+**Result**: Slow, unpredictable, and **I/O-bound** performance. The CPU spends most of its time waiting for the disk.
 
 ---
 
@@ -96,7 +96,7 @@ For a dedicated vector search node, the standard 50/50 RAM split between the JVM
 
 ### Optimize index structure with force merge
 
-For read-heavy indices, using the [Force Merge API](https://opensearch.org/docs/latest/api-reference/index-apis/forcemerge/) to consolidate a shard into a single segment can significantly improve caching efficiency. A single, contiguous graph file is more predictable for the OS to manage in the page cache than dozens of smaller, fragmented files, making your system less susceptible to thrashing.
+For read-heavy indexes, using the [Force Merge API](https://opensearch.org/docs/latest/api-reference/index-apis/forcemerge/) to consolidate a shard into a single segment can significantly improve caching efficiency. A single, contiguous graph file is more predictable for the OS to manage in the page cache than dozens of smaller, fragmented files, making your system less susceptible to thrashing.
 
 ---
 

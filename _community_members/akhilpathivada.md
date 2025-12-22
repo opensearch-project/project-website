@@ -6,4 +6,4 @@ github:
 twitter: 
 linkedin: 
 ---
-**Akhil Pathivada** is a Software Engineer exploring large-scale vector search, semantic retrieval and performance optimization with OpenSearch.
+**Akhil Pathivada** is a software engineer exploring large-scale vector search, semantic retrieval, and performance optimization with OpenSearch.
