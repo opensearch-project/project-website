@@ -34,7 +34,7 @@ For those of you moving large amounts of data, this could be a great entry point
 * Computation against data stored in the Arrow format is fast, and the memory space can be shared easily with programs written in other languages.
 * If your solution needs the power of search but with elevated record throughput (I’m looking at you, telemetry, analytics, and observability folks), you now have another point of integration with OpenSearch.
 
-If you have a high-throughput solution but are encountering issues with data transfer speed in your cluster, it’s worth an experiment or two to see what you can gain.
+If you have a high-throughput solution but are encountering issues with data transfer speeds in your cluster, it’s worth an experiment or two to see what you can gain.
 
 ## How do I enable it?
 
