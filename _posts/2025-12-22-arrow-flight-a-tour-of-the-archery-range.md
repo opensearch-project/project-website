@@ -19,7 +19,7 @@ It’s clear that the OpenSearch community understands this, as I’ve recently 
 
 Apache Arrow consists of two distinct innovations. One stores information in memory in a way that is agnostic to the program or client that is accessing it. This is what is called a “zero copy” optimization technique. These techniques are important—often when transmitting data, it is stored in memory in a specific way and requires transformation before storage. If a client written in another language were given a bookmark to that memory, it wouldn’t be able to make sense of the data. But Arrow clients can. This pattern of having data in memory but needing a duplicate in order for it to be read and then used by something else is called “serialization and deserialization.” Apache Arrow lets you skip this.
 
-Apache Arrow also has a component called Arrow Flight, an RPC framework that exchanges data using the Arrow format. I’m sure you won’t be surprised to hear that they are meant to be used together. Arrow is meant to be used over RPC. Flight is the RPC framework that enables the “volley."
+The second innovation is a component called Arrow Flight, an RPC framework that exchanges data using the Arrow format. I’m sure you won’t be surprised to hear that they are meant to be used together. Arrow is meant to be used over RPC. Flight is the RPC framework that enables the “volley."
 
 ## Where is it used in OpenSearch?
 
