@@ -36,7 +36,6 @@ For those of you moving large amounts of data, this could be a great entry point
 
 If you have a high-throughput solution but are encountering issues with data transfer speed in your cluster, it’s worth an experiment or two to see what you can gain.
 
-
 ## How do I enable it?
 
 There are two required plugins: `transport-reactor-netty4` and `arrow-flight-rpc`. You’ll have to install them using the command line:
