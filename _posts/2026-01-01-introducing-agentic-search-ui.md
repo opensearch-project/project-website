@@ -28,11 +28,11 @@ To access the UI, navigate to **OpenSearch Dashboards > OpenSearch Plugins > AI 
 
 ## Examples
 
-Next, let's explore practical use cases. Both of the examples below have the following resources preconfigured:
+Let's explore some practical use cases. The below examples use the following preconfigured resources:
 
 - Deployed Bedrock Claude 4.5 agent. For details on how to deploy this model in your environment, and to view other suggested models compatible with agentic search, check out the [documentation](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/index/).
-- Connector to an MCP server containing order history based on customer IDs.
 - Index `demo_amazon_fashion`. This was created using the MIT-licensed [Fashion Products Images Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset) with added synthetic values for price and ratings. Any index containing product data will be suitable.
+- Connector to an MCP server containing order history based on customer IDs.
 
 ## E-commerce conversational search
 
