@@ -110,7 +110,7 @@ Looking at the agent summary, we can see it first searched the web to find Seren
 
 ![Nike](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-9-web-summary.png)
 
-Next, let's try integrating with the sample MCP server to let the agent view the user's order history for a more customized, personalized search experience. This server has a tool `simple_get_order_history` we can use to return the order history details for the current user.
+Next, let's try integrating with the MCP server to let the agent view the user's order history for a more customized, personalized search experience. This server has a tool `simple_get_order_history` we can use to return the order history details for the current user.
 
 1. Under **Configure Agent > MCP Servers**, select **Add MCP server**.
 2. Under the **MCP Server** dropdown, select `Customer Order History MCP Server`.
@@ -119,7 +119,7 @@ Next, let's try integrating with the sample MCP server to let the agent view the
 
 ![MCP](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-10-mcp.png)
 
-Now try searching for some athletic shorts, leveraging the order history to find similar products and brands. Update the query to `Athletic shorts similar to my order history`. The results look to show athletic shorts from Adidas and Nike.
+Now let's try searching for some athletic shorts, leveraging the order history to find similar products and brands. Update the query to `Athletic shorts similar to my order history`. The results look to show athletic shorts from Adidas and Nike.
 
 ![Query](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-11-query.png)
 
