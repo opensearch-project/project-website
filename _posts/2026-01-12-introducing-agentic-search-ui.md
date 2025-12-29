@@ -8,7 +8,7 @@ authors:
   - jpalis
   - kolchfa
 
-date: 2026-01-01
+date: 2026-01-12
 has_science_table: true
 categories:
   - technical-posts
@@ -50,7 +50,7 @@ Create a conversational agent with various index-related tools that enable the a
 
 The following image shows the completed agent configuration form.
 
-![Conversational agent](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-1.png)
+![Conversational agent](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-1.png)
 
 #### Step 2: Run agentic searches
 
@@ -62,15 +62,15 @@ Now test the agent:
 
 The agent generates the query DSL and returns the search results. The generated DSL query is shown in the following image.
 
-![Generated query](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-2-gen-query.png)
+![Generated query](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-2-gen-query.png)
 
 The following image displays the corresponding search results. All results are men's blue sunglasses, demonstrating accurate query interpretation.
 
-![Results](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-3-results.png)
+![Results](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-3-results.png)
 
 To understand the agent's decision-making process, review the agent summary shown in the following image.
 
-![Summary](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-4-agent-summary.png)
+![Summary](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-4-agent-summary.png)
 
 Now ask a follow-up question to refine your search:
 
@@ -80,7 +80,7 @@ Now ask a follow-up question to refine your search:
 
 The agent maintains context from your original query while applying new constraints. The results now contain men's black sunglasses specifically from Ray-Ban. The following image shows the refined search results where you can select **View more** to view details for a search result.
 
-![Ray-bans](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-5-ray-ban.png)
+![Ray-bans](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-5-ray-ban.png)
 
 If you run additional queries, the agent continuously references and updates the conversational history in order to maintain context. To remove the history and start a new conversation, select **Clear conversation**.
 
@@ -93,11 +93,11 @@ First, try swapping out the model for the latest one from OpenAI: GPT-5. This mo
 1. Under **Configure Agent**, select the **Model** dropdown.
 2. Select `OpenAI GPT-5`.
 3. Select **Update agent**.
-4. Under **Agentic Search**, select **Search** to run a new search using the updated agent and evaluate its performance. 
+4. Under **Agentic Search**, select **Search** to run a new search using the updated agent and evaluate its performance.
 
 The results returned after running the query `Men's blue shirts` using the new model are shown in the following image.
 
-![GPT hits](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-6-gpt.png)
+![GPT hits](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-6-gpt.png)
 
 Next, try updating the model's available tools. To enhance the agent's flexibility and enable access to real-time information, enable the Web Search tool:
 
@@ -108,15 +108,15 @@ Next, try updating the model's available tools. To enhance the agent's flexibili
 
 Now try a new search query that requires fetching external information and evaluate the results. Enter the query `Shoes from the brand Serena Williams wears` and select **Search**. The generated query filters specifically for the brand Nike, as shown in the following image.
 
-![Web query](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-7-web-query.png)
+![Web query](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-7-web-query.png)
 
 The following image shows the query results.
 
-![Web results](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-8-web-results.png)
+![Web results](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-8-web-results.png)
 
 The agent first searched the web to identify Serena Williams' brand, Nike, and then incorporated it into the generated query, ultimately returning Nike shoes, as shown in the agent summary in the following image.
 
-![Nike](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-9-web-summary.png)
+![Nike](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-9-web-summary.png)
 
 Next, try integrating with the MCP server to let the agent view your order history for a more customized, personalized search experience. This server has a tool `simple_get_order_history` that you can use to return your order history details.
 
@@ -127,29 +127,29 @@ Next, try integrating with the MCP server to let the agent view your order histo
 
 The following image shows the MCP server configuration.
 
-![MCP](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-10-mcp.png)
+![MCP](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-10-mcp.png)
 
 Now try searching for athletic shorts, using the order history to find similar products and brands. Update the query to `Athletic shorts similar to my order history`. The generated query is displayed in the following image.
 
-![Query](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-11-query.png)
+![Query](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-11-query.png)
 
 The following image shows the results, which include athletic shorts from Adidas and Nike.
 
-![Results](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-12-results.png)
+![Results](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-12-results.png)
 
 The following image shows the agent summary that demonstrates how the agent determined that Nike and Adidas brands were present in the order history and applied the corresponding brand filters in the DSL query.
 
-![Summary](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-13-summary.png)
+![Summary](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-13-summary.png)
 
 #### Step 4: Exporting your configuration
 
 Once you've completed your testing and are ready to integrate your configuration into your downstream application, select **Export** in the top-right corner. This view provides detailed information about the underlying search pipelines that power agentic search and shows how you can integrate them into a new or existing system. The pipeline configuration details are shown in the following image.
 
-![Pipeline](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-17-pipeline.png)
+![Pipeline](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-17-pipeline.png)
 
 Example query formats for integration are displayed in the following image.
 
-![Query](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-18-query.png)
+![Query](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-18-query.png)
 
 ### Example 2: Fast product filtering
 
@@ -167,7 +167,7 @@ Create a flow agent:
 
 The following image shows the flow agent configuration form.
 
-![Flow](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-14-flow.png)
+![Flow](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-14-flow.png)
 
 #### Step 2: Run agentic searches
 
@@ -179,11 +179,11 @@ Test the agent by running a direct product search:
 
 The agent generates an optimized query DSL and runs the search, returning women's running shoes under $100. The following image demonstrates the flow agent's query generation.
 
-![Flow query](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-15-flow-query.png)
+![Flow query](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-15-flow-query.png)
 
 The following image shows the resulting product matches.
 
-![Flow results](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-16-flow-results.png)
+![Flow results](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-16-flow-results.png)
 
 #### Step 3: Tune your agent
 
