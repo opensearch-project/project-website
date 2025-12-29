@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenSearch 3.4's agentic search in OpenSearch Dashboards: Hands-On Use Cases and Examples"
+title: "OpenSearch 3.4's agentic search in OpenSearch Dashboards: Hands-on use cases and examples"
 authors:
   - ohltyler
   - kazabdu
@@ -16,7 +16,7 @@ meta_keywords: agents, tools, agentic, search, LLM, NLQ
 meta_description: OpenSearch 3.4's new agentic search interface in OpenSearch Dashboards enables natural language queries through configurable agents.
 ---
 
-We are excited to announce an all-new agentic search user experience available in OpenSearch 3.4. This interface in OpenSearch Dashboards provides a streamlined way for configuring agents, testing them using natural language queries, and exporting configurations for downstream application integration.
+We are excited to announce an all-new agentic search user experience available in OpenSearch 3.4. This interface in OpenSearch Dashboards provides a streamlined way to configure agents, test them using natural language queries, and export configurations for downstream application integration.
 
 ## What is agentic search?
 
@@ -24,15 +24,15 @@ _Agentic search_ transforms the way you interact with data by letting you use na
 
 ## Using agentic search in OpenSearch Dashboards
 
-To access agentic search in OpenSearch Dashboards, go to **OpenSearch Dashboards** > **OpenSearch Plugins** > **AI Search Flows** and create a new agentic search workflow. The interface has two main sections: configure agents on the left and test searches on the right. For detailed information about the interface components, agent types, available tools, and configuration options, see [Configuring agentic search](https://docs.opensearch.org/latest/vector-search/ai-search/building-agentic-search-flows/).
+To access agentic search in OpenSearch Dashboards, go to **OpenSearch Dashboards** > **OpenSearch Plugins** > **AI Search Flows** and create a new agentic search workflow. The interface has two main sections: agent configuration options on the left and search execution capabilities on the right. For detailed information about the interface components, agent types, available tools, and configuration options, see [Configuring agentic search](https://docs.opensearch.org/latest/vector-search/ai-search/building-agentic-search-flows/).
 
 ## Examples
 
 Let's explore practical use cases that demonstrate how agentic search transforms complex search scenarios into intuitive, natural language interactions. The examples in the next sections use the following preconfigured resources:
 
 - A deployed Amazon Bedrock Claude 4.5 agent. For information about deploying this model in your environment, and to view other suggested models compatible with agentic search, see the [agentic search documentation](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/index/).
-- An index named `demo_amazon_fashion`. This index was created using the MIT-licensed [Fashion Products Images Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset) with added synthetic values for price and ratings. Alternatively, you can use any index containing product data.
-- A connector to an MCP server containing order history based on customer IDs. For information about connecting to external MCP servers, see the [MCP connector documentation](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/).
+- An index named `demo_amazon_fashion`. This index was created using the MIT-licensed [Fashion Products Images Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset) with added synthetic values for prices and ratings. Alternatively, you can use any index containing product data.
+- A connector to a Model Context Protocol (MCP) server containing order history based on customer IDs. For information about connecting to external MCP servers, see the [MCP connector documentation](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/).
 
 ### Example 1: E-commerce conversational search
 
@@ -60,7 +60,7 @@ Now test the agent:
 2. Enter a search query, for example, `Blue shades for my dad`.
 3. Select **Search**.
 
-The agent generates the query DSL and returns the search results. The generated DSL query is shown in the following image.
+The agent generates the query domain-specific language (DSL) and returns the search results. The generated DSL query is shown in the following image.
 
 ![Generated query](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-2-gen-query.png)
 
@@ -78,7 +78,7 @@ Now ask a follow-up question to refine your search:
 2. Update the query to `Do you have any black ones from Ray-Ban?`.
 3. Select **Search**.
 
-The agent maintains context from your original query while applying new constraints. The results now contain men's black sunglasses specifically from Ray-Ban. The following image shows the refined search results where you can select **View more** to view details for a search result.
+The agent maintains context from your original query while applying new constraints. The results now contain men's black sunglasses specifically from Ray-Ban. The following image shows the refined search results, where you can select **View more** to view details for a search result.
 
 ![Ray-bans](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-5-ray-ban.png)
 
@@ -114,11 +114,11 @@ The following image shows the query results.
 
 ![Web results](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-8-web-results.png)
 
-The agent first searched the web to identify Serena Williams' brand, Nike, and then incorporated it into the generated query, ultimately returning Nike shoes, as shown in the agent summary in the following image.
+The agent first searched the web to identify the shoe brand associated with Serena Williams, Nike, and then incorporated it into the generated query, ultimately returning Nike shoes, as shown in the agent summary in the following image.
 
 ![Nike](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-9-web-summary.png)
 
-Next, try integrating with the MCP server to let the agent view your order history for a more customized, personalized search experience. This server has a tool `simple_get_order_history` that you can use to return your order history details.
+Next, try integrating with the MCP server to let the agent view your order history for a more customized, personalized search experience. This server has a tool `simple_get_order_history` that you can use to return your order history details:
 
 1. Under **Configure Agent** > **MCP Servers**, select **Add MCP server**.
 2. From the **MCP Server** dropdown, select `Customer Order History MCP Server`.
@@ -137,7 +137,7 @@ The following image shows the results, which include athletic shorts from Adidas
 
 ![Results](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-12-results.png)
 
-The following image shows the agent summary that demonstrates how the agent determined that Nike and Adidas brands were present in the order history and applied the corresponding brand filters in the DSL query.
+The following image shows the agent summary that demonstrates how the agent determined that the Nike and Adidas brands were present in the order history and applied the corresponding brand filters in the DSL query.
 
 ![Summary](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-13-summary.png)
 
@@ -177,7 +177,7 @@ Test the agent by running a direct product search:
 2. Enter a search query, for example, `Women's running shoes under $100`.
 3. Select **Search**.
 
-The agent generates an optimized query DSL and runs the search, returning women's running shoes under $100. The following image demonstrates the flow agent's query generation.
+The agent generates optimized query DSL and runs the search, returning women's running shoes under $100. The following image demonstrates the flow agent's query generation.
 
 ![Flow query](/assets/media/blog-images/2026-01-12-introducing-agentic-search-ui/blog-15-flow-query.png)
 
@@ -193,7 +193,7 @@ Similarly to the previous example, you can test how your agent performs by using
 
 Ready to transform your search experience? Start by testing agentic search in OpenSearch Dashboards, then use the insights you gain to build powerful production applications. For more information and examples, see the following resources:
 
-- **Experiment first**: Try agentic search on the [ML playground](https://ml.playground.opensearch.org/app/opensearch-flow#/workflows) with pre-configured agents
-- **Plan your implementation**: Review the [agentic search OpenSearch Dashboards documentation](https://docs.opensearch.org/latest/vector-search/ai-search/building-agentic-search-flows/)
-- **Understand the architecture**: Explore the [agentic search documentation](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/index/)
-- **Learn from examples**: Read our [previous agentic search blog post](https://opensearch.org/blog/introducing-agentic-search-in-opensearch-transforming-data-interaction-through-natural-language/)
+- **Experiment first**: Try agentic search on the [ML playground](https://ml.playground.opensearch.org/app/opensearch-flow#/workflows) with preconfigured agents.
+- **Plan your implementation**: Review the [agentic search OpenSearch Dashboards documentation](https://docs.opensearch.org/latest/vector-search/ai-search/building-agentic-search-flows/).
+- **Understand the architecture**: Explore the [agentic search documentation](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/index/).
+- **Learn from examples**: Read our [previous agentic search blog post](https://opensearch.org/blog/introducing-agentic-search-in-opensearch-transforming-data-interaction-through-natural-language/).
