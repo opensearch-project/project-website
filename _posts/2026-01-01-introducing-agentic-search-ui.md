@@ -16,7 +16,7 @@ meta_keywords: agents, tools, agentic, search, LLM, NLQ
 meta_description: OpenSearch 3.4's new agentic search UI enables natural language queries through configurable agents.
 ---
 
-We are excited to announce an all-new agentic search user experience available in OpenSearch 3.4. This UI provides a streamlined interface for configuring agents, testing them with natural language queries, and exporting settings for integration into your downstream applications.
+We are excited to announce an all-new agentic search user experience available in OpenSearch 3.4. This UI provides a streamlined interface for configuring agents, testing them with natural language queries, and exporting configurations for downstream application integration.
 
 ## What is agentic search?
 
@@ -32,15 +32,15 @@ Let's explore some practical use cases. The below examples use the following pre
 
 - Deployed Bedrock Claude 4.5 agent. For details on how to deploy this model in your environment, and to view other suggested models compatible with agentic search, check out the [documentation](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/index/).
 - Index `demo_amazon_fashion`. This was created using the MIT-licensed [Fashion Products Images Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset) with added synthetic values for price and ratings. Any index containing product data will be suitable.
-- Connector to an MCP server containing order history based on customer IDs.
+- Connector to an MCP server containing order history based on customer IDs. For details on how to connect to external MCP servers, check out the [documentation](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/)
 
-## E-commerce conversational search
+## Example 1: E-commerce conversational search
 
 Conversational agents enable users to ask questions in natural language and refine their search through follow-up questions, with the agent maintaining context across the conversation to progressively narrow results and find exactly what they're looking for. Let's build an application that demonstrates this capability.
 
 ### Step 1: Create an agent
 
-Create a conversational agent:
+Create a conversational agent with different index-related tools:
 
 1. Select **Create agent**.
 2. Provide a name: `My conversational agent`.
@@ -63,7 +63,7 @@ You'll see the agent-generated query DSL and search results. It looks like all a
 ![Generated query](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-2-gen-query.png)
 ![Results](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-3-results.png)
 
-Review the agent summary to understand its decision-making process.
+Review the agent summary to understand its decision-making process:
 
 ![Summary](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-4-agent-summary.png)
 
@@ -83,7 +83,7 @@ You can try more queries, and the agent will continuously reference and update t
 
 Searches taking too long? Not getting the results you were expecting? Fortunately, there are plenty of ways to fine-tune your agents and iteratively test different configurations.
 
-First, let's try swapping out the model for the latest one from OpenAI—GPT-5. This model offers enhanced reasoning capabilities and improved understanding of complex, multi-faceted user queries. After the model is deployed, let's continue:
+First, let's try swapping out the model for the latest one from OpenAI: GPT-5. This model offers enhanced reasoning capabilities and improved understanding of complex, multi-faceted user queries. After the model is deployed, let's continue:
 
 1. Under **Configure Agent**, select the **Model** dropdown.
 2. Select `OpenAI GPT-5`.
@@ -114,7 +114,7 @@ Next, let's try integrating with the MCP server to let the agent view the user's
 
 1. Under **Configure Agent > MCP Servers**, select **Add MCP server**.
 2. Under the **MCP Server** dropdown, select `Customer Order History MCP Server`.
-3. Under **Tool filters**, adding `simple_get_order_history` will only allow this tool from the server available to the agent.
+3. Under **Tool filters**, entering `simple_get_order_history` will only allow this tool from the MCP server available to the agent. This tool returns default order history without taking any parameters.
 4. Select **Update agent**.
 
 ![MCP](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-10-mcp.png)
@@ -135,7 +135,7 @@ Once you've completed your testing and are ready to integrate your configuration
 ![Pipeline](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-17-pipeline.png)
 ![Query](/assets/media/blog-images/2026-01-01-introducing-agentic-search-ui/blog-18-query.png)
 
-## Fast product filtering
+## Example 2: Fast product filtering
 
 Flow agents provide rapid, single-query search capabilities, executing significantly faster than conversational agents when multi-turn conversations or complex reasoning aren't needed. Let's build an application that leverages this efficiency.
 
