@@ -31,7 +31,8 @@ This post highlights key enhancements to the Anomaly Detection plugin model, exp
 
 ## The challenge
 
-Klarna is a leading global payments and shopping service provider, operating a large ecosystem of consumer and merchant integrations that demand high reliability and real-time insight. To maintain the highest level of quality and uptime across this ecosystem, Klarna continuously monitors its integrations and transactions using various systems designed to track performance and detect issues in real time.
+
+Klarna, the global digital bank and flexible payments provider, operates a large ecosystem of consumer and merchant integrations that demand high reliability and real-time insight. To maintain the highest level of quality and uptime across this ecosystem, Klarna continuously monitors its integrations and transactions using a variety of systems designed to track performance and detect issues in real time.
 
 Klarna's monitoring use cases involve a wide range of business and transactional metrics, analyzed across many dimensions such as markets, regions, product features, and integrations. The combination of these factors results in extremely high-cardinality time-series data—a scale where efficient aggregation and anomaly detection become both technically challenging and cost sensitive.
 
