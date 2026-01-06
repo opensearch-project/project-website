@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Amazon Q CLI integration: Log pattern and data distribution analysis"
+title: "Amazon Kiro CLI integration: Log pattern and data distribution analysis"
 authors:
   - ihailong
   - jiaruj
 date: 2025-11-20
 categories:
   - technical-posts
-meta_keywords: log pattern analysis, Amazon Q CLI, CLI integration, OpenSearch agent tool, log analysis, Model Context Protocol, OpenTelemetry, MCP configuration, data distribution tools, observability, distributed systems monitoring, system troubleshooting, natural language queries
-meta_description: Learn how to integrate Amazon Q CLI with OpenSearch's Log Pattern Analysis and Data Distribution tools for efficient log analysis using natural language queries in distributed systems.
+meta_keywords: log pattern analysis, Amazon Kiro CLI, CLI integration, OpenSearch agent tool, log analysis, Model Context Protocol, OpenTelemetry, MCP configuration, data distribution tools, observability, distributed systems monitoring, system troubleshooting, natural language queries
+meta_description: Learn how to integrate Amazon Kiro CLI with OpenSearch's Log Pattern Analysis and Data Distribution tools for efficient log analysis using natural language queries in distributed systems.
 ---
 
-Modern distributed systems generate vast amounts of log data that can be challenging to analyze manually. In this blog post, we'll explore how you can integrate Amazon Q CLI with OpenSearch's advanced analysis tools to transform complex log investigations into natural language queries. We'll demonstrate the integration of two powerful OpenSearch agent tools---the Log Pattern Analysis Tool and Data Distribution Tool---through the Model Context Protocol (MCP), showing how this combination enables streamlined command-line diagnostics and enhanced system troubleshooting.
+Modern distributed systems generate vast amounts of log data that can be challenging to analyze manually. In this blog post, we'll explore how you can integrate Amazon Kiro CLI with OpenSearch's advanced analysis tools to transform complex log investigations into natural language queries. We'll demonstrate the integration of two powerful OpenSearch agent tools---the Log Pattern Analysis Tool and Data Distribution Tool---through the Model Context Protocol (MCP), showing how this combination enables streamlined command-line diagnostics and enhanced system troubleshooting.
 
 Through a real-world OpenTelemetry Demo scenario investigating payment failures, you'll learn how to set up the integration, configure the necessary components, and use these tools to perform automated pattern recognition and statistical analysis. By the end of this post, you'll understand how to use conversational commands to quickly identify root causes in distributed system logs, significantly reducing time to resolution for critical issues.
 
@@ -25,19 +25,19 @@ The [Data Distribution tool](https://docs.opensearch.org/latest/ml-commons-plugi
 
 The tool generates statistical summaries, including value frequencies, percentiles, and distribution metrics, to help understand data characteristics and identify potential data quality issues.
 
-## Amazon Q CLI integration
+## Amazon Kiro CLI integration
 
-Amazon Q CLI can seamlessly integrate with these OpenSearch analysis tools through [MCP](https://opensearch.org/blog/introducing-mcp-in-opensearch/). By configuring the OpenSearch MCP server, you can access both the Log Pattern Analysis tool and Data Distribution tool directly from your command-line interface.
+Amazon Kiro CLI can seamlessly integrate with these OpenSearch analysis tools through [MCP](https://opensearch.org/blog/introducing-mcp-in-opensearch/). By configuring the OpenSearch MCP server, you can access both the Log Pattern Analysis tool and Data Distribution tool directly from your command-line interface.
 
 This integration enables natural language queries for log analysis and data distribution insights, making complex diagnostic tasks accessible through simple conversational commands.
 
 ### Implementation using opensearch-mcp-server-py
 
-This integration is built on the [opensearch-mcp-server-py](https://github.com/opensearch-project/opensearch-mcp-server-py) project, which provides a Python-based MCP server for OpenSearch. To enable the Log Pattern Analysis tool and Data Distribution tool integration, you need to clone this project and add custom integration code for both tools. This extends the server's capabilities to support these advanced analysis features.
+This integration is built on the [opensearch-mcp-server-py](https://github.com/opensearch-project/opensearch-mcp-server-py) project, a Python-based MCP server for OpenSearch. To enable the Log Pattern Analysis and Data Distribution tools, clone this project to extend the server's capabilities with these advanced analysis features.
 
 ### Complete integration workflow
 
-To set up Amazon Q CLI with OpenSearch MCP integration, follow these steps:
+To set up Amazon Kiro CLI with OpenSearch MCP integration, follow these steps:
 
 1. **Clone the MCP server repository**:
 
@@ -46,13 +46,7 @@ To set up Amazon Q CLI with OpenSearch MCP integration, follow these steps:
    cd opensearch-mcp-server-py
    ```
 
-2. **Add tool integration code**:
-   - Implement Log Pattern Analysis tool integration in the MCP server.
-   - Implement Data Distribution tool integration in the MCP server.
-   - Register both tools with the MCP server's tool registry.
-   - For a complete implementation example, see the demo at [opensearch-mcp-server-py/integrate-skill-tool](https://github.com/PauiC/opensearch-mcp-server-py/tree/integrate-skill-tool).
-
-3. **Start the MCP server**:
+2. **Start the MCP server**:
 
    ```bash
    OPENSEARCH_URL="<your-opensearch-cluster-endpoint>" \
@@ -63,17 +57,17 @@ To set up Amazon Q CLI with OpenSearch MCP integration, follow these steps:
    
    This command starts the MCP server on localhost:9900. When using this configuration, set the `url` field in your configuration file to `"http://localhost:9900/mcp"`.
 
-4. **Configure Amazon Q CLI**:
-   - Open your Amazon Q CLI configuration file.
+3. **Configure Amazon Kiro CLI**:
+   - Open your Amazon Kiro CLI configuration file.
    - Add the [MCP server configuration](#mcp-configuration-example).
 
-5. **Submit natural language queries**:
-   - Launch Amazon Q CLI.
+4. **Submit natural language queries**:
+   - Launch Amazon Kiro CLI using `kiro-cli`.
    - Query your OpenSearch data using conversational commands.
 
 ### MCP configuration example
 
-To configure the OpenSearch MCP server for Amazon Q CLI, add the following configuration:
+To configure the OpenSearch MCP server for Amazon Kiro CLI, add the following configuration:
 
 ```json
 {
@@ -111,9 +105,9 @@ In our scenario, users are reporting payment failures during checkout---a critic
 
 The OpenTelemetry Demo can simulate various failure conditions, including payment service disruptions and authentication issues. To resolve this issue, we need to analyze the logs to identify failure patterns and determine whether the issue is related to specific customer segments, authentication problems, or system-level configuration issues.
 
-### Amazon Q CLI investigation process
+### Amazon Kiro CLI investigation process
 
-Using Amazon Q CLI with the integrated OpenSearch tools, you can investigate this issue through natural language queries. Here's how the investigation unfolds.
+Using Amazon Kiro CLI with the integrated OpenSearch tools, you can investigate this issue through natural language queries. Here's how the investigation unfolds.
 
 **Initial query**:
 
@@ -121,7 +115,7 @@ Using Amazon Q CLI with the integrated OpenSearch tools, you can investigate thi
 Users are reporting payment failures during checkout process and we need to investigate the root cause by analyzing logs from the ss4o_logs* index between 2025-08-21 3 PM and 4 PM to identify patterns in checkout service failures related to card charging issues.
 ```
 
-**Amazon Q CLI analysis results**:
+**Amazon Kiro CLI analysis results**:
 
 ```
 I'll help you investigate the payment failures by analyzing the logs from the ss4o_logs* index during the specified time period. Let me start by examining the available indices and then analyze the checkout service failures.
@@ -690,13 +684,13 @@ The combination of both tools created a synergistic effect that enhanced the inv
 3. **Root cause validation**: Both tools confirmed payment token validation as the primary issue, with the product catalog as secondary.
 4. **Actionable insights**: The tools worked together to provide specific error messages and statistical significance, supporting clear remediation recommendations.
 
-This investigation demonstrates Amazon Q CLI's orchestration of multiple OpenSearch tools: `ListIndexTool` and `IndexMappingTool` for data discovery, `SearchIndexTool` for targeted queries, `DataDistributionTool` for statistical analysis of field patterns, `CountTool` for quantitative assessment, and `LogPatternAnalysisTool` for automated pattern extraction.
+This investigation demonstrates Amazon Kiro CLI's orchestration of multiple OpenSearch tools: `ListIndexTool` and `IndexMappingTool` for data discovery, `SearchIndexTool` for targeted queries, `DataDistributionTool` for statistical analysis of field patterns, `CountTool` for quantitative assessment, and `LogPatternAnalysisTool` for automated pattern extraction.
 
 The Log Pattern Analysis tool provided precise error pattern identification with exact occurrence counts (63 payment failures, 19 product catalog issues), while the Data Distribution tool offered statistical context that validated the significance of checkout service failures despite lower log volume. The combination generated a comprehensive root cause analysis that pinpointed invalid payment tokens as the primary issue affecting gold-tier customers, complete with actionable recommendations for token validation, service dependencies, and monitoring improvements.
 
 ## Conclusion
 
-The integration of Amazon Q CLI with OpenSearch's Log Pattern Analysis tool and Data Distribution tool transforms complex log investigation into conversational analysis. Through MCP, these tools become accessible via natural language queries, significantly reducing diagnostic complexity.
+The integration of Amazon Kiro CLI with OpenSearch's Log Pattern Analysis tool and Data Distribution tool transforms complex log investigation into conversational analysis. Through MCP, these tools become accessible via natural language queries, significantly reducing diagnostic complexity.
 
 **Key benefits demonstrated**:
 
