@@ -4,6 +4,7 @@ eventdate: 2023-08-21 12:00:00 -0700
 
 title: Development Backlog & Triage Meeting - Security - 2023-08-21
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/tvcvftyfclbcc/
     title: Join on Meetup

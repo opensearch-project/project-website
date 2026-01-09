@@ -13,10 +13,5 @@ jobs:
         ruby-version: '3.0'
         bundler-cache: true
     - run: |
-        malformed_event_dates=$(grep -Er --files-without-match '^eventdate: [0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2} [-+][0-9]{4}$' _events)
-        if [ -n "${malformed_event_dates}" ]; then
-          echo "Malformed event date in:" >&2
-          echo "${malformed_event_dates}" >&2
-          exit 1
-        fi
+        bundle exec _scripts/_malformedevents.rb
         bundle exec jekyll build --future

@@ -3,6 +3,7 @@
 eventdate: 2023-12-16 10:00:00 -0500
 title: PyOhio 2023 - 2023-12-16
 online: true
+tz: America/New_York
 signup:
     url: https://www.pyohio.org/2023/
     title: Join the conference
