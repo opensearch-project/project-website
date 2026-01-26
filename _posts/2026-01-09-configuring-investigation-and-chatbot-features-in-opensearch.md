@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Configuring Investigation and Chatbot Features in OpenSearch: A Complete Guide"
+title: "Configuring Agentic Investigation and Chatbot Features in OpenSearch: A Complete Guide"
 authors:
   - ihailong
   - jiaruj
@@ -164,19 +164,6 @@ python -m src.mcp_server_opensearch --transport stream --host 0.0.0.0 --port 808
 
 Configure the following in Dashboards Dev Tools:
 
-### Enable Streaming Output
-
-First, enable streaming in your OpenSearch cluster:
-
-```bash
-PUT /_cluster/settings
-{
-    "persistent": {
-        "plugins.ml_commons.stream_enabled": true
-    }
-}
-```
-
 ### Create Model and Connector
 
 Register a Claude 4.5 model with Bedrock connector (note the `model_id` field in output):
@@ -267,6 +254,14 @@ POST /_plugins/_ml/agents/_register
         {
             "type": "ListIndexTool",
             "name": "ListIndexTool"
+        },
+        {
+            "type": "IndexMappingTool",
+            "name": "IndexMappingTool"
+        },
+        {
+            "type": "SearchIndexTool",
+            "name": "SearchIndexTool"
         }
     ]
 }
