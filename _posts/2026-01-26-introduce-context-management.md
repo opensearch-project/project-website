@@ -16,7 +16,7 @@ meta_description: Learn how OpenSearch 3.5's new Context Management feature solv
 
 As AI agents become more sophisticated and handle longer conversations with multiple tool interactions, managing context efficiently becomes critical. Today, we're excited to introduce **Context Management** in OpenSearch 3.5 – a new feature that enables intelligent context optimization for your AI agents.
 
-## The Challenge: Context Window Overflow
+## The challenge: Context window overflow
 
 Modern AI agents face a fundamental challenge: **context window limitations**. As agents engage in lengthy conversations, use multiple tools, and accumulate interaction history, they quickly approach token limits that can cause:
 
@@ -27,7 +27,7 @@ Modern AI agents face a fundamental challenge: **context window limitations**. A
 
 Traditional approaches to this problem are crude – simply cutting off old messages by token limit. But this loses valuable context and breaks the agent's ability to maintain coherent, long-running conversations.
 
-## The Solution: Intelligent Context Engineering
+## The solution: Intelligent context engineering
 
 Context Management introduces a sophisticated, hook-based system that allows you to engineer your agent's context dynamically. Instead of losing information, your agents can now:
 
@@ -36,7 +36,7 @@ Context Management introduces a sophisticated, hook-based system that allows you
 - **Truncate tool outputs** strategically when they become too large
 - **Combine multiple strategies** for optimal context optimization
 
-## How Context Management Works
+## How context management works
 
 Context Management operates through a **hook-based architecture** that intercepts agent execution at specific points:
 
@@ -45,7 +45,7 @@ Context Management operates through a **hook-based architecture** that intercept
 
 At each hook, you can configure teams of **context managers** that work together to optimize your agent's context.
 
-### Built-in Context Managers
+### Built-in context managers
 
 OpenSearch provides three powerful context managers out of the box:
 
@@ -92,7 +92,7 @@ Truncates tool outputs that exceed specified limits, preventing single large out
 }
 ```
 
-## Smart Activation Rules
+## Smart activation rules
 
 Context managers don't just run blindly – they use **activation rules** to determine when optimization is needed:
 
@@ -102,9 +102,11 @@ Context managers don't just run blindly – they use **activation rules** to det
 
 This means your agents only perform expensive operations like summarization when actually needed.
 
-## Real-World Use Cases
+## Real-world use cases
 
-### Customer Service Agent
+Context Management shines in various scenarios where agents need to maintain long conversations while managing resource constraints.
+
+### Customer service agent
 ```json
 POST /_plugins/_ml/context_management/customer-service-optimizer
 {
@@ -133,7 +135,7 @@ POST /_plugins/_ml/context_management/customer-service-optimizer
 }
 ```
 
-### Research Assistant with Heavy Tool Usage
+### Research assistant with heavy tool usage
 ```json
 POST /_plugins/_ml/context_management/research-assistant-optimizer
 {
@@ -219,7 +221,7 @@ Context Management represents a significant step forward in making AI agents mor
 This is just the beginning. The hook-based architecture provides a foundation for even more sophisticated context optimization strategies in the future.
 
 Want to contribute? The system is designed for extensibility:
-• **Build custom context managers** for specialized use cases (domain-specific summarization, semantic clustering, etc.)
+• **Build custom context managers** for specialized use cases (domain-specific summarization, semantic clustering)
 • **Add new execution hooks** at different points in the agent lifecycle
 • **Implement advanced activation rules** with machine learning-based triggers
 • **Create context managers** that integrate with external knowledge bases or vector stores
