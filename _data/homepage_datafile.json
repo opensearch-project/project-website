@@ -115,7 +115,7 @@
             {
                 "Name": "Slack",
                 "IconPath": "/assets/img/iconography/OpenSearch-Slack.png",
-                "URL": "/slack.html",
+                "URL": "/slack",
                 "ClassValue": "icon-homepage-community-socialLink"
             }
         ]
