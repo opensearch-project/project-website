@@ -23,14 +23,15 @@ For local development, you can run both frontend and backend components:
 
 #### Frontend Setup
 
+Download OpenSearch Dashboards 3.5.0 from [https://opensearch.org/downloads](https://opensearch.org/downloads)
+
 ```bash
-git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git
-cd OpenSearch-Dashboards/plugins/
-git clone https://github.com/opensearch-project/dashboards-investigation.git
-git clone https://github.com/opensearch-project/dashboards-assistant.git
-cd ..
-yarn osd bootstrap
-yarn start --no-base-path
+# Extract the tar package
+tar -xzf opensearch-dashboards-3.5.0-linux-x64.tar.gz
+cd opensearch-dashboards-3.5.0
+
+# Start OpenSearch Dashboards
+./bin/opensearch-dashboards
 ```
 
 #### Frontend Configuration
@@ -38,6 +39,18 @@ yarn start --no-base-path
 Configure OpenSearch Dashboards by adding the following settings to your `opensearch_dashboards.yml` file:
 
 ```yaml
+# OpenSearch Connection
+opensearch.hosts: [https://localhost:9200]
+opensearch.ssl.verificationMode: none
+opensearch.username: "admin"
+opensearch.password: '<your_password>'  # Replace with your password
+opensearch.requestHeadersWhitelist: [authorization, securitytenant]
+
+# Security Plugin Settings
+opensearch_security.multitenancy.enabled: true
+opensearch_security.multitenancy.tenants.preferred: [Private, Global]
+opensearch_security.cookie.secure: false
+
 # Dashboard Administration
 opensearchDashboards.dashboardAdmin.users: ['admin']
 
@@ -45,6 +58,7 @@ opensearchDashboards.dashboardAdmin.users: ['admin']
 workspace.enabled: true
 data_source.enabled: true
 contextProvider.enabled: true
+explore.enabled: true
 
 # Chat and Assistant Features
 chat.enabled: true
@@ -60,7 +74,6 @@ assistant.incontextInsight.enabled: true
 # Investigation Features
 investigation.enabled: true
 investigation.agenticFeaturesEnabled: true
-explore.enabled: true
 
 # Query Enhancements
 queryEnhancements.queryAssist.summary.enabled: true
@@ -78,43 +91,33 @@ uiSettings:
 
 #### Backend Setup
 
+Download OpenSearch 3.5.0 from https://opensearch.org/downloads
+
 ```bash
-# Clone and build job scheduler plugin (required for ML Commons)
-git clone https://github.com/opensearch-project/job-scheduler.git
-cd job-scheduler/
-./gradlew assemble
+tar -xzf opensearch-3.5.0-linux-x64.tar.gz
+```
 
-# Clone and build ML Commons plugin (core ML functionality)
-git clone https://github.com/opensearch-project/ml-commons.git
-cd ml-commons/
-./gradlew assemble
+Build required plugins:
 
-# Clone and build Skills plugin (agent tool capabilities)
-git clone https://github.com/opensearch-project/skills.git
-cd skills/
-./gradlew assemble
-
-# Clone and build SQL plugin (PPL execution capabilities)
-git clone https://github.com/opensearch-project/sql.git
-cd sql/
-./gradlew assemble
-
-# Clone and build OpenSearch core with required transport plugins
+```bash
 git clone https://github.com/opensearch-project/OpenSearch.git
 cd OpenSearch/
 ./gradlew :plugins:transport-reactor-netty4:assemble
 ./gradlew :plugins:arrow-flight-rpc:assemble
-./gradlew localDistro
+```
 
-# Install all built plugins into OpenSearch
-cd build/distribution/local/opensearch-3.4.0-SNAPSHOT
-./bin/opensearch-plugin install file:///path/to/job-scheduler.zip
-./bin/opensearch-plugin install file:///path/to/ml-commons.zip
-./bin/opensearch-plugin install file:///path/to/skills.zip
-./bin/opensearch-plugin install file:///path/to/sql.zip
+Install plugins:
+
+```bash
+cd opensearch-3.5.0/
 ./bin/opensearch-plugin install file:///path/to/transport-reactor-netty4.zip
 ./bin/opensearch-plugin install file:///path/to/arrow-flight-rpc.zip
-./bin/opensearch  # Start OpenSearch with all plugins
+```
+
+Start OpenSearch:
+
+```bash
+./bin/opensearch
 ```
 
 #### Backend Configuration
@@ -126,7 +129,7 @@ Configure OpenSearch by adding the following settings to your `opensearch.yml` f
 opensearch.experimental.feature.transport.stream.enabled: true
 
 # HTTP transport type
-http.type: reactor-netty4
+http.type: reactor-netty4-secure
 
 # ML Commons plugin settings
 plugins.ml_commons.agent_framework_enabled: true
@@ -134,7 +137,18 @@ plugins.ml_commons.index_insight_feature_enabled: true
 plugins.ml_commons.stream_enabled: true
 plugins.ml_commons.ag_ui_enabled: true
 plugins.ml_commons.mcp_connector_enabled: true
-plugins.ml_commons.trusted_connector_endpoints_regex: ["^https?://localhost.*", "^https?://127\.0\.0\.1.*"]
+plugins.ml_commons.trusted_connector_endpoints_regex: ["^https?://localhost.*", "^https?://127\.0\.0\.1.*", "^https://bedrock-runtime\..*\.amazonaws\.com/.*$"]
+```
+
+Install security demo configuration:
+
+```bash
+# Set initial admin password
+# Specify Java 21 environment
+# Install OpenSearch Security demo configuration (includes certificates and default security settings)
+OPENSEARCH_INITIAL_ADMIN_PASSWORD='<your_password>' \
+OPENSEARCH_JAVA_HOME=$(/usr/libexec/java_home -v 21) \
+./plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
 ```
 
 Additionally, configure JVM options by adding the following to your `jvm.options` file:
@@ -150,14 +164,12 @@ Additionally, configure JVM options by adding the following to your `jvm.options
 Set up OpenSearch MCP server for tool integration
 
 ```bash
-git clone https://github.com/opensearch-project/opensearch-mcp-server-py.git
-cd opensearch-mcp-server-py
-pip install -r requirements.txt  # Install Python dependencies
 # Configure and start MCP server with your OpenSearch credentials
 OPENSEARCH_URL="<your_opensearch_endpoint>" \
 OPENSEARCH_USERNAME="<your_username>" \
 OPENSEARCH_PASSWORD="<your_password>" \
-python -m src.mcp_server_opensearch --transport stream --host 0.0.0.0 --port 8080
+OPENSEARCH_SSL_VERIFY="false" \
+uvx opensearch-mcp-server-py --transport stream --port 8080
 ```
 
 ## Setting Up Chatbot Features
@@ -173,7 +185,7 @@ POST /_plugins/_ml/models/_register
 {
     "name": "Claude 4.5",
     "function_name": "remote",
-    "description": "openai model",
+    "description": "claude model",
     "connector": {
         "name": "Bedrock Converse Connector",
         "description": "Bedrock Converse Connector",
@@ -189,14 +201,14 @@ POST /_plugins/_ml/models/_register
         "credential": {
             "access_key": "{% raw %}{{aws-access-key-id}}{% endraw %}",
             "secret_key": "{% raw %}{{aws-secret-access-key}}{% endraw %}",
-            "session_token": "{% raw %}{{aws-session-token}}{% endraw %}"
+            "session_token": "{% raw %}{{aws-session-token}}{% endraw %}"  # Optional
         },
         "actions": [
             {
                 "action_type": "predict",
                 "method": "POST",
-                "url": "https://bedrock-runtime.${parameters.region}.amazonaws.com/model/${parameters.model}/converse-stream",
-                "request_body": "{\"messages\": [${parameters._chat_history:-}{\"role\":\"user\",\"content\":[{\"text\":\"${parameters.prompt}\"}]}${parameters._interactions:-}]${parameters.tool_configs:-}}"
+                "url": "https://bedrock-runtime.${parameters.region}.amazonaws.com/model/${parameters.model}/converse",
+                "request_body": "{\"system\": [{\"text\": \"${parameters.system_prompt}\"}],\"messages\": [${parameters._chat_history:-}{\"role\":\"user\",\"content\":[{\"text\":\"${parameters.prompt}\"}]}${parameters._interactions:-}]${parameters.tool_configs:-}}"
             }
         ]
     }
@@ -252,16 +264,8 @@ POST /_plugins/_ml/agents/_register
     },
     "tools": [
         {
-            "type": "ListIndexTool",
-            "name": "ListIndexTool"
-        },
-        {
             "type": "IndexMappingTool",
             "name": "IndexMappingTool"
-        },
-        {
-            "type": "SearchIndexTool",
-            "name": "SearchIndexTool"
         }
     ]
 }
@@ -308,7 +312,7 @@ POST _plugins/_ml/connectors/_create
     "credential": {
         "access_key": "{% raw %}{{aws-access-key-id}}{% endraw %}",
         "secret_key": "{% raw %}{{aws-secret-access-key}}{% endraw %}",
-        "session_token": "{% raw %}{{aws-session-token}}{% endraw %}"
+        "session_token": "{% raw %}{{aws-session-token}}{% endraw %}"  # Optional
     },
     "actions": [
         {
@@ -349,7 +353,10 @@ POST _plugins/_ml/connectors/_create
     "description": "Connector to MCP server",
     "version": "1",
     "protocol": "mcp_streamable_http",
-    "url": "http://localhost:8080"
+    "url": "http://localhost:8080",
+    "parameters": {
+      "endpoint": "/mcp/"
+  }
 }
 ```
 
@@ -381,12 +388,6 @@ POST _plugins/_ml/agents/_register
     },
     "tools": [
       {
-        "type": "ListIndexTool"
-      },
-      {
-        "type": "SearchIndexTool"
-      },
-      {
         "type": "IndexMappingTool"
       }
     ],
@@ -407,6 +408,52 @@ POST .plugins-ml-config/_doc/os_deep_research
     }
 }
 ```
+
+**Troubleshooting Tip:** If you encounter the following error:
+
+```json
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "security_exception",
+        "reason": "no permissions for [] and User [name=admin, backend_roles=[admin], requestedTenant=]"
+      }
+    ],
+    "type": "security_exception",
+    "reason": "no permissions for [] and User [name=admin, backend_roles=[admin], requestedTenant=]"
+  },
+  "status": 403
+}
+```
+
+**Solution:** Use curl with certificate authentication to bypass the security restriction:
+
+```bash
+curl -k --cert opensearch-3.5.0/config/kirk.pem --key opensearch-3.5.0/config/kirk-key.pem \
+  -XPOST 'https://localhost:9200/.plugins-ml-config/_doc/os_deep_research' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "type": "os_deep_research",
+    "configuration": {
+      "agent_id": "<your_agent_id>"
+    }
+  }'
+```
+
+Replace `<your_agent_id>` with the agent ID from the previous step. For more information on system indices and security configuration, see the [OpenSearch Security documentation](https://docs.opensearch.org/latest/security/configuration/system-indices/).
+
+### Enable Index Insight Configuration
+
+Enable the index insight feature for investigation capabilities:
+
+```bash
+curl -k --cert opensearch-3.5.0/config/kirk.pem --key opensearch-3.5.0/config/kirk-key.pem \
+  -XPOST 'https://localhost:9200/.plugins-ml-index-insight-config/_doc/03000200-0400-0500-0006-000700080009' \
+  -H 'Content-Type: application/json' \
+  -d '{ "is_enable": true }'
+```
+
 
 ## Results
 
@@ -429,3 +476,9 @@ The investigation feature demonstrates advanced AI capabilities, including autom
 The chatbot interface enables real-time conversations with your data, allowing users to ask questions in natural language and receive intelligent responses powered by the configured ML models.
 
 <img src="/assets/media/blog-images/2026-01-09-configuring-investigation-and-chatbot-features-in-opensearch/chatbot-interface.png" alt="OpenSearch Chatbot Interface"/>{: .img-fluid }
+
+### Triggering Investigation from Chatbot
+
+You can seamlessly trigger investigation workflows directly from the chatbot interface by typing `/investigate` in the input box. This command initiates an investigation session, and you can click on the links provided in the chatbot responses to navigate to the investigation page.
+
+<img src="/assets/media/blog-images/2026-01-09-configuring-investigation-and-chatbot-features-in-opensearch/chatbot-trigger-investigation.png" alt="Trigger Investigation from Chatbot"/>{: .img-fluid }
