@@ -16,6 +16,22 @@ Aggregations are a cornerstone of analytical search workloads in OpenSearch, pow
 
 Skip index-based optimizations represent the next step in this performance journey. Instead of iterating over each matching document, skip indexes summarize ranges of values so that entire blocks of documents can be **skipped** or **bulk-counted** when they fall into a single aggregation bucket. This reduces per-document work and improves CPU efficiency in scenarios where earlier techniques did not apply.
 
+## What is a skiplist
+
+Skip list is essential meta data of the user data, that allows us to efficiently *skip* many elements that will not match during a serach. Skiplist partiticularly work well when the data is sorted, although we'll back to this. Lucene already uses skiplist for term positions. Term positions are ordred list of docIds where the term occurs. These list include skip list that allow efficient queries like conjunction (AND). For details see [javadoc](https://lucene.apache.org/core/10_3_2/core/org/apache/lucene/codecs/lucene103/Lucene103PostingsFormat.html)
+
+Starting Lucene 10.0, skiplist are optionally available on top of numeric doc values [PR](https://github.com/apache/lucene/pull/13449). The basic idea is that at pecific interrvals, both min and max numeric values will be encodded at index time. As of Lucene 10 this occurs at 2^12 (4k) values, and called skip list level. There are 4 levels at this point. Take the worse case scenario where are an index with 2^31-1 (~2MM) values, 1st level will have 2^19 (~0.5MM), second 2^7 (128), and third only 1. So technically 4th isn't needed. There are 3 values encoded at each interval: min, max and number of documents. 
+
+
+## Special case: Time Series Data
+
+As mentioned earlier, skiplist is useful when the data is sorted. Common use case for log analysics, metrics and obserbality, time timestamp is a nartual primary field. Most field name for time series data is `@timestamp`. This by itself does not guaretee the timestamp will remain sorted. Best performing option is to explicity create an index sort setting. This will ensure data is always sorted, not matter how many segments or merges happen during indexing. Second option is to select a merge stategy that will preseve the incoming order of documents: log merge policy. 
+
+In Opensearch 3.2, a new `skip_list` parameter was added to [numeric fields](https://github.com/opensearch-project/OpenSearch/pull/18889), which default value of false. Starting  in 3.3, skip_list parameter defaults to [`true` for Date](https://docs.opensearch.org/latest/mappings/supported-field-types/date/) if the field name is `@timestamp`. 
+
+
+
+
 ## From Range Traversal to Skip Indexes
 
 Previously, OpenSearch accelerated date histogram aggregations by transforming queries into multiple range filters and traversing range indexes like Lucene's BKD tree for each bucket. That approach works well when the field being aggregated supports ordered range traversal, but it struggles when:
