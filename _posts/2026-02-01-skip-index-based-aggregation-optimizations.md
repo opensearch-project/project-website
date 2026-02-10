@@ -17,87 +17,6 @@ Aggregations are a cornerstone of analytical search workloads in OpenSearch, pow
 
 Skiplist-based optimizations represent the next step in this performance journey. Building on Lucene 10's skiplist support for numeric doc values, OpenSearch 3.2 introduces optimizations that can deliver up to 28x faster date histogram aggregations. Instead of iterating over each matching document, skiplists summarize ranges of values so that entire blocks of documents can be **skipped** or **bulk-counted** when they fall into a single aggregation bucket. This reduces per-document work and dramatically improves CPU efficiency, especially for time-series data.
 
-## What is a Skiplist?
-
-A skiplist is a probabilistic data structure that allows efficient searching through ordered data by maintaining multiple levels of "skip pointers." Think of it like an express lane system on a highway—you can skip over large sections of traffic to reach your destination faster.
-
-Lucene has long used skiplists for term positions in inverted indexes, enabling efficient conjunction (AND) queries. Starting with Lucene 10.0, skiplists are now optionally available on top of numeric doc values through [PR #13449](https://github.com/apache/lucene/pull/13449). This extension brings the same skip-ahead efficiency to numeric fields like timestamps, prices, and counters.
-
-### How Lucene Implements Skiplists
-
-Lucene's skiplist implementation uses a hierarchical structure with 4 levels, where each level summarizes data at exponentially increasing intervals of 2^12 (4,096) documents:
-
-For a worst-case index with 2^31-1 (~2 billion) documents, the skiplist hierarchy would have approximately 524,288 entries at level 1, just 128 at level 2, and only 1 at level 3—dramatically reducing the search space from billions to hundreds of checks. 
-
-At each skip interval, Lucene encodes these critical pieces of metadata:
-1. **Minimum value** in the range
-2. **Maximum value** in the range  
-3. **Min Doc ID** in the range
-4. **Max Doc ID** in the range
-5. **Doc Counts** in the range
-
-
-This metadata enables the query engine to make intelligent decisions: if a range's min/max values fall entirely outside the current aggregation bucket, the entire range can be skipped. If they fall entirely within a bucket, all documents in that range can be bulk-counted without individual inspection.
-
-
-## Special Case: Time-Series Data
-
-Skiplists deliver their best performance on **sorted data**. When documents are ordered by the field being aggregated, the skiplist's min/max ranges align perfectly with aggregation buckets, maximizing the opportunities to skip or bulk-count entire ranges.
-
-For log analytics, metrics, and observability workloads—common use cases in OpenSearch—the timestamp field is a natural candidate for skiplist optimization. Most time-series data uses `@timestamp` as the primary temporal field, making it an ideal target for this optimization. (see [DataStreams](https://docs.opensearch.org/latest/im-plugin/data-streams/))
-
-### Ensuring Data Remains Sorted
-
-Simply having a timestamp field doesn't guarantee the data stays sorted as segments merge and documents are added. There are two approaches to maintain sort order:
-
-**Option 1: Index Sort (Recommended)**
-
-Configure an explicit index sort setting to ensure data remains sorted regardless of segment merges:
-
-```json
-{
-  "settings": {
-    "index.sort.field": "@timestamp",
-    "index.sort.order": "desc"
-  }
-}
-```
-
-This setting guarantees that all segments maintain timestamp order, providing consistent skiplist performance.
-
-**Option 2: Log Merge Policy**
-
-Alternatively, use a merge policy that preserves the incoming document order. The log merge policy tends to maintain temporal ordering for append-only workloads typical of time-series data.
-
-### Enabling Skiplist on Custom Fields
-
-If you're using a custom timestamp field name or want to enable skiplist on other numeric fields, you can explicitly enable it in your mapping:
-
-```json
-{
-  "mappings": {
-    "properties": {
-      "request_timestamp": {
-        "type": "date",
-        "skip_list": true
-      }
-    }
-  }
-}
-```
-
-### Default Behavior by Version
-
-OpenSearch has progressively expanded skiplist support:
-
-- **OpenSearch 3.2**: Introduced the `skip_list` parameter for numeric fields (default: `false`)
-- **OpenSearch 3.3**: Automatically enables `skip_list` for date fields named `@timestamp` on date histogram aggregations
-- **OpenSearch 3.4**: Extends automatic skiplist optimization to auto date histogram aggregations on `@timestamp`
-
-For more details, see the [OpenSearch documentation on date fields](https://docs.opensearch.org/latest/mappings/supported-field-types/date/). 
-
-
-
 
 ## From Range Traversal to Skip Indexes
 
@@ -129,8 +48,93 @@ Skiplist optimization builds on Lucene's internal indexing structures to provide
 
 This approach works even when filter and aggregation fields are uncorrelated, because the skiplist operates directly on the aggregation field's doc values rather than relying on filter field indexes.
 
+## What is a Skiplist?
+
+A skiplist is a probabilistic data structure that allows efficient searching through ordered data by maintaining multiple levels of "skip pointers." Think of it like an express lane system on a highway—you can skip over large sections of traffic to reach your destination faster.
+
+Lucene has long used skiplists for term positions in inverted indexes, enabling efficient conjunction (AND) queries. Starting with Lucene 10.0, skiplists are now optionally available on top of numeric doc values through [PR #13449](https://github.com/apache/lucene/pull/13449). This extension brings the same skip-ahead efficiency to numeric fields like timestamps, prices, and counters.
+
+### How Lucene Implements Skiplists
+
+Lucene's skiplist implementation uses a hierarchical structure with 4 levels, where each level summarizes data at exponentially increasing intervals of 2^12 (4,096) documents:
+
+For a worst-case index with 2^31-1 (~2 billion) documents, the skiplist hierarchy would have approximately 524,288 entries at level 1, just 128 at level 2, and only 1 at level 3—dramatically reducing the search space from billions to hundreds of checks. 
+
+At each skip interval, Lucene encodes these critical pieces of metadata:
+1. **Minimum value** in the range
+2. **Maximum value** in the range  
+3. **Min Doc ID** in the range
+4. **Max Doc ID** in the range
+5. **Doc Counts** in the range
+
+
+This metadata enables the query engine to make intelligent decisions: if a range's min/max values fall entirely outside the current aggregation bucket, the entire range can be skipped. If they fall entirely within a bucket, all documents in that range can be bulk-counted without individual inspection.
+
+
 ![Skip_Index_Visualization.png](../assets/media/blog-images/2026-02-01-skip-index-based-aggregation-optimizations/Skip_Index_Visualization.png)
 *Figure 1: Skiplist visualization showing how ranges of documents can be skipped or bulk-counted based on min/max metadata.*
+
+
+
+## Special Case: Time-Series Data
+
+Skiplists deliver their best performance on **sorted data**. When documents are ordered by the field being aggregated, the skiplist's min/max ranges align perfectly with aggregation buckets, maximizing the opportunities to skip or bulk-count entire ranges.
+
+For log analytics, metrics, and observability workloads—common use cases in OpenSearch—the timestamp field is a natural candidate for skiplist optimization. Most time-series data uses `@timestamp` as the primary temporal field, making it an ideal target for this optimization. (see [DataStreams](https://docs.opensearch.org/latest/im-plugin/data-streams/))
+
+### Ensuring Data Remains Sorted
+
+Simply having a timestamp field doesn't guarantee the data stays sorted as segments merge and documents are added. There are two approaches to maintain sort order:
+
+**Option 1: Index Sort (Recommended)**
+
+Configure an explicit index sort setting to ensure data remains sorted regardless of segment merges:
+
+```json
+{
+  "settings": {
+    "index.sort.field": "@timestamp",
+    "index.sort.order": "desc"
+  }
+}
+```
+
+This setting guarantees that all segments maintain timestamp order, providing consistent skiplist performance.
+
+**Option 2: Log Merge Policy**
+
+Alternatively, use a merge policy that preserves the incoming document order. The `log byte merge` policy tends to maintain temporal ordering for append-only workloads typical of time-series data.
+
+### Enabling Skiplist on Custom Fields
+
+If you're using a custom timestamp field name or want to enable skiplist on other numeric fields, you can explicitly enable it in your mapping:
+
+```json
+{
+  "mappings": {
+    "properties": {
+      "request_timestamp": {
+        "type": "date",
+        "skip_list": true
+      }
+    }
+  }
+}
+```
+
+See Numeric Data Types: 
+
+### Default Behavior by Version
+
+OpenSearch has progressively expanded skiplist support:
+
+- **OpenSearch 3.2**: Introduced the `skip_list` parameter for numeric fields (default: `false`)
+- **OpenSearch 3.3**: Automatically enables `skip_list` for date fields named `@timestamp` on date histogram aggregations
+- **OpenSearch 3.4**: Extends automatic skiplist optimization to auto date histogram aggregations on `@timestamp`
+
+For more details, see the [OpenSearch documentation on date fields](https://docs.opensearch.org/latest/mappings/supported-field-types/date/). 
+
+
 
 ### When Skiplist Applies
 
@@ -160,10 +164,8 @@ Testing with [PR #19130](https://github.com/opensearch-project/OpenSearch/pull/1
 
 | Operation | Baseline (p90) | With Skiplist (p90) | Improvement |
 |-----------|----------------|---------------------|-------------|
-| `date_histogram_calendar_interval` | 19,572 ms | 149 ms | **99.2% faster** (131x) |
-| `date_histogram_calendar_interval_with_filter` | 20.8 ms | 10.3 ms | **50% faster** |
-
-The most dramatic improvement came from queries without additional filters, where skiplist optimization reduced p90 latency from over 19 seconds to just 149 milliseconds—a **131x speedup**. Even queries with filters saw 50% latency reduction, demonstrating that skiplist complements existing filter optimizations.
+| `hourly_agg_with_filter` | 998 ms | 36 ms | **95%** (28x) |
+| `hourly_agg_with_filter_and_metrics` | 1618 ms | 1618 ms | **40%** |
 
 Throughput improvements were equally impressive:
 - **21% higher throughput** for date histogram queries
@@ -173,12 +175,12 @@ Throughput improvements were equally impressive:
 
 OpenSearch 3.4 extended skiplist optimization to auto date histogram aggregations. Testing with [PR #20057](https://github.com/opensearch-project/OpenSearch/pull/20057) on the big5 dataset showed:
 
-| Operation | Baseline (p50) | With Skiplist (p50) | Improvement |
+| Operation | Baseline (p90) | With Skiplist (p90) | Improvement |
 |-----------|----------------|---------------------|-------------|
-| `hourly_agg_with_filter` | 83.6 ms | 36 ms | **57% faster** |
-| `hourly_agg_with_filter_and_metrics` | 4,177 ms | 959 ms | **77% faster** |
+| `range-auto-date-histo` | 2,099 ms | 324 ms | **87%** (6.5x) |
+| `range-auto-date-histo-with-metrics` | 5,733 ms | 3,928 ms | **35%** |
 
-These results demonstrate that skiplist optimization extends beyond simple date histograms to more complex aggregation patterns, including those with sub-aggregations and metrics.
+This result combines the filter re-write optimization for range and skiplist for auto date hisotram. 
 
 ### Trade-offs and Considerations
 
@@ -203,7 +205,6 @@ This is why OpenSearch defaults to enabling skiplist only on `@timestamp` fields
 - Full index scans without range filters
 - Fields with very low cardinality
 
-Even in scenarios with complex sub-aggregations and metrics, skiplist optimization typically delivers 30-77% latency improvements, making it valuable across a broad range of use cases.
 
 ## How to Use This Feature
 
@@ -306,7 +307,7 @@ The OpenSearch community is actively working on extending skiplist capabilities:
 
 - **Min/Max aggregations**: Using skiplist metadata for instant min/max calculations ([Issue #20174](https://github.com/opensearch-project/OpenSearch/issues/20174))
 - **Enhanced bucket handling**: Supporting multiple owning bucket ordinals for more complex aggregation patterns
-- **Sorted benchmark workloads**: Adding sorted versions of big5 and http_logs benchmarks to better measure skiplist performance
+
 
 ### Get Involved
 
