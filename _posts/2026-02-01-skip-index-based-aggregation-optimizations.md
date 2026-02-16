@@ -18,35 +18,6 @@ Aggregations are a cornerstone of analytical search workloads in OpenSearch, pow
 Skiplist based optimizations represent the next step in this performance journey. Building on Lucene 10's skiplist support for numeric doc values, OpenSearch 3.2 introduces optimizations that can deliver up to 28x faster date histogram aggregations. Instead of iterating over each matching document, skiplists summarize ranges of values so that entire blocks of documents can be **skipped** or **bulk-counted** when they fall into a single aggregation bucket. This reduces per document work and dramatically improves CPU efficiency, especially for time-series data.
 
 
-## From Range Traversal to Skip Indexes
-
-OpenSearch has continuously evolved its aggregation performance through a series of optimizations. Understanding this evolution helps contextualize how skiplist fits into the broader performance story.
-
-### Previous Optimizations
-
-**Filter Rewrite Optimization**: Earlier versions of OpenSearch accelerated date histogram aggregations by transforming queries into multiple range filters and traversing range indexes like Lucene's BKD tree for each bucket. This approach worked well when the aggregation field supported ordered range traversal.
-
-**Multi-Range Traversal**: Building on filter rewrite, multi-range traversal was further optimized by processing multiple ranges in a single pass through the index, reducing redundant work.
-
-### Limitations of Previous Approaches
-
-While these techniques delivered significant improvements, they struggled in several scenarios:
-
-- **Uncorrelated fields**: When the filter field and aggregation field are different (e.g., filtering on `trip_distance` while aggregating on `dropoff_datetime`)
-- **Complex sub-aggregations**: When bucket resolution involves additional aggregation logic beyond simple counting
-- **Non-rewritable queries**: When queries cannot be cleanly decomposed into independent range filters
-
-In these cases, the query engine still needed to scan every matching document, limiting performance gains.
-
-### How Skiplist Addresses These Limitations
-
-Skiplist optimization builds on Lucene's internal indexing structures to provide a more general solution. Instead of evaluating each matching document, the execution engine consults the skiplist metadata to determine whether:
-
-1. **All values in a range fall outside the current bucket** → Skip the entire range
-2. **All values fall within the current bucket** → Bulk-count all documents in the range
-3. **Values span multiple buckets** → Process documents individually (fallback to traditional approach)
-
-This approach works even when filter and aggregation fields are uncorrelated, because the skiplist operates directly on the aggregation field's doc values rather than relying on filter field indexes.
 
 ## What is a Skiplist?
 
@@ -54,7 +25,7 @@ A skiplist is a probabilistic data structure that allows efficient searching thr
 
 Lucene has long used skiplists for term positions in inverted indexes, enabling efficient conjunction (AND) queries. Starting with Lucene 10.0, skiplists are now optionally available on top of numeric doc values through [PR #13449](https://github.com/apache/lucene/pull/13449). This extension brings the same skip ahead efficiency to numeric fields like timestamps, prices, and counters.
 
-### How Lucene Implements Skiplists
+### How Lucene Implements Doc Value Skiplists
 
 Lucene's skiplist implementation uses a hierarchical structure with 4 levels, where each level summarizes data at exponentially increasing intervals of 2^12 (4,096) documents:
 
@@ -135,25 +106,43 @@ OpenSearch has progressively expanded skiplist support:
 
 For more details, see the [OpenSearch documentation on date fields](https://docs.opensearch.org/latest/mappings/supported-field-types/date/). 
 
-
-
-### When Skiplist Applies
-
-Skiplist optimization is most effective when:
-- The aggregation field has doc values enabled (default for numeric fields)
-- The field is sorted or mostly sorted
-- Queries involve range filters or date histogram aggregations
-- Document ranges align well with aggregation bucket boundaries
-
-### When It Doesn't Apply
-
-Skiplist optimization provides minimal benefit when:
-- The field is completely unsorted and random
-- Aggregation buckets are very small relative to skiplist intervals
-- The query requires full index scans without any range constraints
-- The field has very low cardinality (few unique values)
-
 Even in these cases, skiplist doesn't hurt performance, it simply falls back to traditional document-by-document processing when bulk operations aren't possible.
+
+## From Range Traversal to Skip Indexes
+
+OpenSearch has continuously evolved its aggregation performance through a series of optimizations. Understanding this evolution helps contextualize how skiplist fits into the broader performance story.
+
+https://opensearch.org/blog/transforming-bucket-aggregations-our-journey-to-100x-performance-improvement/
+
+### Previous Optimizations
+
+
+
+**Filter Rewrite Optimization**: Earlier versions of OpenSearch accelerated date histogram aggregations by transforming queries into multiple range filters and traversing range indexes like Lucene's BKD tree for each bucket. This approach worked well when the aggregation field supported ordered range traversal.
+
+**Multi-Range Traversal**: Building on filter rewrite, multi-range traversal was further optimized by processing multiple ranges in a single pass through the index, reducing redundant work.
+
+### Limitations of Previous Approaches
+
+While these techniques delivered significant improvements, they struggled in several scenarios:
+
+- **Uncorrelated fields**: When the filter field and aggregation field are different (e.g., filtering on `trip_distance` while aggregating on `dropoff_datetime`)
+- **Complex sub-aggregations**: When bucket resolution involves additional aggregation logic beyond simple counting
+- **Non-rewritable queries**: When queries cannot be cleanly decomposed into independent range filters
+
+In these cases, the query engine still needed to scan every matching document, limiting performance gains.
+
+### How Skiplist Addresses These Limitations
+
+Skiplist optimization builds on Lucene's internal indexing structures to provide a more general solution. Instead of evaluating each matching document, the execution engine consults the skiplist metadata to determine whether:
+
+1. **All values in a range fall outside the current bucket** → Skip the entire range
+2. **All values fall within the current bucket** → Bulk-count all documents in the range
+3. **Values span multiple buckets** → Process documents individually (fallback to traditional approach)
+
+This approach works even when filter and aggregation fields are uncorrelated, because the skiplist operates directly on the aggregation field's doc values rather than relying on filter field indexes.
+
+
 
 ## Real-World Benefits
 
@@ -237,12 +226,14 @@ PUT /my-index
 Use this framework to decide when to enable skiplist on additional fields:
 
 **Enable skiplist when:**
+
 - The field is frequently used in date histogram or range aggregations
 - The field contains sorted or mostly-sorted data
 - Query performance is more important than index size
 - The field has high cardinality (many unique values)
 
 **Skip skiplist when:**
+
 - The field is rarely aggregated
 - Index size is a critical constraint
 - The field has very low cardinality
@@ -256,11 +247,22 @@ Here's a query that benefits from skiplist optimization:
 GET /logs-*/_search
 {
   "query": {
-    "range": {
-      "@timestamp": {
-        "gte": "2024-01-01",
-        "lte": "2024-01-31"
-      }
+    "bool": {
+      "must": [
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "2024-01-01",
+              "lte": "2024-01-31"
+            }
+          }
+        },
+        {
+          "term": {
+            "process.name": "systemd"
+          }
+        }
+      ]
     }
   },
   "aggs": {
@@ -281,7 +283,12 @@ GET /logs-*/_search
 }
 ```
 
-With skiplist enabled on `@timestamp`, this query can skip entire ranges of documents that fall outside the January 2024 timeframe and bulk-count documents within each daily bucket.
+The range query on `@timestamp` would take advantage of [filter-rewite optimization](https://opensearch.org/blog/transforming-bucket-aggregations-our-journey-to-100x-performance-improvement/), but because of term filter is unalbe to do. This is where skiplist help out. 
+
+With skiplist enabled on `@timestamp`, this query can skip entire ranges of documents that fall outside the January 2024 timeframe and bulk-count documents within each daily bucket. `response_time_ms` will still need to be collected, so the overall benefit is similar to the `range-auto-date-histo-with-metrics` benchmark about (~50% improvment). Without the average sub aggregation, the improvement is similar to `range-auto-date-histo` (90+%). 
+
+![](../assets/media/blog-images/2026-02-01-skip-index-based-aggregation-optimizations/skiplist-hourly-reduction.svg)
+
 
 For more information, see the [OpenSearch documentation on skiplist parameters](https://docs.opensearch.org/latest/mappings/supported-field-types/date/) and [data streams](https://docs.opensearch.org/latest/im-plugin/data-streams/).
 
