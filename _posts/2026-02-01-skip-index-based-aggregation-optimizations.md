@@ -270,13 +270,6 @@ GET /logs-*/_search
       "date_histogram": {
         "field": "@timestamp",
         "calendar_interval": "day"
-      },
-      "aggs": {
-        "avg_response_time": {
-          "avg": {
-            "field": "response_time_ms"
-          }
-        }
       }
     }
   }
@@ -285,7 +278,8 @@ GET /logs-*/_search
 
 The range query on `@timestamp` would take advantage of [filter-rewite optimization](https://opensearch.org/blog/transforming-bucket-aggregations-our-journey-to-100x-performance-improvement/), but because of term filter is unalbe to do. This is where skiplist help out. 
 
-With skiplist enabled on `@timestamp`, this query can skip entire ranges of documents that fall outside the January 2024 timeframe and bulk-count documents within each daily bucket. `response_time_ms` will still need to be collected, so the overall benefit is similar to the `range-auto-date-histo-with-metrics` benchmark about (~50% improvment). Without the average sub aggregation, the improvement is similar to `range-auto-date-histo` (90+%). 
+Lets compare the scenario with `@timestamp` enable vs disabled using the diagram below. 
+With skiplist enabled on `@timestamp`, when we land on `14:00:01`, that internval's max value is `14:20:59` which is in the same bucket, thus do not collect `@timestamp` in Block42. When we land in interval (Block) 43, we repeat the same process. We repeat the process until arive on a Block that does not fit in current bucket, e.g. `next day 00:00:01`, then fall back to collecting individual doc values. Thus we can reduce the total number of look up by ~85%, reducing processing time, CPU and IO. 
 
 ![](../assets/media/blog-images/2026-02-01-skip-index-based-aggregation-optimizations/skiplist-hourly-reduction.svg)
 
