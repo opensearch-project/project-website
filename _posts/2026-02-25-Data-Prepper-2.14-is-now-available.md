@@ -18,11 +18,13 @@ TODO
 
 ## APM service map
 
-TODO
+The `otel_apm_service_map` processor analyzes OpenTelemetry trace spans to automatically generate application performance monitoring (APM) service map relationships and metrics. It creates structured events that can be visualized as service topology graphs, showing how services communicate with each other and their performance characteristics.
+The key features include automatic service relationship discovery that identifies service-to-service 
+interactions from OpenTelemetry spans, APM metrics generation that creates latency, throughput, and error rate metrics for service interactions. It uses three-window processing with sliding time windows to ensure complete trace context. The system is environment-aware, deriving new attributes from existing span attributes to support service environment grouping and custom attributes, with environment detection capabilities for AWS EC2, ECS, EKS, Lambda, and API Gateway, and can be extended to support other cloud providers. It provides service map snapshots that enable users to view service connections for specific time periods, with customizable resource attribute filtering.
 
-## Improved OpenTelemetry support
+## Improved Prometheus sink support
 
-TODO
+The Prometheus sink now ensures compliance with remote write requirements through integrated sorting and deduplication logic. It chronologically organizes incoming events and strips duplicate samples for identical series/timestamps before transmission, preventing broker-side rejections. To further handle data ingestion challenges, the new out_of_order_time_window option allows a configurable grace period for late-arriving data. This window enables the sink to accept and re-sort samples that arrive out of sequence, significantly improving pipeline resilience in distributed environments where perfectly ordered delivery is difficult to maintain.
 
 ## AWS Lambda streaming
 
