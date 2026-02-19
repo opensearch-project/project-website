@@ -7,14 +7,14 @@ authors:
 date: 2026-02-25 14:00:00 -0600
 categories:
   - releases
-excerpt: TODO
-meta_keywords: Data Prepper, Service Map, OpenTelemetry, AWS Lambda, ARM, Amazon S3, cross-region
-meta_description: TODO
+excerpt: Data Prepper 2.14 expands its observability capabilities with application performance monitoring features and improved Prometheus support.
+meta_keywords: Data Prepper, application performance monitoring, AWS Lambda, ARM, Amazon S3, cross-region, Prometheus
+meta_description: Data Prepper 2.14 adds an application performance monitoring service map, improves the Prometheus sink, supports AWS Lambda streaming, and adds support for ARM architectures.
 ---
 
 The OpenSearch Data Prepper maintainers are happy to announce the release of Data Prepper 2.14. 
+This version has improved support for observability use cases through an application performance monitoring service map and improved Prometheus support. 
 
-TODO
 
 ## APM service map
 
