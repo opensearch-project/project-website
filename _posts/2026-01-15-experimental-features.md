@@ -70,7 +70,6 @@ I’m also very excited about the Pull-based Ingestion API. Instead of having a 
 
 You should not use experimental features in production, as they are subject to change without warning. You should confine your experimentation to development environments, testing clusters, proofs of concept, and learning and exploration. Keep a close eye on your cluster after enabling an experimental feature, as there may be noticeable performance changes, unexpected crashes, increased resource consumption, or compatibility issues.
 
-
 **Go play!**
 
 The OpenSearch Project continually innovates in order to meet your search, analytics, and observability needs. Your feedback is invaluable to this process, so feel free to share it on our [community forum](https://forum.opensearch.org/) or connect with other OpenSearch users on the project’s [Slack instance](https://opensearch.org/slack/).
