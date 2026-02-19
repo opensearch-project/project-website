@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenSearch’s Hidden Powers - Experimental Features"
+title: "OpenSearch’s hidden powers: Experimental features"
 category: blog
 authors:
     - nateboot
@@ -11,64 +11,64 @@ meta_keywords:
 meta_description: 
 ---
 
-I was recently writing about our latest experimental features - the implementation of "Apache Arrow Flight." I thought about some ot the other features that we have that are technically "experimental" features that may not be getting the attention they deserve. I thought I'd take the chance and tell you about some of them. 
+I was [recently writing](https://opensearch.org/blog/opensearch-and-apache-arrow-a-tour-of-the-archery-range/?_gl=1*3orc3i*_up*MQ..*_ga*NDM1Mzk5Mzc1LjE3NzE1MDE5Mzg.*_ga_BQV14XK08F*czE3NzE1MDE5MzgkbzEkZzAkdDE3NzE1MDE5MzgkajYwJGwwJGgxNDMyNDcwMjA.) about our latest experimental features---the implementation of Apache Arrow and Arrow Flight---and thought about some of the other OpenSearch features that are technically "experimental" but may not be getting the attention they deserve.
 
-I've learned that something we take very seriously here at OpenSearch is our ability to innovate and explore new ways of breaking down problems into smaller, more easily digestible steps. Sometimes doing so requires a bit of experimentation. We have a number of features that are marked as experimental so you can test tomorrow’s innovation today. Of course they’re cool and exciting, but border on risky in their experimental form. This frontier between stability and risk is exactly where innovation lives. We need your help to bring them into the forefront. 
+I've learned that something the OpenSearch Project takes very seriously is innovating and exploring new ways of breaking down problems into smaller, more easily digestible steps. Sometimes doing so requires a bit of experimentation. We have a number of features that are marked as experimental so that you can test tomorrow’s innovation today. Of course they’re cool and exciting, but they may border on risky in their experimental form. This frontier between stability and risk is exactly where innovation lives. We need your help to bring them to the forefront. 
 
-**What Are They?**
+**What are experimental features?**
 
-These are features that aren’t quite production ready, but represent significant innovation. They are best used in development environments, as not all of them have been in the oven long enough to be considered fully baked.
+Experimental features aren’t quite production ready but represent significant innovation. They are best used in development environments, as not all of them have been in development long enough to be considered fully ready for production environments.
 
 **Why try something that isn’t done yet?**
 
-For one, early access to innovation. New algorithms, UI changes, performance optimizations, and bleeding edge ML features are some things that tend to get hidden behind feature flags. This is also an area in which the feedback of the community literally shapes OpenSearch’s future. Your contribution in testing these is driving development and innovation forward. The light bulb did not come about via continuous improvement of the candle.
+For one, you get early access to innovation. New algorithms, UI changes, performance optimizations, and bleeding-edge machine learning features are some examples of innovations that tend to get hidden behind feature flags. This is also an area in which community feedback directly shapes the future of OpenSearch. Your contributions to testing these features drive development and innovation forward. The light bulb did not come about through continual improvement of the candle.
 
-**Where are you hiding these things?**
+**How can I access these features?**
 
-When features are hiding behind a feature flag, what we’re talking about is a config option inside of either `opensearch.yml` or `opensearch_dashboards.yml`.  How about a few examples?
+An experimental feature hidden behind a feature flag can be accessed through a configuration option in either `opensearch.yml` or `opensearch_dashboards.yml`. Let's look at a few examples.
 
-**Here are some suggestions on what to try out!**
+**Workspace for OpenSearch Dashboards**
 
-**The “Workspace” feature** reconfigures the UI so that you’re able to tailor the on-screen elements in a way that is specifically targeted towards the use case you’re implementing.  Observability use case will rely heavily on visualizing health and performance through logs and metrics.
+**Workspace for OpenSearch Dashboards**, shown in the following image, reconfigures the UI so that you’re able to tailor the on-screen elements in a way that is specifically targeted toward the use case you’re implementing. Observability use cases will rely heavily on visualizing health and performance through logs and metrics.
 
 [Image: Image.jpg]
 
-To enable the workspace feature, drop a few lines into your `opensearch_dashboards.yml` file.
+To enable the feature, drop a few lines into your `opensearch_dashboards.yml` file:
 
 ```workspace.enabled: true
 uiSettings:
     overrides:
         "home:useNewHomePage": true
 ```
-If your cluster has the security plugin installed, multi-tenancy must be disabled. Drop this into your dashboards configuration also.
+If your cluster has the Security plugin installed, multi-tenancy must be disabled. Drop this into your configuration as well:
 
 ```
 opensearch_security.multitenancy.enabled: false
 ```
-**The “Distributed Tracing” feature**
+**Distributed tracing**
 
-This feature has been experimental since version 2.10, and is a great experiment for people with application tracing use cases. Watch the full journey of a request from its inception to completion in a distributed environment. There’s a couple of edits needed to enable this one.
+The distributed tracing feature has been experimental since version 2.10 and is ideal for application tracing use cases. A couple of edits are needed to enable this feature:
 
-To your `opensearch.yml` file, add `opensaerch.experimental.feature.telemetry.enabled=true.`
-Also, add `telemetry.feature.tracer.enabled=true` as well as `telemetry.tracer.enabled=true` .
+- To your `opensearch.yml` file, add `opensearch.experimental.feature.telemetry.enabled=true`.
+- Also add `telemetry.feature.tracer.enabled=true` and `telemetry.tracer.enabled=true`.
 
-There’s one last piece, and that is to install the OpenSearch OpenTelemetry plugin (`telemetry-otel`). For more information, check out the [distributed tracing documentation.](https://docs.opensearch.org/latest/observing-your-data/trace/distributed-tracing/)
+Finally, install the OpenSearch OpenTelemetry plugin (`telemetry-otel`). For more information, check out the [distributed tracing documentation](https://docs.opensearch.org/latest/observing-your-data/trace/distributed-tracing/).
 
 **Are there more?**
 
-There are several features that are considered to be experimental. Our documentation will very clearly state that “This is an experimental feature and is not recommended for use in a production environment.”
+There are several experimental features in OpenSearch. Our documentation will very clearly state that “This is an experimental feature and is not recommended for use in a production environment.”
 
-One experimental is  “[Index context](https://docs.opensearch.org/latest/im-plugin/index-context/)”, which declares the use case for an index. This allows OpenSearch to apply a series of preconfigured settings and mappings.
+One such experimental feature is [index context](https://docs.opensearch.org/latest/im-plugin/index-context/), which declares the use case for an index. This allows OpenSearch to apply a series of preconfigured settings and mappings.
 
-Also up for experimentation is the “[Security Configuration Versioning and Rollback API](https://docs.opensearch.org/latest/security/configuration/versioning/)” which provides a means of version control for your security configuration. Changes are tracked, audit trails are created, and previous configurations can be restored if needed.
+Also available for experimentation is the [Security Configuration Versioning and Rollback API](https://docs.opensearch.org/latest/security/configuration/versioning/), which provides a means of version control for your security configuration. Changes are tracked, audit trails are created, and previous configurations can be restored if needed.
 
-Perhaps one of my more favorite ones is the [Search API over gRPC.](https://docs.opensearch.org/latest/api-reference/grpc-apis/search/) This will allow you to query over gRPC while making use of protobuf for the purposes of transport. A very performant means of querying your data.
+Perhaps one of my favorite experimental features is the [Search API over gRPC](https://docs.opensearch.org/latest/api-reference/grpc-apis/search/). This allows you to query over gRPC while making use of protocol buffers for the purposes of transport and can be a very performant way to query your data.
 
-I’m very excited about the Pull-based Ingestion API. Instead of having a client or small sidecar app pushing data into OpenSearch, OpenSearch reaches out and pulls data, ensuring that the data is pulled at an acceptable rate and isn’t going to bring your cluster to its knees by ingesting documents too fast. There are only two ingestion plugins at the moment, one for kafka, and one for kinesis. Read about it [here](https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion/).
+I’m also very excited about the Pull-based Ingestion API. Instead of having a client or small sidecar app push data into OpenSearch, OpenSearch reaches out and pulls data, ensuring that the data is pulled at an acceptable rate and won't negatively impact your cluster by ingesting documents too quickly. There are currently only two ingestion plugins, one for Apache Kafka and one for Amazon Kinesis. You can read more about pull-based ingestion [here](https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion/).
 
-**Experiment Responsibly!**
+**Experiment responsibly!**
 
-Do not use experimental features in production. No cap. They are subject to change without warning. Such changes may render them incompatible or unalive them entirely. After all, it **is** an experiment.  You should confine your experimentation to development environments, testing clusters, POC efforts, and most importantly to me,  learning and exploration.
+You should not use experimental features in production, as they are subject to change without warning. You should confine your experimentation to development environments, testing clusters, proofs of concept, and learning and exploration. Keep a close eye on your cluster after enabling an experimental feature, as there may be noticeable performance changes, unexpected crashes, increased resource consumption, or compatibility issues.
 
 **One last piece of advice**
 
@@ -76,6 +76,6 @@ Keep a close eye on your cluster after enabling these features. There very well 
 
 **Go play!**
 
-There’s a lot of innovation happening here at OpenSearch to improve all of your search, analytics, and observability needs. Your feedback on what is working and what is invaluable. 
+The OpenSearch Project continually innovates in order to meet your search, analytics, and observability needs. Your feedback is invaluable to this process, so feel free to share it on our [community forum](https://forum.opensearch.org/) or connect with other OpenSearch users on the project’s [Slack instance](https://opensearch.org/slack/).
 
 
