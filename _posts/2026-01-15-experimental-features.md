@@ -70,7 +70,6 @@ I’m also very excited about the Pull-based Ingestion API. Instead of having a 
 
 You should not use experimental features in production, as they are subject to change without warning. You should confine your experimentation to development environments, testing clusters, proofs of concept, and learning and exploration. Keep a close eye on your cluster after enabling an experimental feature, as there may be noticeable performance changes, unexpected crashes, increased resource consumption, or compatibility issues.
 
-**One last piece of advice**
 
 Keep a close eye on your cluster after enabling these features. There very well may be noticeable performance changes, unexpected crashes, increased resource consumption as well as potentially introducing compatibility issues.
 
