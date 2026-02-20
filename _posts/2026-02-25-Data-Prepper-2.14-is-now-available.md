@@ -45,7 +45,7 @@ Previously, a single `s3` sink could only write to buckets in one region, which 
 
 With this enhancement, you can specify dynamic bucket names that adapt to different regions. For example, you can define a bucket like `myorganization-${/aws/region}`. Data Prepper will then write to buckets such as `myorganization-us-east-2` and `myorganization-eu-central-1`.
 
-## Forward to pipelines
+## forward_to pipelines
 
 In certain workflows, you may need to send data to sinks in a specific order or use the output from one sink as input for another.
 
