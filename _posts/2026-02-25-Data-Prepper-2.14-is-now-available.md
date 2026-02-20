@@ -22,7 +22,7 @@ Key features include:
 
 - **Automatic service relationship discovery**: Identifies service-to-service interactions from OpenTelemetry spans.
 - **APM metrics generation**: Creates latency, throughput, and error rate metrics for service interactions using three-window processing with sliding time windows to ensure complete trace context.
-- **Environment awareness**: Derives new attributes from existing span attributes to support service environment grouping and custom attributes. It includes environment detection capabilities for AWS EC2, ECS, EKS, Lambda, and API Gateway and can be extended to support other cloud providers.
+- **Environment awareness**: Derives new attributes from existing span attributes to support service environment grouping and custom attributes. It includes environment detection capabilities for Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), AWS Lambda, and Amazon API Gateway and can be extended to support other cloud providers.
 - **Service map snapshots**: Enables users to view service connections for specific time periods with customizable resource attribute filtering.
 
 ## Improved Prometheus sink support
@@ -37,13 +37,13 @@ One of AWS Lambda's features is [response streaming](https://docs.aws.amazon.com
 
 In Data Prepper 2.14, you can now configure the `aws_lambda` processor to use streaming invocations. This allows you to receive responses larger than 6 MB, making it especially useful when the output exceeds the size of the input data.
 
-## Cross-region S3 sink
+## Cross-region s3 sink
 
-Data Prepper's `s3` sink now supports writing to S3 buckets across multiple regions.  
+Data Prepper's `s3` sink now supports writing to Amazon Simple Storage Service (Amazon S3) buckets across multiple AWS Regions.  
 
-Previously, a single `s3` sink could only write to buckets in one region, which limited the use of one of its key features---dynamic bucket names.  
+Previously, a single `s3` sink could only write to buckets in one Region, which limited the use of one of its key features---dynamic bucket names.  
 
-With this enhancement, you can specify dynamic bucket names that adapt to different regions. For example, you can define a bucket like `myorganization-${/aws/region}`. Data Prepper will then write to buckets such as `myorganization-us-east-2` and `myorganization-eu-central-1`.
+With this enhancement, you can specify dynamic bucket names that adapt to different Regions. For example, you can define a bucket like `myorganization-${/aws/region}`. Data Prepper will then write to buckets such as `myorganization-us-east-2` and `myorganization-eu-central-1`.
 
 ## forward_to pipelines
 
