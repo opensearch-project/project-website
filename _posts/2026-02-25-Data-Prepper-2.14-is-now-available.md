@@ -76,4 +76,29 @@ Additionally, Data Prepper offers ARM archive files, making it easier to run on 
 
 Thanks to the following community members who contributed to this release!
 
-<!-- TODO -->
+* [ashrao94](https://github.com/ashrao94)
+* [chenqi0805](https://github.com/chenqi0805) -- Qi Chen
+* [chrisale000](https://github.com/chrisale000)
+* [cwperks](https://github.com/cwperks) -- Craig Perkins
+* [divbok](https://github.com/divbok) -- Divyansh Bokadia
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [eatulban](https://github.com/eatulban)
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [joelmarty](https://github.com/joelmarty) -- Joël Marty
+* [kennedy-onyia](https://github.com/kennedy-onyia) -- Kennedy Onyia
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [LeilaMoussa](https://github.com/LeilaMoussa) -- Leila Moussa
+* [mananrajotia](https://github.com/mananrajotia) -- Manan Rajotia
+* [peterzhuamazon](https://github.com/peterzhuamazon) -- Peter Zhu
+* [sabarinathan590](https://github.com/sabarinathan590) -- Sabarinathan Subramanian
+* [san81](https://github.com/san81) -- Santhosh Gandhe
+* [sb2k16](https://github.com/sb2k16) -- Souvik Bose
+* [stelucz](https://github.com/stelucz) -- Stehlík Lukáš
+* [Subrahmanyam-Gollapalli](https://github.com/Subrahmanyam-Gollapalli) -- Subrahmanyam-Gollapalli
+* [TomasLongo](https://github.com/TomasLongo) -- Tomas
+* [Utkarsh-Aga](https://github.com/Utkarsh-Aga) -- Utkarsh Agarwal
+* [vamsimanohar](https://github.com/vamsimanohar) -- Vamsi Manohar
+* [vecheka](https://github.com/vecheka) -- Vecheka
+* [wandna-amazon](https://github.com/wandna-amazon) -- Nathan Wand
+* [wjyao0316](https://github.com/wjyao0316)
+* [Zhangxunmt](https://github.com/Zhangxunmt) -- Xun Zhang
