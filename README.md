@@ -42,7 +42,6 @@ The blog post review process is as follows:
 1. Create a PR containing the blog post content. See the [BLOG_GUIDE](BLOG_GUIDE.md) to learn how to format a blog post and add authors. 
 1. (Optional) Have one of your peers conduct a technical review.
 1. A technical writer performs a doc review.
-1. The editor performs an editorial review.
 1. Marketing conducts a final review and provides the blog meta.
 1. The blog is published.
 

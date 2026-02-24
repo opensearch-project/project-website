@@ -36,7 +36,7 @@ jobs:
           body: |
             Thank you for submitting a blog post!
             
-            The blog post review process is: Submit a PR -> (Optional) Peer review -> Doc review -> Editorial review -> Marketing review -> Published.
+            The blog post review process is: Submit a PR -> (Optional) Peer review -> Doc review -> Marketing review -> Published.
 
       - name: Check for linked issues
         if: steps.check-new-blog.outputs.is_new_blog == 'true'
