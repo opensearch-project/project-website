@@ -3,8 +3,9 @@ layout: post
 title:  "Accelerating Float16 Vector Search Performance using bulk SIMD in 3.5"
 authors:
    - kdooyong
+   - shatejas
    - vamshin
-date: 2026-02-18
+date: 2026-02-24
 has_science_table: true
 categories:
   - technical-posts
@@ -39,12 +40,18 @@ This became a major performance bottleneck: searches with FP16 ended up being al
 ### OpenSearch 3.4. SIMD FP16 Distance Calculation
 
 In OpenSearch 3.4, we tackled the FP16 performance limitation by intercepting the distance calculation and delegating it to C++ SIMD. From an implementation perspective, we use the optimized SIMD code already defined in Faiss library, which made the implementation much more simpler.
-Faiss C++ SIMD uses SIMD registers to encode multiple FP16 values into FP32 and then performs operations on them simultaneously. While this approach is already efficient, it only applies SIMD between a query and a single vector at a time. This means that the same portion of the query vector has to be reloaded into the register for every vector comparison.
+Faiss SIMD leverages SIMD registers to encode multiple FP16 values into FP32 and then performs operations on them simultaneously. This applies SIMD between a query and a single vector. This efficiently speeds up the distance computation compared to software based distance computations in Opensearch 3.1
+
+The diagram illustration shows the computations for inner product using SIMD. It computes four dimensions of vector simultaneously using loop unrolling technique which optimizes computations making the computations efficient.
+
+![SIMD Iteration](/assets/media/blog-images/2026-02-18-Accelerating-Float16-Vector-Search-Performance-using-bulk-SIMD/simd_iter.png){:class="img-centered"}
 We improved this by reusing loaded query values across multiple vectors as possible. For example, imagine we have 768 dimension vector. When the first 8 FP32 values in 768 dimension vector are loaded into a register, they can be used against multiple vectors at once. This approach is faster than Faiss SIMD’s method, because performing operations between registers in bulk is much quicker than repeatedly loading values and operating on them individually.
 
 
 
 ### OpenSearch 3.5. Bulk SIMD FP16 Distance Calculation
+
+While Faiss SIMD approach in OpenSearch 3.4 is already efficient, it only applies SIMD between a query and a single vector at a time. This means that the same portion of the query vector has to be reloaded into the register for every vector comparison. We improved this by reusing loaded query values across multiple vectors as possible. 
 
 In OpenSearch 3.5, we introduced Bulk SIMD FP16 distance calculation. The key insight was that if we already know the candidate vectors to evaluate, we can perform distance calculations in bulk rather than repeatedly comparing the query with each vector one by one.
 This is the core idea behind Bulk SIMD: we load the corresponding float values from multiple vectors into registers and compute distances and accumulate results all at once. By leveraging multiple registers simultaneously, we can perform many operations in parallel, resulting in significantly faster performance.
@@ -53,8 +60,7 @@ This is the core idea behind Bulk SIMD: we load the corresponding float values f
 
 #### InnerProduct Example
 
-![Bulk SIMD Iteration-1](/assets/media/blog-images/2026-02-18-Accelerating-Float16-Vector-Search-Performance-using-bulk-SIMD/bulk_simd_iter1.png){:class="img-centered"}
-![Bulk SIMD Iteration-2](/assets/media/blog-images/2026-02-18-Accelerating-Float16-Vector-Search-Performance-using-bulk-SIMD/bulk_simd_iter2.png){:class="img-centered"}
+![Bulk SIMD Iteration](/assets/media/blog-images/2026-02-18-Accelerating-Float16-Vector-Search-Performance-using-bulk-SIMD/bulk_simd_iter.png){:class="img-centered"}
 
 Bulk SIMD processes multiple vector elements at once instead of one by one. For example, the CPU can load 4 elements from the query vector and 4 from the data vector into a SIMD register, then compute their distance in parallel. On wider SIMD architectures (e.g., AVX2 or AVX-512), even more elements can be processed per instruction. Because the computation happens in registers and the data is accessed sequentially: L1 cache hit rate is high The CPU’s hardware prefetcher can automatically load upcoming elements Memory latency is effectively hidden In short, bulk SIMD improves throughput by combining parallel computation with efficient cache-friendly memory access.
 (For ARM Neon implementation please refer to https://github.com/opensearch-project/k-NN/blob/main/jni/src/simd/similarity_function/arm_neon_simd_similarity_function.cpp)
