@@ -2,7 +2,7 @@
 layout: post
 title:  "Transforming bucket aggregations: Our journey to 100x performance improvement"
 authors:
-   - akjain
+   - jainankitk
    - bowenlan
    - kolchfa
 date: 2025-08-05
