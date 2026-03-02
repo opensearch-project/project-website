@@ -150,6 +150,16 @@ With skip indexes enabled on `@timestamp`, the aggregation engine can consult th
 ![](../assets/media/blog-images/2026-02-01-skip-index-based-aggregation-optimizations/skiplist-hourly-reduction.svg)
 *Figure 2: With skip indexes enabled, when the engine lands on an interval whose min/max values fall within the same bucket (for example, Block 42 with values from 14:00:01 to 14:20:59), it bulk-counts the entire block. This process repeats across consecutive blocks until reaching a block that spans a bucket boundary (for example, crossing into the next day), at which point it falls back to individual doc value collection. This can reduce the total number of lookups by approximately 85%.*
 
+## Efficient counting with popcount
+
+There is a subtlety in the bulk-counting step that is worth examining. When the skip index tells us that all values in an interval fall within a single bucket, we know we can bulk-count, but we cannot simply use the interval's document count directly. The skip index covers all documents in the segment, but the `DocIdSetIterator` produced by the query represents only the subset of documents that matched the query filters. We need to count how many documents from that filtered subset fall within the skip index interval.
+
+One approach would be to advance through the iterator one document at a time, counting as we go. But this defeats much of the purpose of skipping. Instead, we leverage a hardware-level optimization: the `popcount` (population count) CPU instruction, which counts the number of set bits in a machine word in a single operation.
+
+When the query engine produces a `DocIdSetIterator`, it often represents the matching document set internally as a bitset, where each bit corresponds to a document ID and is set to 1 if the document matched the query. To count how many matching documents fall within a skip index interval, we extract the relevant portion of this bitset (the bits corresponding to doc IDs within the interval's min/max doc ID range) and apply `popcount` across those words. This gives us the exact count of matching documents in the interval without iterating over them individually.
+
+The `DocIdSetIterator` also supports a bulk collection interface: rather than calling `nextDoc()` repeatedly, the collector can receive a stream of doc IDs. When all doc IDs in a stream fall within the same bucket (as determined by the skip index), the entire stream can be collected in one operation. This combination of skip index metadata for bucket determination and `popcount` for efficient counting within the filtered set is what makes the optimization practical. Preliminary benchmarks show up to an additional 3x improvement from this approach on top of the skip index gains described earlier.
+
 ## Sorted data: Where skip indexes shine
 
 Skip indexes deliver their best performance when documents are sorted by the aggregation field. When data is sorted, consecutive documents have similar or monotonically increasing values, which means the min/max range within each 4,096-document interval is narrow. Narrow ranges are more likely to fall entirely within a single aggregation bucket, maximizing the opportunities for bulk-counting.
@@ -266,10 +276,11 @@ When a query is eligible for filter rewrite, OpenSearch uses it because it avoid
 
 ## Looking ahead
 
-The OpenSearch community is actively extending skip index capabilities:
+The OpenSearch community is actively extending skip index capabilities and exploring complementary optimizations:
 
 - **Min/max aggregations**: Using skip index metadata for instant min/max calculations without visiting any documents ([Issue #20174](https://github.com/opensearch-project/OpenSearch/issues/20174))
 - **Enhanced bucket handling**: Supporting multiple owning bucket ordinals for more complex aggregation patterns
+- **Bulk processing and vectorization**: Recent work in Lucene has focused on restructuring collection loops to process documents in batches rather than one at a time. By loading field values into contiguous buffers and operating on them in bulk, the JVM can apply auto-vectorization and SIMD instructions to compute scalar functions (sums, averages, min/max) across many values simultaneously. This batch-oriented approach also reduces virtual method call overhead: instead of invoking a virtual `collect()` method per document, the engine can invoke it once per batch, allowing the JVM's JIT compiler to inline the hot path more effectively. These techniques are especially promising for sub-aggregations that compute metrics within each bucket, where per-document overhead currently dominates.
 
 To learn more or contribute, see the [meta issue #18882](https://github.com/opensearch-project/OpenSearch/issues/18882) for the complete skip index implementation plan and [issue #19384](https://github.com/opensearch-project/OpenSearch/issues/19384) for benchmark results and ongoing work.
 
