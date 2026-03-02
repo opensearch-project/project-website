@@ -21,4 +21,4 @@ permalink: '/community/members/finnegan-carroll.html'
 redirect_from: '/authors/fcarroll/'
 ---
 
-**Finnegan Carroll** is a software engineer at AWS.
+**Finnegan Carroll** is a software engineer at AWS working on the OpenSearch Project.

@@ -95,26 +95,22 @@ To quantify the performance impact of gRPC, we conducted benchmarks comparing gR
 
 ### KNN Vector Search
 
-We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workload common in semantic search and recommendation systems.
+We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workload common in semantic search and recommendation systems. Our data set for this workload was a random sample of MS Marco using [mxbai-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1).
 
 **Latency Comparison**
 
 | Percentile | REST (ms) | gRPC (ms) | Improvement |
 |------------|-----------|-----------|-------------|
-| P50        | 42.3      | 40.3      | 4.7%        |
-| P90        | 78.5      | 71.4      | 9.0%        |
-| P99        | 145.2     | 123.9     | 14.7%       |
+| P50        | 5.33      | 5.08      | 4.74 %      |
+| P90        | 6.00      | 5.64      | 5.98 %      |
 
 **Throughput Comparison**
 
-| Metric     | REST (ops/sec) | gRPC (ops/sec) | Improvement |
-|------------|----------------|----------------|-------------|
-| Min        | 1,247          | 1,398          | 12.1%       |
-| Mean       | 1,834          | 2,122          | 15.7%       |
-| Median     | 1,856          | 2,145          | 15.6%       |
-| Max        | 2,109          | 2,387          | 13.2%       |
+| REST (ops/sec) | gRPC (ops/sec) | Improvement |
+|----------------|----------------|-------------|
+| 143.26         | 173.12         | 17.24%      |
 
-**Analysis**: gRPC delivered consistent improvements across all latency percentiles, with the most significant gains at the tail (P99). The mean throughput increased by **15.7%**, allowing the same cluster to handle more queries per second. These improvements stem from:
+**Analysis**: gRPC delivered consistent P50 latency improvements of **4.74%**. The mean throughput increased by **17.24%**, allowing the same cluster to handle more queries per second. These improvements stem from:
 
 - **53% reduction in payload size** due to Protobuf's compact binary encoding
 - **~58% reduction in client-side processing time** for serialization/deserialization
@@ -126,12 +122,12 @@ We tested bulk document indexing using the `http_logs` dataset from the opensear
 
 **Performance by Bulk Request Size**
 
-| Documents per Request | REST Latency (ms) | gRPC Latency (ms) | Improvement |
-|-----------------------|-------------------|-------------------|-------------|
-| 10,000                | 3,245             | 2,531             | 22.0%       |
-| 5,000                 | 1,687             | 1,315             | 22.1%       |
-| 2,500                 | 892               | 697               | 21.9%       |
-| 1,000                 | 374               | 295               | 21.1%       |
+| Documents per Request | gRPC Throughput Benefit | gRPC Latency Reduction (P50) |
+|-----------------------|-------------------------|------------------------------|
+| 10,000                | 16.2%                   | 22.6%                        |
+| 5,000                 | 15.8%                   | 22.4%                        |
+| 2,500                 | 14.8%                   | 21.1%                        |
+| 1,000                 | 12%                     | 13.6%                        |
 
 **Key Findings**:
 
