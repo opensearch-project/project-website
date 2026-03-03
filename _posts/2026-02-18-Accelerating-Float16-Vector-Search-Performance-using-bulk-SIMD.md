@@ -1,72 +1,72 @@
 ---
 layout: post
-title:  "Accelerating Float16 Vector Search Performance using bulk SIMD in 3.5"
+title:  "Accelerating FP16 vector search performance using bulk SIMD in OpenSearch 3.5"
 authors:
    - kdooyong
    - shatejas
    - vamshin
+   - kolchfa
 date: 2026-02-24
 has_science_table: true
 categories:
   - technical-posts
 meta_keywords: fp16 vector search, vector search, vector quantization techniques, OpenSearch 3.5, natural language embedding models
-meta_description: Learn how OpenSearch could improve further FP16 vector search performance by having bulk SIMD approach.
+meta_description: Learn how OpenSearch improved FP16 vector search performance using the bulk SIMD approach.
 ---
 
-# Accelerating Float16 Vector Search Performance using bulk SIMD in 3.5
+In OpenSearch 3.1, we introduced [memory-optimized search](https://docs.opensearch.org/vector-search/optimizing-storage/memory-optimized-search/) to enable vector search in memory-constrained environments. However, 16-bit floating point (FP16) vector processing remained a performance bottleneck. Over the next two releases, we progressively optimized FP16 distance calculations—first with SIMD in OpenSearch 3.4, then with bulk SIMD in OpenSearch 3.5, achieving up to 310% throughput improvement and dramatically reducing latency. This blog post presents the details of our optimization journey and the techniques that made these performance gains possible.
 
-In OpenSearch 3.1, we introduced Memory Optimized Search, which leverages Lucene’s search algorithm on a Faiss index. This feature opens the door for users to run vector searches even in environments with tight memory constraints.
+## Optimizing FP16 performance
 
-However, FP16 remained as unoptimized area. Encoding all elements in FP16 before distance calculation became a performance bottleneck, mainly because the JVM doesn’t support FP16 as a native type.
+We improved FP16 performance through a series of optimizations: introducing memory-optimized search in OpenSearch 3.1, implementing SIMD distance calculations in 3.4, and adding bulk SIMD processing in 3.5.
 
-With version 3.4, we brought SIMD into FP16 distance calculation. This improvement allowed Memory Optimized Search to achieve up to 70–110% better QPS compared to default (where using Faiss C++ library internally) when searching FP16 vector indexes.
-But we didn’t stop there. We believed there was still room for improvement. By pushing further with bulk SIMD for FP16, we were able to significantly accelerate search performance.
+### OpenSearch 3.1: Memory-optimized search
 
-Memory-optimized search allows the Faiss engine to run efficiently without loading the entire vector index into off-heap memory. Without this optimization, Faiss typically loads the full index into memory, which can become unsustainable if the index size exceeds available physical memory. With memory-optimized search, the engine memory-maps the index file and relies on the operating system’s file cache to serve search requests.
-For more information, please refer to https://docs.opensearch.org/latest/vector-search/optimizing-storage/memory-optimized-search/
+In OpenSearch 3.1, we introduced memory-optimized search, enabling the use of Faiss indexes in environments with tight memory constraints, where available memory is smaller than the index size. This was achieved by combining Lucene’s search algorithm with a Faiss index. Thanks to Lucene’s early termination optimization, almost all vector types—except FP16—showed improved search QPS in multi-segment scenarios when the index was fully loaded in memory.
 
-## Pushing FP16 Performance to the Edge
+FP16 presented a bigger challenge. Conversion from FP16 to FP32 was performed in Java, meaning that even if a CPU could handle FP16-to-FP32 conversion in hardware, the JVM relied on a software-based conversion instead. Because the JVM lacks native FP16 support, FP16 vectors had to be encoded to FP32 before performing distance calculations.
 
-Let’s start by recapping how we’ve improved FP16 over time.
+This became a major performance bottleneck: searches using FP16 were nearly twice as slow compared to the default implementation.
 
+### OpenSearch 3.4: SIMD FP16 distance calculation
 
-### OpenSearch 3.1. Memory Optimized Search
+In OpenSearch 3.4, we addressed the FP16 performance limitation by intercepting the distance calculation and delegating it to C++ SIMD. From an implementation perspective, we leveraged the optimized SIMD code already provided by the Faiss library, which simplified the implementation.
 
-In OpenSearch 3.1, we introduced Memory Optimized Search, opening the door to using Faiss indexes in environments with tight memory constraints where available memory is even smaller than the index size. This was made possible by a clever strategy: combining Lucene’s search algorithm with a Faiss index. Thanks to Lucene’s early termination optimization, almost all vector types—except FP16—showed improved search QPS in multi-segment scenarios when the index was fully loaded in memory.
-FP16 was more challenging. Conversion from FP16 to FP32 was done in Java, which meant that even if a CPU could handle FP16-to-FP32 conversion in hardware, the JVM relied on software based conversion instead. Because the JVM lacks native FP16 support, we had to encode FP16 vectors to FP32 before performing distance calculations.
-This became a major performance bottleneck: searches with FP16 ended up being almost twice as slow compared to default.
+Faiss SIMD uses SIMD registers to encode multiple FP16 values into FP32 and then performs operations on them simultaneously. This approach applies SIMD between a query and a single vector, significantly speeding up distance computations compared to the software-based calculations used in OpenSearch 3.1.
 
-
-### OpenSearch 3.4. SIMD FP16 Distance Calculation
-
-In OpenSearch 3.4, we tackled the FP16 performance limitation by intercepting the distance calculation and delegating it to C++ SIMD. From an implementation perspective, we use the optimized SIMD code already defined in Faiss library, which made the implementation much more simpler.
-Faiss SIMD leverages SIMD registers to encode multiple FP16 values into FP32 and then performs operations on them simultaneously. This applies SIMD between a query and a single vector. This efficiently speeds up the distance computation compared to software based distance computations in Opensearch 3.1
-
-The diagram illustration shows the computations for inner product using SIMD. It computes four dimensions of vector simultaneously using loop unrolling technique which optimizes computations making the computations efficient.
+The following diagram illustrates the inner product computation using SIMD. It processes four dimensions of a vector simultaneously using a loop-unrolling technique, which optimizes and accelerates the computations.
 
 ![SIMD Iteration](/assets/media/blog-images/2026-02-18-Accelerating-Float16-Vector-Search-Performance-using-bulk-SIMD/simd_iter.png){:class="img-centered"}
-We improved this by reusing loaded query values across multiple vectors as possible. For example, imagine we have 768 dimension vector. When the first 8 FP32 values in 768 dimension vector are loaded into a register, they can be used against multiple vectors at once. This approach is faster than Faiss SIMD’s method, because performing operations between registers in bulk is much quicker than repeatedly loading values and operating on them individually.
 
+### OpenSearch 3.5: Bulk SIMD FP16 distance calculation
 
+While the Faiss SIMD approach in OpenSearch 3.4 was already efficient, it only applied SIMD between a query and a single vector at a time. This meant that the same portion of the query vector had to be reloaded into the register for every vector comparison. We improved this by reusing loaded query values across multiple vectors whenever possible. For example, consider a 768-dimensional vector: when the first eight FP32 values are loaded into a SIMD register, they can be applied to multiple vectors simultaneously, rather than reloading them for each vector comparison. This approach is faster because performing operations in bulk between registers is much quicker than repeatedly loading values and processing them individually.
 
-### OpenSearch 3.5. Bulk SIMD FP16 Distance Calculation
+In OpenSearch 3.5, we introduced Bulk SIMD FP16 distance calculation. The key insight was that if the candidate vectors to evaluate are already known, distance calculations can be performed in bulk rather than comparing the query with each vector individually.
 
-While Faiss SIMD approach in OpenSearch 3.4 is already efficient, it only applies SIMD between a query and a single vector at a time. This means that the same portion of the query vector has to be reloaded into the register for every vector comparison. We improved this by reusing loaded query values across multiple vectors as possible. 
+This is the core idea behind Bulk SIMD: we load the corresponding float values from multiple vectors into registers and compute distances, accumulating results all at once. By leveraging multiple registers simultaneously, many operations can be performed in parallel, resulting in significantly faster performance.
 
-In OpenSearch 3.5, we introduced Bulk SIMD FP16 distance calculation. The key insight was that if we already know the candidate vectors to evaluate, we can perform distance calculations in bulk rather than repeatedly comparing the query with each vector one by one.
-This is the core idea behind Bulk SIMD: we load the corresponding float values from multiple vectors into registers and compute distances and accumulate results all at once. By leveraging multiple registers simultaneously, we can perform many operations in parallel, resulting in significantly faster performance.
+To illustrate how this works in practice, let's examine the inner product calculation.
 
+#### Inner product example
 
-
-#### InnerProduct Example
+The following diagram illustrates how bulk SIMD calculates the inner product in parallel across multiple vectors.
 
 ![Bulk SIMD Iteration](/assets/media/blog-images/2026-02-18-Accelerating-Float16-Vector-Search-Performance-using-bulk-SIMD/bulk_simd_iter.png){:class="img-centered"}
 
-Bulk SIMD processes multiple vector elements at once instead of one by one. For example, the CPU can load 4 elements from the query vector and 4 from the data vector into a SIMD register, then compute their distance in parallel. On wider SIMD architectures (e.g., AVX2 or AVX-512), even more elements can be processed per instruction. Because the computation happens in registers and the data is accessed sequentially: L1 cache hit rate is high The CPU’s hardware prefetcher can automatically load upcoming elements Memory latency is effectively hidden In short, bulk SIMD improves throughput by combining parallel computation with efficient cache-friendly memory access.
-(For ARM Neon implementation please refer to https://github.com/opensearch-project/k-NN/blob/main/jni/src/simd/similarity_function/arm_neon_simd_similarity_function.cpp)
+Bulk SIMD processes multiple vector elements simultaneously rather than one by one. For example, the CPU can load four elements from a query vector and four elements from a data vector into a SIMD register, then compute their distance in parallel. On wider SIMD architectures (e.g., AVX2 or AVX-512), even more elements can be processed per instruction.
 
-Below is the pseudocode for the Bulk SIMD approach.
-```
+Because the computation occurs entirely in registers and the data is accessed sequentially:
+
+- The L1 cache hit rate is high
+- The CPU’s hardware prefetcher can automatically load upcoming elements
+- Memory latency is effectively hidden
+
+Thus, bulk SIMD improves throughput by combining parallel computation with efficient, cache-friendly memory access.
+
+The following pseudocode presents the bulk SIMD approach:
+
+```c++
 // We know query and 4 candidate vectors
 uint8_t* Query_Vector <- Prepare Query Vector
 uint8_t* Vector1 <- Get Vector1's Pointer
@@ -75,7 +75,7 @@ uint8_t* Vector3 <- Get Vector3's Pointer
 uint8_t* Vector4 <- Get Vector4's Pointer
 
 // Registers for accumulation
-// FMA represents for fused multiply-add, FMA(a, b, c) = a * b + c
+// FMA stands for fused multiply-add, FMA(a, b, c) = a * b + c
 FP32_Register fmpSum1
 FP32_Register fmpSum2
 FP32_Register fmpSum3
@@ -113,14 +113,14 @@ SCORE[2] = SUM(fmpSum3)
 SCORE[3] = SUM(fmpSum4)
 ```
 
+For information about the ARM Neon implementation, see
+[the k-NN repo](https://github.com/opensearch-project/k-NN/blob/main/jni/src/simd/similarity_function/arm_neon_simd_similarity_function.cpp).
 
-
-## Performance Benchmarks
+## Performance benchmarks
 
 The following sections present performance benchmark results.
 
-
-#### Benchmark Environment
+### Benchmark environment
 
 * Data set : Cohere-10M, 768 Dimension
 * Node : r7i.4xlarge, r7g.4xlarge
@@ -128,27 +128,34 @@ The following sections present performance benchmark results.
 * Index type : FP16
 * Number of segments : 80
 
+### Benchmark results
 
+The following graph presents the benchmarking results.
 
-### Benchmark Results
 ![FP16 Max Throughput QPS](/assets/media/blog-images/2026-02-18-Accelerating-Float16-Vector-Search-Performance-using-bulk-SIMD/fp16-max-throughput.png){:class="img-centered"}
 
-Upgrading from version 3.1 to 3.4 shows roughly 230% QPS improvement and cut average latency in half, shifting p99 latency from a sluggish 300ms range down to a sharp 120ms. 
-The move from 3.4 to 3.5 added another 30% boost in throughput while shaving the p99 latency down to its best-ever 91ms. 
-Comparing 3.1 to 3.5 directly shows a total evolution: throughput increased by 310% while latency dropped by nearly 300%. Bulk SIMD transformed from a slow baseline handling 450 req/s into a high-performance engine capable of nearly 1,500 req/s with almost instant response times.
+The following table provides detailed throughput and latency metrics for each version and CPU architecture.
+
+|Version	|CPU architecture	|Max throughput	|Average latency	|p90 latency | p99 latency	|	
+|---	|---	|---	|---	|---	|---	|
+|3.1	|r7i	|398.87	|209.66	|300	|330	|
+|3.1	|r7g	|495.49	|168.64	|235	|253	|	
+|3.4	|r7i	|1025.45	|81.42	|124	|136	|	
+|3.4	|r7g	|1112.13	|75.09	|111	|120	|	
+|3.5	|r7i	|1303.76	|63.99	|95	|105	|
+|3.5	|r7g	|1477.88	|56.42	|82	|91	|
 
 
-|Version	|CPU Architecture	|Max throughput	|Avg Latency	|Latency 90pct	|Latency 99pct	|	|
-|---	|---	|---	|---	|---	|---	|---	|
-|3.1	|r7i	|398.87	|209.66	|300	|330	|	|
-|3.1	|r7g	|495.49	|168.64	|235	|253	|	|
-|3.4	|r7i	|1025.45	|81.42	|124	|136	|	|
-|3.4	|r7g	|1112.13	|75.09	|111	|120	|	|
-|3.5	|r7i	|1303.76	|63.99	|95	|105	|	|
-|3.5	|r7g	|1477.88	|56.42	|82	|91	|	|
-|	|	|	|	|	|	|	|
+Upgrading from OpenSearch 3.1 to 3.4 resulted in approximately 230% higher QPS and cut average latency in half, reducing p99 latency from about 300 ms to 120 ms. Moving from 3.4 to 3.5 added an additional 30% boost in throughput, bringing p99 latency down to an all-time low of 91 ms.
 
-## What’s Next?
+Overall, comparing OpenSearch 3.1 to 3.5 shows a total performance evolution: throughput increased by 310%, while latency dropped by nearly 300%. Bulk SIMD transformed the system from a slow baseline handling roughly 450 req/s into a high-performance engine capable of nearly 1,500 req/s with almost instantaneous responses.
 
-Technically, this optimization can also be applied to byte and FP32 indexes. Those are our main targets, and we’re excited to see how far we can push their performance further. For binary indexes, however, we don’t see any performance improvement from bulk SIMD. We believe the XOR operation is already heavily optimized in the JVM. If we find a way to further benefit from SIMD in this case, we will definitely pursue it.
+## What’s next?
 
+From an implementation perspective, this optimization can also be applied to byte and FP32 indexes, which are our primary targets. We are actively exploring opportunities to further optimize their performance.
+
+For binary indexes, however, bulk SIMD does not provide any performance improvement. We believe this is because the XOR operation is already heavily optimized in the JVM. Should opportunities for SIMD optimization in binary indexes emerge, we will evaluate them.
+
+## Try it out
+
+Ready to experience these performance improvements? Upgrade to OpenSearch 3.5 and enable memory-optimized search with FP16 vector indexes to take advantage of bulk SIMD optimizations. We'd love to hear about your results and use cases on the [OpenSearch forum](https://forum.opensearch.org/). Your feedback helps us continue improving vector search performance for the community.
