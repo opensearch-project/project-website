@@ -14,7 +14,6 @@ breadcrumbs:
       url: '/community/members/shatejas.html'
 photo: '/assets/media/community/members/shatejas.png'
 github: shatejas
-linkedin: tejas-shah
 job_title_and_company: 'Sr. Software Engineer at AWS'
 personas:
   - author
