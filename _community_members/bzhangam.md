@@ -13,7 +13,7 @@ breadcrumbs:
       url: /community/members/index.html
     - title: 'Bo Zhang&apos;s Profile'
       url: '/community/members/bo-zhang.html'
-linkedin: TBD
+linkedin: bo-zhang-3449b2185
 github: bzhangam
 job_title_and_company: 'Software Engineer at AWS'
 personas:
