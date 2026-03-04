@@ -62,10 +62,10 @@ OpenSearch Agent Health is an open-source observability and evaluation solution 
 
 ### Built for developer workflows
 
-Agent Health includes both a web UI (`localhost:4001`) and a headless CLI to support different workflows throughout the development lifecycle:
+Agent Health runs locally on your machine, providing both a web UI (`localhost:4001`) and a headless CLI to support AI agent developers and ML engineers through the full development cycle of building, observing, and continuously improving their agents.
 
-- **AI agent developers** can write test cases, run evaluations locally, and integrate agent evaluation directly into CI/CD pipelines. Benchmarks defined in JSON can be executed from the command line, exporting both human and machine-readable reports for automated quality gating.
-- **Machine learning scientists and evaluators** can use the web UI (`localhost:4001`) to design golden datasets, define quality criteria, run batch benchmarks across configurations, perform A/B testing to track accuracy trends over time, export results for reports or further analysis, and even compare their benchmarks against different comparable agents.
+- **Via CLI**: Define benchmarks in JSON, run evaluations from the command line, and integrate results into CI/CD pipelines for automated quality gating.
+- **Via web UI**: Explore results visually, design golden datasets, perform A/B testing across configurations, and export findings for reports or further analysis.
 
 ### Try it yourself
 
@@ -73,13 +73,12 @@ Ready to see Agent Health in action? Choose your path: explore with pre-loaded s
 
 **Quickstart: Explore with sample data (no agent required)**
 
-The fastest way to experience Agent Health is using the built-in sample data. Run a single command and you'll have real traces, benchmarks, and evaluation results to explore immediately:
+The fastest way to experience Agent Health is using the built-in sample data. Run a single command and you'll have mock traces, benchmarks, and evaluation results to explore immediately:
 
 ```bash
 npx @opensearch-project/agent-health
 # ✓ Server running at http://localhost:4001
 # ✓ Demo data loaded
-# ✓ Ready to trace, evaluate, and ship
 ```
 
 Navigate to **Traces** to explore preloaded agent execution data, go to **Benchmarks** to run the `Travel Planning Accuracy - Demo` and view LLM judge evaluations in action, and visit **Compare** to see side-by-side run comparisons.
