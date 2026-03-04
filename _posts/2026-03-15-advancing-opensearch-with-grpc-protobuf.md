@@ -87,15 +87,15 @@ To quantify the performance impact of gRPC, we conducted benchmarks comparing gR
 ### Test Setup
 
 - **Cluster configuration**:
+  - OpenSearch Version 3.3 
   - 3 c5.xlarge cluster manager nodes
   - 5 r5.xlarge data nodes
-- **Benchmarking tool**: OpenSearch Benchmark (OSB) with custom workload configurations
+- **Benchmarking tool**: OpenSearch Benchmark (OSB)
 - **Network**: All nodes within the same AWS availability zone to minimize network variance
-- **Measurement**: Each test ran for 10 minutes after a 2-minute warmup period
 
 ### KNN Vector Search
 
-We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workload common in semantic search and recommendation systems. Our data set for this workload was a random sample of MS Marco using [mxbai-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1).
+We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workload common in semantic search and recommendation systems. Our data set for this workload was a random sample of MS Marco using [mxbai-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1) (100k queries on 1 million vectors ingested, 4.3 GB total).
 
 **Latency Comparison**
 
@@ -118,7 +118,7 @@ We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workl
 
 ### Bulk Ingestion
 
-We tested bulk document indexing using the `http_logs` dataset from the opensearch-benchmark-workloads repository (10.2 million documents, ~1.2 GB compressed).
+We tested bulk document indexing using the `http_logs` dataset from the opensearch-benchmark-workloads repository (247 million documents, ~31 GB total).
 
 **Performance by Bulk Request Size**
 
