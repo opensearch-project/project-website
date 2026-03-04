@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenSearch Agent Health: Open-Source Observability and Evaluation for AI Agents"
+title: "OpenSearch Agent Health: Open-source observability and evaluation for AI agents"
 authors:
   - goyamegh
   - thottan
@@ -8,83 +8,83 @@ date: 2026-02-28
 categories:
   - technical-posts
   - community
-meta_keywords:
-meta_description:
+meta_keywords: AI agents, agent observability, OpenTelemetry, LLM evaluation, agent tracing, AI agent testing, OpenSearch, agentic AI
+meta_description: OpenSearch Agent Health provides open-source observability and evaluation for AI agents. Ship production-ready agents faster with real-time tracing, systematic benchmarking, and LLM-based evaluation.
 ---
 
-*How Observability-Driven Development Lets You Ship Agents in Weeks, Not Months*
+You've built an agentic AI application. It's sophisticated, using recursive loops and autonomous tool-calling to navigate data. It passed your local testing, so you deploy it to production.
 
-You've built an Agentic AI application. It's sophisticated, using recursive loops and autonomous tool-calling to navigate data. It passed your local testing with flying colors, so you deploy.
+Then you check the logs.
 
-Then the logs hit.
-
-A user asks for an order update. Your agent retrieves the wrong context, decides it needs to "reason" through a product manual, and triggers a sequence of expensive, irrelevant tool calls. After several seconds and a surprising inference cost, it returns a confident but unhelpful response. Your dashboard shows a healthy cluster and a successful 200 OK, but your agent just failed in silence.
+A user asks for an order update. Your agent retrieves the wrong context, decides it needs to reason through a product manual, and triggers a sequence of expensive, irrelevant tool calls. After several seconds and a surprising inference cost, it returns a confident but unhelpful response. Your dashboard shows a healthy cluster and a successful 200 OK, but your agent just failed in silence.
 
 ### Why do agents fail in silence?
 
 As AI agents move from prototype to production, organizations face a critical challenge that's becoming impossible to ignore. Agents are autonomously making decisions, calling tools, and delivering results, yet the teams building them are often operating without visibility. This creates three critical challenges:
 
-**The Reasoning Gap**: You see the final answer your agent delivers, but you don't see the hallucinated steps it took to get there. Did it call the wrong API? Did it misinterpret the user's intent? Did it retry a failed operation three times before succeeding? Without visibility into the reasoning chain, debugging becomes guesswork.
+- **The reasoning gap**: You see the final answer that your agent delivers, but you don't see the hallucinated steps it took to get to the answer. Did it call the wrong API? Did it misinterpret the user's intent? Did it retry a failed operation three times before succeeding? Without visibility into the reasoning chain, debugging becomes guesswork.
 
-**The Cost-Latency Spiral**: Agentic workflows are inherently recursive. A single user query can trigger a cascade of expensive and time-consuming sub-tasks. Without real-time operational observability, you don't know which specific tool or sub-agent is burning your budget. Performance issues are only discovered when the bill arrives.
+- **The cost-latency spiral**: Agentic workflows are inherently recursive. A single user query can trigger a cascade of expensive, time-consuming subtasks. Without real-time operational observability, you don't know which specific tool or sub-agent is depleting your budget. Performance issues are only discovered when the bill arrives.
 
-**The Evaluation Paradox**: Without a systematic way to grade agent performance at scale, teams fall back on manual spot-checking. How do you know if your latest prompt change improved accuracy by 5% or silently degraded it by 10%? Without structured evaluation, teams can't confidently deploy to production.
+- **The evaluation paradox**: Without a systematic way to grade agent performance at scale, teams return to manual spot-checking. How do you know if your latest prompt change improved accuracy by 5% or silently degraded it by 10%? Without structured evaluation, teams can't confidently deploy agents to production.
 
-### How will Agent Health help?
+### How does Agent Health help?
 
-The transition from a multi-month deployment cycle to weekly deployments comes down to eliminating the "vibes-based" QA cycle. Every time a prompt is tweaked, or a new tool/skill is added to an agent, testing every possible trajectory manually is not feasible at scale. Agent Health accelerates development by converting this testing process into an automated, AI judge based workflow. By catching regressions early during the development phase (and in CI/CD pipelines) and providing real-time visual traces of exactly where the agent failed/diverged, teams reclaim engineering hours previously lost to staring at logs or waiting for customer incident reports. You debug in minutes, test systematically, and deploy with greater confidence.
+The transition from a multi-month deployment cycle to weekly deployments comes down to eliminating the manual QA process. Every time a prompt is adjusted or a new tool or skill is added to an agent, testing every possible scenario manually is not feasible at scale. Agent Health accelerates development by converting this testing process into an automated, AI-judge-based workflow. By catching regressions early during the development phase (and in CI/CD pipelines) and providing real-time visual traces of exact points where the agent failed or diverged, teams reclaim engineering hours previously lost reviewing logs or waiting for customer incident reports. You debug issues in minutes, test systematically, and deploy with greater confidence. The following diagram shows the difference between traditional agent development and the Agent Health workflow.
 
-![Before and after Agent Health](/assets/media/blog-images/2026-02-28-opensearch-agent-health/before-after-agent-health.png){:class="img-centered"}
+![Comparison diagram showing agent development workflow before and after using Agent Health, highlighting reduced debugging time and automated testing](/assets/media/blog-images/2026-02-28-opensearch-agent-health/before-after-agent-health.png){:class="img-centered"}
 
 ### Introducing OpenSearch Agent Health
 
-```
+To get started, run a single command to launch the full Agent Health interface:
+
+```bash
 npx @opensearch-project/agent-health
 # ✓ Server running at http://localhost:4001
 # ✓ Demo data loaded
 ```
 
-That's it. No installation required. Run one command and the full Agent Health interface is ready with traces, benchmarks, evaluations, and comparisons.
+That's it. No installation required. The full Agent Health interface is available, including traces, benchmarks, evaluations, and comparisons.
 
-OpenSearch Agent Health is an open-source observability and evaluation solution for AI agents. Available as a zero-installation NPX tool that delivers three core capabilities in a lightweight (~4 MB) package.
+OpenSearch Agent Health is an open-source observability and evaluation solution for AI agents. It's available as a zero-installation NPX tool that delivers **three core capabilities** in a lightweight (~4 MB) package:
 
-**1. Solving the Reasoning Gap: OpenTelemetry-Native Trace Observability**
+**1. Solving the reasoning gap: OpenTelemetry-native trace observability**.
 
-Agent Health provides timeline and flow visualizations that show exactly what your agent is doing at every step such as which tools it's calling, the sequence of decisions, the data flowing between components, and where things go wrong. All tracing follows OpenTelemetry standards, so your instrumentation remains portable and works alongside your existing observability tooling.
+  Agent Health provides timeline and flow visualizations that show exactly what your agent is doing at every step such as the tools it's calling, the sequence of decisions, the data flowing between components, and where failures arise. All tracing follows OpenTelemetry standards, so your instrumentation remains portable and works alongside your existing observability tooling.
 
-**2. Solving the Cost-Latency Spiral: Structured Benchmarking**
+**2. Solving the cost-latency spiral: Structured benchmarking**.
 
-Agent Health enables systematic A/B comparison of agent configurations across test suites. Test different prompts, models, or configurations side-by-side, and track results over time. By storing all benchmarks and results in OpenSearch, Agent Health gives you a persistent, queryable history of every evaluation run, so you catch regressions before they reach production, not after.
+  Agent Health enables systematic A/B comparison of agent configurations across test suites. Test different prompts, models, or configurations side-by-side, and track results over time. By storing all benchmarks and results in OpenSearch, Agent Health gives you a persistent, queryable history of every evaluation run, so you catch regressions before they reach production, not after.
 
-**3. Solving the Evaluation Paradox: Real-Time Agent Evaluation**
+**3. Solving the evaluation paradox: Real-time agent evaluation**.
 
-Agent Health uses "Golden Path" trajectory comparison, where an LLM judge scores agent actions against expected outcomes. You define what "good" looks like for your agent (the expected steps, tool calls, and outcomes) and Agent Health measures how well your agent performs against these criteria. Use your preferred LLM provider as your judge, giving you flexibility to choose the evaluation model that fits your needs and budget.
+  Agent Health uses the _golden path_ trajectory comparison, in which an LLM judge scores agent actions against expected outcomes. You define what _good_ looks like for your agent (the expected steps, tool calls, and outcomes) and Agent Health measures _how well_ your agent performs against these criteria. Using your preferred LLM provider as your judge gives you flexibility to choose the evaluation model that fits your needs and budget.
 
-### Built for Developer Workflows
+### Built for developer workflows
 
-Agent Health includes both a web UI (`localhost:4001`) and a headless CLI to support different workflows throughout the development lifecycle.
+Agent Health includes both a web UI (`localhost:4001`) and a headless CLI to support different workflows throughout the development lifecycle:
 
-- **AI Agent Developers** can write test cases, run evaluations locally, and integrate agent evaluation directly into CI/CD pipelines. Benchmarks defined in JSON can be executed from the command line, exporting both human and machine-readable reports for automated quality gating.
-- **ML Scientists and Evaluators** can use the web UI (`localhost:4001`) to design golden datasets, define quality criteria, run batch benchmarks across configurations, perform A/B testing to track accuracy trends over time, export results for reports or further analysis, and even compare their benchmarks against different comparable agents.
+- **AI agent developers** can write test cases, run evaluations locally, and integrate agent evaluation directly into CI/CD pipelines. Benchmarks defined in JSON can be executed from the command line, exporting both human and machine-readable reports for automated quality gating.
+- **Machine learning scientists and evaluators** can use the web UI (`localhost:4001`) to design golden datasets, define quality criteria, run batch benchmarks across configurations, perform A/B testing to track accuracy trends over time, export results for reports or further analysis, and even compare their benchmarks against different comparable agents.
 
 ### Try it yourself
 
-Ready to see Agent Health in action? Choose your path: explore with pre-loaded sample data, or connect your own agent and start evaluating.
+Ready to see Agent Health in action? Choose your path: explore with pre-loaded sample data or connect your own agent and start evaluating.
 
-**Quick Start: Explore with Sample Data (No Agent Required)**
+**Quickstart: Explore with sample data (no agent required)**
 
-The fastest way to experience Agent Health is with the built-in sample data. Run a single command and you'll have real traces, benchmarks, and evaluation results to explore immediately.
+The fastest way to experience Agent Health is using the built-in sample data. Run a single command and you'll have real traces, benchmarks, and evaluation results to explore immediately:
 
-```
+```bash
 npx @opensearch-project/agent-health
 # ✓ Server running at http://localhost:4001
 # ✓ Demo data loaded
 # ✓ Ready to trace, evaluate, and ship
 ```
 
-Navigate to Traces to explore pre-loaded agent execution data, go to Benchmarks to run the "Travel Planning Accuracy - Demo" and see LLM judge evaluations in action, and visit Compare to see side-by-side run comparisons.
+Navigate to **Traces** to explore preloaded agent execution data, go to **Benchmarks** to run the `Travel Planning Accuracy - Demo` and view LLM judge evaluations in action, and visit **Compare** to see side-by-side run comparisons.
 
-**Evaluate Your Own Agent**
+**Evaluate your own agent**
 
 This walkthrough shows you how to instrument your agent, create benchmarks, and iterate based on evaluation results.
 
@@ -92,7 +92,7 @@ This walkthrough shows you how to instrument your agent, create benchmarks, and 
 
 Start the tool and configure your connections:
 
-```
+```bash
 npx @opensearch-project/agent-health
 # ✓ Server running at http://localhost:4001
 ```
@@ -105,16 +105,16 @@ curl -fsSL https://raw.githubusercontent.com/opensearch-project/observability-st
 
 The local stack launches two components:
 
-- **OpenSearch cluster on port 9200** — Use this as both your evaluation storage and observability storage endpoints in Agent Health Settings.
-- **OTEL Collector on port 4317** — Point your instrumented agent's traces here. Agent Health uses OpenTelemetry for trace collection. Follow the [OpenTelemetry instrumentation guide](https://opentelemetry.io/docs/instrumentation/) for your language to add tracing to your agent.
+- **OpenSearch cluster on port 9200** -- Use this as both your evaluation storage and observability storage endpoints in Agent Health Settings.
+- **OTEL collector on port 4317** -- Point your instrumented agent's traces here. Agent Health uses OpenTelemetry for trace collection. Follow the [OpenTelemetry instrumentation guide](https://opentelemetry.io/docs/instrumentation/) for your language to add tracing to your agent.
 
-If you're using an existing cluster, add your cluster endpoint directly as both storage endpoints in Settings.
+If you're using an existing cluster, add your cluster endpoint directly as both storage endpoints in **Settings**.
 
-In Settings, configure your agent endpoint (name, URL, and connector type), and you can set your own LLM Judge via env variables.
+In **Settings**, you can configure your agent endpoint (name, URL, and connector type) and configure your own LLM Judge using environment variables.
 
-**Step 2: Create a Benchmark**
+**Step 2: Create a benchmark**
 
-Define test cases in JSON format. Example for a travel planner agent (travel-agent-benchmark.json):
+Define test cases in JSON format. The following is an example for a travel planner agent (`travel-agent-benchmark.json`):
 
 ```json
 [
@@ -148,11 +148,13 @@ Define test cases in JSON format. Example for a travel planner agent (travel-age
 ]
 ```
 
-**Step 3: Run and Analyze**
+**Step 3: Run and analyze**
 
-Choose your workflow:
+To run and analyze the benchmark, use either the Agent Health CLI mode or the Agent Health UI.
 
-**Option A: CLI Mode**
+**Option A: Using the CLI mode**
+
+To use the CLI mode, run the following command:
 
 ```bash
 npx @opensearch-project/agent-health benchmark \
@@ -162,15 +164,15 @@ npx @opensearch-project/agent-health benchmark \
   -v
 ```
 
-This imports the benchmark, creates it, runs it against your agent, and exports results in one command.
+This command imports the benchmark, creates it, runs it against your agent, and exports results.
 
-**Option B: Via UI**
+**Option B: Using the UI**
 
-Navigate to Benchmarks, then Import JSON and select your file. Choose "Run" and configure the agent and Judge Model. Watch real-time progress as each test case executes.
+Navigate to **Benchmarks**, then **Import JSON** and select your file. Select **Run** and configure the agent and judge model. Watch real-time progress as each test case executes.
 
-**Step 4: View Results**
+**Step 4: View the results**
 
-Access results through the UI (Benchmarks, then Latest Run) to see overall pass rates, per-test-case results with LLM judge reasoning, and improvement strategies ranked by priority. Navigate to Traces for detailed execution visualization showing timeline views, flow views, and span details. Alternatively, analyze the JSON export:
+You can access the results through the UI to view the overall pass rates, per-test-case results with LLM judge reasoning, and improvement strategies ranked by priority. To access the results, go to **Benchmarks**, then select **Latest Run**. Navigate to **Traces** for detailed execution visualization showing timeline views, flow views, and span details. Alternatively, analyze the JSON export:
 
 ```bash
 cat baseline-results.json | jq '.runs[0].reports[] | select(.passFailStatus == "failed") | {
@@ -180,21 +182,14 @@ cat baseline-results.json | jq '.runs[0].reports[] | select(.passFailStatus == "
 }'
 ```
 
-**Step 5: Iterate and Improve**
+**Step 5: Iterate and improve**
 
-Update your agent based on high-priority recommendations, then re-run the benchmark and compare results. Navigate to Compare from Benchmarks and select two runs to visualize improvements across metrics like pass rate, latency, cost, and failed tests.
+Update your agent based on high-priority recommendations, then rerun the benchmark and compare the results. Navigate to **Compare from Benchmarks** and select two runs to visualize improvements across metrics like pass rate, latency, cost, and failed tests, as shown in the following image.
 
-![Agent Health benchmark comparison view](/assets/media/blog-images/2026-02-28-opensearch-agent-health/benchmark-comparison.png){:class="img-centered"}
+![Side-by-side comparison of two benchmark runs showing pass rate, latency, and cost metrics with visual indicators for improvements](/assets/media/blog-images/2026-02-28-opensearch-agent-health/benchmark-comparison.png){:class="img-centered"}
 
-### What's Next
+### What's next?
 
-This is an experimental release, and we're actively shaping what Agent Health becomes next. As the AI agent ecosystem matures and standards solidify, we'll continue evolving the tool based on real-world usage.
+Agent Health is designed as a development-phase companion that helps you build, test, and iterate on your agents before they reach production. This is an experimental release, and we're actively shaping the future improvements to Agent Health. As the AI agent platform matures and standards solidify, we'll continue evolving the tool based on real-world usage and explore how Agent Health's evaluation and observability capabilities can extend into production-scale deployments.
 
-Agent Health is designed as a development-phase companion that helps you build, test, and iterate on your agents before they reach production. As the ecosystem matures, we're exploring how Agent Health's evaluation and observability capabilities can extend into production-scale deployments.
-
-Install it, run your benchmarks, and share what you find. Open an issue on GitHub, join the discussion in the RFC, or share your experience with the community. Your feedback will directly influence how we prioritize features and refine the developer experience.
-
-### Learn More
-
-- **GitHub Repository**: [opensearch-project/agent-health](https://github.com/opensearch-project/agent-health)
-- **RFC**: [Agent Health RFC](https://github.com/opensearch-project/agent-health/issues/42)
+Install Agent Health, run your benchmarks, and share your findings. Open an issue in the [repository](https://github.com/opensearch-project/agent-health), join the discussion in the [RFC](https://github.com/opensearch-project/agent-health/issues/42), or share your experience with the community on the [OpenSearch forum](https://forum.opensearch.org/). Your feedback directly influences the way we prioritize features and refine the developer experience.
