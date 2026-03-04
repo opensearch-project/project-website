@@ -20,7 +20,7 @@ The industry has recognized these benefits—companies like Google, Netflix, and
 
 This post explores the challenges of maintaining consistent REST and gRPC APIs, our automated approach to generating Protobuf definitions from OpenSearch's OpenAPI specifications, and benchmark results demonstrating real-world performance gains.
 
-## Protobuf Generation and Automation
+## Protobuf generation and automation
 
 Adding gRPC support to an existing REST API ecosystem presents several challenges:
 
@@ -32,7 +32,7 @@ Adding gRPC support to an existing REST API ecosystem presents several challenge
 
 To address these challenges, we developed an **automated conversion pipeline** that generates Protobuf schemas directly from OpenSearch's existing OpenAPI specifications. This ensures REST and gRPC APIs remain synchronized at the source.
 
-### High-Level Conversion Pipeline
+### High-Level conversion pipeline
 
 Our conversion pipeline consists of three stages:
 
@@ -80,7 +80,7 @@ This approach provides several benefits:
 
 OpenSearch determines the protocol based on the incoming connection (HTTP/1.1 for REST, HTTP/2 for gRPC) and routes requests to the appropriate handler. The conversion pipeline ensures that request and response transformations between JSON and Protobuf maintain semantic equivalence.
 
-## Benchmark Experiments: gRPC versus REST
+## Benchmark Experiments: gRPC compared to REST
 
 To quantify the performance impact of gRPC, we conducted benchmarks comparing gRPC and REST across two common workloads: vector search and bulk ingestion.
 
