@@ -8,8 +8,8 @@ date: 2026-02-28
 categories:
   - technical-posts
   - community
-meta_keywords: AI agents, agent observability, OpenTelemetry, LLM evaluation, agent tracing, AI agent testing, OpenSearch, agentic AI
-meta_description: OpenSearch Agent Health provides open-source observability and evaluation for AI agents. Ship production-ready agents faster with real-time tracing, systematic benchmarking, and LLM-based evaluation.
+meta_keywords: OpenSearch Agent Health, AI agents, observability, LLM evaluation, AI agent testing, OpenTelemetry, agentic AI, trace visualization, agent debugging, AI agent observability, LLM agent evaluation, agentic AI debugging, automated LLM benchmarking tool, open-source LLM observability
+meta_description: Discover why AI agents fail in silence and how OpenSearch Agent Health solves it with open-source trace observability, automated benchmarking, and LLM judge evaluation.
 ---
 
 You've built an agentic AI application. It's sophisticated, using recursive loops and autonomous tool-calling to navigate data. It passed your local testing, so you deploy it to production.
@@ -58,7 +58,7 @@ OpenSearch Agent Health is an open-source observability and evaluation solution 
 
 **3. Solving the evaluation paradox: Real-time agent evaluation**.
 
-  Agent Health uses the _golden path_ trajectory comparison, in which an LLM judge scores agent actions against expected outcomes. You define what _good_ looks like for your agent (the expected steps, tool calls, and outcomes) and Agent Health measures _how well_ your agent performs against these criteria. Using your preferred LLM provider as your judge gives you flexibility to choose the evaluation model that fits your needs and budget.
+  Agent Health uses the _golden path_ trajectory comparison to evaluate agent performance. In this approach, you define the ideal sequence of steps, tool calls, and outcomes your agent should follow as the golden path. An LLM judge then scores your agent's actual behavior against that expected trajectory, flagging deviations that indicate errors or regressions. Agent Health measures how well your agent performs against these criteria, and using your preferred LLM provider as your judge gives you the flexibility to choose the evaluation model that fits your needs and budget.
 
 ### Built for developer workflows
 
