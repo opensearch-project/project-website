@@ -64,8 +64,8 @@ OpenSearch Agent Health is an open-source observability and evaluation solution 
 
 Agent Health runs locally on your machine, providing both a web UI (`localhost:4001`) and a headless CLI to support AI agent developers and ML engineers through the full development cycle of building, observing, and continuously improving their agents.
 
-- **Via CLI**: Define benchmarks in JSON, run evaluations from the command line, and integrate results into CI/CD pipelines for automated quality gating.
-- **Via web UI**: Explore results visually, design golden datasets, perform A/B testing across configurations, and export findings for reports or further analysis.
+- **Using CLI**: Define benchmarks in JSON, run evaluations from the command line, and integrate results into CI/CD pipelines for automated quality gating.
+- **Using web UI**: Explore results visually, design golden datasets, perform A/B testing across configurations, and export findings for reports or further analysis.
 
 ### Try it yourself
 
