@@ -2,8 +2,8 @@
 layout: post
 title: "Beyond filter rewrite: How doc value skip indexes accelerate aggregations in OpenSearch"
 authors:
- - jainankitk
- - asimmahmood1
+ - akjain
+ - asimmahm
 date: 2026-02-01
 categories:
  - technical-posts
