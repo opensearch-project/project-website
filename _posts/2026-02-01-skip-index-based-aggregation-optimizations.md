@@ -92,7 +92,7 @@ This metadata enables the aggregation engine to make three decisions for each in
 
 The traversal starts at the highest available level and descends only when needed, similar to the way the BKD tree traversal in our previous optimizations skipped entire subtrees, as shown in the following figure. The key difference is that this structure operates on doc values rather than the `Points` index, so it works regardless of which field the query filters on.
 
-![Skip_Index_Visualization.png](../assets/media/blog-images/2026-02-01-skip-index-based-aggregation-optimizations/Skip_Index_Visualization.png)
+![Skip index visualization showing how ranges of documents can be skipped or bulk-counted based on min/max metadata at each level](/assets/media/blog-images/2026-02-01-skip-index-based-aggregation-optimizations/Skip_Index_Visualization.png)
 *Figure 1: Skip index visualization showing how ranges of documents can be skipped or bulk-counted based on min/max metadata at each level.*
 
 ## How skip indexes address the limitations of filter rewrite
@@ -147,7 +147,7 @@ Without skip indexes, the range query on `@timestamp` could potentially benefit 
 
 With skip indexes enabled on `@timestamp`, the aggregation engine can consult the skip index during collection. When it encounters an interval in which the min and max `@timestamp` values both fall within the same daily bucket, it bulk-counts all matching documents in that interval without looking up individual values, as shown in the following diagram.
 
-![](../assets/media/blog-images/2026-02-01-skip-index-based-aggregation-optimizations/skiplist-hourly-reduction.svg)
+![Skip index bulk-counting of consecutive blocks that fall within the same time bucket](/assets/media/blog-images/2026-02-01-skip-index-based-aggregation-optimizations/skiplist-hourly-reduction.svg)
 *Figure 2: With skip indexes enabled, when the engine lands on an interval whose min/max values fall within the same bucket (for example, Block 42 with values from 14:00:01 to 14:20:59), it bulk-counts the entire block. This process repeats across consecutive blocks until reaching a block that spans a bucket boundary (for example, crossing into the next day), at which point it falls back to individual doc value collection. This can reduce the total number of lookups by approximately 85%.*
 
 ## Efficient counting with popcount
