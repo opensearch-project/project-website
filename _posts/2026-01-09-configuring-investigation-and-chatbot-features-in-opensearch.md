@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Configuring Agentic Investigation and Chatbot Features in OpenSearch: A Complete Guide"
+title: "Configuring agentic investigation and chatbot features in OpenSearch: A complete guide"
 authors:
   - ihailong
   - jiaruj
@@ -11,19 +11,104 @@ meta_keywords: OpenSearch development, open source environment, chatbot setup, i
 meta_description: Learn how to configure OpenSearch chatbot and investigation features, including OpenSearch backend, Dashboards frontend, and MCP server configuration.
 ---
 
-OpenSearch's intelligent assistant capabilities bring advanced chatbot and investigation features to the open source community. Setting up these features requires careful configuration of multiple components, from the OpenSearch backend to the Dashboards frontend and MCP (Model Context Protocol) server integration.
+OpenSearch's intelligent assistant capabilities provide advanced chatbot and investigation features. Setting up these features requires careful configuration of multiple components, from the OpenSearch backend to the OpenSearch Dashboards frontend and Model Context Protocol (MCP) server integration.
 
-This comprehensive guide walks you through the entire setup process, covering everything from basic configuration to advanced features like streaming output, agent frameworks, and local development workflows. Whether you're contributing to the project or exploring its capabilities, this guide provides the foundation you need to get started with OpenSearch's AI-powered features.
+This comprehensive guide presents the entire setup process, covering everything from basic configuration to advanced features such as streaming output, agent frameworks, and local development workflows. Whether you're contributing to the project or exploring its capabilities, this guide provides the foundation you need to get started with OpenSearch's AI-powered features.
 
+## Local development setup
 
+For local development, you can configure and run both backend and frontend components.
 
-### Local Development Setup
+### Backend setup
 
-For local development, you can run both frontend and backend components:
+For the backend setup, follow these steps:
 
-#### Frontend Setup
+1. Download OpenSearch 3.5.0 from [the downloads page](https://opensearch.org/downloads):
 
-Download OpenSearch Dashboards 3.5.0 from [https://opensearch.org/downloads](https://opensearch.org/downloads)
+  ```bash
+  tar -xzf opensearch-3.5.0-linux-x64.tar.gz
+  ```
+
+2. Build the required plugins:
+
+  ```bash
+  git clone https://github.com/opensearch-project/OpenSearch.git
+  cd OpenSearch/
+  ./gradlew :plugins:transport-reactor-netty4:assemble
+  ./gradlew :plugins:arrow-flight-rpc:assemble
+  ```
+
+3. Install the plugins:
+
+  ```bash
+  cd opensearch-3.5.0/
+  ./bin/opensearch-plugin install file:///path/to/transport-reactor-netty4.zip
+  ./bin/opensearch-plugin install file:///path/to/arrow-flight-rpc.zip
+  ```
+
+4. Start OpenSearch:
+
+  ```bash
+  ./bin/opensearch
+  ```
+
+#### Backend configuration
+
+For backend setup, follow these steps:
+
+1. Configure OpenSearch by adding the following settings to your `opensearch.yml` file:
+
+  ```yaml
+  # Enable stream transport feature
+  opensearch.experimental.feature.transport.stream.enabled: true
+
+  # HTTP transport type
+  http.type: reactor-netty4-secure
+
+  # ML Commons plugin settings
+  plugins.ml_commons.agent_framework_enabled: true
+  plugins.ml_commons.index_insight_feature_enabled: true
+  plugins.ml_commons.stream_enabled: true
+  plugins.ml_commons.ag_ui_enabled: true
+  plugins.ml_commons.mcp_connector_enabled: true
+  plugins.ml_commons.trusted_connector_endpoints_regex: ["^https?://localhost.*", "^https?://127\.0\.0\.1.*", "^https://bedrock-runtime\..*\.amazonaws\.com/.*$"]
+  ```
+
+2. Install the security demo configuration:
+
+  ```bash
+  # Set initial admin password
+  # Specify Java 21 environment
+  # Install OpenSearch Security demo configuration (includes certificates and default security settings)
+  OPENSEARCH_INITIAL_ADMIN_PASSWORD='<your_password>' \
+  OPENSEARCH_JAVA_HOME=$(/usr/libexec/java_home -v 21) \
+  ./plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
+  ```
+
+3. Configure JVM options by adding the following configuration to your `jvm.options` file:
+
+  ```bash
+  # Streaming setup for Arrow Flight RPC
+  -Dio.netty.allocator.numDirectArenas=1
+  -Dio.netty.noUnsafe=false
+  -Dio.netty.tryUnsafe=true
+  -Dio.netty.tryReflectionSetAccessible=true
+  ```
+
+4. Set up an OpenSearch MCP server for tool integration:
+
+  ```bash
+  # Configure and start MCP server with your OpenSearch credentials
+  OPENSEARCH_URL="<your_opensearch_endpoint>" \
+  OPENSEARCH_USERNAME="<your_username>" \
+  OPENSEARCH_PASSWORD="<your_password>" \
+  OPENSEARCH_SSL_VERIFY="false" \
+  uvx opensearch-mcp-server-py --transport stream --port 8080
+  ```
+
+### Frontend setup
+
+For the frontend setup, download OpenSearch Dashboards 3.5.0 from [the downloads page](https://opensearch.org/downloads):
 
 ```bash
 # Extract the tar package
@@ -34,7 +119,7 @@ cd opensearch-dashboards-3.5.0
 ./bin/opensearch-dashboards
 ```
 
-#### Frontend Configuration
+#### Frontend configuration
 
 Configure OpenSearch Dashboards by adding the following settings to your `opensearch_dashboards.yml` file:
 
@@ -89,96 +174,13 @@ uiSettings:
     'home:useNewHomePage': true
 ```
 
-#### Backend Setup
+## Configuring chatbot features
 
-Download OpenSearch 3.5.0 from https://opensearch.org/downloads
+To set up chatbot features, follow these steps.
 
-```bash
-tar -xzf opensearch-3.5.0-linux-x64.tar.gz
-```
+### Step 1: Create a model and connector
 
-Build required plugins:
-
-```bash
-git clone https://github.com/opensearch-project/OpenSearch.git
-cd OpenSearch/
-./gradlew :plugins:transport-reactor-netty4:assemble
-./gradlew :plugins:arrow-flight-rpc:assemble
-```
-
-Install plugins:
-
-```bash
-cd opensearch-3.5.0/
-./bin/opensearch-plugin install file:///path/to/transport-reactor-netty4.zip
-./bin/opensearch-plugin install file:///path/to/arrow-flight-rpc.zip
-```
-
-Start OpenSearch:
-
-```bash
-./bin/opensearch
-```
-
-#### Backend Configuration
-
-Configure OpenSearch by adding the following settings to your `opensearch.yml` file:
-
-```yaml
-# Enable stream transport feature
-opensearch.experimental.feature.transport.stream.enabled: true
-
-# HTTP transport type
-http.type: reactor-netty4-secure
-
-# ML Commons plugin settings
-plugins.ml_commons.agent_framework_enabled: true
-plugins.ml_commons.index_insight_feature_enabled: true
-plugins.ml_commons.stream_enabled: true
-plugins.ml_commons.ag_ui_enabled: true
-plugins.ml_commons.mcp_connector_enabled: true
-plugins.ml_commons.trusted_connector_endpoints_regex: ["^https?://localhost.*", "^https?://127\.0\.0\.1.*", "^https://bedrock-runtime\..*\.amazonaws\.com/.*$"]
-```
-
-Install security demo configuration:
-
-```bash
-# Set initial admin password
-# Specify Java 21 environment
-# Install OpenSearch Security demo configuration (includes certificates and default security settings)
-OPENSEARCH_INITIAL_ADMIN_PASSWORD='<your_password>' \
-OPENSEARCH_JAVA_HOME=$(/usr/libexec/java_home -v 21) \
-./plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
-```
-
-Additionally, configure JVM options by adding the following to your `jvm.options` file:
-
-```bash
-# Streaming setup for Arrow Flight RPC
--Dio.netty.allocator.numDirectArenas=1
--Dio.netty.noUnsafe=false
--Dio.netty.tryUnsafe=true
--Dio.netty.tryReflectionSetAccessible=true
-```
-
-Set up OpenSearch MCP server for tool integration
-
-```bash
-# Configure and start MCP server with your OpenSearch credentials
-OPENSEARCH_URL="<your_opensearch_endpoint>" \
-OPENSEARCH_USERNAME="<your_username>" \
-OPENSEARCH_PASSWORD="<your_password>" \
-OPENSEARCH_SSL_VERIFY="false" \
-uvx opensearch-mcp-server-py --transport stream --port 8080
-```
-
-## Setting Up Chatbot Features
-
-Configure the following in Dashboards Dev Tools:
-
-### Create Model and Connector
-
-Register a Claude 4.5 model with Bedrock connector (note the `model_id` field in output):
+Register a Claude 4.5 model with an Amazon Bedrock connector:
 
 ```bash
 POST /_plugins/_ml/models/_register
@@ -215,9 +217,11 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-### Register MCP Connector
+Note the `model_id` in the response; you'll use it in the following steps.
 
-Create an MCP connector for tool integration (note the `connector_id` field in output):
+### Step 2: Register an MCP connector
+
+Create an MCP connector for tool integration:
 
 ```bash
 POST _plugins/_ml/connectors/_create
@@ -233,9 +237,11 @@ POST _plugins/_ml/connectors/_create
 }
 ```
 
-### Register AG-UI Agent
+Note the `connector_id` in the response; you'll use it in the following steps.
 
-Create the main chatbot agent (fill in `model_id` and `mcp_connector_id` from previous steps):
+### Step 3: Register an AG-UI agent
+
+Create an Agent-User Interaction (AG-UI) main chatbot agent. Provide the `model_id` from Step 1 and use the `connector_id` from Step 2 as the `mcp_connector_id` value:
 
 ```bash
 POST /_plugins/_ml/agents/_register
@@ -271,13 +277,15 @@ POST /_plugins/_ml/agents/_register
 }
 ```
 
-Next, edit the Dashboards config file and change the value of `chat.mlCommonsAgentId` to your newly registered agent ID.
+Next, edit the `opensearch_dashboards.yml` file and change the value of `chat.mlCommonsAgentId` to your newly registered agent ID.
 
-## Setting Up Investigation Features
+## Configuring investigation features
 
-### Create Memory Container
+To configure investigation features, follow these steps.
 
-Set up memory management for investigation workflows (note the `memory_container_id` field in output):
+### Step 1: Create a memory container
+
+Configure memory management for investigation workflows:
 
 ```bash
 POST _plugins/_ml/memory_containers/_create
@@ -293,9 +301,11 @@ POST _plugins/_ml/memory_containers/_create
 }
 ```
 
-### Create Investigation Connector
+Note the `memory_container_id` in the response; you'll use it in the following steps.
 
-Create connector for investigation features (note the `connector_id` field in output):
+### Step 2: Create an investigation connector
+
+Create a connector for investigation features:
 
 ```bash
 POST _plugins/_ml/connectors/_create
@@ -328,9 +338,11 @@ POST _plugins/_ml/connectors/_create
 }
 ```
 
-### Register Investigation Model
+Note the `connector_id` in the response; you'll use it in the following steps.
 
-Register model for investigation features (note the `model_id` field in output):
+### Step 3: Register an investigation model
+
+Register a model for investigation features:
 
 ```bash
 POST _plugins/_ml/models/_register
@@ -342,9 +354,11 @@ POST _plugins/_ml/models/_register
 }
 ```
 
-### Register Investigation MCP Connector
+Note the `model_id` in the response; you'll use it in the following steps.
 
-Register MCP connector for investigation tools (note the `connector_id` field in output):
+### Step 4: Register an investigation MCP connector
+
+Register an MCP connector for investigation tools:
 
 ```bash
 POST _plugins/_ml/connectors/_create
@@ -360,10 +374,11 @@ POST _plugins/_ml/connectors/_create
 }
 ```
 
+Note the `connector_id` in the response; you'll use it in the following steps.
 
-### Register Investigation Agent
+### Step 5: Register an investigation agent
 
-Create a plan-execute-reflect agent for complex investigations (fill in `model_id`, `memory_container_id` and `mcp_connector_id` from previous steps):
+Create a plan-execute-reflect agent for complex investigations. Provide the `model_id` from Step 3, the `memory_container_id` from Step 1, and use the `connector_id` from Step 4 as the `mcp_connector_id` value:
 
 ```bash
 POST _plugins/_ml/agents/_register
@@ -395,9 +410,9 @@ POST _plugins/_ml/agents/_register
 }
 ```
 
-### Configure Investigation Settings
+### Step 6: Configure investigation settings
 
-Register the agent for investigation features (fill in `agent_id` from previous step):
+Register an agent for investigation features, providing the `agent_id` from Step 5:
 
 ```bash
 POST .plugins-ml-config/_doc/os_deep_research
@@ -409,7 +424,9 @@ POST .plugins-ml-config/_doc/os_deep_research
 }
 ```
 
-**Troubleshooting Tip:** If you encounter the following error:
+#### Troubleshooting tip
+
+You may encounter the following error:
 
 ```json
 {
@@ -427,7 +444,7 @@ POST .plugins-ml-config/_doc/os_deep_research
 }
 ```
 
-**Solution:** Use curl with certificate authentication to bypass the security restriction:
+To resolve the error, use a curl command with certificate authentication to bypass the security restrictions. Replace `<your_agent_id>` with the `agent_id` from Step 5:
 
 ```bash
 curl -k --cert opensearch-3.5.0/config/kirk.pem --key opensearch-3.5.0/config/kirk-key.pem \
@@ -441,9 +458,9 @@ curl -k --cert opensearch-3.5.0/config/kirk.pem --key opensearch-3.5.0/config/ki
   }'
 ```
 
-Replace `<your_agent_id>` with the agent ID from the previous step. For more information on system indices and security configuration, see the [OpenSearch Security documentation](https://docs.opensearch.org/latest/security/configuration/system-indices/).
+For more information on system indexes and security configuration, see the [System indexes](https://docs.opensearch.org/latest/security/configuration/system-indices/).
 
-### Enable Index Insight Configuration
+### Step 7: Enable index insight configuration
 
 Enable the index insight feature for investigation capabilities:
 
@@ -455,30 +472,37 @@ curl -k --cert opensearch-3.5.0/config/kirk.pem --key opensearch-3.5.0/config/ki
 ```
 
 
-## Results
+## Using OpenSearch intelligent assistant features
 
-After completing the configuration, you'll have access to OpenSearch's intelligent assistant capabilities through multiple interfaces. The setup provides three key components that work together to deliver comprehensive AI-powered functionality.
+After completing the configuration, you'll have access to OpenSearch's intelligent assistant capabilities through multiple interfaces. The setup provides the following key components that work together to deliver comprehensive AI-powered functionality.
 
-### Investigation Entry Point
+### Investigations
 
-The investigation feature is accessible through the main OpenSearch Dashboards interface, providing users with an intuitive entry point to AI-powered data analysis.
+Investigations are accessible through the main OpenSearch Dashboards interface, as shown in the following image.
 
 <img src="/assets/media/blog-images/2026-01-09-configuring-investigation-and-chatbot-features-in-opensearch/investigation-interface.png" alt="OpenSearch Investigation Entry Point"/>{: .img-fluid }
 
-### Investigation Workflow in Action
+### Investigation workflow
 
-The investigation feature demonstrates advanced AI capabilities, including automated analysis, pattern recognition, and comprehensive reporting based on your data queries.
+Investigations demonstrate advanced AI capabilities, including automated analysis, pattern recognition, and comprehensive reporting based on your data queries, as shown in the following image.
 
 <img src="/assets/media/blog-images/2026-01-09-configuring-investigation-and-chatbot-features-in-opensearch/investigation-workflow.png" alt="Investigation Workflow Example"/>{: .img-fluid }
 
-### Chatbot Functionality
+### Chatbot functionality
 
-The chatbot interface enables real-time conversations with your data, allowing users to ask questions in natural language and receive intelligent responses powered by the configured ML models.
+The chatbot interface enables real-time conversations with your data, allowing you to ask questions in natural language and receive intelligent responses powered by the configured ML models, as shown in the following image.
 
 <img src="/assets/media/blog-images/2026-01-09-configuring-investigation-and-chatbot-features-in-opensearch/chatbot-interface.png" alt="OpenSearch Chatbot Interface"/>{: .img-fluid }
 
-### Triggering Investigation from Chatbot
+### Triggering an investigation from the chatbot
 
-You can seamlessly trigger investigation workflows directly from the chatbot interface by typing `/investigate` in the input box. This command initiates an investigation session, and you can click on the links provided in the chatbot responses to navigate to the investigation page.
+You can seamlessly trigger investigation workflows directly from the chatbot interface by typing `/investigate` in the input box. This command initiates an investigation session. You can select the links provided in the chatbot responses to navigate to the investigation page, as shown in the following image.
 
 <img src="/assets/media/blog-images/2026-01-09-configuring-investigation-and-chatbot-features-in-opensearch/chatbot-trigger-investigation.png" alt="Trigger Investigation from Chatbot"/>{: .img-fluid }
+
+## Try it 
+
+Now that you've seen how to configure OpenSearch's investigation and chatbot features, we encourage you to try them in your own environment. Follow the setup steps in this guide to enable AI-powered data analysis and natural language interactions with your OpenSearch data.
+
+We'd love to hear about your experience! Share your feedback, questions, and use cases on the [OpenSearch forum](https://forum.opensearch.org/). Your insights help us improve these features and build a stronger open-source community around AI-powered search and analytics.
+
