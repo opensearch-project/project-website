@@ -25,32 +25,32 @@ For the backend setup, follow these steps:
 
 1. Download OpenSearch 3.5.0 from [the downloads page](https://opensearch.org/downloads):
 
-  ```bash
-  tar -xzf opensearch-3.5.0-linux-x64.tar.gz
-  ```
+    ```bash
+    tar -xzf opensearch-3.5.0-linux-x64.tar.gz
+    ```
 
 2. Build the required plugins:
 
-  ```bash
-  git clone https://github.com/opensearch-project/OpenSearch.git
-  cd OpenSearch/
-  ./gradlew :plugins:transport-reactor-netty4:assemble
-  ./gradlew :plugins:arrow-flight-rpc:assemble
-  ```
+    ```bash
+    git clone https://github.com/opensearch-project/OpenSearch.git
+    cd OpenSearch/
+    ./gradlew :plugins:transport-reactor-netty4:assemble
+    ./gradlew :plugins:arrow-flight-rpc:assemble
+    ```
 
 3. Install the plugins:
 
-  ```bash
-  cd opensearch-3.5.0/
-  ./bin/opensearch-plugin install file:///path/to/transport-reactor-netty4.zip
-  ./bin/opensearch-plugin install file:///path/to/arrow-flight-rpc.zip
-  ```
+    ```bash
+    cd opensearch-3.5.0/
+    ./bin/opensearch-plugin install file:///path/to/transport-reactor-netty4.zip
+    ./bin/opensearch-plugin install file:///path/to/arrow-flight-rpc.zip
+    ```
 
 4. Start OpenSearch:
 
-  ```bash
-  ./bin/opensearch
-  ```
+    ```bash
+    ./bin/opensearch
+    ```
 
 #### Backend configuration
 
@@ -58,53 +58,53 @@ For backend setup, follow these steps:
 
 1. Configure OpenSearch by adding the following settings to your `opensearch.yml` file:
 
-  ```yaml
-  # Enable stream transport feature
-  opensearch.experimental.feature.transport.stream.enabled: true
+    ```yaml
+    # Enable stream transport feature
+    opensearch.experimental.feature.transport.stream.enabled: true
 
-  # HTTP transport type
-  http.type: reactor-netty4-secure
+    # HTTP transport type
+    http.type: reactor-netty4-secure
 
-  # ML Commons plugin settings
-  plugins.ml_commons.agent_framework_enabled: true
-  plugins.ml_commons.index_insight_feature_enabled: true
-  plugins.ml_commons.stream_enabled: true
-  plugins.ml_commons.ag_ui_enabled: true
-  plugins.ml_commons.mcp_connector_enabled: true
-  plugins.ml_commons.trusted_connector_endpoints_regex: ["^https?://localhost.*", "^https?://127\.0\.0\.1.*", "^https://bedrock-runtime\..*\.amazonaws\.com/.*$"]
-  ```
+    # ML Commons plugin settings
+    plugins.ml_commons.agent_framework_enabled: true
+    plugins.ml_commons.index_insight_feature_enabled: true
+    plugins.ml_commons.stream_enabled: true
+    plugins.ml_commons.ag_ui_enabled: true
+    plugins.ml_commons.mcp_connector_enabled: true
+    plugins.ml_commons.trusted_connector_endpoints_regex: ["^https?://localhost.*", "^https?://127\.0\.0\.1.*", "^https://bedrock-runtime\..*\.amazonaws\.com/.*$"]
+    ```
 
 2. Install the security demo configuration:
 
-  ```bash
-  # Set initial admin password
-  # Specify Java 21 environment
-  # Install OpenSearch Security demo configuration (includes certificates and default security settings)
-  OPENSEARCH_INITIAL_ADMIN_PASSWORD='<your_password>' \
-  OPENSEARCH_JAVA_HOME=$(/usr/libexec/java_home -v 21) \
-  ./plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
-  ```
+    ```bash
+    # Set initial admin password
+    # Specify Java 21 environment
+    # Install OpenSearch Security demo configuration (includes certificates and default security settings)
+    OPENSEARCH_INITIAL_ADMIN_PASSWORD='<your_password>' \
+    OPENSEARCH_JAVA_HOME=$(/usr/libexec/java_home -v 21) \
+    ./plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
+    ```
 
 3. Configure JVM options by adding the following configuration to your `jvm.options` file:
 
-  ```bash
-  # Streaming setup for Arrow Flight RPC
-  -Dio.netty.allocator.numDirectArenas=1
-  -Dio.netty.noUnsafe=false
-  -Dio.netty.tryUnsafe=true
-  -Dio.netty.tryReflectionSetAccessible=true
-  ```
+    ```bash
+    # Streaming setup for Arrow Flight RPC
+    -Dio.netty.allocator.numDirectArenas=1
+    -Dio.netty.noUnsafe=false
+    -Dio.netty.tryUnsafe=true
+    -Dio.netty.tryReflectionSetAccessible=true
+    ```
 
 4. Set up an OpenSearch MCP server for tool integration:
 
-  ```bash
-  # Configure and start MCP server with your OpenSearch credentials
-  OPENSEARCH_URL="<your_opensearch_endpoint>" \
-  OPENSEARCH_USERNAME="<your_username>" \
-  OPENSEARCH_PASSWORD="<your_password>" \
-  OPENSEARCH_SSL_VERIFY="false" \
-  uvx opensearch-mcp-server-py --transport stream --port 8080
-  ```
+    ```bash
+    # Configure and start MCP server with your OpenSearch credentials
+    OPENSEARCH_URL="<your_opensearch_endpoint>" \
+    OPENSEARCH_USERNAME="<your_username>" \
+    OPENSEARCH_PASSWORD="<your_password>" \
+    OPENSEARCH_SSL_VERIFY="false" \
+    uvx opensearch-mcp-server-py --transport stream --port 8080
+    ```
 
 ### Frontend setup
 
