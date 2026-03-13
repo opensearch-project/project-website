@@ -6,6 +6,8 @@ authors:
   - shuyiz
   - finnegancarroll
   - mfroh
+  - andrross
+  - sisurab
 date: 2026-03-15
 categories:
   - technical-posts
@@ -32,7 +34,7 @@ Adding gRPC support to an existing REST API ecosystem presents several challenge
 
 To address these challenges, we developed an **automated conversion pipeline** that generates Protobuf schemas directly from OpenSearch's existing OpenAPI specifications. This ensures REST and gRPC APIs remain synchronized at the source.
 
-### High-Level conversion pipeline
+### High-level conversion pipeline
 
 Our conversion pipeline consists of three stages:
 
@@ -68,7 +70,7 @@ The final stage validates the generated Protobuf schemas:
 
 This pipeline runs as part of our continuous integration system. When developers modify OpenAPI specifications, the pipeline automatically regenerates Protobuf schemas and validates compatibility, ensuring the two APIs never diverge.
 
-## Native gRPC Support in OpenSearch
+## Native gRPC support in OpenSearch
 
 OpenSearch's gRPC implementation is **first-class**, not a proxy or adapter layer. The gRPC transport runs directly within OpenSearch nodes, parallel to the REST transport, sharing the same underlying request handlers and business logic.
 
@@ -76,24 +78,21 @@ This approach provides several benefits:
 
 - **No additional infrastructure**: No need to deploy separate gRPC gateway services
 - **Consistent behavior**: Both protocols execute identical code paths, guaranteeing functional equivalence
-- **Incremental adoption**: Clients can migrate endpoint-by-endpoint, using REST for some operations and gRPC for others
-
-OpenSearch determines the protocol based on the incoming connection (HTTP/1.1 for REST, HTTP/2 for gRPC) and routes requests to the appropriate handler. The conversion pipeline ensures that request and response transformations between JSON and Protobuf maintain semantic equivalence.
-
+- **Incremental adoption**: Clients can migrate endpoint-by-endpoint, using REST for some operations and gRPC for others. Both protocols can be enabled at the sane time, as the protocols run on a different set of ports.
 ## Benchmark Experiments: gRPC compared to REST
 
 To quantify the performance impact of gRPC, we conducted benchmarks comparing gRPC and REST across two common workloads: vector search and bulk ingestion.
 
-### Test Setup
+### Test setup
 
 - **Cluster configuration**:
-  - OpenSearch Version 3.3 
+  - OpenSearch Version 3.3
   - 3 c5.xlarge cluster manager nodes
   - 5 r5.xlarge data nodes
 - **Benchmarking tool**: OpenSearch Benchmark (OSB)
 - **Network**: All nodes within the same AWS availability zone to minimize network variance
 
-### KNN Vector Search
+### KNN vector search
 
 We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workload common in semantic search and recommendation systems. Our data set for this workload was a random sample of MS Marco using [mxbai-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1) (100k queries on 1 million vectors ingested, 4.3 GB total).
 
@@ -116,7 +115,7 @@ We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workl
 - **~58% reduction in client-side processing time** for serialization/deserialization
 - Lower CPU utilization on both client and server sides
 
-### Bulk Ingestion
+### Bulk ingestion
 
 We tested bulk document indexing using the `http_logs` dataset from the opensearch-benchmark-workloads repository (247 million documents, ~31 GB total).
 
@@ -140,7 +139,7 @@ Bulk ingestion benefits significantly from gRPC because:
 - HTTP/2 multiplexing allows concurrent bulk requests over a single connection
 - Binary encoding reduces network transfer time, especially important for high-throughput ingestion pipelines
 
-### Binary Document Formats
+### Binary document formats
 
 In addition to Protobuf for API structure, OpenSearch supports **binary document formats** for the actual indexed content:
 
@@ -151,7 +150,7 @@ These formats further reduce payload sizes and parsing overhead when combined wi
 
 Clients can specify binary formats via Content-Type headers, and OpenSearch automatically handles serialization/deserialization. See [OpenSearch#19311](https://github.com/opensearch-project/OpenSearch/issues/19311) for implementation details.
 
-## Best Practices
+## Best practices
 
 Based on our benchmarks and production experience, gRPC performs best in the following scenarios:
 
@@ -165,7 +164,7 @@ For use cases where these conditions don't apply—such as low-frequency adminis
 
 We recommend **end-to-end benchmarking** with your specific workload and data characteristics to determine whether gRPC provides sufficient benefit to justify migration.
 
-## Current State and What's Next
+## Current state and what's next
 
 OpenSearch's gRPC support is **generally available** for select APIs, including:
 - Search API
@@ -175,7 +174,7 @@ OpenSearch's gRPC support is **generally available** for select APIs, including:
 
 The implementation is supported by **OpenSearch Benchmark (OSB)**, which includes native gRPC workload configurations for performance testing.
 
-### What's Next
+### What's next
 
 We're actively expanding gRPC support across OpenSearch:
 
@@ -189,7 +188,7 @@ We're actively expanding gRPC support across OpenSearch:
 
 gRPC is not a replacement for REST—it's a **complementary option** that excels in performance-critical scenarios. OpenSearch will continue supporting both protocols, allowing users to choose the best fit for each use case.
 
-## Get Involved
+## Get involved
 
 We welcome feedback and contributions from the OpenSearch community:
 

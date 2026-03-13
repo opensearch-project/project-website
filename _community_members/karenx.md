@@ -14,7 +14,7 @@ breadcrumbs:
     - title: 'Karen Xu&apos;s Profile'
       url: '/community/members/karen-xu.html'
 github: karenyrx
-job_title_and_company: 'Software Engineer at Uber'
+job_title_and_company: 'Staff Software Engineer at Uber'
 
 session_track:
   - conference_id: "2025-north-america"
@@ -31,4 +31,4 @@ permalink: '/community/members/karen-xu.html'
 redirect_from: '/authors/karenx/'
 ---
 
-**Karen Xu** is a software engineer at Uber.
+**Karen Xu** is a Staff Software Engineer on the Search Platform team at Uber. She pioneered the development of gRPC and Protobuf support within OpenSearch, and serves as a maintainer of OpenSearch core, opensearch-api-specification, and opensearch-protobufs.

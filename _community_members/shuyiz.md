@@ -31,4 +31,4 @@ permalink: '/community/members/shuyi-zhang.html'
 redirect_from: '/authors/shuyiz/'
 ---
 
-**Shuyi Zhang** is an engineering manager at Uber.
+**Shuyi Zhang** is the Engineering Manager at Uber. She's leading a talented group of engineers focused on OpenSearch development. The team is dedicated to building scalable, high-performance search solutions, and contributing to the open-source OpenSearch.
