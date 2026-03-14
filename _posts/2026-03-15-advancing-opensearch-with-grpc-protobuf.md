@@ -60,7 +60,7 @@ Using the OpenAPI Generator tool, the preprocessed specification is translated t
 
 The tool applies custom templates and configurations specific to OpenSearch's API patterns, handling edge cases like polymorphic types and optional fields.
 
-**3. Postprocessing and Compatibility Checks**
+**3. Post-processing and compatibility checks**
 
 The final stage validates the generated Protobuf schemas:
 - **Wire compatibility verification**: Ensures REST JSON and gRPC Protobuf representations serialize/deserialize to equivalent structures
@@ -79,7 +79,7 @@ This approach provides several benefits:
 - **No additional infrastructure**: No need to deploy separate gRPC gateway services
 - **Consistent behavior**: Both protocols execute identical code paths, guaranteeing functional equivalence
 - **Incremental adoption**: Clients can migrate endpoint-by-endpoint, using REST for some operations and gRPC for others. Both protocols can be enabled at the sane time, as the protocols run on a different set of ports.
-## Benchmark Experiments: gRPC compared to REST
+## Benchmark experiments: gRPC compared to REST
 
 To quantify the performance impact of gRPC, we conducted benchmarks comparing gRPC and REST across two common workloads: vector search and bulk ingestion.
 
@@ -92,9 +92,9 @@ To quantify the performance impact of gRPC, we conducted benchmarks comparing gR
 - **Benchmarking tool**: OpenSearch Benchmark (OSB)
 - **Network**: All nodes within the same AWS availability zone to minimize network variance
 
-### KNN vector search
+### k-NN vector search
 
-We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workload common in semantic search and recommendation systems. Our data set for this workload was a random sample of MS Marco using [mxbai-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1) (100k queries on 1 million vectors ingested, 4.3 GB total).
+We benchmarked k-nearest neighbor (k-NN) vector search, a latency-sensitive workload common in semantic search and recommendation systems. Our dataset for this workload was a random sample of MS Marco using [mxbai-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1) (100k queries on 1 million vectors ingested, 4.3 GB total).
 
 **Latency Comparison**
 
@@ -117,11 +117,11 @@ We benchmarked k-nearest neighbor (kNN) vector search, a latency-sensitive workl
 
 ### Bulk ingestion
 
-We tested bulk document indexing using the `http_logs` dataset from the opensearch-benchmark-workloads repository (247 million documents, ~31 GB total).
+We tested bulk document indexing using the `http_logs` dataset from the `opensearch-benchmark-workloads` repository (247 million documents, ~31 GB total).
 
 **Performance by Bulk Request Size**
 
-| Documents per Request | gRPC Throughput Benefit | gRPC Latency Reduction (P50) |
+| Documents per request | gRPC throughput benefit | gRPC latency reduction (P50) |
 |-----------------------|-------------------------|------------------------------|
 | 10,000                | 16.2%                   | 22.6%                        |
 | 5,000                 | 15.8%                   | 22.4%                        |
@@ -148,7 +148,7 @@ In addition to Protobuf for API structure, OpenSearch supports **binary document
 
 These formats further reduce payload sizes and parsing overhead when combined with gRPC. For example, using SMILE with gRPC can achieve up to **65% total payload reduction** compared to REST with JSON.
 
-Clients can specify binary formats via Content-Type headers, and OpenSearch automatically handles serialization/deserialization. See [OpenSearch#19311](https://github.com/opensearch-project/OpenSearch/issues/19311) for implementation details.
+Clients can specify binary formats using Content-Type headers, and OpenSearch automatically handles serialization/deserialization. See [OpenSearch#19311](https://github.com/opensearch-project/OpenSearch/issues/19311) for implementation details.
 
 ## Best practices
 
@@ -169,7 +169,7 @@ We recommend **end-to-end benchmarking** with your specific workload and data ch
 OpenSearch's gRPC support is **generally available** for select APIs, including:
 - Search API
 - Bulk indexing API
-- kNN vector search
+- k-NN vector search
 - Document CRUD operations (index, get, update, delete)
 
 The implementation is supported by **OpenSearch Benchmark (OSB)**, which includes native gRPC workload configurations for performance testing.
@@ -182,7 +182,7 @@ We're actively expanding gRPC support across OpenSearch:
 
 2. **Client library support**: Developing official gRPC clients for Java, Python, JavaScript, and Go to simplify adoption
 
-3. **Security and observability**: Integrating gRPC with OpenSearch's security plugin for authentication and authorization, and enhancing logging/tracing for gRPC requests
+3. **Security and observability**: Integrating gRPC with OpenSearch's Security plugin for authentication and authorization, and enhancing logging/tracing for gRPC requests
 
 4. **Performance optimizations**: Exploring advanced techniques like streaming search results, server-side batching, and custom compression algorithms
 
