@@ -4,7 +4,7 @@ title: "Advancing OpenSearch with gRPC and Protocol Buffers"
 authors:
   - karenyrx
   - shuyiz
-  - finnegancarroll
+  - fcarroll
   - mfroh
   - andrross
   - sisurab
