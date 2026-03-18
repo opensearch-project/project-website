@@ -170,12 +170,12 @@ We recommend end-to-end benchmarking using your specific workload and data chara
 
 ## Current state and future plans
 
-The OpenSearch gRPC support is generally available for select APIs, including the following:
+The OpenSearch gRPC support is available for select APIs, including the following:
 
-- Search API
 - Bulk Indexing API
 - k-NN vector search
-- Document CRUD operations (index, get, update, and delete)
+- Search API (experimental)
+
 
 OpenSearch Benchmark (OSB) supports this implementation and includes native gRPC workload configurations for performance testing.
 
@@ -195,11 +195,11 @@ Rather than replacing REST, gRPC is a complementary option that excels in perfor
 We welcome feedback and contributions from the OpenSearch community:
 
 - **Share your experience**: Have you tried gRPC with OpenSearch? Join the discussion on the [OpenSearch forum](https://forum.opensearch.org/).
-- **Contribute**: Visit the [gRPC project board](https://github.com/orgs/opensearch-project/projects/gRPC) to view planned work and contribute code or ideas.
-- **Documentation**: Explore the [gRPC API documentation](https://opensearch.org/docs/latest/api-reference/grpc/) for usage examples and migration guides.
+- **Contribute**: Visit the [gRPC project board](https://github.com/orgs/opensearch-project/projects/247/) to view planned work and contribute code or ideas.
+- **Documentation**: Explore the [gRPC API documentation](https://docs.opensearch.org/latest/api-reference/grpc-apis/index/) for usage examples and migration guides.
 
 Together, we can continue advancing OpenSearch performance and capabilities for modern search and analytics workloads.
 
 ---
 
-For more information about the automated Protobuf conversion pipeline, see the [pipeline documentation](https://github.com/opensearch-project/opensearch-api-specification/protobuf-pipeline) and [Protobuf conversion rules](https://github.com/opensearch-project/opensearch-api-specification/protobuf-rules).
+For more information about the automated Protobuf conversion pipeline, see the [pipeline documentation](https://github.com/opensearch-project/opensearch-protobufs/blob/main/README.md) and [Protobuf conversion rules](https://github.com/opensearch-project/opensearch-api-specification/issues/677).
