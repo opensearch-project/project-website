@@ -17,4 +17,4 @@ The best way to try out OpenSearch is to use [Docker Compose](https://docs.docke
 curl -fsSL https://raw.githubusercontent.com/opensearch-project/observability-stack/main/install.sh | bash
 ```
 
-Learn more at [observability.opensearch.org](https://observability.opensearch.org/).
+For more information, see the [Observability Stack documentation](https://observability.opensearch.org/).
