@@ -14,7 +14,7 @@ meta_description: Learn how OpenSearch 3.5's new Context Management feature solv
 
 ---
 
-As AI agents become more sophisticated and handle longer conversations with multiple tool interactions, managing context efficiently becomes critical. Today, we're excited to introduce **Context Management** in OpenSearch 3.5 – a new feature that enables intelligent context optimization for your AI agents.
+As AI agents become more sophisticated and handle longer conversations with multiple tool interactions, managing context efficiently becomes critical. Today, we're excited to introduce **Context Management** for OpenSearch Agents in OpenSearch 3.5.
 
 ## The challenge: Context window overflow
 
@@ -221,10 +221,10 @@ Context Management represents a significant step forward in making AI agents mor
 This is just the beginning. The hook-based architecture provides a foundation for even more sophisticated context optimization strategies in the future.
 
 Want to contribute? The system is designed for extensibility:
-• **Build custom context managers** for specialized use cases (domain-specific summarization, semantic clustering)
-• **Add new execution hooks** at different points in the agent lifecycle
-• **Implement advanced activation rules** with machine learning-based triggers
-• **Create context managers** that integrate with external knowledge bases or vector stores
+- **Build custom context managers** for specialized use cases (domain-specific summarization, semantic clustering)
+- **Add new execution hooks** at different points in the agent lifecycle
+- **Implement advanced activation rules** with machine learning-based triggers
+- **Create context managers** that integrate with external knowledge bases or vector stores
 
 The OpenSearch community welcomes contributions! Whether you have ideas for new context optimization strategies or want to extend the hook system, check out our [contribution guidelines](https://github.com/opensearch-project/ml-commons/blob/main/CONTRIBUTING.md) and join the conversation on [
 GitHub](https://github.com/opensearch-project/ml-commons)."
