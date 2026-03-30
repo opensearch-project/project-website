@@ -20,7 +20,7 @@ TODO: lawofcycles
 
 ## Open-source Prometheus as a sink
 
-TODO: dlvenable
+TODO: ps48
 
 ## Composable functions
 
@@ -40,7 +40,7 @@ For example, you can add the approximate size of an event into a field by creati
 
 ## Improvements for application performance monitoring 
 
-TODO: dlvenable
+TODO: ps48
 
 
 ## Other notable changes
