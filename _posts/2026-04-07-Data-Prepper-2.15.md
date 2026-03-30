@@ -20,7 +20,22 @@ TODO: lawofcycles
 
 ## Open-source Prometheus as a sink
 
-TODO: ps48
+Data Prepper 2.14 introduced the ability to write metrics to [Amazon Managed Service for Prometheus](https://aws.amazon.com/prometheus/). With Data Prepper 2.15, the Prometheus sink now supports open-source [Prometheus](https://prometheus.io/) as well. You can send metrics to any Prometheus-compatible endpoint without AWS authentication, using either no authentication or HTTP basic authentication.
+
+The following example pipeline writes metrics to an open-source Prometheus instance using basic authentication:
+
+```
+prometheus-pipeline:
+  source:
+    otel_metrics_source:
+  sink:
+    - prometheus:
+        url: "http://my-prometheus-server:9090/api/v1/write"
+        authentication:
+          http_basic:
+            username: "myuser"
+            password: "mypassword"
+```
 
 ## Composable functions
 
@@ -38,9 +53,9 @@ For example, you can add the approximate size of an event into a field by creati
         value_expression: 'length(toJsonString())'
 ```
 
-## Improvements for application performance monitoring 
+## Improvements for application performance monitoring
 
-TODO: ps48
+Data Prepper 2.15 fixes an issue with the APM service map processor where latency metrics exported to Prometheus had a duplicate `_seconds` suffix in the metric name, resulting in `latency_seconds_seconds`. The metric name is now correctly exported as `latency_seconds`.
 
 
 ## Other notable changes
