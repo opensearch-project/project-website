@@ -30,9 +30,11 @@ Context management introduces a sophisticated hook-based system that allows you 
 
 Context management operates through a hook-based architecture that intercepts agent execution at specific points. The `pre_llm` hook optimizes context before sending requests to the LLM, while the `post_tool` hook processes context after tool execution completes. At each hook, you can configure teams of context managers that work together to optimize your agent's context.
 
-### Built-in context managers
+### Context managers
 
-OpenSearch provides three powerful context managers out of the box.
+One of the most powerful aspects of context management is its flexibility. You can mix and match different context managers, adjust parameters to fit your specific use case, experiment with thresholds to find optimal performance, and combine strategies for comprehensive context optimization. Start with conservative settings and gradually adjust based on your agent's performance and requirements.
+
+OpenSearch provides three built-in context managers. 
 
 #### Sliding window manager
 
@@ -153,10 +155,6 @@ POST /_plugins/_ml/context_management/research-assistant-optimizer
 }
 ```
 
-## Flexible and configurable
-
-One of the most powerful aspects of context management is its flexibility. You can mix and match different context managers, adjust parameters to fit your specific use case, experiment with thresholds to find optimal performance, and combine strategies for comprehensive context optimization. Start with conservative settings and gradually adjust based on your agent's performance and requirements.
-
 ## Implementing context management
 
 To implement context management, first create a context management configuration with your desired managers and rules (as shown in the use cases above). Then register your agent with that configuration by referencing the configuration name in your agent registration. The following example registers a conversational agent with the customer service optimizer configuration:
@@ -187,11 +185,9 @@ POST /_plugins/_ml/agents/agent-id/_execute
 
 After deployment, monitor your agent's performance and adjust configurations based on observed behavior and resource usage patterns.
 
-## Try context management 
+## Next steps
 
 Context management is available in OpenSearch 3.5. Review the [context management documentation](https://opensearch.org/docs/latest/ml-commons-plugin/context-management/) and start experimenting with different configurations to find what works best for your use cases.
-
-## Next steps
 
 The hook-based architecture is designed for extensibility, providing a foundation for even more sophisticated context optimization strategies. You can build custom context managers for specialized use cases, add new execution hooks at different points in the agent lifecycle, or implement advanced activation rules.
 
