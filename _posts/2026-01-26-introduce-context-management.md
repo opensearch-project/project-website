@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Solving Context Overflow: How OpenSearch Agents Stay Smart in Long Conversations"
+title: "Solving context overflow: How OpenSearch agents stay smart in long conversations"
 authors:
   - mingshl
   - kolchfa
