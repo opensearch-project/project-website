@@ -3,6 +3,7 @@ layout: post
 title: 'Data Prepper 2.15: Ingest data from Apache Iceberg and more!'
 authors:
   - dvenable
+  - srikanthpadakanti
 date: 2026-04-07 12:00:00 -0600
 categories:
   - releases
