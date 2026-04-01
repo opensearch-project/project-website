@@ -3,6 +3,7 @@ layout: post
 title: 'Data Prepper 2.15: Ingest data from Apache Iceberg and more!'
 authors:
   - dvenable
+  - hsotaro
 date: 2026-04-07 12:00:00 -0600
 categories:
   - releases
@@ -16,7 +17,31 @@ With this version you can ingest data from Apache Iceberg and write to open-sour
 
 ## Apache Iceberg source
 
-TODO: lawofcycles
+[Apache Iceberg](https://iceberg.apache.org/) is an open table format widely used for lakehouse architectures. Iceberg tables often serve as the single source of truth for curated, transformed data. A common need is to keep OpenSearch synchronized with these tables for search and real-time dashboards. Until now, this required building custom ingestion jobs on a distributed compute engine to read Iceberg changelogs and write to OpenSearch, adding operational complexity for what is essentially a data movement task.
+
+Data Prepper 2.15 introduces an experimental `iceberg` source plugin that captures row-level changes from Iceberg tables and ingests them into sink targets like OpenSearch. The plugin first exports the full table state, then continuously polls for new snapshots and processes incremental `INSERT`, `UPDATE`, and `DELETE` operations.
+
+The following example pipeline reads changes from an Iceberg table using a REST catalog and writes them to OpenSearch:
+
+```yaml
+iceberg-cdc-pipeline:
+  source:
+    iceberg:
+      tables:
+        - table_name: "my_database.my_table"
+          catalog:
+            type: rest
+            uri: "http://iceberg-rest-catalog:8181"
+            io-impl: "org.apache.iceberg.aws.s3.S3FileIO"
+            client.region: "us-east-1"
+          identifier_columns: ["id"]
+  sink:
+    - opensearch:
+        hosts: ["https://localhost:9200"]
+        index: "my-index"
+        action: "${getMetadata(\"bulk_action\")}"
+        document_id: "${getMetadata(\"document_id\")}"
+```
 
 ## Open-source Prometheus as a sink
 
