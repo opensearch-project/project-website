@@ -108,9 +108,9 @@ For the Kiro IDE, follow these steps:
 2. Go to the **Powers** panel.
 3. Select **Add Power** and paste the following link:
 
-```
-https://github.com/opensearch-project/opensearch-launchpad/tree/main/kiro/opensearch-launchpad
-```
+    ```
+    https://github.com/opensearch-project/opensearch-launchpad/tree/main/kiro/opensearch-launchpad
+    ```
 
 #### Any other IDE that supports skills
 
@@ -118,15 +118,15 @@ For any other IDE that supports skills, such as [Claude Code](https://code.claud
 
 1. Install `opensearch-launchpad` skills into your project:
 
-```bash
-npx skills add opensearch-project/opensearch-launchpad
-```
+    ```bash
+    npx skills add opensearch-project/opensearch-launchpad
+    ```
 
-2. Install the skill for your specific agent (for example, Claude Code):
+2. Install the skill for your specific agent. For example, for Claude Code, run the following command:
 
-```bash
-npx skills add opensearch-project/opensearch-launchpad -a claude-code
-```
+    ```bash
+    npx skills add opensearch-project/opensearch-launchpad -a claude-code
+    ```
 
 For detailed IDE-specific instructions, see [the project README](https://github.com/opensearch-project/opensearch-launchpad/tree/main).
 
