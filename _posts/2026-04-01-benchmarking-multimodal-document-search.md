@@ -8,19 +8,19 @@ categories:
   - technical-post
 meta_keywords: multimodal search, OpenSearch vector search, ColPali, Amazon Bedrock Data Automation, BDA, Titan multimodal embeddings, document search, neural search, benchmarking
 meta_description: We benchmarked three approaches to multimodal document search in OpenSearch — ColPali late interaction reranking, BDA modality-aware embedding, and text-only chunking — to help you choose the right tradeoff between search quality and latency.
-excerpt: Many real-world documents contain more than just text. We benchmarked three approaches to multimodal document search in OpenSearch on 1,000 government report pages to help you decide which fits your use case.
+excerpt: Many real-world documents contain more than just text. We benchmarked three approaches to multimodal document search in OpenSearch on 1,000 report pages to help you decide which fits your use case.
 has_science_table: true
 ---
 
-Many real-world documents — government reports, financial filings, research papers — contain more than just text. They include tables, charts, diagrams, and images that carry critical information. Traditional text-based search misses this visual content entirely.
+Many real-world documents — financial filings, research papers, technical reports — contain more than just text. They include tables, charts, diagrams, and images that carry critical information. Traditional text-based search misses this visual content entirely.
 
 OpenSearch supports vector search and neural search pipelines, which opens the door to multimodal document search. But there are multiple ways to approach it, each with different tradeoffs in search quality, latency, and complexity.
 
-We benchmarked three approaches on the same dataset of 1,000 government report pages to help you decide which one fits your use case.
+We benchmarked three approaches on the same dataset of 1,000 report pages to help you decide which one fits your use case.
 
 ## The Dataset
 
-We used the [vidore/syntheticDocQA_government_reports_test](https://huggingface.co/datasets/vidore/syntheticDocQA_government_reports_test) dataset from Hugging Face — 1,000 scanned government report pages with 100 query-answer pairs. Each query has a single relevant document, making it a clean retrieval benchmark.
+We used the [vidore/syntheticDocQA_government_reports_test](https://huggingface.co/datasets/vidore/syntheticDocQA_government_reports_test) dataset from Hugging Face — 1,000 scanned report pages with 100 query-answer pairs. Each query has a single relevant document, making it a clean retrieval benchmark.
 
 ## The Three Approaches
 
@@ -54,7 +54,7 @@ To ensure a fair comparison, we controlled the following variables:
 
 | Variable | Value |
 |---|---|
-| Dataset | Same 1,000 government report pages |
+| Dataset | Same 1,000 report pages |
 | Queries | Same 100 queries with ground-truth relevance |
 | OpenSearch cluster | Same local cluster (OpenSearch 3.5.0) |
 | Evaluation metrics | NDCG, MRR, Recall, Precision at k=5 and k=10 |
