@@ -1,7 +1,10 @@
 ---
 layout: post
 title: "Introducing OpenSearch Launchpad: From requirements to a running search application in minutes"
-category: blog
+categories:
+  - technical-posts
+  - community-updates
+has_science_table: true
 authors:
     - seanzheng
     - bmohammed
