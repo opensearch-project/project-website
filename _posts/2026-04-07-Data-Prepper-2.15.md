@@ -3,12 +3,13 @@ layout: post
 title: 'Data Prepper 2.15: Ingest data from Apache Iceberg and more!'
 authors:
   - dvenable
+  - srikanthpadakanti
   - hsotaro
 date: 2026-04-07 12:00:00 -0600
 categories:
   - releases
 excerpt: Data Prepper 2.15 adds Apache Iceberg as a source and writes to open-source Prometheus.
-meta_keywords: Data Prepper, Apache Iceberg, application performance monitoring, Prometheus
+meta_keywords: Data Prepper, Apache Iceberg, application performance monitoring, Prometheus, Prometheus Remote Write
 meta_description: Data Prepper 2.15 adds Apache Iceberg as a source and writes to open-source Prometheus.
 ---
 
@@ -60,6 +61,26 @@ prometheus-pipeline:
           http_basic:
             username: "myuser"
             password: "mypassword"
+```
+
+## Prometheus source
+
+Data Prepper 2.15 introduces a new Prometheus source that ingests metrics via the [Prometheus Remote Write](https://prometheus.io/docs/concepts/remote_write_spec_2_0/) protocol. This allows Prometheus servers to forward metrics directly to Data Prepper, which then converts them into OpenTelemetry-compatible metric events for downstream processing.
+
+The source accepts Snappy-compressed, protobuf-encoded Remote Write requests over HTTP and supports all standard Prometheus metric types including counters, gauges, histograms, and summaries. You can use it alongside the Prometheus sink to build end-to-end Prometheus metric pipelines through Data Prepper.
+
+The following example pipeline receives metrics from a Prometheus server and writes them to OpenSearch:
+
+```
+prometheus-pipeline:
+  source:
+    prometheus:
+      port: 9090
+      path: "/api/v1/write"
+  sink:
+    - opensearch:
+        hosts: ["https://localhost:9200"]
+        index: prometheus-metrics
 ```
 
 ## Composable functions
