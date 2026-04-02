@@ -1,20 +1,22 @@
 ---
 layout: post
-title: 'Data Prepper 2.15: Ingest data from Apache Iceberg and more!'
+title: 'Data Prepper 2.15: Ingest data from Apache Iceberg, Prometheus and more!'
 authors:
-  - dvenable
+  - pshenoy
   - srikanthpadakanti
   - hsotaro
+  - dvenable
 date: 2026-04-07 12:00:00 -0600
 categories:
   - releases
-excerpt: Data Prepper 2.15 adds Apache Iceberg as a source and writes to open-source Prometheus.
+excerpt: Data Prepper 2.15 adds Apache Iceberg and Prometheus as sources and writes to open-source Prometheus.
 meta_keywords: Data Prepper, Apache Iceberg, application performance monitoring, Prometheus, Prometheus Remote Write
-meta_description: Data Prepper 2.15 adds Apache Iceberg as a source and writes to open-source Prometheus.
+meta_description: Data Prepper 2.15 adds Apache Iceberg as a source; it can receive and write to open-source Prometheus.
 ---
 
 The OpenSearch Data Prepper maintainers are happy to announce the release of Data Prepper 2.15. 
-With this version you can ingest data from Apache Iceberg and write to open-source Prometheus. 
+With this version you can ingest data from Apache Iceberg. 
+This release greatly extends Prometheus support with a remote-write source and support to ingest data into open-source Prometheus. 
 
 ## Apache Iceberg source
 
@@ -106,7 +108,11 @@ Data Prepper 2.15 fixes an issue with the APM service map processor where latenc
 
 ## Other notable changes
 
-TODO: dlvenable
+* The `s3` sink now support custom KMS keys for server-side encryption.
+* A new `s3_enrich` processor enables you to enrich events with data residing in S3 buckets.
+* Data Prepper expressions now support new substring functions: `substringAfter`, `substringBefore`, `substringAfterLast`, `substringBeforeLast`.
+* The `sqs` sink is no longer experimental and ready for production use.
+
 
 ## Getting started
 
