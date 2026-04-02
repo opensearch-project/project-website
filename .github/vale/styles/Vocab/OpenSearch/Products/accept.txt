@@ -115,6 +115,7 @@ OpenID Connect
 OpenSearch
 OpenSearch Benchmark
 OpenSearch Dashboards
+OpenSearch Launchpad
 OpenSearch Playground
 OpenSearch Project
 OpenSearch Service
