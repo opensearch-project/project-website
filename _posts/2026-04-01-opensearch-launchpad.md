@@ -11,8 +11,8 @@ authors:
 date: 2026-04-01
 categories:
   - technical-posts
-meta_keywords: AI agents, search application, OpenSearch, machine learning, semantic search, vector search, hybrid search, developer tools
-meta_description: OpenSearch Launchpad is an AI-powered assistant that guides you from initial requirements to a fully running search setup in minutes—no OpenSearch expertise required. 
+meta_keywords: OpenSearch Launchpad, AI-powered search, search application development, automated search setup, OpenSearch automation, Kiro IDE integration, Model Context Protocol, OpenSearch AI assistant, build search application minutes, vector search, semantic search, hybrid search
+meta_description: OpenSearch Launchpad uses AI to automate search application development—from requirements to production deployment in minutes. No expertise required.
 ---
 
 Modern search is growing rapidly as users demand natural, multimodal, and context-aware retrieval across massive unstructured data. At the same time, search is becoming exponentially more complex, evolving from simple keyword systems into hybrid architectures that combine lexical search, semantic understanding, vector embeddings, and agentic reasoning.
@@ -47,7 +47,7 @@ OpenSearch Launchpad handles every technical decision for you. Provide a sample 
 
 Traditionally, designing index mappings, deploying ML models, configuring ingest pipelines, and creating a local UI takes hours or days. Now it takes minutes. OpenSearch Launchpad automates every step, so you can focus on building your application rather than managing infrastructure.
 
-### Works in the Kiro IDE
+### Works in your choice of IDE
 
 OpenSearch Launchpad ships with Model Context Protocol (MCP) tools, steering files, and a knowledge base that integrate natively with the Kiro IDE and other leading AI-powered development environments. Stay in your existing workflow---no context switching required.
 
