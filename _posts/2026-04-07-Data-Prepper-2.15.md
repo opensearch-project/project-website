@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Data Prepper 2.15: Ingest from Apache Iceberg, send and receive Prometheus metrics, and more!'
+title: 'Data Prepper 2.15 brings Apache Iceberg ingestion and Prometheus metrics support'
 authors:
   - pshenoy
   - srikanthpadakanti
@@ -10,8 +10,8 @@ date: 2026-04-07
 categories:
   - releases
 excerpt: Data Prepper 2.15 adds Apache Iceberg and Prometheus as sources and writes to open-source Prometheus.
-meta_keywords: Data Prepper, Apache Iceberg, application performance monitoring, Prometheus, Prometheus Remote Write
-meta_description: Learn about Data Prepper 2.15, which introduces Apache Iceberg as a source and adds the ability to receive metrics from and write metrics to open-source Prometheus.
+meta_keywords: OpenSearch Data Prepper, Apache Iceberg ingestion, Prometheus metrics, Prometheus remote write, lakehouse architecture, OpenTelemetry metrics, data pipeline, Iceberg CDC, Prometheus sink, metric ingestion, APM service map
+meta_description: OpenSearch Data Prepper 2.15 adds Apache Iceberg ingestion, bidirectional Prometheus metrics support, and composable functions for advanced pipeline processing.
 ---
 
 The OpenSearch Data Prepper maintainers are happy to announce the release of Data Prepper 2.15. With this version, you can ingest data from Apache Iceberg. This release also extends Prometheus support with a remote-write source and the ability to send data to open-source Prometheus.
@@ -122,4 +122,23 @@ Use the following resources to get up and running with Data Prepper 2.15:
 
 Thanks to the following community members who contributed to this release!
 
-TODO: dlvenable
+* [bagmarnikhil](https://github.com/bagmarnikhil) -- Nikhil Bagmar
+* [BhattacharyaSumit](https://github.com/BhattacharyaSumit) -- Sumit Bhattacharya
+* [Davidding4718](https://github.com/Davidding4718) -- Siqi Ding
+* [dinujoh](https://github.com/dinujoh) -- Dinu John
+* [divbok](https://github.com/divbok) -- Divyansh Bokadia
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [enuraju](https://github.com/enuraju) -- Raju Enugula
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [JongminChung](https://github.com/JongminChung)
+* [kaimst](https://github.com/kaimst) -- Kai Sternad
+* [Keyur-S-Patel](https://github.com/Keyur-S-Patel) -- Keyur Patel
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [kylehounslow](https://github.com/kylehounslow) -- Kyle Hounslow
+* [lawofcycles](https://github.com/lawofcycles) -- Sotaro Hikita
+* [oeyh](https://github.com/oeyh) -- Hai Yan
+* [ps48](https://github.com/ps48) -- Shenoy Pratik
+* [srikanthpadakanti](https://github.com/srikanthpadakanti) -- Srikanth Padakanti
+* [TomasLongo](https://github.com/TomasLongo) -- Tomas
+* [vamsimanohar](https://github.com/vamsimanohar) -- Vamsi Manohar
+* [Zhangxunmt](https://github.com/Zhangxunmt) -- Xun Zhang
