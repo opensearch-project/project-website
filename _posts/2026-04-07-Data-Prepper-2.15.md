@@ -120,7 +120,7 @@ Use the following resources to get up and running with Data Prepper 2.15:
 
 ## Thanks to our contributors!
 
-Thanks to the following community members who contributed to this release!
+Thanks to the following community members who contributed to this release:
 
 * [bagmarnikhil](https://github.com/bagmarnikhil) -- Nikhil Bagmar
 * [BhattacharyaSumit](https://github.com/BhattacharyaSumit) -- Sumit Bhattacharya
