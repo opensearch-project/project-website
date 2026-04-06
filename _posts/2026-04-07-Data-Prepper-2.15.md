@@ -6,7 +6,7 @@ authors:
   - srikanthpadakanti
   - hsotaro
   - dvenable
-date: 2026-04-07
+date: 2026-04-06
 categories:
   - releases
 excerpt: Data Prepper 2.15 adds Apache Iceberg and Prometheus as sources and writes to open-source Prometheus.
@@ -114,6 +114,7 @@ This release includes the following additional improvements:
 
 Use the following resources to get up and running with Data Prepper 2.15:
 
+* To learn about all the changes see the [2.15.0 release notes](https://github.com/opensearch-project/data-prepper/releases/tag/2.15.0) 
 * To download Data Prepper, visit the [Download & Get Started](https://opensearch.org/downloads.html) page.
 * For information about getting started with Data Prepper, see [Getting started with OpenSearch Data Prepper](https://opensearch.org/docs/latest/data-prepper/getting-started/).
 * To learn more about upcoming work for Data Prepper, see the [Data Prepper Project Roadmap](https://github.com/orgs/opensearch-project/projects/221).
