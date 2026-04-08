@@ -96,7 +96,6 @@ At the top of the page, six panels display key percentile metrics across your to
 - **P99 CPU Time**: 99th percentile CPU consumption (ms)
 - **P99 Memory**: 99th percentile memory usage (MB)
 
-<!-- TODO: Screenshot of the Top N Queries percentile panels -->
 ![Top N Queries percentile panels](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/top-queries-percentile-panels.png)
 
 These percentile metrics help you distinguish between occasional outliers and systemic issues. If the P90 latency is within acceptable bounds but the P99 is extremely high, you're dealing with tail latency---a small percentage of queries taking significantly longer. Conversely, if even the P90 is elevated, you likely have a widespread performance problem affecting the majority of queries.
@@ -105,11 +104,9 @@ These percentile metrics help you distinguish between occasional outliers and sy
 
 The distribution chart uses an interactive pie (donut) chart to show how queries are distributed across a dimension you choose: **node**, **index**, **username**, or **workload management (WLM) group**. The chart is accompanied by a data table showing each segment's name, query count, and percentage of the total. Hovering over a segment displays a tooltip with the exact count and percentage.
 
-<!-- TODO: Screenshot of the Queries Distribution pie chart with the accompanying data table -->
 ![Top N Queries distribution chart](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/top-queries-distribution-chart.png)
 
-Group by **index** to see which indexes generate the most top queries---these are the indexes where query optimization will have the greatest impact. Group by **username** to identify whether a specific user or application is responsible for a disproportionate share of expensive queries. If you're using workload management, group by **WLM group** to understand how different workload classes contribute to the top query list.
-
+Group by **node** to check whether top queries are concentrated on specific coordinator nodes, which could indicate an unbalanced routing configuration or a node-level resource constraint. Group by **index** to see which indexes generate the most top queries---these are the indexes where query optimization will have the greatest impact. Group by **username** to identify whether a specific user or application is responsible for a disproportionate share of expensive queries. If you're using workload management, group by **WLM group** to understand how different workload classes contribute to the top query list.
 ### Performance analysis: Line chart and heatmap
 
 The performance analysis section offers two chart types that you can switch between, depending on what you're investigating.
@@ -124,7 +121,6 @@ The line chart tracks three series over your selected time range:
 
 You can toggle the Y-axis metric between **latency**, **CPU**, and **memory**.
 
-<!-- TODO: Screenshot of the Performance Analysis line chart -->
 ![Performance analysis line chart](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/top-queries-line-chart.png)
 
 The line chart is ideal for spotting performance regressions or correlating query behavior with external events. If you see the max latency spike at a specific time, cross-reference that with deployment logs, index operations, or changes in query patterns. A widening gap between the max and average lines suggests increasing variability---some queries are degrading while others remain normal.
@@ -133,7 +129,6 @@ The line chart is ideal for spotting performance regressions or correlating quer
 
 The heatmap provides a dense visualization of query performance across two dimensions: **time** (X-axis) and a grouping dimension (Y-axis) such as index, node, username, user roles, or WLM group. Each cell is color-coded based on a metric value, with lighter colors representing lower values and darker colors representing higher values. You can choose from several metrics---**latency**, **CPU**, or **memory** (with average, max, or min aggregation) as well as **count** (the number of top queries in each cell).
 
-<!-- TODO: Screenshot of the Performance Analysis heatmap -->
 ![Performance analysis heatmap](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/top-queries-heatmap.png)
 
 The heatmap excels at revealing patterns that are hard to spot in tables or line charts. Look for "hot" rows---indexes or nodes that are consistently dark across time---to identify persistent bottlenecks. Look for "hot" columns---time periods where multiple rows show dark cells---to identify cluster-wide performance degradation events. The combination of time and grouping dimensions lets you answer questions like "Is the latency spike limited to one index, or is it affecting the whole cluster?"
@@ -148,7 +143,6 @@ GET /_insights/top_queries?type=latency&from=2026-04-01T14:00:00.000Z&to=2026-04
 
 The data table lists all top queries or query groups within your selected time range in a sortable, filterable view.
 
-<!-- TODO: Screenshot of the Top N Queries data table -->
 ![Top N Queries data table](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/top-queries-data-table.png)
 
 Key columns include the query **ID** (clickable to the details page), **type** (query or group, when [grouping by similarity](https://opensearch.org/docs/latest/observing-your-data/query-insights/grouping-top-n-queries/) is enabled), **query count**, **timestamp**, **indexes**, **search type**, **coordinator node ID**, **total shards**, and the core performance metrics: **latency**, **CPU time**, and **memory usage**. You can filter by type, indexes, search type, coordinator node, and WLM group to narrow results.
@@ -161,10 +155,19 @@ Clicking a query ID in either the Live Queries or Top N Queries table takes you 
 
 ### Query summary and source
 
-The summary panel displays all available metadata: timestamp, latency, CPU time, memory usage, indexes, search type, coordinator node ID, and total shards. Below the summary, the full query source (the DSL body) is displayed in a code block, making it easy to review and copy for further analysis.
+The summary panel displays all available metadata: timestamp, latency, CPU time, memory usage, indexes, search type, coordinator node ID, total shards, WLM group, username, user roles, and status.
 
-<!-- TODO: Screenshot of the Query Details summary panel -->
 ![Query details summary](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/query-details-summary.png)
+
+### Task resource usage
+
+When verbose mode is enabled (`verbose=true`), the query details page includes a **Task Resource Usage** panel that breaks down resource consumption at the task level. The panel shows a coordinator task summary followed by a paginated shard tasks table listing each phase (query, fetch), its task ID, node ID, CPU time (ms), and memory usage (bytes).
+
+![Task resource usage panel](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/query-details-task-resource-usage.png)
+
+This view helps you pinpoint which shard-level tasks are consuming the most resources. If a single shard task shows significantly higher CPU or memory than others, it may indicate a data skew or a hot shard. Comparing resource usage across phases also reveals whether the bottleneck is in query execution or document fetching at the individual task level.
+
+Below the task resource usage panel, the full query source (the DSL body) is displayed in a code block, making it easy to review and copy for further analysis.
 
 ### Latency breakdown chart
 
@@ -174,7 +177,6 @@ One of the most valuable visualizations for troubleshooting is the **latency bre
 - **Fetch phase** (pink): Time spent fetching the actual documents after the query phase identifies matches.
 - **Expand phase** (teal): Time spent on any expand operations.
 
-<!-- TODO: Screenshot of the Latency Breakdown chart -->
 ![Latency breakdown chart](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/query-details-latency-breakdown.png)
 
 This breakdown reveals *where* a query spends its time. If the query phase dominates, the issue is likely in the query structure itself---perhaps an expensive aggregation or a wildcard query scanning too many terms. If the fetch phase dominates, the query may be retrieving too many large documents, suggesting that you should reduce the result size or use source filtering. This distinction is critical for choosing the right optimization strategy.
@@ -182,6 +184,8 @@ This breakdown reveals *where* a query spends its time. If the query phase domin
 ### Query group details
 
 When you have [grouping by similarity](https://opensearch.org/docs/latest/observing-your-data/query-insights/grouping-top-n-queries/) enabled, clicking a group ID opens the group details page instead. This page presents aggregate metrics---average latency, CPU time, and memory usage across all queries in the group---along with the total query count and the grouping method. A representative sample query is shown with its full source and latency breakdown, giving you a concrete starting point for analysis.
+
+![Query group details](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/query-group-details.png)
 
 Group details help you focus on query *patterns* rather than individual instances. If a group shows high average latency with a high query count, optimizing that single query pattern could improve performance for hundreds or thousands of queries.
 
@@ -191,9 +195,28 @@ To show how these visualizations work together, let's walk through a typical tro
 
 You start on the **Live Queries** page and immediately see a high active query count. The **Queries by Node** chart shows an even distribution, ruling out a hot-node issue. But the **Queries by Index** chart reveals that the `user-activity` index accounts for most of the traffic. Sorting the live queries table by elapsed time, you spot several long-running queries against that index and cancel them to stabilize the cluster.
 
-Next, you switch to the **Top N Queries** page and set the time range to the past two hours. The **P99 latency** panel shows a sharp increase starting 45 minutes ago. The **heatmap**, grouped by index with latency (max) as the metric, confirms the issue is isolated to the `user-activity` index---dark cells appear only in that row.
+<!-- TODO: Screenshot of the Live Queries page showing high active query count and the Queries by Index chart highlighting the user-activity index -->
+![Troubleshooting workflow: Live Queries page](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/workflow-live-queries.png)
 
-You click the highest-latency query ID to open the **query details** page. The **latency breakdown** chart shows the query phase consuming 95% of the total time. Reviewing the query source, you discover a wildcard query on a high-cardinality field. With [grouping by similarity](https://opensearch.org/docs/latest/observing-your-data/query-insights/grouping-top-n-queries/) enabled, you check the group details and find that this query pattern has been executed over 500 times in the past hour---a clear optimization target.
+Next, you switch to the **Top N Queries** page and set the time range to the past two hours. The **P99 latency** panel confirms an elevated value. Switching to the **line chart**, you can see the max latency spike starting around 45 minutes ago.
+
+![Troubleshooting workflow: Top N Queries line chart](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/workflow-top-queries-line-chart.png)
+
+Switching to the **heatmap** and grouping by index with max latency as the metric, you confirm the issue is isolated to the `user-activity` index---dark cells appear only in that row.
+
+![Troubleshooting workflow: Top N Queries heatmap](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/workflow-top-queries-heatmap.png)
+
+You click the highest-latency query ID to open the **query details** page. The **latency breakdown** chart shows the query phase consuming 95% of the total time. Reviewing the query source, you discover a wildcard query on a high-cardinality field.
+
+![Troubleshooting workflow: Query details](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/workflow-query-details.png)
+
+With [grouping by similarity](https://opensearch.org/docs/latest/observing-your-data/query-insights/grouping-top-n-queries/) enabled, you notice in the data table that this query pattern has been executed over 500 times in the past hour---a clear optimization target.
+
+![Troubleshooting workflow: Data table with query group](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/workflow-data-table-group.png)
+
+Clicking into the group details confirms the recurring pattern and shows aggregate metrics across all matching queries.
+
+![Troubleshooting workflow: Query group details](/assets/media/blog-images/2026-04-07-query-insights-dashboards-visualizations/workflow-query-group-details.png)
 
 ## Conclusion
 
