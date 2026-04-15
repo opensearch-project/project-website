@@ -22,4 +22,6 @@ personas:
   - author
 redirect_from: '/authors/hsotaro/'
 ---
-Sotaro Hikita is a Specialist Solutions Architect for Analytics at Amazon Web Services. He is passionate about technologies that flexibly and efficiently process data at various scales, and the open source projects that support them. He is a maintainer of OpenSearch Hadoop and contributes to various OpenSearch projects including Data Prepper.
+
+Sotaro Hikita is a Specialist Solutions Architect for Analytics at Amazon Web Services. He is passionate about technologies that flexibly and efficiently process data at various scales and the open-source projects that support them. He is a maintainer of OpenSearch Hadoop and contributes to various OpenSearch repositories, including Data Prepper.
+
