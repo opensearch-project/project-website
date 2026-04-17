@@ -1,7 +1,7 @@
 ---
 name: Hyland
-logo: '/assets/media/partners/hyland/hyland.jpg'
-logo_large: '/assets/media/partners/hyland/hyland.jpg'
+logo: '/assets/media/partners/hyland/hyland.png'
+logo_large: '/assets/media/partners/hyland/hyland.png'
 link: 'https://hyland.com'
 
 region:           North America,Europe,Asia Pacific
