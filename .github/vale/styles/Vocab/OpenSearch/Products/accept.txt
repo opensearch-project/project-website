@@ -119,6 +119,7 @@ OpenSearch Dashboards
 OpenSearch Launchpad
 OpenSearch Playground
 OpenSearch Project
+OpenSearch Relevance Agent
 OpenSearch Service
 OpenSearchCon
 OpenSource Connections
