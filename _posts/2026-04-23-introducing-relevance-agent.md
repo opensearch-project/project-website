@@ -4,7 +4,7 @@ title:  "Introducing OpenSearch Relevance Agent: AI-Powered Search Tuning"
 authors:
  - bmohammed
  - dwrigley
-date: 2026-04-21
+date: 2026-04-23
 categories:
  - feature
  - releases
