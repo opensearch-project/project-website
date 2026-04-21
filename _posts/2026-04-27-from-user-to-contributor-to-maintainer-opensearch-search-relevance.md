@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "From user to contributor to maintainer: My journey with OpenSearch Search Relevance"
+title: "From user to contributor to maintainer: My journey with OpenSearch search relevance"
 authors:
   - iprithv
 date: 2026-04-27
