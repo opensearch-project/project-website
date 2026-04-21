@@ -23,7 +23,7 @@ For most teams, solving this means navigating three massive hurdles:
 * **The Data Struggle:** Dealing with "noisy" metadata or niche datasets where information is sparse or incomplete.  
 * **The Scale Problem:** What works in a small test environment often falls apart when hit with the chaotic, high-volume reality of production traffic.
 
-## The Problem with the "Old Way"
+## The problem with the "Old Way"
 
 Traditionally, tuning relevance is a marathon. It often takes months of manual tweaking by search experts to find the "perfect" settings. But in the modern enterprise, data doesn't stay still. Seasonal trends and evolving product catalogs expand the search space faster than humans can keep up.
 
@@ -48,7 +48,7 @@ OpenSearch Relevant Agent is one of the agents supported in OpenSearch Agent Ser
 * **Evidence-Driven Confidence**: Replace intuition-based tuning with **automated evaluation and validation loops**. OpenSearch Relevance Agent continuously tests changes against real queries and datasets, ensuring improvements are measurable, explainable, and free from unintended regressions.  
 * **Human-in-the-Loop Control**: Maintain full oversight of the optimization process through a collaborative approach. While OpenSearch Relevance Agent automates the heavy lifting, the user remains the ultimate decision-maker—steering the agent's direction, providing critical domain-specific context, and refining recommendations to ensure they align perfectly with unique business requirements and expert intuition.
 
-## How it works: a multi-agent system built for OpenSearch
+## How it works: A multi-agent system built for OpenSearch
 
 OpenSearch Relevance Agent enables users to enter the conversation at any stage of the search improvement cycle, whether starting from scratch with a diagnostic check or bringing specific hypotheses for immediate validation. Instead of a single bot trying to do everything, the Relevance Agent uses a **multi-agent system**. Think of it as a specialized task force led by an **Orchestrator** that manages three experts in a three-agent workflow:
 
@@ -56,13 +56,13 @@ OpenSearch Relevance Agent enables users to enter the conversation at any stage 
 2. **Hypothesis Generator Agent** interprets results to create data-driven tuning strategies  
 3. **Evaluator Agent** validates strategies by running automated tests against offline evaluation sets within the Search Relevance Workbench
 
-## **Under the hood: built for the OpenSearch ecosystem**
+## Under the hood: Built for the OpenSearch ecosystem
 
 ![OpenSearch Relevance Agent Embedded in the OpenSearch Ecosystem](/assets/media/blog-images/2026-04-23-introducing-relevance-agent/artchitecture_overview.png)
 
 The OpenSearch Relevance Agent is not just a standalone tool; it’s a service that lives where you already work.
 
-* **Seamless integration:** Built on the **Strands SDK**, the agent plugs directly into your OpenSearch Dashboards chat via the [**AG-UI standard**](https://github.com/ag-ui-protocol/ag-ui).  
+* **Seamless integration:** Built on the **Strands SDK**, the agent plugs directly into your OpenSearch Dashboards chat through the [**AG-UI standard**](https://github.com/ag-ui-protocol/ag-ui).  
 * **The MCP Server:** All agents communicate through the [**OpenSearch Model Context Protocol (MCP) server**](https://github.com/opensearch-project/opensearch-mcp-server-py/). This acts as a secure translator between the AI and your search engine.  
 * **Facts Over "Feelings":** To prevent the AI from "hallucinating" numbers, we offload complex metric calculations to deterministic tools, ensuring that every KPI and relevance metric reported back to the user is grounded in rigorous, error-free analysis.
 
@@ -76,7 +76,7 @@ Follow these steps to configure OpenSearch Relevance Agent in minutes.
 
 ### Pre-requisites
 
-For the quickstart script you need Java 21+, Node.js 20+, Python 3.12+, [uv](https://astral.sh/uv), yarn, jq, curl as prerequisites and access to a Large Language Model hosted via Amazon Bedrock. More model providers will be supported in the future. 
+For the quickstart script you need Java 21+, Node.js 20+, Python 3.12+, [`uv`](https://astral.sh/uv), yarn, `jq`, curl as prerequisites and access to a Large Language Model hosted on Amazon Bedrock. More model providers will be supported in the future. 
 
 **1. Clone the repository**
 
@@ -118,9 +118,9 @@ This process typically takes a few minutes. If you see a "OpenSearch Dashboards 
 
 Once the setup is complete, navigate to [http://localhost:5601](http://localhost:5601).
 
-* Dashboards will automatically open a pre-configured **Search Workspace**.  
+* Dashboards will automatically open a preconfigured **Search Workspace**.  
 * Click the **"Ask AI"** button in the top-right corner to open the OpenSearch Relevance Agent interface.  
-* **Try this prompt:** *"What are underperforming queries of the past two years?"*
+* **Try this prompt:** *"What are "underperforming" queries of the past two years?"*
 
 The agent will immediately begin analyzing the sample UBI data indexed during the quickstart and provide a detailed summary of findings.
 
@@ -139,10 +139,10 @@ Currently, OpenSearch Relevance Agent excels at offline evaluation using histori
 The current version of OpenSearch Relevance Agent focuses on powerful DSL-level adjustments. We plan to expand the agent’s "toolbox" to include **complex index-level operations** and **advanced optimization techniques**. This includes:
 
 * **Schema Evolution:** Recommending and executing changes to mappings, such as adding sub-fields or changing tokenizers.  
-* **Vector & Hybrid Tuning:** Optimizing k-NN parameters and balancing lexical vs. semantic weights in hybrid search architectures.  
+* **Vector & Hybrid Tuning:** Optimizing k-NN parameters and balancing lexical and semantic weights in hybrid search architectures.  
 * **Automated Learning to Rank (LTR):** Training and deploying sophisticated ranking models that use machine learning to weigh hundreds of features simultaneously. OpenSearch Relevance Agent will help automate the feature engineering and model training lifecycle, moving beyond manual boost functions to a truly optimized ranking experience.
 
-### Universal data connectivity via MCP
+### Universal data connectivity through MCP
 
 While OpenSearch Relevance Agent is optimized to leverage OpenSearch’s native User Behavior Insights (UBI), we recognize that every organization has a unique data ecosystem. Our vision is to make OpenSearch Relevance Agent a truly data-agnostic engine by utilizing the **Model Context Protocol (MCP)** to connect with external signals.
 

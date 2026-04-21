@@ -95,6 +95,7 @@ Lua
 Lucene
 Mach5
 macOS
+Matomo
 maxcluster
 Medtronic
 Metarank
