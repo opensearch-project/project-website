@@ -23,7 +23,7 @@ For most teams, solving this means navigating three massive hurdles:
 * **The Data Struggle:** Dealing with "noisy" metadata or niche datasets where information is sparse or incomplete.  
 * **The Scale Problem:** What works in a small test environment often falls apart when hit with the chaotic, high-volume reality of production traffic.
 
-## The problem with the "Old Way"
+## The problem with the "old way"
 
 Traditionally, tuning relevance is a marathon. It often takes months of manual tweaking by search experts to find the "perfect" settings. But in the modern enterprise, data doesn't stay still. Seasonal trends and evolving product catalogs expand the search space faster than humans can keep up.
 
