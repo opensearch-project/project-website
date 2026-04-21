@@ -6,8 +6,8 @@ authors:
 date: 2026-04-01
 categories:
   - technical-post
-meta_keywords: multimodal search, OpenSearch vector search, ColPali, Amazon Bedrock Data Automation, BDA, Titan multimodal embeddings, document search, neural search, benchmarking
-meta_description: Learn how three multimodal document search approaches (ColPali late interaction reranking, BDA modality-aware embedding, and text-only chunking) compare in search quality, latency, and ingest performance so you can choose the right one for your use case.
+meta_keywords: OpenSearch benchmarks, multimodal search, vector search, ColPali, BDA, Amazon Titan, late interaction reranking, neural search, document retrieval, benchmarking
+meta_description: Compare ColPali, BDA modality-aware embedding, and text-only chunking for multimodal document search in OpenSearch, benchmarked on quality, latency, and complexity.
 excerpt: Documents with tables, charts, and diagrams need more than text-based search. We benchmarked three multimodal document search approaches in OpenSearch on 1,000 report pages. ColPali late interaction reranking achieved the highest search quality (92% recall) but with higher latency, BDA modality-aware embedding offered a balanced middle ground, and text-only chunking was simplest to implement but scored lowest on visually rich content.
 has_science_table: true
 ---
