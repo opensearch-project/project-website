@@ -124,7 +124,22 @@ Once the setup is complete, navigate to [http://localhost:5601](http://localhost
 
 The agent will immediately begin analyzing the sample UBI data indexed during the quickstart and provide a detailed summary of findings.
 
-![OpenSearch Relevance Agent Feedback](/assets/media/blog-images/2026-04-23-introducing-relevance-agent/relevance_agent_feedback.png)
+<!--
+Copyright (c) 2020 Nathan Lam
+https://github.com/nathancy/jekyll-embed-video
+-->
+{% assign player_width = include.player_width | default: '640'  %}
+{% assign player_height = include.player_height | default: '385'  %}
+<div class="embed-container">
+    <iframe
+        src="https://www.youtube.com/embed/N5BL_iaKpJQ"
+        width=" {{ player_width }}"
+        height="{{ player_height }}"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+    </iframe>
+  </div>
 
 ## What’s next
 
