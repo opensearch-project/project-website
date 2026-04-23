@@ -1,0 +1,1 @@
+<p><a href="https://github.com/opensearch-project/agent-health">Agent Health</a> is an evaluation and observability framework for AI agents. It provides real-time agent execution streaming, LLM-based evaluation with pass/fail scoring, batch experiments for comparing agents and models, and OpenTelemetry trace integration for performance analysis.</p>
