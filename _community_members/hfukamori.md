@@ -22,4 +22,4 @@ personas:
   - author
 redirect_from: '/authors/hfukamori/'
 ---
-Hirohide Fukamori is a Senior Solutions Architect at Amazon Web Services, focused on operational resilience, financial services, and contact center modernization. He helps customers build generative AI solutions that combine Amazon Connect with OpenSearch and foundation models to deliver more personalized customer experiences.
+Hirohide Fukamori is a Senior Solutions Architect at Amazon Web Services interested in operational resilience and generative AI applications. He proposes OpenSearch-based solutions for contact center and customer experience use cases.
