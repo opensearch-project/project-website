@@ -23,4 +23,4 @@ personas:
   - author
 
 ---
-Emily Guo is an AWS software engineer focusing on query performance analysis and observability, with contributions to Query Insights and Query Insights Dashboards.
+Emily Guo is a software engineer at AWS focusing on query performance analysis and observability, with contributions to Query Insights and Query Insights Dashboards plugins.
