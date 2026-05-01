@@ -19,4 +19,4 @@ personas:
   - author
 redirect_from: '/authors/hangzuo/'
 ---
-Hang Zuo is a Senior Product Manager at Amazon Web Services, working on OpenSearch.
+Hang Zuo is a Senior Product Manager at Amazon Web Services working on OpenSearch.
