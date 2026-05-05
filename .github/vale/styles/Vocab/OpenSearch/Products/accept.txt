@@ -95,6 +95,7 @@ Lua
 Lucene
 Mach5
 macOS
+Matomo
 maxcluster
 Medtronic
 Metarank
@@ -119,6 +120,7 @@ OpenSearch Dashboards
 OpenSearch Launchpad
 OpenSearch Playground
 OpenSearch Project
+OpenSearch Relevance Agent
 OpenSearch Service
 OpenSearchCon
 OpenSource Connections
