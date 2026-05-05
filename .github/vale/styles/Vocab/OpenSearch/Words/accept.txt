@@ -32,6 +32,7 @@ Dev
 Distro
 [Dd]ownvote(s|d)?
 [Dd]uplicative
+[Dd]onut
 [Ee]gress
 [Ee]num
 [Ff]ailover
@@ -48,6 +49,7 @@ GeoHex
 [Gg]eospatial
 gibibyte
 [Hh]ashmap
+[Hh]eatmaps?
 [Hh]ostname
 [Hh]yperparameters?
 [Ii]mpactful
