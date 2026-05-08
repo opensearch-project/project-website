@@ -82,7 +82,7 @@ For authentication options and Scala, Java, and Spark SQL examples, see the [Had
 
 ### Amazon OpenSearch Serverless support
 
-You can now use the connector with [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html) collections. Configure the connector with AWS Signature Version 4 authentication and the `aoss` service name:
+You can now use the connector with [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html) collections. Configure the connector with AWS Signature Version 4 authentication and serverless mode:
 
 ```python
 df = spark.createDataFrame([("product-1", 29.99), ("product-2", 49.99)], ["name", "price"])
@@ -93,7 +93,8 @@ df.write.format("opensearch") \
     .option("opensearch.net.ssl", "true") \
     .option("opensearch.aws.sigv4.enabled", "true") \
     .option("opensearch.aws.sigv4.region", "<region>") \
-    .option("opensearch.aws.sigv4.service", "aoss") \
+    .option("opensearch.aws.sigv4.service.name", "aoss") \
+    .option("opensearch.serverless", "true") \
     .save("my-collection")
 ```
 
