@@ -102,14 +102,10 @@ Once the script completes, open Dashboards at [http://localhost:5601](http://loc
 1. **Try the default agent**: Ask a question such as "How is my cluster health?" The default agent will use the MCP server to query your cluster and stream back results in real time.
 2. **Try the ART agent**: Navigate to the Search Relevance page, and the same chat interface automatically routes questions to the ART agent instead. Try asking "What are my most popular queries?" You'll notice different tools being used for search relevance purposes to answer this question.
 
-## Agent development guide
-
-*Section coming soon.* <!-- TODO: Add agent development guide covering custom agent creation, agent interface and requirements, tool execution framework, and best practices -->
-
 ## Conclusion and what's next
 
 The OpenSearch Agent Server provides a powerful foundation for building intelligent, specialized agents that transform how users interact with OpenSearch. By leveraging a shared MCP server and multi-agent orchestration, developers can create focused agents that excel at specific tasks without duplicating infrastructure or reimplementing basic OpenSearch operations. The platform ships with security, observability, and flexible LLM integration—but this is just the beginning.
-
+ 
 We're actively working on the following enhancements:
 
 - **Agentic memory**: Enabling agents to maintain context across conversations and learn from past interactions.
