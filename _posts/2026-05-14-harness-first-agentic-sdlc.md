@@ -8,11 +8,11 @@ authors:
  - ghiyas
  - saakashf
  - fddattal
-date: 2026-05-13
+date: 2026-05-14
 categories:
  - technical-posts
-meta_keywords: "agentic SDLC, AI agents, harness-first verification, knowledge base, OpenSearch, performance optimization, on-call automation, hybrid search"
-meta_description: "Notes from a year of experimenting with AI agents in knowledge-base, development, performance, and on-call workflows—and the verification loops that make them trustworthy."
+meta_keywords: "agentic SDLC, AI agents, OpenSearch software development lifecycle, SDLC automation, harness-first verification, agentic workflows, performance optimization, on-call automation, knowledge base, hybrid search, test-driven development, autonomous agents, DevOps, LLM agents, verification loops, root cause analysis, continuous integration"
+meta_description: "Learn how the OpenSearch team built four AI agents with harness-first verification loops across knowledge-base, development, performance, and on-call workflows to automate SDLC tasks engineers can trust."
 excerpt: "Across all SDLC phases, AI agents now generate code, root-cause analyses, remediation plans, performance fixes, and standard operating procedures faster than humans can meaningfully review them. The bottleneck is no longer generation; it's deciding whether to trust what has been generated. This post shares four agents the OpenSearch team built across the SDLC and the harness-based verification loops that make them reliable."
 has_math: false
 has_science_table: false
@@ -32,7 +32,7 @@ These agents are currently internal experiments rather than open-source releases
 
 The following diagram shows how the four agents work together across the SDLC.
 
-![Figure 1: The four agents—Atlas, Ralph, Nitro, and Sentinel—working together across the SDLC and sharing a common knowledge base.](/assets/media/blog-images/2026-05-13-harness-first-agentic-sdlc/chart1_four_agents_oss.png)
+![Figure 1: The four agents—Atlas, Ralph, Nitro, and Sentinel—working together across the SDLC and sharing a common knowledge base.](/assets/media/blog-images/2026-05-14-harness-first-agentic-sdlc/chart1_four_agents_oss.png)
 *Figure 1: The four agents—Atlas, Ralph, Nitro, and Sentinel—working together across the SDLC and sharing a common knowledge base.*
 
 Each agent serves a distinct role:
@@ -54,7 +54,7 @@ Using OpenSearch as the document store and vector store also keeps Atlas's opera
 
 The following diagram shows the Atlas workflow architecture.
 
-![Figure 2: Atlas pipeline—source code, wiki articles, runbooks, and resolved tickets feed into the shared knowledge base through code KB, ops KB, engineering book, and ticket-to-SOP extraction components.](/assets/media/blog-images/2026-05-13-harness-first-agentic-sdlc/chart2_atlas_pipeline.png)
+![Figure 2: Atlas pipeline—source code, wiki articles, runbooks, and resolved tickets feed into the shared knowledge base through code KB, ops KB, engineering book, and ticket-to-SOP extraction components.](/assets/media/blog-images/2026-05-14-harness-first-agentic-sdlc/chart2_atlas_pipeline.png)
 *Figure 2: Atlas pipeline—source code, wiki articles, runbooks, and resolved tickets feed into the shared knowledge base through code KB, ops KB, engineering book, and ticket-to-SOP extraction components.*
 
 Atlas includes the following components:
@@ -78,7 +78,7 @@ An agent can produce more code changes per hour than an engineer can review per 
 
 Ralph addresses this problem by using a harness—a live local stack combined with a decomposed feature specification—that verifies agent output on every iteration. This **harness-based parallel development pipeline** provides a verification surface the agent tests against continuously, rather than a review gate at the end, as shown in the following image.
 
-![Figure 3: Ralph pipeline—the coordinator launches a live local stack and dispatches decomposed work items to parallel developer, QA, and validator agents that verify output against the running services at each iteration.](/assets/media/blog-images/2026-05-13-harness-first-agentic-sdlc/chart3_ralph_sequence.png)
+![Figure 3: Ralph pipeline—the coordinator launches a live local stack and dispatches decomposed work items to parallel developer, QA, and validator agents that verify output against the running services at each iteration.](/assets/media/blog-images/2026-05-14-harness-first-agentic-sdlc/chart3_ralph_sequence.png)
 *Figure 3: Ralph pipeline—the coordinator launches a live local stack and dispatches decomposed work items to parallel developer, QA, and validator agents that verify output against the running services at each iteration.*
 
 The pipeline uses four specialized agent functions:
@@ -106,7 +106,7 @@ Given a system, a workload, and a sandboxed environment, Nitro:
 
 The following diagram shows the Nitro workflow.
 
-![Figure 4: Nitro loop—provision, profile, discover, propose and A/B test, and decide. Candidates that regress are rejected; candidates that improve performance are accepted.](/assets/media/blog-images/2026-05-13-harness-first-agentic-sdlc/chart3_nitro_loop.png)
+![Figure 4: Nitro loop—provision, profile, discover, propose and A/B test, and decide. Candidates that regress are rejected; candidates that improve performance are accepted.](/assets/media/blog-images/2026-05-14-harness-first-agentic-sdlc/chart3_nitro_loop.png)
 *Figure 4: Nitro loop—provision, profile, discover, propose and A/B test, and decide. Candidates that regress are rejected; candidates that improve performance are accepted.*
 
 In one test run against OpenSearch 3.3.0, Nitro launched four worker instances (one baseline and three candidates) and ran three benchmark repetitions simultaneously. The agent **rejected two candidates for regression and promoted one** that showed a **5% improvement in sort+term query latency and a 12% reduction in garbage collection (GC) time** on the OpenSearch Benchmark Geopoint workload. Across multiple rounds, the agent produced **three validated fixes** over approximately **6 days of elapsed time** without human intervention.
@@ -130,7 +130,7 @@ Sentinel runs a three-stage pipeline on every ticket in its queue:
 
 The following image shows the Sentinel workflow.
 
-![Figure 5: Sentinel pipeline—ingestion on a cron, knowledge-base context enrichment, read-only RCA, and a plan-then-approve workflow with a human approval gate before any execution.](/assets/media/blog-images/2026-05-13-harness-first-agentic-sdlc/chart4_sentinel_pipeline_oss.png)
+![Figure 5: Sentinel pipeline—ingestion on a cron, knowledge-base context enrichment, read-only RCA, and a plan-then-approve workflow with a human approval gate before any execution.](/assets/media/blog-images/2026-05-14-harness-first-agentic-sdlc/chart4_sentinel_pipeline_oss.png)
 *Figure 5: Sentinel pipeline—ingestion on a cron, knowledge-base context enrichment, read-only RCA, and a plan-then-approve workflow with a human approval gate before any execution.*
 
 Given the operational risks of autonomous remediation, we designed Sentinel with multiple safety layers:
