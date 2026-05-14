@@ -4,9 +4,10 @@ title: "Harness-first agentic SDLC: an OpenSearch-native approach to AI engineer
 authors:
  - chenyang
  - pallp
+ - kolchfa
  - ghiyas
  - saakashf
- - kolchfa
+ - fddattal
 date: 2026-05-13
 categories:
  - technical-posts
