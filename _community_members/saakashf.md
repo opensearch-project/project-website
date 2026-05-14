@@ -20,4 +20,4 @@ personas:
 redirect_from: '/authors/saakashf/'
 ---
 
-Akash Sant builds distributed systems at Amazon Web Services, primarily on OpenSearch Serverless.
+Akash Sant builds distributed systems at Amazon Web Services, primarily for OpenSearch Serverless.
