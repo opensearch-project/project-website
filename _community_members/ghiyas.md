@@ -20,4 +20,4 @@ personas:
 redirect_from: '/authors/ghiyas/'
 ---
 
-Sudeep has extensive experience building and scaling control planes. He is a software engineer who is currently leveraging his experience to help build the next version of AWS OpenSearch Serverless using Gen AI tools.
+Sudeep is a software engineer with extensive experience building and scaling control planes. He is currently leveraging his experience to build the next version of AWS OpenSearch Serverless using generative AI tools.
