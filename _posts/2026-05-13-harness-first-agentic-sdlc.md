@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Harness-first agentic SDLC: How OpenSearch transformed software development using AI agents"
+title: "Harness-first agentic SDLC: an OpenSearch-native approach to AI engineering loops"
 authors:
  - chenyang
  - pallp

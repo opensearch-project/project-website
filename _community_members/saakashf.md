@@ -1,8 +1,8 @@
 ---
 short_name: 'saakashf'
 name: 'Akash Sant'
-photo: '/assets/media/community/members/default.jpg'
-job_title_and_company: 'AWS'
+photo: '/assets/media/community/members/saakashf.png'
+job_title_and_company: 'Software Engineer at AWS'
 primary_title: 'Akash Sant'
 title: 'OpenSearch Community Member: Akash Sant'
 breadcrumbs:
@@ -20,4 +20,4 @@ personas:
 redirect_from: '/authors/saakashf/'
 ---
 
-Akash Sant is a contributor to the OpenSearch Project.
+Akash Sant builds distributed systems at Amazon Web Services, primarily on OpenSearch Serverless.

@@ -1,8 +1,8 @@
 ---
 short_name: 'ghiyas'
 name: 'Sudeep Ghiya'
-photo: '/assets/media/community/members/default.jpg'
-job_title_and_company: 'AWS'
+photo: '/assets/media/community/members/ghiyas.jpg'
+job_title_and_company: 'Software Engineer at AWS'
 primary_title: 'Sudeep Ghiya'
 title: 'OpenSearch Community Member: Sudeep Ghiya'
 breadcrumbs:
@@ -20,4 +20,4 @@ personas:
 redirect_from: '/authors/ghiyas/'
 ---
 
-Sudeep Ghiya is a contributor to the OpenSearch Project.
+Sudeep has extensive experience building and scaling control planes. He is a software engineer who is currently leveraging his experience to help build the next version of AWS OpenSearch Serverless using Gen AI tools.
