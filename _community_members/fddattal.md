@@ -20,4 +20,4 @@ personas:
 redirect_from: '/authors/fddattal/'
 ---
 
-Frank Dattalo is a Senior SDE at AWS on the OpenSearch Serverless Search team, focused on high-performance auto scaling. Outside work, he explores Seattle's coffee shops and hiking trails.
+Frank Dattalo is a Senior SDE at AWS on the OpenSearch Serverless Search team, focusing on high-performance autoscaling. Outside of work, he explores Seattle's coffee shops and hiking trails.
