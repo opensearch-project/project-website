@@ -35,6 +35,11 @@ components:
   - role: sql-command-line
     artifact: opensearch-sql-cli
     version: 1.0.0
+  - role: agent-health
+    artifact: agent-health
+    version: 1.0.0
+    platform_order:
+      - javascript
 sections:
   docker-compose:
     explanation: "downloads/opensearch-docker.markdown"
@@ -64,6 +69,11 @@ sections:
     artifacts:
       opensearch-sql-cli:
         explanation: "downloads/opensearch-sql-cli.markdown"
+  agent-tools:
+    explanation: "downloads/agent-health.markdown"
+    role: agent-health
+    artifacts:
+      agent-health:
   drivers:
     explanation: "downloads/drivers.markdown"
     role: drivers
