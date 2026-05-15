@@ -18,7 +18,7 @@ has_math: false
 has_science_table: false
 ---
 
-*Notes from a year of experimenting with agents in knowledge-base, development, performance, and on-call workflows—and the verification loops that make them trustworthy.*
+*Notes from experimenting with agents in knowledge-base, development, performance, and on-call workflows—and the verification loops that make them trustworthy.*
 
 Efficiency gains are a priority for every engineering team. Over the last year, the OpenSearch team has been experimenting with AI agents across our software development lifecycle (SDLC). The goal: let agents do the repetitive work so engineers can focus on higher-order tasks—defining vision, designing architecture, and deciding what to build. In this blog post, we'll share what we've built and what we've learned.
 
