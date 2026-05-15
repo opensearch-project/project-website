@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Harness-first agentic SDLC: How OpenSearch builds software using its own search engine"
+title: "Agentic SDLC: How OpenSearch accelerates engineering using its own engine"
 authors:
  - chenyang
  - pallp
- - kolchfa
  - ghiyas
  - saakashf
  - fddattal
+ - kolchfa
 date: 2026-05-14
 categories:
  - technical-posts
