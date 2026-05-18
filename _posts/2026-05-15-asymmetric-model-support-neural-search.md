@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Asymmetric model support: Optimizing neural search for queries and documents"
+title: "Asymmetric model support: Optimizing semantic search for queries and documents"
 authors:
     - mfenqin
     - bzhangam
@@ -8,14 +8,14 @@ authors:
 date: 2026-05-15
 categories:
   - technical-posts
-meta_keywords: asymmetric embeddings, neural search, semantic search, E5 model, text embeddings, query optimization, OpenSearch neural search
+meta_keywords: asymmetric embeddings, neural search, semantic search, E5 model, text embeddings, query optimization, OpenSearch semantic search
 meta_description: Learn how asymmetric embedding models in OpenSearch improve search relevance by using different embeddings for queries and documents. Includes benchmarks, setup guide, and best practices.
 has_science_table: true
 ---
 
-Neural search in OpenSearch has traditionally used symmetric embedding models, where queries and documents are encoded identically. While effective, this approach doesn't reflect how search actually works: queries are typically short and question-like, while documents are longer and information-rich. Asymmetric embedding models address this mismatch by optimizing embeddings differently for queries compared to documents, leading to significant improvements in search relevance.
+Semantic search in OpenSearch has traditionally used symmetric embedding models, where queries and documents are encoded identically. While effective, this approach doesn't reflect how search actually works: queries are typically short and question-like, while documents are longer and information-rich. Asymmetric embedding models address this mismatch by optimizing embeddings differently for queries compared to documents, leading to significant improvements in search relevance.
 
-Starting in OpenSearch 3.5, asymmetric embedding models are supported in neural search through the [semantic field type](https://docs.opensearch.org/latest/mappings/supported-field-types/semantic/) and the [text embedding processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/text-embedding/). This includes state-of-the-art models like E5 that dominate the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard). In this post, you'll learn how asymmetric models work, see comprehensive benchmark results, and follow a step-by-step guide to implement asymmetric neural search in your OpenSearch cluster.
+Starting in OpenSearch 3.5, asymmetric embedding models are supported in semantic search through the [semantic field type](https://docs.opensearch.org/latest/mappings/supported-field-types/semantic/) and the [text embedding processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/text-embedding/). This includes state-of-the-art models like E5 that dominate the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard). In this post, you'll learn how asymmetric models work, see comprehensive benchmark results, and follow a step-by-step guide to implement asymmetric semantic search in your OpenSearch cluster.
 
 ## What are asymmetric embeddings?
 
@@ -274,7 +274,7 @@ Follow these steps to use a semantic text field with an asymmetric model in your
    }
    ```
 
-7. **Search the index:** Run a neural search query using the asymmetric model. Notice how a short question-style query matches the longer informational passage:
+7. **Search the index:** Run a neural query using the asymmetric model. Notice how a short question-style query matches the longer informational passage:
 
    ```json
    GET /my-nlp-index/_search
@@ -329,10 +329,10 @@ Follow these steps to use a semantic text field with an asymmetric model in your
 
 ## Summary
 
-Asymmetric embedding models represent a significant advancement in neural search, offering substantial quality improvements for common search scenarios. With support now available in OpenSearch, you can:
+Asymmetric embedding models represent a significant advancement in semantic search, offering substantial quality improvements for common search scenarios. With support now available in OpenSearch, you can:
 
 - Achieve up to 125% improvement in search relevance on datasets with high query-passage length asymmetry
-- Seamlessly integrate with existing neural search workflows
+- Seamlessly integrate with existing semantic search workflows
 
 The benchmarks demonstrate that asymmetric models excel when queries and documents differ in nature—which describes most real-world search applications. By optimizing embeddings for their specific roles in the search process, asymmetric models deliver more relevant results without sacrificing performance.
 
@@ -341,7 +341,7 @@ The benchmarks demonstrate that asymmetric models excel when queries and documen
 - Check [asymmetric model documentation](https://docs.opensearch.org/latest/tutorials/vector-search/semantic-search/semantic-search-asymmetric/) to see how to use a local model
 - Explore [pretrained asymmetric models](https://huggingface.co/intfloat/multilingual-e5-small) available on Hugging Face
 - Learn about [deploying custom asymmetric models on SageMaker](https://github.com/opensearch-project/opensearch-py-ml)
-- Try [hybrid search](https://docs.opensearch.org/latest/search-plugins/hybrid-search/) combining asymmetric neural search with keyword matching
+- Try [hybrid search](https://docs.opensearch.org/latest/search-plugins/hybrid-search/) combining asymmetric semantic search with keyword matching
 
 Share your experiences with asymmetric models on the [OpenSearch Forum](https://forum.opensearch.org/), and let us know what improvements you see in your search applications!
 
