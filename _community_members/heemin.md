@@ -21,5 +21,5 @@ personas:
 permalink: '/community/members/heemin-kim.html'
 redirect_from: '/authors/heemin/'
 ---
-**Heemin Kim** is an engineering manager at Amazon Web Services working on OpenSearch, with a focus on neural search, and search relevance workbench.
+**Heemin Kim** is an engineering manager at Amazon Web Services working on OpenSearch, with a focus on neural search and search relevance workbench.
  
