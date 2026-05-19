@@ -354,7 +354,7 @@ For more information about asymmetric models, see the following resources:
 - [`opensearch-py-ml` repository](https://github.com/opensearch-project/opensearch-py-ml) -- Scripts for deploying custom asymmetric models on SageMaker.
 - [Hybrid search](https://docs.opensearch.org/latest/search-plugins/hybrid-search/) -- Combining asymmetric semantic search with keyword matching for improved recall.
 
-Share your experiences with asymmetric models on the [OpenSearch Forum](https://forum.opensearch.org/), and let us know what improvements you observe in your search applications.
+Share your experiences with asymmetric models on the [OpenSearch Forum](https://forum.opensearch.org/) and let us know what improvements you observe in your search applications.
 
 ## Appendix
 
