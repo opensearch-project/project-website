@@ -4,6 +4,7 @@ title: "Bringing intelligence to OpenSearch: Introducing the OpenSearch Agent Se
 authors:
   - mingshl
   - jiapingzeng
+  - pohongl
 date: 2026-05-07
 categories:
   - technical-posts
@@ -94,6 +95,38 @@ The quickstart script sets up the full development stack in one command: OpenSea
 ```
 
 **Prerequisites:** Java 21+, Node.js 20.x, Python 3.12+, and [uv](https://astral.sh/uv).
+
+### Installing from PyPI
+
+If you already have an OpenSearch cluster running and don't need the full quickstart setup, you can install and run the Agent Server directly from PyPI:
+
+```bash
+pip install opensearch-agent-server
+```
+
+Configure your environment:
+
+```bash
+export OPENSEARCH_URL=https://localhost:9200
+export OPENSEARCH_USERNAME=admin
+export OPENSEARCH_PASSWORD=admin
+export AG_UI_AUTH_ENABLED=false
+```
+
+Start the Agent Server and MCP server together in a single process:
+
+```bash
+opensearch-agent-server --with-mcp
+```
+
+This starts both the OpenSearch MCP server (port 3001) and the Agent Server (port 8001). Both stop together on `Ctrl+C`. You can verify both services are running:
+
+```bash
+curl http://localhost:8001/health    # {"status": "ok"}
+curl http://localhost:8001/agents    # list registered agents
+```
+
+For more options, including customizing the MCP server port and config, see the [OpenSearch Agent Server README](https://github.com/opensearch-project/opensearch-agent-server#pypi-installation).
 
 ### Your first interaction
 
