@@ -15,11 +15,11 @@ breadcrumbs:
       url: '/community/members/heemin-kim.html'
 linkedin: heemin-kim-3a92ba53
 github: heemin32
-job_title_and_company: 'Senior software engineer at AWS'
+job_title_and_company: 'Engineering manager at Amazon Web Services'
 personas:
   - author
 permalink: '/community/members/heemin-kim.html'
 redirect_from: '/authors/heemin/'
 ---
-**Heemin Kim** is a senior software engineer at AWS working on geospatial and vector search in OpenSearch.
+**Heemin Kim** is an engineering manager at Amazon Web Services working on OpenSearch, with a focus on neural search and search relevance workbench.
  
