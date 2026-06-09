@@ -101,6 +101,10 @@ nginx-pipeline:
         index: "nginx-access"
 ```
 
+## Processor improvements
+
+TODO: bagmarnikhil
+
 ## Other notable changes
 
 TODO: dvenable
