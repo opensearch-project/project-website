@@ -9,8 +9,8 @@ date: 2026-05-07
 categories:
   - technical-posts
   - feature
-meta_keywords: OpenSearch agent server, multi-agent orchestration, AI agents, MCP server, Model Context Protocol, AG-UI Protocol, search relevance, agentic AI, OpenSearch Dashboards, AWS Bedrock
-meta_description: Introducing the OpenSearch agent server, a multi-agent orchestration platform that enables developers to build specialized AI agents that collaborate within OpenSearch through an intelligent routing layer.
+meta_keywords: OpenSearch agent server, multi-agent orchestration, MCP server, Model Context Protocol, AI agents, search relevance tuning, AG-UI protocol, Amazon Bedrock, OpenSearch Dashboards, automated relevance tuning, ART agent, open source, LLM integration, intelligent routing
+meta_description: The OpenSearch agent server is a multi-agent orchestration platform that routes tasks to specialized AI agents using MCP tools and intelligent context-aware routing.
 excerpt: The OpenSearch agent server is a multi-agent orchestration platform released as experimental in OpenSearch 3.6. You can use it to build specialized AI agents that collaborate through an intelligent routing layer. Each agent provides distinct expertise and tools, transforming how users interact with OpenSearch.
 has_math: false
 has_science_table: false
@@ -72,6 +72,8 @@ To get started with the agent server, follow these steps.
 
 Before running the server, install the following tools and configure Amazon Bedrock credentials:
 
+- OpenSearch 3.6+ (the cluster the MCP server connects to)
+- OpenSearch Dashboards 3.6+ (required for the chat UI and AG-UI integration)
 - Java 21+
 - Node.js 20.x
 - Python 3.12+
@@ -134,6 +136,36 @@ curl http://localhost:8001/agents    # list registered agents
 ```
 
 For more options, including customizing the MCP server port and configuration, see the [OpenSearch agent server README](https://github.com/opensearch-project/opensearch-agent-server#pypi-installation).
+
+#### Configure OpenSearch Dashboards
+
+To make the chat assistant available in OpenSearch Dashboards, add the following to your `OpenSearch-Dashboards/config/opensearch_dashboards.yml`:
+
+```yaml
+# Enable new UI header (required for chat button to appear)
+uiSettings:
+  overrides:
+    "home:useNewHomePage": true
+
+# Send page context (app ID, filters, queries) to the agent
+contextProvider:
+  enabled: true
+
+# Connect Dashboards to the Agent Server
+chat:
+  enabled: true
+  agUiUrl: "http://localhost:8001/runs"
+```
+
+For a complete example, including OBO token forwarding for authenticated MCP tool calls and other optional settings, see [`opensearch_dashboards.example.yml`](https://github.com/opensearch-project/opensearch-agent-server/blob/main/opensearch_dashboards.example.yml).
+
+Start (or restart) OpenSearch Dashboards to apply the config:
+
+```bash
+./bin/opensearch-dashboards
+```
+
+Once Dashboards is running, the chat icon appears in the top-right header.
 
 ### Your first interaction
 
