@@ -168,7 +168,7 @@ otlp-logs-pipeline:
 Data Prepper 2.16 makes the CloudWatch Logs sink easier to operate:
 
 * **Automatic log group and stream creation** ([#6861](https://github.com/opensearch-project/data-prepper/issues/6861)). The new `create_log_group` and `create_log_stream` options (both default `false`) let the sink create the configured log group and stream on startup if they are missing, so a pipeline can bootstrap itself instead of failing when they do not yet exist. Enabling them requires the `logs:CreateLogGroup` and `logs:CreateLogStream` permissions.
-* **Entity attributes** ([#6860](https://github.com/opensearch-project/data-prepper/issues/6860)). A new `entity` block attaches CloudWatch [entity](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Entity.html) metadata to every `PutLogEvents` request, using `key_attributes` to identify the entity and optional `attributes` to describe it. This powers CloudWatch entity-based correlation.
+* **Entity attributes** ([#6860](https://github.com/opensearch-project/data-prepper/issues/6860)). A new `entity` block attaches CloudWatch [entity](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Entity.html) metadata to every `PutLogEvents` request, using `key_attributes` to identify the entity and optional `attributes` to describe it. This powers CloudWatch [entity-based correlation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/how-does-related-telemetry-work.html).
 
 The following sink creates its log group and stream if needed and attaches entity metadata to each request:
 
