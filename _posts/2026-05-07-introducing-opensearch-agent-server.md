@@ -60,7 +60,7 @@ Security is handled through on-behalf-of (OBO) token passing from OpenSearch Das
 
 The platform includes built-in retry logic with exponential backoff for resilient LLM and OpenSearch interactions, plus structured observability logging to track agent behavior and diagnose issues in production.
 
-### Model Context Protocol (MCP)
+### MCP
 
 MCP provides the standardized interface between agents and OpenSearch. It exposes cluster operations as composable tools that agents can orchestrate without reimplementing low-level functionality. New agents can immediately use the full capabilities of OpenSearch through a well-defined, secure abstraction layer.
 
