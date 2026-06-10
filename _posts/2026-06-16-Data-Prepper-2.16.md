@@ -2,20 +2,21 @@
 layout: post
 title: 'Data Prepper 2.16: Improved end-to-end metrics'
 authors:
-  - srikanthpadakanti
   - bagmarnikhil
+  - srikanthpadakanti
   - dvenable
 date: 2026-06-16
 categories:
   - releases
-excerpt: Data Prepper 2.16 adds experimental OpenSearch pull-based ingestion, new processors for shaping array data, OpenTelemetry logs in the OTLP sink, and end-to-end metrics with a pull-based Prometheus source and OpenSearch-TSDB.
-meta_keywords: OpenSearch Data Prepper, pull-based ingestion, Kafka ingestion, Prometheus metrics, OpenSearch TSDB, OTLP sink, OpenTelemetry logs, filter_list processor, CloudWatch Logs sink, conditional script updates, data pipeline
-meta_description: OpenSearch Data Prepper 2.16 introduces experimental OpenSearch pull-based ingestion through Kafka, new array-shaping processors, OpenTelemetry logs support in the OTLP sink, and end-to-end metrics ingestion with a pull-based Prometheus source and OpenSearch-TSDB.
+excerpt: Data Prepper 2.16 adds end-to-end metrics with a pull-based Prometheus source and OpenSearch-TSDB, experimental OpenSearch pull-based ingestion, other improvements to the OpenSearch sink, and much more.
+meta_keywords: OpenSearch Data Prepper, pull-based ingestion, Kafka ingestion, Prometheus metrics, OpenSearch TSDB, OTLP sink, OpenTelemetry logs, file source, filter_list processor, CloudWatch Logs sink
+meta_description: OpenSearch Data Prepper 2.16 improves end-to-end metrics ingestion with a pull-based Prometheus source and OpenSearch-TSDB, introduces experimental OpenSearch pull-based ingestion through Kafka, adds powerful capabilities to the OpenSearch sink, and much more.
 ---
 
 The OpenSearch Data Prepper maintainers are happy to announce the release of Data Prepper 2.16.
 This feature-rich release improves end-to-end metrics workloads with a pull-based Prometheus source and direct ingestion into OpenSearch-TSDB. 
-It also introduces experimental OpenSearch pull-based ingestion, two new processors for shaping array data, OpenTelemetry logs support in the OTLP sink, and powerful new OpenSearch sink capabilities.
+It also introduces OpenSearch pull-based ingestion for the first time as an experimental capability. 
+Plus it includes powerful new OpenSearch sink capabilities, OpenTelemetry logs support in the OTLP sink, CloudWatch Logs sink improvements, a greatly improved file source, and much more.
 
 
 ## Pull-based Prometheus source
@@ -108,32 +109,6 @@ pull-ingestion-pipeline:
                 - "kafka:9092"
 ```
 
-## OpenTelemetry logs in the OTLP sink
-
-The OTLP sink previously sent only traces, and it always signed requests with a hardcoded `xray` SigV4 signing name. Data Prepper 2.16 generalizes the sink so it can emit OpenTelemetry logs in addition to traces, lets you override the SigV4 signing service name, and lets you inject custom HTTP headers on every request. Together, these changes open the sink up to OTLP-compatible backends beyond AWS X-Ray. The sink selects the OTLP signal automatically based on the events flowing through the pipeline, so log events are exported as logs and span events as traces. These changes are backward compatible, so existing trace configurations continue to work unchanged.
-
-The following pipeline sends logs to an OTLP endpoint, overriding the signing service name and adding a custom header:
-
-```yaml
-otlp-logs-pipeline:
-  source:
-    # ... any log source ...
-  sink:
-    - otlp:
-        endpoint: "https://my-otlp-endpoint.example.com:443"
-        service_name: "my-service"   # overrides the SigV4 signing service name
-        additional_headers:
-          x-custom-header: "my-value"
-        max_retries: 3
-        threshold:
-          max_events: 512
-          max_batch_size: "1mb"
-          flush_timeout: "200ms"
-        aws:
-          region: "us-east-1"
-          sts_role_arn: "arn:aws:iam::123456789012:role/MyRole"
-```
-
 ## OpenSearch sink enhancements
 
 Data Prepper 2.16 adds several capabilities that expand what the OpenSearch sink can do:
@@ -155,6 +130,37 @@ sink:
         source: "ctx._source.putAll(params.doc)"
         params:
           doc: "${/doc}"
+```
+
+## OpenTelemetry logs in the OTLP sink
+
+The OTLP sink previously sent only traces, and it always signed requests with a hardcoded `xray` SigV4 signing name.
+Data Prepper 2.16 generalizes the sink so it can emit OpenTelemetry logs in addition to traces.
+It also offers a configurable SigV4 signing service name and lets you inject custom HTTP headers on every request.
+Together, these changes open the sink up to OTLP-compatible backends beyond AWS X-Ray, including other AWS services.
+The sink selects the OTLP signal automatically based on the events flowing through the pipeline, so log events are exported as logs and span events as traces.
+These changes are backward compatible, so existing trace configurations continue to work unchanged.
+
+The following pipeline sends logs to an OTLP endpoint, overriding the signing service name and adding a custom header:
+
+```yaml
+otlp-logs-pipeline:
+  source:
+    # ... any log source ...
+  sink:
+    - otlp:
+        endpoint: "https://my-otlp-endpoint.example.com:443"
+        service_name: "my-service"   # overrides the SigV4 signing service name
+        additional_headers:
+          x-custom-header: "my-value"
+        max_retries: 3
+        threshold:
+          max_events: 512
+          max_batch_size: "1mb"
+          flush_timeout: "200ms"
+        aws:
+          region: "us-east-1"
+          sts_role_arn: "arn:aws:iam::123456789012:role/MyRole"
 ```
 
 ## CloudWatch Logs sink enhancements
