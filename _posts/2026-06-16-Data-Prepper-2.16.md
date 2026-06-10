@@ -3,12 +3,13 @@ layout: post
 title: 'Data Prepper 2.16: Improved end-to-end metrics'
 authors:
   - srikanthpadakanti
+  - bagmarnikhil
   - dvenable
 date: 2026-06-16
 categories:
   - releases
 excerpt: Data Prepper 2.16 adds experimental OpenSearch pull-based ingestion, new processors for shaping array data, OpenTelemetry logs in the OTLP sink, and end-to-end metrics with a pull-based Prometheus source and OpenSearch-TSDB.
-meta_keywords: OpenSearch Data Prepper, pull-based ingestion, Kafka ingestion, Prometheus metrics, OpenSearch TSDB, OTLP sink, OpenTelemetry logs, foreach processor, filter_entries processor, conditional script updates, data pipeline
+meta_keywords: OpenSearch Data Prepper, pull-based ingestion, Kafka ingestion, Prometheus metrics, OpenSearch TSDB, OTLP sink, OpenTelemetry logs, filter_list processor, CloudWatch Logs sink, conditional script updates, data pipeline
 meta_description: OpenSearch Data Prepper 2.16 introduces experimental OpenSearch pull-based ingestion through Kafka, new array-shaping processors, OpenTelemetry logs support in the OTLP sink, and end-to-end metrics ingestion with a pull-based Prometheus source and OpenSearch-TSDB.
 ---
 
@@ -156,6 +157,33 @@ sink:
           doc: "${/doc}"
 ```
 
+## CloudWatch Logs sink enhancements
+
+Data Prepper 2.16 makes the CloudWatch Logs sink easier to operate:
+
+* **Automatic log group and stream creation** ([#6861](https://github.com/opensearch-project/data-prepper/issues/6861)). The new `create_log_group` and `create_log_stream` options (both default `false`) let the sink create the configured log group and stream on startup if they are missing, so a pipeline can bootstrap itself instead of failing when they do not yet exist. Enabling them requires the `logs:CreateLogGroup` and `logs:CreateLogStream` permissions.
+* **Entity attributes** ([#6860](https://github.com/opensearch-project/data-prepper/issues/6860)). A new `entity` block attaches CloudWatch [entity](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Entity.html) metadata to every `PutLogEvents` request, using `key_attributes` to identify the entity and optional `attributes` to describe it. This powers CloudWatch entity-based correlation.
+
+The following sink creates its log group and stream if needed and attaches entity metadata to each request:
+
+```yaml
+sink:
+  - cloudwatch_logs:
+      aws:
+        region: "us-east-1"
+        sts_role_arn: "arn:aws:iam::123456789012:role/Data-Prepper"
+      log_group: "/my/service/logs"
+      log_stream: "my-stream"
+      create_log_group: true
+      create_log_stream: true
+      entity:
+        key_attributes:
+          Type: "RemoteService"
+          Name: "okta_auth0"
+        attributes:
+          AWS.ServiceNameSource: "UserConfiguration"
+```
+
 ## Tail support for file source
 
 Until now the file source has been a one-shot reader. It opened a file, parsed it from start to end, and exited. That works for batch-style ingestion but not for log files that grow continuously or rotate. To watch a live log you had to reach for separate tooling.
@@ -186,9 +214,18 @@ nginx-pipeline:
         index: "nginx-access"
 ```
 
-## Processor improvements
+## A new `filter_list` processor
 
-TODO: bagmarnikhil
+Existing mutate-event processors work on an event's keys, so there was no way to keep only the array *elements* that match a condition. The new `filter_list` processor does exactly that: it iterates over the array at `iterate_on` and keeps each element for which the `keep_element_when` expression is true. By default it filters in place; set `target` to write the result to a different key.
+
+```yaml
+processor:
+  - filter_list:
+      iterate_on: "items"
+      keep_element_when: '/status == "active"'
+```
+
+With this configuration, an `items` array keeps only the elements whose `status` is `active`.
 
 ## Other notable changes
 
@@ -197,6 +234,7 @@ This release includes the following additional improvements:
 * A new `otel_traces` input codec decodes OpenTelemetry traces, in either JSON or Protobuf format, into span events. Because it is an input codec, you can use it on any source that accepts a codec, such as Amazon S3, which makes pull-based trace pipelines possible.
 * The Iceberg source now shuffles records by `identifier_columns` hash so that `DELETE` and `INSERT` pairs co-locate, fixing correctness and scaling for `UPDATE` and `DELETE` snapshots in change data capture pipelines.
 * The OpenSearch source now defaults to point-in-time (PIT) search on Amazon OpenSearch Serverless ([#6335](https://github.com/opensearch-project/data-prepper/issues/6335)). This is a breaking change for pipelines that rely on the previous default behavior on Serverless.
+* The CloudWatch Logs sink now catches unexpected errors in its upload path, recording a `cloudWatchLogsUnhandledError` metric and releasing the batch's acknowledgments so acknowledgment-aware sources keep making progress instead of stalling ([#6887](https://github.com/opensearch-project/data-prepper/issues/6887)).
 
 In total, Data Prepper 2.16 includes 7 new features and 14 enhancements. For the complete list, see the [release notes](https://github.com/opensearch-project/data-prepper/releases/tag/2.16.0).
 
