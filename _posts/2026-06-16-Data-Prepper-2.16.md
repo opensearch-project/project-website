@@ -14,8 +14,8 @@ meta_description: OpenSearch Data Prepper 2.16 improves end-to-end metrics inges
 ---
 
 The OpenSearch Data Prepper maintainers are happy to announce the release of Data Prepper 2.16.
-This feature-rich release improves end-to-end metrics workloads with a pull-based Prometheus source and direct ingestion into OpenSearch-TSDB. 
-It also introduces OpenSearch pull-based ingestion for the first time as an experimental capability. 
+This feature-rich release improves end-to-end metrics workloads with a pull-based Prometheus source and direct ingestion into OpenSearch-TSDB.
+It also introduces OpenSearch pull-based ingestion for the first time as an experimental capability.
 Plus it includes powerful new OpenSearch sink capabilities, OpenTelemetry logs support in the OTLP sink, CloudWatch Logs sink improvements, a greatly improved file source, and much more.
 
 
@@ -196,7 +196,7 @@ Until now the file source has been a one-shot reader. It opened a file, parsed i
 
 Data Prepper 2.16 adds a tail mode to the file source. When you set `tail: true`, the source watches the configured paths for changes, picks up new lines as they are written, and keeps reading across rotations. Files are identified by a fingerprint over the first kilobyte of bytes, so renames and moves do not produce duplicates. You can specify multiple paths with glob support, exclude paths, choose whether a new pipeline starts from the beginning of existing files or only from the tail, and persist a checkpoint to disk so a restart picks up exactly where it left off. Tail mode supports the same codec, compression, and end-to-end acknowledgment options that other sources offer.
 
-The file source reads from the local filesystem, so Data Prepper needs direct access to the files it tails. In production that means running it close to the logs, through a shared volume on a central cluster, as a sidecar, or as a per-host workload. Durable checkpoints keep all three patterns clean across restarts and rolling deployments.
+The file source reads from the local filesystem, so Data Prepper needs direct access to the files it tails. In production that means running it close to the logs, through a shared volume on a central cluster, as a sidecar, or as a per-host workload. Each pattern works the same way at runtime: the source persists its byte offset per file to a checkpoint on disk, and after a restart or rolling deployment it rereads the checkpoint and resumes from the exact position it left off, so a redeploy does not produce duplicates or gaps.
 
 The following pipeline tails Nginx access logs across a directory, parses each line with the JSON codec, and writes the events to OpenSearch:
 
