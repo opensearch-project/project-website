@@ -29,7 +29,7 @@ jobs:
     
       - name: Add blog process comment
         if: steps.check-new-blog.outputs.is_new_blog == 'true'
-        uses: peter-evans/create-or-update-comment@v3
+        uses: peter-evans/create-or-update-comment@23ff15729ef2fc348714a3bb66d2f655ca9066f2 # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
@@ -52,7 +52,7 @@ jobs:
 
       - name: Comment if no linked issue
         if: steps.check-new-blog.outputs.is_new_blog == 'true' && steps.check-issues.outputs.has_issue == 'false'
-        uses: peter-evans/create-or-update-comment@v3
+        uses: peter-evans/create-or-update-comment@23ff15729ef2fc348714a3bb66d2f655ca9066f2 # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
