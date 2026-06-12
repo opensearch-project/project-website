@@ -22,4 +22,4 @@ personas:
 redirect_from: '/authors/bagmarnikhil/'
 ---
 
-**Nikhil Bagmar** is a Software Development Engineer at AWS working on Amazon CloudWatch, and a contributor to the OpenSearch Data Prepper project. When he's not building data pipelines, you'll find him buried in a good book or on the pickleball court.
+**Nikhil Bagmar** is a Software Development Engineer at AWS working on Amazon CloudWatch and a contributor to the OpenSearch Data Prepper project. When he's not building data pipelines, you'll find him buried in a good book or on the pickleball court.
