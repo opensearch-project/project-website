@@ -37,8 +37,6 @@ categories:
 meta_keywords: semantic search engine, neural search engine, keyword and natural language search, search relevance, benchmarking tests
 meta_description: Learn how to create a semantic search engine in OpenSearch, including architecture and model options, benchmarking tests, and effects of different combination strategies and normalization protocols.
 excerpt: In an earlier blog post, we described different ways of building a semantic search engine in OpenSearch. In this post, we'll dive further into the science behind it. We'll discuss the benefits of combining keyword-based search with neural search, the architecture and model options, and benchmarking tests and results. First, we'll provide an overview of our proposed solutions and a summary of the main results. Next, we'll outline the steps for creating a solution and fine-tuning it for your own document corpus. Finally, we'll discuss the effects of different combination strategies and normalization protocols on search relevance. 
-has_math: true
-has_science_table: true
 ---
 ```
 
@@ -54,8 +52,10 @@ Variable | Description
 `meta_keywords` | Meta keywords are provided by the marketing team once you put up a PR with the blog post.
 `meta_description` | Meta keywords are provided by the marketing team once you put up a PR with the blog post.
 `excerpt` | (Optional) A blog excerpt you want to appear on the [blog front page](https://opensearch.org/blog). If you don't provide this variable, the excerpt will contain the first paragraph of the blog. If you do provide your own excerpt, make sure it does not contain any special Markdown formatting because this formatting will be ignored and displayed as is. For example, if you surround a word with tic marks, the tic marks will be displayed rather than formatting the variable in code font.
-`has_math` | (Optional) If your blog post contains mathematical formulas, set this variable to `true` so you can use the [MathJax](https://www.mathjax.org/) syntax to render the formulas.
-`has_science_table` | (Optional) By default, tables do not render grid lines. To add grid lines to your table, set this variable to `true`.
+~~has_math~~ | ~~(Optional) If your blog post contains mathematical formulas, set this variable to `true` so you can use the [MathJax](https://www.mathjax.org/) syntax to render the formulas.~~
+~~has_science_table~~ | ~~(Optional) By default, tables do not render grid lines. To add grid lines to your table, set this variable to `true`.~~
+
+*Note:* `has_math` and `has_science_table` are no longer used.
 
 ## Title
 
@@ -81,11 +81,12 @@ If you want to specify the image width or another style, use HTML syntax:
 <img src="/assets/media/blog-images/2023-02-13-semantic-search-solutions/vectors.jpg" alt="Similar vectors" width="700"/>
 ```
 
-To center a Markdown image, specify the `img-centered` class for the image:
+~~To center a Markdown image, specify the `img-centered` class for the image:~~
 
-```
-![Similar vectors](/assets/media/blog-images/2023-02-13-semantic-search-solutions/vectors.jpg){:class="img-centered"}
-```
+~~```![Similar vectors](/assets/media/blog-images/2023-02-13-semantic-search-solutions/vectors.jpg){:class="img-centered"}```~~
+
+
+^ The markdown convention that Jekyll uses for adding CSS classes causes issues with our publishing process. Please refrain from using it. Use the raw HTML methodology below.
 
 To center an HTML image, include `class="centered"` in the image tag:
 
