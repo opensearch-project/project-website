@@ -5,7 +5,7 @@ authors:
   - bagmarnikhil
   - srikanthpadakanti
   - dvenable
-date: 2026-06-12
+date: 2026-06-16
 categories:
   - releases
 excerpt: Data Prepper 2.16 adds end-to-end metrics with a pull-based Prometheus source and OpenSearch-TSDB, experimental OpenSearch pull-based ingestion, other improvements to the OpenSearch sink, and more.
