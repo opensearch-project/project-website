@@ -58,9 +58,9 @@ The signal is unambiguous: **ad** is near the top of the fault-rate panel, the *
 
 The **View service map** button drops you into the **Application Map** focused on **ad**. The topology is generated automatically by Data Prepper from trace data, so you configure nothing. (See the [service map documentation](https://observability.opensearch.org/docs/apm/service-map/) for more on the map.)
 
-![The Application Map focused on the ad service. The ad node's health donut shows a red fault segment with 9.1% faults over 2.6K requests, connected by an edge to frontend. The View insights flyout on the right shows the RED metrics: Total Faults 235, plus Requests, Latency, and a Faults (5xx) chart with a clear error spike.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/service-map-errors.png){:class="img-centered"}
+![The Application Map focused on the ad service. The ad node health indicator shows a red fault segment with 9.1% faults over 2.6K requests, connected by an edge to frontend. The View insights flyout on the right shows the RED metrics: Total Faults 235, plus Requests, Latency, and a Faults (5xx) chart with a clear error spike.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/service-map-errors.png){:class="img-centered"}
 
-The **ad** node is no longer all green: its health donut carries a red **fault segment**, and the **frontend → ad** edge makes the blast radius concrete, because the storefront depends on a service that's failing. Click **View insights** on the node and the flyout lays out the RED metrics for **ad**: hundreds of faults out of a few thousand requests, with a **Faults (5xx)** chart that spikes exactly when the trouble started. The metrics have localized the failure. For *why*, we go to the traces.
+The **ad** node is no longer all green: its health indicator carries a red **fault segment**, and the **frontend → ad** edge makes the blast radius concrete, because the storefront depends on a service that's failing. Click **View insights** on the node and the flyout lays out the RED metrics for **ad**: hundreds of faults out of a few thousand requests, with a **Faults (5xx)** chart that spikes exactly when the trouble started. The metrics have localized the failure. For *why*, we go to the traces.
 
 ### Step 3: See the correlated traces in the in-context flyout
 
@@ -70,7 +70,7 @@ From the same flyout, the **Correlated spans** tab pulls the most recent spans f
 
 The correlated spans confirm it at the request level: the `oteldemo.AdService/GetAds` **SERVER** spans are coming back **ERROR**. This is the bridge from "the metrics say ad is unhealthy" to "here are the exact requests that failed." To dig in, open the failing requests in **Explore Traces**, the dedicated trace explorer.
 
-### Step 4: Find the error spans in Explore Traces
+### Step 4: Find the failing spans in trace analytics
 
 Open **Traces** under **Application Performance** (the [Explore Traces](https://observability.opensearch.org/docs/investigate/discover-traces/) page). It opens on the span table with RED metrics across the top: a **Request count** histogram, an **Error count** histogram that's clearly spiking, and **Avg latency**. Filtering to the failing service with a one-line PPL query, `source = otel-v1-apm-span* | where resource.attributes.service.name = 'ad' and status.code = 2`, leaves only the `oteldemo.AdService/GetAds` spans that came back with an error.
 
@@ -84,13 +84,13 @@ Clicking the span ID lands you on the trace details view: a Gantt **Timeline** o
 
 ![The Explore Traces trace details view. The Timeline waterfall shows frontend GET, then GET /api/data, then grpc.oteldemo.AdService/GetAds, then the ad service's own oteldemo.AdService/GetAds span, each flagged with an error icon. The Span details panel on the right shows the ad GetAds span with Span status Error and an Errors tab badged with 2.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/explore-traces-waterfall.png){:class="img-centered"}
 
-The waterfall shows the whole chain of affected calls in one view: **frontend** `GET` → `GET /api/data` → `grpc.oteldemo.AdService/GetAds` → the **ad** service's own `oteldemo.AdService/GetAds` span, and every span on the path carries an error marker. The failure originates at the bottom of the tree, in **ad**, and propagates up to the customer-facing request. Open the **Errors** tab in the **Span details** panel to read what the span actually recorded.
+The waterfall shows the whole chain of affected calls in one view: **frontend** `GET` → `GET /api/data` → `grpc.oteldemo.AdService/GetAds` → the **ad** service's own `oteldemo.AdService/GetAds` span, and every span on the path carries an error marker. The failure starts at the bottom of the tree, in **ad**, and propagates up to the customer-facing request. Open the **Errors** tab in the **Span details** panel to read what the span actually recorded.
 
-![The Span details Errors tab for the failing ad GetAds span. It shows the span error status (statusCode 2) and an Error event whose exception message is UNAVAILABLE, with the timestamp it was recorded.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/explore-traces-span-error.png){:class="img-centered"}
+![The Span details Errors tab for the failing ad GetAds span. It shows the span error status, `statusCode` 2, and an Error event whose exception message is UNAVAILABLE, with the timestamp it was recorded.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/explore-traces-span-error.png){:class="img-centered"}
 
 The error is on the request itself, not inferred from a dashboard average: a recorded exception with the message **`UNAVAILABLE`** and `statusCode: 2`, captured the moment the call failed. We now know *which* service, *which* operation, and *what* it returned. The last step is to corroborate it with the service's own logs.
 
-### Step 6: Close the loop in Explore Logs
+### Step 6: Close the loop with the service's logs
 
 Still in the **Span details** panel, the **Logs** tab shows the **Related logs for span**: the **ad** service's own log lines, stitched to this exact span by span ID. The top one is already a **WARN**. To read the full line and widen the search, click **View in Discover Logs**.
 
