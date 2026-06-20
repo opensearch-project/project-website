@@ -22,4 +22,4 @@ conference_id:
   - "2024-north-america"
 redirect_from: '/authors/luchoa/'
 ---
-Laysa is a Senior Platform Engineer at enmacc, OpenSearch Ambassador, and PyLadies Munich leader. I spent years as a backend developer, and now I build platforms so other developers do not have to suffer like I did. Multi-cloud by trade, search nerd by choice, continuous learner by habit.
+Laysa is a Senior Platform Engineer at [enmacc](https://enmacc.com/), OpenSearch Ambassador, and PyLadies Munich leader. I spent years as a backend developer, and now I build platforms so other developers do not have to suffer like I did. Multi-cloud by trade, search nerd by choice, continuous learner by habit.
