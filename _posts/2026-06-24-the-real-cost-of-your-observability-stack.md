@@ -13,7 +13,7 @@ meta_keywords: observability cost, open source observability, AI agent observabi
 meta_description: The real cost of observability is operational blindness, not the invoice. We break down the fragmentation tax, the per-GB trap for agentic workloads, and what building on an open-source search foundation changes.
 ---
 
-Modern infrastructure is not just infrastructure anymore. It is the intelligence running on top of it. Observability went from "dashboards for oncall" to the data foundation powering autonomous investigation. AI agents now triage incidents, correlate signals, and propose root causes. Engineers query their observability data from Claude Desktop and VS Code, not just from a console. And the stack that worked for deterministic microservices has not kept up.
+Modern infrastructure is not just infrastructure anymore. It is the intelligence running on top of it. Observability went from "dashboards for on-call engineers" to the data foundation powering autonomous investigation. AI agents now triage incidents, correlate signals, and propose root causes. Engineers query their observability data from Claude Desktop and VS Code, not just from a console. And the stack that worked for deterministic microservices has not kept up.
 
 The cost of that gap is not just the invoice. It is operational blindness at the worst possible time: when an agent hallucinates in production, when a reasoning chain fails silently, when every investigation costs more tokens than the last because your data is not structured for the way agents consume it.
 
@@ -37,7 +37,7 @@ Then agents entered the picture, and that pricing model stopped making sense.
 
 Consider what a single AI agent produces in telemetry compared to a traditional API endpoint. A REST service handling a request generates a trace span, a few log lines, and some metric increments. An AI agent handling a comparable task generates reasoning traces documenting every step of its logic, token consumption logs tracking input and output across multiple model calls, confidence scores at each decision point, tool invocation records, and retrieval-augmented generation lookups. The telemetry volume grows significantly, and it grows with every new agent customers deploy.
 
-This creates a perverse incentive. The workloads that need the most observability are exactly the ones that cost the most to observe. Teams respond rationally: they sample aggressively, drop agent traces after 24 hours, truncate reasoning chains to save bytes, and shorten retention from months to days. Every one of these decisions trades future debuggability for present-day budget compliance.
+This creates a perverse incentive. The workloads that need the most observability are exactly the ones that cost the most to observe. Teams respond rationally: they sample aggressively, drop agent traces after 24 hours, truncate reasoning chains to save bytes, and shorten retention from months to days. Every one of these decisions trades the ability to debug future failures for present-day budget compliance.
 
 They are flying blind precisely when the flight gets turbulent.
 
