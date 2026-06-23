@@ -4,6 +4,7 @@ eventdate: 2024-02-27 10:30:00 -0800
 primary_title: Development Backlog & Triage Meeting - ml-commons - 2024-02-27
 title: Development Backlog & Triage Meeting - ml-commons - 2024-02-27
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/299450448
     title: Join on Meetup

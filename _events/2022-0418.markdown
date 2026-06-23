@@ -1,8 +1,9 @@
 ---
 calendar_date: '2022-04-18'
-eventdate: 2022-04-18 09:00:00 -0800
+eventdate: 2022-04-18 09:00:00 -0700
 title: OpenSearch Community Meeting - 2022-04-18 - open office hour
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/OpenSearch/events/284560717/
     title: Join on Meetup

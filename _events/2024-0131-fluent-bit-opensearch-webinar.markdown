@@ -6,8 +6,7 @@ eventdate: 2024-01-31 15:00:00 -0500
 # the title - this is how it will show up in listing and headings on the site:
 title: Getting Started with Fluent Bit and OpenSearch
 online: true
-# If the event is online, remove the next line, otherwise uncomment and adjust it:
-# tz: Pacific/Tahiti
+tz: America/New_York
 
 # This is for the sign up button
 signup:

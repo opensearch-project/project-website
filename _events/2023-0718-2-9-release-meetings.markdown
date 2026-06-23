@@ -3,6 +3,7 @@ calendar_date: '2023-08-08'
 eventdate: 2023-08-08 11:30:00 -0700
 title: OpenSearch 2.9.0 Release Meetings - 2023-07-24
 online: true
+tz: America/Los_Angeles
 signup:
   url: https://us02web.zoom.us/j/83030994833
   title: Join on Meetup
