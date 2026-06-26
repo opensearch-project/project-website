@@ -41,15 +41,16 @@ Include OpenTelemetry Demo? (requires ~2GB additional memory) (Y/n): Y
 If the stack is already installed, the demo is also controlled by a single line in `.env` at the install root:
 
 ```bash
-INCLUDE_COMPOSE_OTEL_DEMO=docker-compose.otel-demo.yml`
+INCLUDE_COMPOSE_OTEL_DEMO=docker-compose.otel-demo.yml
 ```
+
 After adding this line, restart the stack by running `docker compose down && docker compose up -d`.
 
 The demo ships with [**feature flags**](https://opentelemetry.io/docs/demo/feature-flags/) that inject realistic faults. To mimic a realistic incident scenario, enable **`adFailure`**, which makes the **ad** service return gRPC `UNAVAILABLE`. This simulates a site reliability engineer (SRE) receiving an alert about a failing service and investigating the root cause using only the available telemetry.
 
 ## From symptom to root cause
 
-The investigation follows a standard root cause analysis (RCA) path: start with the metrics that tell you that *something* is wrong and, roughly, *where*, narrow to the failing requests in the traces, then confirm with the logs. Each step is one screen, and each links directly to the next. Here's how that looks in practice.
+The investigation follows a standard root cause analysis (RCA) path: start with the metrics that tell you that *something* is wrong and, roughly, *where*, narrow to the failing requests in the traces, then confirm with the logs. Each step is one screen, and each links directly to the next.
 
 ### Step 1: Spot the error spike on the Services page
 
@@ -57,7 +58,7 @@ Open the **Services** page under **APM**. This is the service catalog that lists
 
 ![The OpenSearch Dashboards Services page. The Top services by fault rate panel lists the ad service at an 8.98% fault rate, the ad-to-frontend dependency path at 9% fault, and the Service Catalog shows the ad row with a rising failure-rate sparkline.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/services-overview.png){:class="img-centered"}
 
-The signal is unambiguous: **ad** is near the top of the fault-rate panel, the **ad → frontend** dependency path is failing, and the **ad** row in the **Service Catalog** carries a failure-rate sparkline that is trending upward. The metrics identify the failing service. 
+The signal is unambiguous: **ad** is near the top of the fault-rate panel, the **ad → frontend** dependency path is failing, and the **ad** row in the **Service Catalog** carries a failure-rate sparkline that is trending upward. The metrics identify the failing service.
 
 ### Step 2: See the failure in the topology and read the RED metrics
 
@@ -65,15 +66,15 @@ To see how the service relates to the wider system, select **View service map** 
 
 ![The Application Map focused on the ad service. The ad node health indicator shows a red fault segment with 9.1% faults over 2.6K requests, connected by an edge to frontend. The View insights flyout on the right shows the RED metrics: Total Faults 235, plus Requests, Latency, and a Faults (5xx) chart with a clear error spike.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/service-map-errors.png){:class="img-centered"}
 
-The **ad** node is no longer green: its health indicator carries a red **fault segment**, and the **frontend → ad** edge makes the impact scope concrete, because the storefront depends on a service that's failing. Select the **ad** node and choose **View insights**. The flyout displays the RED metrics for **ad**: hundreds of faults out of a few thousand requests, with a **Faults (5xx)** chart that spikes exactly when the failure began. The metrics have localized the failure. 
+The **ad** node is no longer green: its health indicator carries a red **fault segment**, and the **frontend → ad** edge makes the impact scope concrete, because the storefront depends on a service that's failing. Select the **ad** node and choose **View insights**. The flyout displays the RED metrics for **ad**: hundreds of faults out of a few thousand requests, with a **Faults (5xx)** chart that spikes exactly when the failure began. The metrics have localized the failure.
 
-### Step 3: See the correlated traces in the in-context flyout
+### Step 3: Inspect failing spans in the service flyout
 
 To understand *why* the service is failing, examine the traces. From the same flyout, the **Correlated spans** tab displays the most recent spans for the **ad** node without leaving the map, as shown in the following image.
 
 ![The ad service flyout's Correlated spans tab, listing recent oteldemo.AdService/GetAds spans. Several SERVER spans carry a red ERROR status, alongside an Explore Traces button.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/correlated-spans-flyout.png){:class="img-centered"}
 
-The correlated spans confirm the failure at the request level: the `oteldemo.AdService/GetAds` **SERVER** spans are returning an **ERROR** status. This is the connection from "the metrics say ad is unhealthy" to "here are the exact requests that failed." 
+The correlated spans confirm the failure at the request level: the `oteldemo.AdService/GetAds` **SERVER** spans are returning an **ERROR** status. This is the connection from "the metrics say ad is unhealthy" to "here are the exact requests that failed."
 
 ### Step 4: Find the failing spans in trace analytics
 
@@ -81,7 +82,7 @@ To investigate further, open **Traces** under **Application Performance** (the [
 
 ![The Explore Traces span table filtered to the ad service error spans. The Request count and Error count histograms span the top, with the Error count bars spiking; the table below lists oteldemo.AdService/GetAds spans, each with Status code 2 and Service ad.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/explore-traces-error-spans.png){:class="img-centered"}
 
-Every row is a failed `GetAds` call on the **ad** service. 
+Every row is a failed `GetAds` call on the **ad** service.
 
 ### Step 5: Read the trace waterfall and the error on the span
 
