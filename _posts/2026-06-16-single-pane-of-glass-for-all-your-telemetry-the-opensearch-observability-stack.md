@@ -58,7 +58,7 @@ Open the **Services** page under **APM**. This is the service catalog that lists
 
 ![The OpenSearch Dashboards Services page. The Top services by fault rate panel lists the ad service at an 8.98% fault rate, the ad-to-frontend dependency path at 9% fault, and the Service Catalog shows the ad row with a rising failure-rate sparkline.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/services-overview.png){:class="img-centered"}
 
-The signal is unambiguous: **ad** is near the top of the fault-rate panel, the **ad → frontend** dependency path is failing, and the **ad** row in the **Service Catalog** carries a failure-rate sparkline that is trending upward. The metrics identify the failing service.
+**ad** is near the top of the fault-rate panel, the **ad → frontend** dependency path is failing, and the **ad** row in the **Service Catalog** carries a failure-rate sparkline that is trending upward. The metrics identify the failing service.
 
 ### Step 2: See the failure in the topology and read the RED metrics
 
@@ -66,7 +66,7 @@ To see how the service relates to the wider system, select **View service map** 
 
 ![The Application Map focused on the ad service. The ad node health indicator shows a red fault segment with 9.1% faults over 2.6K requests, connected by an edge to frontend. The View insights flyout on the right shows the RED metrics: Total Faults 235, plus Requests, Latency, and a Faults (5xx) chart with a clear error spike.](/assets/media/blog-images/2026-06-16-single-pane-of-glass-for-all-your-telemetry-the-opensearch-observability-stack/service-map-errors.png){:class="img-centered"}
 
-The **ad** node is no longer green: its health indicator carries a red **fault segment**, and the **frontend → ad** edge makes the impact scope concrete, because the storefront depends on a service that's failing. Select the **ad** node and choose **View insights**. The flyout displays the RED metrics for **ad**: hundreds of faults out of a few thousand requests, with a **Faults (5xx)** chart that spikes exactly when the failure began. The metrics have localized the failure.
+The **ad** node is no longer green: its health indicator carries a red **fault segment**, and the **frontend → ad** edge makes the impact scope concrete, because the storefront depends on a service that's failing. Select the **ad** node and choose **View insights**. The flyout displays the RED metrics for **ad**: hundreds of faults out of a few thousand requests, with a **Faults (5xx)** chart that spikes exactly when the failure began. You've localized the failure to a single service and its downstream dependency.
 
 ### Step 3: Inspect failing spans in the service flyout
 
