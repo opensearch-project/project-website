@@ -252,4 +252,33 @@ Use the following resources to get started with Data Prepper 2.16:
 
 Thanks to the following community members who contributed to this release:
 
-TODO: dvenable
+* [bagmarnikhil](https://github.com/bagmarnikhil) -- Nikhil Bagmar
+* [Davidding4718](https://github.com/Davidding4718) -- Siqi Ding
+* [DayneD89](https://github.com/DayneD89)
+* [dinujoh](https://github.com/dinujoh) -- Dinu John
+* [divbok](https://github.com/divbok) -- Divyansh Bokadia
+* [Divyaasm](https://github.com/Divyaasm) -- Divya Madala
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [engechas](https://github.com/engechas) -- Chase
+* [gaiksaya](https://github.com/gaiksaya) -- Sayali Gaikawad
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [JannikBrand](https://github.com/JannikBrand) -- Jannik Brand
+* [Keyur-S-Patel](https://github.com/Keyur-S-Patel) -- Keyur Patel
+* [kiran536](https://github.com/kiran536)
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [LaszloKovacs9001](https://github.com/LaszloKovacs9001) -- Laszlo Kovacs
+* [lawofcycles](https://github.com/lawofcycles) -- Sotaro Hikita
+* [LeilaMoussa](https://github.com/LeilaMoussa) -- Leila Moussa
+* [nishantKadivar](https://github.com/nishantKadivar)
+* [oeyh](https://github.com/oeyh) -- Hai Yan
+* [Pigueiras](https://github.com/Pigueiras) -- Luis Pigueiras
+* [ps48](https://github.com/ps48) -- Shenoy Pratik
+* [SAY-5](https://github.com/SAY-5) -- Sai Asish Y
+* [sb2k16](https://github.com/sb2k16) -- Souvik Bose
+* [shreyah963](https://github.com/shreyah963) -- Shreya Bhatta
+* [simonelbaz](https://github.com/simonelbaz) -- Simon Elbaz
+* [srikanthpadakanti](https://github.com/srikanthpadakanti) -- Srikanth Padakanti
+* [Utkarsh-Aga](https://github.com/Utkarsh-Aga) -- Utkarsh Agarwal
+* [vamsimanohar](https://github.com/vamsimanohar) -- Vamsi Manohar
+* [yavmanis](https://github.com/yavmanis)
+* [Zhangxunmt](https://github.com/Zhangxunmt) -- Xun Zhang
