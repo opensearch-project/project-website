@@ -11,15 +11,15 @@ meta_description: Learn how to use the new OpenSearch scaler for KEDA to autosca
 excerpt: KEDA extends Kubernetes with event-driven autoscaling, allowing workloads to scale based on arbitrary events outside the Kubernetes control plane. With the new OpenSearch scaler, contributed by SAP, you can now drive that scaling from logs and traces stored in OpenSearch — no separate metrics pipeline required. This post walks through what KEDA is, when an OpenSearch-driven scaler makes sense, and how to configure it using OpenSearch search templates.
 ---
 
-Kubernetes has built-in support for autoscaling workloads based on CPU and memory usage. But real-world scaling decisions are often driven by signals that live elsewhere — in your logs, your traces, or the state of a queue. [KEDA](https://keda.sh) (Kubernetes Event-driven Autoscaling) fills that gap by letting you scale any Kubernetes workload based on arbitrary events outside the Kubernetes control plane. With the OpenSearch scaler — contributed by SAP and introduced in KEDA 2.20 — you can now use data already stored in OpenSearch as the scaling signal.
+Kubernetes has built-in support for scaling workloads based on CPU and memory usage. But real-world scaling decisions are often driven by signals that live elsewhere — in your logs, your traces, or the state of a queue. [KEDA](https://keda.sh) fills that gap by letting you scale any Kubernetes workload based on arbitrary events outside the Kubernetes control plane. With the OpenSearch scaler — contributed by SAP and introduced in KEDA 2.20 — you can now use data already stored in OpenSearch as the scaling signal.
 
 ## What is KEDA?
 
-KEDA is a CNCF project that extends Kubernetes with event-driven autoscaling. It works alongside the standard Kubernetes Horizontal Pod Autoscaler (HPA) rather than replacing it. While the HPA scales workloads based on resource metrics, KEDA can query an external source — a message queue, a database, an HTTP endpoint, or OpenSearch — extract a value, and use that to drive the replica count up or down, including all the way to zero. You can find the full list of supported sources and configuration options in the [KEDA documentation](https://keda.sh/docs/).
+KEDA is a CNCF project that extends Kubernetes with event-driven, automatic scaling of workloads. It works alongside the standard Kubernetes Horizontal Pod Autoscaler (HPA) rather than replacing it. While the HPA scales workloads based on resource metrics, KEDA can query an external source — a message queue, a database, an HTTP endpoint, or OpenSearch — extract a value, and use that to drive the replica count up or down, including all the way to zero. You can find the full list of supported sources and configuration options in the [KEDA documentation](https://keda.sh/docs/).
 
 ## Why scale from OpenSearch?
 
-OpenSearch is widely used as the storage backend for observability data: logs collected via OpenTelemetry or Fluent Bit, and distributed traces from instrumented applications. That data is rich with signals that reflect the actual health and load of your services. Rather than building a separate metrics pipeline to expose those signals to Kubernetes, the OpenSearch scaler lets you query them directly.
+OpenSearch is widely used as the storage backend for observability data: logs collected using OpenTelemetry or Fluent Bit, and distributed traces from instrumented applications. That data is rich with signals that reflect the actual health and load of your services. Rather than building a separate metrics pipeline to expose those signals to Kubernetes, the OpenSearch scaler lets you query them directly.
 
 Readers familiar with [OpenSearch alerting](https://opensearch.org/docs/latest/observing-your-data/alerting/index/) will recognize the pattern: a query runs on a schedule, a threshold is evaluated, and an action is triggered. The KEDA scaler follows the same logic, with the difference that the action is a Kubernetes scaling decision, integrated natively with the cluster rather than delivered as a notification. The two features complement each other — alerting for human-facing notifications, KEDA for automated infrastructure response.
 
@@ -95,7 +95,7 @@ The value at `aggregations.latency_p95.values.95.0` — ~46.9 ms in this example
 
 ## Configuring the OpenSearch KEDA scaler
 
-Before applying the examples below, KEDA must be installed in your Kubernetes cluster and your OpenSearch instance must be reachable from within it. The [KEDA deployment documentation](https://keda.sh/docs/2.20/deploy/) covers installation via Helm or plain YAML manifests.
+Before applying the examples below, KEDA must be installed in your Kubernetes cluster and your OpenSearch instance must be reachable from within it. The [KEDA deployment documentation](https://keda.sh/docs/2.20/deploy/) covers installation using Helm or plain YAML manifests.
 
 The scaler is configured as a trigger inside a `ScaledObject`. The essential parameters are:
 
@@ -109,7 +109,7 @@ The scaler is configured as a trigger inside a `ScaledObject`. The essential par
 | `targetValue` | The threshold at which KEDA begins scaling |
 | `activationTargetValue` | The threshold at which KEDA wakes the workload from zero replicas (default: 0) |
 
-### Example: scaling on 429 response rate
+### Example: Scaling on 429 response rate
 
 For the 429 case a direct query is more natural than a search template, since there are no parameters to vary. Start by creating a Kubernetes Secret with your OpenSearch credentials. Rather than referencing the password directly in the scaling configuration, KEDA uses a `TriggerAuthentication` resource to keep credentials separate:
 
@@ -174,7 +174,7 @@ Here `valueLocation` points to `hits.total.value`, the document count returned b
 
 When choosing the time window, account for ingestion delay: if logs or traces take two minutes to reach OpenSearch after being emitted, a one-minute window will consistently return zero results. A window of five to ten minutes is a safer starting point for most pipelines, at the cost of slightly slower reaction to sudden spikes.
 
-### Example: scaling on p95 latency
+### Example: Scaling on p95 latency
 
 First, store the `request-latency-p95` search template in OpenSearch. Then create the `ScaledObject`, referencing the same `TriggerAuthentication` defined above:
 
