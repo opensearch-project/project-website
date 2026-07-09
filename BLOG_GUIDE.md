@@ -1,6 +1,8 @@
 # Blog Guide
 
-This guide provides an overview of formatting blogs for the project website. It references the [semantic blog post](/_posts/2023-03-30-semantic-science-benchmarks.md) as an example. You can [view the post](https://opensearch.org/blog/semantic-science-benchmarks/) in its rendered form on the project website.
+This guide provides an overview of formatting blogs for the project website. For information about writing and structuring blog posts, including editorial guidance, see the [Blog Style Guide](https://style-guide.opensearch.org/BLOG_STYLE_GUIDE.html). For general style, writing, and formatting standards, see the [OpenSearch Content Style Guide](https://style-guide.opensearch.org/).
+
+This guide references the [semantic blog post](/_posts/2023-03-30-semantic-science-benchmarks.md) as an example. You can [view the post](https://opensearch.org/blog/semantic-science-benchmarks/) in its rendered form on the project website.
 
 * * *
 
