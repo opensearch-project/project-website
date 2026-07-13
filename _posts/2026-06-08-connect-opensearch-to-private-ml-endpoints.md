@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Connect OpenSearch to Private ML Endpoints"
+title: "Connect OpenSearch to private ML endpoints"
 authors:
     - nathhjo
 date: 2026-06-08
@@ -10,37 +10,37 @@ meta_keywords: private endpoints, ML connectors, ML Commons, private IP, VPC con
 meta_description: Step-by-step guide to connect OpenSearch to ML models on private infrastructure. Covers Amazon OpenSearch Service and self-managed deployments with VPC configuration and troubleshooting.
 ---
 
-As organizations bring machine learning into production, many choose to host models on private infrastructure, whether for security, regulatory compliance, or cost efficiency. Fine-tuned language models, custom embedding services, and specialized inference endpoints often run within VPCs or behind corporate firewalls, unreachable from the public internet.
+As organizations bring machine learning into production, many choose to host models on private infrastructure, whether for security, regulatory compliance, or cost efficiency. Fine-tuned language models, custom embedding services, and specialized inference endpoints often run within virtual private clouds (VPCs) or behind corporate firewalls, unreachable from the public internet.
 
 OpenSearch’s ML Commons plugin supports connections to private endpoints, letting you integrate with internal ML infrastructure without exposing services publicly. With this feature, you can:
 
 * Connect to models hosted on private IP addresses within your network
-* Access VPC-hosted services like private SageMaker endpoints, internal API gateways, or self-hosted inference servers
+* Access VPC-hosted services such as private SageMaker endpoints, internal API gateways, or self-hosted inference servers
 * Maintain strict network isolation required by your security posture
 * Reduce latency and data transfer costs by keeping traffic off the public internet
 
-This guide walks you through configuring private endpoint connectivity for both self-managed OpenSearch and Amazon OpenSearch Service, with common troubleshooting scenarios included.
+This guide describes how to configure private endpoint connectivity for both self-managed OpenSearch and Amazon OpenSearch Service, with common troubleshooting scenarios included.
 
 ## Prerequisites
 
 * OpenSearch or Amazon OpenSearch Service 2.15+
-* A private ML inference endpoint (e.g., private SageMaker endpoint, self-hosted model server)
+* A private ML inference endpoint (for example, a private SageMaker endpoint or self-hosted model server)
 * For Amazon OpenSearch Service: a VPC-configured domain with VPC egress enabled
-* Appropriate IAM permissions for cluster settings 
+* Appropriate AWS Identity and Access Management (IAM) permissions for cluster settings
 
-## Getting Started - Amazon OpenSearch Service
+## Getting started with Amazon OpenSearch Service
 
 Amazon OpenSearch Service requires additional configuration for VPC egress connectivity.
 
-### Step 1: Enable VPC Egress Feature
+### Step 1: Enable VPC egress
 
-Enable VPC egress on your domain by following the VPC egress documentation: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc-egress.html#vpc-egress-enable
+Enable VPC egress on your domain by following the [VPC egress documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc-egress.html#vpc-egress-enable).
 
-### Step 2:  Enable ML Private IP Setting
+### Step 2: Enable the ML private IP setting
 
 To enable private IP connectivity on your Amazon OpenSearch Service domain, submit a support ticket to have the `plugins.ml_commons.connector.private_ip_enabled` setting applied to your domain. This setting is service-managed to enforce network security controls.
 
-### Step 3: Configure Trusted Endpoints
+### Step 3: Configure trusted endpoints
 
 OpenSearch validates connector URLs against a trusted endpoints allowlist. Configure regex patterns that match the private endpoints you intend to connect to:
 
@@ -89,7 +89,7 @@ POST /_plugins/_ml/connectors/_create
 }
 ```
 
-### Step 5: Register and Deploy the Model
+### Step 5: Register and deploy the model
 
 Register the model:
 
@@ -109,7 +109,9 @@ Deploy the model:
 POST /_plugins/_ml/models/model123/_deploy
 ```
 
-### Step 6: Test Model Inference
+### Step 6: Test model inference
+
+Test the model by sending a predict request:
 
 ```json
 POST /_plugins/_ml/models/model123/_predict
@@ -120,11 +122,11 @@ POST /_plugins/_ml/models/model123/_predict
 }
 ```
 
-## Getting Started - Self-Managed OpenSearch
+## Getting started with self-managed OpenSearch
 
 For self-managed OpenSearch, you enable private IP connectivity directly via cluster settings - no VPC egress configuration or support ticket is needed. Set `plugins.ml_commons.connector.private_ip_enabled` to `true` along with your trusted endpoint patterns.
 
-### Step 1:  Enable ML Private IP Setting and Configure Trusted Endpoints
+### Step 1: Enable the ML private IP setting and configure trusted endpoints
 
 ```json
 PUT /_cluster/settings
@@ -139,7 +141,7 @@ PUT /_cluster/settings
 }
 ```
 
-### Step 2: Create Connector and Deploy Model
+### Step 2: Create a connector and deploy the model
 
 Follow the same steps as Amazon OpenSearch Service ([Steps 4–6](#step-4-create-a-connector) above).
 
@@ -149,7 +151,7 @@ Follow the same steps as Amazon OpenSearch Service ([Steps 4–6](#step-4-create
 
 **Symptom:** This error persists even after enabling `private_ip_enabled` and configuring trusted endpoints.
 
-**Cause:** The model was not redeployed after the setting change. ML Commons reads settings to model deployment time.
+**Cause:** The model was not redeployed after the setting change. ML Commons reads settings at model deployment time.
 
 **Solution:** Undeploy and redeploy the model:
 
@@ -163,7 +165,7 @@ POST /_plugins/_ml/models/model123/_deploy
 
 ### Issue 2: Connection timeout to private endpoint
 
-**Cause:** Network rules (security groups, NACLs, or route tabes) are blocking traffic between the OpenSearch cluster and the target endpoint.
+**Cause:** Network rules (security groups, NACLs, or route tables) are blocking traffic between the OpenSearch cluster and the target endpoint.
 
 **Solution:** Verify that outbound traffic from your OpenSearch nodes is allowed to the endpoint’s IP and port, and that the endpoint allows inbound traffic from the cluster’s subnet or security group.
 
@@ -175,15 +177,17 @@ POST /_plugins/_ml/models/model123/_deploy
 
 ## Conclusion
 
-Connecting OpenSearch to private ML endpoints enables secure, low-latency inference while keeping your models within your network perimeter. Key takeaways:
+Connecting OpenSearch to private ML endpoints enables secure, low-latency inference while keeping your models within your network perimeter. When configuring private endpoint connectivity, remember the following:
 
-* **Enable private IP** at the cluster level
-* **Use specific trusted endpoint regex patterns** to restrict access to known endpoints only
-* **Configure VPC egress** on Amazon OpenSearch Service for network reachability
-* **Always redeploy models** after changing connector or cluster settings
+* **Enable private IP** at the cluster level.
+* **Use specific trusted endpoint regex patterns** to restrict access to known endpoints only.
+* **Configure VPC egress** on Amazon OpenSearch Service for network reachability.
+* **Always redeploy models** after changing connector or cluster settings.
 
-## Additional Resources
+## Additional resources
 
-* Amazon OpenSearch Service VPC Egress - https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc-egress.html
-* ML Commons Connectors (self-managed OpenSearch) - https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/connectors/
-* ML Commons Connectors (Amazon OpenSearch Service) - https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ml-create.html
+For more information, see the following resources:
+
+* [Amazon OpenSearch Service VPC egress](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc-egress.html)
+* [ML Commons connectors (self-managed OpenSearch)](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/connectors/)
+* [ML Commons connectors (Amazon OpenSearch Service)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ml-create.html)
