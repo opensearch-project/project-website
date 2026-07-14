@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scaling Kubernetes Workloads with the New OpenSearch KEDA Scaler"
+title: "Scaling Kubernetes Workloads with the OpenSearch KEDA Scaler"
 authors:
   - kschnitter
 date: 2026-08-05
@@ -11,17 +11,17 @@ meta_description: Learn how to use the new OpenSearch scaler for KEDA to autosca
 excerpt: KEDA extends Kubernetes with event-driven autoscaling, allowing workloads to scale based on arbitrary events outside the Kubernetes control plane. With the new OpenSearch scaler, contributed by SAP, you can now drive that scaling from logs and traces stored in OpenSearch — no separate metrics pipeline required. This post walks through what KEDA is, when an OpenSearch-driven scaler makes sense, and how to configure it using OpenSearch search templates.
 ---
 
-Kubernetes has built-in support for scaling workloads based on CPU and memory usage. But real-world scaling decisions are often driven by signals that live elsewhere — in your logs, your traces, or the state of a queue. [KEDA](https://keda.sh) fills that gap by letting you scale any Kubernetes workload based on arbitrary events outside the Kubernetes control plane. With the OpenSearch scaler — contributed by SAP and introduced in KEDA 2.20 — you can now use data already stored in OpenSearch as the scaling signal.
+Kubernetes has built-in support for scaling workloads based on CPU and memory usage. But real-world scaling decisions are often driven by signals that live elsewhere — in your logs, your traces, or the state of a queue. [KEDA](https://keda.sh) fills that gap by letting you scale any Kubernetes workload based on arbitrary events outside the Kubernetes control plane. With the OpenSearch scaler — contributed by SAP and introduced in KEDA 2.20 — you can now use data already stored in OpenSearch as the scaling signal. The scaler works with any OpenSearch deployment, whether self-managed or in the cloud.
 
 ## What is KEDA?
 
-KEDA is a CNCF project that extends Kubernetes with event-driven, automatic scaling of workloads. It works alongside the standard Kubernetes Horizontal Pod Autoscaler (HPA) rather than replacing it. While the HPA scales workloads based on resource metrics, KEDA can query an external source — a message queue, a database, an HTTP endpoint, or OpenSearch — extract a value, and use that to drive the replica count up or down, including all the way to zero. You can find the full list of supported sources and configuration options in the [KEDA documentation](https://keda.sh/docs/).
+KEDA is a CNCF project that extends Kubernetes with event-driven, automatic scaling of workloads. It works alongside the standard Kubernetes Horizontal Pod Autoscaler (HPA) rather than replacing it. While the HPA scales workloads based on resource metrics, KEDA can query an external source — a message queue, a database, an HTTP endpoint, or OpenSearch — extract a value and use that to drive the replica count, including to zero. You can find the full list of supported sources and configuration options in the [KEDA documentation](https://keda.sh/docs/).
 
 ## Why scale from OpenSearch?
 
 OpenSearch is widely used as the storage backend for observability data: logs collected using OpenTelemetry or Fluent Bit, and distributed traces from instrumented applications. That data is rich with signals that reflect the actual health and load of your services. Rather than building a separate metrics pipeline to expose those signals to Kubernetes, the OpenSearch scaler lets you query them directly.
 
-Readers familiar with [OpenSearch alerting](https://opensearch.org/docs/latest/observing-your-data/alerting/index/) will recognize the pattern: a query runs on a schedule, a threshold is evaluated, and an action is triggered. The KEDA scaler follows the same logic, with the difference that the action is a Kubernetes scaling decision, integrated natively with the cluster rather than delivered as a notification. The two features complement each other — alerting for human-facing notifications, KEDA for automated infrastructure response.
+Readers familiar with [OpenSearch alerting](https://opensearch.org/docs/latest/observing-your-data/alerting/index/) will recognize the pattern: a query runs on a schedule, a threshold is evaluated, and an action is triggered. The KEDA scaler follows the same logic, except the action is a Kubernetes scaling decision integrated natively with the cluster, not a notification. The two features complement each other — alerting for human-facing notifications, KEDA for automated infrastructure response.
 
 Two scenarios illustrate this well.
 
@@ -33,7 +33,7 @@ When an application starts returning HTTP 429 (Too Many Requests) responses, it 
 
 Throughput metrics alone can miss situations where a service is slow rather than saturated. If your distributed traces are stored in OpenSearch, you can compute the 95th percentile of request durations over a recent window using an OpenSearch percentile aggregation. When p95 crosses a threshold — say, 500 ms — KEDA scales up the workload. OpenSearch does the aggregation math server-side; KEDA simply reads the resulting number. This pattern shows why the combination is powerful: you get the full expressiveness of the OpenSearch query language as your scaling logic.
 
-## A brief introduction to OpenSearch search templates
+## OpenSearch search templates
 
 Rather than embedding a raw query JSON blob in your KEDA configuration, OpenSearch lets you store and parameterize queries as [search templates](https://opensearch.org/docs/latest/search-plugins/search-template/). A search template is a stored script with named parameters that are substituted at query time. The p95 latency query is a natural fit because the time window is a parameter you will want to vary. For example:
 
@@ -95,7 +95,7 @@ The value at `aggregations.latency_p95.values.95.0` — ~46.9 ms in this example
 
 ## Configuring the OpenSearch KEDA scaler
 
-Before applying the examples below, KEDA must be installed in your Kubernetes cluster and your OpenSearch instance must be reachable from within it. The [KEDA deployment documentation](https://keda.sh/docs/2.20/deploy/) covers installation using Helm or plain YAML manifests.
+Before applying the examples below, KEDA must be installed in your Kubernetes cluster, and your OpenSearch instance must be reachable from within it. The [KEDA deployment documentation](https://keda.sh/docs/2.20/deploy/) covers installation using Helm or plain YAML manifests.
 
 The scaler is configured as a trigger inside a `ScaledObject`. The essential parameters are:
 
