@@ -4,12 +4,12 @@ title: "Retrieve vectors 5x faster with docvalue_fields in OpenSearch"
 authors:
   - navneev
   - vamshin
-date: 2026-06-23
+date: 2026-07-14
 has_science_table: true
 categories:
   - technical-posts
-meta_keywords: "vector search, doc values, knn_vector, docvalue_fields, OpenSearch performance, vector retrieval, k-NN, binary encoding, base64"
-meta_description: "Learn how vector retrieval using doc values in OpenSearch 3.7 bypasses the _source vector reconstruction path to deliver 5.5x faster end-to-end retrieval and 14.7x faster server-side performance at k=1000."
+meta_keywords: "OpenSearch vector retrieval, docvalue_fields, OpenSearch 3.7, k-NN vector performance, RAG pipeline optimization, vector search latency, columnar vector store, Base64 vector encoding, OpenSearch benchmark"
+meta_description: "Retrieve vectors 5x faster in OpenSearch 3.7 using docvalue_fields. Bypass _source reconstruction for 5.5x lower latency and 14.7x faster server-side processing at k=1000"
 excerpt: "As vector search workloads scale, retrieving vectors from search results becomes a bottleneck. Vector retrieval using doc values in OpenSearch 3.7 bypasses the expensive _source vector reconstruction path, delivering 5.5x faster end-to-end retrieval and 14.7x faster server-side performance."
 ---
 
