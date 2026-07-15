@@ -116,18 +116,6 @@ benchmark_height_mobile: 6000
 </li>
 
 <li>
-    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/c130a680-fb5f-11ee-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Big5 Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Concurrent Segment Search Big5</a>
-</li>
-
-<li>
-    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/f2eeb270-fd4e-11ee-a589-033f2c21734f?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'NYC_TAXIS Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Concurrent Segment Search NYC taxis</a>
-</li>
-
-<li>
-    <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/f3f89730-fb73-11ee-addb-f72c2feaa994?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'NOAA Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Concurrent Segment Search NOAA</a>
-</li>
-
-<li>
     <a href ="https://{{ page.benchmark_domain }}/app/dashboards?#/view/01b25d30-5216-11f0-b39d-2363e77eb224?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!f,title:'Neural Search Sparse Search Dashboard',viewMode:view)&show-time-filter=true&hide-filter-bar=true" target="benchmark-dashboard">Neural Sparse Search</a>
 </li>
 
