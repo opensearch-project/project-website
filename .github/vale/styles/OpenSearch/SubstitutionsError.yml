@@ -37,17 +37,19 @@ swap:
   'pre-trained': pretrained
   'premigration': pre-migration
   're-enable': reenable
+  're-rank': rerank
+  're-ranking': reranking
   'screen shot': screenshot
   'stacktrace': stack trace
   'stand-alone': standalone
-  'timeframe': time frame
   'time series data': time-series data
   'time stamp': timestamp
+  'timeframe': time frame
   'timezone': time zone
   'tradeoff': trade-off
   'trust store': truststore
   'U.S.': US
+  'user interface \(UI\)': UI
   'web page': webpage
   'web site': website
   'whitespace': white space
-  'user interface \(UI\)': UI
