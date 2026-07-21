@@ -34,7 +34,7 @@ A better approach was clearly needed---one that allows filters to be applied ear
 
 OpenSearch 3.0 adds **common filter support** to the hybrid query domain-specific language (DSL). You can now define a top-level `filter` in your hybrid query, and OpenSearch will automatically apply it to all subqueries. This avoids duplication and ensures consistent filtering across your query logic.
 
-Here's an example of a hybrid query using a common filter to restrict results to the `shoes` category:
+Here's an example of a hybrid query that uses a common filter to restrict results to the `shoes` category. The top-level `filter` is applied to both the `match` and `knn` subqueries:
 
 ```json
 POST /products/_search
@@ -45,13 +45,11 @@ POST /products/_search
         "term": { "category": "shoes" }
       },
       "queries": [
-        { 
-            "match": { "description": "running shoes" }, 
-            "filter" : {
-                "term": {"brand": "nike"}
-            }
+        {
+          "match": { "description": "running shoes" }
         },
-        { "knn": {
+        {
+          "knn": {
             "embedding": {
               "vector": [1.23, 0.45, 0.67, ...],
               "k": 10
@@ -64,7 +62,9 @@ POST /products/_search
 }
 ```
 
-The preceding query is equivalent to the following OpenSearch 2.x query that applies the filter to each subquery:
+The top-level `filter` must be a single query object.
+
+Before common filter support, you had to repeat the same filter in every subquery to achieve this result. The following OpenSearch 2.x query is equivalent to the preceding one, applying the `category: shoes` filter to each subquery individually:
 
 ```json
 POST /products/_search
@@ -72,20 +72,24 @@ POST /products/_search
   "query": {
     "hybrid": {
       "queries": [
-        { 
-            "match": { "description": "running shoes" } 
-            "filter" : {
-                "term": {"brand": "nike"},
-                "term": {"category": "shoes"}
+        {
+          "bool": {
+            "must": {
+              "match": { "description": "running shoes" }
+            },
+            "filter": {
+              "term": { "category": "shoes" }
             }
+          }
         },
-        { "knn": {
+        {
+          "knn": {
             "embedding": {
               "vector": [1.23, 0.45, 0.67, ...],
-              "k": 10
-            },
-            {
-              "filter": {"term": {"category": "shoes"}}
+              "k": 10,
+              "filter": {
+                "term": { "category": "shoes" }
+              }
             }
           }
         }
@@ -95,7 +99,7 @@ POST /products/_search
 }
 ```
 
-You can also combine common filters with subquery-specific filters. OpenSearch will apply both filters using a logical `AND`:
+You can also combine a common filter with subquery-specific filters. OpenSearch applies both using a logical `AND`. In the following example, the common filter restricts all subqueries to the `shoes` category, while the `match` subquery is further narrowed to the `nike` brand:
 
 ```json
 POST /products/_search
@@ -103,13 +107,17 @@ POST /products/_search
   "query": {
     "hybrid": {
       "filter": {
-        "range": { "price": { "gte": 50, "lte": 200 } }
+        "term": { "category": "shoes" }
       },
       "queries": [
         {
-          "match": { "description": "running shoes" },
-          "filter": {
-            "term": { "brand": "nike" }
+          "bool": {
+            "must": {
+              "match": { "description": "running shoes" }
+            },
+            "filter": {
+              "term": { "brand": "nike" }
+            }
           }
         },
         {
@@ -126,7 +134,7 @@ POST /products/_search
 }
 ```
 
-In this example, the top-level `filter (category: shoes)` is applied to both the `match` query and the `knn` vector query. OpenSearch ensures that **only documents in the "shoes" category are considered** by either subquery. This dramatically simplifies the query logic: you no longer need to wrap each subquery in a Boolean filter or duplicate the filter under multiple query clauses---the common filter does it for you.
+Here the common `category: shoes` filter applies to both subqueries. Because the `match` subquery also filters on `brand: nike`, it effectively requires `category: shoes` AND `brand: nike`, while the `knn` subquery is constrained only to `category: shoes`. You no longer need to duplicate the shared filter across subqueries---the common filter does it for you.
 
 ## How common filters work
 
@@ -143,13 +151,17 @@ Consider an e-commerce site that uses hybrid search to power its product search.
 
 Now imagine the user wants to see only items that are **in stock** and belong to the **"shoes"** category. Without common filter support, these filters would need to be manually added to each subquery. This makes query construction more complex and increases the risk of inconsistent filtering, especially if different subqueries apply filters differently or omit them by mistake.
 
-With **common filter support** in OpenSearch 3.0, you can define these filters once at the top level of the hybrid query. For example, adding a common filter similar to the following ensures that all subqueries, whether keyword based or vector based, are constrained to in-stock shoes:
+With **common filter support** in OpenSearch 3.0, you can define these filters once at the top level of the hybrid query. The top-level `filter` must be a single query object. To apply more than one condition, combine them in a `bool` query. For example, adding a common filter similar to the following ensures that all subqueries, whether keyword based or vector based, are constrained to in-stock shoes:
 
 ```json
-"filter": [
-  { "term": { "category": "shoes" }},
-  { "term": { "in_stock": true }}
-]
+"filter": {
+  "bool": {
+    "must": [
+      { "term": { "category": "shoes" }},
+      { "term": { "in_stock": true }}
+    ]
+  }
+}
 ```
 
 This makes the query logic simpler, reduces the risk of errors, and ensures a consistent filtering experience across all search paths. Consequently, users receive a unified and relevant result set that accurately reflects their search intent, omitting out-of-stock products or irrelevant items from other categories.
