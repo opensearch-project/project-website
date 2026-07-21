@@ -3,11 +3,11 @@ layout: post
 title: "Connect OpenSearch to private ML endpoints"
 authors:
     - nathhjo
-date: 2026-06-08
+date: 2026-07-28
 categories:
   - technical-posts
-meta_keywords: private endpoints, ML connectors, ML Commons, private IP, VPC connectivity, Amazon OpenSearch Service, self-managed OpenSearch, secure ML inference, private ML models, VPC egress
-meta_description: Step-by-step guide to connect OpenSearch to ML models on private infrastructure. Covers Amazon OpenSearch Service and self-managed deployments with VPC configuration and troubleshooting.
+meta_keywords: OpenSearch ML Commons, private endpoints, VPC, machine learning, inference, SageMaker, connectors, private IP, network isolation, self-managed OpenSearch, embedding models, LLM, secure ML integration
+meta_description: Connect OpenSearch to ML models hosted on private infrastructure. Configure ML Commons connectors for VPC-hosted endpoints, private SageMaker models, and internal inference servers without exposing services to the public internet
 ---
 
 As organizations bring machine learning into production, many choose to host models on private infrastructure, whether for security, regulatory compliance, or cost efficiency. Fine-tuned language models, custom embedding services, and specialized inference endpoints often run within virtual private clouds (VPCs) or behind corporate firewalls, unreachable from the public internet.
