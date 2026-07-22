@@ -1,0 +1,189 @@
+title: OpenSearch
+email: opensearch@amazon.com
+description: ""
+baseurl: "" # the subpath of your site, e.g. /blog
+url: https://opensearch.org
+twitter_username: 
+github_username: 
+headings:
+  news: 'Blog'
+  authors: 'Authors'
+  downloads: 'Download & Get Started'
+
+
+# Build settings
+plugins:
+  - jekyll-redirect-from
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-last-modified-at
+  - jekyll-sitemap
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - bower.json
+  - package.json
+
+defaults:
+-
+    scope:
+      type: "posts"
+    values:
+      permalink: blog/:title/
+-
+    scope:
+      type: "solutionsProviders"
+    values:
+      layout: "solutionsProviders"
+      permalink: solutionsProviders/:name.html
+-
+    scope:
+      type: javadocs
+    values:
+      layout: javadocs
+      permalink: /:collection/:name.html
+-
+    scope:
+      type: events
+    values:
+      layout: event
+      permalink:  events/:title/
+      breadcrumbs:
+        icon: meetings-and-events
+        items:
+          - title: Events
+            url: /events/calendar/
+-
+    scope:
+      type: calendars
+    values:
+      layout: calendar
+      permalink: /events/calendar/:name.html
+-
+    scope:
+      type: versions
+    values: 
+      layout: versions
+      permalink:  versions/:categories/:slug.html
+-
+    scope:
+      type: artifacts
+    values:
+      layout: artifact
+      permalink: :collection/:categories/:slug.html
+-
+    scope:
+      type: tutorials
+    values:
+      layout: tutorial
+      permalink: :collection/:slug.html
+-
+    scope:
+      type: lines
+    values:
+      layout: lines
+      permalink: :collection/:slug.html
+-
+    scope:
+      type: platforms
+    values:
+      permalink: platform/:categories/:name.html
+-
+    scope:
+      type: community_members
+    values:
+      layout: community_member
+-
+    scope:
+      type: opensearchcon_sessions
+    values:
+      layout: opensearchcon_individual_session
+-
+    scope:
+      type: opensearchcon_exhibitors
+    values:
+      layout: opensearchcon_individual_exhibitor
+-
+    scope:
+      type: opensearchcon_workshops
+    values:
+      layout: opensearchcon_individual_session
+
+
+collections:
+  solutionsProviders:
+    sort_by: name
+    output: true
+  community:
+    output: true
+  AnomalyDetection:
+    sort_by: name
+    output: true
+  community_projects:
+  javadocs:
+    output: true
+  events:
+    output: true
+  calendars:
+    output: true
+  artifacts:
+    output: true
+  versions:
+    sort_by: version
+    output: true
+  faqs:
+  testimonials:
+  herobanners:
+    output: true    
+  tutorials:
+    output: true
+  lines:
+    output: true
+  redesign_use_cases:
+    output: false
+  redesign_resources:
+    output: false
+  platforms:
+    output: true
+  platform_products:
+    output: false
+  redesign_testimonials:
+    output: false
+  redesign_heros:
+    output: false
+  community_members:
+    output: true
+    sort_by: name
+  opensearchcon_exhibitors:
+    output: true
+  opensearchcon_sessions:
+    output: true
+  opensearchcon_workshops:
+    output: true
+paginate: 15
+paginate_path: "/blog/page:num/"
+
+timezone: "Etc/UTC"
+
+highlighter: rouge
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

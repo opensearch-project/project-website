@@ -1,0 +1,80 @@
+
+
+$hover-effect-color: #0275d8; // Original color: purple
+$primary-color: #006D97; // Original color: blue
+
+
+.btn:hover .svg-icon {
+    fill: $hover-effect-color;
+}
+
+.svg-icon {
+    width: 1.5em;
+    height: 1.5em;
+    fill: $primary-color;
+    vertical-align: middle;
+
+}
+
+.btn-icon {
+
+    position: relative;
+    line-height: 1;
+
+}
+
+// light mode
+.footer-main-wrapper-light {
+    padding: 20px;
+    background-color: #F4F8FB;
+
+}
+
+.footer-column-categories-light{
+    list-style-type: none; 
+    color: $primary-color;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    @media screen and (max-width: 768px) {
+        font-size: 30px;
+
+    }
+    
+}
+
+.footer-content-light { 
+    color: $black;  
+    font-size: 24px;
+    font-weight: 400
+}
+
+
+.footer-category-navlinks-light {
+    font-size: 15px;
+    font-weight: 600;  
+    line-height: 24px;
+    &:hover,
+    &:active,
+    &:focus {
+        color: $hover-effect-color;
+    }   
+    @media screen and (max-width: 991px) {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 40px;
+    }
+}
+
+
+.footer-copyright-light { 
+    font-size: 15px;   
+}
+
+
+
+
+
+
+

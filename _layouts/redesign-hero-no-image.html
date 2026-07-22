@@ -1,0 +1,23 @@
+<div class="landing-page-hero">
+  {% if page.call_to_action %}
+    {% assign normal_icon_name = page.call_to_action.button_class | append: "-chevron-right" %}
+    {% assign hover_active_icon_name = page.call_to_action.button_class | append: "-chevron-right-hover-active" %}
+    <div class="landing-page-hero--call-to-action {{ page.call_to_action.button_class }}">
+      <a href="{{ page.call_to_action.url }}">
+        <div class="landing-page-hero--call-to-action--flex-wrap">
+          <div class="landing-page-hero--call-to-action--label">{{- page.call_to_action.label -}}</div>
+          <div class="landing-page-hero--call-to-action--arrow landing-page-hero--call-to-action--arrow__normal-focused">
+            {% include icons.html type=normal_icon_name %}
+          </div>
+          <div class="landing-page-hero--call-to-action--arrow landing-page-hero--call-to-action--arrow__hover-active">
+            {% include icons.html type=hover_active_icon_name %}
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endif %}
+  {{ content }}
+</div>
+{% if page.call_to_action %}
+  {% include interactive-states.html container_selector=".landing-page-hero" element_classname=page.call_to_action.button_class %}
+{% endif %}

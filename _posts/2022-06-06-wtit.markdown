@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "Partner Highlight: Using OpenSearch for F5 & NGINX with WorldTech IT"
+authors:
+  - ausgeraci
+  - ryanparas
+date: 2022-06-06
+categories:
+  - partners
+
+excerpt: "WorldTech IT is excited to join the OpenSearch community as users, contributors, and official OpenSearch partners"
+redirect_from: "/blog/partners/2022/06/wtit/"
+---
+
+[WorldTech IT](https://wtit.com/) is excited to join the OpenSearch community as users, contributors, and **official OpenSearch partners**. As the leader in [Professional](https://wtit.com/f5-services/f5-professional-services-load-balancer-support/) and [Managed Services](https://wtit.com/f5-services/f5-managed-services/) integrating [AWS](https://wtit.com/migrate-f5-big-ip-to-aws/) with [F5](https://wtit.com/f5-products/) and [NGINX](https://wtit.com/nginx-professional-services/) solutions, we rely on OpenSearch for use within our [Cloud.Red](https://wtit.com/cloud-red/) platform. Before we get into how we use and promote OpenSearch, you may be wondering where F5 and NGINX come into the picture.
+
+## About WorldTech IT
+
+As a top-tier [F5 Guardian Partner](https://wtit.com/f5-guardian-partners/), we specialize in designing application delivery solutions that leverage the best of F5 and NGINX. Our key focus areas are traffic optimization, high availability, automation, IAM, and security. From [on-premise to cloud migrations](https://wtit.com/migrate-f5-big-ip-to-aws/), [health-checks](https://wtit.com/f5-services/f5-professional-services-load-balancer-support/), [custom SaaS solutions](https://wtit.com/migrate-f5-big-ip-to-aws/), or our [Always-On program](https://wtit.com/f5-services/f5-managed-services/f5-always-on-service/) -- our expert team of F5 engineers brings more experience, depth of engineering bench, and focus around F5 technology than any other consulting company.
+
+Our customers needed a monitoring and alerting platform for F5 BIG-IP. When the competition wasn't cutting it, [Cloud.Red](https://wtit.com/cloud-red/) was born. In addition to monitoring and alerting, Cloud Red has grown to include observability and tooling to run everyday operational tasks and lifecycle management. Need scheduled backups of all your F5 devices with cloud storage options? Maybe you have a large environment and want to access all your devices from one screen with SSO? [Cloud.Red](https://wtit.com/cloud-red/) can do all of that and more -- making management at scale a reality.
+
+## How we use OpenSearch with F5 & NGINX
+
+OpenSearch has been integral to making [Cloud.Red](https://wtit.com/cloud-red/) a reality, providing an expansive feature set, such as role-based access (security), observability tooling, alerting, and anomaly detection. It is one of the cornerstones of the platform, allowing for the collection of logs, statuses, and statistics, helping present a clearer picture of our customers' F5 BIG-IP system heath.
+
+OpenSearch will continue to serve as an integral component of the [Cloud.Red](https://wtit.com/cloud-red/) platform, as we roll out features for NGINX products and dive deeper into application and security analytics.
+
+## Open-Source and Community
+
+WorldTech IT has been involved with the OpenSearch community since the early versions of Open Distro. From its infancy, we have appreciated the project's ability to provide indispensable features with a permissive license. It has allowed us to test, build, and deploy, unencumbered by restrictions seen in other software stacks.
+
+Since early on, we have been testers of new OpenSearch builds and collaborators in the community. We truly appreciate the many ways to collaborate with the project, such as [the forums](https://forum.opensearch.org/), [GitHub](https://github.com/opensearch-project/), and [community meetings](https://opensearch.org/events/).
+
+We also appreciate the greater community, such as partners like [Calyptia](https://calyptia.com/). We had the pleasure of collaborating with [Calyptia](https://calyptia.com/) on testing and improving [Fluent Bit](https://fluentbit.io/) and [Fluentd](https://www.fluentd.org/) for OpenSearch. Our continued collaboration is powering our transition from legacy tools to ones more compatible with the OpenSearch ecosystem.
+
+## Working with WorldTech IT
+
+If you are interested in collaborating on an OpenSearch project or looking for F5 & NGINX expertise, [contact us on our site](https://wtit.com/contact-us/) or hit us up through our [OpenSearch partner portal](https://opensearch.org/partners/).

@@ -1,0 +1,139 @@
+//
+// Tables
+//
+// stylelint-disable max-nesting-depth, selector-no-type, selector-max-type
+
+.table-styler + table {
+  display: table;
+  min-width: 100%;
+  border-collapse: separate;
+  border: 1px solid #ddd;
+  font-size: 16px;
+
+  th,
+  td {
+    min-width: 120px;
+    padding-top: 5px;
+    padding-right: 7.5px;
+    padding-bottom: 5px;
+    padding-left: 7.5px;
+    border-bottom: 1px solid #eeebee;
+    border-left: 1px solid #eeebee;
+
+    &:first-of-type {
+      border-left: 0;
+    }
+  }
+
+  tbody {
+    tr {
+      &:last-of-type {
+        th,
+        td {
+          border-bottom: 0;
+        }
+
+        td {
+          padding-bottom: 75px;
+        }
+      }
+    }
+  }
+
+  thead {
+    th {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
+
+.basic-data-table {
+  @include page-element-margins;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+  > thead {
+    > tr {
+      > th {
+        border-left: 3px solid $primary-open-sky-s2;
+        background: $primary-pacific-sky-t3;
+        font-family: 'Open Sans Condensed';
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        color: $primary-open-sky-s3;
+        padding: 10px 12px;
+      }
+    }
+  }
+  > tbody {
+    > tr {
+      > td {
+        background-color: #fff;
+        border-left: 3px solid $primary-open-sky-s2;
+        border-bottom: 1px solid $primary-deep-blue-sea-t3;
+        color: $secondary-sanfrancisco-fog-s5;
+        font-family: 'Open Sans';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 48px;
+        padding: 10px 12px;
+      }
+    }
+  }
+}
+
+.data-table__bold-first-column {
+  @extend .basic-data-table;
+  > tbody {
+    > tr {
+      > td:nth-of-type(1) {
+        font-weight: 700;
+        color: $primary-open-sky-s2;
+      }
+    }
+  }
+}
+
+.data-table__bold-first-two-columns {
+  @extend .data-table__bold-first-column;
+  > tbody {
+    > tr {
+      > td:nth-of-type(2) {
+        font-weight: 700;
+        color: $primary-open-sky-s2;
+      }
+    }
+  }
+}
+
+.data-table__half-width {
+  @extend .basic-data-table;
+  @media screen and (min-width: 835px) {
+    width: 50%;
+  }
+}
+
+.data-table__use-case-styles {
+  @extend .platform-page--solutions--use-cases--table;
+  @include page-element-margins;
+  > tbody {
+    > tr {
+      > td {
+        @include header-level5($secondary-sanfrancisco-fog-s5);
+        // Implementation note: These are overrides to the base use-cases--table styles.
+        &:nth-of-type(1) {
+          @include header-level5($secondary-sanfrancisco-fog-s5);
+        }
+        &:nth-of-type(2) {
+          @include header-level5($secondary-sanfrancisco-fog-s5);
+        }
+        @media screen and (min-width: 601px) {
+          &:nth-of-type(1) {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}

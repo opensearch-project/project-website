@@ -1,0 +1,27 @@
+---
+layout: redesign-fullwidth
+---
+{% assign exhibitors = site.opensearchcon_exhibitors | where: "conference_id", page.conference_id %}
+{% assign conference_url_path_segment = page.conference_id | replace_first: "-", "/" %}
+{% assign conference_link_base_url = '/events/opensearchcon/' | append: conference_url_path_segment %}
+{% assign content = page.content %}
+<div class="conference-exhibitors">
+    <div class="conference-exhibitors--grid resource-grid">
+        {% for exhibitor in exhibitors %}
+            {{ exhibitor }}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="conference-speaker-session-page--view-all">
+    <div class="conference-speaker-session-page--view-all--link-button">
+        <a href="{{ conference_link_base_url }}/sessions/index.html">View All Sessions</a>
+    </div>
+    <div class="conference-speaker-session-page--view-all--link-button">
+        <a href="{{ conference_link_base_url }}/speakers/index.html">View All Speakers</a>
+    </div>
+</div>
+
+{{ content | markdownify }}
+
+{% include card-clickability.html card_classname="resource-grid--item" card_container_selector=".conference-exhibitors--grid.resource-grid" %}

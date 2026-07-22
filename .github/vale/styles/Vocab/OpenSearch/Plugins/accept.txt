@@ -1,0 +1,27 @@
+Alerting plugin
+Anomaly Detection plugin
+Asynchronous Search plugin
+Cross-Cluster Replication plugin
+Crypto plugin
+Maps plugin
+Notebooks plugin
+Notifications plugin
+Reports plugin
+Reports Scheduler plugin
+Geospatial plugin
+Index Management plugin
+Job Scheduler
+Job Scheduler plugin
+k-NN
+k-NN plugin
+ML Commons
+ML Commons plugin
+Neural Search plugin
+Observability plugin
+Performance Analyzer plugin
+Query Workbench plugin
+Search Relevance plugin
+Security plugin
+Security Analytics plugin
+SQL plugin
+Trace Analytics plugin

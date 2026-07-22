@@ -1,0 +1,18 @@
+<div class="landing-page-community-voices--arrow-margin-wrapper {{ page.testimonial_class }}">
+    <div class="landing-page-community-voices--testimonial">
+        <div class="landing-page-community-voices--testimonial--logo">
+            <img src="{{ page.logo }}" 
+                alt="{{ page.author.organization }} testimonial logo"
+            >
+        </div>
+        <div class="landing-page-community-voices--testimonial--citation">
+            <blockquote>
+                {{ content }}
+            </blockquote>
+            <cite>
+                <div>{{ page.author.name }}</div>
+                <div>{{ page.author.title }}, {{ page.author.organization }}</div>
+            </cite>
+        </div>
+    </div>
+</div>

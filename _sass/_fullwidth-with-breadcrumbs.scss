@@ -1,0 +1,323 @@
+.full-width-layout--header {
+    @include page-element-padding;
+    background-color: white;
+    > .full-width-layout--header--category-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        @media screen and (max-width: 460px) {
+            flex-wrap: nowrap;
+        }
+        > .full-width-layout--header--icon {
+            flex-basis: 40px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            > svg,
+            > img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        > .full-width-layout--header--breadcrumbs--item,
+        > .full-width-layout--header--breadcrumbs--item-separator {
+            min-width: fit-content;
+            @include header-level4($secondary-sanfrancisco-fog-s4);
+            margin-left: 1em;
+            @media screen and (max-width: 411px) {
+                letter-spacing: 2px;
+            }
+            > a {
+                @include header-level4($secondary-sanfrancisco-fog-s4);
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
+                text-decoration: none;
+                @media screen and (max-width: 429px) {
+                    letter-spacing: 2px;
+                }
+            }
+            &:last-of-type {
+                > a {
+                    text-decoration: underline;
+                    text-decoration-color: $primary-pacific-blue;
+                    text-decoration-thickness: 2px;
+                }
+            }
+            @media screen and (max-width: 834px) {
+                display: none;
+            }
+        }
+        > .full-width-layout--header--icon + .full-width-layout--header--breadcrumbs--item {
+            @media screen and (max-width: 834px) {
+                &::before {
+                    content: "\003C"
+                }
+                display: block;
+            }
+        }
+    }
+    > .full-width-layout--header--title {
+        padding-left: 0;
+        > h1 {
+            margin-top: 21px;
+        }
+        @media screen and (max-width: 460px) {
+            padding-left: 0;
+            > h1 {
+                @include header-level1-mobile;
+            }
+        }
+    }
+}
+
+.full-width-layout--content {
+    @include thick-edge-top;
+    > .full-width-layout--content--body {
+        @extend .platform-page--content;
+        > h5:nth-of-type(1) {
+            @include header-level5(#000);
+            @include page-element-left-right-padding;
+            padding-bottom: 0;
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+        > h5:nth-of-type(1) + ul:nth-of-type(1),
+        .in-page-links-list {
+            @include page-element-left-right-margins;
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            > li {
+                float: left;
+                margin-right: 30px;
+                > a {
+                    @include body-small;
+                    text-underline-offset: 1px;
+                }
+            }
+            @include clearfix;
+            & + p {
+                padding-top: 0;
+            }
+        }
+        > ul {
+            @include page-element-left-right-margins;
+            padding-left: 0; // Override global ul rule.
+            &.site-content--blog-list {
+                list-style-type: none;
+                > li {
+                    &:not(:first-of-type) {
+                        border-top: 1px solid #ccd3d6;
+                    }
+                    > h2 {
+                        @include header-level2;
+                    }
+                    > p {
+                        @include body-small;
+                    }
+                }
+            }
+        }
+        &.join-slack {
+            > ul > li {
+                @include body-medium;
+            }
+            > .content-body--cta-button.content-body--cta-button__centered {
+                padding-bottom: 0;
+            }
+        }
+        > p {
+            @include page-paragraph-padding;
+            margin: 0;
+            &:first-of-type {
+                padding-top: 2em;
+            }
+            &:last-of-type {
+                padding-bottom: 2em;
+            }
+        }
+        > div,
+        section {
+            @include page-element-padding;
+        }
+        > h2,
+        > ol > li > h2 {
+            @include header-level2($primary-open-sky-s3);
+            @include page-paragraph-padding;
+            margin: 0;            
+        }
+        > h2:first-of-type {
+            margin-top: 1em;
+        }
+        > ul:first-of-type + h2:first-of-type {
+            margin-top: 2em;
+        }
+        > h3,
+        > ol > li h3 {
+            @include header-level3($primary-open-sky-s2);
+            @include page-paragraph-padding;
+            margin: 0;
+        }
+        > ol > li p {
+            @include page-paragraph-padding;
+        }
+        > ol > li ul {
+            @include page-element-margins;
+        }
+        > ol:last-of-type {
+            padding-bottom: 20px;
+        }
+        > ol {
+            padding-left: 0;
+        }
+        table {
+            @extend .basic-data-table;
+            &.data-table__half-width {
+                @extend .data-table__half-width;
+            }
+        }
+        .desktop-change-log-table,
+        .desktop-release-history-table,
+        .desktop-maintenance-policy-table,
+        .desktop-release-schedule-table {
+            @media screen and (max-width: 834px) {
+                display: none;
+            }
+        }
+        .change-log-mobile-table,
+        .release-history-mobile-table,
+        .maintenance-policy-mobile-table,
+        .release-schedule-mobile-table {
+            @media screen and (min-width: 835px) {
+                display: none;
+            }
+            > thead {
+                > tr {
+                    > th[colspan] {
+                        font-family: 'Open Sans Condensed';
+                        font-size: 21px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 28px;
+                        color: $primary-open-sky-s2;
+                        padding: 10px 12px;
+                        text-align: left;
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                        border-left: none;
+                    }
+                }
+            }
+            > tbody {
+                > tr {
+                    > td.mobile-table-row--heading-cell {
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 27px;
+                        color: $primary-open-sky-s3;
+                        padding: 10px 12px;
+                        border-left: none;
+                    }
+                    > td.mobile-table-row--value-cell {
+                        color: $secondary-sanfrancisco-fog-s5;
+                        font-family: 'Open Sans';
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 27px;
+                        padding: 10px 12px;
+                        border-left: none;
+                        a {
+                            overflow-wrap: anywhere;
+                        }
+                    }
+                }
+                > tr.mobile-table-row__end-of-record {
+                    > td {
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                    }
+                }
+            }
+        }
+        .maintenance-policy-mobile-table {
+            > tbody {
+                > tr:nth-of-type(1),
+                > tr:nth-of-type(7n) {
+                    > td {
+                        font-family: 'Open Sans Condensed';
+                        font-size: 21px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 28px;
+                        color: $primary-open-sky-s2;
+                        padding: 10px 12px;
+                        text-align: left;
+                        border-bottom: 3px solid $primary-open-sky-s2;
+                        border-left: none;
+                        background: $primary-pacific-sky-t3;
+                    }
+                }
+            }
+        }
+        .release-schedule-mobile-table {
+            > tbody {
+                > tr {
+                    > td {
+                        width: 50%;
+                        box-sizing: border-box;
+                        overflow-wrap: break-word;
+                    }
+                }
+            }
+        }
+        > .principles-for-development {
+            @include page-element-padding;
+            > div {
+                @include thick-edge-bottom;
+                @include card-shadow;
+                background-color: white;
+                @include inner-element-padding;
+                > h2 {
+                    @include header-level2($primary-open-sky-s2);
+                    &:first-of-type {
+                        margin-top: 0;
+                    }
+                    margin-top: 2em;
+                    margin-bottom: 0;
+                }
+                > p {
+                    margin-top: 0;
+                }
+            }
+        }
+        > .content-body--cta-button {
+            &.content-body--cta-button__centered {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 0 0 42px;
+            }
+            > .redesign-button--wrapper {
+                @media screen and (max-width: 410px) {
+                    width: calc(100% - 60px);
+                }
+            }
+        }
+    }
+    > .solutions-card-grid {
+        @include page-element-padding;
+        > .solutions-card-grid--card-wrapper {
+            @media screen and (min-width: 1460px) {
+                padding: 0;
+            }
+        }
+    }
+}

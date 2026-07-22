@@ -1,0 +1,11 @@
+{% assign category_resources = site.redesign_resources | where: "feature_area_category_name", include.feature_area_category_name %}
+{% if include.feature_area_solution_name %}
+    {% assign feature_resources = category_resources | where: "feature_area_solution_name", include.feature_area_solution_name %}
+{% else %}
+    {% assign feature_resources = category_resources %}
+{% endif %}
+{% if feature_resources %}
+    {% for resource in feature_resources %}
+        {{ resource }}
+    {% endfor %}
+{% endif %}

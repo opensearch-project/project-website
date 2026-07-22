@@ -1,0 +1,64 @@
+columns:
+  -
+    title: Participate
+    links:
+      -
+        title: Code of Conduct
+        url: /codeofconduct.html
+      -
+        title: Forum
+        url: https://forum.opensearch.org/
+      -
+        title: Project Repo
+        url: https://github.com/opensearch-project
+      -
+        title: Community Repo
+        url: https://github.com/opensearch-project/community
+      -
+        title: 'Meetup'
+        url: 'https://www.meetup.com/pro/opensearchproject/'
+      -
+        title: Connect
+        url: /connect.html
+
+  -
+    title: Providers
+    links:
+      -
+        title: Become a Provider
+        url: https://github.com/opensearch-project/project-website/issues/new?assignees=&labels=enhancement%2C+untriaged&projects=opensearch-project%2FWebsite+Update+Project%2Copensearch-project%2FPartner+Updates+and+Additions&template=solutionsProvider_add_new_solutionsProvider.yml&title=%5BSolutionsProvider%5D++
+      -
+        title: Find a Provider
+        url: https://opensearch.org/solutionsProviders/
+  
+  -
+    title: Resources
+    links:
+      - 
+        title: About
+        url: /about.html
+      - 
+        title: FAQ
+        url: /faq/
+      - 
+        title: Release Schedule
+        url: /releases.html
+      - 
+        title: Maintenance Policy
+        url: /releases.html#maintenance-policy
+      - 
+        title: Documentation
+        url: /docs/latest/about/
+      - 
+        title: Getting Started
+        url: /docs/latest/getting-started/
+      -
+        title: Testimonials
+        url: /testimonials/
+      -
+        title: Trademark & Brand
+        url: /trademark-brand-policy.html
+      -
+        title: Privacy
+        url: https://aws.amazon.com/privacy/
+

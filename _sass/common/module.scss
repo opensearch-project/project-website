@@ -1,0 +1,6 @@
+$radius-sm: 6px !default;
+$radius-lg: 10px !default;
+
+%rounded {
+    border-radius: $radius-lg;
+  }

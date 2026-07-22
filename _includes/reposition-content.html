@@ -1,0 +1,16 @@
+{% comment %}
+    A note to maintainers who might wonder why such a thing as this would exist.
+    Ease of content authoring using only Markdown and Front Matter as a goal
+    is at times at odds with sophisticated designs. So, here's a kludge
+    to allow that to happen where necessary.
+{% endcomment %}
+{%- if include.source_selector and include.insert_before_selector -%}
+<script type="module">
+    const sourceSelector = "{{ include.source_selector }}";
+    const insertBeforeSelector = "{{ include.insert_before_selector }}";
+    const sourceNode = document.querySelector(sourceSelector);
+    const targetNode = document.querySelector(insertBeforeSelector);
+    const targetParent = targetNode?.parentNode;
+    targetParent?.insertBefore?.(sourceNode, targetNode);
+</script>
+{%- endif -%}

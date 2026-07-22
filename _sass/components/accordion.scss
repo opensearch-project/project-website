@@ -1,0 +1,57 @@
+
+// Accordion Variables
+
+$text-color:                            $primary-open-sky-s1;
+
+$accordion-padding-y:                   1.25rem !default;
+$accordion-padding-x:                   0 !default;
+$accordion-bg:                          transparent !default;
+$accordion-border-radius:               0 !default;
+$accordion-inner-border-radius:         0 !default;
+
+$accordion-body-padding-y:              0 !default;
+$accordion-body-padding-x:              0 !default;
+// $accordion-body-font-size:              $font-size-sm !default;
+
+$accordion-button-color:                transparent !default;
+$accordion-button-font-size:            1rem !default;
+$accordion-button-font-weight:          600 !default;
+$accordion-button-active-color:         $accordion-button-color !default;
+$accordion-button-active-bg:            transparent !default;
+$accordion-transition:                  none !default;
+
+$accordion-icon-width:                  1em !default;
+$accordion-icon-color:                  $gray-900 !default;
+$accordion-icon-active-color:           $gray-900 !default;
+
+
+.accordion-OpenSearch-light {
+
+    .accordion-button {
+        // @include font-size(var(--bs-accordion-btn-font-size));
+        // font-weight: var(--bs-accordion-btn-font-weight);
+
+        --bs-accordion-active-bg: $accordion-button-active-bg;
+        --bs-accordion-active-color: $text-color;
+
+      
+        &:focus-visible {
+          box-shadow: none;
+        }
+
+        &:focus {
+            box-shadow: none;
+          }
+      
+        &:not(.collapsed) {
+          box-shadow: none;
+        }
+      }
+    
+    .accordion-item {
+        border: 0;
+        border-bottom: 1px solid $gray-600;
+        border-radius: 0;
+    }
+
+}

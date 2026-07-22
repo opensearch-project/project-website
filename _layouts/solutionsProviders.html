@@ -1,0 +1,367 @@
+---
+layout: default
+title: SolutionsProviders
+primary_title: SolutionsProviders
+---
+
+{% include address-custom-element.html %}
+{% include partner-social-links.html %}
+{% include responsive-collapsible-panel.html %}
+{% include uppercase-first-word.html %}
+{% include contact-info-element.html %}
+
+{% assign primary_title = page.name %}
+
+
+
+
+<div class="container solutionsProviders-desktopTopBanner-container d-none d-lg-block">
+    <div class="row">
+        <!-- FAVICON -->
+        <div class="col-3 solutionsProvider-sidebar-favicon-wrapper d-flex justify-content-center align-items-center">
+            
+            {% if page.logo %}
+                <img 
+                    src="{{ page.logo }}" 
+                    alt="{{ page.name_long }} Logo"
+                    class="solutionProvider-favicon-image"
+                > 
+            {% else %}
+                <img 
+                    src="{{ page.logo_large }}" 
+                    alt="{{ page.name_long }} Logo"
+                    class="solutionProvider-favicon-image"
+                > 
+            {% endif %}
+            
+        </div>
+
+        <!-- HEROBANNER -->
+        <div class="col-9 solutionsProvider-topBanner-img-wrapper m-0">
+            <div class="solutionsProvider-topBanner-content-wrapper d-flex flex-column align-items-start justify-content-center ps-4">
+
+                <span class="header--h2 mb-2">OpenSearch Solutions Provider</span>
+                <h1 class="solutionsProvider-hero-heading-name mb-2">{{ primary_title }}</h1>
+                {% if page.opensearch_tech %}
+                    {% assign specializationList = page.opensearch_tech | split: "," %}
+                    <div class="d-flex flex-row">
+                        <!-- img -->
+                        <img src="/assets/img/iconography/OpenSearch-Platform.png" alt="OpenSearch specialiaties image" class="iconography icon-div-box me-3">
+
+                        <!-- specialization list -->
+                        <span class="bodycontent--text my-auto">
+                            {% for specialization in specializationList %}
+                                {% if forloop.length > 1 and forloop.last != true %} 
+                                    {{ specialization | append: ' | '}} 
+                                {% else %}
+                                    {{ specialization }}
+                                {% endif %}
+                            {% endfor %}
+                        </span>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- MOBILE HERO -->
+<div class="container solutionsProvider-topBanner-mobile-container d-block d-lg-none p-0">
+    <div class="row">
+        <div class="col-12 solutionsProvider-topBanner-img-wrapper-mobile">
+            <div class="solutionsProvider-mobile-content-wrapper d-flex flex-column justify-content-center align-items-start ps-3">
+    
+    
+                <span class="header--h2 mb-2">OpenSearch Solutions Provider</span>
+                <h1 class="solutionsProvider-hero-heading-name mb-2">{{ primary_title }}</h1>
+                {% if page.opensearch_tech %}
+                    {% assign specializationList = page.opensearch_tech | split: "," %}
+                    <div class="d-flex flex-row">
+                        <!-- img -->
+                        <img src="/assets/img/iconography/OpenSearch-Platform.png" alt="OpenSearch specialiaties image" class="iconography icon-div-box me-3">
+    
+                        <!-- specialization list -->
+                        <span class="bodycontent--text my-auto">
+                            {% for specialization in specializationList %}
+                                {% if forloop.length > 1 and forloop.last != true %} 
+                                    {{ specialization | append: ' | '}} 
+                                {% else %}
+                                    {{ specialization }}
+                                {% endif %}
+                            {% endfor %}
+                        </span>
+                    </div>
+                {% endif %}
+    
+    
+    
+    
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container solutionsProviders-fullpage-with-sidebar-left">
+    <div class="row">
+        <div class="col-12 col-lg-3 solutionsProvider-sidebar-left ps-4 pb-5 d-none d-lg-block">
+
+            <!-- PROVIDER TYPE -->
+            {% if page.business_type %}
+                {% assign business_type_list = page.business_type | split: "," %}
+                <div class="subheader--h3 mt-3">Provider type</div>
+
+                {% for business_type in business_type_list %}
+                    <ul class="flex-column gap-1 m-0">
+                        <li class="d-flex w-100 m-0">
+                            <span class="bodycontent--text d-inline p-0">{{ business_type | strip }}</span>
+                        </li>
+                    </ul>
+                {% endfor %}
+
+            {% endif %}
+
+            <!-- REGIONS -->
+            {% if page.region %}
+                {% assign region_list = page.region | split: "," %}
+                <div class="subheader--h3 mt-3">Regions served</div>
+
+                {% for region in region_list %}
+                    <ul class="flex-column gap-1 m-0 ">
+                        <li class="d-flex w-100 m-0">
+                            <span class="bodycontent--text d-inline p-0">{{ region | strip }}</span>
+                        </li>
+                    </ul>
+                {% endfor %}
+
+            {% endif %}
+
+            <!-- INDUSTRY -->
+            {% if page.industries %}
+                {% assign industries_list = page.industries | split: "," %}
+                <div class="subheader--h3 mt-3">Industry specialization</div>
+
+                {% for industry in industries_list %}
+                    <ul class="flex-column gap-1 m-0 ">
+                        <li class="d-flex w-100 m-0">
+                            <span class="bodycontent--text d-inline p-0">{{ industry | strip }}</span>
+                        </li>
+                    </ul>
+                {% endfor %}
+
+            {% endif %}
+
+            <!-- MORE INFO -->
+            <div class="subheader--h3 mt-3">More information</div>
+            <ul class="flex-column gap-1 m-0 ">
+
+                {% if page.link %}
+                    <li class="d-flex w-100 m-0">
+                        <span class="bodycontent--text d-inline p-0">
+                            Website:
+                            <a class="bodycontent--text-link" href="{{ page.link }}" target="_blank">{{ page.link }}</a>
+                        </span>
+                    </li>
+                {% endif %}
+                {% if page.contact %}
+                    <li class="d-flex w-100 m-0">
+                        <span class="bodycontent--text d-inline p-0">
+                            Contact:
+                            <span class="bodycontent--text">{{ page.contact | split: ", " | first  }}</span>
+                        </span>
+                    </li>
+                {% endif %}
+            </ul>
+
+            <!-- SOCIAL -->
+
+            {% if page.social_links %}
+                <div class="subheader--h3 mt-3">Social</div>
+                <div class="d-flex flex-row ">
+                    
+                    {% for social_link in page.social_links %}
+                        <div class="partner-page--social-links me-2">
+                            
+                                <div class="partner-page--social-links--icon">
+                                    <a href="{{ social_link.url }}" target="_blank">
+                                        <partner-social-links icon="{{ social_link.icon }}"></partner-social-links>
+                                    </a>
+                                </div>
+                            
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+        </div>
+
+        <div class="col-12 col-lg-9 solutionsProvider-page-content p-3 px-lg-5 pt-3">
+            <!-- TITLE AND DESCRIPTION -->
+            {% if page.description %}
+                <div class="d-flex flex-column mb-4">
+                    <span class="header--h2 mb-3">About {{ primary_title }}</span>
+                    <span class="bodycontent--text">{{ page.description }}</span>
+                </div>
+            {% endif %}
+
+            <!-- PRODUCTS AND SERVICES -->
+            {% if page.products %}
+                <div class="d-flex flex-column mb-4">
+                    <span class="header--h2 mb-3">Products &amp; services </span>
+                    {% for product in page.products %}
+                        <div class="d-flex flex-column mb-2">
+                            {% if product.url %}
+                                <a href="{{ product.url }}" class="subheader--h3-link mb-1" target="_blank">{{ product.name }}</a>
+                            {% else %}
+                                <span class="subheader--h3 mb-1">{{ product.name }}</span>
+                            {% endif %}
+                            {% if product.description %}
+                                <span class="bodycontent--text">{{ product.description }}</span>
+                            {% endif %}
+                            
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- RESOURCES -->
+            {% if page.resources %}
+                {% include resource-grid-element.html %}
+                <div class="partner-page--layout--details--resources mb-4">
+                    <span class="header--h2">Resources</span>
+                    <div class=" mt-3">
+                        <resource-grid>
+                            {% for resource in page.resources %}
+                                <resource-grid-item slot="grid-item"
+                                    url="{{ resource.url }}"
+                                    type="{{ resource.type }}"
+                                    title="{{ resource.title }}"
+                                    thumbnail="{{ resource.thumbnail }}"
+                                    aspect-ratio="{{ resource.aspect_ratio }}"
+                                ></resource-grid-item>
+                            {% endfor %}
+                        </resource-grid>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="col-12 solutionsProvider-sidebar-left ps-3 pb-5 d-block d-lg-none">
+
+            <!-- PROVIDER TYPE -->
+            {% if page.business_type %}
+                {% assign business_type_list = page.business_type | split: "," %}
+                <div class="subheader--h3 mt-3">Provider type</div>
+
+                {% for business_type in business_type_list %}
+                    <ul class="flex-column gap-1 m-0 ps-2">
+                        <li class="d-flex w-100 m-0">
+                            <span class="bodycontent--text d-inline p-0">{{ business_type | strip }}</span>
+                        </li>
+                    </ul>
+                {% endfor %}
+
+            {% endif %}
+
+            <!-- REGIONS -->
+            {% if page.region %}
+                {% assign region_list = page.region | split: "," %}
+                <div class="subheader--h3 mt-3">Regions served</div>
+
+                {% for region in region_list %}
+                    <ul class="flex-column gap-1 m-0 ps-2">
+                        <li class="d-flex w-100 m-0">
+                            <span class="bodycontent--text d-inline p-0">{{ region | strip }}</span>
+                        </li>
+                    </ul>
+                {% endfor %}
+
+            {% endif %}
+
+            <!-- INDUSTRY -->
+            {% if page.industries %}
+                {% assign industries_list = page.industries | split: "," %}
+                <div class="subheader--h3 mt-3">Industry specialization</div>
+
+                {% for industry in industries_list %}
+                    <ul class="flex-column gap-1 m-0 ps-2">
+                        <li class="d-flex w-100 m-0">
+                            <span class="bodycontent--text d-inline p-0">{{ industry | strip }}</span>
+                        </li>
+                    </ul>
+                {% endfor %}
+
+            {% endif %}
+
+            <!-- MORE INFO -->
+            <div class="subheader--h3 mt-3">More information</div>
+            <ul class="flex-column gap-1 m-0 ps-2">
+
+                {% if page.link %}
+                    <li class="d-flex w-100 m-0">
+                        <span class="bodycontent--text d-inline p-0">
+                            Website:
+                            <a class="bodycontent--text-link" href="{{ page.link }}" target="_blank">{{ page.link }}</a>
+                        </span>
+                    </li>
+                {% endif %}
+                {% if page.contact %}
+                    <li class="d-flex w-100 m-0">
+                        <span class="bodycontent--text d-inline p-0">
+                            Contact:
+                            <span class="bodycontent--text">{{ page.contact | split: ", " | first  }}</span>
+                        </span>
+                    </li>
+                {% endif %}
+            </ul>
+
+            <!-- SOCIAL -->
+
+            {% if page.social_links %}
+                <div class="subheader--h3 mt-3">Social</div>
+                <div class="d-flex flex-row ps-2">
+                    
+                    {% for social_link in page.social_links %}
+                        <div class="partner-page--social-links me-2">
+                            
+                                <div class="partner-page--social-links--icon">
+                                    <a href="{{ social_link.url }}" target="_blank">
+                                        <partner-social-links icon="{{ social_link.icon }}"></partner-social-links>
+                                    </a>
+                                </div>
+                            
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+<div class="platform-product">
+    {%- if page.image %}
+        <div class="platform-product--image">
+            <img src="{{ page.image }}" alt="{{ page.title }}">
+        </div>
+    {%- else -%}
+        <div class="platform-product--title">
+            <div class="platform-product--title--text">
+                {{page.title}}
+            </div>
+        </div>
+    {%- endif -%}
+    <div class="platform-product--description">{{content}}</div>
+</div>

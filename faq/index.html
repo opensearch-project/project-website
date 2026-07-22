@@ -1,0 +1,41 @@
+---
+layout: fullwidth-with-breadcrumbs
+title: Frequently Asked Questions
+primary_title: Frequently Asked Questions
+breadcrumbs:
+  icon: platform
+  items:
+    - title: About
+      url: '/about.html'
+    - title: FAQ
+      url: '/faq/'
+---
+
+{% assign faqs = site.faqs | group_by: 'category' %}
+<ul class="in-page-links-list">
+  <li>Categories:</li>
+  {% for faq_group in faqs  %}
+    {% assign categoryindex = forloop.index %}
+    <li><a href="#c{{categoryindex}}">{{ faq_group.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<ol id="faq">
+  
+  {% for faq_group in faqs  %}
+    {% assign categoryindex = forloop.index %}
+    <li id="c{{categoryindex}}"><h2>{{categoryindex}}. {{ faq_group.name }}</h2>
+      
+      <ol>
+        {% for faq in faq_group.items  %}
+        {% capture fullindex %}{{categoryindex }}.{{forloop.index}}{%endcapture%}
+        <li id="q{{fullindex}}">
+            <h3><span>{{fullindex}}</span> {{faq.question}} <a href="#q{{fullindex}}"><i class="icon icon-link"></i></a></h3>
+            {{faq.content | markdownify}}
+        </li>
+        {% endfor %}
+      </ol>
+    </li>
+   
+  {% endfor %}
+</ol>

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% if page.has_hero %}
+    {% assign page_type_class= "page-with-hero" %}
+{% else %}
+    {% assign page_type_class = "page-without-hero" %}
+{% endif %}
+<main class="container">
+    <div class="{{ page_type_class }}">
+        {% include page-title.html 
+            primary_title=page.primary_title
+            title=page.title
+        %}
+        <div class="platform-page--content">
+            <div class="platform-solution-page">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</main>

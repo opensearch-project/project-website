@@ -1,0 +1,10 @@
+extends: existence
+message: "There should be no spaces around the dash in '%s'."
+ignorecase: true
+nonword: true
+level: error
+scope:
+  - ~list
+tokens:
+  - '\w+ +-{2,3} +\w+'
+  - '\w+ +\x{2014} +\w+'

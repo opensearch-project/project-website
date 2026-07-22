@@ -1,0 +1,9 @@
+extends: capitalization
+message: "'%s' is a table heading and should be in sentence case."
+level: error
+scope: table.header
+match: $sentence
+exceptions:
+  - k    # ignores lowercase k-NN
+  - gRPC # allow gRPC branding (mixed case)
+  - '[A-Z]{2,}' # ignores all acronyms (REST, HTTP, P50, P90, P99, etc.)

@@ -1,0 +1,182 @@
+Active Directory
+AI21 Labs Jurassic
+Aiven
+Adoptium
+Amazon
+Amazon Bedrock
+Amazon OpenSearch Serverless
+Amazon OpenSearch Service
+Amazon Q Developer
+Ansible
+Apache
+Arenadata
+Asana
+Auditbeat
+AWS Cloud
+Big Endian
+BigData Boutique
+Bitergia
+Bonsai
+Calyptia
+CloudTrail
+Cognito
+Cohere Command
+Cohere Embed English
+Cohere Embed Multilingual
+Coralogix
+Dashboards Query Language
+Data Prepper
+Datadog
+Dattell
+DBPedia
+Debian
+deepset
+Dev Tools
+DigitalPebble
+Docker
+Docker Compose
+Dockerfile
+DoS
+Elasticsearch
+ElastiFlow
+Eliatra
+Faiss
+Filebeat
+Flickr
+Flink
+Fluent Bit
+Fluentd
+Fortinet
+Functionbeat
+GeoJSON
+GitHub
+Gradle
+Grafana
+Graylog
+Greynoise
+Hacktoberfest
+Hashicorp
+Helm
+Hidora
+Hopsworks
+Hossted
+Hugging Face
+Hyland
+Inferentia
+INFINI Labs
+initMAX
+Instaclustr
+IP2Geo
+IPv4
+IPv6
+Iris
+IronCore
+Istio
+JavaScript
+Jaeger
+Jaeger HotROD
+Jelastic
+Journalbeat
+JSON
+Keycloak
+Kerberos
+Kibana
+Kiro
+Kubernetes
+Kubeshop
+Lambda
+Linux
+Little Endian
+Log4j
+Logit.io
+Logstash
+Logz.io
+Lua
+Lucene
+Mach5
+macOS
+Matomo
+maxcluster
+Medtronic
+Metarank
+Metricbeat
+Microsoft Power BI
+Minikube
+MPNet
+Nagios
+Neiman Marcus
+NetFlow
+netimate
+NFCorpus
+NGINX
+Node.js
+Okta
+Open Distro
+OpenAI
+OpenID Connect
+OpenSearch
+OpenSearch Benchmark
+OpenSearch Dashboards
+OpenSearch Launchpad
+OpenSearch Playground
+OpenSearch Project
+OpenSearch Relevance Agent
+OpenSearch Service
+OpenSearchCon
+OpenSource Connections
+OpenSSL
+OpenTelemetry
+OpenTelemetry Collector
+Opster
+Oracle
+OTel
+Packetbeat
+Painless
+Peer Forwarder
+Performance Analyzer
+Piped Processing Language
+Powershell
+Protobuf
+Pureinsights
+Python
+PyTorch
+Querqy
+Query Workbench
+Quora
+Random Cut Forest
+ReactiveSearch
+Recon InfoSec
+ReflexSOAR
+RPM Package Manager
+Ruby
+SageMaker
+SciDocs
+SciFact
+Seacom
+SearchBlox
+Searchium
+Searchium.ai
+Sease
+Serverless
+Simple Schema for Observability
+SnappyFlow
+SquareShift
+Splunk
+Stellar Cyber
+Tableau
+Titaniam
+TorchScript
+Tornis Tecnologia
+Tracetest
+Tribuo
+Uber
+Ubuntu
+Virtuozzo
+VisBuilder
+Wazuh
+Weblink
+Winlogbeat
+WorldTech
+Xplore
+Zipkin
+Zstandard

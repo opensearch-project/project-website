@@ -1,0 +1,51 @@
+name: 📝 Edit blog post
+description: Edit a published blog post
+title: "[BLOG-EDIT] <title>"
+labels: ['Blog update, untriaged']
+projects: ["opensearch-project/Digital Marketing Content"]
+body:
+
+  - type: markdown
+    attributes:
+      value: "## Required information "
+  - type: markdown
+    attributes:
+      value: |
+        Provide a link to the existing blog, the title, and the an exact summary of the edits requested.
+  - type: textarea
+    attributes:
+      label: Exact edits needed
+      description: Description of where in the text the edits are required - be precise.
+    validations:
+      required: true
+  
+  - type: input
+    attributes:
+      label: Authors Name
+      placeholder: First Last
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Authors Email
+      placeholder: email@example.com or GitHub profile
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "<br/> <br/> "
+
+  - type: markdown
+    attributes:
+      value: "## Additional context "
+  - type: markdown
+    attributes:
+      value: |
+        Provide any additional info or context
+
+  - type: textarea
+    attributes:
+      label: Additional Info
+      description: Provide any additional context or content that you would like to include for this blog post.
+    validations:
+      required: false

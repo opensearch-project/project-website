@@ -1,0 +1,772 @@
+/*
+CSS Written by Jes Gundy
+Threespot, Washington DC
+---
+Ammended and appended by Andrew McCarthy
+https://andrevv.com/
+---
+Ported to Libsass by Michael Trythall
+https://lincolnloop.com/team/michael-trythall/
+---
+CSS rendered with Libsass 0.7.0
+
+Altered for OpenSearch by AWS
+*/
+
+//------------------- Globals
+html {
+    background: $accent-dark;
+}
+
+body {
+    @include sans-serif;
+    font-size: 18px;
+    color: $text;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .layout-secondary,
+    [role="complementary"] {
+        @include sans-serif; // reverse font style on sidebar and secondary areas
+    }
+
+    // don't activate mobile styles for larger screens
+    @include respond-min(462.5px) {
+        min-width: 462.5px;
+    }
+}
+a {
+    color: $primary-pacific-blue;
+    text-decoration: underline;
+    -webkit-tap-highlight-color: transparent;
+    &:hover {
+        color: $primary-open-sky;
+    }
+    &:visited {
+        color: $primary-pacific-blue-s2;
+    }
+}
+
+::selection { // Text Selection Colors
+    background: $highlight;
+}
+::-moz-selection {
+    background: $highlight;
+}
+ol li, ul li { //list style
+    margin-top: 10px;
+}
+dl {
+    margin: 20px 0 10px;
+
+    dt {
+        @include sans-serif;
+        font-weight: 400;
+    }
+
+    dd {
+        margin: 0;
+        padding: 0;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &.glossary {
+        dt {
+            font-weight: 600;
+        }
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include heading-sans-serif;
+    font-weight: 700;
+    a {
+        text-decoration: none;
+        @include link-alternate;
+    }
+}
+h1 {
+    font-size: 28px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    @include respond-min(462.5px) {
+        font-size: 32px;
+    }
+
+    .layout-secondary & {
+        color: $text;
+    }
+
+    [role="main"] & {
+        font-size: 32px;
+        margin: 40px 0px 30px;
+        color: $text;
+    }
+
+    [role="complementary"] & {
+        font-size: 28px;
+    }
+}
+h2 {
+    font-size: 24px;
+    [role="complementary"] &,
+    .layout-secondary & {
+        font-size: 20px;
+        border-bottom: 1px solid $line;
+        padding-bottom: 15px;
+        margin-top: 30px;
+
+        &:first-of-type {
+            margin-top: inherit;
+        }
+
+        &:first-child {
+            @include respond-min(462.5px) {
+                margin-top: 20px;
+            }
+        }
+
+        .full-width & {
+            font-size: 24px;
+        }
+    }
+
+    [role="main"] & {
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+}
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: $text;
+    line-height: 1.2;
+    margin: 35px 0 20px;
+
+    [role="complementary"] &,
+    .layout-secondary & {
+        font-size: 18px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+
+        &:first-child {
+            @include respond-min(462.5px) {
+                margin-top: 12px;
+            }
+        }
+    }
+
+    [role="complementary"] & {
+        font-size: 18px;
+        border-bottom: 1px solid $line;
+    }
+}
+
+h4 {
+    font-size: 16px;
+    color: $text;
+    line-height: 1.2;
+    margin: 35px 0 20px;
+    font-weight: 700;
+}
+
+tt,
+code,
+kbd,
+pre,
+samp {
+    @include monospace;
+    color: $accent-dark;
+    font-size: 1em;
+}
+
+tt {
+    font-weight: 700;
+}
+
+span.pre {
+    @include monospace;
+}
+
+a.javadoc {
+    @include monospace;
+    font-size: 15px;
+}
+
+a:hover, a:active, a:focus {
+    tt {
+        color: $text-hover;
+    }
+}
+
+p {
+    //increase top margin if first item in container
+    [role="main"] > &:first-child {
+        margin-top: 30px;
+    }
+}
+
+ul {
+    padding-left: 20px;
+}
+
+//------------------- Layout
+
+
+[role="main"] {
+    //Main column. Left aligned by default. See /styleguide for explanation.
+    background: $background-lightest;
+    padding: 1px 10px 40px;
+    @include respond-min(462.5px) {
+        min-height: 800px;
+        border: 1px solid #ddd;
+        float: right;
+        margin: 0;
+        padding-bottom: 80px;
+        padding-left: 3%;
+        padding-right: 3%;
+        width: 60%;
+        .mdzr-boxshadow & {
+            border: none;
+            padding-left: 4%;
+            padding-right: 0;
+            width: 63%;
+        }
+
+        .sidebar-right & {
+            float: left;
+            .mdzr-boxshadow & {
+                border: none;
+                padding-left: 0;
+                width: 62%;
+                padding-right: 4%;
+            }
+        }
+    }
+
+    .section {
+        padding-bottom: 40px;
+        border-bottom: 1px solid $line;
+        &:last-of-type {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+        dd {
+            &.last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+
+[role="complementary"] {
+    //Sidebar in column layouts, gray section in fullwidth layout
+    padding: 0 10px 20px;
+    font-size: 15px;
+    @include respond-min(462.5px) {
+        float: right;
+        margin: 10px 0 20px 0;
+        margin-right: 3%;
+        padding: 0 0 40px 0;
+        width: 30%;
+
+        .sidebar-right & {
+            margin-left: 3%;
+            margin-right: 0;
+        }
+    }
+
+    span.form-controls {
+        display: none;
+    }
+
+    .list-collapsing {
+        margin-top: 0;
+        border-bottom: 0;
+
+        &.active {
+            li {
+                border-top: 0;
+            }
+            h2 {
+                padding: 10px 40px 10px 0;
+                font-size: 18px;
+                border-bottom: 0;
+                color: $attention;
+
+                .collapsing-icon {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
+.copy-banner {
+    // Large green callout at the top of the page
+    background: $background-darkest;
+    padding: 1px 10px;
+
+    @include respond-min(462.5px) {
+        padding: 1px 0;
+    }
+
+    p,
+    h1 {
+        @include sans-serif;
+        font-size: 24px;
+        color: $core;
+        font-weight: 300;
+        line-height: 1.3;
+        padding: 1px 0 6px;
+        margin: .45em 0 .35em;
+
+        em {
+            font-style: normal;
+            color: white;
+        }
+
+        @include respond-min(462.5px) {
+            font-size: 32px;
+
+            margin: .35em 0 .35em;
+            color: $highlight;
+            padding: 1px 0 6px;
+
+        }
+
+        a {
+            font-weight: 300;
+        }
+
+        a.cta, .cta {
+            margin: 0;
+            font-size: 18px;
+        }
+    }
+
+    a.cta, .cta {
+        margin: 15px 0;
+        padding: 0.4em 1.5em 0.5em;
+        background: $attention-light;
+
+
+        background: none;
+        border: 1px solid $highlight;
+        color: $highlight;
+        font-weight: 400;
+        em {
+            color: white;
+        }
+        &:hover {
+            background: $white;
+            color: $core;
+            border-color: $white;
+            em {
+                color: $core;
+            }
+        }
+
+        &.white {
+            background: $white;
+            color: $core;
+            font-weight: 700;
+            border: 0;
+            &:hover {
+                background: $background-lightest;
+            }
+        }
+    }
+
+    .homepage & {
+        p {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin: 1em auto .5em;
+            color: $text;
+            font-size: 36px;
+            &.small {
+                color: $text-light;
+                margin: 2em auto 1em;
+                font-size: 14px;
+            }
+            em {
+                color: $text;
+            }
+        }
+        a.cta, .cta {
+            display: inline-block;
+            padding: 1em 50px 1.1em;
+            margin-bottom: 40px;
+            background: $attention;
+            color: white;
+            border: 0;
+        }
+    }
+
+    .container {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+    }
+
+    @media (min-width: 462.5px) {
+        .container {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
+
+//------------------- Recycleable Style Classes
+
+.cta, a.cta {
+    // Call To Action buttons
+    @include sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: $text-link-alternate;
+    border: none;
+    border-radius: 5px;
+    color: $background-lightest;
+    display: block;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    margin: 30px auto 0;
+    padding: 1em 1.5em;
+    text-align: center;
+    text-decoration: none;
+    @include respond-min(462.5px) {
+        margin: 20px auto;
+        max-width: 400px;
+    }
+
+    em {
+        color: $highlight;
+        font-style: normal;
+    }
+
+    &:hover, &:focus {
+        background-color: $text-link-alternate-lighter;
+    }
+
+    &:active {
+        background:  $text-link-alternate-darker;
+    }
+
+    [role="complementary"] & {
+        font-size: 16px;
+
+        + .link-readmore {
+            display: block;
+            text-align: center;
+            @include respond-min(462.5px) {
+                margin-top: -10px;
+            }
+        }
+    }
+
+
+    &.outline {
+        // Outline button for less-dominant CTA
+        background: none;
+        border: 1px solid $core;
+        color: $core;
+        font-weight: 400;
+
+        &.inline {
+            display: inline;
+            margin-right: 1em;
+        }
+
+        em {
+            color: $accent-dark;
+        }
+
+        &:hover {
+            border-color: $text-link-alternate-lighter;
+            color: $text-link-alternate-lighter;
+            em {
+                color: $text-link-alternate-lighter;
+            }
+        }
+        &:active {
+            border-color: $attention;
+            color: $attention;
+            em {
+                color: $attention;
+            }
+        }
+    }
+
+    &.create-pr {
+        display: inline-block;
+    }
+}
+
+.link-readmore {
+    @include sans-serif;
+    font-size: 14px;
+    display: inline-block;
+    margin: 5px 0 10px 0;
+    &:after {
+        content: " ›";
+        font-size: 1.2em;
+    }
+    &.back-link {
+        &:after {
+            content: "";
+        }
+        &:before {
+            content: "‹ ";
+            font-size: 1.2em;
+        }
+    }
+    font-weight: 700;
+    text-transform: uppercase;
+
+    [role="complementary"] & {
+        font-size: 12px;
+    }
+}
+.meta {
+    // Re-usable meta class for alternate-style content.
+    @include sans-serif;
+    font-size: 14px;
+    display: block;
+    line-height: 1.3;
+    margin: 25px 0 20px;
+
+    a {
+        @include link-alternate;
+    }
+}
+.layout-2col {
+    //two column layout module
+    margin: 20px 0;
+
+    @include respond-min(462.5px) {
+        @include clearfix;
+        margin: 0;
+        .col {
+            float: left;
+            width: 46%;
+            margin: 0 4%;
+            &:first-child {
+                margin-left: 0;
+            }
+            &.last-child {
+                margin-right: 0;
+            }
+        }
+        .one-third {
+            width: 29%;
+        }
+        .two-third {
+            width: 62%;
+        }
+    }
+}
+.label {
+    // Label style associated with forms and other global elements.
+    @include sans-serif;
+    font-size: 16px;
+    color: $text;
+    display: block;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+
+
+    &.form-controls {
+        font-size: 14px;
+        display: block;
+        margin: 0;
+        position: relative;
+        text-align: left;
+
+        span {
+            cursor: pointer;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $text-light;
+            }
+        }
+    }
+}
+
+.list-news {
+    // News article listing style. (See News & Events Page.)
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    h2 {
+        font-weight: 400;
+        margin-bottom: 5px;
+    }
+
+    li {
+        border-top: 1px solid $line;
+        margin-top: 35px;
+        padding-top: 10px;
+
+        &:first-child {
+            border: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        &.unpublished,
+        &.unpublished * {
+            color: $text-light;
+        }
+    }
+
+    .meta {
+        margin-top: 10px;
+        color: $text-light;
+        a:link {
+            color: $text-light;
+            text-decoration: underline;
+        }
+    }
+}
+
+@include respond-min(462.5px) {
+    .form-controls.label {
+        float: right;
+    }
+}
+
+//------------------- Forms
+form {
+    @include sans-serif;
+    font-size: 16px;
+    // Global input styles
+    input[type="search"],
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="url"],
+    textarea {
+        @include sans-serif;
+        font-size: 16px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: $background-lightest;
+        border: 1px solid $line;
+        border-radius: 4px;
+        cursor: auto;
+        display: block;
+        font-weight: 400;
+        height: 30px;
+        margin: 10px 0px;
+        padding: 6px 14% 8px 10px;
+        text-indent: 0;
+        vertical-align: middle;
+        width: 83%;
+
+        @include respond-min(462.5px) {
+            padding: 6px 18% 8px 10px;
+            width: 80%;
+        }
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            border-color: $core;
+        }
+    }
+
+    textarea {
+        height: auto;
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+        margin-right: 6px;
+    }
+
+    select {
+        border: 1px solid $line;
+        background: white;
+        height: 46px;
+        padding: 0 10px;
+        border-radius: 4px;
+        font-size: 16px;
+
+        [role="complementary"] & {
+            height: 36px;
+            font-size: 14px;
+        }
+    }
+
+    button {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+
+        background: $core;
+        border-radius: 4px;
+        color: white;
+        border: 0;
+        height: 46px;
+        padding: 0 15px;
+        @include sans-serif;
+        font-size: 16px;
+        &:hover {
+            background: $attention;
+        }
+    }
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid $line;
+}
+
+// Boilerplate Helper mixins (rendered as classes)
+.visuallyhidden {
+    @include visuallyhidden;
+}
+
+table.opensearch-supported-versions {
+    border: 1px solid black;
+    text-align: center;
+    tr {
+        background-color: $highlight;
+        th, td {
+            padding: 5px;
+        }
+    }
+    tr.unsupported {
+        background-color: $alert-light;
+    }
+}
+
+.homepage {
+    .section.headline {
+        padding-bottom: 0;
+        h1 {
+            margin: 2em 1em;
+            text-align: center;
+        }
+    }
+}

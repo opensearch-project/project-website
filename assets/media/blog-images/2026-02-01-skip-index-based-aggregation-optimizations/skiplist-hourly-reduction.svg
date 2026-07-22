@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #2c3e50; }
+      .subtitle { font: bold 16px sans-serif; fill: #34495e; }
+      .label { font: 13px sans-serif; fill: #2c3e50; }
+      .small-label { font: 11px sans-serif; fill: #7f8c8d; }
+      .metric { font: bold 14px sans-serif; }
+      .skip-text { fill: #e74c3c; }
+      .count-text { fill: #27ae60; }
+      .process-text { fill: #f39c12; }
+      .block { stroke: #34495e; stroke-width: 2; }
+      .skip-block { fill: #fadbd8; }
+      .count-block { fill: #d5f4e6; }
+      .process-block { fill: #fdebd0; }
+      .arrow { stroke: #34495e; stroke-width: 2; fill: none; }
+      .comparison-box { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="35" text-anchor="middle" class="title">Skiplist Optimization: Reducing Doc Value Lookups</text>
+  <text x="600" y="60" text-anchor="middle" class="subtitle">Query: status=200, Aggregation: hourly buckets, ~12,000 docs/hour</text>
+  
+  <!-- Scenario description -->
+  <rect x="50" y="80" width="1100" height="60" class="comparison-box"/>
+  <text x="600" y="105" text-anchor="middle" class="label" style="font-weight: bold;">Scenario: 24-hour period with 288,000 total documents (12,000 docs/hour average)</text>
+  <text x="600" y="125" text-anchor="middle" class="small-label">Skiplist Level 1 blocks: 4,096 documents each = ~70 blocks total | Each block spans ~20 minutes of data</text>
+  
+  <!-- Timeline visualization -->
+  <text x="50" y="175" class="subtitle">Document Distribution (4,096 doc blocks):</text>
+  
+  <!-- Hour markers -->
+  <text x="100" y="200" text-anchor="middle" class="small-label">00:00</text>
+  <text x="300" y="200" text-anchor="middle" class="small-label">06:00</text>
+  <text x="500" y="200" text-anchor="middle" class="small-label">12:00</text>
+  <text x="700" y="200" text-anchor="middle" class="small-label">18:00</text>
+  <text x="900" y="200" text-anchor="middle" class="small-label">23:59</text>
+  
+  <!-- Sample blocks visualization -->
+  <text x="50" y="240" class="label" style="font-weight: bold;">Sample Hour: 14:00-15:00 (3 skiplist blocks)</text>
+  
+  <!-- Block 1: 14:00-14:20 -->
+  <rect x="100" y="260" width="280" height="100" class="block count-block"/>
+  <text x="240" y="285" text-anchor="middle" class="label" style="font-weight: bold;">Block 42 (14:00-14:20)</text>
+  <text x="240" y="305" text-anchor="middle" class="small-label">4,096 documents</text>
+  <text x="240" y="325" text-anchor="middle" class="small-label">Min @timestamp: 14:00:01</text>
+  <text x="240" y="340" text-anchor="middle" class="small-label">Max @timestamp: 14:20:59</text>
+  <text x="240" y="355" text-anchor="middle" class="count-text metric">✓ BULK COUNT</text>
+  
+  <!-- Block 2: 14:20-14:40 -->
+  <rect x="420" y="260" width="280" height="100" class="block count-block"/>
+  <text x="560" y="285" text-anchor="middle" class="label" style="font-weight: bold;">Block 43 (14:20-14:40)</text>
+  <text x="560" y="305" text-anchor="middle" class="small-label">4,096 documents</text>
+  <text x="560" y="325" text-anchor="middle" class="small-label">Min @timestamp: 14:21:00</text>
+  <text x="560" y="340" text-anchor="middle" class="small-label">Max @timestamp: 14:40:58</text>
+  <text x="560" y="355" text-anchor="middle" class="count-text metric">✓ BULK COUNT</text>
+  
+  <!-- Block 3: 14:40-15:00 -->
+  <rect x="740" y="260" width="280" height="100" class="block count-block"/>
+  <text x="880" y="285" text-anchor="middle" class="label" style="font-weight: bold;">Block 44 (14:40-15:00)</text>
+  <text x="880" y="305" text-anchor="middle" class="small-label">4,096 documents</text>
+  <text x="880" y="325" text-anchor="middle" class="small-label">Min @timestamp: 14:41:02</text>
+  <text x="880" y="340" text-anchor="middle" class="small-label">Max @timestamp: 15:00:59</text>
+  <text x="880" y="355" text-anchor="middle" class="count-text metric">✓ BULK COUNT</text>
+  
+  <!-- Explanation -->
+  <text x="600" y="390" text-anchor="middle" class="small-label" style="font-style: italic;">All 3 blocks fall entirely within the 14:00-15:00 hour bucket → Bulk count all 12,288 docs</text>
+  
+  <!-- Comparison section -->
+  <text x="50" y="440" class="subtitle">Doc Value Lookup Comparison:</text>
+  
+  <!-- Without Skiplist -->
+  <rect x="50" y="460" width="550" height="360" class="comparison-box" style="fill: #fee;"/>
+  <text x="325" y="490" text-anchor="middle" class="label" style="font-weight: bold; font-size: 16px;">WITHOUT Skiplist</text>
+  
+  <!-- Step by step without skiplist -->
+  <text x="70" y="520" class="label" style="font-weight: bold;">For each document (288,000 total):</text>
+  
+  <circle cx="80" cy="545" r="5" fill="#e74c3c"/>
+  <text x="95" y="550" class="small-label">1. Read doc value for @timestamp</text>
+  
+  <circle cx="80" cy="570" r="5" fill="#e74c3c"/>
+  <text x="95" y="575" class="small-label">2. Check if status=200 (filter match)</text>
+  
+  <circle cx="80" cy="595" r="5" fill="#e74c3c"/>
+  <text x="95" y="600" class="small-label">3. Determine which hour bucket (0-23)</text>
+  
+  <circle cx="80" cy="620" r="5" fill="#e74c3c"/>
+  <text x="95" y="625" class="small-label">4. Increment bucket counter</text>
+  
+  <rect x="70" y="645" width="510" height="80" fill="#fff" stroke="#e74c3c" stroke-width="2"/>
+  <text x="325" y="670" text-anchor="middle" class="metric skip-text">Total Doc Value Lookups: 288,000</text>
+  <text x="325" y="690" text-anchor="middle" class="small-label">Every document requires reading @timestamp</text>
+  <text x="325" y="710" text-anchor="middle" class="small-label">from doc values to determine bucket assignment</text>
+  
+  <text x="325" y="745" text-anchor="middle" class="label" style="font-weight: bold;">Processing Time: ~850ms</text>
+  <text x="325" y="765" text-anchor="middle" class="small-label">(assuming ~3μs per doc value lookup)</text>
+  <text x="325" y="805" text-anchor="middle" class="metric skip-text" style="font-size: 18px;">❌ High CPU overhead</text>
+  
+  <!-- With Skiplist -->
+  <rect x="650" y="460" width="500" height="360" class="comparison-box" style="fill: #efe;"/>
+  <text x="900" y="490" text-anchor="middle" class="label" style="font-weight: bold; font-size: 16px;">WITH Skiplist</text>
+  
+  <!-- Step by step with skiplist -->
+  <text x="670" y="520" class="label" style="font-weight: bold;">For each block (70 blocks):</text>
+  
+  <circle cx="680" cy="545" r="5" fill="#27ae60"/>
+  <text x="695" y="550" class="small-label">1. Read block metadata (min, max, count)</text>
+  
+  <circle cx="680" cy="570" r="5" fill="#27ae60"/>
+  <text x="695" y="575" class="small-label">2. Check if block fully within hour bucket</text>
+  
+  <circle cx="680" cy="595" r="5" fill="#27ae60"/>
+  <text x="695" y="600" class="small-label">3. If yes: Add block count to bucket</text>
+  
+  <circle cx="680" cy="620" r="5" fill="#f39c12"/>
+  <text x="695" y="625" class="small-label">4. If no: Process docs individually</text>
+  
+  <rect x="670" y="645" width="460" height="80" fill="#fff" stroke="#27ae60" stroke-width="2"/>
+  <text x="900" y="665" text-anchor="middle" class="metric count-text">Bulk Counted: ~245,760 docs (60 blocks)</text>
+  <text x="900" y="685" text-anchor="middle" class="small-label">No individual doc value lookups needed!</text>
+  <text x="900" y="705" text-anchor="middle" class="metric process-text">Individually Processed: ~42,240 docs</text>
+  <text x="900" y="720" text-anchor="middle" class="small-label">(10 boundary blocks spanning hour transitions)</text>
+  
+  <text x="900" y="745" text-anchor="middle" class="label" style="font-weight: bold;">Processing Time: ~130ms</text>
+  <text x="900" y="765" text-anchor="middle" class="small-label">(70 metadata reads + 42,240 doc value lookups)</text>
+  <text x="900" y="805" text-anchor="middle" class="count-text metric" style="font-size: 18px;">✓ 85% reduction in lookups</text>
+  
+  <!-- Performance summary -->
+  <rect x="50" y="840" width="1100" height="50" fill="#3498db" opacity="0.1" stroke="#3498db" stroke-width="3"/>
+  <text x="600" y="865" text-anchor="middle" class="label" style="font-weight: bold; font-size: 16px; fill: #2980b9;">
+    Performance Gain: 6.5x faster (850ms → 130ms) | 85% fewer doc value lookups (288,000 → 42,240)
+  </text>
+  
+</svg>

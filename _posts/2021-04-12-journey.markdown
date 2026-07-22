@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "A journey of a thousand miles begins with a single step"
+authors: 
+  - kyledvs
+
+date:   2021-04-12 01:01:01 -0700
+categories: update
+redirect_from: "/blog/update/2021/04/journey/"
+---
+
+Welcome to OpenSearch news. In this section we plan to update the community on new developments and call attention to great things happening around OpenSearch.
+
+Want to write an article? Contact [kyledvs@amazon.com](mailto:kyledvs@amazon.com)

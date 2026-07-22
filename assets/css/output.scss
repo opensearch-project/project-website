@@ -1,0 +1,38 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@import "normalize"; // reset
+@import "utils"; // mixins & vars
+@import "web-fonts";
+@import "redesign-palette";
+@import "redesign-typography";
+@import "redesign-layout";
+@import "style"; // mobile & desktop styles
+@import "pygments"; // code highlighting
+@import "print"; // print styles
+@import "opensearch";
+@import "resource-grid";
+@import "solutionsProviders";
+@import "community_projects";
+@import "tables";
+@import "herobanner";
+@import "platform";
+@import "redesign-hero-carousel";
+@import "redesign";
+@import "redesign-platform";
+@import "redesign-conference";
+@import "redesign-testimonial-overrides";
+@import "web-embed";
+@import "fullwidth-with-breadcrumbs";
+
+@import "footer";
+@import "events-calendar";
+@import "filter-chips";
+@import "labeled-dropdown";
+@import "community";
+@import "two-column-layout";
+@import "navbar";
+@import "main-imports";
+@import "common/OpenSearch_typography";
+@import "usecasepages";
+@import "usergroups";
