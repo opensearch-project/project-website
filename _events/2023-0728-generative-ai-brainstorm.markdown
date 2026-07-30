@@ -4,6 +4,7 @@ eventdate: 2023-07-28 09:00:00 -0700
 
 title: Brainstorm about OpenSearch and generative AI
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/294625118/
     title: Join on Meetup

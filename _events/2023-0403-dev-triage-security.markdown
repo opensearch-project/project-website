@@ -1,8 +1,9 @@
 ---
 calendar_date: '2023-04-03'
-eventdate: 2023-04-03 12:00:00 -0800
+eventdate: 2023-04-03 12:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2023-04-03
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/291645632/
     title: Join on Meetup

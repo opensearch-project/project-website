@@ -1,11 +1,12 @@
 ---
 calendar_date: '2023-01-24'
 # put your event date and time (24 hr) here:
-eventdate: 2023-01-24 13:00:00 -0500
+eventdate: 2023-01-24 19:00:00 +0100
 # the title - this is how it will show up in listing and headings on the site:
 title: Data Ops Poland - Finding the Right Things with OpenSearch
 # if your event has an online component, put it here:
 online: True
+tz: Europe/Warsaw
 # This is for the sign up button
 signup:
     # the link URL
