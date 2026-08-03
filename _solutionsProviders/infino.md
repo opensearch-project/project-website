@@ -6,17 +6,17 @@ logo: /assets/media/partners/infino/infino.png
 link: https://infino.ai
 logo_large: /assets/media/partners/infino/infino_logo.png
 
-description: 'Infino offers a schemaless, serverless managed OpenSearch service. Founded by former AWS OpenSearch engineers, we have replaced Lucene with a next-gen proprietary engine optimized for Observability use cases and internal developer platforms. 
+description: 'Infino is an open-source retrieval engine built in Rust on Apache Parquet and object storage. Founded by creators of OpenSearch, we designed a new engine from the ground up for the era of AI-driven search and analytics.
 <br/><br/>
-We offer what you have come to expect from OpenSearch except we are faster and with more observability features. Store logs, metrics, traces, code, tickets, etc. in one index. Query all your data at once via languages you already know: Natural language, Query DSL, PromQL, SQL, PPL, etc. Ask questions you simply could not ask with Lucene. Scale and manage your data more simply: No snapshots, no mapping explosions, no slow aggregations, and no cluster management.
+Infino combines BM25 full-text search, vector search, and SQL in a single engine. Store documents, embeddings, and structured data together on the object storage you already use: S3, Azure Blob, or local disk. Query it all at once with hybrid search and SQL, with no separate systems to stitch together. Because storage and compute are decoupled, there are no clusters to manage, no snapshots, and no capacity planning. Your data lives in open formats you own.
 <br/><br/>
-Save money, save time, and keep your commitments to your customers.'
+Search everything, pay for what you use, and keep your data in your own cloud.'
 
 contact: 'tech@infino.ai'
 
 region:           Global
 industries:       Business Services,Consumer Services,Education,Energy and Utilities,Healthcare,Media and Entertainment,Public Sector,Non-Profit,Retail and e-Commerce,Software and Technology,Financial Services
-business_type:    Consultancy
+business_type:    Consultancy, Managed Service Provider (MSP), Professional Services
 opensearch_tech:  Search
 
 
@@ -29,5 +29,5 @@ main_office_location:  |
 products:
   - url: 'https://infino.ai'
     name: 'Infino AI'
-    description: 'Serverless, Schemaless OpenSearch for Observability'
+    description: 'Hybrid Search, Vector Search, and SQL on Object Storage'
 ---
