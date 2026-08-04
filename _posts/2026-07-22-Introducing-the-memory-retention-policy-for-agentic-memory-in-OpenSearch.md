@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducing the memory retention policy for agentic memory in OpenSearch"
+title: "Introducing memory retention for agentic memory in OpenSearch"
 authors:
   - erfanballew
 date: 2026-07-22
