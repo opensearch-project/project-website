@@ -3,6 +3,7 @@ calendar_date: '2022-10-17'
 eventdate: 2022-10-17 12:00:00 -0700
 title: Development Backlog & Triage Meeting - Security - 2022-10-17
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/289119806/
     title: Join on Meetup

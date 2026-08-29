@@ -1,8 +1,9 @@
 ---
 calendar_date: '2022-12-12'
-eventdate: 2022-12-12 12:00:00 -0700
+eventdate: 2022-12-12 12:00:00 -0800
 title: Development Backlog & Triage Meeting - Security - 2022-12-12
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/bbrkzsydcpbkb/
     title: Join on Meetup

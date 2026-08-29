@@ -5,6 +5,9 @@ eventdate: 2024-03-19 08:00:00 +0100
 online: false
 
 tz: Europe/Paris
+location:
+  city: Paris
+  country: France
 signup:
   url: https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/
   title: Register to Attend!

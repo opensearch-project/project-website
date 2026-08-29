@@ -1,9 +1,10 @@
 ---
 calendar_date: '2024-03-06'
-eventdate: 2024-03-06 10:00:00 -0600
+eventdate: 2024-03-06 10:00:00 -0800
 
 title: OpenSearch Core Triage
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/kvdzjtygcfbjb/
     title: Join on Meetup

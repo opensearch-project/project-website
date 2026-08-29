@@ -7,6 +7,7 @@ eventdate: 2023-07-25 10:00:00 -0700
 title: Efficient Vector Search with OpenSearch - Webinar with BigData Boutique and MyPart
 # if your event has an online component, put it here:
 online: true
+tz: America/Los_Angeles
 # This is for the sign up button
 signup:
     # the link URL

@@ -3,6 +3,7 @@ calendar_date: '2021-12-14'
 eventdate: 2021-12-14 09:00:00 -0800
 title: OpenSearch Community Meeting - Dec
 online: true
+tz: America/Los_Angeles
 signup:
    url: https://www.meetup.com/OpenSearch/events/279756957/
    title: Join on Meetup

@@ -4,6 +4,7 @@ eventdate: 2024-03-26 08:00:00 -0700
 
 title: OpenSearch Community Meeting - 2024-03-26
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/299470175/
     title: Join on Meetup

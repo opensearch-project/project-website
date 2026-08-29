@@ -1,11 +1,12 @@
 ---
 calendar_date: '2023-04-24'
 # put your event date and time (24 hr) here:
-eventdate: 2023-04-24 09:00:00 -0500
+eventdate: 2023-04-25 09:00:00 -0400
 # the title - this is how it will show up in listing and headings on the site:
 title: Haystack US 2023 - The Search Relevance Conference
 # if your event has an online component, put it here:
 online: true
+tz: America/New_York
 # This is for the sign up button
 signup:
     # the link URL
