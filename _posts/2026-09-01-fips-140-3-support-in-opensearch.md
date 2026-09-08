@@ -54,7 +54,7 @@ This is what the OpenSearch Project's community model is meant to look like: a f
 
 Making OpenSearch FIPS-compliant was less about adding a feature and more about disciplined substitution across the whole codebase. Some of the key changes:
 
-- **Validated cryptography everywhere.** OpenSearch bundles the Bouncy Castle FIPS provider (`BC-FJA`), a FIPS 140-3 validated cryptographic module. In FIPS mode, OpenSearch runs Bouncy Castle FIPS in *approved-only* mode, which restricts operations to certified algorithms and key sizes and removes the standard providers that are not validated.
+- **Validated cryptography everywhere.** OpenSearch bundles the [Bouncy Castle FIPS provider (`BC-FJA`)](https://www.bouncycastle.org/documentation/documentation-java/), a FIPS 140-3 validated cryptographic module. In FIPS mode, OpenSearch runs Bouncy Castle FIPS in *approved-only* mode, which restricts operations to certified algorithms and key sizes and removes the standard providers that are not validated.
 - **Approved algorithms and key material.** Non-approved primitives were replaced with approved ones—for example, `PBKDF2` for password hashing and FIPS-approved hashes for field masking. Key and certificate handling was reworked to parse the formats used in practice while staying within the approved boundary.
 - **FIPS-compliant keystores.** Only the `BCFKS` and `PKCS#11` keystore and truststore formats are FIPS compliant; the common `JKS` and `PKCS12` formats are not. OpenSearch ships a helper tool to convert an existing JVM truststore to `BCFKS` (or to use a `PKCS#11` store), so operators don't have to do it by hand.
 - **Stronger secrets.** FIPS enforces a minimum strength for keystore and key passwords—at least 112 bits, roughly 14 characters. A weaker password fails fast at startup rather than silently weakening the deployment.
@@ -67,9 +67,9 @@ In OpenSearch 3.6, the default distribution is FIPS-capable: it ships the valida
 FIPS support is officially available in OpenSearch 3.6. Enabling it is primarily an environment and configuration task; the detailed, up-to-date steps live in the [FIPS configuration documentation](https://docs.opensearch.org/latest/security/configuration/fips/). At a high level:
 
 1. **Run OpenSearch 3.6 or later on a supported JVM.** The default distribution is FIPS-capable and bundles the Bouncy Castle FIPS providers; you need a JVM configured to use them, on a Java version for which the module is certified.
-2. **Use FIPS-compliant keystores and truststores.** Convert your stores to `BCFKS`, or use a `PKCS#11` store. The bundled `opensearch-fips-demo-installer` tool can migrate the default JVM truststore for you and write the required settings into `jvm.options`—handy for getting started, though, as its name suggests, review it before relying on it in production.
+2. **Use FIPS-compliant keystores and truststores.** Convert your stores to `BCFKS`, or use a `PKCS#11` store. The bundled [`opensearch-fips-demo-installer`](https://docs.opensearch.org/latest/security/configuration/fips/) tool can migrate the default JVM truststore for you and write the required settings into `jvm.options`—handy for getting started, though, as its name suggests, review it before relying on it in production.
 3. **Use strong passwords.** Keystore and key passwords must meet the 112-bit minimum, or OpenSearch will refuse to start.
-4. **Configure the Security plugin for FIPS.** Use `PBKDF2` for internal user password hashing and a FIPS-approved algorithm for field masking instead of the default.
+4. **Configure the Security plugin for FIPS.** Use [`PBKDF2` for internal user password hashing](https://docs.opensearch.org/latest/security/configuration/fips/) and a FIPS-approved algorithm for field masking instead of the default.
 5. **Turn on enforcement.** Start OpenSearch with `OPENSEARCH_FIPS_MODE=true` to run in FIPS-enforced mode.
 
 ### What comes next
