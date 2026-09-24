@@ -21,6 +21,7 @@ pretty:
     data-prepper-no-jdk: OpenSearch Data Prepper (without bundled JDK)
     logstash-oss-with-opensearch-output-plugin: Logstash OSS with OpenSearch Output Plugin
     opensearch-sql-cli: SQL-CLI
+    agent-health: Agent Health
   platforms:
     windows: "Windows"
     linux: "Linux"
@@ -30,6 +31,7 @@ pretty:
     docker: Docker
     archlinux: "Arch Linux"
     python: "Python"
+    javascript: "Node.js"
   extensions:
     targz: ".tar.gz"
     exe: "Installer (exe)"
@@ -40,18 +42,21 @@ pretty:
     docker_hub: 'Dockerfile'
     system-package: "System package"
     python: ".tar.gz"
+    javascript: "npm"
   architectures:
     arm64: "ARM64"
     x64: "x64"
     x86: "x86"
     jvm: Java Virtual Machine
     python: "pypi"
+    npm: "npm"
   sections:
     opensearch: OpenSearch
     opensearch-dashboards: OpenSearch Dashboards
     command-line-tools: 'Command Line Tools'
     sql-command-line: 'OpenSearch SQL CLI'
     data-ingest: 'Ingest Tools'
+    agent-tools: 'AI Agent Tools'
     docker-compose: 'Try OpenSearch with Docker Compose'
     minimal: 'Minimal Distributions'
     drivers: "Drivers"
@@ -62,6 +67,7 @@ architecture_order:
   - x86
   - jvm
   - python
+  - npm
 
 platform_order:
   - linux
@@ -72,6 +78,7 @@ platform_order:
   - windows
   - java
   - python
+  - javascript
 ---
 
 {%comment%} 
