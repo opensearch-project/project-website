@@ -39,7 +39,7 @@ Let's take a closer look at the purpose of the `_source` field.
 
 The `_source` field in OpenSearch serves two key purposes:
 
-1. It stores the original document content and is used to return user-facing fields in search results. For example, if you're indexing a poetry book, fields like the poem text, title, and author are typically retrieved from the `_source` field, [unless configured otherwise](https://docs.opensearch.org/docs/latest/search-plugins/searching-data/retrieve-specific-fields/).
+1. It stores the original document content and is used to return user-facing fields in search results. For example, if you're indexing a poetry book, fields like the poem text, title, and author are typically retrieved from the `_source` field, [unless configured otherwise](https://docs.opensearch.org/latest/search-plugins/searching-data/retrieve-specific-fields/).
 
 2. It enables reindexing and recovery operations. The `_source` holds the original data needed for updates, rebuilding indexes with new settings (using the Reindex API), or recovery processes such as translog replay.
 
@@ -47,7 +47,7 @@ In Lucene, the `_source` is implemented as a _stored field_---a structure design
 
 With vector search, you usually don't need to retrieve the vector itself: a list of floating-point numbers doesn't convey much meaning to a typical user. For example, if you're searching for a romantic poem, you don't care how the poem is semantically represented—you just want the right text, fast.
 
-Vector fields are very large, and including them in responses adds noise to the response and slows down search requests. In production, we typically recommend [excluding vector fields from the returned `_source`](https://docs.opensearch.org/docs/latest/vector-search/performance-tuning-search/#exclude-vectors-from-search-results) to improve performance:
+Vector fields are very large, and including them in responses adds noise to the response and slows down search requests. In production, we typically recommend [excluding vector fields from the returned `_source`](https://docs.opensearch.org/latest/vector-search/performance-tuning-search/#exclude-vectors-from-search-results) to improve performance:
 
 ```json
 POST /my_index/_search
