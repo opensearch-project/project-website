@@ -17,7 +17,7 @@ excerpt: "OpenSearch 3.0 introduces semantic highlighting, an AI-powered feature
 has_science_table: true
 ---
 
-OpenSearch 3.0 introduced [semantic highlighting](https://docs.opensearch.org/docs/latest/search-plugins/searching-data/highlight/#the-semantic-highlighter), an AI-powered feature that identifies and returns the most relevant passages in a retrieved document. In this post, we'll explain the science behind the AI model and show you how to incorporate semantic highlighting into your search queries.
+OpenSearch 3.0 introduced [semantic highlighting](https://docs.opensearch.org/latest/search-plugins/searching-data/highlight/#the-semantic-highlighter), an AI-powered feature that identifies and returns the most relevant passages in a retrieved document. In this post, we'll explain the science behind the AI model and show you how to incorporate semantic highlighting into your search queries.
 
 ## What is semantic highlighting?
 
@@ -91,7 +91,7 @@ For production workloads that require high performance, we recommend deploying t
 
 Once your model is deployed (either locally or externally), enable semantic highlighting by setting the `type` to `semantic` in the `highlight` object for the field you want to highlight.
 
-The following example (from our [tutorial](https://docs.opensearch.org/docs/latest/tutorials/vector-search/semantic-highlighting-tutorial/)) shows you how to use semantic highlighting in a neural search query. The query searches for "treatments for neurodegenerative diseases" in an index named `neural-search-index`. Documents in the index include a `text_embedding` field containing the vector embeddings and a `text` field containing the original document content:
+The following example (from our [tutorial](https://docs.opensearch.org/latest/tutorials/vector-search/semantic-highlighting-tutorial/)) shows you how to use semantic highlighting in a neural search query. The query searches for "treatments for neurodegenerative diseases" in an index named `neural-search-index`. Documents in the index include a `text_embedding` field containing the vector embeddings and a `text` field containing the original document content:
 
 
 ```json
