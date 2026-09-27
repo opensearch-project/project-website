@@ -20,7 +20,7 @@ Previously, if you built a custom ingest processor, users had to set up and mana
 
 ## System ingest pipeline compared to standard ingest pipeline
 
-In OpenSearch, a standard ingest pipeline is defined using the [Ingest Pipeline API](https://docs.opensearch.org/docs/latest/ingest-pipelines/create-ingest/). Users must manually configure the pipeline and specify it in the index settings or in each indexing request.
+In OpenSearch, a standard ingest pipeline is defined using the [Ingest Pipeline API](https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/). Users must manually configure the pipeline and specify it in the index settings or in each indexing request.
 
 A system ingest pipeline works similarly: it applies one or more processors during document ingestion. However, it's not configured by users. Instead, OpenSearch generates the pipeline automatically based on the index mapping and the system ingest processor factories you register in your plugin.
 
@@ -50,7 +50,7 @@ During indexing, OpenSearch executes all applicable pipelines in order. The syst
 
 ### Ingest pipelines and update operations
 
-In OpenSearch, you can update existing documents using either [single update](https://docs.opensearch.org/docs/latest/api-reference/document-apis/update-document/) or [bulk update](https://docs.opensearch.org/docs/latest/api-reference/document-apis/bulk/) operations. These updates typically include a partial document that specifies only the fields you want to change.
+In OpenSearch, you can update existing documents using either [single update](https://docs.opensearch.org/latest/api-reference/document-apis/update-document/) or [bulk update](https://docs.opensearch.org/latest/api-reference/document-apis/bulk/) operations. These updates typically include a partial document that specifies only the fields you want to change.
 
 Update operations interact with ingest pipelines in the following ways:
 
