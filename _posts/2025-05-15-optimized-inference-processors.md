@@ -32,7 +32,7 @@ To enable this optimization, set the `skip_existing` parameter to `true` in your
 
 ### Text embedding processor
 
-The [`text_embedding` processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/text-embedding/) generates vector embeddings for text fields, typically used in semantic search.
+The [`text_embedding` processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/text-embedding/) generates vector embeddings for text fields, typically used in semantic search.
 
 * **Optimization behavior**: If `skip_existing` is `true`, the processor checks whether the text fields mapped in `field_map` have changed. If they haven't, inference is skipped and the existing vector is reused.
 
@@ -58,7 +58,7 @@ PUT /_ingest/pipeline/optimized-ingest-pipeline
 
 ### Text/image embedding processor
 
-The [`text_image_embedding` processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/text-image-embedding/) generates combined embeddings from text and image fields for multimodal search use cases.
+The [`text_image_embedding` processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/text-image-embedding/) generates combined embeddings from text and image fields for multimodal search use cases.
 
 * **Optimization behavior**: Because embeddings are generated for combined text and image fields, inference is skipped only if **both** the text and image fields mapped in `field_map` are unchanged.
 
@@ -86,7 +86,7 @@ PUT /_ingest/pipeline/optimized-ingest-pipeline
 
 ### Sparse encoding processor
 
-The [`sparse_encoding` processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/sparse-encoding/) generates sparse vectors from text fields used in neural sparse retrieval.
+The [`sparse_encoding` processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/sparse-encoding/) generates sparse vectors from text fields used in neural sparse retrieval.
 
 * **Optimization behavior**: If the text fields in `field_map` are unchanged, the processor skips inference and reuses the existing sparse encoding.
 
