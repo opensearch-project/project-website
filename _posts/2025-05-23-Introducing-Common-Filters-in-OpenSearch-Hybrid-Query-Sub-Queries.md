@@ -13,7 +13,7 @@ meta_description: Learn how to simplify hybrid search filtering with common filt
 ---
 
 
-[Hybrid search](https://docs.opensearch.org/docs/latest/vector-search/ai-search/hybrid-search/index/) in OpenSearch enables you to combine different query types, such as lexical (keyword) and semantic (vector) queries, to produce one result set. This powerful capability is ideal for modern applications like semantic product search, document retrieval, and multimodal experiences.
+[Hybrid search](https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/index/) in OpenSearch enables you to combine different query types, such as lexical (keyword) and semantic (vector) queries, to produce one result set. This powerful capability is ideal for modern applications like semantic product search, document retrieval, and multimodal experiences.
 
 However, until OpenSearch 3.0, applying filters to hybrid queries required manually duplicating the same filter in each subquery. This approach was tedious, error prone, and difficult to maintain. OpenSearch 3.0 introduced **common filter support** for hybrid queries, which simplifies query construction and improves performance.
 
