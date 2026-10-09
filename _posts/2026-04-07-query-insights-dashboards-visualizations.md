@@ -237,3 +237,4 @@ Query Insights dashboards combine real-time monitoring, historical analysis, and
 To get started, see the [query insights documentation](https://opensearch.org/docs/latest/observing-your-data/query-insights/index/).
 
 We'd love to hear how you're using these visualizations in your own troubleshooting workflows. Share your experiences and feedback on the [OpenSearch forum](https://forum.opensearch.org/).
+
