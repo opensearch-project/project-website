@@ -304,6 +304,6 @@ We encourage you to experiment with different multimodal models and datasets to 
 ## Next steps
 
 - Try multimodal search using [an example Python notebook](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/ml_inference/ecommerce_demo.ipynb).
-- See the [multimodal search documentation](https://docs.opensearch.org/docs/latest/vector-search/ai-search/multimodal-search/).
-- Explore multimodal [models](https://docs.opensearch.org/docs/latest/ml-commons-plugin/integrating-ml-models/#choosing-a-model) available for integration with OpenSearch.
+- See the [multimodal search documentation](https://docs.opensearch.org/latest/vector-search/ai-search/multimodal-search/).
+- Explore multimodal [models](https://docs.opensearch.org/latest/ml-commons-plugin/integrating-ml-models/#choosing-a-model) available for integration with OpenSearch.
 - Share your feedback on the [OpenSearch forum](https://forum.opensearch.org/).

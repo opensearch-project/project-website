@@ -198,7 +198,7 @@ The response includes the embedding and model metadata in the `text_semantic_inf
 
 ### Step 4: Run a neural search query
 
-To perform semantic search, use a [neural query](https://docs.opensearch.org/docs/latest/query-dsl/specialized/neural/) with the `semantic` field. OpenSearch uses the model defined in the mapping to generate the query embedding:
+To perform semantic search, use a [neural query](https://docs.opensearch.org/latest/query-dsl/specialized/neural/) with the `semantic` field. OpenSearch uses the model defined in the mapping to generate the query embedding:
 
 ```json
 GET /my-nlp-index/_search
@@ -349,7 +349,7 @@ GET /my-nlp-index
 
 ## Using built-in analyzers
 
-You can also optionally specify a built-in [search analyzer](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#sparse-encoding-modelanalyzer-compatibility) for sparse queries. This approach provides faster retrieval at the cost of a slight decrease in search relevance:
+You can also optionally specify a built-in [search analyzer](https://docs.opensearch.org/latest/vector-search/ai-search/neural-sparse-with-pipelines/#sparse-encoding-modelanalyzer-compatibility) for sparse queries. This approach provides faster retrieval at the cost of a slight decrease in search relevance:
 
 ```json
 {
