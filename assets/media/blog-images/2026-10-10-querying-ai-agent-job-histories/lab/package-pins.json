@@ -1,0 +1,10 @@
+{
+  "archive": "opensearch-v4.tar.gz",
+  "archive_bytes": 69086,
+  "archive_sha256": "2349e84c11a3d904276b3da6d8c1701049a0e10a80992a5d1c2ecfeea60e7e32",
+  "manifest": "execution-manifest.json",
+  "manifest_sha256": "4befa6b2e100441db1477e6e89d29513fbcdf6e86ad23b9ac98cc85bdd58187d",
+  "members": 54,
+  "version": "opensearch-v4-public-v2",
+  "runtime_evidence": "Executable code and synthetic queries observed 2026-10-10 GST; updated documentation not freshly executed"
+}
