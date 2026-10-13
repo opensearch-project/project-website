@@ -32,7 +32,7 @@ The OpenSearch MCP server solves the last-mile problem of giving agents safe, re
 
 ![MCP Server Architecture](/assets/media/blog-images/2025-05-05-Introducing-MCP-in-OpenSearch/mcp-server-architecture.png){: .img-fluid}
 
-For comprehensive API documentation and implementation details, visit the [MCP server APIs documentation](https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/mcp-server-apis/index/).
+For comprehensive API documentation and implementation details, visit the [MCP server APIs documentation](https://docs.opensearch.org/latest/ml-commons-plugin/api/mcp-server-apis/index/).
 
 Key benefits of using the built-in server include:
 
@@ -48,7 +48,7 @@ To set up the built-in MCP server in OpenSearch, follow these steps.
 
 **Step 1: Enable the experimental streaming feature to support SSE**
 
-Follow the steps in the [documentation](https://docs.opensearch.org/docs/latest/install-and-configure/configuring-opensearch/network-settings/#selecting-the-transport) to install the `transport-reactor-netty4` plugin and enable experimental streaming.
+Follow the steps in the [documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#selecting-the-transport) to install the `transport-reactor-netty4` plugin and enable experimental streaming.
 
 **Step 2: Enable the experimental MCP server**
 
@@ -112,7 +112,7 @@ That's it! The `ListIndexTool` and `SearchIndexTool` are ready to be used by the
 
 #### Available tools
 
-OpenSearch provides a comprehensive suite of tools that can be registered with the OpenSearch MCP server. For a list of supported tools, see [Tools](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/index/).
+OpenSearch provides a comprehensive suite of tools that can be registered with the OpenSearch MCP server. For a list of supported tools, see [Tools](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/tools/index/).
 
 #### Authentication
 
@@ -336,11 +336,11 @@ Open a new chat in Claude for Desktop; you'll see the available OpenSearch tools
 
 ## Section 2: OpenSearch MCP client
 
-As part of our comprehensive MCP support, we're also adding MCP client capabilities to the agents in OpenSearch as an experimental feature. Starting with OpenSearch 3.0, the [conversational agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/conversational/) and the newly introduced [plan-execute-reflect agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) can connect to external MCP servers and use their tools. Support for additional agent types will be available soon!
+As part of our comprehensive MCP support, we're also adding MCP client capabilities to the agents in OpenSearch as an experimental feature. Starting with OpenSearch 3.0, the [conversational agent](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/agents/conversational/) and the newly introduced [plan-execute-reflect agent](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/) can connect to external MCP servers and use their tools. Support for additional agent types will be available soon!
 
 ### Quickstart
 
-While the [full documentation](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/) provides detailed step-by-step instructions, here's a simplified view of the process:
+While the [full documentation](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/) provides detailed step-by-step instructions, here's a simplified view of the process:
 
 **Step 1: Create an MCP connector** -- The connector stores connection details on your MCP server.
 
@@ -390,7 +390,7 @@ This example demonstrates how MCP enables agents to access data across multiple 
 
 **Agent execution**:
 
-Using the [plan-execute-reflect agent](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/), ask the following question:
+Using the [plan-execute-reflect agent](https://docs.opensearch.org/latest/ml-commons-plugin/agents-tools/agents/plan-execute-reflect/), ask the following question:
 
 ```json
 You have access to data from 2 OpenSearch clusters, Cluster A and Cluster B. Using data from these clusters, answer this: List 10 kid toy products with high ratings.
