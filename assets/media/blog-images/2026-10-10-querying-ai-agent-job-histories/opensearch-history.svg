@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1800" viewBox="0 0 2400 1800" role="img" aria-labelledby="opensearch-history-title opensearch-history-desc">
+  <title id="opensearch-history-title">Inspecting retry histories in OpenSearch</title>
+  <desc id="opensearch-history-desc">Conceptual authored fixture, not observed runtime. Selected events from the separate alpha/job-action-retry history show action request and confirmation in attempt 1, then a start, another confirmation and completion in attempt 2. Confirmation events at sequences 5 and 7 have different event IDs but share the action ID alpha:job-action-retry:followup:v1 with the request. A strict mapping, tenant-and-job filters, producer-sequence ordering and complete pagination support inspection of recorded order, attempts, gaps and contradictions. Indexed confirmation does not independently prove an external effect. No model, tool, external receipt or worker restart is observed in this fixture.</desc>
+  <defs>
+    <marker id="opensearch-history-arrow" viewBox="0 0 18 18" refX="17" refY="9" markerWidth="18" markerHeight="18" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 18 9 L 0 18 Z" fill="#42677b"/>
+    </marker>
+  </defs>
+  <rect width="2400" height="1800" fill="#ffffff"/>
+  <g fill="#252b33" font-family="Arial">
+    <text x="96" y="152" font-size="84" font-weight="700">Inspecting retry histories in OpenSearch</text>
+    <text x="96" y="235" font-size="46">Conceptual authored fixture, not observed runtime.</text>
+    <text x="96" y="316" font-size="48" font-family="Andale Mono">tenant_id: alpha   job_id: job-action-retry</text>
+    <g fill="#ffffff" stroke="#707b85" stroke-width="3">
+      <rect x="96" y="372" width="1044" height="430" rx="6"/>
+      <rect x="1260" y="372" width="1044" height="430" rx="6"/>
+    </g>
+    <text x="144" y="447" font-size="54" font-weight="700">Worker attempt 1</text>
+    <text x="1308" y="447" font-size="54" font-weight="700">Worker attempt 2</text>
+    <g font-size="44" font-family="Andale Mono">
+      <text x="144" y="533">4  ACTION_REQUESTED</text>
+      <text x="144" y="615">5  ACTION_CONFIRMED</text>
+      <text x="1308" y="533">6  STARTED</text>
+      <text x="1308" y="615">7  ACTION_CONFIRMED</text>
+      <text x="1308" y="697">8  COMPLETED</text>
+    </g>
+    <text x="144" y="722" font-size="44">No COMPLETED event in this attempt</text>
+    <text x="144" y="777" font-size="38">Selected events; numbers are producer sequence</text>
+    <text x="1308" y="777" font-size="38">Authored attempt labels, not executed workers</text>
+    <text x="1200" y="876" text-anchor="middle" font-size="48">Sequences 5 and 7 have different event_id values</text>
+    <rect x="96" y="915" width="2208" height="150" rx="6" fill="#f6f7f7" stroke="#aeb7bd" stroke-width="2"/>
+    <text x="144" y="972" font-size="44">Same action_id in the request and both confirmations</text>
+    <text x="144" y="1034" font-size="50" font-family="Andale Mono">alpha:job-action-retry:followup:v1</text>
+    <text x="96" y="1152" font-size="56" font-weight="700">One history index and query path</text>
+    <g fill="#ffffff" stroke="#707b85" stroke-width="3">
+      <rect x="96" y="1200" width="632" height="286" rx="6"/>
+      <rect x="884" y="1200" width="632" height="286" rx="6"/>
+      <rect x="1672" y="1200" width="632" height="286" rx="6"/>
+    </g>
+    <text x="138" y="1267" font-size="48" font-weight="700">Strict mapping</text>
+    <text x="138" y="1327" font-size="42">Identity fields: keyword</text>
+    <text x="138" y="1387" font-size="42">attempt: integer</text>
+    <text x="138" y="1447" font-size="42">sequence: long</text>
+    <text x="926" y="1267" font-size="48" font-weight="700">Filter tenant + job</text>
+    <text x="926" y="1327" font-size="40">Sort: sequence, then event_id</text>
+    <text x="926" y="1387" font-size="42">Continue with search_after</text>
+    <text x="926" y="1447" font-size="42">Read every page</text>
+    <text x="1714" y="1267" font-size="48" font-weight="700">Inspect recorded history</text>
+    <text x="1714" y="1327" font-size="42">Order and worker attempts</text>
+    <text x="1714" y="1387" font-size="42">Missing terminal events</text>
+    <text x="1714" y="1447" font-size="42">Keep contradictory records</text>
+    <g fill="none" stroke="#42677b" stroke-width="6" marker-end="url(#opensearch-history-arrow)">
+      <path d="M 754 1343 H 858"/>
+      <path d="M 1542 1343 H 1646"/>
+    </g>
+    <text x="96" y="1590" font-size="48">Indexed confirmation does not independently prove an external effect.</text>
+    <text x="96" y="1670" font-size="42">No model, tool, external receipt or worker restart is observed here.</text>
+  </g>
+</svg>

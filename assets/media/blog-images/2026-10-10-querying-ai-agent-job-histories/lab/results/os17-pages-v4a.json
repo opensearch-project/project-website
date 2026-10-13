@@ -1,0 +1,321 @@
+{
+  "index": "os-20261009-juryosv4a-os17-action-retry",
+  "main_index": "os-20261009-juryosv4a-main",
+  "origin": "CAPTURED_PRODUCT_RESPONSES",
+  "pages": [
+    {
+      "capture_prefix": "0096-os17-timeline-page-0",
+      "headers": {
+        "body_bytes": 1403,
+        "bound_bytes": 1048576,
+        "chunked": false,
+        "complete": true,
+        "headers": [
+          [
+            "X-OpenSearch-Version",
+            "OpenSearch/3.9.0 (opensearch)"
+          ],
+          [
+            "content-type",
+            "application/json; charset=UTF-8"
+          ],
+          [
+            "content-length",
+            "1403"
+          ]
+        ],
+        "read_error": null,
+        "remaining_content_length": 0,
+        "status": 200
+      },
+      "raw_body": "{\"took\":2,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"skipped\":0,\"failed\":0},\"hits\":{\"total\":{\"value\":8,\"relation\":\"eq\"},\"max_score\":null,\"hits\":[{\"_index\":\"os-20261009-juryosv4a-os17-action-retry\",\"_id\":\"alpha:job-action-retry:a1:s01\",\"_score\":null,\"_source\":{\"attempt\":1,\"event_id\":\"alpha:job-action-retry:a1:s01\",\"event_time\":\"2026-10-01T12:00:01.000+04:00\",\"event_type\":\"STARTED\",\"ingested_at\":\"2026-10-01T12:01:41.000+04:00\",\"job_id\":\"job-action-retry\",\"schema_version\":1,\"sequence\":1,\"tenant_id\":\"alpha\"},\"sort\":[1,\"alpha:job-action-retry:a1:s01\"]},{\"_index\":\"os-20261009-juryosv4a-os17-action-retry\",\"_id\":\"alpha:job-action-retry:a1:s02\",\"_score\":null,\"_source\":{\"attempt\":1,\"event_id\":\"alpha:job-action-retry:a1:s02\",\"event_time\":\"2026-10-01T12:00:02.000+04:00\",\"event_type\":\"COMPUTE_STARTED\",\"ingested_at\":\"2026-10-01T12:01:42.000+04:00\",\"job_id\":\"job-action-retry\",\"schema_version\":1,\"sequence\":2,\"tenant_id\":\"alpha\"},\"sort\":[2,\"alpha:job-action-retry:a1:s02\"]},{\"_index\":\"os-20261009-juryosv4a-os17-action-retry\",\"_id\":\"alpha:job-action-retry:a1:s03\",\"_score\":null,\"_source\":{\"attempt\":1,\"event_id\":\"alpha:job-action-retry:a1:s03\",\"event_time\":\"2026-10-01T12:00:03.000+04:00\",\"event_type\":\"COMPUTE_FINISHED\",\"ingested_at\":\"2026-10-01T12:01:43.000+04:00\",\"job_id\":\"job-action-retry\",\"schema_version\":1,\"sequence\":3,\"tenant_id\":\"alpha\"},\"sort\":[3,\"alpha:job-action-retry:a1:s03\"]}]}}",
+      "raw_request": "{\"query\":{\"bool\":{\"filter\":[{\"term\":{\"tenant_id\":\"alpha\"}},{\"term\":{\"job_id\":\"job-action-retry\"}}]}},\"size\":3,\"sort\":[{\"sequence\":\"asc\"},{\"event_id\":\"asc\"}],\"track_total_hits\":true}",
+      "request": {
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "tenant_id": "alpha"
+                }
+              },
+              {
+                "term": {
+                  "job_id": "job-action-retry"
+                }
+              }
+            ]
+          }
+        },
+        "size": 3,
+        "sort": [
+          {
+            "sequence": "asc"
+          },
+          {
+            "event_id": "asc"
+          }
+        ],
+        "track_total_hits": true
+      },
+      "status": 200
+    },
+    {
+      "capture_prefix": "0097-os17-timeline-page-1",
+      "headers": {
+        "body_bytes": 1502,
+        "bound_bytes": 1048576,
+        "chunked": false,
+        "complete": true,
+        "headers": [
+          [
+            "X-OpenSearch-Version",
+            "OpenSearch/3.9.0 (opensearch)"
+          ],
+          [
+            "content-type",
+            "application/json; charset=UTF-8"
+          ],
+          [
+            "content-length",
+            "1502"
+          ]
+        ],
+        "read_error": null,
+        "remaining_content_length": 0,
+        "status": 200
+      },
+      "raw_body": "{\"took\":2,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"skipped\":0,\"failed\":0},\"hits\":{\"total\":{\"value\":8,\"relation\":\"eq\"},\"max_score\":null,\"hits\":[{\"_index\":\"os-20261009-juryosv4a-os17-action-retry\",\"_id\":\"alpha:job-action-retry:a1:s04\",\"_score\":null,\"_source\":{\"action_id\":\"alpha:job-action-retry:followup:v1\",\"attempt\":1,\"event_id\":\"alpha:job-action-retry:a1:s04\",\"event_time\":\"2026-10-01T12:00:04.000+04:00\",\"event_type\":\"ACTION_REQUESTED\",\"ingested_at\":\"2026-10-01T12:01:44.000+04:00\",\"job_id\":\"job-action-retry\",\"schema_version\":1,\"sequence\":4,\"tenant_id\":\"alpha\"},\"sort\":[4,\"alpha:job-action-retry:a1:s04\"]},{\"_index\":\"os-20261009-juryosv4a-os17-action-retry\",\"_id\":\"alpha:job-action-retry:a1:s05\",\"_score\":null,\"_source\":{\"action_id\":\"alpha:job-action-retry:followup:v1\",\"attempt\":1,\"event_id\":\"alpha:job-action-retry:a1:s05\",\"event_time\":\"2026-10-01T12:00:05.000+04:00\",\"event_type\":\"ACTION_CONFIRMED\",\"ingested_at\":\"2026-10-01T12:01:45.000+04:00\",\"job_id\":\"job-action-retry\",\"schema_version\":1,\"sequence\":5,\"tenant_id\":\"alpha\"},\"sort\":[5,\"alpha:job-action-retry:a1:s05\"]},{\"_index\":\"os-20261009-juryosv4a-os17-action-retry\",\"_id\":\"alpha:job-action-retry:a2:s06\",\"_score\":null,\"_source\":{\"attempt\":2,\"event_id\":\"alpha:job-action-retry:a2:s06\",\"event_time\":\"2026-10-01T12:00:06.000+04:00\",\"event_type\":\"STARTED\",\"ingested_at\":\"2026-10-01T12:01:46.000+04:00\",\"job_id\":\"job-action-retry\",\"schema_version\":1,\"sequence\":6,\"tenant_id\":\"alpha\"},\"sort\":[6,\"alpha:job-action-retry:a2:s06\"]}]}}",
+      "raw_request": "{\"query\":{\"bool\":{\"filter\":[{\"term\":{\"tenant_id\":\"alpha\"}},{\"term\":{\"job_id\":\"job-action-retry\"}}]}},\"search_after\":[3,\"alpha:job-action-retry:a1:s03\"],\"size\":3,\"sort\":[{\"sequence\":\"asc\"},{\"event_id\":\"asc\"}],\"track_total_hits\":true}",
+      "request": {
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "tenant_id": "alpha"
+                }
+              },
+              {
+                "term": {
+                  "job_id": "job-action-retry"
+                }
+              }
+            ]
+          }
+        },
+        "search_after": [
+          3,
+          "alpha:job-action-retry:a1:s03"
+        ],
+        "size": 3,
+        "sort": [
+          {
+            "sequence": "asc"
+          },
+          {
+            "event_id": "asc"
+          }
+        ],
+        "track_total_hits": true
+      },
+      "status": 200
+    },
+    {
+      "capture_prefix": "0098-os17-timeline-page-2",
+      "headers": {
+        "body_bytes": 1037,
+        "bound_bytes": 1048576,
+        "chunked": false,
+        "complete": true,
+        "headers": [
+          [
+            "X-OpenSearch-Version",
+            "OpenSearch/3.9.0 (opensearch)"
+          ],
+          [
+            "content-type",
+            "application/json; charset=UTF-8"
+          ],
+          [
+            "content-length",
+            "1037"
+          ]
+        ],
+        "read_error": null,
+        "remaining_content_length": 0,
+        "status": 200
+      },
+      "raw_body": "{\"took\":1,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"skipped\":0,\"failed\":0},\"hits\":{\"total\":{\"value\":8,\"relation\":\"eq\"},\"max_score\":null,\"hits\":[{\"_index\":\"os-20261009-juryosv4a-os17-action-retry\",\"_id\":\"alpha:job-action-retry:a2:s07\",\"_score\":null,\"_source\":{\"action_id\":\"alpha:job-action-retry:followup:v1\",\"attempt\":2,\"event_id\":\"alpha:job-action-retry:a2:s07\",\"event_time\":\"2026-10-01T12:00:07.000+04:00\",\"event_type\":\"ACTION_CONFIRMED\",\"ingested_at\":\"2026-10-01T12:01:47.000+04:00\",\"job_id\":\"job-action-retry\",\"schema_version\":1,\"sequence\":7,\"tenant_id\":\"alpha\"},\"sort\":[7,\"alpha:job-action-retry:a2:s07\"]},{\"_index\":\"os-20261009-juryosv4a-os17-action-retry\",\"_id\":\"alpha:job-action-retry:a2:s08\",\"_score\":null,\"_source\":{\"attempt\":2,\"event_id\":\"alpha:job-action-retry:a2:s08\",\"event_time\":\"2026-10-01T12:00:08.000+04:00\",\"event_type\":\"COMPLETED\",\"ingested_at\":\"2026-10-01T12:01:48.000+04:00\",\"job_id\":\"job-action-retry\",\"schema_version\":1,\"sequence\":8,\"tenant_id\":\"alpha\"},\"sort\":[8,\"alpha:job-action-retry:a2:s08\"]}]}}",
+      "raw_request": "{\"query\":{\"bool\":{\"filter\":[{\"term\":{\"tenant_id\":\"alpha\"}},{\"term\":{\"job_id\":\"job-action-retry\"}}]}},\"search_after\":[6,\"alpha:job-action-retry:a2:s06\"],\"size\":3,\"sort\":[{\"sequence\":\"asc\"},{\"event_id\":\"asc\"}],\"track_total_hits\":true}",
+      "request": {
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "tenant_id": "alpha"
+                }
+              },
+              {
+                "term": {
+                  "job_id": "job-action-retry"
+                }
+              }
+            ]
+          }
+        },
+        "search_after": [
+          6,
+          "alpha:job-action-retry:a2:s06"
+        ],
+        "size": 3,
+        "sort": [
+          {
+            "sequence": "asc"
+          },
+          {
+            "event_id": "asc"
+          }
+        ],
+        "track_total_hits": true
+      },
+      "status": 200
+    },
+    {
+      "capture_prefix": "0099-os17-timeline-page-3",
+      "headers": {
+        "body_bytes": 160,
+        "bound_bytes": 1048576,
+        "chunked": false,
+        "complete": true,
+        "headers": [
+          [
+            "X-OpenSearch-Version",
+            "OpenSearch/3.9.0 (opensearch)"
+          ],
+          [
+            "content-type",
+            "application/json; charset=UTF-8"
+          ],
+          [
+            "content-length",
+            "160"
+          ]
+        ],
+        "read_error": null,
+        "remaining_content_length": 0,
+        "status": 200
+      },
+      "raw_body": "{\"took\":1,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"skipped\":0,\"failed\":0},\"hits\":{\"total\":{\"value\":8,\"relation\":\"eq\"},\"max_score\":null,\"hits\":[]}}",
+      "raw_request": "{\"query\":{\"bool\":{\"filter\":[{\"term\":{\"tenant_id\":\"alpha\"}},{\"term\":{\"job_id\":\"job-action-retry\"}}]}},\"search_after\":[8,\"alpha:job-action-retry:a2:s08\"],\"size\":3,\"sort\":[{\"sequence\":\"asc\"},{\"event_id\":\"asc\"}],\"track_total_hits\":true}",
+      "request": {
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "tenant_id": "alpha"
+                }
+              },
+              {
+                "term": {
+                  "job_id": "job-action-retry"
+                }
+              }
+            ]
+          }
+        },
+        "search_after": [
+          8,
+          "alpha:job-action-retry:a2:s08"
+        ],
+        "size": 3,
+        "sort": [
+          {
+            "sequence": "asc"
+          },
+          {
+            "event_id": "asc"
+          }
+        ],
+        "track_total_hits": true
+      },
+      "status": 200
+    }
+  ],
+  "source_binding": {
+    "REPRODUCE.md": "a14a771cf2d15fcb47bb42691ec2858b7a6394006e86fca4594f5fbfd7b56964",
+    "amendments/os17/fixture-expectations.json": "d5f8010c440a45a1327b651854dff424a15bda31704a012ca0cf300c5f66ff6c",
+    "amendments/os17/freeze.json": "4517007f450bec08bab6a8f72b3dd6d4244a1cbcc2a162f3d44151d610ae1bf9",
+    "amendments/os17/frozen-test-matrix.md": "a98d6a8aecdcf9a91d8862da25f149fda3af7edf1a44e470829386b878eeb51f",
+    "amendments/os17/test-first.json": "5706cdca0a39af0d8e771144910e3000b691bbda9f48d3536177d03583cd0371",
+    "execution-manifest.json": "83385441ad23377dd05d8401ee0234e0c690401dec49fe95ea44a386aa9d71f6",
+    "fixture-expectations.json": "f52504c2d66617025d3b8a9f8807882f6bab2b520cf8042f340d176274a071e8",
+    "frozen-test-matrix.md": "fb7b0c6f6f9d1cf0eade9cb12b7d582bbc741f29ec4242df2e324554f3d20188",
+    "portable-allowlist.json": "6840a18288dd9b872f7968529f94bb4271a3e5004d4a0dba2f430d76603c8749",
+    "references/final-release/driver/config.body": "5265ced2e36c835ba9c04ed8be4eea1ec30d9523da97c7797bbc6d9a4b3fcfcb",
+    "references/final-release/driver/index.body": "f3fa41d74a768c2fce8016b98c191ae8c1bacd8f1152870a3f9f87d350920b7c",
+    "references/final-release/driver/linux-amd64.body": "42f1689d6d6b906c7e829f9d9ec38491550344ac9adc01e464ff9a08df1ffb48",
+    "references/final-release/opensearch/config.body": "903c4fa852a67838269696e031077c6d726ca0a369f8b709a311083e514f1dad",
+    "references/final-release/opensearch/index.body": "adfa61f85025d06b4aeb562e7e74fde7e31c437039c93c3862c17e9acebd6c7c",
+    "references/final-release/opensearch/linux-amd64.body": "13487e0953520edf6cc866dfc672fd67a70ab122aa7d84d4a6c97106f84d3f84",
+    "references/final-release/source/bootstrap.body": "34db0426faf792e3b358246b56e15bc41ba1ddc24c06636838d097225680cd2d",
+    "references/final-release/source/bulk-api.body": "84a7c549d21b8ea36d8724ab4bc9988712cafe45430f2faaeb2af2c39f4152b2",
+    "references/final-release/source/bulk.body": "0d3667769d1ffbd4ec4a7a9f65ee9aae0799e5421792cc007841c375b3978e89",
+    "references/final-release/source/composite.body": "87f3500747f42b3be40fba2cb839516a2a89edfd794477d6f8a900bdb3179d41",
+    "references/final-release/source/conflict-status.body": "347d9c21615513868f40c12fd33987dbbeacd66ad58b84124c00847292d52a8a",
+    "references/final-release/source/create-conflict.body": "fc4cd8f3ba33fc8674c7783cdfe95271d4e0a7f65bfbf86d941359ec126c12bb",
+    "references/final-release/source/create-operation.body": "1859a186a25394f6ee2c3ec2af616ca5ccea6e1e21ab9129def15bf71ccf7556",
+    "references/final-release/source/date-format.body": "a9cec2ba7cea4e45384faa8063a27cef222cc6ecdfb8dd396687d8d5235aef81",
+    "references/final-release/source/disk-defaults.body": "a53349af12c5cffbdba07a5dfde57a4556aba80f8900aff060f02d5724077a9b",
+    "references/final-release/source/explicit-refresh.body": "78a5cd1784fdd29582bbbd2e66fc857beaf658b6b35f0236637d603bdb83939c",
+    "references/final-release/source/numeric-types.body": "d46938f18e0fe230764d5bfcd460fed2e636361a05b9f9f06f81a1dbce3b6a31",
+    "references/final-release/source/refresh-wait-for.body": "3e10a883733a4d72a4128c9fc83431deaec42e91e675ee907b0f32bfc5b2e649",
+    "references/final-release/source/search-after.body": "ef285f1450328e9032e815f8e7a62f47b3bbd66ab537496ef1a92f6e063f7cd2",
+    "references/final-release/source/search-builder.body": "db955ee9f534eb0e3531c2b4126387937525e610f0cc237578abb1580331374b",
+    "references/final-release/source/search-response.body": "91bd2d2cafd4f6960425b59c66dd948d732820dc652824f81b43fb612d0fd7fb",
+    "references/final-release/source/search-shards.body": "d9d60175d00bebc002c574f9a15a1647d0527c4889b0cc72807e0981edf7c42b",
+    "references/final-release/source/search-totals.body": "75278465791165377816c95dbf98af5ed7f0b09b5d34701912ae8110e14bc4ac",
+    "references/final-release/source/source-retention.body": "5b09d5752c9dae32956df7b1baf438d104ff944f93c5a722b51c4bed0068744f",
+    "references/final-release/source/strict-mapping.body": "f17181c8a2519de449678dc50d87ada09881224d008e993ee011aa7308fbc3a4",
+    "references/user/dockerfile.body": "0e7cbe27ad8956543e59ee70e2fcf360613d919126b63b9e3c59181216641169",
+    "settings-precedence-source.json": "b184d600e2b7f124802cbda14bed0b0cc56972e84da80c4cb72ec93e4ccb2886",
+    "source/application.py": "4c053ade0deaac0c799abb4d474a29da265fc7b5bf43619cee4a1f5d6f48711d",
+    "source/bootstrap_check.py": "4e502a9204638799fd465e10aee623a2b57ff325666e6f62b3e4589a3501e8b1",
+    "source/driver.py": "11b0b35f0b58871381e945392761d97019035da4823408ec9aa81f7e56401be2",
+    "source/e2e.py": "cb9982b842f14c6c695b4baccd375828ce654590cd74c899770cb579830562c0",
+    "source/fixture-expectations.json": "f52504c2d66617025d3b8a9f8807882f6bab2b520cf8042f340d176274a071e8",
+    "source/fixture-manifest.json": "21c9cfff8066e64daf353b6787c0fae53b3716623e3d3fb4cb636cf4dcbdac1f",
+    "source/fixture_build.py": "79c470ea365c08d5a001e01f58e8961e9541179f30f31572f435c7abad96e12a",
+    "source/fixtures.json": "2dd96173def4f32f7cb16712d4718039d45ca96640036f75b4224ba4692131b9",
+    "source/host.py": "91180d359d4d5edffe639a9d72ee48989b9326e3a424c55f60345ee6d6b63ec9",
+    "source/mapping.json": "f0a03d4f80d9ad5468c53cdc2092645d22e7b6c1b6d09c0a60f5178d2c12e9d4",
+    "source/materialize_references.py": "8cc871c0ed6b62630608ad7e0bf0f22718f0c9d6b87a2d945c249fe46c6669b7",
+    "source/offline_checks.py": "35c3b4fa20fff77576c34d7c66a2621e22b3ad8ba50e33ae946f98db101edbf1",
+    "source/os17-expectations.json": "d5f8010c440a45a1327b651854dff424a15bda31704a012ca0cf300c5f66ff6c",
+    "source/os17-fixtures.json": "d5f8010c440a45a1327b651854dff424a15bda31704a012ca0cf300c5f66ff6c",
+    "source/os17_check.py": "1073d396978220a981ef1f6df9766faa1251fcd768061c146a0114f810932fbb",
+    "source/os17_controls.py": "adf5af55176eaafa0f112841f36030edfbb5d6a27410810f252f7589ab202bb5",
+    "source/os17_e2e.py": "c229a10fda84b79d05dced3574bf4f488bbbd3fa7d4aa6636995942c6a509e81",
+    "source/os17_offline.py": "ebd15141fdb7c0403494a3a0e13116eee64acd9551fb596a300cdaad53cfecb1",
+    "source/os17_verifier.py": "a9d4289d7afcdeb29a712fe15b0b9c7fac9be719196dacebe2234b2d8feea8cb",
+    "source/package_check.py": "232ecf4d00275739ac9776f67bcb3af29d2908840097a7648326413def04f13f",
+    "source/pin_check.py": "2eb0d0c04f6db5df306c11cb84ffe4bf9c2f8bda7f89e7511fd8250df62d4de5",
+    "source/queries/OS17.timeline.json": "41170a43eba03daade03c2026dfb41dbaedd56ca3c54154b51b7927cd85f4873",
+    "source/queries/Q01.json": "513b327a923a5e20d0f30c2cea3fb850db8f806c6419195bc2d374e510f7c844",
+    "source/queries/Q02.json": "cfd16833b4b6bed6dd0c53b86e31ad11ede0f6311360afcb32b196570ac65f8d",
+    "source/queries/Q03.json": "2df30e2e58b60dc697330a8aee510b90868e386609121638de99e844292461e8",
+    "source/queries/Q04.json": "155adc63b08a5cd4d01c7aa60ce8e29f69c53619e9434b340763c23536ee4e01",
+    "source/queries/Q05.json": "93dc7b4d3d81901831eded652c5020d75c98e7e7d06d6a269a508f18c06183ae",
+    "source/queries/Q06.json": "a1d3b281ed9e69637f7977461f4c71de99cde033adfbbdf1798d980d3bf3a858",
+    "source/release_check.py": "2171f8bba742f9d19246ce2598cbf991c8ace8678f14789457809f0f55808622",
+    "source/runtime.py": "5aefebe1bd2467c6e3e47af4302455d1035e7a9af83d66c57706020eca79c164",
+    "source/runtime_verifier.py": "37eb9c291ff6dfc46e3db9dfdf69c6258f389387ef967564af24bc4a705e8156",
+    "source/transport.py": "ee3ff64d04588fef31140acc137f42165d638d52b1d7739a3111d4226441f4cc",
+    "source/trusted_bootstrap.py": "575caeea2cc0b6e4ac9d6321f30427cff6bb3066454a664726471ae2e39dc9f5",
+    "source/verifier.py": "8719c34d39f2aa80ef33e8f2d83024c04b6129d963f6316da152f7fb9bd115d3",
+    "source/verify_cli.py": "f4c98d6848d5c5cb7e28d5ee1ff6c13ac842d7503be7839fe9d49e3e14c933c6",
+    "versions.lock.json": "d2da5e1de49585da3e21309a568be5d86eff81aa403c021f94dd7404a5714da3"
+  }
+}

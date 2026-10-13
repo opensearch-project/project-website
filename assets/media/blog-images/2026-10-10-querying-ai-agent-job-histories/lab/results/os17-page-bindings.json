@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "bytes": 18790,
+      "path": "os17-pages-v4a.json",
+      "sha256": "785f3b3a768b4c9d3eb02b866d6b7869dcd5b13e95cb6e8f21bb24927f7cd6f2"
+    },
+    {
+      "bytes": 18790,
+      "path": "os17-pages-v4b.json",
+      "sha256": "9631a8df41d9e9f8d2543307d2ee975875c88de6b34841a3ee699138aa79a8d4"
+    }
+  ],
+  "origin": "CAPTURED_PRODUCT_RESPONSES",
+  "schema": "opensearch-public-captured-pages-v1"
+}
