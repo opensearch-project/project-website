@@ -35,7 +35,7 @@ Independent third parties, such as [Trail of Bits](https://www.trailofbits.com/)
 
 ### How to use OpenSearch Benchmark
 
-The easiest way to get started with OpenSearch Benchmark is to follow the [quickstart](https://docs.opensearch.org/docs/latest/benchmark/quickstart/) guide. If you want to dive deeper, see the OpenSearch Benchmark [user guide](https://docs.opensearch.org/docs/latest/benchmark/user-guide/index/) and [reference](https://docs.opensearch.org/docs/latest/benchmark/reference/index/) sections.
+The easiest way to get started with OpenSearch Benchmark is to follow the [quickstart](https://docs.opensearch.org/latest/benchmark/quickstart/) guide. If you want to dive deeper, see the OpenSearch Benchmark [user guide](https://docs.opensearch.org/latest/benchmark/user-guide/index/) and [reference](https://docs.opensearch.org/latest/benchmark/reference/index/) sections.
 
 If you would like to suggest feedback and enhancements to the OpenSearch Benchmark documentation, [create an issue](https://github.com/opensearch-project/documentation-website/).
 

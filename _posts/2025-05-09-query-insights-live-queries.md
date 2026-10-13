@@ -77,7 +77,7 @@ GET /_insights/live_queries?verbose=false&sort=cpu&size=5
 
 ### Understanding the response
 
-Here's an example of what the response might look like (showing one query for brevity, taken from the [documentation example](https://docs.opensearch.org/docs/latest/observing-your-data/query-insights/live-queries/#example-response)):
+Here's an example of what the response might look like (showing one query for brevity, taken from the [documentation example](https://docs.opensearch.org/latest/observing-your-data/query-insights/live-queries/#example-response)):
 
 ```json
 {

@@ -197,11 +197,11 @@ The new `sqs` source in Data Prepper efficiently receives messages from Amazon S
 
 Data Prepper receives SQS messages from an SQS queue in batches and then creates Data Prepper events from those SQS messages.
 By default, Data Prepper will create a single Data Prepper event per SQS message.
-Data Prepper provides a robust collection of [processors](https://docs.opensearch.org/docs/latest/data-prepper/pipelines/configuration/processors/processors/) that you can use to parse or grok, depending on the format of your message.
+Data Prepper provides a robust collection of [processors](https://docs.opensearch.org/latest/data-prepper/pipelines/configuration/processors/processors/) that you can use to parse or grok, depending on the format of your message.
 
 To help reduce your Amazon SQS costs, you can instead design your SQS data and configure Data Prepper to support multiple events per message.
 Using this approach reduces your Amazon SQS costs by combining data into SQS messages, allowing for fewer SQS sends and receives.
-To take this approach, you must design your sending application to send SQS messages to Amazon SQS in a format available as a [Data Prepper codec](https://docs.opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#codec).
+To take this approach, you must design your sending application to send SQS messages to Amazon SQS in a format available as a [Data Prepper codec](https://docs.opensearch.org/latest/data-prepper/pipelines/configuration/sources/s3/#codec).
 Then you can configure your Data Prepper pipeline to use that codec to parse the message into multiple events.
 
 ## Other features and improvements

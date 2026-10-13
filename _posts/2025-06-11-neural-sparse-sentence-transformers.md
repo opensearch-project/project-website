@@ -125,7 +125,7 @@ print(dict(doc_embedding))
 
 Once you have obtained the sparse embeddings from Sentence Transformers, you can index and search them directly in OpenSearch. The output format is fully compatible with OpenSearch's neural sparse search.
 
-For detailed instructions, see the [OpenSearch documentation](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-raw-vectors/).
+For detailed instructions, see the [OpenSearch documentation](https://docs.opensearch.org/latest/vector-search/ai-search/neural-sparse-with-raw-vectors/).
 
 You can also explore example scripts for working with the following embedding types:
 

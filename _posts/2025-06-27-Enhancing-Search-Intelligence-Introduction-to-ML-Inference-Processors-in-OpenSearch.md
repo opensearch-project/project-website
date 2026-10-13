@@ -518,8 +518,8 @@ The combination of ingest-time processing for embeddings and search-time process
 
 ## Next steps
 
-For more information about ML inference processors, see the [ML inference processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ml-inference/), [ML inference search request processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/ml-inference-search-request/), and [ML inference search response processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/ml-inference-search-response/) documentation.
+For more information about ML inference processors, see the [ML inference processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/ml-inference/), [ML inference search request processor](https://docs.opensearch.org/latest/search-plugins/search-pipelines/ml-inference-search-request/), and [ML inference search response processor](https://docs.opensearch.org/latest/search-plugins/search-pipelines/ml-inference-search-response/) documentation.
 
-For a specific use case, see [Semantic search tutorials](https://docs.opensearch.org/docs/latest/tutorials/vector-search/semantic-search/index/).
+For a specific use case, see [Semantic search tutorials](https://docs.opensearch.org/latest/tutorials/vector-search/semantic-search/index/).
 
 We welcome your contributions! If you have a use case to share, consider adding a corresponding tutorial to the documentation.

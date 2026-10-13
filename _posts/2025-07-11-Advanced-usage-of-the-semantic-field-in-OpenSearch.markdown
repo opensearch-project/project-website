@@ -210,14 +210,14 @@ GET /my-nlp-index/_search
 
 ## Using semantic fields with a neural sparse two-phase processor
 
-When working with sparse embeddings, the `semantic` field allows you to use the `neural` query without manually specifying the model or analyzer. In this case, OpenSearch automatically resolves them based on the field mapping. However, this convenience comes with a limitation: the [neural_sparse_two_phase_processor](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/neural-sparse-query-two-phase-processor/), which can improve search latency, is not currently supported when querying the `semantic` field directly.
+When working with sparse embeddings, the `semantic` field allows you to use the `neural` query without manually specifying the model or analyzer. In this case, OpenSearch automatically resolves them based on the field mapping. However, this convenience comes with a limitation: the [neural_sparse_two_phase_processor](https://docs.opensearch.org/latest/search-plugins/search-pipelines/neural-sparse-query-two-phase-processor/), which can improve search latency, is not currently supported when querying the `semantic` field directly.
 
 As a workaround, you can bypass the `semantic` field and run a `neural_sparse` query directly against the underlying `embedding` field (for example, `text_semantic_info.embedding`). Similarly to the approach used for cross-cluster search, this approach allows you to use the `neural_sparse_two_phase_processor` while still benefiting from automatic embedding generation during indexing.
 
 
 ## Using semantic fields with custom or externally hosted models
 
-To use a [custom](https://docs.opensearch.org/docs/latest/ml-commons-plugin/custom-local-models/) or [externally hosted](https://docs.opensearch.org/docs/latest/ml-commons-plugin/remote-models/index/) model, provide the required model configuration when registering the model. OpenSearch uses this metadata to construct the appropriate `knn_vector` or `rank_features` field.
+To use a [custom](https://docs.opensearch.org/latest/ml-commons-plugin/custom-local-models/) or [externally hosted](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/index/) model, provide the required model configuration when registering the model. OpenSearch uses this metadata to construct the appropriate `knn_vector` or `rank_features` field.
 
 ### Register a custom model
 

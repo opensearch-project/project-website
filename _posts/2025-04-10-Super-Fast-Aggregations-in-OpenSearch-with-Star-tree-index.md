@@ -62,7 +62,7 @@ Internally, a star-tree index consists of the following components:
 - A **star tree** that organizes unique dimension values into tree nodes for efficient traversal.
 - **Columnar doc values** that store preaggregated results for the configured dimensions.
 
-For additional technical details, see [Star-tree index structure](https://docs.opensearch.org/docs/latest/search-plugins/star-tree-index/#star-tree-index-structure).
+For additional technical details, see [Star-tree index structure](https://docs.opensearch.org/latest/search-plugins/star-tree-index/#star-tree-index-structure).
 
 ## Benefits of using a star-tree index
 
@@ -93,7 +93,7 @@ For resource-intensive operations like date histograms with sub-aggregations on 
 
 ### Configurability
 
-A star-tree index includes various [configuration options](https://docs.opensearch.org/docs/latest/field-types/supported-field-types/star-tree/#star-tree-index-configuration-options) that balance storage overhead and query performance. For example, the `max_leaf_docs` parameter controls how many documents are included in each star-tree leaf. A higher `max_leaf_docs` value leads to better storage efficiency but increases query latency. 
+A star-tree index includes various [configuration options](https://docs.opensearch.org/latest/field-types/supported-field-types/star-tree/#star-tree-index-configuration-options) that balance storage overhead and query performance. For example, the `max_leaf_docs` parameter controls how many documents are included in each star-tree leaf. A higher `max_leaf_docs` value leads to better storage efficiency but increases query latency. 
 
 The following table demonstrates the performance difference between traditional queries and star-tree queries with different `max_leaf_docs` values (N).
 
@@ -114,16 +114,16 @@ While the star-tree index feature offers substantial performance benefits, it cu
 - A star-tree index is created during refresh/flush/merge operations, which can impact write throughput. Benchmark data will be published soon.
 - Once a star tree has been created for an index, it cannot be removed from that index. If you need to disable star-tree functionality, you must reindex all data into a new index without the star-tree mapping configuration. However, you can search the index using traditional rather than star-tree search by setting `indices.composite_index.star_tree.enabled` to `false`.
 
-For more information, see [Limitations](https://docs.opensearch.org/docs/latest/search-plugins/star-tree-index/#limitations).
+For more information, see [Limitations](https://docs.opensearch.org/latest/search-plugins/star-tree-index/#limitations).
 
 ## How to use a star-tree index
 
-To use a star-tree index, define a [star-tree mapping](https://docs.opensearch.org/docs/latest/field-types/supported-field-types/star-tree/#star-tree-index-mappings) during index creation. The mapping must reflect the dimensions and metrics for the aggregations you want to optimize.
+To use a star-tree index, define a [star-tree mapping](https://docs.opensearch.org/latest/field-types/supported-field-types/star-tree/#star-tree-index-mappings) during index creation. The mapping must reflect the dimensions and metrics for the aggregations you want to optimize.
 
 When using your star-tree index, note the following details:
 
 - No changes are required to the query syntax or parameters.
-- As of OpenSearch 2.19, only certain [aggregation types](https://docs.opensearch.org/docs/latest/search-plugins/star-tree-index/#supported-queries-and-aggregations) are supported.
+- As of OpenSearch 2.19, only certain [aggregation types](https://docs.opensearch.org/latest/search-plugins/star-tree-index/#supported-queries-and-aggregations) are supported.
 - OpenSearch automatically identifies and optimizes eligible queries using a star-tree index in real time.
 - Once configured during index creation, a star-tree index requires no additional maintenance or modifications. 
 

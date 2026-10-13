@@ -14,7 +14,7 @@ meta_keywords: PPL
 meta_description: "Learn how to use OpenSearch 3.0's new PPL commands to enhance your log analysis. Explore practical examples and understand the Calcite-powered optimization."
 ---
 
-OpenSearch 3.0 introduced powerful new capabilities to the Piped Processing Language (PPL) with the addition of the `lookup`, `join`, and `subsearch` commands. These commands help you enrich, correlate, and filter logs more efficiently. They are particularly useful in observability and log analytics scenarios. For example, you can join authentication and application logs to investigate security incidents or use the `lookup` command to add geolocation context to logs in real time. To learn more about supported PPL commands, see the [PPL command reference](https://docs.opensearch.org/docs/latest/search-plugins/sql/ppl/functions/).
+OpenSearch 3.0 introduced powerful new capabilities to the Piped Processing Language (PPL) with the addition of the `lookup`, `join`, and `subsearch` commands. These commands help you enrich, correlate, and filter logs more efficiently. They are particularly useful in observability and log analytics scenarios. For example, you can join authentication and application logs to investigate security incidents or use the `lookup` command to add geolocation context to logs in real time. To learn more about supported PPL commands, see the [PPL command reference](https://docs.opensearch.org/latest/search-plugins/sql/ppl/functions/).
 
 These enhancements are powered by Apache Calcite, which also improves query planning and execution. Together, they lay the foundation for more advanced analytics in future versions. With this update, PPL becomes an even more expressive and efficient language for interactive data exploration. 
 
