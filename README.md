@@ -30,9 +30,9 @@ We welcome contributions! Please see our [CONTRIBUTING](CONTRIBUTING.md) page to
 
 _Note:_ As of July 20, 2021, contributions are welcome on the `main` branch; the `prod` branch is now protected and holds the finalized version of the site. The `staging` branch has been removed and is no longer being used.
 
-### Adding to the Partners page
+### Adding to the Solutions Providers page
 
-If you are a partner, you are welcome to add your logo/link to our partners page. Please copy and edit the [sample file](_partners/_sample.md), and submit a pull request.
+If you are a solution provider, you are welcome to add your logo/link to our Solutions Providers page. Please copy and edit the [sample file](_solutionsProviders/_sample.md), and submit a pull request.
 
 ### Writing a blog
 
