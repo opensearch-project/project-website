@@ -7,9 +7,9 @@ title: How to verify signatures
 ## How to verify signatures for downloadable artifacts
 
 ### <a name="Pgp">PGP</a>
-Download our PGP key using the link below and import it. 
+Download our PGP key using the link below and import it.
 
-If you’re using gpg, you just need to run: 
+If you’re using gpg, you just need to run:
 
 ```
 gpg --import /path/to/key
@@ -21,11 +21,27 @@ You can then verify the signature by downloading it into the same directory wher
 gpg --verify /path/to/signature /path/to/tarball
 ```
 
-It should show a good signature signed by opensearch@amazon.com.
+### Which Key to Use?
 
-Our current PGP key fingerprint is `C5B7 4989 65EF D1C2 924B  A9D5 39D3 1987 9310 D3FC`
+We use different PGP keys for different release versions:
 
-[Get our PGP Key](https://artifacts.opensearch.org/publickeys/opensearch.pgp)
+- **For versions 3.0.0 and later**, use the key with fingerprint:
+
+  `A8B2 D9E0 4CD5 1FEF 6AA2  DB53 BA81 D999 8119 1457`
+
+  This key signs as `release@opensearch.org`.
+
+  [Download PGP Key for 3.0.0+](https://artifacts.opensearch.org/publickeys/opensearch-release.pgp)
+
+- **For versions before 3.0.0**, use the key with fingerprint:
+
+  `C5B7 4989 65EF D1C2 924B  A9D5 39D3 1987 9310 D3FC`
+
+  This key signs as `opensearch@amazon.com`.
+
+  [Download PGP Key for pre-3.0.0](https://artifacts.opensearch.org/publickeys/opensearch.pgp)
+
+Signature verification will show a **"Good signature"** from the corresponding email if successful.
 
 *Note: If you see "gpg: Note: This key has expired!" as originally noted in [Issue 2040](https://github.com/opensearch-project/opensearch-build/issues/2040){:target="_blank"}, please download the newest key. See change log for dates.*
 
@@ -72,6 +88,8 @@ Certificate Fingerprint:
 
 ## Change Log ##
 
+
+Signature Email: `opensearch@amazon.com`
 <div class="table-styler"></div>
 
 | Date       | Issue | Created    | Expires    |
@@ -81,5 +99,12 @@ Certificate Fingerprint:
 | 2023-06-21 | [Issue 97](https://github.com/opensearch-project/sql-jdbc/issues/97){:target="_blank"}  | 2023-04-13 | 2031-11-09 |
 | 2023-07-17 | [Issue 3633](https://github.com/opensearch-project/opensearch-build/issues/3633){:target="_blank"}  | 2023-07-05 | 2027-06-28 |
 | 2024-05-07 | [Issue 3468](https://github.com/opensearch-project/opensearch-build/issues/3468){:target="_blank"}  | 2024-05-01 | 2025-05-12 |
+
+Signature Email: `release@opensearch.org`
+<div class="table-styler"></div>
+
+| Date       | Issue | Created    | Expires    |
+|:-----------|:-------|:-----------|:-----------|
+| 2025-04-22 | [Issue 5308](https://github.com/opensearch-project/opensearch-build/issues/5308){:target="_blank"}  | 2025-03-06 | 2027-03-06 |
 
 <br>
