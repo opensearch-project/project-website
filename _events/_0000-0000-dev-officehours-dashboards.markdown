@@ -6,8 +6,7 @@ eventdate: 2023-05-05 10:00:00 -0700
 title: OpenSearch Dashboards Developer Office Hours - YYYY-MM-DD
 # if your event has an online component, put it here (mind the time-zone and daylight saving time!):
 online: true
-# If the event is online, remove the next line, otherwise uncomment and adjust it:
-# tz: Pacific/Tahiti
+tz: America/Los_Angeles
 # This is for the sign up button
 signup:
     # the link URL

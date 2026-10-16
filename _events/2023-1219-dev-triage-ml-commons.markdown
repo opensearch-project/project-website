@@ -4,6 +4,7 @@ eventdate: 2023-12-19 10:30:00 -0800
 
 title: Development Backlog & Triage Meeting - ml-commons - 2023-12-19
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/297972773/
     title: Join on Meetup

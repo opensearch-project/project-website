@@ -5,8 +5,7 @@ calendar_date: '2023-02-28'
 eventdate: 2023-02-28 15:00:00 -0800
 title: OpenSearch Community Meeting - 2023-02-28
 online: true
-# If the event is online, remove the next line, otherwise uncomment and adjust it:
-# tz: Pacific/Tahiti
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/290444926/
     title: Join on Meetup

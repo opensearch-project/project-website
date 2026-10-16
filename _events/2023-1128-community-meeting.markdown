@@ -1,9 +1,10 @@
 ---
 calendar_date: '2023-11-28'
-eventdate: 2023-11-28 08:00:00 -0700
+eventdate: 2023-11-28 08:00:00 -0800
 
 title: OpenSearch Community Meeting - 2023-11-28
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/297276360/
     title: Join on Meetup
