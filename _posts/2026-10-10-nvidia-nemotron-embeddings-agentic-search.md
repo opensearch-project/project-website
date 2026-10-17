@@ -3,6 +3,7 @@ layout: post
 title:  "NVIDIA Nemotron embeddings for agentic search in OpenSearch"
 authors:
   - beauzong
+  - farshadsm
   - yych
 date: 2026-10-10
 has_science_table: true
