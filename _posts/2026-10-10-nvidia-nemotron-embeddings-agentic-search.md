@@ -3,8 +3,8 @@ layout: post
 title:  "NVIDIA Nemotron embeddings for agentic search in OpenSearch"
 authors:
   - beauzong
-  - farshadsm
   - yych
+  - farshadsm
 date: 2026-10-10
 has_science_table: true
 has_math: true
@@ -15,7 +15,11 @@ meta_description: Learn how NVIDIA Nemotron-3.5-Embed-1B embeddings improve neur
 excerpt: NVIDIA Nemotron-3.5-Embed-1B improves nDCG@10 on the BRIGHT benchmark by up to 65 percent compared with bge-m3, and agentic search with Nemotron issues fewer search steps with no increase in end-to-end latency.
 ---
 
-Choosing a strong embedding model can benefit agentic search by increasing the number of relevant documents that each search returns and reducing the number of searches that the agent issues. In this post, we evaluate **NVIDIA Nemotron-3.5-Embed-1B** as the embedding model for OpenSearch neural and hybrid search. We compared the Nemotron model with the widely used bge-m3 model, focusing primarily on search relevance. Because agentic search trades additional searches and large language model (LLM) calls for better results, we also measured two production costs: the number of search steps (hops) that the agent takes and end-to-end latency per query.
+<!-- Choosing a strong embedding model can benefit agentic search by increasing the number of relevant documents that each search returns and reducing the number of searches that the agent issues. In this post, we evaluate **NVIDIA Nemotron-3.5-Embed-1B** as the embedding model for OpenSearch neural and hybrid search. We compared the Nemotron model with the widely used bge-m3 model, focusing primarily on search relevance. Because agentic search trades additional searches and large language model (LLM) calls for better results, we also measured two production costs: the number of search steps (hops) that the agent takes and end-to-end latency per query. -->
+
+How can OpenSearch retrieve more relevant documents for complex questions without increasing end-to-end agentic search latency? We evaluated neural and hybrid search using NVIDIA Nemotron 3.5 Embed 1B and bge-m3 across six datasets from the BRIGHT benchmark, both with and without multi-step query rewriting.
+
+In our agentic search experiments, replacing bge-m3 with Nemotron improved average nDCG@10 by 65 percent for neural search and 31 percent for hybrid search. Agents also issued fewer search requests, while measured end-to-end latency remained similar. We examine where these gains come from, when hybrid search helps, and how much retrieved context to pass to the language model.
 
 Our evaluation used the [BRIGHT benchmark](https://brightbenchmark.github.io/), which tests retrieval for reasoning-intensive queries. In [our previous blog post](https://opensearch.org/blog/evaluating-agentic-search-in-opensearch/), we showed that query reformulation can produce substantial relevance gains on the BRIGHT benchmark. In this post, we examine how the choice of the embedding model affects retrieval both before and within an agentic search workflow.
 
@@ -38,7 +42,7 @@ We used the same six BRIGHT datasets as in [the previous blog post](https://open
 We compared the following embedding models:
 
 - [**BAAI/bge-m3**](https://huggingface.co/BAAI/bge-m3) (baseline): A model from the Beijing Academy of Artificial Intelligence (BAAI) with 568 million parameters that produces 1,024-dimensional embeddings.
-- **Nemotron-3.5-Embed-1B**: A multilingual model from NVIDIA with 1.55 billion parameters that produces 2,048-dimensional embeddings.
+- [**Nemotron-3.5-Embed-1B**](https://huggingface.co/nvidia/Nemotron-3.5-Embed-1B-BF16): A multilingual model from NVIDIA with 1.55 billion parameters that produces 2,048-dimensional embeddings, that is part of the NVIDIA [Nemotron Retriever](https://huggingface.co/collections/nvidia/nemotron-retriever) collection and supported in the [NVIDIA Agent Knowledge Foundation](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit). <!-- This is a blog will be availble the 21st October -->
 
 Note that the bge-m3 model provides a stronger baseline than the [msmarco-distilbert-base-tas-b](https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b) model used in the previous post.
 
@@ -68,7 +72,7 @@ The results show that **Nemotron is the stronger retriever overall**. Averaged o
 
 **The gain is largest on datasets in which relevant documents share few terms with the question**. Nemotron more than doubles the bge-m3 score on biology (+119 percent) and earth science (+105 percent) and improves psychology (+42 percent), economics (+34 percent), and LeetCode (+26 percent). On Stack Overflow, the two models score within 3 percent of each other for neural search, and bge-m3 is slightly ahead for hybrid search (0.138 compared with 0.135). These results suggest that keyword overlap already provides much of the relevance signal for Stack Overflow, whose posts are long and contain many exact technical terms.
 
-**Whether BM25 helps depends on the embedding model**. For bge-m3, adding keyword search improves results (0.147 for hybrid search compared with 0.136 for neural search). For Nemotron, neural search alone scores highest (0.206 compared with 0.192). Our results suggest that BM25 compensates for weaker embeddings. Nemotron's embeddings already capture the term matches that BM25 would add, so adding BM25 scores lowers the ranking quality.
+**Whether BM25 helps depends on the embedding model**. For bge-m3, adding keyword search improves average nDCG@10 from 0.136 to 0.147. For Nemotron, neural search alone scores higher than hybrid search (0.206 compared with 0.192). Our results suggest that BM25 compensates for weaker embeddings. Nemotron's embeddings already capture the term matches that BM25 would add, so adding BM25 scores lowers the ranking quality.
 
 **Nemotron's higher relevance slightly increases search latency**. Nemotron is almost three times larger than bge-m3, so encoding a query takes a longer time. A higher embedding dimension can also slightly increase k-NN search latency. As a result, a single neural search takes about 0.20 seconds using Nemotron compared with 0.10 seconds using bge-m3, and a single hybrid search takes 0.25 compared with 0.14 seconds. For billions of searches, a 0.1-second overhead can add significant latency, but its effect on agentic search is negligible, as shown in the next section.
 
@@ -111,9 +115,9 @@ The following table shows nDCG@10 for each BRIGHT dataset, the average nDCG@10 a
 
 #### Agentic search performance
 
-**Agentic search improves every configuration**.  Rewriting the query raises the average nDCG@10 by 36--71 percent compared to a single search. These results show that when answering a query requires reasoning beyond keywords, rewriting and decomposing the query substantially improves retrieval. LeetCode remains the outlier: it is the only dataset for which agentic rewriting provides only marginal improvements, consistent with the findings outlined in the previous post.
+**Agentic search improves every configuration on average**. Across the six datasets, query rewriting increases the average nDCG@10 by 36--71 percent compared with a single search. These results show that multi-step query rewriting can improve retrieval for reasoning-intensive questions. LeetCode remains the outlier: it is the only dataset for which agentic rewriting provides only marginal improvements, consistent with the findings outlined in the previous post.
 
-**Retriever quality still affects agentic search performance**. With agentic search, Nemotron outperforms bge-m3 by 65 percent for neural search (0.185 → 0.305) and by 31 percent for hybrid search (0.250 → 0.329), scoring higher than bge-m3 on 11 of 12 datasets. The only exception is hybrid search on Stack Overflow (0.252 for bge-m3 compared with 0.244 for Nemotron). Without query rewriting, the two models already perform almost identically on this dataset, so the agent rewrites start from similar retrieval results and produce similar scores. Stack Overflow posts also contain many exact technical terms, so in agentic search, adding BM25 produces a larger gain on Stack Overflow than on any other dataset (from 0.140 to 0.252 for bge-m3 and from 0.156 to 0.244 for Nemotron, comparing hybrid with neural search). As a result, the choice of retrieval method affects the Stack Overflow results more than the choice of embedding model.
+**Retriever quality still affects agentic search performance**. With agentic search, Nemotron Retriever outperforms bge-m3 by 65 percent for neural search (0.185 → 0.305) and by 31 percent for hybrid search (0.250 → 0.329), scoring higher than bge-m3 on 11 of 12 datasets. The only exception is hybrid search on Stack Overflow (0.252 for bge-m3 compared with 0.244 for Nemotron). Without query rewriting, the two models already perform almost identically on this dataset, so the agent rewrites start from similar retrieval results and produce similar scores. Stack Overflow posts also contain many exact technical terms, so in agentic search, adding BM25 produces a larger gain on Stack Overflow than on any other dataset (from 0.140 to 0.252 for bge-m3 and from 0.156 to 0.244 for Nemotron, comparing hybrid with neural search). As a result, the choice of retrieval method affects the Stack Overflow results more than the choice of embedding model.
 
 **When combined with agentic search, hybrid search scores highest for both models**. Without an LLM, Nemotron performed best with neural search alone. With agentic search, hybrid search scores higher for both embedding models (0.329 compared with 0.305 for Nemotron and 0.250 compared with 0.185 for bge-m3). We attribute this difference to the precise domain terms that rewritten queries tend to contain, which BM25 matches well. As a result, BM25 benefits more from the rewritten queries than from the original questions.
 
@@ -166,9 +170,9 @@ Documents that appear relevant in a long context may still rank below the top 10
 
 Our experiments produced the following findings:
 
-- **Nemotron-3.5-Embed-1B is a stronger retriever than bge-m3 on the BRIGHT benchmark**: Without an LLM, it improves nDCG@10 by 52 percent for neural search and 31 percent for hybrid search, with the largest gains on the four datasets that require reasoning.
-- **Agentic search improves every configuration, and the stronger embedding model keeps its advantage with agentic search**: The best configuration, **hybrid search with Nemotron and agentic search**, reaches an average nDCG@10 of 0.329, compared with 0.136 for a single neural search with bge-m3.
-- **When the agent uses Nemotron, it stops after fewer steps with no additional latency**: Although a better embedding model has higher latency for a single search, the end-to-end latency with agentic rewriting remains similar because the agent requires fewer reasoning steps, which is the main bottleneck.
+- **Stronger embeddings improve retrieval in OpenSearch.** Across the six BRIGHT datasets evaluated, replacing bge-m3 with Nemotron 3.5 Embed 1B increases average nDCG@10 by 52 percent for neural search and 31 percent for hybrid search without LLM query rewriting.
+- **Agentic query rewriting improves average relevance for all four configurations.** With agentic search, Nemotron Retriever retains its advantage over bge-m3, improving average nDCG@10 by 65 percent for neural search and 31 percent for hybrid search. Hybrid search with Nemotron achieves the highest average score, at 0.329.
+- **Higher relevance comes with fewer search requests and similar measured latency.** Agents using Nemotron Retriever average 5.10 searches per query compared with 5.61 for bge-m3 in neural search, and 5.05 compared with 5.23 in hybrid search. End-to-end latency differs by only 0.1 seconds between models within each retrieval method.
 
 ## What's next
 
