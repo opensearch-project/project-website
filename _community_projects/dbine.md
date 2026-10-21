@@ -6,7 +6,7 @@ owner: AddLayer
 owner_link: https://dbine.com
 link: https://github.com/addlayer-io/dbine
 download_link: https://github.com/addlayer-io/dbine/releases
-license: MIT
+license: Apache License 2.0
 license_link: https://github.com/addlayer-io/dbine/blob/main/LICENSE
 # upload your logo to the following directory
 icon: /assets/media/community_projects/dbine/dbine.png
