@@ -1,0 +1,325 @@
+Tracing an image failure from alert to run evidence with OpenSearch
+Plain-text reproduction companion
+
+CURRENT EXECUTION STATUS
+
+OBSERVED PASS: the exact fixture and all four requests below were executed on
+a fresh owned OpenSearch 3.9.0 cluster, build
+4ee42a94e87f66fbf1e62a9871b1b87f91e02472. The run finished on 23 October 2026
+at 12:14:30 GST. GET / returned HTTP 200; the unused-index HEAD returned 404;
+creation returned HTTP 200 with acknowledged:true. The bulk request returned
+HTTP 200, errors:false, and all nine ordered create items with status 201.
+
+Requests A, B, C, and D returned 1, 3, 3, and 9 hits respectively, with the exact
+ordered IDs listed below. All four returned HTTP 200, timed_out:false, zero
+failed shards, relation:eq, and complete unchanged sources, including intentional
+field absences. The owned test container was removed after execution.
+
+The expected-result checks below are targets for repeat runs; this observed run
+met them. The article displays selected fields; section 2 preserves the complete
+literal sources used for full-source comparison.
+
+SCOPE AND SOURCE LIMITS
+
+The data and fields are a retrospective explanatory projection of selected,
+sanitized alert and durable run/event records from a Lumian agent image turn
+and a separate QA task. The queries were run later for this reconstruction.
+Five alerts and four run summaries make nine documents; they are not a complete
+incident inventory or a production schema. No customer image, prompt, provider
+call, or external action is needed for reproduction.
+
+Retained source metadata identifies the article author as both author and merger
+of "Fix Agent chats failing on oversized images", merged at 21:23:48 GST on
+18 September 2026. Its recorded scope was to resize oversized chat images before
+provider calls and omit fake tool labels when no tool ran. This supports the
+first-person merge action. Metadata establishes that action and scope; a source
+diff was not recovered, and the serving revision remains unknown. A historical
+alert disposition or closure action beyond that merge is not documented.
+
+The later QA run records normal completion and requested field presence; it
+does not establish patch causality. Separate searches of retained historical
+controls and error signatures found no matches in the queried incident window.
+That limits historical coverage, not past health.
+
+SETUP
+
+Use an existing authenticated HTTP client against an owned OpenSearch 3.9.0
+test environment. Do not create/change services or credentials. Send the exact
+method, path, Content-Type, and literal body for each request. Preserve request
+bytes and the bulk final newline. Credentials must stay out of saved evidence.
+
+GET /
+
+This request has no body. Require HTTP 200 and record the actual runtime version
+and build; this execution target is 3.9.0. Do not substitute another runtime.
+
+Replace <index> in EVERY path with one unused owned disposable index name.
+
+HEAD /<index>
+
+This request has no body. Require HTTP 404 before creation. If the name exists,
+stop; do not load, overwrite, or delete it. Resolve any failed prerequisite or
+unexpected response before proceeding. Use the same fresh name throughout and
+freeze fixture writes across all four searches.
+
+Installation:
+https://docs.opensearch.org/latest/install-and-configure/
+Authentication:
+https://docs.opensearch.org/latest/security/authentication-backends/authc-index/
+Strict mappings:
+https://docs.opensearch.org/latest/mappings/mapping-parameters/dynamic/
+Bulk API:
+https://docs.opensearch.org/latest/api-reference/document-apis/bulk/
+
+FIELD AND IDENTITY CONTRACT
+
+- All identifiers are fixed aliases. _id equals unique doc_id. Preserve every
+  literal value and equality/difference relationship. Do not rewrite unmatched
+  alert references as nearby durable IDs. Whole identities map as keyword.
+- kind=alert carries thread_id, alert_run_id, and envelope time in at. kind=run
+  carries thread_id, durable_run_id, and creation time in at. Separate documents
+  do not require separate physical indexes.
+- All fixture dates are 18 September 2026 GST (UTC+4), truncated to whole seconds
+  with .000+04:00. The original source creation time is 19:39:31.772 GST; its
+  fixture at remains 19:39:31.000+04:00. at is not error-event, completion,
+  ingestion, or deployment time. Sort date at, then unique keyword doc_id.
+- status and exit_reason remain separate retained summary values. All four runs
+  say succeeded; three also say anthropic_error and one says end_turn.
+- error_seq=2 and exact error_signature project each rejection run's own saved
+  event 2. The provider's 8000-pixel condition is not an image measurement.
+- recorded_tool_call_events and recorded_error_events count exact tool_call and
+  error event types in each run's retained inventory. Rejection runs have 0/1;
+  the normal run has 0/0. A tool label or a different event type is not a tool
+  call. Zero describes only the supplied inventory. Missing inventory in another
+  system must remain unknown, never an invented zero.
+- reply_field_names=["SKU","ORDER"] occurs only on r-qa-3, from its directly
+  linked saved assistant reply. Labels establish field presence, not correct
+  values. Absence on another run makes no claim about its reply. Do not index
+  raw prompts or reply values. The keyword mapping accepts this label array;
+  it is not a new array mapping type.
+- failure and optional tool_label preserve alert evidence. All alert documents
+  are unchanged. a-original, a-qa-1, and a-qa-2 retain distinct unmatched
+  references; a-qa-3 and a-qa-4 both reference qa-run-2 exactly.
+- Omitted fields stay absent, not null or empty arrays. Only the three declared
+  derived fields are added; no upload_ref or other file identity is indexed.
+- Outside the fixture, three QA user messages reference the same uploaded file.
+  This is user-message reference equality, not transport-byte identity, a
+  demonstrated run-upload link, or verified output values. The original
+  customer request, customer impact, and original image dimensions remain unknown.
+- The article's integrated chronology includes retained source merge and QA
+  completion context. Neither becomes an extra document. Completion at
+  21:56:11 GST is not r-qa-3's creation-time at of 21:56:05.000+04:00.
+
+1. CREATE THE INDEX
+
+PUT /<index>
+Content-Type: application/json
+
+{"settings":{"index":{"number_of_shards":1,"number_of_replicas":0,"refresh_interval":"1s"}},"mappings":{"dynamic":"strict","_source":{"enabled":true},"properties":{"doc_id":{"type":"keyword"},"kind":{"type":"keyword"},"thread_id":{"type":"keyword"},"at":{"type":"date","format":"strict_date_time"},"alert_run_id":{"type":"keyword"},"durable_run_id":{"type":"keyword"},"failure":{"type":"keyword"},"tool_label":{"type":"keyword"},"status":{"type":"keyword"},"exit_reason":{"type":"keyword"},"error_seq":{"type":"integer","coerce":false},"error_signature":{"type":"keyword"},"recorded_tool_call_events":{"type":"integer","coerce":false},"recorded_error_events":{"type":"integer","coerce":false},"reply_field_names":{"type":"keyword"}}}}
+
+Require HTTP 200 and acknowledged:true. One shard, zero replicas, and this
+refresh interval are test-only choices. Strict mapping rejects undeclared fields
+but does not enforce nonnegative counts, required fields, allowed labels,
+identifier safety, links, redaction, or authorization. Validate all literal field
+names, types, values, absences, and relationships against this allowlisted
+fixture before sending. Inspect outbound bytes and complete stored sources.
+
+2. LOAD EXACTLY NINE DOCUMENTS
+
+POST /<index>/_bulk?refresh=wait_for
+Content-Type: application/x-ndjson
+
+The next 18 lines are the entire body. Include a final newline after the last
+document. END NDJSON is a delimiter and must not be sent.
+
+{"create":{"_id":"r-original"}}
+{"doc_id":"r-original","kind":"run","thread_id":"incident-thread","at":"2026-09-18T19:39:31.000+04:00","durable_run_id":"original-run","status":"succeeded","exit_reason":"anthropic_error","error_seq":2,"error_signature":"At least one of the image dimensions exceed max allowed size: 8000 pixels","recorded_tool_call_events":0,"recorded_error_events":1}
+{"create":{"_id":"a-original"}}
+{"doc_id":"a-original","kind":"alert","thread_id":"incident-thread","at":"2026-09-18T19:39:32.000+04:00","alert_run_id":"alert-ref-original","failure":"anthropic_error","tool_label":"unknown_tool"}
+{"create":{"_id":"r-qa-1"}}
+{"doc_id":"r-qa-1","kind":"run","thread_id":"qa-thread","at":"2026-09-18T20:43:34.000+04:00","durable_run_id":"qa-run-1","status":"succeeded","exit_reason":"anthropic_error","error_seq":2,"error_signature":"At least one of the image dimensions exceed max allowed size: 8000 pixels","recorded_tool_call_events":0,"recorded_error_events":1}
+{"create":{"_id":"a-qa-1"}}
+{"doc_id":"a-qa-1","kind":"alert","thread_id":"qa-thread","at":"2026-09-18T20:43:36.000+04:00","alert_run_id":"alert-ref-qa-1","failure":"anthropic_error","tool_label":"unknown_tool"}
+{"create":{"_id":"r-qa-2"}}
+{"doc_id":"r-qa-2","kind":"run","thread_id":"qa-thread","at":"2026-09-18T21:27:01.000+04:00","durable_run_id":"qa-run-2","status":"succeeded","exit_reason":"anthropic_error","error_seq":2,"error_signature":"At least one of the image dimensions exceed max allowed size: 8000 pixels","recorded_tool_call_events":0,"recorded_error_events":1}
+{"create":{"_id":"a-qa-2"}}
+{"doc_id":"a-qa-2","kind":"alert","thread_id":"qa-thread","at":"2026-09-18T21:27:04.000+04:00","alert_run_id":"alert-ref-qa-2","failure":"anthropic_error"}
+{"create":{"_id":"a-qa-3"}}
+{"doc_id":"a-qa-3","kind":"alert","thread_id":"qa-thread","at":"2026-09-18T21:31:18.000+04:00","alert_run_id":"qa-run-2","failure":"anthropic_error"}
+{"create":{"_id":"r-qa-3"}}
+{"doc_id":"r-qa-3","kind":"run","thread_id":"qa-thread","at":"2026-09-18T21:56:05.000+04:00","durable_run_id":"qa-run-3","status":"succeeded","exit_reason":"end_turn","recorded_tool_call_events":0,"recorded_error_events":0,"reply_field_names":["SKU","ORDER"]}
+{"create":{"_id":"a-qa-4"}}
+{"doc_id":"a-qa-4","kind":"alert","thread_id":"qa-thread","at":"2026-09-18T21:56:51.000+04:00","alert_run_id":"qa-run-2","failure":"anthropic_error"}
+END NDJSON
+
+Require HTTP 200, errors:false, and exactly nine ordered create items, each
+status 201 and the _id shown above. Inspect every item even when HTTP is 200.
+Any conflict or partial error fails this fresh-load requirement. Resolve its
+cause; do not overwrite to conceal it. refresh=wait_for establishes search
+visibility, not an external outcome. Keep writes frozen for all four searches.
+
+3. REQUEST A: ALERT-SEEDED RUN CANDIDATES
+
+The source seed is a-original, incident-thread, envelope 19:39:32 GST,
+alert_run_id=alert-ref-original, failure=anthropic_error, tool_label=unknown_tool.
+It is not a hit returned below. This reconstruction chooses the inclusive
+five-second creation window 19:39:30.000 through 19:39:35.000 GST; it is not a
+recorded historical policy. No known durable ID is used to select a candidate.
+
+POST /<index>/_search
+Content-Type: application/json
+
+{
+  "size": 9,
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "filter": [
+        { "term": { "kind": "run" } },
+        { "term": { "thread_id": "incident-thread" } },
+        { "range": { "at": {
+          "gte": "2026-09-18T19:39:30.000+04:00",
+          "lte": "2026-09-18T19:39:35.000+04:00"
+        } } }
+      ]
+    }
+  },
+  "sort": [{ "at": "asc" }, { "doc_id": "asc" }]
+}
+
+Expected hits.total: {"value":1,"relation":"eq"}
+Expected ordered _id values: ["r-original"]
+Complete expected _source: its literal document in section 2.
+
+a-original is excluded by kind=run. One selected candidate supports inspection,
+not completeness or an exact-reference join. alert-ref-original remains distinct
+from original-run. With zero or multiple candidates, retain unmatched references
+and inspect candidate evidence; do not force a nearest-time match. Emitting
+durable correlation IDs at alert creation is a recommendation, not an implemented
+correlation system demonstrated here.
+
+4. REQUEST B: QA RUNS AND THEIR RECORDED OUTCOME MARKERS
+
+POST /<index>/_search
+Content-Type: application/json
+
+{
+  "size": 9,
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "filter": [
+        { "term": { "kind": "run" } },
+        { "term": { "thread_id": "qa-thread" } }
+      ]
+    }
+  },
+  "sort": [{ "at": "asc" }, { "doc_id": "asc" }]
+}
+
+Expected hits.total: {"value":3,"relation":"eq"}
+Expected ordered _id values: ["r-qa-1","r-qa-2","r-qa-3"]
+Complete expected _source objects: their literal documents in section 2.
+
+Key markers, in addition to complete-source equality:
+r-qa-1: status=succeeded; exit_reason=anthropic_error;
+        recorded_tool_call_events=0; recorded_error_events=1;
+        error_seq=2; exact error_signature; reply_field_names absent.
+r-qa-2: status=succeeded; exit_reason=anthropic_error;
+        recorded_tool_call_events=0; recorded_error_events=1;
+        error_seq=2; exact error_signature; reply_field_names absent.
+r-qa-3: status=succeeded; exit_reason=end_turn;
+        recorded_tool_call_events=0; recorded_error_events=0;
+        reply_field_names=["SKU","ORDER"]; error_seq/error_signature absent.
+
+No alert or original-run document belongs in this response. QA file-reference
+context stays outside the results.
+
+5. REQUEST C: LATER ALERTS' EXACT REFERENCE
+
+POST /<index>/_search
+Content-Type: application/json
+
+{
+  "size": 9,
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "filter": [{ "term": { "thread_id": "qa-thread" } }],
+      "should": [
+        { "term": { "durable_run_id": "qa-run-2" } },
+        { "term": { "alert_run_id": "qa-run-2" } }
+      ],
+      "minimum_should_match": 1
+    }
+  },
+  "sort": [{ "at": "asc" }, { "doc_id": "asc" }]
+}
+
+Expected hits.total: {"value":3,"relation":"eq"}
+Expected ordered _id values: ["r-qa-2","a-qa-3","a-qa-4"]
+Complete expected _source objects: their literal documents in section 2.
+r-qa-2: durable_run_id=qa-run-2; 21:27:01 GST creation time.
+a-qa-3: alert_run_id=qa-run-2; 21:31:18 GST envelope time.
+a-qa-4: alert_run_id=qa-run-2; 21:56:51 GST envelope time.
+
+a-qa-2 is absent because alert-ref-qa-2 differs; r-qa-3 is absent because
+qa-run-3 differs. As an inference from these selected records, nearest-time
+attribution would attach the 21:56:51 card to normal qa-run-3; its exact
+reference selects older qa-run-2.
+Reference reuse proves neither a new failure per card nor the sender's purpose.
+
+With bool.filter present, should clauses default to optional; requiring
+minimum_should_match:1 makes either exact reference necessary.
+Boolean query documentation:
+https://docs.opensearch.org/latest/query-dsl/compound/bool/
+
+6. REQUEST D: ALL-NINE SELECTED TIMELINE
+
+POST /<index>/_search
+Content-Type: application/json
+
+{
+  "size": 9,
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "filter": [
+        { "terms": { "thread_id": ["incident-thread", "qa-thread"] } }
+      ]
+    }
+  },
+  "sort": [{ "at": "asc" }, { "doc_id": "asc" }]
+}
+
+Expected hits.total: {"value":9,"relation":"eq"}
+Expected ordered _id values:
+["r-original","a-original","r-qa-1","a-qa-1","r-qa-2","a-qa-2","a-qa-3","r-qa-3","a-qa-4"]
+
+Every complete expected _source is its literal document in section 2. This is
+not the initial candidate query and returns no merge or completion-time record.
+
+7. FULL-SOURCE VERIFICATION AND EVIDENCE
+
+For each of the FOUR searches require HTTP 200, timed_out:false,
+_shards.failed:0, the exact hits.total value with relation:eq, every expected
+hit in order, no unexpected hit, and complete unchanged _source objects.
+Do not add _source filtering. Compare every key, type, value, array, and
+intentional field absence against the literal source line after its create
+action in section 2, ignoring JSON object-key order only. A matching count or
+selected-field excerpt alone fails this requirement. Nine documents fit one
+response; pagination is unnecessary.
+
+The exact signature on r-original, r-qa-1, and r-qa-2 is:
+At least one of the image dimensions exceed max allowed size: 8000 pixels
+
+For repeat runs, save the actual version/build, owned index name, exact request
+bytes and non-secret headers, unused-index response, create acknowledgement, all
+nine bulk statuses, and full search responses with complete sources and search
+health. Retain failure evidence and resolve causes before claiming execution
+success. Compare fresh responses with the targets above.
+
+The article's displayed results select fields for readability; verification
+uses full sources. These counts describe this fixture, not total incident scale.
+Next historical verification: establish the QA serving revision and compare its
+returned values with the image.
