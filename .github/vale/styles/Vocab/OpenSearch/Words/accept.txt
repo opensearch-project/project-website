@@ -124,6 +124,7 @@ pebibyte
 [Ss]ignificand
 stdout
 [Ss]temmers?
+[Ss]ubagents?
 [Ss]ubaggregation
 [Ss]ubcalculation
 [Ss]ubcollectors?
