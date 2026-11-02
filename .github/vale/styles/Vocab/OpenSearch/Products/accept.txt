@@ -129,6 +129,7 @@ OpenTelemetry
 OpenTelemetry Collector
 Opster
 Oracle
+OSGi
 OTel
 Packetbeat
 Painless
