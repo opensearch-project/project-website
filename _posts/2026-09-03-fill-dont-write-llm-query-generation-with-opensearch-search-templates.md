@@ -85,7 +85,7 @@ PUT _cluster/settings
 }
 ```
 
-Scope that pattern to your agent server's real host rather than widening it, and note that replacing the regex list removes the defaults. The preceding list keeps the default Amazon Bedrock runtime pattern, which the `SearchTemplateFillTool` example in this post uses; also restore any other model provider endpoints your cluster relies on.
+Scope the `127.0.0.1:8001` pattern to your agent server's real host rather than widening it. Replacing the regex list removes the defaults, so the preceding list keeps the default Amazon Bedrock runtime pattern, which the `SearchTemplateFillTool` example in this post uses. Restore any other model provider endpoints that your cluster relies on.
 
 ## Registering a search template
 
@@ -227,7 +227,9 @@ Choose ML Commons if you want everything to run in the cluster, use a model prov
 
 ### Filling templates in ML Commons
 
-In ML Commons, the `SearchTemplateFillTool` calls the model and renders the template in the cluster. First, create a connector to your model provider, then register and deploy a remote model that uses it, passing the `connector_id` from the connector response:
+In ML Commons, the `SearchTemplateFillTool` calls the model and renders the template in the cluster. First, create a connector to your model provider. The tool forces the model to call a tool whose fields are the template parameters, so the connector's `request_body` must include `${parameters.tool_configs:-}`, `${parameters.system_prompt}`, and either `${parameters.user_prompt}` or `${parameters.prompt}`. The connectors in [Model configuration](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/agent-customization/#model-configuration) meet these requirements.
+
+Then register and deploy a remote model that uses the connector, passing the `connector_id` from the connector response:
 
 ```json
 POST /_plugins/_ml/models/_register?deploy=true
@@ -237,8 +239,6 @@ POST /_plugins/_ml/models/_register?deploy=true
   "connector_id": "PASTE_CONNECTOR_ID"
 }
 ```
-
-The tool forces the model to call a tool whose fields are the template parameters, so the connector's `request_body` must include `${parameters.tool_configs:-}`, `${parameters.system_prompt}`, and either `${parameters.user_prompt}` or `${parameters.prompt}`. The connectors in [Model configuration](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/agent-customization/#model-configuration) meet these requirements.
 
 Next, register a flow agent with the tool. Specify the model and its `_llm_interface` in the tool's `parameters`, and list the templates that the agent may fill in the `template_ids` field of the tool's `config`, as a JSON string:
 
@@ -404,7 +404,7 @@ OpenSearch substitutes those values into the template and runs the resulting que
 }
 ```
 
-The response contains the matching documents from your index. If you enabled `dsl_query`, the `ext.dsl_query` field of the response contains the preceding query. To produce it, the model supplied three values: `query_text`, `sort_by`, and `size`. The sort clause appears because the model filled the optional `sort_by` parameter. The model omitted the optional `category` parameter and kept `footwear` in `query_text`, so the query has no category filter, and products from other categories whose titles match `shoes` can appear in the results. [Improving results by describing your parameters](#improving-results-by-describing-your-parameters) describes how to reduce this.
+The response contains the matching documents from your index. If you enabled `dsl_query`, the `ext.dsl_query` field of the response contains the preceding query. To produce it, the model supplied three values: `query_text`, `sort_by`, and `size`. The sort clause appears because the model filled the optional `sort_by` parameter. The model omitted the optional `category` parameter and kept `footwear` in `query_text`, so the query has no category filter, and products from other categories whose titles match `shoes` can appear in the results. With the sample data, the results are the same as with the filter, because every product whose title matches is in the `footwear` category, but the missing filter shows in `ext.dsl_query`. [Improving results by describing your parameters](#improving-results-by-describing-your-parameters) describes how to reduce this.
 
 When the agent server fills the template for this question, it produces the same query. However, it sometimes declines the template and writes the query directly. In our tests, it declined in three of five runs.
 
@@ -438,12 +438,28 @@ PUT /_plugins/_ml/agentic_search_templates/product_search
 
 The update API merges these descriptions into the stored schema, so you change only the fields that you name. It rejects any parameter that the template body does not reference.
 
-In our tests, the `query_text` description alone did not stop the model from keeping `footwear` in `query_text`. Adding the `category` description fixed the example with the `SearchTemplateFillTool`, which then filtered on `footwear` and searched for `shoes`. The agent server still left `category` out.
+In our tests, the `query_text` description alone did not move `footwear` out of `query_text` on either path. After we added the `category` description, both the `SearchTemplateFillTool` and the agent server set `category` to `footwear` and searched for `shoes` in all five runs, producing the following query:
+
+```json
+{
+  "query": {
+    "bool": {
+      "must":   [ { "match": { "title": "shoes" } } ],
+      "filter": [ { "term": { "category": "footwear" } } ]
+    }
+  },
+  "sort": [ { "price": "desc" } ],
+  "size": 2
+}
+```
+
+The agent server caches each template's schema for up to a minute, so an update can take that long to reach it. The `SearchTemplateFillTool` reads updates immediately.
 
 The following adjustments have the largest effect:
 
 - **State units and scale** for numeric parameters. A model is most likely to substitute one field for another for amounts, durations, and distances.
-- **Say what a parameter should exclude**, not just what it contains. A full-text parameter is the common case: without guidance, a model tends to supply the entire question as the value, including words that belong in filters.
+- **Describe where a value belongs.** For a filter parameter, list the values it accepts and say when to set it. Without this guidance, a model tends to supply the entire question as the full-text value, including words that belong in filters.
+- **Say what a parameter should exclude**, not just what it contains. In our tests, telling the full-text parameter what to exclude was not enough on its own. It worked once the filter parameter also described where the value belongs.
 - **Narrow the allowed values** to those that are valid for your data. Derivation lists every mapped field for a field-selector parameter, narrowed to the sortable fields when the parameter sets the sort field. Either list is usually broader than the fields that you intend to use.
 - **Mention the fallback** for an optional parameter when derivation did not identify one, so the model can omit the parameter rather than generating an arbitrary value.
 
@@ -471,7 +487,7 @@ You can offer the agent more than one template. If you register several template
 }
 ```
 
-(Here, `semantic_product_search` stands for a second template that you register the same way as `product_search`. On both paths, a listed ID that isn't registered is skipped without an error.)
+Here, `semantic_product_search` stands for a second template that you register the same way as `product_search`. On both paths, a listed ID that isn't registered is skipped without an error. The agent server logs a warning when it skips one.
 
 With the agent server, change two fields in the preceding connector configuration. First, list the candidate IDs in the static parameters, and remove the `template_id` entry, since a connector that specifies both sends the scalar as an extra candidate:
 
@@ -486,7 +502,7 @@ With the agent server, change two fields in the preceding connector configuratio
 
 Then update the payload to pass `template_ids` in the context instead of `template_id`. Don't surround the `${parameters.template_ids}` placeholder with quotation marks: the parameter value is already a JSON array, so quoting it produces an invalid payload:
 
-```json
+```text
 {
   "query": "${parameters.question}",
   "agent": "agentic_search",
