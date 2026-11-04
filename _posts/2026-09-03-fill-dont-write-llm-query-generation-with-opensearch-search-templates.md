@@ -77,14 +77,15 @@ PUT _cluster/settings
 {
   "persistent": {
     "plugins.ml_commons.trusted_connector_endpoints_regex": [
-      "^http://127\\.0\\.0\\.1:8001/.*$"
+      "^http://127\\.0\\.0\\.1:8001/.*$",
+      "^https://bedrock-runtime\\..*[a-z0-9-]\\.amazonaws\\.com/.*$"
     ],
     "plugins.ml_commons.connector.private_ip_enabled": true
   }
 }
 ```
 
-Scope that pattern to your agent server's real host rather than widening it, and note that replacing the regex list removes the defaults, so restore any model provider endpoints your cluster already relies on.
+Scope that pattern to your agent server's real host rather than widening it, and note that replacing the regex list removes the defaults. The preceding list keeps the default Amazon Bedrock runtime pattern, which the `SearchTemplateFillTool` example in this post uses; also restore any other model provider endpoints your cluster relies on.
 
 ## Registering a search template
 
@@ -101,6 +102,20 @@ PUT products
     }
   }
 }
+```
+
+Add a few sample products:
+
+```json
+POST /_bulk?refresh=true
+{ "index": { "_index": "products", "_id": "1" } }
+{ "title": "leather dress shoes", "category": "footwear", "price": 210.0 }
+{ "index": { "_index": "products", "_id": "2" } }
+{ "title": "trail running shoes", "category": "footwear", "price": 120.0 }
+{ "index": { "_index": "products", "_id": "3" } }
+{ "title": "canvas shoes", "category": "footwear", "price": 45.0 }
+{ "index": { "_index": "products", "_id": "4" } }
+{ "title": "wool hiking socks", "category": "apparel", "price": 18.0 }
 ```
 
 {% raw %}
@@ -212,7 +227,18 @@ Choose ML Commons if you want everything to run in the cluster, use a model prov
 
 ### Filling templates in ML Commons
 
-In ML Commons, the `SearchTemplateFillTool` calls the model and renders the template in the cluster. First, register a remote model for the tool. The tool forces the model to call a tool whose fields are the template parameters, so the connector's `request_body` must include `${parameters.tool_configs:-}`, `${parameters.system_prompt}`, and either `${parameters.user_prompt}` or `${parameters.prompt}`. The connectors in [Model configuration](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/agent-customization/#model-configuration) meet these requirements.
+In ML Commons, the `SearchTemplateFillTool` calls the model and renders the template in the cluster. First, create a connector to your model provider, then register and deploy a remote model that uses it, passing the `connector_id` from the connector response:
+
+```json
+POST /_plugins/_ml/models/_register?deploy=true
+{
+  "name": "Bedrock Claude Sonnet 4.5",
+  "function_name": "remote",
+  "connector_id": "PASTE_CONNECTOR_ID"
+}
+```
+
+The tool forces the model to call a tool whose fields are the template parameters, so the connector's `request_body` must include `${parameters.tool_configs:-}`, `${parameters.system_prompt}`, and either `${parameters.user_prompt}` or `${parameters.prompt}`. The connectors in [Model configuration](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/agent-customization/#model-configuration) meet these requirements.
 
 Next, register a flow agent with the tool. Specify the model and its `_llm_interface` in the tool's `parameters`, and list the templates that the agent may fill in the `template_ids` field of the tool's `config`, as a JSON string:
 
@@ -378,7 +404,7 @@ OpenSearch substitutes those values into the template and runs the resulting que
 }
 ```
 
-The response contains the matching documents from your index. If you enabled `dsl_query`, the `ext.dsl_query` field of the response contains the preceding query. To produce it, the model supplied three values: `query_text`, `sort_by`, and `size`. The sort clause appears because the model filled the optional `sort_by` parameter. The model omitted the optional `category` parameter and kept `footwear` in `query_text`, so the query has no category filter, and products from other categories whose titles match `shoes` can appear in the results. [Improving results by describing your parameters](#improving-results-by-describing-your-parameters) describes how to address this.
+The response contains the matching documents from your index. If you enabled `dsl_query`, the `ext.dsl_query` field of the response contains the preceding query. To produce it, the model supplied three values: `query_text`, `sort_by`, and `size`. The sort clause appears because the model filled the optional `sort_by` parameter. The model omitted the optional `category` parameter and kept `footwear` in `query_text`, so the query has no category filter, and products from other categories whose titles match `shoes` can appear in the results. [Improving results by describing your parameters](#improving-results-by-describing-your-parameters) describes how to reduce this.
 
 When the agent server fills the template for this question, it produces the same query. However, it sometimes declines the template and writes the query directly. In our tests, it declined in three of five runs.
 
@@ -390,7 +416,7 @@ Because the template fixes the query structure, the remaining source of error is
 
 Units are the clearest example. Suppose a template has a parameter that bounds a weight field. Derivation can determine that it is an upper bound on a range, but the unit is not derivable from the template body. Ask for "a tent that weighs under 1.5 kilograms" and a model working from the parameter name alone might supply `1.5` for a bound that the template applies to price, because both are numbers and both fit the sentence. Stating the unit in the description removes the ambiguity.
 
-The same applies to the preceding `product_search` schema. The `query_text` parameter is used in a `match` clause, so filter words such as `footwear` in the preceding example do not belong in it, and `sort_by` includes every sortable field in the mapping, including `category`, which this template already uses as a filter. We recommend narrowing both:
+The same applies to the preceding `product_search` schema. The `query_text` parameter is used in a `match` clause, so filter words such as `footwear` in the preceding example do not belong in it, and `sort_by` includes every sortable field in the mapping, including `category`, which this template already uses as a filter. We recommend narrowing both and listing the values that `category` accepts:
 
 ```json
 PUT /_plugins/_ml/agentic_search_templates/product_search
@@ -398,6 +424,9 @@ PUT /_plugins/_ml/agentic_search_templates/product_search
   "param_schema": {
     "query_text": {
       "description": "Product words only, such as a type or material. Do not include filters such as price, category, or availability."
+    },
+    "category": {
+      "description": "Exact product category, one of: footwear, apparel. When the question names a category, set it here and leave it out of query_text."
     },
     "sort_by": {
       "description": "Field to sort results by.",
@@ -407,7 +436,11 @@ PUT /_plugins/_ml/agentic_search_templates/product_search
 }
 ```
 
-The update API merges these descriptions into the stored schema, so you change only the fields that you name. It rejects any parameter that the template body does not reference. The following adjustments have the largest effect:
+The update API merges these descriptions into the stored schema, so you change only the fields that you name. It rejects any parameter that the template body does not reference.
+
+In our tests, the `query_text` description alone did not stop the model from keeping `footwear` in `query_text`. Adding the `category` description fixed the example with the `SearchTemplateFillTool`, which then filtered on `footwear` and searched for `shoes`. The agent server still left `category` out.
+
+The following adjustments have the largest effect:
 
 - **State units and scale** for numeric parameters. A model is most likely to substitute one field for another for amounts, durations, and distances.
 - **Say what a parameter should exclude**, not just what it contains. A full-text parameter is the common case: without guidance, a model tends to supply the entire question as the value, including words that belong in filters.
@@ -437,6 +470,8 @@ You can offer the agent more than one template. If you register several template
   }
 }
 ```
+
+(Here, `semantic_product_search` stands for a second template that you register the same way as `product_search`. On both paths, a listed ID that isn't registered is skipped without an error.)
 
 With the agent server, change two fields in the preceding connector configuration. First, list the candidate IDs in the static parameters, and remove the `template_id` entry, since a connector that specifies both sends the scalar as an extra candidate:
 
