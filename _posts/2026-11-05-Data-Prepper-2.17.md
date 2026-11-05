@@ -164,4 +164,41 @@ Use the following resources to get started with Data Prepper 2.17:
 
 Thanks to the following community members who contributed to this release:
 
-TODO
+* [architkshk](https://github.com/architkshk) -- Archit Kaushik
+* [bagmarnikhil](https://github.com/bagmarnikhil) -- Nikhil Bagmar
+* [bhavsshr](https://github.com/bhavsshr)
+* [Davidding4718](https://github.com/Davidding4718) -- Siqi Ding
+* [dinujoh](https://github.com/dinujoh) -- Dinu John
+* [divbok](https://github.com/divbok) -- Divyansh Bokadia
+* [dlvenable](https://github.com/dlvenable) -- David Venable
+* [fifthist](https://github.com/fifthist) -- Sergey Kojoian
+* [gg-mskm](https://github.com/gg-mskm)
+* [graytaylor0](https://github.com/graytaylor0) -- Taylor Gray
+* [harshasannapaneni](https://github.com/harshasannapaneni) -- Harsha Siva Sai Sannapaneni
+* [harshwadhawe](https://github.com/harshwadhawe) -- Harsh Wadhawe
+* [hozkaya2000](https://github.com/hozkaya2000)
+* [indrajababu](https://github.com/indrajababu) -- Indraja Babu
+* [Jiaaming](https://github.com/Jiaaming) -- James Liu
+* [KarstenSchnitter](https://github.com/KarstenSchnitter) -- Karsten Schnitter
+* [kiran536](https://github.com/kiran536)
+* [KirtanKakadiya](https://github.com/KirtanKakadiya) -- Kirtan Kakadiya
+* [kkondaka](https://github.com/kkondaka) -- Krishna Kondaka
+* [lawofcycles](https://github.com/lawofcycles) -- Sotaro Hikita
+* [lfpantin](https://github.com/lfpantin)
+* [lksfrnz](https://github.com/lksfrnz)
+* [LuisNorman](https://github.com/LuisNorman) -- Luis Norman
+* [nsa-softpay](https://github.com/nsa-softpay)
+* [nssuresh2007](https://github.com/nssuresh2007) -- Suresh N S
+* [oeyh](https://github.com/oeyh) -- Hai Yan
+* [peterzhuamazon](https://github.com/peterzhuamazon) -- Peter Zhu
+* [photoruction-gb](https://github.com/photoruction-gb)
+* [ps48](https://github.com/ps48) -- Shenoy Pratik
+* [revijay](https://github.com/revijay) -- Reshmi Vijayan
+* [shik-25](https://github.com/shik-25) -- Shikhar Dhawale
+* [srikanthpadakanti](https://github.com/srikanthpadakanti) -- Srikanth Padakanti
+* [TackAdam](https://github.com/TackAdam) -- Adam Tackett
+* [tejareddybvsk](https://github.com/tejareddybvsk) -- Teja Reddy
+* [tonypiazza](https://github.com/tonypiazza) -- Tony Piazza
+* [vinaykpud](https://github.com/vinaykpud) -- Vinay Krishna Pudyodu
+* [yavmanis](https://github.com/yavmanis)
+  
