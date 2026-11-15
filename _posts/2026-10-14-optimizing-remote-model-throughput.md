@@ -32,17 +32,16 @@ The registered model stores these boundaries in `batch_inference_config`. `max_i
 
 ### Example: Configure request splitting for ingestion
 
-The following example registers an ingest model with request splitting enabled. The `96` value matches the maximum number of texts accepted by [Cohere Embed English v3 on Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html). The `4000000` value is an example text-byte budget; use the official documentation for the deployed model and provider to choose both limits.
+The following example registers an ingest model for [Cohere Embed English v3 on Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html), which accepts at most 96 texts per call. For an example that also sets `max_bytes_per_request`, see the [request splitting example](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/batching-requests/#configuring-request-splitting) in the documentation.
 
 ```json
 POST /_plugins/_ml/models/_register?deploy=true
 {
-  "name": "remote-embedding-model-for-ingest",
+  "name": "cohere-embed-english-v3-ingest",
   "function_name": "remote",
   "connector_id": "<connector_id>",
   "batch_inference_config": {
-    "max_items_per_request": 96,
-    "max_bytes_per_request": 4000000
+    "max_items_per_request": 96
   }
 }
 ```
@@ -51,14 +50,14 @@ POST /_plugins/_ml/models/_register?deploy=true
 
 Request splitting has 2 separate controls: The model limits define the largest call the endpoint can accept and the ingest processor's `batch_size` determines how much work OpenSearch receives before it creates those calls.
 
-Set the model limits first, then use `batch_size` to find the amount of concurrency the endpoint can sustain:
+Set the model limits first, then choose `batch_size` and the ingest load:
 
 1. **Find the endpoint limits.** Identify the provider and exact model used by the connector. [Supported connectors](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/supported-connectors/) can help identify the model configuration. Then use the provider's official documentation to find the maximum item count and request payload. For a custom endpoint, use the limits configured on the model server.
 2. **Set the model boundaries.** Set `max_items_per_request` to the endpoint's item-count limit. Set `max_bytes_per_request` below the endpoint's full payload limit because the connector adds other fields when it creates the request. These values are guardrails for one model call. They should reflect the endpoint limit rather than a throughput target.
-3. **Start with one model-sized ingest batch.** Set the text embedding processor's `batch_size` to the same value as `max_items_per_request`. For a model with a 96-item limit, begin with `batch_size` set to 96. OpenSearch sends one model-sized call for each prediction request. If the endpoint can process more than one call at a time, increase `batch_size` to 192 and then 288. OpenSearch splits each larger prediction request into valid calls and invokes those calls concurrently.
-4. **Choose the largest useful batch size.** Test each value with documents that resemble the production workload. Include both short and long documents because long texts can reach the payload limit before they reach the item-count limit. Keep increasing `batch_size` only while indexing throughput improves and request latency remains acceptable. When throughput stops improving or the provider begins to rate-limit requests, use the previous value.
+3. **Start with one model-sized ingest batch.** The text embedding processor's `batch_size` sets how many documents go into each prediction request, and each field in `field_map` contributes one input string per document. A field that contains an array contributes one input string per element. Choose a `batch_size` so that the number of input strings in each prediction request matches `max_items_per_request`. OpenSearch then sends one model-sized call for each prediction request.
+4. **Scale throughput with the ingest load.** OpenSearch sends all prediction requests from a bulk request at the same time, so a larger `batch_size` only groups the same input strings into fewer, larger requests, which request splitting divides back into model-sized calls. To index faster, send larger bulk requests or more bulk requests in parallel. Test with documents that resemble the production workload. Include both short and long documents because long texts can reach the payload limit before they reach the item-count limit. Keep increasing the load only while indexing throughput improves and request latency remains acceptable. When throughput stops improving or the provider begins to rate-limit requests, use the previous load.
 
-The model limits keep every call within the endpoint boundary. The processor's `batch_size` determines how much parallel work OpenSearch creates inside that boundary.
+The model limits keep every call within the endpoint boundary. The processor's `batch_size` determines how fully each call is used, and the ingest load determines how many calls run at the same time.
 
 ## When search requests are too small to use the model efficiently
 
@@ -72,20 +71,19 @@ For example, 3 searches might independently submit the query texts `red shoes`, 
 
 ### Example: Configure dynamic batching for search
 
-Dynamic batching is configured on a separate search model. It can reference the same connector as the ingest model, while using a short collection window suited to query latency.
+Dynamic batching is configured on a separate search model. It can reference the same connector as the ingest model, while using a short collection window suited to query latency. The following example registers a search model that waits at most 10 ms for each batch to fill. We use this model in the benchmark that follows:
 
 ```json
 POST /_plugins/_ml/models/_register?deploy=true
 {
-  "name": "remote-embedding-model-for-search",
+  "name": "cohere-embed-english-v3-search",
   "function_name": "remote",
   "connector_id": "<connector_id>",
   "batch_inference_config": {
     "max_items_per_request": 96,
-    "max_bytes_per_request": 4000000,
     "dynamic_batching": {
       "enabled": true,
-      "flush_timeout_ms": 50
+      "flush_timeout_ms": 10
     }
   }
 }
@@ -93,11 +91,9 @@ POST /_plugins/_ml/models/_register?deploy=true
 
 ### What dynamic batching changed under concurrent search traffic
 
-We tested dynamic batching on a 3-node cluster using Amazon Bedrock with Cohere Embed English v3. Each prediction request contained one query text. Without dynamic batching, 300 concurrent requests produced 300 model calls. With a 10 ms collection window, OpenSearch combined the same requests into 23 calls, averaging about 13 texts per call.
+We tested dynamic batching on a 3-node cluster running locally on a single machine, using Amazon Bedrock with Cohere Embed English v3. Each prediction request contained one query text. Without dynamic batching, 300 concurrent requests produced 300 model calls. With a 10 ms collection window, OpenSearch combined the same requests into 23 calls, averaging about 13 texts per call.
 
-We then limited the connector to one outbound connection per node and sent 200 concurrent query embedding requests. This made the number of model calls the limiting resource, which shows the effect of combining requests before they reach the endpoint.
-
-![Dynamic batching benchmark under a constrained connector: model calls dropped from 200 to 27, workload time dropped from 14.66 seconds to 3.96 seconds, and throughput rose from 13.6 to 50.5 queries per second](/assets/media/blog-images/2026-10-14-optimizing-remote-model-throughput/dynamic-batching-benchmark.png)
+Next, we used a connector with `client_config.max_connection` set to `1`, so each node could make only one model call at a time, and sent 200 concurrent query embedding requests with the same 10 ms collection window. This made the number of model calls the limiting resource, which shows the effect of combining requests before they reach the endpoint.
 
 |  | Without dynamic batching | With dynamic batching |
 | :--- | :--- | :--- |
