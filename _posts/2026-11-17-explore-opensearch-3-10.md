@@ -93,7 +93,7 @@ k-NN queries stored in percolator fields now run with exact search instead of fa
 
 #### **Boost query throughput and reduce graph memory with Intel Scalable Vector Search**
 
-OpenSearch 3.10 features a sandbox engine framework for experimental vector-search engines in the k-NN plugin, with Intel Scalable Vector Search (SVS) as the first tenant. SVS's Vamana graphs and LeanVec compression target substantially higher query throughput and lower graph memory than HNSW-fp16 at equal recall, with the largest gains in high-recall configurations. SVS with LeanVec compression delivered 2.6× the query throughput of faiss HNSW-fp16 at recall 0.95, while using 37–40% less graph memory.
+OpenSearch 3.10 features a sandbox engine framework for experimental vector-search engines in the k-NN plugin, with Intel Scalable Vector Search (SVS) as the first tenant. SVS's Vamana graphs and LeanVec compression target substantially higher query throughput and lower graph memory than HNSW-fp16 at equal recall, with the largest gains in high-recall configurations.```
 
 ## Scalability and resiliency
 
