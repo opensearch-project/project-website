@@ -65,7 +65,7 @@ OpenSearch 3.10 helps PPL queries finish sooner and work with more kinds of data
 
 ## Search modernization
 
-AI-powered search applications benefit from relevance tuning that is simple to configure and query generation that behaves predictably. OpenSearch 3.10 advances both with a new fusion mode that brings hybrid score combination into the query itself, experimental search templates for agentic search, and an easier path to connecting with models on Google's Gemini Enterprise Agent Platform.
+AI-powered search applications benefit from relevance tuning that is simple to configure, query generation that behaves predictably, and vector storage that scales efficiently. OpenSearch 3.10 advances all three with a new fusion mode that brings hybrid score combination into the query itself, experimental search templates for agentic search, deeper compression options for half-precision vectors, and an easier path to connecting with models on Google's Gemini Enterprise Agent Platform.
 
 #### **Run hybrid queries without a search pipeline**
 
