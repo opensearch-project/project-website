@@ -154,6 +154,8 @@ tebibyte
 [Uu]pdatable
 [Uu]psert
 [Uu]pvote(s|d)?
+Sankey
+Vamana
 [Vv]ectorize
 [Ww]alkthrough
 [Ww]ebpage
