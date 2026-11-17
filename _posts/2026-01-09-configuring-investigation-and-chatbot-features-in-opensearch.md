@@ -167,7 +167,7 @@ uiSettings:
     'home:useNewHomePage': true
 ```
 
-The workspace feature doesn't work with security multi-tenancy. If tenancy stays on, creating a workspace in the default Private tenant fails with `strict_dynamic_mapping_exception ... dynamic introduction of [permissions]`. Turn tenancy off in the security plugin as well:
+The workspace feature doesn't work with security multi-tenancy. If tenancy stays on, creating a workspace in the default Private tenant fails with `strict_dynamic_mapping_exception ... dynamic introduction of [permissions]`. Turn tenancy off in the Security plugin as well:
 
 ```bash
 curl -XPUT -k -u 'admin:<your_password>' \
@@ -462,7 +462,7 @@ curl -k --cert opensearch-3.5.0/config/kirk.pem --key opensearch-3.5.0/config/ki
   }'
 ```
 
-For more information on system indexes and security configuration, see the [System indexes](https://docs.opensearch.org/latest/security/configuration/system-indices/).
+For more information about system indexes and security configuration, see the [System indexes](https://docs.opensearch.org/latest/security/configuration/system-indices/).
 
 ### Step 7: Enable index insight configuration
 
