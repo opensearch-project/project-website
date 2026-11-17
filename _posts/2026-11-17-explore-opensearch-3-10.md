@@ -97,7 +97,7 @@ OpenSearch 3.10 features a sandbox engine framework for experimental vector-sear
 
 ## Scalability and resiliency
 
-As clusters take on more data and more tenants, teams need simpler ways to bring data in, recover from failures, and balance capacity utlization. OpenSearch 3.10 extends pull-based ingestion to data at rest in object storage, helps plugins pick up where they left off after a snapshot restore, and adds request throttling for workload groups, along with a new Notifications send API and expanded Query Insights.
+As clusters take on more data and more tenants, teams need simpler ways to bring data in, recover from failures, and balance capacity utilization. OpenSearch 3.10 extends pull-based ingestion to data at rest in object storage, helps plugins pick up where they left off after a snapshot restore, and adds request throttling for workload groups, along with a new Notifications send API and expanded Query Insights.
 
 #### **Ingest data directly from object storage with pull-based ingestion**
 
