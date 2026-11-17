@@ -3,7 +3,7 @@
 
 ### *Simplify hybrid search, expand observability for AI agents, and ingest data at rest*
 
-OpenSearch 3.10 brings advancements across observability, serch and cluster operations, delivering deeper visibility into applications and AI agents, simpler and more predictable AI-powered search, and new ways to ingest and recover data. The latest capabilities in OpenSearch 3.10 include:
+OpenSearch 3.10 brings advancements across observability, search and cluster operations, delivering deeper visibility into applications and AI agents, simpler and more predictable AI-powered search, and new ways to ingest and recover data. The latest capabilities in OpenSearch 3.10 include:
 
 - Investigating applications and AI agents faster with the OpenSearch Observability Stack, which maps the databases, queues, and external APIs that services depend on and traces agent conversations down to the failing call.
 - Charting Prometheus metrics in Vega and Vega-Lite visualizations.
